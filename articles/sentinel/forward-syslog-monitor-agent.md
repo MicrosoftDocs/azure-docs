@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Forward syslog data to a Log Analytics workspace by using the Azure Monitor agent
 
-In this tutorial, you'll configure a Linux virtual machine (VM) to forward syslog data to Microsoft Sentinel by using the  Azure Monitor agent. Use these steps to collect data from devices where you can't install an agent like a firewall network device.
+In this tutorial, you'll configure a Linux virtual machine (VM) to forward syslog data to your workspace by using the Azure Monitor agent. Use these steps to collect data from Linux-based devices where you can't install an agent like a firewall network device.
 
 In this tutorial, you learn how to:
 
@@ -34,14 +34,14 @@ To complete the steps in this tutorial, you must have the following resources an
   |- [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles)</br>- [Azure Connected Machine Resource Administrator](/azure/role-based-access-control/built-in-roles)     |  - Virtual machines</br>- Scale sets</br>- Arc-enabled servers        |   To deploy the agent      |
   |Any role that includes the action Microsoft.Resources/deployments/*    | - Subscription and/or</br>- Resource group and/or</br>- An existing data collection rule       |  To deploy ARM templates       |
   |[Monitoring Contributor ](/azure/role-based-access-control/built-in-roles)    |- Subscription and/or </br>- Resource group and/or</br>- An existing data collection rule        | To create or edit data collection rules        |
-- Log Analytics workspace associated to Microsoft Sentinel
+- Log Analytics workspace.
 - Linux server that's running an operating system that supports Azure Monitor agent.
 
    - [Supported Linux operating systems for Azure Monitor agent](/azure/azure-monitor/agents/agents-overview#linux)  
    - [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or
    - Onboard an on-premises Linux server to Azure Arc. See [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm)
 
-- Device that generates event log data like a firewall network device.
+- Linux-based device that generates event log data like a firewall network device.
 
 ## Create a data collection rule
 
@@ -109,9 +109,10 @@ If your VM doesn't have the Azure Monitor agent installed, the data collection r
 
 ## Verify Azure Monitor agent is running
 
-In Microsoft Sentinel, verify that the Azure Monitor agent is running on your VM.
+In Microsoft Sentinel or Azure Monitor, verify that the Azure Monitor agent is running on your VM.
 
-1. In the Azure portal, search for and open **Microsoft Sentinel** and select the appropriate workspace.
+1. In the Azure portal, search for and open **Microsoft Sentinel** or **Monitor**.
+1. If you're using Microsoft Sentinel, select the appropriate workspace.
 1. Under **General**, select **Logs**.
 1. Close the **Queries** page so that the **New Query** tab is displayed.
 1. Run the following query where you replace the computer value with the name of your Linux virtual machine.
@@ -124,13 +125,13 @@ In Microsoft Sentinel, verify that the Azure Monitor agent is running on your VM
 
 ## Enable log reception on port 514
 
-Verify that the device you're collecting data from, like a network firewall, allows reception on port 514 TCP and/or UDP (On the VM). Then configure your build-in Linux syslog daemon (rsyslog.d/syslog-ng) to listen for syslog messages from your security solutions.
+Verify that the VM that's collecting the log data allows reception on port 514 TCP or UDP depending on the syslog source. Then configure the  build-in Linux syslog daemon on the VM to listen for syslog messages from your devices.
 
 ### Allow inbound syslog traffic on the VM
 
 If you're forwarding syslogs to an Azure VM, use the following steps to allow reception on port 514.
 
-1. In the Azure portal, search for and select Azure Virtual Machines.
+1. In the Azure portal, search for and select **Virtual Machines**.
 1. Select the VM.
 1. Under **Settings**, select **Networking**.
 1. Select **Add inbound port rule**.
@@ -139,7 +140,7 @@ If you're forwarding syslogs to an Azure VM, use the following steps to allow re
    |Field |Value  |
    |---------|---------|
    |Destination port ranges     | 514        |
-   |Protocol    |  TCP or UDP       |
+   |Protocol    |  TCP or UDP depending on syslog source      |
    |Action   |  Allow      |
    |Name    |    AllowSyslogInbound      |
 
@@ -152,35 +153,28 @@ If you're forwarding syslogs to an Azure VM, use the following steps to allow re
 On your Linux VM, run the following command to configure the Linux syslog daemon:
 
 ```bash
-sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py 
+sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python3 Forwarder_AMA_installer.py 
 ```
 
 ## Verify event logs are forwarded to your Log Analytics workspace
 
-In Microsoft Sentinel, verify that the Azure Monitor agent is forwarding event log data to your workspace in Microsoft Sentinel.
+In Microsoft Sentinel or Azure Monitor, verify that the Azure Monitor agent is forwarding event log data to your workspace.
 
-1. In the Azure portal, search for and open **Microsoft Sentinel** and select the appropriate workspace.
+1. In the Azure portal, search for and open **Microsoft Sentinel** or **Azure Monitor**.
+1. If you're using Microsoft Sentinel, select the appropriate workspace.
 1. Under **General**, select **Logs**.
 1. Close the **Queries** page so that the **New Query** tab is displayed.
 1. Run the following query where you replace the computer value with the name of your Linux virtual machine.
 
    ```kusto
    Syslog
-   | where computer == "vm-ubuntu"
-   | where devicename == ....
-   | take 10
-
-ADD summerize by devicename
+   | where Computer == "vm-ubuntu"
+   | summarize by HostName
    ```
-
-<!-- 6. Clean up resources
-Required. If resources were created during the tutorial. If no resources were created, 
-state that there are no resources to clean up in this section.
--->
 
 ## Clean up resources
 
-Evaluate whether you still need the resources you created like the virtual machine. Resources you leave running can cost you money. You can delete the resources individually or delete the resource group to delete all the resources you've created.
+Evaluate whether you still need the resources you created like the virtual machine. Resources you leave running can cost you money. Delete the resources you don't need individually. Or delete the resource group to delete all the resources you've created.
 
 ## Next steps
 
