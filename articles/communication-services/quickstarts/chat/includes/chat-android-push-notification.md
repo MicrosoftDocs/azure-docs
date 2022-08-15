@@ -206,7 +206,7 @@ public class MyAppConfiguration extends Application implements Configuration.Pro
 }
 ```
 
-12. Adding android: name field, which is the class name of step 11, into AndroidManifest.xml:
+12. Add the `android:name=.MyAppConfiguration` field, which uses the class name from step 11, into `AndroidManifest.xml`:
 
 ```
 <application
