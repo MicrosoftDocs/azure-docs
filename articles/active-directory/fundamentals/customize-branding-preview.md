@@ -22,25 +22,21 @@ Create a consistent experience when users sign into your organization's web-base
 
 ## License requirements
 
-Adding custom branding and configuring the 'keep me signed in' (KMSI) option requires one of the following licenses:
+Adding custom branding requires one of the following licenses:
 
 - Azure AD Premium 1
 - Azure AD Premium 2
-- Custom branding only: Office 365 (for Office apps)
-- KMSI only: Basic
-- KMSI only: Microsoft 365
+- Office 365 (for Office apps)
 
 For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).
 
 Azure AD Premium editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China
 
-## Customize the default sign-in experience
+## Before you begin
 
 You can customize the sign-in pages that use Azure AD as the identity provider when users sign in to your organization's tenant-specific apps, such as `https://outlook.com/woodgrove.com`, or when passing a domain variable, such as `https://passwordreset.microsoftonline.com/?whr=woodgrove.com`.
 
 Custom branding appears after users sign in. Users that start the sign-in process at a site like www\.office.com won't see the branding. After users sign in, the branding may take at least 15 minutes to appear.
-
-### Before you begin
 
 **All branding elements are optional. Default settings will remain, if left unchanged.** For example, if you specify a banner logo but no background image, the sign-in page shows your logo with a default background image from the destination site such as Microsoft 365. Additionally, sign-in page branding doesn't carry over to personal Microsoft accounts. If your users or guests sign in using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
 
@@ -52,7 +48,7 @@ Custom branding appears after users sign in. Users that start the sign-in proces
 
 The sign-in experience process is grouped into six sections. At the end of each section, se;ect **Review + create** to review what you have selected and submit your changes or **Next** to move to the next section.
 
-### Basics
+## Basics
 
 - **Favicon**: Select a PNG or JPG of your logo that appears in the web browser tab.
 
@@ -60,7 +56,7 @@ The sign-in experience process is grouped into six sections. At the end of each 
 
 - **Page background color**: If the background image isn't able to load because of a slower connection, this background color appears instead.
 
-### Layout
+## Layout
 
 - **Visual Templates**: Customize the layout of your sign-in page using templates or custom CSS. The details of the **Header** and **Footer** options are set on the next two sections of the process. CSS files can be uploaded to further customize the sign-in experience.
 
@@ -71,11 +67,11 @@ The sign-in experience process is grouped into six sections. At the end of each 
     - Element positioning
     - Device and screensize display preferences
 
-### Header
+## Header
 
 If you haven't enabled the header, go back to the previous section and select **Show header**. Select a PNG or JPG to display in the header of the sign-in page.
 
-### Footer
+## Footer
 
 If you haven't enabled the footer, go back to the previous section and select **Show footer**. Select a PNG or JPG to display in the header of the sign-in page.
 
@@ -83,7 +79,7 @@ If you haven't enabled the footer, go back to the previous section and select **
 
 - **Show 'Terms of Use'**: This option is also elected by default and displays the Microsoft 'Terms of Use' link. If you uncheck this option you can provide your own **Display text** and **URL**.
 
-### Sign-in form
+## Sign-in form
 
 - **Banner logo**: Select a PNG or JPG image file of a banner-sized logo (short and wide) to appear on the sign-in pages that use Azure AD as the identity provider and the Access Panel service.
 
@@ -114,16 +110,7 @@ To begin a new paragraph, use the enter key twice. You can also change text form
     - Account collection display text:
     - Password collection display text:
 
-### Errors and prompts
-
-Custom names and descriptions can be added to errors that users may receive. Using familiar language and linking to your support teams could help your users get resolution to errors quickly.
-
-1. Select **+ Add Custom Error**.
-2. Select an error from the dropdown list.
-3. Enter a custom name, header, and body for the error.
-4. Select the **Add** button to save the custom error.
-
-### Review
+## Review
 
 All of the available options appear in one list so you can review everything you've customized or left at the default setting. When you're done, click the **Create** button. 
 
