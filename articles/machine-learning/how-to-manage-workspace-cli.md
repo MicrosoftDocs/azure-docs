@@ -5,8 +5,9 @@ description: Learn how to use the Azure CLI extension for machine learning to cr
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: larryfr
-author: Blackmist
+ms.author: deeikele
+author: deeikele
+ms.reviewer: larryfr
 ms.date: 01/05/2022
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv2, cliv1, event-tier1-build-2022
