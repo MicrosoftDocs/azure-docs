@@ -68,7 +68,7 @@ Use the table below to find which model versions are supported by each feature:
 \*\* Latest preview version
 
 > [!IMPORTANT]
-> The versions listed for deprecation wil be unavailable for use after October 30, 2022.
+> The versions listed for deprecation will be unavailable for use after October 30, 2022.
 
 ## Custom features
 
