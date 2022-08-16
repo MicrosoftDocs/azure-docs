@@ -77,7 +77,7 @@ On the **Networking** tab, you can configure connectivity to Automation Account 
 
 The following image shows a standard configuration for a new Automation account.
 
-:::image type="content" source="./media/automation-create-standalone-account/create-account-networking-v2.png" alt-text="Required fields for creating the Automation account on Advanced tab":::
+:::image type="content" source="./media/automation-create-standalone-account/create-account-networking-v2.png" alt-text="Required fields for creating the Automation account on Networking tab":::
 
 ### Tags tab
 
