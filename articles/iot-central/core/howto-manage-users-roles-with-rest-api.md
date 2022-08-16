@@ -20,7 +20,7 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
-To learn how to manage users and roles by using the IoT Central UI, see [Manage users and roles in your IoT Central application.](../core/howto-manage-users-roles-with-rest-api.md)
+To learn how to manage users and roles by using the IoT Central UI, see [Manage users and roles in your IoT Central application.](../core/howto-manage-users-roles.md)
 
 ## Manage roles
 
