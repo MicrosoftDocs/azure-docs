@@ -32,13 +32,14 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure data source plugins with Managed Identity
+          - text: Configure data sources with Managed Identity
             url: how-to-data-source-plugins-managed-identity.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
           - text: Enable zone redundancy
             url: how-to-enable-zone-redundancy.md
-
+          - text: Create and manage API keys
+            url: how-to-create-api-keys.md
   - title: Manage Azure Managed Grafana
     linkLists:
       - linkListType: how-to-guide
@@ -53,6 +54,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: Service reliability
+            url: high-availability.md
           - text: Control Plane
             url: /rest/api/managed-grafana
           - text: Data Plane

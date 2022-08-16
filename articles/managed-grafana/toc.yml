@@ -20,19 +20,21 @@ items:
 - name: Concepts
   expanded: true
   items:
-  - name: High availability
+  - name: Service reliability
     href: high-availability.md
   - name: Encryption
     href: encryption.md
 - name: How-to guides
   expanded: true
   items:
-  - name: Configure data source plugins
+  - name: Configure data sources
     href: how-to-data-source-plugins-managed-identity.md
   - name: Modify access permissions to Azure Monitor
     href: how-to-permissions.md
   - name: Share a Managed Grafana instance
     href: how-to-share-grafana-workspace.md
+  - name: Create and manage API keys
+    href: how-to-create-api-keys.md
   - name: Monitor a Managed Grafana instance
     href: how-to-monitor-managed-grafana-workspace.md
   - name: Troubleshoot common issues
