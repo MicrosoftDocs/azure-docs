@@ -22,7 +22,7 @@ As the name suggests, inbound endpoints will ingress to Azure. Inbound endpoints
 
 The IP address associated with an inbound endpoint is always part of the private virtual network address space where the private resolver is deployed.  No other resources can exist in the same subnet with the inbound endpoint. 
 
-![View inbound endpoints](./media/tutorial-dns-private-resolver-failover/east-inbound-endpoint.png)
+![View inbound endpoints](./media/private-resolver-endpoints-rulesets/east-inbound-endpoint.png)
 
 ## Outbound endpoints
 
@@ -30,7 +30,7 @@ Outbound endpoints egress from Azure and can be linked to [DNS Forwarding Rulese
 
 Outbound endpoints are also part of the private virtual network address space where the private resolver is deployed. An endpoint is associated with a subnet, but is not provisioned with an IP address like the inbound endpoint.  No other resources can exist in the same subnet with the inbound endpoint. You for purposes of scale, you can create multiple outbound endpoints within a virtual network.
 
-![View outbound endpoints](./media/tutorial-dns-private-resolver-failover/east-outbound-endpoint.png)
+![View outbound endpoints](./media/private-resolver-endpoints-rulesets/east-outbound-endpoint.png)
 
 ## DNS forwarding rulesets
 
@@ -43,7 +43,7 @@ Rulesets have the following associations:
 
 When you link a ruleset to a virtual network, resources within that virtual network will use the enabled DNS forwarding rules that are enabled in the ruleset. The linked virtual network must peer with the virtual network where the outbound endpoint exists. A typical scenario for this configuration is a hub and spoke design with spoke vnets peered to a hub vnet with one or more private resolver endpoints. 
 
-![View ruleset links](./media/tutorial-dns-private-resolver-failover/ruleset-links.png)
+![View ruleset links](./media/private-resolver-endpoints-rulesets/ruleset-links.png)
 
 ### Rules
 
@@ -56,7 +56,9 @@ DNS forwarding rules have the following properties:
 | Destination IP:Port | The forwarding destination. One or more IP addresses and ports of DNS servers that will be used to resolve DNS queries in the specified namespace. |
 | Rule state | The rule state: Enabled or disabled. If a rule is disabled, it is ignored. |
 
-If multiple rules are matched, the longest prefix match is used.  For example, if you have the following three rules:
+If multiple rules are matched, the longest prefix match is used.  
+
+For example, imagine you have the following rules:
 
 | Rule name | Domain name | Destination IP:Port | Rule state |
 | --- | --- | --- | --- |
@@ -64,7 +66,7 @@ If multiple rules are matched, the longest prefix match is used.  For example, i
 | AzurePrivate | azure.contoso.com. | 10.10.0.4:53 | Enabled  |
 | Wildcard | . | 10.100.0.2:53 | Enabled  |
 
-A query for secure.store.azure.contoso.com will match the AzurePrivate rule for azure.contoso.com and also the Contoso rule for contoso.com, but the AzurePrivate rule will take precedence because the prefix `azure.contoso` is longer than `contoso`. 
+A query for `secure.store.azure.contoso.com` will match the **AzurePrivate** rule for `azure.contoso.com` and also the **Contoso** rule for `contoso.com`, but the **AzurePrivate** rule takes precedence because the prefix `azure.contoso` is longer than `contoso`. 
 
 ### Virtual Network Links
 
