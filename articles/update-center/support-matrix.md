@@ -67,6 +67,9 @@ United Kingdom | UK South
 
 The following table lists the supported operating systems for Azure VMs and Azure Arc-enabled servers. Before you enable update management center (preview), ensure that the target machines meet the operating system requirements.
 
+>[!NOTE]
+> We currently provide support to a combination of Offer, Publisher, and SKU listed in the below section.
+
 # [Azure VMs](#tab/azurevm-os)
 
 [Azure VMs](../virtual-machines/index.yml) are: 
