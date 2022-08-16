@@ -1,4 +1,16 @@
-### Push notifications
+# Push notifications
+---
+title: Enable push notifications in your Android chat app
+description: Enable push notifications in your Android chat app
+services: azure-communication-services
+author: jiminwen
+manager: tsangpo
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
+ms.date: 08/16/2022
+ms.topic: tutorial
+ms.author: jiminwen
+---
 
 > [!NOTE]
 > Chat push notifications are supported for Android SDK in versions starting from 1.1.0-beta.4 and 1.1.0. It is recommended that you use version 1.2.0 or newer, as older versions have a known issue with the registration renewal. Steps from 8 to 12 are only needed for versions equal to or greater than 1.2.0.
