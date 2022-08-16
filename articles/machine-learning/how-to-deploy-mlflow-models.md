@@ -253,9 +253,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    resource_group = "<resource-group>"
    workspace = "<workspace>"
    
-   ml_client = MLClient(
-      DefaultAzureCredential(), subscription_id, resource_group, workspace
-   )
+   ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
    ```
    
 
@@ -271,7 +269,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    
    # [Azure ML SDK for Python (v2)](#tab/sdk)
    
-   Create an endpoint object:
+   Create an endpoint using the SDK:
    
    ```python
    endpoint = ManagedOnlineEndpoint(
