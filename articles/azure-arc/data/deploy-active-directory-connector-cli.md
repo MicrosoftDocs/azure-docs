@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: mikhailalmeida
 ms.author: mialmei
 ms.reviewer: mikeray
-ms.date: 05/05/2022
+ms.date: 08/16/2022
 ms.topic: how-to
 ---
 
