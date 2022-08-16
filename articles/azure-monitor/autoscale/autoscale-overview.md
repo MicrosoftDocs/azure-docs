@@ -133,20 +133,18 @@ The following services are supported by autoscale:
 
 | Service | Schema & Documentation |
 | --- | --- |
-| Web Apps |[Scaling Web Apps](autoscale-get-started.md) |
-| Virtual machines scale sets |[Scaling virtual machine scale sets in Windows](/azure/virtual-machine-scale-sets/tutorial-autoscale-cli) |
-| API Management service|[Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)
+| Azure Virtual machines scale sets |[Overview of autoscale with Azure virtual machine scale sets](azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) |
+| Web apps |[Scaling Web Apps](autoscale-get-started.md) |
+| Azure API Management service|[Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)
 | Azure Data Explorer Clusters|[Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Logic Apps |[Adding integration service environment (ISE) capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
-| Spring Cloud |[Set up autoscale for microservice applications](../../spring-apps/how-to-setup-autoscale.md)|
-| Service Bus |[Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)|
-| Azure SignalR Service | [Automatically scale units of an Azure SignalR service](../../azure-signalr/signalr-howto-scale-autoscale.md) |
-| Media Services | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling) |
-| Logic Apps - Integration Service Environment(ISE) | [Add ISE Environment](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity) |
-| Azure App Service Environment | [Autoscaling and App Service Environment v1](../../app-service/environment/app-service-environment-auto-scale.md) |
-| Service Fabric Managed Clusters | [Introduction to Autoscaling on Service Fabric managed clusters](../../service-fabric/how-to-managed-cluster-autoscale.md) |
 | Azure Stream Analytics | [Autoscale streaming units (Preview)](../../stream-analytics/stream-analytics-autoscale.md) |
 | Azure Machine Learning Workspace | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md) |
+| Azure SignalR Service | [Automatically scale units of an Azure SignalR service](../../azure-signalr/signalr-howto-scale-autoscale.md) |
+| Logic apps |[Adding integration service environment (ISE) capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
+| Media Services | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling) |
+| Service Bus |[Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)|
+| Spring Cloud |[Set up autoscale for microservice applications](../../spring-apps/how-to-setup-autoscale.md)|
+| Service Fabric Managed Clusters | [Introduction to Autoscaling on Service Fabric managed clusters](../../service-fabric/how-to-managed-cluster-autoscale.md) |
 
 ## Next steps
 
