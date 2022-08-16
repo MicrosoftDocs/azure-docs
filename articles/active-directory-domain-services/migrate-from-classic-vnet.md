@@ -180,7 +180,7 @@ Before you begin the migration process, complete the following initial checks an
     |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
     | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Management of your domain. |
     | 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Optional      | Debugging for support. |
-    | 636         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Optional      | Secure LDAP. |
+    | 636         | TCP      | AzureActiveDirectoryDomainServices | Inbound         | Allow  | Optional      | Secure LDAP. |
 
     Make a note of this target resource group, target virtual network, and target virtual network subnet. These resource names are used during the migration process.
 
