@@ -83,58 +83,56 @@ The following steps explain how to migrate an existing application to use creden
 
 ### 2) Sign-in and migrate the app code to use credential-free connections
 
-You can authorize your application to access data in your storage account using the following steps:
+For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
-1. For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
+[!INCLUDE [defaultazurecredential-sign-in](../../../includes/defaultazurecredential-sign-in.md)]
 
-    [!INCLUDE [defaultazurecredential-sign-in](../../../includes/defaultazurecredential-sign-in.md)]
+Next you will need to update your code to use credential-free connections for your desired language.
 
-    Next you will need to update your code to use credential-free connections for your desired language.
-    
-    ### [.NET](#tab/dotnet)
-    
-    1. To use `DefaultAzureCredential` in a .NET application, add the **Azure.Identity** NuGet package to your application.
-    
-        ```dotnetcli
-        dotnet add package Azure.Identity
-        ```
-    
-    1. At the top of your `Program.cs` file, add the following `using` statement:
-    
-        ```csharp
-        using Azure.Identity;
-        ```
-    
-    1. Identify the locations in your code that currently create a `BlobServiceClient` to connect to Azure Storage. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to matching the following example:
-    
-        ```csharp
-        // TODO: Update <storage-account-name> placeholder to your account name
-        var blobServiceClient = new BlobServiceClient(
-            new Uri("https://<storage-account-name>.blob.core.windows.net"),
-            new DefaultAzureCredential());
-        ```
-    
-    1. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
-    
-        :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
-    
-    ### [Java](#tab/java)
-    
-    ```Java
-    
-    // Java code here
-    
+### [.NET](#tab/dotnet)
+
+1. To use `DefaultAzureCredential` in a .NET application, add the **Azure.Identity** NuGet package to your application.
+
+    ```dotnetcli
+    dotnet add package Azure.Identity
     ```
-    
-    ### [Python](#tab/python)
-    
-    ```Python
-    
-    ## Python code here
-    
+
+1. At the top of your `Program.cs` file, add the following `using` statement:
+
+    ```csharp
+    using Azure.Identity;
     ```
-    
-    ---
+
+1. Identify the locations in your code that currently create a `BlobServiceClient` to connect to Azure Storage. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to matching the following example:
+
+    ```csharp
+    // TODO: Update <storage-account-name> placeholder to your account name
+    var blobServiceClient = new BlobServiceClient(
+        new Uri("https://<storage-account-name>.blob.core.windows.net"),
+        new DefaultAzureCredential());
+    ```
+
+1. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
+
+    :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
+
+### [Java](#tab/java)
+
+```Java
+
+// Java code here
+
+```
+
+### [Python](#tab/python)
+
+```Python
+
+## Python code here
+
+```
+
+---
 
 #### Run the app locally
 
@@ -146,7 +144,7 @@ Once your application is configured to use credential-free connections and runs 
 
 #### Create the managed identity using the Azure Portal
 
-1. The following steps demonstrate how to create a system-assigned managed identity for various services. The managed identity can securely connect to other Azure Services using the app configurations you setup previously.
+The following steps demonstrate how to create a system-assigned managed identity for various services. The managed identity can securely connect to other Azure Services using the app configurations you setup previously.
 
 ### [App Service](#tab/app-service)
 
