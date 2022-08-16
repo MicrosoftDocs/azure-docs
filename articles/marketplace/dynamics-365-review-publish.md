@@ -4,7 +4,7 @@ description: Review and publish a Dynamics 365 offer to Microsoft AppSource (Azu
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.author: JasonWHowell
+author: JasonWHowell
 ms.author: jasonh
 ms.date: 08/01/2022
 ---

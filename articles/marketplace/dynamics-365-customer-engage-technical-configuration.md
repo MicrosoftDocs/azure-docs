@@ -5,7 +5,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.custom: references_regions
-ms.author: JasonWHowell
+author: JasonWHowell
 ms.author: jasonh
 ms.date: 12/03/2021
 ---

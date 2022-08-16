@@ -4,7 +4,7 @@ description: Set up Dynamics 365 Operations Apps offer supplemental content on M
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.author: JasonWHowell
+author: JasonWHowell
 ms.author: jasonh
 ms.date: 12/03/2021
 ---

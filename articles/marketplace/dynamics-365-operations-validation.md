@@ -4,7 +4,7 @@ description: Functionally validate a Dynamics 365 Operations Apps offer in Micro
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.author: JasonWHowell
+author: JasonWHowell
 ms.author: jasonh
 ms.date: 12/03/2021
 ---

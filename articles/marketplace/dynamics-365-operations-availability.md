@@ -4,7 +4,7 @@ description: Configure Dynamics 365 Operations Apps offer availability on Micros
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.author: JasonWHowell
+author: JasonWHowell
 ms.author: jasonh
 ms.date: 12/04/2021
 ---

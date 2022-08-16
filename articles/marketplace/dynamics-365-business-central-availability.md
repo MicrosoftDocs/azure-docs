@@ -4,7 +4,7 @@ description: Configure Dynamics 365 Business Central offer availability on Micro
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.author: JasonWHowell
+author: JasonWHowell
 ms.author: jasonh
 ms.date: 11/24/2021
 ---
