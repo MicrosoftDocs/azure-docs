@@ -94,6 +94,18 @@ ALTER ROLE db_datareader
 ADD MEMBER [customuser@contoso.com];
 ```
 
+### Create workspace-level data reader
+
+A login with `GRANT CONNECT ANY DATABASE` and `GRANT SELECT ALL USER SECURABLES` permissions is able to read all tables using the serverless SQL pool, but not able to create SQL databases or modify the objects in them.
+
+```sql
+CREATE LOGIN [wsdatareader@contoso.com] FROM EXTERNAL PROVIDER
+GRANT CONNECT ANY DATABASE TO [wsdatareader@contoso.com]
+GRANT SELECT ALL USER SECURABLES TO [wsdatareader@contoso.com]
+```
+
+This script enables you to create users without admin privileges who can read any table in Lake databases.
+
 ### Create and connect to Spark database with serverless SQL pool
 
 First, create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that, for example, using a Spark C# Notebook with the following .NET for Spark statement:

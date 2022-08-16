@@ -410,8 +410,6 @@
             href: how-to-train-with-custom-image.md
           - name: Migrate from Estimators to ScriptRunConfig
             href: how-to-migrate-from-estimators-to-scriptrunconfig.md
-          - name: Reinforcement learning
-            href: how-to-use-reinforcement-learning.md
           - name: Use Key Vault when training
             displayName: secrets keyvault
             href: how-to-use-secrets-in-runs.md
@@ -424,11 +422,13 @@
             - name: Monitor training jobs
               displayName: cancel, fail, status, child run
               href: how-to-track-monitor-analyze-runs.md
-            - name: Log & view metrics, parameters and files
+            - name: Log metrics, parameters and files
               displayName: troubleshoot, log, files, tracing, metrics
               href: how-to-log-view-metrics.md
             - name: Log MLflow models
               href: how-to-log-mlflow-models.md
+            - name: Query & compare experiments and runs
+              href: how-to-track-experiments-mlflow.md
             - name: Visualize runs with TensorBoard
               displayName: log, monitor, metrics
               href: how-to-monitor-tensorboard.md
@@ -448,10 +448,8 @@
             - name: Train experiments with MLflow Projects
               displayName: log, monitor, metrics, model registry, register
               href: how-to-train-mlflow-projects.md
-            - name: Manage experiments and runs with MLflow
+            - name: Query & compare experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
-            - name: Migrate from SDK v1 logging to MLflow
-              href: reference-migrate-sdk-v1-mlflow-tracking.md
         - name: Automated machine learning
           displayName: automl, auto ml
           items: 
@@ -587,6 +585,8 @@
             - name: Create event-driven workflows
               displayName: event grid
               href: how-to-use-event-grid.md
+            - name: Schedule a pipeline job
+              href: how-to-schedule-pipeline-job.md
         - name: Build & use ML pipelines
           displayName: pipelines
           items:
@@ -662,9 +662,11 @@
       href: how-to-troubleshoot-protobuf-descriptor-error.md
 - name: Reference
   items: 
-    - name: Python SDK
-      displayName: api, core, package, python, class
+    - name: Python SDK v1
       href: /python/api/overview/azure/ml/intro
+    - name: Python SDK v2 (preview)
+      displayName: api, core, package, python, class
+      href: https://aka.ms/sdk-v2-install
     - name: REST API
       href: /rest/api/azureml/
     - name: CLI (v2)
@@ -684,6 +686,8 @@
           href: reference-yaml-data.md
         - name: Model
           href: reference-yaml-model.md
+        - name: Schedule
+          href: reference-yaml-schedule.md 
         - name: Compute
           items: 
             - name: Compute cluster (AmlCompute)
@@ -769,6 +773,8 @@
       href: /legal/machine-learning/conda-licensing
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
+    - name: Enable preview features
+      href: how-to-enable-preview-features.md
     - name: Feature availability across regions
       href: reference-machine-learning-cloud-parity.md
     - name: User forum

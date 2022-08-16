@@ -4,7 +4,7 @@ description: Overview of the SAP workload zone configuration process within the 
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/17/2021
+ms.date: 08/13/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
@@ -138,11 +138,12 @@ automation_username = "azureadm"
 The table below defines the parameters used for defining the Key Vault information
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                            | Description                                                                    | Type         | Notes                               |
-> | ----------------------------------- | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
-> | `user_keyvault_id`	                | Azure resource identifier for existing system credentials key vault            | Optional	   |                                     | 
-> | `spn_keyvault_id`                   | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	   |                                     | 
-> | `enable_purge_control_for_keyvaults | Disables the purge protection for Azure key vaults.                            | Optional     | Only use this for test environments |
+> | Variable                                         | Description                                                                    | Type         | Notes                               |
+> | ------------------------------------------------ | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
+> | `user_keyvault_id`	                             | Azure resource identifier for existing system credentials key vault            | Optional	 |                                     | 
+> | `spn_keyvault_id`                                | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	 |                                     | 
+> | `enable_purge_control_for_keyvaults`             | Disables the purge protection for Azure key vaults.                            | Optional     | Only use this for test environments |
+> | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment KeyVault access policies    | Optional	 |                                     | 
 
 ## Private DNS
 
@@ -245,7 +246,7 @@ ANF_service_level         = "Ultra"
 
 ## Terraform Parameters
 
-The table below contains the Terraform parameters. These parameters need to be entered manually if not using the deployment scripts.
+The table below contains the Terraform parameters. These parameters need to be entered manually if not using the deployment scripts.
 
 
 | Variable                | Description                           | Type             |
