@@ -49,7 +49,7 @@ For more information about how to specify requests to online endpoints, view [Co
 There are three workflows for deploying MLflow models to Azure Machine Learning:
 
 - [Deploy using the MLflow plugin](#deploy-using-the-mlflow-plugin)
-- [Deploy using Azure ML CLI (v2)](#deploy-using-azure-ml-cli-v2)
+- [Deploy using Azure ML CLI/SDK (v2)](#deploy-using-azure-ml-clisdk-v2)
 - [Deploy using Azure Machine Learning studio](#deploy-using-azure-machine-learning-studio)
 
 Each workflow has different capabilities, particularly around which type of compute they can target. The following table shows them:
@@ -207,7 +207,7 @@ The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can
    )
    ```
    
-## Deploy using Azure ML CLI (v2)
+## Deploy using Azure ML CLI/SDK (v2)
 
 You can use Azure ML CLI v2 to deploy models trained and logged with MLflow to [managed endpoints (Online/batch)](concept-endpoints.md). When you deploy your MLflow model using the Azure ML CLI v2, it's a no-code-deployment so you don't have to provide a scoring script or an environment, but you can if needed.
 
@@ -217,81 +217,189 @@ You can use Azure ML CLI v2 to deploy models trained and logged with MLflow to [
 
 * You must have a MLflow model. If your model is not in MLflow format and you want to use this feature, you can [convert your custom ML model to MLflow format](how-to-convert-custom-model-to-mlflow.md).  
 
-[!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
-
-In this code snippet used in this article, the `ENDPOINT_NAME` environment variable contains the name of the endpoint to create and use. To set this, use the following command from the CLI. Replace `<YOUR_ENDPOINT_NAME>` with the name of your endpoint:
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="set_endpoint_name":::
-
 ### Steps
-
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 This example shows how you can deploy an MLflow model to an online endpoint using CLI (v2).
 
 > [!IMPORTANT]
 > For MLflow no-code-deployment, **[testing via local endpoints](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
 
-1. Create a YAML configuration file for your endpoint. The following example configures the name and authentication mode of the endpoint:
+1. Connect to Azure Machine Learning workspace
 
-    __create-endpoint.yaml__
-
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml":::
-
-1. To create a new endpoint using the YAML configuration, use the following command:
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint":::
-
-1. Create a YAML configuration file for the deployment. 
-   
-   # [From a training job](#tab/fromjob)
-   
-   The following example configures a deployment `sklearn-diabetes` to the endpoint created in the previous step. The model is registered from a job previously run:
-   
-   a. Get the job name of the training job. In this example we are assuming the job you want is the last one submitted to the platform.
+   # [Azure ML CLI (v2)](#tab/cli)
    
    ```bash
-   JOB_NAME=$(az ml job list --query "[0].name" | tr -d '"')
+   az account set --subscription <subscription>
+   az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
    ```
    
-   b. Register the model in the registry. 
+   # [Azure ML SDK for Python (v2)](#tab/sdk)
    
-   ```bash
-   az ml model create --name "mir-sample-sklearn-mlflow-model" \
-                      --type "mlflow_model" \
-                      --path "azureml://jobs/$JOB_NAME/outputs/artifacts/model"
+   The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+   
+   a. Import the required libraries:
+   
+   ```python
+   from azure.ai.ml import MLClient
+   from azure.ai.ml.entities import (
+      ManagedOnlineEndpoint,
+      ManagedOnlineDeployment,
+      Model,
+      Environment,
+      CodeConfiguration
+   )
+   from azure.identity import DefaultAzureCredential
    ```
    
-   c. Create the deployment `YAML` file:
+   b. Configure workspace details and get a handle to the workspace:
    
-   __sklearn-deployment.yaml__
+   ```python
+   subscription_id = "<subscription>"
+   resource_group = "<resource-group>"
+   workspace = "<workspace>"
    
-   ```yaml
-   $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-   name: sklearn-deployment
-   endpoint_name: my-endpoint
-   model: azureml:mir-sample-sklearn-mlflow-model@latest
-   instance_type: Standard_DS2_v2
-   instance_count: 1
+   ml_client = MLClient(
+      DefaultAzureCredential(), subscription_id, resource_group, workspace
+   )
    ```
    
-   > [!IMPORTANT]
-   > For MLflow no-code-deployment (NCD) to work, setting **`type`** to **`mlflow_model`** is required, `type: mlflow_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
-   
-   # [From a local model](#tab/fromlocal)
-   
-   The following example configures a deployment `sklearn-diabetes` to the endpoint created in the previous step using the local MLflow model:
 
-    __sklearn-deployment.yaml__
+1. The following example configures the name and authentication mode of the endpoint:
+   
+   # [Azure ML CLI (v2)](#tab/cli)
+   
+   Create a YAML configuration file for your endpoint. 
+   
+   __create-endpoint.yaml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sklearn-deployment.yaml":::
+   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml":::
+   
+   # [Azure ML SDK for Python (v2)](#tab/sdk)
+   
+   ```python
+   endpoint = ManagedOnlineEndpoint(
+      name="my-endpoint", 
+      description="this is a sample local endpoint",
+      auth_mode="key"
+   )
+   ```
+
+1. Create the endpoint:
+   
+   # [Azure ML CLI (v2)](#tab/cli)
+   
+   To create a new endpoint using the YAML configuration, use the following command:
+
+   :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint":::
+   
+   # [Azure ML SDK for Python (v2)](#tab/sdk)
+   
+   ```python
+   ml_client.online_endpoints.begin_create_or_update(endpoint)
+   ```
+
+1. Define the deployment. 
+   
+   # [Azure ML CLI (v2)](#tab/cli)
+   
+   Follow the instructions depending on if you model was produced by the output of a job or you have a file available locally in your compute.
+   
+      # [From a training job](#tab/fromjob)
+
+      The following example configures a deployment `sklearn-diabetes` to the endpoint created in the previous step. The model is registered from a job previously run. Assuming that you model was registered with an instruction similar like this:
+
+      ```python
+      mlflow.sklearn.log_model(scikit_model, "model)
+      ```
+      
+      a. Get the job name of the training job. In this example we are assuming the job you want is the last one submitted to the platform.
+   
+      ```bash
+      JOB_NAME=$(az ml job list --query "[0].name" | tr -d '"')
+      ```
+
+      b. Register the model in the registry. 
+
+      ```bash
+      az ml model create --name "mir-sample-sklearn-mlflow-model" \
+                         --type "mlflow_model" \
+                         --path "azureml://jobs/$JOB_NAME/outputs/artifacts/model"
+      ```
+
+      c. Create the deployment `YAML` file:
+
+      __sklearn-deployment.yaml__
+
+      ```yaml
+      $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+      name: sklearn-deployment
+      endpoint_name: my-endpoint
+      model: azureml:mir-sample-sklearn-mlflow-model@latest
+      instance_type: Standard_DS2_v2
+      instance_count: 1
+      ```
+      
+      # [From a local model](#tab/fromlocal)
+   
+      The following example configures a deployment `sklearn-diabetes` to the endpoint created in the previous step using the local MLflow model:
+
+      __sklearn-deployment.yaml__
+
+      :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sklearn-deployment.yaml":::
+      
+   # [Azure ML SDK for Python (v2)](#tab/sdk)
+   
+   Follow the instructions depending on if you model was produced by the output of a job or you have a file available locally in your compute.
+   
+      # [From a training job](#tab/fromjob)
+      
+      i. Get the job name of the training job. In this example we are assuming the job you want is the last one submitted to the platform.
+      
+      ```python
+      job_name = ml_client.jobs.list()[0].name
+      ```
+      
+      ii. Register the model in the registry. 
+      
+      ```python
+      model = Model(name="my-model", 
+                    type=AssetType.MODEL_MLFLOW,
+                    path=f"azureml://jobs/{job_name}/outputs/artifacts/model")
+      ml_client.models.create_or_update(model)
+      ```
+      
+      # [From a local model](#tab/fromlocal)
+      
+      ```
+      model = Model(path="../model-1/model/sklearn_regression_model.pkl",
+                    type=AssetType.MODEL_MLFLOW)
+      ```
+      
+   Configure online deployment:
+      
+   ```python
+   blue_deployment = ManagedOnlineDeployment(
+                         name="blue",
+                         endpoint_name=online_endpoint_name,
+                         model=Model(path="azureml:mir-sample-sklearn-mlflow-model@latest"),
+                         instance_type="Standard_F2s_v2",
+                         instance_count=1,
+                     )
+   ```
     
-    > [!IMPORTANT]
-   > For MLflow no-code-deployment (NCD) to work, setting **`type`** to **`mlflow_model`** is required, `type: mlflow_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
-
-1. To create the deployment using the YAML configuration, use the following command:
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment":::
+1. To create the deployment:
+   
+   # [Azure ML CLI (v2)](#tab/cli)
+   
+   :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment":::
+   
+   # [Azure ML SDK for Python (v2)](#tab/sdk)
+   
+   ```python
+   ml_client.begin_create_or_update(blue_deployment)
+   endpoint.traffic = {"blue": 100}
+   ml_client.begin_create_or_update(endpoint)
+   ```
     
 ## Deploy using Azure Machine Learning studio
 
@@ -314,32 +422,22 @@ You can use [Azure Machine Learning studio](https://ml.azure.com) to deploy mode
    
    :::image type="content" source="./media/how-to-manage-models/register-model-as-asset.png" alt-text="Screenshot of the UI to register a model." lightbox="./media/how-to-manage-models/register-model-as-asset.png":::
 
-2. From [studio](https://ml.azure.com), select your workspace and then use either the __endpoints__ or __models__ page to create the endpoint deployment:
+2. From [studio](https://ml.azure.com), select your workspace and then use either the __endpoints__ page to create the endpoint deployment:
 
-    # [Endpoints page](#tab/endpoint)
+    a. From the __Endpoints__ page, Select **+Create**.
 
-    1. From the __Endpoints__ page, Select **+Create**.
+    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" alt-text="Screenshot showing create option on the Endpoints UI page.":::
 
-        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" alt-text="Screenshot showing create option on the Endpoints UI page.":::
+    b. Provide a name and authentication type for the endpoint, and then select __Next__.
+    c. When selecting a model, select the MLflow model registered previously. Select __Next__ to continue.
 
-    1. Provide a name and authentication type for the endpoint, and then select __Next__.
-    1. When selecting a model, select the MLflow model registered previously. Select __Next__ to continue.
+    d. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment.
 
-    1. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment.
+    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" alt-text="Screenshot showing no code and environment needed for MLflow models.":::
 
-        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" alt-text="Screenshot showing no code and environment needed for MLflow models.":::
+    e. Complete the wizard to deploy the model to the endpoint.
 
-    1. Complete the wizard to deploy the model to the endpoint.
-
-        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen.":::
-
-    # [Models page](#tab/models)
-
-    1. Select the MLflow model, and then select __Deploy__. When prompted, select __Deploy to real-time endpoint__.
-
-        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/deploy-from-models-ui.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/deploy-from-models-ui.png" alt-text="Screenshot showing how to deploy model from Models UI.":::
-
-    1. Complete the wizard to deploy the model to the endpoint.
+    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen.":::
 
 
 ## Considerations when deploying to real time inference
