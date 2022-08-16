@@ -9,7 +9,7 @@ ms.date: 08/03/2022
 ---
 # IoT device selection list
 
-This IoT Device Selection List aims to give partners a starting point with IoT hardware to build prototypes and proof-of-concepts quickly and easily.[1]
+This IoT device selection list aims to give partners a starting point with IoT hardware to build prototypes and proof-of-concepts quickly and easily.[1]
 
 All boards listed support users of all experience levels.
 
@@ -30,11 +30,11 @@ All boards listed support users of all experience levels.
 
 | Section | Description |
 |--------------|-----------|
-| [Start Here](#start-here) | A guide to using this selection list. Includes suggested selection criteria.|
-| [Selection Diagram](#application-selection-visual) | A visual that summarizes common selection criteria with possible hardware choices. |
-| [Terminology and ML Requirements](#terminology-and-ml-requirements) | Terminology and acronym definitions and device requirements for edge machine learning (ML). |
-| [MCU Device List](#mcu-device-list) | A list of recommended MCUs, for example, ESP32, with tech specs and alternatives. |
-| [SBC Device List](#sbc-device-list) | A list of recommended SBCs, for example, Raspberry Pi, with tech specs and alternatives. |
+| [Start here](#start-here) | A guide to using this selection list. Includes suggested selection criteria.|
+| [Selection diagram](#application-selection-visual) | A visual that summarizes common selection criteria with possible hardware choices. |
+| [Terminology and ML requirements](#terminology-and-ml-requirements) | Terminology and acronym definitions and device requirements for edge machine learning (ML). |
+| [MCU device list](#mcu-device-list) | A list of recommended MCUs, for example, ESP32, with tech specs and alternatives. |
+| [SBC device list](#sbc-device-list) | A list of recommended SBCs, for example, Raspberry Pi, with tech specs and alternatives. |
 
 ## Start here
 
@@ -86,7 +86,7 @@ Below are some suggestions for criteria to consider when choosing a device for y
 
   - **Programming language**: Consider if your project requires higher-level languages beyond C/C++. If so, identify the common programming languages for the application you need (for example, Machine Learning is often done in Python). Think about what SDKs, APIs, and/or libraries are helpful or necessary for your project. Identify what programming language(s) these are supported in.
 
-  - **IDE**: Consider the development environments that the device supports and if this meets the needs, skill set, and/or preferences of your developers. 
+  - **IDE**: Consider the development environments that the device supports and if this meets the needs, skill set, and/or preferences of your developers.
 
   - **Community**: Consider how much assistance you want/need in building a solution. For example, consider if you prefer to start with sample code, if you want troubleshooting advice or assistance, or if you would benefit from an active community that generates new samples and updates documentation.
   
@@ -114,20 +114,20 @@ Terminology and acronyms are listed in alphabetical order.
 
 | Term | Definition |
 | ---- | --------- |
-| ADC | Analog to Digital converter; converts analog signals from connected components like sensors to digital signals that are readable by the device |
-| Analog Pins | Used for connecting analog components that have continuous signals like photoresistors (light sensors) and microphones |
-| Clock Speed | How quickly the CPU can retrieve and interpret instructions |
-| Digital Pins | Used for connecting digital components that have binary signals like LEDs and switches |
+| ADC | Analog to digital converter; converts analog signals from connected components like sensors to digital signals that are readable by the device |
+| Analog pins | Used for connecting analog components that have continuous signals like photoresistors (light sensors) and microphones |
+| Clock speed | How quickly the CPU can retrieve and interpret instructions |
+| Digital pins | Used for connecting digital components that have binary signals like LEDs and switches |
 | Flash (or ROM) | Memory available for storing programs |
-| IDE | Integrated Development Environment; a program for writing software code |
-| IMU | Inertial Measurement Unit |
-| IO (or I/O) Pins | Input/Output pins used for communicating with other devices like sensors and other controllers |
+| IDE | Integrated development environment; a program for writing software code |
+| IMU | Inertial measurement unit |
+| IO (or I/O) pins | Input/Output pins used for communicating with other devices like sensors and other controllers |
 | MCU | Microcontroller Unit; a small computer on a single chip that includes a CPU, RAM, and IO |
-| MPU | Microprocessor Unit; a computer processor that incorporates the functions of a computer's central processing unit (CPU) on a single integrated circuit (IC), or at most a few integrated circuits. |
-| ML | Machine Learning; special computer programs that do complex pattern recognition |
-| PWM | Pulse Width Modulation; a way to modify digital signals to achieve analog-like effects like changing brightness, volume, and speed |
-| RAM | Random Access Memory; how much memory is available to run programs |
-| SBC | Single Board Computer |
+| MPU | Microprocessor unit; a computer processor that incorporates the functions of a computer's central processing unit (CPU) on a single integrated circuit (IC), or at most a few integrated circuits. |
+| ML | Machine learning; special computer programs that do complex pattern recognition |
+| PWM | Pulse width modulation; a way to modify digital signals to achieve analog-like effects like changing brightness, volume, and speed |
+| RAM | Random access memory; how much memory is available to run programs |
+| SBC | Single board computer |
 | TF | TensorFlow; a machine learning software package designed for edge devices |
 | TF Lite | TensorFlow Lite; a smaller version of TF for small edge devices |
 
@@ -168,7 +168,7 @@ Following is a comparison table of MCUs in alphabetical order. This isn't an exh
 | [ESP32-S2 Saola-1](https://aka.ms/IotDeviceList/ESPSaola) | $9 | Home automation; Beginner IoT; ML; Monitoring; Mesh networking | Arduino IDE, Circuit Python, ESP IDF | 240 MHz | 32-bit ESP32-S2 (single-core Xtensa LX7) | 128 kB Flash, 320 kB SRAM, 16 kB SRAM (RTC) | 14 x capacitive touch IO pins, Temp sensor | 43 x Digital pins, 8 x PWM, 20 x ADC, 2 x DAC | Serial LCD, Parallel PCD | Wi-Fi 802.11 b/g/n (802.11n up to 150 Mbps) | - | 3.3 V | 1. [Secure face detection with Azure ML](https://www.hackster.io/achindra/microsoft-azure-machine-learning-and-face-detection-in-iot-2de40a), 2. [Azure Cost Monitor](https://www.hackster.io/jenfoxbot/azure-cost-monitor-31811a) | [ESP32-DevKitC](https://aka.ms/IotDeviceList/ESPDevKit) |
 | [Wio Terminal (Seeed Studio)](https://aka.ms/IotDeviceList/WioTerminal) | $37 | Monitoring; Home Automation; ML | Arduino IDE, VS Code, MicroPython, ArduPy | 120 MHz | 32-bit ATSAMD51 (single-core Cortex-M4F) | 4 MB SPI Flash, 192-kB RAM | On-board screen, Microphone, IMU, buzzer, microSD slot, light sensor, IR emitter, Raspberry Pi GPIO mount (as child device) | 26 x Digital Pins, 5 x PWM, 9 x ADC | 2.4" 320x420 Color LCD | dual-band 2.4Ghz/5Ghz (Realtek RTL8720DN) | - | 3.3 V | [Monitor plants with Azure IoT](https://github.com/microsoft/IoT-For-Beginners/tree/main/2-farm/lessons/4-migrate-your-plant-to-the-cloud) | [Adafruit FunHouse ($35)](https://aka.ms/IotDeviceList/AdafruitFunhouse) |
 
-## SBC Device List
+## SBC device list
 
 Following is a comparison table of SBCs in alphabetical order. This table isn't an exhaustive list and is intended to be short.
 
