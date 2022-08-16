@@ -137,7 +137,7 @@ val table = DeltaTable.replace()
   .execute()
 ```
 
-# How to get & change the current max file size configuration for Optimize Write
+## How to get & change the current max file size configuration for Optimize Write
 
 To get the current config value, use the bellow commands. The default is 128 MB.
 
