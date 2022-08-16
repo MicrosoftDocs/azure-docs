@@ -62,4 +62,3 @@ Additional context is not supported for Network Policy Server (NPS) or Active Di
 ## Next steps
 
 [Authentication methods in Azure Active Directory - Microsoft Authenticator app](concept-authentication-authenticator-app.md)
-
