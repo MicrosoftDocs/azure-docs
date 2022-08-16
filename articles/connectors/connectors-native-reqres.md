@@ -400,23 +400,26 @@ When you use the Request trigger to receive inbound requests, you can model the 
 
 > [!IMPORTANT]
 >
-> If your Response action includes the following headers, Azure Logic Apps automatically 
+> * If your Response action includes the following headers, Azure Logic Apps automatically 
 > removes these headers from the generated response message without showing any warning 
 > or error. Azure Logic Apps won't include these headers, although the service won't 
 > stop you from saving workflows that have a Response action with these headers.
 >
-> * `Allow`
-> * `Content-*` headers except for `Content-Disposition`, `Content-Encoding`, and `Content-Type` when you use POST and PUT operations, but are not included for GET operations
-> * `Cookie`
-> * `Expires`
-> * `Last-Modified`
-> * `Set-Cookie`
-> * `Transfer-Encoding`
+>   * `Allow`
+>   * `Content-*` headers except for `Content-Disposition`, `Content-Encoding`, and `Content-Type` when you use POST and PUT operations, but are not included for GET operations
+>   * `Cookie`
+>   * `Expires`
+>   * `Last-Modified`
+>   * `Set-Cookie`
+>   * `Transfer-Encoding`
 >
+> * If you have one or more Response actions in a complex workflow with branches, make sure that the workflow 
+> processes at least one Response action during runtime. Otherwise, if all Response actions are skipped, 
+> the caller receives a **502 Bad Gateway** error, even if the workflow finishes successfully.
 
 ## [Consumption](#tab/consumption)
 
-1. In the workflow designer, under the step where you want to add the Response action, select **New step**.
+1. On the workflow designer, under the step where you want to add the Response action, select **New step**.
 
    Or, to add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
@@ -453,23 +456,52 @@ When you use the Request trigger to receive inbound requests, you can model the 
 
 1. To add more properties for the action, such as a JSON schema for the response body, open the **Add new parameter** list, and select the parameters that you want to add.
 
-1. When you're done, save your logic app. On the designer toolbar, select **Save**.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ## [Standard](#tab/standard)
 
----
+1. On the workflow designer, under the step where you want to add the Response action, select plus sign (**+**), and then select **Add new action**.
 
-> [!IMPORTANT]
-> If you have one or more Response actions in a complex workflow with branches, make sure 
-> that the workflow run processes at least one Response action during runtime. 
-> Otherwise, if all Response actions are skipped, the caller receives a **502 Bad Gateway** error, even if the workflow finishes successfully.
+   Or, to add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
+
+   The following example adds the Response action after the Request trigger from the preceding section:
+
+   ![Screenshot showing Azure portal, Standard workflow, and "Add an action" selected.](./media/connectors-native-reqres/add-response-standard.png)
+
+1. On the designer, under the **Choose an operation** search box, select **Built-in**. In the search box, enter **response**. From the actions list, select the **Response** action.
+
+   ![Screenshot showing Azure portal, Standard workflow, "Choose an operation" search box with "response" entered, and and Response action selected](./media/connectors-native-reqres/select-response-action-standard.png)
+
+1. In the Response action information box, add the required values for the response message.
+
+   In some fields, clicking inside their boxes opens the dynamic content list. You can then select tokens that represent available outputs from previous steps in the workflow. Properties from the schema specified in the earlier example now appear in the dynamic content list.
+
+   For example, for the **Headers** box, include **Content-Type** as the key name, and set the key value to **application/json** as mentioned earlier in this article. For the **Body** box, you can select the trigger body output from the dynamic content list.
+
+   ![Screenshot showing Azure portal, Standard workflow, and Response action information.](./media/connectors-native-reqres/response-details-standard.png)
+
+   To view the headers in JSON format, select **Switch to text view**.
+
+   ![Screenshot showing Azure portal, Standard workflow, and Response action headers in "Switch to text" view.](./media/connectors-native-reqres/switch-to-text-view-standard.png)
+
+   The following table has more information about the properties that you can set in the Response action.
+
+   | Property name | JSON property name | Required | Description |
+   |---------------|--------------------|----------|-------------|
+   | **Status Code** | `statusCode` | Yes | The status code to return in the response |
+   | **Headers** | `headers` | No | A JSON object that describes one or more headers to include in the response |
+   | **Body** | `body` | No | The response body |
+   |||||
+
+1. To add more properties for the action, such as a JSON schema for the response body, open the **Add new parameter** list, and select the parameters that you want to add.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+---
 
 ## Test your workflow
 
-1. To test your logic app, send an HTTP request to the generated URL.
-
-   For example, you can use a tool such as [Postman](https://www.getpostman.com/) to send the HTTP request. For more information about the trigger's underlying JSON definition and how to call this trigger, see these topics, [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
-
+To test your workflow, send an HTTP request to the generated URL. For example, you can use a tool such as [Postman](https://www.getpostman.com/) to send the HTTP request. For more information about the trigger's underlying JSON definition and how to call this trigger, see these topics, [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 ## Security and authentication
 
