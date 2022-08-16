@@ -64,7 +64,7 @@ You can view the existing writeback settings on Microsoft 365 groups in the port
 
  [![Screenshot of Microsoft 365 group properties.](media/how-to-connect-group-writeback/group-2.png)](media/how-to-connect-group-writeback/group-2.png#lightbox)
 
-You can also view the writeback state via MS Graph: [Get group](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta&tabs=http)  
+You can also view the writeback state via MS Graph: [Get group](/graph/api/group-get?tabs=http&view=graph-rest-beta)  
 
  Example: `GET https://graph.microsoft.com/beta/groups?$filter=groupTypes/any(c:c eq 'Unified')&$select=id,displayName,writebackConfiguration`  
 
@@ -79,7 +79,7 @@ Finally, you can also view the writeback state via PowerShell using the  [Micros
 
 For groups that haven't been created yet, you can view whether or not they're going to be automatically written back.
 
-To see the default behavior in your environment for newly created groups use MS Graph: [directorySetting](https://docs.microsoft.com/graph/api/resources/directorysetting?view=graph-rest-beta) 
+To see the default behavior in your environment for newly created groups use MS Graph: [directorySetting](/graph/api/resources/directorysetting?view=graph-rest-beta) 
 
  Example: `GET https://graph.microsoft.com/beta/Settings` 
 
@@ -88,7 +88,7 @@ To see the default behavior in your environment for newly created groups use MS 
  If a `directorySetting` named **Group.Unified** exists with a `NewUnifiedGroupWritebackDefault` value of **false**, Microsoft 365 groups **won't automatically** be enabled for write-back when they're created.  If the value is not specified or it is set to true, newly created Microsoft 365 groups **will automatically** be written back.  
 
 
-You can also use the PowerShell cmdlet [AzureADDirectorySetting](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-settings-cmdlets) 
+You can also use the PowerShell cmdlet [AzureADDirectorySetting](../enterprise-users/groups-settings-cmdlets.md) 
 
  Example: `(Get-AzureADDirectorySetting | ? { $_.DisplayName -eq "Group.Unified"} | FL *).values` 
 
@@ -97,7 +97,7 @@ You can also use the PowerShell cmdlet [AzureADDirectorySetting](https://docs.mi
  If a `directorySetting` is returned with a `NewUnifiedGroupWritebackDefault` value of **false**, Microsoft 365 groups **won't automatically** be enabled for write-back when they're created.  If the value is not specified or it is set to **true**, newly created Microsoft 365 groups **will automatically** be written back. 
 
 ### Discover if AD has been prepared for Exchange 
-To verify if Active Directory has been prepared for Exchange, see [Prepare Active Directory and domains for Exchange Server, Active Directory Exchange Server, Exchange Server Active Directory, Exchange 2019 Active Directory](https://docs.microsoft.com/Exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019#how-do-you-know-this-worked)
+To verify if Active Directory has been prepared for Exchange, see [Prepare Active Directory and domains for Exchange Server, Active Directory Exchange Server, Exchange Server Active Directory, Exchange 2019 Active Directory](/Exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019#how-do-you-know-this-worked)
 
 ## Public preview prerequisites 
 The following are prerequisites for group writeback.
@@ -106,8 +106,8 @@ The following are prerequisites for group writeback.
    - Azure AD Connect version 2.0.89.0 or later
    - **Optional**: Exchange Server 2016 CU15 or later   
      - Only needed for configuring cloud groups with Exchange Hybrid. 
-     - See [Configure Microsoft 365 Groups with on-premises Exchange hybrid](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-microsoft-365-groups#prerequisites) for more information. 
-     - If you haven't [prepared AD for Exchange](https://docs.microsoft.com/Exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019), mail related attributes of groups won't be written back. 
+     - See [Configure Microsoft 365 Groups with on-premises Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#prerequisites) for more information. 
+     - If you haven't [prepared AD for Exchange](/Exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019), mail related attributes of groups won't be written back. 
 
 ## Choosing the right approach 
 Choosing the right deployment approach for your organization will depend on the current state of group writeback in your environment and the desired writeback behavior. 
@@ -132,7 +132,7 @@ If you plan to make changes to the default behavior, we recommend that you do so
 
 While this release has undergone extensive testing, you may still encounter issues. One of the goals of this public preview release is to find and fix any such issues before moving to General Availability.  While support is provided for this public preview release, Microsoft may not always be able to fix all issues you may encounter immediately. For this reason, it's recommended that you use your best judgment before deploying this release in your production environment.  Limitations and known issues specific to Group writeback: 
 
-- Cloud [distribution list groups](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-distribution-groups/manage-distribution-groups) created in Exchange Online cannot be written back to AD, only Microsoft 365 and Azure AD security groups are supported. 
+- Cloud [distribution list groups](/exchange/recipients-in-exchange-online/manage-distribution-groups/manage-distribution-groups) created in Exchange Online cannot be written back to AD, only Microsoft 365 and Azure AD security groups are supported. 
 - To be backwards compatible with the current version of group writeback, when you enable group writeback, all existing Microsoft 365 groups are written back and created as distribution groups, by default. This behavior can be modified by following the steps detailed in [Modifying group writeback](how-to-connect-modify-group-writeback.md). 
 - When you disable writeback for a group, the group won't automatically be removed from your on-premises Active Directory, until hard deleted in Azure AD. This behavior can be modified by following the steps detailed in [Modifying group writeback](how-to-connect-modify-group-writeback.md) 
 - Group Writeback does not support writeback of nested group members that have a scope of ‘Domain local’ in AD, since Azure AD security groups are written back with scope ‘Universal’. If you have a nested group like this, you'll see an export error in Azure AD Connect with the message “A universal group cannot have a local group as a member.”  The resolution is to remove the member with scope ‘Domain local’ from the Azure AD group or update the nested group member scope in AD to ‘Global’ or ‘Universal’ group. 
@@ -147,4 +147,4 @@ While this release has undergone extensive testing, you may still encounter issu
 
 - [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md) 
 - [Enable Azure AD Connect group writeback](how-to-connect-group-writeback-enable.md)
-- [Disable Azure AD Connect group writeback](how-to-connect-group-writeback-disable.md) 
+- [Disable Azure AD Connect group writeback](how-to-connect-group-writeback-disable.md)
