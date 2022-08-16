@@ -141,10 +141,10 @@ Unverified numbers may face SMS service interruptions and are subject to carrier
 Toll-free verifications can take up to 2-3 weeks. 
 
 ### What happens after I submit the toll-free verification form?
-Once we receive your toll-free verification form, we will relay it to the toll-free messaging aggregator for them to review and approve it. This process takes 2-3 weeks. 
+Once we receive your toll-free verification form, we will relay it to the toll-free messaging aggregator for them to review and approve it. This process takes 2-3 weeks. We will let you know any updates and the status of your applications via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
 
 ### Can I send messages while I wait for approval?
-You will be able to send messages while you wait for approval but the traffic will be subject to carrier filtering and throttling if its flagged as spam.
+You will be able to send messages while you wait for approval but the traffic will be subject to carrier filtering and throttling if it's flagged as spam.
  
 ## Emergency support
 ### Can a customer use Azure Communication Services for emergency purposes?

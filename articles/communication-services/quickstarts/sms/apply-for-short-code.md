@@ -42,7 +42,7 @@ The wizard on the short codes blade will walk you through a series of questions 
 
 The Short Code Program Brief registration requires details about your messaging program, including the user experience (e.g., call to action, opt-in, opt-out, and message flows) and information about your company. This information helps mobile carriers ensure that your program meets the CTIA (Cellular Telecommunications Industry Association) guidelines as well as regulatory requirements.
 
-A short code Program Brief application consists of the following 4 sections:
+A short code Program Brief application consists of the following 5 sections:
  
 ### Program Details 
 You will first need to provide the program name and choose the country/region where you would like to provision the phone number. 
@@ -61,8 +61,12 @@ When you’ve selected a number type, you can then choose the message type, and 
 > [!Note]
 > Azure Communication Service currently only supports SMS. Please check [roadmap](https://github.com/Azure/Communication/blob/master/roadmap.md) for MMS launch.
 
-#### Enter program information
-This section requires you to provide details about your program such as recurrence of the program, messaging content, type and description of program, privacy policy, and terms of the program.
+## Program content details
+This section requires you to provide details about your program such as recurrence of the program, program call to action, type and description of program, privacy policy, and terms of the program.
+
+:::image type="content" source="./media/apply-for-short-code/program-content-01.png" alt-text="Screenshot showing program content 1 section.":::
+
+:::image type="content" source="./media/apply-for-short-code/program-content-02.png" alt-text="Screenshot showing program content 2 section.":::
 
 ### Contact Details
 This section requires you to provide information about your company and customer care in the case that end users need help or support with the program. 
