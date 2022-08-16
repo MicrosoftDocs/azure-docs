@@ -2,11 +2,11 @@
 title: What's new for Microsoft Entra Verified ID
 description: Recent updates for Microsoft Entra Verified ID
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 07/29/2022
+ms.date: 08/11/2022
 ms.custom: references_regions
 ms.author: barclayn
 
@@ -25,7 +25,7 @@ This article lists the latest features, improvements, and changes in the Microso
 Microsoft Entra Verified ID is now generally available (GA) as the new member of the Microsoft Entra portfolio! [read more](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-verified-id-now-generally-available/ba-p/3295506) 
 
 ### Known issues 
-- Tenants that [opt-out](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service) without issuing any Verifiable Credential will get a `Specified resource does not exist` error from the Admin API and/or the Entra portal. A fix for this issue should be available by 08/20/22.
+- Tenants that [opt-out](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service) without issuing any Verifiable Credential will get a `Specified resource does not exist` error from the Admin API and/or the Entra portal. A fix for this issue should be available by August 20, 2022.
 
 ## July 2022
 
@@ -34,7 +34,7 @@ Microsoft Entra Verified ID is now generally available (GA) as the new member of
 - Request Service API **[Error codes](error-codes.md)** have been **updated** 
 - The **[Admin API](admin-api.md)** is made **public** and is documented. The Azure portal is using the Admin API and with this REST API you can automate the onboarding or your tenant and creation of credential contracts.
 - Find issuers and credentials to verify via the [The Microsoft Entra Verified ID Network](how-use-vcnetwork.md).
-- For migrating your Azure Storage based credentials to become Managed Credentials there is a PowerShell script in the [GitHub samples repo](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/contractmigration/scripts/contractmigration) for the task.
+- For migrating your Azure Storage based credentials to become Managed Credentials there's a PowerShell script in the [GitHub samples repo](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/contractmigration/scripts/contractmigration) for the task.
 
 - We also made the following updates to our Plan and design docs:
     - (updated) [architecture planning overview](introduction-to-verifiable-credentials-architecture.md).
@@ -43,7 +43,7 @@ Microsoft Entra Verified ID is now generally available (GA) as the new member of
 
 ## June 2022
 
-- We are adding support for the [did:web](https://w3c-ccg.github.io/did-method-web/) method. Any new tenant that starts using the Verifiable Credentials Service after June 14, 2022 will have Web as a new, default, trust system when [onboarding](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials). VC Administrators can still choose to use ION when setting a tenant. If you want to use did:web instead of ION or viceversa, you will need to [reconfigure your tenant](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service).
+- We are adding support for the [did:web](https://w3c-ccg.github.io/did-method-web/) method. Any new tenant that starts using the Verifiable Credentials Service after June 14, 2022 will have Web as a new, default, trust system when [onboarding](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials). VC Administrators can still choose to use ION when setting a tenant. If you want to use did:web instead of ION or viceversa, you'll need to [reconfigure your tenant](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service).
 - We are rolling out several features to improve the overall experience of creating verifiable credentials in the Entra Verified ID platform:
   - Introducing Managed Credentials, Managed Credentials are verifiable credentials that no longer use of Azure Storage to store the [display & rules JSON definitions](rules-and-display-definitions-model.md). Their display and rule definitions are different from earlier versions.
   - Create Managed Credentials using the [new quickstart experience](how-to-use-quickstart.md).
