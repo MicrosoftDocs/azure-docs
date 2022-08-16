@@ -231,6 +231,8 @@
       items:
         - name: Diagnose virtual machine
           href: troubleshoot-iot-edge-for-linux-on-windows.md
+        - name: Diagnose virtual machine networking
+          href: troubleshoot-iot-edge-for-linux-on-windows-networking.md
         - name: Resolve common errors
           href: troubleshoot-iot-edge-for-linux-on-windows-common-errors.md
   - name: Develop custom modules

@@ -6,6 +6,7 @@ ms.date: 06/01/2022
 author: alexwolfmsft
 ms.author: alexwolf
 ms.devlang: csharp
+ms.service: app-service
 ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli, devdivchpfy22"
 ---
 
