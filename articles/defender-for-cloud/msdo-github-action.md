@@ -1,7 +1,7 @@
 ---
 title: Enable Microsoft Security DevOps
 description: Learn how to enable the Microsoft Security DevOps actions.
-ms.date: 08/09/2022
+ms.date: 08/16/2022
 ms.topic: how-to
 ---
 
@@ -24,7 +24,7 @@ Security DevOps uses the following Open Source tools:
 
 - Follow the guidance to set up [GitHub Advanced Security](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
 
-- Open  [Microsoft DevOps Security GitHub action](https://github.com/marketplace/actions/security-devops-action) in a new window.
+- Open [Microsoft DevOps Security GitHub action](https://github.com/marketplace/actions/security-devops-action) in a new window.
 
 ## Setup GitHub action
 
