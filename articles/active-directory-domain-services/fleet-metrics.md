@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/09/2022
+ms.date: 08/16/2022
 ms.author: justinha
 
 ---
@@ -22,13 +22,21 @@ Administrators can use Azure Monitor Metrics to configure a scope for Azure Acti
 
 You can access Azure AD DS metrics from two places:
 
-- In Azure Monitor Metrics, select the Azure AD DS instance as the **Scope**:
+- In Azure Monitor Metrics, select the Azure AD DS instance as the **Scope**. The following screenshot shows how to select combined metrics for Total Processor Time and LDAP searches in Azure Monitor Metrics:
 
-  :::image type="content" border="true" source="media/fleet-metrics/metrics-scope.png" alt-text="Screenshot of how to select scope for Azure AD DS.":::
+  :::image type="content" border="true" source="media/fleet-metrics/metrics-scope.png" alt-text="Screenshot of how to select Azure AD DS as scope in Azure Monitor Metrics.":::
+
+  You can drill down to examine combined metrics over time:
+
+  :::image type="content" border="true" source="media/fleet-metrics/combined-metrics.png" alt-text="Screenshot of combined metrics in Azure Monitor Metrics.":::
 
 - In Azure AD DS, under **Monitoring**, click **Metrics**:
 
   :::image type="content" border="true" source="media/fleet-metrics/metrics-instance.png" alt-text="Screenshot of how to select an Azure AD DS instance as the scope for fleet metrics.":::
+
+  The following screenshot shows combined metrics for Total Processor Time, DNS Queries, and LDAP searches by role instance:
+
+  :::image type="content" border="true" source="media/fleet-metrics/combined-metrics-instance.png" alt-text="Screenshot of how to select an Azure AD DS instance as the scope for fleet metrics.":::
 
 ## Metrics definitions and descriptions
 
@@ -55,10 +63,9 @@ The following table describes the metrics that are available for Azure AD DS.
 
 You can configure metric alerts for Azure AD DS to be notified of possible problems. Metric alerts are one type of alert for Azure Monitor. For more information about other types of alerts, see [What are Azure Monitor Alerts?](/azure/azure-monitor/alerts/alerts-overview). 
 
-
 To view and manage Azure Monitor alert, a user needs to be assigned [Azure Monitor roles](/azure/azure-monitor/roles-permissions-security). 
  
-There are two ways to create a new alert. Azure AD Domain Services metrics are now available as an alert signal. 
+There are two ways to create a new alert: 
 
 - Click **Azure Monitor** > **Alert**: 
 
@@ -72,6 +79,10 @@ There are two ways to create a new alert. Azure AD Domain Services metrics are n
 The following screenshot shows how to define a metric alert with a threshold for **Total Processor Time**:
 
 :::image type="content" border="true" source="media/fleet-metrics/define.png" alt-text="Screenshot of defining a threshold.":::
+
+The following screenshot shows how to configure an alert notification, which can be email, SMS, or voice call:
+
+:::image type="content" border="true" source="media/fleet-metrics/configure-alert.png" alt-text="Screenshot of how to configure an alert notification.":::
 
 The following screenshot shows a metrics alert triggered for **Total Processor Time**:
 
