@@ -92,7 +92,7 @@ You can authorize access to data in your storage account using the following ste
 
     Next you will need to update your code to use credential-free connections for your desired language.
 
-    ### [.NET](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 1. To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
 
@@ -119,23 +119,23 @@ You can authorize access to data in your storage account using the following ste
 
     :::image type="content" source="../../migrate/media/replicate-using-expressroute/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
 
-    ### [Java](#tab/java)
-    
-    ```Java
-    
-    // Java code here
-    
-    ```
-    
-    ### [Python](#tab/python)
-    
-    ```Python
-    
-    ## Python code here
-    
-    ```
-    
-    ---
+### [Java](#tab/java)
+
+```Java
+
+// Java code here
+
+```
+
+### [Python](#tab/python)
+
+```Python
+
+## Python code here
+
+```
+
+---
 
 #### Run the app locally
 
