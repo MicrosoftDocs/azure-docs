@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights for JavaScript web apps
-description: Get page view and session counts, web client data, and single-page applications and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
+description: Get page view and session counts, web client data, and single-page applications and track usage patterns. Detect exceptions and performance issues in JavaScript webpages.
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.devlang: javascript
@@ -8,20 +8,20 @@ ms.custom: devx-track-js
 ms.reviewer: mmcc
 ---
 
-# Application Insights for web pages
+# Application Insights for webpages
 
 > [!NOTE]
 > We continue to assess the viability of OpenTelemetry for browser scenarios. We recommend the Application Insights JavaScript SDK for the forseeable future. It's fully compatible with OpenTelemetry distributed tracing.
 
-Find out about the performance and usage of your web page or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts, and details of browser exceptions and AJAX failures. You also get user and session counts. All this telemetry can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. By inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
+Find out about the performance and usage of your webpage or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts, and details of browser exceptions and AJAX failures. You also get user and session counts. All this telemetry can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. By inserting trace calls in your JavaScript code, you can track how the different features of your webpage application are used.
 
-Application Insights can be used with any web pages by adding a short piece of JavaScript. Node.js has a [standalone SDK](nodejs.md). If your web service is [Java](java-in-process-agent.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
+Application Insights can be used with any webpages by adding a short piece of JavaScript. Node.js has a [standalone SDK](nodejs.md). If your web service is [Java](java-in-process-agent.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
 
 ## Add the JavaScript SDK
 
 1. First you need an Application Insights resource. If you don't already have a resource and connection string, follow the instructions to [create a new resource](create-new-resource.md).
 1. Copy the [connection string](#connection-string-setup) for the resource where you want your JavaScript telemetry to be sent (from step 1). You'll add it to the `connectionString` setting of the Application Insights JavaScript SDK.
-1. Add the Application Insights JavaScript SDK to your web page or app via one of the following two options:
+1. Add the Application Insights JavaScript SDK to your webpage or app via one of the following two options:
     * [Node Package Manager (npm) setup](#npm-based-setup)
     * [JavaScript snippet](#snippet-based-setup)
 
@@ -61,7 +61,7 @@ If your app doesn't use npm, you can directly instrument your webpages with Appl
 
 Starting from version 2.5.5, the page view event will include the new tag "ai.internal.snippet" that contains the identified snippet version. This feature assists with tracking which version of the snippet your application is using.
 
-The current snippet that follows is version "5." The version is encoded in the snippet as sv:"#." The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
+The current snippet that follows is version "5." The version is encoded in the snippet as `sv:"#"`. The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
 
 ```html
 <script type="text/javascript">
@@ -324,8 +324,8 @@ For single-page applications, reference plug-in documentation for guidance speci
 
 ### Advanced correlation
 
-When a page is first loading and the SDK hasn't fully initialized, we're unable to generate the Operation ID for the first request. As a result, distributed tracing is incomplete until the SDK fully initializes.
-To remedy this problem, you can include dynamic JavaScript on the returned HTML page. The SDK will use a callback function during initialization to retroactively pull the Operation ID from the `serverside` and populate the `clientside` with it.
+When a page is first loading and the SDK hasn't fully initialized, we're unable to generate the operation ID for the first request. As a result, distributed tracing is incomplete until the SDK fully initializes.
+To remedy this problem, you can include dynamic JavaScript on the returned HTML page. The SDK will use a callback function during initialization to retroactively pull the operation ID from the `serverside` and populate the `clientside` with it.
 
 # [Snippet](#tab/snippet)
 
@@ -357,7 +357,7 @@ appInsights.context.telemetryContext.parentID = serverId;
 appInsights.loadAppInsights();
 ```
 
-When you use an npm-based configuration, a location must be determined to store the Operation ID to enable access for the SDK initialization bundle to `appInsights.context.telemetryContext.parentID` so it can populate it before the first page view event is sent.
+When you use an npm-based configuration, a location must be determined to store the operation ID to enable access for the SDK initialization bundle to `appInsights.context.telemetryContext.parentID` so it can populate it before the first page view event is sent.
 
 --- 
 
@@ -449,10 +449,11 @@ Breaking changes in the SDK V2 version:
 - To allow for better API signatures, some of the API calls, such as trackPageView and trackException, have been updated. Running in Internet Explorer 8 and earlier versions of the browser isn't supported.
 - The telemetry envelope has field name and structure changes due to data schema updates.
 - Moved `context.operation` to `context.telemetryTrace`. Some fields were also changed (`operation.id` --> `telemetryTrace.traceID`).
-  - To manually refresh the current pageview ID, for example, in single-page applications, use `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()`.
+  
+  To manually refresh the current pageview ID, for example, in single-page applications, use `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()`.
 
-    > [!NOTE]
-    > To keep the trace ID unique, where you previously used `Util.newId()`, now use `Util.generateW3CId()`. Both ultimately end up being the operation ID.
+  > [!NOTE]
+  > To keep the trace ID unique, where you previously used `Util.newId()`, now use `Util.generateW3CId()`. Both ultimately end up being the operation ID.
 
 If you're using the current application insights PRODUCTION SDK (1.0.20) and want to see if the new SDK works in runtime, update the URL depending on your current SDK loading scenario.
 
