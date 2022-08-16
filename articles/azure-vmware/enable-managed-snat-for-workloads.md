@@ -26,9 +26,6 @@ The architecture shows Internet access to and from your Azure VMware Solution pr
 
 :::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-snat.png" alt-text="Diagram that shows architecture of Internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the SNAT Edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-snat-expanded.png":::
 
-
-## Configure Outbound Internet access using Managed SNAT in the Azure portal 
-
 ## Configure Outbound Internet access using Managed SNAT in the Azure port
 1. Log in to the Azure portal and then search for and select **Azure VMware Solution**. 
 2.	Select the Azure VMware Solution private cloud.    
