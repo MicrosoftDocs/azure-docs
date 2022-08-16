@@ -242,7 +242,7 @@ The following list describes the prerequisites for the SAP client library that y
 
   * The on-premises data gateway (June 2021 release) depends on the `SAP.Middleware.Connector.RfcConfigParameters.Dispose()` method in SAP NCo to free up resources.
 
-  * After you upgrade the SAP server environment, you get the following exception message: 'The only destination <some-GUID> available failed when retrieving metadata from <SAP-system-ID> -- see log for details'.
+  * After you upgrade the SAP server environment, you get the following exception message: 'The only destination &lt;some-GUID&gt; available failed when retrieving metadata from &lt;SAP-system-ID&gt; -- see log for details'.
 
 * You must have the 64-bit version of the SAP client library installed, because the data gateway only runs on 64-bit systems. Installing the unsupported 32-bit version results in a "bad image" error.
 
