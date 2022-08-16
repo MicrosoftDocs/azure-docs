@@ -25,7 +25,7 @@ You can use any type of TLS/SSL certificate. For example, you can use certificat
 
 Zero Trust is based on the principle of "never trust, always verify, and credential-free". Zero Trust helps to secure all communications by eliminating unknown and un-managed certificates. Zero Trust involves trusting only certificates that are shared by verifying identity prior to granting access to those certificates. For more information, see the [Zero Trust Guidance Center](/security/zero-trust/).
 
-To securely load certificates from [Azure Key Vault](../key-vault/index.yml), Spring Boot apps use managed identities and Azure role-based access control. Azure Spring Apps uses a provider service principal and Azure role-based access control. This secure loading is powered using the Azure Key Vault Java Cryptography Architecture (JCA) Provider.
+To securely load certificates from [Azure Key Vault](../key-vault/index.yml), Spring Boot apps use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) and [Azure role-based access control (RBAC)](../role-based-access-control/index.yml). Azure Spring Apps uses a provider [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) and Azure role-based access control. This secure loading is powered using the Azure Key Vault Java Cryptography Architecture (JCA) Provider. For more information, see [Azure Key Vault JCA client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/azure-security-keyvault-jca).
 
 With Azure Key Vault, you control the storage and distribution of certificates to reduce accidental leakage. Applications and services can securely access certificates. Key Vault uses Azure role-based access control to lock down access to only those requiring access, such as an admin, but also apps, using the principle of least privilege. Applications and services authenticate and authorize, using Azure Active Directory and Azure role-based access control, to access certificates. You can monitor the access and use of certificates in Key Vault through its full audit trail.
 
@@ -55,47 +55,47 @@ By default, this segment is secured using a Microsoft-supplied TLS/SSL certifica
 
 The next segment (segment 2 in the diagram) represents communications from the Azure Spring Apps ingress controller to any app on Azure Spring Apps. You can enable TLS/SSL to secure traffic from the ingress controller to an app that supports HTTPS.
 
-A Spring Boot app can use Spring's approach to enable HTTPS or secure communications by using the Azure Key Vault Certificates Spring Boot Starter – in three configuration steps to secure communications using an TLS/SSL certificate from an Azure Key Vault. No code is necessary.
+A Spring Boot app can use Spring's approach to enable HTTPS, or the app can secure communications by using the Azure Key Vault Certificates Spring Boot Starter. You need the following three configuration steps to secure communications using a TLS/SSL certificate from an Azure Key Vault. No code is necessary.
 
-Step 1 – Include the Azure Key Vault Certificates Spring Boot Starter:
+1. Include the following Azure Key Vault Certificates Spring Boot Starter dependency in your *pom.xml* file:
 
-```xml
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
-</dependency>
-```
+   ```xml
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
+   </dependency>
+   ```
 
-Step 2 – Configure an app to load an TLS/SSL certificate from Azure Key Vault by specifying the URI of the Azure Key Vault and the certificate name:
+1. Add the following properties to configure an app to load a TLS/SSL certificate from Azure Key Vault. Be sure to specify the URI of the Azure Key Vault and the certificate name.
 
-```properties
-azure:
-  keyvault:
-    uri: ${KEY_VAULT_URI}
+   ```properties
+   azure:
+     keyvault:
+       uri: ${KEY_VAULT_URI}
+   
+   server:
+     ssl:
+       key-alias: ${SERVER_SSL_CERTIFICATE_NAME}
+       key-store-type: AzureKeyVault
+   ```
 
-server:
-  ssl:
-    key-alias: ${SERVER_SSL_CERTIFICATE_NAME}
-    key-store-type: AzureKeyVault
-```
-
-Step 3 – Enable the app's managed identity and grant the managed identity with "Get" and "List" access to the Azure Key Vault
+1. Enable the app's managed identity, and then grant the managed identity with "Get" and "List" access to the Azure Key Vault.
 
 ### Secure communications from app to managed middleware
 
-Segment 3 represents communications from any app to the managed Spring Cloud Config Server and Spring Cloud Service Registry in Azure Spring Apps. By default, segment 3 is secured using a Microsoft-supplied TLS/SSL certificate.
+The next segment (segment 3 in the diagram) represents communications from any app to the managed Spring Cloud Config Server and Spring Cloud Service Registry in Azure Spring Apps. By default, this segment is secured using a Microsoft-supplied TLS/SSL certificate.
 
 ### Secure app to app communications
 
-Segment 4 represents communications between an app to another app in Azure Spring Apps.
+The next segment (segment 4 in the diagram) represents communications between an app to another app in Azure Spring Apps.
 
-You can configure the caller app using the Azure Key Vault Certificates Spring Boot Starter to trust the TLS/SSL certificate supplied by an HTTPS-enabled called app.
+You can use the Azure Key Vault Certificates Spring Boot Starter to configure the caller app to trust the TLS/SSL certificate supplied by an HTTPS-enabled called app.
 
-The receiver Spring Boot app can use Spring's approach to enable HTTPS or secure communications by using the Azure Key Vault Certificates Spring Boot Starter.
+The receiver Spring Boot app can use Spring's approach to enable HTTPS, or the app can secure communications by using the Azure Key Vault Certificates Spring Boot Starter.
 
 ### Secure app to external system communications
 
-Segment 5 represents communications between an app running in Azure Spring Apps and external systems. You can configure the app running in Azure Spring Apps to trust the TLS/SSL certificate supplied by any external systems - using the Azure Key Vault Certificates Spring Boot Starter.
+The next segment (segment 5 in the diagram) represents communications between an app running in Azure Spring Apps and external systems. You can use the Azure Key Vault Certificates Spring Boot Starter to configure the app running in Azure Spring Apps to trust the TLS/SSL certificate supplied by any external systems.
 
 ### Implicitly load TLS/SSL certificates from Key Vault into an app
 
@@ -105,7 +105,7 @@ If your Spring code, Java code, or open-source libraries, such as OpenSSL, rely 
 
 For an app to communicate to backend services in the cloud or in on-premises systems, it may require the use of public TLS/SSL certificates to secure communication. You can upload those TLS/SSL certificates for securing outbound communications. For more information, see [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
 
-## Automate provisioning and configuration for securing communications
+### Automate provisioning and configuration for securing communications
 
 Using an ARM Template, Bicep, or Terraform, you can automate the provisioning and configuration of all the Azure resources mentioned above for securing communications.
 
@@ -115,7 +115,7 @@ Azure Spring Apps is a fully managed service for Spring Boot applications. Azure
 
 Azure Spring Apps is jointly built, operated, and supported by Microsoft and VMware.
 
-## Get started today
+## Next steps
 
 Learn using an MS Learn module or self-paced workshop on GitHub
 Deploy a distributed version of the Spring Petclinic application
