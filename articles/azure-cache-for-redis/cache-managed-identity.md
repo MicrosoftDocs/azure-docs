@@ -12,7 +12,7 @@ ms.author: franlanglois
 
 # Managed identity for storage (Preview)
 
-[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) are a common tool used in Azure to help developers minimize the burden of managing secrets and login information. Managed identities are useful when Azure services connect to each other. Instead of managing authorization between each service, [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) can be used to provide a managed identity that makes the authentication process more streamlined and secure.
+[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) are a common tool used in Azure to help developers minimize the burden of managing secrets and sign-in information. Managed identities are useful when Azure services connect to each other. Instead of managing authorization between each service, [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) can be used to provide a managed identity that makes the authentication process more streamlined and secure.
 
 ## Use managed identity with storage accounts
 
@@ -54,7 +54,7 @@ To use managed identity, you must have a premium-tier cache.
    >
    :::image type="content" source="media/cache-managed-identity/basics.png" alt-text="create a premium azure cache":::
 
-1. Click the **Advanced** tab. Then, scroll down to **(PREVIEW) System assigned managed identity** and select **On**.
+1. Select the **Advanced** tab. Then, scroll down to **(PREVIEW) System assigned managed identity** and select **On**.
 
    :::image type="content" source="media/cache-managed-identity/system-assigned.png" alt-text="Advanced page of the form":::
 
@@ -153,7 +153,7 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
    :::image type="content" source="media/cache-managed-identity/blob-data.png"  alt-text="storag blob data contributor list":::
 
 > [!NOTE]
-> Adding an Azure Cache for Redis instance as a storage blog data contributor through system-assigned identity will conveniently add the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to implement.
+> Adding an Azure Cache for Redis instance as a storage blob data contributor through system-assigned identity conveniently adds the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to implement. If you're not using managed identity and instead authorizing a storage account with a key, then having firewall exceptions on the storage account tends to break the persistence process and the import-export processes.
 
 ## Use managed identity to access a storage account
 

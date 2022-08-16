@@ -428,7 +428,7 @@ To connect the device to Azure, you'll modify a configuration file for Azure IoT
 
 1. Select the sample project that you want to build and run. For example, ***sample_azure_iot_embedded_sdk_pnp.***
 
-1. Expand the ***command_hardware_code*** folder to open ***board_setup.c*** to configure the values for your WiFi to be used.
+1. Expand the ***common_hardware_code*** folder to open ***board_setup.c*** to configure the values for your WiFi to be used.
 
     |Symbol name|Value|
     |-----------|-----|
