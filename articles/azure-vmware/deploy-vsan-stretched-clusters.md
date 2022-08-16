@@ -20,8 +20,8 @@ With Azure VMware Solution, ESXi hosts deployed in a standard vSphere cluster tr
 Stretched clusters allow the configuration of vSAN Fault Domains across two AZs to notify vCenter Server that hosts reside in each Availability Zone (AZ). Each fault domain is named after the AZ it resides within to increase clarity. When you stretch a vSAN cluster across two AZs within a region, should an AZ go down, it's treated as a vSphere HA event and the virtual machine is restarted in the other AZ.
 
 **Stretched cluster benefits:**
-- Improves application availability.
-- Provides a zero recovery point objective (RPO) capability for enterprise applications without needing to redesign them, or deploy expensive disaster recovery (DR) solutions.
+- Improve application availability.
+- Provide a zero recovery point objective (RPO) capability for enterprise applications without needing to redesign them, or deploy expensive disaster recovery (DR) solutions.
 - A private cloud with stretched clusters is designed to provide 99.99% availability due to its resilience to AZ failures.
 - Enable customers to focus on core application requirements and features, instead of infrastructure availability.
 
