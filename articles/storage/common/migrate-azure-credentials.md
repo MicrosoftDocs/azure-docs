@@ -182,7 +182,7 @@ The following steps demonstrate how to create a system-assigned managed identity
 
 You can also enable managed identity on an Azure hosting environment using the Azure CLI.
 
-### [App Service](#tab/app-service)
+### [App Service](#tab/app-service-identity)
 
 You can assign a managed identity to an Azure App Service with the [az webapp identity assign](/cli/azure/webapp/identity) command.
 
@@ -190,7 +190,7 @@ You can assign a managed identity to an Azure App Service with the [az webapp id
 az webapp identity assign --resource-group <resource-group-name> --name <app-service-name>
 ```
 
-### [Container Apps](#tab/container-apps)
+### [Container Apps](#tab/container-apps-identity)
 
 You can assign a managed identity to an Azure Container App with the [az containerapp identity assign](/cli/azure/containerapp/identity) command.
 
@@ -198,7 +198,7 @@ You can assign a managed identity to an Azure Container App with the [az contain
 az containerapp identity assign --resource-group <resource-group-name> --name <app-service-name>
 ```
 
-### [Spring Apps](#tab/spring-apps)
+### [Spring Apps](#tab/spring-apps-identity)
 
 You can assign a managed identity to an Azure Spring App with the [az spring app identity assign](/cli/azure/spring/app/identity) command.
 
@@ -206,7 +206,7 @@ You can assign a managed identity to an Azure Spring App with the [az spring app
 az spring app identity assign --resource-group <resource-group-name> --name <app-service-name> --service <service-name>
 ```
 
-### [Virtual Machines](#tab/virtual-machines)
+### [Virtual Machines](#tab/virtual-machines-identity)
 
 You can assign a managed identity to a Virtual Machine with the [az vm identity assign](/cli/azure/vm/identity) command.
 
@@ -214,7 +214,7 @@ You can assign a managed identity to a Virtual Machine with the [az vm identity 
 az vm identity assign --resource-group <resource-group-name> --name <app-service-name>
 ```
 
-### [AKS](#tab/aks)
+### [AKS](#tab/aks-identity)
 
 You can assign a managed identity to an Azure Kubernetes Service with the [az aks update](/cli/azure/aks) command.
 
