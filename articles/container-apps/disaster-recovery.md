@@ -58,7 +58,7 @@ Zone redundancy requires a virtual network (VNET) with an infrastructure subnet.
 
 ### Enable zone redundancy with the Azure CLI
 
-Create an VNET and infrastructure subnet to include with the Container Apps environment.
+Create a VNET and infrastructure subnet to include with the Container Apps environment.
 
 When using these commands, replace the `<PLACEHOLDERS>` with your values.
 
