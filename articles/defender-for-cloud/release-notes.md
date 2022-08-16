@@ -20,10 +20,10 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in August include:
 
-- [Vulnerabilities for running images are now visible with Defender for Container on your Windows containers ](#vulnerabilities-on-your-windows-containers-are-now-visible-with-defender-for-container)
+- [Vulnerabilities for running images are now visible with Defender for Container on your Windows containers](#vulnerabilities-for-running-images-are-now-visible-with-defender-for-container-on-your-windows-containers)
 - [Auto-deployment of Azure Monitor Agent (Preview)](#auto-deployment-of-azure-monitor-agent-preview)
 
-### Vulnerabilities running on your Windows containers are now visible with Defender for Container 
+### Vulnerabilities for running images are now visible with Defender for Container on your Windows containers 
 
 Defender for Container now allows you to view vulnerabilities for your Windows containers.
 
