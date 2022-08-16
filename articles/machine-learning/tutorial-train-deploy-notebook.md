@@ -363,7 +363,7 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 
 ## Next steps
 
-+ Learn about all of the [deployment options for Azure Machine Learning](how-to-deploy-and-where.md).
++ Learn about all of the [deployment options for Azure Machine Learning](how-to-deploy-managed-online-endpoints.md).
 + Learn how to [create clients for the web service](how-to-consume-web-service.md).
 + [Make predictions on large quantities of data](./tutorial-pipeline-batch-scoring-classification.md) asynchronously.
 + Monitor your Azure Machine Learning models with [Application Insights](./v1/how-to-enable-app-insights.md).
