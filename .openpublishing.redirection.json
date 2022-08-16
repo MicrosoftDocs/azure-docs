@@ -5789,7 +5789,7 @@
     "redirect_document_id":  false
 },
 {
-    "source_path_from_root":  "/articles/automation/quickstarts/create-account-portal",
+    "source_path_from_root":  "/articles/automation/quickstarts/create-account-portal.md",
     "redirect_url":  "/azure/automation/create-azure-automation-account-portal",
     "redirect_document_id":  false
 },
