@@ -80,19 +80,21 @@ The following steps explain how to migrate an existing application to use creden
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
-### 2) Migrate the application code to use credential-free connections
+### 2) Sign-in and migrate the application code to use credential-free connections
 
-Each language or framework uses different implementation steps for credential-free connections, as demonstrated below:
+You can authorize access to data in your storage account using the following steps:
 
-### [C# and .NET Core](#tab/dotnet)
+1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell.
 
-To use DefaultAzureCredential, add the Azure.Identity package to your application.
+[!INCLUDE [defaultazurecredential-sign-in](defaultazurecredential-sign-in.md)]
 
-```dotnetcli
-dotnet add package Azure.Identity
-```
+1. To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
 
-At the top of your `Program.cs` file, add the following `using` statement:
+    ```dotnetcli
+    dotnet add package Azure.Identity
+    ```
+
+1. At the top of your `Program.cs` file, add the following `using` statement:
 
 ```csharp
 using Azure.Identity;
@@ -101,10 +103,15 @@ using Azure.Identity;
 Identify the locations in your code that currently create a `BlobServiceClient` to connect to Azure Storage. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to matching the following example:
 
 ```csharp
+// TODO: Update <storage-account-name> placeholder to your account name
 var blobServiceClient = new BlobServiceClient(
-    new Uri("https://<your-storage-account>.blob.core.windows.net"),
+    new Uri("https://<storage-account-name>.blob.core.windows.net"),
     new DefaultAzureCredential());
 ```
+
+1. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
+
+    :::image type="content" source="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
 
 ### [Java](#tab/java)
 
