@@ -296,7 +296,7 @@ chatAsyncClient.addEventHandler(ChatEventType.CHAT_MESSAGE_RECEIVED, (ChatEvent 
 > Note with above update, if the application tries to touch any of the notification API like `chatAsyncClient.startRealtimeNotifications()` or `chatAsyncClient.addEventHandler()`, there will be a runtime error.
 
 ### Push notifications
-Please checking out [Android push notifications](./chat-android-push-notification.md) for details
+Please check out [Android push notifications](../../../tutorials/chat-android-push-notification.md) for details.
 
 ## Add a user as a participant to the chat thread
 
