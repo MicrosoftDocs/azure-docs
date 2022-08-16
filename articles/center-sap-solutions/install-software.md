@@ -197,10 +197,10 @@ After setting up your Azure Storage account, you can download the SAP installati
     - For `<password>`, use your SAP password. 
     - For `<storageAccountAccessKey>`, use your storage account's access key. You found this value in the [previous section](#set-up-storage-account). 
     - For `<containerBasePath>`, use the path to your `sapbits` container. You found this value in the [previous section](#set-up-storage-account). 
-    - For `<containerSasToken>`, enter the SAS token that you generated in the previous step for `sapbits`.
+      The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`
 
     ```azurecli
-    ansible-playbook ./sap-automation/deploy/ansible/playbook_bom_downloader.yaml -e "bom_base_name=S41909SPS03_v0011ms" -e "deployer_kv_name=abcd" -e "s_user=<username>" -e "s_password=<password>" -e "sapbits_access_key=<storageAccountAccessKey>" -e "sapbits_location_base_path=<containerBasePath>" -e "sapbits_sas_token=<containerSasToken>" 
+    ansible-playbook ./sap-automation/deploy/ansible/playbook_bom_downloader.yaml -e "bom_base_name=S41909SPS03_v0011ms" -e "deployer_kv_name=dummy_value" -e "s_user=<username>" -e "s_password=<password>" -e "sapbits_access_key=<storageAccountAccessKey>" -e "sapbits_location_base_path=<containerBasePath>" 
     ```
 
 Now, you can [install the SAP software](#install-software) using the installation wizard.
