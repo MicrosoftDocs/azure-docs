@@ -65,7 +65,7 @@ The following sections describe the integration process.
 
 ## Step 1: Configure the Azure AD B2C policy
 
-Follow the [instructions](/https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy#custom-policy-starter-pack) on how to set up your Azure AD B2C tenant and configure policies.
+Follow the [instructions](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy#custom-policy-starter-pack) on how to set up your Azure AD B2C tenant and configure policies.
 
 >[!NOTE]
 >This sample policy is based on Local Accounts starter pack.
