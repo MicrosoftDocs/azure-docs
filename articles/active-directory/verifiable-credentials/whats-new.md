@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 08/11/2022
+ms.date: 08/16/2022
 ms.custom: references_regions
 ms.author: barclayn
 
@@ -43,7 +43,7 @@ Microsoft Entra Verified ID is now generally available (GA) as the new member of
 
 ## June 2022
 
-- We are adding support for the [did:web](https://w3c-ccg.github.io/did-method-web/) method. Any new tenant that starts using the Verifiable Credentials Service after June 14, 2022 will have Web as a new, default, trust system when [onboarding](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials). VC Administrators can still choose to use ION when setting a tenant. If you want to use did:web instead of ION or viceversa, you'll need to [reconfigure your tenant](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service).
+- We are adding support for the [did:web](https://w3c-ccg.github.io/did-method-web/) method. Any new tenant that starts using the Verifiable Credentials Service after June 14, 2022 will have Web as a new, default, trust system when [onboarding](verifiable-credentials-configure-tenant.md#set-up-verified-id). VC Administrators can still choose to use ION when setting a tenant. If you want to use did:web instead of ION or viceversa, you'll need to [reconfigure your tenant](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service).
 - We are rolling out several features to improve the overall experience of creating verifiable credentials in the Entra Verified ID platform:
   - Introducing Managed Credentials, Managed Credentials are verifiable credentials that no longer use of Azure Storage to store the [display & rules JSON definitions](rules-and-display-definitions-model.md). Their display and rule definitions are different from earlier versions.
   - Create Managed Credentials using the [new quickstart experience](how-to-use-quickstart.md).
@@ -62,13 +62,14 @@ Microsoft Entra Verified ID is now generally available (GA) as the new member of
 
 ## May 2022
 
-We are expanding our service to all Azure AD customers! Verifiable credentials are now available to everyone with an Azure AD subscription (Free and Premium). Existing tenants that configured the Verifiable Credentials service prior to May 4, 2022 must make a [small change](verifiable-credentials-faq.md#updating-the-vc-service-configuration) to avoid service disruptions.
+We are expanding our service to all Azure AD customers! Verifiable credentials are now available to everyone with an Azure AD subscription (Free and Premium). Existing tenants that configured the Verifiable Credentials service prior to May 4, 2022 must make a small change to avoid service disruptions.
 
 ## April 2022
 
-Starting next month, we are rolling out exciting changes to the subscription requirements for the Verifiable Credentials service. Administrators must perform a small configuration change before **May 4, 2022** to avoid service disruptions. Follow [these steps](verifiable-credentials-faq.md?#updating-the-vc-service-configuration) to apply the required configuration changes.
+Starting next month, we are rolling out exciting changes to the subscription requirements for the Verifiable Credentials service. Administrators must perform a small configuration change before **May 4, 2022** to avoid service disruptions.
+
 >[!IMPORTANT]
-> If changes are not applied before **May 4, 2022**, you will experience errors on issuance and presentation for your application or service using the Microsoft Entra Verified ID Service. [Update service configuration instructions](verifiable-credentials-faq.md?#updating-the-vc-service-configuration).
+> If changes are not applied before **May 4, 2022**, you will experience errors on issuance and presentation for your application or service using the Microsoft Entra Verified ID Service.
 
 ## March 2022
 
