@@ -98,7 +98,7 @@ To get started on Azure Kubernetes Service, follow these steps:
 
 ## Try a sample
 
-After you set up your Spark cluster and environment, you can run a short sample. This sample assumes Azure Databricks and the `mmlspark.cognitive` package.
+After you set up your Spark cluster and environment, you can run a short sample. This sample assumes Azure Databricks and the `mmlspark.cognitive` package. For an example using `synapseml.cognitive`, see [Add search to AI-enriched data from Apache Spark using SynapseML](/search/search-synapseml-cognitive-services).
 
 First, you can create a notebook in Azure Databricks. For other Spark cluster providers, use their notebooks or Spark Submit.
 
@@ -114,34 +114,34 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
 
 1. Paste this code snippet into your new notebook.
 
-  ```python
-  from mmlspark.cognitive import *
-  from pyspark.sql.functions import col
-  
-  # Add your region and subscription key from the Language service (or a general Cognitive Service key)
-  # If using a multi-region Cognitive Services resource, delete the placeholder text: service_region = ""
-  service_key = "ADD-SUBSCRIPTION-KEY-HERE"
-  service_region = "ADD-SERVICE-REGION-HERE"
-  
-  df = spark.createDataFrame([
-    ("I am so happy today, its sunny!", "en-US"),
-    ("I am frustrated by this rush hour traffic", "en-US"),
-    ("The cognitive services on spark aint bad", "en-US"),
-  ], ["text", "language"])
-  
-  sentiment = (TextSentiment()
-      .setTextCol("text")
-      .setLocation(service_region)
-      .setSubscriptionKey(service_key)
-      .setOutputCol("sentiment")
-      .setErrorCol("error")
-      .setLanguageCol("language"))
-  
-  results = sentiment.transform(df)
-  
-  # Show the results in a table
-  display(results.select("text", col("sentiment")[0].getItem("score").alias("sentiment")))
-  ```
+    ```python
+    from mmlspark.cognitive import *
+    from pyspark.sql.functions import col
+    
+    # Add your region and subscription key from the Language service (or a general Cognitive Service key)
+    # If using a multi-region Cognitive Services resource, delete the placeholder text: service_region = ""
+    service_key = "ADD-SUBSCRIPTION-KEY-HERE"
+    service_region = "ADD-SERVICE-REGION-HERE"
+    
+    df = spark.createDataFrame([
+      ("I am so happy today, its sunny!", "en-US"),
+      ("I am frustrated by this rush hour traffic", "en-US"),
+      ("The cognitive services on spark aint bad", "en-US"),
+    ], ["text", "language"])
+    
+    sentiment = (TextSentiment()
+        .setTextCol("text")
+        .setLocation(service_region)
+        .setSubscriptionKey(service_key)
+        .setOutputCol("sentiment")
+        .setErrorCol("error")
+        .setLanguageCol("language"))
+    
+    results = sentiment.transform(df)
+    
+    # Show the results in a table
+    display(results.select("text", col("sentiment")[0].getItem("score").alias("sentiment")))
+    ```
 
 1. Get your subscription key from the **Keys and Endpoint** menu from your Language resource in the Azure portal.
 
