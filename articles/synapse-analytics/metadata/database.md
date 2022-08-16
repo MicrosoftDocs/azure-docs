@@ -32,11 +32,11 @@ The Spark default database is available in the serverless SQL pool context as a 
 >[!NOTE]
 > You cannot create a lake and a SQL database in the serverless SQL pool with the same name. 
 
-Tables in the lake databases cannot be modified from the serverless SQL pool. Use the [Database designer](../database-designer/modify-lake-database.md) or Apache Spark pools to modify lake databases, for example:
+Tables in the Lake databases cannot be modified from a serverless SQL pool. Use the [Database designer](../database-designer/modify-lake-database.md) or Apache Spark pools to modify the Lake databases. The serverless SQL pool enables you to make the following changes in a lake database using Transact-SQL commands:
 
 - Adding, altering, and dropping views, procedures, inline table-value functions in a lake database.
-- Adding and removing database users from Azure AD domain.
-- Add or remove Azure AD database users to the **db_datareader** role.
+- Adding and removing database-scoped Azure AD users.
+- Add or remove Azure AD database users to the **db_datareader** role. Azure AD database users in the `db_dtareader` role have permission to read all tables in the lake database, but cannot read data from other databases.
 
 ## Security model
 
@@ -52,7 +52,7 @@ The lake databases and tables are secured at two levels:
 
 Access to lake database files is controlled using the lake permissions on storage layer. Only Azure AD users can use tables in the lake databases, and they can access the data in the lake using their own identities.
 
-To give access to the underlying data used for external tables to a security principal, such as a user, Azure AD app, or security group, you need to grant both of the following permissions:
+You can grant access to the underlying data used for external tables to a security principal, such as: a user, an Azure AD application with [assigned service principal](../../active-directory/develop/howto-create-service-principal-portal.md), or a security group. For data access, grant both of the following permissions:
 
 - Grant `read (R)` permission on files (such as the table's underlying data files).
 - Grant `execute (X)` permission on the folder where the files are stored and on every parent folder up to the root. You can read more about these permissions on [Access control lists(ACLs)](../../storage/blobs/data-lake-storage-access-control.md) page. 
@@ -87,7 +87,7 @@ In addition to SQL objects, you can add Azure AD users in the lake database and 
 
 ### Create SQL database reader in lake database
 
-In this example, we are adding an Azure AD user in the lake database who can read data via shared tables. The users are added in the lake database via the **serverless SQL pool**. Then, assign the user to the `db_datareader` role so they can read data.
+In this example, we are adding an Azure AD user in the lake database who can read data via shared tables. The users are added in the lake database via the **serverless SQL pool**. Then, assign the user to the **db_datareader** role so they can read data.
 
 ```sql
 CREATE USER [customuser@contoso.com] FROM EXTERNAL PROVIDER;
