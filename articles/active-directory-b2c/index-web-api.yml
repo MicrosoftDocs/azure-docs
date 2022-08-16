@@ -22,7 +22,7 @@ landingContent:
         links:
           - text: ASP.NET web app calls web API
             url: configure-authentication-sample-web-app-with-api.md        
-          - text: Node web API
+          - text: Node.js web API
             url: configure-authentication-in-sample-node-web-app-with-api.md
           - text: Single-page app (JavaScript)
             url: configure-authentication-sample-spa-app.md
@@ -33,9 +33,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Node web API
+          - text: Node.js web API
             url: enable-authentication-web-api.md?tabs=nodejsgeneric
-          - text: Node web app and web API
+          - text: Node.js web app and web API
             url: enable-authentication-in-node-web-app-with-api.md
           - text: ASP.NET Core API
             url: enable-authentication-web-api.md?tabs=csharpclient  
@@ -50,7 +50,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Node
+          - text: Node.js
             url: enable-authentication-in-node-web-app-with-api-options.md
           - text: ASP.NET web app calls web API
             url: enable-authentication-web-app-with-api-options.md             

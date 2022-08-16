@@ -38,7 +38,7 @@ productDirectory:
           url: index-web-app.yml
           #url: web-app-quickstart.md
           imageSrc: ../active-directory/develop/media/hub/app-type-web.svg
-          summary: A traditional, or "classic," web app whose code runs on a server, returning page data for the browser to render such as Express, ASP.NET or Java.
+          summary: A traditional, or "classic," web app whose code runs on a server, returning page data for the browser to render such as Node.js, ASP.NET or Java.
         - title: Web API
           url: index-web-api.yml
           #url: web-api-quickstart.md
@@ -86,9 +86,6 @@ conceptualContent:
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
           itemType: overview
-        - text: Pricing
-          url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
-          itemType: overview
         - text: Customer stories
           url: https://customers.microsoft.com/search?sq=b2c&ff=language%26%3EEnglish%26%26story_product_categories%26%3EAzure&p=2&so=story_publish_date%20desc
           itemType: overview
@@ -112,7 +109,7 @@ conceptualContent:
           - text: Identity providers
             url: add-identity-provider.md
             itemType: concept
-          - text: Authenticate users in a Node web app(Quick course)
+          - text: Authenticate users in a Node.js web app(Quick course)
             url: /learn/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
             itemType: concept
     ## CARD 3 ######################

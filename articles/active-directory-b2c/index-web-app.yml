@@ -21,28 +21,38 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: ASP.NET Core
-            url: configure-authentication-sample-angular-spa-app.md
-          - text: Node
-            url: configure-authentication-sample-spa-app.md
+            url: configure-authentication-sample-web-app.md
+          - text: Node.js
+            url: configure-a-sample-node-web-app.md
           - text: Python
-            url: configure-authentication-sample-react-spa-app.md
-          - text: Python 
-            url: configure-authentication-sample-react-spa-app.md   
-          - text: Java 
-            url: configure-authentication-sample-react-spa-app.md     
+            url: configure-authentication-sample-python-web-app.md      
           - text: Azure Web apps 
-            url: configure-authentication-sample-react-spa-app.md 
+            url: configure-authentication-in-azure-web-app.md 
           - text: Static web app 
-            url: configure-authentication-sample-react-spa-app.md                                
+            url: configure-authentication-in-azure-static-app.md                                
   - title: "Build your own web app"
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Static web app 
-            url: configure-authentication-sample-react-spa-app.md 
-  - title: "Wen app configuration options"
+          - text: ASP.NET Core
+            url: enable-authentication-web-application.md
+          - text: Node.js
+            url: enable-authentication-in-node-web-app.md
+          - text: Python
+            url: enable-authentication-python-web-app.md 
+  - title: "Web app configuration options"
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Static web app 
-            url: configure-authentication-sample-react-spa-app.md 
+          - text: ASP.NET Core
+            url: enable-authentication-web-application-options.md
+          - text: Node.js
+            url: enable-authentication-in-node-web-app-options.md
+          - text: Python
+            url: enable-authentication-python-web-app-options.md 
+  - title: "Sample"
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Java 
+            url: https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/1.%20Server-Side%20Scenarios/msal-b2c-web-sample
