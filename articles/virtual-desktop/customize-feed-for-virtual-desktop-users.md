@@ -3,7 +3,7 @@ title: Customize feed for Azure Virtual Desktop users - Azure
 description: How to customize feed for Azure Virtual Desktop users with PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/14/2019
+ms.date: 08/16/2020
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -21,7 +21,7 @@ This article assumes you've already downloaded and installed the Azure Virtual D
 
 ## Customize the display name for a session host
 
-You can change the display name for a remote desktop for your users by setting its session host friendly name. By default, the session host friendly name is empty so users just see the app name. You can set the session host friendly name using either PowerShell or REST API.
+You can change the display name for a remote desktop for your users by setting its session host friendly name. By default, the session host friendly name is empty, so users only see the app name. You can set the session host friendly name using either PowerShell or REST API.
 
 >[!NOTE]
 >The following instructions only apply to personal desktops, not pooled desktops. Also, personal host pools only allow and support desktop app groups.
@@ -30,7 +30,8 @@ To add or change a session host's friendly name:
 
 #### [PowerShell](#tab/powershell)
 
-1. Open a PowerShell window as an administrator.
+1. Open a PowerShell window as an administrator. It doesn't matter whether you run this from a local device or a session host, as long as you're connected to an Azure account with admin privileges.
+
 2. Enter the following command:
 
    ```powershell
@@ -40,18 +41,6 @@ To add or change a session host's friendly name:
 #### [REST API](#tab/rest-api)
 
 To change the friendly name with REST API, follow the instructions on [Session Host - Update](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP) and update the *properties.friendlyName* parameter with a REST API request.
-
-The request should look like the following template with the placeholder values replaced with the information relevant to your deployment.
-
-```rest
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}?api-version=2022-02-10-preview
-
-{
-  "properties": {
-    "friendlyName": "{friendlyname}"
-  }
-}
-```
 
 --- 
 
