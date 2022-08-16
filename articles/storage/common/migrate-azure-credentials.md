@@ -73,9 +73,9 @@ var blobServiceClient = new BlobServiceClient(
 
 ---
 
-## Steps to migrate an existing application to use Azure Identity
+## Steps to migrate an app to use credential-free authentication
 
-The following steps explain how to migrate an existing application to use credential-free connections instead of a key-based solution. These same migration steps should apply whether you are using connection strings, access keys, or shared access signatures. 
+The following steps explain how to migrate an existing application to use credential-free connections instead of a key-based solution. These same migration steps should apply whether you are using access keys directly, or through connection strings.
 
 ### 1) Configure roles and users for local development authentication
 
@@ -87,7 +87,7 @@ For local development, make sure you're authenticated with the same Azure AD acc
 
 [!INCLUDE [defaultazurecredential-sign-in](../../../includes/defaultazurecredential-sign-in.md)]
 
-Next you will need to update your code to use credential-free connections for your desired language.
+Next you will need to update your code to use credential-free connections. Although conceptually similar, each language uses different implementation details.
 
 ### [.NET](#tab/dotnet)
 
@@ -144,7 +144,7 @@ Once your application is configured to use credential-free connections and runs 
 
 #### Create the managed identity using the Azure Portal
 
-The following steps demonstrate how to create a system-assigned managed identity for various services. The managed identity can securely connect to other Azure Services using the app configurations you setup previously.
+The following steps demonstrate how to create a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you setup previously.
 
 ### [App Service](#tab/app-service)
 
