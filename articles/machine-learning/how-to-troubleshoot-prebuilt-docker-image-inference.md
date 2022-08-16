@@ -21,7 +21,7 @@ Learn how to troubleshoot problems you may see when using prebuilt docker images
 
 ## Model deployment failed
 
-If model deployment fails, you won't see logs in [Azure Machine Learning Studio](https://ml.azure.com/) and `service.get_logs()` will return None.
+If model deployment fails, you won't see logs in [Azure Machine Learning studio](https://ml.azure.com/) and `service.get_logs()` will return None.
 If there is a problem in the init() function of score.py, `service.get_logs()` will return logs for the same.
 
 So you'll need to run the container locally using one of the commands shown below and replace `<MCR-path>` with an image path. For a list of the images and paths, see [Prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md).
@@ -92,7 +92,7 @@ GPU base images can't be used for local deployment, unless the local deployment 
     /var/azureml-app
     ```
 
-* If the `ENTRYPOINT` has been changed in the new built image, then the HTTP server and related components needs to be loaded by `runsvdir /var/runit`
+* If the `ENTRYPOINT` has been changed in the new built image, then the HTTP server and related components need to be loaded by `runsvdir /var/runit`
 
 ## Next steps
 

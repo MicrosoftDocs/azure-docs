@@ -209,7 +209,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 
     Save the value for **username** and one of the **passwords**.
 
-1. If you don't already have a resource group or app service plan to deploy the service, the these commands demonstrate how to create both:
+1. If you don't already have a resource group or app service plan to deploy the service, these commands demonstrate how to create both:
 
     ```azurecli-interactive
     az group create --name myresourcegroup --location "West Europe"
