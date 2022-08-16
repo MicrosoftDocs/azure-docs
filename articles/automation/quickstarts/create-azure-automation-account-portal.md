@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Create an Azure Automation account using the portal
-description: This quickstart helps you get started creating an Azure Automation account using the portal
+description: This quickstart helps you to create a new Automation account using Azure portal.
 services: automation
 ms.date: 10/26/2021
 ms.topic: quickstart
