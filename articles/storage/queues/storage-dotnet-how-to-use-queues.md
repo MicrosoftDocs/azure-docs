@@ -172,7 +172,7 @@ The [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class enables 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_CreateClient":::
 
 > [!TIP]
-> A message must be in a format that can be included in an XML request with UTF-8 encoding. Optionally, you can set the [MessageEncoding](/dotnet/api/azure.storage.queues.queueclientoptions.messageencoding) option to [Base64](/dotnet/api/azure.storage.queues.queuemessageencoding) to handle non-compliant messages.
+> Messages that you send by using the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class, must be in a format that can be included in an XML request with UTF-8 encoding. Optionally, you can set the [MessageEncoding](/dotnet/api/azure.storage.queues.queueclientoptions.messageencoding) option to [Base64](/dotnet/api/azure.storage.queues.queuemessageencoding) to handle non-compliant messages.
 
 # [.NET v11 SDK](#tab/dotnetv11)
 
