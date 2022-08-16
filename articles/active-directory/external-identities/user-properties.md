@@ -6,8 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/05/2022
-
+ms.date: 08/10/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -29,7 +28,7 @@ The following table describes B2B collaboration users based on how they authenti
 - **Internal member**: These users are generally considered employees of your organization. The user authenticates internally via Azure AD, and the user object created in the resource Azure AD directory has a UserType of Member.
 
 > [!IMPORTANT]
-> We've begun rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode). Soon, we'll stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption.
+> The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. Learn more about [configuring email one-time passcode](one-time-passcode.md) and [plans for other fallback authentication methods](one-time-passcode.md#disable-email-one-time-passcode), such as unmanaged ("viral") accounts and Microsoft accounts.
 
 ## Invitation redemption
 
