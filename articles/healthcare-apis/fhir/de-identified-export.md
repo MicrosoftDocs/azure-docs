@@ -56,7 +56,7 @@ The API call below demonstrates how to form a request for de-id on export from t
 GET https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>
 ```
 
-You will need to create a container for the de-identified export in your ADLS Gen2 storage account and specify the `<<container_name>>` in the API request as shown above. Additionally, you will need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request (see above). 
+You will need to create a container for the de-identified export in your ADLS Gen2 account and specify the `<<container_name>>` in the API request as shown above. Additionally, you will need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request (see above). 
 
 > [!Note] 
 > It is common practice to name the container `anonymization`. The JSON file within the container is often named `anonymizationConfig.json`.
