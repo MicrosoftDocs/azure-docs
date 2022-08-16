@@ -6,7 +6,7 @@ ms.author: v-bcatherine
 ms.reviewer: keroden
 ms.service: container-apps
 ms.topic: tutorial 
-ms.date: 07/21/2022
+ms.date: 08/15/2022
 ms.custom: template-tutorial
 ---
 
@@ -28,7 +28,7 @@ The [sample solution](https://github.com/Azure-Samples/container-apps-store-api-
 :::image type="content" source="media/dapr-github-actions/arch.png" alt-text="Diagram demonstrating microservices app.":::
 
 > [!NOTE]
-> This tutorial focuses on the baseline solution deployment outlined below. If you're interested in building and running the solution on your own, [follow the README instructions within the repo](https://github.com/azure-samples/container-apps-store-api-microservice/build-and-run.md).
+> This tutorial focuses on the solution deployment outlined below. If you're interested in building and running the solution on your own, [follow the README instructions within the repo](https://github.com/azure-samples/container-apps-store-api-microservice/build-and-run.md).
 
 ## Prerequisites
 
@@ -130,7 +130,7 @@ The repository includes the following resources:
 - Deployment manifests
 - A GitHub Actions workflow file
 
-## Deploy baseline Dapr solution using GitHub Actions
+## Deploy Dapr solution using GitHub Actions
 
 The GitHub Actions workflow YAML file in the `/.github/workflows/` folder executes the following steps in the background as you work through this tutorial:
 
