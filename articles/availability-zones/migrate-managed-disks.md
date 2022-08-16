@@ -18,7 +18,7 @@ For both options, you'll need to take snapshots of those disks and recreate them
 
 
 ## Prerequisites
-
+ 
 
 - **Zonal**. Make sure your Azure VMs are in a region that supports Availability Zones and they are zonal, meaning that the VMs are created in availability zones. Take note of the zone of the VM to which you are attaching a managed disk because the managed disks must be co-located in the same zone.
 - **Zone-redundant**. Make sure your Azure VMs are in a region that supports Availability Zones so that the ZRS managed disks can be created and attached to the VMs. 
@@ -59,7 +59,7 @@ To migrate a non-zonal managed disk to zonal:
         az disk create --resource-group $resourceGroupName --name $diskName --location $location --zone $zone --sku $storageType --size-gb $diskSize --source $snapshotId
     ```
 
-1. Attach the zonal managed disk to the zonal VM. For guidance on how to attach a managed disk, see [Attach a data disk to a Windows VM with Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md) or [Attach a data disk to a Windows VM with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/attach-disk-ps.md).
+1. Attach the zonal managed disk to the zonal VM. For guidance on how to attach a managed disk, see [Attach a data disk to a Windows VM with Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md) or [Attach a data disk to a Windows VM with PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
     >[!NOTE]
     > The source managed disk remains intact with its current configuration. If you no longer want to keep it, you must manually delete the disk. For more information, see [Find and delete unattached Azure managed and unmanaged disks](../virtual-machines/windows/find-unattached-disks.md).
@@ -86,7 +86,8 @@ To migrate a non-zonal managed disk to zone-redundant:
     
     ```
 
-1. Attach the ZRS managed disk to the Azure VM. . For guidance on how to attach a managed disk, see [Attach a data disk to a Windows VM with Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md) or [Attach a data disk to a Windows VM with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/attach-disk-ps.md).
+1. Attach the ZRS managed disk to the Azure VM. For guidance on how to attach a managed disk, see [Attach a data disk to a Windows VM with Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md) or [Attach a data disk to a Windows VM with PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+
 
 
 
