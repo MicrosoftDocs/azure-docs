@@ -49,13 +49,15 @@ The following sections describe this architecture in more detail.
 
 The first segment (segment 1 in the diagram) represents communications from consumers to the ingress controller in Azure Spring Apps. These consumers include browsers, mobile phones, desktops, kiosks, or network access points like Azure Front Door, Azure App Gateway, F5 BIG-IP Local Traffic Manager, Azure API Management, and Apigee API Management.
 
-By default, this segment is secured using a Microsoft-supplied TLS/SSL certificate for the `*.azuremicroservices.io` domain. You can apply your own TLS/SSL certificate in Azure Key Vault by binding a custom domain to your app in Azure Spring Apps. No code is necessary.
+By default, this segment is secured using a Microsoft-supplied TLS/SSL certificate for the `*.azuremicroservices.io` domain. You can apply your own TLS/SSL certificate in Azure Key Vault by binding a custom domain to your app in Azure Spring Apps. No code is necessary. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md).
 
 ### Secure communications from ingress controller to apps
 
-The next segment (segment 2 in the diagram) represents communications from the Azure Spring Apps ingress controller to any app on Azure Spring Apps. You can enable TLS/SSL to secure traffic from the ingress controller to an app that supports HTTPS.
+The next segment (segment 2 in the diagram) represents communications from the Azure Spring Apps ingress controller to any app on Azure Spring Apps. You can enable TLS/SSL to secure traffic from the ingress controller to an app that supports HTTPS. For more information, see [Enable ingress-to-app TLS for an application](how-to-enable-ingress-to-app-tls.md).
 
-A Spring Boot app can use Spring's approach to enable HTTPS, or the app can secure communications by using the Azure Key Vault Certificates Spring Boot Starter. You need the following three configuration steps to secure communications using a TLS/SSL certificate from an Azure Key Vault. No code is necessary.
+A Spring Boot app can use Spring's approach to enable HTTPS, or the app can secure communications by using the Azure Key Vault Certificates Spring Boot Starter. For more information, see [Tutorial: Secure Spring Boot apps using Azure Key Vault certificates](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates).
+
+You need the following three configuration steps to secure communications using a TLS/SSL certificate from an Azure Key Vault. No code is necessary.
 
 1. Include the following Azure Key Vault Certificates Spring Boot Starter dependency in your *pom.xml* file:
 
@@ -79,7 +81,7 @@ A Spring Boot app can use Spring's approach to enable HTTPS, or the app can secu
        key-store-type: AzureKeyVault
    ```
 
-1. Enable the app's managed identity, and then grant the managed identity with "Get" and "List" access to the Azure Key Vault.
+1. Enable the app's managed identity, and then grant the managed identity with "Get" and "List" access to the Azure Key Vault. For more information, see [Enable system-assigned managed identity for an application in Azure Spring Apps](how-to-enable-system-assigned-managed-identity.md) and [Certificate Access Control](../key-vault/certificates/certificate-access-control.md).
 
 ### Secure communications from app to managed middleware
 
@@ -87,19 +89,15 @@ The next segment (segment 3 in the diagram) represents communications from any a
 
 ### Secure app to app communications
 
-The next segment (segment 4 in the diagram) represents communications between an app to another app in Azure Spring Apps.
-
-You can use the Azure Key Vault Certificates Spring Boot Starter to configure the caller app to trust the TLS/SSL certificate supplied by an HTTPS-enabled called app.
-
-The receiver Spring Boot app can use Spring's approach to enable HTTPS, or the app can secure communications by using the Azure Key Vault Certificates Spring Boot Starter.
+The next segment (segment 4 in the diagram) represents communications between an app to another app in Azure Spring Apps. You can use the Azure Key Vault Certificates Spring Boot Starter to configure the caller app to trust the TLS/SSL certificate supplied by an HTTPS-enabled called app. The receiver Spring Boot app can use Spring's approach to enable HTTPS, or the app can secure communications by using the Azure Key Vault Certificates Spring Boot Starter. For more information, see [Tutorial: Secure Spring Boot apps using Azure Key Vault certificates](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates).
 
 ### Secure app to external system communications
 
-The next segment (segment 5 in the diagram) represents communications between an app running in Azure Spring Apps and external systems. You can use the Azure Key Vault Certificates Spring Boot Starter to configure the app running in Azure Spring Apps to trust the TLS/SSL certificate supplied by any external systems.
+The next segment (segment 5 in the diagram) represents communications between an app running in Azure Spring Apps and external systems. You can use the Azure Key Vault Certificates Spring Boot Starter to configure the app running in Azure Spring Apps to trust the TLS/SSL certificate supplied by any external systems. For more information, see [Tutorial: Secure Spring Boot apps using Azure Key Vault certificates](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates).
 
 ### Implicitly load TLS/SSL certificates from Key Vault into an app
 
-If your Spring code, Java code, or open-source libraries, such as OpenSSL, rely on the JVM default JCA chain to implicitly load certificates into the JVM's trust store, then you can import your TLS/SSL certificates from Key Vault into Azure Spring Apps and use those certificates within the app.
+If your Spring code, Java code, or open-source libraries, such as OpenSSL, rely on the JVM default JCA chain to implicitly load certificates into the JVM's trust store, then you can import your TLS/SSL certificates from Key Vault into Azure Spring Apps and use those certificates within the app. For more information, see [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
 
 ### Upload well known public TLS/SSL certificates for backend systems
 
@@ -117,20 +115,7 @@ Azure Spring Apps is jointly built, operated, and supported by Microsoft and VMw
 
 ## Next steps
 
-Learn using an MS Learn module or self-paced workshop on GitHub
-Deploy a distributed version of the Spring Petclinic application
-Learn more about implementing solutions on Azure Spring Apps
-
-## Secure communications end-to-end for Spring Boot apps
-
-[Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md)
-[Enable ingress-to-app TLS for an application](how-to-enable-ingress-to-app-tls.md)
-[Tutorial: Secure Spring Boot apps using Azure Key Vault certificates](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates)
-[Azure Key Vault Certificates Spring Cloud Azure Starter (GitHub.com)](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-starter-keyvault-certificates/pom.xml)
-[Azure Key Vault Java Cryptography Architecture (JCA) client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/azure-security-keyvault-jca)
-
-## Additional resources
-
-Deploy Spring Boot applications by leveraging enterprise best practices – Azure Spring Apps Reference Architecture
-Migrate your Spring Boot, Spring Cloud, and Tomcat applications to Azure Spring Apps
-Wire Spring applications to interact with Azure services
+- [Deploy Spring microservices to Azure](/learn/modules/azure-spring-cloud-workshop/)
+- [Azure Key Vault Certificates Spring Cloud Azure Starter (GitHub.com)](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-starter-keyvault-certificates/pom.xml)
+- [Azure Spring Apps reference architecture](reference-architecture.md)
+- Migrate your [Spring Boot](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud), [Spring Cloud](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud), and [Tomcat](/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud) applications to Azure Spring Apps
