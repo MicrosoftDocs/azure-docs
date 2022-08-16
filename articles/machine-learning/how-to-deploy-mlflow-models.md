@@ -237,21 +237,16 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    
    The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
    
-   a. Import the required libraries:
+   1. Import the required libraries:
    
    ```python
    from azure.ai.ml import MLClient
-   from azure.ai.ml.entities import (
-      ManagedOnlineEndpoint,
-      ManagedOnlineDeployment,
-      Model,
-      Environment,
-      CodeConfiguration
-   )
+   from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment, Model
+   from azure.ai.ml.constants import AssetType
    from azure.identity import DefaultAzureCredential
    ```
    
-   b. Configure workspace details and get a handle to the workspace:
+   1. Configure workspace details and get a handle to the workspace:
    
    ```python
    subscription_id = "<subscription>"
@@ -268,13 +263,15 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    
    # [Azure ML CLI (v2)](#tab/cli)
    
-   Create a YAML configuration file for your endpoint. 
+   Create a YAML configuration file for your endpoint:
    
    __create-endpoint.yaml__
 
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml":::
    
    # [Azure ML SDK for Python (v2)](#tab/sdk)
+   
+   Create an endpoint object:
    
    ```python
    endpoint = ManagedOnlineEndpoint(
@@ -284,7 +281,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    )
    ```
 
-1. Create the endpoint:
+1. Execute the endpoint creation. This operation will create the endpoint in the Azure Machine Learning workspace:
    
    # [Azure ML CLI (v2)](#tab/cli)
    
@@ -294,100 +291,119 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    
    # [Azure ML SDK for Python (v2)](#tab/sdk)
    
+   To create a new endpoint using the endpoint configuration just created, use the following command:
+   
    ```python
    ml_client.online_endpoints.begin_create_or_update(endpoint)
    ```
 
-1. Define the deployment. 
+1. Before going further, we need to register the model we want to deploy. Deployment of unregistered models is not supported in Azure Machine Learning. 
    
    # [Azure ML CLI (v2)](#tab/cli)
    
-   Follow the instructions depending on if you model was produced by the output of a job or you have a file available locally in your compute.
+   We first need to register the model we want to deploy. Deployment of unregistered models is not supported in Azure Machine Learning.
    
-      # [From a training job](#tab/fromjob)
+   ### From a training job
 
-      The following example configures a deployment `sklearn-diabetes` to the endpoint created in the previous step. The model is registered from a job previously run. Assuming that you model was registered with an instruction similar like this:
+   In this example, the model is registered from a job previously run. Assuming that you model was registered with an instruction similar like this:
 
-      ```python
-      mlflow.sklearn.log_model(scikit_model, "model)
-      ```
+   ```python
+   mlflow.sklearn.log_model(scikit_model, "model")
+   ```
+
+   To register the model from a previous run we would need the job name/run ID in question. For simplicity, let's assume that we are looking to register the model trained in the last run submitted to the workspace:
+
+   ```bash
+   JOB_NAME=$(az ml job list --query "[0].name" | tr -d '"')
+   ```
+
+   Then, let's register the model in the registry. 
+
+   ```bash
+   az ml model create --name "mir-sample-sklearn-mlflow-model" \
+                      --type "mlflow_model" \
+                      --path "azureml://jobs/$JOB_NAME/outputs/artifacts/model"
+   ```
       
-      a. Get the job name of the training job. In this example we are assuming the job you want is the last one submitted to the platform.
+   ### From a local model
    
-      ```bash
-      JOB_NAME=$(az ml job list --query "[0].name" | tr -d '"')
-      ```
-
-      b. Register the model in the registry. 
-
-      ```bash
-      az ml model create --name "mir-sample-sklearn-mlflow-model" \
-                         --type "mlflow_model" \
-                         --path "azureml://jobs/$JOB_NAME/outputs/artifacts/model"
-      ```
-
-      c. Create the deployment `YAML` file:
-
-      __sklearn-deployment.yaml__
-
-      ```yaml
-      $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-      name: sklearn-deployment
-      endpoint_name: my-endpoint
-      model: azureml:mir-sample-sklearn-mlflow-model@latest
-      instance_type: Standard_DS2_v2
-      instance_count: 1
-      ```
-      
-      # [From a local model](#tab/fromlocal)
+   If you model is located in the local file system or your compute, then you can register it as follows:
    
-      The following example configures a deployment `sklearn-diabetes` to the endpoint created in the previous step using the local MLflow model:
-
-      __sklearn-deployment.yaml__
-
-      :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sklearn-deployment.yaml":::
+   ```bash
+   az ml model create --name "mir-sample-sklearn-mlflow-model" \
+                      --type "mlflow_model" \
+                      --path "sklearn-diabetes/model"
+   ```
       
    # [Azure ML SDK for Python (v2)](#tab/sdk)
    
-   Follow the instructions depending on if you model was produced by the output of a job or you have a file available locally in your compute.
+   We first need to register the model we want to deploy. Deployment of unregistered models is not supported in Azure Machine Learning.
    
-      # [From a training job](#tab/fromjob)
+   ### From a training job
+
+   In this example, the model is registered from a job previously run. Assuming that you model was registered with an instruction similar like this:
+
+   ```python
+   mlflow.sklearn.log_model(scikit_model, "model)
+   ```
+
+   To register the model from a previous run we would need the job name/run ID in question. For simplicity, let's assume that we are looking to register the model trained in the last run submitted to the workspace:
+
+   ```python
+   job_name = ml_client.jobs.list()[0].name
+   ```
+
+   Then, let's register the model in the registry.
+
+   ```python
+   model = Model(name="mir-sample-sklearn-mlflow-model", 
+                 path=f"azureml://jobs/{job_name}/outputs/artifacts/model",
+                 type=AssetType.MLFLOW_MODEL)
+   ml_client.models.create_or_update(model)
+   ```
       
-      i. Get the job name of the training job. In this example we are assuming the job you want is the last one submitted to the platform.
+   ### From a local model
+   
+   If you model is located in the local file system or your compute, then you can register it as follows:
+
+   ```
+   model = Model(name="mir-sample-sklearn-mlflow-model",
+                 path="sklearn-diabetes/model",
+                 type=AssetType.MLFLOW_MODEL)
+   ml_client.models.create_or_update(model)
+   ```
       
-      ```python
-      job_name = ml_client.jobs.list()[0].name
-      ```
-      
-      ii. Register the model in the registry. 
-      
-      ```python
-      model = Model(name="my-model", 
-                    type=AssetType.MODEL_MLFLOW,
-                    path=f"azureml://jobs/{job_name}/outputs/artifacts/model")
-      ml_client.models.create_or_update(model)
-      ```
-      
-      # [From a local model](#tab/fromlocal)
-      
-      ```
-      model = Model(path="../model-1/model/sklearn_regression_model.pkl",
-                    type=AssetType.MODEL_MLFLOW)
-      ```
-      
-   Configure online deployment:
+1. Once the endpoint is created, we need to create a deployment on it. Remember that endpoints can contain one or multiple deployments and traffic can be configured for each of them. In this example, we are going to create only one deployment to serve all the traffic.
+
+   # [Azure ML CLI (v2)](#tab/cli)
+
+   Create the deployment `YAML` file:
+
+   __sklearn-deployment.yaml__
+
+   ```yaml
+   $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+   name: sklearn-deployment
+   endpoint_name: my-endpoint
+   model: azureml:mir-sample-sklearn-mlflow-model@latest
+   instance_type: Standard_DS2_v2
+   instance_count: 1
+   ```
+
+   # [Azure ML SDK for Python (v2)](#tab/sdk)
       
    ```python
    blue_deployment = ManagedOnlineDeployment(
                          name="blue",
                          endpoint_name=online_endpoint_name,
-                         model=Model(path="azureml:mir-sample-sklearn-mlflow-model@latest"),
+                         model=model,
                          instance_type="Standard_F2s_v2",
                          instance_count=1,
                      )
    ```
+         
     
-1. To create the deployment:
+1. Create the deployment and assign all the traffic to it.
    
    # [Azure ML CLI (v2)](#tab/cli)
    
