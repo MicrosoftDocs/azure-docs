@@ -5,70 +5,57 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
-ms.date: 06/21/2022
+ms.date: 08/15/2022
 ms.custom: template-how-to
 ---
 
-<!--
+# Manage Azure Storage Mover projects
 
-This template provides the basic structure of a HOW-TO article. A HOW-TO article is used to help the customer complete a specific task.
+A storage mover project is used to organize migration jobs into logical components. It's a good idea to add all your data sources that need to be migrated together into the same project. Rather than create projects for each data source in your migration plan, for example, you should add all data sources necessary to migrate a single workload. You may also create individual projects for distinct groups of data sources in your migration plan.
 
-1. H1 (Docs Required)
-   Start your H1 with a verb. Pick an H1 that clearly conveys the task the user will complete (example below).
+A project contains at least one job definition, which in turn contains information about the source and target of your migration, as well as the settings for the copy job itself.
 
--->
-
-# Manage Azure Mover projects
-
-<!-- 
-
-2. Introductory paragraph (Docs Required)
-   Lead with a light intro that describes what the article covers. Answer the fundamental “why would I want to know this?” question. Keep it short (example provided below).
-
--->
-
-Waffles rank highly on many Americans' list of favorite breakfast foods. Waffles are usually moist, occasionally slightly sweet, and most importantly, warm.
-
-However, Oma only made waffles as a cake-like dessert in her heart-shaped waffle iron. Her waffles were great fresh, but also delicious when dried out and dunked in coffee. Our Tante Elise would whip these up when unexpected guests dropped by for Kaffee und Kuchen in the afternoon. Her callers could devour the first batch while the remainder baked in the waffle iron because they were both quicker and easier than Butterkuchen or Bienenstich.
-
-This article guides you through the construction of Oma's waffles. After completing this how-to, you'll be able to experiment on your own to gain additional experience. You may also choose to continue providing simple waffles to friends and family.
-
-<!-- 
-3. Prerequisites (Optional)
-   If you need prerequisites, make them your first H2 in a how-to guide. Use clear and unambiguous language and use a list format. Remove this section if prerequisites are not needed.
-
--->
+This article guides you through the process of creating and managing Azure Storage Mover projects. After you complete the steps within this article, you'll be able to create and manage projects using the Azure Portal and PowerShell. 
 
 ## Prerequisites
 
-- 250 g (8.81 oz) of melted butter
-- 250 g (8.81 oz) of sugar
-- 500 g (17.63 oz) of all purpose flour
-- 6 eggs, XL
-- 500 ml (16.9 oz) of milk
-- 1 ½ teaspoons of baking powder
-- grated lemon peel of 1 lemon
-- 2 pouches of vanilla sugar
-- 1 teaspoon of vanilla extract
+- An Azure account. If you don't yet have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An active Azure subscription enabled for the Storage Mover preview.
+- A resource group in which to create the project.
+- A Data Mover resource within your resource group.
+- An NFS share available on a machine reachable through your local network.
 
 <!-- 
 4. H2s (Docs Required)
 
 Prescriptively direct the customer through the procedure end-to-end. Don't link to other content (until 'next steps'), but include whatever the customer needs to complete the scenario in the article. -->
 
-## Prepare the batter
+## Create a project
 
 The first step to making Haushaltswaffeln is the preparation of the batter. To prepare the batter, complete the steps listed below. 
 
-1. Separate the eggs with an egg separator.
-1. Using a handheld mixer beat the egg whites until stiff.
-1. In a separate bowl add the egg yolks, sugar, grated lemon peel and vanilla sugar or vanilla extract and mix until creamy.
-1. Slowly add the butter to the egg mixture and beat until smooth.
-1. Mix the flour with baking powder and sift it into a bowl.
-1. Alternate between flour and lukewarm milk and add these ingredients into the egg mixture.
-1. Fold in the beaten egg whites using a pastry blender.
+# [PowerShell](#tab/powershell)
 
-After the batter is prepared, you can begin baking the batter into the tasty Haushaltswaffeln.
+PowerShell content
+
+# [CLI](#tab/cli)
+
+CLI content
+
+# [Azure Portal](#tab/portal)
+
+1. Navigate to the **Project Explorer** page  in the [Azure Portal](https://portal.azure.com). The default **All projects** view displays the name of your individual project, and a summary of the jobs they contain.
+
+   :::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="project explorer" lightbox="media/projects-manage/project-explorer-lrg.png":::
+
+1. Select **Create project** to open the **Create a Project"* pane.  
+
+   :::image type="content" source="media/projects-manage/project-explorer-create-sml.png" alt-text="project explorer create" lightbox="media/projects-manage/project-explorer-create-lrg.png":::
+
+
+---
+
+After the project is created, you can begin doing X.
 
 ## Cook the batter
 
@@ -86,14 +73,8 @@ After the Haushaltswaffeln are cooked to perfection, it's time to serve your gue
 
 Although you can dress Haushaltswaffeln up with a sprinkling of powdered sugar, they really need no embellishment. The flavour is rich and buttery, and they are nicely sweetened. You can give your callers the option to sprinkle some powdered sugar over the Haushaltswaffeln, or add whipped cream and fruit.
 
-<!-- 
-
-5. Next steps (Docs required)
-
-A single link in the blue box format. Point to the next logical tutorial or how-to in a series, or, if there are no other tutorials or how-tos, to some other cool thing the customer can do. -->
-
 ## Next steps
 
-Advance to the next article to learn how to create...
+Advance to the next article to learn how to...
 > [!div class="nextstepaction"]
-> [Prepare Haushaltswaffeln for Fabian and Stephen](service-overview.md)
+> [Manage job definitions](job-definitions-manage.md)
