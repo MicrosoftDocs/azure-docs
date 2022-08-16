@@ -96,8 +96,7 @@ You can control when the rule will apply. The rule is always active, by default.
 
 ### [Portal](#tab/portal)
 
-You can access alert processing rules by going to the **Alerts** home page in Azure Monitor.  
-Then you can select **Alert processing rules** to see and manage your existing rules. You can also select **Create** > **Alert processing rules** to open the new alert processing rule wizard.
+You can access alert processing rules by going to the **Alerts** home page in Azure Monitor. Then you can select **Alert processing rules** to see and manage your existing rules. You can also select **Create** > **Alert processing rules** to open the new alert processing rule wizard.
 
 :::image type="content" source="media/alerts-processing-rules/alerts-page-processing-rules.png" alt-text="Screenshot that shows how to access alert processing rules from the Azure Monitor landing page.":::
 
@@ -164,7 +163,7 @@ You can use the Azure CLI to work with alert processing rules. For detailed docu
    The installed extension 'alertsmanagement' is in preview.
    ```
    
-   To learn more about Azure CLI extensions, see [Use extension with Azure CLI](/cli/azure/azure-cli-extensions-overview?).
+   To learn more about Azure CLI extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview?).
 
 ### Create an alert processing rule with the Azure CLI
 
