@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 08/16/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -14,18 +14,63 @@ ms.author: greglin
 
 In this article, you will learn about components of the [Azure DNS Private Resolver](dns-private-resolver-overview.md). Inbound endpoints, outbound endpoints, and DNS forwarding rulesets are discussed. Properties and settings of these components are described, and examples are provided for how to use them. 
 
+Diagram here
+
 ## Inbound endpoints
 
+As the name suggests, inbound endpoints will ingress to Azure. Inbound endpoints provide an IP address to forward DNS queries from on-premises and other locations outside your virtual network. DNS queries sent to the inbound endpoint are resolved using Azure DNS. Private DNS zones that are linked to the virtual network where the inbound endpoint is provisioned are resolved by the inbound endpoint. 
 
+The IP address associated with an inbound endpoint is always part of the private virtual network address space where the private resolver is deployed.  No other resources can exist in the same subnet with the inbound endpoint. 
+
+Screenshot here
 
 ## Outbound endpoints
 
-## DNS Forwarding Rulesets
+Outbound endpoints egress from Azure and can be linked to [DNS Forwarding Rulesets](#dns-forwarding-rulesets).
+
+Outbound endpoints are also part of the private virtual network address space where the private resolver is deployed. An endpoint is associated with a subnet, but is not provisioned with an IP address like the inbound endpoint.  No other resources can exist in the same subnet with the inbound endpoint. You for purposes of scale, you can create multiple outbound endpoints within a virtual network.
+
+Screenshot here
+
+## DNS forwarding rulesets
+
+DNS forwarding rulesets enable you to specify one or more custom DNS servers to answer queries for specific DNS namespaces using the [rules] that are enabled in your ruleset.  
+
+Rulesets have the following associations: 
+- A single ruleset can be associated with multiple outbound endpoints. 
+- A ruleset can have up to 1000 DNS forwarding rules. 
+- A ruleset can be linked to any number of virtual networks in the same region. 
+
+When you link a ruleset to a virtual network, resources within that virtual network will use the enabled DNS forwarding rules that are enabled in the ruleset. The linked virtual network must peer with the virtual network where the outbound endpoint exists. A typical scenario for this configuration is a hub and spoke design with spoke vnets peered to a hub vnet with one or more private resolver endpoints. 
+
+Screenshot here
 
 ### Rules
 
+DNS forwarding rules have the following properties:
+
+| Property | Description |
+| --- | --- |
+| Rule name | The name of your rule. The name must begin with a letter, and can contain only letters, numbers, underscores, and dashes. |
+| Domain name | The dot-terminated DNS namespace where your rule applies. The namespace must have either zero labels (for wildcard) or between 2 and 34 labels. For example, `contoso.com.` has 2 labels. |
+| Destination IP:Port | The forwarding destination. One or more IP addresses and ports of DNS servers that will be used to resolve DNS queries in the specified namespace. |
+| Rule state | The rule state: Enabled or disabled. If a rule is disabled, it is ignored. |
+
+If multiple rules are matched, the longest prefix match is used.  For example, if you have the following three rules:
+
+| Rule name | Domain name | Destination IP:Port | Rule state |
+| --- | --- | --- | --- |
+| Contoso | contoso.com. | 10.100.0.2:53 | Enabled  |
+| AzurePrivate | azure.contoso.com. | 10.10.0.4:53 | Enabled  |
+| Wildcard | . | 10.100.0.2:53 | Enabled  |
+
+A query for secure.store.azure.contoso.com will match the AzurePrivate rule for azure.contoso.com and also the Contoso rule for contoso.com, but the AzurePrivate rule will take precedence because the prefix `azure.contoso` is longer than `contoso`. 
+
 ### Virtual Network Links
 
+Virtual network links for DNS forwarding rulesets enable resources in those vnets to use the rules in a ruleset when resolving DNS names. Vnets that are linked from a ruleset but do not have their own private resolver must have a peering connection to the vnet that contains the private resolver. The vnet with the private resolver must also be linked from any private DNS zones for which there are ruleset rules.
+
+Diagram here
 
 ## Next steps
 
