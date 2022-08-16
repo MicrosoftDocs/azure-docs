@@ -303,9 +303,9 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    
    We first need to register the model we want to deploy. Deployment of unregistered models is not supported in Azure Machine Learning.
    
-   ### From a training job
+   #### From a training job
 
-   In this example, the model is registered from a job previously run. Assuming that you model was registered with an instruction similar like this:
+   In this example, the model is registered from a job previously run. Assuming that your model was registered with an instruction similar like this:
 
    ```python
    mlflow.sklearn.log_model(scikit_model, "model")
@@ -325,9 +325,9 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
                       --path "azureml://jobs/$JOB_NAME/outputs/artifacts/model"
    ```
       
-   ### From a local model
+   #### From a local model
    
-   If you model is located in the local file system or your compute, then you can register it as follows:
+   If your model is located in the local file system or compute, then you can register it as follows:
    
    ```bash
    az ml model create --name "mir-sample-sklearn-mlflow-model" \
@@ -339,9 +339,9 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    
    We first need to register the model we want to deploy. Deployment of unregistered models is not supported in Azure Machine Learning.
    
-   ### From a training job
+   #### From a training job
 
-   In this example, the model is registered from a job previously run. Assuming that you model was registered with an instruction similar like this:
+   In this example, the model is registered from a job previously run. Assuming that your model was registered with an instruction similar like this:
 
    ```python
    mlflow.sklearn.log_model(scikit_model, "model)
@@ -362,9 +362,9 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    ml_client.models.create_or_update(model)
    ```
       
-   ### From a local model
+   #### From a local model
    
-   If you model is located in the local file system or your compute, then you can register it as follows:
+   If your model is located in the local file system or compute, then you can register it as follows:
 
    ```
    model = Model(name="mir-sample-sklearn-mlflow-model",
@@ -373,7 +373,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    ml_client.models.create_or_update(model)
    ```
       
-1. Once the endpoint is created, we need to create a deployment on it. Remember that endpoints can contain one or multiple deployments and traffic can be configured for each of them. In this example, we are going to create only one deployment to serve all the traffic.
+1. Once the endpoint is created, we need to create a deployment on it. Remember that endpoints can contain one or multiple deployments and traffic can be configured for each of them. In this example, we are going to create only one deployment to serve all the traffic, named `sklearn-deployment`.
 
    # [Azure ML CLI (v2)](#tab/cli)
 
@@ -394,8 +394,8 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
       
    ```python
    blue_deployment = ManagedOnlineDeployment(
-                         name="blue",
-                         endpoint_name=online_endpoint_name,
+                         name="sklearn-deployment",
+                         endpoint_name="my-endpoint",
                          model=model,
                          instance_type="Standard_F2s_v2",
                          instance_count=1,
@@ -413,7 +413,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    
    ```python
    ml_client.begin_create_or_update(blue_deployment)
-   endpoint.traffic = {"blue": 100}
+   endpoint.traffic = {"sklearn-deployment": 100}
    ml_client.begin_create_or_update(endpoint)
    ```
     
