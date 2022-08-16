@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/12/2022
+ms.date: 08/16/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Snowflake
@@ -153,7 +153,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     ENABLED = TRUE | FALSE
     SAML2_ISSUER = '<EntityID/Issuer value which you have copied from the Azure portal>'
     SAML2_SSO_URL = '<Login URL value which you have copied from the Azure portal>'
-    SAML2_PROVIDER = 'Azure_AD'
+    SAML2_PROVIDER = 'CUSTOM'
     SAML2_X509_CERT = '<Paste the content of downloaded certificate from Azure portal>'
     [ SAML2_SP_INITIATED_LOGIN_PAGE_LABEL = '<string_literal>' ]
     [ SAML2_ENABLE_SP_INITIATED = TRUE | FALSE ]
