@@ -184,7 +184,7 @@ You can also enable managed identity on an Azure hosting environment using the A
 
 ### [App Service](#tab/app-service)
 
- You can assign a managed identity to an Azure App Service with the [az webapp identity assign](/cli/azure/webapp/identity) command.
+You can assign a managed identity to an Azure App Service with the [az webapp identity assign](/cli/azure/webapp/identity) command.
 
 ```azurecli
 az webapp identity assign --resource-group <resource-group-name> --name <app-service-name>
@@ -192,7 +192,7 @@ az webapp identity assign --resource-group <resource-group-name> --name <app-ser
 
 ### [Container Apps](#tab/container-apps)
 
- You can assign a managed identity to an Azure Container App with the [az containerapp identity assign](/cli/azure/containerapp/identity) command.
+You can assign a managed identity to an Azure Container App with the [az containerapp identity assign](/cli/azure/containerapp/identity) command.
 
 ```azurecli
 az containerapp identity assign --resource-group <resource-group-name> --name <app-service-name>
@@ -200,7 +200,7 @@ az containerapp identity assign --resource-group <resource-group-name> --name <a
 
 ### [Spring Apps](#tab/spring-apps)
 
- You can assign a managed identity to an Azure Spring App with the [az spring app identity assign](/cli/azure/spring/app/identity) command.
+You can assign a managed identity to an Azure Spring App with the [az spring app identity assign](/cli/azure/spring/app/identity) command.
 
 ```azurecli
 az spring app identity assign --resource-group <resource-group-name> --name <app-service-name> --service <service-name>
@@ -208,7 +208,7 @@ az spring app identity assign --resource-group <resource-group-name> --name <app
 
 ### [Virtual Machines](#tab/virtual-machines)
 
- You can assign a managed identity to a Virtual Machine with the [az vm identity assign](/cli/azure/vm/identity) command.
+You can assign a managed identity to a Virtual Machine with the [az vm identity assign](/cli/azure/vm/identity) command.
 
 ```azurecli
 az vm identity assign --resource-group <resource-group-name> --name <app-service-name>
@@ -216,7 +216,7 @@ az vm identity assign --resource-group <resource-group-name> --name <app-service
 
 ### [AKS](#tab/aks)
 
- You can assign a managed identity to an Azure Kubernetes Service with the [az aks update](/cli/azure/aks) command.
+You can assign a managed identity to an Azure Kubernetes Service with the [az aks update](/cli/azure/aks) command.
 
 ```azurecli
 az vm identity assign --resource-group <resource-group-name> --name <app-service-name>
