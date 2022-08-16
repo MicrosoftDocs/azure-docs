@@ -424,6 +424,8 @@
       - name: BioCatch
         href: partner-biocatch.md
         displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection, user behavior
+      - name: Deduce
+        href: partner-deduce.md
       - name: Microsoft Dynamics 365 Fraud Protection
         href: partner-dynamics-365-fraud-protection.md
         displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
