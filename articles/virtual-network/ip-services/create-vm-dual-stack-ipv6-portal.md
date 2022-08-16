@@ -24,7 +24,7 @@ In this article, you'll create a virtual machine in Azure with the Azure portal.
 
 In this section, you'll create a dual-stack virtual network for the virtual machine.
 
-1. Sign-in to to the [Azure portal](https://https://portal.azure.com).
+1. Sign-in to the [Azure portal](https://https://portal.azure.com).
 
 2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -47,7 +47,7 @@ In this section, you'll create a dual-stack virtual network for the virtual mach
 
 7. Select the **Add IPv6 address space** box.
 
-8. In **IPv6 address space**, edit the default address space and change it's value to **2404:f800:8000:122::/63**.
+8. In **IPv6 address space**, edit the default address space and change its value to **2404:f800:8000:122::/63**.
 
 9. To add an IPv6 subnet, select **default** under **Subnet name**.
 
@@ -250,7 +250,7 @@ You'll associate the IPv4 and IPv6 addresses you created previously to the netwo
 
 8. **Generate new key pair** will appear. Select **Download private key and create resource**.
 
-9. The private key will download to your local computer. Copy the private key to a directory on your computer. In the following example it's **~/.ssh**.
+9. The private key will download to your local computer. Copy the private key to a directory on your computer. In the following example, it's **~/.ssh**.
 
 10. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -276,7 +276,7 @@ A network interface is automatically created and attached to the chosen virtual 
 
 7. Select **Detach network interface**.
 
-8. The name of your default network interface will be **myvmxx**, with xx a random number. In this example it's **myvm281**. Select **myvm281** in **Detach network interface**.
+8. The name of your default network interface will be **myvmxx**, with xx a random number. In this example, it's **myvm281**. Select **myvm281** in **Detach network interface**.
 
 9. Select **OK**.
 
