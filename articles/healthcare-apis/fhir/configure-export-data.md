@@ -125,7 +125,7 @@ You're now ready to securely export FHIR data to the storage account. Note that 
 
 ### Allowing specific IP addresses from other Azure regions to access the Azure storage account
 
-In the Azure portal, go to the AHDS Gen2 account and select the **Networking** blade. 
+In the Azure portal, go to the ADLS Gen2 account and select the **Networking** blade. 
    
 Select **Enabled from selected virtual networks and IP addresses**. Under the Firewall section, specify the IP address in the **Address range** box. Add IP ranges to allow access from the internet or your on-premises networks. You can find the IP address in the table below for the Azure region where the FHIR service is provisioned.
 
