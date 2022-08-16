@@ -66,5 +66,5 @@ Under `$HOME/.config/PowerShell`, you can create your profile files - `profile.p
 ## What's new in PowerShell
 
 For more information about what is new in PowerShell, reference the
-[PowerShell Whats New](/powershell/scripting/whats-new/overview) and
+[PowerShell What's New](/powershell/scripting/whats-new/overview) and
 [Discover PowerShell](/powershell/scripting/discover-powershell).
