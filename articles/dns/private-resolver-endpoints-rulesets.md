@@ -22,7 +22,7 @@ As the name suggests, inbound endpoints will ingress to Azure. Inbound endpoints
 
 The IP address associated with an inbound endpoint is always part of the private virtual network address space where the private resolver is deployed.  No other resources can exist in the same subnet with the inbound endpoint. 
 
-Screenshot here
+![View inbound endpoints](./media/tutorial-dns-private-resolver-failover/east-inbound-endpoint.png)
 
 ## Outbound endpoints
 
@@ -30,11 +30,11 @@ Outbound endpoints egress from Azure and can be linked to [DNS Forwarding Rulese
 
 Outbound endpoints are also part of the private virtual network address space where the private resolver is deployed. An endpoint is associated with a subnet, but is not provisioned with an IP address like the inbound endpoint.  No other resources can exist in the same subnet with the inbound endpoint. You for purposes of scale, you can create multiple outbound endpoints within a virtual network.
 
-Screenshot here
+![View outbound endpoints](./media/tutorial-dns-private-resolver-failover/east-outbound-endpoint.png)
 
 ## DNS forwarding rulesets
 
-DNS forwarding rulesets enable you to specify one or more custom DNS servers to answer queries for specific DNS namespaces using the [rules] that are enabled in your ruleset.  
+DNS forwarding rulesets enable you to specify one or more custom DNS servers to answer queries for specific DNS namespaces using the [rules] that are enabled in your ruleset. Rulesets also enable you to link one or more virtual networks so that resources in those vnets can use the forwarding rules you configure.
 
 Rulesets have the following associations: 
 - A single ruleset can be associated with multiple outbound endpoints. 
@@ -43,7 +43,7 @@ Rulesets have the following associations:
 
 When you link a ruleset to a virtual network, resources within that virtual network will use the enabled DNS forwarding rules that are enabled in the ruleset. The linked virtual network must peer with the virtual network where the outbound endpoint exists. A typical scenario for this configuration is a hub and spoke design with spoke vnets peered to a hub vnet with one or more private resolver endpoints. 
 
-Screenshot here
+![View ruleset links](./media/tutorial-dns-private-resolver-failover/ruleset-links.png)
 
 ### Rules
 
