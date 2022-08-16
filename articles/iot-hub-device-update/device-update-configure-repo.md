@@ -7,7 +7,7 @@ ms.date: 8/8/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
-# Introduction
+# Introduction to configuring package repository
 
 This article describes how to configure or modify the source package repository used with [Package updates](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-ubuntu-agent).
 
