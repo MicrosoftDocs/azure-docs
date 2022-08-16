@@ -11,4 +11,4 @@
 ---
 
 > [!TIP]
-> you can use [**Language Studio**](../language-studio.md) to try Language service features without needing to write code. 
+> You can use [**Language Studio**](../language-studio.md) to try Language service features without needing to write code. 
