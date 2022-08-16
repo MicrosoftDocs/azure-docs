@@ -70,7 +70,7 @@ VNET_NAME="my-custom-vnet"
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$VNET_NAME="my-custom-vnet"
+$VnetName = "my-custom-vnet"
 ```
 
 ---
@@ -104,22 +104,21 @@ The `New-AzVirtualNetworkSubnetConfig` command may result in a warning, but the 
 
 ```powershell
 $SubnetArgs = @{
-  Name = "infrastructure-subnet"
-  AddressPrefix = "10.0.0.0/23"
+    Name = "infrastructure-subnet"
+    AddressPrefix = "10.0.0.0/23"
 }
 $subnet = New-AzVirtualNetworkSubnetConfig $SubnetArgs
 ```
 
 ```powershell
 $VnetArgs = @{
-  Name = $VNET_NAME
-  Location = $LOCATION
-  ResourceGroupName = $RESOURCE_GROUP
-  AddressPrefix = "10.0.0.0/16"
-  Subnet = $subnet 
+    Name = $VnetName
+    Location = $Location
+    ResourceGroupName = $ResourceGroupName
+    AddressPrefix = "10.0.0.0/16"
+    Subnet = $subnet 
 }
-
-New-AzVirtualNetwork @VnetArgs
+$vnet = New-AzVirtualNetwork @VnetArgs
 ```
 
 ---
@@ -135,7 +134,7 @@ INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_G
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$INFRASTRUCTURE_SUBNET=(Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet).Id
+$InfrastructureSubnet=(Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet).Id
 ```
 
 ---
@@ -168,32 +167,33 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 
 Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` command will result in a warning message.  The command will still succeed.
 
-```powershell
+``powershell
 $CmdArgs = @{
-  Name = "myworkspace"
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-  PublicNetworkAccessForIngestion = "Enabled"
-  PublicNetworkAccessForQuery = "Enabled"
+    Name = "myworkspace"
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    PublicNetworkAccessForIngestion = "Enabled"
+    PublicNetworkAccessForQuery = "Enabled"
 }
 New-AzOperationalInsightsWorkspace @CmdArgs
-$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name $CmdArgs.Name).CustomerId
-$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name $CmdArgs.Name).PrimarySharedKey
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).CustomerId
+$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).PrimarySharedKey
 ```
 
 To create the environment, run the following command:
 
 ```powershell
-$CmdArgs = @{
-  EnvName = $CONTAINERAPPS_ENVIRONMENT
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-  AppLogConfigurationDestination = "log-analytics"
-  LogAnalyticConfigurationCustomerId = $WORKSPACE_ID
-  LogAnalyticConfigurationSharedKey = $WORKSPACE_SHARED_KEY
-  VnetConfigurationInfrastructureSubnetId = $INFRASTRUCTURE_SUBNET
+$EnvArgs = @{
+    EnvName = $ContainerAppsEnvironment
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    AppLogConfigurationDestination = "log-analytics"
+    LogAnalyticConfigurationCustomerId = $WorkspaceId
+    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
+    VnetConfigurationInfrastructureSubnetId = $InfrastructureSubnet
+    VnetConfigurationInternal = $true
 }
-New-AzContainerAppManagedEnv @CmdArgs
+New-AzContainerAppManagedEnv @EnvArgs
 ```
 
 The following table describes the parameters used in for `New-AzContainerAppManagedEnv`.
@@ -239,15 +239,15 @@ VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_N
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$ENVIRONMENT_DEFAULT_DOMAIN=(Get-AzContainerAppManagedEnv -Name $CONTAINERAPPS_ENVIRONMENT -ResourceGroupName $RESOURCE_GROUP).DefaultDomain
+$EnvironmentDefaultDomain = (Get-AzContainerAppManagedEnv -Name $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).DefaultDomain
 ```
 
 ```powershell
-$ENVIRONMENT_STATIC_IP=(Get-AzContainerAppManagedEnv -Name $CONTAINERAPPS_ENVIRONMENT -ResourceGroupName $RESOURCE_GROUP).StaticIp
+$EnvironmentStaticIp = (Get-AzContainerAppManagedEnv -Name $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).StaticIp
 ```
 
 ```powershell
-$VNET_ID=(Get-AzVirtualNetwork -ResourceGroupName $RESOURCE_GROUP -Name $VNET_NAME --query id -o tsv).Id
+$VnetId = (Get-AzVirtualNetwork -ResourceGroupName $ResourceGroupName -Name $VnetName --query id -o tsv).Id
 ```
 
 ---
@@ -281,24 +281,24 @@ az network private-dns record-set a add-record \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-New-AzPrivateDnsZone -ResourceGroupName $RESOURCE_GROUP -Name $ENVIRONMENT_DEFAULT_DOMAIN
+New-AzPrivateDnsZone -ResourceGroupName $ResourceGroupName -Name $EnvironmentDefaultDomain
 ```
 
 ```powershell
-New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $RESOURCE_GROUP -Name $VNET_NAME -VirtualNetwork $VNET_ID -ZoneName $ENVIRONMENT_DEFAULT_DOMAIN -EnableRegistration
+New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $ResourceGroupName -Name $VnetName -VirtualNetwork $VnetId -ZoneName $EnvironmentDefaultDomain -EnableRegistration
 ```
 
 ```powershell
 $DnsRecords = @()
-$DnsRecords += New-AzPrivateDnsRecordConfig Ipv4Address $ENVIRONMENT_STATIC_IP
+$DnsRecords += New-AzPrivateDnsRecordConfig Ipv4Address $EnvironmentStaticIp -ZoneName
 
 $DnsRecordArgs = @{
-  ResourceGroupName = $RESOURCE_GROUP
-  ZoneName = $ENVIRONMENT_DEFAULT_DOMAIN
-  Name = "*"
-  RecordType = "A"
-  Ttl = 3600 
-  PrivateDnsRecords = $DnsRecords
+    ResourceGroupName = $ResourceGroupName
+    ZoneName = $EnvironmentDefaultDomain
+    Name = "*"
+    RecordType = "A"
+    Ttl = 3600 
+    PrivateDnsRecords = $DnsRecords
 }
 New-AzPrivateDnsARecord @DnsRecordArgs
 ```
@@ -348,14 +348,13 @@ If you're not going to continue to use this application, you can delete the Azur
 # [Bash](#tab/bash)
 
 ```azurecli
-az group delete \
-  --name $RESOURCE_GROUP
+az group delete --name $RESOURCE_GROUP
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---
@@ -365,8 +364,6 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ## Additional resources
 
 - For more information about configuring your private endpoints, see [What is Azure Private Endpoint](../private-link/private-endpoint-overview.md).
-
-
 - To set up DNS name resolution for internal services, you must [set up your own DNS server](../dns/index.yml).
 
 ## Next steps

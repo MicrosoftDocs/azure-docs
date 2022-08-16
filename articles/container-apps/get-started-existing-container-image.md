@@ -47,31 +47,31 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` will result in a warning, but the command will still succeed.
 
 ```powershell
-$CmdArgs = @ {
-  Name = "MyWorkSpace"
-  Location = $LOCATION
-  ResourceGroupName = "$RESOURCE_GROUP"
-  PublicNetworkAccessForIngestion "Enabled"
-  PublicNetworkAccessForQuery "Enabled"
+$WorkspaceArgs = @{
+    Name = "myworkspace"
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    PublicNetworkAccessForIngestion = "Enabled"
+    PublicNetworkAccessForQuery = "Enabled"
 }
-New-AzOperationalInsightsWorkspace @CmdArgs
-
-$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name $CmdArgs.Name).CustomerId
-$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name $CmdArgs.Name).PrimarySharedKey
+New-AzOperationalInsightsWorkspace @WorkspaceArgs
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).CustomerId
+$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
 
 To create the environment, run the following command:
 
 ```powershell
-$CmdArgs = @{
-  EnvName = $CONTAINERAPPS_ENVIRONMENT
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-  AppLogConfigurationDestination = "log-analytics"
-  LogAnalyticConfigurationCustomerId = $WORKSPACE_ID
-  LogAnalyticConfigurationSharedKey = $WORKSPACE_SHARED_KEY
+$EnvArgs = @{
+    EnvName = $ContainerAppsEnvironment
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    AppLogConfigurationDestination = "log-analytics"
+    LogAnalyticConfigurationCustomerId = $WorkspaceId
+    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
 }
-New-AzContainerAppManagedEnv @CmdArgs
+
+New-AzContainerAppManagedEnv @EnvArgs
 ```
 
 ---
@@ -119,41 +119,41 @@ az containerapp create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$CONTAINER_IMAGE_NAME="<CONTAINER_IMAGE_NAME>"
-$REGISTRY_SERVER="<REGISTRY_SERVER>"
-$REGISTRY_USERNAME="<REGISTRY_USERNAME>"
-$REGISTRY_PASSWORD="<REGISTRY_PASSWORD>"
+$ContainerImageName = "<CONTAINER_IMAGE_NAME>"
+$RegistryServer = "<REGISTRY_SERVER>"
+$RegistryUsername = "<REGISTRY_USERNAME>"
+$RegistryPassword = "<REGISTRY_PASSWORD>"
 ```
 
 (Replace the \<placeholders\> with your values.)
 
 ```powershell
-$ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
+$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
-$TEMPLATE_OBJ = New-AzContainerAppTemplateObject `
-  -Name my-container-app `
-  -Image $CONTAINER_IMAGE_NAME
+$TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app -Image $ContainerImageName
 
-$REGISTRY_SECRET_OBJ = New-AzContainerAppSecretObject `
-  -Name registry-secret `
-  -Value $REGISTRY_PASSWORD
+$RegistrySecretObj = New-AzContainerAppSecretObject -Name registry-secret -Value $RegistryPassword
 
-$REGISTRY_OBJ = New-AzContainerAppRegistryCredentialObject `
-  -PasswordSecretRef registry-secret `
-  -Server $REGISTRY_SERVER `
-  -Username $REGISTRY_USERNAME
-
-$CmdArgs = @{
-  Name = "my-container-app"
-  Location = $LOCATION
-  ResourceGroupName = $RESOURCE_GROUP
-  ManagedEnvironmentId = $ENV_ID
-  TemplateContainer = $TEMPLATE_OBJ
-  ConfigurationRRegistry = $REGISTRY_SECRET_OBJ
-  ConfigurationSecret $REGISTRY_SECRET_OBJ
+$RegistryArgs = @{
+    PasswordSecretRef = "registry-secret"
+    Server = $RegistryServer
+    Username $RegistryUsername
+    Type = "plainText"
 }
 
-New-AzContainerApp @CmdArgs
+$REGISTRY_OBJ = New-AzContainerAppRegistryCredentialObject @RegistryArgs
+
+$ContainerAppArgs = @{
+    Name = "my-container-app"
+    Location = $Location
+    ResourceGroupName = $ResourceGroupName
+    ManagedEnvironmentId = $EnvId
+    TemplateContainer = $TemplateObj
+    ConfigurationRegistry = $RegistryObj
+    ConfigurationSecret $RegistrySecretObj
+}
+
+New-AzContainerApp @ContainerAppArgs
 ```
 
 ---
@@ -178,21 +178,18 @@ If you have enabled ingress on your container app, you can add `--query properti
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$TEMPLATE_OBJ = New-AzContainerAppTemplateObject `
-  -Name my-container-app `
-  -Image <REGISTRY_CONTAINER_NAME> 
+$TemplateObj = New-AzContainerAppTemplateObject -Name my-container-ap  -Image <REGISTRY_CONTAINER_NAME> 
 
-$ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
+$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
-$CmdArgs = @{
-  Name = "my-container-app"
-  Location = $LOCATION
-  ResourceGroupName = $RESOURCE_GROUP
-  ManagedEnvironmentId = $ENV_ID
-  TemplateContainer = $TEMPLATE_OBJ
+$ContainerAppArgs = @{
+    Name = "my-container-app"
+    Location = $Location
+    ResourceGroupName = $ResourceGroupName
+    ManagedEnvironmentId = $EnvId
+    TemplateContainer = $TemplateObj
 }
-
-New-AzContainerApp @CmdArgs
+New-AzContainerApp @ContainerAppArg
 ```
 
 ---
@@ -238,14 +235,13 @@ If you're not going to continue to use this application, run the following comma
 # [Bash](#tab/bash)
 
 ```azurecli
-az group delete \
-  --name $RESOURCE_GROUP
+az group delete --name $RESOURCE_GROUP
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---

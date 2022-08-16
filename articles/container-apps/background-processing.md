@@ -45,37 +45,38 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` command may result in a warning message, however the command will still succeed.
 
 ```powershell
-$CmdArgs = @{
-  Name = "myworkspace"
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-  PublicNetworkAccessForIngestion = "Enabled"
-  PublicNetworkAccessForQuery = "Enabled"
+$WorkspaceArgs = @{
+    Name = "myworkspace"
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    PublicNetworkAccessForIngestion = "Enabled"
+    PublicNetworkAccessForQuery = "Enabled"
 }
-New-AzOperationalInsightsWorkspace @CmdArgs
-$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name $CmdArgs.Name).CustomerId
-$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name $CmdArgs.Name).PrimarySharedKey
+New-AzOperationalInsightsWorkspace @WorkspaceArgs
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).CustomerId
+$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
 
 To create the environment, run the following command:
 
 ```powershell
-$CmdArgs = @{
-  EnvName = $CONTAINERAPPS_ENVIRONMENT
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-  AppLogConfigurationDestination = "log-analytics"
-  LogAnalyticConfigurationCustomerId = $WORKSPACE_ID
-  LogAnalyticConfigurationSharedKey = $WORKSPACE_SHARED_KEY
+$EnvArgs = @{
+    EnvName = $ContainerAppsEnvironment
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    AppLogConfigurationDestination = "log-analytics"
+    LogAnalyticConfigurationCustomerId = $WorkspaceId
+    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
 }
-New-AzContainerAppManagedEnv @CmdArgs
+
+New-AzContainerAppManagedEnv @EnvArgs
 ```
 
 ---
 
 ## Set up a storage queue
 
-Choose a name for `STORAGE_ACCOUNT_NAME`. Storage account names must be *unique within Azure* and be from 3 to 24 characters in length containing numbers and lowercase letters only.
+Choose a name for storage account. Storage account names must be *unique within Azure* and be from 3 to 24 characters in length containing numbers and lowercase letters only.
 
 # [Bash](#tab/bash)
 
@@ -86,7 +87,7 @@ STORAGE_ACCOUNT_NAME="<storage account name>"
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$STORAGE_ACCOUNT_NAME="<storage account name>"
+$StorageAcctName = "<storage account name>"
 ```
 
 ---
@@ -107,14 +108,14 @@ az storage account create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$CmdArgs = @{
-  Name = $STORAGE_ACCOUNT_NAME
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-  SkuName = "Standard_RAGRS"
-  Kind = "StorageV2"
+$StorageAcctArgs = @{
+    Name = $StorageAcctName
+    ResourceGroupName = $ResourceGroupName
+    Location = $location
+    SkuName = "Standard_RAGRS"
+    Kind = "StorageV2"
 }
-$STORAGE_ACCOUNT = New-AzStorageAccount @CmdArgs
+$StorageAcct = New-AzStorageAccount @StorageAcctArgs
 ```
 
 ---
@@ -132,7 +133,7 @@ QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_
 Here we use Azure CLI as there isn't an equivalent PowerShell cmdlet to get the connection string for the storage account queue.
 
 ```powershell
- $QUEUE_CONNECTION_STRING=(az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT_NAME --query connectionString --out json)  -replace '"',''
+ $QueueConnectionString = (az storage account show-connection-string -g $ResourceGroupName --name $StorageAcctName --query connectionString --out json)  -replace '"',''
 ```
 
 ---
@@ -151,7 +152,7 @@ az storage queue create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$queue = New-AzStorageQueue -Name "myqueue" -Context $STORAGE_ACCOUNT.Context
+$Queue = New-AzStorageQueue -Name "myqueue" -Context $StorageAcct.Context
 ```
 
 ---
@@ -170,8 +171,8 @@ az storage message put \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$queueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("Hello Queue Reader App")
-$queue.CloudQueue.AddMessageAsync($QueueMessage).GetAwaiter().GetResult()
+$QueueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("Hello Queue Reader App")
+$Queue.CloudQueue.AddMessageAsync($QueueMessage).GetAwaiter().GetResult()
 ```
 
 A result of `Microsoft.Azure.Storage.Core.NullType` is returned when the message is added to the queue.
@@ -277,19 +278,19 @@ az deployment group create --resource-group "$RESOURCE_GROUP" \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$params = @{
-  environment_name = $CONTAINERAPPS_ENVIRONMENT
-  location = $LOCATION
-  queueconnection=$QUEUE_CONNECTION_STRING 
-}
-$CmdArgs = @{
-   ResourceGroupName = $RESOURCE_GROUP
-   TemplateParameterObject = $params
-   TemplateFile = "./queue.json"
-   SkipTemplateParameterPrompt = $true
+$Params = @{
+    environment_name = $ContainerAppsEnvironment
+    location = $Location
+    queueconnection=$QueueConnectionString 
 }
 
-New-AzResourceGroupDeployment  @CmdArgs
+$DeploymentArgs = @{
+     ResourceGroupName = $ResourceGroupName
+     TemplateParameterObject = $Params
+     TemplateFile = "./queue.json"
+     SkipTemplateParameterPrompt = $true
+}
+New-AzResourceGroupDeployment  @DeploymentArgs
 ```
 
 ---

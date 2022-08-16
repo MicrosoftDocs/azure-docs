@@ -57,34 +57,34 @@ az containerapp env create \
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.  
 
-Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` will result in a warning, but the command will still succeed.
+Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` may result in a warning, but the command will still succeed.
 
 ```powershell
-$CmdArgs = @{
-  Name = "myworkspace"
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-  PublicNetworkAccessForIngestion = "Enabled"
-  PublicNetworkAccessForQuery = "Enabled"
+$WorkspaceArgs = @{
+    Name = "myworkspace"
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    PublicNetworkAccessForIngestion = "Enabled"
+    PublicNetworkAccessForQuery = "Enabled"
 }
-New-AzOperationalInsightsWorkspace @CmdArgs
-$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name $CmdArgs.Name).CustomerId
-$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name $CmdArgs.Name).PrimarySharedKey
+New-AzOperationalInsightsWorkspace @WorkspaceArgs
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).CustomerId
+$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
 
 To create the environment, run the following command:
 
 ```powershell
-$CmdArgs = @{
-  EnvName = $CONTAINERAPPS_ENVIRONMENT
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-  AppLogConfigurationDestination = "log-analytics"
-  LogAnalyticConfigurationCustomerId = $WORKSPACE_ID
-  LogAnalyticConfigurationSharedKey = $WORKSPACE_SHARED_KEY
+$EnvArgs = @{
+    EnvName = $ContainerAppsEnvironment
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    AppLogConfigurationDestination = "log-analytics"
+    LogAnalyticConfigurationCustomerId = $WorkspaceId
+    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
 }
 
-New-AzContainerAppManagedEnv @CmdArgs
+New-AzContainerAppManagedEnv @EnvArgs
 ```
 
 ---
@@ -94,7 +94,7 @@ New-AzContainerAppManagedEnv @CmdArgs
 ### Create an Azure Blob Storage account
 
 
-Choose a name for `STORAGE_ACCOUNT`. Storage account names must be *unique within Azure*, from 3 to 24 characters in length and must contain numbers and lowercase letters only.
+Choose a name for storage account. Storage account names must be *unique within Azure*, from 3 to 24 characters in length and must contain numbers and lowercase letters only.
 
 
 # [Bash](#tab/bash)
@@ -106,14 +106,15 @@ STORAGE_ACCOUNT_NAME ="<storage account name>"
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$STORAGE_ACCOUNT_NAME="<storage account name>"
+$StorageAcctName = "<storage account name>"
 ```
 
 ---
 
-Set the `STORAGE_ACCOUNT_CONTAINER` name.
 
 # [Bash](#tab/bash)
+
+Set the `STORAGE_ACCOUNT_CONTAINER` name.
 
 ```bash
 STORAGE_ACCOUNT_CONTAINER="mycontainer"
@@ -121,8 +122,10 @@ STORAGE_ACCOUNT_CONTAINER="mycontainer"
 
 # [PowerShell](#tab/powershell)
 
+Set the storage account container name.
+
 ```powershell
-$STORAGE_ACCOUNT_CONTAINER="mycontainer"
+$StorageAcctContainerName = "mycontainer"
 ```
 
 ---
@@ -143,14 +146,14 @@ az storage account create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$CmdArgs = @{
-  Name = $STORAGE_ACCOUNT_NAME
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-  SkuName = "Standard_RAGRS"
-  Kind = "StorageV2"
+$StorageAcctArgs = @{
+    Name = $StorageAcctName
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    SkuName = "Standard_RAGRS"
+    Kind = "StorageV2"
 }
-$STORAGE_ACCOUNT = New-AzStorageAccount @CmdArgs
+$StorageAccount = New-AzStorageAccount @StorageAcctArgs
 ```
 
 ---
@@ -166,7 +169,7 @@ STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GRO
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$STORAGE_ACCOUNT_KEY = (Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP -Name $STORAGE_ACCOUNT_NAME)| Where-Object {$_.KeyName -eq "key1"}
+$StorageAcctKey = (Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAcctName)| Where-Object {$_.KeyName -eq "key1"}
 ```
 
 ---
@@ -232,26 +235,26 @@ az containerapp env dapr-component set \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$acctname = New-AzContainerAppDaprMetadataObject -Name accountName -Value $STORAGE_ACCOUNT_NAME
+$AcctName = New-AzContainerAppDaprMetadataObject -Name accountName -Value $StorageAcctContainerName 
 
-$acctkey = New-AzContainerAppDaprMetadataObject -Name accountKey -SecretRef account-key
+$AcctKey = New-AzContainerAppDaprMetadataObject -Name accountKey -SecretRef account-key
 
-$containername = New-AzContainerAppDaprMetadataObject -Name containerName -Value $STORAGE_ACCOUNT_CONTAINER
+$ContainerName = New-AzContainerAppDaprMetadataObject -Name containerName -Value $StorageAcctContainerName 
 
-$secret = New-AzContainerAppSecretObject -Name account-key -Value $STORAGE_ACCOUNT_KEY.Value
+$Secret = New-AzContainerAppSecretObject -Name account-key -Value $StorageAcctKey.Value
 
-$CmdArgs = @{
-  EnvName = $CONTAINERAPPS_ENVIRONMENT
-  ResourceGroupName = $RESOURCE_GROUP
-  DaprName = "statestore"
-  Metadata = $acctname, $acctkey, $containername
-  Secrets = $secret
-  Scopes = "nodeapp"
-  Version = "v1"
-  ComponentType = "state.azure.blobstorage"
+$DaprArgs = @{
+    EnvName = $ContainerAppsEnvironment
+    ResourceGroupName = $ResourceGroupName
+    DaprName = "statestore"
+    Metadata = $AcctName, $AcctKey, $ContainerName
+    Secrets = $Secret
+    Scopes = "nodeapp"
+    Version = "v1"
+    ComponentType = "state.azure.blobstorage"
 }
 
-New-AzContainerAppManagedEnvDapr @CmdArgs
+New-AzContainerAppManagedEnvDapr @DaprArgs
 ```
 
 ---
@@ -288,37 +291,37 @@ This command deploys:
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
+$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
-$ENV_VARS = New-AzContainerAppEnvironmentVarObject `
-  -Name APP_PORT `
-  -Value 3000
+$EnvVars = New-AzContainerAppEnvironmentVarObject -Name APP_PORT -Value 3000
 
-$TEMPLATE_OBJ = New-AzContainerAppTemplateObject `
-  -Name nodeapp `
-  -Image dapriosamples/hello-k8s-node:latest `
-  -Env $ENV_VARS
-
-@CmdArgs = @{
+$TemplateArgs = @{ 
   Name = "nodeapp"
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-  ManagedEnvironmentId = $ENV_ID
-  TemplateContainer = $TEMPLATE_OBJ
-  IngressTargetPort = 3000
-  ScaleMinReplicas = 1
-  ScaleMaxReplicas = 1
-  DaprEnabled = $true
-  DaprAppId = "nodeapp"
-  DaprAppPort = 3000
+  Image = "dapriosamples/hello-k8s-node:latest"
+  Env = $EnvVars
+}
+$ServiceTemplateObj = New-AzContainerAppTemplateObject @TemplateArgs
+
+@ServiceArgs = @{
+    Name = "nodeapp"
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    ManagedEnvironmentId = $EnvId
+    TemplateContainer = $ServiceTemplateObj
+    IngressTargetPort = 3000
+    ScaleMinReplicas = 1
+    ScaleMaxReplicas = 1
+    DaprEnabled = $true
+    DaprAppId = "nodeapp"
+    DaprAppPort = 3000
 }
 
-New-AzContainerApp @CmdArgs
+New-AzContainerApp @ServiceArgs
 ```
 
 This command deploys:
 
-* the service (Node) app server on `APP_PORT 3000` (the app port) 
+* the service (Node) app server on `DaprAppPort 3000` (the app port) 
 * its accompanying Dapr sidecar configured with `-DaprAppId nodeapp` and `-DaprAppPort 3000'` for service discovery and invocation
 
 ---
@@ -347,23 +350,23 @@ az containerapp create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$TEMPLATE_OBJ = New-AzContainerAppTemplateObject `
+$ClientTemplateObj = New-AzContainerAppTemplateObject `
   -Name pythonapp `
   -Image dapriosamples/hello-k8s-python:latest
 
-@CmdArgs = @{
-  Name = "pythonapp"
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-  ManagedEnvironmentId = $ENV_ID
-  TemplateContainer = $TEMPLATE_OBJ
-  ScaleMinReplicas = 1
-  ScaleMaxReplicas = 1
-  DaprEnabled = $true
-  DaprAppId = "pythonapp"
+@ClientArgs = @{
+    Name = "pythonapp"
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    ManagedEnvironmentId = $EnvId
+    TemplateContainer = $ClientTemplateObj
+    ScaleMinReplicas = 1
+    ScaleMaxReplicas = 1
+    DaprEnabled = $true
+    DaprAppId = "pythonapp"
 }
 
-New-AzContainerApp @CmdArgs
+New-AzContainerApp @ClientArgs
 ```
 
 ---
@@ -438,14 +441,13 @@ Once you're done, run the following command to delete your resource group along 
 # [Bash](#tab/bash)
 
 ```azurecli
-az group delete \
-    --resource-group $RESOURCE_GROUP
+az group delete --resource-group $RESOURCE_GROUP
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---

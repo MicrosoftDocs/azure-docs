@@ -41,30 +41,31 @@ az containerapp env create \
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to  variables.
 
 ```powershell
-$CmdArgs = @{
-  Name = "myworkspace"
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-  PublicNetworkAccessForIngestion = "Enabled"
-  PublicNetworkAccessForQuery = "Enabled"
+$WorkspaceArgs = @{
+    Name = "myworkspace"
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    PublicNetworkAccessForIngestion = "Enabled"
+    PublicNetworkAccessForQuery = "Enabled"
 }
-New-AzOperationalInsightsWorkspace @CmdArgs
-$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -Name $CmdArgs.Name  -ResourceGroupName $RESOURCE_GROUP).CustomerId
-$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -Name $CmdArgs.Name  -ResourceGroupName $RESOURCE_GROUP).PrimarySharedKey
+New-AzOperationalInsightsWorkspace @WorkspaceArgs
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).CustomerId
+$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
 
 To create the environment, run the following command:
 
 ```powershell
-$CmdArgs = @{
-  EnvName = $CONTAINERAPPS_ENVIRONMENT
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-  LogAnalyticConfigurationCustomerId = $WORKSPACE_ID
-  AppLogConfigurationDestination = "log-analytics"
-  LogAnalyticConfigurationSharedKey = $WORKSPACE_SHARED_KEY
+$EnvArgs = @{
+    EnvName = $ContainerAppsEnvironment
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    AppLogConfigurationDestination = "log-analytics"
+    LogAnalyticConfigurationCustomerId = $WorkspaceId
+    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
 }
-New-AzContainerAppManagedEnv @CmdArgs 
+
+New-AzContainerAppManagedEnv @EnvArgs
 ```
 
 ---
@@ -95,22 +96,21 @@ By setting `--ingress` to `external`, you make the container app available to pu
 
 ```powershell
 $ImageParams = @{
-  Name = "my-container-app"
-  Image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
+    Name = "my-container-app"
+    Image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
 }
-$TEMPLATE_OBJ = New-AzContainerAppTemplateObject @ImageParams
-$ENV_ID = (Get-AzContainerAppManagedEnv -EnvName $CONTAINERAPPS_ENVIRONMENT -ResourceGroupName $RESOURCE_GROUP).Id
+$TemplateObj = New-AzContainerAppTemplateObject @ImageParams
+$EnvId = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).Id
 
 $CmdArgs = @{
-  Name = "my-container-app"
-  Location = $LOCATION
-  ResourceGroupName = $RESOURCE_GROUP
-  ManagedEnvironmentId = $ENV_ID
-  TemplateContainer = $TEMPLATE_OBJ
-  IngressTargetPort = 80
-  IngressExternal = $true
+    Name = "my-container-app"
+    Location = $Location
+    ResourceGroupName = $ResourceGroupName
+    ManagedEnvironmentId = $EnvId
+    TemplateContainer = $TemplateObj
+    IngressTargetPort = 80
+    IngressExternal = $true
 }
-
 New-AzContainerApp @CmdArgs
 ```
 
@@ -132,7 +132,7 @@ The `create` command returned the fully qualified domain name for the container 
 Get the fully qualified domain name for the container app.
 
 ```powershell
-(Get-AzContainerApp -Name $CmdArgs.Name -ResourceGroupName $RESOURCE_GROUP).IngressFqdn
+(Get-AzContainerApp -Name $CmdArgs.Name -ResourceGroupName $ResourceGroupName).IngressFqdn
 ```
 
 Copy this location to a web browser.
@@ -150,14 +150,13 @@ If you're not going to continue to use this application, run the following comma
 # [Bash](#tab/bash)
 
 ```azurecli
-az group delete \
-  --name $RESOURCE_GROUP
+az group delete --name $RESOURCE_GROUP
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---
