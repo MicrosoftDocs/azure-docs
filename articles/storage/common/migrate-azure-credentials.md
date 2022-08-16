@@ -1,5 +1,5 @@
 ---
-title: Migrate existing applications to use credential-free authentication
+title: Migrate applications to use credential-free authentication with Azure Storage
 titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from authentication patterns such as connection strings to more secure approaches like Managed Identity.
 services: storage
@@ -15,9 +15,9 @@ ms.custom: devx-track-csharp
 
 # Migrate an application to use credential-free connections with Azure services
 
-Application requests to Azure Storage must be authenticated. Azure Storage provides several different ways for apps to connect securely. Some of these options rely on string-formatted keys as credentials, such as connection strings, access keys, or shared access signatures. However, you should prioritize credential-free connections in your applications when possible. This tutorial explores how to migrate from traditional authentication methods to more secure, credential-free connections.
+Application requests to Azure Storage must be authenticated using either account access keys or credential-free connections. However, you should prioritize credential-free connections in your applications when possible. This tutorial explores how to migrate from traditional authentication methods to more secure, credential-free connections.
 
-## Compare authentication options
+## Compare existing authentication options
 
 The following code example demonstrates how to connect to Azure Storage using a storage account key. When you create a storage account, Azure generates access keys for that account.  Many developers gravitate towards this solution because it feels familiar to options they have worked with in the past. For example, connection strings for storage accounts also use access keys as part of the string. If your application currently uses access keys, consider migrating to credential-free connections using the steps described later in this document.
 
@@ -31,14 +31,14 @@ Storage account keys should be used with caution. Developers must be diligent to
 
 ## Introducing credential-free connections
 
-Many Azure services support credential-free connections such as Azure's Managed Identity or Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries. In this tutorial, you'll learn how to update an existing application to use credential-free connections instead of alternatives such as connection strings. 
+Many Azure services support credential-free connections through Azure Managed Identity and Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries. 
 
 > [!IMPORTANT]
 > Some frameworks must implement `DefaultAzureCredential` explicitly in their code, while others utilize `DefaultAzureCredential` internally through underlying plugins or drivers.
 
  `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code. 
 
-The order and locations in which `DefaultAzureCredential` searches for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential). For example, when working locally, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio. When the app is deployed to Azure, `DefaultAzureCredential` will automatically switch to use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). No code changes are required for this transition. 
+The order and locations in which `DefaultAzureCredential` searches for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential) and varies between languages. For example, when working locally with .NET, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio. When the app is deployed to Azure, `DefaultAzureCredential` will automatically switch to use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). No code changes are required for this transition. 
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-net/main/sdk/identity/Azure.Identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg"alt-text="A diagram of the credential flow.":::
 
@@ -81,11 +81,11 @@ The following steps explain how to migrate an existing application to use creden
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
-### 2) Sign-in and migrate the application code to use credential-free connections
+### 2) Sign-in and migrate the app code to use credential-free connections
 
-You can authorize access to data in your storage account using the following steps:
+You can authorize your application to access data in your storage account using the following steps:
 
-1. For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools like IntelliJ.
+1. For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
     [!INCLUDE [defaultazurecredential-sign-in](../../../includes/defaultazurecredential-sign-in.md)]
 
@@ -144,11 +144,11 @@ After making these code changes, run your application locally. The new configura
 
 Once your application is configured to use credential-free connections and runs locally, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage. 
 
-#### Create the managed identity
+#### Create the managed identity using the Azure Portal
 
-The following steps demonstrate how to create a system-assigned managed identity for an app service. The managed identity can securely connect to other Azure Services using the app configurations you setup previously.
+1. The following steps demonstrate how to create a system-assigned managed identity for various services. The managed identity can securely connect to other Azure Services using the app configurations you setup previously.
 
-### [Azure Portal](#tab/create-managed-identity-portal)
+### [App Service](#tab/app-service)
 
 1. On the main overview page of your App Service, select **Identity** from the left navigation. 
 
@@ -156,14 +156,74 @@ The following steps demonstrate how to create a system-assigned managed identity
 
     :::image type="content" source="media/migration-create-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-create-identity.png":::
 
+### [Container Apps](#tab/app-service)
 
-### [Azure CLI](#tab/create-managed-identity-cli)
+1. On the main overview page of your Azure Container App, select **Identity** from the left navigation. 
 
-You can enable managed identity on an app service using the Azure CLI with the [az webapp identity assign](/cli/azure/webapp/identity) command.
+1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and ids of the identity are never exposed in your code.
+
+    :::image type="content" source="media/storage-migrate-credentials/container-apps-identity.png" alt-text="A screenshot showing how to enable managed identity for container apps.":::    
+
+### [Spring Apps](#tab/app-service)
+
+1. On the main overview page of your Azure Spring App, select **Identity** from the left navigation. 
+
+1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and ids of the identity are never exposed in your code.
+
+    :::image type="content" source="media/storage-migrate-credentials/spring-apps-identity.png" alt-text="A screenshot showing how to enable managed identity for spring apps.":::    
+
+### [Virtual Machines](#tab/create-managed-identity-cli)
+
+1. On the main overview page of your Azure Spring App, select **Identity** from the left navigation. 
+
+1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and ids of the identity are never exposed in your code.
+
+    :::image type="content" source="media/storage-migrate-credentials/virtual-machine-identity.png" alt-text="A screenshot showing how to enable managed identity for virtual machines.":::  
+
+---
+
+You can also enable managed identity on an Azure hosting environment using the Azure CLI.
+
+### [App Service](#tab/app-service)
+
+ You can assign a managed identity to an Azure App Service with the [az webapp identity assign](/cli/azure/webapp/identity) command.
 
 ```azurecli
-az webapp identity assign --resource-group <resource-group-name> -name <app-service-name>
+az webapp identity assign --resource-group <resource-group-name> --name <app-service-name>
 ```
+
+### [Container Apps](#tab/app-service)
+
+ You can assign a managed identity to an Azure Container App with the [az containerapp identity assign](/cli/azure/containerapp/identity) command.
+
+```azurecli
+az containerapp identity assign --resource-group <resource-group-name> --name <app-service-name>
+```
+
+### [Spring Apps](#tab/app-service)
+
+ You can assign a managed identity to an Azure Spring App with the [az spring app identity assign](/cli/azure/spring/app/identity) command.
+
+```azurecli
+az spring app identity assign --resource-group <resource-group-name> --name <app-service-name> --service <service-name>
+```
+
+### [Virtual Machines](#tab/create-managed-identity-cli)
+
+ You can assign a managed identity to a Virtual Machine with the [az vm identity assign](/cli/azure/vm/identity) command.
+
+```azurecli
+az vm identity assign --resource-group <resource-group-name> --name <app-service-name>
+```
+
+### [AKS](#tab/create-managed-identity-cli)
+
+ You can assign a managed identity to an Azure Kubernetes Service with the [az aks update](/cli/azure/aks) command.
+
+```azurecli
+az vm identity assign --resource-group <resource-group-name> --name <app-service-name>
+```
+
 ---
 
 #### Assign roles to the managed identity
