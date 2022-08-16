@@ -143,9 +143,9 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
     display(results.select("text", col("sentiment")[0].getItem("score").alias("sentiment")))
     ```
 
-1. Get your subscription key from the **Keys and Endpoint** menu from your Language resource in the Azure portal.
+1. Get your region and subscription key from the **Keys and Endpoint** menu from your Language resource in the Azure portal.
 
-1. Replace the subscription key placeholder in your Databricks notebook code with your subscription key.
+1. Replace the region and subscription key placeholders in your Databricks notebook code with values that are valid for your resource.
 
 1. Select the play, or triangle, symbol in the upper right of your notebook cell to run the sample. Optionally, select **Run All** at the top of your notebook to run all cells. The answers will display below the cell in a table.
 

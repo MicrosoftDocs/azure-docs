@@ -59,15 +59,29 @@ Cognitive Services for big data can use resources from any [supported region](ht
 
 ## Supported programming languages for Cognitive Services for big data
 
-Cognitive Services for big data are built on Apache Spark. Apache Spark is a distributed computing library that supports Java, Scala, Python, R, and many other languages. These languages are currently supported.
+Cognitive Services for big data are built on Apache Spark. Apache Spark is a distributed computing library that supports Java, Scala, Python, R, and many other languages. See [SynapseML](https://microsoft.github.io/SynapseML) for documentation, samples, and blog posts.
+
+The following languages are currently supported.
 
 ### Python
 
-We provide a PySpark API in the `mmlspark.cognitive` namespace of [Microsoft ML for Apache Spark](https://aka.ms/spark). For more information, see the [Python Developer API](https://mmlspark.blob.core.windows.net/docs/1.0.0-rc1/pyspark/mmlspark.cognitive.html). For usage examples, see the [Python Samples](samples-python.md).
+We provide a PySpark API for current and legacy libraries:
+
+* [`synapseml.cognitive`](https://mmlspark.blob.core.windows.net/docs/0.10.0/pyspark/synapse.ml.cognitive.html)
+
+* [`mmlspark.cognitive`](https://mmlspark.blob.core.windows.net/docs/0.18.1/pyspark/modules.html)
+
+For more information, see the [Python Developer API](https://mmlspark.blob.core.windows.net/docs/1.0.0-rc1/pyspark/mmlspark.cognitive.html). For usage examples, see the [Python Samples](samples-python.md).
 
 ### Scala and Java
 
-We provide a Scala and Java-based Spark API in the `com.microsoft.ml.spark.cognitive` namespace of [Microsoft ML for Apache Spark](https://aka.ms/spark). For more information, see the [Scala Developer API](https://mmlspark.blob.core.windows.net/docs/1.0.0-rc1/scala/index.html#package). For usage examples, see the [Scala Samples](samples-scala.md).
+We provide a Scala and Java-based Spark API for current and legacy libraries:
+
+* [`com.microsoft.synapseml.cognitive`](https://mmlspark.blob.core.windows.net/docs/0.10.0/scala/com/microsoft/azure/synapse/ml/cognitive/index.html)
+
+* [`com.microsoft.ml.spark.cognitive`](https://mmlspark.blob.core.windows.net/docs/0.18.1/scala/index.html#com.microsoft.ml.spark.cognitive.package)
+
+For more information, see the [Scala Developer API](https://mmlspark.blob.core.windows.net/docs/1.0.0-rc1/scala/index.html#package). For usage examples, see the [Scala Samples](samples-scala.md).
 
 ## Supported platforms and connectors
 
