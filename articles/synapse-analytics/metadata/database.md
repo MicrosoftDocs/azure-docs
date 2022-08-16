@@ -32,7 +32,7 @@ The Spark default database is available in the serverless SQL pool context as a 
 >[!NOTE]
 > You cannot create a lake and a SQL database in the serverless SQL pool with the same name. 
 
-Tables in the Lake databases cannot be modified from a serverless SQL pool. Use the [Database designer](../database-designer/modify-lake-database.md) or Apache Spark pools to modify the Lake databases. The serverless SQL pool enables you to make the following changes in a lake database using Transact-SQL commands:
+Tables in the lake databases cannot be modified from a serverless SQL pool. Use the [Database designer](../database-designer/modify-lake-database.md) or Apache Spark pools to modify a lake database. The serverless SQL pool enables you to make the following changes in a lake database using Transact-SQL commands:
 
 - Adding, altering, and dropping views, procedures, inline table-value functions in a lake database.
 - Adding and removing database-scoped Azure AD users.
