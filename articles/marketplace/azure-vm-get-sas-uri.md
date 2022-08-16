@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.author: amhindma
 author: amhindma
-ms.date: 08/17/2022
+ms.date: 08/16/2022
 ---
 
 # Generate a SAS URI for a VM image
@@ -77,7 +77,7 @@ sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snaps
 az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
 ```
 
-This script about uses the following commands to generate the SAS URI for a snapshot and copies the underlying VHD to a storage account using the SAS URI.
+This script above uses the following commands to generate the SAS URI for a snapshot and copies the underlying VHD to a storage account using the SAS URI.
 
 |Command  |Notes  |
 |---------|---------|
@@ -123,8 +123,6 @@ There are two common tools used to create a SAS address (URI):
     | container-name | Your blob container that hosts the VHD file. |
     | start-date | This is the permission start date for VHD access. Provide a date one day before the current date. For example, if the current date is July 15, 2022, set the date as 07/14/2022. Provide dates in UTC date/time format (YYYY-MM-DDT00:00:00Z), such as 2022-04-01T00:00:00Z. |
     | expiry-date | This is the permission expiration date for VHD access. Provide a date at least three weeks after the current date. Provide dates in UTC date/time format (YYYY-MM-DDT00:00:00Z), such as 2022-04-01T00:00:00Z. |
-
-    [![creation of a SAS connection string within the PowerShell editor](./media/vm/create-sas-uri-power-shell-ise.png)](./media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 
 1. Copy the SAS connection string and save it to a text file in a secure location. Edit this string to add the VHD location information to create the final SAS URI.
 1. In the Azure portal, go to the blob container that includes the VHD associated with the new URI.
