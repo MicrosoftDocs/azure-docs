@@ -65,7 +65,7 @@ You can also configure managed identities for use with Azure Machine Learning co
 > [!TIP]
 > There are some exceptions to the use of Azure AD and Azure RBAC within Azure Machine Learning:
 > * You can optionally enable __SSH__ access to compute resources such as Azure Machine Learning compute instance and compute cluster. SSH access is based on public/private key pairs, not Azure AD. SSH access is not governed by Azure RBAC.
-> * You can authenticate to models deployed as web services (inference endpoints) using __key__ or __token__-based authentication. Keys are static strings, while tokens are retrieved using an Azure AD security object. For more information, see [Configure authentication for models deployed as a web service](how-to-authenticate-web-service.md).
+> * You can authenticate to models deployed as online endpoints using __key__ or __token__-based authentication. Keys are static strings, while tokens are retrieved using an Azure AD security object. For more information, see [How to authenticate online endpoints](how-to-authenticate-online-endpoint.md).
 
 For more information, see the following articles:
 * [Authentication for Azure Machine Learning workspace](how-to-setup-authentication.md)
@@ -114,7 +114,6 @@ When deploying models as web services, you can enable transport-layer security (
 
 * [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security)
 * [Secure Azure Machine Learning web services with TLS](./v1/how-to-secure-web-service.md)
-* [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [Use Azure Machine Learning with Azure Firewall](how-to-access-azureml-behind-firewall.md)
 * [Use Azure Machine Learning with Azure Virtual Network](how-to-network-security-overview.md)
 * [Data encryption at rest and in transit](concept-data-encryption.md)

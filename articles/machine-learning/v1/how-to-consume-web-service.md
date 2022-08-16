@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 08/15/2022
 ms.topic: how-to
 ms.devlang: csharp, golang, java, python
 ms.custom: devx-track-python, devx-track-csharp, cliv1, sdkv1, event-tier1-build-2022
@@ -43,11 +43,11 @@ The [azureml.core.Webservice](/python/api/azureml-core/azureml.core.webservice%2
 * `scoring_uri` - The REST API address.
 * `swagger_uri` - The address of the OpenAPI specification. This URI is available if you enabled automatic schema generation. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
-There are a several ways to retrieve this information for deployed web services:
+There are several ways to retrieve this information for deployed web services:
 
 # [Python](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 * When you deploy a model, a `Webservice` object is returned with information about the service:
 
@@ -76,7 +76,7 @@ There are a several ways to retrieve this information for deployed web services:
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 If you know the name of the deployed service, use the [az ml service show](/cli/azure/ml(v1)/service#az-ml-service-show) command:
 
@@ -107,7 +107,7 @@ If you secured the deployed web service using a TLS/SSL certificate, you can use
 > [!IMPORTANT]
 > Web services deployed by Azure Machine Learning only support TLS version 1.2. When creating a client application, make sure that it supports this version.
 
-For more information, see [Use TLS to secure a web service through Azure Machine Learning](./v1/how-to-secure-web-service.md).
+For more information, see [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md).
 
 ### Authentication for services
 
@@ -127,10 +127,10 @@ The primary difference between keys and tokens is that **keys are static and can
 
 When you enable authentication for a deployment, you automatically create authentication keys.
 
-* Authentication is enabled by default when you are deploying to Azure Kubernetes Service.
-* Authentication is disabled by default when you are deploying to Azure Container Instances.
+* Authentication is enabled by default when you're deploying to Azure Kubernetes Service.
+* Authentication is disabled by default when you're deploying to Azure Container Instances.
 
-To control authentication, use the `auth_enabled` parameter when you are creating or updating a deployment.
+To control authentication, use the `auth_enabled` parameter when you're creating or updating a deployment.
 
 If authentication is enabled, you can use the `get_keys` method to retrieve a primary and secondary authentication key:
 
@@ -146,10 +146,10 @@ print(primary)
 
 When you enable token authentication for a web service, a user must provide an Azure Machine Learning JWT token to the web service to access it. 
 
-* Token authentication is disabled by default when you are deploying to Azure Kubernetes Service.
-* Token authentication is not supported when you are deploying to Azure Container Instances.
+* Token authentication is disabled by default when you're deploying to Azure Kubernetes Service.
+* Token authentication isn't supported when you're deploying to Azure Container Instances.
 
-To control token authentication, use the `token_auth_enabled` parameter when you are creating or updating a deployment.
+To control token authentication, use the `token_auth_enabled` parameter when you're creating or updating a deployment.
 
 If token authentication is enabled, you can use the `get_token` method to retrieve a bearer token and that tokens expiration time:
 
@@ -158,9 +158,9 @@ token, refresh_by = service.get_token()
 print(token)
 ```
 
-If you have the [Azure CLI and the machine learning extension](v1/reference-azure-machine-learning-cli.md), you can use the following command to get a token:
+If you have the [Azure CLI and the machine learning extension](reference-azure-machine-learning-cli.md), you can use the following command to get a token:
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az ml service get-access-token -n <service-name>
@@ -169,7 +169,7 @@ az ml service get-access-token -n <service-name>
 > [!IMPORTANT]
 > Currently the only way to retrieve the token is by using the Azure Machine Learning SDK or the Azure CLI machine learning extension.
 
-You will need to request a new token after the token's `refresh_by` time. 
+You'll need to request a new token after the token's `refresh_by` time. 
 
 ## Request data
 
