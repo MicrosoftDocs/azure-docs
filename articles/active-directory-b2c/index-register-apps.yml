@@ -32,3 +32,7 @@ landingContent:
             url: client-credentials-grant-flow.md
           - text: Register apps using Microsoft Graph API
             url: microsoft-graph-operations.md#applications
+          - text: Publish app in Azure AD app gallery
+            url: publish-app-to-azure-ad-app-gallery.md  
+          - text: Register a SAML application
+            url: saml-service-provider.md?tabs=windows&pivots=b2c-custom-policy                        
