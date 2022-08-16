@@ -1,6 +1,6 @@
 ---
-title: Add branding to your organization's sign-in page - Azure AD
-description: Instructions about how to add your organization's branding to the Azure Active Directory sign-in page.
+title: Add branding to your organization's sign-in page (preview) - Azure AD
+description: Instructions about how to add your organization's branding to the sign-in experience.
 services: active-directory
 author: barclayn
 manager: rkarlin
@@ -91,13 +91,13 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
 
     To begin a new paragraph, use the enter key twice. You can also change text formatting to include bold, italics, an underline or clickable link. Use the following syntax to add formatting to text: 
 
-       > Hyperlink: `[text](link)` 
+    > Hyperlink: `[text](link)` 
         
-       > Bold: `**text**` or `__text__` 
+    > Bold: `**text**` or `__text__` 
           
-       > Italics: `*text*` or `_text_` 
+    > Italics: `*text*` or `_text_` 
           
-       > Underline: `++text++` 
+    > Underline: `++text++` 
          
     > [!IMPORTANT]
     > Hyperlinks that are added to the sign-in page text render as text in native environments, such as desktop and mobile applications.

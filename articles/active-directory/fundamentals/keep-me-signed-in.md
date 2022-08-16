@@ -14,7 +14,7 @@ ms.reviewer: asteen, jlu, ludwignick
 ms.collection: M365-identity-device-management
 ---
 
-## Configure the 'Stay signed in?' prompt for Azure AD accounts
+# Configure the 'Stay signed in?' prompt for Azure AD accounts
 
 You can also customize the **Stay signed in?** prompt after a user successfully signs in. This process is known as **Keep me signed in** (KMSI). If a user answers **Yes** to this prompt, the KMSI service gives them a persistent [refresh token](../develop/developer-glossary.md#refresh-token). For federated tenants, the prompt will show after the user successfully authenticates with the federated identity service.
 

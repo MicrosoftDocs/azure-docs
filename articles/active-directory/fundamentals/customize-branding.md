@@ -128,13 +128,13 @@ Whether an application supports customized URLs for branding or not depends on t
 
 ## Edit custom branding
 
-If custom branding has been added to your tenant, you can edit the details already provided. Refer to the details and descriptions of each setting in the [Add custom branding](#add-custom-branding) section of this article.
+If custom branding has been added to your tenant, you can edit the details already provided. Refer to the details and descriptions of each setting in the [Add custom branding](#customize-the-default-sign-in-experience) section of this article.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory** > **Company branding** > **Configure**.
 
-    ![Contoso - Company branding page, with default configuration shown](media/customize-branding/company-branding-default-configPNG)
+    ![Contoso - Company branding page, with default configuration shown](media/customize-branding/company-branding-default-config.png)
 
 3. On the **Configure company branding** page, edit any necessary details.
 
@@ -150,7 +150,7 @@ The following diagram shows the user sign-in flow for a managed tenant and feder
 
 KMSI is only available on the default custom branding. It can't be added to language-specific branding. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
 
-![Diagram showing the user sign-in flow for a managed vs. federated tenant](media/keep-me-signed-in/kmsi-workflowPNG)
+![Diagram showing the user sign-in flow for a managed vs. federated tenant](media/keep-me-signed-in/kmsi-workflow.png)
 
 See the [License requirements](#license-requirements) section for using the KMSI service.
 
