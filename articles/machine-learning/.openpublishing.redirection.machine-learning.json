@@ -6,7 +6,7 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-use-data",
+        "source_path_from_root": "/articles/machine-learning/how-to-use-data.md",
         "redirect_url": "/azure/machine-learning/how-to-read-write-data-v2",
         " redirect_document_id": false
     },
