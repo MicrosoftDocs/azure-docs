@@ -46,7 +46,7 @@ Real-time detections may not show up in reporting for 5 to 10 minutes. Offline d
 
 ### Premium detections
 
-Premium detections are visible only to Azure AD Premium P2 customers. Customers without Azure AD Premium P2 licenses still receives the premium detections but they'll be titled "additional risk detected".
+Premium detections are visible only to Azure AD Premium P2 customers. Customers without Azure AD Premium P2 licenses still receive the premium detections but they'll be titled "additional risk detected".
 
 ### Sign-in risk
 
