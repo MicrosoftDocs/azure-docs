@@ -29,7 +29,7 @@ Read [Policy control](policy-control.md) and make sure you're familiar with Azur
 
 Each service has top-level settings that determine its name and the QoS characteristics, if any, that it will offer.
 
-Collect the service name for your service.
+Collect each of the values in the table below for your service.
 
 | Value | Azure portal field name | Included in example ARM template |  
 |--|--|--|

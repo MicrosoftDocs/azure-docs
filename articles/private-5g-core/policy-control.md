@@ -69,7 +69,8 @@ Each service includes:
   - A traffic control setting, which determines whether the packet core instance should allow or block traffic matching the SDF(s).
   - A precedence value, which the packet core instance can use to rank data flow policy rules by importance.
 
-- Optionally, a set of QoS characteristics that should be applied on SDFs matching the service. The packet core instance will use these characteristics to create a QoS flow or EPS bearer to bind to matching SDFs. You can specify the following QoS settings on a service:
+- Optionally, a set of QoS characteristics that should be applied on SDFs matching the service. The packet core instance will use these characteristics to create a QoS flow or EPS bearer to bind to matching SDFs. If you don't configure QoS characteristics, the default characteristics of the parent SIM policy will be used instead.  
+You can specify the following QoS settings on a service:
 
   - The maximum bit rate (MBR) for uplink traffic (away from the UE) across all matching SDFs.
   - The MBR for downlink traffic (towards the UE) across all matching SDFs.
