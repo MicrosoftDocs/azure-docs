@@ -19,23 +19,10 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
 
 *Forecast only* allows you to view your predicted CPU forecast without triggering the scaling action based on the prediction. You can then compare the forecast with your actual workload patterns to build confidence in the prediction models before you enable the predictive autoscale feature.
 
-## Public preview support, availability, and limitations
+## Public preview support and limitations
 
 >[!NOTE]
 > This release is a public preview. We're testing and gathering feedback for future releases. As such, we do not provide production-level support for this feature. Support is best effort. Send feature suggestions or feedback on predicative autoscale to predautoscalesupport@microsoft.com.
-
-During public preview, predictive autoscale is only available in the following regions:
-
-- West Central US
-- West US2
-- UK South
-- UK West
-- Southeast Asia
-- East Asia
-- Australia East
-- Australia South east
-- Canada Central
-- Canada East
 
 The following limitations apply during public preview. Predictive autoscale:
 
@@ -313,6 +300,9 @@ For more information on Azure Resource Manager templates, see [Resource Manager 
 
 This section answers common questions.
 
+### Why is CPU percentage over 100 percent on predictive charts?
+The chart showcases cumulative load of all machines in the VMSS. If you have 5 VMs in a VMSS, the max cumulative load of all machines will be 500%. This is because the max CPU load of each VM is 100%.
+
 ### What happens over time when you turn on predictive autoscale for a virtual machine scale set?
 
 Prediction autoscale uses the history of a running virtual machine scale set. If your scale set has been running less than 7 days, you'll receive a message that the model is being trained. For more information, see the [no predictive data message](#errors-and-warnings). Predictions improve as time goes by and achieve maximum accuracy 15 days after the virtual machine scale set is created.
@@ -326,6 +316,11 @@ The modeling works best with workloads that exhibit periodicity. We recommend th
 ### Why do I need to enable standard autoscale before I enable predictive autoscale?
 
 Standard autoscaling is a necessary fallback if the predictive model doesn't work well for your scenario. Standard autoscale will cover unexpected load spikes, which aren't part of your typical CPU load pattern. It also provides a fallback if an error occurs in retrieving the predictive data.
+
+### Which rule will take effect if both predictive and standard autoscale rules are set?
+In the case of unexpected spikes or error retrieving predictive data, standard autoscale rules are used. 
+
+We use the threshold set in standard autoscale rules to understand when you’d like to scale out and by how many instances. Let's say you want your VMSS to scale out when 70% CPU is met. If actual or predictive (future) data shows that 70% CPU is met, then scale out will occur.
 
 ## Errors and warnings
 
