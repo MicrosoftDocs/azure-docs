@@ -47,7 +47,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 ## Create a Managed Grafana workspace
 
-Create an workspace and enable zone-redundancy with the Azure portal or the CLI.
+Create a workspace and enable zone redundancy with the Azure portal or the CLI.
 
 ### [Portal](#tab/azure-portal)
 
@@ -67,7 +67,7 @@ Create an workspace and enable zone-redundancy with the Azure portal or the CLI.
     | Name                | Enter a unique resource name. It will be used as the domain name in your Managed Grafana instance URL.                                                                                                   | *my-grafana*        |
     | Zone Redundancy     | Set **Enable Zone Redundancy** to **Enable**. Zone redundancy automatically provisions and manages a standby replica of the Managed Grafana instance in a different availability zone within one region. | *Enabled*           |
 
-1. Make sure that **Zone redundancy** is set to **Enable**. Zone redundancy automatically provisions and manages a standby replica of the Managed Grafana instance in a different availability zone within one region. There's an [additional charge](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing) for this option.
+1. Set **Zone redundancy** to **Enable**. Zone redundancy automatically provisions and manages a standby replica of the Managed Grafana instance in a different availability zone within one region. There's an [additional charge](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing) for this option.
 
     :::image type="content" source="media/quickstart-portal/create-form-basics-with-redundancy.png" alt-text="Screenshot of the Azure portal. Create workspace form. Basics.":::
 
@@ -80,7 +80,7 @@ Create an workspace and enable zone-redundancy with the Azure portal or the CLI.
 
    1. The box **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is checked.
 
-   1. The box **Include myself** under **Grafana administrator role** is checked. This grants you the Grafana administrator role, and lets you manage access rights. You can give this right to more members by selecting **Add**. If you this option grays out for you, ask someone with the Owner role on the subscription to assign you the Grafana Admin role.
+   1. The box **Include myself** under **Grafana administrator role** is checked by default. This !grants you the Grafana administrator role, and lets you manage access rights. You can give this right to more members by selecting **Add**. If this option is grayed out, ask someone with the Owner role on the subscription to assign you the Grafana Admin role.
 
     :::image type="content" source="media/quickstart-portal/create-form-permission.png" alt-text="Screenshot of the Azure portal. Create workspace form. Permission.":::
 
@@ -126,7 +126,7 @@ Once the deployment is complete, you'll see a note in the output of the command 
 
 ## Check if zone redundancy is enabled
 
-To check if zone redundancy is enabled under **Settings**, go to **Configuration** in the portal and check if the if Zone redundancy is listed as enabled or disabled.
+In the Azure portal, under **Settings**, go to **Configuration** and check if **Zone redundancy** is listed as enabled or disabled.
 
    :::image type="content" source="media/quickstart-portal/configuration.png" alt-text="Screenshot of the Azure portal. Check zone redundancy.":::
 
