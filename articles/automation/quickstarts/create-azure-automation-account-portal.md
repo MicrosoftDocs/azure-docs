@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Create an Azure Automation account using the portal
-description: This quickstart helps you get started creating an Azure Automation account using the portal
+description: This quickstart helps you to create a new Automation account using Azure portal.
 services: automation
 ms.date: 10/26/2021
 ms.topic: quickstart
@@ -62,7 +62,7 @@ The following table describes the fields on the **Advanced** tab.
 |System-assigned |Optional |An Azure Active Directory identity that is tied to the lifecycle of the Automation account. |
 |User-assigned |Optional |A managed identity represented as a standalone Azure resource that is managed separately from the resources that use it.|
 
-You can chose to enable managed identities later, and the Automation account is created without one. To enable a managed identity after the account is created, see [Enable managed identity](enable-managed-identity.md). If you select both options, for the user-assigned identity, select the **Add user assigned identities** option. On the **Select user assigned managed identity** page, select a subscription and add one or more user-assigned identities created in that subscription to assign to the Automation account.
+You can choose to enable managed identities later, and the Automation account is created without one. To enable a managed identity after the account is created, see [Enable managed identity](enable-managed-identity.md). If you select both options, for the user-assigned identity, select the **Add user assigned identities** option. On the **Select user assigned managed identity** page, select a subscription and add one or more user-assigned identities created in that subscription to assign to the Automation account.
 
 The following image shows a standard configuration for a new Automation account.
 
@@ -70,7 +70,7 @@ The following image shows a standard configuration for a new Automation account.
 
 ### Networking
 
-On the **Networking** tab, you can connect to your automation account either publicly, (via public IP addresses), or privately, using a private endpoint. The following image shows the connectivity configuration that you can define for a new automation account.
+On the **Networking** tab, you can connect to your automation account either publicly (via public IP addresses), or privately, using a private endpoint. The following image shows the connectivity configuration that you can define for a new automation account.
 
 - **Public Access** – This default option provides a public endpoint for the Automation account that can receive traffic over the internet and does not require any additional configuration. However, we don't recommend it for private applications or secure environments. Instead, the second option **Private access**, a private Link mentioned below can be leveraged to restrict access to automation endpoints only from authorized virtual networks. Public access can simultaneously coexist with the private endpoint enabled on the Automation account. If you select public access while creating the Automation account, you can add a Private endpoint later from the Networking blade of the Automation Account. 
 
