@@ -264,7 +264,7 @@ For **Wide & Deep recommender** and **Vowpal Wabbit** models, you can configure 
 
 For **SVD recommender** trained model, the parameter names and values maybe less obvious, and you can look up the tables below to decide how to set parameters.
 
-| Parameter name in [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md)                           | Parameter name in the entry script file |
+| Parameter name in [Score SVD Recommender](../algorithm-module-reference/score-svd-recommender.md)                           | Parameter name in the entry script file |
 | ------------------------------------------------------------ | --------------------------------------- |
 | Recommender prediction kind                                  | prediction_kind                         |
 | Recommended item selection                                   | recommended_item_selection              |

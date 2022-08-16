@@ -168,7 +168,7 @@ Monitoring enables you to understand what data is being sent to your model, and 
 
 This information helps you understand how your model is being used. The collected input data might also be useful in training future versions of the model.
 
-For more information, see [Enable model data collection](how-to-enable-data-collection.md).
+For more information, see [Enable model data collection](v1/how-to-enable-data-collection.md).
 
 ## Retrain your model on new data
 
