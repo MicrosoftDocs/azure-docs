@@ -192,7 +192,7 @@ You deploy a [registered model](#model-registry) as a service endpoint. You need
 * **Scoring code**. This script accepts requests, scores the requests by using the model, and returns the results.
 * **Inference configuration**. The inference configuration specifies the environment, entry script, and other components needed to run the model as a service.
 
-For more information about these components, see [Deploy models with Azure Machine Learning](../how-to-deploy-and-where.md).
+For more information about these components, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### Endpoints
 
