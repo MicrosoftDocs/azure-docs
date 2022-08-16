@@ -11,4 +11,4 @@
 ---
 
 > [!TIP]
-> you can use [**Language Studio**](../language-studio.md) to try document summarization without needing to write code. 
+> you can use [**Language Studio**](../../language-studio.md) to try document summarization without needing to write code. 

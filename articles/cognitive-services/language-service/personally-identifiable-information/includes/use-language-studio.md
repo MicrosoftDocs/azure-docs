@@ -9,4 +9,4 @@ ms.custom: include
 ---
 
 > [!TIP]
-> you can use [**Language Studio**](../language-studio.md) to try PII detection in documents without needing to write code.
+> you can use [**Language Studio**](../../language-studio.md) to try PII detection in documents without needing to write code.
