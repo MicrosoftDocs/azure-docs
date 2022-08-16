@@ -133,7 +133,7 @@ The following services are supported by autoscale:
 
 | Service | Schema & Documentation |
 | --- | --- |
-| Azure Virtual machines scale sets |[Overview of autoscale with Azure virtual machine scale sets](azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) |
+| Azure Virtual machines scale sets |[Overview of autoscale with Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) |
 | Web apps |[Scaling Web Apps](autoscale-get-started.md) |
 | Azure API Management service|[Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)
 | Azure Data Explorer Clusters|[Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)|
