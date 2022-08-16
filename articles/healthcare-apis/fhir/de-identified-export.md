@@ -46,7 +46,7 @@ Here's a sample configuration file for FHIR R4:
 }
 ```
 
-For detailed information on the parameters within the configuration file, visit [here](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format). 
+For detailed information on the settings within the configuration file, visit [here](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format). 
 
 ## Using the `$export` endpoint for de-identifying data 
 
