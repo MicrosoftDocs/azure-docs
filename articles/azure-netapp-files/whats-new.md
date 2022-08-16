@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 08/15/2022
+ms.date: 08/16/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -33,18 +33,14 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Azure Application Consistent Snapshot Tool (AzAcSnap) 6](azacsnap-release-notes.md)
     
-    [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases (SAP HANA) in Linux environments.
-
-    AzAcSnap 6 brings the following new capabilities:
+    [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases (SAP HANA) in Linux environments. With AzAcSnap 6, there is a new [release model](azacsnap-release-notes.md). AzAcSnap 6 also introduces the following new capabilities:
 
     Now generally available:
     * Oracle Database support
     * Backint integration to work with Azure Backup
     * [RunBefore and RunAfter](azacsnap-cmd-ref-runbefore-runafter.md) CLI options to execute custom shell scripts and commands before or after taking storage snapshots
 
-    In preview:
-    >[!NOTE]
-    > Preview features must be enabled with the `--preview` CLI option. 
+    In preview: 
     * Azure Key Vault to store Service Principal content
     * Azure Managed Disk as an alternate storage back end
 
