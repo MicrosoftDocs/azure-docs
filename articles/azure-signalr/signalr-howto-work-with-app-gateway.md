@@ -37,10 +37,12 @@ Create from the portal an Application Gateway instance **_AG1_**:
     - **Virtual network**, select **Create new**, and in the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets, one for the application gateway, and another for the backend servers.
         - **Name**: Enter **_VN1_** for the name of the virtual network.
         - **Subnets**: Update the **Subnets** grid with below 2 subnets
-          | Subnet name | Address range| Note
+
+          | Subnet name | Address range| Note|
           |--|--|--|
           | *myAGSubnet* | (address range) | Subnet for the application gateway. The application gateway subnet can contain only application gateways. No other resources are allowed.
           | *myBackendSubnet* | (another address range) | Subnet for the Azure SignalR instance.
+          
     - Accept the default values for the other settings and then select **Next: Frontends**
 
     :::image type="content" source="./media/signalr-howto-work-with-app-gateway/basics.png" alt-text="Create Application Gateway instance with Basics tab.":::  
