@@ -116,7 +116,7 @@ The `az ml schedule` command can be used for managing Azure Machine Learning mod
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/schedules). Several are shown below.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/schedules). A couple are shown below.
 
 ## YAML: Schedule with recurrence pattern
 
@@ -134,7 +134,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ### Timezone
 
-Current schedule supports the following timezones. The key (left of =) can be used directly in the Python SDK, while the value (right of =) can be used in the YAML job.
+Current schedule supports the following timezones. The key can be used directly in the Python SDK, while the value can be used in the YAML job. The table is organized by UTC(Coordinated Universal Time).
 
 | UTC         | Key                             | Value                             |
 |-------------|---------------------------------|-----------------------------------|
