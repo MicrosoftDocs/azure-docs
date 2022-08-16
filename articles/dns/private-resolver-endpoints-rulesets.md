@@ -20,7 +20,7 @@ Diagram here
 
 As the name suggests, inbound endpoints will ingress to Azure. Inbound endpoints provide an IP address to forward DNS queries from on-premisesises and other locations outside your virtual network. DNS queries sent to the inbound endpoint are resolved using Azure DNS. Private DNS zones that are linked to the virtual network where the inbound endpoint is provisioned are resolved by the inbound endpoint. 
 
-The IP address associated with an inbound endpoint is always part of the private virtual network address space where the private resolver is deployed.  No other resources can exist in the same subnet with the inbound endpoint. 
+The IP address associated with an inbound endpoint is always part of the private virtual network address space where the private resolver is deployed.  No other resources can exist in the same subnet with the inbound endpoint. The following screenshot shows an inbound endpoint with an IP address of 10.10.0.4 inside the subnet `snet-E-inbound` provisioned within a virtual network with address space of 10.10.0.0/16.
 
 ![View inbound endpoints](./media/private-resolver-endpoints-rulesets/east-inbound-endpoint.png)
 
@@ -28,20 +28,20 @@ The IP address associated with an inbound endpoint is always part of the private
 
 Outbound endpoints egress from Azure and can be linked to [DNS Forwarding Rulesets](#dns-forwarding-rulesets).
 
-Outbound endpoints are also part of the private virtual network address space where the private resolver is deployed. An endpoint is associated with a subnet, but is not provisioned with an IP address like the inbound endpoint.  No other resources can exist in the same subnet with the inbound endpoint. You for purposes of scale, you can create multiple outbound endpoints within a virtual network.
+Outbound endpoints are also part of the private virtual network address space where the private resolver is deployed. An endpoint is associated with a subnet, but is not provisioned with an IP address like the inbound endpoint.  No other resources can exist in the same subnet with the inbound endpoint. One outbound endpoint is required, but for purposes of scale, you can create multiple outbound endpoints within a virtual network. The following screenshot shows an example where two outbound endpoints are provisoned, each in their own subnet.
 
 ![View outbound endpoints](./media/private-resolver-endpoints-rulesets/east-outbound-endpoint.png)
 
 ## DNS forwarding rulesets
 
-DNS forwarding rulesets enable you to specify one or more custom DNS servers to answer queries for specific DNS namespaces using the [rules] that are enabled in your ruleset. Rulesets also enable you to link one or more virtual networks so that resources in those vnets can use the forwarding rules you configure.
+DNS forwarding rulesets enable you to specify one or more custom DNS servers to answer queries for specific DNS namespaces using the [rules](#rules) that are enabled in your ruleset. Rulesets can also be linked one or more virtual networks, enabling resources in those vnets to use the forwarding rules that you configure.
 
 Rulesets have the following associations: 
 - A single ruleset can be associated with multiple outbound endpoints. 
 - A ruleset can have up to 1000 DNS forwarding rules. 
-- A ruleset can be linked to any number of virtual networks in the same region. 
+- A ruleset can be linked to any number of virtual networks in the same region
 
-When you link a ruleset to a virtual network, resources within that virtual network will use the enabled DNS forwarding rules that are enabled in the ruleset. The linked virtual network must peer with the virtual network where the outbound endpoint exists. A typical scenario for this configuration is a hub and spoke design with spoke vnets peered to a hub vnet with one or more private resolver endpoints. 
+A ruleset can't be linked to a virtual network in another region. When you link a ruleset to a virtual network, resources within that virtual network will use the DNS forwarding rules that are enabled in the ruleset. The linked virtual network must peer with the virtual network where the outbound endpoint exists. This configuration is typically used in a hub and spoke design, with spoke vnets peered to a hub vnet that has one or more private resolver endpoints. The following screenshot shows a DNS forwarding ruleset linked to two virtual networks: a hub vnet: **myeastvnet**, and a spoke vnet: **myeastspoke**.
 
 ![View ruleset links](./media/private-resolver-endpoints-rulesets/ruleset-links.png)
 
@@ -58,7 +58,7 @@ DNS forwarding rules have the following properties:
 
 If multiple rules are matched, the longest prefix match is used.  
 
-For example, imagine you have the following rules:
+For example, if you have the following rules:
 
 | Rule name | Domain name | Destination IP:Port | Rule state |
 | --- | --- | --- | --- |
