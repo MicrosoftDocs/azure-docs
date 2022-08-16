@@ -26,4 +26,4 @@ The following table lists all the upcoming breaking changes and feature retireme
 [bc1]: ./rp-source-ip-address-change-mar-2023.md
 [rp2023]: ./rp-source-ip-address-change-sep-2023.md 
 [api2023]: ./api-version-retirement-sep-2023.md
-[devportal2023]: ./api-management-customize-styles.md
+[devportal2023]: ../api-management-customize-styles.md
