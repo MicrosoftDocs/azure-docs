@@ -86,6 +86,12 @@ For data sources that emit data in CEF, set up the Syslog agent and then configu
 
 Learn how to [connect CEF-based appliances to Microsoft Sentinel](connect-common-event-format.md).
 
+### Domain Name System (DNS)
+
+You can stream events from Windows DNS servers into Microsoft Sentinel using the Azure Monitor Agent (AMA) and its DNS extension.
+
+Learn how to [connect DNS servers to Microsoft Sentinel](connect-dns-ama.md).
+
 ### Custom logs
 
 For some data sources, you can collect logs as files on Windows or Linux computers using the Log Analytics custom log collection agent.

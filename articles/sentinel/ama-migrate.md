@@ -41,7 +41,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Multi-homing**     |  Collection only       |   Collection only      |
 |**Application and service logs**     |    -      |    Collection only     |
 |**Sysmon**     |    Collection only      |      Collection only   |
-|**DNS logs**     |   -       | Collection only        |
+|**DNS logs**     |   Collection only       | Collection only        |
 
 
 ### Linux logs

@@ -236,6 +236,8 @@
         href: ama-migrate.md
       - name: CEF over Syslog sources
         href: connect-common-event-format.md
+      - name: DNS via AMA
+        href: connect-dns-ama.md
       - name: Syslog (raw) sources
         href: connect-syslog.md
       - name: Microsoft Sentinel Data Collector API

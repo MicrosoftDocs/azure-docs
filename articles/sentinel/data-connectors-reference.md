@@ -31,6 +31,7 @@ This article describes how to deploy data connectors in Microsoft Sentinel, list
     | **Microsoft Sentinel Data Collector API** | [Connect your data source to the Microsoft Sentinel Data Collector API to ingest data](connect-rest-api-template.md) |
     | **Azure Functions and the REST API** | [Use Azure Functions to connect Microsoft Sentinel to your data source](connect-azure-functions-template.md) |
     | **Syslog** | [Collect data from Linux-based sources using Syslog](connect-syslog.md) |
+    | **Domain Name System (DNS) with Azure Monitor Agent (AMA)** | [Stream and filter data from Windows DNS servers with the AMA connector](connect-dns-ama.md) |
     | **Custom logs** | [Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md) |
     |
 
