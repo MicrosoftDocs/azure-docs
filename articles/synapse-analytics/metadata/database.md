@@ -36,7 +36,7 @@ Tables in the Lake databases cannot be modified from a serverless SQL pool. Use 
 
 - Adding, altering, and dropping views, procedures, inline table-value functions in a lake database.
 - Adding and removing database-scoped Azure AD users.
-- Add or remove Azure AD database users to the **db_datareader** role. Azure AD database users in the `db_dtareader` role have permission to read all tables in the lake database, but cannot read data from other databases.
+- Add or remove Azure AD database users to the **db_datareader** role. Azure AD database users in the **db_datareader** role have permission to read all tables in the lake database, but cannot read data from other databases.
 
 ## Security model
 
@@ -81,13 +81,11 @@ Lake databases allow creation of custom T-SQL objects, such as schemas, procedur
 > [!IMPORTANT]
 > You must create custom SQL schema where you will place your SQL objects. The custom SQL objects cannot be placed in the `dbo` schema. The `dbo` schema is reserved for the lake tables that are originally created in Spark or database designer.
 
-In addition to SQL objects, you can add Azure AD users in the lake database and add them to the **db_datareader** role.
-
 ## Examples
 
 ### Create SQL database reader in lake database
 
-In this example, we are adding an Azure AD user in the lake database who can read data via shared tables. The users are added in the lake database via the **serverless SQL pool**. Then, assign the user to the **db_datareader** role so they can read data.
+In this example, we are adding an Azure AD user in the lake database who can read data via shared tables. The users are added in the lake database via the serverless SQL pool. Then, assign the user to the **db_datareader** role so they can read data.
 
 ```sql
 CREATE USER [customuser@contoso.com] FROM EXTERNAL PROVIDER;
