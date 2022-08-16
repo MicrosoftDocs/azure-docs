@@ -58,7 +58,7 @@ If the Provisioning access setting is turned on, a unique link is created for yo
 
 Before assigning roles, make sure you [add a tenant as an associated billing tenant and enable billing management access setting](#add-an-associated-billing-tenant).
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > Any user with a role in the billing account can see all users from all tenants who have access to that billing account. For example, Contoso.com is the primary billing tenant. A billing account owner adds Fabrikam.com as an associated billing tenant. Then, the billing account owner adds User1 as a billing account owner. As a result, User1 can see all users who have access to the billing account on both Contoso.com and Fabrikam.com.
 
 ### To assign roles and send an email invitation
