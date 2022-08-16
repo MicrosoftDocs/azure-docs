@@ -37,7 +37,7 @@ This article provides guidance on how to configure your NAT gateway to ensure ou
 Check the following configurations to ensure that NAT gateway can be used to direct traffic outbound:
 1. At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity. 
 2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway cannot span beyond a single virtual network. 
-3. No [NSG rules](../network-security-groups-overview.md#outbound) or [UDRs](#virtual-appliance-udrs-and-vpn-expressroute-override-nat-gateway-for-routing-outbound-traffic) are blocking NAT gateway from directing traffic outbound to the internet.
+3. No [NSG rules](../network-security-groups-overview.md#outbound) or [UDRs](#virtual-appliance-udrs-and-expressroute-override-nat-gateway-for-routing-outbound-traffic) are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### How to validate connectivity
 
