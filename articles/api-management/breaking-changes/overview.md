@@ -20,8 +20,10 @@ The following table lists all the upcoming breaking changes and feature retireme
 | [Resource provider source IP address updates][bc1] | March 31, 2023 |
 | [Resource provider source IP address updates][rp2023] | September 30, 2023 |
 | [API version retirements][api2023] | September 30, 2023 |
+| [Deprecated (legacy) portal retirement][devportal2023] | October 2023 |
 
 <!-- Links -->
 [bc1]: ./rp-source-ip-address-change-mar-2023.md
 [rp2023]: ./rp-source-ip-address-change-sep-2023.md 
 [api2023]: ./api-version-retirement-sep-2023.md
+[devportal2023]: ../api-management-customize-styles.md
