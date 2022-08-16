@@ -52,6 +52,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: Service reliability
+            url: high-availability.md
           - text: Control Plane
             url: /rest/api/managed-grafana
           - text: Data Plane

@@ -20,7 +20,7 @@ items:
 - name: Concepts
   expanded: true
   items:
-  - name: High availability
+  - name: Service reliability
     href: high-availability.md
   - name: Encryption
     href: encryption.md
