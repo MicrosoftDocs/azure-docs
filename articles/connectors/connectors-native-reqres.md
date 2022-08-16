@@ -418,31 +418,31 @@ When you use the Request trigger to receive inbound requests, you can model the 
 
 1. In the workflow designer, under the step where you want to add the Response action, select **New step**.
 
-   For example, using the Request trigger from earlier:
+   Or, to add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-   ![Add new step](./media/connectors-native-reqres/add-response.png)
+   The following example adds the Response action after the Request trigger from the preceding section:
 
-   To add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
+   ![Screenshot showing Azure portal, Consumption workflow, and "New step" selected.](./media/connectors-native-reqres/add-response-consumption.png)
 
-1. Under **Choose an action**, in the search box, enter `response` as your filter, and select the **Response** action.
+1. On the designer, under the **Choose an operation** search box, select **Built-in**. In the search box, enter **response**. From the actions list, select the **Response** action.
 
-   ![Select the Response action](./media/connectors-native-reqres/select-response-action.png)
+   For simplicity, the following examples show a collapsed Request trigger.
 
-   The Request trigger is collapsed in this example for simplicity.
+   ![Screenshot showing Azure portal, Consumption workflow, "Choose an operation" search box with "response" entered, and and Response action selected](./media/connectors-native-reqres/select-response-action-consumption.png)
 
-1. Add any values that are required for the response message.
+1. In the Response action information box, add the required values for the response message.
 
    In some fields, clicking inside their boxes opens the dynamic content list. You can then select tokens that represent available outputs from previous steps in the workflow. Properties from the schema specified in the earlier example now appear in the dynamic content list.
 
-   For example, for the **Headers** box, include `Content-Type` as the key name, and set the key value to `application/json` as mentioned earlier in this topic. For the **Body** box, you can select the trigger body output from the dynamic content list.
+   For example, for the **Headers** box, include **Content-Type** as the key name, and set the key value to **application/json** as mentioned earlier in this article. For the **Body** box, you can select the trigger body output from the dynamic content list.
 
-   ![Response action details](./media/connectors-native-reqres/response-details.png)
+   ![Screenshot showing Azure portal, Consumption workflow, and Response action information.](./media/connectors-native-reqres/response-details-consumption.png)
 
    To view the headers in JSON format, select **Switch to text view**.
 
-   ![Headers - Switch to text view](./media/connectors-native-reqres/switch-to-text-view.png)
+   ![Screenshot showing Azure portal, Consumption workflow, and Response action headers in "Switch to text" view.](./media/connectors-native-reqres/switch-to-text-view-consumption.png)
 
-   Here is more information about the properties that you can set in the Response action.
+   The following table has more information about the properties that you can set in the Response action.
 
    | Property name | JSON property name | Required | Description |
    |---------------|--------------------|----------|-------------|
@@ -451,7 +451,7 @@ When you use the Request trigger to receive inbound requests, you can model the 
    | **Body** | `body` | No | The response body |
    |||||
 
-1. To specify additional properties, such as a JSON schema for the response body, open the **Add new parameter** list, and select the parameters that you want to add.
+1. To add more properties for the action, such as a JSON schema for the response body, open the **Add new parameter** list, and select the parameters that you want to add.
 
 1. When you're done, save your logic app. On the designer toolbar, select **Save**.
 
