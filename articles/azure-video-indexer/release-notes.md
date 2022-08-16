@@ -43,13 +43,11 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ## July 2022 release updates
 
-### Improved contextual ads placement with featured clothing insight 
+### Featured clothing insight (preview)
 
-You can now enable more targeted ads placement that is based on captured featured clothing images appearing in a video. The captured clothing feature is currently in a preview.
+When indexing a video through Azure Video Indexer advanced video settings, you can view the new person's featured clothing capability. You can enable more targeted ads placement based on captured featured clothing images appearing in a video. The featured clothing images are ranked according to some of the following considerations: key moments of the video, general emotions from text or audio.
 
-The featured clothing images are ranked according to the importance of the person wearing the clothing, key moments of the video, general emotions from text or audio and other features. Can be used for showing more targeted ads based on the clothing detected.
-
-For more information, see [observed people featured clothing](observed-people-featured-clothing.md).
+For more details on how to enable and view featured clothing, see [observed people featured clothing](observed-people-featured-clothing.md).
 
 ## June 2022
 
