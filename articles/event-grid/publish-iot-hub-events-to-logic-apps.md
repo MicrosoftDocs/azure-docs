@@ -72,7 +72,7 @@ Next, create a logic app and add an HTTP event grid trigger that processes reque
 
 1. In the Logic Apps Designer, page down to see **Templates**. Choose **Blank Logic App** so that you can build your logic app from scratch.
 
-   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/logic-app-designer-template.png" alt-text="Screenshot of how to configure your logic app." lightbox="./media/publish-iot-hub-events-to-logic-apps/logic-app-designer-template.png":::
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/logic-app-designer-template.png" alt-text="Screenshot of the Logic App Designer templates." lightbox="./media/publish-iot-hub-events-to-logic-apps/logic-app-designer-template.png":::
 
 ### Select a trigger
 
