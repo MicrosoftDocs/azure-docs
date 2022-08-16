@@ -16,11 +16,8 @@ Azure Managed Grafana offers a zone-redundant option to protect your instance ag
 In this how-to guide, learn how to enable zone redundancy for Azure Managed Grafana during the creation of your Managed Grafana instance.
 
 > [!NOTE]
-> Zone redundancy for Managed Grafana is a billable option. [See prices](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing).
+> Zone redundancy for Azure Managed Grafana is a billable option. [See prices](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing). Zone redundancy can only be enabled when creating the Managed Grafana instance, and can't be modified subsequently. 
 
-> [!NOTE]
-> Zone redundancy is enabled during the creation of the Managed Grafana instance and can't be activated after the instance has been created
->  
 ## Prerequisite
 
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
