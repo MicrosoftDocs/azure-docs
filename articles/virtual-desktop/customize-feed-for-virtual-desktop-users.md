@@ -26,7 +26,7 @@ You can change the display name for a remote desktop for your users by setting i
 >[!NOTE]
 >The following instructions only apply to personal desktops, not pooled desktops. Also, personal host pools only allow and support desktop app groups.
 
-To add or change a session host's friendly name use the [Session Host - Update REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP) and update the *properties.friendlyName* parameter with a REST API request.
+To add or change a session host's friendly name, use the [Session Host - Update REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP) and update the *properties.friendlyName* parameter with a REST API request.
 
 ## Customize the display name for a RemoteApp
 
