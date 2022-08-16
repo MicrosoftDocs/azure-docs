@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 10/21/2021
+ms.date: 08/15/2022
 ms.topic: how-to
 ms.custom: deploy, studio, designer, event-tier1-build-2022
 ---
@@ -25,28 +25,28 @@ Deployment in the studio consists of the following steps:
 1. (Optional) Configure the entry script.
 1. Deploy the model to a compute target.
 
-You can also deploy models directly in the designer to skip model registration and file download steps. This can be useful for rapid deployment. For more information see, [Deploy a model with the designer](tutorial-designer-automobile-price-deploy.md).
+You can also deploy models directly in the designer to skip model registration and file download steps. This can be useful for rapid deployment. For more information see, [Deploy a model with the designer](../tutorial-designer-automobile-price-deploy.md).
 
 Models trained in the designer can also be deployed through the SDK or command-line interface (CLI). For more information, see [Deploy your existing model with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prerequisites
 
-* [An Azure Machine Learning workspace](quickstart-create-resources.md)
+* [An Azure Machine Learning workspace](../quickstart-create-resources.md)
 
 * A completed training pipeline containing one of following components:
-    - [Train Model Component](./algorithm-module-reference/train-model.md)
-    - [Train Anomaly Detection Model component](./algorithm-module-reference/train-anomaly-detection-model.md)
-    - [Train Clustering Model component](./algorithm-module-reference/train-clustering-model.md)
-    - [Train Pytorch Model component](./algorithm-module-reference/train-pytorch-model.md)
-    - [Train SVD Recommender component](./algorithm-module-reference/train-svd-recommender.md)
-    - [Train Vowpal Wabbit Model component](./algorithm-module-reference/train-vowpal-wabbit-model.md)
-    - [Train Wide & Deep Model component](./algorithm-module-reference/train-wide-and-deep-recommender.md)
+    - [Train Model Component](../algorithm-module-reference/train-model.md)
+    - [Train Anomaly Detection Model component](../algorithm-module-reference/train-anomaly-detection-model.md)
+    - [Train Clustering Model component](../algorithm-module-reference/train-clustering-model.md)
+    - [Train Pytorch Model component](../algorithm-module-reference/train-pytorch-model.md)
+    - [Train SVD Recommender component](../algorithm-module-reference/train-svd-recommender.md)
+    - [Train Vowpal Wabbit Model component](../algorithm-module-reference/train-vowpal-wabbit-model.md)
+    - [Train Wide & Deep Model component](../algorithm-module-reference/train-wide-and-deep-recommender.md)
 
 ## Register the model
 
 After the training pipeline completes, register the trained model to your Azure Machine Learning workspace to access the model in other projects.
 
-1. Select the [Train Model component](./algorithm-module-reference/train-model.md).
+1. Select the [Train Model component](../algorithm-module-reference/train-model.md).
 1. Select the **Outputs + logs** tab in the right pane.
 1. Select the **Register Model** icon ![Screenshot of the gear icon](./media/how-to-deploy-model-designer/register-model-icon.png).
 
@@ -85,7 +85,7 @@ Alternatively, you can download the files from the **Models** asset page after r
     ![Screenshot of download files for deployment in model detail page](./media/how-to-deploy-model-designer/download-artifacts-in-models-page.png)
 
 > [!NOTE]
-> The `score.py` file provides nearly the same functionality as the **Score Model** components. However, some components like [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) have parameters for different scoring modes. You can also change those parameters in the entry script.
+> The `score.py` file provides nearly the same functionality as the **Score Model** components. However, some components like [Score SVD Recommender](../algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](../algorithm-module-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](../algorithm-module-reference/score-vowpal-wabbit-model.md) have parameters for different scoring modes. You can also change those parameters in the entry script.
 >
 >For more information on setting parameters in the `score.py` file, see the section, [Configure the entry script](#configure-the-entry-script).
 
@@ -99,7 +99,7 @@ After downloading the necessary files, you're ready to deploy the model.
 1. In the configuration menu, enter the following information:
 
     - Input a name for the endpoint.
-    - Select to deploy the model to [Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md) or [Azure Container Instance](v1/how-to-deploy-azure-container-instance.md).
+    - Select to deploy the model to [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) or [Azure Container Instance](how-to-deploy-azure-container-instance.md).
     - Upload the `score.py` for the **Entry script file**.
     - Upload the `conda_env.yml` for the **Conda dependencies file**. 
 
@@ -198,7 +198,7 @@ with open(data_file_path, 'w') as f:
 
 ## Configure the entry script
 
-Some components in the designer like [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) have parameters for different scoring modes. 
+Some components in the designer like [Score SVD Recommender](../algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](../algorithm-module-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](../algorithm-module-reference/score-vowpal-wabbit-model.md) have parameters for different scoring modes. 
 
 In this section, you learn how to update these parameters in the entry script file too.
 
@@ -259,12 +259,12 @@ def run(data):
 
 For **Wide & Deep recommender** and **Vowpal Wabbit** models, you can configure the scoring mode parameter using the following methods:
 
-- The parameter names are the lowercase and underscore combinations of parameter names for [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) and [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md);
+- The parameter names are the lowercase and underscore combinations of parameter names for [Score Vowpal Wabbit Model](../algorithm-module-reference/score-vowpal-wabbit-model.md) and [Score Wide and Deep Recommender](../algorithm-module-reference/score-wide-and-deep-recommender.md);
 - Mode type parameter values are strings of the corresponding option names. Take **Recommender prediction kind** in the above codes as example, the value can be `'Rating Prediction'`or `'Item Recommendation'`. Other values are not allowed.
 
 For **SVD recommender** trained model, the parameter names and values maybe less obvious, and you can look up the tables below to decide how to set parameters.
 
-| Parameter name in [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md)                           | Parameter name in the entry script file |
+| Parameter name in [Score SVD Recommender](../algorithm-module-reference/score-svd-recommender.md)                           | Parameter name in the entry script file |
 | ------------------------------------------------------------ | --------------------------------------- |
 | Recommender prediction kind                                  | prediction_kind                         |
 | Recommended item selection                                   | recommended_item_selection              |
@@ -294,9 +294,9 @@ score_params = dict(
 
 ## Next steps
 
-* [Train a model in the designer](tutorial-designer-automobile-price-train-score.md)
+* [Train a model in the designer](../tutorial-designer-automobile-price-train-score.md)
 * [Deploy models with Azure Machine Learning SDK](how-to-deploy-and-where.md)
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
-* [Deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md)
+* [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)
 * [Update web service](how-to-deploy-update-web-service.md)
