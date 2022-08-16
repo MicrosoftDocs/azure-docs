@@ -61,7 +61,7 @@ With Azure Machine Learning, you can train your model on various resources or en
 
 When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](../how-to-set-up-training-targets.md) from your local machine.
 
-When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](../how-to-deploy-managed-online-endpoints.md).
+When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Remote virtual machines
 
