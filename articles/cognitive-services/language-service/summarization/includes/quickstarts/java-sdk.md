@@ -13,7 +13,7 @@ ms.author: aahi
 
 Use this quickstart to create a text summarization application with the client library for Java. In the following example, you will create a Java application that can summarize documents.
 
-[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
+[!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
 ## Prerequisites
 

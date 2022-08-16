@@ -20,7 +20,7 @@ ms.custom: ignite-fall-2021
 
 Use this quickstart to create a text summarization application with the client library for Python. In the following example, you will create a Python application that can summarize documents or text-based customer service conversations.
 
-[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
+[!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
 ## Prerequisites
 

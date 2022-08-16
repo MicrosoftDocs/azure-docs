@@ -13,7 +13,7 @@ ms.custom: language-service-pii, ignite-fall-2021
 
 Use this quickstart to create a Personally Identifiable Information (PII) detection application with the client library for Java. In the following example, you'll create a Java application that can identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
 
-[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
+[!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
 ## Prerequisites
 
