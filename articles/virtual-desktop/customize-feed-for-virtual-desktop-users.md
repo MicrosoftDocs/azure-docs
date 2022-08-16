@@ -21,12 +21,12 @@ This article assumes you've already downloaded and installed the Azure Virtual D
 
 ## Customize the display name for a session host
 
-You can change the display name for a remote desktop for your users by setting its session host friendly name. By default, the session host friendly name is empty, so users only see the app name. You can set the session host friendly name using either PowerShell or REST API.
+You can change the display name for a remote desktop for your users by setting its session host friendly name. By default, the session host friendly name is empty, so users only see the app name. You can set the session host friendly name using REST API.
 
 >[!NOTE]
 >The following instructions only apply to personal desktops, not pooled desktops. Also, personal host pools only allow and support desktop app groups.
 
-To add or change a session host's friendly name using REST API, follow the instructions on [Session Host - Update](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP) and update the *properties.friendlyName* parameter with a REST API request.
+To add or change a session host's friendly name use the [Session Host - Update REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP) and update the *properties.friendlyName* parameter with a REST API request.
 
 ## Customize the display name for a RemoteApp
 
