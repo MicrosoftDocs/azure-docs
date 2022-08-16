@@ -23,7 +23,7 @@ With this capability, you:
 
 ## Reference architecture
 The architecture shows Internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX Edge.     
-:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-snat.png" alt-text="Diagram that shows architecture of Internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the SNAT Edge." border="false" lightbox="media/public-ip-usage/architecture-internet-access-avs-public-ip-snat-expanded.png":::
+:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-snat.png" alt-text="Diagram that shows architecture of Internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the SNAT Edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-snat-expanded.png":::
 
 ## Configure Outbound Internet access using Managed SNAT in the Azure port
 1. Log in to the Azure portal and then search for and select **Azure VMware Solution**. 
