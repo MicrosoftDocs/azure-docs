@@ -22,6 +22,7 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
 | Number of devices in an application | 1,000,000 | Contact support to discuss increasing this quota for your application. |
+| Number of IoT Central simulated devices in an application | 100 | Contact support to discuss increasing this quota for your application. |
 
 ## Telemetry
 

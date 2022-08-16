@@ -84,7 +84,7 @@ az eventhubs namespace application-group create --namespace-name mynamespace \
 To learn more about the CLI command, see [`az eventhubs namespace application-group create`](/cli/azure/eventhubs/namespace/application-group#az-eventhubs-namespace-application-group-create). 
 
 ### [Azure PowerShell](#tab/powershell)
-Use the PowerShell command: [`New-AzEventHubApplicationGroup`](//powershell/module/az.eventhub/new-azeventhubapplicationgroup) to create an application group in an Event Hubs namespace. 
+Use the PowerShell command: [`New-AzEventHubApplicationGroup`](/powershell/module/az.eventhub/new-azeventhubapplicationgroup) to create an application group in an Event Hubs namespace. 
 
 The following example uses the [`New-AzEventHubThrottlingPolicyConfig`](/powershell/module/az.eventhub/new-azeventhubthrottlingpolicyconfig) to create two policies that will be associated with the application.
 

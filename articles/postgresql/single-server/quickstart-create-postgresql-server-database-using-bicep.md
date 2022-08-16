@@ -4,8 +4,8 @@ description: In this quickstart, learn how to create an Azure Database for Postg
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: quickstart
-ms.author: v-eschaffer
-author: schaffererin
+ms.author: jroth
+author: rothja
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 06/24/2022
 ---

@@ -380,17 +380,20 @@ To use RStudio open source, set up a custom application as follows:
 1. Set up the application to run on **Target port** `8787` - the docker image for RStudio open source listed below needs to run on this Target port. 
 1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
 1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`. 
-1. Select **Create** to set up RStudio as a custom application on your compute instance.
+1. Use **Bind mounts** to add access to the files in your default storage account: 
+   * Specify **/home/azureuser/cloudfiles** for **Host path**.  
+   * Specify **/home/azureuser/cloudfiles** for the **Container path**.
+   * Select **Add** to add this mounting.  Because the files are mounted, changes you make to them will be available in other compute instances and applications.
+3. Select **Create** to set up RStudio as a custom application on your compute instance.
 
- 
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom application" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
  
 ### Setup other custom applications
 
 Set up other custom applications on your compute instance by providing the application on a Docker image.
 
-1.	Follow the steps listed above to **Add application** when creating your compute instance.
-1.	Select **Custom Application** on the **Application** dropdown. 
+1. Follow the steps listed above to **Add application** when creating your compute instance.
+1. Select **Custom Application** on the **Application** dropdown. 
 1. Configure the **Application name**, the **Target port** you wish to run the application on, the **Published port** you wish to access the application on and the **Docker image** that contains your application.
 1. Optionally, add **Environment variables** and **Bind mounts** you wish to use for your application.
 1. Select **Create** to set up the custom application on your compute instance.

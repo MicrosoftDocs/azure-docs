@@ -44,7 +44,7 @@ If the Cost Details API is your chosen solution, review the best practices to ca
 
 To learn more about how to properly call the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API, see [Get small usage data sets on demand](get-small-usage-datasets-on-demand.md).
 
-The Cost Details API is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, pay-as-you-go or Visual Studio customer, see [Get usage details as a legacy customer](get-usage-details-legacy-customer.md).
+The Cost Details API is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, pay-as-you-go or Visual Studio customer, see [Get usage details for pay-as-you-go subscriptions](get-usage-details-legacy-customer.md).
 
 ## Power BI
 

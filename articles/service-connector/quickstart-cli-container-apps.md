@@ -19,7 +19,7 @@ This quickstart shows you how to create a service connection in Container Apps w
 
 - Version 2.37.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 
 - An application deployed to Container Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create and deploy a container to Container Apps](../container-apps/quickstart-portal.md).
 

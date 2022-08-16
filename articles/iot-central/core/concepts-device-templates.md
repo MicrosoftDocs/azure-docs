@@ -24,7 +24,6 @@ A device template includes the following sections:
   - _Components_. A device model may include components in addition to the root component to describe device capabilities. Each component has an interface that describes the component's capabilities. Component interfaces may be reused in other device models. For example, several phone device models could use the same camera interface.
   - _Inherited interfaces_. A device model contains one or more interfaces that extend the capabilities of the root component.
 - _Cloud properties_. This part of the device template lets the solution developer specify any device metadata to store. Cloud properties are never synchronized with devices and only exist in the application. Cloud properties don't affect the code that a device developer writes to implement the device model.
-- _Customizations_. This part of the device template lets the solution developer override some of the definitions in the device model. Customizations are useful if the solution developer wants to refine how the application handles a value, such as changing the display name for a property or the color used to display a telemetry value. Customizations don't affect the code that a device developer writes to implement the device model.
 - _Views_. This part of the device template lets the solution developer define visualizations to view data from the device, and forms to manage and control a device. The views use the device model, cloud properties, and customizations. Views don't affect the code that a device developer writes to implement the device model.
 
 ## Assign a device to a device template
@@ -353,12 +352,6 @@ Offline commands are one-way notifications to the device from your solution. Off
 Cloud properties are part of the device template, but aren't part of the device model. Cloud properties let the solution developer specify any device metadata to store in the IoT Central application. Cloud properties don't affect the code that a device developer writes to implement the device model.
 
 A solution developer can add cloud properties to device views and forms alongside device properties to enable an operator to manage the devices connected to the application. A solution developer can also use cloud properties as part of a rule definition to make a threshold value editable by an operator.
-
-## Customizations
-
-Customizations are part of the device template, but aren't part of the device model. Customizations let the solution developer enhance or override some of the definitions in the device model. For example, a solution developer can change the display name for a telemetry type or property. A solution developer can also use customizations to add validation such as a minimum or maximum length for a string device property.
-
-Customizations may affect the code that a device developer writes to implement the device model. For example, a customization could set minimum and maximum string lengths or minimum and maximum numeric values for telemetry.
 
 ## Views
 

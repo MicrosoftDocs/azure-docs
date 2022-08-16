@@ -19,6 +19,19 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## 2022-07-21
+
+### Announcing end of support for Python 3.6 in AzureML SDK v1 packages
+
++ **Feature deprecation**
+  + **Deprecate Python 3.6 as a supported runtime for SDK v1 packages**
+    + On December 05, 2022, AzureML will deprecate Python 3.6 as a supported runtime, formally ending our Python 3.6 support for SDK v1 packages. 
+    + From the deprecation date of December 05, 2022, AzureML will no longer apply security patches and other updates to the Python 3.6 runtime used by AzureML SDK v1 packages.
+    + The existing AzureML SDK v1 packages with Python 3.6 still will continue to run. However, AzureML strongly recommends that you migrate your scripts and dependencies to a supported Python runtime version so that you continue to receive security patches and remain eligible for technical support.
+    + We recommend using Python 3.8 version as a runtime for AzureML SDK v1 packages.
+    + In addition, AzureML SDK v1 packages using Python 3.6 will no longer be eligible for technical support.
+    + If you have any questions, contact us through AML Support.
+
 ## 2022-06-27
 
   + **azureml-automl-dnn-nlp**

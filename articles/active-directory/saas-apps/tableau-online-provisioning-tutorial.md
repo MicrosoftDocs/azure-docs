@@ -194,7 +194,7 @@ This operation starts the initial synchronization cycle of all users and groups 
 
 In June 2022, Tableau released a SCIM 2.0 connector. Completing the steps below will update applications configured to use the Tableau API endpoint to the use the SCIM 2.0 endpoint. These steps will remove any customizations previously made to the Tableau Cloud application, including:
 
-* Authentication details
+* Authentication details (credentials used for provisioning, NOT the credentials used for SSO)
 * Scoping filters
 * Custom attribute mappings
 >[!Note]
