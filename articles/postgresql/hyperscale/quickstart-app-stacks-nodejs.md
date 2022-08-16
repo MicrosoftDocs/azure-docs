@@ -73,10 +73,10 @@ const pool = new Pool({
   max: 300,
   connectionTimeoutMillis: 5000,
 
-  host: 'c.citustest.postgres.database.azure.com',
+  host: '<host>',
   port: 5432,
   user: 'citus',
-  password: 'Password123$',
+  password: '<your password>',
   database: 'citus',
   ssl: true,
 });
@@ -385,6 +385,50 @@ async function importInMemoryDatabase() {
   await pool.end();
   console.log('Inserted inmemory data successfully.');
 })();
+```
+
+## App retry during database request failures
+
+It's sometimes possible that requests from your application to database fail. Such issues can happen under different scenarios such as - network related issue between app & database, database downtime ([HA](howto-high-availability.md) handles auto-failover), wrong password & so on. Many such issues may be transient & get automatically addressed in a few seconds to minutes. You can configure retry logic in your app so that the app retries failed db requests for longer until the request succeeds. Configuring retry logic in your app helps improve end user experience of your app. Under failure scenarios, users wait a bit longer for the application to serve requests rather than experience many errors.
+
+Below example shows how to implement retry logic in your app. The sample code snippet tries a db request every 60 seconds for five times until it succeeds. Number of retries & frequency of retries can be configured based on your application needs.
+
+```bash
+const { Pool } = require('pg');
+const pool = new Pool({
+  host: '<host>',
+  port: 5432,
+  user: 'citus',
+  password: '<your password>',
+  database: 'citus',
+  ssl: true,
+  connectionTimeoutMillis: 0,
+  idleTimeoutMillis: 0,
+  min: 10,
+  max: 20,
+});
+
+
+try {
+  executeRetry('select 1')
+}
+catch(e){
+  console.log(e.message)
+}
+
+
+function executeRetry(sql) { 
+      pool.query(sql, (err, res) => {
+          if (err&&count<=5) {
+             console.log(err.message)
+             return  setTimeout(executeretry, 60000);
+          }
+          else{
+               console.log('user:', res.rows[0])
+           }
+          })
+
+}
 ```
 
 ## Next steps

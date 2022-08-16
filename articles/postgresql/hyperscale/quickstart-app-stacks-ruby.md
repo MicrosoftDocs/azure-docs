@@ -230,6 +230,41 @@ ensure
     connection.close if connection
 end
 ```
+## App retry during database request failures
+
+It's sometimes possible that requests from your application to database fail. Such issues can happen under different scenarios such as - network related issue between app & database, database downtime ([HA](howto-high-availability.md) handles auto-failover), wrong password & so on. Many such issues may be transient & get automatically addressed in a few seconds to minutes. You can configure retry logic in your app so that the app retries failed db requests for longer until the request succeeds. Configuring retry logic in your app helps improve end user experience of your app. Under failure scenarios, users wait a bit longer for the application to serve requests rather than experience many errors.
+
+Below example shows how to implement retry logic in your app. The sample code snippet tries a db request every 60 seconds for five times until it succeeds. Number of retries & frequency of retries can be configured based on your application needs.
+
+```ruby
+require 'pg'
+
+
+def executeretry(sql,retryCount)
+for a in 1..retryCount do
+    begin
+
+            # NOTE: Replace the host and password arguments in the connection string.
+            # (The connection string can be obtained from the Azure portal)
+            connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password}sslmode=require")
+            puts 'Successfully created connection to database'
+            resultSet = connection.exec(sql)
+            resultSet.each do |row|
+            puts 'Data row = (%s)' % [row]
+            end
+            break
+        rescue PG::Error => e
+        puts e.message
+        sleep 60
+        ensure
+            connection.close if connection
+        end
+    end
+end
+
+executeretry('select 1',5)
+```
+
 
 ## Next steps
 

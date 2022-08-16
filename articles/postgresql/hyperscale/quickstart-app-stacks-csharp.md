@@ -351,6 +351,69 @@ namespace Driver
     }
 }
 ```
+## App retry during database request failures
+
+It's sometimes possible that requests from your application to database fail. Such issues can happen under different scenarios such as - network related issue between app & database, database downtime ([HA](howto-high-availability.md) handles auto-failover), wrong password & so on. Many such issues may be transient & get automatically addressed in a few seconds to minutes. You can configure retry logic in your app so that the app retries failed db requests for longer until the request succeeds. Configuring retry logic in your app helps improve end user experience of your app. Under failure scenarios, users wait a bit longer for the application to serve requests rather than experience many errors.
+
+Below example shows how to implement retry logic in your app. The sample code snippet tries a db request every 60 seconds for five times until it succeeds. Number of retries & frequency of retries can be configured based on your application needs.
+
+```csharp
+using System;
+using System.Runtime.InteropServices;
+using Npgsql;
+namespace Driver
+{
+    public class Reconnect
+
+    { 
+        static void Main(string[] args)
+        {
+            executeRetry("select 1",5);
+            static void executeRetry(string sql,int retryCount)
+            {
+                for (int i = 0; i <= retryCount; i++)
+                {
+                    try
+                    {
+                        var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+
+                        connStr.TrustServerCertificate = true;
+
+                        using (var conn = new NpgsqlConnection(connStr.ToString()))
+                        {
+                            Console.Out.WriteLine("Opening connection");
+                            conn.Open();
+                            using (var command = new NpgsqlCommand(sql, conn))
+                            {
+                                var reader = command.ExecuteReader();
+                                while (reader.Read())
+                                {
+                                    Console.WriteLine(
+                                        string.Format(
+                                            "Reading from table=({0})",
+                                            reader.GetInt32(0).ToString()
+
+                                            )
+                                        );
+                                }
+                                reader.Close();
+                            }
+                        }
+
+                        break;
+                    }
+                    catch (NpgsqlException e)
+                    {
+                        Thread.Sleep(60000);
+                        Console.WriteLine(e.Message);
+                    }
+
+                }
+            }
+        }
+    }
+}
+```
 
 ## Next steps
 

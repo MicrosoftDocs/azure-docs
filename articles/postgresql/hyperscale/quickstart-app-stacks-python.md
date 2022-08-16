@@ -195,6 +195,49 @@ with conn.cursor() as cur:
 conn.commit()
 conn.close()
 ```
+## App retry during database request failures
+
+It's sometimes possible that requests from your application to database fail. Such issues can happen under different scenarios such as - network related issue between app & database, database downtime ([HA](howto-high-availability.md) handles auto-failover), wrong password & so on. Many such issues may be transient & get automatically addressed in a few seconds to minutes. You can configure retry logic in your app so that the app retries failed db requests for longer until the request succeeds. Configuring retry logic in your app helps improve end user experience of your app. Under failure scenarios, users wait a bit longer for the application to serve requests rather than experience many errors.
+
+Below example shows how to implement retry logic in your app. The sample code snippet tries a db request every 60 seconds for five times until it succeeds. Number of retries & frequency of retries can be configured based on your application needs.
+
+```python
+import psycopg2
+import time
+from psycopg2 import pool
+
+host = "<host>"
+dbname = "citus"
+user = "citus"
+password = "<password>"
+sslmode = "require"
+
+def executeRetry(query, retryCount):
+    for x in range(retryCount):
+        try:
+            conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password,
+                                                                                         sslmode)
+            postgreSQL_pool = psycopg2.pool.SimpleConnectionPool(1, 20, conn_string)
+            if (postgreSQL_pool):
+                print("Connection pool created successfully")
+                # Use getconn() to Get Connection from connection pool
+                conn = postgreSQL_pool.getconn()
+                # Insert some data into the table
+                cursor = conn.cursor()
+                # Fetch all rows from table
+                cursor.execute(query)
+                rows = cursor.fetchall()
+                # Print all rows
+                for row in rows:
+                    print("Data row = (%s)" % (str(row[0])))
+            break
+        except Exception as err:
+            time.sleep(60)
+            print(err)
+
+
+executeRetry("select 1", 5)
+```
 
 ## Next steps
 

@@ -642,6 +642,95 @@ Executing the main class should now produce the following output:
 [INFO   ] Closing database connection
 ```
 
+## App retry during database request failures
+
+It's sometimes possible that requests from your application to database fail. Such issues can happen under different scenarios such as - network related issue between app & database, database downtime ([HA](howto-high-availability.md) handles auto-failover), wrong password & so on. Many such issues may be transient & get automatically addressed in a few seconds to minutes. You can configure retry logic in your app so that the app retries failed db requests for longer until the request succeeds. Configuring retry logic in your app helps improve end user experience of your app. Under failure scenarios, users wait a bit longer for the application to serve requests rather than experience many errors.
+
+Below example shows how to implement retry logic in your app. The sample code snippet tries a db request every 60 seconds for five times until it succeeds. Number of retries & frequency of retries can be configured based on your application needs.
+
+```java
+package test1.crud2;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.logging.Logger;
+import com.zaxxer.hikari.HikariDataSource;
+
+public class DemoApplication {
+    private static final Logger log;
+
+    static {
+        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
+        log =Logger.getLogger(DemoApplication.class.getName());
+    }
+   
+     private static final String DB_USERNAME = "citus";
+        private static final String DB_PASSWORD = <password>;
+        private static final String DB_URL = "jdbc:postgresql://<host>:5432/citus?sslmode=require";
+        private static final String DB_DRIVER_CLASS = "org.postgresql.Driver";
+        
+        private static HikariDataSource datasource;
+      
+    private static void executeRetry(String sql,int retryCount) throws InterruptedException {
+        
+         Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            
+        for(int i=1;i<=retryCount;i++){
+        {
+            try 
+            {
+                datasource = new HikariDataSource();
+                datasource.setDriverClassName(DB_DRIVER_CLASS );
+                datasource.setJdbcUrl(DB_URL);
+                datasource.setUsername(DB_USERNAME);
+                datasource.setPassword(DB_PASSWORD);
+        
+                datasource.setMinimumIdle(10);
+                datasource.setMaximumPoolSize(1000);
+                datasource.setAutoCommit(false);
+                datasource.setLoginTimeout(3);
+                
+                 log.info("Connecting to the database");
+                 con = datasource.getConnection();
+                  log.info("Connection established");
+                  
+                  
+                
+                        log.info("Read data");
+                        pst = con.prepareStatement(sql);
+                        rs = pst.executeQuery();
+        
+                        while (rs.next()) {
+        
+                            System.out.format("%s",rs.getString(1));
+                        }
+        
+                     break;
+                 }
+            
+                catch(Exception e) 
+                     {
+                  Thread.sleep(60000);
+                       System.out.println(e.getMessage());
+    
+                     }
+         }
+        
+       }
+    }
+    
+    public static void main(String[] args)throws Exception 
+    {
+         
+          executeRetry("select 1",5);
+        
+     }
+}
+```
+
 ## Next steps
 
 [!INCLUDE[app-stack-next-steps](includes/app-stack-next-steps.md)]
