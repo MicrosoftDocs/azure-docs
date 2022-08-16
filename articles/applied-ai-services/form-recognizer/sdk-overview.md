@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 08/16/2022
+ms.date: 08/17/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -23,12 +23,12 @@ Azure Cognitive Services Form Recognizer is a cloud service that uses machine le
 
 Form Recognizer SDK supports the following languages and platforms:
 
-| Programming language | Package| Reference |Platform support |
-|:----------------------:|:----------|:----------| :----------------|
-|[C#](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-csharp#set-up)| [NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5)  | [.NET](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet&preserve-view=true) |[Windows, macOS, Linux, Docker](/dotnet.microsoft.com/download)|
-|[Java](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-java#set-up) |[Maven](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar) | [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true)|[Windows, macOS, Linux](/java/openjdk/install)|
-|[JavaScript](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-javascript#set-up)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.6)| [Node.js](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-latest&preserve-view=true) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
-|[Python](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-python#set-up) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)| [Python](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python&preserve-view=true) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
+| Programming language/SDK | Package| Azure SDK client-library |Supported API version| Platform support |
+|:----------------------:|:----------|:----------| :----------------|-----------------|
+|[C#/4.0.0-beta.5](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-csharp#set-up)| [NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5)  | [Azure SDK for .NET](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.5/index.html)|**2022-08-31-ga**, 2022-06-30-preview, 2022-01-30-preview, 2021-09-30-preview, **v2.1-ga**, v2.0 |[Windows, macOS, Linux, Docker](/dotnet.microsoft.com/download)|
+|[Java/4.0.0-beta.6](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-java#set-up) |[Maven](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar) | [Azure SDK for Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.6/index.html)| **2022-08-31-ga**, 2022-06-30-preview, 2022-01-30-preview, 2021-09-30-preview, **v2.1-ga**, v2.0|[Windows, macOS, Linux](/java/openjdk/install)|
+|[JavaScript/4.0.0-beta.6](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-javascript#set-up)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.6)| [Azure SDK for JavaScript](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.6/index.html) | **2022-08-31-ga**, 2022-06-30-preview, 2022-01-30-preview, 2021-09-30-preview, **v2.1-ga**, v2.0| [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
+|[Python/3.2.0b6](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-python#set-up) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)| [Azure SDK for Python](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b6/index.html)|**2022-08-31-ga**, 2022-06-30-preview, 2022-01-30-preview, 2021-09-30-preview, **v2.1-ga**, v2.0 |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
 
 ## How to use the Form Recognizer SDK in your applications
 
