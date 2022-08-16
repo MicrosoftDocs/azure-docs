@@ -86,7 +86,7 @@ Before deploying, you must define what is needed to run the model as a web servi
     >
     > If the request data is in a format that is not usable by your model, the script can transform it into an acceptable format. It may also transform the response before returning it to the client.
     >
-    > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](../machine-learning/how-to-deploy-advanced-entry-script.md#binary-data).
+    > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](../machine-learning/v1/how-to-deploy-advanced-entry-script.md#binary-data).
 
 For the run function, ensure it connects to a Redis endpoint.
 
