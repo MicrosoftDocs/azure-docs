@@ -80,7 +80,7 @@ Connecting to on-premises data sources from an Azure Analysis Services server re
 <a name="oracle">9</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Oracle Data Provider for .NET. If specified as a structured data source, be sure to [enable Oracle managed provider](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Teradata Data Provider for .NET.  
 <a name="filesSP">11</a> - Files in on-premises SharePoint are not supported.  
-<a name="tds">12</a> - A known limitation may cause errors when connecting to Dynamics 365 database [Tabular Data Stream (TDS)](/openspecs/windows_protocols/ms-tds/893fcc7e-8a39-4b3c-815a-773b7b982c50) Dataverse endpoint. Unlike Power BI, where tokens are managed automatically for the TDS endpoint, when connecting from Azure Analysis Services, you must manually initiate a token refresh.
+<a name="tds">12</a> - A known limitation may cause errors when connecting to Dynamics 365 database [Tabular Data Stream (TDS)](/openspecs/windows_protocols/ms-tds/893fcc7e-8a39-4b3c-815a-773b7b982c50) Dataverse endpoint. Unlike Power BI, which does not require a gateway and tokens are managed automatically for the TDS endpoint, when connecting from Azure Analysis Services, a gateway is required, and you must manually initiate a token refresh.
 
 ## Understanding providers
 
