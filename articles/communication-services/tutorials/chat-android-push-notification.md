@@ -1,7 +1,7 @@
 # Push notifications
 ---
 title: Enable push notifications in your Android chat app
-git titleSuffix: An Azure Communication Services tutorial
+titleSuffix: An Azure Communication Services tutorial
 description: Learn how to enable push notification in Android App by using Azure Communication Chat SDK
 author: jiminwen
 services: azure-communication-services
