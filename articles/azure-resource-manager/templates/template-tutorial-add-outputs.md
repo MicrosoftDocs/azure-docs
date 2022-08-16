@@ -1,6 +1,6 @@
 ---
 title: Tutorial - add outputs to template
-description: Add output parameters to your Azure Resource Manager template (ARM template) to simplify the syntax.
+description: Add outputs to your Azure Resource Manager template (ARM template) to simplify the syntax.
 author: mumian
 ms.date: 08/17/2022
 ms.topic: tutorial
@@ -10,25 +10,25 @@ ms.custom:
 
 # Tutorial: Add outputs to your ARM template
 
-In this tutorial, you learn how to return a value from your Azure Resource Manager template (ARM template). You use an output parameter when you need a value for a resource you deploy. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to return a value from your Azure Resource Manager template (ARM template). You use outputs when you need a value for a resource you deploy. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
 We recommend that you complete the [tutorial about variables](template-tutorial-add-variables.md), but it's not required.
 
-You need to have Azure Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure Command-Line Interface (CLI). For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+You need to have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure Command-Line Interface (CLI). For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
 ## Review template
 
 At the end of the previous tutorial, your template had the following JSON:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json":::
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json":::
 
 It deploys a storage account, but it doesn't return any information about it. You might need to capture properties from your new resource so they're available later for reference.
 
 ## Add outputs
 
-You can use output parameters to return values from the template. It might be helpful, for example, to get the endpoints for your new storage account.
+You can use outputs to return values from the template. It might be helpful, for example, to get the endpoints for your new storage account.
 
 The following example highlights the change to your template to add an output value. Copy the whole file and replace your template with its contents.
 
