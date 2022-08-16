@@ -2693,7 +2693,7 @@ This API returns data about all devices that were updated after the given timest
 
 #### Query parameters
 
-- **sensorId** - use this parameter to get only devices seen by a specific sensor. The ID should be taken from the results of the Sensors API.
+- **sensorId** - use this parameter to get only devices seen by a specific sensor. The ID should be taken from the results of the [sensor](#request-sensor-data---externalv3integrationsensors) API.
 - **notificationType** - should be a number, from the following mapping:
     - **0** – both updated and new devices (default).
     - **1** – only new devices.
@@ -2894,7 +2894,7 @@ This API returns data about device CVEs after the given timestamp.
 
 - **JSON**
 
- #### Response structure
+#### Response structure
 
 - **u_count** - amount of objects in the full result sets, including all pages.
 - **u_id** - the same as in the specific device API.
