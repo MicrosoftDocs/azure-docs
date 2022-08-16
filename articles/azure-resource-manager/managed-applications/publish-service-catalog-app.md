@@ -265,7 +265,7 @@ az group create --name appDefinitionGroup --location westcentralus
 
 ---
 
-Create the managed application definition resource.
+Create the managed application definition resource. In the `Name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name.
 
 # [PowerShell](#tab/azure-powershell)
 
