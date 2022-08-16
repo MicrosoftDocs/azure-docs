@@ -195,7 +195,7 @@ Current schedule supports the following timezones. The key can be used directly 
 | UTC +02:00  | JORDAN_STANDARD_TIME            | "Jordan Standard Time"            |
 | UTC +02:00  | GTB_STANDARD_TIME               | "GTB Standard Time"               |
 | UTC +02:00  | MIDDLE_EAST_STANDARD_TIME       | "Middle East Standard Time"       |
-| UTC +02:00  | EGYPT_STANDARD_TIME             | "Egypt Standard Time"             |  |
+| UTC +02:00  | EGYPT_STANDARD_TIME             | "Egypt Standard Time"             |
 | UTC +02:00  | E_EUROPE_STANDARD_TIME          | "E. Europe Standard Time"         |
 | UTC +02:00  | SYRIA_STANDARD_TIME             | "Syria Standard Time"             |
 | UTC +02:00  | WEST_BANK_STANDARD_TIME         | "West Bank Standard Time"         |
@@ -253,8 +253,8 @@ Current schedule supports the following timezones. The key can be used directly 
 | UTC +10:00  | WEST_PACIFIC_STANDARD_TIME      | "West Pacific Standard Time"      |
 | UTC +10:00  | TASMANIA_STANDARD_TIME          | "Tasmania Standard Time"          |
 | UTC +10:00  | VLADIVOSTOK_STANDARD_TIME       | "Vladivostok Standard Time"       |
-| UTC +10:30  | LORD_HOWE_STANDARD_TIME        | "Lord Howe Standard Time"         |
-| UTC +11:00  | BOUGAINVILLE_STANDARD_TIME       | "Bougainville Standard Time"      |
+| UTC +10:30  | LORD_HOWE_STANDARD_TIME         | "Lord Howe Standard Time"         |
+| UTC +11:00  | BOUGAINVILLE_STANDARD_TIME       | "Bougainville Standard Time"     |
 | UTC +11:00  | RUSSIA_TIME_ZONE_10             | "Russia Time Zone 10"             |
 | UTC +11:00  | MAGADAN_STANDARD_TIME           | "Magadan Standard Time"           |
 | UTC +11:00  | NORFOLK_STANDARD_TIME           | "Norfolk Standard Time"           |
