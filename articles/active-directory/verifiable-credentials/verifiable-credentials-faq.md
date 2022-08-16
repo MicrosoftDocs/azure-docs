@@ -76,7 +76,7 @@ Resetting requires that you opt out and opt back into the Entra Verified ID serv
 1. Follow the [opt-out](how-to-opt-out.md) instructions.
 1. Go over the Entra Verified ID [deployment steps](verifiable-credentials-configure-tenant.md) to reconfigure the service.
     1. If you are in the European region, it's recommended that your Azure Key Vault, and container are in the same European region otherwise you may experience some performance and latency issues. Create new instances of these services in the same EU region as needed.
-1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) your verifiable credentials service. You need to recreate your credentials.
+1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verified-id) your verifiable credentials service. You need to recreate your credentials.
     1. If your tenant needs to be configured as an issuer, it's recommended that your storage account is in the European region as your Verifiable Credentials service.
     2. You also need to issue new credentials because your tenant now holds a new DID.
 
