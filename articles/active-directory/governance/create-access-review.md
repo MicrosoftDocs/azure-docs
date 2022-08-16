@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.subservice: compliance
 ms.date: 08/16/2022
 ms.author: amsliu
-ms.reviewer: jgangadhar
+ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
  
@@ -61,17 +61,14 @@ If you are reviewing access to an application, then before creating the review, 
 
      ![Screenshot that shows selecting Teams + Groups.](./media/create-access-review/teams-groups.png)
 
-> [!NOTE]  
-> When a Privileged Access Group (PAG) is selected, the users under review for the group will include all eligible users and active users in that group. 
-
-6. If you selected **Applications**, select one or more applications.
+1. If you selected **Applications**, select one or more applications.
 
    ![Screenshot that shows the interface that appears if you selected applications instead of groups.](./media/create-access-review/select-application-detailed.png)
 
 > [!NOTE]
 > Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
 
-7. Now you can select a scope for the review. Your options are:
+1. Now you can select a scope for the review. Your options are:
     - **Guest users only**: This option limits the access review to only the Azure AD B2B guest users in your directory.
     - **Everyone**: This option scopes the access review to all user objects associated with the resource.
 
