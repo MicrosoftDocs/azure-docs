@@ -27,7 +27,7 @@ Microsoft Defender for Azure SQL databases protects:
 - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
 - [Dedicated SQL pool in Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-When you enabled **Microsoft Defender for Azure SQL**, all supported resources that exist within the subscription are protected. Future resources created on the same subscription are also be protected.
+When you enabled **Microsoft Defender for Azure SQL**, all supported resources that exist within the subscription are protected. Future resources created on the same subscription will also be protected.
 
 > [!NOTE]
 > Microsoft Defender for Azure SQL database currently works for read-write replicas only.
