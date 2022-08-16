@@ -46,13 +46,13 @@ You can secure communications end-to-end or terminate transport-level security a
 
 The following sections describe this architecture in more detail.
 
-### Secure communications into Azure Spring Apps
+### Segment 1: Secure communications into Azure Spring Apps
 
 The first segment (segment 1 in the diagram) represents communications from consumers to the ingress controller in Azure Spring Apps. These consumers include browsers, mobile phones, desktops, kiosks, or network access points like Azure Front Door, Azure App Gateway, F5 BIG-IP Local Traffic Manager, Azure API Management, and Apigee API Management.
 
 By default, this segment is secured using a Microsoft-supplied TLS/SSL certificate for the `*.azuremicroservices.io` domain. You can apply your own TLS/SSL certificate in Azure Key Vault by binding a custom domain to your app in Azure Spring Apps. No code is necessary. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md).
 
-### Secure communications from ingress controller to apps
+### Segment 2: Secure communications from ingress controller to apps
 
 The next segment (segment 2 in the diagram) represents communications from the Azure Spring Apps ingress controller to any app on Azure Spring Apps. You can enable TLS/SSL to secure traffic from the ingress controller to an app that supports HTTPS. For more information, see [Enable ingress-to-app TLS for an application](how-to-enable-ingress-to-app-tls.md).
 
@@ -84,15 +84,15 @@ You need the following three configuration steps to secure communications using 
 
 1. Enable the app's managed identity, and then grant the managed identity with "Get" and "List" access to the Azure Key Vault. For more information, see [Enable system-assigned managed identity for an application in Azure Spring Apps](how-to-enable-system-assigned-managed-identity.md) and [Certificate Access Control](../key-vault/certificates/certificate-access-control.md).
 
-### Secure communications from app to managed middleware
+### Segment 3: Secure communications from app to managed middleware
 
 The next segment (segment 3 in the diagram) represents communications from any app to the managed Spring Cloud Config Server and Spring Cloud Service Registry in Azure Spring Apps. By default, this segment is secured using a Microsoft-supplied TLS/SSL certificate.
 
-### Secure app to app communications
+### Segment 4: Secure app to app communications
 
 The next segment (segment 4 in the diagram) represents communications between an app to another app in Azure Spring Apps. You can use the Azure Key Vault Certificates Spring Boot Starter to configure the caller app to trust the TLS/SSL certificate supplied by an HTTPS-enabled called app. The receiver Spring Boot app can use Spring's approach to enable HTTPS, or the app can secure communications by using the Azure Key Vault Certificates Spring Boot Starter. For more information, see [Tutorial: Secure Spring Boot apps using Azure Key Vault certificates](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates).
 
-### Secure app to external system communications
+### Segment 5: Secure app to external system communications
 
 The next segment (segment 5 in the diagram) represents communications between an app running in Azure Spring Apps and external systems. You can use the Azure Key Vault Certificates Spring Boot Starter to configure the app running in Azure Spring Apps to trust the TLS/SSL certificate supplied by any external systems. For more information, see [Tutorial: Secure Spring Boot apps using Azure Key Vault certificates](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates).
 
