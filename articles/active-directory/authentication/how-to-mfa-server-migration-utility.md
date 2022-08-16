@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/09/2022
+ms.date: 08/16/2022
 
 ms.author: justinha
 author: justinha
@@ -21,12 +21,12 @@ ms.collection: M365-identity-device-management
 
 The MFA Server Migration Utility helps synchronize multi-factor authentication data stored in the on-premises Azure MFA Server directly to Azure AD MFA. 
 After the authentication data is migrated to Azure AD, users can perform cloud-based MFA seamlessly without having to re-register or confirm authentication methods. 
-admins can use the MFA Server Migration Utility to target single users or groups of users for testing and controlled rollout without having to make any tenant-wide changes.
+Admins can use the MFA Server Migration Utility to target single users or groups of users for testing and controlled rollout without having to make any tenant-wide changes.
 
 ## Limitations and requirements
 
 - The MFA Server Migration Utility is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-- The MFA Server Migration Utility requires a new preview build of the MFA Server solution to be installed on your Primary MFA Server. The build makes updates to the MFA Server data file, and includes the new MFA Server Migration Utility. You shouldn't update the WebSDK or User Portal, even if prompted. Installing the update _doesn't_ start the migration automatically.
+- The MFA Server Migration Utility requires a new preview build of the MFA Server solution to be installed on your Primary MFA Server. The build makes updates to the MFA Server data file, and includes the new MFA Server Migration Utility. You don’t have to update the WebSDK or User portal. Installing the update _doesn't_ start the migration automatically.
 - The MFA Server Migration Utility copies the data from the database file onto the user objects in Azure AD. During migration, users can be targeted for Azure MFA for testing purposes using the staged migration tool. Staged migration lets you test without making any changes to your domain federation settings. Once migrations are complete, you must finalize your migration by making changes to your domain federation settings.
 - AD FS running Windows Server 2016 or higher is required to provide MFA authentication on any AD FS relying parties, not including Azure AD and Office 365. 
 - Staged rollout can target a maximum of 500,000 users (10 groups containing a maximum of 50,000 users each).
@@ -63,16 +63,16 @@ A few important points:
 
 During the previous phases, you can remove users from the Staged Rollout folders to take them out of scope of Azure MFA and route them back to your on-premises Azure MFA server for all MFA requests originating from Azure AD.
 
-**Phase 3** requires moving all clients that authenticate to the on-premises MFA Server (VPNs, password managers, and so on) to Azure AD federation via SAML/OAUTH. If modern authentication standards aren’t supported, you're required to stand up NPS server(s) with the Azure MFA extension installed. Once dependencies are migrated, users should no longer use the MFA Portal on the MFA Server, but rather should manage their authentication methods in Azure AD ([aka.ms/mfasetup](https://aka.ms/mfasetup)). Once users begin managing their authentication data in Azure AD, those methods won't be synced back to MFA Server. If you roll back to the on-premises MFA Server after users have made changes to their Authentication Methods in Azure AD, those changes will be lost. After user migrations are complete, change the [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true) domain federation setting to instruct Azure AD that MFA is no longer performed on-premises and that _all_ MFA requests should be performed by Azure MFA, regardless of group membership. 
+**Phase 3** requires moving all clients that authenticate to the on-premises MFA Server (VPNs, password managers, and so on) to Azure AD federation via SAML/OAUTH. If modern authentication standards aren’t supported, you're required to stand up NPS server(s) with the Azure MFA extension installed. Once dependencies are migrated, users should no longer use the User portal on the MFA Server, but rather should manage their authentication methods in Azure AD ([aka.ms/mfasetup](https://aka.ms/mfasetup)). Once users begin managing their authentication data in Azure AD, those methods won't be synced back to MFA Server. If you roll back to the on-premises MFA Server after users have made changes to their Authentication Methods in Azure AD, those changes will be lost. After user migrations are complete, change the [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true) domain federation setting to instruct Azure AD that MFA is no longer performed on-premises and that _all_ MFA requests should be performed by Azure MFA, regardless of group membership. 
 
-The following sections explain the migration steps in more details.
+The following sections explain the migration steps in more detail.
 
 ### Identify Azure MFA Server dependencies
 
 We've worked very hard to ensure that moving onto our cloud-based Azure MFA solution will maintain and even improve your security posture. There are three broad categories that should be used to group dependencies:
 
 - [MFA methods](#mfa-methods)
-- [Registration portal](#registration-portal)
+- [User portal](#user-portal)
 - [Authentication services](#authentication-services)
 
 To help your migration, we've matched widely used MFA Server features with the functional equivalent in Azure MFA for each category. 
@@ -105,7 +105,7 @@ Open MFA Server, click **Company Settings**:
 
 <sup>**</sup>The default SMS MFA experience in Azure MFA sends users a code which they're required to enter in the login window as part of the authentication experience. The requirement to roundtrip the SMS code provides proof-of-presence functionality.
 
-#### Registration portal 
+#### User portal 
 
 Open MFA Server, click **User Portal**:
 
@@ -114,7 +114,7 @@ Open MFA Server, click **User Portal**:
 |MFA Server|Azure MFA|
 |:--------:|:-------:|
 |**Settings Tab**||
-|User Portal URL|[aka.ms/mfasetup](https://aka.ms/mfasetup)|
+|User portal URL|[aka.ms/mfasetup](https://aka.ms/mfasetup)|
 |Allow user enrollment|See [Combined security information registration](concept-registration-mfa-sspr-combined.md)|
 |- Prompt for backup phone|See [MFA Service settings](howto-mfa-mfasettings.md#mfa-service-settings)|
 |- Prompt for third-party OATH token|See [MFA Service settings](howto-mfa-mfasettings.md#mfa-service-settings)|
@@ -132,7 +132,7 @@ Open MFA Server, click **User Portal**:
 |Allow users to associate third-party OATH token|See [OATH token documentation](howto-mfa-mfasettings.md#oath-tokens)|
 |Use OATH token for fallback|See [OATH token documentation](howto-mfa-mfasettings.md#oath-tokens)|
 |Session Timeout||
-|**Security Questions tab**	|Note that security questions in MFA Server were used to gain access to the MFA User Portal. Azure MFA only supports security questions for self-service password reset. See [security questions documentation](concept-authentication-security-questions.md).|
+|**Security Questions tab**	|Note that security questions in MFA Server were used to gain access to the User portal. Azure MFA only supports security questions for self-service password reset. See [security questions documentation](concept-authentication-security-questions.md).|
 |**Passed Sessions tab**|All authentication method registration flows are managed by Azure AD and don’t require configuration|
 |**Trusted IPs**|[Azure AD trusted IPs](howto-mfa-mfasettings.md#trusted-ips)|
 
@@ -156,13 +156,25 @@ Make a backup of the MFA Server data file located at %programfiles%\Multi-Factor
 Depending on user activity, the data file can become outdated quickly. Any changes made to MFA Server, or any end-user changes made through the portal after the backup won't be captured. If you roll back, any changes made after this point won't be restored.
 
 ### Install MFA Server update
-Run the new installer on the Primary MFA Server. Before you upgrade a server, remove it from load balancing or traffic sharing with other MFA Servers. You don't need to uninstall your current MFA Server before running the installer. The installer performs an in-place upgrade using the current installation path (for example, C:\Program Files\Multi-Factor Authentication Server). If you're prompted to install a Microsoft Visual C++ 2015 Redistributable update package, accept the prompt. Both the x86 and x64 versions of the package are installed. **DON'T INSTALL ANY OTHER UPDATES FOR THE USER PORTAL, WEB SDK, OR AD FS ADAPTER.**
+Run the new installer on the Primary MFA Server. Before you upgrade a server, remove it from load balancing or traffic sharing with other MFA Servers. You don't need to uninstall your current MFA Server before running the installer. The installer performs an in-place upgrade using the current installation path (for example, C:\Program Files\Multi-Factor Authentication Server). If you're prompted to install a Microsoft Visual C++ 2015 Redistributable update package, accept the prompt. Both the x86 and x64 versions of the package are installed. It is not required to install updates for User portal, Web SDK, or AD FS Adapter.
 
-After the installation is complete, it can take several minutes for the datafile to be upgraded. During this time, the MFA Server portal may have issues connecting to the MFA Service. **Don't restart the MFA Service, or the MFA Server during this time.** This is normal. Once the upgrade is complete, the primary server’s main service will again be functional. 
+After the installation is complete, it can take several minutes for the datafile to be upgraded. During this time, the User portal may have issues connecting to the MFA Service. **Don't restart the MFA Service, or the MFA Server during this time.** This is normal. Once the upgrade is complete, the primary server’s main service will again be functional. 
 
 >[!NOTE]
->After you run the installer on the Primary MFA Server, other MFA Servers might log events indicating a schema mismatch. 
+>After you run the installer on your primary server, secondary servers may begin to log **Unhandled SB** entries. This is due to schema changes made on the primary server that will not be recognized by secondary servers. These errors are expected. In environments with 10,000 users or more, the amount of log entries can increase significantly. To mitigate this issue, you can increase the file size of your MFA Server logs, or upgrade your secondary servers. 
  
+
+Installation steps:
+1.	Make a backup of \Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata.
+2.	Ensure you have a copy of the installer for your currently installed version (e.g. 8.0.x.x).
+3.	Upgrade MFA Server to 8.1 using the 8.1.0.x installer.
+4.	Check \Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log to ensure the upgrade is complete.  Should see “Completed performing tasks to upgrade from 23 to 24”.
+
+If the upgrade had issues, follow these steps to rollback:
+1.	Uninstall MFA Server 8.1.
+2.	Replace PhoneFactor.pfdata with the backup made before upgrading.  NOTE: Any changes since the backup was made will be lost, but should be minimal if backup was made right before upgrade and upgrade was unsuccessful.
+3.	Run the installer for your previous version (e.g. 8.0.x.x).
+
 ### Configure the MFA Server Migration Utility
 After installing the MFA Server Update, open an elevated PowerShell command prompt: hover over the PowerShell icon, right-click, and click **Run as Administrator**. Run the .\Configure-MultiFactorAuthMigrationUtility.ps1 script found in your MFA Server installation directory (C:\Program Files\Multi-factor Authentication Server by default).
 
@@ -212,7 +224,7 @@ The manual process steps are:
 1. After you select the desired users, click **Migrate Users** > **Selected users** > **OK**.
 1. To migrate all users in the group, click **Migrate Users** > **All users in AAD group** > **OK**.
 
-For the automatic process, click **Automatic synchronization** in the settings menu, and then select whether you want all users to be synced, or only members of a given Azure AD group.
+For the automatic process, click **Automatic synchronization** in the settings dialog, and then select whether you want all users to be synced, or only members of a given Azure AD group.
 
 The following table lists the sync logic for the various methods.
 
@@ -223,7 +235,7 @@ The following table lists the sync logic for the various methods.
 |**Mobile App**|Maximum of 5 devices will be migrated or only 4 if the user also has a hardware OATH token.<br>If there are multiple devices with the same name, only migrate the most recent one.<br>Devices will be ordered from newest to oldest.<br>If devices already exist in Azure AD, match on OATH Token Secret Key and update.<br>- If there's no match on OATH Token Secret Key, match on Device Token<br>-- If found, create a Software OATH Token for the MFA Server device to allow OATH Token method to work. Notifications will still work using the existing Azure MFA device.<br>-- If not found, create a new device.<br>If adding a new device will exceed the 5-device limit, the device will be skipped. |
 |**OATH Token**|If devices already exist in Azure AD, match on OATH Token Secret Key and update.<br>- If not found, add a new Hardware OATH Token device.<br>If adding a new device will exceed the 5-device limit, the OATH token will be skipped.|
 
-MFA Methods will be updated based on what was migrated and the default method will be set. MFA Server will keep track of the last migration timestamp and will only migrate the user again if the user’s MFA settings change.
+MFA Methods will be updated based on what was migrated and the default method will be set. MFA Server will keep track of the last migration timestamp and will only migrate the user again if the user’s MFA settings change or an admin modifies what to migrate in the Settings dialog.
 
 During testing, we recommend doing a manual migration first, and test to ensure a given number of users behave as expected. Once testing is successful, turn on automatic synchronization for the Azure AD group you wish to migrate. As you add users to this group, their information will be automatically synchronized to Azure AD. Note that the MFA Server Migration Utility targets one Azure AD group, however that group can encompass both users and nested groups of users.
 
@@ -294,7 +306,7 @@ Once you've successfully migrated user data, you can validate the end-user exper
 
       `https://graph.microsoft.com/v1.0/policies/featureRolloutPolicies/{policyID}?$expand=appliesTo`
 
-      Note that the above process uses the [featureRolloutPolicy resource](/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0&preserve-view=true). The public documentation hasn't yet been updated with the new multifactorAuthentication feature, but detailed information on how to interact with the API can be found on the [Microsoft docs site](/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0&preserve-view=true).
+      Note that the preceding process uses the [featureRolloutPolicy resource](/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0&preserve-view=true). The public documentation hasn't yet been updated with the new multifactorAuthentication feature, but it has detailed information on how to interact with the API.
 
 1. Confirm that the end-user MFA experience. Here are a few things to check:
    1. Do users see their methods in [aka.ms/mfasetup](https://aka.ms/mfasetup)?
@@ -304,15 +316,15 @@ Once you've successfully migrated user data, you can validate the end-user exper
    1. Are users able to authenticate successfully using Hardware OATH tokens?
 
 ### Educate users
-Ensure users know what to expect when they're moved to Azure MFA, including new authentication flows. You may also wish to instruct users to use the Azure AD Combined Registration portal ([aka.ms/mfasetup](https://aka.ms/mfasetup)) to manage their authentication methods rather than the Azure MFA Server registration portal once migrations are complete. Note that any changes made to authentication methods in Azure AD won't propagate back to your on-premises environment. In a situation where you've to roll back to MFA Server, any changes users have made in Azure AD won’t be available in the MFA Server User portal.
+Ensure users know what to expect when they're moved to Azure MFA, including new authentication flows. You may also wish to instruct users to use the Azure AD Combined Registration portal ([aka.ms/mfasetup](https://aka.ms/mfasetup)) to manage their authentication methods rather than the User portal once migrations are complete. Note that any changes made to authentication methods in Azure AD won't propagate back to your on-premises environment. In a situation where you had to roll back to MFA Server, any changes users have made in Azure AD won’t be available in the MFA Server User portal.
 
-Also note that if you've third party solutions that are dependent on Azure MFA Server for authentication (see [Authentication services](#authentication-services)), you’ll want users to continue to make changes to their MFA methods in the Azure MFA Server portal. These changes will be synced to Azure AD automatically. Once you've migrated these third party solutions, you can move users to the Azure AD combined registration page.
+Also note that if you use third-party solutions that depend on Azure MFA Server for authentication (see [Authentication services](#authentication-services)), you’ll want users to continue to make changes to their MFA methods in the User portal. These changes will be synced to Azure AD automatically. Once you've migrated these third party solutions, you can move users to the Azure AD combined registration page.
 
 ### Complete user migration
 Repeat migration steps found in [Migrate user data](#migrate-user-data) and [Validate and test](#validate-and-test) sections until all user data is migrated.
 
 ### Migrate MFA Server dependencies
-Using the data points you collected in [Authentication services](#authentication-services), begin carrying out the various migrations necessary. Once this is completed, consider having users manage their authentication methods in the combined registration portal, rather than in the User Portal on MFA server.
+Using the data points you collected in [Authentication services](#authentication-services), begin carrying out the various migrations necessary. Once this is completed, consider having users manage their authentication methods in the combined registration portal, rather than in the User portal on MFA server.
 
 ### Update domain federation settings
 Once you've completed user migrations, and moved all of your [Authentication services](#authentication-services) off of MFA Server, it’s time to update your domain federation settings so that Azure AD no longer sends MFA request to your on-premises federation server.
@@ -366,13 +378,16 @@ Content-Type: application/json
 }
 ```
 
-Users will no longer be redirected to your on-premises federation server for MFA, whether they’re targeted by the Staged Rollout tool or not. Note this can take up to 24 hours to take effect.
+Set the **Staged Rollout for Azure MFA** to **Off**. Once this is complete, users will once again be redirected to your on-premises federation server for MFA. 
 
-### Optional: Disable MFA Server registration portal
-Once you've completed migrating all user data, end users can begin using the Azure AD combined registration pages to manage MFA Methods. There are a couple ways to prevent users from using the User Portal in Azure MFA Server: 
+>[!NOTE]
+>This change can take up to 24 hours to take effect. 
 
-- Redirect your MFA Server Registration Portal URL to [aka.ms/mfasetup](https://aka.ms/mfasetup) 
-- Clear the **Allow users to log in** checkbox under the **Settings** tab in the User Portal section of MFA Server to prevent users from logging into the portal altogether.
+### Optional: Disable MFA Server User portal
+Once you've completed migrating all user data, end users can begin using the Azure AD combined registration pages to manage MFA Methods. There are a couple ways to prevent users from using the User portal in MFA Server: 
+
+- Redirect your MFA Server User portal URL to [aka.ms/mfasetup](https://aka.ms/mfasetup) 
+- Clear the **Allow users to log in** checkbox under the **Settings** tab in the User portal section of MFA Server to prevent users from logging into the portal altogether.
 
 ### Decommission Azure MFA Server
 
