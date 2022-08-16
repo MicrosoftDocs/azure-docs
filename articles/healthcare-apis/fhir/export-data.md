@@ -70,7 +70,7 @@ The FHIR service supports the following query parameters for filtering exported 
 | `_outputFormat` | Yes | Currently supports three values to align to the FHIR Spec: `application/fhir+ndjson`, `application/ndjson`, or just `ndjson`. All export jobs will return `.ndjson` files and the passed value has no effect on code behavior. |
 | `_since` | Yes | Allows you to only export resources that have been modified since the time provided. |
 | `_type` | Yes | Allows you to specify which types of resources will be included. For example, `_type=Patient` would return only patient resources.|
-| `_typeFilter` | Yes | To request finer-grained filtering, you can use `_typeFilter` along with the `_type` parameter. The value of the `_typeFilter` parameter is a comma-separated list of FHIR queries that further restrict the results. |
+| `_typeFilter` | Yes | To request finer-grained filtering, you can use `_typeFilter` along with the `_type` parameter. The value of the `_typeFilter` parameter is a comma-separated list of FHIR queries that further limit the results. |
 | `_container` | No |  Specifies the name of the container in the configured storage account where the data should be exported. If a container is specified, the data will be exported into a folder in that container. If the container isn't specified, the data will be exported to a new container with an auto-generated name. |
 
 > [!Note]
