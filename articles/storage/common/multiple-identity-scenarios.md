@@ -67,7 +67,7 @@ The following steps demonstrate how to configure an app to use a system-assigned
 
 4) Choose **+ Add** and then **Add role assignment**.
 
-    :::image type="content" source="media/assign-role-system-identity.png" alt-text="A screenshot showing how to select a system-assigned identity."  :::
+    :::image type="content" source="media/assign-role-system-identity.png" alt-text="A screenshot showing how to assign a system-assigned identity."  :::
 
 5) In the **Role** search box, search for *Storage Blob Data Contributor*, which is a common role used to manage data operations for blobs. You can assign whatever role is appropriate for your use case. Select the *Storage Blob Data Contributor* from the list and choose **Next**.
 
