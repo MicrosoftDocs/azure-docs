@@ -19,13 +19,13 @@ Any alert instance describes the resource that was affected and the cause of the
 - **Essentials**: Standardized fields, common across all alert types, describe what resource the alert is on along with other common alert metadata. Examples include severity or description.
 - **Alert context**: These fields describe the cause of the alert, with fields that vary based on the alert type. For example, a metric alert would have fields like the metric name and metric value in the alert context. An activity log alert would have information about the event that generated the alert.
 
-You might want to route the alert instance to a specific team based on a pivot such as a resource group. Common schema use the essential fields to provide standardized routing logic for all alert types. The team can use the context fields for their investigation.
+You might want to route the alert instance to a specific team based on a pivot such as a resource group. The common schema uses the essential fields to provide standardized routing logic for all alert types. The team can use the context fields for their investigation.
 
 As a result, you can potentially have fewer integrations, which makes the process of managing and maintaining them a much simpler task. Future alert payload enrichments like customization and diagnostic enrichment will only surface in the common schema.
 
 ## What enhancements does the common alert schema bring?
 
-You'll see the benefits of using a common alert schema in your alert notifications. Common alert schema provide these benefits:
+You'll see the benefits of using a common alert schema in your alert notifications. A common alert schema provides these benefits:
 
 | Action | Enhancements|
 |:---|:---|
@@ -41,7 +41,7 @@ Learn more about the [schema definitions for webhooks, Logic Apps, Azure Functio
 
 ## How do I enable the common alert schema?
 
-Use action groups in the Azure portal or use the REST API to enable common alert schema. You can enable a new schema at the action level. For example, you must separately opt in for an email action and a webhook action.
+Use action groups in the Azure portal or use the REST API to enable the common alert schema. You can enable a new schema at the action level. For example, you must separately opt in for an email action and a webhook action.
 
 > [!NOTE]
 > Smart detection alerts support the common schema by default. No opt-in is required.
