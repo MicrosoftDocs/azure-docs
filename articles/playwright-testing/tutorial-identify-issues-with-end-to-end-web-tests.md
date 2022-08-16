@@ -58,7 +58,7 @@ To use Visual Studio Code for running Playwright tests in an interactive way:
     :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/refresh-playwright-tests.png" alt-text="Screenshot that shows how to refresh Playwright tests using the command palette in Visual Studio Code.":::
 
     > [!NOTE]
-    > If the tests are not showing up, verify that you have set the `accessKey` property in the `playwright.config.ts` file. For more information, see [Configure playwright for Microsoft Playwright Testing](#configure-playwright-for-microsoft-playwright-testing).
+    > If the tests are not showing up, verify that you have set the `accessKey` property in the `playwright.config.ts` file. For more information, see [Configure playwright for Microsoft Playwright Testing](./quickstart-run-end-to-end-tests.md#configure-playwright-for-microsoft-playwright-testing).
 
 1. Open the **Testing** view from the side bar, and then select **Run Tests** to run all tests.
 
