@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 08/16/2022
 ms.author: jasteppe
 ---
 
@@ -41,6 +41,8 @@ In this article, you'll learn how to configure diagnostic settings for the MedTe
 
       > [!Note]
       >
+      > The **AllMetrics** option is the only option available and will export all currently supported MedTech service metrics.
+      > 
       > To view a complete list of MedTech service metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisworkspacesiotconnectors). 
 
    3. Under **Destination details**, select the destination you want to use for your exported MedTech service metrics. In this example, we've selected an Azure storage account. You'll select a destination of your own choosing.
@@ -82,9 +84,6 @@ In this article, you'll learn how to configure diagnostic settings for the MedTe
    > [!TIP]
    > 
    > For more information about how to work with diagnostics logs, see the [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md).
-
-## Conclusion 
-Having access to the MedTech service metrics is essential for monitoring and troubleshooting.  The MedTech service allows you to do these actions through the export of metrics. 
 
 ## Next steps
 
