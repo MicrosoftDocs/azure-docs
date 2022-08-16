@@ -46,8 +46,10 @@ Compared to virtual machines, containers have the following advantages:
 Service Fabric supports the deployment of Docker containers on Linux, and Windows Server containers on Windows Server 2016 and later, along with support for Hyper-V isolation mode.
 
 Container runtimes compatible with ServiceFabric:
-- Windows: Mirantis Container Runtime with WS2022 and DockerEE with WS2019
 - Linux: Docker
+- Windows:
+    1. Windows Server 2022: Mirantis Container Runtime 
+    2. Windows Server 2019/2016: DockerEE
 
 #### Docker containers on Linux
 
