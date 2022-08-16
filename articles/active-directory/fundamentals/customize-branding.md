@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Configure your company branding
 
-Create a consistent experience when users sign into your organization's web-based apps that use Azure Active Directory (Azure AD) as your identity provider, such as Microsoft 365. The sign-in process can include your company logo and color scheme, a streamlined sign-in option, and customized experiences based on browser language.
+Create a consistent experience when users sign into your organization's web-based apps that use Azure Active Directory (Azure AD) as your identity provider, such as Microsoft 365. The sign-in process can include your company logo and customized experiences based on browser language.
 
 ## License requirements
 
@@ -26,9 +26,7 @@ Adding custom branding and configuring the 'keep me signed in' (KMSI) option req
 
 - Azure AD Premium 1
 - Azure AD Premium 2
-- Custom branding only: Office 365 (for Office apps)
-- KMSI only: Basic
-- KMSI only: Microsoft 365
+- Office 365 (for Office apps)
 
 For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).
 
@@ -42,7 +40,7 @@ Custom branding appears after users sign in. Users that start the sign-in proces
 
 **All branding elements are optional. Default settings will remain, if left unchanged.** For example, if you specify a banner logo but no background image, the sign-in page shows your logo with a default background image from the destination site such as Microsoft 365. Additionally, sign-in page branding doesn't carry over to personal Microsoft accounts. If your users or guests sign in using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
 
-**Images have different image and file size requirements.** Take note of the requirements for each option. You may need to use a photo editor to create the right-sized images. The preferred image type for all images is PNG. 
+**Images have different image and file size requirements.** Take note of the requirements for each option. You may need to use a photo editor to create the right-sized images. The preferred image type for all images is PNG, but JPG is accepted. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
@@ -52,7 +50,7 @@ Custom branding appears after users sign in. Users that start the sign-in proces
 
     ![Configure company branding page, with general settings completed](media/customize-branding/configure-company-branding-general-settings.png)
 
-    - **Language** The language for your first customized branding configuration can't be changed. Once a default sign-in experience is created, you can add language-specific customized branding.
+    - **Language** The language for your first customized branding configuration is based on your default locale can't be changed. Once a default sign-in experience is created, you can add language-specific customized branding.
         
     - **Sign-in page background image** Select a PNG or JPG image file to appear as the background for your sign-in pages. The image will be anchored to the center of the browser, and will scale to the size of the viewable space.
         
@@ -85,7 +83,7 @@ Custom branding appears after users sign in. Users that start the sign-in proces
 
     - **Sign-in page background color** Specify the hexadecimal color (#FFFFFF) that will appear in place of your background image in low-bandwidth connection situations. We recommend using the primary color of your banner logo or your organization color.
 
-    - **Square logo image** Select a PNG (preferred) or JPG image of your organization's logo to appear during the setup process for new Windows 10 Enterprise devices. This image is only used for Windows authentication, appears only on tenants that are using [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) for deployment or for password entry pages in other Windows 10 experiences. In some cases, it may also appear in the consent dialog.
+    - **Square logo image** Select a PNG or JPG image of your organization's logo to appear during the setup process for new Windows 10 Enterprise devices. This image is only used for Windows authentication and appears only on tenants that are using [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) for deployment or for password entry pages in other Windows 10 experiences. In some cases, it may also appear in the consent dialog.
         
         We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small.
     
