@@ -110,7 +110,7 @@ The following table describes whether a feature is supported in a premium block 
 | [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x1F7E1; | &#x1F7E1; | &nbsp;&#x2716; | &#x1F7E1; |
 | [Customer-managed keys (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json)  | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | &#x2705; | &#x1F7E1; | &nbsp;&#x2716; | &#x1F7E1; |
-| [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705;<sup>2</sup> | &#x2705; |
 | [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x1F7E1; | &#x1F7E1; | &#x1F7E1; |
 | [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E1; | &#x1F7E6; |
 | [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2716; | &#x2705; |
@@ -127,6 +127,8 @@ The following table describes whether a feature is supported in a premium block 
 | [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 
 <sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Azure Active Directory (AD) security.
+
+<sup>2</sup>    Only locally redundant storage (LRS) and zone-redundant storage (ZRS) are supported.
 
 ## See also
 
