@@ -3,7 +3,7 @@ title: Enterprise Security Package for Azure HDInsight
 description: Learn the Enterprise Security Package components and versions in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 08/16/2022
 ---
 
 # Enterprise Security Package for Azure HDInsight
