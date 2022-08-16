@@ -1,0 +1,73 @@
+---
+title: Create an access review of Privileged Access Groups - Azure AD (preview)
+description: Learn how to create an access review of Privileged Access Groups in Azure Active Directory. 
+services: active-directory
+author: amsliu
+manager: amycolannino
+editor: markwahl-msft
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.topic: how-to
+ms.subservice: compliance
+ms.date: 08/16/2022
+ms.author: amsliu
+ms.reviewer: jgangadhar
+ms.collection: M365-identity-device-management
+---
+ 
+# Create an access review of Privileged Access Groups in Azure AD (preview)
+
+This article describes how to create one or more access reviews for Privileged Access Groups. Reviews can be performed on both active members of the group, who are active at the time the review is created, and the eligible members of the group.
+
+## Prerequisites
+
+- Azure AD Premium P2.
+- Only Global administrators and Privileged Role administrators can create reviews on Privileged Access Groups. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
+- Microsoft 365 and Security group owner.
+
+For more information, see [License requirements](access-reviews-overview.md#license-requirements).
+
+If you are reviewing access to an application, then before creating the review, see the article on how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md) to ensure the application is integrated with Azure AD.
+
+## Create a Privileged Access Group access review
+
+### Scope
+1. Sign in to the Azure portal and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
+
+2. On the left menu, select **Access reviews**.
+
+3. Select **New access review** to create a new access review.
+
+    ![Screenshot that shows the Access reviews pane in Identity Governance.](./media/create-access-review/access-reviews.png)
+
+4. In the **Select what to review** box, select which resource you want to review.
+
+    ![Screenshot that shows creating an access review.](./media/create-access-review/select-what-review.png)
+
+5. If you selected **Teams + Groups**, you have two options:
+
+   - **All Microsoft 365 groups with guest users**: Select this option if you want to create recurring reviews on all your guest users across all your Microsoft Teams and Microsoft 365 groups in your organization. Dynamic groups and role-assignable groups aren't included. You can also choose to exclude individual groups by selecting **Select group(s) to exclude**.
+   - **Select Teams + groups**: Select this option if you want to specify a finite set of teams or groups to review. A list of groups to choose from appears on the right.
+
+     ![Screenshot that shows selecting Teams + Groups.](./media/create-access-review/create-privileged-access-groups-review.png)
+
+> [!NOTE]  
+> When a Privileged Access Group (PAG) is selected, the users under review for the group will include all eligible users and active users in that group. 
+
+6. Now you can select a scope for the review. Your options are:
+    - **Guest users only**: This option limits the access review to only the Azure AD B2B guest users in your directory.
+    - **Everyone**: This option scopes the access review to all user objects associated with the resource.
+
+    > [!NOTE]  
+    > If you selected **All Microsoft 365 groups with guest users**, your only option is to review **Guest users only**.
+
+7. Or if you are conducting group membership review, you can create access reviews for only the inactive users in the group. In the *Users scope* section, check the box next to **Inactive users (on tenant level)**. If you check the box, the scope of the review will focus on inactive users only, those who have not signed in either interactively or non-interactively to the tenant. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users in the group inactive for the specified number of days will be the only users in the review.
+
+> [!NOTE]
+> The inactivity time you configure will not affect recently created users. The Access Review will check if the user has been created in the time frame you configure and ignore users who haven’t existed for at least that amount of time. For example, if you set the inactivity time as 90 days and a guest user was created or invited less than 90 days ago, the guest user will not be in scope of the Access Review. This ensures that guests can sign in once before being removed.
+
+## Next steps
+
+- [Create an access review of groups or applications](create-access-review.md)
+- [Approve activation requests for privileged access group members and owners (preview)](../privileged-identity-management/groups-approval-workflow.md)
