@@ -103,6 +103,8 @@ The `trigger` section defines the schedule details and contains following proper
 
 - **(Required)** `type` specifies the schedule type is `cron`.
 
+List continues below. 
+
 # [Python](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
@@ -112,6 +114,8 @@ The `trigger` section defines the schedule details and contains following proper
 The `CronTrigger` section defines the schedule details and contains following properties:
 
 - **(Required)** To provide better coding experience, we use `CronTrigger` for recurrence schedule.
+
+List continues below. 
 
 ---
 
