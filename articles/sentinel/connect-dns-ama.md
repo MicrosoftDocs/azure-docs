@@ -328,7 +328,7 @@ To define different values in a single field, use the **OR** operator.
 
 ## ASIM normalized DNS schema
 
-This table describes and translates Windows DNS server fields into the normalized field names as they appear in the [DNS normalization schema](dns-normalization-schema.md#schema-details.md).
+This table describes and translates Windows DNS server fields into the normalized field names as they appear in the [DNS normalization schema](dns-normalization-schema.md#schema-details).
 
 |Windows DNS field name  |Normalized field name  |Type  |Description |
 |---------|---------|---------|---------|
