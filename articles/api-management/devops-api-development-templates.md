@@ -112,5 +112,5 @@ We've seen the greatest success in customer deployments, and recommend the follo
 [23]: /azure/devops/repos/get-started/what-is-repos?view=azure-devops&preserve-view=true
 [24]: ./policy-fragments.md
 [25]: https://azure.microsoft.com/services/devops/
-[26]: https://github.com/microsoft/api-guidelines
+[26]: https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md
 [27]: https://github.com/Azure/azure-api-style-guide
