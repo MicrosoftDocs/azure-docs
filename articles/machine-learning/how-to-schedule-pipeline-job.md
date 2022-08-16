@@ -285,7 +285,7 @@ All the display name of jobs triggered by schedule will have the display name as
 - named-schedule-20210102T060000Z
 - named-schedule-20210102T180000Z, and so on
 
-:::image type="content" source="media/how-to-schedule-pipeline-job/schedule-triggered-pipeline-jobs.png" alt-text="Screenshot of the jobs tab in the Azure Machine Learning studio filtering by job display name.":::
+:::image type="content" source="media/how-to-schedule-pipeline-job/schedule-triggered-pipeline-jobs.png" alt-text="Screenshot of the jobs tab in the Azure Machine Learning studio filtering by job display name." lightbox= "media/how-to-schedule-pipeline-job/schedule-triggered-pipeline-jobs.png":::
 
 You can also apply [Azure CLI JMESPath query](/cli/azure/query-azure-cli) to query the jobs triggered by a schedule name.
 
