@@ -3,7 +3,7 @@ title: Azure Cloud Shell for Windows users | Microsoft Docs
 description: Guide for users who are not familiar with Linux systems
 services: azure
 documentationcenter: ''
-author: theJasonHelmick@gmail.com
+author: theJasonHelmick
 manager: hemantm
 tags: azure-resource-manager
 
