@@ -36,7 +36,7 @@ You can access Azure AD DS metrics from two places:
 
   The following screenshot shows combined metrics for Total Processor Time, DNS Queries, and LDAP searches by role instance:
 
-  :::image type="content" border="true" source="media/fleet-metrics/combined-metrics-instance.png" alt-text="Screenshot of how to select an Azure AD DS instance as the scope for fleet metrics.":::
+  :::image type="content" border="true" source="media/fleet-metrics/combined-metrics-instance.png" alt-text="Screenshot of combined metrics for an Azure AD DS instance.":::
 
 ## Metrics definitions and descriptions
 
