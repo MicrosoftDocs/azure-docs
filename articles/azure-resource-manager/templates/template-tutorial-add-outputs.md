@@ -10,7 +10,7 @@ ms.custom:
 
 # Tutorial: Add outputs to your ARM template
 
-In this tutorial, you learn how to return a value from your Azure Resource Manager template (ARM template). You use output parameters when you need a value a resource you deploy. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to return a value from your Azure Resource Manager template (ARM template). You use output parameters when you need a value for a resource you deploy. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
