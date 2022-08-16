@@ -24,8 +24,8 @@ This feature achieves the file size by using an extra data shuffle phase over pa
 
 ## Benefits of Optimize Writes
 
-* It is available on Delta Lake tables for both Batch and Streaming write patterns.
-* There is no need to change the ```spark.write``` command pattern. The feature is enabled by a configuration setting or a table property.
+* It's available on Delta Lake tables for both Batch and Streaming write patterns.
+* There's no need to change the ```spark.write``` command pattern. The feature is enabled by a configuration setting or a table property.
 * It reduces the number of write transactions as compared to the OPTIMIZE command. 
 * OPTIMIZE operations will be faster as it will operate on fewer files.
 * VACUUM command for deletion of old unreferenced files will also operate faster.
@@ -43,8 +43,8 @@ This feature achieves the file size by using an extra data shuffle phase over pa
 ### When to avoid it
 
 * Non partitioned tables.
-* Use cases where extra write latency is not acceptable.
-* Big tables with well defined optimization schedules and read patterns.
+* Use cases where extra write latency isn't acceptable.
+* Large tables with well defined optimization schedules and read patterns.
 
 ## How to enable and disable the optimize write feature
 
