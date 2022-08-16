@@ -77,6 +77,6 @@ Diagram here
 ## Next steps
 
 * Learn how to create an Azure DNS Private Resolver by using [Azure PowerShell](./dns-private-resolver-get-started-powershell.md) or [Azure portal](./dns-private-resolver-get-started-portal.md).
-* Learn how to [Set up DNS failover using private resolvers](tutorial-dns-private-resolver.md).
+* Learn how to [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md).
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
 * [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
