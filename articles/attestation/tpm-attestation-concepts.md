@@ -100,8 +100,6 @@ c:[type=="srtmDrtmEventPcr", issuer=="AttestationPolicy"] => add(type="hvciEnabl
 c:[type=="hvciEnabledSet", issuer=="AttestationPolicy"] => issue(type="hvciEnabled", value=ContainsOnlyValue(c.value, 1));
 ![type=="hvciEnabled", issuer=="AttestationPolicy"] => issue(type="hvciEnabled", value=false);
 
-// System Guard Secure Launch
-
 // Validating unwanted(malicious.sys) driver is not loaded
 c:[type=="events", issuer=="AttestationService"] => add(type="boolProperties", value=JmesPath(c.value, "Events[? EventTypeString == 'EV_EVENT_TAG' && (PcrIndex == 12 || PcrIndex == 13 || PcrIndex == 19 || PcrIndex == 20)].ProcessedData.EVENT_TRUSTBOUNDARY"));
 c:[type=="boolProperties", issuer=="AttestationPolicy"] => issue(type="MaliciousDriverLoaded", value=JsonToClaimValue(JmesPath(c.value, "[*].EVENT_LOADEDMODULE_AGGREGATION[] | [? EVENT_IMAGEVALIDATED == true && (equals_ignore_case(EVENT_FILEPATH, '\windows\system32\drivers\malicious.sys') || equals_ignore_case(EVENT_FILEPATH, '\windows\system32\drivers\wd\malicious.sys'))] | @ != null")));
@@ -109,6 +107,18 @@ c:[type=="boolProperties", issuer=="AttestationPolicy"] => issue(type="Malicious
 
 };
 ```
+## Extending the protection from malicious boot attacks via Integrity Measurement Architecture(IMA) on Linux
+
+Linux systems follows a similar boot process to Windows, and with TPM attestation the protection profile can be extended to beyond boot into the kernel as well using Integrity Measurement Architecture(IMA). IMA subsystem was designed to detect if files have been accidentally or maliciously altered, both remotely and locally, it maintains a runtime measurement list and, if anchored in a hardware Trusted Platform Module(TPM), an aggregate integrity value over this list provides the benefit of resiliency from software attacks.Recent enhancements in the IMA subsystem also allows for non file based attributes to be measured and attested remotely. Azure attestation supports non file based measurements to be attested remtoely to provide a holistic view of system integrity.
+
+Enabling IMA with the following ima-policy will enable measurement of non file attributes while still enabling local file integrity attestation.
+
+
+Using the following Attestation policy, you can now validate the secureboot, kernel signature, kernel version, kernel cmdline passed in by grub and other key security attributes supported by IMA.
+
+
+
+Note: Support for non-file based measurements are only available from linux kernel version: 5.18
 
 ## Next steps
 
