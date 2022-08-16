@@ -1,18 +1,19 @@
 ---
 title: Configure auto provisioning of agents for Microsoft Defender for Cloud
 description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Microsoft Defender for Cloud
+author: bmansheim
+ms.author: benmansheim
 ms.topic: quickstart
-ms.date: 07/06/2022
+ms.date: 08/14/2022
 ms.custom: mode-other
 ---
 # Quickstart: Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud collects data from your resources using the relevant agent or extensions for that resource and the type of data collection you've enabled. Use the procedures below to auto-provision the necessary agents and extensions used by Defender for Cloud to your resources.
 
-:::image type="content" source="media/enable-data-collection/auto-provisioning-list-of-extensions.png" alt-text="Screenshot of Microsoft Defender for Cloud's extensions that can be auto provisioned.":::
+When you enable auto provisioning of any of the supported extensions, the extensions are installed on existing and future machines in the subscription. When you **disable** auto provisioning for an extension, the extension is not installed on future machines, but it is also not uninstalled from existing machines.
 
-> [!NOTE]
-> When you enable auto provisioning of any of the supported extensions, you'll potentially impact *existing* and *future* machines. But when you **disable** auto provisioning for an extension, you'll only affect the *future* machines: nothing is uninstalled by disabling auto provisioning. 
+:::image type="content" source="media/enable-data-collection/auto-provisioning-list-of-extensions.png" alt-text="Screenshot of Microsoft Defender for Cloud's extensions that can be auto provisioned.":::
 
 ## Prerequisites
 
@@ -43,6 +44,12 @@ This table shows the availability details for the auto provisioning **feature** 
 | Supported destinations:                              | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure virtual machines                                                                                                  | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines                                                                                             |
 | Policy-based:                                        | :::image type="icon" source="./media/icons/no-icon.png"::: No                                                                                                                       | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                                                                                                                    |
 | Clouds:                                              | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet |
+
+### [**Azure Monitor Agent**](#tab/autoprovision-ama)
+
+[!INCLUDE [azure-monitor-agent-availability](includes/azure-monitor-agent-availability.md)]
+
+Learn more about [using the Azure Monitor Agent with Defender for Cloud](auto-deploy-azure-monitoring-agent.md).
 
 ### [**Vulnerability assessment**](#tab/autoprovision-va)
 
@@ -94,8 +101,7 @@ By default, auto provisioning is enabled when you enable Defender for Containers
 
 ---
 
-> [!TIP]
-> For items marked in preview: [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
+[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 
 ## How does Defender for Cloud collect data?
 
@@ -109,9 +115,6 @@ Data is collected using:
 
 - The **Log Analytics agent**, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user.
 - **Security extensions**, such as the [Azure Policy Add-on for Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), which can also provide data to Defender for Cloud regarding specialized resource types.
-
-> [!TIP]
-> As Defender for Cloud has grown, the types of resources that can be monitored has also grown. The number of extensions has also grown. Auto provisioning has expanded to support additional resource types by leveraging the capabilities of Azure Policy.
 
 ## Why use auto provisioning?
 

@@ -10,7 +10,7 @@ keywords: "Kubernetes, Arc, Azure, K8s, containers, agent, update, auto upgrade"
 
 # Upgrade Azure Arc-enabled Kubernetes agents
 
-Azure Arc-enabled Kubernetes provides both automatic and manual upgrade capabilities for its agents. If you disable automatic upgrade and instead rely on manual upgrade, a [version support policy](#version-support-policy) applies for Arc agents and the underlying Kubernetes clusters.
+Azure Arc-enabled Kubernetes provides both automatic and manual upgrade capabilities for its [agents](conceptual-agent-overview.md). If you disable automatic upgrade and instead rely on manual upgrade, a [version support policy](#version-support-policy) applies for Arc agents and the underlying Kubernetes clusters.
 
 ## Toggle automatic upgrade on or off when connecting cluster to Azure Arc
 

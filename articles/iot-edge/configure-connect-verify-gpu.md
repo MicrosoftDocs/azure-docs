@@ -21,9 +21,9 @@ We'll use the Azure portal, the Azure Cloud Shell, and your VM's command line to
 
 ## Prerequisites
 
-* Azure account - [create a free account](https://azure.microsoft.com/account/free)
+* Azure account - [create a free account](https://azure.microsoft.com/free/search/)
 
-* Azure IoT Hub - [create an IoT Hub](https://azure.microsoft.com/services/iot_hub)
+* Azure IoT Hub - [create an IoT Hub](https://azure.microsoft.com/services/iot-hub/#overview)
 
 * Azure IoT Edge device
 
@@ -33,7 +33,7 @@ We'll use the Azure portal, the Azure Cloud Shell, and your VM's command line to
   az iot hub device-identity create --device-id <YOUR-DEVICE-NAME> --edge-enabled --hub-name <YOUR-IOT-HUB-NAME>
   ```
     
-  For more information on creating an IoT Edge device, see [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](/quickstart-linux). Later in this tutorial, we'll add an NVIDIA module to our IoT Edge device.
+  For more information on creating an IoT Edge device, see [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](quickstart-linux.md). Later in this tutorial, we'll add an NVIDIA module to our IoT Edge device.
 
 ## Create a GPU-optimized virtual machine
 
@@ -233,4 +233,4 @@ az group list
 
 ## Next steps
 
-This article helped you set up your virtual machine and IoT Edge device to be GPU-accelerated. To run an application with a similar setup, try this Microsoft Learn tutorial [NVIDIA DeepStream development with Microsoft Azure](/learn/paths/nvidia-deepstream-development-with-microsoft-azure/?WT.mc_id=iot-47680-cxa). The Learn tutorial shows you how to develop optimized Intelligent Video Applications that can consume multiple video, image, and audio sources.
+This article helped you set up your virtual machine and IoT Edge device to be GPU-accelerated. To run an application with a similar setup, try the learning path for [NVIDIA DeepStream development with Microsoft Azure](/learn/paths/nvidia-deepstream-development-with-microsoft-azure/?WT.mc_id=iot-47680-cxa). The Learn tutorial shows you how to develop optimized Intelligent Video Applications that can consume multiple video, image, and audio sources.
