@@ -113,7 +113,7 @@ Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/d
 
 #### Form Recognizer model data extraction
 
-  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |**Signatures**|
+  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables** |**Signatures**|
   | --- | :---: |:---:| :---: | :---: |:---: |
   |Read | ✓  |   |   |   |   | |
   |General document  | ✓  |  ✓ | ✓  | ✓  | ✓  | |
