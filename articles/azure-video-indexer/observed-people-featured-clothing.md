@@ -31,13 +31,38 @@ The results contain two objects:
 
 - `featuredclothing.map.json` - the file contains the instances of each featured clothing, with the following fields:  
 
-    - id – ranking index (`id=1` is the most important clothing).  
+    - id – ranking index (`"id": 1` is the most important clothing).  
     - confidence – the score of the featured clothing.  
     - frameIndex – the best frame of the clothing.  
     - timestamp – corresponding to the frameIndex.  
     - opBoundingBox – bounding box of the person.  
     - faceBoundingBox – bounding box of the person's face, if detected.  
     - fileName – where the best frame of the clothing is saved.  
+
+    An example of the featured clothing with `"id": 1`.
+
+    ```
+    "instances": [
+		{
+			"confidence": 0.98,
+			"faceBoundingBox": {
+				"x": 0.50158,
+				"y": 0.10508,
+				"width": 0.13589,
+				"height": 0.45372
+			},
+			"fileName": "frame_12147.jpg",
+			"frameIndex": 12147,
+			"id": 1,
+			"opBoundingBox": {
+				"x": 0.34141,
+				"y": 0.16667,
+				"width": 0.28125,
+				"height": 0.82083
+			},
+			"timestamp": "00:08:26.6311250"
+		},
+    ```
 - `featuredclothing.frames.map` – this folder contains images of the best frames that the featured clothing appeared in, corresponding to the field fileName in each instance in `featuredclothing.map.json`.  
 
 ## Limitations and assumptions 
