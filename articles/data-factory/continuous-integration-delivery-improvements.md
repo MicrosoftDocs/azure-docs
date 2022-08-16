@@ -94,7 +94,6 @@ npm run build-preview export C:\DataFactories\DevDataFactory /subscriptions/xxxx
 - `RootFolder` is a mandatory field that represents where the Data Factory resources are located.
 - `FactoryId` is a mandatory field that represents the Data Factory resource ID in the format `/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>`.
 - `OutputFolder` is an optional parameter that specifies the relative path to save the generated ARM template.
-- 
 > [!NOTE]
 > The ARM template generated isn't published to the live version of the factory. Deployment should be done by using a CI/CD pipeline.
 
