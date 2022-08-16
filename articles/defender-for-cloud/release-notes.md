@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 08/15/2022
+ms.date: 08/16/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,13 +20,14 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in August include:
 
-- [Defender for Container's vulnerability assessment now supports Windows containers](#defender-for-containers-vulnerability-assessment-now-supports-windows-containers)
+- [Vulnerabilities for running images are now visible with Defender for Container on your Windows containers ](#vulnerabilities-on-your-windows-containers-are-now-visible-with-defender-for-container)
 - [Auto-deployment of Azure Monitor Agent (Preview)](#auto-deployment-of-azure-monitor-agent-preview)
-### Defender for Container's vulnerability assessment now supports Windows containers
 
-Defender for Container's vulnerability assessment has now added support for Windows containers.
+### Vulnerabilities running on your Windows containers are now visible with Defender for Container 
 
-When vulnerabilities are detected, Defender for Cloud shows the detected issues, and generates the following security recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false). This recommendation maps the vulnerability data that is created for images in ACR to the containers in AKS that associated with those images.
+Defender for Container now allows you to view vulnerabilities for your Windows containers.
+
+When vulnerabilities are detected, Defender for Cloud shows the detected issues, and generates the following security recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false).
 
 Learn more about [vulnerability assessment](defender-for-containers-introduction.md#vulnerability-assessment).
 
