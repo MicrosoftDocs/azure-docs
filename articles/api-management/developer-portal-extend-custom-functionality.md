@@ -25,7 +25,7 @@ The following table summarizes three options, with links to more detail.
 
 ## Use Custom HTML code widget
 
-The managed developer portal includes a **Custom HTML code** widget that enables you to insert HTML code for small portal customizations. For example, use custom HTML to embed a video or to add a form. The portal renders the custom widget in an inline frame (iframe). 
+The managed developer portal includes a **Custom HTML code** widget where you can insert HTML code for small portal customizations. For example, use custom HTML to embed a video or to add a form. The portal renders the custom widget in an inline frame (iframe). 
   
 1. In the administrative interface for the developer portal, go to the page or section where you want to insert the widget. 
 1. Select the grey "plus" (**+**) icon that appears when you hover the pointer over the page.
@@ -62,7 +62,7 @@ The managed developer portal includes a **Custom HTML code** widget that enables
 1. Open a terminal, navigate to the location where you want to save the widget code, and run the following command to download the code scaffold:
 
     ```
-    npx @azure...
+    npx @azure/api-management-custom-widgets-scaffolder
     ```   
 1. Navigate to the newly created folder containing the widget's code scaffold. 
 
@@ -83,9 +83,9 @@ The managed developer portal includes a **Custom HTML code** widget that enables
 
     > [!NOTE]
     > If the tab doesn't open, do the following:
-    > 1. Go to your API Management service in the Azure portal and open the administrative instance of the developer portal. 
-    > 1. Append `/?MS_APIM_CW_localhost_port=3000` to the URL, and make sure the development server started. To do that, check output on the console where you started the server in the previous step. It should display the port the server is running on (for example, `http://127.0.0.1:3001`). 
-    > 
+    > 1. Make sure the development server started. To do that, check output on the console where you started the server in the previous step. It should display the port the server is running on (for example, `http://127.0.0.1:**3001**`).
+    > 1. Go to your API Management service in the Azure portal and open your developer portal with the administrative interface. 
+    > 1. Append `/?MS_APIM_CW_localhost_port=**3001**` to the URL. Change the port number if your server runs on a different port.
 
 1. Implement the code of the widget and test it locally. The code of the widget is located in the `src` folder, in the following subfolders: 
 
