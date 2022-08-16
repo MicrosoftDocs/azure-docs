@@ -33,7 +33,7 @@ You can't create a Lake database and or the objects in the Lake databases using 
 Tables in the Lake databases cannot be modified from a serverless SQL pool. Use [Database designer](../database-designer/modify-lake-database.md) or Apache Spark pools to modify the Lake databases. The serverless SQL pool enables you to make the following changes in Lake database using Transact-SQL commands:
 - Adding, altering, and dropping views, procedures, inline table-value functions.
 - Adding and removing database-scoped Azure AD users.
-- Altering `db_datareader` role to add or remove Azure AD database users. Azure AD database user in `db_dtareader` role has permisison to read all tables in the Lake database but cannot read data from other databases.
+- Altering `db_datareader` role to add or remove Azure AD database users. Azure AD database user in `db_datareader` role has permisison to read all tables in the Lake database but cannot read data from other databases.
 
 ## Security model
 
@@ -45,7 +45,7 @@ The Lake databases and tables are secured at two levels:
 
 Access to Lake database files is controlled using the Lake permissions on storage layer. Only Azure AD users can use tables in the Lake databases, and they can access the data in the lake using their own identities.
 
-To give a security principal, such as a user, Azure AD app, or a security group, access to the underlying data used for external tables, you need to give them `read (R)` permissions on files (such as the table's underlying data files) and `execute (X)` on the folder where the files are stored + on every parent folder up to the root. You can read more about these permissions on [Access control lists(ACLs)](../../storage/blobs/data-lake-storage-access-control.md) page. 
+To give a security principal, such as a user, security group, or [Azure AD application with assigned service principal](/azure/active-directory/develop/howto-create-service-principal-portal.md) access to the underlying data used for external tables, you need to give them `read (R)` permissions on files (such as the table's underlying data files) and `execute (X)` on the folder where the files are stored + on every parent folder up to the root. You can read more about these permissions on [Access control lists(ACLs)](../../storage/blobs/data-lake-storage-access-control.md) page. 
 
 For example, in `https://<storage-name>.dfs.core.windows.net/<fs>/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/`, security principals need to have `X` permissions on all the folders starting at the `<fs>` to the `myparquettable` and `R` permissions on `myparquettable` and files inside that folder, to be able to read a table in a database (synchronized or original one).
 
