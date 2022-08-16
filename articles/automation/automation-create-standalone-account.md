@@ -28,7 +28,7 @@ To create an Azure Automation account in the Azure portal, complete the followin
 1. Select **+ Create a Resource**.
 1. Search for **Automation**. In the search results, select **Automation**.
 
-   :::image type="content" source="./media/automation-create-standalone-account/automation-account-portal.png" alt-text="Locating Automation accounts in portal":::
+   :::image type="content" source="./media/automation-create-standalone-account/automation-account-portal-v2.png" alt-text="Locating Automation accounts in portal":::
 
 Options for your new Automation account are organized into tabs in the **Create an Automation Account** page. The following sections describe each of the tabs and their options.
 
