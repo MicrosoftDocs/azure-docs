@@ -1,25 +1,25 @@
 # Push notifications
 ---
 title: Enable push notifications in your Android chat app
-description: Enable push notifications in your Android chat app
-services: azure-communication-services
+git titleSuffix: An Azure Communication Services tutorial
+description: Learn how to enable push notification in Android App by using Azure Communication Chat SDK
 author: jiminwen
-manager: tsangpo
-ms.service: azure-communication-services
-ms.subservice: azure-communication-services
+services: azure-communication-services
+
+ms.author: jiminwen
 ms.date: 08/16/2022
 ms.topic: tutorial
-ms.author: jiminwen
+ms.service: azure-communication-services
 ---
 
 > [!NOTE]
 > Chat push notifications are supported for Android SDK in versions starting from 1.1.0-beta.4 and 1.1.0. It is recommended that you use version 1.2.0 or newer, as older versions have a known issue with the registration renewal. Steps from 8 to 12 are only needed for versions equal to or greater than 1.2.0.
 
-Push notifications let clients be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app isn't running in the foreground. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#push-notifications).
+Push notifications let clients be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app isn't running in the foreground. Azure Communication Services supports a [list of events that you can subscribe to](../concepts/chat/concepts.md#push-notifications).
 
 1. Set up Firebase Cloud Messaging for the ChatQuickstart project. Complete steps `Create a Firebase project`, `Register your app with Firebase`, `Add a Firebase configuration file`, `Add Firebase SDKs to your app`, and `Edit your app manifest` in [Firebase Documentation](https://firebase.google.com/docs/cloud-messaging/android/client).
 
-2. Create a Notification Hub within the same subscription as your Communication Services resource, configure your Firebase Cloud Messaging settings for the hub, and link the Notification Hub to your Communication Services resource. See [Notification Hub provisioning](../../../concepts/notifications.md#notification-hub-provisioning).
+2. Create a Notification Hub within the same subscription as your Communication Services resource, configure your Firebase Cloud Messaging settings for the hub, and link the Notification Hub to your Communication Services resource. See [Notification Hub provisioning](../concepts/notifications.md#notification-hub-provisioning).
 3. Create a new file called `MyFirebaseMessagingService.java` in the same directory where `MainActivity.java` resides. Copy the following code into `MyFirebaseMessagingService.java`. You will need to replace `<your_package_name>` with the package name used in `MainActivity.java`. You can use your own value for `<your_intent_name>`. This value will be used in step 6 below.
 
    ```java
