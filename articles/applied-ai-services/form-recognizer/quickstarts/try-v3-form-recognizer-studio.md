@@ -15,8 +15,7 @@ ms.custom: ignite-fall-2021, mode-ui
 # Get started: Form Recognizer Studio | v3.0
 
 
-
-[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. You can get started by exploring the pre-trained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK preview](get-started-v3-sdk-rest-api.md) and other quickstarts.
+[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. You can get started by exploring the pre-trained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-v3-sdk-rest-api.md) and other quickstarts.
 
 :::image border="true" type="content" source="../media/quickstarts/form-recognizer-demo-preview3.gif" alt-text="Selecting the Layout API to analyze a newspaper document in the Form Recognizer Studio.":::
 
@@ -208,4 +207,4 @@ To label for signature detection: (Custom form only)
 * Explore our [**v3.0 SDK quickstarts**](get-started-v3-sdk-rest-api.md) to try the v3.0 features in your applications using the new SDKs.
 * Refer to our [**v3.0 REST API quickstarts**](get-started-v3-sdk-rest-api.md) to try the v3.0 features using the new REST API.
 
-[Get started with the Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com).
+[Get started with the Form Recognizer Studio](https://formrecognizer.appliedai.azure.com).

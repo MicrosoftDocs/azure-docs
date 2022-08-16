@@ -114,7 +114,7 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
     "createdDateTime": "2022-03-25T19:31:37Z",
     "lastUpdatedDateTime": "2022-03-25T19:31:43Z",
     "analyzeResult": {
-        "apiVersion": "2022-06-30",
+        "apiVersion": "2022-08-31",
         "modelId": "prebuilt-invoice",
         "stringIndexType": "textElements"...
     ..."pages": [

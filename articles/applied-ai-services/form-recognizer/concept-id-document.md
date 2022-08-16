@@ -94,7 +94,7 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 
 * **ID document (v3.0)** prebuilt model supports extraction of endorsement, restriction, and vehicle class codes from US driver's licenses.
 
-* The ID Document **2022-06-30** and **2022-08-31** releases support the following data extraction from US driver's licenses:
+* The ID Document **2022-06-30** and later releases support the following data extraction from US driver's licenses:
 
   * Date issued
   * Height

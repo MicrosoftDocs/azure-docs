@@ -19,7 +19,7 @@ recommendations: false
 
  The read model is the core of all the other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the read model as a foundation for extracting texts from documents.
 
-The current API version is ```2022-06-30```.
+The current API version is ```2022-08-31```.
 
 ::: zone pivot="programming-language-csharp"
 

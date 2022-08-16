@@ -33,7 +33,7 @@ The June release is the latest update to the Form Recognizer Studio. There are c
 
 ### Form Recognizer v3.0 preview release
 
-The **2022-06-30-preview** release is the latest update to the Form Recognizer service for v3.0 capabilities and presents extensive updates across the feature APIs:
+The **2022-06-30-preview** release presents extensive updates across the feature APIs:
 
 * [**Layout extends structure extraction**](concept-layout.md). Layout now includes added structure elements including sections, section headers, and paragraphs. This update enables finer grain document segmentation scenarios. For a complete list of structure elements identified, _see_ [enhanced structure](concept-layout.md#data-extraction).
 * [**Custom neural model tabular fields support**](concept-custom-neural.md). Custom document models now support tabular fields. Tabular fields by default are also multi page. To learn more about tabular fields in custom neural models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields).

@@ -19,7 +19,7 @@ Form Recognizer v3.0 includes the new Read Optical Character Recognition (OCR) m
 
 > [!NOTE]
 >
-> * API Version 2022-06-30-preview supports Microsoft Word, Excel, PowerPoint, and HTML file formats in addition to all other document types supported by the GA versions.
+> * Only API Version 2022-06-30-preview supports Microsoft Word, Excel, PowerPoint, and HTML file formats in addition to all other document types supported by the GA versions.
 > * For these file formats, Read API ignores the pages parameter and extracts all pages by default. Each embedded image counts as 1 page unit and each worksheet, slide, and page (up to 3000 characters) count as 1 page.
 
 ## Supported document types

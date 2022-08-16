@@ -20,7 +20,7 @@ The General document v3.0 model combines powerful Optical Character Recognition 
 The general document API supports most form types and will analyze your documents and extract keys and associated values. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
 
 > [!NOTE]
-> The ```2022-06-30``` update to the general document model adds support for selection marks. 
+> The ```2022-06-30``` and later versions of the general document model add support for selection marks.
 
 ## General document features
 
