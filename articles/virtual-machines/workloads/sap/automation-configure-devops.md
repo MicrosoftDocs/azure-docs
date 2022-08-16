@@ -410,7 +410,7 @@ When prompted enter the application pool name, you created in the previous step.
 The agent will now be configured and started.
 
 
-## Deploy the web app
+## Deploy the Control Plane Web Application
 
 Checking the "deploy the web app infrastructure" parameter when running the Control plane deployment pipeline will provision the infrastructure necessary for hosting the web app. The "Deploy web app" pipeline will publish the application's software to that infrastructure. 
 

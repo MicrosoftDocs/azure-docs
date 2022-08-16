@@ -15,7 +15,7 @@ ms.date: 08/09/2022
 
 In this Azure Cognitive Search article, learn how to add data exploration and full text search to a SynapseML solution.
 
-[SynapseML](/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/) is an open source library that supports massively parallel machine learning over big data. One of the ways in which machine learning is exposed is through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities, but in this article, we'll focus on just those that call Cognitive Services and Cognitive Search.
+[SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/) is an open source library that supports massively parallel machine learning over big data. In SynapseML, one of the ways in which machine learning is exposed is through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities. In this article, we'll focus on just those that call Cognitive Services and Cognitive Search.
 
 In this walkthrough, you'll set up a workbook that does the following:
 
@@ -26,10 +26,10 @@ In this walkthrough, you'll set up a workbook that does the following:
 > + Write the output to a search index in Azure Cognitive Search
 > + Explore and search over the content you created
 
-Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this walkthrough shows you how to access AI capabilities outside of Cognitive Search. By using SynapseML instead of indexers or skills, you're not subject to data limits or any other constraint associated with those objects.
+Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this walkthrough shows you how to access AI capabilities outside of Cognitive Search. By using SynapseML instead of indexers or skills, you're not subject to data limits or other constraints associated with those objects.
 
 > [!TIP]
-> Watch a demo at [https://www.youtube.com/watch?v=iXnBLwp7f88](https://www.youtube.com/watch?v=iXnBLwp7f88). The demo expands on this walkthrough with more steps and visuals.
+> Watch a short video of this demo at [https://www.youtube.com/watch?v=iXnBLwp7f88](https://www.youtube.com/watch?v=iXnBLwp7f88). The video expands on this walkthrough with more steps and visuals.
 
 ## Prerequisites
 
@@ -156,7 +156,7 @@ display(analyzed_df)
 
 Paste the following code into the fourth cell and run it. No modifications are required.
 
-This code loads [FormOntologyLearner](https://mmlspark.blob.windows.net/docs/0.10.0/pyspark/synapse.ml.cognitive.html?highlight=formontologylearner#module-synapse.ml.cognitive.FormOntologyLearner), a transformer that analyzes the output of Form Recognizer transformers and infers a tabular data structure. The output of AnalyzeInvoices is dynamic and varies based on the features detected in your content. Furthermore, the AnalyzeInvoices transformer consolidates output into a single column. Because the output is dynamic and consolidated, it's difficult to use in downstream transformations that require more structure.
+This code loads [FormOntologyLearner](https://mmlspark.blob.core.windows.net/docs/0.10.0/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.FormOntologyTransformer), a transformer that analyzes the output of Form Recognizer transformers and infers a tabular data structure. The output of AnalyzeInvoices is dynamic and varies based on the features detected in your content. Furthermore, the AnalyzeInvoices transformer consolidates output into a single column. Because the output is dynamic and consolidated, it's difficult to use in downstream transformations that require more structure.
 
 FormOntologyLearner extends the utility of the AnalyzeInvoices transformer by looking for patterns that can be used to create a tabular data structure. Organizing the output into multiple columns and rows makes the content consumable in other transformers, like AzureSearchWriter.
 
@@ -254,4 +254,4 @@ In this walkthrough, you learned about the [AzureSearchWriter](https://microsoft
 As a next step, review the other SynapseML tutorials that produce transformed content you might want to explore through Azure Cognitive Search:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Text Analytics with Cognitive Service](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
+> [Tutorial: Text Analytics with Cognitive Services](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)

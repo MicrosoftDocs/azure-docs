@@ -15,7 +15,7 @@ recommendations: false
 
 # Form Recognizer ID document model
 
-The ID document model combines Optical Character Recognition (OCR) with deep learning models to analyze and extracts key information from US Drivers Licenses (all 50 states and District of Columbia) and international passport biographical pages (excludes visa and other travel documents). The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
+The ID document model combines Optical Character Recognition (OCR) with deep learning models to analyze and extracts key information from US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state ID, social security card, green card and more. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
 
 ***Sample U.S. Driver's License processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***
 
@@ -48,7 +48,7 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 #### Form Recognizer Studio 
 
 > [!NOTE]
-> Form Recognizer studio is available with the v3.0 API.
+> Form Recognizer studio is available with the v3.0 API (API version 2022-08-31 generally available (GA) release)
 
 1. On the Form Recognizer Studio home page, select **Identity documents**
 
@@ -61,31 +61,15 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
 
-#### Sample Labeling tool (API v2.1)
-
-You'll need an ID document. You can use our [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/DriverLicense.png).
-
-1. On the Sample Labeling tool home page, select **Use prebuilt model to get data**.
-
-1. Select **Identity documents** from the **Form Type** dropdown menu:
-
-    :::image type="content" source="media/try-id-document.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
-
-   > [!div class="nextstepaction"]
-   > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
-
 ## Input requirements
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-> [!NOTE]
-> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
-
-## Supported languages and locales v2.1
+## Supported languages and locales
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
-|ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li></ul></br>|English (United States)—en-US|
+|ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li><li>English (United States)—en-US (state ID)</li><li>English (United States)—en-US (social security card)</li><li>English (United States)—en-US (Green card)</li></ul></br>|English (United States)—en-US|
 
 ## Field extractions
 
@@ -141,8 +125,8 @@ You'll need an ID document. You can use our [sample ID document](https://raw.git
 |  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard (Passport only) |  |
 |  Sex | String | Possible extracted values include "M", "F" and "X" | |
 |  MachineReadableZone | Object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
-|  DocumentType | String | Document type, for example, Passport, Driver's License | "passport" |
-|  Address | String | Extracted address (Driver's License only) ||
+|  DocumentType | String | Document type, for example, Passport, Driver's License, Social security card and more | "passport" |
+|  Address | String | Extracted address, address is also parsed to its components - address, city, state, country, zip code ||
 |  Region | String | Extracted region, state, province, etc. (Driver's License only) |  |
 
 ### Migration guide and REST API v3.0
