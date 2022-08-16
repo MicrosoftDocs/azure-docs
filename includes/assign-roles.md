@@ -1,4 +1,4 @@
-When developing locally, make sure that the user account that is accessing blob data has the correct permissions. If you plan to use the `DefaultAzureCredential` approach you will need `Storage Account Contributor` and `User Access Administrator` roles or higher. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Roles can be assigned at the following levels:
+When developing locally, make sure that the user account that is accessing blob data has the correct permissions. If you plan to use the `DefaultAzureCredential` approach your account or managed identity will need the `Storage Blob Data Contributor` role, or the `User Access Administrator` role to grant additional permissions. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Roles can be assigned at the following levels:
 
 * Specific resources, such as a storage account or a blob container
 * Resource group
@@ -19,7 +19,7 @@ The following example will assign the `Storage Blob Data Contributor` role to yo
 
 4. Select **+ Add** from the top menu and then **Add role assignment** from the resulting drop-down menu.
 
-    :::image type="content" source="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/migration-add-role-small.png" lightbox="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/migration-add-role.png" alt-text="A screenshot showing how to assign a role.":::
+    :::image type="content" source="../articles/storage/common/media/assign-role-system-identity.png" lightbox="../articles/storage/common/media/assign-role-system-identity.png" alt-text="A screenshot showing how to assign a role.":::
 
 5. Use the search box to filter the results to the desired role. For this example, search for *Storage Blob Data Contributor* and select the matching result and then choose **Next**.
 

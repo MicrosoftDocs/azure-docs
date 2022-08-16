@@ -31,14 +31,16 @@ Storage account keys should be used with caution. Developers must be diligent to
 
 ## Introducing credential-free connections
 
-Many Azure services support credential-free connections such as Azure's Managed Identity or Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries. In this tutorial, you'll learn how to update an existing application to use `DefaultAzureCredential` instead of alternatives such as connection strings. 
+Many Azure services support credential-free connections such as Azure's Managed Identity or Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries. In this tutorial, you'll learn how to update an existing application to use credential-free connections instead of alternatives such as connection strings. 
 
 > [!IMPORTANT]
-> Some frameworks must implement `DefaultAzureCredential` explicitly in their code, while others utilize `DefaultAzureCredential` through underlying plugins or drivers.
+> Some frameworks must implement `DefaultAzureCredential` explicitly in their code, while others utilize `DefaultAzureCredential` internally through underlying plugins or drivers.
 
  `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code. 
 
 The order and locations in which `DefaultAzureCredential` searches for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential). For example, when working locally, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio. When the app is deployed to Azure, `DefaultAzureCredential` will automatically switch to use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). No code changes are required for this transition. 
+
+:::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-net/main/sdk/identity/Azure.Identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg"alt-text="A diagram of the credential flow.":::
 
 > [!NOTE]
 > A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. You can read more about managed identities in the [overview](/azure/active-directory/managed-identities-azure-resources/overview) documentation.
@@ -86,7 +88,11 @@ You can authorize access to data in your storage account using the following ste
 
 1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell.
 
-[!INCLUDE [defaultazurecredential-sign-in](../../../includes/defaultazurecredential-sign-in.md)]
+    [!INCLUDE [defaultazurecredential-sign-in](../../../includes/defaultazurecredential-sign-in.md)]
+
+    Next you will need to update your code to use credential-free connections for your desired language.
+
+    ### [C# and .NET Core](#tab/dotnet)
 
 1. To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
 
@@ -96,22 +102,22 @@ You can authorize access to data in your storage account using the following ste
 
 1. At the top of your `Program.cs` file, add the following `using` statement:
 
-```csharp
-using Azure.Identity;
-```
+    ```csharp
+    using Azure.Identity;
+    ```
 
-Identify the locations in your code that currently create a `BlobServiceClient` to connect to Azure Storage. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to matching the following example:
+1. Identify the locations in your code that currently create a `BlobServiceClient` to connect to Azure Storage. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to matching the following example:
 
-```csharp
-// TODO: Update <storage-account-name> placeholder to your account name
-var blobServiceClient = new BlobServiceClient(
-    new Uri("https://<storage-account-name>.blob.core.windows.net"),
-    new DefaultAzureCredential());
-```
+    ```csharp
+    // TODO: Update <storage-account-name> placeholder to your account name
+    var blobServiceClient = new BlobServiceClient(
+        new Uri("https://<storage-account-name>.blob.core.windows.net"),
+        new DefaultAzureCredential());
+    ```
 
 1. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
 
-    :::image type="content" source="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
+    :::image type="content" source="../../migrate/media/replicate-using-expressroute/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
 
 ### [Java](#tab/java)
 
