@@ -73,7 +73,6 @@ var blobServiceClient = new BlobServiceClient(
 
 ---
 
-
 ## Steps to migrate an existing application to use Azure Identity
 
 The following steps explain how to migrate an existing application to use credential-free connections instead of a key-based solution. These same migration steps should apply whether you are using connection strings, access keys, or shared access signatures. 
@@ -86,56 +85,56 @@ The following steps explain how to migrate an existing application to use creden
 
 You can authorize access to data in your storage account using the following steps:
 
-1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell.
+1. For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools like IntelliJ.
 
     [!INCLUDE [defaultazurecredential-sign-in](../../../includes/defaultazurecredential-sign-in.md)]
 
     Next you will need to update your code to use credential-free connections for your desired language.
-
-### [.NET](#tab/dotnet)
-
-1. To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
-
-    ```dotnetcli
-    dotnet add package Azure.Identity
+    
+    ### [.NET](#tab/dotnet)
+    
+    1. To use `DefaultAzureCredential` in a .NET application, add the **Azure.Identity** NuGet package to your application.
+    
+        ```dotnetcli
+        dotnet add package Azure.Identity
+        ```
+    
+    1. At the top of your `Program.cs` file, add the following `using` statement:
+    
+        ```csharp
+        using Azure.Identity;
+        ```
+    
+    1. Identify the locations in your code that currently create a `BlobServiceClient` to connect to Azure Storage. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to matching the following example:
+    
+        ```csharp
+        // TODO: Update <storage-account-name> placeholder to your account name
+        var blobServiceClient = new BlobServiceClient(
+            new Uri("https://<storage-account-name>.blob.core.windows.net"),
+            new DefaultAzureCredential());
+        ```
+    
+    1. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
+    
+        :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
+    
+    ### [Java](#tab/java)
+    
+    ```Java
+    
+    // Java code here
+    
     ```
-
-1. At the top of your `Program.cs` file, add the following `using` statement:
-
-    ```csharp
-    using Azure.Identity;
+    
+    ### [Python](#tab/python)
+    
+    ```Python
+    
+    ## Python code here
+    
     ```
-
-1. Identify the locations in your code that currently create a `BlobServiceClient` to connect to Azure Storage. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to matching the following example:
-
-    ```csharp
-    // TODO: Update <storage-account-name> placeholder to your account name
-    var blobServiceClient = new BlobServiceClient(
-        new Uri("https://<storage-account-name>.blob.core.windows.net"),
-        new DefaultAzureCredential());
-    ```
-
-1. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
-
-    :::image type="content" source="../../migrate/media/replicate-using-expressroute/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
-
-### [Java](#tab/java)
-
-```Java
-
-// Java code here
-
-```
-
-### [Python](#tab/python)
-
-```Python
-
-## Python code here
-
-```
-
----
+    
+    ---
 
 #### Run the app locally
 
