@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Blackboard Learn | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Blackboard Learn'
 description: Learn how to configure single sign-on between Azure Active Directory and Blackboard Learn.
 services: active-directory
 author: jeevansd
