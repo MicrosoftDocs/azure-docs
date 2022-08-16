@@ -200,6 +200,7 @@ The Request trigger creates a manually callable endpoint that can handle *only* 
    ![Screenshot showing Consumption workflow, Request trigger, and URL copy button selected.](./media/connectors-native-reqres/generated-url-consumption.png)
 
    > [!NOTE]
+   >
    > If you want to include the hash or pound symbol (**#**) in the URI
    > when making a call to the Request trigger, use this encoded version instead: `%25%23`
 
@@ -364,14 +365,13 @@ The Request trigger creates a manually callable endpoint that can handle *only* 
    ![Screenshot showing Standard workflow, Request trigger, and URL copy button selected.](./media/connectors-native-reqres/generated-url-standard.png)
 
    > [!NOTE]
+   >
    > If you want to include the hash or pound symbol (**#**) in the URI
    > when making a call to the Request trigger, use this encoded version instead: `%25%23`
 
 ---
 
-Now, continue building your workflow by adding another action as the next step. Under the trigger, select **Next step** so that you can find the action that you want to add.
-
-For example, you can respond to the request by [adding a Response action](#add-response), which you can use to return a customized response and is described later in this article.
+Now, continue building your workflow by adding another action as the next step. For example, you can respond to the request by [adding a Response action](#add-response), which you can use to return a customized response and is described later in this article.
 
 > [!NOTE]
 >
@@ -396,10 +396,14 @@ The following table lists the outputs from the Request trigger:
 
 ## Add a Response action
 
-When you use the Request trigger to handle inbound requests, you can model the response and send the payload results back to the caller by using the built-in [Response action](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action). You can use the Response action *only* with the Request trigger. This combination with the Request trigger and Response action creates the [request-response pattern](https://en.wikipedia.org/wiki/Request%E2%80%93response). Except for inside Foreach loops and Until loops, and parallel branches, you can add the Response action anywhere in your workflow.
+When you use the Request trigger to receive inbound requests, you can model the response and send the payload results back to the caller by using the Response built-in action, which works *only* with the Request trigger. This combination with the Request trigger and Response action creates the [request-response pattern](https://en.wikipedia.org/wiki/Request%E2%80%93response). Except for inside Foreach loops and Until loops, and parallel branches, you can add the Response action anywhere in your workflow.
 
 > [!IMPORTANT]
-> If a Response action includes these headers, Logic Apps removes these headers from the generated response message without showing any warning or error:
+>
+> If your Response action includes the following headers, Azure Logic Apps automatically 
+> removes these headers from the generated response message without showing any warning 
+> or error. Azure Logic Apps won't include these headers, although the service won't 
+> stop you from saving workflows that have a Response action with these headers.
 >
 > * `Allow`
 > * `Content-*` headers except for `Content-Disposition`, `Content-Encoding`, and `Content-Type` when you use POST and PUT operations, but are not included for GET operations
@@ -409,9 +413,10 @@ When you use the Request trigger to handle inbound requests, you can model the r
 > * `Set-Cookie`
 > * `Transfer-Encoding`
 >
-> Although Logic Apps won't stop you from saving logic apps that have a Response action with these headers, Logic Apps ignores these headers.
 
-1. In the Logic App Designer, under the step where you want to add a Response action, select **New step**.
+## [Consumption](#tab/consumption)
+
+1. In the workflow designer, under the step where you want to add the Response action, select **New step**.
 
    For example, using the Request trigger from earlier:
 
@@ -449,6 +454,10 @@ When you use the Request trigger to handle inbound requests, you can model the r
 1. To specify additional properties, such as a JSON schema for the response body, open the **Add new parameter** list, and select the parameters that you want to add.
 
 1. When you're done, save your logic app. On the designer toolbar, select **Save**.
+
+## [Standard](#tab/standard)
+
+---
 
 > [!IMPORTANT]
 > If you have one or more Response actions in a complex workflow with branches, make sure 
