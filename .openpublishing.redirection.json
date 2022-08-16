@@ -6,6 +6,11 @@
     "redirect_document_id":  false
 },
 {
+  "source_path":  "articles/api-management/breaking-changes/rp-source-ip-address-change-mar2023.md",
+  "redirect_url":  "/azure/api-management/breaking-changes/rp-source-ip-address-change-mar-2023",
+  "redirect_document_id":  false
+},
+{
     "source_path":  "articles/virtual-machines/linux/find-unattached-nics.md",
     "redirect_url":  "/previous-versions/azure/virtual-machines/linux/find-unattached-nics",
     "redirect_document_id":  false
