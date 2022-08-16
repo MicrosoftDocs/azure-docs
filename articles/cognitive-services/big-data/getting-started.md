@@ -106,7 +106,7 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
 
     <img src="media/new-notebook.png" alt="Create a new notebook" width="50%"/>
 
-1. In the **Create Notebook** dialog box, enter a name, select **Python** as the language, and select the Spark cluster that you created earlier.
+1. In the **Create Notebook**, enter a name, select **Python** as the language, and select the Spark cluster that you created earlier.
 
     <img src="media/databricks-notebook-details.jpg" alt="New notebook details" width="50%"/>
 
