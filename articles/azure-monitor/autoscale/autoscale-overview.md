@@ -28,7 +28,7 @@ When your application experiences higher load, autoscale adds resources to handl
 
 For example, scale out your application by adding VMs when the average CPU usage per VM is above 70%. Scale it back in removing VMs when CPU usage drops to 40%.
 
- ![Autoscale explained. Add and remove VMs](./media/autoscale-overview/AutoscaleConcept.png)
+:::image type="content" source="./media/autoscale-overview/AutoscaleConcept.png" alt-text="A diagram that shows scaling out by adding virtual machine instances.":::
 
 When the conditions in the rules are met, one or more autoscale actions are triggered, adding or removing VMs. In addition, you can perform other actions like sending email  notifications, or webhooks to trigger processes in other systems.
 
@@ -38,7 +38,7 @@ Autoscale scales in and out, which is an increase, or decrease of the number of 
 
 In contrast, scaling up and down, or vertical scaling, keeps the number of resources constant, but gives those resources more capacity in terms of memory, CPU speed, disk space and network. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling may also require a restart of the virtual machine during the scaling process.
 
- ![Scaling up explained](./media/autoscale-overview/vertical-scaling.png)
+:::image type="content" source="./media/autoscale-overview/vertical-scaling.png" alt-text="A diagram that shows scaling up by adding CPU and memory to a virtual machine.":::
 
 ### Predictive autoscale (preview)
 
@@ -78,9 +78,9 @@ Set up schedule-based rules to trigger scale events. Use schedule-based rules wh
 Rules define the conditions needed to trigger a scale event, the direction of the scaling, and the amount to scale by. Rules can be:
 
 + Metric-based  
-Trigger based on a metric value, for example when CPU usage is above 50%.
+    Trigger based on a metric value, for example when CPU usage is above 50%.
 + Time-based  
-Trigger based on a schedule, for example, every Saturday at 8am.
+    Trigger based on a schedule, for example, every Saturday at 8am.
 
 You can combine multiple rules using different metrics, for example CPU usage and queue length.  
 
@@ -96,7 +96,7 @@ Rules can trigger one or more actions. Actions include:
 + Webhooks - Call webhooks to trigger multiple complex actions inside or outside Azure. In Azure, you can:
   + Start an [Azure Automation runbook](/azure/automation/overview).
     + Call an [Azure Function](/azure/azure-functions/functions-overview).
-    + Trigger an [Azure Logic App](/azure/logic-apps/logic-apps-overview)/
+    + Trigger an [Azure Logic App](/azure/logic-apps/logic-apps-overview).
 
 ## Autoscale settings
 
