@@ -2,11 +2,11 @@
 title: Tutorial - Use IoT Hub events to trigger Azure Logic Apps
 description: This tutorial shows how to use the event routing service of Azure Event Grid, create automated processes to perform Azure Logic Apps actions based on IoT Hub events.
 services: iot-hub, event-grid
-author: philmea
+author: kgremban
 ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.author: philmea 
+ms.author: kgremban
 ms.custom: devx-track-azurecli
 ---
 
@@ -56,13 +56,13 @@ Next, create a logic app and add an HTTP event grid trigger that processes reque
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**, then type "logic app" in the search box and select return. Select **Logic App** from the results.
 
-   ![Create logic app](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png" alt-text="Screenshot of how to select the logic app from a list of resources." lightbox="./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png":::
 
 1. On the next screen, select **Create**. 
 
-1. Give your logic app a name that's unique in your subscription, then select the same subscription, resource group, and location as your IoT hub. 
+1. Give your logic app a unique name in your subscription, then select the same subscription, resource group, and location as your IoT hub. Choose the **Consumption** plan type.
 
-   ![Fields for create logic app](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png" alt-text="Screenshot of how to configure your logic app." lightbox="./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png":::
 
 1. Select **Review + create**.
 
@@ -71,6 +71,8 @@ Next, create a logic app and add an HTTP event grid trigger that processes reque
 1. Once the resource is created, select **Go to resource**. 
 
 1. In the Logic Apps Designer, page down to see **Templates**. Choose **Blank Logic App** so that you can build your logic app from scratch.
+
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/logic-app-designer-template.png" alt-text="Screenshot of the Logic App Designer templates." lightbox="./media/publish-iot-hub-events-to-logic-apps/logic-app-designer-template.png":::
 
 ### Select a trigger
 
@@ -86,12 +88,14 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
    ![Use sample payload](./media/publish-iot-hub-events-to-logic-apps/sample-payload.png)
 
+1. Copy the `json` below and replace the placeholder values `<>` with your own.
+
 1. Paste the *Device connected event schema* JSON into the text box, then select **Done**:
 
    ```json
      [{  
       "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8",
-      "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+      "topic": "/SUBSCRIPTIONS/<azure subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
       "subject": "devices/LogicAppTestDevice",
       "eventType": "Microsoft.Devices.DeviceConnected",
       "eventTime": "2018-06-02T19:17:44.4383997Z",
@@ -100,7 +104,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
             "sequenceNumber":
               "000000000000000001D4132452F67CE200000002000000000000000000000001"
           },
-        "hubName": "egtesthub1",
+        "hubName": "<hub name>",
         "deviceId": "LogicAppTestDevice",
         "moduleId" : "DeviceModuleID"
       }, 
@@ -140,7 +144,7 @@ Actions are any steps that occur after the trigger starts the logic app workflow
 
    Your email template may look like this example:
 
-   ![Fill out email information](./media/publish-iot-hub-events-to-logic-apps/email-content.png)
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/email-content.png" alt-text="Screenshot of how to create an event email in the template." lightbox="./media/publish-iot-hub-events-to-logic-apps/email-content.png":::
 
 1. Select **Save** in the Logic Apps Designer.  
 
@@ -193,7 +197,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
          When you're done, the pane should look like the following example: 
 
-         ![Sample event subscription form](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+      :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/subscription-form.png" alt-text="Screenshot of your 'Create Event Subscription' page in the Azure portal." lightbox="./media/publish-iot-hub-events-to-logic-apps/subscription-form.png":::
 
 1.  Select **Create**.
 
@@ -208,6 +212,8 @@ Test your logic app by quickly simulating a device connection using the Azure CL
      ```azurecli 
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName}
     ```
+
+   This could take a minute. You'll see a `json` printout once it's created.
 
 1. Run the following command to simulate connecting your device to IoT Hub and sending telemetry:
 

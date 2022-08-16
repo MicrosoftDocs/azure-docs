@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 08/15/2022
 ms.author: larryfr
 author: blackmist
 ms.custom: deploy, sdkv1, event-tier1-build-2022
@@ -14,13 +14,13 @@ ms.custom: deploy, sdkv1, event-tier1-build-2022
 
 # Advanced entry script authoring
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 This article shows how to write entry scripts for specialized use cases.
 
 ## Prerequisites
 
-This article assumes you already have a trained machine learning model that you intend to deploy with Azure Machine Learning. To learn more about model deployment, see [this tutorial](./v1/how-to-deploy-and-where.md).
+This article assumes you already have a trained machine learning model that you intend to deploy with Azure Machine Learning. To learn more about model deployment, see [How to deploy and where](how-to-deploy-and-where.md).
 
 ## Automatically generate a Swagger schema
 
@@ -119,7 +119,7 @@ def run(Inputs, GlobalParameters):
 > return result
 > ```
 
-## <a id="binary-data"></a> Binary (i.e. image) data
+## <a id="binary-data"></a> Binary (that is, image) data
 
 If your model accepts binary data, like an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. To accept raw data, use the `AMLRequest` class in your entry script and add the `@rawhttp` decorator to the `run()` function.
 
@@ -166,7 +166,7 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-The `AMLRequest` class only allows you to access the raw posted data in the score.py, there is no client-side component. From a client, you post data as normal. For example, the following Python code reads an image file and posts the data:
+The `AMLRequest` class only allows you to access the raw posted data in the score.py, there's no client-side component. From a client, you post data as normal. For example, the following Python code reads an image file and posts the data:
 
 ```python
 import requests
@@ -282,7 +282,7 @@ file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'skl
 
 In this scenario, two models are registered with the workspace:
 
-* `my_first_model`: Contains one file (`my_first_model.pkl`) and there is only one version (`1`).
+* `my_first_model`: Contains one file (`my_first_model.pkl`) and there's only one version (`1`).
 * `my_second_model`: Contains one file (`my_second_model.pkl`) and there are two versions; `1` and `2`.
 
 When the service was deployed, both models are provided in the deploy operation:
@@ -328,11 +328,11 @@ More entry script examples for specific machine learning use cases can be found 
 ## Next steps
 
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
-* [Deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md)
+* [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)
-* [Update web service](./v1/how-to-deploy-update-web-service.md)
-* [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
-* [Use TLS to secure a web service through Azure Machine Learning](./v1/how-to-secure-web-service.md)
-* [Monitor your Azure Machine Learning models with Application Insights](/azure/machine-learning/v1/how-to-enable-app-insights)
+* [Update web service](how-to-deploy-update-web-service.md)
+* [How to deploy a model using a custom Docker image](../how-to-deploy-custom-container.md)
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
+* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
-* [Create event alerts and triggers for model deployments](how-to-use-event-grid.md)
+* [Create event alerts and triggers for model deployments](../how-to-use-event-grid.md)
