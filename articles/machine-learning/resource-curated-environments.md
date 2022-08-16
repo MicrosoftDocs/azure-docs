@@ -57,7 +57,7 @@ Other available PyTorch environments:
 
 
 ### Sklearn
-**Name**: AzureML-sklearn-1.0-ubuntu20.04-py38-cpu
+**Name**: AzureML-sklearn-1.0-ubuntu20.04-py38-cpu  
 **Description**: An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the AzureML Python SDK and other Python packages.  
 * OS: Ubuntu20.04
 * Scikit-learn: 1.0

@@ -35,7 +35,7 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the regist
 1. In the Create an Azure Video Indexer resource section, enter required values (the descriptions follow after the image). 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/create-account-portal/avi-create-blade.png" alt-text="Screenshot showing how to create an Azure Video Indexer resource." lightbox="./media/create-account-portal/avi-create-blade.png":::
+    > :::image type="content" source="./media/create-account-portal/avi-create-blade.png" alt-text="Screenshot showing how to create an Azure Video Indexer resource.":::
     
     Here are the definitions:
     
