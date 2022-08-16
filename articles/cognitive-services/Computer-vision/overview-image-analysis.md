@@ -34,7 +34,7 @@ This documentation contains the following types of articles:
 * The [conceptual articles](concept-tagging-images.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
-For a more structured approach, follow a Microsoft Learn module for Image Analysis.
+For a more structured approach, follow a Learn module for Image Analysis.
 * [Analyze images with the Computer Vision service](/learn/modules/analyze-images-computer-vision/)
 
 ## Image Analysis features

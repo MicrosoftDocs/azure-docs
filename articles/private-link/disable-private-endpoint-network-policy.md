@@ -16,11 +16,6 @@ ms.devlang: azurecli
 
 By default, network policies are disabled for a subnet in a virtual network. To utilize network policies like UDR and NSG support, network policy support must be enabled for the subnet. This setting is only applicable to private endpoints within the subnet. This setting affects all private endpoints within the subnet. For other resources in the subnet, access is controlled based on security rules in the network security group.
 
-> [!IMPORTANT]
-> NSG and UDR support for private endpoints are in public preview on select regions. For more information, see [Public preview of Private Link UDR Support](https://azure.microsoft.com/updates/public-preview-of-private-link-udr-support/) and [Public preview of Private Link Network Security Group Support](https://azure.microsoft.com/updates/public-preview-of-private-link-network-security-group-support/).
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 You can use the following to enable or disable the setting:
 
 * Azure portal

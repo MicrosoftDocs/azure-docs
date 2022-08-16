@@ -56,7 +56,7 @@ It's likely that the inclusion of these new event types will result in the inges
 
 ### Microsoft Sentinel Solution for SAP is now generally available
 
-The Microsoft Sentinel Solution for SAP is now generally available (GA). [Learn about billing and offer details](/pricing/offers/microsoft-sentinel-sap-promo/).
+The Microsoft Sentinel Solution for SAP is now generally available (GA). The solution is free until February 2023, when an additional cost will be added on top of the ingested data. [Learn more about pricing](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/).
 
 With previous versions, every solution update would duplicate content, creating new objects alongside the previous version objects. The GA version uses rule and workbook templates, so that for every solution update, you can clearly understand what has changed, using a dedicated wizard. [Learn more about rule templates](manage-analytics-rule-templates.md).
 

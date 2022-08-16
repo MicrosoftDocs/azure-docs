@@ -346,15 +346,15 @@ device.objectId -ne null
 
 ## Extension properties and custom extension properties
 
-Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) are synced from on-premises Window Server Active Directory and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
+Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) can be synced from on-premises Window Server Active Directory or updated using Microsoft Graph and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[Custom extension properties](../hybrid/how-to-connect-sync-feature-directory-extensions.md) are synced from on-premises Windows Server Active Directory or from a connected SaaS application and are of the format of `user.extension_[GUID]_[Attribute]`, where:
+[Custom extension properties](../hybrid/how-to-connect-sync-feature-directory-extensions.md) can be synced from on-premises Windows Server Active Directory, from a connected SaaS application, or created using Microsoft Graph, and are of the format of `user.extension_[GUID]_[Attribute]`, where:
 
-- [GUID] is the unique identifier in Azure AD for the application that created the property in Azure AD
+- [GUID] is the stripped version of the unique identifier in Azure AD for the application that created the property. It contains only characters 0-9 and A-Z
 - [Attribute] is the name of the property as it was created
 
 An example of a rule that uses a custom extension property is:
@@ -362,6 +362,8 @@ An example of a rule that uses a custom extension property is:
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
+
+Custom extension properties are also called directory or Azure AD extension properties.
 
 The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name. Also, you can now select **Get custom extension properties** link in the dynamic user group rule builder to enter a unique app ID and receive the full list of custom extension properties to use when creating a dynamic membership rule. This list can also be refreshed to get any new custom extension properties for that app. Extension attributes and custom extension properties must be from applications in your tenant.  
 
