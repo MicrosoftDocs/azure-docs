@@ -17,6 +17,8 @@ Whichever approach you choose, the configuration options are the same, and the p
 
 [!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
+To learn how to manage IoT Central application by using the IoT Central REST API, see [Use the REST API to create and manage IoT Central applications.](../core/howto-manage-iot-central-with-rest-api.md)
+
 ## Options
 
 This section describes the available options when you create an IoT Central application. Depending on the method you choose, you might need to supply the options on a form or as command-line parameters:
