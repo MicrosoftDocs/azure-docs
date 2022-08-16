@@ -19,7 +19,6 @@ In this article, you'll create a virtual machine in Azure with the Azure portal.
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-
 ## Create a virtual network
 
 In this section, you'll create a dual-stack virtual network for the virtual machine.
@@ -43,23 +42,23 @@ In this section, you'll create a dual-stack virtual network for the virtual mach
 
 5. Select the **IP Addresses** tab, or **Next: IP Addresses**.
 
-6. Leave the default IPv4 address space of **10.1.0.0/16**. If the default is absent, enter an IPv4 address space of **10.1.0.0/16**.
+6. Leave the default IPv4 address space of **10.1.0.0/16**. If the default is absent or different, enter an IPv4 address space of **10.1.0.0/16**.
 
 7. Select the **Add IPv6 address space** box.
 
 8. In **IPv6 address space**, edit the default address space and change its value to **2404:f800:8000:122::/63**.
 
-9. To add an IPv6 subnet, select **default** under **Subnet name**.
+9. To add an IPv6 subnet, select **default** under **Subnet name**. If default is missing, select **+ Add subnet**.
 
 10. In **Subnet name**, enter **myBackendSubnet**.
 
-11. Leave the default IPv4 subnet of **10.1.0.0/24** in **Subnet address range**.
+11. Leave the default IPv4 subnet of **10.1.0.0/24** in **Subnet address range**. Enter **10.1.0.0/24** if missing.
 
 12. Select the box next to **Add IPv6 address space**.
 
 13. In **IPv6 address range**, enter **2404:f800:8000:122::/64**.
 
-14. Select **Save**.
+14. Select **Save**. If creating a subnet, select **Add**.
 
 15. Select the **Review + create**.
 
@@ -93,7 +92,6 @@ You'll create two public IP addresses in this section, IPv4 and IPv6.
 
 4. Select **Create**. 
 
-
 ## Create network security group
 
 You'll create a network security group to allow SSH connections to the virtual machine.
@@ -119,7 +117,7 @@ You'll create a network security group to allow SSH connections to the virtual m
 
 ### Create network security group rules
 
-In this section, you'll create the inbound and outbound NSG rules.
+In this section, you'll create the inbound rule.
 
 1. In the search box at the top of the portal, enter **Network security group**. Select **Network security groups** in the search results.
 
@@ -142,7 +140,6 @@ In this section, you'll create the inbound and outbound NSG rules.
     | Name | Enter **myNSGRuleSSH**. |
     
 6. Select **Add**. 
-
 
 ## Create virtual machine
 
@@ -167,10 +164,10 @@ You'll create a network interface and attach the public IP addresses you created
     | Name | Enter **myNIC1**. |
     | Region | Select **East US 2**. |
     | Virtual network | Select **myVNet**. |
-    | Subnet | Select **myVNet/default (10.1.0.0/24,2404:f800:8000:122:/64)**. |
+    | Subnet | Select **myBackendSubnet (10.1.0.0/24,2404:f800:8000:122:/64)**. |
     | Network security group | Select **myNSG**. |
     | Private IP address (IPv6) | Select the box. |
-    | IPv6 name | Enter **ipconfig-ipv6**. |
+    | IPv6 name | Enter **Ipv6config**. |
 
 4. Select **Review + create**.
 
@@ -198,7 +195,7 @@ You'll associate the IPv4 and IPv6 addresses you created previously to the netwo
 
 9. In **IP configurations**, select **ipconfig-ipv6**.
 
-10. In **ipconig-ipv6**, select **Associate** in **Public IP address**.
+10. In **Ipv6config**, select **Associate** in **Public IP address**.
 
 11. Select **myPublicIP-IPv6** in **Public IP address**.
 
@@ -240,7 +237,7 @@ You'll associate the IPv4 and IPv6 addresses you created previously to the netwo
     | ------- | ----- |
     | **Network interface** |  |
     | Virtual network | Select **myVNet**. |
-    | Subnet | Select **myVNet/default (10.1.0.0/24,2404:f800:8000:122:/64)**. |
+    | Subnet | Select **myBackendSubnet (10.1.0.0/24,2404:f800:8000:122:/64)**. |
     | Public IP | Select **None**. |
     | NIC network security group | Select **None**. |
 
