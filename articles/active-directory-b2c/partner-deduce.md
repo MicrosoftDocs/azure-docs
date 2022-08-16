@@ -97,7 +97,7 @@ In order to collect the user_agent from client-side create your own ContentDefin
    </style>
    ```
 
-3. Add the following JavaScript code before the closure of the `</body>`. This code reads the user-agent from the user's browser and the ContentDefinition is used in combination with the self-asserted technical profile to return user_agent as an output claim to the next orchestration step.
+3. Add the following JavaScript code before the closure of the `</body>`. This code reads the user_agent from the user's browser and the ContentDefinition is used in combination with the self-asserted technical profile to return user_agent as an output claim to the next orchestration step.
 
    ``` html
    <script>
