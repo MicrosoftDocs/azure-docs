@@ -428,10 +428,18 @@
         href: https://aka.ms/apimupdates
       - name: Release notes
         href: https://aka.ms/apim/releases
-      - name: Retiring features
+      - name: Breaking changes
         items:
-          - name: Deprecated developer portal
-            items:
+            - name: Breaking changes overview
+              href: breaking-changes/overview.md
+            - name: Virtual network changes (March 2023)
+              href: breaking-changes/rp-source-ip-address-change-mar-2023.md
+            - name: Virtual network changes (September 2023)
+              href: breaking-changes/rp-source-ip-address-change-sep-2023.md
+            - name: API version retirements (September 2023)
+              href: breaking-changes/api-version-retirement-sep-2023.md
+            - name: Deprecated (legacy) developer portal (October 2023)
+              items:
                 - name: Deprecated portal - customize the portal
                   href: api-management-customize-styles.md
                 - name: Deprecated portal - modify pages and layouts
@@ -460,16 +468,6 @@
                       href: api-management-page-templates.md
                     - name: Template resources
                       href: api-management-template-resources.md
-      - name: Breaking changes
-        items:
-            - name: Breaking changes overview
-              href: breaking-changes/overview.md
-            - name: Virtual network changes (March 2023)
-              href: breaking-changes/rp-source-ip-address-change-mar-2023.md
-            - name: Virtual network changes (September 2023)
-              href: breaking-changes/rp-source-ip-address-change-sep-2023.md
-            - name: API version retirements (September 2023)
-              href: breaking-changes/api-version-retirement-sep-2023.md
 
       - name: Regional availability
         href: https://azure.microsoft.com/global-infrastructure/services/
