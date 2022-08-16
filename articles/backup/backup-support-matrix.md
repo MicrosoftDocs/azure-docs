@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 08/16/2022
 ms.custom: references_regions 
 ---
 
@@ -92,7 +92,7 @@ Disk deduplication support is as follows:
 - Deduplication isn't supported in Azure for any Backup component. When DPM and MABS are deployed in Azure, the storage disks attached to the VM can't be deduplicated.
 
 >[!Note]
->Azure VM backup supports Azure VM with deduplication. This means Azure Backup does not deduplicate backup data, except in MABS/MARS.
+>Azure VM backup does not support Azure VM with deduplication. This means Azure Backup does not deduplicate backup data, except in MABS/MARS.
 
 ## Security and encryption support
 
