@@ -45,7 +45,7 @@ Admins can use the MFA Server Migration Utility to target single users or groups
 ||[Complete user migration](#complete-user-migration)|
 |Finalize |[Migrate MFA Server dependencies](#migrate-mfa-server-dependencies)|
 ||[Update domain federation settings]()|
-||[Disable MFA Server User portal](#optional-disable-mfa-server-registration-portal)|
+||[Disable MFA Server User portal](#optional-disable-mfa-server-user-portal)|
 ||[Decommission Azure MFA server](#decommission-azure-mfa-server)|
 
 An MFA Server migration generally includes the steps in the following process:
