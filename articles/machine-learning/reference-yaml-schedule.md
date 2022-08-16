@@ -269,3 +269,139 @@ Current schedule supports the following timezones. The key (left of =) can be us
     SAMOA_STANDARD_TIME = "Samoa Standard Time"
     LINE_ISLANDS_STANDARD_TIME = "Line Islands Standard Time"
 ```
+
+
+| UTC | Key | Value |
+|-----|-----|-----|
+| UTC -12:00 | DATELINE_STANDARD_TIME |"Dateline Standard Time"|
+| UTC -11:00 | UTC_11| "UTC-11"|
+| UTC - 10:00 |  ALEUTIAN_STANDARD_TIME | Aleutian Standard Time |
+| UTC - 10:00 | HAWAIIAN_STANDARD_TIME | "Hawaiian Standard Time" |
+| UTC -09:30 | MARQUESAS_STANDARD_TIME | "Marquesas Standard Time" |
+| UTC -09:00 | ALASKAN_STANDARD_TIME  | "Alaskan Standard Time"|
+| UTC -09:00 | UTC_09 | "UTC-09"|
+| UTC -08:00 | PACIFIC_STANDARD_TIME_MEXICO | "Pacific Standard Time (Mexico)"|
+| UTC -08:00 | UTC_08 | "UTC-08" |
+| UTC -08:00 | PACIFIC_STANDARD_TIME | "Pacific Standard Time" |
+| UTC -07:00 | US_MOUNTAIN_STANDARD_TIME | "US Mountain Standard Time" |
+| UTC -07:00 | MOUNTAIN_STANDARD_TIME_MEXICO | "Mountain Standard Time (Mexico)" |
+| UTC -07:00 | MOUNTAIN_STANDARD_TIME | "Mountain Standard Time" |
+| UTC -06:00 | CENTRAL_AMERICA_STANDARD_TIME | "Central America Standard Time" |
+| UTC -06:00 | CENTRAL_STANDARD_TIME | "Central Standard Time" |
+| UTC -06:00 | EASTER_ISLAND_STANDARD_TIME | "Easter Island Standard Time" |
+| UTC -06:00 | CENTRAL_STANDARD_TIME_MEXICO | "Central Standard Time (Mexico)" |
+| UTC -06:00 | CANADA_CENTRAL_STANDARD_TIME  | "Canada Central Standard Time" |
+| UTC -05:00 | SA_PACIFIC_STANDARD_TIME | "SA Pacific Standard Time" |
+| UTC -05:00| EASTERN_STANDARD_TIME_MEXICO | "Eastern Standard Time (Mexico)"|
+| UTC -05:00 |  EASTERN_STANDARD_TIME | "Eastern Standard Time" |
+| UTC -05:00 | HAITI_STANDARD_TIME | "Haiti Standard Time" |
+| UTC -05:00| CUBA_STANDARD_TIME | "Cuba Standard Time"|
+| UTC -05:00 | US_EASTERN_STANDARD_TIME | "US Eastern Standard Time" |
+| UTC -05:00 | TURKS_AND_CAICOS_STANDARD_TIME | "Turks And Caicos Standard Time" |
+| UTC -04:00 | PARAGUAY_STANDARD_TIME | "Paraguay Standard Time" |
+| UTC -04:00 | ATLANTIC_STANDARD_TIME | "Atlantic Standard Time" |
+| UTC -04:00 | VENEZUELA_STANDARD_TIME | "Venezuela Standard Time" |
+| UTC -04:00 | CENTRAL_BRAZILIAN_STANDARD_TIME | "Central Brazilian Standard Time" |
+| UTC -04:00 | SA_WESTERN_STANDARD_TIME | "SA Western Standard Time" |
+| UTC -04:00 | PACIFIC_SA_STANDARD_TIME  | "Pacific SA Standard Time" |
+| UTC -03:30 | NEWFOUNDLAND_STANDARD_TIME | "Newfoundland Standard Time" |
+| UTC -03:00 | TOCANTINS_STANDARD_TIME | "Tocantins Standard Time" | 
+| UTC -03:00 | E_SOUTH_AMERICAN_STANDARD_TIME | "E. South America Standard Time" |
+| UTC -03:00 | SA_EASTERN_STANDARD_TIME | "SA Eastern Standard Time" | 
+| UTC -03:00 | ARGENTINA_STANDARD_TIME | "Argentina Standard Time" |
+| UTC -03:00 | GREENLAND_STANDARD_TIME | "Greenland Standard Time" |
+| UTC -03:00 | MONTEVIDEO_STANDARD_TIME | "Montevideo Standard Time" |
+| UTC -03:00 | SAINT_PIERRE_STANDARD_TIME | "Saint Pierre Standard Time" |
+| UTC -03:00 | BAHIA_STANDARD_TIM | "Bahia Standard Time" |
+| UTC -02:00 | UTC_02 | "UTC-02" |
+| UTC -02:00 | MID_ATLANTIC_STANDARD_TIME | "Mid-Atlantic Standard Time" |
+| UTC -01:00 | AZORES_STANDARD_TIME | "Azores Standard Time" |
+| UTC -01:00 | CAPE_VERDE_STANDARD_TIME  | "Cape Verde Standard Time"|
+| UTC| UTC| UTC|
+| UTC +00:00| GMT_STANDARD_TIME | "GMT Standard Time" |
+| UTC +00:00 | GREENWICH_STANDARD_TIME | "Greenwich Standard Time" |
+| UTC +01:00 | MOROCCO_STANDARD_TIME | "Morocco Standard Time" |
+| UTC +01:00 | W_EUROPE_STANDARD_TIME | "W. Europe Standard Time"|
+| UTC +01:00 | CENTRAL_EUROPE_STANDARD_TIME | "Central Europe Standard Time" |
+| UTC +01:00 | ROMANCE_STANDARD_TIME | "Romance Standard Time" |
+| UTC +01:00 | CENTRAL_EUROPEAN_STANDARD_TIME | "Central European Standard Time" |
+| UTC +01:00 | W_CENTEAL_AFRICA_STANDARD_TIME | "W. Central Africa Standard Time" |
+| UTC +02:00 | NAMIBIA_STANDARD_TIME | "Namibia Standard Time" |
+| UTC +02:00 | JORDAN_STANDARD_TIME | "Jordan Standard Time" |
+| UTC +02:00 | GTB_STANDARD_TIME | "GTB Standard Time" |
+| UTC +02:00 | MIDDLE_EAST_STANDARD_TIME | "Middle East Standard Time" |
+| UTC +02:00 | EGYPT_STANDARD_TIME | "Egypt Standard Time" | 
+| UTC +02:00 | E_EUROPE_STANDARD_TIME | "E. Europe Standard Time" |
+| UTC +02:00 | SYRIA_STANDARD_TIME | "Syria Standard Time" |
+| UTC +02:00 | WEST_BANK_STANDARD_TIME | "West Bank Standard Time" |
+| UTC +02:00 | SOUTH_AFRICA_STANDARD_TIME  | "South Africa Standard Time" |
+| UTC +02:00 | FLE_STANDARD_TIME | "FLE Standard Time" |
+| UTC +02:00 | ISRAEL_STANDARD_TIME | "Israel Standard Time" |
+| UTC +02:00 | KALININGRAD_STANDARD_TIME | "Kaliningrad Standard Time" |
+| UTC +02:00 | LIBYA_STANDARD_TIME | "Libya Standard Time" |
+| UTC +03:00 | TURKEY_STANDARD_TIME | "Turkey Standard Time" |
+| UTC +03:00 | ARABIC_STANDARD_TIME | "Arabic Standard Time" |
+| UTC +03:00 | ARAB_STANDARD_TIME | "Arab Standard Time" |
+| UTC +03:00 | BELARUS_STANDARD_TIME | "Belarus Standard Time" |
+| UTC +03:00 | RUSSIAN_STANDARD_TIME | "Russian Standard Time" |
+| UTC +03:00 | E_AFRICA_STANDARD_TIME | "E. Africa Standard Time" | 
+| UTC +03:30 | IRAN_STANDARD_TIME | "Iran Standard Time" |
+| UTC +04:00 | ARABIAN_STANDARD_TIME  | "Arabian Standard Time" |
+| UTC +04:00 | ASTRAKHAN_STANDARD_TIME | "Astrakhan Standard Time"|
+| UTC +04:00 | AZERBAIJAN_STANDARD_TIME | "Azerbaijan Standard Time" |
+| UTC +04:00|  RUSSIA_TIME_ZONE_3 | "Russia Time Zone 3" |
+| UTC +04:00| MAURITIUS_STANDARD_TIME | "Mauritius Standard Time" |
+| UTC +04:00 | GEORGIAN_STANDARD_TIME | "Georgian Standard Time" | 
+| UTC +04:00| CAUCASUS_STANDARD_TIME | "Caucasus Standard Time" | 
+| UTC +04:30 |  AFGHANISTAN_STANDARD_TIME | "Afghanistan Standard Time" |
+| UTC +05:00 | WEST_ASIA_STANDARD_TIME | "West Asia Standard Time" |
+| UTC +05:00 | EKATERINBURG_STANDARD_TIME | "Ekaterinburg Standard Time" |
+| UTC +05:00 | PAKISTAN_STANDARD_TIME | "Pakistan Standard Time" |
+| UTC +05:30 |  INDIA_STANDARD_TIME  | "India Standard Time" |
+| UTC +05:30 | SRI_LANKA_STANDARD_TIME | "Sri Lanka Standard Time" |
+| UTC +05:45 | NEPAL_STANDARD_TIME | "Nepal Standard Time" |
+| UTC +06:00 | CENTRAL_ASIA_STANDARD_TIME | "Central Asia Standard Time" |
+| UTC +06:00 | BANGLADESH_STANDARD_TIME | "Bangladesh Standard Time" |
+| UTC +06:30 | MYANMAR_STANDARD_TIME | "Myanmar Standard Time" |
+| UTC +07:00 | N_CENTRAL_ASIA_STANDARD_TIME | "N. Central Asia Standard Time" |
+| UTC +07:00 | SE_ASIA_STANDARD_TIME | "SE Asia Standard Time" |
+| UTC +07:00 | ALTAI_STANDARD_TIME | "Altai Standard Time" |
+| UTC +07:00 | W_MONGOLIA_STANDARD_TIME | "W. Mongolia Standard Time" |
+| UTC +07:00 | NORTH_ASIA_STANDARD_TIME | "North Asia Standard Time" |
+| UTC +07:00 | TOMSK_STANDARD_TIME  | "Tomsk Standard Time" |
+| UTC +08:00 | CHINA_STANDARD_TIME | "China Standard Time" | 
+| UTC +08:00 | NORTH_ASIA_EAST_STANDARD_TIME | "North Asia East Standard Time"|
+| UTC +08:00 | SINGAPORE_STANDARD_TIME | "Singapore Standard Time" |
+| UTC +08:00 |  W_AUSTRALIA_STANDARD_TIME | "W. Australia Standard Time" |
+| UTC +08:00 | TAIPEI_STANDARD_TIME |  "Taipei Standard Time" | 
+| UTC +08:00|  ULAANBAATAR_STANDARD_TIME | "Ulaanbaatar Standard Time" |
+| UTC +08:45 | AUS_CENTRAL_W_STANDARD_TIME | "Aus Central W. Standard Time" |
+| UTC +09:00 | NORTH_KOREA_STANDARD_TIME  | "North Korea Standard Time" | 
+| UTC +09:00 | TRANSBAIKAL_STANDARD_TIME| "Transbaikal Standard Time" |
+| UTC +09:00 | TOKYO_STANDARD_TIME  | "Tokyo Standard Time" | 
+| UTC +09:00 | KOREA_STANDARD_TIME  | "Korea Standard Time" |
+| UTC +09:00 | YAKUTSK_STANDARD_TIME | "Yakutsk Standard Time" |
+| UTC +09:30 |  CEN_AUSTRALIA_STANDARD_TIME | "Cen. Australia Standard Time" |
+| UTC +09:30 | AUS_CENTRAL_STANDARD_TIME | "AUS Central Standard Time" |
+| UTC +10:00|  E_AUSTRALIAN_STANDARD_TIME | "E. Australia Standard Time" | 
+| UTC +10:00 | AUS_EASTERN_STANDARD_TIME | "AUS Eastern Standard Time" |
+| UTC +10:00 | WEST_PACIFIC_STANDARD_TIME | "West Pacific Standard Time" |
+| UTC +10:00 |  TASMANIA_STANDARD_TIME | "Tasmania Standard Time" |
+| UTC +10:00 | VLADIVOSTOK_STANDARD_TIME | "Vladivostok Standard Time" |
+| UTC +10:30 | LORDE_HOWE_STANDARD_TIME | "Lord Howe Standard Time" |
+| UTC +11:00 | BOUGANVILLE_STANDARD_TIME | "Bougainville Standard Time" | 
+| UTC +11:00 | RUSSIA_TIME_ZONE_10 | "Russia Time Zone 10" |
+| UTC +11:00 | MAGADAN_STANDARD_TIME | "Magadan Standard Time" | 
+| UTC +11:00 | NORFOLK_STANDARD_TIME | "Norfolk Standard Time" |
+| UTC +11:00 | SAKHALIN_STANDARD_TIME | "Sakhalin Standard Time" | 
+| UTC +11:00 | CENTRAL_PACIFIC_STANDARD_TIME | "Central Pacific Standard Time" |
+| UTC +12:00 | RUSSIA_TIME_ZONE_11 | "Russia Time Zone 11" | 
+| UTC +12:00 | NEW_ZEALAND_STANDARD_TIME | "New Zealand Standard Time" |
+| UTC +12:00 |  UTC_12 | "UTC+12" | 
+| UTC +12:00 |  FIJI_STANDARD_TIME | "Fiji Standard Time" |
+| UTC +12:00 | KAMCHATKA_STANDARD_TIME  | "Kamchatka Standard Time" | 
+| UTC +12:45 | CHATHAM_ISLANDS_STANDARD_TIME | "Chatham Islands Standard Time" |
+| UTC +13:00 | TONGA__STANDARD_TIME  | "Tonga Standard Time" | 
+| UTC +13:00 |  SAMOA_STANDARD_TIME | "Samoa Standard Time" |
+| UTC +14:00 | LINE_ISLANDS_STANDARD_TIME | "Line Islands Standard Time" |
+
