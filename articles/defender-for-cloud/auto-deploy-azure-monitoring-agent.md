@@ -112,7 +112,7 @@ The Azure Monitor Agent requires additional extensions. The ASA extension, which
 
 ### Additional security events collection
 
-When you auto-provision the Log Analytics agent in Defender for Cloud, you can choose to collect additional security events to the workspace. When you auto-provision the Log Analytics agent in Defender for Cloud, the option to collect additional security events to the workspace isn't available. Defender for Cloud doesn't rely on these security events, but they can be helpful for investigations through Microsoft Sentinel.
+When you auto-provision the Log Analytics agent in Defender for Cloud, you can choose to collect additional security events to the workspace. When you auto-provision the Azure Monitor agent in Defender for Cloud, the option to collect additional security events to the workspace isn't available. Defender for Cloud doesn't rely on these security events, but they can be helpful for investigations through Microsoft Sentinel.
 
 If you want to collect security events when you auto-provision the Azure Monitor Agent, you can create a [Data Collection Rule](/azure-monitor/essentials/data-collection-rule-overview) to collect the required events.
 
