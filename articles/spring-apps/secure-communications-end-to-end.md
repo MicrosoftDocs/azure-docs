@@ -13,17 +13,17 @@ ms.custom: devx-track-java
 
 This article describes how to secure communications end-to-end for Spring Boot apps in a Zero Trust environment. You can secure communications end-to-end or terminate transport-level security at any communication point for Spring Boot apps. You can also automate the provisioning and configuration for all the Azure resources needed for securing communications.
 
-Implementing secure communications as part of your solution architecture can be challenging. Many customers manually rotate their certificates or create their own solutions to automate provisioning and configuration. Even then, there is still data exfiltration risk, such as unauthorized copying or transfer of data from server systems. With Azure Spring Apps, all of this is handled for you. There is no need to figure out the difficult details. Azure Spring Apps abstracts away most of the complexity, leaving secure communications as configurable and automatable options in the service.
+Implementing secure communications as part of your solution architecture can be challenging. Many customers manually rotate their certificates or create their own solutions to automate provisioning and configuration. Even then, there's still data exfiltration risk, such as unauthorized copying or transfer of data from server systems. With Azure Spring Apps, these details are handled for you. Azure Spring Apps abstracts away most of the complexity, leaving secure communications as configurable and automatable options in the service.
 
 ## Secure internet communications
 
-The TLS/SSL protocol establishes identity and trust, and encrypts communications of all types. TLS/SSL makes secure communications possible, particularly web traffic carrying commerce data and personally identifiable information.
+The TLS/SSL protocol establishes identity and trust, and encrypts communications of all types. TLS/SSL makes secure communications possible, particularly web traffic carrying commerce and customer data.
 
-You can use any type of TLS/SSL certificate. For example, you can use certificates issued by a certificate authority, extended validation certificates, wildcard certificates with support for any number of sub-domains, or self-signed certificates for dev and testing environments.
+You can use any type of TLS/SSL certificate. For example, you can use certificates issued by a certificate authority, extended validation certificates, wildcard certificates with support for any number of subdomains, or self-signed certificates for dev and testing environments.
 
 ## Load certificates security with Zero Trust
 
-Zero Trust is based on the principle of "never trust, always verify, and credential-free". Zero Trust helps to secure all communications by eliminating unknown and un-managed certificates. Zero Trust involves trusting only certificates that are shared by verifying identity prior to granting access to those certificates. For more information, see the [Zero Trust Guidance Center](/security/zero-trust/).
+Zero Trust is based on the principle of "never trust, always verify, and credential-free". Zero Trust helps to secure all communications by eliminating unknown and unmanaged certificates. Zero Trust involves trusting only certificates that are shared by verifying identity prior to granting access to those certificates. For more information, see the [Zero Trust Guidance Center](/security/zero-trust/).
 
 To securely load certificates from [Azure Key Vault](../key-vault/index.yml), Spring Boot apps use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) and [Azure role-based access control (RBAC)](../role-based-access-control/index.yml). Azure Spring Apps uses a provider [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) and Azure role-based access control. This secure loading is powered using the Azure Key Vault Java Cryptography Architecture (JCA) Provider. For more information, see [Azure Key Vault JCA client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/azure-security-keyvault-jca).
 
