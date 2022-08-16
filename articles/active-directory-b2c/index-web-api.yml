@@ -16,10 +16,12 @@ metadata:
 landingContent:
 
 ## ROW 1 ################################################### ROW 1 ##
-  - title: "Configure ready apps quickly"
+  - title: "Configure ready API quickly"
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: ASP.NET web app calls web API
+            url: configure-authentication-sample-web-app-with-api.md        
           - text: Node web API
             url: configure-authentication-in-sample-node-web-app-with-api.md
           - text: Single-page app (JavaScript)
@@ -27,7 +29,7 @@ landingContent:
           - text: Python
             url: configure-authentication-sample-python-web-app.md
 
-  - title: "Build your own app"
+  - title: "Build your own API"
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -35,8 +37,10 @@ landingContent:
             url: enable-authentication-web-api.md?tabs=nodejsgeneric
           - text: Node web app and web API
             url: enable-authentication-in-node-web-app-with-api.md
-          - text: ASP.NET Core
-            url: enable-authentication-web-api.md?tabs=csharpclient            
+          - text: ASP.NET Core API
+            url: enable-authentication-web-api.md?tabs=csharpclient  
+          - text: ASP.NET web app calls web API
+            url: enable-authentication-web-app-with-api.md                      
           - text: Single-page app (JavaScript)
             url: enable-authentication-spa-app.md
           - text: Python
@@ -48,6 +52,8 @@ landingContent:
         links:
           - text: Node
             url: enable-authentication-in-node-web-app-with-api-options.md
+          - text: ASP.NET web app calls web API
+            url: enable-authentication-web-app-with-api-options.md             
           - text: Single-page app (JavaScript)
             url: enable-authentication-spa-app-options.md
           - text: Python

@@ -2,8 +2,7 @@
 
 title: Single-page application (SPA) documentation
 summary: >
-  Choose your target language to learn how to sign in users and access web APIs in your single-page apps with
-  our quickstarts and how-to guides.
+  Choose your target language to learn how to sign in users and access web APIs in your single-page apps with our quickstarts and how-to guides.
 
 metadata:
    author: kengaderdus
@@ -17,33 +16,33 @@ metadata:
 landingContent:
 
 ## ROW 1 ################################################### ROW 1 ##
-  - title: "Configure ready apps quickly"
+  - title: "Configure ready web apps quickly"
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Angular
+          - text: ASP.NET Core
             url: configure-authentication-sample-angular-spa-app.md
-          - text: JavaScript
+          - text: Node
             url: configure-authentication-sample-spa-app.md
-          - text: React
+          - text: Python
             url: configure-authentication-sample-react-spa-app.md
-  - title: "Build your own app"
+          - text: Python 
+            url: configure-authentication-sample-react-spa-app.md   
+          - text: Java 
+            url: configure-authentication-sample-react-spa-app.md     
+          - text: Azure Web apps 
+            url: configure-authentication-sample-react-spa-app.md 
+          - text: Static web app 
+            url: configure-authentication-sample-react-spa-app.md                                
+  - title: "Build your own web app"
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Angular
-            url: enable-authentication-angular-spa-app.md
-          - text: JavaScript
-            url: enable-authentication-spa-app.md
-          - text: React
-            url: enable-authentication-react-spa-app.md
-  - title: "Configuration options"
+          - text: Static web app 
+            url: configure-authentication-sample-react-spa-app.md 
+  - title: "Wen app configuration options"
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Angular
-            url: enable-authentication-angular-spa-app-options.md
-          - text: JavaScript
-            url: enable-authentication-spa-app-options.md
-          - text: React
-            url: enable-authentication-react-spa-app-options.md
+          - text: Static web app 
+            url: configure-authentication-sample-react-spa-app.md 

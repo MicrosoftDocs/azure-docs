@@ -26,7 +26,7 @@ metadata:
 ## BAND 2 ####################################################################################################################################################
 productDirectory:
   sections:
-    - title: Authentication and authorization your customers for any application type.
+    - title: Authenticate and authorize your customers and apps for any application type.
       summary: Select the app type that you're building to access documentation focusing on it.
       items:
         ## ROW 1 ######################
