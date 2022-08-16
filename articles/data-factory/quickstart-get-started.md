@@ -72,16 +72,17 @@ Select the button below to be redirected to the custom deployment configuration 
 ## Monitor the pipeline
 
 1. Select the **Monitor** tab <img src="media/quickstart-get-started/monitor-button.png" alt="Monitor tab"/>.
-1. You see the activity runs associated with the pipeline run.  In this quickstart, the pipeline has only one activity of type: Copy.  As such, you see a run for that activity.
+1. You can see an overview of your pipeline runs in the Monitor tab, such as run start time, status, etc.
+   
+   :::image type="content" source="media/quickstart-get-started/monitor-overview.png" alt-text="Screenshot of the data factory monitoring tab.":::
 
-## Verify the output file
+1. In this quickstart, the pipeline has only one activity type: Copy. Click on the pipeline name and you can see the details of the copy activity's run results.
 
-The pipeline automatically creates an output folder in the blob container.  Then it simply copies the moviesDB2.csv from the input folder to the output folder.
+   :::image type="content" source="media/quickstart-get-started/copy-activity-run-results.png" alt-text="Screenshot of the run results of a copy activity in the data factorying monitoring tab.":::
 
-1. Navigate to Azure portal for the storage account that was created in the resource group shown above, and find the **Containers** page.  If necessary, select **Refresh** to see the created output folder.
-1. Select the **output** folder.
-1. Confirm that **moviesDB2.csv** is copied to the output folder.
-   :::image type="content" source="media/quickstart-get-started/output-file.png" alt-text="Screenshot of the blob storage output folder and moviesDB2.csv created by the copy activity in the demo.":::
+1. Click on details, and the detailed copy process is displayed.  From the results, data read and written size are the same, and 1 file was read and written, which also proves all the data has been successfully copied to the destination.
+
+   :::image type="content" source="media/quickstart-get-started/copy-activity-detailed-run-results.png" alt-text="Screenshot of the detailed copy activity run results.":::
 
 ## Clean up resources
 
@@ -101,8 +102,6 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 ## Next Steps
 
-In this quickstart, you created an Azure Data Factory using an Azure Resource Manager (ARM) template and validated the deployment.  To learn more about Azure Data Factory and ARM, continue on to the articles below.
+In this quickstart, you created an Azure Data Factory containing a pipeline with a copy activity.  To learn more about Azure Data Factory, continue on to the article below.
 
-- Browse all of the [Azure Data Factory documentation](./index.yml).
-- Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md).
-- Get other [Azure Data Factory ARM templates](/resources/templates/?resourceType=Microsoft.Datafactory&pageNumber=1&sort=Popular).
+[Hello World - How to copy data](hello-world-copy-data.md)
