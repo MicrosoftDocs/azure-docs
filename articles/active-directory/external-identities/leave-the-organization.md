@@ -27,7 +27,7 @@ You can usually leave an organization on your own without having to contact an a
 
 ## What organizations do I belong to?
 
-1. Go to your **My Account** page by doing one of the following:
+1. First, open your **My Account** page by doing one of the following:
 
    - If you're using a work or school account, go to https://myaccount.microsoft.com and sign in.
    - If you're using a personal account, go to https://myapps.microsoft.com and sign in, and then select your account icon in the upper right and select **View account**. Or, use a My Account URL that includes your tenant information to go directly to your My Account page (examples are shown in the following note).  
@@ -37,11 +37,13 @@ You can usually leave an organization on your own without having to contact an a
 
 1. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
 
-1. you can view and manage the organizations you belong to in the **Other organizations you collaborate with** list.
-   ![Screenshot showing the list of organizations you belong to.](media/leave-the-organization/organization-list.png)
-   - **Home organization**: Your home organization is listed first. This is the organization that owns your work or school account. Because your account is managed by your administrator, you're not allowed to leave your home organization. (If you don't have an assigned home organization, you'll just see a single heading that says Organizations with the list of your associated organizations.)
+1. The **Organizations** page appears, where you can view and manage the organizations you belong to.
 
-   - **Other organizations you collaborate with**: You'll also see the other organizations that you've signed in to previously using your work or school account. You can leave any of these organizations at any time.
+   ![Screenshot showing the list of organizations you belong to.](media/leave-the-organization/organization-list.png)
+
+   - **Home organization**: Your home organization is listed first. This is the organization that owns your work or school account. Because your account is managed by your administrator, you're not allowed to leave your home organization (you'll see there's no option to **Leave**). If you don't have an assigned home organization, you'll just see a single heading that says **Organizations** with the list of your associated organizations.
+
+   - **Other organizations you collaborate with**: You'll also see the other organizations that you've signed in to previously using your work or school account. You can decide to leave any of these organizations at any time.
 
 ## How to leave an organization
 
@@ -49,7 +51,7 @@ If your organization allows users to remove themselves from external organizatio
 
 1. Open your **Organizations** page. (Follow the steps in [What organizations do I belong to](#what-organizations-do-i-belong-to), above.)
 
-1. Under **Other organizations you collaborate with**, find the organization that you want to leave, and then select **Leave**.
+1. Under **Other organizations you collaborate with** (or **Organizations** if you don't have a home organization), find the organization that you want to leave, and then select **Leave**.
 
    ![Screenshot showing Leave organization option in the user interface.](media/leave-the-organization/leave-org.png)
 
@@ -57,28 +59,28 @@ If your organization allows users to remove themselves from external organizatio
 
 ## Why can’t I leave an organization?
 
-Sometimes you're unable to leave an organization on your own, for example if:
+Sometimes you're unable to leave an organization on your own, for example:
 
-- The organization is your home organization.
-- Your organization doesn’t allow users to leave external organizations without contacting their administrator.
-- Your account has been disabled.
+- If the organization is your home organization (there's no option to **Leave** your home organization)
+- If the organization you want to leave doesn’t allow users to leave by themselves
+- If your account has been disabled
 
-If you select **Leave** for an organization, but you see the following message, this means you’ll need to contact your administrator and ask to leave the external organization.
+If you select **Leave** for an organization but you see the following message, it means you’ll need to contact your admin or privacy contact and ask to leave the external organization.
 
    ![Screenshot showing the message when you need permission to leave an organization.](media/leave-the-organization/need-permission-leave.png)
 
 
 ## More information for administrators
 
-In an organization’s **External collaboration settings**, administrators can use the **External user leave settings** to control whether users can remove themselves from external organizations. If you turn the self-serve feature off, your users will need to contact an administrator to have their account removed from an external organization.
+Administrators can use the **External user leave settings** to control whether external users can remove themselves from their organization. If you disallow the ability for external users to remove themselves from your organization, external users will need to contact their admin or privacy contact to have their account removed.
 
-1. Sign in to the Azure portal using a Global administrator account and open the Azure Active Directory service.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account and open the Azure Active Directory service.
 
 1. Select **External Identities** > **External collaboration settings**.
 
-1. Under External user leave settings, choose whether to allow users to leave external organizations themselves:
+1. Under **External user leave** settings, choose whether to allow external users to leave your organization themselves:
    - **Yes**: Users can leave the organization without approval from an administrator.
-   - **No**: Users will be guided to review the privacy statement or to request approval to leave the organization from the privacy contact.
+   - **No**: Users will be guided to review the privacy statement or to request approval to leave the organization from the admin or privacy contact.
 
    ![Screenshot showing External user leave settings in the portal.](media/leave-the-organization/external-user-leave-settings.png)
 
