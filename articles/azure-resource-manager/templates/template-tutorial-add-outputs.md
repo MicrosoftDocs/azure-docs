@@ -10,7 +10,7 @@ ms.custom:
 
 # Tutorial: Add outputs to your ARM template
 
-In this tutorial, you learn how to return a value from your Azure Resource Manager template (ARM template). You use output parameters when you need a value for a resource you deploy. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to return a value from your Azure Resource Manager template (ARM template). You use an output parameter when you need a value for a resource you deploy. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ There are some important items to note about the output value you added.
 
 The type of returned value is set to `object`, which means it returns a JSON object.
 
-It uses the [reference](template-functions-resource.md#reference) function to get the runtime state of the storage account. To get the runtime state of a resource, you pass in the name or ID of a resource. In this case, you use the same variable you used to create the name of the storage account.
+It uses the [reference](template-functions-resource.md#reference) function to get the runtime state of the storage account. To get the runtime state of a resource, pass the name or ID of a resource. In this case, you use the same variable you used to create the name of the storage account.
 
 Finally, it returns the `primaryEndpoints` property from the storage account.
 
@@ -91,7 +91,7 @@ In the output for the deployment command, you see an object similar to the follo
 
 ## Review your work
 
-You've done a lot in the last six tutorials. Let's take a moment to review what you have done. You created a template with parameters that are easy to provide. The template is reusable in different environments because it allows for customization and dynamically creates needed values. It also returns information about the storage account that you could use in your script.
+You've done a lot in the last six tutorials. Let's take a moment to review what you've done. You created a template with parameters that are easy to provide. The template is reusable in different environments because it allows for customization and dynamically creates needed values. It also returns information about the storage account that you could use in your script.
 
 Now, let's look at the resource group and deployment history.
 
