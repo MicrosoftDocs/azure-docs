@@ -30,10 +30,10 @@ You can't create a Lake database and or the objects in the Lake databases using 
 >[!NOTE]
 > You cannot create Lake and SQL databases with the same name. If a SQL database in the serverless SQL pool is created, you won't be able to create a Lake database with the same name. Respectively, if you create a Lake database, you won't be able to create a serverless SQL pool database with the same name.
 
-Tables in the Lake databases cannot be modified from a serverless SQL pool. Use [Database designer](../database-designer/modify-lake-database.md) or Apache Spark pools to modify the Lake databases. The servelress
-- Adding, altering, and dropping views, procedures, inline table-value functions in a Lake database.
-- Adding and removing database users from Azure AD domain.
-- Altering `db_datareader` role to add or remove Azure AD database users.
+Tables in the Lake databases cannot be modified from a serverless SQL pool. Use [Database designer](../database-designer/modify-lake-database.md) or Apache Spark pools to modify the Lake databases. The serverless SQL pool enables you to make the following changes in Lake database using Transact-SQL commands:
+- Adding, altering, and dropping views, procedures, inline table-value functions.
+- Adding and removing database-scoped Azure AD users.
+- Altering `db_datareader` role to add or remove Azure AD database users. Azure AD database user in `db_dtareader` role has permisison to read all tables in the Lake database but cannot read data from other databases.
 
 ## Security model
 
@@ -66,8 +66,6 @@ Lake databases allow creation of custom T-SQL objects, such as schemas, procedur
 
 >[!IMPORTANT]
 > You must create custom SQL schema where you will place your SQL objects. The custom SQL objects cannot be placed in the `dbo` schema. The `dbo` schema is reserved for the lake tables that are originally created in Spark or database designer.
-
-In addition to SQL objects, you can add Azure AD users in the Lake database and add them to the db_datareader role.
 
 ## Examples
 
