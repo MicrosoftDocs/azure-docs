@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Configure Azure Active Directory B2C with Deduce to combat identity fraud and create a trusted user experience
 
-In this sample article, we provide guidance on how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Deduce](https://www.deduce.com/). Deduce is focused on stopping account takeover and registration fraud — the fastest-growing fraud on the internet. The Deduce Identity Network is powered by a coalition of over 150,000 websites and apps who share logins, registrations, and checkouts with Deduce over 1.4 billion times per day.
+In this sample article, we provide guidance on how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Deduce](https://www.deduce.com/). Deduce is focused on stopping account takeover and registration fraud—the fastest-growing fraud on the internet. The Deduce Identity Network is powered by a coalition of over 150,000 websites and apps who share logins, registrations, and checkouts with Deduce over 1.4 billion times per day.
 
 The resulting identity intelligence stops attacks before they become a financial problem and a corporate liability. It uses historical behavioral analysis as a predictor of trust so organizations can deliver a frictionless user experience for their best customers. A comprehensive range of risk and trust signals can inform every authentication decision with the Azure AD B2C instance.
 With this integration, organizations can extend their Azure AD B2C capabilities during the sign-up or sign in process to get additional insights about the user from the Deduce Insights API. Some of the attributes ingested by the Deduce API are:
@@ -76,7 +76,7 @@ In order to collect the user_agent from client-side create your own ContentDefin
 
 1. Download the api.selfasserted [selfAsserted.cshtml](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/selfAsserted.cshtml) locally.
 
-2. Edit the selfAsserted.cshtml to include the following JavaScript before the closure of `</head>` define an additional Style element to hide the panel-default.
+2. Edit the selfAsserted.cshtml to include the following JavaScript before the closure of `</head>` defines an additional Style element to hide the panel-default.
 
    ``` html
    <style>
