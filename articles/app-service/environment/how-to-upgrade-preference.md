@@ -27,15 +27,15 @@ When you use an automatic upgrade preference, the platform will upgrade your App
 * *Early* will apply the upgrade automatically, but will prioritize it as one of the first instances in the region to be upgraded.
 * *Late* will apply the upgrade automatically, but the instance will be one of the last in the region to be upgraded.
 
-> [!NOTE]
-> In smaller regions, Early and Late upgrade preferences might be very close to each other.
-> 
+In smaller regions, Early and Late upgrade preferences might be very close to each other.
 
 ## Manual upgrade preference
 
-Manual upgrade preference will give you the option to receive a notification when an upgrade is available. After the upgrade is available, you'll have 15 days to start the upgrade process. If you don't start the upgrade within the 15 days, the upgrade will be processed with the remaining automatic upgrades in the region.
+Manual upgrade preference will give you the option to receive a notification when an upgrade is available. The availability will also be visible in the Azure portal. After the upgrade is available, you'll have 15 days to start the upgrade process. If you don't start the upgrade within the 15 days, the upgrade will be processed with the remaining automatic upgrades in the region.
 
-::: zone pivot="experience-azp"
+> [!NOTE]
+> In rare cases the upgrade availability might be impacted by a security hotfix superseding the planned upgrade, or a regression found in the planned upgrade before it has been applied to your instance. In these rare cases, the available upgrade will be removed and will transition to automatic upgrade.
+> 
 
 ## Configure notifications
 
@@ -51,9 +51,11 @@ To configure alerts for upgrade notifications, select the **Add service health a
 
 As you build your automation and notification logic, you may want to test it before the actual upgrade is available as this upgrade could be more than a month out. The Azure portal has the ability to send a special test upgrade available notification, which you can use to verify your automation logic. The message will be similar to the real notification, but the title will be prefixed with "[Test]" and the description will be different. You can send test notifications after you've configured your upgrade preference to Manual.
 
-To send a test notification, navigate to the **Configuration** page for your App Service Environment and select the **Send test notification** link. The notifications are sent in batches every hour.
+To send a test notification, navigate to the **Configuration** page for your App Service Environment and select the **Send test notification** link. The test notifications are sent in batches every 15 minutes.
 
 :::image type="content" source="./media/upgrade-preference/send-test-notification.png" alt-text="Screenshot of a configuration pane to send test notifications for the App Service Environment.":::
+
+::: zone pivot="experience-azp"
 
 ## Use the Azure portal to configure upgrade preference
 
