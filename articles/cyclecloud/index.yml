@@ -116,4 +116,4 @@ landingContent:
           - text: Azure Forums
             url: https://social.msdn.microsoft.com/Forums/home?forum=azurecyclecloud
           - text: Create an Azure Support Request
-            url: https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request
+            url: /azure/azure-supportability/how-to-create-azure-support-request

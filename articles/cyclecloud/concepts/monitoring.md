@@ -81,5 +81,5 @@ The metrics that are collected are:
  * Network In
  * Network Out
 
-It's also possible to store log data from CycleCloud clusters to Log Analytics and create custom metrics dashboards. For more information on creating custom metrics dashboards from Log Analytics for your clusters, see the How-to section and the tutorials in the [Azure Monitor documentation](/azure/azure-monitor/learn/tutorial-logs-dashboards).
+It's also possible to store log data from CycleCloud clusters to Log Analytics and create custom metrics dashboards. For more information on creating custom metrics dashboards from Log Analytics for your clusters, see the How-to section and the tutorials in the [Azure Monitor documentation](/azure/azure-monitor/visualize/tutorial-logs-dashboards).
 ::: moniker-end

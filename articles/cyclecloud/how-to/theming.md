@@ -8,12 +8,12 @@ ms.author: dawatrou
 
 # Theming the CycleCloud User Interface
 
-CycleCloud's theme may be customized to better match your organization's look and feel. In order to create a theme, some knowledge of [Cascading Style Sheets (CSS)](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/How_CSS_works) is required.
+CycleCloud's theme may be customized to better match your organization's look and feel. In order to create a theme, some knowledge of [Cascading Style Sheets (CSS)](https://developer.mozilla.org/docs/Learn/CSS/Introduction_to_CSS/How_CSS_works) is required.
 
 ## Creating a Theme
 
 To create your own theme, browse to the _config/web_ directory of your
-installation and edit the file _theme.css_. This file contains [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)
+installation and edit the file _theme.css_. This file contains [CSS variables](https://developer.mozilla.org/docs/Web/CSS/Using_CSS_variables)
 which may be modified to customize colors, images, and other CSS properties.
 
 While it is possible to override other CSS rules using this file, it is not
