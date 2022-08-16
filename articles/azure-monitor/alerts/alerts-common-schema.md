@@ -58,7 +58,7 @@ Use action groups in the Azure portal or use the REST API to enable the common a
 
 ### Through the Action Groups REST API
 
-You can also use the [Action Groups API](/rest/api/monitor/actiongroups) to opt in to the common alert schema. While you make the [create or update](/rest/api/monitor/actiongroups/createorupdate) REST API call, you can set the flag "useCommonAlertSchema" to `true` to opt in or `false` to opt out for email, webhook, Logic Apps, Azure Functions. or Automation runbook actions.
+You can also use the [Action Groups API](/rest/api/monitor/actiongroups) to opt in to the common alert schema. While you make the [create or update](/rest/api/monitor/actiongroups/createorupdate) REST API call, you can set the flag "useCommonAlertSchema" to `true` to opt in or `false` to opt out for email, webhook, Logic Apps, Azure Functions, or Automation runbook actions.
 
 For example, the following request body made to the [create or update](/rest/api/monitor/actiongroups/createorupdate) REST API will:
 
