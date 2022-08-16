@@ -47,7 +47,7 @@ The order and locations in which `DefaultAzureCredential` searches for credentia
 
 The following code examples demonstrates how to connect to an Azure Storage account using credential-free connections. The next section describes how to migrate to this setup in more detail.
 
-### [C# and .NET Core](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 A .NET Core application should explicitly pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
 
@@ -92,7 +92,7 @@ You can authorize access to data in your storage account using the following ste
 
     Next you will need to update your code to use credential-free connections for your desired language.
 
-    ### [C# and .NET Core](#tab/dotnet)
+    ### [.NET](#tab/dotnet)
 
 1. To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
 
@@ -119,23 +119,23 @@ You can authorize access to data in your storage account using the following ste
 
     :::image type="content" source="../../migrate/media/replicate-using-expressroute/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
 
-### [Java](#tab/java)
-
-```Java
-
-// Java code here
-
-```
-
-### [Python](#tab/python)
-
-```Python
-
-## Python code here
-
-```
-
----
+    ### [Java](#tab/java)
+    
+    ```Java
+    
+    // Java code here
+    
+    ```
+    
+    ### [Python](#tab/python)
+    
+    ```Python
+    
+    ## Python code here
+    
+    ```
+    
+    ---
 
 #### Run the app locally
 
