@@ -7,7 +7,7 @@ ms.date: 08/16/2022
 
 # Tutorial: Enable pull request annotations in GitHub and Azure DevOps
 
-Defender for Cloud allows you to configure pull request annotations to show you security issues. These issues are then displayed to developers when they submit their pull requests to the main branch. This is beneficial because it helps prevent potential security vulnerabilities and misconfigurations before they enter the production stage. 
+Defender for Cloud allows you to configure pull request annotations in GitHub or in Azure DevOps to show you potential security issues. These issues can then be reviewed by developers when they submit their pull requests. This is beneficial because it helps prevent potential security vulnerabilities and misconfigurations before they enter the production stage. 
 
 In this tutorial you'll learn how to:
 
@@ -18,16 +18,25 @@ In this tutorial you'll learn how to:
 
 Before you can follow the steps in this tutorial you must:
 
- - An Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+**For Github**:
+
+ - An Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin
  - [Enable Defender for cloud](get-started.md)
  - [Enhanced security features](enhanced-security-features-overview.md) enabled on your Azure subscriptions
  - [Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md)
  - [Enable Microsoft Security DevOps GitHub Action](msdo-github-action.md)
  - Be a [GitHub Advanced Security customer](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security)
  
-## Enable pull request annotations
+**For Azure DevOps**:
 
-Defender for Cloud gives you the ability to configure pull request annotations. This is beneficial to your developers because they will be able to see their security issues when they submit their pull requests directly to the main branch.
+ - An Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin
+ - [Enable Defender for cloud](get-started.md)
+ - [Enhanced security features](enhanced-security-features-overview.md) enabled on your Azure subscriptions
+ - [Configure the Microsoft Security DevOps Azure DevOps extension](msdo-azure-devops-extension.md)
+ 
+## Enable pull request annotations in Github
+
+By enabling pull request annotations in GitHub, you give your developers the ability to see their security issues when they submit their pull requests directly to the main branch.
 
 **To enable pull request annotations in GitHub and Azure DevOps**:
 
@@ -68,7 +77,7 @@ Defender for Cloud gives you the ability to configure pull request annotations. 
 
 You will now be able to see all the issues that were discovered by the scanner.
 
-## Mitigate issues found by the scanner
+### Mitigate issues found by the scanner
 
 Once you have configured the scanner you will be able to view all issues that were detected.
 
@@ -83,3 +92,39 @@ Once you have configured the scanner you will be able to view all issues that we
     - **Won't fix** - The alert is not relevant.
     - **False positive** - The alert is not valid
     - **Used in tests** - The alert was not in the production's code.
+
+## Enable pull request annotations in Azure DevOps
+
+By enabling pull request annotations in Azure DevOps, you give your developers the ability to see their security issues when they submit their pull requests directly to the main branch.
+
+**To enable annotations in Azure DevOps**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to **Defender for Cloud** > **DevOps Security**.
+
+1. Select all relevant repositories to enable pull request annotations on.
+
+1. Select **Configure**.
+
+1. Select a reason(s):
+
+    - **Won't fix** - The alert is not relevant.
+    - **False positive** - The alert is not valid
+    - **Used in tests** - The alert was not in the production's code.
+
+1. Select the scan result from the drop down menu.
+
+1. Select a severity level from the drop down menu.
+
+1. Select **Save**.
+
+You can review all of your pull requests in Azure DevOps and their affiliated annotations, displayed in the relevant line of code based on your configurations in Microsoft Defender for Cloud.
+
+## Next steps
+
+In this tutorial you learned how to enable Pull Request annotations in GitHub and Azure DevOps.
+
+
+> [!div class="nextstepaction"]
+> Now learn more about [Defender for DevOps](defender-for-devops-introduction.md).

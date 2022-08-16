@@ -380,7 +380,7 @@
     - name: Enable Microsoft Security Devops Action
       displayName: Github, DevOps, 
       href: msdo-github-action.md
-    - name: Setup and configure the Microsoft Security DevOps extension
+    - name: Configure the Microsoft Security DevOps extension
       href: msdo-azure-devops-extension.md
     - name: Discover misconfigurations in Infrastructure as Code
       href: iac-vulnerabilities.md
