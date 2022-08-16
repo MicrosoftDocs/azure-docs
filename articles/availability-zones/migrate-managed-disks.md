@@ -96,7 +96,7 @@ To migrate a non-zonal managed disk to zone-redundant:
 Learn about:
 
 > [!div class="nextstepaction"]
-> [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks.md).
+> [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks).
 
 > [!div class="nextstepaction"]
 > [Regions and Availability Zones in Azure](az-overview.md)
