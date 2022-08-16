@@ -387,8 +387,8 @@ When you no longer need the Azure MFA server, follow your normal server deprecat
 
 If the upgrade had issues, follow these steps to rollback: 
 
-1.	Uninstall MFA Server 8.1.
-1.	Replace PhoneFactor.pfdata with the backup made before upgrading. 
+1. Uninstall MFA Server 8.1.
+1. Replace PhoneFactor.pfdata with the backup made before upgrading.
 
    >[!NOTE]
    >Any changes since the backup was made will be lost, but should be minimal if backup was made right before upgrade and upgrade was unsuccessful.
