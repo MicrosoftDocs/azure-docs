@@ -3,7 +3,7 @@ title: Azure Cloud Shell for Windows users | Microsoft Docs
 description: Guide for users who are not familiar with Linux systems
 services: azure
 documentationcenter: ''
-author: jahelmic
+author: theJasonHelmick@gmail.com
 manager: hemantm
 tags: azure-resource-manager
 
@@ -66,5 +66,5 @@ Under `$HOME/.config/PowerShell`, you can create your profile files - `profile.p
 ## What's new in PowerShell
 
 For more information about what is new in PowerShell, reference the
-[PowerShell Whats New](https://docs.microsoft.com/powershell/scripting/whats-new/overview) and
-[Discover PowerShell](https://docs.microsoft.com/powershell/scripting/discover-powershell).
+[PowerShell Whats New](/powershell/scripting/whats-new/overview) and
+[Discover PowerShell](/powershell/scripting/discover-powershell).
