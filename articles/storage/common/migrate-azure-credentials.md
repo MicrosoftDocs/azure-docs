@@ -156,7 +156,7 @@ Once your application is configured to use credential-free connections and runs 
 
     :::image type="content" source="media/migration-create-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-create-identity.png":::
 
-### [Container Apps](#tab/app-service)
+### [Container Apps](#tab/container-apps)
 
 1. On the main overview page of your Azure Container App, select **Identity** from the left navigation. 
 
@@ -164,7 +164,7 @@ Once your application is configured to use credential-free connections and runs 
 
     :::image type="content" source="media/storage-migrate-credentials/container-apps-identity.png" alt-text="A screenshot showing how to enable managed identity for container apps.":::    
 
-### [Spring Apps](#tab/app-service)
+### [Spring Apps](#tab/spring-apps)
 
 1. On the main overview page of your Azure Spring App, select **Identity** from the left navigation. 
 
@@ -172,7 +172,7 @@ Once your application is configured to use credential-free connections and runs 
 
     :::image type="content" source="media/storage-migrate-credentials/spring-apps-identity.png" alt-text="A screenshot showing how to enable managed identity for spring apps.":::    
 
-### [Virtual Machines](#tab/create-managed-identity-cli)
+### [Virtual Machines](#tab/virtual-machines)
 
 1. On the main overview page of your Azure Spring App, select **Identity** from the left navigation. 
 
@@ -192,7 +192,7 @@ You can also enable managed identity on an Azure hosting environment using the A
 az webapp identity assign --resource-group <resource-group-name> --name <app-service-name>
 ```
 
-### [Container Apps](#tab/app-service)
+### [Container Apps](#tab/container-apps)
 
  You can assign a managed identity to an Azure Container App with the [az containerapp identity assign](/cli/azure/containerapp/identity) command.
 
@@ -200,7 +200,7 @@ az webapp identity assign --resource-group <resource-group-name> --name <app-ser
 az containerapp identity assign --resource-group <resource-group-name> --name <app-service-name>
 ```
 
-### [Spring Apps](#tab/app-service)
+### [Spring Apps](#tab/spring-apps)
 
  You can assign a managed identity to an Azure Spring App with the [az spring app identity assign](/cli/azure/spring/app/identity) command.
 
@@ -208,7 +208,7 @@ az containerapp identity assign --resource-group <resource-group-name> --name <a
 az spring app identity assign --resource-group <resource-group-name> --name <app-service-name> --service <service-name>
 ```
 
-### [Virtual Machines](#tab/create-managed-identity-cli)
+### [Virtual Machines](#tab/virtual-machines)
 
  You can assign a managed identity to a Virtual Machine with the [az vm identity assign](/cli/azure/vm/identity) command.
 
@@ -216,7 +216,7 @@ az spring app identity assign --resource-group <resource-group-name> --name <app
 az vm identity assign --resource-group <resource-group-name> --name <app-service-name>
 ```
 
-### [AKS](#tab/create-managed-identity-cli)
+### [AKS](#tab/aks)
 
  You can assign a managed identity to an Azure Kubernetes Service with the [az aks update](/cli/azure/aks) command.
 
