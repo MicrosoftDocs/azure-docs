@@ -50,7 +50,7 @@ You can quickly create a new IoT hub using the Azure Cloud Shell terminal in the
 
 ## Create a logic app
 
-Next, create a logic app and add an HTTP event grid trigger that processes requests from IoT hub. 
+Next, create a logic app and add an HTTP Event Grid trigger that processes requests from IoT hub. 
 
 ### Create a logic app resource
 
