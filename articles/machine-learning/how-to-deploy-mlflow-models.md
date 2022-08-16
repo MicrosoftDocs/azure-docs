@@ -246,7 +246,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    from azure.identity import DefaultAzureCredential
    ```
    
-   1. Configure workspace details and get a handle to the workspace:
+   2. Configure workspace details and get a handle to the workspace:
    
    ```python
    subscription_id = "<subscription>"
@@ -414,6 +414,8 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    endpoint.traffic = {"sklearn-deployment": 100}
    ml_client.begin_create_or_update(endpoint)
    ```
+   
+1. Once the deployment is completed, the service is ready to recieve requests. If you are not sure about how to submit requests to the service, see [Creating requests](#creating-requests).
     
 ## Deploy using Azure Machine Learning studio
 
