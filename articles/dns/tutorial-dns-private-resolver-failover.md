@@ -5,31 +5,31 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: tutorial
-ms.date: 08/12/2022
+ms.date: 08/16/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to avoid having a single point of failure for DNS resolution.
 ---
 
 # Tutorial: Set up DNS failover using private resolvers
 
-You can eliminate a single point of failure in your on-premises DNS services by using two or more Azure DNS private resolvers.
+You can eliminate a single point of failure in your on-premisesises DNS services by using two or more Azure DNS private resolvers.
 
 When you deploy multiple resolvers across different regions, DNS failover can be enabled by assigning a local resolver as your primary DNS and the resolver in an adjacent region as secondary DNS. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Resolve Azure Private DNS zones using on-premises conditional fowarders and Azure DNS private resolvers.
-> * Enable on-premises DNS failover for your Azure Private DNS zones.
+> * Resolve Azure Private DNS zones using on-premisesises conditional fowarders and Azure DNS private resolvers.
+> * Enable on-premisesises DNS failover for your Azure Private DNS zones.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Two [Azure virtual networks](../virtual-network/quick-create-portal.md) in two regions
-- A [VPN](../vpn-gateway/tutorial-site-to-site-portal.md) or [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) link from on-premises to each virtual network
+- A [VPN](../vpn-gateway/tutorial-site-to-site-portal.md) or [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) link from on-premisesises to each virtual network
 - An [Azure DNS Private Resolver](dns-private-resolver-get-started-portal.md) in each virtual network
 - An Azure [private DNS zone](private-dns-getstarted-portal.md) that is linked to each virtual network
-- An on-premises DNS server 
+- An on-premisesises DNS server 
 
 > [!NOTE]
 > In this tutorial,`azure.contoso.com` is an Azure private DNS zone. Replace `azure.contoso.com` with your private DNS zone name.
@@ -40,7 +40,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Determine inbound endpoint IP addresses
 
-Write down the IP addresses assigned to the inbound endpoints of your DNS private resolvers. The IP addresses will be used to configure on-premises DNS forwarders.
+Write down the IP addresses assigned to the inbound endpoints of your DNS private resolvers. The IP addresses will be used to configure on-premisesises DNS forwarders.
 
 In this example, there are two virtual networks in two regions:
 - **myeastvnet** is in the East US region, assigned the address space 10.10.0.0/16 
@@ -63,7 +63,7 @@ To resolve DNS records in an Azure DNS private zone, the zone must be linked to 
 
     ![View vnet links](./media/tutorial-dns-private-resolver-failover/vnet-links.png)
 
-3. If one or more vnets are not yet linked, you can add it here by selecting **Add**, providing a **Link name**, choosing your **Subscription**, and then choosing the **Virtual network**.
+3. If one or more vnets aren't yet linked, you can add it here by selecting **Add**, providing a **Link name**, choosing your **Subscription**, and then choosing the **Virtual network**.
 
 > [!TIP]
 > You can also use peering to resolve records in private DNS zones. For more information, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
@@ -84,7 +84,7 @@ Check that DNS settings for your virtual networks are set to Default (Azure-prov
 
     ![Create a test A record](./media/tutorial-dns-private-resolver-failover/test-record.png)
 
-5. Open a command promt using an on-premises client and use nslookup to look up your test record using the first private resolver IP address that you wrote down (ex: 10.10.0.4). See the following example:
+5. Open a command prompt using an on-premisesises client and use nslookup to look up your test record using the first private resolver IP address that you wrote down (ex: 10.10.0.4). See the following example:
 
     ```cmd
     nslookup test.azure.contoso.com 10.10.0.4
@@ -97,25 +97,25 @@ Check that DNS settings for your virtual networks are set to Default (Azure-prov
     ![Results of nslookup - west](./media/tutorial-dns-private-resolver-failover/nslookup-results-w.png)
 
     > [!NOTE]
-    > If DNS resolution for the private zone is not working, check that your on-premises links to the Azure Vnets are connected.
+    > If DNS resolution for the private zone is not working, check that your on-premisesises links to the Azure Vnets are connected.
 
-## Configure on-premises DNS forwarding
+## Configure on-premisesises DNS forwarding
 
-Now that DNS resolution is working from on-premises to Azure using two different Azure DNS Private Resolvers, we can configure forwarding to use both of these addresses.  This will enable redundancy in case one of the connections to Azure is interrupted. The procedure to configure forwarders will depend on the type of DNS server that you are using. The following example uses a Windows Server that is running the DNS Server role service and has an IP address of 10.100.0.2.
+Now that DNS resolution is working from on-premisesises to Azure using two different Azure DNS Private Resolvers, we can configure forwarding to use both of these addresses.  This will enable redundancy in case one of the connections to Azure is interrupted. The procedure to configure forwarders will depend on the type of DNS server that you're using. The following example uses a Windows Server that is running the DNS Server role service and has an IP address of 10.100.0.2.
 
    > [!NOTE]
-   > The DNS server that you use to configure forwarding should be a server that client devices on your network will use for DNS resolution. If the server you are configuring is not the default, you will need to query it's IP address directly (ex: nslookup test.azure.contoso.com 10.100.0.2) after forwarding is configured.
+   > The DNS server that you use to configure forwarding should be a server that client devices on your network will use for DNS resolution. If the server you're configuring is not the default, you will need to query it's IP address directly (ex: nslookup test.azure.contoso.com 10.100.0.2) after forwarding is configured.
 
-1. Open a an elevated Windows PowerShell prompt and enter the following. Replace **azure.contoso.com** with the name of your private zone, and replace the IP addresses below with the IP addresses for your private resolvers.
+1. Open an elevated Windows PowerShell prompt and prompt commands. Replace **azure.contoso.com** with the name of your private zone, and replace the IP addresses below with the IP addresses for your private resolvers.
 
     ```PowerShell
     Add-DnsServerConditionalForwarderZone -Name "azure.contoso.com" -MasterServers 10.20.0.4,10.10.0.4
     ```
-2. If preferred, you can also use the DNS console to enter conditioal forwarders. See the following example:
+2. If preferred, you can also use the DNS console to enter conditional forwarders. See the following example:
 
     ![View DNS forwarders](./media/tutorial-dns-private-resolver-failover/forwarders.png)
 
-3. Now that forwarding is in place, issue the same DNS query that you used in the previous procedure. However, this time do not enter a destination IP address for the query. The query will use the client's default DNS server. 
+3. Now that forwarding is in place, issue the same DNS query that you used in the previous procedure. However, this time don't enter a destination IP address for the query. The query will use the client's default DNS server. 
 
     ![Results of nslookup](./media/tutorial-dns-private-resolver-failover/nslookup-results.png)
 
@@ -123,7 +123,7 @@ Now that DNS resolution is working from on-premises to Azure using two different
 
 You can now demonstrate that DNS resolution works when one of the connections is broken. 
 
-1. Interrupt connectivity from on-prem to one of your Vnets by disabling or disconnecting the interface. Verify that the connection does not automatically reconnect on-demand.
+1. Interrupt connectivity from on-premises to one of your Vnets by disabling or disconnecting the interface. Verify that the connection doesn't automatically reconnect on-demand.
 2. Run the nslookup query using the private resolver from the Vnet that is no longer connected and verify that it fails (see below).
 3. Run the nslookup query using your default DNS server (configured with forwarders) and verify it still works due to the redundancy you enabled.
 
