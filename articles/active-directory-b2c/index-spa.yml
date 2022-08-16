@@ -46,3 +46,10 @@ landingContent:
             url: enable-authentication-spa-app-options.md
           - text: React
             url: enable-authentication-react-spa-app-options.md
+  - title: "Samples"
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Single-page application (SPA) samples
+            url: integrate-with-app-code-samples.md#single-page-apps
+           
