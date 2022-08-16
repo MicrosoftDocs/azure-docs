@@ -9,7 +9,7 @@ ms.date: 08/16/2022
 
 # Microsoft.Solutions.ResourceSelector UI element
 
-The `ResourceSelector` user-interface (UI) element lets users select an existing Azure resource from a subscription. You specify the resource provider namespace and resource type in the element's JSON, like `Microsoft.Storage/storageAccounts`. You can use the element to filter the list by subscription or location. From the element's UI, to search within the list's contents, you can type a filter like resource group name, resource name, or a partial name.
+The `ResourceSelector` user-interface (UI) element lets users select an existing Azure resource from a subscription. You specify the resource provider namespace and resource type, like `Microsoft.Storage/storageAccounts` in the element's JSON. You can use the element to filter the list by subscription or location. From the element's UI, to search within the list's contents, you can type a filter like resource group name, resource name, or a partial name.
 
 ## UI sample
 
@@ -36,7 +36,7 @@ When you use the element to restrict the subscription to `onBasics` the UI doesn
   "resourceType": "Microsoft.Storage/storageAccounts",
   "options": {
     "filter": {
-      "subscription": "all",
+      "subscription": "onBasics",
       "location": "onBasics"
     }
   }
@@ -58,7 +58,6 @@ When you use the element to restrict the subscription to `onBasics` the UI doesn
   - `all`: Shows all resources and is the default value.
   - `onBasics`: Shows only resources that match the selection on the **Basics** tab.
   - If you omit the `filter` property from the _createUiDefinition.json_ file, all resources for the specified resource type are shown in the list.
-- The list shown in the element's UI allows you to filter by resource group name or resource name.
 
 ## Next steps
 
