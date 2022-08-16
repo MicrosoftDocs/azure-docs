@@ -35,8 +35,7 @@ An Azure account with an active subscription. [Create an account for free](https
     | Resource group name | *my-resource-group* | Create a resource group for your Azure Managed Grafana resources.                                         |
     | Location            | *(US) East US*      | Use Location to specify the geographic location in which to host your resource. Choose the location closest to you. |
     | Name                | *my-grafana*        | Enter a unique resource name. It will be used as the domain name in your Managed Grafana instance URL.              |
-
-   1. Choose if you want to enable or disable **Zone redundancy**. Zone redundancy automatically provisions and manages a standby replica of the Managed Grafana instance in a different availability zone within one region. There's an [additional charge](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing) for this option.
+    | Zone redundancy     | *Disabled*          | Zone redundancy is disabled by default. Zone redundancy automatically provisions and manages a standby replica of the Managed Grafana instance in a different availability zone within one region. There's an [additional charge](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing) for this option. |
 
     :::image type="content" source="media/quickstart-portal/create-form-basics.png" alt-text="Screenshot of the Azure portal. Create workspace form. Basics.":::
 
@@ -49,7 +48,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
    1. The box **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is checked.
 
-   1. The box **Include myself** under **Grafana administrator role** is checked. This grants you the Grafana administrator role, and lets you manage access rights. You can give this right to more members by selecting **Add**. If this option grays out for you, ask someone with the Owner role on the subscription to assign you the Grafana Admin role.
+   1. The box **Include myself** under **Grafana administrator role** is checked. This option grants you the Grafana administrator role, and lets you manage access rights. You can give this right to more members by selecting **Add**. If this option grays out for you, ask someone with the Owner role on the subscription to assign you the Grafana Admin role.
 
     :::image type="content" source="media/quickstart-portal/create-form-permission.png" alt-text="Screenshot of the Azure portal. Create workspace form. Permission.":::
 
