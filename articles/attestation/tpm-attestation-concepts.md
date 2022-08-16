@@ -118,7 +118,7 @@ Using the following Attestation policy, you can now validate the secureboot, ker
 
 
 
-Note: Support for non-file based measurements are only available from linux kernel version: 5.18
+Note: Support for non-file based measurements are only available from linux kernel version: 5.15
 
 ## Next steps
 
