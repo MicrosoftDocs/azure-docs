@@ -190,10 +190,10 @@ sections:
             | Language / API | Migration guide|
             | ----------- | ----------------  |
             | REST API    | [v3](v3-migration-guide.md)|
-            | C#/.NET| [4.0.0-beta.3](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)|
-            | Java | [4.0.0-beta.4](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)|
-            | JavaScript| [4.0.0-beta.3](https://github.com/azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)|
-            | Python | [3.2.0b3](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)|
+            | C#/.NET| [4.0.0-beta.5](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)|
+            | Java | [4.0.0-beta.6](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)|
+            | JavaScript| [4.0.0-beta.6](https://github.com/azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)|
+            | Python | [3.2.0b6](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)|
 
       - question: |
             Which file formats does Form Recognizer support? Are there size limitations for input documents?
