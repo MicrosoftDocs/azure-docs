@@ -183,9 +183,7 @@ Now, we'll deploy the sample PHP application to Azure App Service using the Loca
 
 1. Verify that you are in the application repository's root directory.
 
-1. To add an Azure remote to your local Git repository, run the following command.
-
-    **Note:** Replace `<deploymentLocalGitUrl>` with the URL of the Git remote that you saved in the **Create an App Service web app** step.
+1. To add an Azure remote to your local Git repository, run the following command. Replace `<deploymentLocalGitUrl>` with the URL of the Git remote that you saved in the **Create an App Service web app** step.
 
     ```azurecli-interactive
     git remote add azure <deploymentLocalGitUrl>
