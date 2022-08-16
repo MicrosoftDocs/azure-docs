@@ -101,7 +101,8 @@ The following sample rule filters the account to run the actions on objects that
               "daysAfterModificationGreaterThan": 30
             },
             "tierToArchive": {
-              "daysAfterModificationGreaterThan": 90
+              "daysAfterModificationGreaterThan": 90,
+              "daysAfterLastTierChangeGreaterThan " : 7
             },
             "delete": {
               "daysAfterModificationGreaterThan": 2555
@@ -164,6 +165,7 @@ The run conditions are based on age. Current versions use the last modified time
 | daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for actions on a current version of a blob |
 | daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for actions on a previous version of a blob or a blob snapshot |
 | daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for a current version of a blob when access tracking is enabled |
+| daysAfterLastTierChangeGreaterThan | Integer value indicating the age in days after last blob tier change time | This condition applies only to tierToArchive actions. The daysAfterModificationGreaterThan condition must be set for baseBlobs-based actions, or the daysAfterModificationGreaterThan condition must be set for snapshots and blob version-based actions. |
 
 ## Examples of lifecycle policies
 
@@ -235,7 +237,7 @@ In the following example, blobs are moved to cool storage if they haven't been a
 
 ### Archive data after ingest
 
-Some data stays idle in the cloud and is rarely, if ever, accessed. The following lifecycle policy is configured to archive data shortly after it's ingested. This example transitions block blobs in a container named `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time:
+Some data stays idle in the cloud and is rarely, if ever, accessed. The following lifecycle policy is configured to archive data shortly after it's ingested. This example transitions block blobs in a container named `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time. Add a note here about the purpose of the daysAfterLastTierChangeGreaterThan condition.
 
 ```json
 {
@@ -251,7 +253,10 @@ Some data stays idle in the cloud and is rarely, if ever, accessed. The followin
         },
         "actions": {
           "baseBlob": {
-              "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
+              "tierToArchive": { 
+                "daysAfterModificationGreaterThan": 0,
+                "daysAfterLastTierChangeGreaterThan": 7 
+              }
           }
         }
       }
