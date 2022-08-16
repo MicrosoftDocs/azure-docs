@@ -22,9 +22,9 @@ All boards listed support users of all experience levels.
 
 *[1] If you're new to hardware programming, for MCU dev work we recommend using VS Code Arduino Extension or VS Code Platform IO Extension. For SBC dev work, you program the device like you would a laptop, that is, on the device itself. The Raspberry Pi supports VS Code development.*
 
-*[2] Devices were chosen based on availability of support resources, common boards used for prototyping and PoCs, and boards that support beginner-friendly IDEs like Arduino IDE and VS Code extensions (for example, Arduino Extension and Platform IO extension). For simplicity, we aimed to keep the total device list <6. Some of these metrics are "squishy," which means that other teams and individuals may have chosen to feature different boards based on their interpretation of the criteria.*
+*[2] Devices were chosen based on availability of support resources, common boards used for prototyping and PoCs, and boards that support beginner-friendly IDEs like Arduino IDE and VS Code extensions; for example, Arduino Extension and Platform IO extension. For simplicity, we aimed to keep the total device list <6. Some of these metrics are "squishy," which means that other teams and individuals may have chosen to feature different boards based on their interpretation of the criteria.*
 
-*[3] For bringing devices to production, you'll likely want to test a PoC with a specific chipset, ST's STM32 or Microchip's Pic-IoT breakout board series, design a custom board that can be manufactured for significantly lower cost than the MCUs and SBCs listed here, or even explore FPGA-based dev kits. You may also want to use a development environment for professional electrical engineering like STM32CubeMX or ARM mBed browser-based programmer.*
+*[3] For bringing devices to production, you'll likely want to test a PoC with a specific chipset, ST's STM32 or Microchip's Pic-IoT breakout board series, design a custom board that can be manufactured for lower cost than the MCUs and SBCs listed here, or even explore FPGA-based dev kits. You may also want to use a development environment for professional electrical engineering like STM32CubeMX or ARM mBed browser-based programmer.*
 
 ## Contents
 
@@ -90,7 +90,7 @@ Below are some suggestions for criteria to consider when choosing a device for y
 
   - **Community**: Consider how much assistance you want/need in building a solution. For example, consider if you prefer to start with sample code, if you want troubleshooting advice or assistance, or if you would benefit from an active community that generates new samples and updates documentation.
   
-  - **Documentation**: Take a look at the device documentation. Identify if it's complete and easy to follow. Consider if you need schematics, samples, datasheets, or other types of documentation. If so, do some searching to see if those items are available for your project. Consider the software SDKs/APIs/libraries that are written for the board and if these would make your prototyping process easier. Identify if this documentation is maintained and who the maintainers are.
+  - **Documentation**: Take a look at the device documentation. Identify if it's complete and easy to follow. Consider if you need schematics, samples, datasheets, or other types of documentation. If so, do some searching to see if those items are available for your project. Consider the software SDKs/APIs/libraries that are written for the board and if these items would make your prototyping process easier. Identify if this documentation is maintained and who the maintainers are.
 
 - **Security**
 
@@ -102,7 +102,7 @@ Below are some suggestions for criteria to consider when choosing a device for y
 
 ## Application selection visual
 
-:::image type="content" source="media/iot-device-selection-table/iot-device-selection-visual.png" alt-text="Table that shows common selection criteria with possible hardware choices.":::
+:::image type="content" source="media/iot-device-selection/iot-device-selection-visual.png" alt-text="Table that shows common selection criteria with possible hardware choices.":::
 
 ## Terminology and ML requirements
 
@@ -170,7 +170,7 @@ Following is a comparison table of MCUs in alphabetical order. This isn't an exh
 
 ## SBC Device List
 
-Following is a comparison table of SBCs in alphabetical order. This isn't an exhaustive list and is intended to be short.
+Following is a comparison table of SBCs in alphabetical order. This table isn't an exhaustive list and is intended to be short.
 
 | Board Name | Price (USD) | What is it used for? | Software| Speed | Processor | Memory | Onboard Sensors and Other Features | IO Pins | Video | Radio | Battery Connector? | Operating Voltage | Getting Started Guides | **Alternatives** |
 | ---- | ---- | ---- | ----| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----|
