@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/14/2022
+ms.date: 08/15/2022
 ---
 
 # Node.js app to connect and query Hyperscale (Citus)
@@ -254,7 +254,7 @@ The COPY command can yield [tremendous throughput](https://www.citusdata.com/blo
 
 ### COPY command to load data from a file
 
-Before running below code, install
+Before running code below, install
 [pg-copy-streams](https://www.npmjs.com/package/pg-copy-streams). To do so,
 run the node package manager (npm) for JavaScript from your command line.
 
@@ -270,48 +270,45 @@ It requires the file [pharmacies.csv](https://download.microsoft.com/download/d/
 * file: copycsv.js
 */
 
-const fs = require('fs');
 const inputFile = require('path').join(__dirname, '/pharmacies.csv');
+const fileStream = require('fs').createReadStream(inputFile);
 const copyFrom = require('pg-copy-streams').from;
 const { client } = require('./db/citus');
 
-async function queryDatabase() {
-  const queryString = `
-        COPY pharmacy
-        FROM STDIN WITH (FORMAT CSV, HEADER true, NULL '');
-    `;
+async function importCsvDatabase() {
+  return new Promise((resolve, reject) => {
+    const queryString = `
+    COPY pharmacy FROM STDIN WITH (FORMAT CSV, HEADER true, NULL '');
+  `;
 
-  const fileStream = fs.createReadStream(inputFile);
-  fileStream.on('error', (error) => {
-    console.log(`Error in reading file: ${error}`);
+    fileStream.on('error', reject);
+
+    const stream = client
+      .query(copyFrom(queryString))
+      .on('error', reject)
+      .on('end', () => {
+        reject(new Error('Connection closed!'));
+      })
+      .on('finish', () => {
+        resolve();
+      });
+
+    fileStream.pipe(stream);
   });
-
-  const stream = await client
-    .query(copyFrom(queryString))
-    .on('error', (error) => {
-      console.log(`Error in copy command: ${error}`);
-    })
-    .on('end', () => {
-      // TODO: this is never reached
-      console.log('Completed loading data into pharmacy');
-      client.end();
-    });
-
-  console.log('Copying from CSV...');
-  fileStream.pipe(stream);
-
-  console.log('inserted csv successfully');
-
-  client.end();
 }
 
-queryDatabase();
+(async () => {
+  console.log('Copying from CSV...');
+  await importCsvDatabase();
+  await client.end();
+  console.log('Inserted csv successfully');
+})();
 ```
 
 ### COPY command to load data in-memory
 
-Before running the below code, install
-[through2](https://www.npmjs.com/package/through2). This package allows pipe
+Before running the code below, install
+[through2](https://www.npmjs.com/package/through2) package. This package allows pipe
 chaining.  Install it with node package manager (npm) for JavaScript like this:
 
 ```bash
@@ -329,32 +326,44 @@ const through2 = require('through2');
 const copyFrom = require('pg-copy-streams').from;
 const { client } = require('./db/citus');
 
-async function queryDatabase() {
-  const stream = client.query(copyFrom('COPY pharmacy FROM STDIN'));
+async function importInMemoryDatabase() {
+  return new Promise((resolve, reject) => {
+    const stream = client
+      .query(copyFrom('COPY pharmacy FROM STDIN'))
+      .on('error', reject)
+      .on('end', () => {
+        reject(new Error('Connection closed!'));
+      })
+      .on('finish', () => {
+        resolve();
+      });
 
-  const interndataset = [
-    ['0', 'Target', 'Sunnyvale', 'California', '94001'],
-    ['1', 'CVS', 'San Francisco', 'California', '94002'],
-  ];
+    const internDataset = [
+      ['100', 'Target', 'Sunnyvale', 'California', '94001'],
+      ['101', 'CVS', 'San Francisco', 'California', '94002'],
+    ];
 
-  let started = false;
-  const internmap = through2.obj((arr, enc, cb) => {
-    const rowText = (started ? '\n' : '') + arr.join('\t');
-    started = true;
-    cb(null, rowText);
+    let started = false;
+    const internStream = through2.obj((arr, _enc, cb) => {
+      const rowText = (started ? '\n' : '') + arr.join('\t');
+      started = true;
+      cb(null, rowText);
+    });
+
+    internStream.on('error', reject).pipe(stream);
+
+    internDataset.forEach((record) => {
+      internStream.write(record);
+    });
+
+    internStream.end();
   });
-  interndataset.forEach((r) => {
-    internmap.write(r);
-  });
-
-  internmap.end();
-  internmap.pipe(stream);
-  console.log('inserted inmemory data successfully ');
-
-  client.end();
 }
-
-queryDatabase();
+(async () => {
+  await importInMemoryDatabase();
+  await client.end();
+  console.log('Inserted inmemory data successfully.');
+})();
 ```
 
 ## Next steps
