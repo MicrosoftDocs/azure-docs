@@ -253,8 +253,8 @@ Current schedule supports the following timezones. The key (left of =) can be us
 | UTC +10:00  | WEST_PACIFIC_STANDARD_TIME      | "West Pacific Standard Time"      |
 | UTC +10:00  | TASMANIA_STANDARD_TIME          | "Tasmania Standard Time"          |
 | UTC +10:00  | VLADIVOSTOK_STANDARD_TIME       | "Vladivostok Standard Time"       |
-| UTC +10:30  | LORDE_HOWE_STANDARD_TIME        | "Lord Howe Standard Time"         |
-| UTC +11:00  | BOUGANVILLE_STANDARD_TIME       | "Bougainville Standard Time"      |
+| UTC +10:30  | LORD_HOWE_STANDARD_TIME        | "Lord Howe Standard Time"         |
+| UTC +11:00  | BOUGAINVILLE_STANDARD_TIME       | "Bougainville Standard Time"      |
 | UTC +11:00  | RUSSIA_TIME_ZONE_10             | "Russia Time Zone 10"             |
 | UTC +11:00  | MAGADAN_STANDARD_TIME           | "Magadan Standard Time"           |
 | UTC +11:00  | NORFOLK_STANDARD_TIME           | "Norfolk Standard Time"           |
