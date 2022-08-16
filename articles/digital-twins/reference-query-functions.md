@@ -67,7 +67,7 @@ The following query returns all digital twins whose IDs end in `-small`. The str
 
 ## IS_BOOL
 
-A type checking function for determining whether an expression has a Boolean value.
+A type checking function for determining whether an property has a Boolean value.
 
 This function is often combined with other predicates if the program processing the query results requires a boolean value, and you want to filter out cases where the property is not a boolean.
 
@@ -77,11 +77,11 @@ This function is often combined with other predicates if the program processing 
 
 ### Arguments
 
-`<expression>`, an expression to check whether it is a Boolean.
+`<property>`, an property to check whether it is a Boolean.
 
 ### Returns
 
-A Boolean value indicating if the type of the specified expression is a Boolean.
+A Boolean value indicating if the type of the specified property is a Boolean.
 
 ### Example
 
