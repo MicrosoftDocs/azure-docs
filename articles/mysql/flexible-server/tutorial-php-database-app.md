@@ -193,11 +193,11 @@ In this tutorial, you learned how to:
 
 <a name="next"></a>
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Tutorial: Map custom DNS name to your app](../../app-service/app-service-web-tutorial-custom-domain.md)
 > [!div class="nextstepaction"]
-> [How to manage your resources in Azure portal](../../azure-resource-manager/management/manage-resources-portal.md) <br/>
+> [How to manage your resources in Azure portal](../../azure-resource-manager/management/manage-resources-portal.md)
 > [!div class="nextstepaction"]
 > [How to manage your server](how-to-manage-server-cli.md)
