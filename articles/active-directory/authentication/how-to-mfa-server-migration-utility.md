@@ -151,7 +151,7 @@ If you've enabled the [MFA Server Authentication provider in AD FS 2.0](/azure/a
 Determine the best plan of action for each of the above dependencies and make note of each.
 
 ### Backup Azure MFA Server datafile
-Make a backup of the MFA Server data file located at %programfiles%\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (default location) on your primary MFA Server.
+Make a backup of the MFA Server data file located at %programfiles%\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (default location) on your primary MFA Server. Make sure you have a copy of the installer for your currently installed version in case you need to roll back. If you no longer have a copy, contact Customer Support Services. 
 
 Depending on user activity, the data file can become outdated quickly. Any changes made to MFA Server, or any end-user changes made through the portal after the backup won't be captured. If you roll back, any changes made after this point won't be restored.
 
@@ -160,23 +160,13 @@ Run the new installer on the Primary MFA Server. Before you upgrade a server, re
 
 After the installation is complete, it can take several minutes for the datafile to be upgraded. During this time, the User portal may have issues connecting to the MFA Service. **Don't restart the MFA Service, or the MFA Server during this time.** This is normal. Once the upgrade is complete, the primary server’s main service will again be functional. 
 
+You can check \Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log to make sure the upgrade is complete. You should see **Completed performing tasks to upgrade from 23 to 24**.
+
 >[!NOTE]
 >After you run the installer on your primary server, secondary servers may begin to log **Unhandled SB** entries. This is due to schema changes made on the primary server that will not be recognized by secondary servers. These errors are expected. In environments with 10,000 users or more, the amount of log entries can increase significantly. To mitigate this issue, you can increase the file size of your MFA Server logs, or upgrade your secondary servers. 
- 
-
-Installation steps:
-1.	Make a backup of \Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata.
-2.	Ensure you have a copy of the installer for your currently installed version (e.g. 8.0.x.x).
-3.	Upgrade MFA Server to 8.1 using the 8.1.0.x installer.
-4.	Check \Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log to ensure the upgrade is complete.  Should see “Completed performing tasks to upgrade from 23 to 24”.
-
-If the upgrade had issues, follow these steps to rollback:
-1.	Uninstall MFA Server 8.1.
-2.	Replace PhoneFactor.pfdata with the backup made before upgrading.  NOTE: Any changes since the backup was made will be lost, but should be minimal if backup was made right before upgrade and upgrade was unsuccessful.
-3.	Run the installer for your previous version (e.g. 8.0.x.x).
 
 ### Configure the MFA Server Migration Utility
-After installing the MFA Server Update, open an elevated PowerShell command prompt: hover over the PowerShell icon, right-click, and click **Run as Administrator**. Run the .\Configure-MultiFactorAuthMigrationUtility.ps1 script found in your MFA Server installation directory (C:\Program Files\Multi-factor Authentication Server by default).
+After installing the MFA Server update, open an elevated PowerShell command prompt: hover over the PowerShell icon, right-click, and click **Run as Administrator**. Run the .\Configure-MultiFactorAuthMigrationUtility.ps1 script found in your MFA Server installation directory (C:\Program Files\Multi-factor Authentication Server by default).
 
 This script will require you to provide credentials for an Application Administrator in your Azure AD tenant. The script will then create a new MFA Server Migration Utility application within Azure AD which will be used to write user authentication methods to each user object within Azure AD.
 
@@ -329,7 +319,7 @@ Using the data points you collected in [Authentication services](#authentication
 ### Update domain federation settings
 Once you've completed user migrations, and moved all of your [Authentication services](#authentication-services) off of MFA Server, it’s time to update your domain federation settings so that Azure AD no longer sends MFA request to your on-premises federation server.
 
-To configure Azure AD to ignore MFA requests to your on-premises federation server, install the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-&preserve-view=true) and set [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true) to `rejectMfaByFederatedIdp`, as shown in the following example.
+To configure Azure AD to ignore MFA requests to your on-premises federation server, install the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-&preserve-view=true) and set [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values) to `rejectMfaByFederatedIdp`, as shown in the following example.
 
 #### Request
 <!-- {
@@ -395,56 +385,68 @@ When you no longer need the Azure MFA server, follow your normal server deprecat
 
 ## Rollback (if needed)
 
-To roll back, configure Azure AD to accept MFA requests to your on-premises federation server. Use Graph PowerShell to set [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true) to `enforceMfaByFederatedIdp`, as shown in the following example.
+If the upgrade had issues, follow these steps to rollback: 
+
+1.	Uninstall MFA Server 8.1.
+1.	Replace PhoneFactor.pfdata with the backup made before upgrading. 
+
+   >[!NOTE]
+   >Any changes since the backup was made will be lost, but should be minimal if backup was made right before upgrade and upgrade was unsuccessful.
+
+1.	Run the installer for your previous version (for example, 8.0.x.x).
+1. Configure Azure AD to accept MFA requests to your on-premises federation server. Use Graph PowerShell to set [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values) to `enforceMfaByFederatedIdp`, as shown in the following example.
+
+   **Request**
+   <!-- {
+     "blockType": "request",
+     "name": "update_internaldomainfederation"
+   }
+   -->
+   ``` http
+   PATCH https://graph.microsoft.com/beta/domains/contoso.com/federationConfiguration/6601d14b-d113-8f64-fda2-9b5ddda18ecc
+   Content-Type: application/json
+   {
+     "federatedIdpMfaBehavior": "enforceMfaByFederatedIdp"
+   }
+   ```
 
 
-#### Request
-<!-- {
-  "blockType": "request",
-  "name": "update_internaldomainfederation"
-}
--->
-``` http
-PATCH https://graph.microsoft.com/beta/domains/contoso.com/federationConfiguration/6601d14b-d113-8f64-fda2-9b5ddda18ecc
-Content-Type: application/json
-{
-  "federatedIdpMfaBehavior": "enforceMfaByFederatedIdp"
-}
-```
+   **Response**
 
-
-#### Response
->**Note:** The response object shown here might be shortened for readability.
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.internalDomainFederation"
-}
--->
-``` http
-HTTP/1.1 200 OK
-Content-Type: application/json
-{
-  "@odata.type": "#microsoft.graph.internalDomainFederation",
-  "id": "6601d14b-d113-8f64-fda2-9b5ddda18ecc",
-   "issuerUri": "http://contoso.com/adfs/services/trust",
-   "metadataExchangeUri": "https://sts.contoso.com/adfs/services/trust/mex",
-   "signingCertificate": "MIIE3jCCAsagAwIBAgIQQcyDaZz3MI",
-   "passiveSignInUri": "https://sts.contoso.com/adfs/ls",
-   "preferredAuthenticationProtocol": "wsFed",
-   "activeSignInUri": "https://sts.contoso.com/adfs/services/trust/2005/usernamemixed",
-   "signOutUri": "https://sts.contoso.com/adfs/ls",
-   "promptLoginBehavior": "nativeSupport",
-   "isSignedAuthenticationRequestRequired": true,
-   "nextSigningCertificate": "MIIE3jCCAsagAwIBAgIQQcyDaZz3MI",
-   "signingCertificateUpdateStatus": {
-        "certificateUpdateResult": "Success",
-        "lastRunDateTime": "2021-08-25T07:44:46.2616778Z"
-    },
-   "federatedIdpMfaBehavior": "enforceMfaByFederatedIdp"
-}
-```
+   >[!NOTE]
+   >The response object shown here might be shortened for readability.
+   <!-- {
+     "blockType": "response",
+     "truncated": true,
+     "@odata.type": "microsoft.graph.internalDomainFederation"
+   }
+   -->
+   ``` http
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+   {
+     "@odata.type": "#microsoft.graph.internalDomainFederation",
+     "id": "6601d14b-d113-8f64-fda2-9b5ddda18ecc",
+      "issuerUri": "http://contoso.com/adfs/services/trust",
+      "metadataExchangeUri": "https://sts.contoso.com/adfs/services/trust/mex",
+      "signingCertificate": "MIIE3jCCAsagAwIBAgIQQcyDaZz3MI",
+      "passiveSignInUri": "https://sts.contoso.com/adfs/ls",
+      "preferredAuthenticationProtocol": "wsFed",
+      "activeSignInUri": "https://sts.contoso.com/adfs/services/trust/2005/usernamemixed",
+      "signOutUri": "https://sts.contoso.com/adfs/ls",
+      "promptLoginBehavior": "nativeSupport",
+      "isSignedAuthenticationRequestRequired": true,
+      "nextSigningCertificate": "MIIE3jCCAsagAwIBAgIQQcyDaZz3MI",
+      "signingCertificateUpdateStatus": {
+           "certificateUpdateResult": "Success",
+           "lastRunDateTime": "2021-08-25T07:44:46.2616778Z"
+       },
+      "federatedIdpMfaBehavior": "enforceMfaByFederatedIdp"
+   }
+   ```
 
 Users will no longer be redirected to your on-premises federation server for MFA, whether they’re targeted by the Staged Rollout tool or not. Note this can take up to 24 hours to take effect.
 
-## How to get help
+## Next steps
+
+- [Overview of how to migrate from MFA Server to Azure AD Multi-Factor Authentication](how-to-migrate-mfa-server-to-azure-mfa.md)
