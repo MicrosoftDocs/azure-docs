@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 06/21/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb, dawoo, jebeckha, grtaylor
 ms.collection: M365-identity-device-management
 ---
