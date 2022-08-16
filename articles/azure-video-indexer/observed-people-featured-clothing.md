@@ -10,7 +10,7 @@ ms.author: juliako
 
 Azure Video Indexer enables capturing featured clothing images appearing in a video. The featured clothing images are ranked according to the importance of the person wearing the clothing, key moments of the video, general emotions from text or audio and other features.  
 
-## Scenarios that benefit from this feature
+## Common scenarios
 
 The following are some scenarios that benefit from this feature: 
 
@@ -38,7 +38,7 @@ The results contain two objects:
     - opBoundingBox – bounding box of the person.  
     - faceBoundingBox – bounding box of the person's face, if detected.  
     - fileName – where the best frame of the clothing is saved.  
-- `featuredclothing.frames.map` – this folder contains images of the best frames that the featured clothing appeared in, corresponding to the field fileName in each instance in featuredclothing.map.json.  
+- `featuredclothing.frames.map` – this folder contains images of the best frames that the featured clothing appeared in, corresponding to the field fileName in each instance in `featuredclothing.map.json`.  
 
 ## Limitations and assumptions 
 
