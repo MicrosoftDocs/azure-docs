@@ -1,5 +1,5 @@
 ---
-title: "Cognitive Services for Big Data - Python Samples"
+title: "Cognitive Services for big data - Python Samples"
 description: Try Cognitive Services samples in Python for Azure Databricks to run your MMLSpark pipeline for big data.
 services: cognitive-services
 author: mhamilton723
@@ -11,7 +11,7 @@ ms.author: marhamil
 ms.devlang: python
 ---
 
-# Python Samples for Cognitive Services for Big Data
+# Python Samples for Cognitive Services for big data
 
 The following snippets are ready to run and will help get you started with using Cognitive Services on Spark with Python.
 
