@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: urimsft
-ms.author: uridor
-ms.date: 05/21/2021
+ms.author: spadmanabhan
+ms.date: 08/16/2022
 ---
 
 # Use an HTTPS endpoint to manage commercial marketplace leads
