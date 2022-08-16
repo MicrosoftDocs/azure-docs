@@ -27,7 +27,7 @@ This table shows the VM SKUs that are supported for Azure Machine Learning manag
 > If you use a Windows-based image for your deployment, we recommend using a VM SKU that provides a minimum of 4 cores.
 
 | Size | General Purpose | Compute Optimized | Memory Optimized | GPU |
-| --- | --- | --- | --- | --- | --- | 
+| --- | --- | --- | --- | --- |
 | V.Small | DS1 v2 <br/> DS2 v2 | F2s v2 | E2s v3 | NC4as_T4_v3 |
 | Small | DS3 v2 | F4s v2 |  E4s v3 | NC6s v2 <br/> NC6s v3 <br/> NC8as_T4_v3 |
 | Medium | DS4 v2 | F8s v2 | E8s v3 | NC12s v2 <br/> NC12s v3 <br/> NC16as_T4_v3 |
