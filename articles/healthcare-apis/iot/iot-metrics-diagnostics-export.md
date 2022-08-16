@@ -37,7 +37,7 @@ In this article, you'll learn how to configure diagnostic settings for the MedTe
 
    1. Enter a display name in the **Diagnostic setting name** dialog box. For this example, we'll name it **MedTech_service_All_Metrics**. You'll select a display name of your own choosing.  
    
-   2. Select the **AllMetrics** option.
+   2. Under **Metrics**, select the **AllMetrics** option.
 
       > [!Note]
       >
