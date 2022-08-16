@@ -98,7 +98,7 @@ $ImageParams = @{
   Name = "my-container-app"
   Image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
 }
-$IMAGE_OBJ = New-AzContainerAppTemplateObject @ImageParams
+$TEMPLATE_OBJ = New-AzContainerAppTemplateObject @ImageParams
 $ENV_ID = (Get-AzContainerAppManagedEnv -EnvName $CONTAINERAPPS_ENVIRONMENT -ResourceGroupName $RESOURCE_GROUP).Id
 
 $CmdArgs = @{
@@ -106,7 +106,7 @@ $CmdArgs = @{
   Location = $LOCATION
   ResourceGroupName = $RESOURCE_GROUP
   ManagedEnvironmentId = $ENV_ID
-  TemplateContainer = $IMAGE_OBJ
+  TemplateContainer = $TEMPLATE_OBJ
   IngressTargetPort = 80
   IngressExternal = $true
 }

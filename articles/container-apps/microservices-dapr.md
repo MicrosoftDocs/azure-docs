@@ -60,26 +60,31 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` will result in a warning, but the command will still succeed.
 
 ```powershell
-New-AzOperationalInsightsWorkspace `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -Name MyWorkspace -Location $Location 
-  -PublicNetworkAccessForIngestion "Enabled" 
-  -PublicNetworkAccessForQuery "Enabled"
-
-$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).CustomerId
-$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).PrimarySharedKey
+$CmdArgs = @{
+  Name = "myworkspace"
+  ResourceGroupName = $RESOURCE_GROUP
+  Location = $LOCATION
+  PublicNetworkAccessForIngestion = "Enabled"
+  PublicNetworkAccessForQuery = "Enabled"
+}
+New-AzOperationalInsightsWorkspace @CmdArgs
+$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name $CmdArgs.Name).CustomerId
+$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name $CmdArgs.Name).PrimarySharedKey
 ```
 
 To create the environment, run the following command:
 
 ```powershell
-New-AzContainerAppManagedEnv `
-  -EnvName $CONTAINERAPPS_ENVIRONMENT `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -AppLogConfigurationDestination "log-analytics" `
-  -Location $LOCATION `
-  -LogAnalyticConfigurationCustomerId $WORKSPACE_ID `
-  -LogAnalyticConfigurationSharedKey $WORKSPACE_SHARED_KEY
+$CmdArgs = @{
+  EnvName = $CONTAINERAPPS_ENVIRONMENT
+  ResourceGroupName = $RESOURCE_GROUP
+  Location = $LOCATION
+  AppLogConfigurationDestination = "log-analytics"
+  LogAnalyticConfigurationCustomerId = $WORKSPACE_ID
+  LogAnalyticConfigurationSharedKey = $WORKSPACE_SHARED_KEY
+}
+
+New-AzContainerAppManagedEnv @CmdArgs
 ```
 
 ---
@@ -138,12 +143,14 @@ az storage account create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$STORAGE_ACCOUNT = New-AzStorageAccount `
-  -Name $STORAGE_ACCOUNT_NAME `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -Location $LOCATION `
-  -SkuName Standard_RAGRS `
-  -Kind StorageV2
+$CmdArgs = @{
+  Name = $STORAGE_ACCOUNT_NAME
+  ResourceGroupName = $RESOURCE_GROUP
+  Location = $LOCATION
+  SkuName = "Standard_RAGRS"
+  Kind = "StorageV2"
+}
+$STORAGE_ACCOUNT = New-AzStorageAccount @CmdArgs
 ```
 
 ---
@@ -164,11 +171,9 @@ $STORAGE_ACCOUNT_KEY = (Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GRO
 
 ---
 
-
 ### Configure the state store component
 
 # [Bash](#tab/bash)
-
 
 Create a config file named *statestore.yaml* with the properties that you sourced from the previous steps. This file helps enable your Dapr app to access your state store. The following example shows how your *statestore.yaml* file should look when configured for your Azure Blob Storage account:
 
@@ -182,7 +187,7 @@ metadata:
 - name: accountKey
   secretRef: account-key
 - name: containerName
-  value: mycontainer
+  value: <STORAGE_ACCOUNT_CONTAINER>
 secrets:
 - name: account-key
   value: "<STORAGE_ACCOUNT_KEY>"
@@ -192,16 +197,23 @@ scopes:
 
 To use this file, update the placeholders:
 
-- Replace `<STORAGE_ACCOUNT>` with the value of the `STORAGE_ACCOUNT_NAME` variable you defined. To obtain its value, run the following command:
+* Replace `<STORAGE_ACCOUNT>` with the value of the `STORAGE_ACCOUNT_NAME` variable you defined. To obtain its value, run the following command:
+
     ```azurecli
     echo $STORAGE_ACCOUNT_NAME
     ```
-- Replace `<STORAGE_ACCOUNT_KEY>` with the storage account key. To obtain its value, run the following command:
+
+* Replace `<STORAGE_ACCOUNT_KEY>` with the storage account key. To obtain its value, run the following command:
+
     ```azurecli
     echo $STORAGE_ACCOUNT_KEY
     ```
 
-If you've changed the `STORAGE_ACCOUNT_CONTAINER` variable from its original value, `mycontainer`, replace the value of `containerName` with your own value.
+* Replace `<STORAGE_ACCOUNT_CONTAINER>` with the storage account container name.   To obtain its value, run the following command:
+
+    ```azurecli
+    echo $STORAGE_ACCOUNT_CONTAINER
+    ```
 
 > [!NOTE]
 > Container Apps does not currently support the native [Dapr components schema](https://docs.dapr.io/operations/components/component-schema/). The above example uses the supported schema.
@@ -228,16 +240,18 @@ $containername = New-AzContainerAppDaprMetadataObject -Name containerName -Value
 
 $secret = New-AzContainerAppSecretObject -Name account-key -Value $STORAGE_ACCOUNT_KEY.Value
 
-New-AzContainerAppManagedEnvDapr `
-  -EnvName $CONTAINERAPPS_ENVIRONMENT `
-  -DaprName statestore `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -Metadata $acctname, $acctkey, $containername `
-  -Secret $secret `
-  -Scope nodeapp `
-  -Version v1 `
-  -ComponentType state.azure.blobstorage
+$CmdArgs = @{
+  EnvName = $CONTAINERAPPS_ENVIRONMENT
+  ResourceGroupName = $RESOURCE_GROUP
+  DaprName = "statestore"
+  Metadata = $acctname, $acctkey, $containername
+  Secrets = $secret
+  Scopes = "nodeapp"
+  Version = "v1"
+  ComponentType = "state.azure.blobstorage"
+}
 
+New-AzContainerAppManagedEnvDapr @CmdArgs
 ```
 
 ---
@@ -285,19 +299,23 @@ $TEMPLATE_OBJ = New-AzContainerAppTemplateObject `
   -Image dapriosamples/hello-k8s-node:latest `
   -Env $ENV_VARS
 
-New-AzContainerApp `
-  -Name nodeapp `
-  -Location $LOCATION `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -ManagedEnvironmentId $ENV_ID `
-  -TemplateContainer $TEMPLATE_OBJ `
-  -DaprAppId nodeapp `
-  -DaprAppPort 3000 `
-  -DaprEnabled `
-  -ScaleMaxReplica 1 `
-  -ScaleMinReplica 1 `
-  -IngressTargetPort 3000
+@CmdArgs = @{
+  Name = "nodeapp"
+  ResourceGroupName = $RESOURCE_GROUP
+  Location = $LOCATION
+  ManagedEnvironmentId = $ENV_ID
+  TemplateContainer = $TEMPLATE_OBJ
+  IngressTargetPort = 3000
+  ScaleMinReplicas = 1
+  ScaleMaxReplicas = 1
+  DaprEnabled = $true
+  DaprAppId = "nodeapp"
+  DaprAppPort = 3000
+}
+
+New-AzContainerApp @CmdArgs
 ```
+
 This command deploys:
 
 * the service (Node) app server on `APP_PORT 3000` (the app port) 
@@ -333,16 +351,19 @@ $TEMPLATE_OBJ = New-AzContainerAppTemplateObject `
   -Name pythonapp `
   -Image dapriosamples/hello-k8s-python:latest
 
-New-AzContainerApp `
-  -Name pythonapp `
-  -Location $LOCATION `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -ManagedEnvironmentId $ENV_ID `
-  -TemplateContainer $TEMPLATE_OBJ `
-  -DaprAppId pythonapp `
-  -DaprEnabled `
-  -ScaleMaxReplica 1 `
-  -ScaleMinReplica 1
+@CmdArgs = @{
+  Name = "pythonapp"
+  ResourceGroupName = $RESOURCE_GROUP
+  Location = $LOCATION
+  ManagedEnvironmentId = $ENV_ID
+  TemplateContainer = $TEMPLATE_OBJ
+  ScaleMinReplicas = 1
+  ScaleMaxReplicas = 1
+  DaprEnabled = $true
+  DaprAppId = "pythonapp"
+}
+
+New-AzContainerApp @CmdArgs
 ```
 
 ---

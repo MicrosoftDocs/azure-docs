@@ -311,14 +311,14 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPP
 
 az monitor log-analytics query \
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID'" \
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID' | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Log_s | take 5" \
   --out table
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WORKSPACE_ID  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID'"
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WORKSPACE_ID  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID' | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Log_s | take 5"
 $queryResults.Results
 ```
 

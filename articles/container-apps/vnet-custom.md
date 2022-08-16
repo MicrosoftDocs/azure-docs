@@ -100,19 +100,26 @@ az network vnet subnet create \
 
 # [PowerShell](#tab/powershell)
 
-The `New-AzVirtualNetworkSubnetConfig` command will result in a warning, but the command will still be successful.
+The `New-AzVirtualNetworkSubnetConfig` command may result in a warning, but the command will still be successful.
 
 ```powershell
-$subnet = New-AzVirtualNetworkSubnetConfig `
-  -Name infrastructure-subnet `
-  -AddressPrefix 10.0.0.0/23
+$SubnetArgs = @{
+  Name = "infrastructure-subnet"
+  AddressPrefix = "10.0.0.0/23"
+}
+$subnet = New-AzVirtualNetworkSubnetConfig $SubnetArgs
+```
 
-$vnet = New-AzVirtualNetwork `
-  -Name $VNET_NAME `
-  -ResourceGroup $RESOURCE_GROUP `
-  -Location $LOCATION `
-  -AddressPrefix 10.0.0.0/16 `
-  -Subnet $subnet 
+```powershell
+$VnetArgs = @{
+  Name = $VNET_NAME
+  Location = $LOCATION
+  ResourceGroupName = $RESOURCE_GROUP
+  AddressPrefix = "10.0.0.0/16"
+  Subnet = $subnet 
+}
+
+New-AzVirtualNetwork @VnetArgs
 ```
 
 ---
@@ -128,7 +135,7 @@ INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_G
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$INFRASTRUCTURE_SUBNET=(Get-AzVirtualNetworkSubnetConfig -Name infrastructure-subnet -VirtualNetwork $vnet).Id
+$INFRASTRUCTURE_SUBNET=(Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet).Id
 ```
 
 ---
@@ -162,28 +169,31 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` command will result in a warning message.  The command will still succeed.
 
 ```powershell
-New-AzOperationalInsightsWorkspace `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -Name MyWorkspace 
-  -Location $Location `
-  -PublicNetworkAccessForIngestion "Enabled" `
-  -PublicNetworkAccessForQuery "Enabled"
-
-$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).CustomerId
-$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).PrimarySharedKey
+$CmdArgs = @{
+  Name = "myworkspace"
+  ResourceGroupName = $RESOURCE_GROUP
+  Location = $LOCATION
+  PublicNetworkAccessForIngestion = "Enabled"
+  PublicNetworkAccessForQuery = "Enabled"
+}
+New-AzOperationalInsightsWorkspace @CmdArgs
+$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name $CmdArgs.Name).CustomerId
+$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name $CmdArgs.Name).PrimarySharedKey
 ```
 
 To create the environment, run the following command:
 
 ```powershell
-New-AzContainerAppManagedEnv `
-  -EnvName $CONTAINERAPPS_ENVIRONMENT `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -AppLogConfigurationDestination "log-analytics" `
-  -Location $LOCATION `
-  -LogAnalyticConfigurationCustomerId $WORKSPACE_ID `
-  -LogAnalyticConfigurationSharedKey $WORKSPACE_SHARED_KEY `
-  -VnetConfigurationInfrastructureSubnetId $INFRASTRUCTURE_SUBNET 
+$CmdArgs = @{
+  EnvName = $CONTAINERAPPS_ENVIRONMENT
+  ResourceGroupName = $RESOURCE_GROUP
+  Location = $LOCATION
+  AppLogConfigurationDestination = "log-analytics"
+  LogAnalyticConfigurationCustomerId = $WORKSPACE_ID
+  LogAnalyticConfigurationSharedKey = $WORKSPACE_SHARED_KEY
+  VnetConfigurationInfrastructureSubnetId = $INFRASTRUCTURE_SUBNET
+}
+New-AzContainerAppManagedEnv @CmdArgs
 ```
 
 The following table describes the parameters used in for `New-AzContainerAppManagedEnv`.
@@ -229,11 +239,15 @@ VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_N
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$ENVIRONMENT_DEFAULT_DOMAIN=(Get-AzContainerAppManagedEnv -EnvName $CONTAINERAPPS_ENVIRONMENT -ResourceGroupName $RESOURCE_GROUP).DefaultDomain
+$ENVIRONMENT_DEFAULT_DOMAIN=(Get-AzContainerAppManagedEnv -Name $CONTAINERAPPS_ENVIRONMENT -ResourceGroupName $RESOURCE_GROUP).DefaultDomain
 ```
 
 ```powershell
-$VNET_ID=(Get-AzVirtualNetwork -ResourceGroupName $RESOURCE_GROUP -Name $VNET_NAME).Id
+$ENVIRONMENT_STATIC_IP=(Get-AzContainerAppManagedEnv -Name $CONTAINERAPPS_ENVIRONMENT -ResourceGroupName $RESOURCE_GROUP).StaticIp
+```
+
+```powershell
+$VNET_ID=(Get-AzVirtualNetwork -ResourceGroupName $RESOURCE_GROUP -Name $VNET_NAME --query id -o tsv).Id
 ```
 
 ---
@@ -271,22 +285,25 @@ New-AzPrivateDnsZone -ResourceGroupName $RESOURCE_GROUP -Name $ENVIRONMENT_DEFAU
 ```
 
 ```powershell
-New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $RESOURCE_GROUP -Name $VNET_NAME -VirtualNetwork $vnet -ZoneName $ENVIRONMENT_DEFAULT_DOMAIN -EnableRegistration
+New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $RESOURCE_GROUP -Name $VNET_NAME -VirtualNetwork $VNET_ID -ZoneName $ENVIRONMENT_DEFAULT_DOMAIN -EnableRegistration
 ```
 
 ```powershell
-New-AzPrivateDnsRecordSet `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -Name "*" `
-  -ZoneName $ENVIRONMENT_DEFAULT_DOMAIN `
-  -RecordType A `
-  -Ttl 3600
+$DnsRecords = @()
+$DnsRecords += New-AzPrivateDnsRecordConfig Ipv4Address $ENVIRONMENT_STATIC_IP
+
+$DnsRecordArgs = @{
+  ResourceGroupName = $RESOURCE_GROUP
+  ZoneName = $ENVIRONMENT_DEFAULT_DOMAIN
+  Name = "*"
+  RecordType = "A"
+  Ttl = 3600 
+  PrivateDnsRecords = $DnsRecords
+}
+New-AzPrivateDnsARecord @DnsRecordArgs
 ```
 
-
 ---
-
-#### Networking parameters
 
 #### Networking parameters
 
