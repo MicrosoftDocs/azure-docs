@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 08/08/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -57,19 +57,19 @@ See the [data selection and schema design](how-to/design-schema.md) article for 
 
 ## How do I improve model performance?
 
-* View the model [confusion matrix](how-to/view-model-evaluation.md). If you notice that a certain entity type is frequently not predicted correctly, consider adding more tagged instances for this class. If you notice that two entity types are frequently predicted as each other, this means the schema is ambiguous and you should consider merging them both into one entity type for better performance.
+* View the model [confusion matrix](how-to/view-model-evaluation.md). If you notice that a certain entity type is frequently not predicted correctly, consider adding more tagged instances for this class. If you notice that two entity types are frequently predicted as each other, this means the schema is ambiguous, and you should consider merging them both into one entity type for better performance.
 
-* [Review test set predictions](how-to/improve-model.md#review-test-set-predictions). If one of the entity types has a lot more tagged instances than the others, your model may be biased towards this type. Add more data to the other entity types or remove examples from the dominating type.
+* [Review test set predictions](how-to/view-model-evaluation.md). If one of the entity types has a lot more tagged instances than the others, your model may be biased towards this type. Add more data to the other entity types or remove examples from the dominating type.
 
 * Learn more about [data selection and schema design](how-to/design-schema.md).
 
-* [Review your test set](how-to/improve-model.md) to see predicted and tagged entities side-by-side so you can get a better idea of your model performance, and decide if any changes in the schema or the tags are necessary.
+* [Review your test set](how-to/view-model-evaluation.md) to see predicted and tagged entities side-by-side so you can get a better idea of your model performance, and decide if any changes in the schema or the tags are necessary.
 
 ## Why do I get different results when I retrain my model?
 
 * When you [train your model](how-to/train-model.md), you can determine if you want your data to be split randomly into train and test sets. If you do, so there is no guarantee that the reflected model evaluation is on the same test set, so results are not comparable.
 
-* If you're retraining the same model, your test set will be the same but you might notice a slight change in predictions made by the model. This is because the trained model is not robust enough and this is a factor of how representative and distinct your data is and the quality of your tagged data.
+* If you're retraining the same model, your test set will be the same, but you might notice a slight change in predictions made by the model. This is because the trained model is not robust enough and this is a factor of how representative and distinct your data is and the quality of your tagged data.
 
 ## How do I get predictions in different languages?
 

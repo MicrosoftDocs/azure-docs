@@ -1,9 +1,9 @@
 ---
-title: Introduction to Microsoft Entra Verified ID (preview)
+title: Introduction to Microsoft Entra Verified ID
 description: An overview Azure Verifiable Credentials.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor:
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
@@ -13,14 +13,9 @@ ms.author: barclayn
 ms.reviewer: 
 ---
 
-# Introduction to Microsoft Entra Verified ID (preview)
+# Introduction to Microsoft Entra Verified ID
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
-
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Our digital and physical lives are increasingly linked to the apps, services, and devices we use to access a rich set of experiences. This digital transformation allows us to interact with hundreds of companies and thousands of other users in ways that were previously unimaginable.
 

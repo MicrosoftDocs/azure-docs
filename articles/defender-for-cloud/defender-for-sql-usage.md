@@ -9,7 +9,7 @@ ms.date: 07/28/2022
 
 # Enable Microsoft Defender for SQL servers on machines 
 
-This Microsoft Defender plan detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+This Microsoft Defender plan detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases on the SQL server.
 
 You'll see alerts when there are suspicious database activities, potential vulnerabilities, or SQL injection attacks, and anomalous database access and query patterns.
 
@@ -19,7 +19,7 @@ Microsoft Defender for SQL servers on machines extends the protections for your 
 
 - On-premises SQL servers:
 
-    - [Azure Arc-enabled SQL Server (preview)](/sql/sql-server/azure-arc/overview)
+    - [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview)
     
     - [SQL Server running on Windows machines without Azure Arc](../azure-monitor/agents/agent-windows.md)
     
