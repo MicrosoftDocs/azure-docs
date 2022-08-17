@@ -30,6 +30,7 @@ In this tutorial, you'll use the sample repository of Playwrights tests. You'll 
 ## Prerequisites
 
 - Complete [Quickstart: Run end-to-end web UI tests at scale with Microsoft Playwright Testing](./quickstart-run-end-to-end-tests.md) to create a workspace, download the sample repository, and configure the workspace to use in this tutorial series.
+- Visual Studio Code. If you don't have it, [download and install it](https://code.visualstudio.com/Download).
 
 ## Run tests
 
