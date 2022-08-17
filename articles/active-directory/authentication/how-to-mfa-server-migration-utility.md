@@ -175,8 +175,8 @@ For government cloud customers who wish to carry out migrations, replace ".com" 
 
 You will also need access to the following URLs:
 
-- `https://graph.microsoft.com/*`
-- `https://login.microsoftonline.com/.onmicrosoft.com/*`
+- `https://graph.microsoft.com/*` (or `https://graph.microsoft.us/*` for government cloud customers)
+- `https://login.microsoftonline.com/*` (or `https://login.microsoftonline.us/*` for government cloud customers)
 
 The script will instruct you to grant admin consent to the newly created application. Navigate to the URL provided, or within the Azure AD portal, click **Application Registrations**, find and select the **MFA Server Migration Utility** app, click on **API permissions** and then granting the appropriate permissions.
 
