@@ -4,7 +4,7 @@ ms.author: jife
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: include
-ms.date: 07/15/2022
+ms.date: 08/17/2022
 ---
 
 ## Prerequisites

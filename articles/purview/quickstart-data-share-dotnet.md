@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-share
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 08/22/2022
+ms.date: 08/17/2022
 ms.custom: mode-api
 ---
 # Quickstart: Share and receive data with the Microsoft Purview Data Sharing .NET SDK
