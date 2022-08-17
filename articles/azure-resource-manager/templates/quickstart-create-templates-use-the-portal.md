@@ -11,77 +11,166 @@ ms.custom: contperf-fy21q3, mode-ui
 
 # Quickstart: Create and deploy ARM templates by using the Azure portal 
 
-In this quickstart, you learn how to generate an Azure Resource Manager template (ARM template) in the Azure portal. You edit and deploy the template from the portal. 
+In this quickstart, you deploy an Azure storage account. You can use the same process for deploying other Azure resources.
 
 ARM templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
 After completing the tutorial, you deploy an Azure Storage account. The same process can be used to deploy other Azure resources.
 
- :::image type="content" source="./media/quickstart-create-templates-use-the-portal/arm-custom-template-diagram.jpg" alt-text="Resource Manager template quickstart portal diagram":::
+ :::image type="content" source="./media/quickstart-create-templates-use-the-portal/arm-custom-template-diagram.png" alt-text="Resource Manager template quickstart portal diagram":::
 
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Retrieving a custom template from the portal
+## Retrieve a custom template
 
-As the user, you can get custom template from the portal in order to use for your deployment. You'll be able to configure your deployment in the Azure portal and download the corresponding ARM template. This template can be saved and reused in the future, and will serve as a good starting point. Although using Visual Studio Code is the recommended option, if you're new to Azure deployment, using custom templates is a good introduction to the overall process. 
+"Rather than manually building an entire ARM template, let's start by retrieving a pre-built template that accomplishes our goal. The [Azure Quickstart Templates repo](https://github.com/Azure/azure-quickstart-templates) repo contains a large collection of templates that deploy common scenarios. The portal makes it easy for you find and use templates from this repo. You can save the template and reuse it later."
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com) and sign in.
-2. From the Azure portal search bar, search for **deploy a custom template** and then select it.
+1. From the Azure portal search bar, search for **deploy a custom template** and then select it from the available options.
 
-:::image type="content" source="./media/quickstart-create-templates-use-the-portal/arm-search-custom-template.jpg" alt-text="Search for Custom Template":::
+    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/search-custom-template.png" alt-text="Search for Custom Template":::
 
-3. On the Custom Deployment page, select **quickstart template** under the Template Source section. Here, you can search for many kinds of templates, but with this quickstart, input `quickstarts/microsoft.storage/storage-account-create` in order to create a simple storage account. There are many other [collections of custom templates](https://github.com/Azure/azure-quickstart-templates) that others have created as well. These custom templates also follow best practices guidelines, which make it easier for you to select for specific scenarios. 
+1. For Template source, notice that *Quickstart template* is selected by default. You can keep this selection. In the drop down, search for *quickstarts/microsoft.storage/storage-account-create* and select it. After finding the quickstart template, select **Select template.**
 
-    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/arm-select-custom-template.jpg" alt-text="Select Quickstart Template":::
+    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/select-custom-template.png" alt-text="Select Quickstart Template":::
 
-4. After moving to the next step, Enter the following information on the following page:
+1. In the next blade, you provide custom values to use for the deployment.
 
-    For the **resource group** field, select **create new**, and specify a resource group name of your choice. On the screenshot, the resource group name is *armtest1.*
+    For Resource group, select Create new. Provide *myResourceGroup* for the name. You can use the default values for the other fields. When you've finished providing values, select **Review + create**.
 
-    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/arm-input-fields-template.jpg" alt-text="Input Fields for Template":::
-
-    A Resource group is a container for Azure resources that makes Azure resource management much easier.
-
-5. Select **review + create** on the bottom of the screen. 
-
-    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/arm-review-create.jpg" alt-text="review and create":::
+    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/input-fields-template.png" alt-text="Input Fields for Template":::
  
-6. After validation has passed (which may take a couple minutes), proceed to select **create** in order to create your storage account.
-1. 
-    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/arm-validation.jpg" alt-text="validation and create":::
-
-7. Once your validation has passed, you'll receive a notification that says the deployment succeeded, and the notification will provide a link for the user to view their deployment. In this case, we're viewing the storage account we created. You can view the notification by clicking on the bell icon on the top right of the screen (highlighted).
-
-     :::image type="content" source="./media/quickstart-create-templates-use-the-portal/arm-deploy-success.jpg" alt-text="Deployment Succeeded Notification":::
-
-8. From this screen, you can view all the details for your selected resource group, and your created storage account. Select **the link for the succeeded deployments.**
-
-     :::image type="content" source="./media/quickstart-create-templates-use-the-portal/arm-see-deployment.jpg" alt-text="View Deployment Page":::
-
-## Export your custom template from the Azure portal
-
-1. After the storage account has been created, navigate to the Azure portal to the resource group you deployed to.
-2. Once you've selected the resource group, select **export template** from the left bottom pane. 
+1. The portal validates your template and the values you provided. After validation succeeds, select **Create** to start the deployment.
  
- :::image type="content" source="./media/quickstart-create-templates-use-the-portal/arm-export-template.jpg" alt-text="Export Template":::
+    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/template-validation.png" alt-text="validation and create":::
 
-3. Here, you can see what your exported template would look like if it were deployed. You can see the whole template, or by selecting the **parameters** link, you can view only the parameters section.
+1. Once your validation has passed, you'll see the status of the deployment. When it completes successfully, select **Go to resource** to see the storage account.
 
- :::image type="content" source="./media/quickstart-create-templates-use-the-portal/arm-parameters.jpg" alt-text="Export Template":::
+     :::image type="content" source="./media/quickstart-create-templates-use-the-portal/deploy-success.png" alt-text="Deployment Succeeded Notification":::
 
-4. You'll also be able to **download** and **deploy** the template to edit any resources, parameters, or other fields as needed. This is a good way to get a starting template, however it's important to note that the code samples in the template generated may need additional modifications based on the specific scenario. 
+1. From this screen, you can view the new storage account and its properties.
 
- :::image type="content" source="./media/quickstart-create-templates-use-the-portal/arm-download-template.jpg" alt-text="Export Template"::: 
+     :::image type="content" source="./media/quickstart-create-templates-use-the-portal/view-storage-account.png" alt-text="View Deployment Page":::
+
+## Edit and deploy the template
+
+You can use the portal for quickly developing and deploying ARN templates. In general, we recommend using Visual Studio Code for developing your ARM templates, and Azure CLI or Azure PowerShell for deploying the template, but you can use the portal for quick deployments without installing those tools.
+
+In this section, let's suppose you have an ARM template that you want to deploy one time with setting up the other tools.
+
+1. Again, select **Deploy a custom template** in the portal.
+
+1. This time select **Build your own template in the editor**.
+
+   :::image type="content" source="./media/quickstart-create-templates-use-the-portal/build-own-template.png" alt-text="Build your own template":::  
+
+1. You see a blank template.
+
+   :::image type="content" source="./media/quickstart-create-templates-use-the-portal/blank-template.png" alt-text="Build your own template":::
+
+1. Replace the blank template with the following template. It deploys a virtual network with a subnet.
+
+   ```json
+   {
+     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+       "vnetName": {
+         "type": "string",
+         "defaultValue": "VNet1",
+         "metadata": {
+           "description": "VNet name"
+         }
+       },
+       "vnetAddressPrefix": {
+         "type": "string",
+         "defaultValue": "10.0.0.0/16",
+         "metadata": {
+           "description": "Address prefix"
+         }
+       },
+       "subnetPrefix": {
+         "type": "string",
+         "defaultValue": "10.0.0.0/24",
+         "metadata": {
+           "description": "Subnet Prefix"
+         }
+       },
+       "subnetName": {
+         "type": "string",
+         "defaultValue": "Subnet1",
+         "metadata": {
+           "description": "Subnet Name"
+         }
+       },
+       "location": {
+         "type": "string",
+         "defaultValue": "[resourceGroup().location]",
+         "metadata": {
+           "description": "Location for all resources."
+         }
+       }
+     },
+     "resources": [
+       {
+         "type": "Microsoft.Network/virtualNetworks",
+         "apiVersion": "2021-08-01",
+         "name": "[parameters('vnetName')]",
+         "location": "[parameters('location')]",
+         "properties": {
+           "addressSpace": {
+             "addressPrefixes": [
+               "[parameters('vnetAddressPrefix')]"
+             ]
+           },
+           "subnets": [
+             {
+               "name": "[parameters('subnetName')]",
+               "properties": {
+                 "addressPrefix": "[parameters('subnetPrefix')]"
+               }
+             }
+           ]
+         }
+       }
+     ]
+   }
+   ``` 
+
+1. Select **Save**.
+
+1. You see the blade for providing deployment values. Again, select **myResourceGroup** for the resource group. You can use the other default values. When you're done providing values, select **Review + create**
+
+1. After the portal validates the template, select **Create**.
+
+1. When the deployment completes, you see the status of the deployment. This time selects the name of the resource group.
+
+   :::image type="content" source="./media/quickstart-create-templates-use-the-portal/view-second-deployment.png" alt-text="View second deployment":::
+
+1. Notice that your resource group now contains a storage account and a virtual network.
+
+
+## Export a custom template 
+
+1. In your resource group, select **Export template**. 
+ 
+ :::image type="content" source="./media/quickstart-create-templates-use-the-portal/export-template.png" alt-text="Export Template":::
+
+1. The portal generates a template for you based on the current state of the resource group. Notice that this template is not the same as either template you deployed earlier. It contains definitions for both the storage account and virtual network, along with other resources like a blob service that was automatically created for your storage account.
+
+1. To save this template for later use, select **Download**.
+
+ :::image type="content" source="./media/quickstart-create-templates-use-the-portal/download-template.png" alt-text="Download exported template"::: 
 
 ## Clean up resources
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
 1. In the Azure portal, select **resource group** on the left menu.
-2. Enter the resource group name in the **filter by name** field.
-3. Select the resource group name.  You shall see the storage account in the resource group.
-4. Select **delete resource group** in the top menu.
+1. Enter the resource group name in the **filter by name** field.
+1. Select the resource group name.  You shall see the storage account in the resource group.
+1. Select **delete resource group** in the top menu.
 
 ## Next steps
 
