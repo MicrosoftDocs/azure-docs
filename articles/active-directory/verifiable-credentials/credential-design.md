@@ -3,7 +3,7 @@ title: Customize your Microsoft Entra Verified ID
 description: This article shows you how to create your own custom verifiable credential.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to

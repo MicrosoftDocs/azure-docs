@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 08/15/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -12,6 +12,8 @@ ms.custom: ignite-fall-2021
 [Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
 
 Use this quickstart to send language detection requests using the REST API. In the following example, you will use cURL to identify medical [entities](../../concepts/health-entity-categories.md), [relations](../../concepts/relation-extraction.md), and [assertions](../../concepts/assertion-detection.md) that appear in text.
+
+[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
 
 
 ## Prerequisites

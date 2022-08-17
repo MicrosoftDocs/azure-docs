@@ -231,9 +231,9 @@ additionalContent:
         - title: Azure Active Directory
           summary: Multi-tenant, cloud-based identity and access management service
           links: 
-            - url: /azure/active-directory/fundamentals/active-directory-whatis
+            - url: ../active-directory/fundamentals/active-directory-whatis.md
               text: Overview
-            - url: /azure/active-directory/fundamentals/security-operations-introduction
+            - url: ../active-directory/fundamentals/security-operations-introduction.md
               text: Security operations guide
             - url: /learn/modules/secure-aad-users-with-mfa/
               text: "Learn: Secure Azure Active Directory users with Multi-Factor Authentication"
