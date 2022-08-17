@@ -3,7 +3,7 @@ title: Deploying policies for governing access to applications integrated with A
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can use entitlement management and other identity governance features to enforce the policies for access.
 services: active-directory
 documentationcenter: ''
-author: ajburnle
+author: amsliu
 manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 6/28/2022
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
@@ -35,7 +35,7 @@ Conditional access is only possible for applications that rely upon Azure AD for
 
 1. **Upload the terms of use (TOU) document, if needed.** If you require users to accept a terms of use (TOU) prior to accessing the application, then create and [upload the TOU document](../conditional-access/terms-of-use.md) so that it can be included in a conditional access policy.
 1. **Verify users are ready for Azure Active Directory Multi-Factor Authentication.** We recommend requiring Azure AD Multi-Factor Authentication for business critical applications integrated via federation. For these applications, there should be a policy that requires the user to have met a multi-factor authentication requirement prior to Azure AD permitting them to sign into the application.  Some organizations may also block access by locations, or [require the user to access from a registered device](../conditional-access/howto-conditional-access-policy-compliant-device.md).  If there's no suitable policy already that includes the necessary conditions for authentication, location, device and TOU, then [add a policy to your conditional access deployment](../conditional-access/plan-conditional-access.md).
-1. **Bring the application into scope of the appropriate conditional access policy**. If you have an existing conditional access policy that was created for another application subject to the same governance requirements, you could update that policy to have it apply to this application as well, to avoid having a large number of policies.  Once you have made the updates, check to ensure that the expected policies are being applied. You can see what policies would apply to a user with the [Conditional Access what if tool](../conditional-access/troubleshoot-conditional-access-what-if.md).
+1. **Bring the application web endpoint into scope of the appropriate conditional access policy**. If you have an existing conditional access policy that was created for another application subject to the same governance requirements, you could update that policy to have it apply to this application as well, to avoid having a large number of policies.  Once you have made the updates, check to ensure that the expected policies are being applied. You can see what policies would apply to a user with the [Conditional Access what if tool](../conditional-access/troubleshoot-conditional-access-what-if.md).
 1. **Create a recurring access review if any users will need temporary policy exclusions**. In some cases, it may not be possible to immediately enforce conditional access policies for every authorized user.  For example, some users may not have an appropriate registered device. If it's necessary to exclude one or more users from the CA policy and allow them access, then configure an access review for the group of [users who are excluded from Conditional Access policies](../governance/conditional-access-exclusion.md).
 1. **Document the token lifetime and applications' session settings.** How long a user who has been denied continued access can continue to use a federated application will depend upon the application's own session lifetime, and on the access token lifetime. The session lifetime for an application depends upon the application itself. To learn more about controlling the lifetime of access tokens, see [configurable token lifetimes](../develop/active-directory-configurable-token-lifetimes.md).
 

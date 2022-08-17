@@ -5,7 +5,7 @@ author: bwren
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2022
+ms.date: 07/28/2022
 ms.reviewer: bwren
 ---
 
@@ -61,7 +61,10 @@ Read more about distributed tracing at [What is distributed tracing?](app/distri
 
 [Changes](./change/change-analysis-visualizations.md) are a series of events that occur in your Azure application, from the infrastructure layer through application deployment. Changes are traced on a subscription-level using [the Change Analysis tool](./change/change-analysis.md). The Change Analysis tool increases observability by building on the power of [Azure Resource Graph](../governance/resource-graph/overview.md) to provide detailed insights into your application changes. 
 
-Once [Change Analysis is enabled](./change/change-analysis-enable.md), the `Microsoft.ChangeAnalysis` resource provider is registered with an Azure Resource Manager subscription to make the tracked properties and proxied settings change data available. Change Analysis' [integrations with Monitoring and Diagnostics tools](./change/change-analysis-visualizations.md) provide data for various management and troubleshooting scenarios to help users understand what changes might have caused the issues.
+Once [Change Analysis is enabled](./change/change-analysis-enable.md), the `Microsoft.ChangeAnalysis` resource provider is registered with an Azure Resource Manager subscription to make the resource properties and configuration change data available. Change Analysis provides data for various management and troubleshooting scenarios to help users understand what changes might have caused the issues:
+- Troubleshoot your application via the [Diagnose & solve problems tool](./change/change-analysis-enable.md).
+- Perform general management and monitoring via the [Change Analysis standalone UI](./change/change-analysis-visualizations.md#the-change-analysis-standalone-ui) and [the activity log](./change/change-analysis-visualizations.md#activity-log-change-history).
+- [Learn more about how to view data results for other scenarios](./change/change-analysis-visualizations.md).
 
 Read more about Change Analysis, including data sources in [Use Change Analysis in Azure Monitor](./change/change-analysis.md).
 

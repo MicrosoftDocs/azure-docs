@@ -4,12 +4,13 @@ titleSuffix: Azure Storage
 description: Example Azure role assignment conditions for Azure attribute-based access control (Azure ABAC).
 services: storage
 author: jimmart-dev
+
 ms.service: storage
 ms.topic: conceptual
 ms.author: jammart
 ms.reviewer: 
 ms.subservice: common
-ms.date: 05/24/2022
+ms.date: 07/28/2022
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
@@ -46,6 +47,7 @@ You must add this condition to any role assignments that include the following a
 > | Action | Notes |
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
 ![Diagram of condition showing read access to blobs with a blob index tag.](./media/storage-auth-abac-examples/blob-index-tags-read.png)
 
@@ -107,6 +109,7 @@ There are two actions that allow you to create new blobs, so you must target bot
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
 ![Diagram of condition showing new blobs must include a blob index tag.](./media/storage-auth-abac-examples/blob-index-tags-new-blobs.png)
 
@@ -177,6 +180,7 @@ There are two actions that allow you to update tags on existing blobs, so you mu
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
 ![Diagram of condition showing existing blobs must have blob index tag keys.](./media/storage-auth-abac-examples/blob-index-tags-keys.png)
 
@@ -246,6 +250,7 @@ There are two actions that allow you to update tags on existing blobs, so you mu
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
 ![Diagram of condition showing existing blobs must have a blob index tag key and values.](./media/storage-auth-abac-examples/blob-index-tags-key-values.png)
 
@@ -738,6 +743,7 @@ You must add this condition to any role assignments that include the following a
 > | Action | Notes |
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
 ![Diagram of condition showing read access to blobs with a blob index tag and a path.](./media/storage-auth-abac-examples/blob-index-tags-path-read.png)
 
@@ -1100,6 +1106,7 @@ You must add this condition to any role assignments that include the following a
 > | Action | Notes |
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
 ![Diagram of condition showing read access to blobs with encryption scope validScope1 or validScope2.](./media/storage-auth-abac-examples/encryption-scope-read-blobs.png)
 
@@ -1140,6 +1147,7 @@ You must add this condition to any role assignments that include the following a
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
 > [!NOTE]
 > Since encryption scopes for different storage accounts could be different, it's recommended to use the `storageAccounts:name` attribute with the `encryptionScopes:name` attribute to restrict the specific encryption scope to be allowed.
@@ -1199,6 +1207,7 @@ You must add this condition to any role assignments that include the following a
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
 For more information, see [Allow read access to blobs based on tags and custom security attributes](../../role-based-access-control/conditions-custom-security-attributes.md).
 
@@ -1268,6 +1277,7 @@ You must add this condition to any role assignments that include the following a
 > | Action | Notes |
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
 For more information, see [Allow read access to blobs based on tags and custom security attributes](../../role-based-access-control/conditions-custom-security-attributes.md).
 

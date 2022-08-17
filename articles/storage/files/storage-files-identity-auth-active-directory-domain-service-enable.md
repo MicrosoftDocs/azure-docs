@@ -4,7 +4,7 @@ description: Learn how to enable identity-based authentication over Server Messa
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/08/2022
+ms.date: 08/16/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
@@ -148,9 +148,7 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --e
 
 By default, Azure AD DS authentication uses Kerberos RC4 encryption. We recommend configuring it to use Kerberos AES-256 encryption instead by following these steps:
 
-As an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions), open the Azure Cloud Shell.
-
-Execute the following commands:
+As an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions), execute the following Azure PowerShell commands. If using Azure Cloud Shell, be sure to run the `Connect-AzureAD` cmdlet first.
 
 ```azurepowershell
 # 1. Find the service account in your managed domain that represents the storage account.

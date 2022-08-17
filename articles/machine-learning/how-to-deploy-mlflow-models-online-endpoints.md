@@ -5,8 +5,8 @@ description: Learn to deploy your MLflow model as a web service that's automatic
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: ssambare
-author: shivanissambare
+ms.author: fasantia
+author: santiagxf
 ms.date: 03/31/2022
 ms.topic: how-to
 ms.reviewer: larryfr
