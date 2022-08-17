@@ -68,7 +68,7 @@ ALL Network Group in the above diagram consists of VNet 1 to VNet 5, and App 1 N
 
 #### Step 3: Create a security admin configuration
 
-This security admin configuration contains a security admin rule to block inbound SSH traffic for *ALL Network Group* and another security admin rule to allow inbound SSH traffic for *App 1 Network *Group* with a higher priority.
+This security admin configuration contains a security admin rule to block inbound SSH traffic for *ALL Network Group* and another security admin rule to allow inbound SSH traffic for *App 1 Network Group* with a higher priority.
 
 #### Step 4: Deploy the security admin configuration
  
