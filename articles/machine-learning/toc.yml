@@ -306,6 +306,9 @@
       href: how-to-integrate-azure-policy.md
 - name: How-to guides
   items: 
+    - name: Search for assets
+      displayName: find, filter
+      href: how-to-search-assets.md
     - name: Set up an environment
       items: 
         - name: Set up dev environments

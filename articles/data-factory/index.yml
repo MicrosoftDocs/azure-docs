@@ -55,6 +55,10 @@ landingContent:
         links:
           - text: Expressions and functions in Azure Data Factory
             url: ./control-flow-expression-language-functions.md
+      - linkListType: tutorial
+        links:
+          - text: Learn data integration at scale with Azure Data Factory
+            url: /learn/paths/data-integration-scale-azure-data-factory/
   - title: Data movement
     linkLists:
       - linkListType: overview
