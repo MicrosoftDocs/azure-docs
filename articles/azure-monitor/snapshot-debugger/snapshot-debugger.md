@@ -22,7 +22,7 @@ Simply include the [Snapshot collector NuGet package](https://www.nuget.org/pack
 
 Snapshots appear on [**Exceptions**](../app/asp-net-exceptions.md) in the Application Insights blade of the Azure portal.
 
-You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2019 Enterprise. In Visual Studio, you can also [set Snappoints to interactively take snapshots](/visualstudio/debugger/debug-live-azure-applications) without waiting for an exception.
+You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2019 Enterprise. In Visual Studio, you can also [set SnapPoints to interactively take snapshots](/visualstudio/debugger/debug-live-azure-applications) without waiting for an exception.
 
 ## Enable Application Insights Snapshot Debugger for your application
 
@@ -141,7 +141,7 @@ In some cases, local variables can't be viewed in release builds because of opti
 However, in Azure App Services, the Snapshot Collector can deoptimize throwing methods that are part of its Collection Plan.
 
 > [!TIP]
-> Install the Application Insights Site Extension in your App Service to get deoptimization support.
+> Install the Application Insights Site Extension in your App Service to get de-optimization support.
 
 ## Next steps
 
