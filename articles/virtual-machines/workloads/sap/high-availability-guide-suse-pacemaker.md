@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 05/26/2022
+ms.date: 08/16/2022
 ms.author: radeltch
 
 ---
@@ -510,7 +510,7 @@ Use the following content for the input file. You need to adapt the content to y
 
 Assign the custom role *Linux fence agent Role* that you already created to the service principal. Do *not* use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
 
-Be sure to assign the role for both cluster nodes.
+Make sure to assign the custom role to the service principal at all VM (cluster node) scopes.  
 
 ## Install the cluster
 

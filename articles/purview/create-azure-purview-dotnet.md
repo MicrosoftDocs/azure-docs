@@ -53,6 +53,13 @@ Next, create a C# .NET console application in Visual Studio:
     Install-Package Microsoft.Azure.Management.ResourceManager -IncludePrerelease
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
+>[!TIP]
+> If you are getting an error that reads:  **Package \<package name> is not found in the following primary sources(s):** and it is listing a local folder, you need to update your package sources in Visual Studio to include the nuget site as an online source.
+> 1. Go to **Tools**
+> 1. Select **NuGet Package Manager**
+> 1. Select **Package Manage Settings**
+> 1. Select **Package Sources**
+> 1. Add https://nuget.org/api/v2/ as a source.
 
 ## Create a Microsoft Purview client
 

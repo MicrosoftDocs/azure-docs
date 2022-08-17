@@ -1,25 +1,29 @@
 ---
-title: Integrate Azure Cosmos DB with Service Connector
-description: Integrate Azure Cosmos DB into your application with Service Connector
-author: shizn
-ms.author: xshi
+title: Integrate the Azure Cosmos DB Mongo API with Service Connector
+description: Integrate the Azure Cosmos DB Mongo API into your application with Service Connector
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
+ms.topic: how-to
+ms.date: 08/11/2022
 ms.custom: event-tier1-build-2022
-ms.topic: how-to 
-ms.date: 06/13/2022
 ---
 
-# Integrate Azure Cosmos DB with Service Connector
+# Integrate the Azure Cosmos DB Mondo API with Service Connector
 
-This page shows the supported authentication types and client types of Azure Cosmos DB using Service Connector. You might still be able to connect to Azure Cosmos DB in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types and client types for the Azure Cosmos DB Mongo API using Service Connector. You might still be able to connect to Azure Cosmos DB in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
-## Supported compute service
+## Supported compute services
 
 - Azure App Service
 - Azure Container Apps
-- Azure Spring Cloud
+- Azure Spring Apps
 
 ## Supported authentication types and client types
+
+Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+
+### [Azure App Service](#tab/app-service)
 
 | Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
 |--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
@@ -28,6 +32,25 @@ This page shows the supported authentication types and client types of Azure Cos
 | Java - Spring Boot |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
 | Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+
+### [Azure Container Apps](#tab/container-apps)
+
+| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
+|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+
+### [Azure Spring Apps](#tab/spring-apps)
+
+| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
+|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| Java               | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
+
+---
 
 ## Default environment variable names or application properties
 
