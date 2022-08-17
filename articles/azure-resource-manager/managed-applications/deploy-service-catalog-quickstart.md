@@ -9,7 +9,7 @@ ms.date: 08/17/2022
 
 # Quickstart: Deploy service catalog managed application from Azure portal
 
-In the quickstart article to [publish the definition](publish-service-catalog-app.md), you published a managed application definition. In this quickstart, you use that definition to deploy a service catalog managed application. The deployment creates two resource groups. One resource group contains the managed application and the other is a managed resource group for the deployed resource. In this quickstart, you deploy a managed storage account.
+In the quickstart article to [publish the definition](publish-service-catalog-app.md), you published an Azure managed application definition. In this quickstart, you use that definition to deploy a service catalog managed application. The deployment creates two resource groups. One resource group contains the managed application and the other is a managed resource group for the deployed resource. In this article, the managed application definition deploys a managed storage account.
 
 ## Create service catalog managed application
 
@@ -38,7 +38,7 @@ In the Azure portal, use the following steps:
    - **Resource group**: Select the resource group. For this example, create a resource group named _applicationGroup_.
    - **Region**: Select the location where you want to deploy the resource.
    - **Application Name**: Enter a name for your application. For this example, use _demoManagedApplication_.
-   - **Managed Resource Group**: Uses a default with the prefix **mrg-{defintionname}-{datetime}** like _mrg-ManagedStorage-20220817122721_. You can change the name.
+   - **Managed Resource Group**: Uses a default resource group name with the format `mrg-{definitionName}-{dateTime}` like _mrg-ManagedStorage-20220817122721_. You can change the name.
 
 1. Enter a prefix for the storage account name and select the storage account type. Select **Next: Review + create**.
 
