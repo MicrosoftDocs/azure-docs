@@ -90,7 +90,7 @@ Run the code a few more times to see what other types of responses you get as th
 
 ### Understanding your results
 
-Since our example of `Write a tagline for an ice cream shop.` provides very little context, it's normal for the model to not always return expected results.
+Since our example of `Write a tagline for an ice cream shop.` provides very little context, it's normal for the model to not always return expected results. You can adjust the maximum number of tokens if the response seems unexpected or truncated.
 
 ## Clean up resources
 
