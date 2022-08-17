@@ -59,9 +59,9 @@ The following examples contain sample values. You'll need to substitute actual v
 
 1. Connect to your Azure account by using the `Connect-AzAccount` cmdlet. Specify the ID for the subscription previously enabled for the Storage Mover preview by passing the `-Subscription` parameter as shown below.
 
-  ```powershell
-  Connect-AzAccount -Subscription $subscriptionID
-  ```
+   ```powershell
+   Connect-AzAccount -Subscription $subscriptionID
+   ```
 
 1. After you've successfully connected, you can use the `New-AzStorageMoverProject` cmdlet to create your new project as shown in the following example.
 
@@ -77,8 +77,9 @@ The following examples contain sample values. You'll need to substitute actual v
   
    ```Response
    Description                  : This is a project used for demonstration.
-   Id                           : /subscriptions/0a12b3c4-5d67-8e63-9c12-7b38c901de2f/resourceGroups/demoResourceGroup/
-                                  providers/Microsoft.StorageMover/storageMovers/demoMover/projects/demoProject
+   Id                           : /subscriptions/0a12b3c4-5d67-8e63-9c12-7b38c901de2f/resourceGroups/
+                                  demoResourceGroup/providers/Microsoft.StorageMover/storageMovers/
+                                  demoMover/projects/demoProject
    Name                         : testingAgain
    ProvisioningState            : Succeeded
    SystemDataCreatedAt          : 8/17/2022 1:19:00 AM
