@@ -12,7 +12,9 @@ ms.custom: template-tutorial
 
 # Tutorial: Forward syslog data to a Log Analytics workspace by using the Azure Monitor agent
 
-In this tutorial, you'll configure a Linux virtual machine (VM) to forward syslog data to your workspace by using the Azure Monitor agent. Use these steps to collect data from Linux-based devices where you can't install an agent like a firewall network device.
+In this tutorial, you'll configure a Linux virtual machine (VM) to forward syslog data to your workspace by using the Azure Monitor agent.  Configure your linux-based device to send data to a Linux VM. The Azure Monitor agent on the VM forwards the syslog data to the Log Analytics workspace.
+
+Use these steps to collect data from Linux-based devices where you can't install an agent like a firewall network device. Then use the Log Analytics workspace in Microsoft Sentinel or  Azure Monitor to monitor your device.
 
 In this tutorial, you learn how to:
 
@@ -20,7 +22,7 @@ In this tutorial, you learn how to:
 > * Create a data collection rule
 > * Verify the Azure Monitor agent is running
 > * Enable log reception on port 514
-> * Verify event logs are forwarded to Microsoft Sentinel
+> * Verify syslog data is forwarded to your Log Analytics workspace
 
 ## Prerequisites
 
@@ -29,7 +31,7 @@ To complete the steps in this tutorial, you must have the following resources an
 - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure account with the following roles to deploy the agent and create the data collection rules:
 
-  |Build-in Role  |Scope  |Reason  |
+  |Built-in Role  |Scope  |Reason  |
   |---------|---------|---------|
   |- [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles)</br>- [Azure Connected Machine Resource Administrator](/azure/role-based-access-control/built-in-roles)     |  - Virtual machines</br>- Scale sets</br>- Arc-enabled servers        |   To deploy the agent      |
   |Any role that includes the action Microsoft.Resources/deployments/*    | - Subscription and/or</br>- Resource group and/or</br>- An existing data collection rule       |  To deploy ARM templates       |
@@ -107,7 +109,7 @@ A data collection rule is an Azure resource that allows you to define the way  d
 
 If your VM doesn't have the Azure Monitor agent installed, the data collection rule deployment triggers the installation of the agent on the VM.
 
-## Verify Azure Monitor agent is running
+## Verify the Azure Monitor agent is running
 
 In Microsoft Sentinel or Azure Monitor, verify that the Azure Monitor agent is running on your VM.
 
@@ -125,9 +127,9 @@ In Microsoft Sentinel or Azure Monitor, verify that the Azure Monitor agent is r
 
 ## Enable log reception on port 514
 
-Verify that the VM that's collecting the log data allows reception on port 514 TCP or UDP depending on the syslog source. Then configure the  build-in Linux syslog daemon on the VM to listen for syslog messages from your devices. After you complete those steps, configure your linux-based device to send logs to your VM.
+Verify that the VM that's collecting the log data allows reception on port 514 TCP or UDP depending on the syslog source. Then configure the  built-in Linux syslog daemon on the VM to listen for syslog messages from your devices. After you complete those steps, configure your linux-based device to send logs to your VM.
 
-The following two sections cover how to add an inbound port rule for an Azure VM and configure the build-in Linux syslog daemon.
+The following two sections cover how to add an inbound port rule for an Azure VM and configure the built-in Linux syslog daemon.
 
 ### Allow inbound syslog traffic on the VM
 
@@ -160,9 +162,9 @@ sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/
 
 This script can make changes for both rsyslog.d and syslog-ng.
 
-## Verify event logs are forwarded to your Log Analytics workspace
+## Verify syslog data is forwarded to your Log Analytics workspace
 
-After you configured your linux-based device to send logs to your VM, verify that the Azure Monitor agent is forwarding event log data to your workspace.
+After you configured your linux-based device to send logs to your VM, verify that the Azure Monitor agent is forwarding syslog data to your workspace.
 
 1. In the Azure portal, search for and open **Microsoft Sentinel** or **Azure Monitor**.
 1. If you're using Microsoft Sentinel, select the appropriate workspace.
