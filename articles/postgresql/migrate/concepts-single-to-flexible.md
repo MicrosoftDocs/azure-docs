@@ -37,7 +37,7 @@ The migration tool is agnostic of source and target PostgreSQL versions. Here ar
 > Migration initiation from Single Server is enabled in preview in these regions: Central US, West US, South Central US, North Central US, East Asia, Switzerland North, Australia South East, UAE North, UK West and Canada East. However, you can use the migration wizard from the Flexible Server side in all regions.
 
 >[!IMPORTANT]
-> If Flexible Server is not available in the region where you have your single server, you can either use an alternative region in your preferred geographic area or wait until the Flexible server is enabled in that region.  
+> We continue to add support for more regions with Flexible Server. If Flexible Server is not available in your preferred region, you can either choose an alternative region or you can wait until the Flexible server is enabled in that region.
 
 ## Overview
 
