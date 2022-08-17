@@ -7,7 +7,7 @@ ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devdivchpfy22
-ms.date: 08/09/2022
+ms.date: 08/18/2022
 ---
 
 # Debug snapshots on exceptions in .NET apps
