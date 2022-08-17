@@ -290,7 +290,7 @@
         - name: Kubernetes cluster
           displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
           href: how-to-attach-kubernetes-anywhere.md
-        - name: Use studio
+        - name: Manage compute resources
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
     - name: Plan and manage costs
@@ -306,6 +306,9 @@
       href: how-to-integrate-azure-policy.md
 - name: How-to guides
   items: 
+    - name: Search for assets
+      displayName: find, filter
+      href: how-to-search-assets.md
     - name: Set up an environment
       items: 
         - name: Set up dev environments
@@ -585,6 +588,8 @@
             - name: Create event-driven workflows
               displayName: event grid
               href: how-to-use-event-grid.md
+            - name: Schedule a pipeline job
+              href: how-to-schedule-pipeline-job.md
         - name: Build & use ML pipelines
           displayName: pipelines
           items:
@@ -660,9 +665,11 @@
       href: how-to-troubleshoot-protobuf-descriptor-error.md
 - name: Reference
   items: 
-    - name: Python SDK
-      displayName: api, core, package, python, class
+    - name: Python SDK v1
       href: /python/api/overview/azure/ml/intro
+    - name: Python SDK v2 (preview)
+      displayName: api, core, package, python, class
+      href: https://aka.ms/sdk-v2-install
     - name: REST API
       href: /rest/api/azureml/
     - name: CLI (v2)
@@ -682,6 +689,8 @@
           href: reference-yaml-data.md
         - name: Model
           href: reference-yaml-model.md
+        - name: Schedule
+          href: reference-yaml-schedule.md 
         - name: Compute
           items: 
             - name: Compute cluster (AmlCompute)
