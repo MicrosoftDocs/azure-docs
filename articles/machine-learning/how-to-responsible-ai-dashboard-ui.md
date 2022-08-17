@@ -8,13 +8,20 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: lagayhar
 author: lgayhardt
-ms.date: 05/10/2022
+ms.date: 08/12/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
 # Generate Responsible AI dashboard in the studio UI (preview)
 
-You can create a Responsible AI dashboard with a no-code experience in the Azure Machine Learning studio UI. To start the wizard, navigate to the registered model you’d like to create Responsible AI insights for and select the **Details** tab. Then select the **Create Responsible AI dashboard (preview)** button.
+You can create a Responsible AI dashboard with a no-code experience in the [Azure Machine Learning studio UI](https://ml.azure.com/). Use the following steps to access the dashboard generation wizard:
+- [Register your model](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-manage-models?tabs=use-local) in Azure Machine Learning before being able to access the no-code experience. 
+- Navigate to the **Models** tab from the left navigation bar in Azure Machine Learning studio. 
+- Select the registered model you’d like to create Responsible AI insights for and select the **Details** tab. 
+- Select the **Create Responsible AI dashboard (preview)** button from the top panel.
+
+Please see the Responsible AI dashboard's [supported model types, and limitations](
+
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-page.png" alt-text="Screenshot of the wizard details tab with create responsible AI dashboard tab highlighted." lightbox ="./media/how-to-responsible-ai-dashboard-ui/model-page.png":::
 
@@ -117,6 +124,6 @@ After you’ve finished your experiment configuration, select **Create** to star
 - Summarize and share your Responsible AI insights with the [Responsible AI scorecard as a PDF export](how-to-responsible-ai-scorecard.md).
 - Learn more about the  [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - Learn more about how to [collect data responsibly](concept-sourcing-human-data.md)
-- Learn more about how the Responsible AI Dashboard and Scorecard can be used to debug data and models and inform better decision making in this [tech community blog post](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
-- Learn about how the Responsible AI Dashboard and Scorecard were used by the NHS in a [real life customer story](https://aka.ms/NHSCustomerStory)
-- Explore the features of the Responsible AI Dashboard through this [interactive AI Lab web demo](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
+- Learn more about how the Responsible AI dashboard and Scorecard can be used to debug data and models and inform better decision making in this [tech community blog post](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
+- Learn about how the Responsible AI dashboard and Scorecard were used by the NHS in a [real life customer story](https://aka.ms/NHSCustomerStory)
+- Explore the features of the Responsible AI dashboard through this [interactive AI Lab web demo](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
