@@ -93,7 +93,7 @@ First, [design a persona](record-custom-voice-samples.md#choose-your-voice-talen
 
 ### Script selection
  
-Carefully [select the recording script](/azure/cognitive-services/speech-service/record-custom-voice-samples#script-selection-criteria) to represent the user scenarios for your voice. For example, you can use the phrases from bot conversations as your recording script if you're creating a customer service bot. Include different sentence types in your scripts, including statements, questions, and exclamations.
+Carefully [select the recording script](record-custom-voice-samples.md#script-selection-criteria) to represent the user scenarios for your voice. For example, you can use the phrases from bot conversations as your recording script if you're creating a customer service bot. Include different sentence types in your scripts, including statements, questions, and exclamations.
 
 ### Preparing training data
 
