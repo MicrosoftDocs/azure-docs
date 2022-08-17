@@ -1,11 +1,11 @@
 ---
-title: Connect to SQL databases
+title: Connect to SQL databases from workflows
 description: Connect to SQL databases from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/04/2022
+ms.date: 08/17/2022
 tags: connectors
 ---
 
@@ -84,9 +84,11 @@ For more information, review the [SQL Server managed connector reference](/conne
 
   * Standard logic app workflow
 
-    You can use the SQL Server built-in connector, which requires a connection string. To use the SQL Server managed connector, follow the same requirements as a Consumption logic app workflow in multi-tenant Azure Logic Apps.
+    You can use the SQL Server built-in connector, which requires a connection string. The built-in connector currently supports only SQL Server Authentication. You can adjust connection pooling by specifying parameters in the connection string. For more information, review [Connection Pooling](/dotnet/framework/data/adonet/connection-pooling).
 
-For other connector requirements, review [SQL Server managed connector reference](/connectors/sql/).
+    To use the SQL Server managed connector, follow the same requirements as a Consumption logic app workflow in multi-tenant Azure Logic Apps.
+
+    For other connector requirements, review [SQL Server managed connector reference](/connectors/sql/).
 
 <a name="add-sql-trigger"></a>
 
@@ -294,7 +296,7 @@ In the connection information box, complete the following steps:
    | **Service principal (Azure AD application)** | - Supported with the SQL Server managed connector. <br><br>- Requires an Azure AD application and service principal. For more information, see [Create an Azure AD application and service principal that can access resources using the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md). |
    | **Logic Apps Managed Identity** | - Supported with the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires the following items: <br><br>--- A valid managed identity that's [enabled on your logic app resource](../logic-apps/create-managed-service-identity.md) and has access to your database. <br><br>--- **SQL DB Contributor** role access to the SQL Server resource <br><br>--- **Contributor** access to the resource group that includes the SQL Server resource. <br><br>For more information, see [SQL - Server-Level Roles](/sql/relational-databases/security/authentication-access/server-level-roles). |
    | [**Azure AD Integrated**](/azure/azure-sql/database/authentication-aad-overview) | - Supported with the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires a valid managed identity in Azure Active Directory (Azure AD) that's [enabled on your logic app resource](../logic-apps/create-managed-service-identity.md) and has access to your database. For more information, see these topics: <br><br>- [Azure SQL Security Overview - Authentication](/azure/azure-sql/database/security-overview#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) <br>- [Azure SQL - Azure AD Integrated authentication](/azure/azure-sql/database/authentication-aad-overview) |
-   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supported with the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server database. For more information, see the following topics: <br><br>- [Azure SQL Security Overview - Authentication](/azure/azure-sql/database/security-overview#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) |
+   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supported with the SQL Server managed connector, SQL Server built-in connector, and ISE-versioned connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server database. For more information, see the following topics: <br><br>- [Azure SQL Security Overview - Authentication](/azure/azure-sql/database/security-overview#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) |
 
    The following examples show how the connection information box might appear if you select **Azure AD Integrated** authentication.
 
@@ -354,7 +356,7 @@ In the connection information box, complete the following steps:
 
    | Authentication | Description |
    |----------------|-------------|
-   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supported with the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server. <br><br>For more information, see [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supported with the SQL Server managed connector, SQL Server built-in connector, and ISE-versioned connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server. <br><br>For more information, see [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    | [**Windows Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Supported with the SQL Server managed connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid Windows user name and password to confirm your identity through your Windows account. <br><br>For more information, see [Windows Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication). |
    |||
 
@@ -446,6 +448,12 @@ When you call a stored procedure by using the SQL Server connector, the returned
 
 1. To reference the JSON content properties, click inside the edit boxes where you want to reference those properties so that the dynamic content list appears. In the list, under the [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) heading, select the data tokens for the JSON content properties that you want.
 
+<a name="built-in-connector-app-settings"></a>
+
+## Built-in connector app settings
+
+In a Standard logic app resource, the SQL Server built-in connector includes app settings that control various thresholds for performance, throughput, capacity, and so on. For example, you can change the default timeout value for connector operations. For more information, review [Reference for app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#reference-local-settings-json).
+
 <a name="built-in-connector-operations"></a>
 
 ## SQL built-in connector operations
@@ -526,7 +534,7 @@ Runs a query on a SQL database.
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **Query** | `query` | True | Dynamic | The body for your query |
-| **Query Parameters** | `queryParameters` | False | Objects | The parameters for your query |
+| **Query Parameters** | `queryParameters` | False | Objects | The parameters for your query. <br><br>**Note**: If the query requires input parameters, you must provide these parameters. |
 ||||||
 
 #### Returns
@@ -550,7 +558,7 @@ Runs a stored procedure on a SQL database.
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **Procedure name** | `storedProcedureName` | True | String | The name for your stored procedure |
-| **Parameters** | `storedProcedureParameters` | False | Dynamic | The parameters for stored procedure |
+| **Parameters** | `storedProcedureParameters` | False | Dynamic | The parameters for stored procedure. <br><br>**Note**: If the stored procedure requires input parameters, you must provide these parameters. |
 ||||||
 
 #### Returns
@@ -588,13 +596,39 @@ Get the table rows that match the specified **Where condition** value.
 | **Result Item** | An array object that returns each row result one at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
 |||
 
+*Example*
+
+The following example shows sample parameter values for the **Get rows** action and the resulting SQL query that runs:
+
+**Sample values**
+
+| Parameter | JSON name | Sample value |
+|-----------|-----------|--------------|
+| **Table name** | `tableName` | tableName1 |
+| **Where condition** | `columnValuesForWhereCondition` | Key-value pairs: <br><br>- <*columnName1*>, <*columnValue1*> <br><br>- <*columnName2*>, <*columnValue2*> |
+||||
+
+**Parameters in the action's underlying JSON definition**
+
+```json
+"parameters": {
+   "tableName": "tableName1",
+   "columnValuesForWhereCondition": {
+      "columnName1": "columnValue1",
+      "columnName2": "columnValue2"
+   }
+},
+```
+
+**SQL query**: `SELECT * FROM tableName1 WHERE columnName1 = columnValue1 AND columnName2 = columnValue2`
+
 <a name="get-tables"></a>
 
 ### Get tables
 
 Operation ID: `getTables`
 
-Get tables from the database.
+Get all the tables from the database.
 
 #### Parameters
 
@@ -604,10 +638,10 @@ None.
 
 | Name | Type |
 |------|------|
-| **Result** | An array object that returns all the tables. |
-| **Result Display Name** | 
-| **Result Full Name** | 
-| **Result Item** | An array object that returns each table one at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result** | An array object that contains the full names and display names for all tables in the database. |
+| **Result Display Name** | An array object that contains the display name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result Full Name** | An array object that contains the full name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result Item** | An array object that returns the full name and display name for each table one at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
 |||
 
 <a name="insert-row"></a>
@@ -654,9 +688,31 @@ Update the specified columns in all the table rows that match the specified **Wh
 | **Result Item** | An array object that returns the columns in the updated rows one at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
 |||
 
-## Built-in connector app settings
+*Example*
 
-The SQL Server built-in connector includes app settings on your Standard logic app resource that control various thresholds for performance, throughput, capacity, and so on. For example, you can change the default timeout value for connector operations. For more information, review [Reference for app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#reference-local-settings-json).
+The following example shows sample parameter values for the **Update rows** action and the resulting SQL query that runs:
+
+**Sample values**
+
+| Parameter | JSON name | Sample value |
+|-----------|-----------|--------------|
+| **Table name** | `tableName` | tableName1 |
+| **Where condition** | `columnValuesForWhereCondition` | Key-value pairs: <br><br>- <*columnName1*>, <*columnValue1*> <br><br>- <*columnName2*>, <*columnValue2*> |
+||||
+
+**Parameters in the action's underlying JSON definition**
+
+```json
+"parameters": {
+   "tableName": "tableName1",
+   "columnValuesForWhereCondition": {
+      "columnName1": "columnValue1",
+      "columnName2": "columnValue2"
+   }
+},
+```
+
+**SQL query**: `UPDATE * FROM tableName1 WHERE columnName1 = columnValue1 AND columnName2 = columnValue2`
 
 ## Troubleshoot problems
 
