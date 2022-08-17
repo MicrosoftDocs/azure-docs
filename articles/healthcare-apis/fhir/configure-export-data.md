@@ -30,7 +30,7 @@ In this step, browse to your FHIR service in the Azure portal and select the **I
 
 ## Give permission in the storage account for FHIR service access
 
-1. Go to your ADLS Gen2 storage account in the Azure portal.
+1. Go to your ADLS Gen2 account in the Azure portal.
 
 2. Select **Access control (IAM)**.
 
@@ -52,7 +52,7 @@ In this step, browse to your FHIR service in the Azure portal and select the **I
 
 For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 
-Now you're ready to configure the FHIR service with the ADLS Gen2 account as the default storage account for export.
+Now you're ready to configure the FHIR service by setting the ADLS Gen2 account as the default storage account for export.
 
 ## Specify the storage account for FHIR service export
 
@@ -121,7 +121,7 @@ After running this command, in the **Firewall** section under **Resource instanc
 
   :::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Screenshot of Azure Storage Networking Settings with resource type and instance names." lightbox="media/export-data/storage-networking-2.png":::
 
-You're now ready to securely export FHIR data to the storage account. Note that the storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable private endpoints for the storage account.
+You're now ready to securely export FHIR data to the storage account. Note that the storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable [private endpoints](../../storage/common/storage-private-endpoints.md) for the storage account.
 
 ### Allowing specific IP addresses from other Azure regions to access the Azure storage account
 

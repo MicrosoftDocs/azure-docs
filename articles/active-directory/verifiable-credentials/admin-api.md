@@ -827,12 +827,22 @@ The response contains the following properties
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`attestations`| [idTokenAttestation](#idtokenattestation-type) or [idTokenHintAttestation](#idtokenhintattestation-type) and/or [verifiablePresentationAttestation](#verifiablepresentationattestation-type) and/or [selfIssuedAttestation](#selfissuedattestation-type) and/or [accessTokenAttestation](#accesstokenattestation-type) (array) | describing supported inputs for the rules |
+|`attestations`| [attestions](#attestations-type)| describing supported inputs for the rules |
 |`validityInterval` | number | this value shows the lifespan of the credential |
 |`vc`| vcType array | types for this contract |
 |`customStatusEndpoint`| [customStatusEndpoint] (#customstatusendpoint-type) (optional) | status endpoint to include in the verifiable credential for this contract |
 
 If the property `customStatusEndpoint` property isn't specified then the `anonymous` status endpoint is used.
+
+#### attestations type
+
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|`idTokens`| [idTokenAttestation](#idtokenattestation-type) (array) (optional) | describes id token inputs|
+|`idTokenHints`| [idTokenHintAttestation](#idtokenhintattestation-type) (array) (optional) | describes id token hint inputs |
+|`presentations`| [verifiablePresentationAttestation](#verifiablepresentationattestation-type) (array) (optional) | describes verifiable presentations inputs |
+|`selfIssued`| [selfIssuedAttestation](#selfissuedattestation-type) (array) (optional) | describes self issued inputs |
+|`accessTokens`| [accessTokenAttestation](#accesstokenattestation-type) (array) (optional) | describes access token inputs |
 
 #### idTokenAttestation type
 
