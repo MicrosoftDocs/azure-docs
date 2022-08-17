@@ -1,13 +1,13 @@
 ---
-title: Cleanup from partial deployment
-description: Cleanup from partial deployment
+title: Uninstall Azure Arc-enabled data services
+description: Uninstall Azure Arc-enabled data services
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 11/30/2021
+ms.date: 07/28/2022
 ms.topic: how-to
 ---
 

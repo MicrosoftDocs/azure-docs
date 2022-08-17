@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 06/29/2022
+ms.date: 08/11/2022
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -15,6 +15,14 @@ ms.date: 06/29/2022
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
+
+## Release: August 2022
+
+* Support for [new regions](overview.md#azure-regions) Qatar Central, Switzerland West, France South.
+
+## Release: July 2022
+
+* Support for [Geo-redundant backup](./concepts-backup-restore.md#geo-redundant-backup-and-restore-preview) in [additional regions](./overview.md#azure-regions) - Australia East, Australia Southeast, Canada Central, Canada East, UK South, UK West, East US, West US, East Asia, Southeast Asia, North Central US, South Central US, and France Central.
 
 ## Release: June 2022
 

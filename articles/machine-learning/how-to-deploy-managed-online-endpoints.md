@@ -331,28 +331,9 @@ To view metrics and set alerts based on your SLA, complete the steps that are de
 
 ### (Optional) Integrate with Log Analytics
 
-The `get-logs` command provides only the last few hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to durably store and analyze logs. 
+The `get-logs` command provides only the last few hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to durably store and analyze logs. For more information on using logging, see [Monitor online endpoints](how-to-monitor-online-endpoints.md#logs)
 
-First, create a Log Analytics workspace by completing the steps in [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md#create-a-workspace).
-
-Then, in the Azure portal:
-
-1. Go to the resource group.
-1. Select your endpoint.
-1. Select the **ARM resource page**.
-1. Select **Diagnostic settings**.
-1. Select **Add settings**.
-1. Select to enable sending console logs to the Log Analytics workspace.
-
-The logs might take up to an hour to connect. After an hour, send some scoring requests, and then check the logs by using the following steps:
-
-1. Open the Log Analytics workspace. 
-1. In the left menu, select **Logs**.
-1. Close the **Queries** dialog that automatically opens.
-1. Double-click **AmlOnlineEndpointConsoleLog**.
-1. Select **Run**.
-
-  [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
+[!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
 
 ## Delete the endpoint and the deployment
 

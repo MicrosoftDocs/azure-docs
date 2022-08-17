@@ -1,3 +1,4 @@
+items:
 - name: Fundamentals documentation
   href: index.yml
 - name: Overview
@@ -143,6 +144,20 @@
         href: monitor-sign-in-health-for-resilience.md
     - name: Certificate authorities used in Azure
       href: certificate-authorities.md
+    - name: Secure with Azure Active Directory
+      items:
+      - name: Introduction
+        href: secure-with-azure-ad-introduction.md
+      - name: Fundamentals
+        href: secure-with-azure-ad-fundamentals.md
+      - name: Resource management
+        href: secure-with-azure-ad-resource-management.md
+      - name: Delegating administration in a single tenant
+        href: secure-with-azure-ad-single-tenant.md
+      - name: Delegating administration in multiple tenants
+        href: secure-with-azure-ad-multiple-tenants.md
+      - name: Best practices
+        href: secure-with-azure-ad-best-practices.md
   - name: Deployment guide
     items:
     - name: Deployment 30, 90, and beyond
@@ -309,8 +324,6 @@
     href: support-help-options.md
 - name: Reference
   items:
-  - name: What's new in Microsoft 365 Government
-    href: whats-new-microsoft-365-government.md
   - name: Archive for What's new? in Azure AD
     href: whats-new-archive.md
   - name: Data storage

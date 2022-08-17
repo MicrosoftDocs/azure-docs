@@ -5,6 +5,22 @@ ms.topic: include
 ms.date: 01/08/2022
 ms.author: eur
 ---
+### 2022-July release
+
+#### New Speech-to-text-locales:
+
+Added 7 new locales as shown in the following table. See the complete language list [here](../../language-support.md).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `bs-BA`         | Bosnian (Bosnia and Herzegovina) |
+| `yue-CN`        | Chinese (Cantonese, Simplified)  |
+| `zh-CN-sichuan` | Chinese (Southwestern Mandarin, Simplified) |
+| `wuu-CN`        | Chinese (Wu, Simplified)  |
+| `ps-AF`         | Pashto (Afghanistan)      |
+| `so-SO`         | Somali (Somalia)          |
+| `cy-GB`         | Welsh (United Kingdom)    |
+
 
 ### 2022-Jun release
 
