@@ -328,24 +328,28 @@ Here's a map of all the property data types and their suffix representations in 
 the MongoDB `_id` field is fundamental to every collection in MongoDB and originally has a hexadecimal representation. As you can see in the table above, `Full Fidelity Schema` will preserve its characteristics, creating a challenge for its vizualiation in Azure Synapse Analytics. For correct visualization, you must convert the `_id` datatype as below:
 
 ###### Spark
-```scala
+
+```Python
 import org.apache.spark.sql.types._
 val simpleSchema = StructType(Array(
     StructField("_id", StructType(Array(StructField("objectId",BinaryType,true)) ),true),
     StructField("id", StringType, true)
   ))
 
-var df = spark.read.format("cosmos.olap").option("spark.synapse.linkedService", "CosmosDbMongoDbApi2").option("spark.cosmos.container", "HTAP").schema(simpleSchema).load()
+df = spark.read.format("cosmos.olap")\
+    .option("spark.synapse.linkedService", "<enter linked service name>")\
+    .option("spark.cosmos.container", "<enter container name>")\
+    .schema(simpleSchema)
+    .load()
 
 df.select("id", "_id.objectId").show()
-![image](https://user-images.githubusercontent.com/11827523/185008672-e6a98513-2a1d-410b-aeb5-de67ec4e984f.png)
 ```
 ###### SQL
 
 ```SQL
 SELECT TOP 100 id=CAST(_id as VARBINARY(1000))
 FROM OPENROWSET('CosmosDB',
-                'Account=your-account;Database=your-database;Key=your-key',
+                'Your-account;Database=your-database;Key=your-key',
                 HTAP) WITH (_id VARCHAR(1000)) as HTAP
 ```
 
