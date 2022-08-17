@@ -662,9 +662,11 @@
       href: how-to-troubleshoot-protobuf-descriptor-error.md
 - name: Reference
   items: 
-    - name: Python SDK
-      displayName: api, core, package, python, class
+    - name: Python SDK v1
       href: /python/api/overview/azure/ml/intro
+    - name: Python SDK v2 (preview)
+      displayName: api, core, package, python, class
+      href: https://aka.ms/sdk-v2-install
     - name: REST API
       href: /rest/api/azureml/
     - name: CLI (v2)
