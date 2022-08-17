@@ -14,6 +14,8 @@ ms.service: iot-central
 
 IoT Central lets you upload media and other files from connected devices to cloud storage. You configure the file upload capability in your IoT Central application, and then implement file uploads in your device code.
 
+To learn how to upload files by using the IoT Central REST API, see [How to use the IoT Central REST API to upload a file.](../core/howto-upload-file-rest-api.md)
+
 ## Prerequisites
 
 You must be an administrator in your IoT Central application to configure file uploads.

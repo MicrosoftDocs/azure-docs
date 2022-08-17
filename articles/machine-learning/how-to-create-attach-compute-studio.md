@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/21/2021
+ms.date: 07/28/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
@@ -34,7 +34,7 @@ In this article, learn how to create and manage compute targets in Azure Machine
 
 ## What's a compute target? 
 
-With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](v1/concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
+With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](v1/concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-managed-online-endpoints.md).
 
 ## <a id="portal-view"></a>View compute targets
 
@@ -133,7 +133,7 @@ Create or attach an Azure Kubernetes Service (AKS) cluster for large scale infer
 |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Cluster purpose  | Select **Production** or **Dev-test** |
 |Number of nodes | The number of nodes multiplied by the virtual machine’s number of cores (vCPUs) must be greater than or equal to 12. |
-| Network configuration | Select **Advanced** to  create the compute within an existing virtual network. For more information about AKS in a virtual network, see [Network isolation during training and inference with private endpoints and virtual networks](./how-to-secure-inferencing-vnet.md). |
+| Network configuration | Select **Advanced** to  create the compute within an existing virtual network. For more information about AKS in a virtual network, see [Network isolation during training and inference with private endpoints and virtual networks](./v1/how-to-secure-inferencing-vnet.md). |
 | Enable SSL configuration | Use this to configure SSL certificate on the compute |
 
 ## <a name="attached-compute"></a> Attach other compute
@@ -212,5 +212,5 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 * Use the compute resource to [submit a training run](how-to-set-up-training-targets.md).
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
-* Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
+* Once you have a trained model, learn [how and where to deploy models](how-to-deploy-managed-online-endpoints.md).
 * [Use Azure Machine Learning with Azure Virtual Networks](./how-to-network-security-overview.md)
