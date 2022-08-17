@@ -72,6 +72,10 @@ landingContent:
         links:
           - text: What is Azure DNS Private Resolver?
             url: dns-private-resolver-overview.md
+      - linkListType: concept
+        links:
+          - text: Azure DNS Private Resolver endpoints and rulesets
+            url: private-resolver-endpoints-rulesets.md
       - linkListType: quickstart
         links:
           - text: Create an Azure DNS Private Resolver using the Azure portal
