@@ -1,17 +1,17 @@
 ---
 title: Connect to FTP servers
-description: Connect to an FTP server from workflows in Azure Logic Apps.
+description: Connect to your FTP server from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/24/2022
+ms.date: 08/15/2022
 tags: connectors
 ---
 
 # Connect to an FTP server from workflows in Azure Logic Apps
 
-This article shows how to access your FTP server from a workflow in Azure Logic Apps with the FTP connector. You can then create automated workflows that run when triggered by events in your FTP server or in other systems and run actions to manage files on your FTP server.
+This article shows how to access your File Transfer Protocol (FTP) server from a workflow in Azure Logic Apps with the FTP connector. You can then create automated workflows that run when triggered by events in your FTP server or in other systems and run actions to manage files on your FTP server.
 
 For example, your workflow can start with an FTP trigger that monitors and responds to events on your FTP server. The trigger makes the outputs available to subsequent actions in your workflow. Your workflow can run FTP actions that create, send, receive, and manage files through your FTP server account using the following specific tasks:
 
@@ -44,11 +44,13 @@ The FTP connector has different versions, based on [logic app type and host envi
 
     By default, FTP actions can read or write files that are *200 MB or smaller*. Currently, the FTP built-in connector doesn't support chunking.
 
-  * Managed connector for Consumption and Standard workflows
+  * Managed or Azure-hosted connector for Consumption and Standard workflows
 
     By default, FTP actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB, FTP actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get file content** action implicitly uses chunking.
 
-* FTP managed connector triggers might experience missing, incomplete, or delayed results when the "last modified" timestamp is preserved. On the other hand, the FTP *built-in* connector trigger in Standard logic app workflows doesn't have this limitation. For more information, review the FTP connector's [Limitations](/connectors/ftp/#limitations) section.
+* Triggers for the FTP managed or Azure-hosted connector might experience missing, incomplete, or delayed results when the "last modified" timestamp is preserved. On the other hand, the FTP *built-in* connector trigger in Standard logic app workflows doesn't have this limitation. For more information, review the FTP connector's [Limitations](/connectors/ftp/#limitations) section.
+
+* The FTP managed or Azure-hosted connector can create a limited number of connections to the FTP server, based on the connection capacity in the Azure region where your logic app resource exists. If this limit poses a problem in a Consumption logic app workflow, consider creating a Standard logic app workflow and use the FTP built-in connector instead.
 
 ## Prerequisites
 

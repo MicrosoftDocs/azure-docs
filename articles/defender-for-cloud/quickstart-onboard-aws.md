@@ -400,7 +400,8 @@ You can check out the following blogs:
 
 ## Next steps
 
-Connecting your AWS account is part of the multicloud experience available in Microsoft Defender for Cloud. For related information, see the following page:
+Connecting your AWS account is part of the multicloud experience available in Microsoft Defender for Cloud. For related information, see the following pages:
 
 - [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 - [Connect your GCP projects to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
+- [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector)
