@@ -38,7 +38,7 @@ If you don't have an available dev center with an existing dev box definition an
   
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/projects-grid.png" alt-text="Screenshot of the list of existing projects.":::
 
-4. Select **Dev box pools** and then select **+ Add**.
+4. Select **Dev box pools** and then select **+ Create**.
  
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/dev-box-pool-grid-empty.png" alt-text="Screenshot of the list of dev box pools within a project. The list is empty.":::
 

@@ -220,6 +220,8 @@ items:
       href: troubleshooting-vnet.md
   - name: Secure
     items:
+    - name: Secure communications end-to-end in Zero Trust
+      href: secure-communications-end-to-end.md
     - name: Use managed identities for applications in Azure Spring Apps
       href: how-to-use-managed-identities.md
     - name: Enable system-assigned managed identity
