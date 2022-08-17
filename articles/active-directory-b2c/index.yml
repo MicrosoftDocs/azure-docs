@@ -290,10 +290,10 @@ conceptualContent:
 
 ## BAND 4 - TOOLS ###########################################################################################################################################
 tools:
-  title: Authenticate using Microsoft authentication libraries (MSAL) with code samples
+  title: Authenticate and authorize your customers and apps using Microsoft authentication libraries (MSAL) with code samples
   summary: >
     The open-source Microsoft Authentication Library (MSAL) is hosted on GitHub. Built and supported by Microsoft,
-    we recommend MSAL for any app that uses the Microsoft identity platform for authentication and authorization.
+    we recommend MSAL for any app type that uses Azure AD B2C service for authentication and authorization.
   items:
   ## ROW 1 ######################
   - title: MSAL.NET
