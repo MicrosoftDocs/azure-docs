@@ -28,7 +28,7 @@ This article walks through a sample configuration that uses IoT Hub and Event Gr
 
 You can quickly create a new IoT hub using the Azure Cloud Shell terminal in the portal.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 1. On the upper right of the page, select the Cloud Shell button.
 
@@ -129,7 +129,7 @@ Actions are any steps that occur after the trigger starts the logic app workflow
 
 1. Search for **Outlook**.
 
-1. Based on your email provider, find and select the matching connector. This tutorial uses **Outlook.com**. The steps for other email providers are similar. Alternatively, use Office 365 Outlook to skip the sign in step.
+1. Based on your email provider, find and select the matching connector. This tutorial uses **Outlook.com**. The steps for other email providers are similar. Alternatively, use Office 365 Outlook to skip the sign-in step.
 
    ![Select email provider connector](./media/publish-iot-hub-events-to-logic-apps/outlook-step.png)
 
@@ -145,7 +145,7 @@ Actions are any steps that occur after the trigger starts the logic app workflow
 
    After selecting `eventType`, you'll see the email form output so far. Select the **Send and email (V2)** to edit the body of your email.
 
-   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/send-an-email.png" alt-text="Screenshot of the condensed body output form." lightbox="./media/publish-iot-hub-events-to-logic-apps/send-an-email.png":::
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/send-email.png" alt-text="Screenshot of the condensed body output form." lightbox="./media/publish-iot-hub-events-to-logic-apps/send-email.png":::
 
    * **Body**: Write the text for your email. Select JSON properties from the selector tool to include dynamic content based on event data. If you can't see the Dynamic content, select the **Add dynamic content** hyperlink under the **Body** text box. If it doesn't show you the fields you want, click *more* in the Dynamic content screen to include the fields from the previous action.
 
