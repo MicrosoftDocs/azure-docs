@@ -12,7 +12,7 @@ ms.custom: mvc, subject-bicepqs
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service (DPS) with Bicep
 
-You can use a [Bicep](../azure-resource-manager/bicep/overview.md) file to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub and a new IoT Hub Device Provisioning Service with a Bicep file. The Iot Hub is also linked to the DPS resource using the Bicep file. This linking allows the DPS resource to assign devices to the hub based on allocation policies you configure.
+You can use a [Bicep](../azure-resource-manager/bicep/overview.md) file to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub and a new IoT Hub Device Provisioning Service instance with a Bicep file. The IoT Hub is also linked to the DPS resource using the Bicep file. This linking allows the DPS resource to assign devices to the hub based on allocation policies you configure.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -80,7 +80,7 @@ Sign in to your Azure account and select your subscription.
 
     ---
 
-    Use the following command to select subscription that you want to use to run the commands to create your IoT hub and DPS resources. You can use either the subscription name or ID from the output of the previous command:
+    Use the following command to select the subscription that you want to use to run the commands to create your IoT hub and DPS resources. You can use either the subscription name or ID from the output of the previous command:
 
     # [CLI](#tab/CLI)
 
