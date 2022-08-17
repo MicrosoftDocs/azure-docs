@@ -27,7 +27,7 @@ The Defender for IoT architecture uses on-premises sensors and management server
 
     Fixes and new functionality are applied to each new version and are not applied to older versions.
 
-- **Software update packages include new functionality and security patches**. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
+- **Software update packages include new functionality and security patches**. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter. 
 
 - **Features available from the Azure portal that are dependent on a specific sensor version** are only available for sensors that have the required version installed, or higher.
 
