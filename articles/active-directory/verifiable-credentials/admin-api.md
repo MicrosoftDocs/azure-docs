@@ -4,7 +4,7 @@ titleSuffix: Microsoft Entra Verified ID
 description: Learn how to manage your verifiable credential deployment using Admin API.
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials

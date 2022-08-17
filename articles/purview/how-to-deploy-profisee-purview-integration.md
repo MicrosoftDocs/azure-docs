@@ -173,7 +173,8 @@ Recommended: Keep it to "Yes, use default Azure DNS". Choosing Yes, the deployer
 
 - As a final validation step to ensure successful installation and for checking whether Profisee has been successfully connected to your Microsoft Purview instance, go to **/Profisee/api/governance/health** It should look something like - "https://[profisee_name].[region].cloudapp.azure.com//Profisee/api/governance/health". The output response will indicate the words **"Status": "Healthy"** on all the Purview subsystems. 
 
-```{
+```json
+{
   "OverallStatus": "Healthy",
   "TotalCheckDuration": "0:XXXXXXX",
   "DependencyHealthChecks": {
