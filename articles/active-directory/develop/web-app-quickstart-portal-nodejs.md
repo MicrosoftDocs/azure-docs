@@ -14,9 +14,7 @@ ms.author: dmwendia
 ms.custom: aaddev, "scenarios:getting-started", "languages:js", devx-track-js, mode-api
 #Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js and MSAL Node.
 ---
-
-# Quickstart: Sign in users and get an access token in a Node.js web app using the auth code flow
-
+# Quickstart: Sign in users and get an access token in a Node.js web app using the authorization code flow
 
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
@@ -25,7 +23,9 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:js", devx-track-js, m
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> [!div renderon="portal" class="sxs-lookup"]
+> [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
+> # Quickstart: Sign in users and get an access token in a Node.js web app using the authorization code flow
+>
 > In this quickstart, you download and run a code sample that demonstrates how a Node.js web app can sign in users by using the authorization code flow. The code sample also demonstrates how to get an access token to call Microsoft Graph API.
 > 
 > See [How the sample works](#how-the-sample-works) for an illustration.
@@ -40,10 +40,9 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:js", devx-track-js, m
 > 
 > #### Step 1: Configure the application in Azure portal
 > For the code sample for this quickstart to work, you need to create a client secret and add the following reply URL: `http:/> /localhost:3000/redirect`.
-> > [!div class="nextstepaction"]
-> > [Make this change for me]()
+> <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
-> > [!div class="alert alert-info"]
+> > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these > attributes.
 > 
 > #### Step 2: Download the project
@@ -51,7 +50,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:js", devx-track-js, m
 > Run the project with a web server by using Node.js.
 > 
 > > [!div class="nextstepaction"]
-> > [Download the code sample](https://github.com/Azure-Samples/ms-identity-node/archive/main.zip)
+> > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
 > #### Step 3: Your app is configured and ready to run
 > 

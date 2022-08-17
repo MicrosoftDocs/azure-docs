@@ -24,23 +24,24 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> [!div renderon="portal" class="sxs-lookup"]
+> [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
+> # Quickstart: ASP.NET web app that signs in Azure AD users
+>
 > In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Azure Active Directory (Azure AD) accounts.
 > 
 > #### Step 1: Configure your application in the Azure portal
 > For the code sample in this quickstart to work, enter **https://localhost:44368/** for **Redirect URI**.
 > 
-> > [!div class="nextstepaction"]
-> > [Make this change for me]()
+> <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
-> > [!div class="alert alert-info"]
+> > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with this attribute.
 > 
 > #### Step 2: Download the project
 > 
 > Run the project by using Visual Studio 2019.
-> > [!div class="sxs-lookup nextstepaction"]
-> > [Download the code sample](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+> > [!div class="nextstepaction"]
+> > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
 > [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 > 

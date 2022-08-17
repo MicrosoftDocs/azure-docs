@@ -15,7 +15,6 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 ---
 # Quickstart: Add sign-in with Microsoft to a Java web app
 
-
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
@@ -23,7 +22,9 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> [!div renderon="portal" class="sxs-lookup"]
+> > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
+> # Quickstart: Add sign-in with Microsoft to a Java web app
+>
 > In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
 > 
 >  For an overview, see the [diagram of how the sample works](#how-the-sample-works).
@@ -42,10 +43,9 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 > 
 > 1. Add reply URLs `https://localhost:8443/msal4jsample/secure/aad` and `https://localhost:8443/msal4jsample/graph/me`.
 > 1. Create a client secret.
-> > [!div class="nextstepaction"]
-> > [Make these changes for me]()
+> <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
-> > [!div class="alert alert-info"]
+> > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with these attributes.
 > 
 > #### Step 2: Download the code sample
@@ -65,8 +65,8 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 >   ```
 >   Put the generated keystore file in the *resources* folder.
 > 
-> > [!div class="sxs-lookup nextstepaction"]
-> > [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
+> > [!div class="nextstepaction"]
+> > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
 > > [!div class="sxs-lookup"]
 > > > [!NOTE]

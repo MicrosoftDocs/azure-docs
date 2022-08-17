@@ -13,9 +13,7 @@ ROBOTS: NOINDEX
 ms.author: dmwendia
 ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Python", mode-api
 ---
-
 # Quickstart: Add sign-in with Microsoft to a Python web app
-
 
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
@@ -24,7 +22,9 @@ ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Py
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> [!div renderon="portal" class="sxs-lookup"]
+> [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
+> # Quickstart: Add sign-in with Microsoft to a Python web app
+>
 > In this quickstart, you download and run a code sample that demonstrates how a Python web application can sign in users and get an access token to call the Microsoft Graph API. Users with a personal Microsoft Account or an account in any Azure Active Directory (Azure AD) organization can sign into the application.
 > 
 > See [How the sample works](#how-the-sample-works) for an illustration.
@@ -44,17 +44,17 @@ ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Py
 > 1. Create a Client Secret.
 > 1. Add Microsoft Graph API's User.ReadBasic.All delegated permission.
 > 
-> > [!div class="nextstepaction"]
-> > [Make these changes for me]()
+> <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
-> > [!div class="alert alert-info"]
+> > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](./media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with this attribute
 > 
 > #### Step 2: Download your project
 > 
 > Download the project and extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
+>
 > > [!div class="nextstepaction"]
-> > [Download the code sample](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
+> > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
