@@ -32,7 +32,7 @@ Your first demo scenario:  Use the [Copy activity](copy-activity-overview.md) in
 The one-click button will use this ARM template code.  After clicking the button, the following objects will be created in Azure:
 - A data factory account
 - A pipeline within the data factory with one copy activity
-- An Azure blob storage with moviesDB2.csv uploaded into an input folder as source
+- An Azure blob storage with [moviesDB2.csv](https://raw.githubusercontent.com/kromerm/adfdataflowdocs/master/sampledata/moviesDB2.csv) uploaded into an input folder as source
 - A linked service to connect the data factory to the Azure blob storage
 
 ## Step 1: Click the button to start
@@ -87,18 +87,6 @@ Select the button below to be redirected to the custom deployment configuration 
 ## Clean up resources
 
 You can clean up all the resources you created in this quickstart in two ways.  You can [delete the entire Azure resource group](../azure-resource-manager/management/delete-resource-group.md), which includes all the resources created in it.  Or if you want to keep other resources intact, delete only the data factory you created in this tutorial.
-
-Deleting a resource group deletes all the resources, including data factories, created within it.  Run the following command to delete the entire resource group:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
-```
-
-If you want to delete just the data factory, and not the entire resource group, run the following command:
-
-```azurepowershell-interactive
-Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
-```
 
 ## Next Steps
 
