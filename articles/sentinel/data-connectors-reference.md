@@ -700,6 +700,16 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Supported by** | [Cyberpion](https://www.cyberpion.com/) |
 
 
+## Delinea Secret Server (Preview)
+*Formerly Thycotic Secret Server*
+    
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
+| **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Vendor documentation/<br>installation instructions** | [General Secure Syslog/CEF Logging](https://docs.delinea.com/secrets/current/events-and-alerts/secure-syslog-cef)<br>[Azure Sentinel Specific](https://docs.delinea.com/ssi/current/microsoft/connect-sentinel.md)|
+| **Supported by** | [Delinea](https://support.delinea.com/s/) |
 
 
 ## DNS (Preview)
@@ -1714,21 +1724,7 @@ Follow the instructions to obtain the credentials.
 | **Vendor documentation/<br>installation instructions** | [Configuring syslog](https://help.symantec.com/cs/VIP_EG_INSTALL_CONFIG/VIP/v134652108_v128483142/Configuring-syslog?locale=EN_US) |
 | **Supported by** | Microsoft |
 
-
-
-
-## Thycotic Secret Server (Preview)
-
-| Connector attribute | Description |
-| --- | --- |
-| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
-| **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
-| **Vendor documentation/<br>installation instructions** | [Secure Syslog/CEF Logging](https://thy.center/ss/link/syslog) |
-| **Supported by** | [Thycotic](https://thycotic.force.com/support/s/) |
-
-
-
+        
 ## Trend Micro Deep Security
 
 | Connector attribute | Description |
