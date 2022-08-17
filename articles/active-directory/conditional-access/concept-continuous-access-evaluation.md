@@ -10,7 +10,7 @@ ms.date: 03/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: vmahtani
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
