@@ -74,7 +74,6 @@ The following properties are supported for the AppFigures linked service:
 ```json
 {
     "name": "AppFiguresLinkedService",
-    "type": "Microsoft.DataFactory/factories/linkedservices",
     "properties": {
         "type": "AppFigures",
         "typeProperties": {
@@ -96,7 +95,7 @@ The below table lists the properties supported by AppFigures source. You can edi
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Entity type | The type of the entity in AppFigures. | Yes  | `products`<br>`ads`<br>`sales` | 	*(for inline dataset only)*<br>entityType |
+| Entity type | The type of the entity in AppFigures. | Yes  | `products`<br>`ads`<br>`sales` | *(for inline dataset only)*<br>entityType |
 
 
 #### AppFigures source script examples 
