@@ -17,7 +17,7 @@ ms.custom: deploy, docker, prebuilt, sdkv1, event-tier1-build-2022
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-inference.md) contain packages for popular machine learning frameworks. There are two methods that can be used to add Python packages __without rebuilding the Docker image__:
+The [prebuilt Docker images for model inference](../concept-prebuilt-docker-images-inference.md) contain packages for popular machine learning frameworks. There are two methods that can be used to add Python packages __without rebuilding the Docker image__:
 
 * [Dynamic installation](#dynamic): This approach uses a [requirements](https://pip.pypa.io/en/stable/cli/pip_install/#requirements-file-format) file to automatically restore Python packages when the Docker container boots.
 
@@ -152,7 +152,7 @@ Here are some things that may cause this problem:
     | Solution  | Create a `requirements.txt` that installs the specified packages when the container starts. | Create a local Python environment with all of the dependencies. Mount this directory into container at runtime. |
     | Package Installation           | No extra installation (assuming pip already installed)                                                                                                          | Virtual environment or conda environment installation.                                                                                   |
     | Virtual environment Setup              | No extra setup of virtual environment required, as users can pull the current local user environment with pip freeze as needed to create the `requirements.txt`. | Need to set up a clean virtual environment, may take extra steps depending on the current user local environment.                        |
-    | [Debugging](how-to-inference-server-http.md)                 | Easy to set up and debug server, since dependencies are clearly listed. | Unclean virtual environment could cause problems when debugging of server. For example, it may not be clear if errors come from the environment or user code. |
+    | [Debugging](../how-to-inference-server-http.md)                 | Easy to set up and debug server, since dependencies are clearly listed. | Unclean virtual environment could cause problems when debugging of server. For example, it may not be clear if errors come from the environment or user code. |
     | Consistency during scaling out | Not consistent as dependent on external PyPi packages and users pinning their dependencies. These external downloads could be flaky.                                 | Relies solely on user environment, so no consistency issues.                                                                             |
 
 * Why are my `requirements.txt` and mounted dependencies directory not found in the container?
