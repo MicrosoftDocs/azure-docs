@@ -119,7 +119,8 @@ Deploying the application can take a few minutes.
 ### Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+- [Azure Toolkit for IntelliJ](https://docs.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/install-toolkit).
 
 ### Generate a Spring project
 
@@ -191,16 +192,10 @@ Use the following steps to import the project.
 
    :::image type="content" source="media/quickstart/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA showing Open File or Project dialog box." lightbox="media/quickstart/intellij-new-project.png":::
 
-### Install and sign-in
-
-1. Before you want to start the quickstarts by IntelliJ, you should [install Azure Toolkit for IntelliJ from the Marketplace](/azure/developer/java/toolkit-for-intellij/install-toolkit#install-azure-toolkit-for-intellij-from-the-marketplace).
-
-1. After that, [sign-in to your Azure account](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#install-and-sign-in) in IntelliJ.
-
-### Build and deploy an app
+### Build and deploy your app
 
 > [!NOTE]
-> If you want to run the project locally, please add **spring.config.import=optional:configserver:** to the **application.propertities** file.
+> To run the project locally, add `spring.config.import=optional:configserver:` to the project's `application.properties` file.
 
 1. Right-click your project in IntelliJ project explorer, then select **Azure** -> **Deploy to Azure Spring Apps**.
 
