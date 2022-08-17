@@ -1,8 +1,12 @@
 ---
 title: Manually stop or start container group
 description: Learn how to manually stop or start a container group in Azure Container Instances.
-ms.topic: article
-ms.date: 08/11/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 # Manually stop or start containers in Azure Container Instances
 
@@ -49,6 +53,6 @@ In addition to manually stopping and starting a container group with the existin
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
-[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
-[az-container-start]: /cli/azure/container?view=azure-cli-latest#az-container-start
-[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
+[az-container-restart]: /cli/azure/container#az_container_restart
+[az-container-start]: /cli/azure/container#az_container_start
+[az-container-stop]: /cli/azure/container#az_container_stop

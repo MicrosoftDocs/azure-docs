@@ -1,6 +1,5 @@
 ---
-title: Write a web app that signs in/out users | Azure
-titleSuffix: Microsoft identity platform
+title: Write a web app that signs in/out users
 description: Learn how to build a web app that signs in/out users
 services: active-directory
 author: jmprieur
@@ -72,7 +71,7 @@ else
 
 # [Java](#tab/java)
 
-In our Java quickstart, the sign-in button is located in the [main/resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html) file.
+In the Java quickstart, the sign-in button is located in the [main/resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html) file.
 
 ```html
 <!DOCTYPE html>
@@ -91,6 +90,16 @@ In our Java quickstart, the sign-in button is located in the [main/resources/tem
 </body>
 </html>
 ```
+
+# [Node.js](#tab/nodejs)
+
+In the Node.js quickstart, the code for the sign-in button is located in *index.hbs* template file.
+
+:::code language="hbs" source="~/ms-identity-node/App/views/index.hbs" range="10-11":::
+
+This template is served via the main (index) route of the app:
+
+:::code language="js" source="~/ms-identity-node/App/routes/index.js" range="6-15":::
 
 # [Python](#tab/python)
 
@@ -156,6 +165,12 @@ public class AuthPageController {
 
     // More code omitted for simplicity
 ```
+
+# [Node.js](#tab/nodejs)
+
+When the user selects the **Sign in** link, which triggers the `/auth/signin` route, the sign-in controller takes over to authenticate the user with Microsoft identity platform. 
+
+:::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="27-107, 135-161":::
 
 # [Python](#tab/python)
 
@@ -226,6 +241,10 @@ During the application registration, you register a front-channel logout URL. In
 During the application registration, you don't need to register an extra front-channel logout URL. The app will be called back on its main URL. 
 
 # [Java](#tab/java)
+
+No front-channel logout URL is required in the application registration.
+
+# [Node.js](#tab/nodejs)
 
 No front-channel logout URL is required in the application registration.
 
@@ -302,6 +321,10 @@ In our Java quickstart, the sign-out button is located in the main/resources/tem
 ...
 ```
 
+# [Node.js](#tab/nodejs)
+
+:::code language="hbs" source="~/ms-identity-node/App/views/index.hbs" range="2, 8":::
+
 # [Python](#tab/python)
 
 In the Python quickstart, the sign-out button is located in the [templates/index.html#L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10) file.
@@ -374,6 +397,12 @@ In Java, sign-out is handled by calling the Microsoft identity platform `logout`
     }
 ```
 
+# [Node.js](#tab/nodejs)
+
+When the user selects the **Sign out** button, the app triggers the `/signout` route, which destroys the session and redirects the browser to Microsoft identity platform sign-out endpoint.
+
+:::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="163-174":::
+
 # [Python](#tab/python)
 
 The code that signs out the user is in [app.py#L46-L52](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L47-L48).
@@ -417,6 +446,10 @@ public class AccountController : Controller
 # [Java](#tab/java)
 
 In the Java quickstart, the post-logout redirect URI just displays the index.html page.
+
+# [Node.js](#tab/nodejs)
+
+In the Node quickstart, the post-logout redirect URI is used to redirect the browser back to sample home page after the user completes the logout process with the Microsoft identity platform.
 
 # [Python](#tab/python)
 

@@ -76,7 +76,7 @@ All the standard Python modules are included.
 
 ### Additional Python modules
 
-Besides the standard Python libraries, several commonly used python libraries are included:
+Besides the standard Python libraries, several commonly used Python libraries are included:
 
 * pandas
 * numpy

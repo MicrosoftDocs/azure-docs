@@ -1,9 +1,9 @@
 ---
 title: 'Quickstart: Send custom events to Event Hubs - Event Grid, Azure CLI'
-description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. An event hub is used for the endpoint.' 
-ms.date: 07/07/2020
-ms.topic: quickstart 
-ms.custom: devx-track-azurecli
+description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. An event hub is used for the endpoint.'
+ms.date: 09/28/2021
+ms.topic: quickstart
+ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Route custom events to Azure Event Hubs with Azure CLI and Event Grid
@@ -32,6 +32,9 @@ An event grid topic provides a user-defined endpoint that you post your events t
 
 ```azurecli-interactive
 topicname=<your-topic-name>
+```
+
+```azurecli-interactive
 az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
 ```
 
@@ -41,6 +44,9 @@ Before subscribing to the custom topic, let's create the endpoint for the event 
 
 ```azurecli-interactive
 namespace=<unique-namespace-name>
+```
+
+```azurecli-interactive
 hubname=demohub
 
 az eventhubs namespace create --name $namespace --resource-group gridResourceGroup
@@ -89,7 +95,7 @@ done
 
 Navigate to the event hub in the portal, and notice that Event Grid sent those three events to the event hub.
 
-![Show messages](./media/custom-event-to-eventhub/show-result.png)
+:::image type="content" source="./media/custom-event-to-eventhub/show-result.png" lightbox="./media/custom-event-to-eventhub/show-result.png" alt-text="Image showing the portal page with incoming message count as 3.":::
 
 Typically, you create an application that retrieves the events from the event hub. To create an application that gets messages from an event hub, see:
 
@@ -112,3 +118,11 @@ Now that you know how to create topics and event subscriptions, learn more about
 - [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
+
+See the following samples to learn about publishing events to and consuming events from Event Grid using different programming languages. 
+
+- [Azure Event Grid samples for .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
+- [Azure Event Grid samples for Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
+- [Azure Event Grid samples for Python](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
+- [Azure Event Grid samples for JavaScript](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
+- [Azure Event Grid samples for TypeScript](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)

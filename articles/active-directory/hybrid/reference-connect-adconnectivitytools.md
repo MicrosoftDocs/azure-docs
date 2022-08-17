@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: ADConnectivityTools PowerShell Reference | Microsoft Docs'
 description: This document provides reference information for the ADConnectivityTools.psm1 PowerShell module.
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.date: 05/31/2019
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Azure AD Connect:  ADConnectivityTools PowerShell Reference
 
-The following documentation provides reference information for the ADConnectivityTools.psm1 PowerShell Module that is included with Azure AD Connect.
+The following documentation provides reference information for the ADConnectivityTools PowerShell Module that is included with Azure AD Connect in `C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ADConnectivityTool.psm1`.
 
 ## Confirm-DnsConnectivity
 

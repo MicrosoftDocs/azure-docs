@@ -4,7 +4,7 @@ description: Learn how to grant a user access to Azure resources using Azure Pow
 services: active-directory
 documentationCenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.service: role-based-access-control
@@ -278,4 +278,4 @@ To clean up the resources created by this tutorial, delete the resource group an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add or remove Azure role assignments using Azure PowerShell](role-assignments-powershell.md)
+> [Assign Azure roles using Azure PowerShell](role-assignments-powershell.md)

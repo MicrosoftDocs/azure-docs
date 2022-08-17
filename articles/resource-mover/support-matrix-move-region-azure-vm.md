@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 10/11/2020
+ms.date: 02/08/2021
 ms.author: raynew
 
 ---
@@ -13,10 +13,6 @@ ms.author: raynew
 # Support for moving Azure VMs between Azure regions
 
 This article summarizes support and prerequisites when you move virtual machines and related network resources across Azure regions using Resource Mover.
-
-> [!IMPORTANT]
-> Azure Resource Mover is currently in preview.
-
 
 ## Windows VM support
 
@@ -112,7 +108,7 @@ Extensions | Not supported | Extensions aren't copied over to the  VM in target 
 This table summarized support for the Azure VM OS disk, data disk, and temporary disk. It's important to observe the VM disk limits and targets for [managed disks](../virtual-machines/disks-scalability-targets.md) to avoid any performance issues.
 
 > [!NOTE]
-> The target VM size should be equal to or larger than the source VM. The parameters used for validation are: Data Disks Count, NICs count, Available CPUs, Memory in GB. If it isn't a error is issued.
+> The target VM size should be equal to or larger than the source VM. The parameters used for validation are: Data Disks Count, NICs count, Available CPUs, Memory in GB. If it sn't a error is issued.
 
 
 **Component** | **Support** | **Details**
@@ -130,6 +126,8 @@ Managed disk (Premium) | Supported |
 Standard SSD | Supported |
 Generation 2 (UEFI boot) | Supported
 Boot diagnostics storage account | Not supported | Reenable it after moving the VM to the target region.
+VMs with Azure disk encryption enabled | Supported | [Learn more](tutorial-move-region-encrypted-virtual-machines.md)
+VMs using server-side encryption with customer-managed key | Supported | [Learn more](tutorial-move-region-encrypted-virtual-machines.md)
 
 ### Limits and data change rates
 
@@ -156,6 +154,7 @@ Network security group | Supported | Specify an existing resource in the target 
 Reserved (static) IP address | Supported | You can't currently configure this. The value defaults to the source value. <br/><br/> If the NIC on the source VM has a static IP address, and the target subnet has the same IP address available, it's assigned to the target VM.<br/><br/> If the target subnet doesn't have the same IP address available, the initiate move for the VM will fail.
 Dynamic IP address | Supported | You can't currently configure this. The value defaults to the source value.<br/><br/> If the NIC on the source has dynamic IP addressing, the NIC on the target VM is also dynamic by default.
 IP configurations | Supported | You can't currently configure this. The value defaults to the source value.
+VNET Peering | Not Retained | The VNET which is moved to the target region will not retain it’s VNET peering configuration present in the source region. To retain the peering, it needs to do be done again manually in the target region.
 
 ## Outbound access requirements
 

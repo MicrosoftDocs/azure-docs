@@ -1,17 +1,18 @@
 ---
 title: Manage server - Azure CLI - Azure Database for PostgreSQL - Flexible Server
 description: Learn how to manage an Azure Database for PostgreSQL - Flexible Server from the Azure CLI.
-author: mksuni
-ms.author: sumuth
 ms.service: postgresql
+ms.subservice: flexible-server
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ---
 
 # Manage an Azure Database for PostgreSQL - Flexible Server by using the Azure CLI
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview.
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article shows you how to manage your flexible server deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
@@ -126,7 +127,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 
 ## Delete a server
 
-To delete the Azure Database for PostgreSQL flexible server, run the [az postgres flexible-server delete](/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) command.
+To delete the Azure Database for PostgreSQL flexible server, run the [az postgres flexible-server delete](/cli/azure/postgres/flexible-server#az-postgresql-flexible-server-delete) command.
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver

@@ -1,11 +1,10 @@
 ---
 title: Create a pool with disk encryption enabled
 description: Learn how to use disk encryption configuration to encrypt nodes with a platform-managed key.
-author: pkshultz
 ms.topic: how-to
-ms.date: 01/27/2021
-ms.author: peshultz
-ms.custom: references_regions
+ms.date: 04/16/2021
+ms.devlang: csharp
+ms.custom: devx-track-azurecli
 ---
 
 # Create a pool with disk encryption enabled
@@ -13,11 +12,6 @@ ms.custom: references_regions
 When you create an Azure Batch pool using [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration), you can encrypt compute nodes in the pool with a platform-managed key by specifying the disk encryption configuration.
 
 This article explains how to create a Batch pool with disk encryption enabled.
-
-> [!IMPORTANT]
-> Support for encryption at host using a platform-managed key in Azure Batch is currently in public preview for the East US, West US 2, South Central US, US Gov Virginia, and US Gov Arizona regions.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Why use a pool with disk encryption configuration?
 
@@ -32,7 +26,8 @@ Batch will apply one of these disk encryption technologies on compute nodes, bas
 You won't be able to specify which encryption method will be applied to the nodes in your pool. Instead, you provide the target disks you want to encrypt on their nodes, and Batch can choose the appropriate encryption method, ensuring the specified disks are encrypted on the compute node.
 
 > [!IMPORTANT]
-> If you are creating your pool with a [custom image](batch-sig-images.md), you can enable disk encryption only if using Windows VMs.
+> If you are creating your pool with a Linux [custom image](batch-sig-images.md), you can only enable disk encryption only if your pool is using an [Encryption At Host Supported VM size](../virtual-machines/disk-encryption.md#supported-vm-sizes).
+> Encryption At Host is not currently supported on User Subscription Pools until the feature becomes [publicly available in Azure](../virtual-machines/disks-enable-host-based-encryption-portal.md#prerequisites).
 
 ## Azure portal
 

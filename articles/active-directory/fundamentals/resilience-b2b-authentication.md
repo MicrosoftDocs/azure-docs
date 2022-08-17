@@ -2,14 +2,14 @@
 title: Build resilience in external user authentication with Azure Active Directory
 description: A guide for IT admins and architects to building resilient authentication for external users
 services: active-directory
-author: BarbaraSelden
-manager: daveba
+author: janicericketts
+manager: rkarlin
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.author: baselden
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Build resilience in external user authentication
 
-[Azure Active Directory B2B collaboration](../external-identities/what-is-b2b.md) (Azure AD B2B) is a feature of [External Identities](../external-identities/delegate-invitations.md) that enables collaboration with other organizations and individuals. It enables the secure onboarding of guest users into your Azure AD tenant without having to manage their credentials. External users bring their identity and credentials with them from an external identity provider (IdP), so they don’t have to remember a new credential. 
+[Azure Active Directory B2B collaboration](../external-identities/what-is-b2b.md) (Azure AD B2B) is a feature of [External Identities](../external-identities/external-collaboration-settings-configure.md) that enables collaboration with other organizations and individuals. It enables the secure onboarding of guest users into your Azure AD tenant without having to manage their credentials. External users bring their identity and credentials with them from an external identity provider (IdP), so they don’t have to remember a new credential. 
 
 ## Ways to authenticate external users
 

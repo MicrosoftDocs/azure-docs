@@ -45,14 +45,14 @@ This tutorial has been updated to use the Azure.Search.Documents (version 11) pa
 + [Azure Storage](../storage/common/storage-account-create.md)
 + [Visual Studio](https://visualstudio.microsoft.com/)
 + [Azure Cognitive Search (version 11.x) NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/)
-+ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
++ [Create](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, Azure Cosmos DB for one data set, and Azure Blob storage for the second data set. 
+This tutorial uses Azure Cognitive Search for indexing and queries, Azure Cosmos DB for one data set, and Azure Blob Storage for the second data set. 
 
 If possible, create all services in the same region and resource group for proximity and manageability. In practice, your services can be in any region.
 
@@ -82,7 +82,7 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
 1. Copy a connection string from the **Keys** page into Notepad. You will need this for **appsettings.json** in a later step. If you did not use the suggested database name "hotel-rooms-db", copy the database name as well.
 
-### Azure Blob storage
+### Azure Blob Storage
 
 1. Sign in to the [Azure portal](https://portal.azure.com), navigate to your Azure storage account, click **Blobs**, and then click **+ Container**.
 

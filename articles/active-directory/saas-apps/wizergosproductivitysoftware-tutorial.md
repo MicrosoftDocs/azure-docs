@@ -130,11 +130,11 @@ To configure Azure AD single sign-on with Wizergos Productivity Software, perfor
 	
 	a. Click **UPLOAD** button to upload the downloaded certificate from Azure AD.
 	
-	b. In the **Issuer URL** textbox, paste the **Azure AD Identifier** value which you have copied from Azure portal.
+	b. In the **Issuer URL** textbox, paste the **Azure AD Identifier** value that you copied from the Azure portal.
 	
-	c. In the **Single Sign-On URL** textbox, paste the **Login URL** value which you have copied from Azure portal.
+	c. In the **Single Sign-On URL** textbox, paste the **Login URL** value that you copied from the Azure portal.
 	
-	d. In the **Single Sign-Out URL** textbox, paste the **Logout URL** value which you have copied from Azure portal.
+	d. In the **Single Sign-Out URL** textbox, paste the **Logout URL** value that you copied from Azure portal.
 	
 	e. Click **Save** button.
 
@@ -190,13 +190,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Wizergos Productivity Software test user
 
-In this section, you create a user called Britta Simon in Wizergos Productivity Software. Work with [Wizergos Productivity Software support team](mailTo:support@wizergos.com) to add the users in the Wizergos Productivity Software platform.
+In this section, you create a user called Britta Simon in Wizergos Productivity Software. Work with [Wizergos Productivity Software support team](mailto:support@wizergos.com) to add the users in the Wizergos Productivity Software platform.
 
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Wizergos Productivity Software tile in the Access Panel, you should be automatically signed in to the Wizergos Productivity Software for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the Wizergos Productivity Software tile in the Access Panel, you should be automatically signed in to the Wizergos Productivity Software for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 

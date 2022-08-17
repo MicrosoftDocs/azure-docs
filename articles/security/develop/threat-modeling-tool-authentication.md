@@ -12,7 +12,6 @@ ms.service: security
 ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
@@ -133,7 +132,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | SQL Azure |
 | **Attributes**              | SQL Version - V12 |
-| **References**              | [Connecting to SQL Database By Using Azure Active Directory Authentication](../../azure-sql/database/authentication-aad-overview.md) |
+| **References**              | [Connecting to SQL Database By Using Azure Active Directory Authentication](/azure/azure-sql/database/authentication-aad-overview) |
 | **Steps** | **Minimum version:** Azure SQL Database V12 required to allow Azure SQL Database to use AAD Authentication against the Microsoft Directory |
 
 ## <a id="authn-account-pword"></a>When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server
@@ -453,7 +452,7 @@ Please note that to test the effectiveness of this configuration, login into you
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic, C#, Node.JS,  |
 | **Attributes**              | N/A, Gateway choice - Azure IoT Hub |
-| **References**              | N/A, [Azure IoT hub with .NET](../../iot-hub/quickstart-send-telemetry-dotnet.md), [Getting Started with IoT hub and Node JS](../../iot-hub/quickstart-send-telemetry-node.md), [Securing IoT with SAS and certificates](../../iot-hub/iot-hub-devguide-security.md), [Git repository](https://github.com/Azure/azure-iot-sdks/) |
+| **References**              | N/A, [Azure IoT hub with .NET](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp), [Getting Started with IoT hub and Node JS](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs), [Securing IoT with SAS and certificates](../../iot-hub/iot-hub-dev-guide-sas.md), [Git repository](https://github.com/Azure/azure-iot-sdks/) |
 | **Steps** | <ul><li>**Generic:** Authenticate the device using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, Oauth.</li><li>**C#:** When creating a DeviceClient instance, by default, the Create method creates a DeviceClient instance that uses the AMQP protocol to communicate with IoT Hub. To use the HTTPS protocol, use the override of the Create method that enables you to specify the protocol. If you use the HTTPS protocol, you should also add the `Microsoft.AspNet.WebApi.Client` NuGet package to your project to include the `System.Net.Http.Formatting` namespace.</li></ul>|
 
 ### Example
@@ -474,7 +473,7 @@ await deviceClient.SendEventAsync(message);
 ### Example
 **Node.JS: Authentication**
 #### Symmetric key
-* Create an IoT hub on azure
+* Create an IoT hub on Azure
 * Create an entry in the device identity registry
     ```javascript
     var device = new iothub.Device(null);
@@ -553,7 +552,7 @@ await deviceClient.SendEventAsync(message);
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Gateway choice - Azure IoT Hub |
-| **References**              | [Azure IoT Hub Security Tokens](../../iot-hub/iot-hub-devguide-security.md) |
+| **References**              | [Azure IoT Hub Security Tokens](../../iot-hub/iot-hub-dev-guide-sas.md) |
 | **Steps** | Use per device authentication credentials using SaS tokens based on Device key or Client Certificate, instead of IoT Hub-level shared access policies. This prevents the reuse of authentication tokens of one device or field gateway by another |
 
 ## <a id="req-containers-anon"></a>Ensure that only the required containers and blobs are given anonymous read access

@@ -1,6 +1,5 @@
 ---
-title: SSO between ADAL & MSAL apps (iOS/macOS) | Azure
-titleSuffix: Microsoft identity platform
+title: SSO between ADAL & MSAL apps (iOS/macOS)
 description: Learn how to share SSO between ADAL and MSAL apps
 services: active-directory
 author: mmacy
@@ -13,7 +12,7 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: 
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ---
 
 # How to: SSO between ADAL and MSAL apps on macOS and iOS
@@ -30,7 +29,7 @@ This section covers SSO differences between MSAL and ADAL 2.7.x
 
 ### Cache format
 
-ADAL 2.7.x can read the MSAL cache format. You don't need to do anything special for cross-app SSO with version ADAL 2.7.x. However, you need to be aware of differences in account identifiers that those two libraries support.
+ADAL 2.7.x can read the MSAL cache format. You don't need to do anything special for cross-app SSO with version ADAL 2.7.x. However, be aware of differences in account identifiers that those two libraries support.
 
 ### Account identifier differences
 

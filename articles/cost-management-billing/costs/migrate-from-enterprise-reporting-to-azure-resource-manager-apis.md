@@ -6,7 +6,7 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 11/19/2020
+ms.date: 12/17/2021
 ms.author: banders
 ---
 
@@ -46,28 +46,7 @@ After you create a Service Principal to programmatically call the Azure Resource
 
 ### Azure Billing Hierarchy Access
 
-To assign Service Principal permissions to your Enterprise Billing Account, Departments, or Enrollment Account scopes, use [Billing Permissions](/rest/api/billing/2019-10-01-preview/billingpermissions), [Billing Role Definitions](/rest/api/billing/2019-10-01-preview/billingroledefinitions), and [Billing Role Assignments](/rest/api/billing/2019-10-01-preview/billingroleassignments) APIs.
-
-- Use the Billing Permissions APIs to identify the permissions that a Service Principal already has on a given scope, like a Billing Account or Department.
-- Use the Billing Role Definitions APIs to enumerate the available roles that can be assigned to your Service Principal.
-  - Only Read-Only EA Admin and Read-Only Department Admin roles can be assigned to Service Principals at this time.
-- Use the Billing Role Assignments APIs to assign a role to your Service Principal.
-
-The following example shows how to call the Role Assignments API to grant a Service Principal access to your billing account. We recommend using [PostMan](https://postman.com) to do these one-time permission configurations.
-
-```json
-POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/createBillingRoleAssignment?api-version=2019-10-01-preview
-```
-
-#### Request Body
-
-```json
-{
-  "principalId": "00000000-0000-0000-0000-000000000000",
-  "billingRoleDefinitionId": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/providers/Microsoft.Billing/billingRoleDefinition/10000000-aaaa-bbbb-cccc-100000000000"
-}
-
-```
+To assign Service Principal permissions to your Enterprise Billing Account, Departments, or Enrollment Account scopes, see [Assign roles to Azure Enterprise Agreement service principal names](../manage/assign-roles-azure-service-principals.md).
 
 ### Azure role-based access control
 
@@ -81,7 +60,7 @@ Use the table below to identify the EA APIs that you currently use and the repla
 | --- | --- | --- |
 | Balance Summary | [/balancesummary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) |[Microsoft.Consumption/balances](/rest/api/consumption/balances/getbybillingaccount) |
 | Price Sheet | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | [Microsoft.Consumption/pricesheets/default](/rest/api/consumption/pricesheet) – use for negotiated prices <p> [Retail Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) – use for retail prices |
-| Reserved Instance Details | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.CostManagement/generateReservationDetailsReport](/rest/api/cost-management/generatereservationdetailsreport) |
+| Reserved Instance Details | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.CostManagement/generateReservationDetailsReport](../reservations/reservation-utilization.md) |
 | Reserved Instance Summary | [/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries/list#reservationsummariesdailywithbillingaccountid) |
 | Reserved Instance Recommendations | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)<p>[/SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
 | Reserved Instance Charges | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | [Microsoft.Consumption/reservationTransactions](/rest/api/consumption/reservationtransactions/list) |
@@ -374,7 +353,7 @@ https://management.azure.com/{scope}/Microsoft.Consumption/reservationSummaries?
 [_Get Reservation Summary Monthly_](/rest/api/consumption/reservationssummaries/list#reservationsummariesmonthlywithbillingaccountid)
 
 ```json
-https://management.azure.com/{scope}/Microsoft.Consumption/reservationSummaries?grain=daily&$filter=properties/usageDate ge 2017-10-01 AND properties/usageDate le 2017-11-20&api-version=2019-10-01
+https://management.azure.com/{scope}/Microsoft.Consumption/reservationSummaries?grain=monthly&$filter=properties/usageDate ge 2017-10-01 AND properties/usageDate le 2017-11-20&api-version=2019-10-01
 ```
 
 #### Response body changes

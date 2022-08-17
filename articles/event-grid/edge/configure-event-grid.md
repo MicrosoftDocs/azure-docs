@@ -5,13 +5,19 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 02/15/2022
 ms.topic: article
 ---
 
 # Event Grid Configuration
 
 Event Grid provides many configurations that can be modified per environment. The following section is a reference to all the available options and their defaults.
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
+
 
 ## TLS configuration
 

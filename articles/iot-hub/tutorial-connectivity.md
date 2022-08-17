@@ -2,15 +2,15 @@
 title: Tutorial - Check device connectivity to Azure IoT Hub
 description: Tutorial - Use IoT Hub tools to troubleshoot, during development, device connectivity issues to your IoT hub.
 services: iot-hub
-author: wesmc7777
-manager: philmea
-ms.author: wesmc
+author: kgremban
+
+ms.author: kgremban
 ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
-ms.date: 02/22/2019
+ms.date: 10/26/2021
 ms.topic: tutorial
 ms.service: iot-hub
 
-# As a developer, I want to know what tools I can use to verify connectivity between my IoT devices and my IoT hub.
+#Customer intent: As a developer, I want to know what tools I can use to verify connectivity between my IoT devices and my IoT hub.
 ---
 
 # Tutorial: Use a simulated device to test connectivity with your IoT hub
@@ -56,15 +56,15 @@ A device must authenticate with your hub before it can exchange any data with th
 
 Sign in to the portal and navigate to your IoT hub. Then navigate to the **IoT Devices** tool:
 
-![IoT Devices tool](media/tutorial-connectivity/iot-devices-tool.png)
+:::image type="content" source="media/tutorial-connectivity/iot-devices-tool.png" alt-text="IoT Devices tool":::
 
-To register a new device, click **+ Add**, set **Device ID** to **MyTestDevice**, and click **Save**:
+To register a new device, click **+ New**, set **Device ID** to **MyTestDevice**, and click **Save**.
 
-![Add new device](media/tutorial-connectivity/add-device.png)
+:::image type="content" source="media/tutorial-connectivity/add-device.png" alt-text="Add new device":::
 
-To retrieve the connection string for **MyTestDevice**, click on it in the list of devices and then copy the **Connection string-primary key** value. The connection string includes the *shared access key* for the device.
+To retrieve the connection string for **MyTestDevice**, click on it in the list of devices and then copy the **Primary Connection String** value. The connection string includes the *shared access key* for the device.
 
-![Retrieve device connection string](media/tutorial-connectivity/copy-connection-string.png)
+:::image type="content" source="media/tutorial-connectivity/copy-connection-string.png" alt-text="Retrieve device connection string}":::
 
 To simulate **MyTestDevice** sending telemetry to your IoT hub, run the Node.js simulated device application you downloaded previously.
 
@@ -184,7 +184,7 @@ The terminal window displays information as it sends telemetry to your hub:
 
 You can use **Metrics** in the portal to verify that the telemetry messages are reaching your IoT hub. Select your IoT hub in the **Resource** drop-down, select **Telemetry messages sent** as the metric, and set the time range to **Past hour**. The chart shows the aggregate count of messages sent by the simulated device:
 
-![Show IoT Hub metrics](media/tutorial-connectivity/metrics-portal.png)
+:::image type="content" source="media/tutorial-connectivity/metrics-portal.png" alt-text="Screenshot showing left pane metrics." border="true":::
 
 It takes a few minutes for the metrics to become available after you start the simulated device.
 
@@ -208,7 +208,7 @@ The simulated device prints a message to the console when it receives a direct m
 
 ![Simulated device receives direct method call](media/tutorial-connectivity/receive-method-call.png)
 
-When the simulated device successfully receives the direct method call, it sends an acknowledgement back to the hub:
+When the simulated device successfully receives the direct method call, it sends an acknowledgment back to the hub:
 
 ![Receive direct method acknowledgment](media/tutorial-connectivity/method-acknowledgement.png)
 

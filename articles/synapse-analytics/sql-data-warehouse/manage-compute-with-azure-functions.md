@@ -1,15 +1,14 @@
 ---
 title: 'Tutorial: Manage compute with Azure Functions'
 description: How to use Azure Functions to manage the compute of your dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
-services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 04/27/2018
-ms.author: jrasnick
-ms.reviewer: igorstan
+ms.author: wiassaf
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
@@ -37,7 +36,8 @@ Once you have the preceding information, deploy this template:
 
 Once you've deployed the template, you should find three new resources: a free Azure App Service Plan, a consumption-based Function App plan, and a storage account that handles the logging and the operations queue. Continue reading the other sections to see how to modify the deployed functions to fit your need.
 
-## Change the compute level
+## Change the time of the scale operation
+
 
 1. Navigate to your Function App service. If you deployed the template with the default values, this service should be named *DWOperations*. Once your Function App is open, you should notice there are five functions deployed to your Function App Service.
 
@@ -61,7 +61,7 @@ Once you've deployed the template, you should find three new resources: a free A
 
    For example, *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples](../../azure-functions/functions-bindings-timer.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#example).
 
-## Change the time of the scale operation
+## Change the compute level
 
 1. Navigate to your Function App service. If you deployed the template with the default values, this service should be named *DWOperations*. Once your Function App is open, you should notice there are five functions deployed to your Function App Service.
 

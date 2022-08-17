@@ -4,13 +4,12 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Overview of Azure Data Science Virtual Machine - An easy to use virtual machine on the Azure cloud platform with preinstalled and configured tools and libraries for doing data science.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
-author: vijetajo
-ms.author: vijetaj
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: overview
-ms.date: 04/02/2020
+ms.date: 06/23/2022
 
 ---
 
@@ -22,10 +21,11 @@ The DSVM is available on:
 
 + Windows Server 2019
 + Ubuntu 18.04 LTS
++ Ubuntu 20.04 LTS
 
 ## Comparison with Azure Machine Learning
 
-The DSVM is a customized VM image for Data Science but [Azure Machine Learning](../overview-what-is-azure-ml.md) (AzureML) is an end-to-end platform that encompasses:
+The DSVM is a customized VM image for Data Science but [Azure Machine Learning](../overview-what-is-azure-machine-learning.md) (AzureML) is an end-to-end platform that encompasses:
 
 + Fully Managed Compute
   + Compute Instances
@@ -58,9 +58,9 @@ The key differences between these two product offerings are detailed below:
 |Built-in<br>Hosted Notebooks     |   No<br>(requires additional configuration)      |      Yes   |
 |Built-in SSO     | No <br>(requires additional configuration)         |    Yes     |
 |Built-in Collaboration     | No         | Yes        |
-|Pre-installed Tools     |  Jupyter(lab), RStudio Server, VSCode,<br> Visual Studio, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(lab)<br> RStudio Server   |
+|Pre-installed Tools     |  Jupyter(lab), VSCode,<br> Visual Studio, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(lab) |
 
-## Sample Use Cases
+## Sample use cases
 
 Below we illustrate some common use cases for DSVM customers.
 

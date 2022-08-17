@@ -1,12 +1,11 @@
 ---
 title: Azure HPC Cache overview
 description: Describes Azure HPC Cache, a file access accelerator solution for high-performance computing 
-author: ekpgh
+author: ronhogue
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 11/23/2020
-ms.author: v-erkel
-ms.custom: references_regions
+ms.date: 02/03/2022
+ms.author: rohogue
 ---
 
 # What is Azure HPC Cache?
@@ -15,11 +14,11 @@ Azure HPC Cache speeds access to your data for high-performance computing (HPC) 
 
 Azure HPC Cache is easy to launch and monitor from the Azure portal. Existing NFS storage or new Blob containers can become part of its aggregated namespace, which makes client access simple even if you change the back-end storage target.
 
-## Overview video
+<!-- ## Overview video
 
 [![video thumbnail: Azure HPC Cache overview - click to visit video page](media/video-1-overview.png)](https://azure.microsoft.com/resources/videos/hpc-cache-overview/)
 
-Click the image above to watch a [short overview of Azure HPC Cache](https://azure.microsoft.com/resources/videos/hpc-cache-overview/).
+Click the image above to watch a [short overview of Azure HPC Cache](https://azure.microsoft.com/resources/videos/hpc-cache-overview/). -->
 
 ## Use cases
 
@@ -43,6 +42,18 @@ A research institute that wants to port its genomic analysis workflows into Azur
 
 Azure HPC Cache also can be leveraged to improve efficiency in tasks like secondary analysis, pharmacological simulation, or AI-driven image analysis.
 
+### Silicon design verification
+
+The silicon design industry’s design verification workloads, known as “electronic design automation (EDA) tools” are compute-intensive tools that can be run on large-scale virtual machine compute grids.
+
+Azure HPC Cache can provide on-cloud caching of design data, libraries, binaries, and rule database files from on-premises storage systems. This provides local-like response times for directory listings, metadata, and data reads, and eliminates the need for complex data migration, syncing, and copying operations.
+
+Azure HPC Cache also can be set up to cache output files being written by the compute jobs. This configuration gives immediate acknowledgement to the compute workflow and subsequently writes the changes back to the on-premises NAS.
+
+HPC Cache allows chip designers to scale EDA verification jobs to tens of thousands of cores with ease, and pay minimal attention to storage performance.
+
+Learn more about [High-performance computing for silicon](https://azure.microsoft.com/solutions/high-performance-computing/silicon/)
+
 ### Financial services analytics
 
 An Azure HPC Cache deployment can help speed up quantitative analysis calculations, risk analysis workloads, and Monte Carlo simulations to give financial services companies better insight to make strategic decisions.
@@ -50,15 +61,6 @@ An Azure HPC Cache deployment can help speed up quantitative analysis calculatio
 ## Region availability
 
 Visit the [Azure Global Infrastructure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache) page to learn where Azure HPC Cache is available.
-
-The [customer-managed keys feature](customer-keys.md) is supported only in these Azure regions:
-
-* East US
-* South Central US
-* West US 2
-* West Europe
-* US Gov Arizona
-* US Gov Virginia
 
 Azure HPC Cache resides in a single region. It can access data stored in other regions if you connect it to Blob containers located there. The cache does not permanently store customer data.
 

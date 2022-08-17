@@ -26,27 +26,27 @@ In this example, two existing queues (**default** and **thriftsvr**) both are ch
 
 1. Select the **Ambari Views** icon, and then select the grid pattern. Next, select **YARN Queue Manager**.
 
-    ![Apache Ambari dashboard YARN Queue Manager](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png" alt-text="Apache Ambari dashboard YARN Queue Manager" border="false":::
 2. Select the **default** queue.
 
-    ![Apache Ambari YARN select default queue](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png" alt-text="Apache Ambari YARN select default queue" border="false":::
 3. For the **default** queue, change the **capacity** from 50% to 25%. For the **thriftsvr** queue, change the **capacity** to 25%.
 
-    ![Change the capacity to 25% for the default and thriftsvr queues](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png" alt-text="Change the capacity to 25% for the default and thriftsvr queues" border="false":::
 4. To create a new queue, select **Add Queue**.
 
-    ![Apache Ambari YARN dashboard Add Queue](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png" alt-text="Apache Ambari YARN dashboard Add Queue" border="false":::
 
 5. Name the new queue.
 
-    ![Apache Ambari YARN dashboard name Queue](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png" alt-text="Apache Ambari YARN dashboard name Queue" border="false":::  
 
 6. Leave the **capacity** values at 50%, and then select the **Actions** button.
 
-    ![Apache Ambari YARN select action](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png" alt-text="Apache Ambari YARN select action" border="false":::  
 7. Select **Save and Refresh Queues**.
 
-    ![Select Save and Refresh Queues](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png" alt-text="Select Save and Refresh Queues" border="false":::  
 
 These changes are visible immediately on the YARN Scheduler UI.
 
@@ -128,4 +128,4 @@ These changes are visible immediately on the YARN Scheduler UI.
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]

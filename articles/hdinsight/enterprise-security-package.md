@@ -3,7 +3,7 @@ title: Enterprise Security Package for Azure HDInsight
 description: Learn the Enterprise Security Package components and versions in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 08/16/2022
 ---
 
 # Enterprise Security Package for Azure HDInsight
@@ -37,7 +37,7 @@ Enterprise Security is an optional package that you can add on your HDInsight cl
 
 Currently, only the following cluster types support the Enterprise Security Package:
 
-* Hadoop (HDInsight 3.6 only)
+* Hadoop
 * Spark
 * Kafka
 * HBase

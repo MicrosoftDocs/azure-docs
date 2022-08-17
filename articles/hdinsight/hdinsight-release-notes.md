@@ -1,11 +1,12 @@
 ---
 title: Release notes for Azure HDInsight 
-description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive, and more.
-ms.custom: hdinsightactive
+description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, Hive, and more.
+ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 08/01/2022
 ---
+
 # Azure HDInsight release notes
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
@@ -13,68 +14,108 @@ This article provides information about the **most recent** Azure HDInsight rele
 ## Summary
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
-
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-## Release date: 11/18/2020
+## Release date: 08/10/2022
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies to HDInsight 4.0.  HDInsight release is made available to all regions over several days.
 
-## New features
-### Auto key rotation for customer managed key encryption at rest
-Starting from this release, customers can use Azure KeyValut version-less encryption key URLs for customer managed key encryption at rest. HDInsight will automatically rotate the keys as they expire or replaced with new versions. Learn more details [here](./disk-encryption.md).
+HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
 
-### Ability to select different Zookeeper virtual machine sizes for Spark, Hadoop, and ML Services
-HDInsight previously didn't support customizing Zookeeper node size for Spark, Hadoop, and ML Services cluster types. It defaults to A2_v2/A2 virtual machine sizes, which are provided free of charge. From this release, you can select a Zookeeper virtual machine size that is most appropriate for your scenario. Zookeeper nodes with virtual machine size other than A2_v2/A2 will be charged. A2_v2 and A2 virtual machines are still provided free of charge.
 
-### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
+## New Feature
 
-## Deprecation
-### Deprecation of HDInsight 3.6 ML Services cluster
-HDInsight 3.6 ML Services cluster type will be end of support by December 31 2020. Customers won't be able to create new 3.6 ML Services clusters after December 31 2020. Existing clusters will run as is without the support from Microsoft. Check the support expiration for HDInsight versions and cluster types [here](./hdinsight-component-versioning.md#available-versions).
+**1. Attach external disks in HDI Hadoop/Spark clusters**
 
-### Disabled VM sizes
-Starting from November 16 2020, HDInsight will block new customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing customers who have used these VM sizes in the past three months won't be affected. Starting form January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
 
-## Behavior changes
-### Add NSG rule checking before scaling operation
-HDInsight added network security groups (NSGs) and user-defined routes (UDRs) checking with scaling operation. The same validation is done for cluster scaling besides of cluster creation. This validation helps prevent unpredictable errors. If validation doesn't pass, scaling fails. Learn more about how to configure NSGs and UDRs correctly, refer to [HDInsight management IP addresses](./hdinsight-management-ip-addresses.md).
+This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks will be part of node manager’s local directories.
 
-## Upcoming changes
-The following changes will happen in upcoming releases.
+> [!NOTE]
+> The added disks are only configured for node manager local directories.
+> 
 
-### Breaking change for .NET for Apache Spark 1.0.0
-HDInsight will introduce the first major official release of .NET for Apache Spark in the next release. It provides DataFrame API completeness for Spark 2.4.x and Spark 3.0.x along with other features. There will be breaking changes for this major version, refer to [this migration guid](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) to understand steps needed to update your code and pipelines. Learn more [here](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
+For more information, [see here](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#configuration--pricing)
 
-### Default cluster VM size will be changed to Ev3 family
-Starting from next release (around end of January), default cluster VM sizes will be changed from D family to Ev3 family. This change applies to head nodes and worker nodes. To avoid this change, specify the VM sizes that you want to use in the ARM template.
+**2. Selective logging analysis**
 
-### Default cluster version will be changed to 4.0
-Starting February 2021, the default version of HDInsight cluster will be changed from 3.6 to 4.0. For more information about available versions, see [available versions](./hdinsight-component-versioning.md#available-versions). Learn more about what is new in [HDInsight 4.0](./hdinsight-version-release.md)
+Selective logging analysis is now available on all regions for public preview. You can connect your cluster to a log analytics workspace. Once enabled, you can see the logs and metrics like HDInsight Security Logs, Yarn Resource Manager, System Metrics etc. You can monitor workloads and see how they're affecting cluster stability. Selective logging allows you to enable/disable all the tables or enable selective tables in log analytics workspace. You can adjust the source type for each table, since in new version of Geneva monitoring one table has multiple sources.
 
-### OS version upgrade
-HDInsight is upgrading OS version from 16.04 to 18.04. The upgrade will complete before April 2021.
+1. The Geneva monitoring system uses mdsd(MDS daemon) which is a monitoring agent and fluentd for collecting logs using unified logging layer.
+1. Selective Logging uses script action to disable/enable tables and their log types. Since it doesn't open any new ports or change any existing security setting hence, there are no security changes.
+1. Script Action runs in parallel on all specified nodes and changes the configuration files for disabling/enabling tables and their log types.
 
-### HDInsight 3.6 end of support on June 30 2021
-HDInsight 3.6 will be end of support. Starting form June 30 2021, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+For more information, [see here](/azure/hdinsight/selective-logging-analysis)
 
-## Bug fixes
-HDInsight continues to make cluster reliability and performance improvements. 
 
-## Component version change
-No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
+![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) 
+## Fixed
 
-## Known issues
-### Prevent HDInsight cluster VMs from rebooting periodically
+#### **Log analytics**
 
-Starting from mid November 2020, you may have noticed HDInsight cluster VMs getting rebooted regularly. This could be caused by:
+Log Analytics integrated with Azure HDInsight running OMS version 13 requires an upgrade to OMS version 14 to apply the latest security updates.
+Customers using older version of cluster with OMS version 13 need to install OMS version 14 to meet the security requirements. (How to check current version & Install 14) 
 
-1.	Clamav is enabled on your cluster. The new azsec-clamav package consumes large amount of memory that triggers node rebooting. 
-2.	A CRON job is scheduled daily that monitors for changes to the list of certificate authorities (CAs) used by Azure services. When a new CA certificate is available, the script adds the certificate to the JDK trust store and schedules a reboot.
+**How to check your current OMS version**
 
-HDInsight is deploying fixes and applying patch for all running clusters for both issues. To apply the fix immediately and avoid unexpected VMs rebooting, you can run below script actions on all cluster nodes as a persistent script action. HDInsight will post another notice after the fix and patching complete.
+1. Log in to the cluster using SSH.
+1. Run the following command in your SSH Client.
+
 ```
-https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
-https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
+sudo /opt/omi/bin/ominiserver/ --version
 ```
+![Screenshot showing how to check OMS Upgrade](media/hdinsight-release-notes/check-oms-version.png)
+
+**How to upgrade your OMS version from 13 to 14**
+
+1. Log in to the [Azure portal](https://portal.azure.com/) 
+1. From the resource group, select the HDInsight cluster resource 
+1. Click **Script actions** 
+1. From **Submit script action** panel, choose **Script type** as custom 
+1. Paste the following link in the Bash script URL box
+https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.1/omsagent-vulnerability-fix-1.14.12-0.sh 
+1. Select **Node type(s)**
+1. Click **Create** 
+
+![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
+
+1. Verify the successful installation of the patch using the following steps:  
+
+  1. Log in to the cluster using SSH.
+  1. Run the following command in your SSH Client.
+
+  ```
+  sudo /opt/omi/bin/ominiserver/ --version
+  ```
+
+### Other bug fixes
+
+1. Yarn log’s CLI failed to retrieve the logs if any TFile is corrupt or empty. 
+2. Resolved invalid service principal details error while getting the OAuth token from Azure Active Directory.
+3. Improved cluster creation reliability when 100+ worked nodes are configured.
+
+### Open source bug fixes
+
+#### TEZ bug fixes
+
+|Bug Fixes|Apache JIRA|
+|---|---|
+|Tez Build Failure: FileSaver.js not found|[TEZ-4411](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Wrong FS Exception when warehouse and scratchdir are on different FS|[TEZ-4406](https://issues.apache.org/jira/browse/TEZ-4406)|
+|TezUtils.createConfFromByteString on Configuration larger than 32 MB throws com.google.protobuf.CodedInputStream exception|[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
+|TezUtils::createByteStringFromConf should use snappy instead of DeflaterOutputStream|[TEZ-4113](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Update protobuf dependency to 3.x|[TEZ-4363](https://issues.apache.org/jira/browse/TEZ-4363)|
+
+#### Hive bug fixes
+
+|Bug Fixes|Apache JIRA|
+|---|---|
+|Perf optimizations in ORC split-generation| [HIVE-21457](https://issues.apache.org/jira/browse/HIVE-21457)|
+|Avoid reading table as ACID when table name is starting with "delta", but table isn't transactional and BI Split Strategy is used| [HIVE-22582](https://issues.apache.org/jira/browse/HIVE-22582)|
+|Remove an FS#exists call from AcidUtils#getLogicalLength|[HIVE-23533](https://issues.apache.org/jira/browse/HIVE-23533)|
+|Vectorized OrcAcidRowBatchReader.computeOffset and bucket optimization|[HIVE-17917](https://issues.apache.org/jira/browse/HIVE-17917)|
+
+### Known issues
+
+HDInsight is compatible with Apache HIVE 3.1.2. Due to a bug in this release, the Hive version is shown as 3.1.0 in hive interfaces. However, there's no impact on the functionality.

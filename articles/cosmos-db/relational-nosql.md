@@ -7,8 +7,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.reviewer: sngun
-
+ms.reviewer: mjbrown
+adobe-target: true
 ---
 
 # Understanding the differences between NoSQL and relational databases
@@ -61,7 +61,7 @@ If you are managing data whose structures are constantly changing at a high rate
 The [microservices](https://en.wikipedia.org/wiki/Microservices) pattern has grown significantly in recent years. This pattern has its roots in [Service-Oriented Architecture](https://en.wikipedia.org/wiki/Service-oriented_architecture). The de-facto standard for data transmission in these modern microservices architectures is [JSON](https://en.wikipedia.org/wiki/JSON), which also happens to be the storage medium for the vast majority of document-oriented NoSQL Databases. This makes NoSQL document stores a much more seamless fit for both the persistence and synchronization (using [event sourcing patterns](https://en.wikipedia.org/wiki/Event-driven_architecture)) across complex Microservice implementations. More traditional relational databases can be much more complex to maintain in these architectures. This is due to the greater amount of transformation required for both state and synchronization across APIs. Azure Cosmos DB in particular has a number of features that make it an even more seamless fit for JSON-based Microservices Architectures than many NoSQL databases:
 
 * a choice of pure JSON data types
-* a JavaScript engine and [query API](./javascript-query-api.md) built into the database.
+* a JavaScript engine and [query API](sql/javascript-query-api.md) built into the database.
 * a state-of-the-art [change feed](./change-feed.md) which clients can subscribe to in order to get notified of modifications to a container.
 
 ## Some challenges with NoSQL databases

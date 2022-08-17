@@ -12,13 +12,15 @@ ms.author: routlaw
 
 # Get Virtual Machine usage metrics using the REST API
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This example shows how to retrieve the CPU usage for a Linux Virtual Machine using the [Azure REST API](/rest/api/azure/).
 
 Complete reference documentation and additional samples for the REST API are available in the [Azure Monitor REST reference](/rest/api/monitor). 
 
 ## Build the request
 
-Use the following GET request to collect the [Percentage CPU metric](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) from a Virtual Machine
+Use the following GET request to collect the [Percentage CPU metric](../../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) from a Virtual Machine
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z

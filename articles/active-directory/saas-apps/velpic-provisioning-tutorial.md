@@ -10,7 +10,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configuring Velpic for Automatic User Provisioning
@@ -25,7 +25,7 @@ The objective of this tutorial is to show you the steps you need to perform in V
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * An Azure Active Directory tenant
-* A Velpic tenant with the [Enterprise plan](https://www.velpic.com/pricing.html) or better enabled
+* A Velpic tenant with the Enterprise plan or better enabled
 * A user account in Velpic with Admin permissions
 
 ## Assigning users to Velpic

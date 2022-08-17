@@ -3,18 +3,17 @@ title: Reference inputs and outputs in skillsets
 titleSuffix: Azure Cognitive Search
 description: Explains the annotation syntax and how to reference an annotation in the inputs and outputs of a skillset in an AI enrichment pipeline in Azure Cognitive Search.
 
-manager: nitinme
-author: LuisCabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/24/2021
 ---
-# How to reference annotations in an Azure Cognitive Search skillset
+# Reference annotations in an Azure Cognitive Search skillset
 
 In this article, you learn how to reference annotations in skill definitions, using examples to illustrate various scenarios. As the content of a document flows through a set of skills, it gets enriched with annotations. Annotations can be  used as inputs for further downstream enrichment, or mapped to an output field in an index. 
  
-Examples in this article are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the document cracking phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the *content* field is part of the *document*. 
+Examples in this article are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the [document cracking](search-indexer-overview.md#document-cracking) phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the *content* field is part of the *document*. 
 
 ## Background concepts
 
@@ -22,19 +21,20 @@ Before reviewing the syntax, let's revisit a few important concepts to better un
 
 | Term | Description |
 |------|-------------|
-| Enriched Document | An enriched document is an internal structure created and used by the pipeline to hold all annotations related to a document. Think of an enriched document as a tree of annotations. Generally, an annotation created from a previous annotation becomes its child.<p/>Enriched documents only exist for the duration of skillset execution. Once content is mapped to the search index, the enriched document is no longer needed. Although you don't interact with enriched documents directly, it's useful to have a mental model of the documents when creating a skillset. |
-| Enrichment Context | The context in which the enrichment takes place, in terms of which element is enriched. By default, the enrichment context is at the `"/document"` level, scoped to individual documents. When a skill runs, the outputs of that skill become [properties of the defined context](#example-2).|
+| "enriched document" | An enriched document is an internal structure that collects skill output as it's created and it holds all annotations related to a document. Think of an enriched document as a tree of annotations. Generally, an annotation created from a previous annotation becomes its child. </p>Enriched documents only exist for the duration of skillset execution. Once content is mapped to the search index, the enriched document is no longer needed. Although you don't interact with enriched documents directly, it's useful to have a mental model of the documents when creating a skillset. |
+| "annotation" | Within an enriched document, a node that is created and populated by a skill, such as "text" and "layoutText" in the OCR skill, is called an annotation. An enriched document is populated with both annotations and unchanged field values or metadata copied from the source. |
+| "context" | The context in which the enrichment takes place, in terms of which element or component of the document is enriched. By default, the enrichment context is at the `"/document"` level, scoped to individual documents contained in the data source. When a skill runs, the outputs of that skill become [properties of the defined context](#example-2). |
 
 <a name="example-1"></a>
 ## Example 1: Simple annotation reference
 
-In Azure Blob storage, suppose you have a variety of files containing references to people's names that you want to extract using entity recognition. In the skill definition below, `"/document/content"` is the textual representation of the entire document, and "people" is an extraction of full names for entities identified as persons.
+In Azure Blob Storage, suppose you have a variety of files containing references to people's names that you want to extract using entity recognition. In the skill definition below, `"/document/content"` is the textual representation of the entire document, and "people" is an extraction of full names for entities identified as persons.
 
 Because the default context is `"/document"`, the list of people can now be referenced as `"/document/people"`. In this specific case `"/document/people"` is an annotation, which could now be mapped to a field in an index, or used in another skill in the same skillset.
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [
@@ -116,6 +116,7 @@ Notice that the cardinality of `"/document/people/*/lastname"` is larger than th
 
 
 ## See also
++ [Skill context and input annotation language](cognitive-search-skill-annotation-language.md)
 + [How to integrate a custom skill into an enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Skillset (REST)](/rest/api/searchservice/create-skillset)

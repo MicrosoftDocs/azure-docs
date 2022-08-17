@@ -1,16 +1,16 @@
 ---
 title: Enable replication for on-premises machines with private endpoints 
 description: This article describes how to configure replication for on-premises machines by using private endpoints in Site Recovery. 
-author: Harsha-CS
-ms.author: harshacs
+author: v-pgaddala
+ms.author: v-pgaddala
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
+ms.custom: subject-rbac-steps
 ---
 # Replicate on-premises machines by using private endpoints
 
-Azure Site Recovery allows you to use
-[Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints to replicate
+Azure Site Recovery allows you to use [Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints to replicate
 your on-premises machines to a virtual network in Azure. Private endpoint access to
 a recovery vault is supported in all Azure Commercial & Government regions.
 
@@ -55,6 +55,9 @@ then create private endpoints in the bypass network. You can choose any form of 
   to a cache storage account. You can use any connectivity method between on-premises and your storage account endpoint. For example, you can use the internet or
   Azure [ExpressRoute](../expressroute/index.yml). Establishing a private link is optional. You can create private endpoints for storage only on General Purpose v2 accounts. See
   [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) for information about pricing for data transfer on General Purpose v2 accounts.
+
+> [!NOTE]
+> While setting up private endpoints to protect VMware and physical machines, you will need to install MySQL on the configuration server manually. Follow the steps [here](vmware-azure-deploy-configuration-server.md#configure-settings) to perform the manual installation. 
 
  ## Create and use private endpoints for site recovery
 
@@ -206,22 +209,31 @@ following role permissions, depending on the type of storage account.
   - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
   - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
 
-These steps describe how to add a role assignment to your storage account:
+The following steps describe how to add a role assignment to your storage account. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. Go to the storage account. Select **Access control (IAM)** in the left pane.
+1. Go to the storage account.
 
-1. In the **Add a role assignment** section, select **Add**:
+1. Select **Access control (IAM)**.
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Screenshot that shows the Access control (IAM) page for a storage account.":::
+1. Select **Add > Add role assignment**.
 
-1. On the **Add a role assignment** page, in the **Role**
-   list, select the role from the list at the start of this section. Enter the name of the vault and then select **Save**.
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Screenshot that shows the Add role assignment page.":::
+1. On the **Role** tab, select one of the roles listed in the beginning of this section.
 
-After you add these permissions, you need to allow access to Microsoft trusted services. Go to
-**Firewalls and virtual networks** and select **Allow trusted Microsoft services to access this storage
-account** in **Exceptions**.
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. Select your Azure subscription.
+
+1. Select **System-assigned managed identity**, search for a vault, and then select it.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+In addition to these permissions, you need to allow access to Microsoft trusted services. To do so, follow these steps:
+
+1. Go to **Firewalls and virtual networks**.
+
+1. In **Exceptions**, select **Allow trusted Microsoft services to access this storage account**.
 
 ### Protect your virtual machines
 

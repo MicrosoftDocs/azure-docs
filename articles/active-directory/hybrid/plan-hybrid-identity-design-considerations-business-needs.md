@@ -4,12 +4,11 @@ description: Identify the company’s business needs that will lead you to defin
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -55,7 +54,7 @@ You also need to be aware of the cloud services that your company might have. Pe
 * Is this integration currently in production or is it a pilot?
 
 > [!NOTE]
-> Cloud Discovery analyzes your traffic logs against Microsoft Cloud App Security's cloud app catalog of over 16,000 cloud apps that are ranked and scored based on more than 70 risk factors, to provide you with ongoing visibility into cloud use, Shadow IT, and the risk Shadow IT poses into your organization.To get started see [Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
+> Cloud Discovery analyzes your traffic logs against the Microsoft Defender for Cloud Apps catalog of over 16,000 cloud apps that are ranked and scored based on more than 70 risk factors, to provide you with ongoing visibility into cloud use, Shadow IT, and the risk Shadow IT poses into your organization.To get started see [Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 > 
 > 
 
@@ -108,4 +107,3 @@ You also have to evaluate the user requirements. This evaluation is important to
 
 ## See also
 [Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
-

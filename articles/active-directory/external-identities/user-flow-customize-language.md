@@ -8,17 +8,14 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 03/02/2021
 ms.author: mimart
 ms.reviewer: elisolMS
 
 ms.collection: M365-identity-device-management
 ---
 
-# Language customization in Azure Active Directory (Preview)
-
-> [!NOTE]
-> Self-service sign-up is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Language customization in Azure Active Directory
 
 Language customization in Azure Active Directory (Azure AD) allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). Even if your experience is provided for only a single language, you can customize the attribute names on the attribute collection page.
 
@@ -36,7 +33,7 @@ Language customization enables you to customize any string in your user flow.
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
-4. Select **User flows (Preview)**.
+4. Select **User flows**.
 3. Select the user flow that you want to enable for translations.
 4. Select **Languages**.
 5. On the **Languages** page for the user flow, select the language that you want to customize.
@@ -131,7 +128,7 @@ Microsoft is committed to providing the most up-to-date translations for your us
 
 ### Support for right-to-left languages
 
-Microsoft currently doesn't provide support for right-to-left languages. You can accomplish this by using custom locales and using CSS to change the way the strings are displayed. If you need this feature, please vote for it on [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+Microsoft currently doesn't provide support for right-to-left languages. You can accomplish this by using custom locales and using CSS to change the way the strings are displayed. If you need this feature, please vote for it on [Azure Feedback](https://feedback.azure.com/d365community/idea/10a7e89c-c325-ec11-b6e6-000d3a4f0789).
 
 ### Social identity provider translations
 

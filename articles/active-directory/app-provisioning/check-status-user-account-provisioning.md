@@ -1,14 +1,14 @@
 ---
-title: Report automatic user account provisioning to SaaS applications
+title: Report automatic user account provisioning from Azure Active Directory to Software as a Service (SaaS) applications
 description: 'Learn how to check the status of automatic user account provisioning jobs, and how to troubleshoot the provisioning of individual users.'
 services: active-directory
 author: kenwith
-manager: daveba
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/09/2018
+ms.date: 05/30/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -21,10 +21,15 @@ This article describes how to check the status of provisioning jobs after they h
 
 ## Overview
 
-Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](../saas-apps/tutorial-list.md) for the supported application. Once configured and running, provisioning jobs can be reported on using one of two methods:
+Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](../saas-apps/tutorial-list.md) for the supported application. Once configured and running, provisioning jobs can be reported on using the following methods:
 
-* **Azure portal** - This article primarily describes retrieving report information from the [Azure portal](https://portal.azure.com), which provides both a provisioning summary report as well as detailed provisioning audit logs for a given application.
-* **Audit API** - Azure Active Directory also provides an Audit API that enables programmatic retrieval of the detailed provisioning audit logs. See [Azure Active Directory audit API reference](/graph/api/resources/directoryaudit) for documentation specific to using this API. While this article does not specifically cover how to use the API, it does detail the types of provisioning events that are recorded in the audit log.
+- The [Azure portal](https://portal.azure.com)
+
+- Streaming the provisioning logs into [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). This method allows for extended data retention and building custom dashboards, alerts, and queries.
+
+- Querying the [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary) for the provisioning logs.
+
+- Downloading the provisioning logs as a CSV or JSON file.
 
 ### Definitions
 
@@ -35,7 +40,7 @@ This article uses the following terms, defined below:
 
 ## Getting provisioning reports from the Azure portal
 
-To get provisioning report information for a given application, start by launching the [Azure portal](https://portal.azure.com) and **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section. You can also browse to the Enterprise Application for which provisioning is configured. For example, if you are provisioning users to LinkedIn Elevate, the navigation path to the application details is:
+To get provisioning report information for a given application, start by launching the [Azure portal](https://portal.azure.com) and **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs** in the **Activity** section. You can also browse to the Enterprise Application for which provisioning is configured. For example, if you are provisioning users to LinkedIn Elevate, the navigation path to the application details is:
 
 **Azure Active Directory > Enterprise Applications > All applications > LinkedIn Elevate**
 
@@ -43,7 +48,7 @@ From here, you can access both the provisioning progress bar and the provisionin
 
 ## Provisioning progress bar
 
-The [provisioning progress bar](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) is visible in the **Provisioning** tab for given application. It is located in the **Current Status** section underneath **Settings**, and shows the status of the current initial or incremental cycle. This section also shows:
+The [provisioning progress bar](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) is visible in the **Provisioning** tab for a given application. It is located in the **Current Status** section and shows the status of the current initial or incremental cycle. This section also shows:
 
 * The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system.
 * The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial cycle](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has completed.
@@ -54,10 +59,10 @@ The **Current Status** should be the first place admins look to check on the ope
 
  ![Summary report](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
-## Provisioning logs (preview)
+## Provisioning logs 
 
-All activities performed by the provisioning service are recorded in the Azure AD [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). You can access the provisioning logs in the Azure portal by selecting **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section. You can search the provisioning data based on the name of the user or the identifier in either the source system or the target system. For details, see [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
-Logged activity event types include:
+All activities performed by the provisioning service are recorded in the Azure AD [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). You can access the provisioning logs in the Azure portal by selecting **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs ** in the **Activity** section. You can search the provisioning data based on the name of the user or the identifier in either the source system or the target system. For details, see [Provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+
 
 ## Troubleshooting
 

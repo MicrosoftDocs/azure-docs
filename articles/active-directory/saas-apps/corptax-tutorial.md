@@ -124,8 +124,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
 
-    b. In the **User name** field, type `brittasimon\@yourcompanydomain.extension`  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field, type `brittasimon@<yourcompanydomain.extension>`. For example: `brittasimon@contoso.com`.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -168,7 +167,7 @@ When you click the Corptax tile in the Access Panel, you should be redirected to
 
 ![image](media/corptax-tutorial/corptaxlogin.png)
 
-In **Environment** text box, type your appropriate environment, you should be automatically signed in to the Corptax for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+In **Environment** text box, type your appropriate environment, you should be automatically signed in to the Corptax for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 

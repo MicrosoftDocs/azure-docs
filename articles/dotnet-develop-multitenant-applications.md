@@ -11,11 +11,9 @@ ms.assetid: 4f0281d2-1555-42b0-a99d-1222fade0b0f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.custom: devx-track-dotnet
 
 ---
 # Multitenant Applications in Azure
@@ -37,9 +35,9 @@ A properly implemented multitenant application provides the following benefits t
 * **Costs**: Costs are lower than running a dedicated, single-tenant application because multi-tenancy enables the sharing of resources.
 * **Customizability**. The ability to customize the application for an individual tenant in various ways such as adding or removing features, changing colors and logos, or even adding their own code or script.
 
-In short, while there are many considerations that you must take into account to provide a highly scalable service, there are also a number of  goals and requirements that are common to many multitenant applications. Some may not be relevant in specific scenarios, and the importance of individual goals and requirements will differ in each scenario. As a provider of the multitenant application, you will also have goals and requirements such as, meeting the tenant's goals and requirements, profitability, billing, multiple service levels, provisioning, maintainability monitoring, and automation.
+In short, while there are many considerations that you must take into account to provide a highly scalable service, there are also multiple goals and requirements that are common to many multitenant applications. Some may not be relevant in specific scenarios, and the importance of individual goals and requirements will differ in each scenario. As a provider of the multitenant application, you'll also have goals and requirements, such as meeting the tenant's needs, profitability, billing, multiple service levels, provisioning, maintainability monitoring, and automation.
 
-For more information on additional design considerations of a multitenant application, see [Hosting a Multi-Tenant Application on Azure][Hosting a Multi-Tenant Application on Azure]. For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](./azure-sql/database/saas-tenancy-app-design-patterns.md). 
+For more information on additional design considerations of a multitenant application, see [Hosting a Multi-Tenant Application on Azure][Hosting a Multi-Tenant Application on Azure]. For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](/azure/azure-sql/database/saas-tenancy-app-design-patterns). 
 
 Azure provides many features that allow you to address the key problems encountered when designing a multitenant system.
 
@@ -58,7 +56,7 @@ Data management such as Azure SQL Database or Azure Storage services such as the
 * Securing Multitenant Data in SQL Database per-tenant SQL Server logins.
 * Using Azure Tables for Application Resources by specifying a container level access policy, you can have the ability to adjust permissions without having to issue new URL's for the resources protected with shared access signatures.
 * Azure Queues for Application Resources Azure queues are commonly used to drive processing on behalf of tenants, but may also be used to distribute work required for provisioning or management.
-* Service Bus Queues for Application Resources that pushes work to a shared a service, you can use a single queue where each tenant sender only has permissions (as derived from claims issued from ACS) to push to that queue, while only the receivers from the service have permission to pull from the queue the data coming from multiple tenants.
+* Service Bus Queues for Application Resources that pushes work to a shared service, you can use a single queue where each tenant sender only has permissions (as derived from claims issued from ACS) to push to that queue, while only the receivers from the service have permission to pull from the queue the data coming from multiple tenants.
 
 **Connection and Security Services**
 
@@ -80,7 +78,7 @@ Azure provides a number of ways to provision new tenants for the application. Fo
 * Worker roles allow you to provision and de-provision per tenant resources (such as when a new tenant signs-up or cancels), collect metrics for metering use, and manage scale following a certain schedule or in response to the crossing of thresholds of key performance indicators. This same role may also be used to push out updates and upgrades to the solution.
 * Azure Blobs can be used to provision compute or pre-initialized storage resources for new tenants while providing container level access policies to protect the compute service Packages, VHD images and other resources.
 * Options for provisioning SQL Database resources for a tenant include:
-  
+
   * DDL in scripts or embedded as resources within assemblies.
   * SQL Server 2008 R2 DAC Packages deployed programmatically.
   * Copying from a master reference database.

@@ -11,11 +11,12 @@ ms.subservice: education-hub
 
 # What is Azure Dev Tools for Teaching?
 
-Microsoft Azure Dev Tools for Teaching puts professional developer tools, software, and services
-from Microsoft in the hands of faculty and students with low-cost subscriptions. Students
-receive developer tools at no cost--everything needed to create apps, games, and websites--so 
-they can chase their dreams, create the next big breakthrough in technology, or get a head 
-start on their career.
+Microsoft Azure Dev Tools for Teaching puts professional developer tools, 
+software, and services from Microsoft in the hands of faculty and students 
+with plans that come as a part of various Academic Volume Licensing Agreements. 
+Students receive developer tools at no cost--everything needed to create apps, games, 
+and websites--so they can chase their dreams, create the next big breakthrough in technology, 
+or get a head start on their career.
 
 As an administrator of the Azure Dev Tools for Teaching subscription, you'll be able to:
 
@@ -26,10 +27,7 @@ need to maintain a WebStore or an internal site.
 Azure cloud platform through the same online portal.
 
 ## Program details
-
-We designed Azure Dev Tools for Teaching for STEM-focused instruction. Any course curriculum 
-focused on science, technology, engineering, or mathematics is eligible to
-use Azure Dev Tools for Teaching to help professors teach and students learn more effectively. 
+We designed Azure Dev Tools for Teaching to help professors teach and students learn more effectively.
 
 Your Microsoft Azure Dev Tools for Teaching subscription provides you with access to certain software 
 developer tools. These tools are available to download for free. If you're a faculty member is enrolled 
@@ -51,6 +49,9 @@ credentials they use to access their Imagine subscription.
 Students don't need to sign up for an Azure subscription to access their software benefits. However, 
 Microsoft does offer USD$100 in Azure credit plus access to free Azure services for students: students 
 can sign up for the [Azure for Students offer](azure-students-program.md) without needing a credit card.
+
+## Why can’t I purchase Azure Dev Tools for Teaching?
+Azure Dev Tools for Teaching is now only available to redeem if you have a Volume Licensing (VL) agreement with Microsoft.  If you have a VL agreement with Microsoft and are still having issues redeeming, please contact support.  For more information on Volume Licensing for Education, please visit https://aka.ms/ees
 
 ## Getting help
 

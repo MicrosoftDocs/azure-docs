@@ -3,7 +3,7 @@ title: Authentication issues in Azure HDInsight
 description: Authentication issues in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/24/2020
+ms.date: 03/31/2022
 ---
 
 # Authentication issues in Azure HDInsight
@@ -206,4 +206,4 @@ This error occurs intermittently when users try to access the ADLS Gen2 using AC
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -1,12 +1,12 @@
 ---
 title: What are Azure Reservations?
 description: Learn about Azure Reservations and pricing to save on your reserved instances for virtual machines, SQL databases, Azure Cosmos DB, and other resource costs.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 12/15/2020
+ms.date: 10/28/2021
 ms.author: banders
 ---
 
@@ -86,7 +86,8 @@ For more information, see [Self-service exchanges and refunds for Azure Reservat
 - **Reserved Virtual Machine Instance** - A reservation only covers the virtual machine and cloud services compute costs. It doesn't cover additional software, Windows, networking, or storage charges.
 - **Azure Storage reserved capacity** - A reservation covers storage capacity for standard storage accounts for Blob storage or Azure Data Lake Gen2 storage. The reservation doesn't cover bandwidth or transaction rates.
 - **Azure Cosmos DB reserved capacity** - A reservation covers throughput provisioned for your resources. It doesn't cover the storage and networking charges.
-- **SQL Database reserved vCore** - Covers both SQL Managed Instance and SQL Database Elastic Pool/single database. Only the compute costs are included with a reservation. The SQL license is billed separately. 
+- **Azure Data Factory data flows** - A reservation covers integration runtime cost for the compute type and number of cores that you buy.
+- **SQL Database reserved vCore** - Covers both SQL Managed Instance and SQL Database Elastic Pool/single database. Only the compute costs are included with a reservation. The SQL license is billed separately.
 - **Azure Synapse Analytics** - A reservation covers cDWU usage. It doesn't cover storage or networking charges associated with the Azure Synapse Analytics usage.
 - **Azure Databricks** - A reservation covers only the DBU usage. Other charges, such as compute, storage, and networking, are applied separately.
 - **App Service stamp fee** - A reservation covers stamp usage. It doesn't apply to workers, so any other resources associated with the stamp are charged separately.
@@ -123,7 +124,7 @@ If you have questions or need help,  [create a support request](https://go.micro
 - Learn more about reservations for service plans:
     - [Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
     - [Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)
-    - [SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
+    - [SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)
     - [Azure Cache for Redis resources with Azure Cache for Redis reserved capacity](../../azure-cache-for-redis/cache-reserved-pricing.md)
 Learn more about reservations for software plans:
     - [Red Hat software plans from Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)

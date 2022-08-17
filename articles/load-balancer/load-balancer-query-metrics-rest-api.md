@@ -3,13 +3,13 @@ title: Retrieve metrics with the REST API
 titleSuffix: Azure Load Balancer
 description: In this article, get started using the Azure REST APIs to collect health and usage metrics for Azure Load Balancer.
 services: sql-database
-author: asudbring
+author: mbender-ms
 manager: KumudD
 ms.service: load-balancer
 ms.custom: REST, seodec18
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.author: allensu
+ms.author: mbender
 ---
 
 # Get Load Balancer usage metrics using the REST API
@@ -39,7 +39,7 @@ The following headers are required:
 
 | Name | Description |
 | :--- | :---------- |
-| subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli). |
 | resourceGroupName | The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API, CLI, or the portal. |
 | loadBalancerName | The name of the Azure Load Balancer. |
 | metric names | Comma-separated list of valid  [Load Balancer metrics](./load-balancer-standard-diagnostics.md). |

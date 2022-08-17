@@ -1,13 +1,13 @@
 ---
-title: 'Troubleshoot an Azure site-to-site VPN connection that cannot connect
-titleSuffix: Azure VPN Gateway'
+title: 'Troubleshoot an Azure site-to-site VPN connection that cannot connect'
+titleSuffix: Azure VPN Gateway
 description: Learn how to troubleshoot a site-to-site VPN connection that suddenly stops working and cannot be reconnected. 
 services: vpn-gateway
 author: chadmath
 
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/16/2019
+ms.date: 03/22/2021
 ms.author: genli
 ---
 
@@ -55,7 +55,7 @@ To view the shared key for the Azure VPN connection, use one of the following me
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-For the Azure Resource Manager deployment model:
+For the Azure [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md):
 
 ```azurepowershell
 Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
@@ -78,9 +78,7 @@ Check for and remove user-defined routing (UDR) or Network Security Groups (NSGs
 
 ### Step 5. Check the on-premises VPN device external interface address
 
-- If the Internet-facing IP address of the VPN device is included in the **Local network** definition in Azure, you might experience sporadic disconnections.
-- The device's external interface must be directly on the Internet. There should be no network address translation or firewall between the Internet and the device.
-- To configure firewall clustering to have a virtual IP, you must break the cluster and expose the VPN appliance directly to a public interface that the gateway can interface with.
+If the Internet-facing IP address of the VPN device is included in the **Local network** definition in Azure, you might experience sporadic disconnections.
 
 ### Step 6. Verify that the subnets match exactly (Azure policy-based gateways)
 
@@ -92,6 +90,9 @@ Check for and remove user-defined routing (UDR) or Network Security Groups (NSGs
 1. Open health probe by browsing to the following URL:
 
     `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
+
+    _For Active/Acive gateways use the following to check the second public IP:_ <br>
+    `https://<YourVirtualNetworkGatewayIP2>:8083/healthprobe`
 
 2. Click through the certificate warning.
 3. If you receive a response, the VPN gateway is considered healthy. If you don't receive a response, the gateway might not be healthy or an NSG on the gateway subnet is causing the problem. The following text is a sample response:

@@ -1,16 +1,16 @@
 ---
 title: Create customer insights dashboard
-description: Manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions
+description: Manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions.
 services: logic-apps
 ms.suite: integration
-author: jeffhollan
-ms.author: jehollan
-ms.reviewer: estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 03/15/2018
 ---
 
 # Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 Azure offers [serverless](https://azure.microsoft.com/solutions/serverless/) tools that help you quickly build 
 and host apps in the cloud, without having to think about infrastructure. 
@@ -37,7 +37,7 @@ The workflow that you create monitors a hashtag on Twitter.
 You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
 and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). 
 For a video walkthrough that shows how to create this solution, 
-[watch this Channel 9 video](https://aka.ms/logicappsdemo). 
+[watch this Channel 9 video](/shows/). 
 
 ## Trigger on customer data
 
@@ -179,7 +179,7 @@ with all dependencies as a single template. Learn
 how to [automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md).
 
 For an example deployment template with an Azure function, 
-check the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
+check the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json).
 
 ## Next steps
 

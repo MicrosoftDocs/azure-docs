@@ -2,11 +2,11 @@
 title: Azure Application Gateway features
 description: Learn about Azure Application Gateway features
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.author: victorh
+ms.date: 01/18/2022
+ms.author: greglin
 ---
 
 # Azure Application Gateway features
@@ -17,21 +17,6 @@ ms.author: victorh
 
 Application Gateway includes the following features:
 
-- [Secure Sockets Layer (SSL/TLS) termination](#secure-sockets-layer-ssltls-termination)
-- [Autoscaling](#autoscaling)
-- [Zone redundancy](#zone-redundancy)
-- [Static VIP](#static-vip)
-- [Web Application Firewall](#web-application-firewall)
-- [Ingress Controller for AKS](#ingress-controller-for-aks)
-- [URL-based routing](#url-based-routing)
-- [Multiple-site hosting](#multiple-site-hosting)
-- [Redirection](#redirection)
-- [Session affinity](#session-affinity)
-- [Websocket and HTTP/2 traffic](#websocket-and-http2-traffic)
-- [Connection draining](#connection-draining)
-- [Custom error pages](#custom-error-pages)
-- [Rewrite HTTP headers and URL](#rewrite-http-headers-and-url)
-- [Sizing](#sizing)
 
 ## Secure Sockets Layer (SSL/TLS) termination
 
@@ -43,7 +28,7 @@ For more information, see [Overview of SSL termination and end to end SSL with A
 
 Application Gateway Standard_v2 supports autoscaling and can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. 
 
-For more information about the Application Gateway Standard_v2 features, see [Autoscaling v2 SKU](application-gateway-autoscaling-zone-redundant.md).
+For more information about the Application Gateway Standard_v2 features, see [What is Azure Application Gateway v2?](overview-v2.md).
 
 ## Zone redundancy
 
@@ -55,7 +40,7 @@ The application gateway Standard_v2 SKU supports static VIP type exclusively. Th
 
 ## Web Application Firewall
 
-Web Application Firewall (WAF) is a service that provides centralized protection of your web applications from common exploits and vulnerabilities. WAF is based on rules from the [OWASP (Open Web Application Security Project) core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (WAF_v2 only), 3.0, and 2.2.9. 
+Web Application Firewall (WAF) is a service that provides centralized protection of your web applications from common exploits and vulnerabilities. WAF is based on rules from the [OWASP (Open Web Application Security Project) core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1 (WAF_v2 only), 3.0, and 2.2.9. 
 
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at many layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a Web Application Firewall enabled application gateway easily.
 
@@ -85,7 +70,7 @@ Requests for `http://contoso.com` are routed to ContosoServerPool, `http://fabri
 
 Similarly, two subdomains of the same parent domain can be hosted on the same application gateway deployment. Examples of using subdomains could include `http://blog.contoso.com` and `http://app.contoso.com` hosted on a single application gateway deployment. For more information, see [Application Gateway multiple site hosting](multiple-site-overview.md).
 
-You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener (preview)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
+You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener).
 
 ## Redirection
 
@@ -161,8 +146,8 @@ The following table shows an average performance throughput for each application
 
 ## Version feature comparison
 
-For an Application Gateway v1-v2 feature comparison, see [Autoscaling and Zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku)
+For an Application Gateway v1-v2 feature comparison, see [What is Azure Application Gateway v2?](overview-v2.md#feature-comparison-between-v1-sku-and-v2-sku).
 
 ## Next steps
 
-- Learn how Application Gateway works - [How an application gateway works](how-application-gateway-works.md)
+- Learn [how an application gateway works](how-application-gateway-works.md)

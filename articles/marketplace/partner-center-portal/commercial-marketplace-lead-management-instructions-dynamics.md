@@ -4,8 +4,8 @@ description: Learn how to set up Dynamics 365 Customer Engagement to manage lead
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: trkeya
-ms.author: trkeya
+author: urimsft
+ms.author: uridor
 ms.date: 03/30/2020
 ---
 
@@ -27,7 +27,7 @@ The following user permissions are necessary to complete the steps in this artic
 
 ## Install the solution
 
-1. Download the [Microsoft Marketplace Lead Writer solution](https://mpsapiprodwus.blob.core.windows.net/documentation/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip), and save it locally to your computer.
+1. Download the [Microsoft Marketplace Lead Writer solution](https://referralsflowpackages.blob.core.windows.net/documentation/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip), and save it locally to your computer.
 
 1. Open Dynamics 365 Customer Engagement by going to the URL for your Dynamics instance, such as `https://tenant.crm.dynamics.com`.
 

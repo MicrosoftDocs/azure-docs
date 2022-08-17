@@ -18,7 +18,11 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: cli-samples.md
+    items: 
+    - name: Overview
+      href: cli-samples.md
+    - name: Create managed application
+      href: scripts/managed-application-define-create-cli-sample.md
   - name: Azure PowerShell
     href: powershell-samples.md
   - name: Managed application solutions
@@ -34,7 +38,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/managed-applications-security-baseline?toc=/azure/azure-resource-manager/managed-applications/toc.json
 - name: How-to guides
   items:
   - name: Publishers
@@ -44,7 +48,7 @@
     - name: Test portal interface
       href: test-createuidefinition.md
     - name: Create an Azure application offer
-      href: ../../marketplace/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
+      href: ../../marketplace/azure-app-offer-setup.md?toc=%2fazure%2fazure-resource-manager%2fmanaged-applications%2ftoc.json
     - name: Request just-in-time access
       href: request-just-in-time-access.md
     - name: Use existing virtual network
@@ -78,7 +82,7 @@
   - name: Azure CLI
     href: /cli/azure/managedapp
   - name: PowerShell
-    href: /powershell/module/az.resources
+    href: /powershell/module/az.resources/
   - name: REST
     href: /rest/api/resources/
   - name: User interface functions

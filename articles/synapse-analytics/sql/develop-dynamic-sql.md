@@ -1,7 +1,6 @@
 ---
 title: Use dynamic SQL in Synapse SQL 
 description: Tips for using dynamic SQL in Synapse SQL.
-services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
@@ -9,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: 
 ---
 
@@ -34,7 +33,7 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-If the string is short, you can use [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) as normal.
+If the string is short, you can use [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?view=azure-sqldw-latest&preserve-view=true) as normal.
 
 > [!NOTE]
 > Statements executed as dynamic SQL will still be subject to all T-SQL validation rules.

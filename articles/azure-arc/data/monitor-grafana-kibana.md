@@ -7,26 +7,24 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 12/08/2020
+ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
 # View logs and metrics using Kibana and Grafana
 
-Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc enabled data services.
+Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc-enabled data services. To access Kibana and Grafana web dashboards view service endpoints check [Azure Data Studio dashboards](./azure-data-studio-dashboards.md) documentation. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Monitor Azure SQL managed instances on Azure Arc
 
-To access the logs and monitoring dashboards for Arc enabled SQL Managed Instance, run the following `azdata` CLI command
+To access the logs and monitoring dashboards for Azure Arc-enabled SQL Managed Instance, run the following `azdata` CLI command
 
-```bash
-
-azdata arc sql endpoint list -n <name of SQL instance>
-
+```azurecli
+az sql mi-arc endpoint list -n <name of SQL instance> --use-k8s
 ```
+
 The relevant Grafana dashboards are:
 
 * "Azure SQL managed instance Metrics"
@@ -38,17 +36,15 @@ The relevant Grafana dashboards are:
 >  When prompted to enter a username and password, enter the username and password that you provided at the time that you created the Azure Arc data controller.
 
 > [!NOTE]
->  You will be prompted with a certificate warning because the certificates used in preview are self-signed certificates.
+>  You will be prompted with a certificate warning because the certificates are self-signed certificates.
 
 
 ## Monitor Azure Database for PostgreSQL Hyperscale on Azure Arc
 
 To access the logs and monitoring dashboards for PostgreSQL Hyperscale, run the following `azdata` CLI command
 
-```bash
-
-azdata arc postgres endpoint list -n <name of postgreSQL instance>
-
+```azurecli
+az postgres arc-server endpoint list -n <name of postgreSQL instance> --k8s-namespace <namespace> --use-k8s
 ```
 
 The relevant postgreSQL dashboards are:
@@ -93,4 +89,3 @@ az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 60
    - [Kibana guide](https://www.elastic.co/guide/en/kibana/current/index.html)
    - [Introduction to dashboard drilldowns with data visualizations in Kibana](https://www.elastic.co/webinars/dashboard-drilldowns-with-data-visualizations-in-kibana/)
    - [How to build Kibana dashboards](https://www.elastic.co/webinars/how-to-build-kibana-dashboards/)
-

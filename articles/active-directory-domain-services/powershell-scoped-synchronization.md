@@ -3,14 +3,15 @@ title: Scoped synchronization using PowerShell for Azure AD Domain Services | Mi
 description: Learn how to use Azure AD PowerShell to configure scoped synchronization from Azure AD to an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/20/2021
-ms.author: justinha
+ms.date: 08/17/2022
+ms.author: justinha 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Configure scoped synchronization from Azure AD to Azure Active Directory Domain Services using Azure AD PowerShell
@@ -31,7 +32,7 @@ To complete this article, you need the following resources and privileges:
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services managed domain][tutorial-create-instance].
-* You need *global administrator* privileges in your Azure AD tenant to change the Azure AD DS synchronization scope.
+* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to change the Azure AD DS synchronization scope.
 
 ## Scoped synchronization overview
 
@@ -140,16 +141,16 @@ To enable group-based scoped synchronization for a managed domain, complete the 
     When prompted, specify the credentials for a *global admin* to sign in to your Azure AD tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
 
     ```powershell
-    // Connect to your Azure AD tenant
+    # Connect to your Azure AD tenant
     Connect-AzureAD
 
-    // Retrieve the Azure AD DS resource.
+    # Retrieve the Azure AD DS resource.
     $DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
 
-    // Enable group-based scoped synchronization.
+    # Enable group-based scoped synchronization.
     $enableScopedSync = @{"filteredSync" = "Enabled"}
 
-    // Update the Azure AD DS resource
+    # Update the Azure AD DS resource
     Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $enableScopedSync
     ```
 
@@ -190,16 +191,16 @@ To disable group-based scoped synchronization for a managed domain, set *"filter
 When prompted, specify the credentials for a *global admin* to sign in to your Azure AD tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
 
 ```powershell
-// Connect to your Azure AD tenant
+# Connect to your Azure AD tenant
 Connect-AzureAD
 
-// Retrieve the Azure AD DS resource.
+# Retrieve the Azure AD DS resource.
 $DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
 
-// Disable group-based scoped synchronization.
+# Disable group-based scoped synchronization.
 $disableScopedSync = @{"filteredSync" = "Disabled"}
 
-// Update the Azure AD DS resource
+# Update the Azure AD DS resource
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScopedSync
 ```
 

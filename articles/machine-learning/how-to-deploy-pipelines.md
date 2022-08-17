@@ -4,19 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Run machine learning workflows with machine learning pipelines and the Azure Machine Learning SDK for Python. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.reviewer: sgilley
-ms.author: laobri
-author: lobrien
-ms.date: 8/25/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1
-
+ms.subservice: mlops
+ms.author: larryfr
+author: blackmist
+ms.date: 10/21/2021
+ms.topic: how-to
+ms.custom: contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Publish and track machine learning pipelines
 
-
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This article will show you how to share a machine learning pipeline with your colleagues or customers.
 
@@ -24,7 +22,7 @@ Machine learning pipelines are reusable workflows for machine learning tasks. On
 
 ## Prerequisites
 
-* Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources
+* Create an [Azure Machine Learning workspace](quickstart-create-resources.md) to hold all your pipeline resources
 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed
 
@@ -34,7 +32,7 @@ Machine learning pipelines are reusable workflows for machine learning tasks. On
 
 Once you have a pipeline up and running, you can publish a pipeline so that it runs with different inputs. For the REST endpoint of an already published pipeline to accept parameters, you must configure your pipeline to use `PipelineParameter` objects for the arguments that will vary.
 
-1. To create a pipeline parameter, use a [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?preserve-view=true&view=azure-ml-py) object with a default value.
+1. To create a pipeline parameter, use a [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter) object with a default value.
 
    ```python
    from azureml.pipeline.core.graph import PipelineParameter
@@ -65,6 +63,10 @@ Once you have a pipeline up and running, you can publish a pipeline so that it r
         version="1.0")
    ```
 
+4. After you publish your pipeline, you can check it in the UI. Pipeline ID is the unique identified of the published pipeline.
+
+    :::image type="content" source="./media/how-to-deploy-pipelines/published-pipeline-detail.png" alt-text="Screenshot showing published pipeline detail." lightbox= "./media/how-to-deploy-pipelines/published-pipeline-detail.png":::
+
 ## Run a published pipeline
 
 All published pipelines have a REST endpoint. With the pipeline endpoint, you can trigger a run of the pipeline from any external systems, including non-Python clients. This endpoint enables "managed repeatability" in batch scoring and retraining scenarios.
@@ -72,7 +74,7 @@ All published pipelines have a REST endpoint. With the pipeline endpoint, you ca
 > [!IMPORTANT]
 > If you are using Azure role-based access control (Azure RBAC) to manage access to your pipeline, [set the permissions for your pipeline scenario (training or scoring)](how-to-assign-roles.md#common-scenarios).
 
-To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token. Getting such a token is described in the [AzureCliAuthentication class](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) reference and in the [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
+To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token. Getting such a token is described in the [AzureCliAuthentication class](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication) reference and in the [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -298,7 +300,7 @@ You can create a Pipeline Endpoint with multiple published pipelines behind it. 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
 
-published_pipeline = PipelineEndpoint.get(workspace=ws, name="My_Published_Pipeline")
+published_pipeline = PublishedPipeline.get(workspace=ws, id="My_Published_Pipeline_id")
 pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpointTest",
                                             pipeline=published_pipeline, description="Test description Notebook")
 ```
@@ -356,10 +358,10 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-You can enable it again with `p.enable()`. For more information, see [PublishedPipeline class](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?preserve-view=true&view=azure-ml-py) reference.
+You can enable it again with `p.enable()`. For more information, see [PublishedPipeline class](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline) reference.
 
 ## Next steps
 
 - Use [these Jupyter notebooks on GitHub](https://aka.ms/aml-pipeline-readme) to explore machine learning pipelines further.
-- See the SDK reference help for the [azureml-pipelines-core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) package.
+- See the SDK reference help for the [azureml-pipelines-core](/python/api/azureml-pipeline-core/) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/) package.
 - See the [how-to](how-to-debug-pipelines.md) for tips on debugging and troubleshooting pipelines.

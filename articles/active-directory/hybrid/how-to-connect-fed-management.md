@@ -5,16 +5,15 @@ keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS cu
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory    
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 07/18/2017
+ms.date: 01/05/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1

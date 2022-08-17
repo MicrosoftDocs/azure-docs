@@ -11,9 +11,8 @@ ms.assetid:
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 01/28/2022
 ms.author: damaerte
 ---
 
@@ -37,7 +36,7 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 ### Disabling Cloud Shell in a locked down network environment
 
-- **Details**: Administrators may wish to disable access to Cloud Shell for their users. Cloud Shell utilizes access to the `ux.console.azure.com` domain, which can be denied, stopping any access to Cloud Shell's entrypoints including portal.azure.com, shell.azure.com, Visual Studio Code Azure Account extension, and docs.microsoft.com. In the US Government cloud, the entrypoint is `ux.console.azure.us`; there is no corresponding shell.azure.us.
+- **Details**: Administrators may wish to disable access to Cloud Shell for their users. Cloud Shell utilizes access to the `ux.console.azure.com` domain, which can be denied, stopping any access to Cloud Shell's entrypoints including `portal.azure.com`, `shell.azure.com`, Visual Studio Code Azure Account extension, and `docs.microsoft.com`. In the US Government cloud, the entrypoint is `ux.console.azure.us`; there is no corresponding `shell.azure.us`.
 - **Resolution**: Restrict access to `ux.console.azure.com` or `ux.console.azure.us` via network settings to your environment. The Cloud Shell icon will still exist in the Azure portal, but will not successfully connect to the service.
 
 ### Storage Dialog - Error: 403 RequestDisallowedByPolicy
@@ -127,6 +126,12 @@ Cloud Shell is intended for interactive use cases. As a result, any long-running
 
 Permissions are set as regular users without sudo access. Any installation outside your `$Home` directory is not persisted.
 
+### Supported entry point limitations
+
+Cloud Shell entry points beside the Azure portal, such as Visual Studio Code & Windows Terminal, do not support various Cloud Shell functionalities:
+- Use of commands that modify UX components in Cloud Shell, such as `Code`
+- Fetching non-arm access tokens
+
 ## Bash limitations
 
 ### Editing .bashrc
@@ -148,7 +153,7 @@ Azure Cloud Shell takes your personal data seriously, the data captured and stor
 ### Export
 In order to **export** the user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands.
 
-1. [![Image showing a button labeled Launch Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+1. Launch Cloud Shell.
 
 2. Run the following commands in Bash or PowerShell:
 
@@ -172,21 +177,21 @@ In order to **delete** your user settings Cloud Shell saves for you such as pref
 >[!Note]
 > If you delete your user settings, the actual Azure Files share will not be deleted. Go to your Azure Files to complete that action.
 
-1. [![Image showing a button labeled Launch Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+1. Launch Cloud Shell or a local shell with either Azure PowerShell or Azure CLI installed.
 
 2. Run the following commands in Bash or PowerShell:
 
 Bash:
 
   ```
-  token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+  token=(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
   curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
   ```
 
 PowerShell:
 
   ```powershell
-  $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
+  $token= (Get-AzAccessToken -Resource  https://management.azure.com/).Token
   Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
 ## Azure Government limitations

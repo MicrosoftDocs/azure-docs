@@ -1,14 +1,14 @@
 ---
 title: Use .NET for Apache Spark
 description: Learn about using .NET and Apache Spark to do batch processing, real-time streaming, machine learning, and write ad-hoc queries in Azure Synapse Analytics notebooks.
-author: luisquintanilla 
+author: juluczni
+ms.author: juluczni
 services: synapse-analytics 
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 05/01/2020 
-ms.author: luquinta 
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Use .NET for Apache Spark with Azure Synapse Analytics
@@ -24,19 +24,10 @@ You can analyze data with .NET for Apache Spark through Spark batch job definiti
 Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache Spark job definitions for Synapse Spark pools](apache-spark-job-definitions.md). If you haven't packaged your app to submit to Azure Synapse, complete the following steps.
 
 1. Run the following commands to publish your app. Be sure to replace *mySparkApp* with the path to your app.
-
-   **On Windows:**
-
-   ```dotnetcli
-   cd mySparkApp
-   dotnet publish -c Release -f netcoreapp3.1 -r win-x64
-   ```
    
-   **On Linux:**
-
    ```dotnetcli
    cd mySparkApp
-   dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.16.04-x64
+   dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.18.04-x64
    ```
 
 2. Zip the contents of the publish folder, `publish.zip` for example, that was created as a result of Step 1. All the assemblies should be in the first layer of the ZIP file and there should be no intermediate folder layer. This means when you unzip `publish.zip`, all assemblies are extracted into your current working directory.

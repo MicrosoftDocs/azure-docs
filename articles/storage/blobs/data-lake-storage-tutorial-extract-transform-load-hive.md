@@ -18,69 +18,56 @@ In this tutorial, you perform an ETL operation: extract, transform, and load dat
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Extract and upload the data to an HDInsight cluster.
-> * Transform the data by using Apache Hive.
-> * Load the data to Azure SQL Database by using Sqoop.
+> - Extract and upload the data to an HDInsight cluster.
+> - Transform the data by using Apache Hive.
+> - Load the data to Azure SQL Database by using Sqoop.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-* **An Azure Data Lake Storage Gen2 storage account that is configured for HDInsight**
+- **An Azure Data Lake Storage Gen2 storage account that is configured for HDInsight**
 
     See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-* **A Linux-based Hadoop cluster on HDInsight**
+- **A Linux-based Hadoop cluster on HDInsight**
 
     See [Quickstart: Get started with Apache Hadoop and Apache Hive in Azure HDInsight using the Azure portal](../../hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md).
 
-* **Azure SQL Database**: You use Azure SQL Database as a destination data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database in the Azure portal](../../azure-sql/database/single-database-create-quickstart.md).
+- **Azure SQL Database**: You use Azure SQL Database as a destination data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database in the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 
-* **Azure CLI**: If you haven't installed the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+- **Azure CLI**: If you haven't installed the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-* **A Secure Shell (SSH) client**: For more information, see [Connect to HDInsight (Hadoop) by using SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+- **A Secure Shell (SSH) client**: For more information, see [Connect to HDInsight (Hadoop) by using SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## Download the flight data
 
-1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
+## Download, extract and then upload the data
 
-2. On the page, select the following values:
+In this section, you'll download sample flight data. Then, you'll upload that data to your HDInsight cluster and then copy that data to your Data Lake Storage Gen2 account.
 
-   | Name | Value |
-   | --- | --- |
-   | Filter Year |2013 |
-   | Filter Period |January |
-   | Fields |Year, FlightDate, Reporting_Airline, IATA_CODE_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
-   
-   Clear all other fields.
+1. Download the [On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/tutorials/On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip) file. This file contains the flight data.
 
-3. Select **Download**. You get a .zip file with the data fields you selected.
-
-## Extract and upload the data
-
-In this section, you'll upload data to your HDInsight cluster and then copy that data to your Data Lake Storage Gen2 account.
-
-1. Open a command prompt and use the following Secure Copy (Scp) command to upload the .zip file to the HDInsight cluster head node:
+2. Open a command prompt and use the following Secure Copy (Scp) command to upload the .zip file to the HDInsight cluster head node:
 
    ```bash
    scp <file-name>.zip <ssh-user-name>@<cluster-name>-ssh.azurehdinsight.net:<file-name.zip>
    ```
 
-   * Replace the `<file-name>` placeholder with the name of the .zip file.
-   * Replace the `<ssh-user-name>` placeholder with the SSH login for the HDInsight cluster.
-   * Replace the `<cluster-name>` placeholder with the name of the HDInsight cluster.
+   - Replace the `<file-name>` placeholder with the name of the .zip file.
+   - Replace the `<ssh-user-name>` placeholder with the SSH login for the HDInsight cluster.
+   - Replace the `<cluster-name>` placeholder with the name of the HDInsight cluster.
 
    If you use a password to authenticate your SSH login, you're prompted for the password.
 
    If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`.
 
-2. After the upload has finished, connect to the cluster by using SSH. On the command prompt, enter the following command:
+3. After the upload has finished, connect to the cluster by using SSH. On the command prompt, enter the following command:
 
    ```bash
    ssh <ssh-user-name>@<cluster-name>-ssh.azurehdinsight.net
    ```
 
-3. Use the following command to unzip the .zip file:
+4. Use the following command to unzip the .zip file:
 
    ```bash
    unzip <file-name>.zip
@@ -88,7 +75,7 @@ In this section, you'll upload data to your HDInsight cluster and then copy that
 
    The command extracts a **.csv** file.
 
-4. Use the following command to create the Data Lake Storage Gen2 container.
+5. Use the following command to create the Data Lake Storage Gen2 container.
 
    ```bash
    hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
@@ -98,13 +85,13 @@ In this section, you'll upload data to your HDInsight cluster and then copy that
 
    Replace the `<storage-account-name>` placeholder with the name of your storage account.
 
-5. Use the following command to create a directory.
+6. Use the following command to create a directory.
 
    ```bash
    hdfs dfs -mkdir -p abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data
    ```
 
-6. Use the following command to copy the *.csv* file to the directory:
+7. Use the following command to copy the *.csv* file to the directory:
 
    ```bash
    hdfs dfs -put "<file-name>.csv" abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data/
@@ -190,13 +177,13 @@ As part of the Apache Hive job, you import the data from the .csv file into an A
 
 3. Save the file by using use CTRL+X and then type `Y` when prompted.
 
-4. To start Hive and run the **flightdelays.hql** file, use the following command:
+4. To start Hive and run the `flightdelays.hql` file, use the following command:
 
    ```bash
    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
    ```
 
-5. After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
+5. After the `flightdelays.hql` script finishes running, use the following command to open an interactive Beeline session:
 
    ```bash
    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
@@ -245,11 +232,12 @@ You need the server name from SQL Database for this operation. Complete these st
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * Replace the `<server-name>` placeholder with the logical SQL server name.
 
-   * Replace the `<admin-login>` placeholder with the admin login for SQL Database.
+   - Replace the `<server-name>` placeholder with the logical SQL server name.
 
-   * Replace the `<database-name>` placeholder with the database name
+   - Replace the `<admin-login>` placeholder with the admin login for SQL Database.
+
+   - Replace the `<database-name>` placeholder with the database name
 
    When you're prompted, enter the password for the SQL Database admin login.
 

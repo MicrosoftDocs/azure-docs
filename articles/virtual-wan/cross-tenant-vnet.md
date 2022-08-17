@@ -24,6 +24,9 @@ In this article, you learn how to:
 
 The steps for this configuration are performed using a combination of the Azure portal and PowerShell. However, the feature itself is available in PowerShell and CLI only.
 
+>[!NOTE]
+> Please note that cross-tenant Virtual Network connections can only be managed through PowerShell or CLI. You **cannot** manage cross-tenant Virtual Network Connections in Azure portal.
+> 
 ## Before You Begin
 
 ### Prerequisites
@@ -40,9 +43,9 @@ To use the steps in this article, you must have the following configuration alre
 
 ## <a name="rights"></a>Assign permissions
 
-In order for the parent subscription with the virtual hub to modify and access the virtual networks in the remote tenant, you need to assign **Contributor** permissions to your parent subscription from the remote tenant subscription.
+In order for the user administering the parent subscription with the virtual hub to be able to modify and access the virtual networks in the remote tenant, you need to assign **Contributor** permissions to this user. Assigning **Contributor** permissions to this user is done in the subscription of the VNET in the remote tenant.
 
-1. Add the **Contributor** role assignment to the parent account (the one with the virtual WAN hub). You can use either PowerShell, or the Azure portal to assign this role. See the following **Add or remove role assignments** articles for steps:
+1. Add the **Contributor** role assignment to the administrator (the one used to administer the virtual WAN hub). You can use either PowerShell, or the Azure portal to assign this role. See the following **Add or remove role assignments** articles for steps:
 
    * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
    * [Portal](../role-based-access-control/role-assignments-portal.md)
@@ -50,7 +53,7 @@ In order for the parent subscription with the virtual hub to modify and access t
 1. Next, add the remote tenant subscription and the parent tenant subscription to the current session of PowerShell. Run the following command. If you are signed into the parent, you only need to run the command for the remote tenant.
 
    ```azurepowershell-interactive
-   Add-AzAccount -SubscriptionId "xxxxx-b34a-4df9-9451-4402dcaecc5b"
+   Connect-AzAccount -SubscriptionId "[subscription ID]" -TenantId "[tenant ID]"
    ```
 
 1. Verify that the role assignment is successful by logging into Azure PowerShell using the parent credentials, and running the following command:
@@ -59,7 +62,7 @@ In order for the parent subscription with the virtual hub to modify and access t
    Get-AzSubscription
    ```
 
-1. If the permissions have successfully propagated to the parent and have been added to the session, the subscription owned by the remote tenant will show up in  the output of the command.
+1. If the permissions have successfully propagated to the parent and have been added to the session, the subscription owned by the parent **and** remote tenant will both show up in the output of the command.
 
 ## <a name="connect"></a>Connect VNet to hub
 
@@ -86,13 +89,65 @@ In the following steps, you will switch between the context of the two subscript
 1. Connect the VNet to the hub.
 
    ```azurepowershell-interactive
-   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
+   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $remote
    ```
 
 1. You can view the new connection in either PowerShell, or the Azure portal.
 
    * **PowerShell:** The metadata from the newly formed connection will show in the PowerShell console if the connection was successfully formed.
    * **Azure portal:** Navigate to the virtual hub, **Connectivity -> Virtual Network Connections**. You can view the pointer to the connection. To see the actual resource you will need the proper permissions.
+
+## Scenario: add static routes to virtual network hub connection
+In the following steps, you will add a static route to the virtual hub default route table and virtual network connection to point to a next hop ip address (i.e NVA appliance). 
+- Replace the example values to reflect your own environment.
+
+1.	Make sure you are in the context of your parent account by running the following command: 
+
+ ```azurepowershell-interactive
+Select-AzSubscription -SubscriptionId "[parent ID]" 
+```
+
+2.	Add route in the Virtual hub default route table without a specific ip address and next hop as the virtual hub connection by: 
+
+    2.1 get the connection details:
+      ```azurepowershell-interactive
+    $hubVnetConnection = Get-AzVirtualHubVnetConnection -Name "[HubconnectionName]" -ParentResourceName "[Hub Name]" -ResourceGroupName "[resource group name]"
+      ``` 
+    2.2 add a static route to the virtual hub route table (next hop is hub vnet connection): 
+      ```azurepowershell-interactive
+    $Route2 = New-AzVHubRoute -Name "[Route Name]" -Destination “[@("Destination prefix")]” -DestinationType "CIDR" -NextHop $hubVnetConnection.Id -NextHopType "ResourceId"
+      ```
+    2.3 update the current hub default route table:
+      ```azurepowershell-interactive
+    Update-AzVHubRouteTable -ResourceGroupName "[resource group name]"-VirtualHubName [“Hub Name”] -Name "defaultRouteTable" -Route @($Route2)
+      ```
+      ## Customize static routes to specify next hop as an IP address for the virtual hub connection.
+
+    2.4 update the route in the vnethub connection:
+      ```azurepowershell-interactive
+    $newroute = New-AzStaticRoute -Name "[Route Name]"  -AddressPrefix "[@("Destination prefix")]" -NextHopIpAddress "[Destination NVA IP address]"
+
+    $newroutingconfig = New-AzRoutingConfiguration -AssociatedRouteTable $hubVnetConnection.RoutingConfiguration.AssociatedRouteTable.id -Id $hubVnetConnection.RoutingConfiguration.PropagatedRouteTables.Ids[0].id -Label @("default") -StaticRoute @($newroute)
+
+    Update-AzVirtualHubVnetConnection -ResourceGroupName $rgname -VirtualHubName "[Hub Name]" -Name "[Virtual hub connection name]" -RoutingConfiguration $newroutingconfig
+
+      ```
+    2.5 verify static route is established to a next hop IP address:
+
+      ```azurepowershell-interactive
+    Get-AzVirtualHubVnetConnection -ResourceGroupName "[Resource group]" -VirtualHubName "[virtual hub name]" -Name "[Virtual hub connection name]"
+      ```
+
+
+>[!NOTE]
+>- In step 2.2 and 2.4 the route name should be same otherwise it will create two routes one without ip address one with ip address in the routing table.
+>- If you run 2.5 it will remove the previous manual config route in your routing table.
+>- Make sure you have access and are authorized to the remote subscription as well when running the above.
+>- Destination prefix can be one CIDR or multiple ones
+>- Please use this format @("10.19.2.0/24") or @("10.19.2.0/24", "10.40.0.0/16") for multiple CIDR
+>
+
+
    
 ## <a name="troubleshoot"></a>Troubleshooting
 

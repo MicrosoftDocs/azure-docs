@@ -2,7 +2,8 @@
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you may see when using Azure Service Bus.
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 07/29/2022
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshooting guide for Azure Service Bus
@@ -11,7 +12,7 @@ This article provides troubleshooting tips and recommendations for a few issues 
 ## Connectivity, certificate, or timeout issues
 The following steps may help you with troubleshooting connectivity/certificate/timeout issues for all services under *.servicebus.windows.net. 
 
-- Browse to or [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues, which are common when using java SDK.
+- Browse to or [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues, which are common when using Java SDK.
 
     An example of successful message:
     
@@ -47,6 +48,8 @@ The following steps may help you with troubleshooting connectivity/certificate/t
     ```
     You can use equivalent commands if you're using other tools such as `tnc`, `ping`, and so on. 
 - Obtain a network trace if the previous steps don't help and analyze it using tools such as [Wireshark](https://www.wireshark.org/). Contact [Microsoft Support](https://support.microsoft.com/) if needed. 
+- To find the right IP addresses to add to allowlist for your connections, see [What IP addresses do I need to add to allowlist](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allowlist-). 
+
 
 ## Issues that may occur with service upgrades/restarts
 
@@ -82,15 +85,38 @@ To learn how to assign permissions to roles, see [Authenticate a managed identit
 ## Service Bus Exception: Put token failed
 
 ### Symptoms
-When you try to send more than 1000 messages using the same Service Bus connection, you'll receive the following error message: 
+You'll receive the following error message: 
 
 `Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
 
 ### Cause
-There's a limit on number of tokens that are used to send and receive messages using a single connection to a Service Bus namespace. It's 1000. 
+Number of authentication tokens for concurrent links in a single connection to a Service Bus namespace has exceeded the limit: 1000. 
 
 ### Resolution
-Open a new connection to the Service Bus namespace to send more messages.
+Do one of the following steps:
+
+- Reduce the number of concurrent links in a single connection or use a new connection
+- Use SDKs for Azure Service Bus, which ensures that you don't get into this situation (recommended)
+
+
+## Adding virtual network rule using PowerShell fails
+
+### Symptoms
+You have configured two subnets from a single virtual network in a virtual network rule. When you try to remove one subnet using the [Remove-AzServiceBusVirtualNetworkRule](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule) cmdlet, it doesn't remove the subnet from the virtual network rule. 
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Namespace $serviceBusName -SubnetId $subnetId
+```
+
+### Cause
+The Azure Resource Manager ID that you specified for the subnet may be invalid. This may happen when the virtual network is in a different resource group from the one that has the Service Bus namespace. If you don't explicitly specify the resource group of the virtual network, the CLI command constructs the Azure Resource Manager ID by using the resource group of the Service Bus namespace. So, it fails to remove the subnet from the network rule. 
+
+### Resolution
+Specify the full Azure Resource Manager ID of the subnet that includes the name of the resource group that has the virtual network. For example:
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNamespace -SubnetId "/subscriptions/SubscriptionId/resourcegroups/ResourceGroup/myOtherRG/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet"
+```
 
 ## Next steps
 See the following articles: 

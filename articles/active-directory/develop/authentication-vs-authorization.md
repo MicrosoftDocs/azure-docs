@@ -1,6 +1,5 @@
 ---
-title: Authentication vs. authorization | Azure
-titleSuffix: Microsoft identity platform
+title: Authentication vs. authorization
 description: Learn about the basics of authentication and authorization in the Microsoft identity platform.
 services: active-directory
 author: rwike77
@@ -12,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2020
 ms.author: ryanwi
-ms.reviewer: jmprieur, saeeda, sureshja, hirsin
+ms.reviewer: jmprieur, saeeda, sureshja, ludwignick
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 #Customer intent: As an application developer, I want to understand the basic concepts of authentication and authorization in the Microsoft identity platform.
 ---
@@ -31,7 +30,7 @@ This article defines authentication and authorization. It also briefly covers ho
 
 ## Authentication and authorization using the Microsoft identity platform
 
-Creating apps that each maintain their own username and password information incurs a high administrative burden when you need to add or remove users across multiple apps. Instead, your apps can delegate that responsibility to a centralized identity provider.
+Creating apps that each maintain their own username and password information incurs a high administrative burden when adding or removing users across multiple apps. Instead, your apps can delegate that responsibility to a centralized identity provider.
 
 Azure Active Directory (Azure AD) is a centralized identity provider in the cloud. Delegating authentication and authorization to it enables scenarios such as:
 

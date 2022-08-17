@@ -2,17 +2,17 @@
  title: include file
  description: include file
  services: storage
- author: roygara
+ author: khdownie
  ms.service: storage
  ms.topic: include
- ms.date: 08/26/2020
- ms.author: rogara
- ms.custom: include file
+ ms.date: 05/06/2022
+ ms.author: kendownie
+ ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 ## Assign access permissions to an identity
 
-To access Azure Files resources with identity based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity. 
+To access Azure Files resources with identity based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity. **We highly recommend assigning permissions by declaring actions and data actions explicitly as opposed to using the wildcard (\*) character.**
 
 We have introduced three Azure built-in roles for granting share-level permissions to users:
 
@@ -31,6 +31,9 @@ You can use the Azure portal, PowerShell, or Azure CLI to assign the built-in ro
 The general recommendation is to use share level permission for high level access management to an AD group representing a group of users and identities, then leverage NTFS permissions for granular access control on directory/file level. 
 
 ### Assign an Azure role to an AD identity
+
+> [!IMPORTANT]
+> **Assign permissions by explicitly declaring actions and data actions as opposed to using a wildcard (\*) character.** If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This means that all such identities will also be granted any new data action added to the platform. The additional access and permissions granted through new actions or data actions may be unwanted behavior for customers using wildcard.
 
 # [Portal](#tab/azure-portal)
 To assign an Azure role to an Azure AD identity, using the [Azure portal](https://portal.azure.com), follow these steps:
@@ -103,7 +106,7 @@ else
 
 ```
 
-If you experience issues in connecting to Azure Files, please refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). We also provide [guidance](../articles/storage/files/storage-files-faq.md#on-premises-access) to work around scenarios when port 445 is blocked. 
+If you experience issues in connecting to Azure Files, please refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/).
 
 
 ### Configure NTFS permissions with Windows File Explorer

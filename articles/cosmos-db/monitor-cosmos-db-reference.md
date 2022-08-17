@@ -1,11 +1,11 @@
 ---
 title: Monitoring Azure Cosmos DB data reference | Microsoft Docs
 description: Important reference material needed when you monitor logs and metrics in Azure Cosmos DB.
-author: SnehaGunda
+ms.author: esarroyo
+author: StefArroyo 
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/07/2020
-ms.author: sngun
 ms.custom: subject-monitoring 
 ---
 
@@ -17,7 +17,7 @@ This article provides a reference of log and metric data collected to analyze th
 
 ## Metrics
 
-All the metrics corresponding to Azure Cosmos DB are stored in the namespace **Cosmos DB standard metrics**. For a list of all Azure Monitor support metrics (including Azure Cosmos DB), see [Azure Monitor supported metrics](../azure-monitor/platform/metrics-supported.md). This section lists all the automatically collected platform metrics collected for Azure Cosmos DB.  
+All the metrics corresponding to Azure Cosmos DB are stored in the namespace **Cosmos DB standard metrics**. For a list of all Azure Monitor support metrics (including Azure Cosmos DB), see [Azure Monitor supported metrics](../azure-monitor/essentials/metrics-supported.md). This section lists all the automatically collected platform metrics collected for Azure Cosmos DB.  
 
 ### Request metrics
 
@@ -32,7 +32,7 @@ All the metrics corresponding to Azure Cosmos DB are stored in the namespace **C
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---| ---| ---| ---|
 | MongoRequestCharge (Mongo Request Charge) | Count (Total) |Mongo Request Units Consumed| DatabaseName, CollectionName, Region, CommandName, ErrorCode| All |Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge| Used to monitor Mongo resource RUs in a minute.|
-| TotalRequestUnits (Total Request Units)| Count (Total) | Request Units consumed| DatabaseName, CollectionName, Region, StatusCode |All| TotalRequestUnits| Used to monitor Total RU usage at a minute granularity. To get average RU consumed per second, use Total aggregation at minute and divide by 60.|
+| TotalRequestUnits (Total Request Units)| Count (Total) | Request Units consumed| DatabaseName, CollectionName, Region, StatusCode |All| TotalRequestUnits| Used to monitor Total RU usage at a minute granularity. To get average RU consumed per second, use Sum aggregation at minute interval/level and divide by 60.|
 | ProvisionedThroughput (Provisioned Throughput)| Count (Maximum) |Provisioned throughput at container granularity| DatabaseName, ContainerName| 5M| | Used to monitor provisioned throughput per container.|
 
 ### Storage metrics
@@ -66,7 +66,7 @@ All the metrics corresponding to Azure Cosmos DB are stored in the namespace **C
 | CassandraRequestCharges (Cassandra Request Charges) | Count (Sum, Min, Max, Avg) | Request units consumed by the Cassandra API | DatabaseName, CollectionName, Region, OperationType, ResourceType| All| Used to monitor RUs used per minute by a Cassandra API account.|
 | CassandraConnectionClosures (Cassandra Connection Closures) |Count (Count) |Number of Cassandra Connections closed| ClosureReason, Region| All | Used to monitor the connectivity between clients and the Azure Cosmos DB Cassandra API.|
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ## Resource logs
 
@@ -85,7 +85,7 @@ The following table lists the properties of resource logs in Azure Cosmos DB. Th
 | **statusCode** | **statusCode_s** | The response status of the operation. |
 | **requestResourceId** | **ResourceId** | The resourceId that pertains to the request. Depending on the operation performed, this value may point to `databaseRid`, `collectionRid`, or `documentRid`.|
 | **clientIpAddress** | **clientIpAddress_s** | The client's IP address. |
-| **requestCharge** | **requestCharge_s** | The number of RU/s that are used by the operation |
+| **requestCharge** | **requestCharge_s** | The number of RUs that are used by the operation |
 | **collectionRid** | **collectionId_s** | The unique ID for the collection.|
 | **duration** | **duration_d** | The duration of the operation, in milliseconds. |
 | **requestLength** | **requestLength_s** | The length of the request, in bytes. |
@@ -95,13 +95,13 @@ The following table lists the properties of resource logs in Azure Cosmos DB. Th
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | This value is non-empty when [resource tokens](./secure-access-to-data.md#resource-tokens) are used for authentication. The value points to the resource ID of the user. |
 | **responseLength** | **responseLength_s** | The length of the response, in bytes.|
 
-For a list of all Azure Monitor log categories and links to associated schemas, see [Azure Monitor Logs categories and schemas](../azure-monitor/platform/resource-logs-schema.md). 
+For a list of all Azure Monitor log categories and links to associated schemas, see [Azure Monitor Logs categories and schemas](../azure-monitor/essentials/resource-logs-schema.md). 
 
 ## Azure Monitor Logs tables
 
-Azure Cosmos DB uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of Kusto bales uses, see the [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-cosmos-db) article.
+Azure Cosmos DB uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of Kusto tables Cosmos DB uses, see the [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-cosmos-db) article.
 
 ## See Also
 
 - See [Monitoring Azure Cosmos DB](monitor-cosmos-db.md) for a description of monitoring Azure Cosmos DB.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

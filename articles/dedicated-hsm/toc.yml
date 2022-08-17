@@ -36,9 +36,11 @@
     href: troubleshoot.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/dedicated-hsm
   - name: Azure PowerShell
     href: /powershell/module/Az.DedicatedHsm
 - name: Resources
   items:
   - name: Frequently asked questions
-    href: faq.md
+    href: faq.yml

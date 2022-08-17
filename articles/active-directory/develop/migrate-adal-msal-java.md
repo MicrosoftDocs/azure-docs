@@ -1,9 +1,8 @@
 ---
-title: ADAL to MSAL migration guide (MSAL4j) | Azure
-titleSuffix: Microsoft identity platform
+title: ADAL to MSAL migration guide (MSAL4j)
 description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) Java app to the Microsoft Authentication Library (MSAL).
 services: active-directory
-author: sangonzal
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -12,10 +11,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: Java
 ms.workload: identity
 ms.date: 11/04/2019
-ms.author: sagonzal
+ms.author: marsma
 ms.reviewer: nacanuma, twhitney
-ms.custom: aaddev, devx-track-java
-#Customer intent: As an Java application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
+ms.custom: aaddev, devx-track-java, has-adal-ref
+#Customer intent: As a Java application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
 ---
 
 # ADAL to MSAL migration guide for Java
@@ -31,6 +30,8 @@ MSAL offers the following benefits:
 - Your application can enable incremental consent, and supporting conditional access is easier.
 
 MSAL for Java is the auth library we recommend you use with the Microsoft identity platform. No new features will be implemented on ADAL4J. All efforts going forward are focused on improving MSAL.
+
+You can learn more about MSAL and get started with an [overview of the Microsoft Authentication Library](msal-overview.md).
 
 ## Differences
 
@@ -78,7 +79,7 @@ MSAL for Java adds a [token cache](msal-acquire-cache-tokens.md) to simplify man
 
 In v1.0, if you use the `https://login.microsoftonline.com/common` authority, users can sign in with any Azure Active Directory (AAD) account (for any organization).
 
-If you use the `https://login.microsoftonline.com/common` authority in v2.0, users can sign in with any AAD organization, or even a Microsoft personal account (MSA). In MSAL for Java, if you want to restrict login to any AAD account, you need to use the `https://login.microsoftonline.com/organizations` authority (which is the same behavior as with ADAL4J). To specify an authority, set the `authority` parameter in the [PublicClientApplication.Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) method when you create your `PublicClientApplication` class.
+If you use the `https://login.microsoftonline.com/common` authority in v2.0, users can sign in with any AAD organization, or even a Microsoft personal account (MSA). In MSAL for Java, if you want to restrict login to any AAD account, use the `https://login.microsoftonline.com/organizations` authority (which is the same behavior as with ADAL4J). To specify an authority, set the `authority` parameter in the [PublicClientApplication.Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) method when you create your `PublicClientApplication` class.
 
 ## v1.0 and v2.0 tokens
 

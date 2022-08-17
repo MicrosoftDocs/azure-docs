@@ -1,35 +1,37 @@
 ---
-title: Visualize Azure Cognitive Search Logs and Metrics with Power BI
-description: Visualize Azure Cognitive Search Logs and Metrics with Power BI
+title: Visualize logs and metrics with Power BI
+description: Visualize Azure Cognitive Search logs and metrics with Power BI.
 
-manager: eladz
-author: MarkHeff
-ms.author: maheff
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
+
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 04/07/2021
 ---
 
 # Visualize Azure Cognitive Search Logs and Metrics with Power BI
-[Azure Cognitive Search](./search-what-is-azure-search.md) allows you to store operation logs and service metrics about your search service in an Azure Storage account. This page provides instructions for how you can visualize that information through a Power BI Template App. The app provides detailed insights about your search service, including information about Search, Indexing, Operations, and Service metrics.
+
+[Azure Cognitive Search](./search-what-is-azure-search.md) can send operation logs and service metrics to an Azure Storage account, which you can then visualize in Power BI. This article explains the steps and how to use a Power BI Template App to visualize the data. The template can help you gain detailed insights about your search service, including information about queries, indexing, operations, and service metrics.
 
 You can find the Power BI Template App **Azure Cognitive Search: Analyze Logs and Metrics** in the [Power BI Apps marketplace](https://appsource.microsoft.com/marketplace/apps).
 
-## How to get started with the app
+## Set up the app
 
 1. Enable metric and resource logging for your search service:
 
-    1. Create or identify an existing [Azure Storage account](../storage/common/storage-account-create.md) where you can archive the logs
-    1. Navigate to your Azure Cognitive Search service in the Azure portal
-    1. Under the Monitoring section on the left column, select **Diagnostic settings**
+    1. Create or identify an existing [Azure Storage account](../storage/common/storage-account-create.md) where you can archive the logs.
+    1. Navigate to your Azure Cognitive Search service in the Azure portal.
+    1. Under the Monitoring section on the left column, select **Diagnostic settings**.
 
         :::image type="content" source="media/search-monitor-logs-powerbi/diagnostic-settings.png" alt-text="Screenshot showing how to select Diagnostic settings in the Monitoring section of the Azure Cognitive Search service." border="false":::
 
-    1. Select **+ Add diagnostic setting**
-    1. Check **Archive to a storage account**, provide your Storage account information, and check **OperationLogs** and **AllMetrics**
+    1. Select **+ Add diagnostic setting**.
+    1. Check **Archive to a storage account**, provide your Storage account information, and check **OperationLogs** and **AllMetrics**.
 
         :::image type="content" source="media/search-monitor-logs-powerbi/add-diagnostic-setting.png" alt-text="Screenshot showing how to make selections for metrics and resource logging in the diagnostic settings page.":::
-    1. Select **Save**
+    1. Select **Save**.
 
 1. After logging has been enabled, use your search service to start generating logs and metrics. It takes up to an hour before the containers will appear in Blob storage with these logs. You will see a **insights-logs-operationlogs** container for search traffic logs and a **insights-metrics-pt1m** container for metrics.
 
@@ -63,7 +65,8 @@ You can find the Power BI Template App **Azure Cognitive Search: Analyze Logs an
 
     :::image type="content" source="media/search-monitor-logs-powerbi/powerbi-search.png" alt-text="Screenshot of the Azure Cognitive Search Power BI report.":::
 
-## How to change the app parameters
+## Modify app parameters
+
 If you would like to visualize data from a different storage account or change the number of days of data to query, follow the below steps to change the **Days** and **StorageAccount** parameters.
 
 1. Navigate to your Power BI apps, find your Azure Cognitive Search app and select the **Edit app** button to view the workspace.
@@ -82,7 +85,8 @@ If you would like to visualize data from a different storage account or change t
 
 1. Open the report to view the updated data. You might also need to refresh the report to view the latest data.
 
-## Troubleshooting
+## Troubleshooting report issues
+
 If you find that you cannot see your data follow these troubleshooting steps:
 
 1. Open the report and refresh the page to make sure you're viewing the latest data. There's an option in the report to refresh the data. Select this to get the latest data.
@@ -94,8 +98,7 @@ If you find that you cannot see your data follow these troubleshooting steps:
 1. Check to see if the dataset is still refreshing. The refresh status indicator is shown in step 8 above. If it is still refreshing, wait until the refresh is complete to open and refresh the report.
 
 ## Next steps
-[Learn more about Azure Cognitive Search](./index.yml)
 
-[What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-
-[Basic concepts for designers in the Power BI service](/power-bi/service-basic-concepts)
++ [Monitor search operations and activity](monitor-azure-cognitive-search.md)
++ [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
++ [Basic concepts for designers in the Power BI service](/power-bi/service-basic-concepts)

@@ -1,16 +1,12 @@
 ---
 title: Big data applications compatible with Data Lake Storage Gen1 | Microsoft Docs
 description: List of open source applications that work with Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store)
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
 
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Open Source Big Data applications that work with Azure Data Lake Storage Gen1

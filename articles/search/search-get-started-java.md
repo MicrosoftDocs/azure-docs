@@ -2,15 +2,14 @@
 title: 'Quickstart: Create a search index in Javas'
 titleSuffix: Azure Cognitive Search
 description: In this Java quickstart, learn how to create an index, load data, and run queries using the Azure Cognitive Search client library for Java.
-
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/25/2021
-ms.custom: devx-track-java
+ms.date: 03/04/2021
+ms.custom: devx-track-java, mode-api
 ---
 
 # Quickstart: Create an Azure Cognitive Search index in Java
@@ -23,7 +22,7 @@ ms.custom: devx-track-java
 > * [Python](search-get-started-python.md)
 > * [REST](search-get-started-rest.md)
 
-Create a Java console application that creates, loads, and queries a search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/), and the [Azure Cognitive Search REST API](/rest/api/searchservice/). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://developers.google.com/sheets/api/quickstart/java).
+Create a Java console application that creates, loads, and queries a search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/), and the [Azure Cognitive Search REST API](/rest/api/searchservice/). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -35,7 +34,7 @@ We used the following software and services to build and test this quickstart:
 
 + [Java 11 SDK](/java/azure/jdk/)
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 <a name="get-service-info"></a>
 

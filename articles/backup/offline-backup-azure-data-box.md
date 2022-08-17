@@ -7,7 +7,7 @@ ms.date: 1/27/2020
 
 # Azure Backup offline backup by using Azure Data Box
 
-You can use [Azure Data Box](../databox/data-box-overview.md) to seed your large initial Microsoft Azure Recovery Services (MARS) backups offline (without using network) to a Recovery Services vault. This process saves time and network bandwidth that would otherwise be consumed moving large amounts of backup data online over a high-latency network. This enhancement is currently in preview. Offline backup based on Azure Data Box provides two distinct advantages over [offline backup based on the Azure Import/Export service](./backup-azure-backup-import-export.md):
+You can use [Azure Data Box](../databox/data-box-overview.md) to seed your large initial Microsoft Azure Recovery Services (MARS) backups offline (without using network) to a Recovery Services vault. This process saves time and network bandwidth that would otherwise be consumed moving large amounts of backup data online over a high-latency network.  Offline backup based on Azure Data Box provides two distinct advantages over [offline backup based on the Azure Import/Export service](./backup-azure-backup-import-export.md):
 
 - There's no need to procure your own Azure-compatible disks and connectors. Azure Data Box ships the disks associated with the selected [Data Box SKU](https://azure.microsoft.com/services/databox/data/).
 - Azure Backup (MARS Agent) can directly write backup data onto the supported SKUs of Azure Data Box. This capability eliminates the need for you to provision a staging location for your initial backup data. You also don't need utilities to format and copy that data onto the disks.
@@ -104,7 +104,7 @@ Or you can:
     Install-Module -Name AzureRM -RequiredVersion 3.7.0
     ```
 
-Azure PowerShell could have also been installed by using an msi file. To remove it, uninstall it by using the **Uninstall programs** option in Control Panel.
+Azure PowerShell could have also been installed by using an MSI file. To remove it, uninstall it by using the **Uninstall programs** option in Control Panel.
 
 ### Order and receive the Data Box device
 
@@ -287,7 +287,7 @@ If no other server has offline seeding configured and no other server is depende
 
 From the server you're trying to configure for offline backup, perform the following actions.
 
-1. Go to the **Manage computer certificate application** > **Personal** tab, and look for the certificate with the name `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
+1. Go to the **Manage computer certificate application** > **Personal** tab, and look for the certificate with the name `CB_AzureADCertforOfflineSeeding_<Timestamp>`.
 
 2. Select the certificate, right-click **All Tasks**, and select **Export** without a private key in the .cer format.
 

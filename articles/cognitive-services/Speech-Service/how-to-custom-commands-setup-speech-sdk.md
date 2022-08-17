@@ -3,14 +3,15 @@ title: 'Integrate with a client app using Speech SDK'
 titleSuffix: Azure Cognitive Services
 description: how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application.
 services: cognitive-services
-author: xiaojul
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2020
-ms.author: xiaojul
-ms.custom: devx-track-csharp
+ms.author: eur
+ms.devlang: csharp
+ms.custom: cogserv-non-critical-speech, devx-track-csharp
 ---
 
 # Integrate with a client application using Speech SDK
@@ -29,7 +30,7 @@ A Custom Commands application is required to complete this article. If you haven
 You'll also need:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or higher. This guide is based on Visual Studio 2019.
-> * An Azure subscription key for Speech Services. [Get one for free](overview.md#try-the-speech-service-for-free) or create it on the [Azure portal](https://portal.azure.com)
+> * An Azure Cognitive Services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 > * [Enable your device for development](/windows/uwp/get-started/enable-your-device-for-development)
 
 ## Step 1: Publish Custom Commands application
@@ -50,7 +51,7 @@ You'll also need:
 
 ## Step 2: Create a Visual Studio project
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
+Create a Visual Studio project for UWP development and [install the Speech SDK](./quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=uwp).
 
 ## Step 3: Add sample code
 
@@ -306,7 +307,7 @@ Add the code-behind source as follows:
    // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
    const string speechCommandsApplicationId = "YourApplicationId"; // Your application id
    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
-   const string region = "YourServiceRegion"; // The subscription service region. Note: only 'westus2' is currently supported
+   const string region = "YourServiceRegion"; // The subscription service region. 
 
    var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");

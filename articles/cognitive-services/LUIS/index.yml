@@ -1,13 +1,14 @@
 ### YamlMime:Landing
 
 title: Language Understanding (LUIS) documentation
-summary: Learn how Language Understanding enables your applications to understand what a person wants in their own words.
+summary: Learn how Language Understanding enables your applications to understand what a person wants in their own words. 
 
 metadata:
   ms.topic: landing-page
-  ms.date: 06/15/2020
-  ms.author: nitinme
-  author: nitinme
+  ms.date: 07/19/2022
+  ms.author: aahi
+  ms.manager: nitinme
+  author: aahill
   ms.service: cognitive-services
   ms.subservice: language-understanding
   services: cognitive-services
@@ -50,15 +51,15 @@ landingContent:
           - text: Intents
             url: luis-concept-intent.md
           - text: Entities
-            url: luis-concept-entity-types.md
+            url: concepts/entities.md
           - text: Utterances
-            url: luis-concept-utterance.md
+            url: concepts/utterances.md
           - text: Phrase list features
-            url: luis-concept-feature.md
+            url: concepts/patterns-features.md
       - linkListType: quickstart
         links:
           - text: "Portal: Create a new LUIS app"
-            url: get-started-portal-build-app.md
+            url: luis-get-started-create-app.md
           - text: Using C# SDK
             url: ./client-libraries-rest-api.md?pivots=rest-api
           - text: Using Python SDK
@@ -71,7 +72,7 @@ landingContent:
           - text: Add intent with example utterances
             url: luis-how-to-add-intents.md
           - text: Add entities
-            url: ./luis-how-to-add-entities.md
+            url: how-to/entities.md
           - text: Add phrase list feature
             url: luis-how-to-add-features.md
 
@@ -82,14 +83,12 @@ landingContent:
           - text: Versioning
             url: ./luis-concept-app-iteration.md
           - text: Interactive testing
-            url: luis-concept-test.md
+            url: ./luis-interactive-test.md
           - text: Batch testing
             url: ./luis-how-to-batch-test.md
 
       - linkListType: quickstart
         links:
-          - text: "Portal: Deploy app to prediction endpoint"
-            url: get-started-portal-deploy-app.md
           - text: Using SDK
             url: ./client-libraries-rest-api.md?pivots=rest-api
 
@@ -135,7 +134,7 @@ landingContent:
           - text: Prebuilt entities
             url: luis-reference-prebuilt-entities.md
           - text: Custom Entities
-            url: luis-concept-entity-types.md#types-of-entities
+            url: reference-entity-machine-learned-entity.md
           - text: Prebuilt domains
             url: luis-reference-prebuilt-domains.md
 
@@ -146,4 +145,4 @@ landingContent:
         - text: Support and help options
           url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
         - text: Troubleshooting
-          url: troubleshooting.md
+          url: troubleshooting.yml

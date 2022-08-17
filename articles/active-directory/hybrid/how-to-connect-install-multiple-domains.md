@@ -4,16 +4,15 @@ description: This document describes setting up and configuring multiple top lev
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: curtand
 
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 05/31/2017
+ms.date: 03/09/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -38,7 +37,7 @@ You can view the IssuerUri by using the PowerShell command `Get-MsolDomainFedera
 
 A problem arises when you add more than one top-level domain.  For example, let's say you have set up federation between Azure AD and your on-premises environment.  For this document, the domain, bmcontoso.com is being used.  Now a second, top-level domain, bmfabrikam.com has been added.
 
-![An screenshot showing multiple top-level domains](./media/how-to-connect-install-multiple-domains/domains.png)
+![A screenshot showing multiple top-level domains](./media/how-to-connect-install-multiple-domains/domains.png)
 
 When you attempt to convert the bmfabrikam.com domain to be federated, an error occurs.  The reason is, Azure AD has a constraint that does not allow the IssuerUri property to have the same value for more than one domain.  
 
@@ -61,11 +60,11 @@ Looking at the settings for the bmfabrikam.com domain you can see the following:
 
 `-SupportMultipleDomain` does not change the other endpoints, which are still configured to point to the federation service on adfs.bmcontoso.com.
 
-Another thing that `-SupportMultipleDomain` does is that it ensures that the AD FS system includes the proper Issuer value in tokens issued for Azure AD. This value is set by taking the domain portion of the users UPN and setting it as the domain in the IssuerUri, i.e. https://{upn suffix}/adfs/services/trust.
+`-SupportMultipleDomain` also ensures that the AD FS system includes the proper Issuer value in tokens issued for Azure AD. This value is set by taking the domain portion of the user's UPN and using it as the domain in the IssuerUri, that is, `https://{upn suffix}/adfs/services/trust`.
 
 Thus during authentication to Azure AD or Microsoft 365, the IssuerUri element in the user’s token is used to locate the domain in Azure AD. If, a match cannot be found, the authentication will fail.
 
-For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in the token, AD FS issues, will be set to `http://bmcontoso.com/adfs/services/trust`. This element will match the Azure AD configuration, and authentication will succeed.
+For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in the token, AD FS issuer, will be set to `http://bmcontoso.com/adfs/services/trust`. This element will match the Azure AD configuration, and authentication will succeed.
 
 The following is the customized claim rule that implements this logic:
 
@@ -129,7 +128,7 @@ By using the PowerShell command `Get-MsolDomainFederationSettings -DomainName <y
 
 ![Screenshot that shows the federation settings updated on the original domain.](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
-And the IssuerUri on the new domain has been set to `https://bmfabrikam.com/adfs/services/trust`
+And the IssuerUri on the new domain has been set to `https://bmcontoso.com/adfs/services/trust`
 
 ![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/settings2.png)
 

@@ -5,13 +5,16 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Tutorial: Create and manage a virtual machine scale set with the Azure CLI
+
+> [!NOTE]
+> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -243,7 +246,7 @@ az vmss scale \
     --new-capacity 3
 ```
 
-If takes a few minutes to update the capacity of your scale set. To see the number of instances you now have in the scale set, use [az vmss show](/cli/azure/vmss) and query on *sku.capacity*:
+It takes a few minutes to update the capacity of your scale set. To see the number of instances you now have in the scale set, use [az vmss show](/cli/azure/vmss) and query on *sku.capacity*:
 
 ```azurecli-interactive
 az vmss show \

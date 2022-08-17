@@ -1,5 +1,5 @@
 ---
-title: Single and multiple account public client apps | Azure
+title: Single and multiple account public client apps
 description: An overview of single and multiple account public client apps.
 services: active-directory
 author: shoatman
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/26/2019
 ms.author: shoatman
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ms.reviewer: shoatman
 ---
 

@@ -1,12 +1,14 @@
 ---
 title: PowerShell script to create resource lock for Azure Cosmos SQL API database and container
 description: Create resource lock for Azure Cosmos SQL API database and container
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 06/12/2020
+ms.date: 06/12/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a resource lock for Azure Cosmos SQL API database and container using Azure PowerShell

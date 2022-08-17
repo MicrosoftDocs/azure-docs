@@ -2,11 +2,10 @@
 title: Enable Automanage for virtual machines through Azure Policy
 description: Learn how to enable Azure Automanage for VMs through a built-in Azure Policy in the Azure portal.
 author: ju-shim
-ms.service: virtual-machines
-ms.subservice: automanage
+ms.service: automanage
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 12/10/2021
 ms.author: jushiman
 ---
 
@@ -26,6 +25,8 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 > [!IMPORTANT]
 > The following Azure RBAC permission is needed to enable Automanage: **Owner** role or **Contributor** along with **User Access Administrator** roles.
 
+## Direct link to Policy
+The Automanage policy definition can be found in the Azure portal by the name of [Configure virtual machines to be onboarded to Azure Automanage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff889cab7-da27-4c41-a3b0-de1f6f87c550). If you click on this link, skip directly to step 8 in [Locate and assign the policy](#locate-and-assign-the-policy) below.
 
 ## Sign in to Azure
 
@@ -37,21 +38,21 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to **Policy** in the Azure portal
 1. Go to the **Definitions** pane
 1. Click the **Categories** dropdown to see the available options
-1. Select the **Enable Automanage – Azure virtual machine best practices** option
-1. Now the list will update to show a built-in policy with a name that starts with *Enable Automanage…*
-1. Click on the *Enable Automanage - Azure virtual machine best practices* built-in policy name
+1. Select the **Automanage** option
+1. Now the list will update to show a built-in policy with a name that starts with *Configure virtual machines to be onboarded to Azure Automanage*
+1. Click on the *Configure virtual machines to be onboarded to Azure Automanage* built-in policy name
 1. After clicking on the policy, you can now see the **Definition** tab
 
     > [!NOTE]
-    > The Azure Policy definition is used to set Automanage parameters like the configuration profile or the account. It also sets filters that ensure the policy applies only to the correct VMs.
+    > The Azure Policy definition is used to set Automanage parameters like the configuration profile. It also sets filters that ensure the policy applies only to the correct VMs.
 
 1. Click the **Assign** button to create an Assignment
 1. Under the **Basics** tab, fill out **Scope** by setting the *Subscription* and *Resource Group*
 
     > [!NOTE]
-    > The Scope lets you define which VMs this policy applies to. You can set application at the subscription level or resource group level. If you set a resource group, all VMs that are currently in that resource group or any future VMs we add to it will have Automanage automatically enabled. 
+    > The Scope lets you define which VMs this policy applies to. You can set application at the subscription level or resource group level. If you set a resource group, all VMs that are currently in that resource group or any future VMs we add to it will have Automanage automatically enabled.
 
-1. Click on the **Parameters** tab and set the **Automanage Account** and the desired **Configuration Profile** 
+1. Click on the **Parameters** tab and set the **Configuration Profile** and the desired **Effect**
 1. Under the **Review + create** tab, review the settings
 1. Apply the Assignment by clicking **Create**
 1. View your assignments in the **Assignments** tab next to **Definition**
@@ -60,9 +61,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 > It will take some time for that policy to begin taking effect on the VMs currently in the resource group or subscription.
 
 
-## Next steps 
+## Next steps
 
-Learn another way to enable Azure Automanage for virtual machines through the Azure portal. 
+Learn another way to enable Azure Automanage for virtual machines through the Azure portal.
 
 > [!div class="nextstepaction"]
 > [Enable Automanage for virtual machines in the Azure portal](quick-create-virtual-machines-portal.md)

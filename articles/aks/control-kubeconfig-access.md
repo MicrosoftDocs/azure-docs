@@ -15,7 +15,7 @@ This article shows you how to assign Azure roles that limit who can get the conf
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 This article also requires that you are running the Azure CLI version 2.0.65 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -39,7 +39,7 @@ These Azure roles can be applied to an Azure Active Directory (AD) user or group
 > [!NOTE]
 > On clusters that use Azure AD, users with the *clusterUser* role have an empty *kubeconfig* file that prompts a log in. Once logged in, users have access based on their Azure AD user or group settings. Users with the *clusterAdmin* role have admin access.
 >
-> Clusters that do not use Azure AD only use the *clusterAdmin* role.
+> On clusters that do not use Azure AD, the *clusterUser* role has same effect of *clusterAdmin* role.
 
 ## Assign role permissions to a user or group
 
@@ -154,17 +154,18 @@ For enhanced security on access to AKS clusters, [integrate Azure Active Directo
 [kubectl-config-view]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config
 
 <!-- LINKS - internal -->
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 [api-cluster-admin]: /rest/api/aks/managedclusters/listclusteradmincredentials
 [api-cluster-user]: /rest/api/aks/managedclusters/listclusterusercredentials
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-account-show]: /cli/azure/account#az-account-show
-[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-account-show]: /cli/azure/account#az_account_show
+[az-ad-user-show]: /cli/azure/ad/user#az_ad_user_show
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-role-assignment-delete]: /cli/azure/role/assignment#az_role_assignment_delete
 [aad-integration]: ./azure-ad-integration-cli.md
-[az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
+[az-ad-group-show]: /cli/azure/ad/group#az_ad_group_show

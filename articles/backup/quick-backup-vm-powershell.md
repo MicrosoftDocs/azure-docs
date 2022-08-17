@@ -4,7 +4,7 @@ description: In this Quickstart, learn how to back up your Azure virtual machine
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom: mvc, devx-track-azurepowershell, mode-api
 ---
 
 # Back up a virtual machine in Azure with PowerShell
@@ -144,6 +144,10 @@ Run an on-demand backup job as follows:
     ```
 
 2. When the job status is **Completed**, the VM is protected and has a full recovery point stored.
+
+## Manage VM backups
+
+If you want to perform more actions such as change policy, edit policy etc.. refer to the [manage VM backups section](backup-azure-vms-automation.md#manage-azure-vm-backups).
 
 ## Clean up the deployment
 

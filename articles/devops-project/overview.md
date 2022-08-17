@@ -3,17 +3,16 @@ title: Overview of DevOps Starter for Azure | Microsoft Docs
 description: Understand the value for DevOps Starter
 services: devops-project
 documentationcenter: ''
-author: mlearned
+author: georgewallace
 manager: gwallace
 editor: mlearned
 ms.assetid: 
 ms.service: az-devops-project
-ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload:
 ms.date: 03/24/2020
-ms.author: mlearned
+ms.author: gwallace
 #Customer intent: As a developer/devops resource, I want to quickly get started with CI/CD in Azure so I can automate the deployment of my application to an Azure service.
 ---
 # Overview of DevOps Starter
@@ -24,7 +23,7 @@ ms.author: mlearned
 
 ## Advantages of using DevOps Starter
 
-  DevOps starter the following supports two CI/CD providers, to automate your deployments
+  DevOps starter supports the following two CI/CD providers, to automate your deployments
   * [GitHub Actions](https://github.com/features/actions)
   * [Azure DevOps](https://azure.microsoft.com/services/devops)
 

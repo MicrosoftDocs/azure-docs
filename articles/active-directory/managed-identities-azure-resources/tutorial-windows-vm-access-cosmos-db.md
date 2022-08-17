@@ -4,17 +4,18 @@ description: A tutorial that walks you through the process of using a system-ass
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: rkarlin
 editor: 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/10/2020
+ms.date: 01/11/2022
 ms.author: barclayn
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Cosmos DB
@@ -33,7 +34,7 @@ This tutorial shows you how to use a system-assigned managed identity for a Wind
 
 - If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
 - If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
-- To perform the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Use Role-Based Access Control to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- To perform the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 - Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps)
 - You also need a Windows Virtual machine that has system assigned managed identities enabled.
   - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a virtual machine with system-assigned identity enabled](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
@@ -89,7 +90,7 @@ You need to install the latest version of [Azure CLI](/cli/azure/install-azure-c
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top. 
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
 3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session.
-4. Using Powershell’s Invoke-WebRequest, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Resource Manager.
+4. Using PowerShell’s Invoke-WebRequest, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Resource Manager.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
@@ -130,78 +131,12 @@ The response gives you the list of Keys.  For example, if you get read-only keys
 {"primaryReadonlyMasterKey":"bWpDxS...dzQ==",
 "secondaryReadonlyMasterKey":"38v5ns...7bA=="}
 ```
-Now that you have the access key for the Cosmos DB account you can pass it to a Cosmos DB SDK and make calls to access the account.  For a quick example, you can pass the access key to the Azure CLI.  You can get the `<COSMOS DB CONNECTION URL>` from the **Overview** tab on the Cosmos DB account blade in the Azure portal.  Replace the `<ACCESS KEY>` with the value you obtained above:
 
-```azurecli
-az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>
-```
-
-This CLI command returns details about the collection:
-
-```output
-{
-  "collection": {
-    "_conflicts": "conflicts/",
-    "_docs": "docs/",
-    "_etag": "\"00006700-0000-0000-0000-5a8271e90000\"",
-    "_rid": "Es5SAM2FDwA=",
-    "_self": "dbs/Es5SAA==/colls/Es5SAM2FDwA=/",
-    "_sprocs": "sprocs/",
-    "_triggers": "triggers/",
-    "_ts": 1518498281,
-    "_udfs": "udfs/",
-    "id": "Test",
-    "indexingPolicy": {
-      "automatic": true,
-      "excludedPaths": [],
-      "includedPaths": [
-        {
-          "indexes": [
-            {
-              "dataType": "Number",
-              "kind": "Range",
-              "precision": -1
-            },
-            {
-              "dataType": "String",
-              "kind": "Range",
-              "precision": -1
-            },
-            {
-              "dataType": "Point",
-              "kind": "Spatial"
-            }
-          ],
-          "path": "/*"
-        }
-      ],
-      "indexingMode": "consistent"
-    }
-  },
-  "offer": {
-    "_etag": "\"00006800-0000-0000-0000-5a8271ea0000\"",
-    "_rid": "f4V+",
-    "_self": "offers/f4V+/",
-    "_ts": 1518498282,
-    "content": {
-      "offerIsRUPerMinuteThroughputEnabled": false,
-      "offerThroughput": 400
-    },
-    "id": "f4V+",
-    "offerResourceId": "Es5SAM2FDwA=",
-    "offerType": "Invalid",
-    "offerVersion": "V2",
-    "resource": "dbs/Es5SAA==/colls/Es5SAM2FDwA=/"
-  }
-}
-```
-
+Now that you have the access key for the Cosmos DB account you can pass it to a Cosmos DB SDK and make calls to access the account.
 
 ## Disable
 
 [!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
-
-
 
 ## Next steps
 

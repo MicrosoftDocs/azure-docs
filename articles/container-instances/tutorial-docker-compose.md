@@ -2,8 +2,11 @@
 title: Tutorial - Use Docker Compose to deploy multi-container group
 description: Use Docker Compose to build and run a multi-container application and then bring up the application in to Azure Container Instances
 ms.topic: tutorial
-ms.date: 10/28/2020
-ms.custom: 
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Tutorial: Deploy a multi-container group using Docker Compose 
@@ -169,7 +172,7 @@ az acr repository show --name <acrName> --repository azure-vote-front
 
 [!INCLUDE [container-instances-create-docker-context](../../includes/container-instances-create-docker-context.md)]
 
-## Deploy application to Azure Container instances
+## Deploy application to Azure Container Instances
 
 Next, change to the ACI context. Subsequent Docker commands run in this context.
 

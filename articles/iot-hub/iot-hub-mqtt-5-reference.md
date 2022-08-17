@@ -2,11 +2,11 @@
  title: Azure IoT Hub MQTT 5 API reference (preview)
  description: Learn about IoT Hub's MQTT 5 API reference
  services: iot-hub
- author: jlian
+ author: kgremban
  ms.service: iot-fundamentals
  ms.topic: reference
  ms.date: 11/19/2020
- ms.author: jlian
+ ms.author: kgremban
 ---
 
 # IoT Hub data plane MQTT 5 API reference
@@ -267,6 +267,9 @@ Post message to telemetry channel - EventHubs by default or other endpoint via r
 | user-id | string | no | translates into `user-id` system property on posted message |
 | correlation-id | string | no | translates into `correlation-id` system property on posted message |
 | creation-time | time | no | translates into `iothub-creation-time-utc` property on posted message |
+
+> [!TIP]
+> The format of `creation-time` must be UTC with no timezone information. For example, `2021-04-21T11:30:16Z` is valid, `2021-04-21T11:30:16-07:00` is invalid.
 
 **Payload**: any byte sequence
 

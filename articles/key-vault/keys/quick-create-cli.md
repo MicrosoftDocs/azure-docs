@@ -1,18 +1,15 @@
 ---
 title: Create and retrieve attributes of a key in Azure Key Vault - Azure CLI
 description: Quickstart showing how to set and retrieve a key from Azure Key Vault using Azure CLI
-services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.date: 01/27/2021
-ms.author: mbaldwin 
-ms.custom: devx-track-azurecli
-
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+ms.author: mbaldwin
+ms.custom: devx-track-azurecli, mode-api
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a key from Azure Key Vault using Azure CLI
 
@@ -26,7 +23,7 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/key-vault-cli-rg-creation.md)]
+[!INCLUDE [Create a resource group](../../../includes/cli-rg-create.md)]
 
 ## Create a key vault
 
@@ -42,7 +39,7 @@ Type the commands below to create a key called **ExampleKey** :
 az keyvault key create --vault-name "<your-unique-keyvault-name>" -n ExampleKey --protection software
 ```
 
-You can now reference this key that you added to Azure Key Vault by using its URI. Use **'https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey'** to get the current version. 
+You can now reference this key that you added to Azure Key Vault by using its URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey`** to get the current version. 
 
 To view previously stored key:
 
@@ -55,7 +52,7 @@ Now, you have created a Key Vault, stored a key, and retrieved it.
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-delete-resources.md)]
+[!INCLUDE [Create a key vault](../../../includes/cli-rg-delete.md)]
 
 ## Next steps
 
@@ -63,4 +60,4 @@ In this quickstart you created a Key Vault and stored a key in it. To learn more
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault)
-- Review the [Key Vault security overview](../general/security-overview.md)
+- Review the [Key Vault security overview](../general/security-features.md)

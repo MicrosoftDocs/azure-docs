@@ -1,15 +1,13 @@
 ---
 title: Connect Raspberry Pi web simulator to Azure IoT Hub (Node.js)
 description: Connect Raspberry Pi web simulator to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud.
-author: wesmc7777
-manager: philmea
+author: kgremban
 keywords: raspberry pi simulator, azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud
 ms.service: iot-hub
-services: iot-hub
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: conceptual
-ms.date: 04/11/2018
-ms.author: wesmc
+ms.date: 05/27/2021
+ms.author: kgremban
 ms.custom: ['Role: Cloud Development', devx-track-js]
 ---
 
@@ -19,18 +17,10 @@ ms.custom: ['Role: Cloud Development', devx-track-js]
 
 In this tutorial, you begin by learning the basics of working with Raspberry Pi online simulator. You then learn how to seamlessly connect the Pi simulator to the cloud by using [Azure IoT Hub](about-iot-hub.md).
 
-<p>
-<div id="diag" style="width:100%; text-align:center">
-<img src="media/iot-hub-raspberry-pi-web-simulator/3-banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
-</div>
-</p>
-<p>
-<div id="button" style="width:100%; text-align:center">
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
-<img src="media/iot-hub-raspberry-pi-web-simulator/6-button-default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5-button-click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6-button-default.png';">
-</a>
-</div>
-</p>
+:::image type="content" source="media/iot-hub-raspberry-pi-web-simulator/3-banner.png" alt-text="Connect Raspberry Pi web simulator to Azure IoT Hub" border="false":::
+
+[:::image type="content" source="media/iot-hub-raspberry-pi-web-simulator/6-button-default.png" alt-text="Start Raspberry Pi simulator":::](https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted)
+
 
 If you have physical devices, visit [Connect Raspberry Pi to Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) to get started.
 
@@ -107,6 +97,6 @@ For more ways to process data sent by your device, continue on to the next secti
 
 ## Next steps
 
-You’ve run a sample application to collect sensor data and send it to your IoT hub.
+You've run a sample application to collect sensor data and send it to your IoT hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

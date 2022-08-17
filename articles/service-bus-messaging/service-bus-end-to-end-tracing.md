@@ -2,7 +2,8 @@
 title: Azure Service Bus end-to-end tracing and diagnostics | Microsoft Docs
 description: Overview of Service Bus client diagnostics and end-to-end tracing (client through all the services that are involved in processing.)
 ms.topic: article
-ms.date: 01/17/2021
+ms.date: 02/03/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -14,12 +15,12 @@ One part of this problem is tracking logical pieces of work. It includes message
 When a producer sends a message through a queue, it typically happens in the scope of some other logical operation, initiated by some other client or service. The same operation is continued by consumer once it receives a message. Both producer and consumer (and other services that process the operation), presumably emit telemetry events to trace the operation flow and result. In order to correlate such events and trace operation end-to-end, each service that reports telemetry has to stamp every event with a trace context.
 
 Microsoft Azure Service Bus messaging has defined payload properties that producers and consumers should use to pass such trace context.
-The protocol is based on the [HTTP Correlation protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
+The protocol is based on the [W3C Trace-Context](https://www.w3.org/TR/trace-context/).
 
 # [Azure.Messaging.ServiceBus SDK (Latest)](#tab/net-standard-sdk-2)
 | Property Name        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
-|  Diagnostic-Id       | Unique identifier of an external call from producer to the queue. Refer to [Request-Id in HTTP protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) for the rationale, considerations, and format |
+|  Diagnostic-Id       | Unique identifier of an external call from producer to the queue. Refer to [W3C Trace-Context traceparent header](https://www.w3.org/TR/trace-context/#traceparent-header) for the format |
 
 ## Service Bus .NET Client autotracing
 The `ServiceBusProcessor` class of [Azure Messaging Service Bus client for .NET](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) provides tracing instrumentation points that can be hooked by tracing systems, or piece of client code. The instrumentation allows tracking all calls to the Service Bus messaging service from client side. If message processing is done by using [`ProcessMessageAsync` of `ServiceBusProcessor`](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) (message handler pattern), the message processing is also instrumented.
@@ -76,6 +77,9 @@ If you're running any external code in addition to the Application Insights SDK,
 
 It doesn't mean that there was a delay in receiving the message. In this scenario, the message has already been received since the message is passed in as a parameter to the SDK code. And, the **name** tag in the App Insights logs (**Process**) indicates that the message is now being processed by your external event processing code. This issue isn't Azure-related. Instead, these metrics refer to the efficiency of your external code given that the message has already been received from Service Bus. 
 
+### Tracking with OpenTelemetry
+Service Bus .NET Client library version 7.5.0 and later supports OpenTelemetry in experimental mode. Refer to [Distributed tracing in .NET SDK](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#opentelemetry-with-azure-monitor-zipkin-and-others) documentation for more details.
+
 ### Tracking without tracing system
 In case your tracing system doesn't support automatic Service Bus calls tracking you may be looking into adding such support into a tracing system or into your application. This section describes diagnostics events sent by Service Bus .NET client.  
 
@@ -130,12 +134,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 In this example, listener logs duration, result, unique identifier, and start time for each Service Bus operation.
 
 ### Events
-For every operation, two events are sent: 'Start' and 'Stop'. Most probably, you're only interested in 'Stop' events. They provide the result of operation, and start time and duration as Activity properties.
-
-Event payload provides a listener with the context of the operation, it replicates API incoming parameters and return value. 'Stop' event payload has all the properties of 'Start' event payload, so you can ignore 'Start' event completely.
-
-Each 'Stop' event has `Status` property with `TaskStatus` async operation was completed with, that is also omitted in the following table for simplicity.
-
 All events will have the following properties that conform with the open telemetry specification: https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md.
 
 - `message_bus.destination` – queue/topic/subscription path

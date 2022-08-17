@@ -2,12 +2,10 @@
 title: SAP Business One on Azure Virtual Machines | Microsoft Docs
 description: SAP Business One on Azure.
 author: msjuergent
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
-ms.date: 07/15/2018
+ms.date: 02/11/2022
 ms.author: juergent
-ms.reviewer: cynthn
 
 ---
 
@@ -66,7 +64,7 @@ Regarding the sizing of the client VM(s), the resource requirements are document
 
 As Azure virtual machines for hosting the Business One client components and the DBMS host, only VMs that are SAP NetWeaver supported are allowed. To find the list of SAP NetWeaver supported Azure VMs, read [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
-Running SAP HANA as DBMS backend for Business One, only VMs, which are listed for Business on HANA in the [HANA certified IaaS platform list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) are supported for HANA. The Business One client components are not affected by this stronger restriction for the SAP HANA as DBMS system.
+Running SAP HANA as DBMS backend for Business One, only VMs, which are listed for Business on HANA in the [HANA certified IaaS platform list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:120) are supported for HANA. The Business One client components are not affected by this stronger restriction for the SAP HANA as DBMS system.
 
 ### Operating system releases to use for SAP Business One
 
@@ -100,7 +98,7 @@ For the database type, SQL Server and SAP HANA are available. Independent of the
 
 Though emphasized in the specific and generic database documents already, you should make yourself familiar with:
 
-- [Manage the availability of Windows virtual machines in Azure](../../manage-availability.md) and [Manage the availability of Linux virtual machines in Azure](../../manage-availability.md)
+- [Manage the availability of Windows virtual machines in Azure](../../availability.md) and [Manage the availability of Linux virtual machines in Azure](../../availability.md)
 - [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 These documents should help you to decide on the selection of storage types and high availability configuration.
@@ -132,7 +130,7 @@ Using SAP HANA as DBMS the following sections you should follow the consideratio
 
 For high availability and disaster recovery configurations around SAP HANA as database for Business One in Azure, you should read the documentation [SAP HANA high availability for Azure virtual machines](./sap-hana-availability-overview.md) and the documentation pointed to from that document.
 
-For SAP HANA backup and restore strategies, you should read the document [Backup guide for SAP HANA on Azure Virtual Machines](./sap-hana-backup-guide.md) and the documentation pointed to from that document.
+For SAP HANA backup and restore strategies, you should read the document [Backup guide for SAP HANA on Azure Virtual Machines](../../../backup/sap-hana-db-about.md) and the documentation pointed to from that document.
 
  
 ### Business One client server

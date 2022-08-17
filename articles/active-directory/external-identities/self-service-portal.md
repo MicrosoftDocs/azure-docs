@@ -31,4 +31,4 @@ Organizations can use the [Microsoft Graph invitation manager API](/graph/api/re
 
 * [What is Azure AD B2B collaboration?](what-is-b2b.md)
 * [External Identities pricing](external-identities-pricing.md)
-* [Azure Active Directory B2B collaboration frequently asked questions (FAQ)](faq.md)
+* [Azure Active Directory B2B collaboration frequently asked questions (FAQ)](faq.yml)

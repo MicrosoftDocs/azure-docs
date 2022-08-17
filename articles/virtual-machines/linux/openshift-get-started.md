@@ -3,8 +3,9 @@ title: OpenShift in Azure overview
 description: An overview of OpenShift in Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/7/2019
@@ -12,6 +13,8 @@ ms.author: haroldw
 ---
 
 # OpenShift in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 OpenShift is an open and extensible container application platform that brings Docker and Kubernetes to the enterprise.  
 

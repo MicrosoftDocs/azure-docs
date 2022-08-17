@@ -1,7 +1,9 @@
 ---
-title: Troubleshoot VM and environment failures Azure DevTest Labs
+title: Troubleshoot VM and environment failures
 description: Learn how to troubleshoot virtual machine (VM) and environment creation failures in Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 

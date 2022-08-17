@@ -24,11 +24,11 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure-cli-windows).
 
 ## Create a storage account and blob container with Azure CLI
 
-You'll need to create a general-purpose storage account first to use blobs. If you don't have a [resource group](/cli/azure/group?view=azure-cli-latest#az-group-create), create one before running the command. The following command creates and display the metadata of the storage container. Copy down the **ID**.
+You'll need to create a general-purpose storage account first to use blobs. If you don't have a [resource group](/cli/azure/group#az-group-create), create one before running the command. The following command creates and display the metadata of the storage container. Copy down the **ID**.
 
 ```azurecli
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob
@@ -89,7 +89,7 @@ az keyvault secret set --vault-name contosoKeyVault10 --name storageKey --value 
 
 ## Create an Azure Databricks workspace and add Key Vault secret scope
 
-This section can't be completed through the command line. Follow this [guide](/azure/databricks/scenarios/store-secrets-azure-key-vault#create-an-azure-databricks-workspace-and-add-a-secret-scope). You'll need to access the [Azure portal](https://ms.portal.azure.com/#home) to:
+This section can't be completed through the command line. Follow this [guide](/azure/databricks/scenarios/store-secrets-azure-key-vault#create-an-azure-databricks-workspace-and-add-a-secret-scope). You'll need to access the [Azure portal](https://portal.azure.com/#home) to:
 
 1. Create your Azure Databricks resource
 1. Launch your workspace

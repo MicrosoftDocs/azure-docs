@@ -10,13 +10,13 @@ ms.custom: seodec18, contperf-fy21q2
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 03/21/2022
 
 ---
 # Migrate to an Azure resource authoring key
 
 > [!IMPORTANT]
->  Starting December 3rd, existing LUIS users must complete the migration process to continue authoring LUIS applications.
+>  As of December 3rd 2020, existing LUIS users must have completed the migration process to continue authoring LUIS applications.
 
 Language Understanding (LUIS) authoring authentication has changed from an email account to an Azure resource. Use this article to learn how to migrate your account, if you haven't migrated yet.  
 
@@ -28,9 +28,9 @@ Migration is the process of changing authoring authentication from an email acco
 Migration has to be done from the [LUIS portal](https://www.luis.ai). If you create the authoring keys by using the LUIS CLI, for example, you'll need to complete the migration process in the LUIS portal. You can still have co-authors on your applications after migration, but these will be added on the Azure resource level instead of the application level. Migrating your account can't be reversed.
 
 > [!Note]
-> * If you need to create a prediction runtime resource, there's [a separate process](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) to create it.
+> * If you need to create a prediction runtime resource, there's [a separate process](luis-how-to-azure-subscription.md#create-luis-resources) to create it.
 > * See the [migration notes](#migration-notes) section below for information on how your applications and contributors will be affected. 
-> * Authoring your LUIS app is free, as indicated by the F0 tier. Learn [more about pricing tiers](luis-limits.md#key-limits).
+> * Authoring your LUIS app is free, as indicated by the F0 tier. Learn [more about pricing tiers](luis-limits.md#resource-usage-and-limits).
 
 ## Migration prerequisites
 
@@ -92,7 +92,7 @@ A `*` symbol will appear next to the application name if you have a prediction r
    * **Azure Subscription Name**: The subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the drop-down list.
    * **Authoring Resource Name**: A custom name that you choose. It's used as part of the URL for your authoring and prediction endpoint queries. If you are creating a new authoring resource, note that the resource name can only include alphanumeric characters, `-`, and can’t start or end with `-`. If any other symbols are included in the name,
  resource creation and migration will fail.
-   * **Azure Resource Group Name**: A custom resource group name that you choose from the drop-down list. Resource groups allow you to group Azure resources for access and management. If you currently do not have a resource group in your subscription, you will not be allowed to create one in the LUIS portal. Go to [Azure portal](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) to create one then go to LUIS to continue the sign-in process.
+   * **Azure Resource Group Name**: A custom resource group name that you choose from the drop-down list. Resource groups allow you to group Azure resources for access and management. If you currently do not have a resource group in your subscription, you will not be allowed to create one in the LUIS portal. Go to [Azure portal](https://portal.azure.com/#create/Microsoft.ResourceGroup) to create one then go to LUIS to continue the sign-in process.
 
 6. After you have successfully migrated in all regions, click on finish. You will now have access to your applications. You can continue authoring and maintaining all your applications in all regions within the portal.
 
@@ -131,7 +131,7 @@ You can add contributors to the authoring resource from the Azure portal, on the
 ## Troubleshooting the migration process
 
 If you cannot find your Azure subscription in the drop-down list:
-* Ensure that you have a valid Azure subscription that's authorized to create Cognitive Services resources. Go to the [Azure portal](https://ms.portal.azure.com) and check the status of the subscription. If you don't have one, [create a free Azure account](https://azure.microsoft.com/free/cognitive-services/).
+* Ensure that you have a valid Azure subscription that's authorized to create Cognitive Services resources. Go to the [Azure portal](https://portal.azure.com) and check the status of the subscription. If you don't have one, [create a free Azure account](https://azure.microsoft.com/free/cognitive-services/).
 * Ensure that you're in the proper tenant associated with your valid subscription. You can switch tenants selecting the avatar in the top right of the screen, containing your initials.
 
   > [!div class="mx-imgBorder"]

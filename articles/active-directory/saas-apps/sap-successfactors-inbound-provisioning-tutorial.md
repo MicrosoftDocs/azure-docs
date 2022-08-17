@@ -1,7 +1,6 @@
 ---
-title: 'Tutorial: Configure SuccessFactors inbound provisioning in AD and Azure AD | Microsoft Docs'
+title: 'Tutorial: Configure SuccessFactors inbound provisioning in AD and Azure AD'
 description: Learn how to configure inbound provisioning from SuccessFactors
-services: active-directory
 author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
@@ -159,7 +158,7 @@ This section provides steps for user account provisioning from SuccessFactors to
 
 **To configure SuccessFactors to Active Directory provisioning:**
 
-1. Go to <https://portal.azure.com>
+1. Go to the [Azure portal](https://portal.azure.com).
 
 2. In the left navigation bar, select **Azure Active Directory**
 
@@ -194,7 +193,7 @@ In this step, we establish connectivity with SuccessFactors and Active Directory
 
    * **Admin password –** Enter the password of the SuccessFactors API user account. 
 
-   * **Tenant URL –** Enter the name of the SuccessFactors OData API services endpoint. Only enter the host name of server without http or https. This value should look like: **<api-server-name>.successfactors.com**.
+   * **Tenant URL –** Enter the name of the SuccessFactors OData API services endpoint. Only enter the host name of server without http or https. This value should look like: **\<api-server-name\>.successfactors.com**.
 
    * **Active Directory Forest -** The "Name" of your Active Directory domain, as registered with the agent. Use the dropdown to select the target domain for provisioning. This value is typically a string like: *contoso.com*
 

@@ -1,20 +1,20 @@
 ---
-title: Delegated access in Windows Virtual Desktop (classic) - Azure
-description: How to delegate administrative capabilities on a Windows Virtual Desktop (classic) deployment, including examples.
+title: Delegated access in Azure Virtual Desktop (classic) - Azure
+description: How to delegate administrative capabilities on a Azure Virtual Desktop (classic) deployment, including examples.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Delegated access in Windows Virtual Desktop (classic)
+# Delegated access in Azure Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../delegated-access-virtual-desktop.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../delegated-access-virtual-desktop.md).
 
-Windows Virtual Desktop has a delegated access model that lets you define the amount of access a particular user is allowed to have by assigning them a role. A role assignment has three components: security principal, role definition, and scope. The Windows Virtual Desktop delegated access model is based on the Azure RBAC model. To learn more about specific role assignments and their components, see [the Azure role-based access control overview](../../role-based-access-control/built-in-roles.md).
+Azure Virtual Desktop has a delegated access model that lets you define the amount of access a particular user is allowed to have by assigning them a role. A role assignment has three components: security principal, role definition, and scope. The Azure Virtual Desktop delegated access model is based on the Azure RBAC model. To learn more about specific role assignments and their components, see [the Azure role-based access control overview](../../role-based-access-control/built-in-roles.md).
 
-Windows Virtual Desktop delegated access supports the following values for each element of the role assignment:
+Azure Virtual Desktop delegated access supports the following values for each element of the role assignment:
 
 * Security principal
     * Users
@@ -29,7 +29,7 @@ Windows Virtual Desktop delegated access supports the following values for each 
 
 ## Built-in roles
 
-Delegated access in Windows Virtual Desktop has several built-in role definitions you can assign to users and service principals.
+Delegated access in Azure Virtual Desktop has several built-in role definitions you can assign to users and service principals.
 
 * An RDS Owner can manage everything, including access to resources.
 * An RDS Contributor can manage everything, but can't access resources.
@@ -62,4 +62,4 @@ You can modify the basic three cmdlets with the following parameters:
 
 For a more complete list of PowerShell cmdlets each role can use, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).
 
-For guidelines for how to set up a Windows Virtual Desktop environment, see [Windows Virtual Desktop environment](environment-setup-2019.md).
+For guidelines for how to set up a Azure Virtual Desktop environment, see [Azure Virtual Desktop environment](environment-setup-2019.md).

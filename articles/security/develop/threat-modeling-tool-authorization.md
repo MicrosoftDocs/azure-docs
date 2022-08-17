@@ -12,7 +12,6 @@ ms.service: security
 ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
@@ -234,7 +233,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Add or remove Azure role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md)  |
+| **References**              | [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md)  |
 | **Steps** | Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using Azure RBAC, you can grant only the amount of access that users need to perform their jobs.|
 
 ## <a id="cluster-rbac"></a>Restrict client's access to cluster operations using Service Fabric RBAC

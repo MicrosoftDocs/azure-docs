@@ -4,7 +4,7 @@ description: Set up TLS encryption for communication between Kafka clients and K
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/01/2019
+ms.date: 03/31/2022
 ---
 
 # Set up TLS encryption and authentication for Apache Kafka in Azure HDInsight
@@ -123,11 +123,11 @@ To complete the configuration modification, do the following steps:
 1. Under **Kafka Broker** set the **listeners** property to `PLAINTEXT://localhost:9092,SSL://localhost:9093`
 1. Under **Advanced kafka-broker** set the **security.inter.broker.protocol** property to `SSL`
 
-    ![Editing Kafka ssl configuration properties in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png" alt-text="Editing Kafka ssl configuration properties in Ambari" border="true":::
 
 1. Under **Custom kafka-broker** set the **ssl.client.auth** property to `required`. This step is only required if you are setting up authentication and encryption.
 
-    ![Editing kafka ssl configuration properties in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png" alt-text="Editing kafka ssl configuration properties in Ambari" border="true":::
 
 1. For HDI version 3.6, go to Ambari UI and add the following configurations under **Advanced kafka-env** and the **kafka-env template** property.
 
@@ -148,11 +148,11 @@ To complete the configuration modification, do the following steps:
 
     For HDI version 3.6:
 
-    ![Editing kafka-env template property in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png" alt-text="Editing kafka-env template property in Ambari" border="true":::
 
     For HDI version 4.0:
 
-     ![Editing kafka-env template property in Ambari four](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)
+     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Editing kafka-env template property in Ambari four" border="true":::
 
 1. Restart all Kafka brokers.
 
@@ -218,7 +218,7 @@ These steps are detailed in the following code snippets.
 The following four steps summarize the tasks needed to complete the client setup:
 
 1. Sign in to the client machine (standby head node).
-1. Create a java keystore and get a signed certificate for the broker. Then copy the certificate to the VM where the CA is running.
+1. Create a Java keystore and get a signed certificate for the broker. Then copy the certificate to the VM where the CA is running.
 1. Switch to the CA machine (active head node) to sign the client certificate.
 1. Go to the client machine (standby head node) and navigate to the `~/ssl` folder. Copy the signed cert to client machine.
 
@@ -238,7 +238,7 @@ The details of each step are given below.
     cd ssl
     ```
 
-1. Create a java keystore and create a certificate signing request. 
+1. Create a Java keystore and create a certificate signing request. 
 
     ```bash
     keytool -genkey -keystore kafka.client.keystore.jks -validity 365 -storepass "MyClientPassword123" -keypass "MyClientPassword123" -dname "CN=HEADNODE1_FQDN" -storetype pkcs12
@@ -286,7 +286,7 @@ The details of each step are given below.
     
     keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     
-    keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
+    keytool -keystore kafka.client.keystore.jks -import -file client-signed-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     ```
 
 1. Create a file `client-ssl-auth.properties` on client machine (hn1) . It should have the following lines:

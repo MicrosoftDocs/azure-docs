@@ -2,8 +2,9 @@
 title: Template functions - logical
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to determine logical values.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 02/11/2022
 ---
+
 # Logical functions for ARM templates
 
 Resource Manager provides several functions for making comparisons in your Azure Resource Manager template (ARM template):
@@ -16,13 +17,16 @@ Resource Manager provides several functions for making comparisons in your Azure
 * [or](#or)
 * [true](#true)
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see the [bool](../bicep/bicep-functions-logical.md) logical function and [logical](../bicep/operators-logical.md) operators.
 
 ## and
 
 `and(arg1, arg2, ...)`
 
-Checks whether all parameter values are true. The `and` function is not supported in Bicep. Use the `&&` operator instead.
+Checks whether all parameter values are true.
+
+The `and` function isn't supported in Bicep. Use the [&& operator](../bicep/operators-logical.md#and-) instead.
 
 ### Parameters
 
@@ -30,7 +34,7 @@ Checks whether all parameter values are true. The `and` function is not supporte
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |boolean |The first value to check whether is true. |
 | arg2 |Yes |boolean |The second value to check whether is true. |
-| additional arguments |No |boolean |Additional arguments to check whether are true. |
+| more arguments |No |boolean |More arguments to check whether are true. |
 
 ### Return value
 
@@ -38,41 +42,9 @@ Returns **True** if all values are true; otherwise, **False**.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) shows how to use logical functions.
+The following example shows how to use logical functions.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "andExampleOutput": {
-      "type": "bool",
-      "value": "[and(bool('true'), bool('false'))]"
-    },
-    "orExampleOutput": {
-      "type": "bool",
-      "value": "[or(bool('true'), bool('false'))]"
-    },
-    "notExampleOutput": {
-      "type": "bool",
-      "value": "[not(bool('true'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-output andExampleOutput bool = bool('true') && bool('false')
-output orExampleOutput bool = bool('true') || bool('false')
-output notExampleOutput bool = !(bool('true'))
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/andornot.json":::
 
 The output from the preceding example is:
 
@@ -87,6 +59,8 @@ The output from the preceding example is:
 `bool(arg1)`
 
 Converts the parameter to a boolean.
+
+In Bicep, use the [bool](../bicep/bicep-functions-logical.md#bool) logical function.
 
 ### Parameters
 
@@ -104,46 +78,10 @@ You can also use [true()](#true) and [false()](#false) to get boolean values.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) shows how to use bool with a string or integer.
+The following example shows how to use bool with a string or integer.
 
-# [JSON](#tab/json)
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/bool.json":::
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "trueString": {
-      "type": "bool",
-      "value": "[bool('true')]",
-    },
-    "falseString": {
-      "type": "bool",
-      "value": "[bool('false')]"
-    },
-    "trueInt": {
-      "type": "bool",
-      "value": "[bool(1)]"
-    },
-    "falseInt": {
-      "type": "bool",
-      "value": "[bool(0)]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-output trueString bool = bool('true')
-output falseString bool = bool('false')
-output trueInt bool = bool(1)
-output falseInt bool = bool(0)
-```
-
----
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -157,7 +95,9 @@ The output from the preceding example with the default values is:
 
 `false()`
 
-Returns false. The `false` function is not available in Bicep.  Use the `false` keyword instead.
+Returns false.
+
+The `false` function isn't available in Bicep. Use the `false` keyword instead.
 
 ### Parameters
 
@@ -171,29 +111,7 @@ A boolean that is always false.
 
 The following example returns a false output value.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "falseOutput": {
-      "type": "bool",
-      "value": "[false()]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-output falseOutput bool = false
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/false.json":::
 
 The output from the preceding example is:
 
@@ -205,7 +123,9 @@ The output from the preceding example is:
 
 `if(condition, trueValue, falseValue)`
 
-Returns a value based on whether a condition is true or false. The `if` function is not supported in Bicep. Use the `?:` operator instead.
+Returns a value based on whether a condition is true or false.
+
+The `if` function isn't supported in Bicep. Use the [?: operator](../bicep/operators-logical.md#conditional-expression--) instead.
 
 ### Parameters
 
@@ -225,42 +145,9 @@ When the condition is **True**, only the true value is evaluated. When the condi
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) shows how to use the `if` function.
+The following example shows how to use the `if` function.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-  ],
-  "outputs": {
-    "yesOutput": {
-      "type": "string",
-      "value": "[if(equals('a', 'a'), 'yes', 'no')]"
-    },
-    "noOutput": {
-      "type": "string",
-      "value": "[if(equals('a', 'b'), 'yes', 'no')]"
-    },
-    "objectOutput": {
-      "type": "object",
-      "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-output yesOutput string = 'a' == 'a' ? 'yes' : 'no'
-output noOutput string = 'a' == 'b' ? 'yes' : 'no'
-output objectOutput object = 'a' == 'a' ? json('{"test": "value1"}') : json('null')
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/if.json":::
 
 The output from the preceding example is:
 
@@ -271,8 +158,6 @@ The output from the preceding example is:
 | objectOutput | Object | { "test": "value1" } |
 
 The following [example template](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) shows how to use this function with expressions that are only conditionally valid.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -320,18 +205,13 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-> [!NOTE]
-> `Conditions` are not yet implemented in Bicep. See [Conditions](https://github.com/Azure/bicep/issues/186).
-
----
-
 ## not
 
 `not(arg1)`
 
-Converts boolean value to its opposite value. The `not` function is not supported in Bicep. Use the `!` operator instead.
+Converts boolean value to its opposite value.
+
+The `not` function isn't supported in Bicep. Use the [! operator](../bicep/operators-logical.md#not-) instead.
 
 ### Parameters
 
@@ -345,41 +225,9 @@ Returns **True** when parameter is **False**. Returns **False** when parameter i
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) shows how to use logical functions.
+The following example shows how to use logical functions.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "andExampleOutput": {
-      "type": "bool",
-      "value": "[and(bool('true'), bool('false'))]",
-    },
-    "orExampleOutput": {
-      "type": "bool",
-      "value": "[or(bool('true'), bool('false'))]"
-    },
-    "notExampleOutput": {
-      "type": "bool",
-      "value": "[not(bool('true'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-output andExampleOutput bool = bool('true') && bool('false')
-output orExampleOutput bool = bool('true') || bool('false')
-output notExampleOutput bool = !(bool('true'))
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/andornot.json":::
 
 The output from the preceding example is:
 
@@ -389,32 +237,9 @@ The output from the preceding example is:
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) uses **not** with [equals](template-functions-comparison.md#equals).
+The following example uses `not` with [equals](template-functions-comparison.md#equals).
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-  ],
-  "outputs": {
-    "checkNotEquals": {
-      "type": "bool",
-      "value": "[not(equals(1, 2))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-output checkNotEquals bool = !(1 == 2)
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/not-equals.json":::
 
 The output from the preceding example is:
 
@@ -426,7 +251,9 @@ The output from the preceding example is:
 
 `or(arg1, arg2, ...)`
 
-Checks whether any parameter value is true. The `or` function is not supported in Bicep. Use the `||` operator instead.
+Checks whether any parameter value is true.
+
+The `or` function isn't supported in Bicep. Use the [|| operator](../bicep/operators-logical.md#or-) instead.
 
 ### Parameters
 
@@ -434,7 +261,7 @@ Checks whether any parameter value is true. The `or` function is not supported i
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |boolean |The first value to check whether is true. |
 | arg2 |Yes |boolean |The second value to check whether is true. |
-| additional arguments |No |boolean |Additional arguments to check whether are true. |
+| more arguments |No |boolean |More arguments to check whether are true. |
 
 ### Return value
 
@@ -442,41 +269,9 @@ Returns **True** if any value is true; otherwise, **False**.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) shows how to use logical functions.
+The following example shows how to use logical functions.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "andExampleOutput": {
-      "value": "[and(bool('true'), bool('false'))]",
-      "type": "bool"
-    },
-    "orExampleOutput": {
-      "value": "[or(bool('true'), bool('false'))]",
-      "type": "bool"
-    },
-    "notExampleOutput": {
-      "value": "[not(bool('true'))]",
-      "type": "bool"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-output andExampleOutput bool = bool('true') && bool('false')
-output orExampleOutput bool = bool('true') || bool('false')
-output notExampleOutput bool = !(bool('true'))
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/andornot.json":::
 
 The output from the preceding example is:
 
@@ -490,11 +285,13 @@ The output from the preceding example is:
 
 `true()`
 
-Returns true. The `true` function is not available in Bicep.  Use the `true` keyword instead.
+Returns true.
+
+The `true` function isn't available in Bicep. Use the `true` keyword instead.
 
 ### Parameters
 
-The true function doesn't accept any parameters. The `true` function is not available in Bicep.  Use the `true` keyword instead.
+The true function doesn't accept any parameters.
 
 ### Return value
 
@@ -504,29 +301,7 @@ A boolean that is always true.
 
 The following example returns a true output value.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "trueOutput": {
-      "type": "bool",
-      "value": "[true()]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-output trueOutput bool = true
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/true.json":::
 
 The output from the preceding example is:
 
@@ -536,4 +311,4 @@ The output from the preceding example is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).

@@ -1,13 +1,13 @@
 ---
 title: 'Deploy ASP.NET Core apps to Azure Kubernetes Service with Azure DevOps Starter'
 description: Azure DevOps Starter makes it easy to get started on Azure. With DevOps Starter, you can deploy your ASP.NET Core app with the Azure Kubernetes Service (AKS) in a few quick steps.
-ms.author: mlearned
+ms.author: gwallace
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
+author: georgewallace
 ---
 
 # Deploy ASP.NET Core apps to Azure Kubernetes Service with Azure DevOps Starter
@@ -19,7 +19,7 @@ DevOps Starter also:
 * Automatically creates Azure resources, such as Azure Kubernetes Service (AKS).
 * Creates and configures a release pipeline in Azure DevOps that sets up a build and release pipeline for CI/CD.
 * Creates an Azure Application Insights resource for monitoring.
-* Enables [Azure Monitor for containers](../azure-monitor/insights/container-insights-overview.md) to monitor performance for the container workloads on the AKS cluster
+* Enables [Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) to monitor performance for the container workloads on the AKS cluster
 
 In this tutorial, you will:
 

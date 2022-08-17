@@ -6,25 +6,26 @@ description: Learn how to create and manage search objects in a .NET application
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 08/15/2022
 ms.custom: devx-track-csharp
 ---
 # How to use Azure.Search.Documents in a C# .NET Application
 
-This article explains how to create and manage search objects using C# and the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) (version 11) client library.
+This article explains how to create and manage search objects using C# and the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) (version 11) client library in the Azure SDK for .NET.
 
 ## About version 11
 
-Azure SDK for .NET adds a new [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) client library from the Azure SDK team that is functionally equivalent to [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10) client libraries, but utilizes common approaches and conventions where applicable. Some examples include [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) key authentication, and [System.Text.Json.Serialization](/dotnet/api/system.text.json.serialization) for JSON serialization.
+Azure SDK for .NET includes an [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) client library from the Azure SDK team that is functionally equivalent to the previous client library, [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10). Version 11 is more consistent in terms of Azure programmability. Some examples include [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) key authentication, and [System.Text.Json.Serialization](/dotnet/api/system.text.json.serialization) for JSON serialization.
 
 As with previous versions, you can use this library to:
 
 + Create and manage search indexes, data sources, indexers, skillsets, and synonym maps
 + Load and manage search documents in an index
 + Execute queries, all without having to deal with the details of HTTP and JSON
++ Invoke and manage AI enrichment (skillsets) and outputs
 
 The library is distributed as a single [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/), which includes all APIs used for programmatic access to a search service.
 
@@ -47,7 +48,7 @@ If you have been using the previous version of the .NET SDK and you'd like to up
 
 + Visual Studio 2019 or later.
 
-+ Your own Azure Cognitive Search service. In order to use the SDK, you will need the name of your service and one or more API keys. [Create a service in the portal](search-create-service-portal.md) if you don't have one.
++ Your own Azure Cognitive Search service. In order to use the SDK, you'll need the name of your service and one or more API keys. [Create a service in the portal](search-create-service-portal.md) if you don't have one.
 
 + Download the [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents) using **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution** in Visual Studio. Search for the package name `Azure.Search.Documents`.
 
@@ -116,7 +117,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-The next statement creates the search client used to load documents or run queries. `SearchClient` requires an index. You will need an admin API key to load documents, but you can use a query API key to run queries. 
+The next statement creates the search client used to load documents or run queries. `SearchClient` requires an index. You'll need an admin API key to load documents, but you can use a query API key to run queries. 
 
 ```csharp
 string indexName = configuration["SearchIndexName"];
@@ -307,7 +308,7 @@ The `JsonIgnore` attribute on this property tells the `FieldBuilder` to not seri
 
 ## Load an index
 
-The next step in `Main` populates the newly-created "hotels" index. This index population is done in the following method:
+The next step in `Main` populates the newly created "hotels" index. This index population is done in the following method:
 (Some code replaced with "..." for illustration purposes. See the full sample solution for the full data population code.)
 
 ```csharp
@@ -421,7 +422,7 @@ private static void UploadDocuments(SearchClient searchClient)
     Thread.Sleep(2000);
 ```
 
-This method has four parts. The first creates an array of 3 `Hotel` objects each with 3 `Room` objects that will serve as our input data to upload to the index. This data is hard-coded for simplicity. In an actual application, data will likely come from an external data source such as a SQL database.
+This method has four parts. The first creates an array of three `Hotel` objects each with three `Room` objects that will serve as our input data to upload to the index. This data is hard-coded for simplicity. In an actual application, data will likely come from an external data source such as an SQL database.
 
 The second part creates an [`IndexDocumentsBatch`](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) containing the documents. You specify the operation you want to apply to the batch at the time you create it, in this case by calling [`IndexDocumentsAction.Upload`](/dotnet/api/azure.search.documents.models.indexdocumentsaction.upload). The batch is then uploaded to the Azure Cognitive Search index by the [`IndexDocuments`](/dotnet/api/azure.search.documents.searchclient.indexdocuments) method.
 
@@ -429,7 +430,7 @@ The second part creates an [`IndexDocumentsBatch`](/dotnet/api/azure.search.docu
 > In this example, we are just uploading documents. If you wanted to merge changes into existing documents or delete documents, you could create batches by calling `IndexDocumentsAction.Merge`, `IndexDocumentsAction.MergeOrUpload`, or `IndexDocumentsAction.Delete` instead. You can also mix different operations in a single batch by calling `IndexBatch.New`, which takes a collection of `IndexDocumentsAction` objects, each of which tells Azure Cognitive Search to perform a particular operation on a document. You can create each `IndexDocumentsAction` with its own operation by calling the corresponding method such as `IndexDocumentsAction.Merge`, `IndexAction.Upload`, and so on.
 > 
 
-The third part of this method is a catch block that handles an important error case for indexing. If your search service fails to index some of the documents in the batch, an `IndexBatchException` is thrown by `IndexDocuments`. This exception can happen if you are indexing documents while your service is under heavy load. **We strongly recommend explicitly handling this case in your code.** You can delay and then retry indexing the documents that failed, or you can log and continue like the sample does, or you can do something else depending on your application's data consistency requirements.
+The third part of this method is a catch block that handles an important error case for indexing. If your search service fails to index some of the documents in the batch, a `RequestFailedException` is thrown. An exception can happen if you're indexing documents while your service is under heavy load. **We strongly recommend explicitly handling this case in your code.** You can delay and then retry indexing the documents that failed, or you can log and continue like the sample does, or you can do something else depending on your application's data consistency requirements. An alternative is to use [SearchIndexingBufferedSender](/dotnet/api/azure.search.documents.searchindexingbufferedsender-1) for intelligent batching, automatic flushing, and retries for failed indexing actions. See [this example](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample05_IndexingDocuments.md#searchindexingbufferedsender) for more context.
 
 Finally, the `UploadDocuments` method delays for two seconds. Indexing happens asynchronously in your search service, so the sample application needs to wait a short time to ensure that the documents are available for searching. Delays like this are typically only necessary in demos, tests, and sample applications.
 
@@ -465,7 +466,7 @@ Second, define a method that sends a query request.
 
 Each time the method executes a query, it creates a new [`SearchOptions`](/dotnet/api/azure.search.documents.searchoptions) object. This object is used to specify additional options for the query such as sorting, filtering, paging, and faceting. In this method, we're setting the `Filter`, `Select`, and `OrderBy` property for different queries. For more information about the search query expression syntax, [Simple query syntax](/rest/api/searchservice/Simple-query-syntax-in-Azure-Search).
 
-The next step is to actually execute the search query. Running the search is done using the `SearchClient.Search` method. For each query, pass the search text to use as a string (or `"*"` if there is no search text), plus the search options created earlier. We also specify `Hotel` as the type parameter for `SearchClient.Search`, which tells the SDK to deserialize documents in the search results into objects of type `Hotel`.
+The next step is query execution. Running the search is done using the `SearchClient.Search` method. For each query, pass the search text to use as a string (or `"*"` if there is no search text), plus the search options created earlier. We also specify `Hotel` as the type parameter for `SearchClient.Search`, which tells the SDK to deserialize documents in the search results into objects of type `Hotel`.
 
 ```csharp
 private static void RunQueries(SearchClient searchClient)
@@ -518,7 +519,7 @@ private static void RunQueries(SearchClient searchClient)
     options = new SearchOptions();
     options.SearchFields.Add("HotelName");
 
-    //Adding details to select, because "Location" is not supported yet when deserialize search result to "Hotel"
+    //Adding details to select, because "Location" isn't supported yet when deserializing search result to "Hotel"
     options.Select.Add("HotelId");
     options.Select.Add("HotelName");
     options.Select.Add("Description");

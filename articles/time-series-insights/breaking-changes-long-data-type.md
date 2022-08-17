@@ -3,16 +3,18 @@ title: 'Support for long data type in Azure Time Series Insights Gen2 | Microsof
 description: Support for long data type in Azure Time Series Insights Gen2.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: msrsrinivasan
+ms.author: radhsrin
+manager: cnovak
+ms.reviewer: orspodak
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.custom: dpalled
 ---
 
 # Adding support for long data type in Azure Time Series Insights Gen2
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 The addition of support for long data type affects how we store and index numeric data in Azure Time Series Insights Gen2 environments only. If you have a Gen1 environment, you can disregard these changes.
 

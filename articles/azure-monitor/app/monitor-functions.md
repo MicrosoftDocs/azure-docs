@@ -2,38 +2,59 @@
 title: Monitor applications running on Azure Functions with Application Insights - Azure Monitor | Microsoft Docs
 description: Azure Monitor seamlessly integrates with your application running on Azure Functions, and allows you to monitor the performance and spot the problems with your apps in no time.
 ms.topic: conceptual
-author: MS-jgol
-ms.author: jgol
-ms.date: 06/26/2020
-
+ms.date: 08/27/2021
+ms.reviewer: abinetabate
 ---
 
 # Monitoring Azure Functions with Azure Monitor Application Insights
 
-[Azure Functions](../../azure-functions/functions-overview.md) offers built-in integration with Azure Application Insights to monitor functions. 
+[Azure Functions](../../azure-functions/functions-overview.md) offers built-in integration with Azure Application Insights to monitor functions. For languages other than .NET and .NETCore additional language-specific workers/extensions are needed to get the full benefits of distributed tracing. 
 
 Application Insights collects log, performance, and error data, and automatically detects performance anomalies. Application Insights includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. When you have the visibility into your application data, you can continuously improve performance and usability. You can even use Application Insights during local function app project development. 
 
 The required Application Insights instrumentation is built into Azure Functions. The only thing you need is a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key should be added to your application settings when your function app resource is created in Azure. If your function app doesn't already have this key, you can set it manually. For more information read more about [monitoring Azure Functions](../../azure-functions/functions-monitoring.md?tabs=cmd).
 
-## Distributed tracing for Java applications on Windows (public preview)
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+## Distributed tracing for Java applications (public preview)
 
 > [!IMPORTANT]
-> This feature is currently in public preview for Java Azure Functions on Windows, distributed tracing for Java Azure Functions on Linux is not supported. 
-> For Consumption plan it has a cold start of 8-9 seconds.
+> This feature is currently in public preview for Java Azure Functions both Windows and Linux
 
-If your applications are written in Java you can view richer data from your functions applications, including, requests, dependencies, logs, and metrics. The additional data also lets you see and diagnose end-to-end transactions and see the application map, which aggregates many transactions to show a topological view of how the systems interact, and what the average performance and error rates are.
+If your applications are written in Java you can view richer data from your functions applications, including requests, dependencies, logs, and metrics. The additional data also lets you see and diagnose end-to-end transactions and see the application map, which aggregates many transactions to show a topological view of how the systems interact, and what the average performance and error rates are.
 
-The end-to-end diagnostics and the application map provide visibility into one single transaction/request. Together these two features are very helpful for finding the root cause of reliability issues and performance bottlenecks on a per request basis.
+The end-to-end diagnostics and the application map provide visibility into one single transaction/request. Together these two features are helpful for finding the root cause of reliability issues and performance bottlenecks on a per request basis.
 
-### How to enable distributed tracing for Java Function apps?
+### How to enable distributed tracing for Java Function apps
 
-Navigate to the functions app Overview blade, go to configurations. Under Application Settings, click "+ New application setting". Add the following two application settings with below values, then click Save on the upper left. DONE!
+Navigate to the functions app Overview blade and go to configurations. Under Application Settings, click "+ New application setting". 
 
+> [!div class="mx-imgBorder"]
+> ![Under Settings, add new application settings](./media//functions/create-new-setting.png)
+
+Add the following application settings with below values, then click Save on the upper left. DONE!
+
+#### Windows
 ```
 XDT_MicrosoftApplicationInsights_Java -> 1
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 ```
+> [!IMPORTANT]
+> This feature will have a cold start implication of 8-9 seconds in the Windows Consumption plan.
+
+#### Linux Dedicated/Premium
+```
+ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
+```
+
+#### Linux Consumption
+```
+APPLICATIONINSIGHTS_ENABLE_AGENT: true
+```
+
+## Distributed tracing for Python Function apps
+
+To collect custom telemetry from services such as Redis, Memcached, MongoDB, and more, you can use the [OpenCensus Python Extension](https://github.com/census-ecosystem/opencensus-python-extensions-azure) and [log your telemetry](../../azure-functions/functions-reference-python.md?tabs=azurecli-linux%2capplication-level#log-custom-telemetry). You can find the list of supported services [here](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
 
 ## Next Steps
 

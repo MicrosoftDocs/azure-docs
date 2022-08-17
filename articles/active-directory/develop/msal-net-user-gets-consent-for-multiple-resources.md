@@ -1,6 +1,5 @@
 ---
-title: Get consent for several resources (MSAL.NET) | Azure
-titleSuffix: Microsoft identity platform
+title: Get consent for several resources (MSAL.NET)
 description: Learn how a user can get pre-consent for several resources using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: mmacy
@@ -49,7 +48,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-This will get you an access token for the first web API. Then, when you need to access the second web API you can silently acquire the token from the token cache:
+This will get you an access token for the first web API. Then, to access the second web API you can silently acquire the token from the token cache:
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

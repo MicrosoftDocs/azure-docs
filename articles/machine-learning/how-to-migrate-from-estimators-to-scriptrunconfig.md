@@ -3,17 +3,19 @@ title: Migrate from Estimators to ScriptRunConfig
 titleSuffix: Azure Machine Learning
 description: Migration guide for migrating from Estimators to ScriptRunConfig for configuring training jobs.
 services: machine-learning
-author: mx-iao
-ms.author: minxia
+author: blackmist
+ms.author: larryfr
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/14/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Migrating from Estimators to ScriptRunConfig
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Up until now, there have been multiple methods for configuring a training job in Azure Machine Learning via the SDK, including Estimators, ScriptRunConfig, and the lower-level RunConfiguration.   To address this ambiguity and inconsistency, we are simplifying the job configuration process in Azure ML.  You should now use ScriptRunConfig as the recommended option for configuring training jobs. 
 
@@ -25,13 +27,13 @@ This article covers common considerations when migrating from Estimators to Scri
 > To migrate to ScriptRunConfig from Estimators, make sure you are using >= 1.15.0 of the Python SDK.
 
 ## ScriptRunConfig documentation and samples
-Azure Machine Learning documentation and samples have been updated to use [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?preserve-view=true&view=azure-ml-py) for job configuration and submission.
+Azure Machine Learning documentation and samples have been updated to use [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) for job configuration and submission.
 
 For information on using ScriptRunConfig, refer to the following documentation:
-* [Configure and submit training runs](how-to-set-up-training-targets.md)
-* [Configuring PyTorch training runs](how-to-train-pytorch.md)
-* [Configuring TensorFlow training runs](how-to-train-tensorflow.md)
-* [Configuring scikit-learn training runs](how-to-train-scikit-learn.md)
+* [Configure and submit training jobs](how-to-set-up-training-targets.md)
+* [Configuring PyTorch training jobs](how-to-train-pytorch.md)
+* [Configuring TensorFlow training jobs](how-to-train-tensorflow.md)
+* [Configuring scikit-learn training jobs](how-to-train-scikit-learn.md)
 
 In addition, refer to the following samples & tutorials:
 * [Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
@@ -102,7 +104,7 @@ For more information on using data for training, see:
 * [Train with datasets in Azure ML](./how-to-train-with-datasets.md)
 
 ## Distributed training
-If you need to configure a distributed job for training, do so by specifying the `distributed_job_config` parameter in the ScriptRunConfig constructor. Pass in an [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py), [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py), or [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py) for distributed jobs of the respective types.
+If you need to configure a distributed job for training, do so by specifying the `distributed_job_config` parameter in the ScriptRunConfig constructor. Pass in an [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration), or [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) for distributed jobs of the respective types.
 
 The following example configures a PyTorch training job to use distributed training with MPI/Horovod:
 ```python
@@ -127,4 +129,4 @@ src.run_config
 
 ## Next steps
 
-* [Configure and submit training runs](how-to-set-up-training-targets.md)
+* [Configure and submit training jobs](how-to-set-up-training-targets.md)

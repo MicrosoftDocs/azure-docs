@@ -1,14 +1,14 @@
 ---
 title: Automatically scale Apache Spark instances
 description: Use the Azure Synapse autoscale feature to automatically scale Apache Spark Instances
-author: euangMS
-ms.author: euang
+author: juluczni
+ms.author: juluczni
 ms.reviewer: euang
 services: synapse-analytics 
 ms.service:  synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 03/31/2020
+ms.date: 02/15/2022
 ---
 
 # Automatically scale Azure Synapse Analytics Apache Spark pools
@@ -21,8 +21,8 @@ Autoscale continuously monitors the Spark instance and collects the following me
 
 |Metric|Description|
 |---|---|
-|Total Pending CPU|The total number of cores required to start execution of all pending nodes.|
-|Total Pending Memory|The total memory (in MB) required to start execution of all pending nodes.|
+|Total Pending CPU|The total number of cores required to start execution of all pending jobs.|
+|Total Pending Memory|The total memory (in MB) required to start execution of all pending jobs.|
 |Total Free CPU|The sum of all unused cores on the active nodes.|
 |Total Free Memory|The sum of unused memory (in MB) on the active nodes.|
 |Used Memory per Node|The load on a node. A node on which 10 GB of memory is used, is considered under more load than a worker with 2 GB of used memory.|
@@ -40,7 +40,7 @@ When the following conditions are detected, Autoscale will issue a scale request
 
 For scale-up, the Azure Synapse Autoscale service calculates how many new nodes are needed to meet the current CPU and memory requirements, and then issues a scale-up request to add the required number of nodes.
 
-For scale-down, based on the number of executors, application masters per node and the current CPU and memory requirements, Autoscale issues a request to remove a certain number of nodes. The service also detects which nodes are candidates for removal based on current job execution. The scale down operation first decommissions the nodes, and then removes them from the cluster.
+For scale-down, based on the number of executors, application masters per node, the current CPU and memory requirements, Autoscale issues a request to remove a certain number of nodes. The service also detects which nodes are candidates for removal based on current job execution. The scale down operation first decommissions the nodes, and then removes them from the cluster.
 
 ## Get started
 
@@ -55,6 +55,26 @@ To enable the Autoscale feature, complete the following steps as part of the nor
     * **Max** number of nodes.
 
 The initial number of nodes will be the minimum. This value defines the initial size of the instance when it's created. The minimum number of nodes can't be fewer than three.
+
+Optionally, you can enable dynamic allocation of executors in scenarios where the executor requirements are vastly different across stages of a Spark Job or the volume of data processed fluctuates with time. By enabling Dynamic Allocation of Executors, we can utilize capacity as required.
+
+On enabling dynamic allocation, it allows the job to scale the number of executors within min and max number of executors specified.
+
+Apache Spark enables configuration of Dynamic Allocation of Executors through code as below:
+
+```
+    %%configure -f
+    {
+        "conf" : {
+            "spark.dynamicAllocation.maxExecutors" : "6",
+            "spark.dynamicAllocation.enable": "true",
+            "spark.dynamicAllocation.minExecutors": "2"
+     }
+    }
+```
+The defaults specified through the code override the values set through the user interface.
+
+On enabling Dynamic allocation, Executors scale up or down based on the utilization of the Executors. This ensure that the Executors are provisioned in accordance with the needs of the job being run.
 
 ## Best practices
 

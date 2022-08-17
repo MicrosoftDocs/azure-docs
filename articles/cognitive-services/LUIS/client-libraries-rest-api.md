@@ -2,17 +2,21 @@
 title: "Quickstart: Language Understanding (LUIS) SDK client libraries and REST API"
 description: Create and query a LUIS app with the LUIS SDK client libraries and REST API.
 ms.topic: quickstart
-ms.date: 12/09/2020
+ms.date: 03/07/2022
 ms.service: cognitive-services
 ms.author: aahi
 manager: nitinme
 ms.subservice: language-understanding
 author: aahill
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, LUIS, azure luis, natural language understanding, ai chatbot, chatbot maker,  understanding natural language
-ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
+ms.devlang: csharp, javascript, python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021, mode-api
 zone_pivot_groups: programming-languages-set-luis
 ---
 # Quickstart: Language Understanding (LUIS) client libraries and REST API
+
+> [!NOTE]
+> A newer version of Language Understanding capabilities are now available as part of Azure Cognitive Service for Language. For more information see [Azure Cognitive Service for Language Documentation](../language-service/index.yml). For language understanding capabilities within the Language Service, see [Conversational Language Understanding](../language-service/conversational-language-understanding/overview.md), [Custom Named Entity Recognition](../language-service/custom-named-entity-recognition/overview.md), and [Custom Classification](../language-service/custom-classification/overview.md).
 
 Create and query an Azure LUIS artificial intelligence (AI) app with the LUIS SDK client libraries with this quickstart using C#, Python, or JavaScript. You can also use cURL to send requests using the REST API.
 
@@ -55,9 +59,5 @@ Other errors - if you get an error not covered in the preceding list, let us kno
 
 ## Next steps
 
-* [What is the Language Understanding (LUIS) API?](what-is-luis.md)
-* [What's new?](whats-new.md)
-* [Intents](luis-concept-intent.md), [entities](luis-concept-entity-types.md), and [example utterances](luis-concept-utterance.md), and [prebuilt entities](luis-reference-prebuilt-entities.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
-* Understanding natural language: [natural language understanding (NLU) and natural language processing (NLP)](artificial-intelligence.md)
-* Bots: [AI chatbots](luis-csharp-tutorial-bf-v4.md "chatbot maker tutorial")
+
+* [Iterative app development for LUIS](./luis-concept-app-iteration.md)

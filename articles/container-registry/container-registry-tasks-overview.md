@@ -2,7 +2,7 @@
 title: ACR Tasks overview
 description: An introduction to ACR Tasks, a suite of features in Azure Container Registry that provides secure, automated container image build, management, and patching in the cloud.
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 06/14/2021
 ---
 
 # Automate container image builds and maintenance with ACR Tasks
@@ -34,7 +34,7 @@ The inner-loop development cycle, the iterative process of writing code, buildin
 
 Before you commit your first line of code, ACR Tasks's [quick task](container-registry-tutorial-quick-task.md) feature can provide an integrated development experience by offloading your container image builds to Azure. With quick tasks, you can verify your automated build definitions and catch potential problems prior to committing your code.
 
-Using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a [context](#context-locations) (the set of files to build), sends it ACR Tasks and, by default, pushes the built image to its registry upon completion.
+Using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a [context](#context-locations) (the set of files to build), sends it to ACR Tasks and, by default, pushes the built image to its registry upon completion.
 
 For an introduction, see the quickstart to [build and run a container image](container-registry-quickstart-task-cli.md) in Azure Container Registry.  
 
@@ -56,12 +56,21 @@ ACR Tasks supports the following triggers when you set a Git repo as the task's 
 | Commit | Yes |
 | Pull request | No |
 
-To configure a source code update trigger, you need to provide the task a personal access token (PAT) to set the webhook in the public or private GitHub or Azure DevOps repo.
-
 > [!NOTE]
 > Currently, ACR Tasks doesn't support commit or pull request triggers in GitHub Enterprise repos.
 
 Learn how to trigger builds on source code commit in the second ACR Tasks tutorial, [Automate container image builds with Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
+
+### Personal access token
+
+To configure a source code update trigger, you need to provide the task a personal access token (PAT) to set the webhook in the public or private GitHub or Azure DevOps repo. Required scopes for the PAT are as follows:
+
+| Repo type |GitHub  |DevOps  |
+|---------|---------|---------|
+|Public repo    | repo:status<br/>public_repo        | Code (Read)        |
+|Private repo   | repo (Full control)    | Code (Read)      |
+
+To create a PAT, see the [GitHub](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) or [Azure DevOps](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) documentation.
 
 ## Automate OS and framework patching
 
@@ -109,7 +118,7 @@ The following table shows examples of supported context locations for ACR Tasks:
 | Artifact in container registry | [OCI artifact](container-registry-oci-artifacts.md) files in a container registry repository. | `oci://myregistry.azurecr.io/myartifact:mytag` |
 
 > [!NOTE]
-> When using a private Git repo as a context for a task, you need to provide a personal access token (PAT).
+> When using a Git repo as a context for a task triggered by a source code update, you need to provide a [personal access token (PAT)](#personal-access-token).
 
 ## Image platforms
 

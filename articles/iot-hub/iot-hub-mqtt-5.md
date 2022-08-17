@@ -2,11 +2,11 @@
  title: Azure IoT Hub MQTT 5 support (preview)
  description: Learn about IoT Hub's MQTT 5 support
  services: iot-hub
- author: jlian
+ author: kgremban
  ms.service: iot-fundamentals
  ms.topic: conceptual
  ms.date: 11/19/2020
- ms.author: jlian
+ ms.author: kgremban
 ---
 
 # IoT Hub MQTT 5 support overview (preview)
@@ -107,7 +107,7 @@ Username/password authentication used in previous API versions isn't supported.
 
 #### SAS
 
-With SAS-based authentication, client must provide the signature of connection context. This proves authenticity of the MQTT connection. The signature must be based on one of two authentication keys in the client's configuration in IoT Hub or one of two shared access keys of a [Shared access policy](iot-hub-devguide-security.md).
+With SAS-based authentication, client must provide the signature of connection context. This proves authenticity of the MQTT connection. The signature must be based on one of two authentication keys in the client's configuration in IoT Hub or one of two shared access keys of a [Shared access policy](iot-hub-dev-guide-sas.md).
 
 String to sign must be formed as follows:
 

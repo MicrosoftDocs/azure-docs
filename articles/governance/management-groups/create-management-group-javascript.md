@@ -1,9 +1,9 @@
 ---
-title: "Quickstart: Create a management group with JavaScript"
+title: 'Quickstart: Create a management group with JavaScript'
 description: In this quickstart, you use JavaScript to create a management group to organize your resources into a resource hierarchy.
-ms.date: 11/18/2020
+ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom: devx-track-js
+ms.custom: devx-track-js, mode-api
 ---
 # Quickstart: Create a management group with JavaScript
 
@@ -23,7 +23,7 @@ directory. You receive a notification when the process is complete. For more inf
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
   account before you begin.
 
-- Before you start, make sure that the at least version 12 of [Node.js](https://nodejs.org/) is
+- Before you start, make sure that at least version 12 of [Node.js](https://nodejs.org/) is
   installed.
 
 - Any Azure AD user in the tenant can create a management group without the management group write
@@ -41,7 +41,7 @@ directory. You receive a notification when the process is complete. For more inf
 
 ## Application setup
 
-To enable JavaScript to query Azure Resource Graph, the environment must be set up. This setup works
+To enable JavaScript to manage management groups, the environment must be set up. This setup works
 wherever JavaScript can be used, including [bash on Windows 10](/windows/wsl/install-win10).
 
 1. Set up a new Node.js project by running the following command.
@@ -65,36 +65,36 @@ wherever JavaScript can be used, including [bash on Windows 10](/windows/wsl/ins
 1. Add a reference to the Azure authentication library.
 
    ```bash
-   npm install @azure/ms-rest-nodeauth
+   npm install @azure/identity
    ```
 
    > [!NOTE]
-   > Verify in _package.json_ `@azure/arm-managementgroups` is version **1.1.0** or higher and
-   > `@azure/ms-rest-nodeauth` is version **3.0.5** or higher.
+   > Verify in _package.json_ `@azure/arm-managementgroups` is version **2.0.1** or higher and
+   > `@azure/identity` is version **2.0.4** or higher.
 
 ## Create the management group
 
 1. Create a new file named _index.js_ and enter the following code.
 
    ```javascript
-   const argv = require("yargs").argv;
-   const authenticator = require("@azure/ms-rest-nodeauth");
-   const managementGroups = require("@azure/arm-managementgroups");
+      const argv = require("yargs").argv;
+      const { InteractiveBrowserCredential } = require("@azure/identity");
+      const { ManagementGroupsAPI } = require("@azure/arm-managementgroups");
 
-   if (argv.groupID && argv.displayName) {
-       const createMG = async () => {
-          const credentials = await authenticator.interactiveLogin();
-          const client = new managementGroups.ManagementGroupsAPI(credentials);
-          const result = await client.managementGroups.createOrUpdate(
-             groupId: argv.groupID,
-             {
-                 displayName: argv.displayName
-             }
-          );
-          console.log(result);
-       };
+      if (argv.groupID && argv.displayName) {
+         const createMG = async () => {
+            const credentials = new InteractiveBrowserCredential();
+            const client = new ManagementGroupsAPI(credentials);
+            const result = await client.managementGroups.beginCreateOrUpdateAndWait(
+               argv.groupID,
+               {
+                  displayName: argv.displayName
+               }
+            );
+            console.log(result);
+         };
 
-       createMG();
+      createMG();
    }
    ```
 
@@ -121,7 +121,7 @@ The result of creating the management group is output to the console.
 If you wish to remove the installed libraries from your application, run the following command.
 
 ```bash
-npm uninstall @azure/arm-managementgroups @azure/ms-rest-nodeauth yargs
+npm uninstall @azure/arm-managementgroups @azure/identity yargs
 ```
 
 ## Next steps

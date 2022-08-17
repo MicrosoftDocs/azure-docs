@@ -1,15 +1,15 @@
 ---
-title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
+title: TrustFrameworkPolicy - Azure Active Directory B2C  
 description: Specify the TrustFrameworkPolicy element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/31/2020
-ms.author: mimart
+ms.date: 11/09/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -25,9 +25,9 @@ A custom policy is represented as one or more XML-formatted files, which refer t
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
-  TenantId="mytenant.onmicrosoft.com"
+  TenantId="yourtenant.onmicrosoft.com"
   PolicyId="B2C_1A_TrustFrameworkBase"
-  PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
+  PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
   ...
 ```
 
@@ -53,9 +53,9 @@ The following example shows how to specify the **TrustFrameworkPolicy** element:
    xmlns:xsd="https://www.w3.org/2001/XMLSchema"
    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
    PolicySchemaVersion="0.3.0.0"
-   TenantId="mytenant.onmicrosoft.com"
+   TenantId="yourtenant.onmicrosoft.com"
    PolicyId="B2C_1A_TrustFrameworkBase"
-   PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
+   PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 ```
 
 The **TrustFrameworkPolicy** element contains the following elements:
@@ -66,6 +66,7 @@ The **TrustFrameworkPolicy** element contains the following elements:
 | [BuildingBlocks](buildingblocks.md) | 0:1 | The building blocks of your policy. |
 | [ClaimsProviders](claimsproviders.md) | 0:1 | A collection of claims providers. |
 | [UserJourneys](userjourneys.md) | 0:1 | A collection of user journeys. |
+| [SubJourneys](subjourneys.md) | 0:1 | A collection of sub journeys. |
 | [RelyingParty](relyingparty.md) | 0:1 | A definition of a relying party policy. |
 
 To inherit a policy from another policy, a **BasePolicy** element must be declared under the **TrustFrameworkPolicy** element of the policy file. The **BasePolicy** element is a reference to the base policy from which this policy is derived.
@@ -86,9 +87,9 @@ The following example shows how to specify a base policy. This **B2C_1A_TrustFra
    xmlns:xsd="https://www.w3.org/2001/XMLSchema"
    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
    PolicySchemaVersion="0.3.0.0"
-   TenantId="mytenant.onmicrosoft.com"
+   TenantId="yourtenant.onmicrosoft.com"
    PolicyId="B2C_1A_TrustFrameworkExtensions"
-   PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions">
+   PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions">
 
   <BasePolicy>
     <TenantId>yourtenant.onmicrosoft.com</TenantId>

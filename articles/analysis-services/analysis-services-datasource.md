@@ -4,7 +4,7 @@ description: Describes data sources and connectors supported for tabular 1200 an
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -31,12 +31,14 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 **Notes:**
 
 <a name="tab1400a">1</a> - Tabular 1400 and higher models only.  
-<a name="azprovider">2</a> - When specified as a *provider* data source in tabular 1200 and higher models, both in-memory and DirectQuery models require Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recommended), SQL Server Native Client 11.0, or .NET Framework Data Provider for SQL Server.  
+<a name="azprovider">2</a> - When specified as a *provider* data source in tabular 1200 and higher models, both in-memory and DirectQuery models require Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recommended) or .NET Framework Data Provider for SQL Server.  
 <a name="azsqlmanaged">3</a> - Azure SQL Managed Instance is supported. Because SQL Managed Instance runs within Azure VNet with a private IP address, public endpoint must be enabled on the instance. If not enabled, an [On-premises data gateway](analysis-services-gateway.md) is required.  
 <a name="databricks">4</a> - Azure Databricks using the Spark connector is currently not supported.  
 <a name="gen2">5</a> - ADLS Gen2 connector is currently not supported, however, Azure Blob Storage connector can be used with an ADLS Gen2 data source.
 
 ## Other data sources
+
+Connecting to on-premises data sources from an Azure Analysis Services server require an [On-premises gateway](analysis-services-gateway.md). When using a gateway, 64-bit providers are required.
 
 |Data source | In-memory | DirectQuery |Notes   |
 |  --- | --- | --- | --- |
@@ -45,7 +47,7 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 |Analysis Services     |  Yes | No |  |
 |Analytics Platform System     |  Yes | No |  |
 |CSV file  |Yes | No |  |
-|Dynamics 365     |  Yes | No | <sup>[6](#tab1400b)</sup> |
+|Dynamics 365     |  Yes | No | <sup>[6](#tab1400b)</sup>, <sup>[12](#tds)</sup> |
 |Excel workbook     |  Yes | No |  |
 |Exchange      |  Yes | No | <sup>[6](#tab1400b)</sup> |
 |Folder      |Yes | No | <sup>[6](#tab1400b)</sup> |
@@ -77,9 +79,8 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 <a name="instgw">8</a> - If specifying MSOLEDBSQL as the data provider, it may be necessary to download and install the [Microsoft OLE DB Driver for SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server) on the same computer as the On-premises data gateway.  
 <a name="oracle">9</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Oracle Data Provider for .NET. If specified as a structured data source, be sure to [enable Oracle managed provider](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Teradata Data Provider for .NET.  
-<a name="filesSP">11</a> - Files in on-premises SharePoint are not supported.
-
-Connecting to on-premises data sources from an Azure Analysis Services server require an [On-premises gateway](analysis-services-gateway.md). When using a gateway, 64-bit providers are required.
+<a name="filesSP">11</a> - Files in on-premises SharePoint are not supported.  
+<a name="tds">12</a> - Azure Analysis Services does not support direct connections to the Dynamics 365 [Dataverse TDS endpoint](/power-apps/developer/data-platform/dataverse-sql-query). When connecting to this data source from Azure Analysis Services, you must use an On-premises Data Gateway, and refresh the tokens manually.
 
 ## Understanding providers
 
@@ -113,13 +114,6 @@ For cloud data sources:
 
 * If using SQL authentication, impersonation should be Service Account.
 
-## Service Principal authentication
-
-When specified as a *provider* data source, Azure Analysis Services supports [MSOLEDBSQL](/sql/connect/oledb/release-notes-for-oledb-driver-for-sql-server) Azure Active Directory service principal authentication for Azure SQL Database and Azure Synapse data sources.
-
-`
-Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authentication=ActiveDirectoryServicePrincipal;User ID=[Application (client) ID];Password=[Application (client) secret];Use Encryption for Data=true
-`
 
 ## OAuth credentials
 

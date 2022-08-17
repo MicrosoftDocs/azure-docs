@@ -5,16 +5,17 @@ description: Learn how to use Azure Machine Learning to deploy a model for use w
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.author: cgronlun
-author: cjgronlund
-ms.reviewer: larryfr
-ms.date: 06/11/2020
-ms.custom: deploy
+ms.topic: how-to
+ms.author: ssalgado
+author: ssalgadodev
+ms.date: 03/11/2021
+ms.custom: deploy, sdkv1, event-tier1-build-2022
 ---
+
 
 # Deploy a model for use with Cognitive Search
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This article teaches you how to use Azure Machine Learning to deploy a model for use with [Azure Cognitive Search](../search/search-what-is-azure-search.md).
 
@@ -39,9 +40,9 @@ When deploying a model for use with Azure Cognitive Search, the deployment must 
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. For more information, see [Create workspace resources](quickstart-create-resources.md).
 
-* A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
+* A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).  
 
 * A registered model. If you do not have a model, use the example notebook at [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill).
 
@@ -49,7 +50,7 @@ When deploying a model for use with Azure Cognitive Search, the deployment must 
 
 ## Connect to your workspace
 
-An Azure Machine Learning workspace provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning. The workspace keeps a history of all training runs, including logs, metrics, output, and a snapshot of your scripts.
+An Azure Machine Learning workspace provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning. The workspace keeps a history of all training jobs, including logs, metrics, output, and a snapshot of your scripts.
 
 To connect to an existing workspace, use the following code:
 
@@ -79,7 +80,7 @@ When you deploy a model from Azure Machine Learning to Azure Kubernetes Service,
 The following code demonstrates how to create a new Azure Kubernetes Service (AKS) cluster for your workspace:
 
 > [!TIP]
-> You can also attach an existing Azure Kubernetes Service to your Azure Machine Learning workspace. For more information, see [How to deploy models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+> You can also attach an existing Azure Kubernetes Service to your Azure Machine Learning workspace. For more information, see [How to deploy models to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md).
 
 > [!IMPORTANT]
 > Notice that the code uses the `enable_ssl()` method to enable transport layer security (TLS) for the cluster. This is required when you plan on using the deployed model from Cognitive Services.
@@ -93,7 +94,7 @@ prov_config = AksCompute.provisioning_configuration()
 
 # Enable TLS (sometimes called SSL) communications
 # Leaf domain label generates a name using the formula
-#  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+#  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.com"
 #  where "######" is a random series of characters
 prov_config.enable_ssl(leaf_domain_label = "contoso")
 
@@ -116,7 +117,7 @@ except Exception as e:
 > [!IMPORTANT]
 > Azure will bill you as long as the AKS cluster exists. Make sure to delete your AKS cluster when you're done with it.
 
-For more information on using AKS with Azure Machine Learning, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+For more information on using AKS with Azure Machine Learning, see [How to deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md).
 
 ## Write the entry script
 
@@ -222,7 +223,7 @@ from azureml.core.webservice import AksWebservice, Webservice
 
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough
 # cores and memory to handle this deployment configuration. Note that memory is also used by
-# things such as dependencies and AML components.
+# things such as dependencies and AzureML components.
 
 aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
                                                        autoscale_min_replicas=1, 
@@ -236,7 +237,7 @@ aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                        max_request_wait_time=5000)
 ```
 
-For more information, see the reference documentation for [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
+For more information, see the reference documentation for [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
 
 ## Define the inference configuration
 
@@ -247,7 +248,7 @@ from azureml.core.model import InferenceConfig
 inf_config = InferenceConfig(entry_script='score.py', environment=myenv)
 ```
 
-For more information, see the reference documentation for [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
+For more information, see the reference documentation for [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig).
 
 ## Deploy the model
 
@@ -272,7 +273,7 @@ aks_service.wait_for_deployment(show_output = True)
 print(aks_service.state)
 ```
 
-For more information, see the reference documentation for [Model](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
+For more information, see the reference documentation for [Model](/python/api/azureml-core/azureml.core.model.model).
 
 ## Issue a sample query to your service
 

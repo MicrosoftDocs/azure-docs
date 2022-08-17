@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 6/09/2021
 ms.custom: "seodec18, devx-track-csharp"
 ---
 
@@ -13,7 +13,9 @@ ms.custom: "seodec18, devx-track-csharp"
 
 Azure Stream Analytics offers a SQL-like query language for performing transformations and computations over streams of event data. There are many built-in functions, but some complex scenarios require additional flexibility. With .NET Standard user-defined functions (UDF), you can invoke your own functions written in any .NET standard language (C#, F#, etc.) to extend the Stream Analytics query language. UDFs allow you to perform complex math computations, import custom ML models using ML.NET, and use custom imputation logic for missing data. The UDF feature for Stream Analytics jobs is currently in preview and shouldn't be used in production workloads.
 
-.NET user-defined-function for cloud jobs is available in:
+## Regions
+
+The .NET user-defined-function feature is enable for cloud jobs that run on [Stream Analytics clusters](./cluster-overview.md). Jobs that run on the Standard multi-tenant SKU can leverage this feature in the following public regions:
 * West Central US
 * North Europe
 * East US
@@ -261,6 +263,8 @@ The UDF preview currently has the following limitations:
 * .NET Standard UDFs can only be authored in Visual Studio Code or Visual Studio and published to Azure. Read-only versions of .NET Standard UDFs can be viewed under **Functions** in the Azure portal. Authoring of .NET Standard functions is not supported in the Azure portal.
 
 * The Azure portal query editor shows an error when using .NET Standard UDF in the portal. 
+
+* Call out external REST endpoints, for example, doing reverse IP lookup or pulling reference data from an external source
 
 * Because the custom code shares context with Azure Stream Analytics engine, custom code can't reference anything that has a conflicting namespace/dll_name with Azure Stream Analytics code. For example, you can't reference *Newtonsoft Json*.
 

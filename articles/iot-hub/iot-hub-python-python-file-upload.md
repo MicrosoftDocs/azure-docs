@@ -1,13 +1,13 @@
 ---
 title: Upload files from devices to Azure IoT Hub with Python | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Python. Uploaded files are stored in an Azure storage blob container.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.author: robinsh
+ms.date: 07/18/2021
+ms.author: kgremban
 ms.custom: mqtt, devx-track-python
 ---
 
@@ -15,17 +15,18 @@ ms.custom: mqtt, devx-track-python
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-This article shows how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The tutorial shows you how to:
+This article demonstrates how to [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) upload a file to [Azure blob storage](../storage/index.yml), using Python.
 
-* Securely provide a storage container for uploading a file.
+The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart and [Send cloud-to-device messages with IoT Hub](iot-hub-python-python-c2d.md) articles show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) tutorial shows a way to reliably store device-to-cloud messages in Microsoft Azure blob storage. However, in some scenarios, you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
-* Use the Python client to upload a file through your IoT hub.
+* Videos
+* Large files that contain images
+* Vibration data sampled at high frequency
+* Some form of pre-processed data.
 
-The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md) quickstart demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
+These files are typically batch processed in the cloud, using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upland files from a device, you can still use the security and reliability of IoT Hub. This article shows you how.
 
-At the end of this tutorial, you run the Python console app:
-
-* **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
+At the end of this article, you run the Python console app **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
@@ -33,11 +34,13 @@ At the end of this tutorial, you run the Python console app:
 
 ## Prerequisites
 
-[!INCLUDE [iot-hub-include-python-v2-async-installation-notes](../../includes/iot-hub-include-python-v2-async-installation-notes.md)]
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
-[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
+* Port 8883 should be open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
 ## Upload a file from a device app
 
@@ -63,8 +66,7 @@ In this section, you create the device app to upload a file to IoT hub.
 
     ```python
     import os
-    import asyncio
-    from azure.iot.device.aio import IoTHubDeviceClient
+    from azure.iot.device import IoTHubDeviceClient
     from azure.core.exceptions import AzureError
     from azure.storage.blob import BlobClient
 
@@ -77,7 +79,7 @@ In this section, you create the device app to upload a file to IoT hub.
 1. Create a function to upload the file to blob storage:
 
     ```python
-    async def store_blob(blob_info, file_name):
+    def store_blob(blob_info, file_name):
         try:
             sas_url = "https://{}/{}/{}{}".format(
                 blob_info["hostName"],
@@ -104,75 +106,65 @@ In this section, you create the device app to upload a file to IoT hub.
             return (False, ex)
     ```
 
-    This function parses the *blob_info* structure passed into it to create a URL that it uses to initialize an [azure.storage.blob.BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Then it uploads your file to Azure blob storage using this client.
+    This function parses the *blob_info* structure passed into it to create a URL that it uses to initialize an [azure.storage.blob.BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient). Then it uploads your file to Azure blob storage using this client.
 
 1. Add the following code to connect the client and upload the file:
 
     ```python
-    async def main():
+    def run_sample(device_client):
+        # Connect the client
+        device_client.connect()
+
+        # Get the storage info for the blob
+        blob_name = os.path.basename(PATH_TO_FILE)
+        storage_info = device_client.get_storage_info_for_blob(blob_name)
+
+        # Upload to blob
+        success, result = store_blob(storage_info, PATH_TO_FILE)
+
+        if success == True:
+            print("Upload succeeded. Result is: \n") 
+            print(result)
+            print()
+
+            device_client.notify_blob_upload_status(
+                storage_info["correlationId"], True, 200, "OK: {}".format(PATH_TO_FILE)
+            )
+
+        else :
+            # If the upload was not successful, the result is the exception object
+            print("Upload failed. Exception is: \n") 
+            print(result)
+            print()
+
+            device_client.notify_blob_upload_status(
+                storage_info["correlationId"], False, result.status_code, str(result)
+            )
+
+    def main():
+        device_client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+
         try:
-            print ( "IoT Hub file upload sample, press Ctrl-C to exit" )
-
-            conn_str = CONNECTION_STRING
-            file_name = PATH_TO_FILE
-            blob_name = os.path.basename(file_name)
-
-            device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
-
-            # Connect the client
-            await device_client.connect()
-
-            # Get the storage info for the blob
-            storage_info = await device_client.get_storage_info_for_blob(blob_name)
-
-            # Upload to blob
-            success, result = await store_blob(storage_info, file_name)
-
-            if success == True:
-                print("Upload succeeded. Result is: \n") 
-                print(result)
-                print()
-
-                await device_client.notify_blob_upload_status(
-                    storage_info["correlationId"], True, 200, "OK: {}".format(file_name)
-                )
-
-            else :
-                # If the upload was not successful, the result is the exception object
-                print("Upload failed. Exception is: \n") 
-                print(result)
-                print()
-
-                await device_client.notify_blob_upload_status(
-                    storage_info["correlationId"], False, result.status_code, str(result)
-                )
-
-        except Exception as ex:
-            print("\nException:")
-            print(ex)
-
+            print ("IoT Hub file upload sample, press Ctrl-C to exit")
+            run_sample(device_client)
         except KeyboardInterrupt:
-            print ( "\nIoTHubDeviceClient sample stopped" )
-
+            print ("IoTHubDeviceClient sample stopped")
         finally:
-            # Finally, disconnect the client
-            await device_client.disconnect()
+            # Graceful exit
+            device_client.shutdown()
 
 
     if __name__ == "__main__":
-        asyncio.run(main())
-        #loop = asyncio.get_event_loop()
-        #loop.run_until_complete(main())
-        #loop.close()
+        main()
     ```
 
-    This code creates an asynchronous **IoTHubDeviceClient** and uses the following APIs to manage the file upload with your IoT hub:
+    This code creates an **IoTHubDeviceClient** and uses the following APIs to manage the file upload with your IoT hub:
 
     * **get_storage_info_for_blob** gets information from your IoT hub about the linked Storage Account you created previously. This information includes the hostname, container name, blob name, and a SAS token. The storage info is passed to the **store_blob** function (created in the previous step), so the **BlobClient** in that function can authenticate with Azure storage. The **get_storage_info_for_blob** method also returns a correlation_id, which is used in the **notify_blob_upload_status** method. The correlation_id is IoT Hub's way of marking which blob you're working on.
 
     * **notify_blob_upload_status** notifies IoT Hub of the status of your blob storage operation. You pass it the correlation_id obtained by the **get_storage_info_for_blob** method. It's used by IoT Hub to notify any service that might be listening for a notification on the status of the file upload task.
 
-1. Save and close the **UploadFile.py** file.
+1. Save and close the **FileUpload.py** file.
 
 ## Run the application
 
@@ -186,15 +178,15 @@ Now you're ready to run the application.
 
 2. The following screenshot shows the output from the **FileUpload** app:
 
-    ![Output from simulated-device app](./media/iot-hub-python-python-file-upload/run-device-app.png)
+    :::image type="content" source="./media/iot-hub-python-python-file-upload/run-device-app.png" alt-text="Screenshot showing output from running the FileUpload app." border="true" lightbox="./media/iot-hub-python-python-file-upload/run-device-app.png":::
 
 3. You can use the portal to view the uploaded file in the storage container you configured:
 
-    ![Uploaded file](./media/iot-hub-python-python-file-upload/view-blob.png)
+    :::image type="content" source="./media/iot-hub-python-python-file-upload/view-blob.png" alt-text="Screenshot of the container in the Azure portal that shows the uploaded file." border="true" lightbox="./media/iot-hub-python-python-file-upload/view-blob.png":::
 
 ## Next steps
 
-In this tutorial, you learned how to use the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue to explore IoT hub features and scenarios with the following articles:
+In this article, you learned how to use the file upload feature of IoT Hub to simplify file uploads from devices. You can continue to explore this feature with the following articles:
 
 * [Create an IoT hub programmatically](iot-hub-rm-template-powershell.md)
 
@@ -206,4 +198,4 @@ Learn more about Azure Blob Storage with the following links:
 
 * [Azure Blob Storage documentation](../storage/blobs/index.yml)
 
-* [Azure Blob Storage for Python API documentation](/python/api/overview/azure/storage-blob-readme?view=azure-python)
+* [Azure Blob Storage for Python API documentation](/python/api/overview/azure/storage-blob-readme)

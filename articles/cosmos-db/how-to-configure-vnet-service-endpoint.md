@@ -1,12 +1,12 @@
 ---
 title: Configure virtual network based access for an Azure Cosmos account
 description: This document describes the steps required to set up a virtual network service endpoint for Azure Cosmos DB. 
-author: markjbrown
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/13/2020
-ms.author: mjbrown 
-ms.custom: devx-track-azurecli
+ms.date: 07/07/2021
+ms.author: thweiss 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
@@ -43,6 +43,9 @@ The following sections describe how to configure a virtual network service endpo
 1. Select the **Subscription** from which you want to add an Azure virtual network. Select the Azure **Virtual networks** and **Subnets** that you want to provide access to your Azure Cosmos DB account. Next, select **Enable** to enable selected networks with service endpoints for "Microsoft.AzureCosmosDB". When it's complete, select **Add**.
 
    :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png" alt-text="Select virtual network and subnet":::
+
+   > [!NOTE]
+   > Configuring a VNET service endpoint may take up to 15 minutes to propagate and the endpoint may exhibit an inconsistent behavior during this period.
 
 1. After the Azure Cosmos DB account is enabled for access from a virtual network, it will allow traffic from only this chosen subnet. The virtual network and subnet that you added should appear as shown in the following screenshot:
 
@@ -353,8 +356,11 @@ NSG rules are used to limit connectivity to and from a subnet with virtual netwo
 ### Are service endpoints available for all VNets?
 No, Only Azure Resource Manager virtual networks can have service endpoint enabled. Classic virtual networks don't support service endpoints.
 
-### Can I "Accept connections from within public Azure datacenters" when service endpoint access is enabled for Azure Cosmos DB?  
-This is required only when you want your Azure Cosmos DB account to be accessed by other Azure first party services like Azure Data factory, Azure Cognitive Search or any service that is deployed in given Azure region.
+### When should I "Accept connections from within public Azure datacenters" for an Azure Cosmos DB account?  
+This setting should only be enabled when you want your Azure Cosmos DB account to be accessible to any Azure service in any Azure region. Other Azure first party services such as Azure Data Factory and Azure Cognitive Search provide documentation for how to secure access to data sources including Azure Cosmos DB accounts, for example:
+
+* [Azure Data Factory Managed Virtual Network](../data-factory/managed-virtual-network-private-endpoint.md)
+* [Azure Cognitive Search Indexer access to protected resources](../search/search-indexer-securing-resources.md)
 
 ## Next steps
 

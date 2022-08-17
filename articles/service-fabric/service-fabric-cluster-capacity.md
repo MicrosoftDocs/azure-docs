@@ -1,11 +1,14 @@
 ---
 title: Service Fabric cluster capacity planning considerations
 description: Node types, durability, reliability, and other things to consider when planning your Service Fabric cluster.
-
-ms.topic: conceptual
-ms.date: 05/21/2020
-ms.author: pepogors
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric cluster capacity planning considerations
 
 Cluster capacity planning is important for every Service Fabric production environment. Key considerations include:
@@ -48,9 +51,9 @@ The number of initial nodes types depends upon the purpose of you cluster and th
 
 * ***Will your cluster span across Availability Zones?***
 
-    Service Fabric supports clusters that span across [Availability Zones](../availability-zones/az-overview.md) by deploying node types that are pinned to specific zones, ensuring high-availability of your applications. Availability Zones require additional node type planning and minimum requirements. For details, see [Recommended topology for primary node type of Service Fabric clusters spanning across Availability Zones](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
+    Service Fabric supports clusters that span across [Availability Zones](../availability-zones/az-overview.md) by deploying node types that are pinned to specific zones, ensuring high-availability of your applications. Availability Zones require additional node type planning and minimum requirements. For details, see [Topology for spanning a primary node type across Availability Zones](service-fabric-cross-availability-zones.md#topology-for-spanning-a-primary-node-type-across-availability-zones).
 
-When determining the number and properties of node types for the initial creation of your cluster, keep in mind that you can always add, modify, or remove (non-primary) node types once your cluster is deployed. [Primary node types can also be modified](service-fabric-scale-up-primary-node-type.md) in running clusters (though such operations require a great deal of planning and caution in production environments).
+When determining the number and properties of node types for the initial creation of your cluster, keep in mind that you can always add, modify, or remove (non-primary) node types once your cluster is deployed. [Primary node types can also be scaled up or down](service-fabric-scale-up-primary-node-type.md) in running clusters, though to do so you will need to create a new node type, move the workload over, and then remove the original primary node type.
 
 A further consideration for your node type properties is durability level, which determines privileges a node type's VMs have within Azure infrastructure. Use the size of VMs you choose for your cluster and the instance count you assign for individual node types to help determine the appropriate durability tier for each of your node types, as described next.
 
@@ -59,7 +62,7 @@ A further consideration for your node type properties is durability level, which
 The *durability level* designates the privileges your Service Fabric VMs have with the underlying Azure infrastructure. This privilege allows Service Fabric to pause any VM-level infrastructure request (such as reboot, reimage, or migration) that impacts the quorum requirements for Service Fabric system services and your stateful services.
 
 > [!IMPORTANT]
-> Durability level is set per node type. If there's none specified, *Bronze* tier will be used, however it doesn't provide automatic OS upgrades. *Silver* or *Gold* durability is recommended for production workloads.
+> Durability level is set per node type. If there's none specified, *Bronze* tier will be used. Production workloads require a durability level of Silver or Gold to help avoid data loss from VM-level infrastructure requests.
 
 The table below lists Service Fabric durability tiers, their requirements, and affordances.
 
@@ -68,6 +71,9 @@ The table below lists Service Fabric durability tiers, their requirements, and a
 | Gold             | 5                              | Full-node sizes dedicated to a single customer (for example, L32s, GS5, G5, DS15_v2, D15_v2) | Can be delayed until approved by the Service Fabric cluster | Can be paused for 2 hours per upgrade domain to allow additional time for replicas to recover from earlier failures |
 | Silver           | 5                              | VMs of single core or above with at least 50 GB of local SSD                      | Can be delayed until approved by the Service Fabric cluster | Cannot be delayed for any significant period of time                                                    |
 | Bronze          | 1                              | VMs with at least 50 GB of local SSD                                              | Will not be delayed by the Service Fabric cluster           | Cannot be delayed for any significant period of time                                                    |
+
+> [!NOTE]
+> The above mentioned minimum number of VMs is a necessary requirement for each durability level. We have validations in-place which will prevent creation or modification of existing virtual machine scalesets which do not meet these requirements.
 
 > [!WARNING]
 > With Bronze durability, automatic OS image upgrade isn't available. While [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) (intended only for non-Azure hosted clusters) is *not recommended* for Silver or greater durability levels, it is your only option to automate Windows updates with respect to Service Fabric upgrade domains.
@@ -103,7 +109,7 @@ Follow these recommendations for managing node types with Silver or Gold durabil
 * Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled. Your cluster will enter error state if you scale in below this threshold, and you'll need to manually clean up state (`Remove-ServiceFabricNodeState`) for the removed nodes.
 * Each virtual machine scale set with durability level Silver or Gold must map to its own node type in the Service Fabric cluster. Mapping multiple virtual machine scale sets to a single node type will prevent coordination between the Service Fabric cluster and the Azure infrastructure from working properly.
 * Do not delete random VM instances, always use virtual machine scale set scale in feature. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across [upgrade domains](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) and [fault domains](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). This imbalance could adversely affect the systems ability to properly load balance among the service instances/Service replicas.
-* If using Autoscale, set the rules such that scale in (removing of VM instances) operations are done only one node at a time. Scaling down more than one instance at a time is not safe.
+* If using Autoscale, set the rules such that scale in (removing of VM instances) operations are done only one node at a time. Scaling in more than one instance at a time is not safe.
 * If deleting or deallocating VMs on the primary node type, never reduce the count of allocated VMs below what the reliability tier requires. These operations will be blocked indefinitely in a scale set with a durability level of Silver or Gold.
 
 ### Changing durability levels
@@ -111,6 +117,7 @@ Follow these recommendations for managing node types with Silver or Gold durabil
 Within certain constraints, node type durability level can be adjusted:
 
 * Node types with durability levels of Silver or Gold can't be downgraded to Bronze.
+* Downgrading node types with durability level of Gold to Silver is not supported.
 * Upgrading from Bronze to Silver or Gold can take a few hours.
 * When changing durability level, be sure to update it in both the Service Fabric extension configuration in your virtual machine scale set resource and in the node type definition in your Service Fabric cluster resource. These values must match.
 
@@ -149,11 +156,20 @@ The capacity needs of your cluster will be determined by your specific workload 
 
 #### Virtual machine sizing
 
-**For production workloads, the recommended VM size (SKU) is [Standard D2_V2](../virtual-machines/dv2-dsv2-series.md) (or equivalent) with a minimum of 50 GB of local SSD, 2 cores, and 4 GiB of memory.** A minimum of 50 GB local SSD is recommended, however some workloads (such as those running Windows containers) will require larger disks. When choosing other [VM sizes](../virtual-machines/sizes-general.md) for production workloads, keep in mind the following constraints:
+**For production workloads, the recommended VM size (SKU) is [Standard D2_V2](../virtual-machines/dv2-dsv2-series.md) (or equivalent) with a minimum of 50 GB of local SSD, 2 cores, and 4 GiB of memory.** A minimum of 50 GB local SSD is recommended, however some workloads (such as those running Windows containers) will require larger disks. 
 
-- Partial core VM sizes like Standard A0 are not supported.
+By default, local SSD is configured to 64 GB. This can be configured in the MaxDiskQuotaInMB setting of the Diagnostics section of cluster settings.
+
+For instructions on how to adjust the cluster settings of a cluster hosted in Azure, see [Upgrade the configuration of a cluster in Azure](./service-fabric-cluster-config-upgrade-azure.md#customize-cluster-settings-using-resource-manager-templates)
+
+For instructions on how to adjust the cluster settings of a standalone cluster hosted in Windows, see [Upgrade the configuration of a standalone cluster](./service-fabric-cluster-config-upgrade-windows-server.md#customize-cluster-settings-in-the-clusterconfigjson-file)
+
+When choosing other [VM sizes](../virtual-machines/sizes-general.md) for production workloads, keep in mind the following constraints:
+
+- Partial / single core VM sizes like Standard A0 are not supported.
 - *A-series* VM sizes are not supported for performance reasons.
 - Low-priority VMs are not supported.
+- [B-Series Burstable SKU's](../virtual-machines/sizes-b-series-burstable.md) are not supported.
 
 #### Primary node type
 

@@ -2,15 +2,15 @@
 title: Architecture overview - Azure Active Directory | Microsoft Docs
 description: Learn what an Azure Active Directory tenant is and how to manage Azure using Azure Active Directory.
 services: active-directory
-author: ajburnle
-manager: daveba
+author: barclayn
+manager: rkarlin
 
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: ajburnle
+ms.date: 07/08/2022
+ms.author: barclayn
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -88,7 +88,7 @@ Azure AD operates across datacenters with the following characteristics:
 
 * Authentication, Graph, and other AD services reside behind the Gateway service. The Gateway manages load balancing of these services. It will fail over automatically if any unhealthy servers are detected using transactional health probes. Based on these health probes, the Gateway dynamically routes traffic to healthy datacenters.
 * For *reads*, the directory has secondary replicas and corresponding front-end services in an active-active configuration operating in multiple datacenters. In case of a failure of an entire datacenter, traffic will be automatically routed to a different datacenter.
- *For *writes*, the directory will fail over primary (master) replica across datacenters via planned (new primary is synchronized to old primary) or emergency failover procedures. Data durability is achieved by replicating any commit to at least two datacenters.
+* For *writes*, the directory will fail over primary (master) replica across datacenters via planned (new primary is synchronized to old primary) or emergency failover procedures. Data durability is achieved by replicating any commit to at least two datacenters.
 
 #### Data consistency
 
@@ -101,11 +101,11 @@ Application writes using the Microsoft Graph API of Azure AD are abstracted from
  >[!NOTE]
  >Writes are immediately replicated to the secondary replica to which the logical session's reads were issued.
 
-#### Backup protection
+#### Service-level backup
 
-The directory implements soft deletes, instead of hard deletes, for users and tenants for easy recovery in case of accidental deletes by a customer. If your tenant administrator accidental deletes users, they can easily undo and restore the deleted users.
-
-Azure AD implements daily backups of all data, and therefore can authoritatively restore data in case of any logical deletions or corruptions. The data tier employs error correcting codes, so that it can check for errors and automatically correct particular types of disk errors.
+Azure AD implements daily backup of directory data and can use these backups to restore data in case of any service-wide issue.
+ 
+The directory also implements soft deletes instead of hard deletes for selected object types. The tenant administrator can undo any accidental deletions of these objects within 30 days. For more information, see the [API to restore deleted objects](/graph/api/directory-deleteditems-restore).
 
 #### Metrics and monitors
 

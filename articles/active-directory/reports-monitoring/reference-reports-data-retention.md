@@ -4,7 +4,7 @@ description: Learn how long Azure stores the various types of reporting data.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -30,7 +30,7 @@ In this article, you learn about the data retention policies for the different a
 | Azure AD Edition | Collection Start |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | When you sign up for a subscription |
-| Azure AD Free| The first time you open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](./overview-reports.md)  |
+| Azure AD Free| The first time you open the [Azure Active Directory blade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](./overview-reports.md)  |
 
 ---
 
@@ -59,8 +59,8 @@ For security signals, the collection process starts when you opt-in to use the *
 
 | Report                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
-| Audit logs             | 7 days        | 30 days             | 30 days             |
-| Sign-ins               | 7 days        | 30 days             | 30 days             |
+| Audit logs             | Seven days        | 30 days             | 30 days             |
+| Sign-ins               | Seven days        | 30 days             | 30 days             |
 | Azure AD MFA usage        | 30 days       | 30 days             | 30 days             |
 
 You can retain the audit and sign-in activity data for longer than the default retention period outlined above by routing it to an Azure storage account using Azure Monitor. For more information, see [Archive Azure AD logs to an Azure storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
@@ -69,8 +69,11 @@ You can retain the audit and sign-in activity data for longer than the default r
 
 | Report         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--                 | :--                 |
-| Users at risk  | 7 days        | 30 days             | 90 days             |
+| Risky users    | No limit      | No limit            | No limit            |
 | Risky sign-ins | 7 days        | 30 days             | 90 days             |
+
+> [!NOTE]
+> Risky users are not deleted until the risk has been remediated.
 
 ---
 

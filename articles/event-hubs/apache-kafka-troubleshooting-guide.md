@@ -2,7 +2,7 @@
 title: Troubleshoot issues with Azure Event Hubs for Apache Kafka
 description: This article shows how to troubleshoot issues with Azure Event Hubs for Apache Kafka
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 05/10/2021
 ---
 
 # Apache Kafka troubleshooting guide for Event Hubs
@@ -44,7 +44,7 @@ Check the following items if you see issues when using Kafka on Event Hubs.
 - **Firewall blocking traffic** - Make sure that port **9093** isn't blocked by your firewall.
 - **TopicAuthorizationException** - The most common causes of this exception are:
     - A typo in the connection string in your configuration file, or
-    - Trying to use Event Hubs for Kafka on a Basic tier namespace. The Event Hubs for Kafka feature is [only supported for Standard and Dedicated tier namespaces](https://azure.microsoft.com/pricing/details/event-hubs/).
+    - Trying to use Event Hubs for Kafka on a Basic tier namespace. The Event Hubs for Kafka feature isn't supported in the basic tier.
 - **Kafka version mismatch** - Event Hubs for Kafka Ecosystems supports Kafka versions 1.0 and later. Some applications using Kafka version 0.10 and later could occasionally work because of the Kafka protocol's backwards compatibility, but we strongly recommend against using old API versions. Kafka versions 0.9 and earlier don't support the required SASL protocols and can't connect to Event Hubs.
 - **Strange encodings on AMQP headers when consuming with Kafka** - when sending events to an event hub over AMQP, any AMQP payload headers are serialized in AMQP encoding. Kafka consumers don't deserialize the headers from AMQP. To read header values, manually decode the AMQP headers. Alternatively, you can avoid using AMQP headers if you know that you'll be consuming via Kafka protocol. For more information, see [this GitHub issue](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
 - **SASL authentication** - Getting your framework to cooperate with the SASL authentication protocol required by Event Hubs can be more difficult than meets the eye. See if you can troubleshoot the configuration using your framework's resources on SASL authentication. 
@@ -62,5 +62,5 @@ To learn more about Event Hubs and Event Hubs for Kafka, see the following artic
 
 - [Apache Kafka developer guide for Event Hubs](apache-kafka-developer-guide.md)
 - [Apache Kafka migration guide for Event Hubs](apache-kafka-migration-guide.md)
-- [Frequently asked questions - Event Hubs for Apache Kafka](apache-kafka-frequently-asked-questions.md)
+- [Frequently asked questions - Event Hubs for Apache Kafka](apache-kafka-frequently-asked-questions.yml)
 - [Recommended configurations](apache-kafka-configurations.md)

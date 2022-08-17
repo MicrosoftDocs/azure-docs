@@ -2,7 +2,8 @@
 title: Receive events using Event Processor Host - Azure Event Hubs | Microsoft Docs
 description: This article describes the Event Processor Host in Azure Event Hubs, which simplifies the management of checkpointing, leasing, and reading events ion parallel. 
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 08/04/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -80,6 +81,10 @@ Next, instantiate an [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.
 - **eventHubConnectionString:** The connection string to the event hub, which can be retrieved from the Azure portal. This connection string should have **Listen** permissions on the event hub.
 - **storageConnectionString:** The storage account used for internal resource management.
 
+> [!IMPORTANT]
+> - Don't enable the soft delete feature on the storage account that's used as a checkpoint store. 
+> - Don't use a hierarchical storage (Azure Data Lake Storage Gen 2) as a checkpoint store.
+
 Finally, consumers register the [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance with the Event Hubs service. Registering an event processor class with an instance of EventProcessorHost starts event processing. Registering instructs the Event Hubs service to expect that the consumer app consumes events from some of its partitions, and to invoke the [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementation code whenever it pushes events to consume. 
 
 > [!NOTE]
@@ -145,7 +150,7 @@ As explained previously, the tracking table greatly simplifies the autoscale nat
 
 ## Control Event Processor Host options
 
-Additionally, one overload of [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) takes an [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) object as a parameter. Use this parameter to control the behavior of [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) itself. [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) defines four properties and one event:
+Additionally, one overload of [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync) takes an [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync) object as a parameter. Use this parameter to control the behavior of [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) itself. [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) defines four properties and one event:
 
 - [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): The maximum size of the collection you want to receive in an invocation of [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). This size is not the minimum, only the maximum size. If there are fewer messages to be received, **ProcessEventsAsync** executes with as many as were available.
 - [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): A value used by the underlying AMQP channel to determine the upper limit of how many messages the client should receive. This value should be greater than or equal to [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
@@ -194,5 +199,5 @@ Now that you're familiar with the Event Processor Host, see the following articl
     - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+* [Event Hubs FAQ](event-hubs-faq.yml)
 * [Event Hubs samples on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)

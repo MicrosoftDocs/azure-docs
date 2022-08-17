@@ -1,15 +1,15 @@
 ---
-title: Legacy user flow versions in Azure Active Directory B2C | Microsoft Docs
+title: Legacy user flow versions in Azure Active Directory B2C  
 description: Learn about legacy versions of user flows available in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/30/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -43,8 +43,8 @@ In the table below, unless a user flow is identified as **Recommended**, it is c
 
 | User flow | Recommended | Description |
 | --------- | ----------- | ----------- |
-| Password reset v2 | No | Enables a user to choose a new password after verifying their email. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](multi-factor-authentication.md)</li><li>Token compatibility settings</li><li>[Age gating](basic-age-gating.md)</li><li>[password complexity requirements](password-complexity.md)</li></ul> |
+| Password reset v2 | No | Enables a user to choose a new password after verifying their email. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](multi-factor-authentication.md)</li><li>Token compatibility settings</li><li>[Age gating](age-gating.md)</li><li>[password complexity requirements](password-complexity.md)</li></ul> |
 | Profile editing v2 | Yes | Enables a user to configure their user attributes. Using this user flow, you can configure: <ul><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li></ul> |
-| Sign in v2 | No | Enables a user to sign in to their account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[Age gating](basic-age-gating.md)</li><li>Sign-in page customization</li></ul> |
-| Sign up v2 | No | Enables a user to create an account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[Age gating](basic-age-gating.md)</li><li>[Password complexity requirements](password-complexity.md)</li></ul> |
-| Sign up and sign in v2 | No | Enables a user to create an account or sign in their account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](multi-factor-authentication.md)</li><li>[Age gating](basic-age-gating.md)</li><li>[Password complexity requirements](password-complexity.md)</li></ul> |
+| Sign in v2 | No | Enables a user to sign in to their account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[Age gating](age-gating.md)</li><li>Sign-in page customization</li></ul> |
+| Sign up v2 | No | Enables a user to create an account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[Age gating](age-gating.md)</li><li>[Password complexity requirements](password-complexity.md)</li></ul> |
+| Sign up and sign in v2 | No | Enables a user to create an account or sign in their account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](multi-factor-authentication.md)</li><li>[Age gating](age-gating.md)</li><li>[Password complexity requirements](password-complexity.md)</li></ul> |

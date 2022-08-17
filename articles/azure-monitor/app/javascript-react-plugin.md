@@ -2,11 +2,12 @@
 title: React plugin for Application Insights JavaScript SDK 
 description: How to install and use React plugin for Application Insights JavaScript SDK. 
 services: azure-monitor
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
+ms.devlang: javascript
+ms.reviewer: mmcc
 ---
 
 # React plugin for Application Insights JavaScript SDK
@@ -22,7 +23,7 @@ Install npm package:
 
 ```bash
 
-npm install @microsoft/applicationinsights-react-js
+npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsights-web --save
 
 ```
 
@@ -30,17 +31,18 @@ npm install @microsoft/applicationinsights-react-js
 
 Initialize a connection to Application Insights:
 
-```javascript
-// AppInsights.js
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
-import { createBrowserHistory } from 'history';
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
+```javascript
+import React from 'react';
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { ReactPlugin, withAITracking } from '@microsoft/applicationinsights-react-js';
+import { createBrowserHistory } from "history";
 const browserHistory = createBrowserHistory({ basename: '' });
-const reactPlugin = new ReactPlugin();
-const appInsights = new ApplicationInsights({
+var reactPlugin = new ReactPlugin();
+var appInsights = new ApplicationInsights({
     config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
         extensions: [reactPlugin],
         extensionConfig: {
           [reactPlugin.identifier]: { history: browserHistory }
@@ -48,7 +50,6 @@ const appInsights = new ApplicationInsights({
     }
 });
 appInsights.loadAppInsights();
-export { reactPlugin, appInsights };
 ```
 
 Wrap your component with the higher-order component function to enable Application Insights on it:
@@ -69,6 +70,20 @@ class MyComponent extends React.Component {
 // the first two are required and the other two are optional.
 
 export default withAITracking(reactPlugin, MyComponent);
+```
+
+For `react-router v6` or other scenarios where router history is not exposed, appInsights config `enableAutoRouteTracking` can be used to auto track router changes:
+
+```javascript
+var reactPlugin = new ReactPlugin();
+var appInsights = new ApplicationInsights({
+    config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        enableAutoRouteTracking: true,
+        extensions: [reactPlugin]
+    }
+});
+appInsights.loadAppInsights();
 ```
 
 ## Configuration
@@ -124,8 +139,13 @@ import { useAppInsightsContext } from "@microsoft/applicationinsights-react-js";
 
 const MyComponent = () => {
     const appInsights = useAppInsightsContext();
-    
-    appInsights.trackMetric("Component 'MyComponent' is in use");
+    const metricData = {
+        average: engagementTime,
+        name: "React Component Engaged Time (seconds)",
+        sampleCount: 1
+      };
+    const additionalProperties = { "Component Name": 'MyComponent' };
+    appInsights.trackMetric(metricData, additionalProperties);
     
     return (
         <h1>My Component</h1>
@@ -157,18 +177,21 @@ It will operate like the higher-order component, but respond to Hooks life-cycle
 
 ### `useTrackEvent`
 
-The `useTrackEvent` Hook is used to track any custom event that an application may need to track, such as a button click or other API call. It takes two arguments, the first is the Application Insights instance (which can be obtained from the `useAppInsightsContext` Hook), and a name for the event.
+The `useTrackEvent` Hook is used to track any custom event that an application may need to track, such as a button click or other API call. It takes four arguments:
+-   Application Insights instance (which can be obtained from the `useAppInsightsContext` Hook).
+-   Name for the event.
+-   Event data object that encapsulates the changes that has to be tracked.
+-   skipFirstRun (optional) flag to skip calling the `trackEvent` call on initialization. Default value is set to `true`.
 
 ```javascript
 import React, { useState, useEffect } from "react";
 import { useAppInsightsContext, useTrackEvent } from "@microsoft/applicationinsights-react-js";
 
-const ProductCart = () => {
+const MyComponent = () => {
     const appInsights = useAppInsightsContext();
-    const trackCheckout = useTrackEvent(appInsights, "Checkout");
-    const trackCartUpdate = useTrackEvent(appInsights, "Cart Updated");
     const [cart, setCart] = useState([]);
-    
+    const trackCheckout = useTrackEvent(appInsights, "Checkout", cart);
+    const trackCartUpdate = useTrackEvent(appInsights, "Cart Updated", cart);
     useEffect(() => {
         trackCartUpdate({ cartCount: cart.length });
     }, [cart]);
@@ -181,15 +204,16 @@ const ProductCart = () => {
     return (
         <div>
             <ul>
-                <li>Product 1 <button onClick={() => setCart([...cart, "Product 1"])}>Add to Cart</button>
-                <li>Product 2 <button onClick={() => setCart([...cart, "Product 2"])}>Add to Cart</button>
-                <li>Product 3 <button onClick={() => setCart([...cart, "Product 3"])}>Add to Cart</button>
-                <li>Product 4 <button onClick={() => setCart([...cart, "Product 4"])}>Add to Cart</button>
+                <li>Product 1 <button onClick={() => setCart([...cart, "Product 1"])}>Add to Cart</button></li>
+                <li>Product 2 <button onClick={() => setCart([...cart, "Product 2"])}>Add to Cart</button></li>
+                <li>Product 3 <button onClick={() => setCart([...cart, "Product 3"])}>Add to Cart</button></li>
+                <li>Product 4 <button onClick={() => setCart([...cart, "Product 4"])}>Add to Cart</button></li>
             </ul>
             <button onClick={performCheckout}>Checkout</button>
         </div>
     );
 }
+
 export default MyComponent;
 ```
 
@@ -215,6 +239,25 @@ const App = () => {
 
 The `AppInsightsErrorBoundary` requires two props to be passed to it, the `ReactPlugin` instance created for the application and a component to be rendered when an error occurs. When an unhandled error occurs, `trackException` is called with the information provided to the Error Boundary and the `onError` component is displayed.
 
+## Enable Correlation
+
+Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+
+In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
+
+### Route tracking
+
+The React Plugin automatically tracks route changes and collects other React specific telemetry. 
+
+> [!NOTE]
+> `enableAutoRouteTracking` should be set to `false` if it set to true then when the route changes duplicate PageViews may be sent.
+
+For `react-router v6` or other scenarios where router history is not exposed, you can add `enableAutoRouteTracking: true` to your [setup configuration](#basic-usage).
+
+### PageView
+
+If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
+
 ## Sample app
 
 Check out the [Application Insights React demo](https://github.com/Azure-Samples/application-insights-react-demo).
@@ -222,4 +265,4 @@ Check out the [Application Insights React demo](https://github.com/Azure-Samples
 ## Next steps
 
 - To learn more about the JavaScript SDK, see the [Application Insights JavaScript SDK documentation](javascript.md).
-- To learn about the Kusto query language and querying data in Log Analytics, see the [Log query overview](../../azure-monitor/log-query/log-query-overview.md).
+- To learn about the Kusto query language and querying data in Log Analytics, see the [Log query overview](../../azure-monitor/logs/log-query-overview.md).

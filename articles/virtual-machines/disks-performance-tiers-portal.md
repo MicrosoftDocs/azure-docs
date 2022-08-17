@@ -2,15 +2,17 @@
 title: Change the performance of Azure managed disks using the Azure portal
 description: Learn how to change performance tiers for new and existing managed disks using the Azure portal.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 03/24/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ---
 
 # Change your performance tier using the Azure portal
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-intro](../../includes/virtual-machines-disks-performance-tiers-intro.md)]
 
@@ -33,13 +35,15 @@ The following steps show how to change the performance tier of your disk when yo
 :::image type="content" source="media/disks-performance-tiers-portal/new-disk-change-performance-tier.png" alt-text="Screenshot of the disk creation blade, a disk is highlighted, and the performance tier dropdown is highlighted." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::
 
 
-## Existing disks
+### Change the performance tier of an existing disk without downtime
 
-The following steps outline how to change the performance tier of an existing disk:
+You can also change your performance tier without downtime, so you don't have to deallocate your VM or detach your disk to change the tier.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+### Change performance tier
+
+Now that the feature has been registered, you can change applicable disk's performance tiers without downtime.
+
 1. Navigate to the VM containing the disk you'd like to change.
-1. Either deallocate the VM or detach the disk.
 1. Select your disk
 1. Select **Size + Performance**.
 1. In the **Performance tier** dropdown, select a tier other than the disk's current performance tier.

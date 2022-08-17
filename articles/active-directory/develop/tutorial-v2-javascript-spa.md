@@ -1,17 +1,16 @@
 ---
-title: "Tutorial: Create a JavaScript single-page app that uses the Microsoft identity platform for authentication | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Create a JavaScript single-page app that uses the Microsoft identity platform for authentication"
 description: In this tutorial, you build a JavaScript single-page app (SPA) that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
-author: navyasric
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/06/2020
-ms.author: nacanuma
+ms.date: 09/09/2021
+ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
 ---
 
@@ -87,9 +86,8 @@ Make sure you have [Node.js](https://nodejs.org/en/download/) installed, and the
    // Set the front-end folder to serve public assets.
    app.use(express.static('JavaScriptSPA'))
 
-   // Set up a route for index.html.
    app.get('*', function (req, res) {
-       res.sendFile(path.join(__dirname + '/index.html'));
+       res.sendFile(path.join(__dirname + '/JavaScriptSPA/index.html'));
    });
 
    // Start the server.
@@ -261,8 +259,8 @@ You now have a simple server to serve your SPA. The intended folder structure at
 
 Before proceeding further with authentication, register your application on **Azure Active Directory**.
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
@@ -294,7 +292,7 @@ Create a new .js file named `authConfig.js`, which will contain your configurati
   const msalConfig = {
     auth: {
       clientId: "Enter_the_Application_Id_Here",
-      authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+      authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
       redirectUri: "Enter_the_Redirect_Uri_Here",
     },
     cache: {
@@ -314,13 +312,14 @@ Create a new .js file named `authConfig.js`, which will contain your configurati
   };
 ```
 
- Where:
- - *\<Enter_the_Application_Id_Here>* is the **Application (client) ID** for the application you registered.
- - *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of the Azure cloud. For the main or global Azure cloud, simply enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), see [National clouds](./authentication-national-cloud.md).
- - *\<Enter_the_Tenant_info_here>* is set to one of the following options:
-   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
-   - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
-   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
+Modify the values in the `msalConfig` section as described here:
+
+- *\<Enter_the_Application_Id_Here>* is the **Application (client) ID** for the application you registered.
+- *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of the Azure cloud. For the main or global Azure cloud, enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), see [National clouds](./authentication-national-cloud.md).
+- Set *\<Enter_the_Tenant_info_here>* to one of the following options:
+  - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
+  - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
+  - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
 
 
 ## Use the Microsoft Authentication Library (MSAL) to sign in the user
@@ -403,13 +402,13 @@ Create a new .js file named `authPopup.js`, which will contain your authenticati
 
 ### More information
 
-After a user selects the **Sign In** button for the first time, the `signIn` method calls `loginPopup` to sign in the user. This method opens a pop-up window with the *Microsoft identity platform endpoint* to prompt and validate the user's credentials. After a successful sign-in, the user is redirected back to the original *index.html* page. A token is received, processed by `msal.js`, and the information contained in the token is cached. This token is known as the *ID token* and contains basic information about the user, such as the user display name. If you plan to use any data provided by this token for any purposes, you need to make sure this token is validated by your backend server to guarantee that the token was issued to a valid user for your application.
+After a user selects the **Sign In** button for the first time, the `signIn` method calls `loginPopup` to sign in the user. This method opens a pop-up window with the *Microsoft identity platform endpoint* to prompt and validate the user's credentials. After a successful sign-in, the user is redirected back to the original *index.html* page. A token is received, processed by `msal.js`, and the information contained in the token is cached. This token is known as the *ID token* and contains basic information about the user, such as the user display name. If you plan to use any data provided by this token for any purposes, make sure this token is validated by your backend server to guarantee that the token was issued to a valid user for your application.
 
 The SPA generated by this guide calls `acquireTokenSilent` and/or `acquireTokenPopup` to acquire an *access token* used to query the Microsoft Graph API for user profile info. If you need a sample that validates the ID token, take a look at [this](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 sample") sample application in GitHub. The sample uses an ASP.NET web API for token validation.
 
 #### Get a user token interactively
 
-After the initial sign-in, you do not want to ask users to reauthenticate every time they need to request a token to access a resource. So *acquireTokenSilent* should be used most of the time to acquire tokens. There are situations, however, where you need to force users to interact with Microsoft identity platform. Examples include:
+After the initial sign-in, you do not want to ask users to reauthenticate every time they need to request a token to access a resource. So *acquireTokenSilent* should be used most of the time to acquire tokens. There are situations, however, where you force users to interact with Microsoft identity platform. Examples include:
 
 - Users need to reenter their credentials because the password has expired.
 - Your application is requesting access to a resource, and you need the user's consent.
@@ -435,8 +434,8 @@ The `acquireTokenSilent` method handles token acquisition and renewal without an
 
    ```JavaScript
       const graphConfig = {
-        graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
-        graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+        graphMeEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me",
+        graphMailEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me/messages"
       };
    ```
 
@@ -479,6 +478,10 @@ In the sample application created by this guide, the `callMSGraph()` method is u
    npm start
    ```
 1. In your browser, enter **http://localhost:3000** or **http://localhost:{port}**, where *port* is the port that your web server is listening to. You should see the contents of your *index.html* file and the **Sign In** button.
+
+
+> [!Important]
+> Enable popups and redirects for your site in your browser settings.
 
 After the browser loads your *index.html* file, select **Sign In**. You're prompted to sign in with the Microsoft identity platform:
 

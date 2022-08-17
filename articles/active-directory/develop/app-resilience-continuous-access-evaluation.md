@@ -1,6 +1,5 @@
 ---
-title: "How to use Continuous Access Evaluation enabled APIs in your applications | Azure"
-titleSuffix: Microsoft identity platform
+title: "How to use Continuous Access Evaluation enabled APIs in your applications"
 description: How to increase app security and resilience by adding support for Continuous Access Evaluation, enabling long-lived access tokens that can be revoked based on critical events and policy evaluation.
 services: active-directory
 author: knicholasa
@@ -10,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/06/2020
+ms.date: 07/09/2021
 ms.author: nichola
 ms.reviewer:
 # Customer intent: As an application developer, I want to learn how to use Continuous Access Evaluation for building resiliency through long-lived, refreshable tokens that can be revoked based on critical events and policy evaluation.
 ---
 # How to use Continuous Access Evaluation enabled APIs in your applications
 
-[Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md) (CAE) is an emerging industry standard that allows access tokens to be revoked based on [critical events](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) and [policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview) rather than relying on token expiry based on lifetime. For some resource APIs, because risk and policy are evaluated in real time, this can increase token lifetime up to 28 hours. These long-lived tokens will be proactively refreshed by the Microsoft Authentication Library (MSAL), increasing the resiliency of your applications.
+[Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md) (CAE) is an Azure AD feature that allows access tokens to be revoked based on [critical events](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) and [policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation) rather than relying on token expiry based on lifetime. For some resource APIs, because risk and policy are evaluated in real time, this can increase token lifetime up to 28 hours. These long-lived tokens will be proactively refreshed by the Microsoft Authentication Library (MSAL), increasing the resiliency of your applications.
 
-This article shows you how to use CAE-enabled APIs in your applications.
+This article shows you how to use CAE-enabled APIs in your applications. Applications not using MSAL can add support for [claims challenges, claims requests, and client capabilities](claims-challenge.md) to use CAE.
 
 ## Implementation considerations
 
@@ -48,7 +47,9 @@ Your app would check for:
   - an "error" parameter with the value "insufficient_claims"
   - a "claims" parameter
 
-When these conditions are met, the app can extract and decode the claims challenge.
+# [.NET](#tab/dotnet)
+
+When these conditions are met, the app can extract and decode the claims challenge using MSAL.NET `WwwAuthenticateParameters` class.
 
 ```csharp
 if (APIresponse.IsSuccessStatusCode)
@@ -60,19 +61,7 @@ else
     if (APIresponse.StatusCode == System.Net.HttpStatusCode.Unauthorized
         && APIresponse.Headers.WwwAuthenticate.Any())
     {
-        AuthenticationHeaderValue bearer = APIresponse.Headers.WwwAuthenticate.First
-            (v => v.Scheme == "Bearer");
-        IEnumerable<string> parameters = bearer.Parameter.Split(',').Select(v => v.Trim()).ToList();
-        var error = GetParameter(parameters, "error");
-
-        if (null != error && "insufficient_claims" == error)
-        {
-            var claimChallengeParameter = GetParameter(parameters, "claims");
-            if (null != claimChallengeParameter)
-            {
-                var claimChallengebase64Bytes = System.Convert.FromBase64String(claimChallengeParameter);
-                var claimChallenge = System.Text.Encoding.UTF8.GetString(claimChallengebase64Bytes);
-                var newAccessToken = await GetAccessTokenWithClaimChallenge(scopes, claimChallenge);
+        string claimChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(APIresponse.Headers);
 ```
 
 Your app would then use the claims challenge to acquire a new access token for the resource.
@@ -110,6 +99,69 @@ _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
 
 You can test your application by signing in a user to the application then using the Azure portal to Revoke the user's sessions. The next time the app calls the CAE enabled API, the user will be asked to reauthenticate.
 
+# [JavaScript](#tab/JavaScript)
+
+When these conditions are met, the app can extract the claims challenge from the API response header as follows: 
+
+```javascript
+const authenticateHeader = response.headers.get('www-authenticate');
+const claimsChallenge = authenticateHeader
+        .split(' ')
+        .find((entry) => entry.includes('claims='))
+        .split('claims="')[1]
+        .split('",')[0];
+```
+
+Your app would then use the claims challenge to acquire a new access token for the resource.
+
+```javascript
+let tokenResponse;
+
+try {
+
+    tokenResponse = await msalInstance.acquireTokenSilent({
+                    claims: window.atob(claimsChallenge), // decode the base64 string
+                    scopes: scopes,  // e.g ['User.Read', 'Contacts.Read']
+                    account: account, // current active account
+                });
+
+} catch (error) {
+
+     if (error instanceof InteractionRequiredAuthError) {
+
+        tokenResponse = await msalInstance.acquireTokenPopup({
+                        claims: window.atob(claimsChallenge), // decode the base64 string
+                        scopes: scopes, // e.g ['User.Read', 'Contacts.Read']
+                        account: account, // current active account
+                    });
+    }
+
+}
+```
+
+Once your application is ready to handle the claim challenge returned by a CAE-enabled resource, you can tell Microsoft Identity your app is CAE-ready by adding a `clientCapabilities` property in the MSAL configuration.
+
+```javascript
+const msalConfig = {
+    auth: {
+        clientId: 'Enter_the_Application_Id_Here', 
+        clientCapabilities: ["CP1"]
+        // the remaining settings
+        // ... 
+    }
+}
+
+const msalInstance = new PublicClientApplication(msalConfig);
+
+```
+
+---
+
+You can test your application by signing in a user and then using the Azure portal to revoke the user's session. The next time the app calls the CAE-enabled API, the user will be asked to reauthenticate.
+
 ## Next steps
 
-To learn more, see [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md).
+- [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md) conceptual overview
+- [Claims challenges, claims requests, and client capabilities](claims-challenge.md)
+- [React single-page application using MSAL React to sign-in users against Azure Active Directory](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your ASP.NET Core web app to sign in users and call Microsoft Graph with the Microsoft identity platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)

@@ -11,13 +11,14 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
+ms.custom: has-adal-ref
 ---
 
 # Microsoft identity platform token exchange scenarios with SAML and OIDC/OAuth
 
 SAML and OpenID Connect (OIDC) / OAuth are popular protocols used to implement Single Sign-On (SSO). Some apps might only implement SAML and others might only implement OIDC/OAuth. Both protocols use tokens to communicate secrets. To learn more about SAML, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md). To learn more about OIDC/OAuth, see [OAuth 2.0 and OpenID Connect protocols on Microsoft identity platform](active-directory-v2-protocols.md).
 
-This article outlines a common scenario where an app implements SAML but you need to call into the Graph API, which uses OIDC/OAuth. Basic guidance is provided for people working with this scenario.
+This article outlines a common scenario where an app implements SAML but calls the Graph API, which uses OIDC/OAuth. Basic guidance is provided for people working with this scenario.
 
 ## Scenario: You have a SAML token and want to call the Graph API
 Many apps are implemented with SAML. However, the Graph API uses the OIDC/OAuth protocols. It's possible, though not trivial, to add OIDC/OAuth functionality to a SAML app. Once OAuth functionality is available in an app, the Graph API can be used.

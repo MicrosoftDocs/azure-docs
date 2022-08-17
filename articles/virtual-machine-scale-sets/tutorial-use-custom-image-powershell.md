@@ -3,20 +3,23 @@ title: Tutorial - Use a custom VM image in a scale set with Azure PowerShell
 description: Learn how to use Azure PowerShell to create a custom VM image that you can use to deploy a virtual machine scale set
 author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
-ms.custom: akjosh
+ms.reviewer: mimckitt 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Tutorial: Create and use a custom image for virtual machine scale sets with Azure PowerShell
 
+> [!NOTE]
+> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+
 When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Create a Shared Image Gallery
+> * Create an Azure Compute Gallery
 > * Create an image definition
 > * Create an image version
 > * Create a scale-set from an image 
@@ -39,7 +42,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Get the VM
 
-You can see a list of VMs that are available in a resource group using [Get-AzVM](/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets an VM named *sourceVM* from the "myResourceGroup" resource group and assigns it to the variable *$vm*. 
+You can see a list of VMs that are available in a resource group using [Get-AzVM](/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets a VM named *sourceVM* from the "myResourceGroup" resource group and assigns it to the variable *$vm*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -69,7 +72,7 @@ $gallery = New-AzGallery `
    -GalleryName 'myGallery' `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
-   -Description 'Shared Image Gallery for my organization'	
+   -Description 'Azure Compute Gallery for my organization'	
 ```
 
 
@@ -257,7 +260,7 @@ Azure also offers a service, built on Packer, [Azure VM Image Builder](../virtua
 In this tutorial, you learned how to create and use a custom VM image for your scale sets with Azure PowerShell:
 
 > [!div class="checklist"]
-> * Create a Shared Image Gallery
+> * Create an Azure Compute Gallery
 > * Create an image definition
 > * Create an image version
 > * Create a scale-set from an image 

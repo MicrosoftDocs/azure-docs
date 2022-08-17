@@ -1,0 +1,46 @@
+items:
+- name: Azure Managed Grafana
+  href: index.yml
+- name: Overview
+  items:
+    - name: About Azure Managed Grafana
+      href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an instance from the portal
+    href: quickstart-managed-grafana-portal.md
+  - name: Create an instance from the CLI
+    href: quickstart-managed-grafana-cli.md
+- name: Concepts
+  items:
+  - name: High availability
+    href: high-availability.md
+- name: How-to guides
+  items:
+  - name: Configure data source plugins
+    href: how-to-data-source-plugins-managed-identity.md
+  - name: Modify access permissions to Azure Monitor
+    href: how-to-permissions.md
+  - name: Share a Managed Grafana instance
+    href: how-to-share-grafana-workspace.md
+  - name: Call Grafana APIs programmatically
+    href: how-to-api-calls.md
+  - name: Monitor a Managed Grafana instance
+    href: how-to-monitor-managed-grafana-workspace.md
+  - name: Troubleshoot common issues
+    href: troubleshoot-managed-grafana.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/grafana
+  - name: Bicep and ARM templates
+    href: /azure/templates/microsoft.dashboard/2021-09-01-preview/grafana
+  - name: Control Plane
+    href: /rest/api/managed-grafana
+  - name: Data Plane
+    href: https://aka.ms/managed-grafana-dataplane
+  - name: Grafana Enterprise
+    href: https://grafana.com/docs/grafana/latest/enterprise
+  - name: Grafana UI
+    href: grafana-app-ui.md

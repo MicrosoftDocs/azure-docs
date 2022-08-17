@@ -1,20 +1,19 @@
---- 
+---
 title: Tips for AI enrichment design
 titleSuffix: Azure Cognitive Search
 description: Tips and troubleshooting for setting up AI enrichment pipelines in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 09/16/2021
 ---
 # Tips for AI enrichment in Azure Cognitive Search
 
 This article contains a list of tips and tricks to keep you moving as you get started with AI enrichment capabilities in Azure Cognitive Search. 
 
-If you have not done so already, step through the [Tutorial: Learn how to call AI enrichment APIs](cognitive-search-quickstart-blob.md) for practice in applying AI enrichments to a blob data source.
+If you haven't already, step through [Quickstart: Create a skillset for AI enrichment](cognitive-search-quickstart-blob.md) for an introduction to enrichment of blob data.
 
 ## Tip 1: Start with a small dataset
 The best way to find issues quickly is to increase the speed at which you can fix issues. The best way to reduce the indexing time is by reducing the number of documents to be indexed. 
@@ -25,8 +24,7 @@ Run your document sample through the end-to-end pipeline and check that the resu
 
 ## Tip 2: Make sure your data source credentials are correct
 The data source connection is not validated until you define an indexer that uses it. If you see any errors mentioning that the indexer cannot get to the data, make sure that:
-- Your connection string is correct. Specially when you are creating SAS tokens, make sure to use the format expected by Azure Cognitive Search. See [How to specify credentials section](
-https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials) to learn about the different formats supported.
+- Your connection string is correct. Specially when you are creating SAS tokens, make sure to use the format expected by Azure Cognitive Search. See [How to specify credentials section](search-howto-indexing-azure-blob-storage.md#credentials) to learn about the different formats supported.
 - Your container name in the indexer is correct.
 
 ## Tip 3: See what works even if there are some failures
@@ -98,7 +96,7 @@ Maximum run time varies by tier: several minutes on the Free tier, 24-hour index
 For scheduled indexers, indexing resumes on schedule at the last known good document. By using a recurring schedule, the indexer can work its way through the image backlog over a series of hours or days, until all un-processed images are processed. For more information on schedule syntax, see [Schedule an indexer](search-howto-schedule-indexers.md).
 
 > [!NOTE]
-> If an indexer is set to a certain schedule but repeatedly fails on the same document over and over again each time it runs, the indexer will begin running on a less frequent interval (up to the maximum of at least once every 24 hours) until it successfully makes progress again.  If you believe you have fixed whatever the issue that was causing the indexer to be stuck at a certain point, you can perform an on demand run of the indexer, and if that successfully makes progress, the indexer will return to its set schedule interval again.
+> If an indexer is set to a certain schedule but repeatedly fails on the same document over and over again each time it runs, the indexer will begin running on a less frequent interval (up to the maximum of at least once every 24 hours) until it successfully makes progress again.  If you believe you have fixed whatever the issue that was causing the indexer to be stuck at a certain point, you can perform an on-demand run of the indexer, and if that successfully makes progress, the indexer will return to its set schedule interval again.
 
 For portal-based indexing (as described in the quickstart), choosing the "run once" indexer option limits processing to 1 hour (`"maxRunTime": "PT1H"`). You might want to extend the processing window to something longer.
 

@@ -1,9 +1,12 @@
 ---
 title: Resource governance for containers and services 
 description: Azure Service Fabric allows you to specify resource requests and limits for services running as processes or containers.
-
 ms.topic: conceptual
-ms.date: 8/9/2017
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Resource governance
@@ -21,8 +24,13 @@ Resource governance is supported in Service Fabric in accordance with the [servi
 
 * *Memory* (metric name `servicefabric:/_MemoryInMB`): Memory is expressed in megabytes, and it maps to physical memory that is available on the machine.
 
-For these two metrics, [Cluster Resource Manager (CRM)][cluster-resource-manager-description-link] tracks total cluster capacity, the load on each node in the cluster, and the remaining resources in the cluster. These two metrics are equivalent to any other user or custom metric. All existing features can be used with them:
+For these two metrics, [Cluster Resource Manager (CRM)][cluster-resource-manager-description-link] tracks total cluster capacity, the load on each node in the cluster, and the remaining resources in the cluster. These two metrics are equivalent to any other user or custom metric. 
 
+> [!NOTE]
+> Custom metric names should not be one of these two metric names as it will lead to undefined behavior.
+>
+
+All existing features can be used with them:
 * The cluster can be [balanced](service-fabric-cluster-resource-manager-balancing.md) according to these two metrics (default behavior).
 * The cluster can be [defragmented](service-fabric-cluster-resource-manager-defragmentation-metrics.md) according to these two metrics.
 * When [describing a cluster][cluster-resource-manager-description-link], buffered capacity can be set for these two metrics.
@@ -256,18 +264,22 @@ To prevent these situations from occurring, Service Fabric allows you to *enfo
 Additional remarks:
 
 * Resource limit enforcement only applies to the `servicefabric:/_CpuCores` and `servicefabric:/_MemoryInMB` resource metrics
-* Resource limit enforcement only works if node capacities for the resource metrics are available to Service Fabric, either via auto-detection mechanism, or via users manually specifying the node  capacities (as explained in the [Cluster setup for enabling resource governance](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) section). If node capacities are not configured, the resource limit enforcement capability cannot be used since Service Fabric can't know how much resources to reserve for user services. Service Fabric will issue a health warning if "EnforceUserServiceMetricCapacities" is true but node capacities are not configured.
+* Resource limit enforcement only works if node capacities for the resource metrics are available to Service Fabric, either via auto-detection mechanism, or via users manually specifying the node  capacities (as explained in the [Cluster setup for enabling resource governance](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) section). If node capacities are not configured, the resource limit enforcement capability cannot be used since Service Fabric can't know how much resources to reserve for user services. Service Fabric will issue a health warning if "EnforceUserServiceMetricCapacities" is true but node capacities are not configured.
 
 ## Other resources for containers
 
-Besides CPU and memory, it's possible to specify other resource limits for containers. These limits are specified at the code-package level and are applied when the container is started. Unlike with CPU and memory, Cluster Resource Manager isn't aware of these resources, and won't do any capacity checks or load balancing for them.
+Besides CPU and memory, it's possible to specify other [resource limits for containers](service-fabric-service-model-schema-complex-types.md#resourcegovernancepolicytype-complextype). These limits are specified at the code-package level and are applied when the container is started. Unlike with CPU and memory, Cluster Resource Manager isn't aware of these resources, and won't do any capacity checks or load balancing for them.
 
-* *MemorySwapInMB*: The amount of swap memory that a container can use.
-* *MemoryReservationInMB*: The soft limit for memory governance that is enforced only when memory contention is detected on the node.
-* *CpuPercent*: The percentage of CPU that the container can use. If CPU requests or limits are specified for the service package, this parameter is effectively ignored.
-* *MaximumIOps*: The maximum IOPS that a container can use (read and write).
-* *MaximumIOBytesps*: The maximum IO (bytes per second) that a container can use (read and write).
-* *BlockIOWeight*: The block IO weight for relative to other containers.
+* *MemorySwapInMB*: The total amount of swap memory that can be used, in MB. Must be a positive integer.
+* *MemoryReservationInMB*: The soft limit (in MB) for memory governance that is enforced only when memory contention is detected on the node. Must be a positive integer.
+* *CpuPercent*: Usable percentage of available CPUs (Windows only). Must be a positive integer. Cannot be used with CpuShares, CpuCores, or CpuCoresLimit.
+* *CpuShares*: Relative CPU weight. Must be a positive integer. Cannot be used with CpuPercent, CpuCores, or CpuCoresLimit.
+* *MaximumIOps*: Maximum IO rate (read and write) in terms of IOps that can be used. Must be a positive integer.
+* *MaximumIOBandwidth*: The maximum IO (bytes per second) that can be used (read and write). Must be a positive integer.
+* *BlockIOWeight*: Block IO weight, relative to other code packages. Must be a positive integer between 10 and 1000.
+* *DiskQuotaInMB*: Disk quota for containers. Must be a positive integer.
+* *KernelMemoryInMB*: Kernel memory limits in bytes.  Must be a positive integer.  Note this is Linux-specific and Docker on Windows will error out if this is set.
+* *ShmSizeInMB*: Size of */dev/shm* in bytes. If omitted, the system uses 64MB.  Must be a positive integer. Note this is Linux-specific, however, Docker will only ignore (and not error out) if specified.
 
 These resources can be combined with CPU and memory. Here is an example of how to specify additional resources for containers:
 

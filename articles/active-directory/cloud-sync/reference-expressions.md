@@ -3,7 +3,7 @@ title: Azure AD Connect cloud sync expressions and function reference
 description: reference
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 # Writing expressions for attribute mappings in Azure Active Directory
 When you configure cloud sync, one of the types of attribute mappings that you can specify is an expression mapping. 
 
-The expression mapping allows you to customize attributes using a script-like expression.  This allows you to transform the on-premises data into an new or different value.  For example, you may want to combine two attributes into a single attribute because this single attribute is used by one of your cloud applications.
+The expression mapping allows you to customize attributes using a script-like expression.  This allows you to transform the on-premises data into a new or different value.  For example, you may want to combine two attributes into a single attribute because this single attribute is used by one of your cloud applications.
 
 The following document will cover the script-like expressions that are used to transform the data.  This is only part of the process.  Next you will need to use this expression and place it in a web request to your tenant.  For more information on that see [Transformations](how-to-transformation.md)
 
@@ -528,7 +528,7 @@ Requires a minimum of two arguments, which are unique value generation rules def
 > - This is a top-level function, it cannot be nested.
 > - This function cannot be applied to attributes that have a matching precedence. 	
 > - This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
-> - This function is currently only supported for "Workday to Active Directory User Provisioning". It cannot be used with other provisioning applications. 
+> - This function is currently only supported for "Workday and SuccessFactors to Active Directory User Provisioning". It cannot be used with other provisioning applications. 
 
 
 **Parameters:**<br> 

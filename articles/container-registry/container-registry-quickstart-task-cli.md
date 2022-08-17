@@ -3,7 +3,7 @@ title: Quickstart - Build a container image on-demand in Azure
 description: Use Azure Container Registry commands to quickly build, push, and run a Docker container image on-demand, in the Azure cloud.
 ms.topic: quickstart
 ms.date: 09/25/2020
-ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.custom: contperf-fy21q1, devx-track-azurecli, mode-other
 ---
 
 # Quickstart: Build and run a container image using Azure Container Registry Tasks
@@ -44,7 +44,7 @@ This example creates a *Basic* registry, a cost-optimized option for developers 
 Now use Azure Container Registry to build and push an image. First, create a local working directory and then create a Dockerfile named *Dockerfile* with the single line: `FROM mcr.microsoft.com/hello-world`. This is a simple example to build a Linux container image from the `hello-world` image hosted at Microsoft Container Registry. You can create your own standard Dockerfile and build images for other platforms. If you are working at a bash shell, create the Dockerfile with the following command:
 
 ```bash
-echo FROM mcr.microsoft.com/hello-world > Dockerfile
+echo "FROM mcr.microsoft.com/hello-world" > Dockerfile
 ```
 
 Run the [az acr build][az-acr-build] command, which builds the image and, after the image is successfully built, pushes it to your registry. The following example builds and pushes the `sample/hello-world:v1` image. The `.` at the end of the command sets the location of the Dockerfile, in this case the current directory.
@@ -192,11 +192,11 @@ In this quickstart, you used features of ACR Tasks to quickly build, push, and r
 [azure-account]: https://azure.microsoft.com/free/
 
 <!-- LINKS - internal -->
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-tasks-overview]: container-registry-tasks-overview.md
 [container-registry-tasks-multi-step]: container-registry-tasks-multi-step.md

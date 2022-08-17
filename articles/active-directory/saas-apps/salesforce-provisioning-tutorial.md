@@ -15,12 +15,18 @@ ms.author: jeedes
 
 The objective of this tutorial is to show the steps required to perform in Salesforce and Azure AD to automatically provision and de-provision user accounts from Azure AD to Salesforce.
 
+> [!Note]
+> Microsoft uses v28 of the Salesforce API for automatic provisioning. Microsoft is aware of the upcoming deprecation of v21 through v30 and is working with Salesforce to migrate to a supported version prior to the deprecation date. No customer action is required.
+> 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * An Azure Active directory tenant
 * A Salesforce.com tenant
+
+> [!Note]
+> Roles should not be manually edited in Azure Active Directory when doing role imports.
 
 > [!IMPORTANT]
 > If you are using a Salesforce.com trial account, then you will be unable to configure automated user provisioning. Trial accounts do not have the necessary API access enabled until they are purchased. You can get around this limitation by using a free [developer account](https://developer.salesforce.com/signup) to complete this tutorial.

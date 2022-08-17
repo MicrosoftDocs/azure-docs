@@ -1,6 +1,5 @@
 ---
-title: "Tutorial: Create a Windows Presentation Foundation (WPF) app that uses the Microsoft identity platform for authentication | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Create a Windows Presentation Foundation (WPF) app that uses the Microsoft identity platform for authentication"
 description: In this tutorial, you build a WPF application that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
 author: jmprieur
@@ -15,7 +14,7 @@ ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ---
 
-# Tutorial: Call the Microsoft Graph API from a Windows Desktop app
+# Tutorial: Sign in users and call Microsoft Graph in Windows Presentation Foundation (WPF) desktop app
 
 In this tutorial, you build a native Windows Desktop .NET (XAML) app that signs in users and gets an access token to call the Microsoft Graph API. 
 
@@ -93,15 +92,15 @@ You can register your application in either of two ways.
 ### Option 1: Express mode
 
 You can quickly register your application by doing the following:
-1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
+1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application with just one click.
 
 ### Option 2: Advanced mode
 
 To register your application and add your application registration information to your solution, do the following:
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application, for example `Win-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
@@ -126,7 +125,7 @@ In this step, you create a class to handle interaction with MSAL, such as handli
     ```csharp
     using Microsoft.Identity.Client;
     ```
-   <!-- Workaround for Docs conversion bug -->
+    <!-- Workaround for Docs conversion bug -->
 
 2. Update the app class to the following:
 
@@ -137,6 +136,7 @@ In this step, you create a class to handle interaction with MSAL, such as handli
         {
             _clientApp = PublicClientApplicationBuilder.Create(ClientId)
                 .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
+                .WithDefaultRedirectUri()
                 .Build();
         }
 

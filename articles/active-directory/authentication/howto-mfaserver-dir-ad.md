@@ -10,7 +10,7 @@ ms.date: 11/21/2019
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: michmcla
 
 ms.custom: seo-update-azuread-jan

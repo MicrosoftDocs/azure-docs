@@ -4,7 +4,7 @@ description: Learn what ports and addresses are required to control egress traff
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 11/09/2020
+ms.date: 07/26/2022
 author: palma21
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
@@ -20,7 +20,7 @@ AKS clusters are deployed on a virtual network. This network can be managed (cre
 
 For management and operational purposes, nodes in an AKS cluster need to access certain ports and fully qualified domain names (FQDNs). These endpoints are required for the nodes to communicate with the API server, or to download and install core Kubernetes cluster components and node security updates. For example, the cluster needs to pull base system container images from Microsoft Container Registry (MCR).
 
-The AKS outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means that Network Security Groups can't be used to lock down the outbound traffic from an AKS cluster. 
+The AKS outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means that Network Security Groups can't be used to lock down the outbound traffic from an AKS cluster.
 
 By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. The simplest solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination. You can also configure your preferred firewall and security rules to allow these required ports and addresses.
 
@@ -34,10 +34,9 @@ The following network and FQDN/application rules are required for an AKS cluster
 * IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic)
 * FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
 * Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your AKS cluster based on a number of qualifiers.
-* AKS uses an admission controller to inject the FQDN as an environment variable to all deployments under kube-system and gatekeeper-system, that ensures all system communication between nodes and API server uses the API server FQDN and not the API server IP. 
+* AKS uses an admission controller to inject the FQDN as an environment variable to all deployments under kube-system and gatekeeper-system, that ensures all system communication between nodes and API server uses the API server FQDN and not the API server IP.
 * If you have an app or solution that needs to talk to the API server, you must add an **additional** network rule to allow *TCP communication to port 443 of your API server's IP*.
 * On rare occasions, if there's a maintenance operation your API server IP might change. Planned maintenance operations that can change the API server IP are always communicated in advance.
-
 
 ### Azure Global required network rules
 
@@ -45,19 +44,19 @@ The required network rules and IP address dependencies are:
 
 | Destination Endpoint                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | For tunneled secure communication between the nodes and the control plane. This is not required for [private clusters](private-clusters.md)|
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | For tunneled secure communication between the nodes and the control plane. This is not required for [private clusters](private-clusters.md) |
-| **`*:123`** or **`ntp.ubuntu.com:123`** (if using Azure Firewall network rules)  | UDP      | 123     | Required for Network Time Protocol (NTP) time synchronization on Linux nodes.                 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | For tunneled secure communication between the nodes and the control plane. This is not required for [private clusters][aks-private-clusters], or for clusters with the *konnectivity-agent* enabled. |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | For tunneled secure communication between the nodes and the control plane. This is not required for [private clusters][aks-private-clusters], or for clusters with the *konnectivity-agent* enabled. |
+| **`*:123`** or **`ntp.ubuntu.com:123`** (if using Azure Firewall network rules)  | UDP      | 123     | Required for Network Time Protocol (NTP) time synchronization on Linux nodes. This is not required for nodes provisioned after March 2021.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | If you're using custom DNS servers, you must ensure they're accessible by the cluster nodes. |
-| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pods/deployments would use the API IP. This is not required for [private clusters](private-clusters.md)  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pods/deployments would use the API IP. This port is not required for [private clusters][aks-private-clusters]. |
 
-### Azure Global required FQDN / application rules 
+### Azure Global required FQDN / application rules
 
 The following FQDN / application rules are required:
 
 | Destination FQDN                 | Port            | Use      |
 |----------------------------------|-----------------|----------|
-| **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. This is required for clusters with *konnectivity-agent* enabled. Konnectivity also uses Application-Layer Protocol Negotiation (ALPN) to communicate between agent and server. Blocking or rewriting the ALPN extension will cause a failure. This is not required for [private clusters][aks-private-clusters]. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts (for example, coreDNS, etc.). These images are required for the correct creation and functioning of the cluster, including scale and upgrade operations.  |
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Required for MCR storage backed by the Azure content delivery network (CDN). |
 | **`management.azure.com`**       | **`HTTPS:443`** | Required for Kubernetes operations against the Azure API. |
@@ -105,7 +104,7 @@ The required network rules and IP address dependencies are:
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | If you're using custom DNS servers, you must ensure they're accessible by the cluster nodes. |
 | **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pods/deployments would use the API IP.  |
 
-### Azure US Government required FQDN / application rules 
+### Azure US Government required FQDN / application rules
 
 The following FQDN / application rules are required:
 
@@ -139,9 +138,9 @@ The following FQDN / application rules are required for AKS clusters that have G
 |-----------------------------------------|-----------|----------|
 | **`nvidia.github.io`**                  | **`HTTPS:443`** | This address is used for correct driver installation and operation on GPU-based nodes. |
 | **`us.download.nvidia.com`**            | **`HTTPS:443`** | This address is used for correct driver installation and operation on GPU-based nodes. |
-| **`apt.dockerproject.org`**             | **`HTTPS:443`** | This address is used for correct driver installation and operation on GPU-based nodes. |
+| **`download.docker.com`**             | **`HTTPS:443`** | This address is used for correct driver installation and operation on GPU-based nodes. |
 
-## Windows Server based node pools 
+## Windows Server based node pools
 
 ### Required FQDN / application rules
 
@@ -153,6 +152,28 @@ The following FQDN / application rules are required for using Windows Server bas
 | **`*.mp.microsoft.com, www.msftconnecttest.com, ctldl.windowsupdate.com`** | **`HTTP:80`**   | To install windows-related binaries |
 
 ## AKS addons and integrations
+
+### Microsoft Defender for Containers
+
+#### Required FQDN / application rules
+
+The following FQDN / application rules are required for AKS clusters that have Microsoft Defender for Containers enabled.
+
+| FQDN                                          | Port      | Use      |
+|-----------------------------------------------|-----------|----------|
+| **`login.microsoftonline.com`** | **`HTTPS:443`** | Required for Active Directory Authentication. |
+| **`*.ods.opinsights.azure.com`** | **`HTTPS:443`** | Required for Microsoft Defender to upload security events to the cloud.|
+| **`*.oms.opinsights.azure.com`** | **`HTTPS:443`** | Required to Authenticate with LogAnalytics workspaces.|
+
+### CSI Secret Store
+
+#### Required FQDN / application rules
+
+The following FQDN / application rules are required for AKS clusters that have CSI Secret Store enabled.
+
+| FQDN                                          | Port      | Use      |
+|-----------------------------------------------|-----------|----------|
+| **`vault.azure.net`** | **`HTTPS:443`** | Required for CSI Secret Store addon pods to talk to Azure KeyVault server.|
 
 ### Azure Monitor for containers
 
@@ -172,35 +193,14 @@ The following FQDN / application rules are required for AKS clusters that have t
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
-| dc.services.visualstudio.com | **`HTTPS:443`**    | This endpoint is used for metrics and monitoring telemetry using Azure Monitor. |
-| *.ods.opinsights.azure.com    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for ingesting log analytics data. |
-| *.oms.opinsights.azure.com | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
-| *.monitoring.azure.com | **`HTTPS:443`** | This endpoint is used to send metrics data to Azure Monitor. |
-
-### Azure Dev Spaces
-
-Update your firewall or security configuration to allow network traffic to and from the all of the below FQDNs and [Azure Dev Spaces infrastructure services][dev-spaces-service-tags].
-
-#### Required network rules
-
-| Destination Endpoint                                                             | Protocol | Port    | Use  |
-|----------------------------------------------------------------------------------|----------|---------|------|
-| [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureDevSpaces`**  | TCP           | 443      | This endpoint is used to send metrics data and logs to Azure Monitor and Log Analytics. |
-
-#### Required FQDN / application rules 
-
-The following FQDN / application rules are required for AKS clusters that have the Azure Dev Spaces enabled:
-
-| FQDN                                    | Port      | Use      |
-|-----------------------------------------|-----------|----------|
-| `cloudflare.docker.com` | **`HTTPS:443`** | This address is used to pull linux alpine and other Azure Dev Spaces images |
-| `gcr.io` | **`HTTPS:443`** | This address is used to pull helm/tiller images |
-| `storage.googleapis.com` | **`HTTPS:443`** | This address is used to pull helm/tiller images |
-
+| **`dc.services.visualstudio.com`** | **`HTTPS:443`**    | This endpoint is used for metrics and monitoring telemetry using Azure Monitor. |
+| **`*.ods.opinsights.azure.com`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for ingesting log analytics data. |
+| **`*.oms.opinsights.azure.com`** | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
+| **`*.monitoring.azure.com`** | **`HTTPS:443`** | This endpoint is used to send metrics data to Azure Monitor. |
 
 ### Azure Policy
 
-#### Required FQDN / application rules 
+#### Required FQDN / application rules
 
 The following FQDN / application rules are required for AKS clusters that have the Azure Policy enabled.
 
@@ -208,13 +208,49 @@ The following FQDN / application rules are required for AKS clusters that have t
 |-----------------------------------------------|-----------|----------|
 | **`data.policy.core.windows.net`** | **`HTTPS:443`** | This address is used to pull the Kubernetes policies and to report cluster compliance status to policy service. |
 | **`store.policy.core.windows.net`** | **`HTTPS:443`** | This address is used to pull the Gatekeeper artifacts of built-in policies. |
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | This address is used for correct operation of Azure Policy.  |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. |
-| **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy add-on that sends telemetry data to applications insights endpoint. |
+| **`dc.services.visualstudio.com`** | **`HTTPS:443`** | Azure Policy add-on that sends telemetry data to applications insights endpoint. |
+
+#### Azure China 21Vianet Required FQDN / application rules
+
+The following FQDN / application rules are required for AKS clusters that have the Azure Policy enabled.
+
+| FQDN                                          | Port      | Use      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.cn`** | **`HTTPS:443`** | This address is used to pull the Kubernetes policies and to report cluster compliance status to policy service. |
+| **`store.policy.azure.cn`** | **`HTTPS:443`** | This address is used to pull the Gatekeeper artifacts of built-in policies. |
+
+#### Azure US Government Required FQDN / application rules
+
+The following FQDN / application rules are required for AKS clusters that have the Azure Policy enabled.
+
+| FQDN                                          | Port      | Use      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.us`** | **`HTTPS:443`** | This address is used to pull the Kubernetes policies and to report cluster compliance status to policy service. |
+| **`store.policy.azure.us`** | **`HTTPS:443`** | This address is used to pull the Gatekeeper artifacts of built-in policies. |
+
+## Cluster extensions
+
+### Required FQDN / application rules
+
+The following FQDN / application rules are required for using cluster extensions on AKS clusters.
+
+| FQDN | Port | Use |
+|-----------------------------------------------|-----------|----------|
+| **`<region>.dp.kubernetesconfiguration.azure.com`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service.|
+| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
+
+#### Azure US Government Required FQDN / application rules
+
+The following FQDN / application rules are required for using cluster extensions on AKS clusters.
+
+| FQDN | Port | Use |
+|-----------------------------------------------|-----------|----------|
+| **`<region>.dp.kubernetesconfiguration.azure.us`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service. |
+| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
 
 ## Restrict egress traffic using Azure firewall
 
-Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) FQDN Tag to simplify this configuration. 
+Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) FQDN Tag to simplify this configuration.
 
 > [!NOTE]
 > The FQDN tag contains all the FQDNs listed above and is kept automatically up to date.
@@ -237,9 +273,7 @@ Below is an example architecture of the deployment:
 * Internal Traffic
   * Optionally, instead or in addition to a [Public Load Balancer](load-balancer-standard.md) you can use an [Internal Load Balancer](internal-lb.md) for internal traffic, which you could isolate on its own subnet as well.
 
-
 The below steps make use of Azure Firewall's `AzureKubernetesService` FQDN tag to restrict the outbound traffic from the AKS cluster and provide an example how to configure public inbound traffic via the firewall.
-
 
 ### Set configuration via environment variables
 
@@ -305,7 +339,6 @@ Azure Firewall inbound and outbound rules must be configured. The main purpose o
 
 ![Firewall and UDR](media/limit-egress-traffic/firewall-udr.png)
 
-
 > [!IMPORTANT]
 > If your cluster or application creates a large number of outbound connections directed to the same or small subset of destinations, you might require more firewall frontend IPs to avoid maxing out the ports per frontend IP.
 > For more information on how to create an Azure firewall with multiple IPs, see [**here**](../firewall/quick-create-multiple-ip-template.md)
@@ -317,6 +350,7 @@ az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
 Register the preview cli-extension to create an Azure Firewall.
+
 ```azurecli
 # Install Azure Firewall preview CLI extension
 
@@ -326,6 +360,7 @@ az extension add --name azure-firewall
 
 az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
 ```
+
 The IP address created earlier can now be assigned to the firewall frontend.
 
 > [!NOTE]
@@ -340,7 +375,7 @@ az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --pub
 
 When the previous command has succeeded, save the firewall frontend IP address for configuration later.
 
-```bash
+```azurecli
 # Capture Firewall IP Address for Later Use
 
 FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
@@ -360,13 +395,17 @@ Create an empty route table to be associated with a given subnet. The route tabl
 # Create UDR and add a route for Azure Firewall
 
 az network route-table create -g $RG -l $LOC --name $FWROUTE_TABLE_NAME
-az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP --subscription $SUBID
+az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
 
 See [virtual network route table documentation](../virtual-network/virtual-networks-udr-overview.md#user-defined) about how you can override Azure's default system routes or add additional routes to a subnet's route table.
 
 ### Adding firewall rules
+
+> [!NOTE]
+> For applications outside of the kube-system or gatekeeper-system namespaces that needs to talk to the API server, an additional network rule to allow TCP communication to port 443 for the API server IP in addition to adding application rule for fqdn-tag AzureKubernetesService is required.
+
 
 Below are three network rules you can use to configure on your firewall, you may need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP (if you're deploying to Azure China 21Vianet, you might require [more](#azure-china-21vianet-required-network-rules)). Both these rules will only allow traffic destined to the Azure Region CIDR that we're using, in this case East US. 
 Finally, we'll add a third network rule opening port 123 to `ntp.ubuntu.com` FQDN via UDP (adding an FQDN as a network rule is one of the specific features of Azure Firewall, and you'll need to adapt it when using your own options).
@@ -403,40 +442,7 @@ Now an AKS cluster can be deployed into the existing virtual network. We'll also
 
 ![aks-deploy](media/limit-egress-traffic/aks-udr-fw.png)
 
-### Create a service principal with access to provision inside the existing virtual network
-
-A service principal is used by AKS to create cluster resources. The service principal that is passed at create time is used to create underlying AKS resources such as Storage resources, IPs, and Load Balancers used by AKS (you may also use a [managed identity](use-managed-identity.md) instead). If not granted the appropriate permissions below, you won't be able to provision the AKS Cluster.
-
-```azurecli
-# Create SP and Assign Permission to Virtual Network
-
-az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
-```
-
-Now replace the `APPID` and `PASSWORD` below with the service principal appid and service principal password autogenerated by the previous command output. We'll reference the VNET resource ID to grant the permissions to the service principal so AKS can deploy resources into it.
-
-```azurecli
-APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
-PASSWORD="<SERVICEPRINCIPAL_PASSWORD_GOES_HERE>"
-VNETID=$(az network vnet show -g $RG --name $VNET_NAME --query id -o tsv)
-
-# Assign SP Permission to VNET
-
-az role assignment create --assignee $APPID --scope $VNETID --role "Network Contributor"
-```
-
-You can check the detailed permissions that are required [here](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
-
-> [!NOTE]
-> If you're using the kubenet network plugin, you'll need to give the AKS service principal or managed identity permissions to the pre-created route table, since kubenet requires a route table to add neccesary routing rules. 
-> ```azurecli-interactive
-> RTID=$(az network route-table show -g $RG -n $FWROUTE_TABLE_NAME --query id -o tsv)
-> az role assignment create --assignee $APPID --scope $RTID --role "Network Contributor"
-> ```
-
-### Deploy AKS
-
-Finally, the AKS cluster can be deployed into the existing subnet we've dedicated for the cluster. The target subnet to be deployed into is defined with the environment variable, `$SUBNETID`. We didn't define the `$SUBNETID` variable in the previous steps. To set the value for the subnet ID, you can use the following command:
+The target subnet to be deployed into is defined with the environment variable, `$SUBNETID`. We didn't define the `$SUBNETID` variable in the previous steps. To set the value for the subnet ID, you can use the following command:
 
 ```azurecli
 SUBNETID=$(az network vnet subnet show -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --query id -o tsv)
@@ -447,25 +453,98 @@ You'll define the outbound type to use the UDR that already exists on the subnet
 > [!IMPORTANT]
 > For more information on outbound type UDR including limitations, see [**egress outbound type UDR**](egress-outboundtype.md#limitations).
 
-
 > [!TIP]
 > Additional features can be added to the cluster deployment such as [**Private Cluster**](private-clusters.md). 
 >
 > The AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as optional. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network or you must add all developer endpoints to the authorized IP range.
 
+#### Create an AKS cluster with system-assigned identities
+
+> [!NOTE]
+> AKS will create a system-assigned kubelet identity in the Node resource group if you do not [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
+> 
+> For user defined routing (UDR), system-assigned identity only supports CNI network plugin. Because for kubelet network plugin, AKS cluster needs permission on route table as kubernetes cloud-provider manages rules. 
+
+You can create an AKS cluster using a system-assigned managed identity with CNI network plugin by running the following CLI command.
+
 ```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
-  --node-count 3 --generate-ssh-keys \
-  --network-plugin $PLUGIN \
+  --node-count 3 \
+  --network-plugin azure \
   --outbound-type userDefinedRouting \
-  --service-cidr 10.41.0.0/16 \
-  --dns-service-ip 10.41.0.10 \
-  --docker-bridge-address 172.17.0.1/16 \
   --vnet-subnet-id $SUBNETID \
-  --service-principal $APPID \
-  --client-secret $PASSWORD \
   --api-server-authorized-ip-ranges $FWPUBLIC_IP
 ```
+
+#### Create an AKS cluster with user-assigned identities
+
+##### Create user-assigned managed identities
+
+If you don't have a control plane managed identity, you can create by running the following [az identity create][az-identity-create] command:
+
+```azurecli-interactive
+az identity create --name myIdentity --resource-group myResourceGroup
+```
+
+The output should resemble the following:
+
+```output
+{                                  
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+  "location": "westus2",
+  "name": "myIdentity",
+  "principalId": "<principal-id>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+If you don't have a kubelet managed identity, you can create one by running the following [az identity create][az-identity-create] command:
+
+```azurecli-interactive
+az identity create --name myKubeletIdentity --resource-group myResourceGroup
+```
+
+The output should resemble the following:
+
+```output
+{
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
+  "location": "westus2",
+  "name": "myKubeletIdentity",
+  "principalId": "<principal-id>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+> [!NOTE]
+> For creating and using your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you are using an ARM template or other client, you need to use the Principal ID of the cluster managed identity to perform a [role assignment.][add role to identity]
+
+##### Create an AKS cluster with user-assigned identities
+
+Now you can use the following command to create your AKS cluster with your existing identities in the subnet. Provide the control plane identity resource ID via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
+
+```azurecli
+az aks create -g $RG -n $AKSNAME -l $LOC \
+  --node-count 3 \
+  --network-plugin kubenet \
+  --outbound-type userDefinedRouting \
+  --vnet-subnet-id $SUBNETID \
+  --api-server-authorized-ip-ranges $FWPUBLIC_IP
+  --enable-managed-identity \
+  --assign-identity <identity-resource-id> \
+  --assign-kubelet-identity <kubelet-identity-resource-id>
+```
+
 
 ### Enable developer access to the API server
 
@@ -479,16 +558,16 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 
 # Add to AKS approved list
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
-
 ```
 
- Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your newly created Kubernetes cluster. 
+Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your newly created Kubernetes cluster.
 
- ```azurecli
- az aks get-credentials -g $RG -n $AKSNAME
- ```
+```azurecli
+az aks get-credentials -g $RG -n $AKSNAME
+```
 
 ### Deploy a public service
+
 You can now start exposing services and deploying applications to this cluster. In this example, we'll expose a public service, but you may also choose to expose an internal service via [internal load balancer](internal-lb.md).
 
 ![Public Service DNAT](media/limit-egress-traffic/aks-create-svc.png)
@@ -720,7 +799,6 @@ kubectl apply -f example.yaml
 > [!IMPORTANT]
 > When you use Azure Firewall to restrict egress traffic and create a user-defined route (UDR) to force all egress traffic, make sure you create an appropriate DNAT rule in Firewall to correctly allow ingress traffic. Using Azure Firewall with a UDR breaks the ingress setup due to asymmetric routing. (The issue occurs if the AKS subnet has a default route that goes to the firewall's private IP address, but you're using a public load balancer - ingress or Kubernetes service of type: LoadBalancer). In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Because the firewall is stateful, it drops the returning packet because the firewall isn't aware of an established session. To learn how to integrate Azure Firewall with your ingress or service load balancer, see [Integrate Azure Firewall with Azure Standard Load Balancer](../firewall/integrate-lb.md).
 
-
 To configure inbound connectivity, a DNAT rule must be written to the Azure Firewall. To test connectivity to your cluster, a rule is defined for the firewall frontend public IP address to route to the internal IP exposed by the internal service.
 
 The destination address can be customized as it's the port on the firewall to be accessed. The translated address must be the IP address of the internal load balancer. The translated port must be the exposed port for your Kubernetes service.
@@ -742,11 +820,13 @@ voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9
 ```
 
 Get the service IP by running:
+
 ```bash
 SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
 ```
 
 Add the NAT rule by running:
+
 ```azurecli
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address $SERVICE_IP
 ```
@@ -757,9 +837,7 @@ Navigate to the Azure Firewall frontend IP address in a browser to validate conn
 
 You should see the AKS voting app. In this example, the Firewall public IP was `52.253.228.132`.
 
-
 ![Screenshot shows the A K S Voting App with buttons for Cats, Dogs, and Reset, and totals.](media/limit-egress-traffic/aks-vote.png)
-
 
 ### Clean up resources
 
@@ -771,7 +849,7 @@ az group delete -g $RG
 
 ## Next steps
 
-In this article, you learned what ports and addresses to allow if you want to restrict egress traffic for the cluster. You also saw how to secure your outbound traffic using Azure Firewall. 
+In this article, you learned what ports and addresses to allow if you want to restrict egress traffic for the cluster. You also saw how to secure your outbound traffic using Azure Firewall.
 
 If needed, you can generalize the steps above to forward the traffic to your preferred egress solution, following the [Outbound Type `userDefinedRoute` documentation](egress-outboundtype.md).
 
@@ -783,10 +861,15 @@ If you want to restrict how pods communicate between themselves and East-West tr
 [install-azure-cli]: /cli/azure/install-azure-cli
 [network-policy]: use-network-policies.md
 [azure-firewall]: ../firewall/overview.md
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [aks-upgrade]: upgrade-cluster.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[dev-spaces-service-tags]: ../dev-spaces/configure-networking.md#virtual-network-or-subnet-configurations
+[aks-private-clusters]: private-clusters.md
+[add role to identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity
+[Create an AKS cluster with user-assigned identities]: limit-egress-traffic.md#create-an-aks-cluster-with-user-assigned-identities
+[Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials

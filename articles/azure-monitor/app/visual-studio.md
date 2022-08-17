@@ -4,6 +4,7 @@ description: Web app performance analysis and diagnostics during debugging and i
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
+ms.reviewer: daviste
 ---
 
 # Debug your applications with Azure Application Insights in Visual Studio
@@ -61,17 +62,6 @@ In the Code Lens line above each handler method, you see a count of the requests
 
 [More about Application Insights in Code Lens](./visual-studio-codelens.md)
 
-## Trends
-Trends is a tool for visualizing how your app behaves over time. 
-
-Choose **Explore Telemetry Trends** from the Application Insights toolbar button or Application Insights Search window. Choose one of five common queries to get started. You can analyze different datasets based on telemetry types, time ranges, and other properties. 
-
-To find anomalies in your data, choose one of the anomaly options under the "View Type" dropdown. The filtering options at the bottom of the window make it easy to hone in on specific subsets of your telemetry.
-
-![Trends](./media/visual-studio/51.png)
-
-[More about Trends](./visual-studio-trends.md).
-
 ## Local monitoring
 (From Visual Studio 2015 Update 2) If you haven't configured the SDK to send telemetry to the Application Insights portal (so that there is no instrumentation key in ApplicationInsights.config) then the diagnostics window displays telemetry from your latest debugging session. 
 
@@ -84,6 +74,7 @@ It's also useful if you have some [custom telemetry](./api-custom-events-metrics
   * In the Search window's Settings, there's an option to search local diagnostics even if your app sends telemetry to the portal.
   * To stop telemetry being sent to the portal, comment out the line `<instrumentationkey>...` from ApplicationInsights.config. When you're ready to send telemetry to the portal again, uncomment it.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Next steps
 

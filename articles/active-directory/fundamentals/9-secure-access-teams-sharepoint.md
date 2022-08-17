@@ -2,14 +2,14 @@
 title: Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure Active Directory 
 description: Secure access to Microsoft 365 services as a part of your overall external access security.
 services: active-directory
-author: BarbaraSelden
-manager: daveba
+author: janicericketts
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.author: baselden
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -85,7 +85,7 @@ To learn more about managing external access in Teams, see the following resourc
 
 * [Manage external access in Microsoft Teams](/microsoftteams/manage-external-access)
 
-* [Microsoft 365 identity models and Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
+* [Microsoft 365 identity models and Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity)
 
 * [Identity models and authentication for Microsoft Teams](/MicrosoftTeams/identify-models-authentication)
 

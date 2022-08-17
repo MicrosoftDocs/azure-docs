@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to apply differential privacy best practices to Azure Machine Learning models by using the SmartNoise open-source libraries.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, responsible-ml
+ms.subservice: enterprise-readiness
+ms.topic: how-to
+ms.custom: responsible-ml
 ms.author: slbird
 author: slbird
-ms.reviewer: luquinta
-ms.date: 01/21/2020
+ms.reviewer: ssalgado
+ms.date: 10/21/2021
 # Customer intent: As an experienced data scientist, I want to use differential privacy in Azure Machine Learning.
 ---
 
@@ -23,7 +23,7 @@ Differential privacy is the gold-standard definition of privacy. Systems that ad
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+- If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 - [Python 3](https://www.python.org/downloads/)
 
 ## Install SmartNoise Python libraries
@@ -38,7 +38,7 @@ Use pip to install the [SmartNoise Python packages](https://pypi.org/project/ope
 
 `pip install opendp-smartnoise`
 
-To verify that the packages are installed, launch a python prompt and type:
+To verify that the packages are installed, launch a Python prompt and type:
 
 ```python
 import opendp.smartnoise.core
@@ -52,6 +52,8 @@ If the imports succeed, the libraries are installed and ready to use.
 You can also use SmartNoise packages with Docker.
 
 Pull the `opendp/smartnoise` image to use the libraries inside a Docker container that includes Spark, Jupyter, and sample code.
+
+[!INCLUDE [pull-image-include](../../includes/pull-image-include.md)]
 
 ```sh
 docker pull opendp/smartnoise:privacy

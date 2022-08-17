@@ -3,14 +3,14 @@ title: IDology integration with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate a sample online payment app in Azure AD B2C with IDology. IDology is an identity verification and proofing provider with multiple solutions.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -31,7 +31,7 @@ The IDology integration includes the following components:
 
 - Azure AD B2C – The authorization server responsible for verifying the user’s credentials. It's also known as the identity provider.
 - IDology – The IDology service takes input provided by the user and verifies the user’s identity.
-- Custom Rest API – This API implements the integration between Azure AD and the IDology service.
+- Custom REST API – This API implements the integration between Azure AD and the IDology service.
 
 The following architecture diagram shows the implementation.
 
@@ -69,7 +69,7 @@ You'll need the URL of the deployed service to configure Azure AD with the requi
 
 ### Part 2 - Configure the API 
 
-Application settings can be [configured in App Service in Azure](../app-service/configure-common.md#configure-app-settings). With this method, settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the Rest API:
+Application settings can be [configured in App Service in Azure](../app-service/configure-common.md#configure-app-settings). With this method, settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the REST API:
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|
@@ -89,7 +89,7 @@ The sample policy uses these key names:
 
 ### Part 4 - Configure the Azure AD B2C Policy
 
-1. Follow this [document](custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) to download the [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the policy for the Azure AD B2C tenant. Follow the instructions until you complete the **Test the Custom Policy** section.
+1. Follow this [document](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) to download the [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the policy for the Azure AD B2C tenant. Follow the instructions until you complete the **Test the Custom Policy** section.
 
 2. Download the two sample policies [here](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/policy).
 
@@ -141,4 +141,4 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

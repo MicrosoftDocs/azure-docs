@@ -11,9 +11,8 @@ ms.assetid:
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 06/4/2021
 ms.author: damaerte
 ---
 
@@ -29,7 +28,7 @@ You can access the Cloud Shell in three ways:
 
     ![Icon to launch the Cloud Shell from the Azure portal](media/overview/portal-launch-icon.png)
 
-- **Code snippets**: On [docs.microsoft.com]() and [Microsoft Learn](/learn/), select the **Try It** button that appears with Azure CLI and Azure PowerShell code snippets:
+- **Code snippets**: In Microsoft [technical documentation](/) and [training resources](/learn), select the **Try It** button that appears with Azure CLI and Azure PowerShell code snippets:
 
     ```azurecli-interactive
     az account show
@@ -108,6 +107,10 @@ Read more to learn how to mount a [new or existing storage account](persisting-s
 * Permissions are set as a regular Linux user in Bash
 
 Learn more about features in [Bash in Cloud Shell](features.md) and [PowerShell in Cloud Shell](./features.md).
+
+## Compliance
+### Encryption at rest
+All Cloud Shell infrastructure is compliant with double encryption at rest by default. No action is required by users.
 
 ## Pricing
 

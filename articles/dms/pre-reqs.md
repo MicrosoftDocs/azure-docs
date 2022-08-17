@@ -2,8 +2,8 @@
 title: Prerequisites for Azure Database Migration Service
 description: Learn about an overview of the prerequisites for using the Azure Database Migration Service to perform database migrations.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: croblesm
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -24,7 +24,7 @@ Prerequisites associated with using the Azure Database Migration Service are lis
 Azure Database Migration Service prerequisites that are common across all supported migration scenarios include the need to:
 
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-* Ensure that your virtual network Network Security Group (NSG) rules don't block the following communication ports 443, 53, 9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Ensure that your virtual network Network Security Group (NSG) rules don't block the outbound port 443 of ServiceTag for ServiceBus, Storage and AzureMonitor. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration.
 * Configure your [Windows Firewall for database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Enable the TCP/IP protocol, which is disabled by default during SQL Server Express installation, by following the instructions in the article [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
@@ -40,9 +40,9 @@ Azure Database Migration Service prerequisites that are common across all suppor
     > "Microsoft.Resources/subscriptions/resourceGroups/read"
     >
     > $writerActions = `
-    > "Microsoft.DataMigration/services/*/write", `
-    > "Microsoft.DataMigration/services/*/delete", `
-    > "Microsoft.DataMigration/services/*/action", `
+    > "Microsoft.DataMigration/*/write", `
+    > "Microsoft.DataMigration/*/delete", `
+    > "Microsoft.DataMigration/*/action", `
     > "Microsoft.Network/virtualNetworks/subnets/join/action", `
     > "Microsoft.Network/virtualNetworks/write", `
     > "Microsoft.Network/virtualNetworks/read", `
@@ -108,11 +108,11 @@ In addition to Azure Database Migration Service prerequisites that are common to
 
 When using the Azure Database Migration Service to perform SQL Server to Azure SQL Database migrations, in addition to the prerequisites that are common to all migration scenarios, be sure to address the following additional prerequisites:
 
-* Create an instance of Azure SQL Database instance, which you do by following the detail in the article [Create a database in Azure SQL Database in the Azure portal](../azure-sql/database/single-database-create-quickstart.md).
+* Create an instance of Azure SQL Database instance, which you do by following the detail in the article [Create a database in Azure SQL Database in the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 * Download and install the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * Open your Windows Firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 * If you are running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.
-* Create a server-level [firewall rule](../azure-sql/database/firewall-configure.md) for SQL Database to allow the Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for the Azure Database Migration Service.
+* Create a server-level [firewall rule](/azure/azure-sql/database/firewall-configure) for SQL Database to allow the Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for the Azure Database Migration Service.
 * Ensure that the credentials used to connect to source SQL Server instance have [CONTROL SERVER](/sql/t-sql/statements/grant-server-permissions-transact-sql) permissions.
 * Ensure that the credentials used to connect to target database have CONTROL DATABASE permission on the target database.
 
@@ -122,7 +122,7 @@ When using the Azure Database Migration Service to perform SQL Server to Azure S
 
 ## Prerequisites for migrating SQL Server to Azure SQL Managed Instance
 
-* Create a SQL Managed Instance by following the detail in the article [Create a Azure SQL Managed Instance in the Azure portal](../azure-sql/managed-instance/instance-create-quickstart.md).
+* Create a SQL Managed Instance by following the detail in the article [Create a Azure SQL Managed Instance in the Azure portal](/azure/azure-sql/managed-instance/instance-create-quickstart).
 * Open your firewalls to allow SMB traffic on port 445 for the Azure Database Migration Service IP address or subnet range.
 * Open your Windows Firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 * If you are running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.

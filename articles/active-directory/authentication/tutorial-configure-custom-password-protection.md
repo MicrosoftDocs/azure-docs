@@ -49,6 +49,7 @@ To give you flexibility in what passwords are allowed, you can also define a cus
 * Locations, such as company headquarters
 * Company-specific internal terms
 * Abbreviations that have specific company meaning
+* Months and weekdays with your company's local languages
 
 When a user attempts to reset a password to something that's on the global or custom banned password list, they see one of the following error messages:
 

@@ -10,7 +10,7 @@ ms.date: 08/27/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: amycolannino
 ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
@@ -40,7 +40,7 @@ Users also need one of the following Log Analytics workspace roles:
 
 If you have not integrated Azure AD logs with Azure Monitor logs, you will need to take the following steps before the workbook will load:  
 
-1. [Create a Log Analytics workspace in Azure Monitor](../../azure-monitor/learn/quick-create-workspace.md).
+1. [Create a Log Analytics workspace in Azure Monitor](../../azure-monitor/logs/quick-create-workspace.md).
 1. [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 ## How it works 
@@ -117,7 +117,7 @@ To configure a Conditional Access policy in report-only mode:
 In order to access the workbook, you need the proper Azure AD permissions as well as Log Analytics workspace permissions. To test whether you have the proper workspace permissions by running a sample log analytics query:
 
 1. Sign in to the **Azure portal**.
-1. Browse to **Azure Active Directory** > **Logs**.
+1. Browse to **Azure Active Directory** > **Log Analytics**.
 1. Type `SigninLogs` into the query box and select **Run**.
 1. If the query does not return any results, your workspace may not have been configured correctly. 
 

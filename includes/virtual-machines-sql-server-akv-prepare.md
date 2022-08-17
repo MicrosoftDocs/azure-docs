@@ -17,7 +17,7 @@ ms.custom: "include file"
 ## Prepare for AKV Integration
 To use Azure Key Vault Integration to configure your SQL Server VM, there are several prerequisites: 
 
-1. [Install Azure Powershell](#install)
+1. [Install Azure PowerShell](#install)
 2. [Create an Azure Active Directory](#register)
 3. [Create a key vault](#createkeyvault)
 
@@ -54,7 +54,7 @@ In order to use Azure Key Vault to store the keys you will use for encryption in
 New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 ```
 
-When you get to the Create a key vault step, note the returned **vaultUri** property, which is the key vault URL. In the example provided in that step, shown below, the key vault name is ContosoKeyVault, therefore the key vault URL would be https://contosokeyvault.vault.azure.net/.
+When you get to the Create a key vault step, note the returned **vaultUri** property, which is the key vault URL. In the example provided in that step, shown below, the key vault name is ContosoKeyVault, therefore the key vault URL would be `https://contosokeyvault.vault.azure.net/`.
 
 The key vault URL is assigned later to the **$akvURL** parameter in the PowerShell script to enable Azure Key Vault Integration.
 

@@ -3,7 +3,7 @@ title: Tutorial - Basic Active Directory on-premises and Azure AD environment.
 services: active-directory
 description: Learn how to create a basic AD and Azure AD environment.
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
@@ -28,7 +28,7 @@ The following are prerequisites required for completing this tutorial
 - An [external network adapter](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) to allow the virtual machine to communicate with the internet.
 - An [Azure subscription](https://azure.microsoft.com/free)
 - A copy of Windows Server 2016
-- [Microsoft .NET framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)
+- [Microsoft .NET framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471)
 
 > [!NOTE]
 > This tutorial uses PowerShell scripts so that you can create the tutorial environment in the quickest amount of time.  Each of the scripts uses variables that are declared at the beginning of the scripts.  You can and should change the variables to reflect your environment.

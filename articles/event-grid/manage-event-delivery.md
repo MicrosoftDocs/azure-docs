@@ -2,7 +2,9 @@
 title: Dead letter and retry policies - Azure Event Grid
 description: Describes how to customize event delivery options for Event Grid. Set a dead-letter destination, and specify how long to retry delivery.
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/27/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Set dead-letter location and retry policy
@@ -21,6 +23,7 @@ To set a dead letter location, you need a storage account for holding events tha
 > [!NOTE]
 > - Create a storage account and a blob container in the storage before running commands in this article.
 > - The Event Grid service creates blobs in this container. The names of blobs will have the name of the Event Grid subscription with all the letters in upper case. For example, if the name of the subscription is My-Blob-Subscription, names of the dead letter blobs will have MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.json). This behavior is to protect against differences in case handling between Azure services.
+> - The dead letter blobs created will contain one or more events in an array. An important behavior to consider when processing dead letters.
 
 
 ### Azure CLI
@@ -67,7 +70,7 @@ To turn off dead-lettering, rerun the command to create the event subscription b
 
 When creating an Event Grid subscription, you can set values for how long Event Grid should try to deliver the event. By default, Event Grid tries for 24 hours (1440 minutes), or 30 times. You can set either of these values for your event grid subscription. The value for event time-to-live must be an integer from 1 to 1440. The value for max retries must be an integer from 1 to 30.
 
-You can't configure the [retry schedule](delivery-and-retry.md#retry-schedule-and-duration).
+You can't configure the [retry schedule](delivery-and-retry.md#retry-schedule).
 
 ### Azure CLI
 

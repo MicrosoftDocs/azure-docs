@@ -24,7 +24,7 @@ An IoT device is typically made up of a circuit board with sensors attached that
 * An accelerometer in an elevator.
 * Presence sensors in a room.
 
-There's a wide variety of devices available from different manufacturers to build your solution. For a list of devices certified to work with Azure IoT Hub, see the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/alldevices). For prototyping, you can use devices such as an [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) or a [Raspberry Pi](https://www.raspberrypi.org/). The Devkit has built-in sensors for temperature, pressure, humidity, and a gyroscope, accelerometer, and magnetometer. The Raspberry Pi lets you attach many different types of sensor. 
+There's a wide variety of devices available from different manufacturers to build your solution. For a list of devices certified to work with Azure IoT Hub, see the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com). For prototyping, you can use devices such as an [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) or a [Raspberry Pi](https://www.raspberrypi.org/). The Devkit has built-in sensors for temperature, pressure, humidity, and a gyroscope, accelerometer, and magnetometer. The Raspberry Pi lets you attach many different types of sensor. 
 
 Microsoft provides open-source [Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) that you can use to build the apps that run on your devices. These [SDKs simplify and accelerate](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/) the development of your IoT solutions.
 
@@ -71,6 +71,8 @@ For real-life examples of how organizations use Azure IoT, see [Microsoft Techni
 For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture](/azure/architecture/reference-architectures/iot).
 
 ## Next steps
+
+To learn about the different solution models and how you should get started, see [What's the difference between the aPaaS and PaaS solution offerings?](iot-solution-apaas-paas.md).
 
 For some actual business cases and the architecture used, see the [Microsoft Azure IoT Technical Case Studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured).
 

@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/19/2020
+ms.date: 03/22/2022
 ---
 
 # Troubleshoot Azure reservation recommendations

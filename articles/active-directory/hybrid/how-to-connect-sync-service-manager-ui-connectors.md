@@ -4,14 +4,13 @@ description: Understand the Connectors tab in the Synchronization Service Manage
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
@@ -46,7 +45,7 @@ The delete action is used for two different things.
 
 The option **Delete connector space only** removes all data, but keep the configuration.
 
-The option **Delete Connector and connector space** removes the data and the configuration. This option is used when you do not want to connect to a forest anymore.
+The option **Delete Connector and connector space** removes the data, the configuration and all the sync rules associated with the connector. This option is used when you do not want to connect to a forest anymore.
 
 Both options sync all objects and update the metaverse objects. This action is a long running operation.
 

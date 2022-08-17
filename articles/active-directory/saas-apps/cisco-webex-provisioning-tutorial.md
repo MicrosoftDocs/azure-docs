@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure Cisco Webex for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Cisco Webex.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Cisco Webex for automatic user provisioning
@@ -29,6 +29,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * An Azure AD tenant.
 * [A Cisco Webex tenant](https://www.webex.com/pricing/index.html).
 * A user account in Cisco Webex  with Admin permissions.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Adding Cisco Webex from the gallery
 
@@ -50,7 +53,7 @@ Before configuring Cisco Webex for automatic user provisioning with Azure AD, yo
 
 4. In the search box, type **Cisco Webex**, select **Cisco Webex** from result panel then click **Add** button to add the application.
 
-    ![Cisco Webex in the results list](common/search-new-app.png)
+    ![Cisco Webex in the results list](media/cisco-webex-provisioning-tutorial/search-cisco-app.png)
 
 ## Assigning users to Cisco Webex
 

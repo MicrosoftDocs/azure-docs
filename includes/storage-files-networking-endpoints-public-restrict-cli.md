@@ -2,12 +2,12 @@
  title: include file
  description: include file
  services: storage
- author: roygara
+ author: khdownie
  ms.service: storage
  ms.topic: include
  ms.date: 6/2/2020
- ms.author: rogarana
- ms.custom: include file
+ ms.author: kendownie
+ ms.custom: include file, devx-track-azurecli
 ---
 
 To restrict access to the storage account's public endpoint to specific virtual networks using service endpoints, we first need to collect information about the storage account and virtual network. Fill in `<storage-account-resource-group>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>`, and `<subnet-name>` to collect this information.

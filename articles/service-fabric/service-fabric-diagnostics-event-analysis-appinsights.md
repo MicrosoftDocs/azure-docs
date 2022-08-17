@@ -1,11 +1,12 @@
 ---
 title: Azure Service Fabric Event Analysis with Application Insights 
 description: Learn about visualizing and analyzing events using Application Insights for monitoring and diagnostics of Azure Service Fabric clusters.
-author: srrengar
-
-ms.topic: conceptual
-ms.date: 11/21/2018
-ms.author: srrengar
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Event analysis and visualization with Application Insights
@@ -57,17 +58,17 @@ It is recommended to use EventFlow and WAD as aggregation solutions, because the
 
 [Application Insights support for Microservices and Containers](https://azure.microsoft.com/blog/app-insights-microservices/) shows you some of the new features that are being worked on (currently still in beta), which allow you to have richer out-of-the-box monitoring options with Application Insights. These include dependency tracking (used in building an AppMap of all your services and applications in a cluster and the communication between them), and better correlation of traces coming from your services (helps in better pinpointing an issue in the workflow of an application or service).
 
-If you are developing in .NET and will likely be using some of Service Fabric's programming models, and are willing to use Application Insights as your platform for visualizing and analyzing event and log data, then we recommend that you go via the Application Insights SDK route as your monitoring and diagnostics workflow. Read the [Application Insights documentation](../azure-monitor/azure-monitor-app-hub.yml) and [trace logs documentation](../azure-monitor/app/asp-net-trace-logs.md) to get started with using Application Insights to collect and display your logs.
+If you are developing in .NET and will likely be using some of Service Fabric's programming models, and are willing to use Application Insights as your platform for visualizing and analyzing event and log data, then we recommend that you go via the Application Insights SDK route as your monitoring and diagnostics workflow. Read the [Application Insights documentation](../azure-monitor/app/app-insights-overview.md) and [trace logs documentation](../azure-monitor/app/asp-net-trace-logs.md) to get started with using Application Insights to collect and display your logs.
 
 ## Navigating the Application Insights resource in Azure portal
 
 Once you have configured Application Insights as an output for your events and logs, information should start to show up in your Application Insights resource in a few minutes. Navigate to the Application Insights resource, which will take you to the Application Insights resource dashboard. Select **Search** in the Application Insights taskbar to see the latest traces that it has received, and to be able to filter through them.
 
-*Metrics Explorer* is a useful tool for creating custom dashboards based on metrics that your applications, services, and cluster may be reporting. See [Exploring Metrics in Application Insights](../azure-monitor/platform/metrics-charts.md) to set up a few charts for yourself based on the data you are collecting.
+*Metrics Explorer* is a useful tool for creating custom dashboards based on metrics that your applications, services, and cluster may be reporting. See [Exploring Metrics in Application Insights](../azure-monitor/essentials/metrics-charts.md) to set up a few charts for yourself based on the data you are collecting.
 
-Clicking **Analytics** will take you to the Application Insights Analytics portal, where you can query events and traces with greater scope and optionality. Read more about this at [Analytics in Application Insights](../azure-monitor/log-query/log-query-overview.md).
+Clicking **Analytics** will take you to the Application Insights Analytics portal, where you can query events and traces with greater scope and optionality. Read more about this at [Analytics in Application Insights](../azure-monitor/logs/log-query-overview.md).
 
 ## Next steps
 
-* [Set up Alerts in AI](../azure-monitor/platform/alerts-log.md) to be notified about changes in performance or usage
-* [Smart Detection in Application Insights](../azure-monitor/app/proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to Application Insights to warn you of potential performance problems
+* [Set up Alerts in AI](../azure-monitor/alerts/alerts-log.md) to be notified about changes in performance or usage
+* [Smart Detection in Application Insights](../azure-monitor/alerts/proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to Application Insights to warn you of potential performance problems

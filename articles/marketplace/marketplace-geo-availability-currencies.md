@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 12/07/2020
+ms.date: 07/27/2022
 ---
 
 # Geographic availability and currency support for the commercial marketplace
@@ -14,6 +14,8 @@ ms.date: 12/07/2020
 ## Supported geographic locations
 
 Commercial marketplace offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in 17 currencies. The following table lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
+
+A CSP can purchase an offer in Partner Center in their end customer's currency so they can bill them in that same currency. For additional information on this, refer to [these FAQs](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf).
 
 |   Country/Region Name               |   ISO-2   |   Currency</br>(All offer types)  |    Currency</br>(Consulting service offers only)    |
 |-------------------------------------|-----------|--------------|---------------------------------------------|
@@ -158,8 +160,7 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Vietnam                             | VN        | USD          | EUR, USD, VND |
 | Yemen                               | YE        | USD          | EUR, USD, YER |
 | Zambia                              | ZM        | USD          | EUR, USD, ZMW |
-| Zimbabwe                            | ZW        | USD          | EUR, USD|
-|   |   |   |
+| Zimbabwe                            | ZW        | USD          | EUR, USD |
 
 \* For customers in Brazil, the commercial marketplace through Cloud Solution Providers (CSP) uses USD.
 
@@ -167,36 +168,23 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 
 ## How we convert currency
 
-For all paid offer types, you have the option of entering prices in USD or uploading prices in local currency. Prices entered in USD are automatically converted to local currency when the page is saved. The rates Partner Center uses are updated daily. You can export the prices and review the converted equivalents.
+For all paid offer types, you have the option of entering prices in USD or uploading prices in local currency. Prices entered in USD are automatically converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center.
 
-To adjust any price before you publish, just export the pricing spreadsheet, modify it, and upload it with changes.
+You can export the prices and review the converted equivalents. To ensure prices are right for each locality before you publish them, or to adjust any price before you publish:
 
-> [!NOTE]
-> After a price for a market in your plan is published, it can't be changed. To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market.
+1. Export the pricing spreadsheet.
+1. Review the prices in each market.
+1. Upload the spreadsheet to Partner Center.
 
-The price of an offer is always shown to customers in their local currency. The price you select in Partner Center is converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center. The price shown to customers in the online stores doesn't change, unless you republish your offer.
+To change the price of an offer that has already been published, see [Changing prices in active commercial marketplace offers](price-changes.md).
+
+> [!TIP]
+> The price shown to customers in the online stores doesn't change unless you update the price in Partner Center and then republish your offer. The rate will be updated when the scheduled price change is live according to [Changing prices in active commercial marketplace offers](price-changes.md).
 
 Microsoft receives payments from customers in their local currency, and pays you in the currency you selected in Partner Center. Microsoft converts the customer local currency using the exchange rate of the day of purchase.
 
-> [!NOTE]
-> Microsoft converts offer prices using the Microsoft Treasury exchange rates.
+Microsoft converts offer prices using the Microsoft Treasury exchange rates. The price of an offer is always shown to customers in their local currency.
+
+The following illustration shows the currency conversion flow:
 
 [![The currency conversion flow.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
-
-## Retrieving currency information by API
-
-Individual prices (which, depending on how they were set, may have been influenced by the exchange rates on the day they were saved) can be retrieved using an API; currency information can't.
-
-For details on how to enter prices for specific offer types, refer to these articles:
-
-- [Create an Azure application offer](create-new-azure-apps-offer.md)
-- [Create an Azure container offer](./create-azure-container-offer.md)
-- [Create an Azure virtual machine offer](azure-vm-create.md)
-- [Create a consulting service offer](./create-consulting-service-offer.md)
-- [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer.md)
-- [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer.md)
-- [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md)
-- [Create an IoT Edge module offer](partner-center-portal/azure-iot-edge-module-creation.md)
-- [Create a Managed Service offer](./plan-managed-service-offer.md)
-- [Create a Power BI app](partner-center-portal/create-power-bi-app-offer.md)
-- [Create a SaaS offer](./create-new-saas-offer.md)

@@ -1,19 +1,18 @@
 ---
 title: Self-review of an access package in Azure AD entitlement management
-description: Learn how to review user access of entitlement management access packages in Azure Active Directory access reviews (Preview).
+description: Learn how to review user access of entitlement management access packages in Azure Active Directory access reviews.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: daveba
+author: owinfreyatl
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 06/18/2020
-ms.author: ajburnle
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 

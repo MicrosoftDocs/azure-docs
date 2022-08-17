@@ -2,11 +2,11 @@
 title: Integrate Data Lake Storage Gen1 with other Azure services
 description: Understand how you can integrate Azure Data Lake Storage Gen1 with other Azure services.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
-ms.date: 05/29/2018
-ms.author: twooley
+ms.date: 06/03/2022
+ms.author: normesta
 
 ---
 # Integrating Azure Data Lake Storage Gen1 with other Azure services
@@ -48,9 +48,6 @@ You can register data from Data Lake Storage Gen1 into the Azure Data Catalog to
 
 ## Use Data Lake Storage Gen1 with SQL Server Integration Services (SSIS)
 You can use the Data Lake Storage Gen1 connection manager in SSIS to connect an SSIS package with Data Lake Storage Gen1. For more information, see [Use Data Lake Storage Gen1 with SSIS](/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
-
-## Use Data Lake Storage Gen1 with Azure Synapse Analytics
-You can use PolyBase to load data from Data Lake Storage Gen1 into Azure Synapse Analytics. For more information see [Use Data Lake Storage Gen1 with Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
 
 ## Use Data Lake Storage Gen1 with Azure Event Hubs
 You can use Azure Data Lake Storage Gen1 to archive and capture data received by Azure Event Hubs. For more information see [Use Data Lake Storage Gen1 with Azure Event Hubs](data-lake-store-archive-eventhub-capture.md).

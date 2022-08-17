@@ -1,0 +1,23 @@
+{
+    "$schema": "https://whatsnewapi.azurewebsites.net/schema",
+    "docSetProductName": "Azure Sentinel",
+    "rootDirectory": "articles/sentinel/",
+    "docLinkSettings": {
+        "linkFormat": "relative",
+        "relativeLinkPrefix": "/azure/sentinel/"
+    },
+    "inclusionCriteria": {
+        "excludePullRequestTitles": true,
+        "minAdditionsToFile" : 20
+        "maxFilesChanged": 50,
+        "labels": [
+            "label:azure-sentinel/svc"
+        ]
+    },
+    "areas": [
+        {
+            "name": ".",
+            "heading": "Azure Sentinel"
+        },
+    ]
+}

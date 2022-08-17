@@ -2,7 +2,8 @@
 title: Disable or remove the provisioning agent
 description: Learn how to disable or remove the provisioning agent in Linux VMs and images.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
@@ -12,6 +13,8 @@ ms.reviewer: cynthn
 ---
 
 # Disable or remove the Linux Agent from VMs and images
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Before removing the Linux Agent, you must understand of what VM will not be able to do after the Linux Agent is removed.
 
@@ -133,7 +136,7 @@ az vm generalize -g <resource_group> -n <vm_name>
 az image create -g <resource_group> -n <image_name> --source <vm_name>
 ```
 
-**Create an image version in a Shared Image Gallery**
+**Create an image version in a Azure Compute Gallery**
 
 ```azurecli
 az sig image-version create \

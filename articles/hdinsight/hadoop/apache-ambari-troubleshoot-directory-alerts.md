@@ -3,7 +3,7 @@ title: Apache Ambari directory alerts in Azure HDInsight
 description: Discussion and analysis of possible reasons and solutions for Apache Ambari directory alerts in HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 01/22/2020
+ms.date: 04/06/2022
 ---
 
 # Scenario: Apache Ambari directory alerts in Azure HDInsight
@@ -46,4 +46,4 @@ Manually create missing directories on the affected worker node(s).
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -10,7 +10,6 @@ editor: ''
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -60,7 +59,7 @@ Organizations that do not enforce data access control by using capabilities such
 
 To learn more about Azure RBAC see:
 
-- [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
 - [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
 - [Azure Storage security guide](../../storage/blobs/security-recommendations.md) 
 

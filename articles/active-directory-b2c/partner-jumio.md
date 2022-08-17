@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: In this tutorial, you configure Azure Active Directory B2C with Jumio for automated ID verification, safeguarding customer data.
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
@@ -34,7 +35,7 @@ The Jumio integration includes the following components:
 
 - Jumio: The service that takes the ID details provided by the user and verifies them.
 
-- Intermediate Rest API: The API that implements the integration between Azure AD B2C and the Jumio service.
+- Intermediate REST API: The API that implements the integration between Azure AD B2C and the Jumio service.
 
 - Azure Blob storage: The service that supplies custom UI files to the Azure AD B2C policies.
 
@@ -98,7 +99,7 @@ Use the following PowerShell script to create the string:
 
 ### Configure the API
 
-You can [configure application settings in Azure App Service](../app-service/configure-common.md#configure-app-settings). With this method, you can securely configure settings without checking them into a repository. You'll need to provide the following settings to the Rest API:
+You can [configure application settings in Azure App Service](../app-service/configure-common.md#configure-app-settings). With this method, you can securely configure settings without checking them into a repository. You'll need to provide the following settings to the REST API:
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|
@@ -135,7 +136,7 @@ You can [configure application settings in Azure App Service](../app-service/con
 
 1. Go to the [Azure AD B2C policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/Policies) in the Policies folder.
 
-2. Follow [this article](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) to download the [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
+2. Follow [this article](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) to download the [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
 
 3. Configure the policy for the Azure AD B2C tenant.
 
@@ -166,4 +167,4 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

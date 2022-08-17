@@ -1,12 +1,11 @@
 ---
 title: Troubleshoot Python function apps in Azure Functions
 description: Learn how to troubleshoot Python functions.
-author: Hazhzeng
 
 ms.topic: article
 ms.date: 07/29/2020
-ms.author: hazeng
-ms.custom: devx-track-python 
+ms.devlang: python
+ms.custom: devx-track-python
 ---
 
 # Troubleshoot Python errors in Azure Functions
@@ -15,6 +14,8 @@ Following is a list of troubleshooting guides for common issues in Python functi
 
 * [ModuleNotFoundError and ImportError](#troubleshoot-modulenotfounderror)
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
+* [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
+* [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
 
 ## Troubleshoot ModuleNotFoundError
 
@@ -22,22 +23,22 @@ This section helps you troubleshoot module-related errors in your Python functio
 
 > `Exception: ModuleNotFoundError: No module named 'module_name'.`
 
-This error issue occurs when a Python function app fails to load a Python module. The root cause for this error is one of the following issues:
+This error occurs when a Python function app fails to load a Python module. The root cause for this error is one of the following issues:
 
-- [The package can't be found](#the-package-cant-be-found)
-- [The package isn't resolved with proper Linux wheel](#the-package-isnt-resolved-with-proper-linux-wheel)
-- [The package is incompatible with the Python interpreter version](#the-package-is-incompatible-with-the-python-interpreter-version)
-- [The package conflicts with other packages](#the-package-conflicts-with-other-packages)
-- [The package only supports Windows or macOS platforms](#the-package-only-supports-windows-or-macos-platforms)
+* [The package can't be found](#the-package-cant-be-found)
+* [The package isn't resolved with proper Linux wheel](#the-package-isnt-resolved-with-proper-linux-wheel)
+* [The package is incompatible with the Python interpreter version](#the-package-is-incompatible-with-the-python-interpreter-version)
+* [The package conflicts with other packages](#the-package-conflicts-with-other-packages)
+* [The package only supports Windows or macOS platforms](#the-package-only-supports-windows-or-macos-platforms)
 
 ### View project files
 
 To identify the actual cause of your issue, you need to get the Python project files that run on your function app. If you don't have the project files on your local computer, you can get them in one of the following ways:
 
-- If the function app has `WEBSITE_RUN_FROM_PACKAGE` app setting and its value is a URL, download the file by copy and paste the URL into your browser.
-- If the function app has `WEBSITE_RUN_FROM_PACKAGE` and it is set to `1`, navigate to `https://<app-name>.scm.azurewebsites.net/api/vfs/data/SitePackages` and download the file from the latest `href` URL.
-- If the function app doesn't have the app setting mentioned above, navigate to `https://<app-name>.scm.azurewebsites.net/api/settings` and find the URL under `SCM_RUN_FROM_PACKAGE`. Download the file by copy and paste the URL into your browser.
-- If none of these works for you, navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and reveal the content under `/home/site/wwwroot`.
+* If the function app has `WEBSITE_RUN_FROM_PACKAGE` app setting and its value is a URL, download the file by copy and paste the URL into your browser.
+* If the function app has `WEBSITE_RUN_FROM_PACKAGE` and it is set to `1`, navigate to `https://<app-name>.scm.azurewebsites.net/api/vfs/data/SitePackages` and download the file from the latest `href` URL.
+* If the function app doesn't have the app setting mentioned above, navigate to `https://<app-name>.scm.azurewebsites.net/api/settings` and find the URL under `SCM_RUN_FROM_PACKAGE`. Download the file by copy and paste the URL into your browser.
+* If none of these works for you, navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and reveal the content under `/home/site/wwwroot`.
 
 The rest of this article helps you troubleshoot potential causes of this error by inspecting your function app's content, identifying the root cause, and resolving the specific issue.
 
@@ -63,7 +64,7 @@ See [Enable remote build](#enable-remote-build) or [Build native dependencies](#
 
 #### The package is incompatible with the Python interpreter version
 
-Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Using a text editor, open the METADATA file and check the **Classifiers:** section. If the section doesn't contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, or `Python :: 3.8`, this means the package version is either too old, or most likely, the package is already out of maintenance.
+Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Using a text editor, open the METADATA file and check the **Classifiers:** section. If the section doesn't contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`, this means the package version is either too old, or most likely, the package is already out of maintenance.
 
 You can check the Python version of your function app from the [Azure portal](https://portal.azure.com). Navigate to your function app, choose **Resource explorer**, and select **Go**.
 
@@ -120,7 +121,7 @@ Make sure that the latest version of both **docker** and [Azure Functions Core T
 
 #### Update your package to the latest version
 
-Browse the latest package version in `https://pypi.org/project/<package-name>` and check the **Classifiers:** section. The package should be `OS Independent`, or compatible with `POSIX` or `POSIX :: Linux` in **Operating System**. Also, the Programming Language should contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, or `Python :: 3.8`.
+Browse the latest package version in `https://pypi.org/project/<package-name>` and check the **Classifiers:** section. The package should be `OS Independent`, or compatible with `POSIX` or `POSIX :: Linux` in **Operating System**. Also, the Programming Language should contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`.
 
 If these are correct, you can update the package to the latest version by changing the line `<package-name>~=<latest-version>` in requirements.txt.
 
@@ -134,7 +135,7 @@ The best practice is to check the import statement from each .py file in your pr
 
 First, we should take a look into the latest version of the package in `https://pypi.org/project/<package-name>`. Usually, this package has their own GitHub page, go to the **Issues** section on GitHub and search if your issue has been fixed. If so, update the package to the latest version.
 
-Sometimes, the package may have been integrated into [Python Standard Library](https://docs.python.org/3/library/) (such as pathlib). If so, since we provide a certain Python distribution in Azure Functions (Python 3.6, Python 3.7, and Python 3.8), the package in your requirements.txt should be removed.
+Sometimes, the package may have been integrated into [Python Standard Library](https://docs.python.org/3/library/) (such as pathlib). If so, since we provide a certain Python distribution in Azure Functions (Python 3.6, Python 3.7, Python 3.8, and Python 3.9), the package in your requirements.txt should be removed.
 
 However, if you're facing an issue that it has not been fixed and you're on a deadline. I encourage you to do some research and find a similar package for your project. Usually, the Python community will provide you with a wide variety of similar libraries that you can use.
 
@@ -146,7 +147,7 @@ This section helps you troubleshoot 'cygrpc' related errors in your Python funct
 
 > `Cannot import name 'cygrpc' from 'grpc._cython'`
 
-This error issue occurs when a Python function app fails to start with a proper Python interpreter. The root cause for this error is one of the following issues:
+This error occurs when a Python function app fails to start with a proper Python interpreter. The root cause for this error is one of the following issues:
 
 - [The Python interpreter mismatches OS architecture](#the-python-interpreter-mismatches-os-architecture)
 - [The Python interpreter is not supported by Azure Functions Python Worker](#the-python-interpreter-is-not-supported-by-azure-functions-python-worker)
@@ -157,7 +158,7 @@ This error issue occurs when a Python function app fails to start with a proper 
 
 This is most likely caused by a 32-bit Python interpreter is installed on your 64-bit operating system.
 
-If you're running on an x64 operating system, please ensure your Python 3.6, 3.7, or 3.8 interpreter is also on 64-bit version.
+If you're running on an x64 operating system, please ensure your Python 3.6, 3.7, 3.8, or 3.9 interpreter is also on 64-bit version.
 
 You can check your Python interpreter bitness by the following commands:
 
@@ -165,14 +166,77 @@ On Windows in PowerShell: `py -c 'import platform; print(platform.architecture()
 
 On Unix-like shell: `python3 -c 'import platform; print(platform.architecture()[0])'`
 
-If there's a mismatch between Python interpreter bitness and operating system architecture, please download a proper Python interpreter from [Python Software Foundation](https://python.org/downloads/release).
+If there's a mismatch between Python interpreter bitness and operating system architecture, please download a proper Python interpreter from [Python Software Foundation](https://www.python.org/downloads).
 
 #### The Python interpreter is not supported by Azure Functions Python Worker
 
-The Azure Functions Python Worker only supports Python 3.6, 3.7, and 3.8.
-Please check if your Python interpreter matches our expected version by `py --version` in Windows or `python3 --version` in Unix-like systems. Ensure the return result is Python 3.6.x, Python 3.7.x, or Python 3.8.x.
+The Azure Functions Python Worker only supports Python 3.6, 3.7, 3.8, and 3.9.
+Please check if your Python interpreter matches our expected version by `py --version` in Windows or `python3 --version` in Unix-like systems. Ensure the return result is Python 3.6.x, Python 3.7.x, Python 3.8.x, or Python 3.9.x.
 
-If your Python interpreter version does not meet our expectation, please download the Python 3.6, 3.7, or 3.8 interpreter from [Python Software Foundation](https://python.org/downloads/release).
+If your Python interpreter version does not meet our expectation, please download the Python 3.6, 3.7, 3.8, or 3.9 interpreter from [Python Software Foundation](https://www.python.org/downloads).
+
+---
+
+## Troubleshoot Python Exited With Code 137
+
+Code 137 errors are typically caused by out-of-memory issues in your Python function app. As a result, you get the following Azure Functions error message:
+
+> `Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 137`
+
+This error occurs when a Python function app is forced to terminate by the operating system with a SIGKILL signal. This signal usually indicates an out-of-memory error in your Python process. The Azure Functions platform has a [service limitation](functions-scale.md#service-limits) which will terminate any function apps that exceeded this limit.
+
+Please visit the tutorial section in [memory profiling on Python functions](python-memory-profiler-reference.md#memory-profiling-process) to analyze the memory bottleneck in your function app.
+
+---
+
+## Troubleshoot Python Exited With Code 139
+
+This section helps you troubleshoot segmentation fault errors in your Python function app. These errors typically result in the following Azure Functions error message:
+
+> `Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 139`
+
+This error occurs when a Python function app is forced to terminate by the operating system with a SIGSEGV signal. This signal indicates a memory segmentation violation which can be caused by unexpectedly reading from or writing into a restricted memory region. In the following sections, we provide a list of common root causes.
+
+### A regression from third-party packages
+
+In your function app's requirements.txt, an unpinned package will be upgraded to the latest version in every Azure Functions deployment. Vendors of these packages may introduce regressions in their latest release. To recover from this issue, try commenting out the import statements, disabling the package references, or pinning the package to a previous version in requirements.txt.
+
+### Unpickling from a malformed .pkl file
+
+If your function app is using the Python pickel library to load Python object from .pkl file, it is possible that the .pkl contains malformed bytes string, or invalid address reference in it. To recover from this issue, try commenting out the pickle.load() function.
+
+### Pyodbc connection collision
+
+If your function app is using the popular ODBC database driver [pyodbc](https://github.com/mkleehammer/pyodbc), it is possible that multiple connections are opened within a single function app. To avoid this issue, please use the singleton pattern and ensure only one pyodbc connection is used across the function app.
+
+---
+
+## Troubleshoot errors with Protocol Buffers
+
+Version 4.x.x of the Protocol Buffers (protobuf) package introduces breaking changes. Because the Python worker process for Azure Functions relies on v3.x.x of this package, pinning your function app to use v4.x.x can break your app. At this time, you should also avoid using any libraries that themselves require protobuf v4.x.x. 
+
+Example error logs:
+```bash
+ [Information] File "/azure-functions-host/workers/python/3.8/LINUX/X64/azure_functions_worker/protos/shared/NullableTypes_pb2.py", line 38, in <module>
+ [Information] _descriptor.FieldDescriptor(
+ [Information] File "/home/site/wwwroot/.python_packages/lib/site-packages/google/protobuf/descriptor.py", line 560, in __new__
+ [Information] _message.Message._CheckCalledFromGeneratedFile()
+ [Error] TypeError: Descriptors cannot not be created directly.
+ [Information] If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0.
+ [Information] If you cannot immediately regenerate your protos, some other possible workarounds are:
+ [Information] 1. Downgrade the protobuf package to 3.20.x or lower.
+ [Information] 2. Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
+ [Information] More information: https://developers.google.com/protocol-buffers/docs/news/2022-05-06#python-updates
+```
+There are two ways to mitigate this issue.
+
++ Set the application setting [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies-preview) to a value of `1`. 
++ Pin protobuf to a non-4.x.x. version, as in the following example:
+    ```
+    protobuf >= 3.19.3, == 3.*
+    ```
+
+---
 
 ## Next steps
 

@@ -1,17 +1,17 @@
 ---
-title: "Tutorial: Register an application"
+title: "Tutorial: Register a web application in Azure Active Directory B2C"
 titleSuffix: Azure AD B2C
 description: Follow this tutorial to learn how to register a web application in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/30/2022
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -38,7 +38,8 @@ To register a web application in your Azure AD B2C tenant, you can use our new u
 #### [App registrations](#tab/app-reg-ga/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *webapp1*.
@@ -49,8 +50,9 @@ To register a web application in your Azure AD B2C tenant, you can use our new u
 
     The following restrictions apply to redirect URIs:
 
-    * The reply URL must begin with the scheme `https`.
+    * The reply URL must begin with the scheme `https`, unless you use a localhost redirect URL.
     * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+    * The reply URL should include or exclude the trailing forward slash as your application expects it. For example, `https://contoso.com/auth-response` and `https://contoso.com/auth-response/` might be treated as nonmatching URLs in your application.
 
 1. Under **Permissions**, select the *Grant admin consent to openid and offline_access permissions* check box.
 1. Select **Register**.
@@ -58,7 +60,8 @@ To register a web application in your Azure AD B2C tenant, you can use our new u
 #### [Applications (Legacy)](#tab/applications-legacy/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Applications (Legacy)**, and then select **Add**.
 1. Enter a name for the application. For example, *webapp1*.
@@ -69,14 +72,18 @@ To register a web application in your Azure AD B2C tenant, you can use our new u
 
     * The reply URL must begin with the scheme `https`, unless using `localhost`.
     * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+    * The reply URL should include or exclude the trailing forward slash as your application expects it. For example, `https://contoso.com/auth-response` and `https://contoso.com/auth-response/` might be treated as nonmatching URLs in your application.
 
 1. Select **Create** to complete the application registration.
 
 * * *
 
+> [!TIP]
+> If you don't see the app(s) you created under **App registrations**, refresh the portal.
+
 ## Create a client secret
 
-For a web application, you need to create an application secret. This secret will be used by your application to exchange an authorization code for an access token.
+For a web application, you need to create an application secret. The client secret is also known as an *application password*. The secret will be used by your application to exchange an authorization code for an access token.
 
 #### [App registrations](#tab/app-reg-ga/)
 
@@ -85,7 +92,7 @@ For a web application, you need to create an application secret. This secret wil
 1. Select **New client secret**.
 1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.
 1. Under **Expires**, select a duration for which the secret is valid, and then select **Add**.
-1. Record the secret's **Value**. You use this value as the application secret in your application's code.
+1. Record the secret's **Value** for use in your client application code. This secret value is never displayed again after you leave this page. You use this value as the application secret in your application's code.
 
 #### [Applications (Legacy)](#tab/applications-legacy/)
 
@@ -95,12 +102,17 @@ For a web application, you need to create an application secret. This secret wil
 
 * * *
 
+> [!NOTE]
+> For security purposes, you can roll over the application secret periodically, or immediately in case of emergency. Any application that integrates with Azure AD B2C should be prepared to handle a secret rollover event, no matter how frequently it may occur. You can set two application secrets, allowing your application to keep using the old secret during an application secret rotation event. To add another client secret, repeat steps in this section. 
+
 ## Enable ID token implicit grant
 
-The defining characteristic of the implicit grant is that tokens, such as ID and access tokens, are returned directly from Azure AD B2C to the application. For web apps, such as ASP.NET Core web apps and [https://jwt.ms](https://jwt.ms), that request an ID token directly from the authorization endpoint, enable the implicit grant flow in the app registration.
+If you register this app and configure it with [https://jwt.ms/](https://jwt.ms/) app for testing a user flow or custom policy, you need to enable the implicit grant flow in the app registration:
 
 1. In the left menu, under **Manage**, select **Authentication**.
-1. Under Implicit grant, select both the **Access tokens** and **ID tokens** check boxes.
+
+1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **ID tokens (used for implicit and hybrid flows)** check boxes.
+
 1. Select **Save**.
 
 ## Next steps

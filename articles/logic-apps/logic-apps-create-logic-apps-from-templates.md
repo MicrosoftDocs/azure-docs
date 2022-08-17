@@ -1,16 +1,16 @@
 ---
-title: Create logic app workflows faster by using prebuilt templates
-description: Quickly build logic app workflows by using prebuilt templates provided by Azure Logic Apps
+title: Create logic app workflows faster with prebuilt templates
+description: Quickly build logic app workflows with prebuilt templates in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: kevinlam1
-ms.author: klam
-ms.reviewer: estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 10/15/2017
 ---
 
 # Create logic app workflows from prebuilt templates
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 To get you started creating workflows more quickly, 
 Logic Apps provides templates, which are prebuilt 
@@ -51,7 +51,7 @@ If you don't have an Azure subscription,
    | **Subscription** | *your-Azure-subscription-name* | Select the Azure subscription that you want to use. | 
    | **Resource group** | *your-Azure-resource-group-name* | Create or select an [Azure resource group](../azure-resource-manager/management/overview.md) for this logic app and to organize all resources associated with this app. | 
    | **Location** | *your-Azure-datacenter-region* | Select the datacenter region for deploying your logic app, for example, West US. | 
-   | **Log Analytics** | **Off** (default) or **On** | Set up [diagnostic logging](../logic-apps/monitor-logic-apps-log-analytics.md) for your logic app by using [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md). Requires that you already have a Log Analytics workspace. | 
+   | **Log Analytics** | **Off** (default) or **On** | Set up [diagnostic logging](../logic-apps/monitor-logic-apps-log-analytics.md) for your logic app by using [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md). Requires that you already have a Log Analytics workspace. | 
    |||| 
 
 4. When you're ready, select **Pin to dashboard**. 

@@ -5,10 +5,10 @@ keywords:
 services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
-ms.date: 05/19/2020
+author: rothja
+ms.author: jroth
+ms.reviewer: jroth
+ms.date: 07/08/2022
 ---
 
 # Data streaming in Azure SQL Edge
@@ -26,7 +26,7 @@ T-SQL streaming can help you:
 
 ## How does T-SQL streaming work?
 
-T-SQL streaming works in exactly the same manner as [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md#how-does-stream-analytics-work). For example, it uses the concept of streaming *jobs* for processing of real-time data streaming. 
+T-SQL streaming works in exactly the same manner as [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md). For example, it uses the concept of streaming *jobs* for processing of real-time data streaming. 
 
 A stream analytics job consists of:
 

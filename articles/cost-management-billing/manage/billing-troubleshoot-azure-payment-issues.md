@@ -1,19 +1,19 @@
 ---
 title: Troubleshoot Azure payment issues
-description: Resolving an issue when updating payment information account in the Microsoft Azure portal or account center.
-author: v-miegge
-ms.reviewerr: dcscontentpm
+description: Resolving an issue when updating payment information account in the Azure portal.
+author: bandersmsft
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
-ms.author: jaserano
+ms.date: 04/13/2022
+ms.author: banders
 ---
 
 # Troubleshoot Azure payment issues
 
-You may experience an issue or error when you try to update the payment information account in either the Microsoft Azure portal, or the Azure account center.
+You may experience an issue or error when you try to update the payment information account in the Microsoft Azure portal.
 
 To resolve your issue, select the topic below which most closely resembles your error.
 
@@ -25,12 +25,11 @@ To troubleshoot issues regarding a declined card, see [Troubleshoot a declined c
 
 You might be using an email ID that differs from the one that is used for the subscriptions.
 
-To troubleshoot this issue, see [No subscriptions found sign-in error for Azure portal or Azure account center](no-subscriptions-found.md).
+To troubleshoot this issue, see [No subscriptions found sign-in error for Azure portal](no-subscriptions-found.md).
 
-## Unable to use a virtual or prepaid credit or debit card as a payment method.
+## Unable to use a virtual or prepaid credit as a payment method.
 
-*	Virtual or prepaid credit cards aren't accepted as payment for Azure subscriptions.
-*	Debit cards aren't accepted as payment for Azure subscriptions.
+Virtual or prepaid credit cards aren't accepted as payment for Azure subscriptions.
 
 For more information, see [Troubleshoot a declined card at Azure sign-up](troubleshoot-declined-card.md).
 
@@ -93,7 +92,7 @@ Other troubleshooting articles for Azure Billing and Subscriptions
 
 ## Contact us for help
 
-If you have questions or need help, [create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Next steps
 

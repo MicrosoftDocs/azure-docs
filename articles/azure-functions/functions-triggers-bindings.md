@@ -1,18 +1,17 @@
 ---
 title: Triggers and bindings in Azure Functions
 description: Learn to use triggers and bindings to connect your Azure Function to online events and cloud-based services.
-author: craigshoemaker
 
 ms.topic: conceptual
-ms.date: 02/18/2019
-ms.author: cshoe
+ms.date: 05/25/2022
+ms.custom: devdivchpfy22
 ---
 
 # Azure Functions triggers and bindings concepts
 
-In this article you learn the high-level concepts surrounding functions triggers and bindings.
+In this article, you learn the high-level concepts surrounding functions triggers and bindings.
 
-Triggers are what cause a function to run. A trigger defines how a function is invoked and a function must have exactly one trigger. Triggers have associated data, which is often provided as the payload of the function. 
+Triggers cause a function to run. A trigger defines how a function is invoked and a function must have exactly one trigger. Triggers have associated data, which is often provided as the payload of the function.
 
 Binding to a function is a way of declaratively connecting another resource to the function; bindings may be connected as *input bindings*, *output bindings*, or both. Data from bindings is provided to the function as parameters.
 
@@ -31,20 +30,23 @@ Consider the following examples of how you could implement different functions.
 
 <sup>\*</sup> Represents different queues
 
-These examples are not meant to be exhaustive, but are provided to illustrate how you can use triggers and bindings together.
+These examples aren't meant to be exhaustive, but are provided to illustrate how you can use triggers and bindings together.
 
 ###  Trigger and binding definitions
 
-Triggers and bindings are defined differently depending on the development approach.
+Triggers and bindings are defined differently depending on the development language.
 
-| Platform | Triggers and bindings are configured by... |
+| Language | Triggers and bindings are configured by... |
 |-------------|--------------------------------------------|
 | C# class library | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decorating methods and parameters with C# attributes |
-| All others (including Azure portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updating [function.json](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
+| Java | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decorating methods and parameters with Java annotations  | 
+| JavaScript/PowerShell/Python/TypeScript | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updating [function.json](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
 
-The portal provides a UI for this configuration, but you can edit the file directly by opening the **Advanced editor** available via the **Integrate** tab of your function.
+For languages that rely on function.json, the portal provides a UI for adding bindings in the **Integration** tab. You can also edit the file directly in the portal in the **Code + test** tab of your function. Visual Studio Code lets you easily [add a binding to a function.json file](functions-develop-vs-code.md?tabs=nodejs#add-a-function-to-your-project) by following a convenient set of prompts. 
 
-In .NET, the parameter type defines the data type for input data. For instance, use `string` to bind to the text of a queue trigger, a byte array to read as binary and a custom type to de-serialize to an object.
+In .NET and Java, the parameter type defines the data type for input data. For instance, use `string` to bind to the text of a queue trigger, a byte array to read as binary, and a custom type to de-serialize to an object. Since .NET class library functions and Java functions don't rely on *function.json* for binding definitions, they can't be created and edited in the portal. C# portal editing is based on C# script, which uses *function.json* instead of attributes.
+
+To learn more about how to add bindings to existing functions, see [Connect functions to Azure services using bindings](add-bindings-existing-function.md).
 
 For languages that are dynamically typed such as JavaScript, use the `dataType` property in the *function.json* file. For example, to read the content of an HTTP request in binary format, set `dataType` to `binary`:
 

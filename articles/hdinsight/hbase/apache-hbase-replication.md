@@ -50,7 +50,7 @@ To help you set up the environments, we have created some [Azure Resource Manage
 
 ### Set up two virtual networks in two different regions
 
-To use a template that creates two virtual networks in two different regions and the VPN connection between the VNets, select the following **Deploy to Azure** button. The template definition is stored in a [public blob storage](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
+To use a template that creates two virtual networks in two different regions and the VPN connection between the VNets, select the following **Deploy to Azure** button.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
@@ -89,6 +89,11 @@ Some of the hard-coded values in the template:
 | Gateway VPN type | RouteBased |
 | Gateway SKU | Basic |
 | Gateway IP | vnet1gwip |
+
+Alternatively, follow below steps to setup two different vnets and VMs manually
+1. [Create Two VNET (Virtual Network)](../../virtual-network/quick-create-portal.md) in different Region
+2. Enable [Peering in both the VNET](../../virtual-network/virtual-network-peering-overview.md). Go to **Virtual network** created in above steps then click on **peering** and add peering link of another region. Do it for both the virtual network. 
+3. [Create the latest version of the UBUNTU](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine) in each VNET. 
 
 ## Setup DNS
 
@@ -362,15 +367,15 @@ The `print_usage()` section of the [script](https://github.com/Azure/hbase-utils
 
 - **Copy specific tables (test1, test2, and test3) for all rows edited until now (current time stamp)**:
 
-  `-m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
+  `-m hn1 -t "test1::;test2::;test3::" -p "<zookeepername1>;<zookeepername2>;<zookeepername3>:2181:/hbase-unsecure" -everythingTillNow`
 
   Or:
 
-  `-m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
+  `-m hn1 -t "test1::;test2::;test3::" --replication-peer="<zookeepername1>;<zookeepername2>;<zookeepername3>:2181:/hbase-unsecure" -everythingTillNow`
 
 - **Copy specific tables with a specified time range**:
 
-  `-m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"`
+  `-m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "<zookeepername1>;<zookeepername2>;<zookeepername3>:2181:/hbase-unsecure"`
 
 ## Disable replication
 

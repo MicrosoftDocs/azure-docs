@@ -18,9 +18,9 @@ This article shows you how to create a static public IP address and assign it to
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
-You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 This article covers using a *Standard* SKU IP with a *Standard* SKU load balancer. For more information, see [IP address types and allocation methods in Azure][ip-sku].
 
@@ -61,16 +61,14 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## Create a service using the static IP address
 
-Before creating a service, ensure the service principal used by the AKS cluster has delegated permissions to the other resource group. For example:
+Before creating a service, ensure the cluster identity used by the AKS cluster has delegated permissions to the other resource group. For example:
 
 ```azurecli-interactive
 az role assignment create \
-    --assignee <SP Client ID> \
+    --assignee <Client ID> \
     --role "Network Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
-
-Alternatively, you can use the system assigned managed identity for permissions instead of the service principal. For more information, see [Use managed identities](use-managed-identity.md).
 
 > [!IMPORTANT]
 > If you customized your outbound IP make sure your cluster identity has permissions to both the outbound public IP and this inbound public IP.
@@ -103,7 +101,7 @@ kubectl apply -f load-balancer-service.yaml
 
 If your service is using a dynamic or static public IP address, you can use the service annotation `service.beta.kubernetes.io/azure-dns-label-name` to set a public-facing DNS label. This publishes a fully qualified domain name for your service using Azure's public DNS servers and top-level domain. The annotation value must be unique within the Azure location, so it's recommended to use a sufficiently qualified label.   
 
-Azure will then automatically append a default subnet, such as `<location>.cloudapp.azure.com` (where location is the region you selected), to the name you provide, to create the fully qualified DNS name. For example:
+Azure will then automatically append a default suffix, such as `<location>.cloudapp.azure.com` (where location is the region you selected), to the name you provide, to create the fully qualified DNS name. For example:
 
 ```yaml
 apiVersion: v1
@@ -166,12 +164,13 @@ For additional control over the network traffic to your applications, you may wa
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [aks-ingress-basic]: ingress-basic.md
 [aks-static-ingress]: ingress-static-ip.md
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[ip-sku]: ../virtual-network/public-ip-addresses.md#sku
+[ip-sku]: ../virtual-network/ip-services/public-ip-addresses.md#sku

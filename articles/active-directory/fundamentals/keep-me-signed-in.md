@@ -3,14 +3,14 @@ title: Configure the 'Stay signed in?' prompt for Azure Active Directory account
 description: Learn about keep me signed in (KMSI), which displays the Stay signed in? prompt, how to configure it in the Azure Active Directory portal, and how to troubleshoot sign-in issues.
 services: active-directory
 author: CelesteDG
-manager: daveba
+manager: rkarlin
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 06/05/2020
 ms.author: celested
-ms.reviewer: asteen, jlu, hirsin
+ms.reviewer: asteen, jlu, ludwignick
 ms.collection: M365-identity-device-management
 ---
 
@@ -23,7 +23,7 @@ The following diagram shows the user sign-in flow for a managed tenant and feder
 :::image type="content" source="./media/keep-me-signed-in/kmsi-workflow.png" alt-text="Diagram showing the user sign-in flow for a managed vs. federated tenant":::
 
 > [!NOTE]
-> Configuring the keep me signed in option requires you to use Azure Active Directory (Azure AD) Premium 1, Premium 2, or Basic editions, or to have a Microsoft 365 license. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium and Basic editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium and Basic editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure AD Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> Configuring the keep me signed in option requires you to use Azure Active Directory (Azure AD) Premium 1, Premium 2, or Basic editions, or to have a Microsoft 365 license. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium and Basic editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium and Basic editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure AD Forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## Configure KMSI
 
@@ -56,7 +56,7 @@ You also can use the persistent browser session controls in conditional access t
 
 To ensure that the KMSI prompt is shown only when it can benefit the user, the KMSI prompt is intentionally not shown in the following scenarios:
 
-* User is signed in via seamless SSO and Integrated Windows Authentication (IWA)
+* User is signed in via seamless SSO and integrated Windows authentication (IWA)
 * User is signed in via Active Directory Federation Services and IWA
 * User is a guest in the tenant
 * User's risk score is high

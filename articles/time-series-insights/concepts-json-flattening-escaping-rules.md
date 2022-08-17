@@ -1,9 +1,10 @@
 ---
 title: 'JSON flattening and escaping rules - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about JSON flattening, escaping, and array handling in Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,6 +13,8 @@ ms.date: 01/21/2021
 ---
 
 # JSON Flattening, Escaping, and Array Handling
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 Your Azure Time Series Insights Gen2 environment will dynamically create the columns of your warm and cold stores, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. These include escaping certain special characters and flattening nested JSON objects. It's important to know these rules so that you understand how the shape of your JSON will influence how your events are stored and queried. See the table below for the full list of rules. Examples A & B also demonstrate how you're able to efficiently batch multiple time series in an array.
 
@@ -146,7 +149,7 @@ The configuration and payload above will produce four columns and six events
 | `2020-01-22T16:38:09Z` |`9336971` | ``100231-A-A1`` | 20.560796 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A9`` | 177 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A8`` | 420 |
-| `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A7`` | -30.9918 |  
+| `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A7`` | -30.9918 |
 | `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A4`` | 19.960796 |
 
 ### Example C
@@ -173,7 +176,7 @@ Time Series ID and timestamp are at the object root\
 **Result in Parquet file:**\
 The configuration and payload above will produce three columns and one event
 
-| timestamp  | id_string | datapoints_dynamic  
+| timestamp  | id_string | datapoints_dynamic
 | ---- | ---- | ---- |
 | `2020-11-01T10:00:00.000Z` | `800500054755`| ``[{"value": 120},{"value":124}]`` |
 

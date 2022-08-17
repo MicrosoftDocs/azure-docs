@@ -17,6 +17,10 @@ Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethern
 
 ![ExpressRoute connection overview](./media/expressroute-introduction/expressroute-connection-overview.png)
 
+> [!NOTE]
+> In the context of ExpressRoute, the Microsoft Edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
+> 
+
 ## Key benefits
 
 * Layer 3 connectivity between your on-premises network and the Microsoft Cloud through a connectivity provider. Connectivity can be from an any-to-any (IPVPN) network, a point-to-point Ethernet connection, or through a virtual cross-connection via an Ethernet exchange.
@@ -57,7 +61,9 @@ For example, if you connect to Microsoft in Amsterdam through ExpressRoute. You'
 You can enable [ExpressRoute Premium](expressroute-faqs.md) to extend connectivity across geopolitical boundaries. For example, if you connect to Microsoft in Amsterdam through ExpressRoute you'll have access to all Microsoft cloud services hosted in all regions across the world. You can also access services deployed in South America or Australia the same way you access North and West Europe regions. National clouds are excluded.
 
 ### Local connectivity with ExpressRoute Local
-You can transfer data cost-effectively by enabling the [Local SKU](expressroute-faqs.md). With Local SKU, you can bring your data to an ExpressRoute location near the Azure region you want. With Local, Data transfer is included in the ExpressRoute port charge. 
+You can transfer data cost-effectively by enabling the [Local SKU](expressroute-faqs.md). With Local SKU, you can bring your data to an ExpressRoute location near the Azure region you want. With Local, Data transfer is included in the ExpressRoute port charge.
+
+For peering location and supported Azure local region, see [providers by locations](expressroute-locations-providers.md#partners).
 
 ### Across on-premises connectivity with ExpressRoute Global Reach
 You can enable ExpressRoute Global Reach to exchange data across your on-premises sites by connecting your ExpressRoute circuits. For example, if you have a private data center in California connected to an ExpressRoute circuit in Silicon Valley and another private data center in Texas connected to an ExpressRoute circuit in Dallas. With ExpressRoute Global Reach, you can connect your private data centers together through these two ExpressRoute circuits. Your cross-data-center traffic will traverse through Microsoft's network.
@@ -114,5 +120,6 @@ Subscribe to the RSS feed and view the latest ExpressRoute feature updates on th
 
 ## Next steps
 * Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
+* [Learn module: Introduction to Azure ExpressRoute](/learn/modules/intro-to-azure-expressroute).
 * Learn about [ExpressRoute connectivity models](expressroute-connectivity-models.md).
 * Find a service provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Terraform Enterprise | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Terraform Enterprise'
 description: Learn how to configure single sign-on between Azure Active Directory and Terraform Enterprise.
 services: active-directory
 author: jeevansd
@@ -9,20 +9,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/10/2020
+ms.date: 02/23/2022
 ms.author: jeedes
 ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Terraform Enterprise
+# Tutorial: Azure AD SSO integration with Terraform Enterprise
 
 In this tutorial, you'll learn how to integrate Terraform Enterprise with Azure Active Directory (Azure AD). When you integrate Terraform Enterprise with Azure AD, you can:
 
 * Control in Azure AD who has access to Terraform Enterprise.
 * Enable your users to be automatically signed-in to Terraform Enterprise with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -35,22 +33,21 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Terraform Enterprise supports **SP** initiated SSO
-* Terraform Enterprise supports **Just In Time** user provisioning
+* Terraform Enterprise supports **SP** initiated SSO.
+* Terraform Enterprise supports **Just In Time** user provisioning.
 
-## Adding Terraform Enterprise from the gallery
+## Add Terraform Enterprise from the gallery
 
 To configure the integration of Terraform Enterprise into Azure AD, you need to add Terraform Enterprise from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Terraform Enterprise** in the search box.
 1. Select **Terraform Enterprise** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
-## Configure and test Azure AD single sign-on for Terraform Enterprise
+## Configure and test Azure AD SSO for Terraform Enterprise
 
 Configure and test Azure AD SSO with Terraform Enterprise using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Terraform Enterprise.
 
@@ -67,22 +64,25 @@ To configure and test Azure AD SSO with Terraform Enterprise, complete the follo
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Terraform Enterprise** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal on the **Terraform Enterprise** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<TFE HOSTNAME>/session`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+	a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<TFE HOSTNAME>/users/saml/metadata`
 
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<TFE HOSTNAME>/users/saml/auth`
+
+	c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<TFE HOSTNAME>/`
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Terraform Enterprise Client support team](https://support.hashicorp.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Terraform Enterprise Client support team](https://support.hashicorp.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -111,20 +111,24 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Terraform Enterprise**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Terraform Enterprise SSO
 
-To configure single sign-on on **Terraform Enterprise** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Terraform Enterprise support team](https://support.hashicorp.com). They set this setting to have the SAML SSO connection set properly on both sides.
+Navigate to `https://<TFE_HOSTNAME>/app/admin/saml` and perform the following steps in the **SAML Settings** page:
+
+![Screenshot: Terraform Enterprise SAML Settings](./media/terraform-enterprise-tutorial/sso-aad-saml-tfe-saml-settings.png)
+
+a. Enable the **Enable SAML single sign-on** check box.
+
+b. In the **Single Sign-On URL** textbox, paste the **Login URL** value which you copied from the Azure portal.
+
+c. In the **Single Log-out URL** textbox, paste the **Login URL** value which you copied from the Azure portal.
+
+d. Open the downloaded **Certificate** from the Azure portal into Notepad and paste the content into the **IDP CERTIFICATE** textbox.
 
 ### Create Terraform Enterprise test user
 
@@ -132,16 +136,14 @@ In this section, a user called B.Simon is created in Terraform Enterprise. Terra
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the Terraform Enterprise tile in the Access Panel, you should be automatically signed in to the Terraform Enterprise for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* Click on **Test this application** in Azure portal. This will redirect to Terraform Enterprise Sign-on URL where you can initiate the login flow. 
 
-## Additional resources
+* Go to Terraform Enterprise Sign-on URL directly and initiate the login flow from there.
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+* You can use Microsoft My Apps. When you click the Terraform Enterprise tile in the My Apps, this will redirect to Terraform Enterprise Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## Next steps
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Terraform Enterprise with Azure AD](https://aad.portal.azure.com/)
+Once you configure Terraform Enterprise you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -1,6 +1,5 @@
 ---
-title: Configure a web API that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Configure a web API that calls web APIs
 description: Learn how to build a web API that calls web APIs (app's code configuration)
 services: active-directory
 author: jmprieur
@@ -30,7 +29,7 @@ Microsoft recommends that you use the [Microsoft.Identity.Web](https://www.nuget
 
 ## Client secrets or client certificates
 
-Given that your web API now calls a downstream web API, you need to provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that specifies:
+Given that your web API now calls a downstream web API, provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that specifies:
 
 - The URL of the downstream web API
 - The scopes required for calling the API
@@ -42,17 +41,16 @@ In the following example, the `GraphBeta` section specifies these settings.
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
-    "TenantId": "common"
-
-   // To call an API
-   "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
-   "ClientCertificates": [
-  ]
- },
- "GraphBeta": {
+    "TenantId": "common",
+    
+    // To call an API
+    "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
+    "ClientCertificates": []
+  },
+  "GraphBeta": {
     "BaseUrl": "https://graph.microsoft.com/beta",
     "Scopes": "user.read"
-    }
+  }
 }
 ```
 
@@ -63,16 +61,16 @@ Instead of a client secret, you can provide a client certificate. The following 
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
-    "TenantId": "common"
-
-   // To call an API
-   "ClientCertificates": [
+    "TenantId": "common",
+    
+    // To call an API
+    "ClientCertificates": [
       {
         "SourceType": "KeyVault",
         "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
         "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
       }
-   ]
+    ]
   },
   "GraphBeta": {
     "BaseUrl": "https://graph.microsoft.com/beta",
@@ -92,17 +90,17 @@ using Microsoft.Identity.Web;
 
 public class Startup
 {
-  // ...
-  public void ConfigureServices(IServiceCollection services)
-  {
-  // ...
-  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-          .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
-            .EnableTokenAcquisitionToCallDownstreamApi()
-            .AddInMemoryTokenCaches();
-   // ...
-  }
-  // ...
+    // ...
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // ...
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
+                .EnableTokenAcquisitionToCallDownstreamApi()
+                .AddInMemoryTokenCaches();
+        // ...
+    }
+    // ...
 }
 ```
 
@@ -120,18 +118,18 @@ using Microsoft.Identity.Web;
 
 public class Startup
 {
-  // ...
-  public void ConfigureServices(IServiceCollection services)
-  {
-  // ...
-  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-          .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
-            .EnableTokenAcquisitionToCallDownstreamApi()
-               .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
-            .AddInMemoryTokenCaches();
-   // ...
-  }
-  // ...
+    // ...
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // ...
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
+                .EnableTokenAcquisitionToCallDownstreamApi()
+                .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
+                .AddInMemoryTokenCaches();
+        // ...
+    }
+    // ...
 }
 ```
 
@@ -144,18 +142,18 @@ using Microsoft.Identity.Web;
 
 public class Startup
 {
-  // ...
-  public void ConfigureServices(IServiceCollection services)
-  {
-  // ...
-  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-          .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
-            .EnableTokenAcquisitionToCallDownstreamApi()
-               .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
-            .AddInMemoryTokenCaches();
-   // ...
-  }
-  // ...
+    // ...
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // ...
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
+                .EnableTokenAcquisitionToCallDownstreamApi()
+                .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+                .AddInMemoryTokenCaches();
+        // ...
+    }
+    // ...
 }
 ```
 
@@ -166,7 +164,7 @@ The following image shows the various possibilities of *Microsoft.Identity.Web* 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Block diagram showing service configuration options in startup dot C S for calling a web API and specifying a token cache implementation":::
 
 > [!NOTE]
-> To fully understand the code examples here, you need to be familiar with [ASP.NET Core fundamentals](/aspnet/core/fundamentals), and in particular with [dependency injection](/aspnet/core/fundamentals/dependency-injection) and [options](/aspnet/core/fundamentals/configuration/options).
+> To fully understand the code examples here, be familiar with [ASP.NET Core fundamentals](/aspnet/core/fundamentals), and in particular with [dependency injection](/aspnet/core/fundamentals/dependency-injection) and [options](/aspnet/core/fundamentals/configuration/options).
 
 # [Java](#tab/java)
 
@@ -242,6 +240,8 @@ class MsalAuthHelper {
 The On-behalf-of (OBO) flow is used to obtain a token to call the downstream web API. In this flow, your web API receives a bearer token with user delegated permissions from the client application and then exchanges this token for another access token to call the downstream web API.
 
 A Python web API will need to use some middleware to validate the bearer token received from the client. The web API can then obtain the access token for downstream API using MSAL Python library by calling the [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) method. For an example of using this API, see the [test code for the microsoft-authentication-library-for-python on GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). Also see the discussion of [issue 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) in that same repository for an approach that bypasses the need for a middle-tier application.
+
+You can also see an example of the OBO flow implementation in the [ms-identity-python-on-behalf-of](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of) sample.
 
 ---
 

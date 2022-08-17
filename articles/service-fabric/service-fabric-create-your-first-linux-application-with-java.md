@@ -1,10 +1,12 @@
 ---
 title: Create an Azure Service Fabric reliable actors Java application on Linux 
 description: Learn how to create and deploy a Java Service Fabric reliable actors application in five minutes.
-
-ms.topic: conceptual
-ms.date: 06/18/2018
-ms.custom: devx-track-java
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Create your first Java Service Fabric Reliable Actors application on Linux
@@ -14,7 +16,7 @@ ms.custom: devx-track-java
 >
 >
 
-This quick-start helps you create your first Azure Service Fabric Java application in a Linux development environment in just a few minutes.  When you are finished, you'll have a simple Java single-service application running on the local development cluster.  
+This quick-start helps you create your first Azure Service Fabric Java application in a Linux development environment in just a few minutes.  When you are finished, you'll have a simple Java single-service application running on the local development cluster.
 
 ## Prerequisites
 Before you get started, install the Service Fabric SDK, the Service Fabric CLI, Yeoman, setup the Java development environment, and setup a development cluster in your [Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [Set up a development environment on Mac using Docker](service-fabric-get-started-mac.md).
@@ -217,12 +219,12 @@ the first instance of that type.
 ## Start the test client and perform a failover
 Actors do not do anything on their own, they require another service or client to send them messages. The actor template includes a simple test script that you can use to interact with the actor service.
 
-> [!Note]
+> [!NOTE]
 > The test client uses the ActorProxy class to communicate with actors, which must run within the same cluster as the actor service or share the same IP address space.  You can run the test client on the same computer as the local development cluster.  To communicate with actors in a remote cluster, however, you must deploy a gateway on the cluster that handles external communication with the actors.
 
 1. Run the script using the watch utility to see the output of the actor service.  The test script calls the `setCountAsync()` method on the actor to increment a counter, calls the `getCountAsync()` method on the actor to get the new counter value, and displays that value to the console.
 
-   In case of MAC OS X, you need to copy the HelloWorldTestClient folder into the some location inside the container by running the following additional commands.    
+   In case of MAC OS X, you need to copy the HelloWorldTestClient folder into the some location inside the container by running the following additional commands.
 
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
@@ -251,13 +253,13 @@ Use the uninstall script provided in the template to delete the application inst
 In Service Fabric explorer you see that the application and application type no longer appear in the **Applications** node.
 
 ## Service Fabric Java libraries on Maven
-Service Fabric Java libraries have been hosted in Maven. You can add the dependencies in the ``pom.xml`` or ``build.gradle`` of your projects to use Service Fabric Java libraries from **mavenCentral**. 
+Service Fabric Java libraries have been hosted in Maven. You can add the dependencies in the ``pom.xml`` or ``build.gradle`` of your projects to use Service Fabric Java libraries from **mavenCentral**.
 
 ### Actors
 
 Service Fabric Reliable Actor support for your application.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-actors</artifactId>
@@ -278,7 +280,7 @@ Service Fabric Reliable Actor support for your application.
 
 Service Fabric Reliable Services support for your application.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-services</artifactId>
@@ -300,7 +302,7 @@ Service Fabric Reliable Services support for your application.
 
 Transport layer support for Service Fabric Java application. You do not need to explicitly add this dependency to your Reliable Actor or Service applications, unless you program at the transport layer.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-transport</artifactId>
@@ -321,7 +323,7 @@ Transport layer support for Service Fabric Java application. You do not need to 
 
 System level support for Service Fabric, which talks to native Service Fabric runtime. You do not need to explicitly add this dependency to your Reliable Actor or Service applications. This gets fetched automatically from Maven, when you include the other dependencies above.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf</artifactId>

@@ -39,7 +39,12 @@ Listeners support the following ports and protocols.
 
 ### Ports
 
-A port is where a listener listens for the client request. You can configure ports ranging from 1 to 65502 for the v1 SKU and 1 to 65199 for the v2 SKU.
+A port is where a listener listens for the client request. You can configure ports for v1 and v2 SKUs as per below.
+
+| SKU | Supported port range | Exception(s) |
+| ---------- | ---------- | ---------- |
+| V2 | 1 to 64999 | 22 |
+| V1 | 1 to 65502 | 3389 |
 
 ### Protocols
 
@@ -66,7 +71,7 @@ There are two types of listeners:
 
 - **Multi-site**. This listener configuration is required when you want to configure routing based on host name or domain name for more than one web application on the same application gateway. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three [multi-site listeners](multiple-site-overview.md) and configure each listener for the respective port and protocol setting. 
 
-    You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener (preview)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
+    You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener).
 
     For more information on how to configure a multi-site listener, see [Multiple-site hosting in Application Gateway using Azure portal](create-multiple-sites-portal.md).
 
@@ -131,7 +136,7 @@ Application Gateway backend pool members aren't tied to an availability set. An 
 
 If you use internal IPs as backend pool members, you must use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) or a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Virtual network peering is supported and beneficial for load-balancing traffic in other virtual networks.
 
-An application gateway can also communicate with to on-premises servers when they're connected by Azure ExpressRoute or VPN tunnels if traffic is allowed.
+An application gateway can also communicate with on-premises servers when they're connected by Azure ExpressRoute or VPN tunnels if traffic is allowed.
 
 You can create different backend pools for different types of requests. For example, create one backend pool for general requests, and then another backend pool for requests to the microservices for your application.
 

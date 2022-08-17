@@ -1,9 +1,9 @@
 ---
 title: Understand Azure IoT Hub custom endpoints | Microsoft Docs
 description: Developer guide - using routing queries to route device-to-cloud messages to custom endpoints.
-author: wesmc7777
-manager: philmea
-ms.author: wesmc
+author: kgremban
+
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -27,13 +27,14 @@ A single message may match the condition on multiple routing queries, in which c
 
 ## Endpoints and routing
 
-An IoT hub has a default [built-in endpoint](iot-hub-devguide-messages-read-builtin.md). You can create custom endpoints to route messages to by linking other services in your subscription to the hub. IoT Hub currently supports Azure Storage containers, Event Hubs, Service Bus queues, and Service Bus topics as custom endpoints.
+An IoT hub has a default [built-in endpoint](iot-hub-devguide-messages-read-builtin.md). You can create custom endpoints to route messages to by linking other services in the subscriptions you own to the hub. IoT Hub currently supports Azure Storage containers, Event Hubs, Service Bus queues, and Service Bus topics as custom endpoints.
 
 When you use routing and custom endpoints, messages are only delivered to the built-in endpoint if they don't match any query. To deliver messages to the built-in endpoint as well as to a custom endpoint, add a route that sends messages to the built-in **events** endpoint.
 
 > [!NOTE]
 > * IoT Hub only supports writing data to Azure Storage containers as blobs.
 > * Service Bus queues and topics with **Sessions** or **Duplicate Detection** enabled are not supported as custom endpoints.
+> * In the Azure portal, you can create custom routing endpoints only to Azure resources that are in the same subscription as your IoT hub. You can create custom endpoints for resources in other subscriptions by using either the [Azure CLI](./tutorial-routing.md) or Azure Resource Manager.
 
 For more information about creating custom endpoints in IoT Hub, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).
 

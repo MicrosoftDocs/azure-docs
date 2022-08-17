@@ -7,12 +7,12 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 07/21/2021
 ms.author: alkohli
 ---
 
 # Solutions for periodic data transfer
- 
+
 This article provides an overview of the data transfer solutions when you are transferring data periodically. Periodic data transfer over the network can be categorized as recurring at regular intervals or continuous data movement. The article also describes the recommended data transfer options and the respective key capability matrix for this scenario.
 
 To understand an overview of all the available data transfer options, go to [Choose an Azure data transfer solution](storage-choose-data-transfer-solution.md).
@@ -23,14 +23,16 @@ The recommended options for periodic data transfer fall into two categories depe
 
 - **Scripted/programmatic tools** – For data transfer that occurs at regular intervals, use the scripted and programmatic tools such as AzCopy and Azure Storage REST APIs. These tools are targeted towards IT professionals and developers.
 
-    - **AzCopy** - Use this command-line tool to easily copy data to and from Azure Blobs, Files, and Table storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted.
-    - **Azure Storage REST APIs/SDKs** – When building an application, you can develop the application against Azure Storage REST APIs and use the Azure SDKs offered in multiple languages. The REST APIs can also leverage the Azure Storage Data Movement Library designed especially for the high-performance copying of data to and from Azure.
+  - **AzCopy** - Use this command-line tool to easily copy data to and from Azure Blobs, Files, and Table storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted.
+  - **Azure Storage REST APIs/SDKs** – When building an application, you can develop the application against Azure Storage REST APIs and use the Azure SDKs offered in multiple languages. The REST APIs can also leverage the Azure Storage Data Movement Library designed especially for the high-performance copying of data to and from Azure.
 
-- **Continuous data ingestion tools** – For continuous, ongoing data ingestion, you can select one of Data Box online transfer device or Azure Data Factory. These tools are set up by IT professionals and can transparently automate data transfer.
+- **Continuous data ingestion tools** – For continuous, ongoing data ingestion, you can select one of the following options.
 
-    - **Azure Data Factory** – Data Factory should be used to scale out a transfer operation, and if there is a need for orchestration and enterprise grade monitoring capabilities. Use Azure Data Factory to set up a cloud pipeline that regularly transfers files between several Azure services, on-premises, or a combination of the two. Azure Data Factory lets you orchestrate data-driven workflows that ingest data from disparate data stores and automate data movement and data transformation.
-    - **Azure Data Box family for online transfers** - Data Box Edge and Data Box Gateway are online network devices that can move data into and out of Azure. Data Box Edge uses artificial intelligence (AI)-enabled Edge compute to pre-process data before upload. Data Box Gateway is a virtual version of the device with the same data transfer capabilities.
+  - **Object replication** - Object replication asynchronously copies block blobs between containers in a source and destination storage account. Use object replication as a solution to keep containers in two different storage accounts in sync.
+  - **Azure Data Factory** – Data Factory should be used to scale out a transfer operation, and if there is a need for orchestration and enterprise grade monitoring capabilities. Use Azure Data Factory to set up a cloud pipeline that regularly transfers files between several Azure services, on-premises, or a combination of the two. Azure Data Factory lets you orchestrate data-driven workflows that ingest data from disparate data stores and automate data movement and data transformation.
+  - **Azure Data Box family for online transfers** - Data Box Edge and Data Box Gateway are online network devices that can move data into and out of Azure. Data Box Edge uses artificial intelligence (AI)-enabled Edge compute to pre-process data before upload. Data Box Gateway is a virtual version of the device with the same data transfer capabilities.
 
+Data Box online transfer device or Azure Data Factory are set up by IT professionals and can transparently automate data transfer.
 
 ## Comparison of key capabilities
 
@@ -64,6 +66,6 @@ The following table summarizes the differences in key capabilities.
 - [Transfer data with AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 - [More information on data transfer with Storage REST APIs](/dotnet/api/overview/azure/storage).
 - Understand how to:
-    - [Transfer data with Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
-    - [Transform data with Data Box Edge before sending to Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+  - [Transfer data with Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
+  - [Transform data with Data Box Edge before sending to Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
 - [Learn how to transfer data with Azure Data Factory](../../data-factory/tutorial-bulk-copy-portal.md).

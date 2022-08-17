@@ -6,10 +6,10 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: autoscale
+ms.subservice: scale-in-policy
 ms.date: 02/26/2020
 ms.reviewer: avverma
-ms.custom: avverma, devx-track-azurecli
+ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
@@ -87,6 +87,7 @@ New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "<VMSS location>" `
   -VMScaleSetName "myScaleSet" `
+  -OrchestrationMode "Flexible" `
   -ScaleInPolicy “OldestVM”
 ```
 
@@ -99,6 +100,7 @@ az group create --name <myResourceGroup> --location <VMSSLocation>
 az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
+  --orchestration-mode flexible \
   --image UbuntuLTS \
   --admin-username <azureuser> \
   --generate-ssh-keys \

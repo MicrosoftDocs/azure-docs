@@ -1,10 +1,11 @@
 ---
 title: Monitoring Azure IoT Hub data reference  
 description: Important reference material needed when you monitor Azure IoT Hub 
-author: robinsh
-ms.author: robinsh
+author: kgremban
+ms.author: kgremban
 ms.topic: reference
 ms.service: iot-hub
+ms.custom: subject-monitoring
 ms.date: 10/22/2020
 ---
 
@@ -18,9 +19,9 @@ This section lists all the automatically collected platform metrics for Azure Io
 
 The following subsections break out the IoT Hub platform metrics by general category and list them by the display name that they appear in the Azure portal with. Information is also provided relevant to the metrics that appear in each subsection.
 
-You can also find a single table that lists all of the IoT Hub platform metrics by metric name under [Microsoft.Devices/IotHubs](../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs) in the Azure Monitor documentation. Be aware that this table does not provide some of the information, like [supported aggregations](#supported-aggregations) for some metrics, available in this article.
+You can also find a single table that lists all of the IoT Hub platform metrics by metric name under [Microsoft.Devices/IotHubs](../azure-monitor/essentials/metrics-supported.md#microsoftdevicesiothubs) in the Azure Monitor documentation. Be aware that this table does not provide some of the information, like [supported aggregations](#supported-aggregations) for some metrics, available in this article.
 
-To learn about metrics supported by other Azure services, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+To learn about metrics supported by other Azure services, see [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 **Topics in this section**
 
@@ -173,7 +174,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-| Routing Delivery Attempts (preview) |RoutingDeliveries | Count | Total |This is the routing delivery metric. Use the dimensions to identify the delivery status for a specific endpoint or for a specific routing source.| Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*. |
+| Routing Deliveries (preview) |RoutingDeliveries | Count | Total |This is the routing delivery metric. Use the dimensions to identify the delivery status for a specific endpoint or for a specific routing source.| Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*. |
 | Routing Delivery Data Size In Bytes (preview)|RoutingDataSizeInBytesDelivered| Bytes | Total |The total number of bytes routed by IoT Hub to custom endpoint and built-in endpoint. Use the dimensions to identify data size routed to a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 | Routing Latency (preview) |RoutingDeliveryLatency| Milliseconds | Average |This is the routing delivery latency metric. Use the dimensions to identify the latency for a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 |Routing: blobs delivered to storage|d2c.endpoints.egress.storage.blobs|Count|Total|The number of times IoT Hub routing delivered blobs to storage endpoints.|None|
@@ -220,11 +221,11 @@ Azure IoT Hub has the following dimensions associated with some of its routing a
 |**Result**| Either **success** or **failure**.|
 |**RoutingSource**| Device Messages<br>Twin Change Events<br>Device Lifecycle Events|
 
-To learn more about metric dimensions, see [Multi-dimensional metrics](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
+To learn more about metric dimensions, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 ## Resource logs
 
-This section lists all the resource log category types and schemas collected for Azure IoT Hub. The resource provider and type for all IoT Hub logs is [Microsoft.Devices/IotHubs](../azure-monitor/platform/resource-logs-categories.md#microsoftdevicesiothubs).
+This section lists all the resource log category types and schemas collected for Azure IoT Hub. The resource provider and type for all IoT Hub logs is [Microsoft.Devices/IotHubs](../azure-monitor/essentials/resource-logs-categories.md#microsoftdevicesiothubs). Be aware that events are emitted only for errors in some categories.
 
 **Topics in this section**
 
@@ -269,6 +270,8 @@ The connections category tracks device connect and disconnect events from an IoT
     ]
 }
 ```
+
+For detailed information about using connections logs to monitor device connectivity, see [Monitor, diagnose, and troubleshoot device connectivity to Azure IoT Hub](iot-hub-troubleshoot-connectivity.md).
 
 ### Device telemetry
 
@@ -684,4 +687,4 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure
 ## See Also
 
 * See [Monitor Azure IoT Hub](monitor-iot-hub.md) for a description of monitoring Azure IoT Hub.
-* See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+* See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

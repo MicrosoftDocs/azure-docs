@@ -1,21 +1,16 @@
 ---
-title: Implement Quality of Service (QoS) for Windows Virtual Desktop (preview)
+title: Implement Quality of Service (QoS) for Azure Virtual Desktop
 titleSuffix: Azure
-description: How to set up QoS (preview) for Windows Virtual Desktop.
-author: gundarev
+description: How to set up QoS for Azure Virtual Desktop.
+author: femila
 ms.topic: conceptual
-ms.date: 11/16/2020
-ms.author: denisgun
+ms.date: 10/18/2021
+ms.author: femila
 ---
-# Implement Quality of Service (QoS) for Windows Virtual Desktop (preview)
+# Implement Quality of Service (QoS) for Azure Virtual Desktop
 
-> [!IMPORTANT]
-> Quality of Service (QoS) Policy support for Windows Virtual Desktop is currently in public preview.
-> This preview is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-[RDP Shortpath](./shortpath.md) provides a direct UDP-based transport between Remote Desktop Client and Session host. RDP Shortpath enables configuration of Quality of Service (QoS) policies for the RDP data.
-QoS in Windows Virtual Desktop allows real-time RDP traffic that's sensitive to network delays to "cut in line" in front of traffic that's less sensitive. Example of such less sensitive traffic would be a downloading a new app, where an extra second to download isn't a large deal. QoS uses Windows Group Policy Objects to identify and mark all packets in real-time streams and help your network to give RDP traffic a dedicated portion of bandwidth.
+[RDP Shortpath for managed networks](./shortpath.md) provides a direct UDP-based transport between Remote Desktop Client and Session host. RDP Shortpath for managed networks enables configuration of Quality of Service (QoS) policies for the RDP data.
+QoS in Azure Virtual Desktop allows real-time RDP traffic that's sensitive to network delays to "cut in line" in front of traffic that's less sensitive. Example of such less sensitive traffic would be a downloading a new app, where an extra second to download isn't a large deal. QoS uses Windows Group Policy Objects to identify and mark all packets in real-time streams and help your network to give RDP traffic a dedicated portion of bandwidth.
 
 If you support a large group of users experiencing any of the problems described in this article, you probably need to implement QoS. A small business with few users might not need QoS, but it should be helpful even there.
 
@@ -44,7 +39,7 @@ A simple analogy is that QoS creates virtual "carpool lanes" in your data networ
 At a high level, do the following to implement QoS:
 
 1. [Make sure your network is ready](#make-sure-your-network-is-ready)
-2. [Make sure that RDP Shortpath is enabled](./shortpath.md) - QoS policies are not supported for reverse connect transport
+2. [Make sure that RDP Shortpath for managed networks is enabled](./shortpath.md) - QoS policies are not supported for reverse connect transport
 3. [Implement insertion of DSCP markers](#insert-dscp-markers) on session hosts
 
 As you prepare to implement QoS, keep the following guidelines in mind:
@@ -56,7 +51,7 @@ As you prepare to implement QoS, keep the following guidelines in mind:
 
 If you're considering a QoS implementation, you should already have determined your bandwidth requirements and other [network requirements](/windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context).
   
-Traffic congestion across a network will significantly impact media quality. A lack of bandwidth leads to performance degradation and a poor user experience. As Windows Virtual Desktop adoption and usage grows, use [Log Analytics](./diagnostics-log-analytics.md) to identify problems and then make adjustments using QoS and selective bandwidth additions.
+Traffic congestion across a network will significantly impact media quality. A lack of bandwidth leads to performance degradation and a poor user experience. As Azure Virtual Desktop adoption and usage grows, use [Log Analytics](./diagnostics-log-analytics.md) to identify problems and then make adjustments using QoS and selective bandwidth additions.
 
 ### VPN considerations
 
@@ -113,10 +108,10 @@ The new policies you've created won't take effect until Group Policy has been re
 
 ### Implement QoS on session host using PowerShell
 
-You can set QoS for RDP Shortpath using the PowerShell cmdlet below:
+You can set QoS for RDP Shortpath for managed networks using the PowerShell cmdlet below:
 
 ```powershell
-New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390 -DSCPAction 46 -NetworkProfile All
+New-NetQosPolicy -Name "RDP Shortpath for managed networks" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390 -DSCPAction 46 -NetworkProfile All
 ```
 
 ## Related articles
@@ -125,5 +120,5 @@ New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" 
 
 ## Next steps
 
-* To learn about bandwidth requirements for Windows Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Windows Virtual Desktop](rdp-bandwidth.md).
-* To learn about Windows Virtual Desktop network connectivity, see [Understanding Windows Virtual Desktop network connectivity](network-connectivity.md).
+* To learn about bandwidth requirements for Azure Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Azure Virtual Desktop](rdp-bandwidth.md).
+* To learn about Azure Virtual Desktop network connectivity, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).

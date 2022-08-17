@@ -2,15 +2,15 @@
 title: Directory synchronization with Azure Active Directory
 description: Architectural guidance on achieving directory synchronization with Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
-manager: daveba
+author: janicericketts
+manager: martinco
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 10/10/2020
-ms.author: baselden
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -50,7 +50,7 @@ You need to synchronize identity data from your on-premises Active Directory env
 
 ## Implement directory synchronization with Azure AD
 
-* [What is identity provisioning?](../cloud-provisioning/what-is-provisioning.md) 
+* [What is identity provisioning?](../cloud-sync/what-is-provisioning.md) 
 
 * [Hybrid identity directory integration tools](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 

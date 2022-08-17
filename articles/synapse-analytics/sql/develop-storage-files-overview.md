@@ -1,18 +1,17 @@
 ---
 title: Access files on storage in serverless SQL pool
 description: Describes querying storage files using serverless SQL pool in Azure Synapse Analytics.
-services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ---
 # Access external storage using serverless SQL pool in Azure Synapse Analytics
 
-This document describes how can users can read data from the files stored on Azure Storage in serverless SQL pool. Users have the following options to access storage:
+This article describes how users can read data from the files stored on Azure Storage in serverless SQL pool. Users have the following options to access storage:
 
 - [OPENROWSET](develop-openrowset.md) function that enables ad-hoc queries over the files in Azure Storage.
 - [External table](develop-tables-external-tables.md) that is a predefined data structure built on top of set of external files.
@@ -43,7 +42,7 @@ EXECUTE AS somepoweruser
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sas token';
 
-GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
+GRANT REFERENCES ON CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
 If there's no server-level CREDENTIAL that matches the URL, or the SQL user doesn't have references permission for this credential, the error will be returned. SQL principals can't impersonate using some Azure AD identity.
@@ -56,7 +55,7 @@ Any user can access Azure storage that allows anonymous access (additional setup
 ---
 
 > [!NOTE]
-> This version of OPENROWSET is designed for quick-and-easy data exploration using default authentication. To leverage impersonation or Managed Identity, use OPENROWSET with DATASOURCE described in the next section.
+> This version of OPENROWSET is designed for quick-and-easy data exploration using default authentication. To leverage impersonation or Managed Identity, use OPENROWSET with DATA_SOURCE described in the next section.
 
 ## Query data sources using OPENROWSET
 
@@ -65,7 +64,7 @@ OPENROWSET enables user to query the files placed on some external data source:
 ```sql
 SELECT * FROM
  OPENROWSET(BULK 'file/path/*.parquet',
- DATASOURCE = MyAzureInvoices,
+ DATA_SOURCE = MyAzureInvoices,
  FORMAT= 'parquet') as rows
 ```
 

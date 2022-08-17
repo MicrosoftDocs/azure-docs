@@ -10,10 +10,11 @@
  ms.custom: include file
 ---
 
-| Resource | Limit |
+| Workload Type* | Session Limit per Instance** |
 | --- | --- |
-| Concurrent RDP connections |25* |
-| Concurrent SSH connections |50** |
+| Light |50 |
+| Medium |25 |
+| Heavy |2 |
 
-*May vary due to other on-going RDP sessions or other on-going SSH sessions.<br>
-**May vary if there are existing RDP connections or usage from other on-going SSH sessions.
+*These workload types are defined here: [Remote Desktop workloads](/windows-server/remote/remote-desktop-services/remote-desktop-workloads)<br>
+**These limits are based on RDP performance tests for Azure Bastion. The numbers may vary due to other on-going RDP sessions or other on-going SSH sessions.

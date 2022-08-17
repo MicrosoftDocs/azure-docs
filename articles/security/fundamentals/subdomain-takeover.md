@@ -9,11 +9,10 @@ manager: rkarlin
 ms.assetid: 
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2020
+ms.date: 02/04/2021
 ms.author: memildin
 
 ---
@@ -22,7 +21,7 @@ ms.author: memildin
 This article describes the common security threat of subdomain takeover and the steps you can take to mitigate against it.
 
 
-## What is subdomain takeover?
+## What is a subdomain takeover?
 
 Subdomain takeovers are a common, high-severity threat for organizations that regularly create, and delete many resources. A subdomain takeover can occur when you have a [DNS record](../../dns/dns-zones-records.md#dns-records) that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. CNAME records are especially vulnerable to this threat. Subdomain takeovers enable malicious actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
 
@@ -116,7 +115,7 @@ If you're a global administrator of your organization’s tenant, elevate your a
 
 ### Run the script
 
-Learn more about the PowerShell script, **Get-DanglingDnsRecords.ps1**, and download it from GitHub: https://aka.ms/DanglingDNSDomains.
+Learn more about the PowerShell script, **Get-DanglingDnsRecords.ps1**, and download it from GitHub: https://aka.ms/Get-DanglingDnsRecords.
 
 ## Remediate dangling DNS entries 
 
@@ -141,6 +140,15 @@ Ensuring that your organization has implemented processes to prevent dangling DN
 
 Some Azure services offer features to aid in creating preventative measures and are detailed below. Other methods to prevent this issue must be established through your organization’s best practices or standard operating procedures.
 
+### Enable Microsoft Defender for App Service
+
+Microsoft Defender for Cloud's integrated cloud workload protection platform (CWPP), Microsoft Defender for Cloud, offers a range of plans to protect your Azure, hybrid, and multi-cloud resources and workloads.
+
+The **Microsoft Defender for App Service** plan includes dangling DNS detection. With this plan enabled, you'll get security alerts if you decommission an App Service website but don't remove its custom domain from your DNS registrar.
+
+Microsoft Defender for Cloud's dangling DNS protection is available whether your domains are managed with Azure DNS or an external domain registrar and applies to App Service on both Windows and Linux.
+
+Learn more about this and other benefits of this Microsoft Defender plans in [Introduction to Microsoft Defender for App Service](../../security-center/defender-for-app-service-introduction.md).
 
 ### Use Azure DNS alias records
 
@@ -195,12 +203,29 @@ It's often up to developers and operations teams to run cleanup processes to avo
     - Delete the DNS record if it's no longer in use, or point it to the correct Azure resource (FQDN) owned by your organization.
  
 
+### Clean up DNS pointers or Re-claim the DNS
+
+Upon deletion of the classic cloud service resource, the corresponding DNS is reserved for 7 days. During the reservation period, re-use of the DNS will be forbidden EXCEPT for subscriptions belonging to the AAD tenant of the subscription originally owning the DNS. After the reservation expires, the DNS is free to be claimed by any subscription. By taking DNS reservations, the customer is afforded some time to either 1) clean up any associations/pointers to said DNS or 2) re-claim the DNS in Azure. The DNS name being reserved can be derived by appending the cloud service name to the DNS zone for that cloud.
+ 
+Public - cloudapp.net
+Mooncake - chinacloudapp.cn
+Fairfax - usgovcloudapp.net
+BlackForest - azurecloudapp.de
+                
+i.e. a hosted service in Public named “test” would have DNS “test.cloudapp.net”
+
+Example:
+Subscription ‘A’ and subscription ‘B’ are the only subscriptions belonging to AAD tenant ‘AB’. Subscription ‘A’ contains a classic cloud service ‘test’ with DNS name ‘test.cloudapp.net’. Upon deletion of the cloud service, a reservation is taken on DNS name ‘test.cloudapp.net’. During the 7 day reservation period, only subscription ‘A’ or subscription ‘B’ will be able to claim the DNS name ‘test.cloudapp.net’ by creating a classic cloud service named ‘test’. No other subscriptions will be allowed to claim it. After the 7 days is up, any subscription in Azure can now claim ‘test.cloudapp.net’.
+
+
 ## Next steps
 
 To learn more about related services and Azure features you can use to defend against subdomain takeover, see the following pages.
 
+- [Enable Microsoft Defender for App Service](../../security-center/defender-for-app-service-introduction.md) - to receive alerts when dangling DNS entries are detected
+
 - [Prevent dangling DNS records with Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Use a domain verification ID when adding custom domains in Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)
+- [Use a domain verification ID when adding custom domains in Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#2-get-a-domain-verification-id)
 
 - [Quickstart: Run your first Resource Graph query using Azure PowerShell](../../governance/resource-graph/first-query-powershell.md)

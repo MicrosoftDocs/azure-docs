@@ -6,6 +6,7 @@ metadata:
    title: Microsoft Azure container services documentation | Microsoft Docs
    description: Learn how to use Azure container services to manage and develop cloud-based container applications.
    ms.topic: hub-page
+   ms.service: azure
 
 highlightedContent:
   items:
@@ -32,7 +33,7 @@ conceptualContent:
         - url: ../aks/tutorial-kubernetes-prepare-app.md
           itemType: tutorial
           text: Prepare an application for AKS
-        - url: ../aks/kubernetes-walkthrough.md
+        - url: ../aks/tutorial-kubernetes-prepare-app.md
           itemType: tutorial
           text: Create an AKS cluster (CLI)
       # footerLink (optional)

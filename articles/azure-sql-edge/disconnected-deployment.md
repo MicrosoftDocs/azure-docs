@@ -5,10 +5,11 @@ keywords: SQL Edge, container, docker
 services: sql-edge
 ms.service: sql-edge
 ms.topic: quickstart
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
+author: rothja
+ms.author: jroth
+ms.reviewer: jroth
 ms.date: 09/22/2020
+ms.custom: mode-other
 ---
 
 # Deploy Azure SQL Edge with Docker
@@ -38,7 +39,7 @@ Before starting the following steps, make sure that you have selected your prefe
         ```
 
 > [!NOTE]
-> For the bash commands in this article `sudo` is used. On macOS & windows, sudo might not be required. On Linux, if you do not want to use sudo to run Docker, you can configure a docker group and add users to that group. For more information, see [Post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/).
+> For the bash commands in this article `sudo` is used. On macOS and Windows, `sudo` might not be required. On Linux, if you do not want to use `sudo` to run Docker, you can configure a Docker group and add users to that group. For more information, see [Post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/).
 
 The previous command pulls the latest Azure SQL Edge container images. To see all available images, see [the azure-sql-egde Docker hub page](https://hub.docker.com/_/microsoft-azure-sql-edge).
 

@@ -3,14 +3,14 @@ title: Access and review audit logs
 titleSuffix: Azure AD B2C
 description: How to access Azure AD B2C audit logs programmatically and in the Azure portal.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/20/2020
-ms.author: mimart
+ms.date: 06/08/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ---
@@ -114,7 +114,7 @@ You can try this script in the [Azure Cloud Shell](overview.md). Be sure to upda
 
 # Constants
 $ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID
-$ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret
+$ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret value
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant domain name
 
 $loginURL       = "https://login.microsoftonline.com"

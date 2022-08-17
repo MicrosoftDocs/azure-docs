@@ -9,7 +9,7 @@ ms.date: 01/06/2020
 
 # Run Apache Hive queries with Apache Hadoop in HDInsight using REST
 
-[!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
+[!INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
 Learn how to use the WebHCat REST API to run Apache Hive queries with Apache Hadoop on Azure HDInsight cluster.
 
@@ -21,7 +21,7 @@ Learn how to use the WebHCat REST API to run Apache Hive queries with Apache Had
 
 * If you use Bash, you'll also need jq, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
-## Base URI for Rest API
+## Base URI for REST API
 
 The base Uniform Resource Identifier (URI) for the REST API on HDInsight is `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, where `CLUSTERNAME` is the name of your cluster.  Cluster names in URIs are **case-sensitive**.  While the cluster name in the fully qualified domain name (FQDN) part of the URI (`CLUSTERNAME.azurehdinsight.net`) is case-insensitive, other occurrences in the URI are case-sensitive.
 

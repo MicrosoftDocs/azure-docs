@@ -2,15 +2,15 @@
 title: Create a basic group and add members - Azure Active Directory | Microsoft Docs
 description: Instructions about how to create a basic group using Azure Active Directory.
 services: active-directory
-author: ajburnle
-manager: daveba
+author: barclayn
+manager: rkarlin
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
 ms.date: 06/05/2020
-ms.author: ajburnle
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18, contperf-fy20q4"                      
 ms.collection: M365-identity-device-management
@@ -71,9 +71,9 @@ You can create a basic group and add your members at the same time. To create a 
 
     ![Group Overview page with number of members highlighted](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
 
-## Turn on or off group welcome email
+## Turn off group welcome email
 
-When any new Microsoft 365 group is created, whether with dynamic or static membership, a welcome notification is sent to all users who are added to the group. When any attributes of a user or device change, all dynamic group rules in the organization are processed for potential membership changes. Users who are added then also receive the welcome notification. You can turn this behavior off in [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup). 
+When any new Microsoft 365 group is created, whether with dynamic or static membership, a welcome notification is sent to all users who are added to the group. When any attributes of a user or device change, all dynamic group rules in the organization are processed for potential membership changes. Users who are added then also receive the welcome notification. You can turn this behavior off in [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup).
 
 ## Next steps
 

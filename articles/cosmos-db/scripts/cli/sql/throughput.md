@@ -1,16 +1,22 @@
 ---
-title: Azure CLI scripts for throughput (RU/s) operations for Azure Cosmos DB Core (SQL) API resources
+title: Perform throughput (RU/s) operations for Azure Cosmos DB Core (SQL) API resources
 description: Azure CLI scripts for throughput (RU/s) operations for Azure Cosmos DB Core (SQL) API resources
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 10/07/2020
+ms.date: 02/21/2022
 ---
 
 # Throughput (RU/s) operations with Azure CLI for a database or container for Azure Cosmos DB Core (SQL) API
+
 [!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
+
+The script in this article creates a Core (SQL) API database with shared throughput and a Core (SQL) API container with dedicated throughput, then updates the throughput for both the database and container. The script then migrates from standard to autoscale throughput then reads the value of the autoscale throughput after it has been migrated.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -18,19 +24,21 @@ ms.date: 10/07/2020
 
 ## Sample script
 
-This script creates a Core (SQL) API database with shared throughput and a Core (SQL) API container with dedicated throughput, then updates the throughput for both the database and container. The script then migrates from standard to autoscale throughput then reads the value of the autoscale throughput after it has been migrated.
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/sql/throughput.sh "Throughput operations for a SQL database and container.")]
+### Run the script
 
-## Clean up deployment
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/sql/throughput.sh" id="FullScript":::
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+## Clean up resources
 
-```azurecli-interactive
-az group delete --name $resourceGroupName
+[!INCLUDE [cli-clean-up-resources.md](../../../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
@@ -49,5 +57,3 @@ This script uses the following commands. Each command in the table links to comm
 ## Next steps
 
 For more information on the Azure Cosmos DB CLI, see [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
-
-All Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).

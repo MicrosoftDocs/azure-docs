@@ -3,7 +3,7 @@ title: Develop for Azure NetApp Files with REST API using PowerShell | Microsoft
 description: Describes how to get started with the Azure NetApp Files REST API using PowerShell.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Develop for Azure NetApp Files with REST API using PowerShell
 
@@ -29,14 +28,14 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
 
 ## Access the Azure NetApp Files REST API  
 
-1. [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven't done so already.
+1. [Install the Azure CLI](/cli/azure/install-azure-cli) if you haven't done so already.
 2. Create a service principal in your Azure Active Directory (Azure AD):
    1. Verify that you have [sufficient permissions](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
    2. Enter the following command in the Azure CLI:  
 
-      ```azurepowershell
-      $RBAC_SP = az ad sp create-for-rbac --name <YOURSPNAMEGOESHERE> | ConvertFrom-Json         
+      ```azurecli
+      $RBAC_SP = az ad sp create-for-rbac --name <YOURSPNAMEGOESHERE> --role Contributor --scopes /subscriptions/<subscription-id> | ConvertFrom-Json         
       ```
 
       To display the service principal information, type `$RBAC_SP` and press Enter.
@@ -80,7 +79,7 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
 5. Send a test call and include the token to validate your access to the REST API:
 
     ```azurepowershell
-    $SubId = (Get-AzureRmContext).Subscription.Id 
+    $SubId = (Get-AzContext).Subscription.Id 
     Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SubId/providers/Microsoft.Web/sites?api-version=2019-11-01
     ```
 

@@ -8,15 +8,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 03/22/2022
 ---
 # Partial term search and patterns with special characters (hyphens, wildcard, regex, patterns)
 
-A *partial term search* refers to queries consisting of term fragments, where instead of a whole term, you might have just the start, middle, or end of term (sometimes referred to as prefix, infix, or suffix queries). A partial term search might include a combination of fragments, often with special characters such as hyphens, dashes, or slashes that are part of the query string. Common use-cases include parts of a phone number, URL, codes, or hyphenated compound words.
+A *partial term search* refers to queries consisting of term fragments, where instead of a whole term, you might have just the beginning, middle, or end of term (sometimes referred to as prefix, infix, or suffix queries). A partial term search might include a combination of fragments, often with special characters such as hyphens, dashes, or slashes that are part of the query string. Common use-cases include parts of a phone number, URL, codes, or hyphenated compound words.
 
-Partial term search and query strings that include special characters can be problematic if the index doesn't have tokens in the expected format. During the [lexical analysis phase](search-lucene-query-architecture.md#stage-2-lexical-analysis) of indexing (assuming the default standard analyzer), special characters are discarded, compound words are split up, and whitespace is deleted; all of which can cause queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214` (tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
+Partial terms and special characters can be problematic if the index doesn't have tokens in the expected format. During the [lexical analysis phase](search-lucene-query-architecture.md#stage-2-lexical-analysis) of indexing (assuming the default standard analyzer), special characters are discarded, compound words are split up, and whitespace is deleted; all of which can cause queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214` (tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
 
-The solution is to invoke an analyzer during indexing that preserves a complete string, including spaces and special characters if necessary, so that you can include the spaces and characters in your query string. Likewise, having a complete string that is not tokenized into smaller parts enables pattern matching for "starts with" or "ends with" queries, where the pattern you provide can be evaluated against a term that is not transformed by lexical analysis. Creating an additional field for an intact string, plus using a content-preserving analyzer that emits whole-term tokens, is the solution for both pattern matching and for matching on query strings that include special characters.
+The solution is to invoke an analyzer during indexing that preserves a complete string, including spaces and special characters if necessary, so that you can include the spaces and characters in your query string. Having a whole, un-tokenized string enables pattern matching for "starts with" or "ends with" queries, where the pattern you provide can be evaluated against a term that is not transformed by lexical analysis. 
+
+To support both classic full text search and partial terms with characters, you can create two fields. One field undergoes lexical analysis. The second field stores an intact string, using a content-preserving analyzer that emits whole-string tokens for pattern matching.
 
 > [!TIP]
 > If you are familiar with Postman and REST APIs, [download the query examples collection](https://github.com/Azure-Samples/azure-search-postman-samples/) to query partial terms and special characters described in this article.
@@ -29,9 +31,9 @@ Azure Cognitive Search scans for whole tokenized terms in the index and won't fi
 
 + [Wildcard operators with prefix matching](query-simple-syntax.md#prefix-search) refers to a generally recognized pattern that includes the beginning of a term, followed by `*` or `?` suffix operators, such as `search=cap*` matching on "Cap'n Jack's Waterfront Inn" or "Gacc Capital". Prefixing matching is supported in both simple and full Lucene query syntax.
 
-+ [Wildcard with infix and suffix matching](query-lucene-syntax.md#bkmk_wildcard) places the `*` and `?` operators inside or at the beginning of a term, and requires regular expression syntax (where the expression is enclosed with forward slashes). For example, the query string (`search=/.*numeric*./`) returns results on "alphanumeric" and "alphanumerical" as suffix and infix matches.
++ [Wildcard with infix and suffix matching](query-lucene-syntax.md#bkmk_wildcard) places the `*` and `?` operators inside or at the beginning of a term, and requires regular expression syntax (where the expression is enclosed with forward slashes). For example, the query string (`search=/.*numeric.*/`) returns results on "alphanumeric" and "alphanumerical" as suffix and infix matches.
 
-For partial term or pattern search, and a few other query forms like fuzzy search, analyzers are not used at query time. For these query forms, which the parser detects by the presence of operators and delimiters, the query string is passed to the engine without lexical analysis. For these query forms, the analyzer specified on the field is ignored.
+For regular expression, wildcard, and fuzzy search, analyzers are not used at query time. For these query forms, which the parser detects by the presence of operators and delimiters, the query string is passed to the engine without lexical analysis. For these query forms, the analyzer specified on the field is ignored.
 
 > [!NOTE]
 > When a partial query string includes characters, such as slashes in a URL fragment, you might need to add escape characters. In JSON, a forward slash `/` is escaped with a backward slash `\`. As such, `search=/.*microsoft.com\/azure\/.*/` is the syntax for the URL fragment "microsoft.com/azure/".
@@ -40,7 +42,7 @@ For partial term or pattern search, and a few other query forms like fuzzy searc
 
 When you need to search on fragments or patterns or special characters, you can override the default analyzer with a custom analyzer that operates under simpler tokenization rules, retaining the entire string in the index. Taking a step back, the approach looks like this:
 
-1. Define a field to store an intact version of the string (assuming you want analyzed and non-analyzed text at query time)
+1. Define a second field to store an intact version of the string (assuming you want analyzed and non-analyzed text at query time)
 1. Evaluate and choose among the various analyzers that emit tokens at the right level of granularity
 1. Assign the analyzer to the field
 1. Build and test the index
@@ -80,7 +82,7 @@ When choosing an analyzer that produces whole-term tokens, the following analyze
 | [language analyzers](index-add-language-analyzers.md) | Preserves hyphens in compound words or strings, vowel mutations, and verb forms. If query patterns include dashes, using a language analyzer might be sufficient. |
 | [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | Content of the entire field is tokenized as a single term. |
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separates on white spaces only. Terms that include dashes or other characters are treated as a single token. |
-| [custom analyzer](index-add-custom-analyzers.md) | (recommended) Creating a custom analyzer lets you specify both the tokenizer and token filter. The previous analyzers must be used as-is. A custom analyzer lets you pick which tokenizers and token filters to use. <br><br>A recommended combination is the [keyword tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) with a [lower-case token filter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). By itself, the predefined [keyword analyzer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) does not lower-case any upper-case text, which can cause queries to fail. A custom analyzer gives you a mechanism for adding the lower-case token filter. |
+| [custom analyzer](index-add-custom-analyzers.md) | (recommended) Creating a custom analyzer lets you specify both the tokenizer and token filter. The previous analyzers must be used as-is. A custom analyzer lets you pick which tokenizers and token filters to use. <br><br>A recommended combination is the [keyword tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) with a [lower-case token filter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). By itself, the built-in [keyword analyzer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) does not lower-case any upper-case text, which can cause queries to fail. A custom analyzer gives you a mechanism for adding the lower-case token filter. |
 
 If you are using a web API test tool like Postman, you can add the [Test Analyzer REST call](/rest/api/searchservice/test-analyzer) to inspect tokenized output.
 
@@ -155,9 +157,9 @@ Whether you are evaluating analyzers or moving forward with a specific configura
 
 ### Use built-in analyzers
 
-Built-in or predefined analyzers can be specified by name on an `analyzer` property of a field definition, with no additional configuration required in the index. The following example demonstrates how you would set the `whitespace` analyzer on a field. 
+Built-in analyzers can be specified by name on an `analyzer` property of a field definition, with no additional configuration required in the index. The following example demonstrates how you would set the `whitespace` analyzer on a field. 
 
-For other scenarios and to learn more about other built-in analyzers, see [Predefined analyzers list](./index-add-custom-analyzers.md#predefined-analyzers-reference). 
+For other scenarios and to learn more about other built-in analyzers, see [Built-in analyzers](./index-add-custom-analyzers.md#built-in-analyzers). 
 
 ```json
     {
@@ -208,6 +210,7 @@ The following example illustrates a custom analyzer that provides the keyword to
 "tokenizers":[],
 "charFilters": [],
 "tokenFilters": []
+}
 ```
 
 > [!NOTE]
@@ -276,6 +279,7 @@ As you can imagine, the additional tokenization results in a larger index. If yo
   "side": "front"
   }
 ]
+}
 ```
 
 ## Next steps

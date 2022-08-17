@@ -4,8 +4,9 @@ description: This PowerShell script sends a data share invitation.
 author: joannapea
 ms.service: data-share
 ms.topic: article
-ms.date: 07/07/2019
-ms.author: joanpo
+ms.date: 01/03/2022
+ms.author: joanpo 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use a PowerShell script to monitor the usage of a sent data share

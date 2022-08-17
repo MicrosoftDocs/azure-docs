@@ -1,18 +1,12 @@
 ---
 title: Overview of access control in Data Lake Storage Gen1 | Microsoft Docs
 description: Learn about the basics of the access control model of Azure Data Lake Storage Gen1, which derives from HDFS.
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
 
-ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Access control in Azure Data Lake Storage Gen1
@@ -282,14 +276,18 @@ On the Azure Portal, go to **Azure Active Directory -> Enterprise applications**
 
 ### Does Data Lake Storage Gen1 support inheritance of ACLs?
 
-No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.  
+No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.
+
+### What are the limits for ACL entries on files and folders?
+
+32 ACLs can be set per file and per directory. Access and default ACLs each have their own 32 ACL entry limit. Use security groups for ACL assignments if possible. By using groups, you're less likely to exceed the maximum number of ACL entries per file or directory.
 
 ### Where can I learn more about POSIX access control model?
 
 * [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
 * [HDFS permission guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 * [POSIX FAQ](https://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+* [POSIX 1003.1 2008](https://standards.ieee.org/wp-content/uploads/import/documents/interpretations/1003.1-2008_interp.pdf)
 * [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 * [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)

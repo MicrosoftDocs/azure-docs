@@ -9,11 +9,10 @@ editor: ''
 
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/05/2017
+ms.date: 09/15/2021
 ms.author: alkohli
 
 ---
@@ -72,6 +71,23 @@ You can add or modify a schedule that is attached to an existing backup policy o
 
 [!INCLUDE [storsimple-8000-add-modify-backup-schedule](../../includes/storsimple-8000-add-modify-backup-schedule-u2.md)]
 
+## Disable a schedule
+
+Use the following procedure if you need to disable a back policy. For example, you may want to disable a schedule that’s reached the maximum 64 backups and then add a new schedule to take more backups.
+
+To disable a backup policy, do these steps:
+
+1.	Go to your StorSimple device and click **Backup policies**.
+
+1.	Drill down from the backup policy to the schedule that you want to disable:
+
+    1. Click the backup policy to open **Schedules** for the policy. 
+
+    1. Click the policy again to open the **Schedules** dialog box.
+
+    1. Click the schedule you want to disable to open **Configure schedule**. In the **Status** field, select **Disabled**.
+
+  [ ![Illustration showing steps to disable a schedule for a backup policy on a StorSimple device. Each step is numbered, with screen label and item acted on highlighted.](./media/storsimple-8000-manage-backup-policies-u2/modify-schedule-illustration.png) ](./media/storsimple-8000-manage-backup-policies-u2/modify-schedule-illustration.png#lightbox)
 
 ## Add or remove a volume
 

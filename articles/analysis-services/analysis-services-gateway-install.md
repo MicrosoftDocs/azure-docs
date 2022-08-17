@@ -4,14 +4,15 @@ description: Learn how to install and configure an On-premises data gateway to c
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 01/31/2022
 ms.author: owend
-ms.reviewer: minewiskan
+ms.reviewer: minewiskan 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Install and configure an on-premises data gateway
 
-An on-premises data gateway is required when one or more Azure Analysis Services servers in the same region connect to on-premises data sources.  While the gateway you install is the same as used by other services like Power BI, Power Apps, and Logic Apps, when installing for Azure Analysis Services, there are some additional steps you need to complete. This install article is specific to **Azure Analysis Services**. 
+An on-premises data gateway is required when one or more Azure Analysis Services servers in the same region connect to on-premises data sources. While the gateway you install is the same as used by other services like Power BI, Power Apps, and Logic Apps, when installing for Azure Analysis Services, there are some additional steps you need to complete. This install article is specific to **Azure Analysis Services**. 
 
 To learn more about how Azure Analysis Services works with the gateway, see [Connecting to on-premises data sources](analysis-services-gateway.md). To learn more about advanced installation scenarios and the gateway in general, see [On-premises data gateways documentation](/data-integration/gateway/service-gateway-onprem).
 
@@ -19,7 +20,7 @@ To learn more about how Azure Analysis Services works with the gateway, see [Con
 
 **Minimum Requirements:**
 
-* .NET 4.5 Framework
+* .NET 4.8 Framework
 * 64-bit version of Windows 8 / Windows Server 2012 R2 (or later)
 
 **Recommended:**
@@ -38,6 +39,8 @@ To learn more about how Azure Analysis Services works with the gateway, see [Con
 * When installing the gateway, the user account you're signed in to your computer with must have Log on as service privileges. When install is complete, the On-premises data gateway service uses the NT SERVICE\PBIEgwService account to log on as a service. A different account can be specified during setup or in Services after setup is complete. Ensure Group Policy settings allow both the account you're signed in with when installing and the service account you choose have Log on as service privileges.
 * Sign in to Azure with an account in Azure AD for the same [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) as the subscription you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
 * If data sources are on an Azure Virtual Network (VNet), you must configure the [AlwaysUseGateway](analysis-services-vnet-gateway.md) server property.
+* If installing the gateway on an Azure Virtual Machine (VM), ensure optimal networking performance by configuring Accelerated networking. To learn more, see [Create a Windows VM with accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md).
+
 
 ## Download
 
@@ -149,10 +152,23 @@ Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -Gatew
 ```
 ---
 
-That's it. If you need to open ports or do any troubleshooting, be sure to check out [On-premises data gateway](analysis-services-gateway.md).
+## Optimize
+
+By default, the gateway will spool data before sending it to the Analysis Services server resource, potentially causing slower performance during data load and refresh operations. To ensure optimal performance, override the default setting: 
+    
+1. In the C:\Program Files\On-Premises data gateway\\**Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config** file, set the **StreamBeforeRequestCompletes** setting to **True**, and then save. 
+
+    ```json
+    <setting name="StreamBeforeRequestCompletes" serializeAs="String">
+       <value>True</value>
+    </setting>
+    ```
+    
+1. In **On-premises data gateway** > **Service Settings**, restart the gateway.
 
 ## Next steps
 
-* [Manage Analysis Services](analysis-services-manage.md)   
-* [Get data from Azure Analysis Services](analysis-services-connect.md)   
-* [Use gateway for data sources on an Azure Virtual Network](analysis-services-vnet-gateway.md)
+* [Connecting to on-premises data sources](analysis-services-gateway.md)   
+* [Data sources supported in Azure Analysis Services](analysis-services-datasource.md)   
+* [Use gateway for data sources on an Azure Virtual Network](analysis-services-vnet-gateway.md)   
+* [Frequently asked questions about Analysis Services network connectivity](analysis-services-network-faq.yml) 

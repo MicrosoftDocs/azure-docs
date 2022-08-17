@@ -1,9 +1,9 @@
 ---
 title: Geofencing and geospatial aggregation with Azure Stream Analytics
 description: This article describes how to use Azure Stream Analytics for geofencing and geospatial aggregation.
-author: krishna0815
-ms.author: krishmam
 ms.service: stream-analytics
+author: enkrumah
+ms.author: ebnkruma
 ms.topic: how-to
 ms.date: 04/02/2019
 ---
@@ -65,7 +65,7 @@ Device "C" is located inside building ID 2, which is not allowed according to th
 
 ### Site with multiple allowed devices
 
-If a site allows multiple devices, an array of device IDs can be defined in `AllowedDeviceID` and a User-Defined Function can be used on the `WHERE` clause to verify if the stream device ID matches any device ID in that list. For more information, view the [Javascript UDF](stream-analytics-javascript-user-defined-functions.md) tutorial for cloud jobs and the [C# UDF](stream-analytics-edge-csharp-udf.md) tutorial for edge jobs.
+If a site allows multiple devices, an array of device IDs can be defined in `AllowedDeviceID` and a User-Defined Function can be used on the `WHERE` clause to verify if the stream device ID matches any device ID in that list. For more information, view the [JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) tutorial for cloud jobs and the [C# UDF](stream-analytics-edge-csharp-udf.md) tutorial for edge jobs.
 
 ## Geospatial aggregation
 

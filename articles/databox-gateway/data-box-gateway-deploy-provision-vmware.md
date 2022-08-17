@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/16/2020
+ms.date: 11/10/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in VMware so I can use it to transfer data to Azure.  
 ---
@@ -51,7 +51,7 @@ Before you deploy a virtual device, make sure that:
 * The host system is able to dedicate the following resources to provision your virtual device:
 
   * A minimum of 4 cores.
-  * At least 8 GB of RAM.
+  * At least 8 GB of RAM. We strongly recommend at least 16 GB of RAM.
   * One network interface.
   * A 250 GB OS disk.
   * A 2 TB virtual disk for system data.
@@ -93,7 +93,8 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 4. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK. 
 
-    - The datastore must be type VMFS5. 
+    - The datastore must be type VMFS5. Databox Gateway has been tested with VMWare with the VMFS5 Datastore. Later Datastore versions, including VMFS6, are not supported.
+
     - The datastore must also have enough free space for the OS and data disks.
    
 5. Right-click and select **Browse Datastore**.

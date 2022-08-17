@@ -1,6 +1,5 @@
 ---
-title: "Tutorial: Use shared-device mode with the Microsoft Authentication Library (MSAL) for Android | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Use shared-device mode with the Microsoft Authentication Library (MSAL) for Android"
 description: In this tutorial, you learn how to prepare an Android device to run in shared mode and run a first-line worker app.
 services: active-directory
 author: mmacy
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 1/15/2020
-ms.author: hahamil
+ms.author: marsma
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ---
@@ -92,7 +91,7 @@ Use `isSharedDevice()` to determine if an app is running on a device that is in 
 Here's a code snippet that shows how you could use `isSharedDevice()`.  It's from the `SingleAccountModeFragment` class in the sample app:
 
 ```Java
-deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ?"Shared" :"Non-Shared");
+deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ? "Shared" : "Non-Shared");
 ```
 
 ### Initialize the PublicClientApplication object

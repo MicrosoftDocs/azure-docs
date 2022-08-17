@@ -1,11 +1,12 @@
 ---
-title: 'Manage reference data in GA environments using C# - Azure Time Series Insights | Microsoft Docs'
+title: 'Manage reference data in GA environments using C# - Azure Time Series Insights'
 description: Learn how to manage reference data for your GA environment by creating a custom application written in C#.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
@@ -14,6 +15,8 @@ ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # Manage reference data for an Azure Time Series Insights Gen 1 environment using C Sharp
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 > [!CAUTION]
 > This is a Gen1 article.
@@ -37,8 +40,7 @@ The sample code below demonstrates the following features:
 
 Complete the following steps before you compile and run the sample code:
 
-1. [Provision a Gen 1 Azure Time Series Insights](./time-series-insights-get-started.md
-) environment.
+1. [Provision a Gen 1 Azure Time Series Insights](./time-series-insights-get-started.md) environment.
 
 1. [Create a Reference Data set](time-series-insights-add-reference-data-set.md) within your environment. Use the following Reference Data scheme:
 
@@ -75,7 +77,7 @@ Or:
 
 1. Declare a `csharp-tsi-msal-ga-sample.csproj` file:
 
-    ```XML
+    ```xml
     <Project Sdk="Microsoft.NET.Sdk">
       <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -223,7 +225,6 @@ namespace CsharpTsiMsalGaSample
                             }
                         ]
                     }";
-
 
                 var createResponse = await AsyncHttpPostRequestHelper(httpClient, createInput);
 

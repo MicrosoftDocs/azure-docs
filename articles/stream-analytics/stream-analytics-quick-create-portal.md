@@ -3,11 +3,11 @@ title: Quickstart - Create a Stream Analytics job by using the Azure portal
 description: This quickstart shows you how to get started by creating a Stream Analytic job, configuring inputs, outputs, and defining a query.
 author: enkrumah
 ms.author: ebnkruma
-ms.date: 06/21/2019
+ms.date: 03/30/2021
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-#Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Azure portal."
+ms.custom: mvc, mode-ui
+#Customer intent: As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using the Azure portal.
 ---
 
 # Quickstart: Create a Stream Analytics job by using the Azure portal
@@ -145,7 +145,7 @@ In this section, you will configure an IoT Hub device input to the Stream Analyt
    SELECT *
    INTO BlobOutput
    FROM IoTHubInput
-   HAVING Temperature > 27
+   WHERE Temperature > 27
    ```
 
 3. In this example, the query reads the data from IoT Hub and copies it to a new file in the blob. Select **Save**.  

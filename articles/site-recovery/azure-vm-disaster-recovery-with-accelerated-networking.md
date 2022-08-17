@@ -3,12 +3,12 @@ title: Enable accelerated networking for Azure VM disaster recovery with Azure S
 description: Describes how to enable Accelerated Networking with Azure Site Recovery for Azure virtual machine disaster recovery
 services: site-recovery
 documentationcenter: ''
-author: Harsha-CS
-manager: rochakm
+author: v-pgaddala
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: harshacs
+ms.author: v-pgaddala
 
 ---
 # Accelerated Networking with Azure virtual machine disaster recovery
@@ -67,12 +67,12 @@ For more information on VM instances, see [Linux VM sizes](../virtual-machines/s
 
 When you [enable replication](azure-to-azure-tutorial-enable-replication.md) for Azure virtual machines, Site Recovery will automatically detect whether the virtual machine network interfaces have Accelerated Networking enabled. If Accelerated Networking is already enabled, Site Recovery will automatically configure Accelerated Networking on the network interfaces of the replicated virtual machine.
 
-The status of Accelerated Networking can be verified under the **Network interfaces** section of the **Compute and Network** settings for the replicated virtual machine.
+The status of Accelerated Networking can be verified under the respective NIC's Tab in the **Network** settings for the replicated virtual machine.
 
 ![Accelerated Networking setting](./media/azure-vm-disaster-recovery-with-accelerated-networking/compute-network-accelerated-networking.png)
 
 If you have enabled Accelerated Networking on the source virtual machine after enabling replication, you can enable Accelerated Networking for the replicated virtual machine's network interfaces by the following process:
-1. Open **Compute and Network** settings for the replicated virtual machine
+1. Open **Network** settings for the replicated virtual machine
 2. Click on the name of the network interface under the **Network interfaces** section
 3. Select **Enabled** from the dropdown for Accelerated Networking under the **Target** column
 
@@ -81,6 +81,6 @@ If you have enabled Accelerated Networking on the source virtual machine after e
 The above process should also be followed for existing replicated virtual machines, that did not previously have Accelerated Networking enabled automatically by Site Recovery.
 
 ## Next steps
-- Learn more about [benefits of Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md#benefits).
-- Learn more about limitations and constraints of Accelerated Networking for [Windows virtual machines](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) and [Linux virtual machines](../virtual-network/create-vm-accelerated-networking-cli.md#limitations-and-constraints).
+- Learn more about [benefits of Accelerated Networking](../virtual-network/accelerated-networking-overview.md#benefits).
+- Learn more about limitations and constraints of Accelerated Networking for [Windows virtual machines](../virtual-network/accelerated-networking-overview.md#limitations-and-constraints) and [Linux virtual machines](../virtual-network/accelerated-networking-overview.md#limitations-and-constraints).
 - Learn more about [recovery plans](site-recovery-create-recovery-plans.md) to automate application failover.

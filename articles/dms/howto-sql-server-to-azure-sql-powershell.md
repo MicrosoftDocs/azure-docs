@@ -3,8 +3,8 @@ title: "PowerShell: Migrate SQL Server to SQL Database"
 titleSuffix: Azure Database Migration Service
 description: Learn to migrate a database from SQL Server to Azure SQL Database by using Azure PowerShell with the Azure Database Migration Service.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: croblesm
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -33,11 +33,11 @@ To complete these steps, you need:
 * [SQL Server 2016 or above](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition)
 * To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the article [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * To configure your [Windows Firewall for database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* An Azure SQL Database instance. You can create an Azure SQL Database instance by following the detail in the article [Create a database in Azure SQL Database in the Azure portal](../azure-sql/database/single-database-create-quickstart.md).
+* An Azure SQL Database instance. You can create an Azure SQL Database instance by following the detail in the article [Create a database in Azure SQL Database in the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * To have created a Microsoft Azure Virtual Network by using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * To have completed assessment of your on-premises database and schema migration using Data Migration Assistant as described in the article [Performing a SQL Server migration assessment](/sql/dma/dma-assesssqlonprem)
-* To download and install the Az.DataMigration module from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](/powershell/module/powershellget/Install-Module?view=powershell-5.1); be sure to open the PowerShell command window using run as an Administrator.
+* To download and install the Az.DataMigration module from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](/powershell/module/powershellget/Install-Module); be sure to open the PowerShell command window using run as an Administrator.
 * To ensure that the credentials used to connect to source SQL Server instance has the [CONTROL SERVER](/sql/t-sql/statements/grant-server-permissions-transact-sql) permission.
 * To ensure that the credentials used to connect to target Azure SQL DB instance has the CONTROL DATABASE permission on the target Azure SQL Database databases.
 * An Azure subscription. If you don't have one, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -147,7 +147,7 @@ Finally, create and start Azure Database Migration task. Azure Database Migratio
 
 ### Create credential parameters for source and target
 
-Connection security credentials can be created as a [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) object.
+Connection security credentials can be created as a [PSCredential](/dotnet/api/system.management.automation.pscredential) object.
 
 The following example shows the creation of *PSCredential* objects for both source and target connections providing passwords as string variables *$sourcePassword* and *$targetPassword*.
 
@@ -191,8 +191,8 @@ Use the `New-AzDataMigrationTask` cmdlet to create and start a migration task. T
 * *TaskName*. Name of task to be created. 
 * *SourceConnection*. AzDmsConnInfo object representing source SQL Server connection.
 * *TargetConnection*. AzDmsConnInfo object representing target Azure SQL Database connection.
-* *SourceCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) object for connecting to source server.
-* *TargetCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) object for connecting to target server.
+* *SourceCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential) object for connecting to source server.
+* *TargetCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential) object for connecting to target server.
 * *SelectedDatabase*. AzDataMigrationSelectedDB object representing the source and target database mapping.
 * *SchemaValidation*. (optional, switch parameter) Following the migration, performs a comparison of the schema information between source and target.
 * *DataIntegrityValidation*. (optional, switch parameter) Following the migration, performs a checksum-based data integrity validation between source and target.

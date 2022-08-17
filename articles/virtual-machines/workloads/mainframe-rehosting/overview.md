@@ -1,7 +1,8 @@
 ---
 title: Mainframe rehosting on Azure virtual machines
 description: Rehost your mainframe workloads such as IBM Z-based systems using virtual machines (VMs) on Microsoft Azure.
-services: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter:
 author: njray
 manager: edprice
@@ -9,7 +10,6 @@ editor: edprice
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
 ---
 
 # Mainframe rehosting on Azure virtual machines
@@ -81,7 +81,7 @@ Learn how to [move mainframe compute to Azure](./concepts/mainframe-compute-azur
 
 Azure offers commitment-based service-level agreements (SLAs). Multiple-nines availability is the default, and SLAs can be optimized with local or geo-based replication of services. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
-With Azure IaaS such as a VM, specific system functions provide failover support—for example, failover clustering instances and availability sets. When you use Azure platform as a service (PaaS) resources, the platform handles failover automatically. Examples include [Azure SQL Database](../../../azure-sql/database/sql-database-paas-overview.md) and [Azure Cosmos DB](../../../cosmos-db/introduction.md).
+With Azure IaaS such as a VM, specific system functions provide failover support—for example, failover clustering instances and availability sets. When you use Azure platform as a service (PaaS) resources, the platform handles failover automatically. Examples include [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Cosmos DB](../../../cosmos-db/introduction.md).
 
 ### Scalability
 
@@ -116,7 +116,7 @@ See also:
 
 - [White papers about mainframe topics](mainframe-white-papers.md)
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Troubleshooting](../../troubleshooting/index.yml)
+- [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

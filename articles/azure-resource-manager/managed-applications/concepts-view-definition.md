@@ -1,9 +1,9 @@
 ---
 title: Overview of view definition
-description: Describes the concept of creating view definition for Azure Managed Applications. 
+description: Describes the concept of creating view definition for Azure Managed Applications.
 ms.topic: conceptual
-ms.author: lazinnat
-author: lazinnat
+ms.author: davidsmatlak
+author: davidsmatlak
 ms.date: 06/12/2019
 ---
 
@@ -132,7 +132,7 @@ When you provide this view in **viewDefinition.json**, it overrides the default 
 
 `"kind": "Metrics"`
 
-The metrics view enables you to collect and aggregate data from your managed application resources in [Azure Monitor Metrics](../../azure-monitor/platform/data-platform-metrics.md).
+The metrics view enables you to collect and aggregate data from your managed application resources in [Azure Monitor Metrics](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ```json
 {
@@ -171,7 +171,7 @@ The metrics view enables you to collect and aggregate data from your managed app
 |---------|---------|---------|
 |displayName|Yes|The displayed title of the chart.|
 |chartType|No|The visualization to use for this chart. By default, it uses a line chart. Supported chart types: `Bar, Line, Area, Scatter`.|
-|metrics|Yes|The array of metrics to plot on this chart. To learn more about metrics supported in Azure portal, see [Supported metrics with Azure Monitor](../../azure-monitor/platform/metrics-supported.md)|
+|metrics|Yes|The array of metrics to plot on this chart. To learn more about metrics supported in Azure portal, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md)|
 
 ### Metric
 
@@ -261,7 +261,7 @@ Commands is an array of additional toolbar buttons that are displayed on page. E
 
 You can define multiple views of this type. This view allows you to link existing resources to the managed application through the custom provider you defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](../custom-providers/overview.md).
 
-In this view you can extend existing Azure resources based on the `targetResourceType`. When a resource is selected, it will create an onboarding request to the **public** custom provider, which can apply a side effect to the resource. 
+In this view you can extend existing Azure resources based on the `targetResourceType`. When a resource is selected, it will create an onboarding request to the **public** custom provider, which can apply a side effect to the resource.
 
 ```json
 {
@@ -284,7 +284,7 @@ In this view you can extend existing Azure resources based on the `targetResourc
 
 ## Looking for help
 
-If you have questions about Azure Managed Applications, try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managedapps). A similar question may have already been asked and answered, so check first before posting. Add the tag `azure-managedapps` to get a fast response!
+If you have questions about Azure Managed Applications, try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app). A similar question may have already been asked and answered, so check first before posting. Add the tag `azure-managed-app` to get a fast response!
 
 ## Next steps
 

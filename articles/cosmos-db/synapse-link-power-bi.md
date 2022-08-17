@@ -1,22 +1,25 @@
 ---
 title: Power BI and serverless SQL pool to analyze Azure Cosmos DB data with Synapse Link
 description: Learn how to build a serverless SQL pool database and views over Synapse Link for Azure Cosmos DB, query the Azure Cosmos DB containers and then build a model with Power BI over those views.
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.author: acomet
+ms.author: rosouz
+ms.custom: synapse-cosmos-db
 ---
 
-# Use Power BI and serverless Synapse SQL pool (preview) to analyze Azure Cosmos DB data with Synapse Link 
+# Use Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse Link 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 In this article, you learn how to build a serverless SQL pool database and views over Synapse Link for Azure Cosmos DB. You will query the Azure Cosmos DB containers and then build a model with Power BI over those views to reflect that query.
 
-In this scenario, you will use dummy data about Surface product sales in a partner retail store. You will analyze the revenue per store based on the proximity to large households and the impact of advertising for a specific week. In this article, you create two views named **RetailSales** and **StoreDemographics** and a query between them. You can get the sample product data from this [GitHub](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) repo.
+With Azure Synapse Link, you can build near real-time dashboards in Power BI to analyze your Azure Cosmos DB data. There is no performance or cost impact to your transactional workloads, and no complexity of managing ETL pipelines. You can use either [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. 
 
-> [!IMPORTANT]
-> Synapse serverless SQL pool support for Azure Synapse Link for Azure Cosmos DB is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [!Note]
+> You can build Power BI dashboards with just a few clicks using Azure Cosmos DB portal. For more information, see [Integrated Power BI experience in Azure Cosmos DB portal for Synapse Link enabled accounts](integrated-power-bi-synapse-link.md). This will automatically create T-SQL views in Synapse serverless SQL pools on your Cosmos DB containers. You can simply download the .pbids file that connects to these T-SQL views to start building your BI dashboards. 
+
+In this scenario, you will use dummy data about Surface product sales in a partner retail store. You will analyze the revenue per store based on the proximity to large households and the impact of advertising for a specific week. In this article, you create two views named **RetailSales** and **StoreDemographics** and a query between them. You can get the sample product data from this [GitHub](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) repo.
 
 ## Prerequisites
 
@@ -140,6 +143,8 @@ After you choose these options, you should see a graph like the following screen
 :::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Report that compares the relative importance of household size to the average revenue per store":::
 
 ## Next steps
+
+[Integrated Power BI experience in Azure Cosmos DB portal for Synapse Link enabled accounts](integrated-power-bi-synapse-link.md)
 
 [Use T-SQL to query Azure Cosmos DB data using Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
 

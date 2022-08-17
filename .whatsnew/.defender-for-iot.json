@@ -1,0 +1,23 @@
+{
+    "$schema": "https://whatsnewapi.azurewebsites.net/schema",
+    "docSetProductName": "Azure Defender for IoT",
+    "rootDirectory": "articles/defender-for-iot/",
+    "docLinkSettings": {
+        "linkFormat": "relative",
+        "relativeLinkPrefix": "/azure/defender-for-iot/"
+    },
+    "inclusionCriteria": {
+        "excludePullRequestTitles": true,
+        "minAdditionsToFile" : 20
+        "maxFilesChanged": 50,
+        "labels": [
+            "label:defender-for-iot/svc"
+        ]
+    },
+    "areas": [
+        {
+            "name": ".",
+            "heading": "Azure Defender for IoT"
+        },
+    ]
+}

@@ -14,4 +14,4 @@ ms.author: aahi
 Let's continue working with Azure Cognitive Services containers.
 
 > [!div class="nextstepaction"]
-> [Use more Cognitive Services Containers](../../cognitive-services-container-support.md)
+> [Use more Cognitive Services containers](../../cognitive-services-container-support.md)

@@ -1,9 +1,8 @@
 ---
-title: How to enable cross-app SSO on Android using MSAL | Azure
-titleSuffix: Microsoft identity platform
+title: How to enable cross-app SSO on Android using MSAL
 description: How to use the Microsoft Authentication Library (MSAL) for Android to enable single sign-on across your applications.
 services: active-directory
-author: hamiltonha
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -13,11 +12,11 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.author: hahamil
+ms.author: marsma
 ms.reviewer: marsma
 ---
 
-# How to: Enable cross-app SSO on Android using MSAL
+# Enable cross-app SSO on Android using MSAL
 
 Single sign-on (SSO) allows users to only enter their credentials once and have those credentials automatically work across applications.
 
@@ -47,7 +46,7 @@ There are two ways for applications using MSAL for Android to achieve SSO:
 We recommend that you use one of Microsoft's authentication brokers to participate in device-wide single sign-on (SSO) and to meet organizational Conditional Access policies. Integrating with a broker provides the following benefits:
 
 - Device single sign-on
-- Conditional access for:
+- Conditional Access for:
   - Intune App Protection
   - Device Registration (Workplace Join)
   - Mobile Device Management
@@ -115,7 +114,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 Once you've generated a signature hash with *keytool*, use the Azure portal to generate the redirect URI:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> and select your Android app in **App registrations**.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select your Android app in **App registrations**.
 1. Select **Authentication** > **Add a platform** > **Android**.
 1. In the **Configure your Android app** pane that opens, enter the **Signature hash** that you generated earlier and a **Package name**.
 1. Select the **Configure** button.

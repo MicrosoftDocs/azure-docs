@@ -1,11 +1,12 @@
 ---
 title: Azure Service Fabric Event Store  
 description: Learn about Azure Service Fabric's EventStore, a way to understand and monitor the state of a cluster or workloads at any time.
-author: srrengar
-
 ms.topic: conceptual
-ms.date: 6/6/2019
-ms.author: srrengar
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # EventStore Overview

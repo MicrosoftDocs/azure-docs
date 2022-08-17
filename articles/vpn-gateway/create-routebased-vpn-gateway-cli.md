@@ -1,12 +1,13 @@
 ---
-title: 'Create a route-based Azure VPN Gateway: CLI'
-description: Quickly create a route-based Azure VPN gateway using the Azure CLI, for a VPN connection to an on-premises network or to connect virtual networks.
+title: 'Create a route-based virtual network gateway: CLI'
+titleSuffix: Azure VPN Gateway
+description: Learn how to create a route-based virtual network gateway for a VPN connection to an on-premises network, or to connect virtual networks.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
 ---
 
@@ -14,7 +15,7 @@ ms.author: cherylmc
 
 This article helps you quickly create a route-based Azure VPN gateway using the Azure CLI. A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect VNets.
 
-The steps in this article will create a VNet, a subnet, a gateway subnet, and a route-based VPN gateway (virtual network gateway). A virtual network gateway can take 45 minutes or more to create. Once the gateway creation has completed, you can then create connections. These steps require an Azure subscription.
+The steps in this article will create a VNet, a subnet, a gateway subnet, and a route-based VPN gateway (virtual network gateway). Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. Once the gateway creation has completed, you can then create connections. These steps require an Azure subscription.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -70,7 +71,7 @@ az network public-ip create \
 
 ## <a name="CreateGateway"></a>Create the VPN gateway
 
-Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/group) command.
+Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/network/vnet-gateway) command.
 
 If you run this command by using the `--no-wait` parameter, you don't see any feedback or output. The `--no-wait` parameter allows the gateway to be created in the background. It does not mean that the VPN gateway is created immediately.
 
@@ -107,21 +108,21 @@ The response looks similar to this:
   "etag": "W/\"6c61f8cb-d90f-4796-8697\"",
   "gatewayDefaultSite": null,
   "gatewayType": "Vpn",
-  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
   "ipConfigurations": [
     {
       "etag": "W/\"6c61f8cb-d90f-4796-8697\"",
-      "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
+      "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
       "name": "vnetGatewayConfig0",
       "privateIpAllocationMethod": "Dynamic",
       "provisioningState": "Updating",
       "publicIpAddress": {
-        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
+        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
         "resourceGroup": "TestRG1"
       },
       "resourceGroup": "TestRG1",
       "subnet": {
-        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/virtualNetworks/VNet1/subnets/GatewaySubnet",
+        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworks/VNet1/subnets/GatewaySubnet",
         "resourceGroup": "TestRG1"
       }
     }
@@ -150,7 +151,7 @@ To view the public IP address assigned to your gateway, use the following exampl
 ```azurecli-interactive
 az network public-ip show \
   --name VNet1GWIP \
-  --resource-group TestRG11
+  --resource-group TestRG1
 ```
 
 The value associated with the **ipAddress** field is the public IP address of your VPN gateway.

@@ -8,7 +8,7 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ms.date: 08/11/2020
 ms.author: sebansal
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
@@ -32,7 +32,7 @@ After a Key Vault certificate is created, you can retrieve it from the addressab
 - **Exportable**: The policy used to create the certificate indicates the key is exportable.
 - **Non-exportable**: The policy used to create the certificate indicates the key is non-exportable. In this case, the private key isn't part of the value when it's retrieved as a secret.
 
-Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype))
+Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/certificates/create-certificate/create-certificate#jsonwebkeytype))
 Exportable is only allowed with RSA, EC. HSM keys would be non-exportable.
 
 See [About Azure Key Vault certificates](./about-certificates.md#exportable-or-non-exportable-key) for more information.
@@ -58,7 +58,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-View [examples and parameter definitions](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download) for more information.
+View [examples and parameter definitions](/cli/azure/keyvault/certificate#az-keyvault-certificate-download) for more information.
 
 Downloading as certificate means getting the public portion. If you want both the private key and public metadata then you can download it as secret.
 
@@ -72,7 +72,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-For more information, see [parameter definitions](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download).
+For more information, see [parameter definitions](/cli/azure/keyvault/secret#az-keyvault-secret-download).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -98,8 +98,8 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 [System.IO.File]::WriteAllBytes("KeyVault.pfx", $pfxFileByte)
 ```
 
-This command exports the entire chain of certificates with private key. The certificate is password protected.
-For more information on the **Get-AzKeyVaultCertificate** command and parameters, see [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
+This command exports the entire chain of certificates with private key (i.e. the same as it was imported). The certificate is password protected.
+For more information on the **Get-AzKeyVaultCertificate** command and parameters, see [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate).
 
 # [Portal](#tab/azure-portal)
 
