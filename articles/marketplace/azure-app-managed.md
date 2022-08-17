@@ -6,7 +6,7 @@ ms.author: macerr
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/18/2022
+ms.date: 08/18/2022
 ---
 
 # Configure a managed application plan
