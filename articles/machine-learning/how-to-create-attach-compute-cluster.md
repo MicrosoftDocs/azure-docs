@@ -147,7 +147,7 @@ Create a single- or multi- node compute cluster for your training, batch inferen
 
     |Field  |Description  |
     |---------|---------|
-    |Compute name     | <ul> <li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You'll see an alert if the name you choose isn't unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li> </ul>    |
+    |Compute name     | * Name is required and must be between 3 to 24 characters long.<br><br> * Valid characters are upper and lower case letters, digits, and the  **-** character.<br><br> * Name must start with a letter<br><br> * Name needs to be unique across all existing computes within an Azure region. You'll see an alert if the name you choose isn't unique<br><br> * If **-**  character is used, then it needs to be followed by at least one letter later in the name    |
     |Minimum number of nodes | Minimum number of nodes that you want to provision. If you want a dedicated number of nodes, set that count here. Save money by setting the minimum to 0, so you won't pay for any nodes when the cluster is idle. |
     |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute will autoscale to a maximum of this node count when a job is submitted. |
     | Idle seconds before scale down | Idle time before scaling the cluster down to the minimum node count. |
