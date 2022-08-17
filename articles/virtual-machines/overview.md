@@ -73,7 +73,7 @@ Managed Disks handles Azure Storage account creation and management in the backg
 You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of virtual machines in the same subscription. For more information about Managed Disks, see the [Managed Disks Overview](managed-disks-overview.md).
 
 ## Distributions 
-Microsoft Azure supports a variety of Linux and Windows distributions. You can find available distributions in the [marketplace](https://azuremarketplace.microsoft.com), Azure Portal or by querying results using CLI, PowerShell and REST APIs. 
+Microsoft Azure supports a variety of Linux and Windows distributions. You can find available distributions in the [marketplace](https://azuremarketplace.microsoft.com), Azure portal or by querying results using CLI, PowerShell and REST APIs. 
 
 This table shows some ways that you can find the information for an image.
 
