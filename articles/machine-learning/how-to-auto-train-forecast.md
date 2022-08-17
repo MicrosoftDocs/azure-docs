@@ -122,7 +122,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              enable_early_stopping=True,
                              training_data=train_data,
                              label_column_name=label,
-                             n_cross_validations=5,
+                             n_cross_validations=”auto”, # Could be customized as an integer
                              enable_ensembling=False,
                              verbosity=logging.INFO,
                              **forecasting_parameters)
@@ -359,7 +359,7 @@ automl_settings = {"task" : 'forecasting',
                    "iterations" : 15,
                    "experiment_timeout_hours" : 1,
                    "label_column_name" : 'Quantity',
-                   "n_cross_validations" : 3,
+                   "n_cross_validations" : 'auto', # Could be customized as an integer
                    "time_column_name": 'WeekStarting',
                    "max_horizon" : 6,
                    "track_child_runs": False,
@@ -411,7 +411,8 @@ automl_settings = {"task" : "forecasting",
                    "model_explainability": model_explainability,# The following settings are specific to this sample and should be adjusted according to your own needs.
                    "iteration_timeout_minutes" : 10,
                    "iterations" : 10,
-                   "n_cross_validations": 2}
+                   "n_cross_validations" : 'auto', # Could be customized as an integer
+                   }
 
 hts_parameters = HTSTrainParameters(
     automl_settings=automl_settings,
