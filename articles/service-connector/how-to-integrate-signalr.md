@@ -23,19 +23,23 @@ This article shows the supported authentication types and client types of Azure 
 
 ## Supported authentication types and client types
 
-### Azure App Service
+Supported authentication and clients for App Service and Container Apps:
+
+### [Azure App Service](#tab/app-service)
 
 | Client type | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
 |-------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
 | .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | None        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
-### Azure Container Apps
+### [Azure Container Apps](#tab/container-apps)
 
 | Client type | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
 |-------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
 | .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | None        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+
+---
 
 ## Default environment variable names or application properties
 

@@ -17,11 +17,13 @@ This page shows the supported authentication types and client types of Azure Dat
 
 - Azure App Service
 - Azure Container Apps
-- Azure Spring Cloud
+- Azure Spring Apps
 
 ## Supported authentication types and client types
 
-### Azure App Service
+Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+
+### [Azure App Service](#tab/app-service)
 
 | Client type                     | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
 |---------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
@@ -36,7 +38,7 @@ This page shows the supported authentication types and client types of Azure Dat
 | Ruby (mysql2)                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | None                            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 
-### Azure Container Apps
+### [Azure Container Apps](#tab/container-apps)
 
 | Client type                     | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
 |---------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
@@ -51,12 +53,14 @@ This page shows the supported authentication types and client types of Azure Dat
 | Ruby (mysql2)                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | None                            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 
-### Azure Spring Cloud
+### [Azure Spring Apps](#tab/spring-apps)
 
 | Client type                     | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
 |---------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
 | Java (JDBC)                     |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Java - Spring Boot (JDBC)       |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+
+---
 
 ## Default environment variable names or application properties
 

@@ -13,15 +13,17 @@ ms.custom: event-tier1-build-2022
 
 This page shows the supported authentication types and client types for the Azure Cosmos DB Mongo API using Service Connector. You might still be able to connect to Azure Cosmos DB in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
-## Supported compute service
+## Supported compute services
 
 - Azure App Service
 - Azure Container Apps
-- Azure Spring Cloud
+- Azure Spring Apps
 
 ## Supported authentication types and client types
 
-### Azure App Service
+Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+
+### [Azure App Service](#tab/app-service)
 
 | Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
 |--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
@@ -31,7 +33,7 @@ This page shows the supported authentication types and client types for the Azur
 | Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
-### Azure Container Apps
+### [Azure Container Apps](#tab/container-apps)
 
 | Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
 |--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
@@ -41,12 +43,14 @@ This page shows the supported authentication types and client types for the Azur
 | Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
-### Azure Spring Cloud
+### [Azure Spring Apps](#tab/spring-apps)
 
 | Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
 |--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
 | Java               | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Java - Spring Boot |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
+
+---
 
 ## Default environment variable names or application properties
 
