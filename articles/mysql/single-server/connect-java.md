@@ -296,7 +296,7 @@ Using your favorite IDE, create a new Java project, and add a `pom.xml` file in 
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.20</version>
+            <version>8.0.29</version>
         </dependency>
         <dependency>
             <groupId>com.azure</groupId>
@@ -350,7 +350,7 @@ Create a *src/main/resources/application.properties* file, and add:
 
 ```properties
 url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?useSSL=true&sslMode=REQUIRED&serverTimezone=UTC
-user=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
 ```
 
 #### [Password](#tab/password)
