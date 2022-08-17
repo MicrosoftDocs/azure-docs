@@ -74,8 +74,9 @@ For more attributes see the [Workday attribute reference](../app-provisioning/wo
 Be aware of the following items when working with the datetime attributes.
 
 - Workday and SAP SF will always send the time in Coordinated Universal Time or UTC.
--  if you're in a single time zone it's recommended that you hardcode the time portion to something that works for you
+-  if you're in a single time zone it's recommended that you hardcode the time portion to something that works for you.  An example would be 5am for new hire scenarios and 10pm for last day of work scenarios.
 - There's no corresponding EmployeeHireDate or EmployeeLeaveDateTime attribute in Active Directory.  If you're importing from on-premises AD, you'll need to identify an attribute in AD that can be used.  This attribute must be a string.
+- It is recommended, that if you are using temporary access pass (TAP), that you set the maximum lifetime to 24 hours.  Doing this will help ensure that the TAP has not expired after being sent to an employee who may be in a different timezone.  For more information see [Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods.](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
 
 
 ## Create a custom synch rule in Azure AD Connect cloud sync for EmployeeHireDate

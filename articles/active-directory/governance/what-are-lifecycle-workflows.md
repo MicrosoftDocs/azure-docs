@@ -2,7 +2,7 @@
 title: 'What are lifecycle workflows? - Azure Active Directory'
 description: Describes overview of Lifecycle workflows.
 services: active-directory
-author: owinfreyATL
+author: owinfrey
 manager: billmath
 ms.service: active-directory
 ms.workload: identity
@@ -21,13 +21,14 @@ Azure AD Lifecycle Workflows is a new Azure AD Identity Governance service that 
 - Mover - when an individual moves between boundaries within an organization. This movement may require more access or authorization.  An example would be a user who was in marketing is now a member of the sales organization.
 - Leaver - when an individual leaves the scope of needing access, access may need to be removed. Examples would be an employee who is retiring or an employee who has been terminated.
 
-User accounts, that a provisioned to Azure AD, from various sources, can extend their experience using Lifecycle Workflows.
+Workflows, contain specific processes, which run automatically against users as they move through their life cycle. Workflows are made up of [Tasks](lifecycle-workflow-tasks.md) and [Execution conditions](lifecycle-workflows-concept-parts.md#execution-conditions). 
 
-Workflows, contain specific processes, which run automatically against users, as they move through their life cycle, within the organization. Workflows are made up of [Tasks](lifecycle-workflow-tasks.md) and [Execution conditions](lifecycle-workflows-concept-parts.md#parts-of-a-workflow). 
+Tasks are specific actions that run automatically when a workflow is triggered. An Execution condition defines the 'Scope' of "“who” and the 'Trigger' of “when” a workflow will be performed. For example, send a manager an email 7 days before the value in the NewEmployeeHireDate attribute of new employees, can be described as a workflow.  It consists of:
+   - task:  send email
+   - when (trigger):  7 days before the NewEmployeeHireDate attribute value
+   - who (scope):  new employees
 
-Tasks are specific actions that run automatically when a workflow is triggered. An Execution condition defines the 'Scope' of "“who” and the 'Trigger' of “when” a workflow will be performed. 
-
-Automatic workflow schedules [trigger](lifecycle-workflows-concept-parts.md#trigger) off of user attributes.  Scoping of automatic workflows is possible using a wide range of user attributes; such as the "department" that a user belongs to. 
+Automatic workflow schedules [trigger](lifecycle-workflows-concept-parts.md#trigger) off of user attributes.  Scoping of automatic workflows is possible using a wide range of user and extended attributes; such as the "department" that a user belongs to. 
 
 Finally, Lifecycle Workflows can even [integrate with Logic Apps](lifecycle-workflow-extensibility.md) tasks ability to extend workflows for more complex scenarios using your existing Logic apps.
 
@@ -39,18 +40,19 @@ Finally, Lifecycle Workflows can even [integrate with Logic Apps](lifecycle-work
 ## Why use Lifecycle workflows?
 Anyone who wants to modernize their identity lifecycle management process for employees, needs to ensure: 
 
-  - **New employee on-boarding** - That when a user joins the organization, they're ready to go on day one.  They have the correct access to the information and applications they need. 
-  - **Employee retirement/terminations/off-boarding** - That users who are no longer tied to the company for various reasons (termination, separation, leave of absence or retirement), have their access revoked in a timely manner
-  - **Easy to administer in my organization** - That there's a seamless process to accomplish the above tasks, that isn't overly burdensome or time consuming for Administrators.
-  - **Robust troubleshooting/auditing/compliance** - That there's the ability to easily troubleshoot issues when they arise and that there's sufficient logging to help with this and compliance related issues.
+  - **New employee on-boarding** - that when a user joins the organization, they're ready to go on day one.  They have the correct access to the information, membership to groups, and applications they need. 
+  - **Employee retirement/terminations/off-boarding** - that users who are no longer tied to the company for various reasons (termination, separation, leave of absence or retirement), have their access revoked in a timely manner
+  - **Easy to administer in my organization** - that there's a seamless process to accomplish the above tasks, that isn't overly burdensome or time consuming for Administrators.
+  - **Robust troubleshooting/auditing/compliance** - that there's the ability to easily troubleshoot issues when they arise and that there's sufficient logging to help with this and compliance related issues.
 
 The following are key reasons to use Lifecycle workflows.
--  **Extend** your HR-driven provisioning process with other workflows that simplify and automate tasks.  
-- **Centralize** your workflow process so you can easily create and manage workflows all in one location.
-- Easily **troubleshoot** workflow scenarios with the Workflow history and Audit logs
-- **Manage** user lifecycle at scale.  As your organization grows, the need for other resources to manage user lifecycles are minimalized.
-- **Reduce** or remove manual tasks that were done in the past with automated lifecycle workflows
-- **Apply** logic apps to extend workflows for more complex scenarios using your existing Logic apps
+-  **extend** your HR-driven provisioning process with other workflows that simplify and automate tasks.  
+- **centralize** your workflow process so you can easily create and manage workflows all in one location.
+- easily **troubleshoot** workflow scenarios with the Workflow history and Audit logs
+- **manage** user lifecycle at scale.  As your organization grows, the need for other resources to manage user lifecycles is minimalized.
+- integrate
+- **reduce** or remove manual tasks that were done in the past with automated lifecycle workflows
+- **apply** logic apps to extend workflows for more complex scenarios using your existing Logic apps
 
 
 All of the above can help ensure a holistic experience by allowing you to remove other dependencies and applications to achieve the same result.  Thus translating into, increased on-boarding and off-boarding efficiency.
@@ -66,11 +68,11 @@ You can use Lifecycle workflows to address any of the following conditions.
   - LCW can perform actions on the group not just the membership.
 - **Workflow history and auditing**  Use Lifecycle workflows when you need to create an audit trail of user lifecycle processes.  Using the portal you can view history and audits for on-boarding and off-boarding scenarios.
 - **Automate user account management**: Making sure users who are leaving have their access to resources revoked is a key part of the identity lifecycle process. Lifecycle Workflows allow you to automate the disabling and removal of user accounts.
-- **Integrate with Logic Apps**: Ability to apply logic apps to extend workflows for more complex scenarios using your existing Logic apps.
+- **Integrate with Logic Apps**: ability to apply logic apps to extend workflows for more complex scenarios using your existing Logic apps.
 
 
 
-## License Requirements
+### License Requirements
 
 You need a valid Azure AD Premium (P2) license for each person, other than Global administrators or User administrators, who will create lifecycle workflows. 
 
@@ -80,5 +82,5 @@ You need a valid Azure AD Premium (P2) license for each person, other than Globa
 
 
 ## Next steps
-- [Create a custom workflow using the Azure Portal](tutorial-onboard-custom-workflow-portal.md)
+- [Create a custom workflow using the Azure Portal](tutorial-create-custom-workflow-portal.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)
