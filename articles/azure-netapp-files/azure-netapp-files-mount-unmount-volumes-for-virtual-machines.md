@@ -33,7 +33,7 @@ You can mount an NFS file for Windows or Linux virtual machines (VMs).
   * Ensure that you use the `vers` option in the `mount` command to specify the NFS protocol version that corresponds to the volume you want to mount. 
   For example, if the NFS version is NFSv4.1: 
   `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT` 
-  * If you use NFSv4.1 and your configuration requires using VMs with the same host names (for example, in a DR test), refer to [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes.md).
+  * If you use NFSv4.1 and your configuration requires using VMs with the same host names (for example, in a DR test), refer to [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes).
 1. If you want the volume mounted automatically when an Azure VM is started or rebooted, add an entry to the `/etc/fstab` file on the host. 
   For example: `$ANFIP:/$FILEPATH /$MOUNTPOINT nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
     * `$ANFIP` is the IP address of the Azure NetApp Files volume found in the volume properties menu
@@ -43,7 +43,7 @@ You can mount an NFS file for Windows or Linux virtual machines (VMs).
 1. You can also access SMB volumes from Unix and Linux clients via NFS by setting the protocol access for the volume to “dual-protocol”. This allows for accessing the volume via NFS (NFSv3 or NFSv4.1) and SMB. See [Create a dual-protocol volume](create-volumes-dual-protocol.md) for details. Take note of the security style mappings table. Mounting a dual-protocol volume from Unix and Linux clients relies on the same procedure as regular NFS volumes.
 
 ## Mount NFS volumes on Windows clients 
-Mounting NFSv4.1 volumes on Windows clients is supported. For more information, see [Network File System overview](../windows-server/storage/nfs/nfs-overview). If you want to mount NFSv3 volumes on Windows client using NFS: 
+Mounting NFSv4.1 volumes on Windows clients is supported. For more information, see [Network File System overview](../../windows-server/storage/nfs/nfs-overview). If you want to mount NFSv3 volumes on Windows client using NFS: 
 
 1. [Mount the volume onto a Unix or Linux VM first](#linux). 
 1. Run a `chmod 777` or `chmod 775` command against the volume. 
@@ -58,6 +58,6 @@ Mounting NFSv4.1 volumes on Windows clients is supported. For more information, 
 * [Linux NFS mount options best practices](performance-linux-mount-options.md) 
 * [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [NFS FAQs](faq-nfs.md)
-* [Network File System overview](/windows-server/storage/nfs/nfs-overview)
+* [Network File System overview](../../windows-server/storage/nfs/nfs-overview)
 * [Mount an NFS Kerberos volume](configure-kerberos-encryption.md#kerberos_mount)
 * [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes) 

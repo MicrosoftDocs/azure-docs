@@ -23,4 +23,4 @@ You can mount an SMB file for Windows or Linux virtual machines (VMs).
 
 * [Mount NFS volumes for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [SMB FAQs](faq-smb.md)
-* [Network File System overview](../windows-server/storage/nfs/nfs-overview)
+* [Network File System overview](../../windows-server/storage/nfs/nfs-overview)
