@@ -1,7 +1,7 @@
 ---
 title: 'Configure package repository for package updates | Microsoft Docs'
 description: Follow an example to configure package repository for package updates.
-author: valls 
+author: ValOlson 
 ms.author: valls
 ms.date: 8/8/2022
 ms.topic: how-to
