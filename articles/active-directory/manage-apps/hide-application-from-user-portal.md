@@ -67,10 +67,6 @@ Set-AzureADServicePrincipal -ObjectId $objectId -Tags $tags
 
 To hide an application from the My Apps portal, you can manually add the HideApp tag to the service principal for the application. Run the following Microsoft Graph PowerShell commands to set the application's **Visible to Users?** property to **No**.
 
-:::zone-end
-
-:::zone-end="ms-graph"
-
 ```PowerShell
 Connect-MgGraph
 
