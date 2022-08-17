@@ -22,7 +22,7 @@ Currently, the service is not zonal. That is, you can’t configure a lab or the
 
 ### SLA improvements
 
-There are no increased SLAs available for uptime in Azure Lab Services. For the monthly uptime SLAs for Azure Lab Services, see [SLA for Azure Lab Services](https://azure.microsoft.com/support/legal/sla/lab-services/v1_0/).
+There are no increased SLAs available for availability in Azure Lab Services. For the monthly uptime SLAs for Azure Lab Services, see [SLA for Azure Lab Services](https://azure.microsoft.com/support/legal/sla/lab-services/v1_0/).
 
 The Azure Lab Services infrastructure uses Cosmos DB storage. The Cosmos DB storage region is the same as the region where the lab plan is located. All the regional Cosmos DB accounts are single region. In the zone-redundant regions listed in this article, the Cosmos DB accounts are single region with Availability Zones. In the other regions, the accounts are single region without Availability Zones. For high availability capabilities for these account types, see [SLAs for Cosmos DB](/azure/cosmos-db/high-availability#slas).
 
@@ -114,11 +114,11 @@ If you want to preserve maximum access to Azure Lab Services infrastructure duri
 
 ## Disaster recovery
 
-Azure Lab Services does not provide regional failover support. If you want to preserve maximum access to the Azure Lab Services infrastructure during a zone or regional outage, create the lab plan in one of the zone-redundant regions.
+Azure Lab Services does not provide regional failover support. If you want to preserve maximum access to the Azure Lab Services infrastructure during a zone or regional outage, create the lab plan in one of the [zone-redundant regions](#fault-tolerance).
 
 ### Outage detection, notification, and management
 
-Azure Lab Services does not provide any service-specific signals about an outage. For more information on service health, see [Resource health overview](/azure/service-health/resource-health-overview).
+Azure Lab Services does not provide any service-specific signals about an outage, but is dependent on Azure communications that inform customers about outages. For more information on service health, see [Resource health overview](/azure/service-health/resource-health-overview).
 
 ## Next steps
 
