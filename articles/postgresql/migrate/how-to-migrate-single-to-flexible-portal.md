@@ -18,20 +18,11 @@ This article shows you how to use the migration tool in the Azure portal to migr
 >[!NOTE]
 > The migration tool is in public preview.
 
-## Prerequisites
+## Getting Started
 
 1. If you're new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate the offerings.
-2. Register your subscription for Azure Database Migration Service:
 
-   1. On the Azure portal, go to your subscription.
-
-      :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-azure-portal.png" alt-text="Screenshot of Azure portal subscription details." lightbox="./media/concepts-single-to-flexible/single-to-flex-azure-portal.png":::
-
-   1. On the left menu, select **Resource Providers**. Search for **Microsoft.DataMigration**, and then select **Register**.
-
-      :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-register-data-migration.png" alt-text="Screenshot of the Register button for Azure Data Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-register-data-migration.png":::
-
-3. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#prerequisites). It is very important to complete the prerequisite steps to ensure a successful migration.
+2. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#prerequisites). It is very important to complete the prerequisite steps to ensure a successful migration.
 
 ## Configure the migration task
 

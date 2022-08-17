@@ -121,20 +121,30 @@ The time for completing an online migration depends on the incoming writes to th
 
 Before you start using the migration tool:
 
-- [Create an Azure Database for PostgreSQL server](../flexible-server/quickstart-create-server-portal.md). 
+1. [Create an Azure Database for PostgreSQL Flexible server](../flexible-server/quickstart-create-server-portal.md) which will be used as the Target.
 
-- [Enable logical replication](../single-server/concepts-logical.md) on the source server.
+2. [Enable logical replication](../single-server/concepts-logical.md) on the source server.
 
-  :::image type="content" source="./media/concepts-single-to-flexible/logical-replication-support.png" alt-text="Screenshot of logical replication support in the Azure portal." lightbox="./media/concepts-single-to-flexible/logical-replication-support.png":::
+   :::image type="content" source="./media/concepts-single-to-flexible/logical-replication-support.png" alt-text="Screenshot of logical replication support in the Azure portal." lightbox="./media/concepts-single-to-flexible/logical-replication-support.png":::
 
   >[!NOTE]
   > Enabling logical replication will require a server restart for the change to take effect.
 
-- [Set up an Azure Active Directory (Azure AD) app](./how-to-set-up-azure-ad-app-portal.md). An Azure AD app is a critical component of the migration tool. It helps with role-based access control as the migration tool accesses both the source and target servers.
+3. Register your subscription for Azure Database Migration Service:
 
-- If you are using any PostgreSQL extensions on the Single Server, it has to allow-listed on the Flexible Server before initiating the migration using the steps below:
+   1. On the Azure portal, go to your subscription.
 
-  1. Use select command in the Single Server environment to list all the extensions in use.
+      :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-azure-portal.png" alt-text="Screenshot of Azure portal subscription details." lightbox="./media/concepts-single-to-flexible/single-to-flex-azure-portal.png":::
+
+   2. On the left menu, select **Resource Providers**. Search for **Microsoft.DataMigration**, and then select **Register**.
+
+      :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-register-data-migration.png" alt-text="Screenshot of the Register button for Azure Data Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-register-data-migration.png":::
+
+4. [Set up an Azure Active Directory (Azure AD) app](./how-to-set-up-azure-ad-app-portal.md). An Azure AD app is a critical component of the migration tool. It helps with role-based access control as the migration tool accesses both the source and target servers.
+
+5. If you are using any PostgreSQL extensions on the Single Server, it has to be allow-listed on the Flexible Server before initiating the migration using the steps below:
+
+   1. Use select command in the Single Server environment to list all the extensions in use.
 
       ```
       select * from pg_extension
@@ -142,7 +152,7 @@ Before you start using the migration tool:
 
       The output of the above command gives the list of extensions currently active on the Single Server
 
-  2. Enable the list of extensions obtained from step 1 in the Flexible Server. Search for the 'azure.extensions' parameter by selecting the Server Parameters tab in the side pane. Select the extensions that are to be allow-listed and click Save.
+   2. Enable the list of extensions obtained from step 1 in the Flexible Server. Search for the 'azure.extensions' parameter by selecting the Server Parameters tab in the side pane. Select the extensions that are to be allow-listed and click Save.
 
       :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-azure-extensions.png" alt-text="Screenshot of PG extension support in the Flexible Server Azure portal." lightbox="./media/concepts-single-to-flexible/single-to-flex-azure-extensions.png":::
 
