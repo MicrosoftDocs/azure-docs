@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 07/22/2022
+ms.date: 08/17/2022
 ms.author: anfdocs
 ---
 
@@ -35,16 +35,13 @@ The Standard service level with cool access feature provides options for the “
 * Standard storage with cool access is supported only on capacity pools of the **auto** QoS type.   
 
 ## Register the feature
-
-This feature is currently in preview. 
-
-<!-- 
+ 
 This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
 1. Register the feature: 
 
     ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName TKTK
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccess
     ```
 
 2. Check the status of the feature registration: 
@@ -56,7 +53,6 @@ This feature is currently in preview. You need to register the feature before us
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName TKTK
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
--->
 
 ## Enable cool access 
 
