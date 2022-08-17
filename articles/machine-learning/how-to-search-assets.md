@@ -98,5 +98,5 @@ Since each tab displays different columns, you customize views separately for ea
 
 ## Next steps
 
-[What is an Azure Machine Learning workspace?](concept-workspace.md)
-[Data in Azure Machine Learning](concept-data.md)
+* [What is an Azure Machine Learning workspace?](concept-workspace.md)
+* [Data in Azure Machine Learning](concept-data.md)
