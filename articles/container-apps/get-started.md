@@ -49,7 +49,7 @@ $WorkspaceArgs = @{
     PublicNetworkAccessForQuery = "Enabled"
 }
 New-AzOperationalInsightsWorkspace @WorkspaceArgs
-$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).CustomerId
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
 $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
 
@@ -102,7 +102,7 @@ $ImageParams = @{
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
 $EnvId = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).Id
 
-$CmdArgs = @{
+$AppArgs = @{
     Name = "my-container-app"
     Location = $Location
     ResourceGroupName = $ResourceGroupName
@@ -111,7 +111,7 @@ $CmdArgs = @{
     IngressTargetPort = 80
     IngressExternal = $true
 }
-New-AzContainerApp @CmdArgs
+New-AzContainerApp @AppArgs
 ```
 
 > [!NOTE]
@@ -132,7 +132,7 @@ The `create` command returned the fully qualified domain name for the container 
 Get the fully qualified domain name for the container app.
 
 ```powershell
-(Get-AzContainerApp -Name $CmdArgs.Name -ResourceGroupName $ResourceGroupName).IngressFqdn
+(Get-AzContainerApp -Name $AppArgs.Name -ResourceGroupName $ResourceGroupName).IngressFqdn
 ```
 
 Copy this location to a web browser.

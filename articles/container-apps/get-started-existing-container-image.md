@@ -55,7 +55,7 @@ $WorkspaceArgs = @{
     PublicNetworkAccessForQuery = "Enabled"
 }
 New-AzOperationalInsightsWorkspace @WorkspaceArgs
-$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).CustomerId
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
 $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
 
@@ -137,8 +137,7 @@ $RegistrySecretObj = New-AzContainerAppSecretObject -Name registry-secret -Value
 $RegistryArgs = @{
     PasswordSecretRef = "registry-secret"
     Server = $RegistryServer
-    Username $RegistryUsername
-    Type = "plainText"
+    Username = $RegistryUsername
 }
 
 $REGISTRY_OBJ = New-AzContainerAppRegistryCredentialObject @RegistryArgs
@@ -150,7 +149,7 @@ $ContainerAppArgs = @{
     ManagedEnvironmentId = $EnvId
     TemplateContainer = $TemplateObj
     ConfigurationRegistry = $RegistryObj
-    ConfigurationSecret $RegistrySecretObj
+    ConfigurationSecret = $RegistrySecretObj
 }
 
 New-AzContainerApp @ContainerAppArgs
@@ -200,8 +199,6 @@ Before you run this command, replace `<REGISTRY_CONTAINER_NAME>` with the full n
 
 ::: zone-end
 
-
-
 ## Verify deployment
 
 To verify a successful deployment, you can query the Log Analytics workspace. You might have to wait 5–10 minutes after deployment for the analytics to arrive for the first time before you're able to query the logs.
@@ -222,7 +219,7 @@ az monitor log-analytics query \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WORKSPACE_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated"
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WorkspaceId -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated"
 $queryResults.Results
 ```
 
