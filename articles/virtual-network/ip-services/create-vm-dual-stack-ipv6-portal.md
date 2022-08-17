@@ -92,115 +92,6 @@ You'll create two public IP addresses in this section, IPv4 and IPv6.
 
 4. Select **Create**. 
 
-## Create network security group
-
-You'll create a network security group to allow SSH connections to the virtual machine.
-
-1. In the search box at the top of the portal, enter **Network security group**. Select **Network security groups** in the search results.
-
-2. Select **+Create**. 
-
-3. Enter or select the following information in the **Basics** tab.
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |  |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**. |
-    | **Instance details** |   |
-    | Name | Enter **myNSG**. |
-    | Region | Select **East US 2**. |
-
-4. Select **Review + create**. 
-
-5. Select **Create**. 
-
-### Create network security group rules
-
-In this section, you'll create the inbound rule.
-
-1. In the search box at the top of the portal, enter **Network security group**. Select **Network security groups** in the search results.
-
-2. In **Network security groups**, select **myNSG**.
-
-3. In **Settings**, select **Inbound security rules**.
-
-4. Select **+ Add**.
-
-5. In **Add inbound security rule**, enter or select the following information.
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Source | Leave the default of **Any**. |
-    | Source port ranges | Leave the default of *. |
-    | Destination | Leave the default of **Any**. |
-    | Service | Select **SSH**. |
-    | Action | Leave the default of **Allow**. |
-    | Priority | Enter **200**. |
-    | Name | Enter **myNSGRuleSSH**. |
-    
-6. Select **Add**. 
-
-## Create virtual machine
-
-In this section, you'll create the virtual machine and its supporting resources.
-
-### Create network interface
-
-You'll create a network interface and attach the public IP addresses you created previously.
-
-1. In the search box at the top of the portal, enter **Network interface**. Select **Network interfaces** in the search results.
-
-2. Select **+ Create**. 
-
-3. In the **Basics** tab of **Create network interface, enter or select the following information.
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**. |
-    | **Instance details** |  |
-    | Name | Enter **myNIC1**. |
-    | Region | Select **East US 2**. |
-    | Virtual network | Select **myVNet**. |
-    | Subnet | Select **myBackendSubnet (10.1.0.0/24,2404:f800:8000:122:/64)**. |
-    | Network security group | Select **myNSG**. |
-    | Private IP address (IPv6) | Select the box. |
-    | IPv6 name | Enter **Ipv6config**. |
-
-4. Select **Review + create**.
-
-5. Select **Create**.
-
-### Associate public IP addresses
-
-You'll associate the IPv4 and IPv6 addresses you created previously to the network interface.
-
-1. In the search box at the top of the portal, enter **Network interface**. Select **Network interfaces** in the search results.
-
-2. Select **myNIC1**.
-
-3. Select **IP configurations** in **Settings**.
-
-4. In **IP configurations**, select **Ipv4config**.
-
-5. In **Ipv4config**, select **Associate** in **Public IP address**.
-
-6. Select **myPublicIP-IPv4** in **Public IP address**.
-
-7. Select **Save**.
-
-8. Close **Ipv4config**.
-
-9. In **IP configurations**, select **ipconfig-ipv6**.
-
-10. In **Ipv6config**, select **Associate** in **Public IP address**.
-
-11. Select **myPublicIP-IPv6** in **Public IP address**.
-
-12. Select **Save**.
-
 ### Create virtual machine
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
@@ -238,8 +129,9 @@ You'll associate the IPv4 and IPv6 addresses you created previously to the netwo
     | **Network interface** |  |
     | Virtual network | Select **myVNet**. |
     | Subnet | Select **myBackendSubnet (10.1.0.0/24,2404:f800:8000:122:/64)**. |
-    | Public IP | Select **None**. |
-    | NIC network security group | Select **None**. |
+    | Public IP | Select **myPublicIP-IPv4**. |
+    | NIC network security group | Select **Advanced**. |
+    | Configure network security group | Select **Create new**. </br> Enter **myNSG** in Name. </br> Select **OK**. |
 
 6. Select **Review + create**.
 
@@ -257,29 +149,36 @@ You'll associate the IPv4 and IPv6 addresses you created previously to the netwo
 
 ### Network interface configuration
 
-A network interface is automatically created and attached to the chosen virtual network during creation. In this section, you'll remove this default network interface and attach the network interface you created previously.
+A network interface is automatically created and attached to the chosen virtual network during creation. In this section, you'll add the IPv6 configuration to the existing network interface.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 2. Select **myVM**.
 
-3. Select **Networking** in **Settings**.
+3. Select **Stop**, to stop the virtual machine. Wait for the machine to shut down.
 
-4. Select **Attach network interface**.
+4. Select **Networking** in **Settings**.
 
-5. Select **myNIC1** that you created previously.
+5. The name of your default network interface will be **myvmxx**, with xx a random number. In this example, it's **myvm281**. Select **myvm281** next to **Network Interface:**.
 
-6. Select **OK**.
+6. In the properties of the network interface, select **IP configurations** in **Settings**.
 
-7. Select **Detach network interface**.
+7. In **IP configurations**, select **+ Add**.
 
-8. The name of your default network interface will be **myvmxx**, with xx a random number. In this example, it's **myvm281**. Select **myvm281** in **Detach network interface**.
+8. In **Add IP configuration**, enter or select the following information.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **Ipv6config**. |
+    | IP version | Select **IPv6**. |
+    | **Private IP address settings** |  |
+    | Allocation | Leave the default of **Dynamic**. |
+    | Public IP address | Select **Associate**. |
+    | Public IP address | Select **myPublicIP-IPv6**. |
 
 9. Select **OK**.
 
 10. Return to the **Overview** of **myVM** and start the virtual machine.
-
-11. The default network interface can be safely deleted.
 
 ## Test SSH connection
 
@@ -293,9 +192,9 @@ You'll connect to the virtual machine with SSH to test the IPv4 public IP addres
 
 4. Open an SSH connection to the virtual machine by using the following command. Replace the IP address with the IP address of your virtual machine. Replace **`azureuser`** with the username you chose during virtual machine creation. The **`-i`** is the path to the private key that you downloaded earlier. In this example, it's **~/.ssh/mySSHKey.pem**.
 
-```bash
-ssh -i ~/.ssh/mySSHkey.pem azureuser@20.22.46.19
-```
+    ```bash
+    ssh -i ~/.ssh/mySSHkey.pem azureuser@20.22.46.19
+    ```
 
 ## Clean up resources
 
