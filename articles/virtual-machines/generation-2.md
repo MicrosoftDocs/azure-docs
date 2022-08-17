@@ -80,6 +80,7 @@ Azure now offers generation 2 support for the following selected VM series:
 |[NCv2-series](ncv2-series.md)  |  :heavy_check_mark:  | :heavy_check_mark: |
 |[NCv3-series](ncv3-series.md) |  :heavy_check_mark: | :heavy_check_mark: |
 |[NCasT4_v3-series](nct4-v3-series.md) | :heavy_check_mark: | :heavy_check_mark: |
+|[NC A100 v4-series](nc-a100-v4-series.md) |  :x: | :heavy_check_mark: |
 |[ND-series](nd-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[ND A100 v4-series](nda100-v4-series.md) |  :x: | :heavy_check_mark: |
 |[NDv2-series](ndv2-series.md) |  :x: | :heavy_check_mark: |
