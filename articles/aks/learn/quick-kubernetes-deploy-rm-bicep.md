@@ -21,17 +21,19 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
+## Prerequisites
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 * This article requires version 2.20.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* If you're running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount][connect-azaccount] cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell]. You'll also need Bicep CLI.  For more information, see [Azure PowerShell](../../azure-resource-manager/bicep/install.md#azure-powershell).If using Azure Cloud Shell, the latest version is already installed.
+* If you're running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount][connect-azaccount] cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell]. You'll also need Bicep CLI. For more information, see [Azure PowerShell](../../azure-resource-manager/bicep/install.md#azure-powershell). If using Azure Cloud Shell, the latest version is already installed.
 
 ---
 
@@ -97,7 +99,7 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
 
     It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
 
-## Validate the deployment
+## Validate the Bicep deployment
 
 ### Connect to the cluster
 
@@ -163,7 +165,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 ---
 
-### Deploy the application
+## Deploy the application
 
 A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run.
 
@@ -332,7 +334,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 ---
 
 > [!NOTE]
-> The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart), the identity is managed by the platform and does not require removal.
+> In this quickstart, the AKS cluster was created with a system-assigned managed identity (the default identity option). This identity is managed by the platform and does not require removal..
 
 ## Next steps
 
