@@ -1,7 +1,7 @@
 ---
 title: Manage training & deploy computes (studio)
 titleSuffix: Azure Machine Learning
-description: Use studio to manage training and deployment compute resources (compute targets) for machine learning
+description: Use studio to manage training and deployment compute resources (compute targets) for machine learning.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -23,7 +23,7 @@ In this article, learn how to manage the compute resources you use for model tra
 
 ## What's a compute target?
 
-With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as _compute targets_). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
+With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as _compute targets_). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine. 
 
 ## View compute targets
 
@@ -44,7 +44,7 @@ You can create compute instances and compute clusters in your workspace, using t
 * [Compute instance](how-to-create-manage-compute-instance.md)
 * [Compute cluster](how-to-create-attach-compute-cluster.md)
 
-In additions, you can use the [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) to create compute instances and compute clusters in your workspace.
+In addition, you can use the [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) to create compute instances and compute clusters in your workspace.
 
 ## Kubernetes cluster
 
