@@ -3,7 +3,7 @@ title: Create verifiable credentials for ID tokens
 description: Learn how to use a quickstart to create custom credentials for ID tokens
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials

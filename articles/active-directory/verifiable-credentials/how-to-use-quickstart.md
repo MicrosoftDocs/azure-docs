@@ -3,7 +3,7 @@ title: Create verifiable credentials for an ID token hint
 description: In this article, you learn how to use a quickstart to create a custom verifiable credential for an ID token hint.
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials

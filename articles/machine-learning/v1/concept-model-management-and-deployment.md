@@ -10,7 +10,7 @@ author: rsethur
 ms.author:  seramasu
 ms.reviewer: larryfr
 ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022
-ms.date: 11/04/2021
+ms.date: 08/15/2022
 ---
 
 # MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning v1
@@ -86,7 +86,7 @@ Before deploying a model into production, it is packaged into a Docker image. In
 
 If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
 
-For more information, see [Deploy models](../how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](../how-to-troubleshoot-deployment.md).
+For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](how-to-troubleshoot-deployment.md).
 
 ### Convert and optimize models
 
@@ -169,7 +169,7 @@ Monitoring enables you to understand what data is being sent to your model, and 
 
 This information helps you understand how your model is being used. The collected input data may also be useful in training future versions of the model.
 
-For more information, see [How to enable model data collection](../how-to-enable-data-collection.md).
+For more information, see [How to enable model data collection](how-to-enable-data-collection.md).
 
 ## Retrain your model on new data
 
@@ -213,7 +213,7 @@ Learn more by reading and exploring the following resources:
 
 + [CI/CD of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
 
-+ Create clients that [consume a deployed model](../how-to-consume-web-service.md)
++ Create clients that [consume a deployed model](how-to-consume-web-service.md)
 
 + [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 
