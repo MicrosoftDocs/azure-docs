@@ -15,7 +15,7 @@ Such as:
 - You need to deliver over-the-air updates to your devices from a private package repository with approved versions of libraries and components
 - You need devices to get packages from a specific vendor's repository
 
-Following this document, learn how to configure a package repository using [OSConfig for IoT](https://docs.microsoft.com/azure/osconfig/overview-osconfig-for-iot) and deploy packages based updates from that repository to your device fleet using [Device Update for IoT Hub](understand-device-update.md). Package-based updates are targeted updates that alter only a specific component or application on the device. They lead to lower consumption of bandwidth and help reduce the time to download and install the update. Package-based updates also typically allow for less downtime of devices when you apply an update and avoid the overhead of creating images. 
+Following this document, learn how to configure a package repository using [OSConfig for IoT](overview-osconfig-for-iot/azure/osconfig/overview-osconfig-for-iot) and deploy packages based updates from that repository to your device fleet using [Device Update for IoT Hub](understand-device-update.md). Package-based updates are targeted updates that alter only a specific component or application on the device. They lead to lower consumption of bandwidth and help reduce the time to download and install the update. Package-based updates also typically allow for less downtime of devices when you apply an update and avoid the overhead of creating images. 
 
 ## Prerequisites
 
@@ -32,5 +32,5 @@ Follow the below steps to update Azure IoT Edge on Ubuntu Server 18.04 x64 by co
 1. Configure the package repository of your choice with the OSConfig’s configure package repo module. See [how to](https://docs.microsoft.com/azure/osconfig/howto-pmc?tabs=portal%2Csingle#example-1--specify-desired-package-sources). This repository should be the location where you wish to store packages to be downloaded to the device.
 2. Upload your packages to the above configured repository.
 3. Create an [APT manifest](device-update-apt-manifest.md) to provide the Device Update agent with the information it needs to download and install the packages (and their dependencies) from the repository.
-4. Follow steps from [here](device-update-ubuntu-agent.ms#prerequisites) to do a package update with Device Update. Device Update is used to deploy package updates to a large number of devices and at scale. 
+4. Follow steps from [here](device-update-ubuntu-agent.md#prerequisites) to do a package update with Device Update. Device Update is used to deploy package updates to a large number of devices and at scale. 
 5. Monitor results of the package update by following these [steps](device-update-ubuntu-agent.md#monitor-the-update-deployment).
