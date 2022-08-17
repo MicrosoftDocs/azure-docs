@@ -44,39 +44,39 @@ At the end of this quickstart, you'll have a working spring app running on Azure
    az account show
    ```
 
-1. Azure Cloud Shell workspaces are temporary. On initial start, it prompts you to associate an [Azure Storage](/azure/storage/common/storage-introduction) by your subscription to persist files across sessions.
+1. Azure Cloud Shell workspaces are temporary. On initial start, the shell prompts you to associate an [Azure Storage](/azure/storage/common/storage-introduction) with your subscription to persist files across sessions.
 
    :::image type="content" source="media/quickstart/Azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription.":::
 
-1. After login successfully, copying the command to list all the subscription you have.
+1. After you login successfully, use the following command to display a list of your subscriptions.
 
    ```azurecli-interactive
    az account list -o table
    ```
 
-1. Choose and link to your subscription.
+1. Use the following command to choose and link to your subscription.
 
    ```azurecli-interactive
    az account set --subscription <ID of a subscription from last step>
    ```
 
-1. Create a Resource Group.
+1. Use the following command to create a Resource Group.
 
    ```azurecli-interactive
    az group create --name <Name of Resource Group> --location eastus
    ```
 
-1. Create an Azure Spring Apps service instance.
+1. Use the following command to create an Azure Spring Apps service instance.
 
    ```azurecli-interactive
    az spring create -n <Name of service instance> -g <Name of Resource Group>
-   ```
+   ``
 
-   And choose **Y** to install the Azure Spring Apps extension and run.
+1. Choose **Y** to install the Azure Spring Apps extension and run it.
 
 ### Create an app in your instance
 
-Here, we specify the app name on Azure Spring Apps as 'hellospring'.
+Use the following command to specify the app name on Azure Spring Apps as *hellospring*.
 
 ```azurecli-interactive
 az spring app create -n hellospring -s <service instance name> -g <Name of Resource Group> --assign-endpoint true
@@ -84,13 +84,13 @@ az spring app create -n hellospring -s <service instance name> -g <Name of Resou
 
 ### Clone the Spring Boot sample project
 
-1. Clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from github.
+1. Use the following command to clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from github.
 
    ```azurecli-interactive
    git clone https://github.com/spring-guides/gs-spring-boot.git
    ```
 
-1. Change into the project folder.
+1. Use the following command to move to the project folder.
 
    ```azurecli-interactive
    cd gs-spring-boot/complete
@@ -98,7 +98,7 @@ az spring app create -n hellospring -s <service instance name> -g <Name of Resou
 
 ### Build the local app
 
-Using [Maven](https://maven.apache.org/what-is-maven.html) to build the project.
+Use the following [Maven](https://maven.apache.org/what-is-maven.html) command to build the project.
 
 ```azurecli-interactive
 mvn clean package -DskipTests
@@ -106,13 +106,13 @@ mvn clean package -DskipTests
 
 ### Deploy the local app on Azure Spring Apps
 
-Deploy the Jar file for the app (`target/spring-boot-complete-0.0.1-SNAPSHOT.jar` on Windows):
+Use the following command to deploy the .jar file for the app (`target/spring-boot-complete-0.0.1-SNAPSHOT.jar` on Windows).
 
 ```azurecli-interactive
 az spring app deploy -n hellospring -s <service instance name> -g <Name of Resource Group> --artifact-path target/spring-boot-complete-0.0.1-SNAPSHOT.jar
 ```
 
-It takes a few minutes to finish deploying the application.
+Deploying the application can take a few minutes.
 
 ## [IntelliJ](#tab/IntelliJ)
 
@@ -123,20 +123,20 @@ It takes a few minutes to finish deploying the application.
 
 ### Generate a Spring project
 
-Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Apps. This link uses the following URL to provide default settings for you. 
+Use [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Apps. The following URL provides default settings for you. 
 
 ```url
 https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
 ```
 
-The following image shows the recommended Initializr set up for this sample project. 
+The following image shows the recommended Initializr settings for the *hellospring* sample project. 
 
-This example uses Java version 11.  If you want to use Java version 17, change the option under **Project Metadata**. 
+This example uses Java version 11.  To use a different Java version, change Java version option under **Project Metadata**. 
 
 :::image type="content" source="media/quickstart/initializr-page.png" alt-text="Screenshot of Spring Initializr page." lightbox="media/quickstart/initializr-page.png":::
 
-1. Select **Generate** when all the dependencies are set.
-1. Download and unpack the package, then create a web controller for a simple web application by adding the file *src/main/java/com/example/hellospring/HelloController.java* with the following contents:
+1. When all dependencies are set, select **Generate** .
+1. Download and unpack the package, and then create a web controller for your web application by adding the file `src/main/java/com/example/hellospring/HelloController.java` with the following contents:
 
     ```java
     package com.example.hellospring;
@@ -157,7 +157,7 @@ This example uses Java version 11.  If you want to use Java version 17, change t
 
 ### Provision an instance of Azure Spring Apps
 
-The following procedure creates an instance of Azure Spring Apps using the Azure portal.
+Use the following steps to creates an instance of Azure Spring Apps using the Azure portal.
 
 1. In a new tab, open the [Azure portal](https://portal.azure.com/).
 
@@ -173,16 +173,18 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 1. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
 
-   - [**Subscription**](/azure/api-management/api-management-subscriptions): Select the subscription you want to be billed for this resource.
-   - [**Resource group**](/azure/azure-resource-manager/management/overview#resource-groups): Creating new resource groups for new resources is a best practice. You'll use this resource group in later steps as **\<resource group name\>**.
+   - **Subscription**: Select the subscription you want to be billed for this resource.
+   - **Resource group**: Creating new resource groups for new resources is a best practice. You'll use this resource group in later steps as **\<resource group name\>**.
    - **Service Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
-   - [**Region**](/azure/spring-apps/how-to-enable-availability-zone?tabs=azure-cli#region-availability): Select the region for your service instance.
+   - **Region**: Select the region for your service instance.
 
    :::image type="content" source="media/quickstart/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page." lightbox="media/quickstart/portal-start.png":::
 
 1. Select **Review and create**.
 
 ### Import project
+
+Use the following steps to import the project.
 
 1. Open the IntelliJ **Welcome** dialog, then select **Open** to open the import wizard.
 1. Select the **hellospring** folder.
