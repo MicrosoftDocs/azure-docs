@@ -37,7 +37,6 @@ To learn how to enable these properties on an existing key vault, see the sectio
 - [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md).
 - [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md).
 
-Only RSA keys of size 2048 are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/general/about-keys-secrets-certificates.md).
 
 ## Enable customer-managed keys for your resource
 
