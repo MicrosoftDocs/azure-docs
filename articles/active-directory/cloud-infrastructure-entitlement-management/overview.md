@@ -32,7 +32,7 @@ Organizations have to consider permissions management as a central piece of thei
 
 Permissions Management  allows customers to address three key use cases: *discover*, *remediate*, and *monitor*.
 
-Permissions Management has been designed in such a way that we recommended your organization sequentially 'step-through' each of the below phases in order to gain insights into permissions across the organization. This is because you generally cannot action what is yet to be discovered, likewise you cannot continually evaluate what is yet been remediated.
+Permissions Management has been designed in such a way that we recommended your organization sequentially 'step-through' each of the below phases in order to gain insights into permissions across the organization. This is because you generally cannot action what is yet to be discovered, likewise you cannot continually evaluate what is yet to be remediated.
 
 
 ### Discover
