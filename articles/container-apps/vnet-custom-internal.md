@@ -131,7 +131,7 @@ INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_G
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$InfrastructureSubnet=(Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet).Id
+$InfrastructureSubnet = (Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet).Id
 ```
 
 ---
@@ -168,7 +168,7 @@ With your environment created using your custom virtual network, you can deploy 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 
 ```powershell
-$CmdArgs = @{
+$WorkspaceArgs = @{
     Name = "myworkspace"
     ResourceGroupName = $ResourceGroupName
     Location = $Location
@@ -176,8 +176,8 @@ $CmdArgs = @{
     PublicNetworkAccessForQuery = "Enabled"
 }
 New-AzOperationalInsightsWorkspace @CmdArgs
-$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).CustomerId
-$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).PrimarySharedKey
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
+$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
 
 To create the environment, run the following command:

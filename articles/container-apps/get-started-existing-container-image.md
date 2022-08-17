@@ -177,8 +177,12 @@ If you have enabled ingress on your container app, you can add `--query properti
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$TemplateObj = New-AzContainerAppTemplateObject -Name my-container-ap  -Image <REGISTRY_CONTAINER_NAME> 
+$TemplateObj = New-AzContainerAppTemplateObject -Name my-container-ap  -Image "<REGISTRY_CONTAINER_NAME>" 
+```
 
+(Replace the \<REGISTRY_CONTAINER_NAME\> with your value.)
+
+```powershell
 $EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
 $ContainerAppArgs = @{
@@ -188,12 +192,12 @@ $ContainerAppArgs = @{
     ManagedEnvironmentId = $EnvId
     TemplateContainer = $TemplateObj
 }
-New-AzContainerApp @ContainerAppArg
+New-AzContainerApp @ContainerAppArgs
 ```
 
 ---
 
-(Replace the \<placeholders\> with your values.)
+
 
 Before you run this command, replace `<REGISTRY_CONTAINER_NAME>` with the full name the public container registry location, including the registry path and tag. For example, a valid container name is `mcr.microsoft.com/azuredocs/containerapps-helloworld:latest`.
 
@@ -201,9 +205,9 @@ Before you run this command, replace `<REGISTRY_CONTAINER_NAME>` with the full n
 
 ## Verify deployment
 
-To verify a successful deployment, you can query the Log Analytics workspace. You might have to wait 5–10 minutes after deployment for the analytics to arrive for the first time before you're able to query the logs.
+To verify a successful deployment, you can query the Log Analytics workspace. You might have to wait a few minutes after deployment for the analytics to arrive for the first time before you're able to query the logs.  This depends on the console logging implemented in your container app.
 
-After about 5-10 minutes has passed, use the following steps to view logged messages.
+Use the following commands to view console log messages.
 
 # [Bash](#tab/bash)
 

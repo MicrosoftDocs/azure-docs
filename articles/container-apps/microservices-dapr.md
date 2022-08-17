@@ -68,7 +68,7 @@ $WorkspaceArgs = @{
     PublicNetworkAccessForQuery = "Enabled"
 }
 New-AzOperationalInsightsWorkspace @WorkspaceArgs
-$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).CustomerId
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
 $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
 
@@ -100,7 +100,7 @@ Choose a name for storage account. Storage account names must be *unique within 
 # [Bash](#tab/bash)
 
 ```bash
-STORAGE_ACCOUNT_NAME ="<storage account name>"
+STORAGE_ACCOUNT_NAME = "<storage account name>"
 ```
 
 # [PowerShell](#tab/powershell)
@@ -248,8 +248,8 @@ $DaprArgs = @{
     ResourceGroupName = $ResourceGroupName
     DaprName = "statestore"
     Metadata = $AcctName, $AcctKey, $ContainerName
-    Secrets = $Secret
-    Scopes = "nodeapp"
+    Secret = $Secret
+    Scope = "nodeapp"
     Version = "v1"
     ComponentType = "state.azure.blobstorage"
 }
@@ -302,20 +302,19 @@ $TemplateArgs = @{
 }
 $ServiceTemplateObj = New-AzContainerAppTemplateObject @TemplateArgs
 
-@ServiceArgs = @{
+$ServiceArgs = @{
     Name = "nodeapp"
     ResourceGroupName = $ResourceGroupName
     Location = $Location
     ManagedEnvironmentId = $EnvId
     TemplateContainer = $ServiceTemplateObj
     IngressTargetPort = 3000
-    ScaleMinReplicas = 1
-    ScaleMaxReplicas = 1
+    ScaleMinReplica = 1
+    ScaleMaxReplica = 1
     DaprEnabled = $true
     DaprAppId = "nodeapp"
     DaprAppPort = 3000
 }
-
 New-AzContainerApp @ServiceArgs
 ```
 
@@ -354,18 +353,17 @@ $ClientTemplateObj = New-AzContainerAppTemplateObject `
   -Name pythonapp `
   -Image dapriosamples/hello-k8s-python:latest
 
-@ClientArgs = @{
+$ClientArgs = @{
     Name = "pythonapp"
     ResourceGroupName = $ResourceGroupName
     Location = $Location
     ManagedEnvironmentId = $EnvId
     TemplateContainer = $ClientTemplateObj
-    ScaleMinReplicas = 1
-    ScaleMaxReplicas = 1
+    ScaleMinReplica = 1
+    ScaleMaxReplica = 1
     DaprEnabled = $true
     DaprAppId = "pythonapp"
 }
-
 New-AzContainerApp @ClientArgs
 ```
 
@@ -415,7 +413,7 @@ az monitor log-analytics query \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WORKSPACE_ID  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5 "
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WorkspaceId  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5 "
 $queryResults.Results
 
 ```

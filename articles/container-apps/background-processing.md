@@ -53,7 +53,7 @@ $WorkspaceArgs = @{
     PublicNetworkAccessForQuery = "Enabled"
 }
 New-AzOperationalInsightsWorkspace @WorkspaceArgs
-$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).CustomerId
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
 $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
 
@@ -281,7 +281,7 @@ az deployment group create --resource-group "$RESOURCE_GROUP" \
 $Params = @{
     environment_name = $ContainerAppsEnvironment
     location = $Location
-    queueconnection=$QueueConnectionString 
+    queueconnection = $QueueConnectionString 
 }
 
 $DeploymentArgs = @{
@@ -319,7 +319,7 @@ az monitor log-analytics query \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WORKSPACE_ID  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID' | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Log_s | take 5"
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WorkspaceId  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID' | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Log_s | take 5"
 $queryResults.Results
 ```
 
@@ -342,7 +342,7 @@ az group delete \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---

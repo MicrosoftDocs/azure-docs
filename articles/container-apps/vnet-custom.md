@@ -168,16 +168,16 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` command will result in a warning message.  The command will still succeed.
 
 ``powershell
-$CmdArgs = @{
+$WorkspaceArgs = @{
     Name = "myworkspace"
     ResourceGroupName = $ResourceGroupName
     Location = $Location
     PublicNetworkAccessForIngestion = "Enabled"
     PublicNetworkAccessForQuery = "Enabled"
 }
-New-AzOperationalInsightsWorkspace @CmdArgs
-$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).CustomerId
-$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $CmdArgs.Name).PrimarySharedKey
+New-AzOperationalInsightsWorkspace @WorkspaceArgs
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
+$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
 
 To create the environment, run the following command:
