@@ -15,7 +15,7 @@ Such as:
 - You need to deliver over-the-air updates to your devices from a private package repository with approved versions of libraries and components
 - You need devices to get packages from a specific vendor's repository
 
-Following this document, learn how to configure a package repository using [OSConfig for IoT](overview-osconfig-for-iot/azure/osconfig/overview-osconfig-for-iot) and deploy packages based updates from that repository to your device fleet using [Device Update for IoT Hub](understand-device-update.md). Package-based updates are targeted updates that alter only a specific component or application on the device. They lead to lower consumption of bandwidth and help reduce the time to download and install the update. Package-based updates also typically allow for less downtime of devices when you apply an update and avoid the overhead of creating images. 
+Following this document, learn how to configure a package repository using [OSConfig for IoT](https://docs.microsoft.com/azure/osconfig/overview-osconfig-for-iot) and deploy packages based updates from that repository to your device fleet using [Device Update for IoT Hub](understand-device-update.md). Package-based updates are targeted updates that alter only a specific component or application on the device. They lead to lower consumption of bandwidth and help reduce the time to download and install the update. Package-based updates also typically allow for less downtime of devices when you apply an update and avoid the overhead of creating images. 
 
 ## Prerequisites
 
