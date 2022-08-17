@@ -56,7 +56,7 @@ Your function app must be able to access the storage account. Common issues that
 
 * The storage account firewall is enabled and not configured to allow traffic to and from functions. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-* Verify that the `allowSharedKeyAccess` setting is set to `true` which is its default value. For more information, see [Prevent Shared Key authorization for an Azure Storage account](../storage/common/shared-key-authorization-prevent.md?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
+* Verify that the `allowSharedKeyAccess` setting is set to `true`, which is its default value. For more information, see [Prevent Shared Key authorization for an Azure Storage account](../storage/common/shared-key-authorization-prevent.md?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
 
 ## Daily execution quota is full
 
@@ -103,9 +103,9 @@ Any such error would need to be remedied for the function to work correctly.
 
 When the container image can't be found, you should see a `manifest unknown` error in the Docker logs.  In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli) to change the container image being reference. If you've deployed a custom container image, you need to fix the image and redeploy the updated version to the referenced registry.
 
-## Host ID collisons 
+## Host ID collision 
 
-Starting with version 3.x of the Functions runtime, [host ID collisons](storage-considerations.md#host-id-considerations) are detected and logged as a warning. In version 4.x, an error is logged and the host is stopped. If the runtime can't start for your function app, [review the logs](analyze-telemetry-data.md). If there's a warning or an error about host ID collisions, follow the mitigation steps in [Host ID considerations](storage-considerations.md#host-id-considerations).   
+Starting with version 3.x of the Functions runtime, [host ID collision](storage-considerations.md#host-id-considerations) are detected and logged as a warning. In version 4.x, an error is logged and the host is stopped. If the runtime can't start for your function app, [review the logs](analyze-telemetry-data.md). If there's a warning or an error about host ID collisions, follow the mitigation steps in [Host ID considerations](storage-considerations.md#host-id-considerations).   
 
 ## Next steps
 
