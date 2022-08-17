@@ -24,7 +24,7 @@ Currently, the service is not zonal. That is, you can’t configure a lab or the
 
 There are no increased SLAs available for uptime in Azure Lab Services. For the monthly uptime SLAs for Azure Lab Services, see [SLA for Azure Lab Services](https://azure.microsoft.com/support/legal/sla/lab-services/v1_0/).
 
-The Azure Lab Services infrastructure uses Cosmos DB storage. The Cosmos DB storage region is the same as the region where the lab plan is located. All the regional Cosmos DB accounts are single region. In the five regions listed in this article, the Cosmos DB accounts are single region with Availability Zones. In the other regions, the accounts are single region without Availability Zones. For high availability capabilities for these account types, see [SLAs for Cosmos DB](/azure/cosmos-db/high-availability#slas).
+The Azure Lab Services infrastructure uses Cosmos DB storage. The Cosmos DB storage region is the same as the region where the lab plan is located. All the regional Cosmos DB accounts are single region. In the zone-redundant regions listed in this article, the Cosmos DB accounts are single region with Availability Zones. In the other regions, the accounts are single region without Availability Zones. For high availability capabilities for these account types, see [SLAs for Cosmos DB](/azure/cosmos-db/high-availability#slas).
 
 ### Zone down experience
 
@@ -46,14 +46,14 @@ In the event of a zone outage in these regions, you can still perform the follow
 - Create/manage lab plans
 - Create Users
 - Configure lab schedules
-- Create new labs and VMs in regions unaffected by the zone outage.
+- Create/manage labs and VMs in regions unaffected by the zone outage.
 
 Data loss may occur only with an unrecoverable disaster in the Cosmos DB region. For more information, see [Region Outages](/azure/cosmos-db/high-availability#region-outages).
 
 For regions not listed, access to the Azure Lab Services infrastructure is not guaranteed when there is an outage in the region containing the lab plan. You will only be able to perform the following tasks:
 
 - Access the Azure Lab Services website
-- Create new labs and VMs in regions unaffected by the zone outage
+- Create/manage lab plans, labs, and VMs in regions unaffected by the zone outage
 
 > [!NOTE]
 > Existing labs and VMs in regions unaffected by the zone outage aren't affected by a loss of infrastructure in the lab plan region. Existing labs and VMs in unaffected regions can still run and operate as normal.
@@ -83,9 +83,12 @@ If infrastructure is impacted, it will be restored when the zone availability is
 
 #### Azure Lab Services infrastructure
 
-In a regional outage, the experience of using the Azure Lab Services infrastructure is the same as in a zone outage. For lab plans in zone-redundant regions, you can access the Azure Lab Services website and perform the same tasks described in the [Zone down experience](#zone-down-experience) section for Azure Lab Services infrastructure.
+In a regional outage, the experience of using the Azure Lab Services infrastructure is the same as in a zone outage. For lab plans in zone-redundant regions, you can perform the same tasks described in the [Zone down experience](#zone-down-experience) section for Azure Lab Services infrastructure.
 
-For regions not listed as zone-redundant, the experience of using the Azure Lab Services infrastructure is the same as in a zone outage.
+For regions not listed as zone-redundant, the experience of using the Azure Lab Services infrastructure is the same as in a zone outage. You will only be able to perform the following tasks:
+
+- Access the Azure Lab Services website
+- Create/manage lab plans, labs, and VMs in regions unaffected by the zone outage
 
 #### Labs and VMs
 
@@ -95,19 +98,27 @@ Existing labs and VMs in regions unaffected by the zone outage aren't affected b
 
 #### Regional outage preparation and recovery
 
-Access to infrastructure, Lab and VM services will be restored as soon as the regional outage is resolved.
+Lab and VM services will be restored as soon as the regional outage is restored (the outage is resolved).
 
 If infrastructure is impacted, it will be restored when the regional outage is resolved.
 
 ### Fault tolerance
 
-If you want to preserve access to Azure Lab Services infrastructure during a zone outage, create the lab plan in one of the zone-redundant regions listed.
+If you want to preserve maximum access to Azure Lab Services infrastructure during a zone or regional outage, create the lab plan in one of the zone-redundant regions listed.
 
 - Australia East
 - Canada Central
 - France Central
 - Korea Central
 - East Asia
+
+## Disaster recovery
+
+Azure Lab Services does not provide regional failover support. If you want to preserve maximum access to the Azure Lab Services infrastructure during a zone or regional outage, create the lab plan in one of the zone-redundant regions.
+
+### Outage detection, notification, and management
+
+Azure Lab Services does not provide any service-specific signals about an outage. For more information on service health, see [Resource health overview](/azure/service-health/resource-health-overview).
 
 ## Next steps
 
