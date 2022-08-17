@@ -62,7 +62,7 @@ The company administrator can create a network manager with the root management 
 
 The administrator creates the following network groups:
 
-– *ALL Network Group*: consisting of all the VNets in the organization
+- *ALL Network Group*: consisting of all the VNets in the organization
 - *App 1 Network Group* consisting of VNets for Application 1. 
 ALL Network Group in the above diagram consists of VNet 1 to VNet 5, and App 1 Network Group has VNet 4 and VNet 5. Users can easily define both network groups with dynamic membership.
 
