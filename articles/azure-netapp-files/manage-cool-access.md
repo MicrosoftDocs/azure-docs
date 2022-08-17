@@ -50,7 +50,7 @@ This feature is currently in preview. You need to register the feature before us
     > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName TKTK
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccess
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
