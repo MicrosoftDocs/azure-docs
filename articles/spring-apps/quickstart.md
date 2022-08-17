@@ -48,7 +48,7 @@ At the end of this quickstart, you'll have a working spring app running on Azure
 
    :::image type="content" source="media/quickstart/Azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription.":::
 
-1. After you login successfully, use the following command to display a list of your subscriptions.
+1. After you log in successfully, use the following command to display a list of your subscriptions.
 
    ```azurecli-interactive
    az account list -o table
@@ -157,7 +157,7 @@ This example uses Java version 11.  To use a different Java version, change Java
 
 ### Provision an instance of Azure Spring Apps
 
-Use the following steps to creates an instance of Azure Spring Apps using the Azure portal.
+Use the following steps to create an instance of Azure Spring Apps using the Azure portal.
 
 1. In a new tab, open the [Azure portal](https://portal.azure.com/).
 
