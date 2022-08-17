@@ -67,9 +67,12 @@ When all customer data must remain within a single region, the storage account a
 
 Other platform-managed customer data is only stored within the region when hosting in an internally load-balanced App Service Environment (ASE). To learn more, see [ASE zone redundancy](../app-service/environment/zone-redundancy.md#in-region-data-residency).
 
-## Host ID considerations 
+## Host ID considerations
 
 Functions uses a host ID value as a way to uniquely identify a particular function app in stored artifacts. By default, this ID is auto-generated from the name of the function app, truncated to the first 32 characters. This ID is then used when storing per-app correlation and tracking information in the linked storage account. When you have function apps with names longer than 32 characters and when the first 32 characters are identical, this truncation can result in duplicate host ID values. When two function apps with identical host IDs use the same storage account, you get a host ID collision because stored data can't be uniquely linked to the correct function app. 
+
+>[!NOTE]
+>This same collison can occur between a function app in a production slot and the same function app in a staging slot, when both slots use the same storage account.
 
 Starting with version 3.x of the Functions runtime, host ID collision is detected and a warning is logged. In version 4.x, an error is logged and the host is stopped, resulting in a hard failure. More details about host ID collision can be found in [this issue](https://github.com/Azure/azure-functions-host/issues/2015).
 
@@ -77,7 +80,7 @@ Starting with version 3.x of the Functions runtime, host ID collision is detecte
 
 You can use the following strategies to avoid host ID collisions:
 
-+ Use a separated storage account for each function app involved in the collision.
++ Use a separated storage account for each function app or slot involved in the collision.
 + Rename one of your function apps to a value less than 32 characters in length, which changes the computed host ID for the app and removes the collision.
 + Set an explicit host ID for one or more of the colliding apps. To learn more, see [Host ID override](#override-the-host-id).
 
@@ -88,7 +91,7 @@ You can use the following strategies to avoid host ID collisions:
 
 You can explicitly set a specific host ID for your function app in the application settings by using the `AzureFunctionsWebHost__hostid` setting. For more information, see [AzureFunctionsWebHost__hostid](functions-app-settings.md#azurefunctionswebhost__hostid). 
 
-To learn how to create app settings, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
+When the collision occurs between slots, you may need to mark this setting as a slot setting. To learn how to create app settings, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
 ## Create an app without Azure Files
 

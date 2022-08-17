@@ -16,9 +16,6 @@ This issue occurs when the Functions runtime can't start. The most common reason
 
 The rest of this article helps you troubleshoot specific causes of this error, including how to identify and resolve each case.
 
-## Function App Slot HostID Truncation
-HostID Truncation can cause collisions when using slots with long function app names. By default, the HostId will be equal to your Site Name. If the provided Site Name for the function app is 32 characters or longer (including the suffix slot name), the function app might not be able to connect to the storage account and give you an error 'Azure Functions Runtime is unreachable' when viewing Functions -> App files. This occurs because the host id cannot be determined as unique. For more information on how to resolve this issue see: [Azure Function Host:Host IDs](https://github.com/Azure/azure-functions-host/wiki/Host-IDs)
-
 ## Storage account was deleted
 
 Every function app requires a storage account to operate. If that account is deleted, your functions won't work.
@@ -105,6 +102,10 @@ To confirm that the error is caused for this reason:
 Any such error would need to be remedied for the function to work correctly.
 
 When the container image can't be found, you should see a `manifest unknown` error in the Docker logs.  In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli) to change the container image being reference. If you've deployed a custom container image, you need to fix the image and redeploy the updated version to the referenced registry.
+
+## Host ID collisons 
+
+Starting with version 3.x of the Functions runtime, [host ID collisons](storage-considerations.md#host-id-considerations) are detected and logged as a warning. In version 4.x, an error is logged and the host is stopped. If the runtime can't start for your function app, [review the logs](analyze-telemetry-data.md). If there's a warning or an error about host ID collisions, follow the mitigation steps in [Host ID considerations](storage-considerations.md#host-id-considerations).   
 
 ## Next steps
 
