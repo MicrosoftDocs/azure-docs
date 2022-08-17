@@ -48,7 +48,7 @@ routed between virtual machines in the same virtual network, through private IP
 addresses only. 
 
 The [Azure Virtual Network documentation
-page](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering)
+page](/azure/virtual-network/virtual-network-manage-peering)
 includes instructions for setting VNET peering.
 
 ## VPN
@@ -60,7 +60,7 @@ Network will then be directly reachable by your Azure CycleCloud server.
 
 To create a connection between Azure and your VPN, please refer to the
 [Site-to-Site
-Connection](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+Connection](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
 documentation (or the appropriate documentation for your cloud provider).
 
 ## Bastion Server
@@ -69,7 +69,7 @@ Outside of connecting your corporate network directly to your virtual setup, the
 next best option is to create an external-facing server (also called a bastion
 server or jump box) with a publicly accessible, static IP address. Azure
 provides several different scenarios in their [Network Security Best
-Practices](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
+Practices](/azure/security/azure-security-network-security-best-practices)
 documentation - choose the one that works best for your particular environment.
 
 ## Proxy Node

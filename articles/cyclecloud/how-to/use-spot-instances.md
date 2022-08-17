@@ -8,7 +8,7 @@ ms.author: bewatrou
 
 # Using Spot VMs in Azure CycleCloud
 
-Azure CycleCloud supports deploying [Spot VMs](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms) in nodearrays to greatly reduce the operational cost of clusters.  
+Azure CycleCloud supports deploying [Spot VMs](/azure/virtual-machines/windows/spot-vms) in nodearrays to greatly reduce the operational cost of clusters.  
 
 > [!CAUTION]
 > Spot VMs are not appropriate for all workloads and cluster types.  They offer no SLA for availability or capacity. They are "preemptible" or "low-priority" instances and may be evicted by the Azure fabric to manage capacity and as the Spot price changes.
@@ -19,7 +19,7 @@ To enable Spot for a nodearray, simply set `Interruptible` to true on the `[[nod
 
 CycleCloud allows clusters to specify a `MaxPrice` for Spot instances.   Since the Spot price may adjust periodically and may vary significantly between Regions and SKUs, the `MaxPrice` allows users to control the maximum price (in $/hour) that they are willing to pay for a VM.  By default, CycleCloud sets `MaxPrice=-1` when not otherwise specified, which means "do not evict based on Spot price."   With this setting, instances will only be evicted due to changes in capacity demands or other platform-level decisions.  
 
-See [Spot Pricing](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms#pricing) for details on variable pricing for Spot instances.
+See [Spot Pricing](/azure/virtual-machines/windows/spot-vms#pricing) for details on variable pricing for Spot instances.
 
 For most HPC applications, `MaxPrice=-1` is a good default choice.   However, if a nodearray supports [multi-select autoscaling](./cluster-templates.md#machine-types) across a range of VM SKUs, then `MaxPrice` may also be customized to create a preference for lower priced SKUs in the multi-select list.
 
@@ -65,7 +65,7 @@ Using Spot with CycleCloud has some considerations that are specific to HPC work
 
 ### Eviction / Preemption
 
-See [Spot Eviction Policy](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms#eviction-policy) for details on Spot eviction in Azure.
+See [Spot Eviction Policy](/azure/virtual-machines/windows/spot-vms#eviction-policy) for details on Spot eviction in Azure.
 
 **Q.** Can CycleCloud track Spot instance evictions/preemptions?
 
@@ -73,9 +73,9 @@ See [Spot Eviction Policy](https://docs.microsoft.com/azure/virtual-machines/win
 
 **Q.** How are users notified of eviction?
 
-**A.** After a CycleCloud node is evicted, users will see a log message in the CycleCloud UI’s event log for the cluster.   Users may also register to receive an Event from CycleCloud via [Azure EventGrid](https://docs.microsoft.com/azure/cyclecloud/how-to/event-grid?view=cyclecloud-8) after a spot instance is evicted. 
+**A.** After a CycleCloud node is evicted, users will see a log message in the CycleCloud UI’s event log for the cluster.   Users may also register to receive an Event from CycleCloud via [Azure EventGrid](/azure/cyclecloud/how-to/event-grid) after a spot instance is evicted. 
 
-* Users can check for an eviction notification on the machine 30 seconds prior to eviction.  See [Scheduled Events](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events#why-use-scheduled-events) for details on how to register for the event.
+* Users can check for an eviction notification on the machine 30 seconds prior to eviction.  See [Scheduled Events](/azure/virtual-machines/linux/scheduled-events#why-use-scheduled-events) for details on how to register for the event.
 * In general, eviction should be considered similar to pulling the plug on an on-premise machine, and it should be handled in the same ways.
 * **IMPORTANT** Event handlers *should not acknowledge* the Spot Eviction Event, since the Cyclecloud event handler may not receive the event if it is acknowledged.
   
@@ -85,7 +85,7 @@ See [Spot Eviction Policy](https://docs.microsoft.com/azure/virtual-machines/win
 
 **Q.** Why are instances evicted?
 
-**A.** Spot VMs make no guarantees about availability and may evicted at any time.   See [the Spot VM documentation](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms) for details.   If a nodearray has set a `MaxPrice` then instances will be evicted if the Spot price rises above the `MaxPrice`.   This tends *to be rare* since the Spot price moves very slowly.  Here are some scenarios that *might* trigger an eviction:
+**A.** Spot VMs make no guarantees about availability and may evicted at any time.   See [the Spot VM documentation](/azure/virtual-machines/windows/spot-vms) for details.   If a nodearray has set a `MaxPrice` then instances will be evicted if the Spot price rises above the `MaxPrice`.   This tends *to be rare* since the Spot price moves very slowly.  Here are some scenarios that *might* trigger an eviction:
 
 1. Reductions in Spot capacity as demand for regular priority VMs increases.
 2. Platform-level events such as planned hardware maintenance.
@@ -113,7 +113,7 @@ See [Spot Eviction Policy](https://docs.microsoft.com/azure/virtual-machines/win
 * Create a single large resource pool with both Spot and Regular-Priority instances.
   * This configuration can be useful for highly scalable workloads that use a small percentage of regular priority instances to ensure forward progress and a large percentage of Spot to reduce cost and runtime. 
 
-**Q.** Can I change the [Spot Eviction Policy](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms#eviction-policy) for CycleCloud nodearrays?
+**Q.** Can I change the [Spot Eviction Policy](/azure/virtual-machines/windows/spot-vms#eviction-policy) for CycleCloud nodearrays?
 
 **A.** Yes.  You can set the `EvictionPolicy` attribute directly on the nodearray to change the policy to either `Delete` or `Deallocate` (default: `Delete`).  *However*, this is currently only useful for custom autoscalers which handle deallocations appropriately.  The current Azure CycleCloud autoscalers expect Spot instances to be deleted upon eviction.
 

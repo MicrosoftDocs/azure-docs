@@ -9,7 +9,7 @@ monikerRange: '>= cyclecloud-8'
 
 # Using Scheduled Events
 
-As of 8.2.2, CycleCloud can take advantage of [Scheduled Events](https://docs.microsoft.com//azure/virtual-machines/linux/scheduled-events) for VMs. This feature lets you put a script on your VM that will be automatically executed when one of the supported events occurs.
+As of 8.2.2, CycleCloud can take advantage of [Scheduled Events](/azure/virtual-machines/linux/scheduled-events) for VMs. This feature lets you put a script on your VM that will be automatically executed when one of the supported events occurs.
 
 ## Invoking a script when events occur
 
@@ -39,7 +39,7 @@ The deprecated setting `cyclecloud.monitor_spot_eviction`, added in version 8, n
 
 ## Terminate Notification
 
-CycleCloud supports enabling [Terminate Notification](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification) on scaleset VMs (e.g., execute nodes). To do this, set `EnableTerminateNotification` to true on the nodearray. This will enable it for scalesets created for this nodearray. To override the timeout allowed, you can set `TerminateNotificationTimeout` to a new time. For example, in a cluster template:
+CycleCloud supports enabling [Terminate Notification](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification) on scaleset VMs (e.g., execute nodes). To do this, set `EnableTerminateNotification` to true on the nodearray. This will enable it for scalesets created for this nodearray. To override the timeout allowed, you can set `TerminateNotificationTimeout` to a new time. For example, in a cluster template:
 
 ``` ini
 [[nodearray execute]]

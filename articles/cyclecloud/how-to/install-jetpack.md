@@ -82,7 +82,7 @@ The Jetpack installer can be found within your CycleCloud installation at _/opt/
 
 ### Upload Jetpack Archive to a VM
 
-Once you have located the Jetpack installer you want to install, you will need to upload it to your VM. For this example we will [move the file to Linux using SCP](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) into the `azureuser`'s home directory:
+Once you have located the Jetpack installer you want to install, you will need to upload it to your VM. For this example we will [move the file to Linux using SCP](/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) into the `azureuser`'s home directory:
 
 ```bash
 scp /opt/cycle/jetpack/work/staging/jetpack/7.9.0/jetpack-7.9.0-linux.tar.gz azureuser@myserver.eastus.cloudapp.com:/home/azureuser
@@ -149,8 +149,8 @@ These commands will install jetpack to _/opt/cycle/jetpack_ on Linux or _C:\cycl
 ## Capturing the Custom Image
 
 After installing Jetpack and performing any other custom image configurations the
-VM is ready for image capture. Note the instructions differ between [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
-and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image) VMs.
+VM is ready for image capture. Note the instructions differ between [Windows](/azure/virtual-machines/windows/capture-image-resource)
+and [Linux](/azure/virtual-machines/linux/capture-image) VMs.
 
 ## Using the Custom Image with CycleCloud
 

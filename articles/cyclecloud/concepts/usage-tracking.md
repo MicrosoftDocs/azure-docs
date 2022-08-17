@@ -44,7 +44,7 @@ To edit the alert, budget, or notification settings, click **Manage** from the a
 
 ## Pricing
 
-CycleCloud collects pricing for instances running in all cloud providers. The data is updated constantly throughout the day to provide accurate estimates. This requires that the subscription credentials in CycleCloud provide access to the [RateCard API](https://docs.microsoft.com/partner-center/develop/azure-rate-card-resources).
+CycleCloud collects pricing for instances running in all cloud providers. The data is updated constantly throughout the day to provide accurate estimates. This requires that the subscription credentials in CycleCloud provide access to the [RateCard API](/partner-center/develop/azure-rate-card-resources).
 
 Includes:
 
@@ -67,7 +67,7 @@ Does NOT Include:
 
 CycleCloud 8.2 now includes the ability to track aggregate usage and costs. Usage is measured in core-hours (where one vCPU used for one hour counts as one core-hour). Cost is measured in US dollars at retail pay-as-you-go rates.
 
-Cost tracking is on by default, but it does require access to the [RateCard API](https://docs.microsoft.com/partner-center/develop/azure-rate-card-resources). If that API does not work with the given Azure credentials, the calls below will only show usage, but no costs.
+Cost tracking is on by default, but it does require access to the [RateCard API](/partner-center/develop/azure-rate-card-resources). If that API does not work with the given Azure credentials, the calls below will only show usage, but no costs.
 
 ###  Tracking Costs Through Azure Cost Management
 

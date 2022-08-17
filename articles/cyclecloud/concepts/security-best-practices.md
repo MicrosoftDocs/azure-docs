@@ -6,7 +6,7 @@ ms.date: 08/02/2021
 ms.author: prkannap
 ---
 
-## Azure CycleCloud – Security Best Practices
+# Azure CycleCloud – Security Best Practices
 
 This article discusses the best practices and useful tips for using Azure CycleCloud more securely and effectively. You can use the best practices listed here as a quick reference when using Azure CycleCloud.
 
@@ -26,7 +26,7 @@ Do not share CycleCloud installation across trust boundaries.  The RBAC controls
 
 ## Networking and Secret Management
 
-The [virtual network](<https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview>) that clusters are launched in should be locked down with [Network Security Groups](<https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview>)(NSG). Access to specific ports is governed by a NSG, you have the option to configure and control the inbound/outbound network traffic to/from Azure resources within the Azure virtual network. A Network Security Group contains security rules that allow or deny inbound network traffic or outbound network traffic from several types of Azure resources.
+The [virtual network](</azure/virtual-network/virtual-networks-overview>) that clusters are launched in should be locked down with [Network Security Groups](</azure/virtual-network/network-security-groups-overview>)(NSG). Access to specific ports is governed by a NSG, you have the option to configure and control the inbound/outbound network traffic to/from Azure resources within the Azure virtual network. A Network Security Group contains security rules that allow or deny inbound network traffic or outbound network traffic from several types of Azure resources.
 
 We strongly recommend using at least two subnets. One for the CycleCloud installation VM and any other VMs with the same access policies, and additional subnets for the compute clusters. However, keep in mind that for large clusters, the IP range of the subnet may become a limiting factor. So, in general, the CycleCloud subnet should use a small CIDR (Classless Inter-Domain Routing) range and compute subnets should be large.
 
@@ -34,6 +34,6 @@ CycleCloud uses the Azure Resource Manager for managing clusters. To make calls 
 
 ## Secured Locked-down environment
 
-Some secure production environments will lock down the environment and have limited internet access. Since Azure CycleCloud requires access to Azure Storage accounts and other supported Azure services, the recommended way to provide private access is through [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) or Private Link. Enabling Service Endpoints or Private Link allows you to secure your Azure service resources to your virtual network. Service endpoints add more security by enabling private IP addresses in the Virtual Network to reach endpoints of an Azure service.  
+Some secure production environments will lock down the environment and have limited internet access. Since Azure CycleCloud requires access to Azure Storage accounts and other supported Azure services, the recommended way to provide private access is through [Virtual Network Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) or Private Link. Enabling Service Endpoints or Private Link allows you to secure your Azure service resources to your virtual network. Service endpoints add more security by enabling private IP addresses in the Virtual Network to reach endpoints of an Azure service.  
 
-The CycleCloud application and cluster nodes can operate in environments with limited internet access, though there are a minimal number of TCP ports that must remain open. One way to limit outbound internet access from the CycleCloud VM without configuring the Azure Firewall or an HTTPS proxy is to configure a strict Azure Network Security Group for the CycleCloud Virtual machine's subnet. The simplest way to do that is to use [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)  in the subnet or VM level Network Security Group  to permit the required outbound Azure access. Service tags can be used in place of specific IP address when you create security rules, you can allow or deny the traffic for the corresponding service.
+The CycleCloud application and cluster nodes can operate in environments with limited internet access, though there are a minimal number of TCP ports that must remain open. One way to limit outbound internet access from the CycleCloud VM without configuring the Azure Firewall or an HTTPS proxy is to configure a strict Azure Network Security Group for the CycleCloud Virtual machine's subnet. The simplest way to do that is to use [Service Tags](/azure/virtual-network/service-tags-overview)  in the subnet or VM level Network Security Group  to permit the required outbound Azure access. Service tags can be used in place of specific IP address when you create security rules, you can allow or deny the traffic for the corresponding service.

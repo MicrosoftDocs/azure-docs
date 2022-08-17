@@ -5,7 +5,7 @@ author: adriankjohnson
 ms.date: 11/15/2019
 ms.author: adjohnso
 ---
-# Common Issues: Azure Credentials Resources
+# Common Issues: Azure provider registration error
 
 ## Possible Error Messages
 
@@ -33,4 +33,4 @@ az provider register --namespace "Microsoft.Commerce"
 
 ## More Information
 
-For more information on specific permissions required for Azure CycleCloud, see [Create a custom role for CycleCloud](https://docs.microsoft.com/azure/cyclecloud/managed-identities#create-a-custom-role-and-managed-identity-for-cyclecloud)
+For more information on specific permissions required for Azure CycleCloud, see [Create a custom role for CycleCloud](/azure/cyclecloud/managed-identities#create-a-custom-role-and-managed-identity-for-cyclecloud)

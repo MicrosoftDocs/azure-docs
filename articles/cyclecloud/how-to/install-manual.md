@@ -116,6 +116,14 @@ dpkg -i <filename.deb>
 Once the installer has finished running, you will be provided a link to complete the installation from your browser. Copy the link provided into your web browser and follow the configuration steps.
 ::: moniker-end
 
+### Insider Builds
+
+CycleCloud insider builds are available for pre-release feature testing. Insider builds may contain unresolved issues.
+
+Enterprise Linux (RHEL) insider builds are located at: [https://packages.microsoft.com/yumrepos/cyclecloud-insiders/](https://packages.microsoft.com/yumrepos/cyclecloud-insiders/)
+
+Debian/Ubuntu insider builds are located at: [https://packages.microsoft.com/repos/cyclecloud-insiders/pool/main/c/cyclecloud8/](https://packages.microsoft.com/repos/cyclecloud-insiders/pool/main/c/cyclecloud8/)
+
 ### Notes on Security
 
 The default installation of CycleCloud uses non-encrypted HTTP running on port 8080. We strongly recommend [configuring SSL](ssl-configuration.md) for all installations.
@@ -176,7 +184,7 @@ You will now set up the local administrator account for CycleCloud. This account
 
 ### Step 4: Set Your SSH Key
 
-Once you have set up your administrator account, you can set your SSH public key so that you can easily access any Linux machines started by CycleCloud. To set your SSH public key, go to **My Profile** under the user menu in the top right and choose **Edit Profile**. [Learn about creating SSH keys here.](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
+Once you have set up your administrator account, you can set your SSH public key so that you can easily access any Linux machines started by CycleCloud. To set your SSH public key, go to **My Profile** under the user menu in the top right and choose **Edit Profile**. [Learn about creating SSH keys here.](/azure/virtual-machines/linux/mac-create-ssh-keys)
 
 ## Update CycleCloud
 

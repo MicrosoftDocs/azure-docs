@@ -28,7 +28,7 @@ Add an `AssociatePublicIpAddress` attribute to a node to specify whether a node 
 
 The above configuration allows public access to the scheduler node on ports as allowed by the Network Security Group for the Virtual Network.
 
-By default, the public IP address assigned to the node will be dynamic and will change each time the cluster is started. To have a statically-assigned public IP address for your node, first [create a public IP address in your Azure subscription](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address). Then add the `PublicIP` attribute to your node network-interface section, assigning it the resource ID for the created PublicIP object.
+By default, the public IP address assigned to the node will be dynamic and will change each time the cluster is started. To have a statically-assigned public IP address for your node, first [create a public IP address in your Azure subscription](/azure/virtual-network/virtual-network-public-ip-address). Then add the `PublicIP` attribute to your node network-interface section, assigning it the resource ID for the created PublicIP object.
 
 ``` ini
 [[node scheduler]]
@@ -36,7 +36,7 @@ By default, the public IP address assigned to the node will be dynamic and will 
     PublicIp = /subscriptions/${subscription_id/resourceGroups/${resource_group_name}/providers/Microsoft.Network/publicIPAddresses/${public-ip-name}
 ```
 
-Alternatively, create a network-interface in your Azure subscription, and [attach a public IP address to that network interface.](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses). Then, specify that network interface id in the node config:
+Alternatively, create a network-interface in your Azure subscription, and [attach a public IP address to that network interface.](/azure/virtual-network/virtual-network-network-interface-addresses). Then, specify that network interface id in the node config:
 
 ``` ini
 [[node scheduler]]
@@ -70,7 +70,7 @@ Note that the private IP address specified must be valid for the associated subn
 
 ## Network Security Groups
 
-Azure CycleCloud provisions Virtual Machines and Virtual Machine Scale Sets in user-defined virtual networks and subnets. Access to specific ports on nodes are ultimately governed by the network security groups associated with the virtual network. For more information, see [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/security-overview)
+Azure CycleCloud provisions Virtual Machines and Virtual Machine Scale Sets in user-defined virtual networks and subnets. Access to specific ports on nodes are ultimately governed by the network security groups associated with the virtual network. For more information, see [Virtual Network Documentation](/azure/virtual-network/security-overview)
 
 If a node has a network interface configured with `AssociatePublicIpAddress = true`, or is assigned a `PublicIp`, the node will automatically receive a network security group.
 

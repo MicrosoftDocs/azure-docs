@@ -37,7 +37,7 @@ By defining volumes with a `mountpoint` attribute, the device names will be auto
   Azure.LUN=0
 ```
 
-In Azure, devices are assigned using [Logical Unit Numbers (LUN)](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azuredatadisk?view=azuresmps-4.0.0#parameters)
+In Azure, devices are assigned using [Logical Unit Numbers (LUN)](/powershell/module/servicemanagement/azure.service/add-azuredatadisk)
 
 In most cases, Azure CycleCloud will automatically assign devices for you. Specifying devices manually is advanced usage, and useful in cases where the image you are using for your node has volumes that will be automatically attached because their attachment was baked into the image. Specifying the devices by hand can also be useful when the ordering of devices has special meaning.
 
@@ -74,10 +74,10 @@ The previous example was a fairly simple: mounting a single, pre-formatted snaps
 The above example shows there are three volumes that should be attached to the node named `scheduler`, and that their mountpoint is named `giant`. The configuration for the mountpoint says that these three volumes should be RAIDed together using `raid_level = 0` for RAID0, formatted using the `xfs` filesystem, and the resulting device should be mounted at `/mnt/giant`. The device should also have block level encryption using 256-bit AES with an encryption key as defined in the template.
 
 ## Server-Side Encryption with Azure Disk Encryption Sets
-CycleCloud supports server-side encryption for OS and data disk Volumes using [Azure Disk Encryption Sets](https://docs.microsoft.com/azure/virtual-machines/disk-encryption).   Server-side encryption supports both Platform Managed Keys (the default) and Customer Managed Keys (CMK).
+CycleCloud supports server-side encryption for OS and data disk Volumes using [Azure Disk Encryption Sets](/azure/virtual-machines/disk-encryption).   Server-side encryption supports both Platform Managed Keys (the default) and Customer Managed Keys (CMK).
 
 To enable SSE with CMK, you must first set up an Azure Disk Encryption Set and a Key Vault with your key.
-Follow the documention here to [set up your Disk Encryption Set](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal).  
+Follow the documention here to [set up your Disk Encryption Set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal).  
 
 Record the ``ResourceID`` of the Disk Encryption Set when you create it.  If you are using an existing set, then you can find the ``ResourceID`` in the Azure Portal in the ``Disk Encryption Sets`` blade.
 

@@ -18,4 +18,4 @@ Azure CycleCloud, by default, creates a new resource group for each cluster. If 
 
 ## More Information
 
-For more information, see [Configuring Azure Credentials](https://docs.microsoft.com/azure/cyclecloud/configuration)
+For more information, see [Configuring Azure Credentials](/azure/cyclecloud/configuration)

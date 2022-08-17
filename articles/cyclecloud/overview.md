@@ -10,9 +10,9 @@ ms.author: jechia
 
 Azure CycleCloud is an enterprise-friendly tool for orchestrating and managing High Performance Computing (HPC) environments on Azure. With CycleCloud, users can provision infrastructure for HPC systems, deploy familiar HPC schedulers, and automatically scale the infrastructure to run jobs efficiently at any scale. Through CycleCloud, users can create different types of file systems and mount them to the compute cluster nodes to support HPC workloads.
 
-Azure CycleCloud is targeted at HPC administrators and users who want to deploy an HPC environment with a specific scheduler in mind -- commonly used schedulers such as Slurm, PBSPro, LSF, Grid Engine, and HT-Condor are supported out of the box. CycleCloud is the sister product to [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview), which provides a Scheduler as a Service on Azure.
+Azure CycleCloud is targeted at HPC administrators and users who want to deploy an HPC environment with a specific scheduler in mind -- commonly used schedulers such as Slurm, PBSPro, LSF, Grid Engine, and HT-Condor are supported out of the box. CycleCloud is the sister product to [Azure Batch](/azure/batch/batch-technical-overview), which provides a Scheduler as a Service on Azure.
 
-See [High Performance Computing (HPC) on Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) for information about how CycleCloud compares against other Azure HPC solutions.
+See [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/) for information about how CycleCloud compares against other Azure HPC solutions.
 
 > [!VIDEO https://www.youtube.com/embed/qkiGJWGM6Ew]
 
@@ -24,7 +24,7 @@ CycleCloud deploys autoscaling plugins on top of the supported schedulers, so us
 
 With a rich, declarative, templating format, CycleCloud provides powerful tooling to construct complete HPC environments on Azure. Users can deploy environments that include NFS servers, parallel file systems, login hosts, license servers, and directory services -- essentially all the components needed in an HPC system -- through a single management plane.
 
-CycleCloud integrates with Azure services such as [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) and [Azure Cost Management tools](https://docs.microsoft.com/azure/cost-management/overview-cost-mgt).
+CycleCloud integrates with Azure services such as [Azure Monitor](/azure/azure-monitor/overview) and [Azure Cost Management tools](/azure/cost-management/overview-cost-mgt).
 
 ![Overview Intro](~/images/overview-gui.png)
 
@@ -82,4 +82,4 @@ An entire CycleCloud HPC system can be deployed on Azure infrastructure. CycleCl
 * [Install Azure CycleCloud using an ARM template](~/how-to/install-arm.md)
 * [Install CycleCloud manually](~/how-to/install-manual.md)
 * [Explore CycleCloud features with the tutorial](./tutorials/create-cluster.md)
-* [Plan your Production Deployment](../how-to/plan-prod-deployment.md)
+* [Plan your Production Deployment](/azure/cyclecloud/how-to/plan-prod-deployment)

@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Cluster Templates
 
-Azure CycleCloud uses templates to define cluster configurations. A number of templates are included in CycleCloud by default and a full list of supported templates is [available in GitHub](https://github.com/Azure?q=cyclecloud). You can create new templates or you can customize existing ones. For instance, you may want to customize an existing template to take advantage of [Spot VMs](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms), or you might want to add a VPC to extend your own network.
+Azure CycleCloud uses templates to define cluster configurations. A number of templates are included in CycleCloud by default and a full list of supported templates is [available in GitHub](https://github.com/Azure?q=cyclecloud). You can create new templates or you can customize existing ones. For instance, you may want to customize an existing template to take advantage of [Spot VMs](/azure/virtual-machines/windows/spot-vms), or you might want to add a VPC to extend your own network.
 
 ## Configuration Notation
 

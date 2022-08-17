@@ -194,7 +194,7 @@ ellen@Azure:~$
 
 In the above example, the storage account name is `cyclecloudcbekjhvzjrzswz` and the blob container name is `cyclecloud`.
 
-The `cyclecloud project upload` command packages up the contents of the project and uploads it into the locker. To do this, it needs to have credentials to access the blob container associated with the locker. You could [create an SAS key](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas), or you can use a previously-created service principal. To do this,
+The `cyclecloud project upload` command packages up the contents of the project and uploads it into the locker. To do this, it needs to have credentials to access the blob container associated with the locker. You could [create an SAS key](/cli/azure/storage/account?view=azure-cli-latest&preserve-view=true#az-storage-account-generate-sas), or you can use a previously-created service principal. To do this,
 edit the cyclecloud configuration file:
 
 ```azurecli-interactive

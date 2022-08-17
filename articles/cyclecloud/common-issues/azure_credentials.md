@@ -21,4 +21,4 @@ az ad sp credential reset --name "0000000000-0000-0000-0000-00000000" --years 2 
 
 ## More Information
 
-For more information on Azure CLI operations with service principals, see [Service Principals](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest)
+For more information on Azure CLI operations with service principals, see [Service Principals](/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true)

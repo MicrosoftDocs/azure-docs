@@ -12,7 +12,7 @@ There are primarily two mechanisms for enabling login access to cluster nodes --
 
 ## The VM Agent User
 
-Every Azure VM started and managed through CycleCloud has an admin user named `cyclecloud` that is created by the [VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux). The SSH private key for this user can be found at */opt/cycle_server/.ssh/cyclecloud.pem* in the CycleCloud application server. This key is generated during the install process and is unique to each installation.
+Every Azure VM started and managed through CycleCloud has an admin user named `cyclecloud` that is created by the [VM agent](/azure/virtual-machines/extensions/agent-linux). The SSH private key for this user can be found at */opt/cycle_server/.ssh/cyclecloud.pem* in the CycleCloud application server. This key is generated during the install process and is unique to each installation.
 
 This user exists locally on each VM and should be treated as a service user with admin access. However, this user account may be useful for troubleshooting purposes.
 
@@ -62,4 +62,4 @@ The built-in user management system is enabled by default on every CycleCloud in
 
 For enterprise production clusters, it is recommended that user access be managed through a directory service such as LDAP, Active Directory, or NIS. This integration can be implemented by configuring PAM and NSS in the VM images used on each node, or creating CycleCloud projects that are executed during the software installation phase of each node.
 
-The [Azure Active Directory Domain Service](https://azure.microsoft.com/services/active-directory-ds/) provides a managed service for Active Directory servers, and instructions for joining a Linux domain can be found [here](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm).
+The [Azure Active Directory Domain Service](/services/active-directory-ds/) provides a managed service for Active Directory servers, and instructions for joining a Linux domain can be found [here](/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm).

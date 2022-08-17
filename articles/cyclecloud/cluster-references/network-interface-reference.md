@@ -1,16 +1,16 @@
 ---
-title: Cluster Template Reference - Network
+title: Cluster Template Reference - Network Interface Objects
 description: Network Interface reference for cluster templates for use with Azure CycleCloud
 author: adriankjohnson
 ms.date: 03/10/2020
 ms.author: adjohnso
 ---
 
-# Network Interface
+# Network Interface Objects
 
 Network Interface objects are rank 3, and subordinate to `node` or `nodearray`. `network-interface` represents an Azure Network Interface.
 
-Multiple network interfaces may be attached to a single node for multi-homed VMs.   Refer to the [VM Sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) documentation to find the maxinum number of NICs for the selected VM SKU.
+Multiple network interfaces may be attached to a single node for multi-homed VMs.   Refer to the [VM Sizes](/azure/virtual-machines/linux/sizes) documentation to find the maxinum number of NICs for the selected VM SKU.
 
 ### Example
 

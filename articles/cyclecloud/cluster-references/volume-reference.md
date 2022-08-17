@@ -81,9 +81,9 @@ Attribute | Type | Definition
 ------ | ----- | ----------
 Size | String | (Required) Size of disk in GB
 VolumeId | String | Resource id for existing Azure Disk.
-StorageAccountType | String | UltraSSD_LRS, Premium_LRS, StandardSSD_LRS, Standard_LRS ([Azure Disk Types](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)) If not set, defaults to Standard_LRS or Premium_LRS depending on VM size capabilities.
-DiskIOPSReadWrite | Integer | Provisioned IOPS see [Ultra Disks](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-disk)
-DiskMBPSReadWrite | Integer | Disk throughput MB/s see [Ultra Disks](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-disk) 
+StorageAccountType | String | UltraSSD_LRS, Premium_LRS, StandardSSD_LRS, Standard_LRS ([Azure Disk Types](/azure/virtual-machines/linux/disks-types)) If not set, defaults to Standard_LRS or Premium_LRS depending on VM size capabilities.
+DiskIOPSReadWrite | Integer | Provisioned IOPS see [Ultra Disks](/azure/virtual-machines/linux/disks-types#ultra-disk)
+DiskMBPSReadWrite | Integer | Disk throughput MB/s see [Ultra Disks](/azure/virtual-machines/linux/disks-types#ultra-disk) 
 Azure.Lun | Integer | Override the auto-assigned LUN ID.
 Mount | String | Name of mount construct, described in `configuration` object
 Azure.Caching | String | None, readonly, readwrite. Default is none.
@@ -93,7 +93,7 @@ SourceUri | String | URI of blob to import into managed disk.
 StorageAccountId | String | Azure resource ID of storage account containing SourceUri blob. Required if blob is in a different subscription.
 SourceResourceId | String | Azure resource ID of source snapshot or managed disk.
 Azure.Encryption.DiskEncryptionSetId | String | Azure resource ID of the Disk Encryption Set to use (use to enable SSE with CMK)
-Azure.Encryption.Type | String | Encryption Type for Server-Side Encryption (for [SSE with CMK](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal)), use: ``EncryptionAtRestWithCustomerKey``)
+Azure.Encryption.Type | String | Encryption Type for Server-Side Encryption (for [SSE with CMK](/azure/virtual-machines/disks-enable-customer-managed-keys-portal)), use: ``EncryptionAtRestWithCustomerKey``)
 ::: moniker-end
 
 ### Boot Volume

@@ -13,7 +13,7 @@ ms.author: mirequa
 
 ## Resolution
 
-Cyclecloud nodes use [custom script extension](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-linux)
+Cyclecloud nodes use [custom script extension](/azure/virtual-machines/extensions/custom-script-linux)
 to install jetpack. The jetpack installer is staged into the locker during the initial node phase
 and downloaded by the node at start time. Cyclecloud transmits the blob url and the access key to 
 the node via the script extension.

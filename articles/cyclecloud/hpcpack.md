@@ -9,7 +9,7 @@ monikerRange : '>= cyclecloud-8'
 
 # Microsoft HPC Pack
 
- [Microsoft HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview)  is a free HPC solution built on Microsoft Azure with Windows Server technologies and supports a wide range of HPC workloads.This page articulates the capabilities and configuration details for HPC Pack integration with Cyclecloud.
+ [Microsoft HPC Pack](/powershell/high-performance-computing/overview)  is a free HPC solution built on Microsoft Azure with Windows Server technologies and supports a wide range of HPC workloads.This page articulates the capabilities and configuration details for HPC Pack integration with Cyclecloud.
 
 ## Limitations and supported versions
 
@@ -31,7 +31,7 @@ Currently all HPC Pack nodes must be joined into an Active Directory Domain. If 
 
 ### Azure Key Vault
 
-Microsoft HPC Pack requires a PFX certificate to secure the node communication,  and it also requires AD domain user credentials to join the nodes into AD domain. While you can directly specify a PFX file, protection password, and user password in the template, we strongly recommend using Azure Key Vault for secure handling of the certificate and user password . Refer to [Create an Azure Key Vault Certificate](https://docs.microsoft.com/powershell/high-performance-computing/deploy-an-hpc-pack-cluster-in-azure?view=hpc19-ps#create-azure-key-vault-certificate-on-azure-portal).
+Microsoft HPC Pack requires a PFX certificate to secure the node communication,  and it also requires AD domain user credentials to join the nodes into AD domain. While you can directly specify a PFX file, protection password, and user password in the template, we strongly recommend using Azure Key Vault for secure handling of the certificate and user password . Refer to [Create an Azure Key Vault Certificate](/powershell/high-performance-computing/deploy-an-hpc-pack-cluster-in-azure#create-azure-key-vault-certificate-on-azure-portal).
 
 The cluster also requires Username and Password of an AD administrator account to join nodes to the domain as they are created. We strongly recommend to use Azure Key Vault.
 
@@ -39,9 +39,9 @@ The cluster also requires Username and Password of an AD administrator account t
 
 In order to use Azure Key Vault for the certificate and credentials , you need to create an Azure User Assigned Managed Identity and grant **Get**' permission for both Secret and the Certificate of the Azure Key Vault.
 
-You can refer to this [Key Vault tutorial](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad) for creating your Key Vault and a Managed Identity with Key Vault access.
+You can refer to this [Key Vault tutorial](/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad) for creating your Key Vault and a Managed Identity with Key Vault access.
 
-We recommend using [Azure Role-Based Access Control](https://docs.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli) to assign Key Vault permissions to the Managed Identity.
+We recommend using [Azure Role-Based Access Control](/azure/key-vault/general/rbac-guide?tabs=azure-cli) to assign Key Vault permissions to the Managed Identity.
 
 ## HPC Pack node roles
 
@@ -55,7 +55,7 @@ There are three different node roles in  HPC Pack cluster:
 
 You can click the **Microsoft HPC Pack** icon under **Schedulers** to create a new Microsoft HPC Pack cluster.
 
-On the **About** page, specify a unique **Cluster Name** for the cluster,Since it will be used as the NetBIOS computer name of the head node, make sure it is unique in the AD domain and complies with the [naming conventions](https://docs.microsoft.com/troubleshoot/windows-server/identity/naming-conventions-for-computer-domain-site-ou#netbios-domain-names).
+On the **About** page, specify a unique **Cluster Name** for the cluster,Since it will be used as the NetBIOS computer name of the head node, make sure it is unique in the AD domain and complies with the [naming conventions](/troubleshoot/windows-server/identity/naming-conventions-for-computer-domain-site-ou#netbios-domain-names).
 
 ### Basic Settings
 
