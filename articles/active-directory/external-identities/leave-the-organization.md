@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 08/22/2022
 
 ms.author: mimart
 author: msmimart
@@ -56,6 +56,9 @@ If your organization allows users to remove themselves from external organizatio
    ![Screenshot showing Leave organization option in the user interface.](media/leave-the-organization/leave-org.png)
 
 1. When asked to confirm, select **Leave**.
+1. If you select **Leave** for an organization but you see the following message, it means you’ll need to contact your admin or privacy contact and ask to leave the external organization.
+
+   ![Screenshot showing the message when you need permission to leave an organization.](media/leave-the-organization/need-permission-leave.png)
 
 ## Why can’t I leave an organization?
 
@@ -65,22 +68,23 @@ Sometimes you're unable to leave an organization on your own, for example:
 - If the organization you want to leave doesn’t allow users to leave by themselves
 - If your account has been disabled
 
-If you select **Leave** for an organization but you see the following message, it means you’ll need to contact your admin or privacy contact and ask to leave the external organization.
-
-   ![Screenshot showing the message when you need permission to leave an organization.](media/leave-the-organization/need-permission-leave.png)
-
+In these cases, you'll need to contact your admin or privacy contact and ask to leave the external organization.
 
 ## More information for administrators
 
-Administrators can use the **External user leave settings** to control whether external users can remove themselves from their organization. If you disallow the ability for external users to remove themselves from your organization, external users will need to contact their admin or privacy contact to have their account removed.
+Administrators can use the **External user leave settings** to control whether external users can remove themselves from their organization. If you disallow the ability for external users to remove themselves from your organization, external users will need to contact your admin or privacy contact to be removed.
+
+> [!IMPORTANT]
+> You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/active-directory-properties-area.md) to your Azure AD tenant. Otherwise, this setting will be unavailable. We recommend adding your privacy information to allow external users to review your policies and email your privacy contact when necessary.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account and open the Azure Active Directory service.
 
 1. Select **External Identities** > **External collaboration settings**.
 
 1. Under **External user leave** settings, choose whether to allow external users to leave your organization themselves:
-   - **Yes**: Users can leave the organization without approval from an administrator.
-   - **No**: Users will be guided to review the privacy statement or to request approval to leave the organization from the admin or privacy contact.
+
+   - **Yes**: Users can leave the organization without approval from your admin or privacy contact.
+   - **No**: Users can't leave your organization themselves. They'll see a message guiding them to contact your admin or privacy contact to request approval to leave your organization.
 
    ![Screenshot showing External user leave settings in the portal.](media/leave-the-organization/external-user-leave-settings.png)
 
