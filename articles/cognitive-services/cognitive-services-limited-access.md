@@ -53,7 +53,7 @@ Review may take 5-10 business days. You will receive an email as soon as your re
 
 Limited Access services are available only to customers managed by Microsoft. Additionally, Limited Access services are only available for certain use cases, and customers must select their intended use case in their registration form.  
 
-Please use an email address affiliated with your organization in your registration. Registration forms submitted with personal email addresses will be denied. 
+Please use an email address affiliated with your organization in your registration form. Registration forms submitted with personal email addresses will be denied. 
 
 If you are not a managed customer, we invite you to submit a registration form using the same forms and we will reach out to you about any opportunities to join an eligibility program. 
 
