@@ -11,7 +11,7 @@ ms.date: 08/08/2022
 
 Pod Security Admission enforces Pod Security Standards policies on pods running in a namespace. Pod Security Admission is enabled by default in AKS and is controlled by adding labels to a namespace. For more information about Pod Security Admission, see [Enforce Pod Security Standards with Namespace Labels][kubernetes-psa]. For more information about the Pod Security Standards used by Pod Security Admission, see [Pod Security Standards][kubernetes-pss].
 
-Pod Security Admission is a built-in policy solution for single cluster implementations. If you are looking for an enterprise-grade policy solution, then [Azure policy][https://docs.microsoft.com/azure/aks/use-azure-policy] is a better choice.
+Pod Security Admission is a built-in policy solution for single cluster implementations. If you are looking for enterprise-grade policy, then [Azure policy][https://docs.microsoft.com/azure/aks/use-azure-policy] is a better choice.
 
 ## Before you begin
 
