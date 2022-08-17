@@ -222,10 +222,6 @@ The sample test repository contains 30 tests, which run across five different br
 
 1. To view all previous test runs, select the dashboard name from the breadcrumb.
 
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-breadcrumb.png" alt-text="Screenshot that shows breadcrumb navigation in the Microsoft Playwright Testing dashboard.":::
-
-1. View the full history of tests.
-
     :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-test-result-list.png" alt-text="Screenshot that shows the list of test results in the Microsoft Playwright Testing dashboard.":::
 
     You notice that the test run completes much faster because of the increased number of parallel workers.
