@@ -52,7 +52,7 @@ In this step, browse to your FHIR service in the Azure portal and select the **I
 
 For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 
-Now you're ready to configure the FHIR service with the ADLS Gen2 account as the default storage account for export.
+Now you're ready to configure the FHIR service by setting the ADLS Gen2 account as the default storage account for export.
 
 ## Specify the storage account for FHIR service export
 
