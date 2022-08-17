@@ -112,6 +112,9 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
       "metadataVersion": "1"
     }]
    ```
+ 
+   > [!IMPORTANT]
+   > Be sure to paste the JSON snippet into the box provided by **Use sample payload to generate schema** link and not directly into the **Request Body JSON Schema** box. The sample payload link provides a way to generate the JSON content based on the JSON snippet. The final JSON that ends up in the request body is different than the JSON snippet.
 
    This event publishes when a device is connected to an IoT hub.
 
