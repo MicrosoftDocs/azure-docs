@@ -42,7 +42,7 @@ Create from the portal an Application Gateway instance **_AG1_**:
           |--|--|--|
           | *myAGSubnet* | (address range) | Subnet for the application gateway. The application gateway subnet can contain only application gateways. No other resources are allowed.
           | *myBackendSubnet* | (another address range) | Subnet for the Azure SignalR instance.
-          
+
     - Accept the default values for the other settings and then select **Next: Frontends**
 
     :::image type="content" source="./media/signalr-howto-work-with-app-gateway/basics.png" alt-text="Create Application Gateway instance with Basics tab.":::  
@@ -82,11 +82,11 @@ Create from the portal an Application Gateway instance **_AG1_**:
             * **Host name override**: **Pick host name from backend target**
             * Others keep the default values
      
-        :::image type="content" source="./media/signalr-howto-work-with-app-gateway/step8.png" alt-text="Set up the application gateway backend setting for the SignalR Service.":::   
+        :::image type="content" source="./media/signalr-howto-work-with-app-gateway/application-gateway-setup-backend.png" alt-text="Set up the application gateway backend setting for the SignalR Service.":::   
 
 * Review and create the **_AG1_**
     
-    :::image type="content" source="./media/signalr-howto-work-with-app-gateway/step9.png" alt-text="Review and create the application gateway instance.":::   
+    :::image type="content" source="./media/signalr-howto-work-with-app-gateway/application-gateway-review.png" alt-text="Review and create the application gateway instance.":::   
 
 ### Configure Application Gateway health probe
 
@@ -147,7 +147,7 @@ Now, the traffic can reach SignalR Service through the Application Gateway. The 
     ```
 * Open http://localhost:5000 from the browser and use F12 to view the network traces, you can see that the WebSocket connection is established through **_AG1_**  
 
-    :::image type="content" source="./media/signalr-howto-work-with-app-gateway/step12.png" alt-text="Run chat application locally with App Gateway and SignalR Service.":::
+    :::image type="content" source="./media/signalr-howto-work-with-app-gateway/chat-local-run.png" alt-text="Run chat application locally with App Gateway and SignalR Service.":::
 
 ## Secure SignalR Service
 
@@ -183,7 +183,7 @@ Let's configure SignalR Service to only allow private access. You can find more 
             * **Integration with private DNS zone**: **Yes** 
         * Review and create the private endpoint
 
-    :::image type="content" source="./media/signalr-howto-work-with-app-gateway/step2.png" alt-text="Set up the private endpoint resource for the SignalR Service.":::  
+    :::image type="content" source="./media/signalr-howto-work-with-app-gateway/application-gateway-setup-private-endpoint.png" alt-text="Set up the private endpoint resource for the SignalR Service.":::  
     
 ### Refresh Application Gateway backend pool
 Since Application Gateway was set up before there was a private endpoint for it to use, we need to **refresh** the backend pool for it to look at the Private DNS Zone and figure out that it should route the traffic to the private endpoint instead of the public address. We do the **refresh** by setting the backend FQDN to some other value and then changing it back.
@@ -236,7 +236,7 @@ Let's deploy the Chat application into the same VNet with **_ASRS1_** so that th
     * **Outbound subnet**: create a new subnet
     * Select **Review + create**
 
-Now let's deploy our chat application to Azure. Below we use Azure CLI to deploy the web app, you can also choose other deployment environments following the [publish your web app section](/azure/app-service/quickstart-dotnetcore#publish-your-web-app).
+Now let's deploy our chat application to Azure. Below we use Azure CLI to deploy the web app, you can also choose other deployment environments following [publish your web app section](/azure/app-service/quickstart-dotnetcore#publish-your-web-app).
 
 Under folder samples/Chatroom, run the below commands:
 
@@ -255,14 +255,18 @@ az webapp deployment source config-zip -n WA1 -g <resource-group-of-WA1> --src a
 Now the web app is deployed, let's go to the portal for **_WA1_** and make the following updates:
 * On the **Configuration** tab:
     * New application settings:
+
         | Name | Value |
         | --------| ------|
         |**WEBSITE_DNS_SERVER**| **168.63.129.16** |
         |**WEBSITE_VNET_ROUTE_ALL**| **1**|
+
     * New connection string:
+
         | Name  |  Value | Type|
         | --------| ------|---|
         |**Azure__SignalR__ConnectionString**| The copied connection string with ClientEndpoint value| select **Custom**|
+
 * On the **TLS/SSL settings** tab:
     * **HTTPS Only**: **Off**. To Simplify the demo, we used the HTTP frontend protocol on Application Gateway. Therefore, we need to turn off this option to avoid changing the HTTP URL to HTTPs automatically.
 
