@@ -8,7 +8,7 @@ ms.author: juliako
 
 # People's featured clothing (preview)
 
-Azure Video Indexer enables you to get data on the featured clothing of an observed person. Using featured clothing insight information, you can enable the following scenarios: 
+Azure Video Indexer enables you to get data on the featured clothing of an observed person. The featured clothing feature, helps to enable the following scenarios: 
 
 - Ads placement - using the featured clothing insight information, you can enable more targeted ads placement.  
 - Video summarization - you can create a summary of the most interesting outfits appearing in the video. 
