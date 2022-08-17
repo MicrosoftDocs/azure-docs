@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.author: samkemp
 author: samuel100
-ms.date: 10/21/2021
+ms.date: 08/17/2022
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to version and track datasets so I can use and share them across multiple machine learning experiments.
@@ -15,7 +15,7 @@ ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 
 # Version and track Azure Machine Learning datasets
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you'll learn how to version and track Azure Machine Learning datasets for reproducibility. Dataset versioning is a way to bookmark the state of your data so that you can apply a specific version of the dataset for future experiments.
 
@@ -30,7 +30,7 @@ For this tutorial, you need:
 
 - [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install). This SDK includes the [azureml-datasets](/python/api/azureml-core/azureml.core.dataset) package.
     
-- An [Azure Machine Learning workspace](concept-workspace.md). Retrieve an existing one by running the following code, or [create a new workspace](quickstart-create-resources.md).
+- An [Azure Machine Learning workspace](concept-workspace.md). Retrieve an existing one by running the following code, or [create a new workspace](../quickstart-create-resources.md).
 
     ```Python
     import azureml.core
@@ -38,7 +38,7 @@ For this tutorial, you need:
     
     ws = Workspace.from_config()
     ```
-- An [Azure Machine Learning dataset](./v1/how-to-create-register-datasets.md).
+- An [Azure Machine Learning dataset](how-to-create-register-datasets.md).
 
 <a name="register"></a>
 

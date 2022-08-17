@@ -53,7 +53,7 @@ You can also use SmartNoise packages with Docker.
 
 Pull the `opendp/smartnoise` image to use the libraries inside a Docker container that includes Spark, Jupyter, and sample code.
 
-[!INCLUDE [pull-image-include](../../includes/pull-image-include.md)]
+[!INCLUDE [pull-image-include](../../../includes/pull-image-include.md)]
 
 ```sh
 docker pull opendp/smartnoise:privacy

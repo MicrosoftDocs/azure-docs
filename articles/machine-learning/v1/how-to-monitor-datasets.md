@@ -8,7 +8,7 @@ ms.subservice: mldata
 ms.reviewer: sgilley
 ms.author: wibuchan
 author: buchananwp
-ms.date: 10/21/2021
+ms.date: 08/17/2022
 ms.topic: how-to
 ms.custom: data4ml, contperf-fy21q2, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
@@ -16,7 +16,7 @@ ms.custom: data4ml, contperf-fy21q2, sdkv1, event-tier1-build-2022
 
 # Detect data drift (preview) on datasets
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 Learn how to monitor data drift and set alerts when drift is high.  
 
@@ -28,7 +28,7 @@ With Azure Machine Learning dataset monitors (preview), you can:
 * **Set up alerts on data drift** for early warnings to potential issues. 
 * **[Create a new dataset version](how-to-version-track-datasets.md)** when you determine the data has drifted too much.
 
-An [Azure Machine learning dataset](./v1/how-to-create-register-datasets.md) is used to create the monitor. The dataset must include a timestamp column.
+An [Azure Machine learning dataset](how-to-create-register-datasets.md) is used to create the monitor. The dataset must include a timestamp column.
 
 You can view data drift metrics with the Python SDK or in Azure Machine Learning studio.  Other metrics and insights are available through the [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) resource associated with the Azure Machine Learning workspace.
 
@@ -93,7 +93,7 @@ Dataset monitors depend on the following Azure services.
 
 ### Baseline and target datasets 
 
-You monitor [Azure machine learning datasets](./v1/how-to-create-register-datasets.md) for data drift. When you create a dataset monitor, you will reference your:
+You monitor [Azure machine learning datasets](how-to-create-register-datasets.md) for data drift. When you create a dataset monitor, you will reference your:
 * Baseline dataset - usually the training dataset for a model.
 * Target dataset - usually model input data - is compared over time to your baseline dataset. This comparison means that your target dataset must have a timestamp column specified.
 
@@ -165,7 +165,7 @@ Create a dataset monitor to detect and alert to data drift on a new dataset.  Us
 # [Python](#tab/python)
 <a name="sdk-monitor"></a>
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 See the [Python SDK reference documentation on data drift](/python/api/azureml-datadrift/azureml.datadrift) for full details. 
 
@@ -315,7 +315,7 @@ On this chart, select a single date to compare the feature distribution between 
 
 ## Metrics, alerts, and events
 
-Metrics can be queried in the [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) resource associated with your machine learning workspace. You have access to all features of Application Insights including set up for custom alert rules and action groups to trigger an action such as, an Email/SMS/Push/Voice or Azure Function. Refer to the complete Application Insights documentation for details. 
+Metrics can be queried in the [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) resource associated with your machine learning workspace. You have access to all features of Application Insights including set up for custom alert rules and action groups to trigger an action such as, an Email/SMS/Push/Voice or Azure Function. Refer to the complete Application Insights documentation for details. 
 
 To get started, navigate to the [Azure portal](https://portal.azure.com) and select your workspace's **Overview** page.  The associated Application Insights resource is on the far right:
 
@@ -382,5 +382,5 @@ Limitations and known issues for data drift monitors:
 ## Next steps
 
 * Head to the [Azure Machine Learning studio](https://ml.azure.com) or the [Python notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) to set up a dataset monitor.
-* See how to set up data drift on [models deployed to Azure Kubernetes Service](v1/how-to-enable-data-collection.md).
+* See how to set up data drift on [models deployed to Azure Kubernetes Service](how-to-enable-data-collection.md).
 * Set up dataset drift monitors with [Azure Event Grid](how-to-use-event-grid.md).
