@@ -3,12 +3,12 @@ title: 'Post off-boarding users from your organization using Lifecycle workflows
 description: Tutorial for post off-boarding users from an organization using Lifecycle workflows with Azure portal (preview).
 services: active-directory
 author: amsliu
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 08/01/2022
+ms.date: 08/16/2022
 ms.author: amsliu
 ms.reviewer: krbain
 ms.custom: template-tutorial
@@ -42,7 +42,7 @@ Use the following steps to create a scheduled leaver workflow that will configur
  3.  Select **Identity Governance**.
  4.  Select **Lifecycle workflows (Preview)**.
  5.  On the **Overview (Preview)** page, select **New workflow**. 
-   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-1.png" alt-text="New workflow" lightbox="media/tutorial-lifecycle-workflows/portal-1.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-1.png" alt-text="New workflow" lightbox="media/tutorial-lifecycle-workflows/portal-2-1.png":::
 
  6. From the templates, select **Select** under **Post-offboarding of an employee**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3-1.png" alt-text="Leaver workflow" lightbox="media/tutorial-lifecycle-workflows/portal-3-1.png":::
@@ -59,25 +59,32 @@ Use the following steps to create a scheduled leaver workflow that will configur
 10. Once you are satisfied with the settings for the task, select **Save** to save your configurations. 
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3-5.png" alt-text="Save workflow task" lightbox="media/tutorial-lifecycle-workflows/portal-3-5.png":::
 
-11. Select **Enable schedule** under **Schedule Workflow** when you are finished.
+11. Select **Create** with the **Enable schedule** box unchecked to run the workflow on-demand. You may enable this setting later after checking the tasks and workflow status.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3-6.png" alt-text="Select enable" lightbox="media/tutorial-lifecycle-workflows/portal-3-6.png":::
 
-12. Finally, review the workflow and select **Create** when you are ready to create the workflow.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3-7.png" alt-text="Create workflow" lightbox="media/tutorial-lifecycle-workflows/portal-3-7.png":::
  
  ## Check tasks and workflow status
 
-At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are two different data pivots, users and runs, which are currently available in private preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow).
+At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks which are currently available in public preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow). In the course of this tutorial, we will look at the status using the user focused reports.
 
-To begin, select the **Workflow history (Preview)** tab to view the user summary and associated workflow tasks and statuses. Once the **Workflow history (Preview)** tab has been selected, you will land on the workflow history page as shown.
+ To begin, select the **Workflow history (Preview)** tab on the left to view the user summary and associated workflow tasks and statuses.  
+ :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history.png" alt-text="Workflow 1" lightbox="media/tutorial-lifecycle-workflows/workflow-history.png":::
 
-  :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3-9.png" alt-text="Workflow history" lightbox="media/tutorial-lifecycle-workflows/portal-2-13.png":::
+Once the **Workflow history (Preview)** tab has been selected, you will land on the workflow history page as shown.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary.png" alt-text="Workflow 2" lightbox="media/tutorial-lifecycle-workflows/user-summary.png":::
 
-You may then select the desired run and monitor the status of the users and tasks of the run from the panel that appears on the right.
+Next, you may select **Total tasks** for the user Jane Smith to view the total number of tasks created and their statuses. In this example, there are three total tasks assigned to the user Jane Smith.  
+ :::image type="content" source="media/tutorial-lifecycle-workflows/total-tasks.png" alt-text="Workflow 3" lightbox="media/tutorial-lifecycle-workflows/total-tasks.png":::
 
- :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3-10.png" alt-text="Workflow history details" lightbox="media/tutorial-lifecycle-workflows/portal-2-14.png":::
+To add an extra layer of granularity, you may select **Failed tasks** for the user Jeff Smith to view the total number of failed tasks assigned to the user Jeff Smith.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/failed-tasks.png" alt-text="Workflow 4" lightbox="media/tutorial-lifecycle-workflows/failed-tasks.png":::
 
-This panel will show you the details about the users including their name, complete date, status, total tasks, failed tasks, unprocessed tasks, and more.
+Similarly, you may select **Unprocessed tasks** for the user Jeff Smith to view the total number of unprocessed or canceled tasks assigned to the user Jeff Smith.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks.png" alt-text="Workflow 5" lightbox="media/tutorial-lifecycle-workflows/canceled-tasks.png":::
+
+Finally, to enable the workflow schedule, you may select the **Enable Schedule** checkbox on the Properties (Preview) page.
+
+:::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Workflow 6" lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
 
 ## Next steps
 - [Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azuread-user-accounts.md)
