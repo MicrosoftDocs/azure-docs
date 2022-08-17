@@ -30,7 +30,7 @@ In this step, browse to your FHIR service in the Azure portal and select the **I
 
 ## Give permission in the storage account for FHIR service access
 
-1. Go to your ADLS Gen2 storage account in the Azure portal.
+1. Go to your ADLS Gen2 account in the Azure portal.
 
 2. Select **Access control (IAM)**.
 
