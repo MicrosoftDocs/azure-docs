@@ -1,0 +1,244 @@
+[33mcommit b1260b14bb3e3c147449cee838dffd4fcf2ac867[m[33m ([m[1;31morigin/jbasden-move-proactive-diagnostics-article[m[33m, [m[1;32mjbasden-move-proactive-diagnostics-article[m[33m)[m
+Merge: 883da1db189a d3b594082476
+Author: Jaret Basden <v-jbasden@microsoft.com>
+Date:   Fri Jul 29 16:32:35 2022 -0700
+
+    Fixing merge conflict
+
+[33mcommit d3b594082476b825f7392a5517215250f5b96184[m[33m ([m[1;31mupstream/main[m[33m)[m
+Merge: 1e380496b5db 8599b2fd8c23
+Author: Beth Powers <101299713+BCS2022@users.noreply.github.com>
+Date:   Fri Jul 29 16:10:57 2022 -0700
+
+    Merge pull request #206456 from cherylmc/multiauth
+    
+    update screenshots
+
+[33mcommit 1e380496b5dba587d1f7e7b1b2b08fb676150419[m
+Merge: ac239107e807 b7c5d03d4677
+Author: Stacyrch140 <102548089+Stacyrch140@users.noreply.github.com>
+Date:   Fri Jul 29 19:09:12 2022 -0400
+
+    Merge pull request #206436 from cherylmc/aad-tenant
+    
+    format
+
+[33mcommit 883da1db189acbfb7f948a79cf6b2e5318c603d1[m
+Author: Jaret Basden <v-jbasden@microsoft.com>
+Date:   Fri Jul 29 16:06:31 2022 -0700
+
+    Relocating 9 Smart Detection articles
+
+[33mcommit ac239107e8074f75ee82fd0fc8470cfbee0144b5[m
+Merge: 3d3384deeff0 aff364577fe0
+Author: PRMerger20 <prmrgr20@microsoft.com>
+Date:   Fri Jul 29 16:05:36 2022 -0700
+
+    Merge pull request #206395 from Nawrock/patch-7
+    
+    Adding warning about data loss when moving AI workspace-based component to a new subscription
+
+[33mcommit 3d3384deeff08672b127881693cba833a2439793[m
+Merge: b403230390c9 98ab13bfd80a
+Author: Beth Powers <101299713+BCS2022@users.noreply.github.com>
+Date:   Fri Jul 29 16:04:07 2022 -0700
+
+    Merge pull request #204970 from rolyon/rolyon-rbac-role-assignments-privileged-alert
+    
+    [Azure RBAC] Alert on privileged role assignments
+
+[33mcommit b403230390c9cc36bca3e758c2ca3fd930078abd[m
+Merge: 1f620a7ec1c8 348ee0e18f26
+Author: PRMerger8 <prmrgr8@microsoft.com>
+Date:   Fri Jul 29 15:55:56 2022 -0700
+
+    Merge pull request #206441 from markwahl-msft/mwahl-gov-gwb2
+    
+    identity governance: change to identity governance for apps articles to mention group writeback scenario
+
+[33mcommit aff364577fe0505587ec1f09b514c8a404b8093f[m
+Author: Kai Nawroth <v-kainawroth@microsoft.com>
+Date:   Fri Jul 29 15:54:40 2022 -0700
+
+    Update move-support-resources.md
+
+[33mcommit 1f620a7ec1c837062c8e128c09141ccf1f1a6bdc[m
+Merge: 72100488bc19 90b8539c4637
+Author: Jason Martinez <v-jamar1@microsoft.com>
+Date:   Fri Jul 29 16:53:30 2022 -0600
+
+    Merge pull request #206457 from jdmartinez36/warningfix7-29
+    
+    Publish warning fix 7-29-2022
+
+[33mcommit 90b8539c463741f6705696d1cecbbd5dd8ba4e39[m
+Author: jdmartinez36 <62392619+jdmartinez36@users.noreply.github.com>
+Date:   Fri Jul 29 16:43:54 2022 -0600
+
+    Fixed bookmark text
+
+[33mcommit 72100488bc197e4dedabe6fc04e0ea41141162c8[m
+Merge: fbfb6bbb6694 7c807d68b3e6
+Author: Tim Sherer <28902327+TimShererWithAquent@users.noreply.github.com>
+Date:   Fri Jul 29 22:32:30 2022 +0000
+
+    Merge pull request #206403 from MicrosoftDocs/repo_sync_working_branch
+    
+    Confirm merge from repo_sync_working_branch to main to sync with https://github.com/MicrosoftDocs/azure-docs (branch main)
+
+[33mcommit 9114b722cfb7e49ed5c30f8adaa17b5a3462b945[m
+Author: jdmartinez36 <62392619+jdmartinez36@users.noreply.github.com>
+Date:   Fri Jul 29 16:31:26 2022 -0600
+
+    Fixed bookmark
+
+[33mcommit b7c5d03d46779e556b6a08f7934b023f89655cd6[m
+Author: Cheryl McGuire <1660095+cherylmc@users.noreply.github.com>
+Date:   Fri Jul 29 14:01:28 2022 -0700
+
+    Freshness review
+    
+    Update openvpn-azure-ad-tenant.md
+    
+    Update openvpn-azure-ad-tenant.md
+    
+    update
+
+[33mcommit fbfb6bbb669427a9b208d7edee1297ef73ecd725[m
+Merge: 60b1211de10c 2581d8ba0ac9
+Author: Beth Powers <101299713+BCS2022@users.noreply.github.com>
+Date:   Fri Jul 29 15:25:07 2022 -0700
+
+    Merge pull request #206452 from robece/robece-dataresidency-tweak
+    
+    Event Grid data residency FAQ tweak
+
+[33mcommit 60b1211de10c1075130fe7d350d5ea0d0478910f[m
+Merge: 1d35b08a443e ae52f68b024c
+Author: Stacyrch140 <102548089+Stacyrch140@users.noreply.github.com>
+Date:   Fri Jul 29 18:20:54 2022 -0400
+
+    Merge pull request #206352 from dknappettmsft/avd-storage-account-terminology
+    
+    AVD consolidate FSLogix Profile Container AD articles
+
+[33mcommit 1d35b08a443e93835f3919bebcbe03f40e3acd35[m
+Merge: eba917e2d267 29bb4ee5f6a2
+Author: Beth Powers <101299713+BCS2022@users.noreply.github.com>
+Date:   Fri Jul 29 15:16:14 2022 -0700
+
+    Merge pull request #206332 from v-steveadams/enrichment-to-routing-p2
+    
+    Message enrichments to message routing "part 2"
+
+[33mcommit 7c807d68b3e6fd06d20fa8b0067d70ad47cf3faa[m
+Author: Tim Sherer <28902327+TimShererWithAquent@users.noreply.github.com>
+Date:   Fri Jul 29 15:12:29 2022 -0700
+
+    Resolve sync PR issue
+
+[33mcommit 8599b2fd8c2391f308c494899aa1a28ec0ffa40a[m
+Author: Cheryl McGuire <1660095+cherylmc@users.noreply.github.com>
+Date:   Fri Jul 29 15:07:07 2022 -0700
+
+    update screenshots
+
+[33mcommit d7e4fd27b3cb4013abb1e74b1702e520203eea9a[m
+Author: Tim Sherer <28902327+TimShererWithAquent@users.noreply.github.com>
+Date:   Fri Jul 29 14:57:54 2022 -0700
+
+    Resolve sync PR issue
+
+[33mcommit eba917e2d267ac98d0224daffc198c18f27fae74[m
+Merge: 8f6480105f5d 76e59aa6de85
+Author: PRMerger17 <prmrgr17@microsoft.com>
+Date:   Fri Jul 29 14:56:24 2022 -0700
+
+    Merge pull request #206447 from stevevi/steveviAzureGov11
+    
+    Fix broken link for homomorphic encryption
+
+[33mcommit 2581d8ba0ac9dc1405fe8a29804b11b255fcb89f[m
+Author: Roberto Cervantes <robece@protonmail.com>
+Date:   Fri Jul 29 14:56:21 2022 -0700
+
+    Update event-grid-faq.yml
+
+[33mcommit 8f6480105f5dad4c08ecea8c0347c18c2b5055f2[m
+Merge: f7a2cb00f143 b404fd1ae0b1
+Author: PRMerger16 <prmrgr16@microsoft.com>
+Date:   Fri Jul 29 14:54:21 2022 -0700
+
+    Merge pull request #206442 from roygara/liveRename
+    
+    Updating name
+
+[33mcommit a89e7ec1b19fdd46b0b0bea7b2a2d62898be444c[m
+Author: Roberto Cervantes <robece@protonmail.com>
+Date:   Fri Jul 29 14:51:59 2022 -0700
+
+    Update event-grid-faq.yml
+
+[33mcommit 985804cd7add8c8103c3b37a25d2103eea57ad19[m
+Author: Roberto Cervantes <robece@protonmail.com>
+Date:   Fri Jul 29 14:51:36 2022 -0700
+
+    Update event-grid-faq.yml
+
+[33mcommit 348ee0e18f26c041f8ff7ab78088303f621f6a66[m
+Author: Mark Wahl <mwahl@microsoft.com>
+Date:   Fri Jul 29 14:50:33 2022 -0700
+
+    acrolinx and add link to group-write-back-portal.md
+
+[33mcommit 76e59aa6de857a3768c6079b2523898be69a1fa8[m
+Author: stevevi <stevevi@microsoft.com>
+Date:   Fri Jul 29 14:44:57 2022 -0700
+
+    Fix broken link for homomorphic encryption
+
+[33mcommit f7a2cb00f1433336bd91fb7ef864e58d7f33336e[m
+Merge: b15c2935d6e5 4604b7dc4c70
+Author: PRMerger Service account 2 <PRMerger-2@users.noreply.github.com>
+Date:   Fri Jul 29 14:34:03 2022 -0700
+
+    Merge pull request #206435 from Heidilohr/work-note-check
+    
+    Fixing note.
+
+[33mcommit 29bb4ee5f6a25a04da625cda96d948327787fa14[m
+Author: v-steveadams <80070654+v-steveadam@users.noreply.github.com>
+Date:   Fri Jul 29 14:33:26 2022 -0700
+
+    fix alt text
+
+[33mcommit b404fd1ae0b1cd04db77c7ae21882e26688bee9d[m
+Merge: 40bf2b5f90ef b15c2935d6e5
+Author: roygara <31490067+roygara@users.noreply.github.com>
+Date:   Fri Jul 29 14:33:13 2022 -0700
+
+    Merge branch 'main' of https://github.com/MicrosoftDocs/azure-docs-pr into liveRename
+
+[33mcommit 40bf2b5f90ef6444c9559b18bdba469785d232d8[m
+Author: roygara <31490067+roygara@users.noreply.github.com>
+Date:   Fri Jul 29 14:33:02 2022 -0700
+
+    Updating naming.
+
+[33mcommit b15c2935d6e58b515f746668d2cecd498ef3ba0d[m
+Merge: 217d9c5a999d 75fa0e611f75
+Author: Stephanie Savell <101299710+v-stsavell@users.noreply.github.com>
+Date:   Fri Jul 29 16:31:56 2022 -0500
+
+    Merge pull request #206404 from msmbaldwin/phsm-support-guide
+    
+    PHSM service support guide
+
+[33mcommit 15df97ac82ad3941893e763c5f2e3fa3a6854e32[m
+Merge: 1b796331b1f5 217d9c5a999d
+Author: Mark Wahl <mwahl@microsoft.com>
+Date:   Fri Jul 29 14:31:00 2022 -0700
+
+    Merge branch 'main' of https://github.com/MicrosoftDocs/azure-docs-pr into mwahl-gov-gwb2
+
+
