@@ -53,7 +53,7 @@ Files should be grouped by type into a dataset and uploaded as a zip file. Each 
 
 ## Individual utterances + matching transcript
 
-You can prepare recordings of individual utterances and the matching transcript in two ways. Either [write a script and have it read by a voice talent](/speech-service/azure/cognitive-services/speech-service/record-custom-voice-samples) or use publicly available audio and transcribe it to text. If you do the latter, edit disfluencies from the audio files, such as "um" and other filler sounds, stutters, mumbled words, or mispronunciations.
+You can prepare recordings of individual utterances and the matching transcript in two ways. Either [write a script and have it read by a voice talent](record-custom-voice-samples.md) or use publicly available audio and transcribe it to text. If you do the latter, edit disfluencies from the audio files, such as "um" and other filler sounds, stutters, mumbled words, or mispronunciations.
 
 To produce a good voice model, create the recordings in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential.
 
