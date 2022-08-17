@@ -78,6 +78,10 @@ Follow these steps to plug Application Insights into your managed or self-hosted
 
     ```json
     {
+        "id": "/contentTypes/document/contentItems/configuration",
+        "type": "Microsoft.ApiManagement/service/contentTypes/contentItems",
+        "name": "configuration",
+        "properties": {  
         "nodes": [
             {
                 "site": { ... },
@@ -88,6 +92,7 @@ Follow these steps to plug Application Insights into your managed or self-hosted
                 }
             }
         ]
+        }
     }
     ```
 
