@@ -30,7 +30,7 @@ Azure AD lets you use groups to manage access to applications, data, and resourc
 Some groups can't be managed in the Azure AD portal:
 
 - Groups synced from on-premises Active Directory can be managed only in on-premises Active Directory.
-- Other group types such as distribution lists and mail-enabled security groups are managed only in Exchange admin center or Microsoft 365 admin center. You must sign in to Exchange admin center or Microsoft 365 admin center to manage these groups.
+- Distribution lists and mail-enabled security groups are managed only in Exchange admin center or Microsoft 365 admin center. You must sign in to Exchange admin center or Microsoft 365 admin center to manage these groups.
 
 ## What to know before creating a group
 
@@ -65,9 +65,9 @@ Azure AD helps you give access to your organization's resources by providing acc
 
 ![Azure Active Directory access management diagram](./media/active-directory-manage-groups/active-directory-access-management-works.png)
 
-## Ways to assign access rights
+### Ways to assign access rights
 
-There are four ways to assign resource access rights to your users:
+After creating a group, you need to decide how to assign access rights. Explore the ways to assign access rights to determine the best process for your scenario. 
 
 - **Direct assignment.** The resource owner directly assigns the user to the resource.
 
@@ -79,56 +79,19 @@ There are four ways to assign resource access rights to your users:
 
    ![Overview of access management diagram](./media/active-directory-manage-groups/access-management-overview.png)
 
-## Can users join groups without being assigned?
+### Can users join groups without being assigned?
 The group owner can let users find their own groups to join, instead of assigning them. The owner can also set up the group to automatically accept all users that join or to require approval.
 
 After a user requests to join a group, the request is forwarded to the group owner. If it's required, the owner can approve the request and the user is notified of the group membership. However, if you have multiple owners and one of them disapproves, the user is notified, but isn't added to the group. For more information and instructions about how to let your users request to join groups, see [Set up Azure AD so users can request to join groups](../enterprise-users/groups-self-service-management.md)
 
 ## Next steps
-Now that you have a bit of an introduction to access management using groups, you start to manage your resources and apps.
 
-
-## Next steps
-
-- If you delete a group by mistake, you can create it again. For more information, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
-
-- If you delete a Microsoft 365 group by mistake, you might be able to restore it. For more information, see [Restore a deleted Office 365 group](../enterprise-users/groups-restore-deleted.md).
+- [Create and manage Azure AD groups and group membership](../fundamentals/active-directory-groups-NEW.md)
 
 - [Manage access to SaaS apps using groups](../enterprise-users/groups-saasapps.md)
-- [Manage groups using PowerShell commands](../enterprise-users/groups-settings-v2-cmdlets.md)
-
-- [View your groups and members](active-directory-groups-view-azure-portal.md)
-
-- [Edit your group settings](active-directory-groups-settings-azure-portal.md)
-
-- [Manage access to resources using groups](active-directory-manage-groups.md)
 
 - [Manage dynamic rules for users in a group](../enterprise-users/groups-create-rule.md)
-
-- [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
-- [View your groups and members](active-directory-groups-view-azure-portal.md)
-
-- [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
-
-- [Add or remove members from a group](active-directory-groups-members-azure-portal.md)
-
-- [Edit your group settings](active-directory-groups-settings-azure-portal.md)
-
-- [Using a group to manage access to SaaS applications](../enterprise-users/groups-saasapps.md)
 
 - [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../enterprise-users/licensing-group-advanced.md#limitations-and-known-issues)
-- - [View your groups and members](active-directory-groups-view-azure-portal.md)
 
-- [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
-
-- [How to add or remove members from a group](active-directory-groups-members-azure-portal.md)
-
-- [Manage dynamic rules for users in a group](../enterprise-users/groups-create-rule.md)
-
-- [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
-
-- [Manage access to resources using groups](active-directory-manage-groups.md)
-
-- [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
-
-https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review
+- [Learn about Privileged Identity Management for Azure AD roles](../../active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)

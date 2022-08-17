@@ -30,7 +30,7 @@ You can create a basic group and add your members at the same time using the Azu
 
 1. Go to **Azure Active Directory** > **Groups** > **New group**.
 
-    ![Azure AD page, with Groups showing](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Azure AD page, with Groups showing](media/active-directory-groups-create-azure-portal/groups-new-group.png)
 
 1. Select a **Group type**. For more information on group types, see [Group and membership types](#group-types).
 
@@ -54,9 +54,9 @@ You can create a basic group and add your members at the same time using the Azu
 
 1. Select **Create**. Your group is created and ready for you to manage other settings.
 
-  ![New group page, filled out with example info](media/active-directory-groups-create-azure-portal/new-group-blade.png)
+      ![New group page, filled out with example info](media/active-directory-groups-create-azure-portal/new-group-blade.png)
 
-## Manage groups
+## Manage a group
 Members and owners can be added and removed to existing Azure AD groups. The process is the same for members and owners.
 
 Need to add multiple members at one time? Learn about the [add members in bulk](../enterprise-users/groups-bulk-import-members.md) option.
@@ -102,19 +102,17 @@ To edit your group settings:
 
 1. Go to **Azure Active Directory** > **Groups**. The **Groups - All groups** page appears, showing all of your active groups.
 
-1. Scroll through the list or enter a group name in the search box. Select the group you need to manage
+1. Scroll through the list or enter a group name in the search box. Select the group you need to manage.
 
-    The search results appear under the **Search** box, updating as you type more characters.
-
-    ![All groups page, with search text in the Search box](media/active-directory-groups-settings-azure-portal/search-for-specific-group.png)
+    ![All groups page, with search text in the Search box](media/active-directory-groups-settings-azure-portal/groups-search.png)
 
 4. Select **Properties** from the *side menu.
 
-    ![Group Overview page, with Member option and information highlighted](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Group Overview page, with Member option and information highlighted](media/active-directory-groups-settings-azure-portal/groups-overview.png)
 
 5. Update the **General settings** information as needed, including:
 
-    ![Properties settings for a group](media/active-directory-groups-settings-azure-portal/group-properties-settings.png)
+    ![Properties settings for a group](media/active-directory-groups-settings-azure-portal/groups-properties.png)
 
     - **Group name.** Edit the existing group name.
     
@@ -122,7 +120,7 @@ To edit your group settings:
 
     - **Group type.** You can't change the type of group after it's been created. To change the **Group type**, you must delete the group and create a new one.
     
-    - **Membership type.** Change the membership type. For more info about the various available membership types, see [How to: Create a basic group and add members using the Azure Active Directory portal](active-directory-groups-create-azure-portal.md). If you enabled the **Azure AD roles can be assigned to the group** option, you cannot change the membership type.
+    - **Membership type.** Change the membership type. If you enabled the **Azure AD roles can be assigned to the group** option, you cannot change the membership type. For more info about the various available membership types, see [How to: Create a basic group and add members using the Azure Active Directory portal](active-directory-groups-create-azure-portal.md). 
     
     - **Object ID.** You can't change the Object ID, but you can copy it to use in your PowerShell commands for the group. For more info about using PowerShell cmdlets, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-v2-cmdlets.md).
 
@@ -152,43 +150,12 @@ To delete a group:
 
 ## Next steps
 
-- If you delete a group by mistake, you can create it again. For more information, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
+- [Learn about groups and assigning access rights to groups](../fundamentals/active-directory-groups-about-NEW.md)
 
-- If you delete a Microsoft 365 group by mistake, you might be able to restore it. For more information, see [Restore a deleted Office 365 group](../enterprise-users/groups-restore-deleted.md).
-
-- [Manage access to SaaS apps using groups](../enterprise-users/groups-saasapps.md)
 - [Manage groups using PowerShell commands](../enterprise-users/groups-settings-v2-cmdlets.md)
 
-- [View your groups and members](active-directory-groups-view-azure-portal.md)
-
-- [Edit your group settings](active-directory-groups-settings-azure-portal.md)
-
-- [Manage access to resources using groups](active-directory-manage-groups.md)
-
 - [Manage dynamic rules for users in a group](../enterprise-users/groups-create-rule.md)
-
-- [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
-- [View your groups and members](active-directory-groups-view-azure-portal.md)
-
-- [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
-
-- [Add or remove members from a group](active-directory-groups-members-azure-portal.md)
-
-- [Edit your group settings](active-directory-groups-settings-azure-portal.md)
-
-- [Using a group to manage access to SaaS applications](../enterprise-users/groups-saasapps.md)
 
 - [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../enterprise-users/licensing-group-advanced.md#limitations-and-known-issues)
-- - [View your groups and members](active-directory-groups-view-azure-portal.md)
-
-- [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
-
-- [How to add or remove members from a group](active-directory-groups-members-azure-portal.md)
-
-- [Manage dynamic rules for users in a group](../enterprise-users/groups-create-rule.md)
-
-- [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
-
-- [Manage access to resources using groups](active-directory-manage-groups.md)
 
 - [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
