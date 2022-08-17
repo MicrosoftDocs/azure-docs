@@ -1,6 +1,6 @@
 ---
-title: Integrate Azure Cosmos DB with Service Connector
-description: Integrate Azure Cosmos DB into your application with Service Connector
+title: Integrate the Azure Cosmos DB Mongo API with Service Connector
+description: Integrate the Azure Cosmos DB Mongo API into your application with Service Connector
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
@@ -9,9 +9,9 @@ ms.date: 08/11/2022
 ms.custom: event-tier1-build-2022
 ---
 
-# Integrate Azure Cosmos DB with Service Connector
+# Integrate the Azure Cosmos DB Mondo API with Service Connector
 
-This page shows the supported authentication types and client types of Azure Cosmos DB using Service Connector. You might still be able to connect to Azure Cosmos DB in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types and client types for the Azure Cosmos DB Mongo API using Service Connector. You might still be able to connect to Azure Cosmos DB in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
 ## Supported compute service
 
