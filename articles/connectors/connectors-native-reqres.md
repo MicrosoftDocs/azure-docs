@@ -35,7 +35,7 @@ To run your workflow by sending an outgoing or outbound request instead, use the
 
 * [Create a Standard logic app workflow in single-tenant Azure Logic Apps](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 
-<a name="add-request"></a>
+<a name="add-request-trigger"></a>
 
 ## Add a Request trigger
 
