@@ -154,6 +154,8 @@
       href: high-availability-guide-suse-nfs-azure-files.md
     - name: Install HA SAP NetWeaver with Azure NetApp Files
       href: high-availability-guide-suse-netapp-files.md
+    - name: Install HA SAP NetWeaver with NFS simple mount
+      href: high-availability-guide-suse-nfs-simple-mount.md
     - name: Install HA SAP NetWeaver
       href: high-availability-guide-suse.md
     - name: Install HA NFS server

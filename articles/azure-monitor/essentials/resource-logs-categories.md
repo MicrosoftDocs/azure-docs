@@ -2,7 +2,7 @@
 title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 ms.topic: reference
-ms.date: 06/01/2022
+ms.date: 08/04/2022
 ms.reviewer: lualderm
 
 ---
@@ -158,11 +158,13 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |vmwaresyslog|VMware VCenter Syslog|Yes|
 
 
-## Microsoft.Batch/batchAccounts
+## Microsoft.Batch/batchaccounts
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|AuditLog|Audit Logs|Yes|
 |ServiceLog|Service Logs|No|
+|ServiceLogs|Service Logs|Yes|
 
 
 ## Microsoft.BatchAI/workspaces 
@@ -189,6 +191,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |BlockchainApplication|Blockchain Application|No|
+
 
 ## microsoft.botservice/botservices
 
@@ -348,11 +351,11 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |sqlanalytics|Databricks SQL Analytics|Yes|
 |sqlPermissions|Databricks SQLPermissions|No|
 |ssh|Databricks SSH|No|
-|unityCatalog|Databricks SQL Analytics|Yes|
+|unityCatalog|Databricks Unity Catalog|Yes|
 |workspace|Databricks Workspace|No|
 
 
-## Microsoft.DataCollaboration/workspaces
+## Microsoft.DataCollaboration/workspaces	
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -437,6 +440,8 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|FSPGPGBouncer|PostgreSQL Flexible Servers PGBouncer Logs|Yes|
+|PiiOBpgbouncerlog|PostgreSQL Flexible Servers PGBouncer Logs|Yes|
 |PostgreSQLLogs|PostgreSQL Server Logs|No|
 
 
@@ -479,6 +484,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |AgentHealthStatus|AgentHealthStatus|Yes|
 |Checkpoint|Checkpoint|Yes|
 |Connection|Connection|Yes|
+|ConnectionGraphicsData|Connection Graphics Data Logs|Yes|
 |Error|Error|Yes|
 |HostRegistration|HostRegistration|Yes|
 |Management|Management|Yes|
@@ -555,6 +561,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|DataHistoryOperation|DataHistoryOperation|Yes|
 |DigitalTwinsOperation|DigitalTwinsOperation|No|
 |EventRoutesOperation|EventRoutesOperation|No|
 |ModelsOperation|ModelsOperation|No|
@@ -1185,6 +1192,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |IntegrationPipelineRuns|Integration Pipeline Runs|Yes|
 |IntegrationTriggerRuns|Integration Trigger Runs|Yes|
 |SQLSecurityAuditEvents|SQL Security Audit Event|No|
+|SynapseLinkEvent|Synapse Link Event|Yes|
 |SynapseRbacOperations|Synapse RBAC Operations|No|
 
 

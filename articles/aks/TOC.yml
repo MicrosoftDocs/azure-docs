@@ -100,6 +100,8 @@
       href: servicemesh-about.md
     - name: Sustainable software engineering
       href: concepts-sustainable-software-engineering.md
+    - name: Dapr
+      href: dapr-overview.md
     - name: GitOps
       href: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
       maintainContext: True
@@ -224,7 +226,7 @@
               href: use-multiple-node-pools.md
             - name: Use spot node pools
               href: spot-node-pool.md
-            - name: Use CVM
+            - name: Use Confidential Virtual Machines (preview)
               href: use-cvm.md
             - name: Use system node pools
               href: use-system-pools.md
@@ -312,6 +314,8 @@
               href: use-network-policies.md
             - name: Use pod security policies (preview)
               href: use-pod-security-policies.md
+            - name: Use Pod Security Admission
+              href: use-psa.md
             - name: Secrets Store CSI Driver
               items:
                 - name: Secrets Store CSI Driver configuration
@@ -455,9 +459,7 @@
           href: ../api-management/api-management-kubernetes.md
         - name: Use Dapr
           items:
-            - name: Dapr overview
-              href: dapr-overview.md
-            - name: How to use Dapr
+            - name: How to use the Dapr extension
               href: dapr.md
             - name: Migrate from Dapr OSS
               href: dapr-migration.md
@@ -539,7 +541,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/containerservice
     - name: Python
-      href: /python/api/overview/azure/containerservice
+      href: /python/api/overview/azure/container-service
     - name: Java
       href: /java/api/overview/azure/containerservice
     - name: Node.js
@@ -551,7 +553,7 @@
       href: ./policy-reference.md
 - name: Resources
   items:
-    - name: Build your skill with Microsoft Learn
+    - name: Build your skills with Microsoft Learn
       href: /learn/browse/?products=azure-container-instances&azure-container-registry
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/

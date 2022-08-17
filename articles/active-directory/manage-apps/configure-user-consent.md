@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2021
+ms.date: 08/10/2022
 ms.author: phsignor
 ms.custom: contperf-fy21q2, contperf-fy22q2
 
@@ -22,9 +22,6 @@ In this article, you'll learn how to configure the way users consent to applicat
 Before an application can access your organization's data, a user must grant the application permissions to do so. Different permissions allow different levels of access. By default, all users are allowed to consent to applications for permissions that don't require administrator consent. For example, by default, a user can consent to allow an app to access their mailbox but can't consent to allow an app unfettered access to read and write to all files in your organization.
 
 To reduce the risk of malicious applications attempting to trick users into granting them access to your organization's data, we recommend that you allow user consent only for applications that have been published by a [verified publisher](../develop/publisher-verification-overview.md).
-
->[!IMPORTANT]
->As from September 30, 2022, the new default consent setting for new tenants will be to Follow Microsoft's Recommendation. Microsoft's initial recommendation at that time will be that end-users can’t consent to multi-tenant applications without publisher verification if the application  requests basic permissions like sign-in and read user profile permissions.
 
 ## Prerequisites
 
