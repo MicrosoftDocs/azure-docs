@@ -116,6 +116,9 @@ The time for completing an online migration depends on the incoming writes to th
 
 ### Prerequisites
 
+>[!NOTE]
+> It is very important to complete the prerequisite steps in this section beforehand to ensure a successful migration.
+
 Before you start using the migration tool:
 
 - [Create an Azure Database for PostgreSQL server](../flexible-server/quickstart-create-server-portal.md). 
