@@ -22,6 +22,12 @@ In this tutorial, you learn how to:
 > * Resolve Azure Private DNS zones using on-premises conditional fowarders and Azure DNS private resolvers.
 > * Enable on-premises DNS failover for your Azure Private DNS zones.
 
+The following diagram shows the failover scenario discussed in this article.
+
+[ ![Azure DNS Private Resolver architecture](./media/dns-resolver-overview/resolver-architecture.png) ](./media/dns-resolver-overview/resolver-architecture.png#lightbox)
+
+Some elements of the Azure DNS Private Resolver architecture are included in the diagram above for completeness, but are not in scope for this article. For example, rulesets can be used to resolve on-premises domains from Azure. For more information, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md) and [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md).
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

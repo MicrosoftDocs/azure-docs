@@ -133,5 +133,8 @@ Outbound endpoints have the following limitations:
 ## Next steps
 
 * Learn how to create an Azure DNS Private Resolver by using [Azure PowerShell](./dns-private-resolver-get-started-powershell.md) or [Azure portal](./dns-private-resolver-get-started-portal.md).
+* Understand how to [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md) using the Azure DNS Private Resolver.
+* Learn about [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
+* Learn how to [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md)
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
 * [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
