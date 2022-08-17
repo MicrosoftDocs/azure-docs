@@ -90,7 +90,7 @@ module.exports = {
 ```
 
 Next, use the following code to connect and load the data using CREATE TABLE
-and INSERT INTO SQL statements.
+and INSERT INTO SQL statements. 
 
 ```javascript
 /**
@@ -121,6 +121,8 @@ async function queryDatabase() {
 
 queryDatabase();
 ```
+
+To execute this code sample below please use the `node create.js` command. Once you run this command a new table and insertations data will be created in your 'Pharmacy' table.
 
 ## Super power of Distributed Tables
 
