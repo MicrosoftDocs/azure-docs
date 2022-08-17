@@ -4,7 +4,7 @@ description: Learn about security in Azure Kubernetes Service (AKS), including m
 services: container-service
 author: miwithro
 ms.topic: conceptual
-ms.date: 01/20/2022
+ms.date: 08/17/2022
 ms.author: miwithro
 ---
 
@@ -76,6 +76,9 @@ Nightly updates apply security updates to the OS on the node, but the node image
 #### Windows Server nodes
 
 For Windows Server nodes, Windows Update doesn't automatically run and apply the latest updates. Schedule Windows Server node pool upgrades in your AKS cluster around the regular Windows Update release cycle and your own validation process. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see [Upgrade a node pool in AKS][nodepool-upgrade].
+
+### Node authorization
+Node authorization is a special-purpose authorization mode that specifically authorizes API requests made by kubelets to protect against East-West attacks.  Node authorization is enabled by default on AKS 1.24 + clusters.
 
 ### Node deployment
 Nodes are deployed into a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default and only accessible using the internal IP address.
