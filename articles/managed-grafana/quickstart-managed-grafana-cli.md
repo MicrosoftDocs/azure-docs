@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 07/25/2022
+ms.date: 08/12/2022
 ms.devlang: azurecli
 --- 
 
@@ -15,9 +15,6 @@ Get started by creating an Azure Managed Grafana workspace using the Azure CLI. 
 
 > [!NOTE]
 > The CLI experience for Azure Managed Grafana is part of the amg extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run an `az grafana` command.
-
-> [!NOTE]
-> Azure Managed Grafana doesn't support personal [Microsoft accounts](https://account.microsoft.com) currently.
 
 ## Prerequisite
 
@@ -67,20 +64,20 @@ Now let's check if you can access your new Managed Grafana instance.
 
 1. Take note of the **endpoint** URL ending by `eus.grafana.azure.com`, listed in the CLI output.  
 
-1. Open a browser and enter the endpoint URL. You should now see your Azure Managed Grafana instance. From there, you can finish setting up your Grafana installation.
+1. Open a browser and enter the endpoint URL. Single sign-on via Azure Active Directory has been configured for you automatically. If prompted, enter your Azure account. You should now see your Azure Managed Grafana instance. From there, you can finish setting up your Grafana installation.
 
-:::image type="content" source="media/quickstart-cli/grafana-ui.png" alt-text="Screenshot of the Azure Managed Grafana instance in the browser.":::
+   :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of a Managed Grafana instance.":::
 
-> [!NOTE]
-> If creating a Grafana instance fails the first time, please try again. The failure might be due to a limitation in our backend, and we are actively working to fix.
+   > [!NOTE]
+   > Azure Managed Grafana doesn't support connecting with personal Microsoft accounts currently.
 
 ## Clean up resources
 
-If you're not going to continue to use this instance, delete the Azure resources you created.
+In the preceding steps, you created an Azure Managed Grafana workspace in a new resource group. If you don't expect to need these resources again in the future, delete the resource group.
 
 `az group delete -n <resource-group-name> --yes`
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure data sources](./how-to-data-source-plugins-managed-identity.md)
+> [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)

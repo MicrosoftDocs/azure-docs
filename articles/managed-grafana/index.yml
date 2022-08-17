@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Managed Grafana documentation
-summary: Learn how to use Azure Managed Grafana. Access quickstarts and how-to guides to learn how to create, configure and share your Azure Managed Grafana dashboards.
+summary: Learn how to use Azure Managed Grafana. Access quickstarts, how-to guides and tutorials to learn how to create, configure and manage Azure Managed Grafana instances.
 
 metadata:
   title: Azure Managed Grafana
@@ -20,13 +20,13 @@ landingContent:
           - text: What is Azure Managed Grafana?
             url: overview.md
             
-  - title: Get started
+  - title: Create an instance
     linkLists:
       - linkListType: get-started
         links:
-          - text: Create a Managed Grafana instance from the Azure portal
+          - text: Azure portal
             url: quickstart-managed-grafana-portal.md
-          - text: Create a Managed Grafana instance from the CLI
+          - text: Azure CLI
             url: quickstart-managed-grafana-cli.md
   - title: Configure Azure Managed Grafana
     linkLists:
@@ -36,17 +36,19 @@ landingContent:
             url: how-to-data-source-plugins-managed-identity.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
+          - text: Enable zone redundancy
+            url: how-to-enable-zone-redundancy.md
           - text: Create and manage API keys
             url: how-to-create-api-keys.md
   - title: Manage Azure Managed Grafana
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure permissions for Managed Grafana
+          - text: Configure permissions
             url: how-to-permissions.md
-          - text: Share your Managed Grafana instance
+          - text: Share an instance
             url: how-to-share-grafana-workspace.md
-          - text: Monitor your Managed Grafana instance
+          - text: Monitor an instance
             url: how-to-monitor-managed-grafana-workspace.md
   - title: More resources
     linkLists:

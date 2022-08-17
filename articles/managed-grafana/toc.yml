@@ -8,9 +8,9 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an instance from the portal
+  - name: Create an instance - Portal
     href: quickstart-managed-grafana-portal.md
-  - name: Create an instance from the CLI
+  - name: Create an instance - Azure CLI
     href: quickstart-managed-grafana-cli.md
 - name: Tutorial
   expanded: true
@@ -39,6 +39,8 @@ items:
     href: how-to-monitor-managed-grafana-workspace.md
   - name: Troubleshoot common issues
     href: troubleshoot-managed-grafana.md
+  - name: Enable zone redundancy
+    href: how-to-enable-zone-redundancy.md
 - name: Reference
   items:
   - name: Azure CLI
