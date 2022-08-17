@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 7/21/2022
+ms.date: 8/17/2022
 ms.custom: references_regions
 ms.reviewer: shseth
 
@@ -66,7 +66,7 @@ Azure Monitor Agent currently supports these Azure Monitor features:
 |	:---	|	:---	|	:---	|	:---	|
 |	Text logs and Windows IIS logs	|	Public preview	|	None	|	[Collect text logs with Azure Monitor Agent (Public preview)](data-collection-text-log.md)	|
 |	Windows client installer	|	Public preview	|	None	|	[Set up Azure Monitor Agent on Windows client devices](azure-monitor-agent-windows-client.md)	|
-|	[VM insights](../vm/vminsights-overview.md)	|	Preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
+|	[VM insights](../vm/vminsights-overview.md)	|	Public preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Enable VM Insights overview](../vm/vminsights-enable-overview.md)	|
 
 Azure Monitor Agent currently supports these Azure services:
 
@@ -75,7 +75,7 @@ Azure Monitor Agent currently supports these Azure services:
 | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Sign-up link](https://aka.ms/AMAgent)	|
 | [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows DNS logs: Preview</li><li>Linux Syslog CEF: Preview</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. | <ul><li>[Sign-up link for Windows DNS logs](https://aka.ms/AMAgent)</li><li>[Sign-up link for Linux Syslog CEF](https://aka.ms/AMAgent)</li><li>No sign-up needed for Windows Forwarding Event (WEF) and Windows Security Events</li></ul> |
 |	 [Change Tracking](../../automation/change-tracking/overview.md) (part of Defender)	|	 Supported as File Integrity Monitoring in the Microsoft Defender for Cloud: Preview. 	|	Change Tracking extension	|	[Sign-up link](https://aka.ms/AMAgent)	|
-|	 [Update Management](../../automation/update-management/overview.md) (available without Azure Monitor Agent)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (Public preview) documentation](/azure/update-center/)	|
+|	 [Update Management](../../automation/update-management/overview.md) (available without Azure Monitor Agent)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (Public preview) documentation](../../update-center/index.yml)	|
 |	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Connection Monitor: Preview	|	Azure NetworkWatcher extension	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
 
 ## Supported regions
