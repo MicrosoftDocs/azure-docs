@@ -22,9 +22,9 @@ For information on setup and configuration details, see the [overview](./functio
 
 # [In-process](#tab/in-process)
 
-```csharp
-
 The following example is a [C# function](functions-dotnet-class-library.md) that uses a queue trigger and an input blob binding. The queue message contains the name of the blob, and the function logs the size of the blob.
+
+```csharp
 
 [FunctionName("BlobInput")]
 public static void Run(

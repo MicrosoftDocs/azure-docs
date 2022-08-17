@@ -3,7 +3,7 @@ title: Customize RDP properties with PowerShell - Azure
 description: How to customize RDP Properties for Azure Virtual Desktop with PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 08/11/2022
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -62,6 +62,9 @@ To add or edit a single custom RDP property, run the following PowerShell cmdlet
 Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty <property>
 ```
 
+>[!NOTE]
+>The Azure Virtual Desktop service doesn't accept escape characters, such as semicolons or colons, as valid custom RDP property names.
+
 To check if the cmdlet you just ran updated the property, run this cmdlet:
 
 ```powershell
@@ -88,6 +91,9 @@ To add or edit multiple custom RDP properties, run the following PowerShell cmdl
 $properties="<property1>;<property2>;<property3>"
 Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
+
+>[!NOTE]
+>The Azure Virtual Desktop service doesn't accept escape characters, such as semicolons or colons, as valid custom RDP property names.
 
 You can check to make sure the RDP property was added by running the following cmdlet:
 
