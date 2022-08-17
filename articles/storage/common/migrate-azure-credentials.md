@@ -286,7 +286,11 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 ### [Service Connector](#tab/assign-role-azure-portal)
 
-If you connected your services using the Service Connector, this step has already been handled for you. The Service Connector automatically created a system-assigned managed identity for your app environment and assigned it the **Storage Blob Data Contributor** role on the storage account.
+If you connected your services using the Service Connector you do not need to complete this step. 
+
+If you selected a managed identity while creating the connection, a system-assigned managed identity was created for your app and assigned the **Storage Blob Data Contributor** role on the storage account.
+
+If you selected connection string, the connection string was added as an app environment variable.
 
 ### [Azure portal](#tab/assign-role-azure-portal)
 
