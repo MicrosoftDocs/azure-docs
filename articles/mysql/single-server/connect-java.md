@@ -15,7 +15,7 @@ ms.date: 08/15/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for MySQL](./index.yml).
+This article demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for MySQL](./index.yml).
 
 JDBC is the standard Java API to connect to traditional relational databases.
 
@@ -148,7 +148,7 @@ This command creates a small MySQL server.
 
 ### Configure a firewall rule for your MySQL server
 
-Azure Databases for MySQL instances are secured by default.. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
+Azure Databases for MySQL instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
 
 Because you configured our local IP address at the beginning of this article, you can open the server's firewall by running the following command:
 
@@ -242,7 +242,7 @@ rm create_ad_user.sql
 
 #### [Password](#tab/password)
 
-Save a sql script of creating non-admin user to local:
+Save an sql script of creating non-admin user to local:
 
 ```bash
 cat << EOF > create_user.sql
@@ -492,7 +492,7 @@ public class DemoApplication {
 
 ---
 
-This Java code will use the *application.properties* and the *schema.sql* files that we created earlier, in order to connect to the MySQL server and create a schema that will store our data.
+This Java code will use the *application.properties* and the *schema.sql* files that we created earlier. After connecting to the MySQL server, we can create a schema to store our data.
 
 In this file, you can see that we commented methods to insert, read, update and delete data: We'll code those methods in the rest of this article, and you'll be able to uncomment them one after each other.
 
