@@ -186,8 +186,8 @@ Use the following steps to creates an instance of Azure Spring Apps using the Az
 
 Use the following steps to import the project.
 
-1. Open the IntelliJ **Welcome** dialog, then select **Open** to open the import wizard.
-1. Select the **hellospring** folder.
+1. Open IntelliJ IDEA, and then select **Open**.
+1. In the **Open File or Project** dialog box, select the `hellospring` folder.
 
    :::image type="content" source="media/quickstart/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA showing Open File or Project dialog box." lightbox="media/quickstart/intellij-new-project.png":::
 
