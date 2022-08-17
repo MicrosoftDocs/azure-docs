@@ -171,6 +171,8 @@ After installing the MFA Server update, open an elevated PowerShell command prom
 
 This script will require you to provide credentials for an Application Administrator in your Azure AD tenant. The script will then create a new MFA Server Migration Utility application within Azure AD which will be used to write user authentication methods to each user object within Azure AD.
 
+For government cloud customers who wish to carry out migrations, replace ".com" entries in the script with ".us". This script will then write the HKLM:\SOFTWARE\WOW6432Node\Positive Networks\PhoneFactor\ StsUrl and GraphUrl registry entries and instruct the Migration Utility to use the appropriate GRAPH endpoints.
+
 You will also need access to the following URLs:
 
 - `https://graph.microsoft.com/*`
