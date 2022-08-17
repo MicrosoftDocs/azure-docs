@@ -17,7 +17,7 @@ items:
   items: 
     - name: Identify app issues with web UI tests
       href: tutorial-identify-issues-with-end-to-end-web-tests.md
-    - name: Automate end-to-end testing with GitHub Actions
+    - name: Set up continuous testing with GitHub Actions
       href: tutorial-automate-end-to-end-testing-with-github-actions.md
 - name: How-to guides
   expanded: true

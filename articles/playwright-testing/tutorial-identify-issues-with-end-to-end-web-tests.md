@@ -234,7 +234,7 @@ The sample test repository contains 30 tests, which run across five different br
 
 You've successfully ran Playwright tests with Microsoft Playwright Testing at high scale. You used the dashboard to view how test results evolve over time, and analyzed the detailed test run diagnostics information to diagnose application issues.
 
-Advance to the next tutorial to learn how to set up automated end-to-end testing.
+Advance to the next tutorial to learn how to set up continuous end-to-end testing.
 
 > [!div class="nextstepaction"]
-> [Automate tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md)
+> [Set up continuous end-to-end testing with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md)
