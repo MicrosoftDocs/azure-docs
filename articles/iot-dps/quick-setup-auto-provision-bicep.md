@@ -2,7 +2,7 @@
 title: Quickstart - Create an Azure IoT Hub Device Provisioning Service (DPS) using Bicep
 description: Azure quickstart - Learn how to create an Azure IoT Hub Device Provisioning Service (DPS) using Bicep.
 ms.author: jgao
-ms.date: 08/16/2022
+ms.date: 08/17/2022
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -17,16 +17,20 @@ You can use a [Bicep](../azure-resource-manager/bicep/overview.md) file to progr
 
 This quickstart uses [Azure PowerShell](../azure-resource-manager/bicep/deploy-powershell.md), and the [Azure CLI](../azure-resource-manager/bicep/deploy-cli.md) to perform the programmatic steps necessary to create a resource group and deploy the Bicep file, but you can easily use .NET, Ruby, or other programming languages to perform these steps and deploy your Bicep file.
 
+## Prerequisites
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
 ## Review the Bicep file
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iothub-device-provisioning/).
 
 > [!NOTE]
-> Currently there is no ARM template support for creating enrollments with new DPS resources. This is a common and understood request that is being considered for implementation.
+> Currently there is no Bicep file support for creating enrollments with new DPS resources. This is a common and understood request that is being considered for implementation.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.devices/iothub-device-provisioning/main.bicep":::
 
@@ -86,7 +90,6 @@ Sign in to your Azure account and select your subscription.
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    Set-AzContext
     Set-AzContext -Subscription {your subscription name or id}
     ```
 
