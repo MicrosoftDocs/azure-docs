@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/16/2022
+ms.date: 08/17/2022
 
 ms.author: justinha
 author: justinha
@@ -27,8 +27,9 @@ Admins can use the MFA Server Migration Utility to target single users or groups
 
 - The MFA Server Migration Utility is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 - The MFA Server Migration Utility requires a new preview build of the MFA Server solution to be installed on your Primary MFA Server. The build makes updates to the MFA Server data file, and includes the new MFA Server Migration Utility. You don’t have to update the WebSDK or User portal. Installing the update _doesn't_ start the migration automatically.
-- The MFA Server Migration Utility copies the data from the database file onto the user objects in Azure AD. During migration, users can be targeted for Azure MFA for testing purposes using the staged migration tool. Staged migration lets you test without making any changes to your domain federation settings. Once migrations are complete, you must finalize your migration by making changes to your domain federation settings.
+- The MFA Server Migration Utility copies the data from the database file onto the user objects in Azure AD. During migration, users can be targeted for Azure MFA for testing purposes using [Staged Rollout](../hybrid/how-to-connect-staged-rollout). Staged migration lets you test without making any changes to your domain federation settings. Once migrations are complete, you must finalize your migration by making changes to your domain federation settings.
 - AD FS running Windows Server 2016 or higher is required to provide MFA authentication on any AD FS relying parties, not including Azure AD and Office 365. 
+- Review your AD FS claims rules and make sure none requires MFA to be performed on-premises as part of the authentication process.
 - Staged rollout can target a maximum of 500,000 users (10 groups containing a maximum of 50,000 users each).
 
 ## Migration guide
@@ -44,7 +45,7 @@ Admins can use the MFA Server Migration Utility to target single users or groups
 ||[Educate users](#educate-users)|
 ||[Complete user migration](#complete-user-migration)|
 |Finalize |[Migrate MFA Server dependencies](#migrate-mfa-server-dependencies)|
-||[Update domain federation settings]()|
+||[Update domain federation settings](#update-domain-federation-settings)|
 ||[Disable MFA Server User portal](#optional-disable-mfa-server-user-portal)|
 ||[Decommission Azure MFA server](#decommission-azure-mfa-server)|
 
@@ -383,7 +384,7 @@ Once you've completed migrating all user data, end users can begin using the Azu
 
 When you no longer need the Azure MFA server, follow your normal server deprecation practices. No special action is required in Azure AD to indicate MFA Server retirement.
 
-## Rollback (if needed)
+## Rollback plan
 
 If the upgrade had issues, follow these steps to rollback: 
 
@@ -450,3 +451,4 @@ Users will no longer be redirected to your on-premises federation server for MFA
 ## Next steps
 
 - [Overview of how to migrate from MFA Server to Azure AD Multi-Factor Authentication](how-to-migrate-mfa-server-to-azure-mfa.md)
+- [Migrate to cloud authentication using Staged Rollout](../hybrid/how-to-connect-staged-rollout)
