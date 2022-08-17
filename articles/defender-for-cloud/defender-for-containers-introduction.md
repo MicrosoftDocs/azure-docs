@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 08/16/2022
+ms.date: 08/17/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -69,9 +69,9 @@ Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
 ### View vulnerabilities for running images
 
-Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities in images that are currently being used within their environment. The recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false), provides a full inventory of all of the containers running in your AKS clusters.
+Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities in images that are currently being used within their environment using the [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false) recommendation.
 
-Defender for Cloud is able to provide the recommendation, by correlating the inventory of your running containers that are collected by the Defender agent which is installed on your AKS clusters.
+Defender for Cloud is able to provide the recommendation, by correlating the inventory of your running containers that are collected by the Defender agent which is installed on your AKS clusters, with the vulnerability assessment scan of images that are stored in ACR. The recommendation then shows your running containers with the vulnerabilities associated with the images that are used by each container and provides you with vulnerability reports and remediation steps.
 
 > [!NOTE] 
 > **Windows containers**: There is no Defender agent for Windows containers, the Defender agent is deployed to a Linux node running in the cluster, to retrieve the running container inventory for your Windows nodes.

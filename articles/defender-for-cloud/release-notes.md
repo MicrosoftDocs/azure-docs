@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 08/16/2022
+ms.date: 08/17/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -25,11 +25,11 @@ Updates in August include:
 
 ### Vulnerabilities for running images are now visible with Defender for Container on your Windows containers 
 
-Defender for Container now allows you to view vulnerabilities for your Windows containers.
+Defender for Container now allows you to view vulnerabilities for your running Windows containers.
 
 When vulnerabilities are detected, Defender for Cloud shows the detected issues, and generates the following security recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false).
 
-Learn more about [vulnerability assessment](defender-for-containers-introduction.md#vulnerability-assessment).
+Learn more about [viewing your vulnerabilities for running images](defender-for-containers-introduction.md#view-vulnerabilities-for-running-images).
 
 ### Auto-deployment of Azure Monitor Agent (Preview)
 
