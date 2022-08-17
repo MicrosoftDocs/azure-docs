@@ -27,15 +27,14 @@ In this tutorial, you learn how to delete Azure Network Function Manager - Netwo
 
 1. Navigate to the **Azure Network Manager - Devices** resource in which you have deployed a network function and select **Network Function**.
 
-   :::image type="content" source="./media/delete-functions/select-network-function.png" alt-text="Screenshot of +Select Network Function." lightbox="./media/delete-functions/select-network-function.png":::
+   :::image type="content" source="./media/delete-functions/select-network-function.png" alt-text="Screenshot of +select network function." lightbox="./media/delete-functions/select-network-function.png":::
 
 1. Select **Delete** Network Function.
 
-    :::image type="content" source="./media/delete-functions/delete-network-function.png" alt-text="Screenshot of +Delete Network Function." lightbox="./media/delete-functions/delete-network-function.png":::
+    :::image type="content" source="./media/delete-functions/delete-network-function.png" alt-text="Screenshot of +delete network function." lightbox="./media/delete-functions/delete-network-function.png":::
 
    > [!NOTE]
    > If you encounter failed to delete resource error with *access is denied because of the deny assignment 'System deny assignment created by managed application'* while deleting the network function, then copy the name of the Managed Application from the error and refer **Step 4**.
-
    >:::image type="content" source="./media/delete-functions/failed-to-delete.png" alt-text="Screenshot of +Failed To Delete." lightbox="./media/delete-functions/failed-to-delete.png":::
    > 
    
@@ -55,4 +54,4 @@ In this tutorial, you learn how to delete Azure Network Function Manager - Netwo
 
 1. Navigate to the **Azure Network Manager - Devices** resource in which you have deleted a network function and select **Delete** Azure Network Function Manager - Device
 
-   :::image type="content" source="./media/delete-device/delete-network-function-manager.png" alt-text="Screenshot of +delete Network Function Manager - Device." lightbox="./media/delete-device/delete-network-function-manager.png":::
+   :::image type="content" source="./media/delete-device/delete-network-function-manager.png" alt-text="Screenshot of +delete network function manager - device." lightbox="./media/delete-device/delete-network-function-manager.png":::
