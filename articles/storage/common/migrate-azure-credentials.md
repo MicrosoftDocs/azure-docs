@@ -156,7 +156,10 @@ The following compute services are currently supported:
 * Azure Spring Cloud
 * Azure Container Apps (preview)
 
-For this migration guide you will use App Service, but the steps are identical on Azure Spring CLoud and Azure Container Apps.
+For this migration guide you will use App Service, but the steps are similar on Azure Spring Apps and Azure Container Apps.
+
+> [!NOTE]
+> Azure Spring Apps currently only supports Service Connector using connection strings.
 
 1. On the main overview page of your App Service, select **Service Connector** from the left navigation. 
 
@@ -217,19 +220,19 @@ You can also enable managed identity on an Azure hosting environment using the A
 
 You can create a Service Connection between an Azure compute hosting environment and a target service using the Azure CLI. The CLI automatically handles creating a managed identity and assigns the proper role, as explained in the [portal instructions](#create-the-managed-identity-using-the-azure-portal).
 
-If you are using an Azure App Service, use the [az webapp connection](/cli/azure/webapp/connection/create) command:
+If you are using an Azure App Service, use the `az webapp connection` command:
 
 ```azurecli
 az webapp connection create storage-blob  --resource-group <resource-group-name> --name <app-service-name> --target-resource-group <target-resource-group-name> --account <target-storage-account-name> --system-identity
 ```
 
-If you are using Azure Spring Apps, use the az spring-cloud connection command:
+If you are using Azure Spring Apps, use `the az spring-cloud connection` command:
 
 ```azurecli
 az spring-cloud connection create storage-blob  --resource-group <resource-group-name> --service <spring-cloud-service-name> --app <spring-app-name> --deployment <deployment-name> --target-resource-group <target-resource-group> --account <target-storage-account-name> --system-identity
 ```
 
-If you are using Azure Container Apps, use the az spring-cloud connection command:
+If you are using Azure Container Apps, use the `az containerapp connection` command:
 
 ```azurecli
 az containerapp connection create storage-blob  --resource-group <resource-group-name> --name <containerapp-name> --target-resource-group <target-resource-group-name> --account <target-storage-account-name> --system-identity
