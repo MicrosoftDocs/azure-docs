@@ -146,6 +146,37 @@ Once your application is configured to use credential-free connections and runs 
 
 The following steps demonstrate how to create a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you setup previously.
 
+### [Service Connector](#tab/service-connector)
+
+Some app hosting environments support Service Connector, which helps you connect Azure compute services to other backing services. Service Connector automatically configures network settings and connection information. You can learn more about Service Connector and which scenarios are supported on the [overview page](/azure/service-connector/overview).
+
+The following compute services are currently supported:
+
+* Azure App Service
+* Azure Spring Cloud
+* Azure Container Apps (preview)
+
+For this migration guide you will use App Service, but the steps are identical on Azure Spring CLoud and Azure Container Apps.
+
+1. On the main overview page of your App Service, select **Service Connector** from the left navigation. 
+
+1. Select **+ Create** from the top menu and the **Create connection** panel will open.  Enter the following values:
+
+    * **Service type**: Choose **Storage blob**.
+    * **Subscription**: Select the subscription you would like to use.
+    * **Connection Name**: Enter a name for your connection, such as *connector_appservice_blob*.
+    * **Client type**: Leave the default value selected or choose the specific client you'd like to use.
+    
+    Select **Next: Authentication**. 
+
+    :::image type="content" source="media/migration-create-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-create-identity.png":::
+
+1. Make sure **System assigned managed identity (Recommended)** is selected, and then choose **Next: Networking**.
+1. Leave the default values selected, and then choose **Next: Review + Create**.
+1. After Azure validates your settings, click **Create**.
+
+The Service Connector will automatically create a system-assigned managed identity for the app service. The connector will also assign the managed identity a **Storage Blob Data Contributor** role for the storage account you selected.
+
 ### [App Service](#tab/app-service)
 
 1. On the main overview page of your App Service, select **Identity** from the left navigation. 
@@ -181,6 +212,28 @@ The following steps demonstrate how to create a system-assigned managed identity
 ---
 
 You can also enable managed identity on an Azure hosting environment using the Azure CLI.
+
+### [Service Connector](#tab/service-connector-identity)
+
+You can create a Service Connection between an Azure compute hosting environment and a target service using the Azure CLI. The CLI automatically handles creating a managed identity and assigns the proper role, as explained in the [portal instructions](#create-the-managed-identity-using-the-azure-portal).
+
+If you are using an Azure App Service, use the [az webapp connection](/cli/azure/webapp/connection/create) command:
+
+```azurecli
+az webapp connection create storage-blob  --resource-group <resource-group-name> --name <app-service-name> --target-resource-group <target-resource-group-name> --account <target-storage-account-name> --system-identity
+```
+
+If you are using Azure Spring Apps, use the az spring-cloud connection command:
+
+```azurecli
+az spring-cloud connection create storage-blob  --resource-group <resource-group-name> --service <spring-cloud-service-name> --app <spring-app-name> --deployment <deployment-name> --target-resource-group <target-resource-group> --account <target-storage-account-name> --system-identity
+```
+
+If you are using Azure Container Apps, use the az spring-cloud connection command:
+
+```azurecli
+az containerapp connection create storage-blob  --resource-group <resource-group-name> --name <containerapp-name> --target-resource-group <target-resource-group-name> --account <target-storage-account-name> --system-identity
+```
 
 ### [App Service](#tab/app-service-identity)
 
@@ -227,6 +280,10 @@ az vm identity assign --resource-group <resource-group-name> --name <app-service
 #### Assign roles to the managed identity
 
 Next, you need to grant permissions to the managed identity you created to access your storage account. You can do this by assigning a role to the managed identity, just like you did with your local development user. 
+
+### [Service Connector](#tab/assign-role-azure-portal)
+
+If you connected your services using the Service Connector, this step has already been handled for you. The Service Connector automatically created a system-assigned managed identity for your app environment and assigned it the **Storage Blob Data Contributor** role on the storage account.
 
 ### [Azure portal](#tab/assign-role-azure-portal)
 
