@@ -46,7 +46,6 @@ Use this article to find the settings and requirements for connecting different 
 |[MongoDB](#mongodb) | Basic |
 |[MySQL](#mysql) | Basic |
 |[PostgreSQL](#pgsql) | Basic|
-|[Local files (CSV)](#csv) | Basic|
 
 The following sections specify the parameters required for all authentication types within different data source scenarios. 
 
