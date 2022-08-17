@@ -7854,7 +7854,7 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-netmotion-mobility-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/netmotion-mobility-tutorial",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-brightspace-desire2learn-tutorial.md",
