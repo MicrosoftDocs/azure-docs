@@ -103,9 +103,9 @@ Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP 
 
 ### NAT gateway timers
 
-* NAT gateway holds on to SNAT ports after a connection closes before it is available to reuse to connect to the same destination endpoint over the internet. SNAT port reuse timer durations vary depending on how the connection closes. To learn more, see [Port Reuse Timers](/azure/virtual-network/nat-gateway/nat-gateway-resource#port-reuse-timers).
+* NAT gateway holds on to SNAT ports after a connection closes before it is available to reuse to connect to the same destination endpoint over the internet. SNAT port reuse timer durations vary depending on how the connection closes. To learn more, see [Port Reuse Timers](./nat-gateway-resource.md#port-reuse-timers).
 
-* A default TCP idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any activity on a flow can also reset the idle timer, including TCP keepalives. To learn more, see [Idle Timeout Timers](/azure/virtual-network/nat-gateway/nat-gateway-resource#idle-timeout-timers).
+* A default TCP idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any activity on a flow can also reset the idle timer, including TCP keepalives. To learn more, see [Idle Timeout Timers](./nat-gateway-resource.md#idle-timeout-timers).
 
 * UDP traffic has an idle timeout timer of 4 minutes that cannot be changed. 
 
