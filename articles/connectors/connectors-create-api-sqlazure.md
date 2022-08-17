@@ -51,7 +51,7 @@ For more information, review the [SQL Server managed connector reference](/conne
 
   The SQL Server connector requires that your tables contain data so that the connector operations can return results when called. For example, if you use Azure SQL Database, you can use the included sample databases to try the SQL Server connector operations.
 
-* The information required to create a SQL database connection, such as your SQL server and database names. If you're using Windows Authentication or SQL Server Authentication to authenticate access, you also need your user name and password. You can usually find this information in the connection string.
+* The information required to create a SQL database connection, such as your SQL server and database name. If you're using Windows Authentication or SQL Server Authentication to authenticate access, you also need your user name and password. You can usually find this information in the connection string.
 
   > [!IMPORTANT]
   >
@@ -318,6 +318,7 @@ In the connection information box, complete the following steps:
    ||||
 
    > [!TIP]
+   >
    > To provide your database and table information, you have these options:
    > 
    > * Find this information in your database's connection string. For example, in the Azure portal, find and open your database. On the database menu, select either **Connection strings** or **Properties**, where you can find the following string:
@@ -464,9 +465,11 @@ The SQL Server built-in connector is available only for Standard logic app workf
 
 <a name="delete-rows"></a>
 
+### Delete rows
+
 Operation ID: `deleteRows`
 
-Deletes one or multiple rows from a table.
+Deletes and returns the table rows that match the specified **Where condition** value.
 
 #### Parameters
 
@@ -480,7 +483,8 @@ Deletes one or multiple rows from a table.
 
 | Name | Type |
 |------|------|
-| **Result** | An array object that contains the deleted rows where each row contains the column name and the corresponding deleted value. |
+| **Result** | An array object that returns all the deleted rows. Each row contains the column name and the corresponding deleted value. |
+| **Result Item** | An array object that returns each deleted row one at a time. A **For each** loop is automatically added to your workflow to iterate through the array. Each row contains the column name and the corresponding deleted value. |
 |||
 
 *Example*
@@ -527,7 +531,11 @@ Runs a query on a SQL database.
 
 #### Returns
 
-The outputs from this operation are dynamic.
+| Name | Type |
+|------|------|
+| **Result** | An array object that returns all the query results. Each row contains the column name and the corresponding value. |
+| **Result Item** | An array object that returns each query result one at a time. A **For each** loop is automatically added to your workflow to iterate through the array. Each row contains the column name and the corresponding value. |
+|||
 
 <a name="execute-stored-procedure"></a>
 
@@ -546,6 +554,43 @@ Runs a stored procedure on a SQL database.
 ||||||
 
 #### Returns
+
+* The result sets from the stored procedure
+* The return code from the stored procedure
+* The final values of the output parameters from the stored procedure
+
+<a name="get-rows"></a>
+
+### Get rows
+
+| [**Get rows**](#get-rows) | Get the metadata or properties of a file using the specified file path. |
+
+<a name="get-tables"></a>
+
+### Get tables
+
+Operation ID: `getTables`
+
+Get a list of files and subfolders in the specified folder.
+
+#### Parameters
+
+None.
+
+
+
+<a name="insert-row"></a>
+
+### Insert row
+
+| [**Insert row**](#insert-row) | Update a file using the specified file path and file content. |
+
+<a name="update-rows"></a>
+
+### Update rows
+
+| [**Update rows**](#update-rows) | Update a file using the specified file path and file content. |
+
 
 ## Built-in connector app settings
 
