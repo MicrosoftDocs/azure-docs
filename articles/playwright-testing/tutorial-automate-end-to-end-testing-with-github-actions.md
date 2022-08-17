@@ -58,8 +58,6 @@ Your GitHub Actions workflow uses a CI/CD secret to securely store and use your 
 
 To create a CI/CD secret to store and use the access key securely:
 
-1. Create a GitHub secret *ACCESS_KEY* in the sample repository, and set its value to the Microsoft Playwright Testing access key you copied previously.
-    
 1. In your forked GitHub repository, select **Settings > Secrets > Actions > New repository secret**.
 
 1. Enter *ACCESS_KEY* for the **Name**, and paste the access key value that you copied previously, for the **Value**. Then, select **Add secret** to create the CI/CD secret.
