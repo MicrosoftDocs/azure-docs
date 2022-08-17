@@ -75,4 +75,5 @@ To enable testing privately hosted endpoints, update the Playwright configuratio
 
 ## Next steps
 
-* Learn more about [how Microsoft Playwright Testing works](./overview-what-is-microsoft-playwright-testing.md).
+- Learn more about [running cross-platform tests](./how-to-cross-platform-tests.md).
+- Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
