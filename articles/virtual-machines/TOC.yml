@@ -1,11 +1,7 @@
 - name: Virtual Machines Documentation
   href: index.yml
 - name: Overview
-  items:
-  - name: About Linux Virtual Machines
-    href: ./linux/overview.md
-  - name: About Windows Virtual Machines
-    href: ./windows/overview.md
+  href: overview.md
 - name: Quickstarts
   items:
   - name: Create a Linux VM
