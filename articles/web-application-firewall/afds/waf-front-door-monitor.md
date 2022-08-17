@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 05/11/2022
+ms.date: 08/16/2022
 ms.author: victorh
 zone_pivot_groups: front-door-tiers
 ---
@@ -52,6 +52,7 @@ The following example query returns the access log entries:
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.CDN" and Category == "FrontDoorAccessLog"
 ```
+
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
@@ -64,6 +65,42 @@ AzureDiagnostics
 ::: zone-end
 
 The following shows an example log entry:
+
+::: zone pivot="front-door-standard-premium"
+
+```json
+{
+  "time": "2020-06-09T22:32:17.8383427Z",
+  "category": "FrontDoorAccessLog",
+  "operationName": "Microsoft.Network/FrontDoor/AccessLog/Write",
+  "properties": {
+    "trackingReference": "08Q3gXgAAAAAe0s71BET/QYwmqtpHO7uAU0pDRURHRTA1MDgANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
+    "httpMethod": "GET",
+    "httpVersion": "2.0",
+    "requestUri": "https://wafdemofrontdoorwebapp.azurefd.net:443/?q=%27%20or%201=1",
+    "requestBytes": "715",
+    "responseBytes": "380",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4157.0 Safari/537.36 Edg/85.0.531.1",
+    "clientIp": "xxx.xxx.xxx.xxx",
+    "socketIp": "xxx.xxx.xxx.xxx",
+    "clientPort": "52097",
+    "timeTaken": "0.003",
+    "securityProtocol": "TLS 1.2",
+    "routingRuleName": "WAFdemoWebAppRouting",
+    "rulesEngineMatchNames": [],
+    "backendHostname": "wafdemowebappuscentral.azurewebsites.net:443",
+    "sentToOriginShield": false,
+    "httpStatusCode": "403",
+    "httpStatusDetails": "403",
+    "pop": "SJC",
+    "cacheStatus": "CONFIG_NOCACHE"
+  }
+}
+```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
 
 ```json
 {
@@ -94,6 +131,8 @@ The following shows an example log entry:
   }
 }
 ```
+
+::: zone-end
 
 ### WAF logs
 
