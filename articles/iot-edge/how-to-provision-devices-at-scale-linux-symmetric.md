@@ -117,6 +117,9 @@ Have the following information ready:
     source = "dps"
     global_endpoint = "https://global.azure-devices-provisioning.net"
     id_scope = "PASTE_YOUR_SCOPE_ID_HERE"
+
+    # Uncomment to send a custom payload during DPS registration
+    # payload = { uri = "OPTIONAL_PATH_TO_JSON_FILE" }
     
     [provisioning.attestation]
     method = "symmetric_key"
@@ -135,7 +138,16 @@ Have the following information ready:
 
 1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
-1. Save and close the config.toml file.
+:::moniker-end
+
+<!-- iotedge-1.4 -->
+:::moniker range=">=iotedge-1.4"
+1. Optionally, uncomment the `payload` parameter to specify the path to a local json file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
+:::moniker-end
+
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
+1. Save and close the file.
 
 1. Apply the configuration changes that you made to IoT Edge.
 
