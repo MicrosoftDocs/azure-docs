@@ -13,11 +13,7 @@ In the quickstart article to [publish the definition](publish-service-catalog-ap
 
 ## Prerequisites
 
-To complete this quickstart, you need the following items. If you completed the quickstart to publish a definition, you should already have the software installed.
-
-- An Azure subscription. If you don't have one you can [create a free account](https://azure.microsoft.com/free/).
-- [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
-- Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+To complete this quickstart, you need an Azure account with an active subscription. If you completed the quickstart to publish a definition, you should already have an account. Otherwise, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create service catalog managed application
 
@@ -46,7 +42,7 @@ In the Azure portal, use the following steps:
    - **Resource group**: Select the resource group. For this example, create a resource group named _applicationGroup_.
    - **Region**: Select the location where you want to deploy the resource.
    - **Application Name**: Enter a name for your application. For this example, use _demoManagedApplication_.
-   - **Managed Resource Group**: Uses a default resource group name with the format `mrg-{definitionName}-{dateTime}` like _mrg-ManagedStorage-20220817122721_. You can change the name.
+   - **Managed Resource Group**: Uses a default name format `mrg-{definitionName}-{dateTime}` like _mrg-ManagedStorage-20220817122721_. You can change the name.
 
 1. Enter a prefix for the storage account name and select the storage account type. Select **Next: Review + create**.
 
