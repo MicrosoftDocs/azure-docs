@@ -65,7 +65,7 @@ Next, create a C# .NET console application in Visual Studio:
 The below code will create a data share that you can send to internal or external users.
 To use it, be sure to fill out these variables:
 
-- **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
+- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
 - **sentShareName** - a name for your new data share
 - **description** - an optional description for your data share
 - **collectionName** - the name of the collection where your share will be housed.
@@ -117,7 +117,7 @@ var sentShare = await sentShareClient.CreateOrUpdateAsync(sentShareName, Request
 The below code will add a data asset to a share you're sending.
 To use it, be sure to fill out these variables:
 
-- **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
+- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
 - **sentShareName** - the name of the data share where you'll add the asset
 - **assetName** - a name for the asset you'll be adding
 - **senderStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data asset is stored
@@ -167,7 +167,7 @@ await assetsClient.CreateAsync(WaitUntil.Started, sentShareName, assetName, Requ
 The below code will send an invitation to a data share.
 To use it, be sure to fill out these variables:
 
-- **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
+- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
 - **sentShareName** - the name of the data share you're sending
 - **assetName** - a name for your invitation
 - **targetEmail** or **targetActiveDirectoryId and targetObjectId** - the email address **or** objectId and tenantId for the user or service principal that will receive the data share. TenantId is optional.
@@ -209,7 +209,7 @@ await sentShareInvitationsClient.CreateOrUpdateAsync(sentShareName, invitationNa
 The below code will allow you to view your sent invitations.
 To use it, be sure to fill out these variables:
 
-- **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
+- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
 - **sentShareName** - the name share that an invitation was sent for
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_04_Namespaces
@@ -238,7 +238,7 @@ var targetEmail = responseInvitationDocument.RootElement.GetProperty("name");
 The below code will allow you to view your received invitations.
 To use it, be sure to fill out these variables:
 
-- **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
+- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_05_Namespaces
 using Azure.Identity;
@@ -255,7 +255,7 @@ var receivedInvitations = receivedInvitationsClient.GetReceivedInvitations();
 The below code will allow you to receive a data share.
 To use it, be sure to fill out these variables:
 
-- **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
+- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
 - **receivedShareName** - a name for the share that is being received
 -  **sentShareLocation** - the region where the share is housed. It should be the same region as the sent share and will be one of [Microsoft Purview's available regions](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all).
 - **collectionName** - the name of the collection where your share will be housed.
@@ -322,7 +322,7 @@ var receivedShare = await receivedShareClient.CreateAsync(receivedShareName, Req
 The below code will allow you to view your accepted shares.
 To use it, be sure to fill out these variables:
 
-- **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
+- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
 - **sentShareName** - the name of the share you would like to view
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_07_Namespaces
@@ -350,7 +350,7 @@ var receiverEmail = JsonDocument.Parse(acceptedSentShare).RootElement.GetPropert
 The below code will allow you to see the assets received from a share.
 To use it, be sure to fill out these variables:
 
-- **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
+- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
 - **receivedShareName** - the name of the share you would like to view the assets from
 - **assetMappingName** - consumer provided input that is used as identifier for the created asset mapping
 - **receiverContainerName** - the name of the container where the assets were housed
