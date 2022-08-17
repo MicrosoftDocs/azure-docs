@@ -45,7 +45,7 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ### Featured clothing insight (preview)
 
-When indexing a video using Azure Video Indexer advanced video settings, you can view the new featured clothing insight. With the new featured clothing insight information, you can enable more targeted ads placement. 
+You can now view the featured clothing of an observed person, when indexing a video using Azure Video Indexer advanced video settings. With the new featured clothing insight information, you can enable more targeted ads placement. 
 
 For details on how featured clothing images are ranked and how to view this insight, see [observed people featured clothing](observed-people-featured-clothing.md).
 
