@@ -16,6 +16,8 @@ items:
 - name: Quickstarts
   expanded: true
   items:
+  - name: Get started with Azure Data Factory
+    href: quickstart-get-started.md
   - name: Create data factory - User interface (UI)
     href: quickstart-create-data-factory-portal.md
   - name: Create data factory - Copy data tool
