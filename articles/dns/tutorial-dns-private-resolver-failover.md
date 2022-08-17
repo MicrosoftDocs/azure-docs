@@ -24,9 +24,14 @@ In this tutorial, you learn how to:
 
 The following diagram shows the failover scenario discussed in this article.
 
-[ ![Azure DNS Private Resolver architecture](./media/dns-resolver-overview/resolver-architecture.png) ](./media/dns-resolver-overview/resolver-architecture.png#lightbox)
+[ ![Azure DNS Private Resolver architecture](./media/tutorial-private-resolver-failover/private-resolver-failover.png) ](./media/tutorial-private-resolver-failover/private-resolver-failover_highres.png#lightbox)
 
-Some elements of the Azure DNS Private Resolver architecture are included in the diagram above for completeness, but are not in scope for this article. For example, rulesets can be used to resolve on-premises domains from Azure. For more information, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md) and [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md).
+Important architecture elements numbered in the digram are: 
+1) On-premises DNS [conditional forwarders](#on-premises-forwarding) that send DNS queries to inbound endpoints.
+2) [Inbound endpoints](#inbound-endpoints) that receive DNS queries from outside the virtual network.
+3) Outbound endpoints and DNS forwarding rulesets that perform custom processing on DNS queries.
+
+Outbound endpoints and DNS forwarding rulesets are included in the diagram for completeness, but are not in scope for the failover scenario. Rulesets can be used is to resolve on-premises domains from Azure. For more information, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md) and [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md).
 
 ## Prerequisites
 
@@ -43,6 +48,8 @@ Some elements of the Azure DNS Private Resolver architecture are included in the
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
+
+<a name="inbound-endpoints"></a>
 
 ## Determine inbound endpoint IP addresses
 
@@ -104,6 +111,8 @@ Check that DNS settings for your virtual networks are set to Default (Azure-prov
 
     > [!NOTE]
     > If DNS resolution for the private zone is not working, check that your on-premises links to the Azure Vnets are connected.
+
+<a name="on-premises-forwarding"></a>
 
 ## Configure on-premises DNS forwarding
 

@@ -32,7 +32,7 @@ Benefits of the Azure DNS Private Resolver service include:
 
 ## Hybrid DNS resolution
 
-
+In the current context, Hybrid DNS resolution is defined as being able to: 1) resolve Azure DNS private zones from on-premises and 2) resolve on-premises domains using Azure resources.
 
 ## Next steps
 To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md).

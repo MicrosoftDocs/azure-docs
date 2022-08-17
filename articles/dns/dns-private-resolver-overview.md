@@ -6,7 +6,7 @@ ms.custom: references_regions
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 08/02/2022
+ms.date: 08/17/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -38,7 +38,7 @@ The DNS query process when using an Azure DNS Private Resolver is summarized bel
 
 The architecture for Azure DNS Private Resolver is summarized in the following figure. DNS resolution between Azure virtual networks and on-premises networks requires [Azure ExpressRoute](../expressroute/expressroute-introduction.md) or a [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-[ ![Azure DNS Private Resolver architecture](./media/dns-resolver-overview/resolver-architecture.png) ](./media/dns-resolver-overview/resolver-architecture.png#lightbox)
+[ ![Azure DNS Private Resolver architecture](./media/dns-resolver-overview/resolver-architecture.png) ](./media/dns-resolver-overview/resolver-architecture_highres.png#lightbox)
 
 Figure 1: Azure DNS Private Resolver architecture
 
