@@ -11,6 +11,14 @@ ms.date: 08/17/2022
 
 In the quickstart article to [publish the definition](publish-service-catalog-app.md), you published an Azure managed application definition. In this quickstart, you use that definition to deploy a service catalog managed application. The deployment creates two resource groups. One resource group contains the managed application and the other is a managed resource group for the deployed resource. In this article, the managed application definition deploys a managed storage account.
 
+## Prerequisites
+
+To complete this quickstart, you need the following items. If you completed the quickstart to publish a definition, you should already have the software installed.
+
+- An Azure subscription. If you don't have one you can [create a free account](https://azure.microsoft.com/free/).
+- [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
+- Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+
 ## Create service catalog managed application
 
 In the Azure portal, use the following steps:
@@ -67,7 +75,7 @@ Go to the managed resource group with the name prefix **mrg-ManagedStorage** to 
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/view-managed-resource-group.png" alt-text="Screenshot that shows the managed resource group that contains the resource deployed by the managed application.":::
 
-The storage account that's created by the managed application has a role assignment. In the [previous quickstart](/publish-service-catalog-app.md#create-an-azure-active-directory-user-group-or-application), you created an Azure Active Directory group. That group was used in the managed application definition. When you deployed the managed application, a role assignment for that group was added to the managed storage account.
+The storage account that's created by the managed application has a role assignment. In the [publish the definition](publish-service-catalog-app.md#create-an-azure-active-directory-user-group-or-application) article, you created an Azure Active Directory group. That group was used in the managed application definition. When you deployed the managed application, a role assignment for that group was added to the managed storage account.
 
 To see the role assignment from the Azure portal:
 
