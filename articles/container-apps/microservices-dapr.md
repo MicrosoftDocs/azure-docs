@@ -100,7 +100,7 @@ Choose a name for storage account. Storage account names must be *unique within 
 # [Bash](#tab/bash)
 
 ```bash
-STORAGE_ACCOUNT_NAME = "<storage account name>"
+STORAGE_ACCOUNT_NAME="<storage account name>"
 ```
 
 # [PowerShell](#tab/powershell)

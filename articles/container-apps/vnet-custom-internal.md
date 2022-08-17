@@ -104,7 +104,7 @@ $SubnetArgs = @{
     Name = "infrastructure-subnet"
     AddressPrefix = "10.0.0.0/23"
 }
-$subnet = New-AzVirtualNetworkSubnetConfig $SubnetArgs
+$subnet = New-AzVirtualNetworkSubnetConfig @SubnetArgs
 ```
 
 ```powershell
@@ -175,7 +175,7 @@ $WorkspaceArgs = @{
     PublicNetworkAccessForIngestion = "Enabled"
     PublicNetworkAccessForQuery = "Enabled"
 }
-New-AzOperationalInsightsWorkspace @CmdArgs
+New-AzOperationalInsightsWorkspace @WorkspaceArgs
 $WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
 $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
@@ -239,15 +239,11 @@ VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_N
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$EnvironmentDefaultDomain = (Get-AzContainerAppManagedEnv -Name $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).DefaultDomain
+$EnvironmentDefaultDomain = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).DefaultDomain
 ```
 
 ```powershell
-$EnvironmentStaticIp = (Get-AzContainerAppManagedEnv -Name $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).StaticIp
-```
-
-```powershell
-$VnetId = (Get-AzVirtualNetwork -ResourceGroupName $ResourceGroupName -Name $VnetName --query id -o tsv).Id
+$EnvironmentStaticIp = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).StaticIp
 ```
 
 ---
@@ -285,12 +281,12 @@ New-AzPrivateDnsZone -ResourceGroupName $ResourceGroupName -Name $EnvironmentDef
 ```
 
 ```powershell
-New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $ResourceGroupName -Name $VnetName -VirtualNetwork $VnetId -ZoneName $EnvironmentDefaultDomain -EnableRegistration
+New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $ResourceGroupName -Name $VnetName -VirtualNetwork $Vnet -ZoneName $EnvironmentDefaultDomain -EnableRegistration
 ```
 
 ```powershell
 $DnsRecords = @()
-$DnsRecords += New-AzPrivateDnsRecordConfig Ipv4Address $EnvironmentStaticIp -ZoneName
+$DnsRecords += New-AzPrivateDnsRecordConfig -Ipv4Address $EnvironmentStaticIp
 
 $DnsRecordArgs = @{
     ResourceGroupName = $ResourceGroupName
@@ -300,7 +296,7 @@ $DnsRecordArgs = @{
     Ttl = 3600 
     PrivateDnsRecords = $DnsRecords
 }
-New-AzPrivateDnsARecord @DnsRecordArgs
+New-AzPrivateDnsARecordSet @DnsRecordArgs
 ```
 
 ---

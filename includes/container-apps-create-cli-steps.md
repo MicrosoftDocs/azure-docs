@@ -8,7 +8,7 @@ ms.author: cshoe
 
 ## Setup
 
-First, sign in to Azure from the CLI. Run the following command, and follow the prompts to complete the authentication process.
+First, sign in to Azure from the CLI or PowerShell. Run the following command, and follow the prompts to complete the authentication process.
 
 # [Bash](#tab/bash)
 
@@ -40,6 +40,11 @@ You must have the latest Az module installed.  Ignore any warnings about modules
 
 ```powershell
 Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
+```
+Now install the Az.App module.
+
+```powershell
+Install-Module -Name Az.App
 ```
 
 ---

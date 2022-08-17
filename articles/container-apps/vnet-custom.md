@@ -107,7 +107,7 @@ $SubnetArgs = @{
     Name = "infrastructure-subnet"
     AddressPrefix = "10.0.0.0/23"
 }
-$subnet = New-AzVirtualNetworkSubnetConfig $SubnetArgs
+$subnet = New-AzVirtualNetworkSubnetConfig @SubnetArgs
 ```
 
 ```powershell
@@ -167,7 +167,7 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 
 Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` command will result in a warning message.  The command will still succeed.
 
-``powershell
+```powershell
 $WorkspaceArgs = @{
     Name = "myworkspace"
     ResourceGroupName = $ResourceGroupName
@@ -239,15 +239,11 @@ VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_N
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$EnvironmentDefaultDomain = (Get-AzContainerAppManagedEnv -Name $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).DefaultDomain
+$EnvironmentDefaultDomain = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).DefaultDomain
 ```
 
 ```powershell
-$EnvironmentStaticIp = (Get-AzContainerAppManagedEnv -Name $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).StaticIp
-```
-
-```powershell
-$VnetId = (Get-AzVirtualNetwork -ResourceGroupName $ResourceGroupName -Name $VnetName --query id -o tsv).Id
+$EnvironmentStaticIp = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).StaticIp
 ```
 
 ---
@@ -285,12 +281,12 @@ New-AzPrivateDnsZone -ResourceGroupName $ResourceGroupName -Name $EnvironmentDef
 ```
 
 ```powershell
-New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $ResourceGroupName -Name $VnetName -VirtualNetwork $VnetId -ZoneName $EnvironmentDefaultDomain -EnableRegistration
+New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $ResourceGroupName -Name $VnetName -VirtualNetwork $Vnet -ZoneName $EnvironmentDefaultDomain -EnableRegistration
 ```
 
 ```powershell
 $DnsRecords = @()
-$DnsRecords += New-AzPrivateDnsRecordConfig Ipv4Address $EnvironmentStaticIp -ZoneName
+$DnsRecords += New-AzPrivateDnsRecordConfig -Ipv4Address $EnvironmentStaticIp
 
 $DnsRecordArgs = @{
     ResourceGroupName = $ResourceGroupName
@@ -300,7 +296,7 @@ $DnsRecordArgs = @{
     Ttl = 3600 
     PrivateDnsRecords = $DnsRecords
 }
-New-AzPrivateDnsARecord @DnsRecordArgs
+New-AzPrivateDnsARecordSet @DnsRecordArgs
 ```
 
 ---

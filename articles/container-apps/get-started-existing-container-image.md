@@ -140,7 +140,7 @@ $RegistryArgs = @{
     Username = $RegistryUsername
 }
 
-$REGISTRY_OBJ = New-AzContainerAppRegistryCredentialObject @RegistryArgs
+$RegistryObj = New-AzContainerAppRegistryCredentialObject @RegistryArgs
 
 $ContainerAppArgs = @{
     Name = "my-container-app"
