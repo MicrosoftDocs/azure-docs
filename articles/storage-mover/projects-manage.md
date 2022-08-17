@@ -32,7 +32,10 @@ Prescriptively direct the customer through the procedure end-to-end. Don't link 
 
 ## Create a project
 
-The first step to making Haushaltswaffeln is the preparation of the batter. To prepare the batter, complete the steps listed below. 
+The first step to making Haushaltswaffeln is the preparation of the batter. To prepare the batter, complete the steps listed below.
+
+   > [!IMPORTANT]
+   > Renaming Project resources is not supported. It's a good idea to ensure that you've named the project appropriately since you will not be able to change the project name later.
 
 # [PowerShell](#tab/powershell)
 
@@ -44,16 +47,100 @@ CLI content
 
 # [Azure Portal](#tab/portal)
 
-1. Navigate to the **Project Explorer** page  in the [Azure Portal](https://portal.azure.com). The default **All projects** view displays the name of your individual project, and a summary of the jobs they contain.
+1. Navigate to the **Project Explorer** page  in the [Azure Portal](https://portal.azure.com). The default **All projects** view displays the name of your individual project and a summary of the jobs they contain.
 
    :::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="project explorer" lightbox="media/projects-manage/project-explorer-lrg.png":::
 
-1. Select **Create project** to open the **Create a Project"* pane.  
+1. Select **Create project** to open the **Create a Project"* pane. Provide project name and description values in the **Project name** and **Project description** fields, then select **Create** to generate a new project.
 
    :::image type="content" source="media/projects-manage/project-explorer-create-sml.png" alt-text="project explorer create" lightbox="media/projects-manage/project-explorer-create-lrg.png":::
 
-
 ---
+
+
+
+
+
+
+
+
+## Manage a project's description
+
+The first step to making Haushaltswaffeln is the preparation of the batter. To prepare the batter, complete the steps listed below.
+
+# [PowerShell](#tab/powershell)
+
+PowerShell content
+
+# [CLI](#tab/cli)
+
+CLI content
+
+# [Azure Portal](#tab/portal)
+
+1. Navigate to the **Project Explorer** page  in the [Azure Portal](https://portal.azure.com). The default **All projects** view displays the name of your individual project and a summary of the jobs they contain.
+
+   :::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="project explorer2" lightbox="media/projects-manage/project-explorer-lrg.png":::
+
+1. In the **All projects** group, select the name of the project whose description you want to manage. The **Project** pane opens, displaying the project's available properties and any job summary data. Depending on the existence of the project's description, select either **Add description** or **Edit description** to open the editing pane. If the project's description exists, you may also select the **Edit** icon next to the description's heading.
+
+   :::image type="content" source="media/projects-manage/project-explorer-view-sml.png" alt-text="project explorer view" lightbox="media/projects-manage/project-explorer-view-lrg.png":::
+
+1. In the editing pane, modify your project's description. At the bottom onf the pane, select **Save** to commit your changes.
+
+   :::image type="content" source="media/projects-manage/project-explorer-edit-sml.png" alt-text="project explorer edit" lightbox="media/projects-manage/project-explorer-edit-lrg.png":::
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Edit a project's description
+
+The first step to making Haushaltswaffeln is the preparation of the batter. To prepare the batter, complete the steps listed below.
+
+# [PowerShell](#tab/powershell)
+
+PowerShell content
+
+# [CLI](#tab/cli)
+
+CLI content
+
+# [Azure Portal](#tab/portal)
+
+1. Navigate to the **Project Explorer** page  in the [Azure Portal](https://portal.azure.com). The default **All projects** view displays the name of your individual project and a summary of the jobs they contain.
+
+   :::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="project explorer2" lightbox="media/projects-manage/project-explorer-lrg.png":::
+
+1. In the **All projects** group, select the name of the project whose description you want to edit. The **Project** pane opens, displaying the project's settings and any job summary data. Select **Edit description** or the **Edit** icon next to the description heading to open the editing pane.
+
+   :::image type="content" source="media/projects-manage/project-explorer-view-sml.png" alt-text="project explorer view" lightbox="media/projects-manage/project-explorer-view-lrg.png":::
+
+1. In the editing pane, modify your project's description. At the bottom onf the pane, select **Save** to commit your changes.
+
+   :::image type="content" source="media/projects-manage/project-explorer-edit-sml.png" alt-text="project explorer edit" lightbox="media/projects-manage/project-explorer-edit-lrg.png":::
+---
+
+
+
+
+
+
+
+
+
 
 After the project is created, you can begin doing X.
 
