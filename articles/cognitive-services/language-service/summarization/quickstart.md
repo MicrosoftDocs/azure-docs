@@ -17,6 +17,8 @@ zone_pivot_groups: programming-languages-text-analytics
 
 # Quickstart: using document summarization and conversation summarization (preview)
 
+[!INCLUDE [availability](includes/regional-availability.md)]
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](includes/quickstarts/csharp-sdk.md)]
