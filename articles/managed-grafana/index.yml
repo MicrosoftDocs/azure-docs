@@ -24,7 +24,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Azure Portal
+          - text: Azure portal
             url: quickstart-managed-grafana-portal.md
           - text: Azure CLI
             url: quickstart-managed-grafana-cli.md
