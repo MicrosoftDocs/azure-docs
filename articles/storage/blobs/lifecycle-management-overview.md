@@ -102,7 +102,7 @@ The following sample rule filters the account to run the actions on objects that
             },
             "tierToArchive": {
               "daysAfterModificationGreaterThan": 90,
-              "daysAfterLastTierChangeGreaterThan " : 7
+              "daysAfterLastTierChangeGreaterThan": 7
             },
             "delete": {
               "daysAfterModificationGreaterThan": 2555
@@ -165,7 +165,7 @@ The run conditions are based on age. Current versions use the last modified time
 | daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for actions on a current version of a blob |
 | daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for actions on a previous version of a blob or a blob snapshot |
 | daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for a current version of a blob when access tracking is enabled |
-| daysAfterLastTierChangeGreaterThan | Integer value indicating the age in days after last blob tier change time | This condition applies only to tierToArchive actions. The daysAfterModificationGreaterThan condition must be set for baseBlobs-based actions, or the daysAfterModificationGreaterThan condition must be set for snapshots and blob version-based actions. |
+| daysAfterLastTierChangeGreaterThan | Integer value indicating the age in days after last blob tier change time | This condition applies only to `tierToArchive` actions and can be used only with the `daysAfterModificationGreaterThan` condition. |
 
 ## Examples of lifecycle policies
 
@@ -254,8 +254,7 @@ Some data stays idle in the cloud and is rarely, if ever, accessed. The followin
         "actions": {
           "baseBlob": {
               "tierToArchive": { 
-                "daysAfterModificationGreaterThan": 0,
-                "daysAfterLastTierChangeGreaterThan": 7 
+                "daysAfterModificationGreaterThan": 0
               }
           }
         }
