@@ -7,7 +7,6 @@ ms.service: web-application-firewall
 ms.date: 08/16/2022
 ms.author: victorh
 ms.topic: how-to
-zone_pivot_groups: front-door-tiers
 ---
 
 # Using Microsoft Sentinel with Azure Web Application Firewall

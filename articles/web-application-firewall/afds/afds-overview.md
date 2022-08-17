@@ -7,7 +7,6 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 08/16/2022
 ms.author: victorh
-zone_pivot_groups: front-door-tiers
 ---
 
 # Azure Web Application Firewall on Azure Front Door
