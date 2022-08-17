@@ -192,9 +192,9 @@ You'll connect to the virtual machine with SSH to test the IPv4 public IP addres
 
 4. Open an SSH connection to the virtual machine by using the following command. Replace the IP address with the IP address of your virtual machine. Replace **`azureuser`** with the username you chose during virtual machine creation. The **`-i`** is the path to the private key that you downloaded earlier. In this example, it's **~/.ssh/mySSHKey.pem**.
 
-```bash
-ssh -i ~/.ssh/mySSHkey.pem azureuser@20.22.46.19
-```
+    ```bash
+    ssh -i ~/.ssh/mySSHkey.pem azureuser@20.22.46.19
+    ```
 
 ## Clean up resources
 
