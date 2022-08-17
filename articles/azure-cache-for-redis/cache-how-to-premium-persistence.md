@@ -110,7 +110,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [Can I use the same storage account for persistence across two different caches?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
 - [Will I be charged for the storage being used in Data Persistence](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
 - [How frequently does RDB and AOF persistence write to my blobs, and should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
-- [Will having firewall exceptions on the storage account affect persistence](#Will having firewall exceptions on the storage account affect persistence)
+- [Will having firewall exceptions on the storage account affect persistence](#Will-having-firewall-exceptions-on-the-storage-account-affect-persistence)
 
 ### RDB persistence
 
