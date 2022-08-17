@@ -63,7 +63,7 @@ Once you have a pipeline up and running, you can publish a pipeline so that it r
         version="1.0")
    ```
 
-4. After you publish your pipeline, you can check it in UI. Pipeline ID is the unique identified of thie published pipeline.
+4. After you publish your pipeline, you can check it in the UI. Pipeline ID is the unique identified of the published pipeline.
 
     :::image type="content" source="./media/how-to-deploy-pipelines/published-pipeline-detail.png" alt-text="Screenshot showing published pipeline detail." lightbox= "./media/how-to-deploy-pipelines/published-pipeline-detail.png":::
 
