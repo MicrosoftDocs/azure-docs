@@ -12,7 +12,7 @@ ms.topic: tutorial
 
 # Tutorial: Set up continuous end-to-end testing with GitHub Actions and Microsoft Playwright Testing Preview
 
-In this tutorial, you'll learn how to set up continuous end-to-end testing with GitHub Actions and Microsoft Playwright Testing Preview. Create a CI/CD workflow to run your Playwright tests with every code push and analyze failing tests with the diagnostics information directly in GitHub Actions.
+In this tutorial, you'll learn how to set up continuous end-to-end testing with GitHub Actions and Microsoft Playwright Testing Preview. Analyze failing tests by using the test diagnostics information directly within GitHub Actions.
 
 In this tutorial, you won't be writing Playwright test specifications and fork a sample repository. You'll learn how to do the following tasks:
 
