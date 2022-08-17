@@ -32,7 +32,7 @@ In this how-to guide, you'll learn how to upload and install all the required co
 ## Supported software
 
 ACSS supports the following SAP software version: **S/4HANA 1909 SPS 03, SAP S/4HANA 2020 SPS 03, SAP S/4HANA 2021 ISS 00**.
-Following is the operating system (OS) software versions compatability with SAP Software Version:
+Following is the operating system (OS) software versions compatibility with SAP Software Version:
 
 | Publisher | Version | Generation SKU | Patch version name | Supported SAP Software Version |
 | --------- | ------- | -------------- | ------------------ | ------------------------------ |
