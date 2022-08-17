@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 08/02/2022
+ms.date: 08/15/2022
 ms.author: ranku
 ms.custom: subject-rbac-steps
 ---
@@ -21,11 +21,11 @@ The `$convert-data` custom endpoint in the FHIR service enables converting healt
 
 ## Using the `$convert-data` endpoint
 
-The `$convert-data` operation is integrated into the FHIR service as a RESTful API action. Calling the `$convert-data` endpoint causes the FHIR service to perform a conversion on health data sent in an API request:
+The `$convert-data` operation is integrated into the FHIR service as a RESTful API action. You can call the `$convert-data` endpoint as follows:
 
 `POST {{fhirurl}}/$convert-data`
 
-The health data is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service will return a FHIR `Bundle` response with the data converted to FHIR.
+The health data for conversion is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service will return a FHIR `Bundle` response with the data converted to FHIR.
 
 ### Parameters Resource
 

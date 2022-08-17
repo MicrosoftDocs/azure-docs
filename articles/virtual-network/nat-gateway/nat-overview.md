@@ -56,6 +56,9 @@ Virtual Network NAT is a software defined networking service. A NAT gateway won'
 
 * Presence of custom UDRs for virtual appliances and ExpressRoute override NAT gateway for directing internet bound traffic (route to the 0.0.0.0/0 address prefix). See [Troubleshooting NAT gateway](./troubleshoot-nat.md#virtual-appliance-udrs-and-vpn-expressroute-override-nat-gateway-for-routing-outbound-traffic) to learn more.
 
+* The order of operations for outbound connectivity follows this order of precedence:
+Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP addresses on virtual machines >> Load balancer outbound rules >> default system
+
 * NAT gateway supports TCP and UDP protocols only. ICMP isn't supported.
 
 * When virtual machine instances or other compute resources attempt to communicate on a TCP connection that doesn't exist, they send TCP reset packets. An example is connections that have reached idle timeout. The next packet received will return a TCP reset to the private IP address of the virtual machine to signal and force connection closure. The public side of a NAT gateway doesn't generate TCP reset packets or any other traffic. Only traffic produced by the customer's virtual network is emitted.

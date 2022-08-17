@@ -73,34 +73,6 @@ You also can [upload the components manually](#upload-components-manually) inste
 
 Before you can download the software, set up an Azure Storage account for the downloads.
 
-1. [Create an Ubuntu 20.04 VM in Azure](/cli/azure/install-azure-cli-linux?pivots=apt).
-
-1. Sign in to the VM.
-
-1. Install the Azure CLI on the VM.
-
-    ```bash
-    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-    ```
-
-1. [Update the Azure CLI](/cli/azure/update-azure-cli) to version 2.30.0 or higher.
-
-1. Install the following packages:
-
-    - `pip3` version `pip-21.3.1.tar.gz`
-    - `wheel` version 0.37.1
-    - `jq` version 1.6
-    - `ansible` version 2.9.27
-    - `netaddr` version 0.8.0
-    - `zip`
-    - `netaddr` version 0.8.0
-
-1. Sign in to Azure:
-
-    ```azurecli
-    az login
-    ```
-
 1. [Create an Azure Storage account through the Azure portal](../storage/common/storage-account-create.md). Make sure to create the storage account in the same subscription as your SAP system infrastructure.
 
 1. Create a container within the Azure Storage account named `sapbits`.
@@ -112,6 +84,25 @@ Before you can download the software, set up an Azure Storage account for the do
     1. On the **New container** pane, for **Name**, enter `sapbits`.
 
     1. Select **Create**.
+ 
+1. Create an Ubuntu 20.04 VM in Azure
+
+1. Sign in to the VM.
+
+1. Install the Azure CLI on the VM.
+
+    ```bash
+    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+    ```
+
+1. [Update the Azure CLI](/cli/azure/update-azure-cli) to version 2.30.0 or higher.
+
+
+1. Sign in to Azure:
+
+    ```azurecli
+    az login
+    ```
 
 1. Download the following shell script for the deployer VM packages.
 
@@ -169,27 +160,17 @@ After setting up your Azure Storage account, you can download the SAP installati
 
 1. Sign in to the Ubuntu VM that you created in the [previous section](#set-up-storage-account).
 
+1. Install ansible 2.9.27 on the ubuntu VM 
+
+    ```bash
+    sudo pip3 install ansible==2.9.27
+    ```
+    
 1. Clone the SAP automation repository from GitHub.
 
     ```azurecli
     git clone https://github.com/Azure/sap-automation.git
     ```
-
-1. Generate a shared access signature (SAS) token for the `sapbits` container.
-
-    1. In the Azure portal, open the Azure Storage account.
-    
-    1. Open the `sapbits` container.
-
-    1. On the container's sidebar menu, select **Shared access signature** under **Security + networking**.
-
-    1. On the SAS page, under **Allowed resource types**, select **Container**.
-
-    1. Configure other settings as necessary.
-
-    1. Select **Generate SAS and connection string**.
-
-    1. Copy the **SAS token** value. Make sure to copy the `?` prefix with the token.
 
 1. Run the Ansible script **playbook_bom_download** with your own information.
 
