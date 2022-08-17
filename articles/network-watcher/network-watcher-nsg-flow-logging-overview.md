@@ -436,11 +436,20 @@ Flow logs data is collected outside of the path of your network traffic, and the
 
 To use a Storage account behind a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
 
-- Navigate to the storage account by typing the storage account's name in the global search on the portal or from the [Storage Accounts page](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-- Under the  **SETTINGS**  section, select  **Firewalls and virtual networks**
-- In **Allow access from**, select  **Selected networks**. Then under  **Exceptions**, tick the box next to  ****Allow trusted Microsoft services to access this storage account****
-- If it is already selected, no change is needed.
-- Locate your target NSG on the [NSG Flow Logs overview page](https://portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) and enable NSG Flow Logs with the above storage account selected.
+- Navigate to the Storage account by typing the Storage account's name in global search on the portal or from the [Storage accounts page](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
+- Under the **Networking** section, select **Firewalls and virtual networks** at top of page.
+- Under the **Public network access**, select:
+  ☑️ **Enabled from selected virtual networks and IP addresses**
+- Under **Firewall** select:
+  ☑️ **Add your Client IP Address**
+
+   > [!Note]
+   > A client IP Address is provided here by default, verify this IP matches the machine you are using to access Storage Account using `ipconfig`. If the Client IP Address does not match your machine, you may receive Unauthorized when attempting to access the storage account to read NSG Flow Logs.
+
+- Under  **Exceptions**, select:
+  ☑️ **Allow Azure service on the trusted services list to access this storage account.**
+- If the above items are already configured, no change is needed.
+- Locate your target NSG on the [NSG Flow Logs overview page](https://portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) and enable NSG Flow Logs using the above configured storage account.
 
 You can check the storage logs after a few minutes, you should see an updated TimeStamp or a new JSON file created.
 

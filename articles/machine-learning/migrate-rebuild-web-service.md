@@ -67,7 +67,7 @@ There are multiple ways to deploy a model in Azure Machine Learning. One of the 
 
     | Compute target | Used for | Description | Creation |
     | ----- |  ----- | ----- | -----  |
-    |[Azure Kubernetes Service (AKS)](v1/how-to-deploy-azure-kubernetes-service.md) |Real-time inference|Large-scale, production deployments. Fast response time and service autoscaling.| User-created. For more information, see [Create compute targets](how-to-create-attach-compute-studio.md#inference-clusters). |
+    |[Azure Kubernetes Service (AKS)](v1/how-to-deploy-azure-kubernetes-service.md) |Real-time inference|Large-scale, production deployments. Fast response time and service autoscaling.| User-created. For more information, see [Create compute targets](how-to-create-attach-compute-studio.md). |
     |[Azure Container Instances](v1/how-to-deploy-azure-container-instance.md)|Testing or development | Small-scale, CPU-based workloads that require less than 48 GB of RAM.| Automatically created by Azure Machine Learning.
 
 ### Test the real-time endpoint
@@ -75,7 +75,7 @@ There are multiple ways to deploy a model in Azure Machine Learning. One of the 
 After deployment completes, you can see more details and test your endpoint:
 
 1. Go the **Endpoints** tab.
-1. Select you endpoint.
+1. Select your endpoint.
 1. Select the **Test** tab.
     
     ![Screenshot showing the Endpoints tab with the Test endpoint button](./media/migrate-rebuild-web-service/test-realtime-endpoint.png)

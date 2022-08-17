@@ -24,7 +24,7 @@ Learn how to troubleshoot problems you may see when using prebuilt docker images
 If model deployment fails, you won't see logs in [Azure Machine Learning studio](https://ml.azure.com/) and `service.get_logs()` will return None.
 If there is a problem in the init() function of score.py, `service.get_logs()` will return logs for the same.
 
-So you'll need to run the container locally using one of the commands shown below and replace `<MCR-path>` with an image path. For a list of the images and paths, see [Prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md).
+So you'll need to run the container locally using one of the commands shown below and replace `<MCR-path>` with an image path. For a list of the images and paths, see [Prebuilt Docker images for inference](../concept-prebuilt-docker-images-inference.md).
 
 ### Mounting extensibility solution
 
@@ -44,11 +44,11 @@ docker run -it -v $(pwd):/var/azureml-app -e AZUREML_EXTRA_REQUIREMENTS_TXT="req
 
 ## Enable local debugging
 
-The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. [Learn more about Azure Machine Learning inference HTTP Server](how-to-inference-server-http.md)
+The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. [Learn more about Azure Machine Learning inference HTTP Server](../how-to-inference-server-http.md)
 
 ## For common model deployment issues
 
-For problems when deploying a model from Azure Machine Learning to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS), see [Troubleshoot model deployment](./v1/how-to-troubleshoot-deployment.md).
+For problems when deploying a model from Azure Machine Learning to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS), see [Troubleshoot model deployment](how-to-troubleshoot-deployment.md).
 
 ## init() or run() failing to write a file
 
