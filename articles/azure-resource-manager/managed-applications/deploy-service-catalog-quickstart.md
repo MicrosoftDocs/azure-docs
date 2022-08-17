@@ -42,7 +42,7 @@ In the Azure portal, use the following steps:
    - **Resource group**: Select the resource group. For this example, create a resource group named _applicationGroup_.
    - **Region**: Select the location where you want to deploy the resource.
    - **Application Name**: Enter a name for your application. For this example, use _demoManagedApplication_.
-   - **Managed Resource Group**: Uses a default name format `mrg-{definitionName}-{dateTime}` like _mrg-ManagedStorage-20220817122721_. You can change the name.
+   - **Managed Resource Group**: Uses a default name in the format `mrg-{definitionName}-{dateTime}` like _mrg-ManagedStorage-20220817122721_. You can change the name.
 
 1. Enter a prefix for the storage account name and select the storage account type. Select **Next: Review + create**.
 
