@@ -57,31 +57,37 @@
   items:
     - name: Develop
       items:
-      - name: Device-to-cloud feature guide
+      - name: Device-to-cloud features
         href: iot-hub-devguide-d2c-guidance.md
-      - name: Cloud-to-device feature guide
+      - name: Cloud-to-device features
         href: iot-hub-devguide-c2d-guidance.md
-      - name: Understand device twins
+      - name: Device twins
         href: iot-hub-devguide-device-twins.md
-      - name: Understand module twins
+      - name: Module twins
         href: iot-hub-devguide-module-twins.md
-      - name: Invoke direct methods on a device
+      - name: Direct methods
         href: iot-hub-devguide-direct-methods.md
-      - name: Schedule jobs on multiple devices
+      - name: Jobs
         href: iot-hub-devguide-jobs.md
-      - name: IoT Hub endpoints
+      - name: Queries
+        items:
+        - name: Query language overview
+          href: iot-hub-devguide-query-language.md
+        - name: Device and module twin queries
+          href: query-twins.md
+        - name: Job queries
+          href: query-jobs.md
+      - name: File upload
+        href: iot-hub-devguide-file-upload.md
+      - name: Endpoints
         href: iot-hub-devguide-endpoints.md
-      - name: Query language
-        href: iot-hub-devguide-query-language.md
       - name: Quotas and throttling
         href: iot-hub-devguide-quotas-throttling.md
       - name: Compare IoT Hub and Event Hubs
         href: iot-hub-compare-event-hubs.md
       - name: React to IoT Hub events with Event Grid
         href: iot-hub-event-grid.md
-      - name: Upload files from a device
-        href: iot-hub-devguide-file-upload.md
-      - name: Overview of IoT Hub device streams (preview)
+      - name: Device streams (preview)
         href: iot-hub-device-streams-overview.md
     - name: Manage
       items:

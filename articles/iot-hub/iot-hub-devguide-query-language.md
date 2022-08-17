@@ -54,6 +54,8 @@ SELECT <select_list>
 The **SELECT <select_list>** clause is required in every IoT Hub query. It specifies what values are retrieved from the query. It specifies the JSON values to be used to generate new JSON objects.
 For each element of the filtered (and optionally grouped) subset of the FROM collection, the projection phase generates a new JSON object. This object is constructed with the values specified in the SELECT clause.
 
+Currently, selection clauses different than **SELECT** are only supported in aggregate queries on device twins.
+
 The following is the grammar of the SELECT clause:
 
 ```query syntax
@@ -76,9 +78,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name** refers to any property of the JSON document in the FROM collection. Some examples of SELECT clauses can be found in the [device and module twin queries](#device-and-module-twin-queries) section.
-
-Currently, selection clauses different than **SELECT** are only supported in aggregate queries on device twins.
+**Attribute_name** refers to any property of the JSON document in the FROM collection.
 
 ### FROM clause
 
@@ -107,6 +107,12 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
+Currently, the GROUP BY clause is only supported when querying device twins.
+
+> [!IMPORTANT]
+> The term `group` is currently treated as a special keyword in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, e.g., `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
+>
+
 The formal syntax for GROUP BY is:
 
 ```query syntax
@@ -117,12 +123,6 @@ GROUP BY <group_by_element>
 ```
 
 **Attribute_name** refers to any property of the JSON document in the FROM collection.
-
-Currently, the GROUP BY clause is only supported when querying device twins.
-
-> [!IMPORTANT]
-> The term `group` is currently treated as a special keyword in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, e.g., `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
->
 
 ## Expressions and conditions
 
@@ -231,265 +231,7 @@ In routes conditions, the following string functions are supported:
 | ENDS_WITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
 | CONTAINS(x,y) | Returns a Boolean indicating whether the first string expression contains the second. |
 
-## Device and module twin queries
-
-[Device twins](iot-hub-devguide-device-twins.md) and [module twins](iot-hub-devguide-module-twins.md) can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins and module twins as a single JSON document containing all twin information.
-
-Here is a sample IoT hub device twin (module twin would be similar just with an additional moduleId):
-
-```json
-{
-    "deviceId": "myDeviceId",
-    "etag": "AAAAAAAAAAc=",
-    "status": "enabled",
-    "statusUpdateTime": "0001-01-01T00:00:00",
-    "connectionState": "Disconnected",
-    "lastActivityTime": "0001-01-01T00:00:00",
-    "cloudToDeviceMessageCount": 0,
-    "authenticationType": "sas",
-    "x509Thumbprint": {
-        "primaryThumbprint": null,
-        "secondaryThumbprint": null
-    },
-    "version": 2,
-    "tags": {
-        "location": {
-            "region": "US",
-            "plant": "Redmond43"
-        }
-    },
-    "properties": {
-        "desired": {
-            "telemetryConfig": {
-                "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",
-                "sendFrequencyInSecs": 300
-            },
-            "$metadata": {
-            ...
-            },
-            "$version": 4
-        },
-        "reported": {
-            "connectivity": {
-                "type": "cellular"
-            },
-            "telemetryConfig": {
-                "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",
-                "sendFrequencyInSecs": 300,
-                "status": "Success"
-            },
-            "$metadata": {
-            ...
-            },
-            "$version": 7
-        }
-    }
-}
-```
-
-### Device twin queries
-
-IoT Hub exposes the device twins as a document collection called **devices**. For example, the most basic query retrieves the whole set of device twins:
-
-```sql
-SELECT * FROM devices
-```
-
-> [!NOTE]
-> [Azure IoT SDKs](iot-hub-devguide-sdks.md) support paging of large results.
-
-You can aggregate the results of a query using the SELECT clause. For example, the following query gets a count of the total number of devices in an IoT hub:
-
-```sql
-SELECT COUNT() as totalNumberOfDevices FROM devices
-```
-
-Filter query results using the WHERE clause. For example, to receive device twins where the **location.region** tag is set to **US** use the following query:
-
-```sql
-SELECT * FROM devices
-WHERE tags.location.region = 'US'
-```
-
-Create complex WHERE clauses by using Boolean operators and arithmetic comparisons. For example, the following query retrieves device twins located in the US and configured to send telemetry less than every minute:
-
-```sql
-SELECT * FROM devices
-  WHERE tags.location.region = 'US'
-    AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
-```
-
-You can also use array constants with the **IN** and **NIN** (not in) operators. For example, thw following query retrieves device twins that report either WiFi or wired connectivity:
-
-```sql
-SELECT * FROM devices
-  WHERE properties.reported.connectivity IN ['wired', 'wifi']
-```
-
-It is often necessary to identify all device twins that contain a specific property. IoT Hub supports the function `is_defined()` for this purpose. For example,  the following query retrieves device twins that define the `connectivity` property:
-
-```SQL
-SELECT * FROM devices
-  WHERE is_defined(properties.reported.connectivity)
-```
-
-Refer to the [WHERE clause](iot-hub-devguide-query-language.md#where-clause) section for the full reference of the filtering capabilities.
-
-Grouping is also supported. For example, the following query returns the count of devices in each telemetry configuration status:
-
-```sql
-SELECT properties.reported.telemetryConfig.status AS status,
-    COUNT() AS numberOfDevices
-  FROM devices
-  GROUP BY properties.reported.telemetryConfig.status
-```
-
-This grouping query would return a result similar to the following example:
-
-```json
-[
-    {
-        "numberOfDevices": 3,
-        "status": "Success"
-    },
-    {
-        "numberOfDevices": 2,
-        "status": "Pending"
-    },
-    {
-        "numberOfDevices": 1,
-        "status": "Error"
-    }
-]
-```
-
-In this example, three devices reported successful configuration, two are still applying the configuration, and one reported an error.
-
-Projection queries allow developers to return only the properties they care about. For example, to retrieve the last activity time along with the device ID of all enabled devices that are disconnected, use the following query:
-
-```sql
-SELECT DeviceId, LastActivityTime FROM devices WHERE status = 'enabled' AND connectionState = 'Disconnected'
-```
-
-The result of that query would look like the following example:
-
-```json
-[
-  {
-    "deviceId": "AZ3166Device",
-    "lastActivityTime": "2021-05-07T00:50:38.0543092Z"
-  }
-]
-```
-
-### Module twin queries
-
-Querying on module twins is similar to querying on device twins, but using a different collection/namespace; instead of from **devices**, you query from **devices.modules**:
-
-```sql
-SELECT * FROM devices.modules
-```
-
-We don't allow join between the devices and devices.modules collections. If you want to query module twins across devices, you do it based on tags. The following query returns all module twins across all devices with the scanning status:
-
-```sql
-SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
-```
-
-The following query returns all module twins with the scanning status, but only on the specified subset of devices:
-
-```sql
-SELECT * FROM devices.modules
-  WHERE properties.reported.status = 'scanning'
-  AND deviceId IN ['device1', 'device2']
-```
-
-### Twin query limitations
-
-> [!IMPORTANT]
-> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the [get twin REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
-
-Query expressions can have a maximum length of 8192 characters.
-
-Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
-
-## Jobs queries
-
-[Jobs](iot-hub-devguide-jobs.md) provide a way to execute operations on sets of devices. Each device twin contains the information of the jobs of which it is part in a collection called **jobs**.
-
-```json
-{
-    "deviceId": "myDeviceId",
-    "etag": "AAAAAAAAAAc=",
-    "tags": {
-        ...
-    },
-    "properties": {
-        ...
-    },
-    "jobs": [
-        {
-            "deviceId": "myDeviceId",
-            "jobId": "myJobId",
-            "jobType": "scheduleTwinUpdate",
-            "status": "completed",
-            "startTimeUtc": "2016-09-29T18:18:52.7418462",
-            "endTimeUtc": "2016-09-29T18:20:52.7418462",
-            "createdDateTimeUtc": "2016-09-29T18:18:56.7787107Z",
-            "lastUpdatedDateTimeUtc": "2016-09-29T18:18:56.8894408Z",
-            "outcome": {
-                "deviceMethodResponse": null
-            }
-        },
-        ...
-    ]
-}
-```
-
-Currently, this collection is queryable as **devices.jobs** in the IoT Hub query language.
-
-> [!IMPORTANT]
-> Currently, the jobs property is never returned when querying device twins. That is, queries that contain `FROM devices`. The jobs property can only be accessed directly with queries using `FROM devices.jobs`.
-
-For example, the following query returns all jobs (past and scheduled) that affect a single device:
-
-```sql
-SELECT * FROM devices.jobs
-  WHERE devices.jobs.deviceId = 'myDeviceId'
-```
-
-Note how this query provides the device-specific status (and possibly the direct method response) of each job returned.
-
-It is also possible to filter with arbitrary Boolean conditions on all object properties in the **devices.jobs** collection.
-
-For example, the following query retrieves all completed device twin update jobs that were created after September 2016 for a specific device:
-
-```sql
-SELECT * FROM devices.jobs
-  WHERE devices.jobs.deviceId = 'myDeviceId'
-    AND devices.jobs.jobType = 'scheduleTwinUpdate'
-    AND devices.jobs.status = 'completed'
-    AND devices.jobs.createdTimeUtc > '2016-09-01'
-```
-
-You can also retrieve the per-device outcomes of a single job.
-
-```sql
-SELECT * FROM devices.jobs
-  WHERE devices.jobs.jobId = 'myJobId'
-```
-
-### Jobs query limitations
-
-Query expressions can have a maximum length of 8192 characters.
-
-Currently, queries on **devices.jobs** do not support:
-
-* Projections, therefore only `SELECT *` is possible.
-* Conditions that refer to the device twin in addition to job properties (see the preceding section).
-* Performing aggregations, such as count, avg, group by.
-
-## Add queries to service apps
+## Add queries with the service SDK
 
 ### C# example
 
