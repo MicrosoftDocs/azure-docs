@@ -62,7 +62,7 @@ In this article, you'll learn how to configure diagnostic settings for the MedTe
 
    4. Select the **Save** option to save your diagnostic setting selections.
 
-6. Once you've selected the **Save** option, the page will display a message that the diagnostic setting for your MedTech service has saved successfully.
+6. Once you've selected the **Save** option, the page will display a message that the diagnostic setting for your MedTech service has been saved successfully.
 
    :::image type="content" source="media/iot-metrics-export/iot-successful-save-diagnostic-setting.png" alt-text="Screenshot of a successful diagnostic setting save." lightbox="media/iot-metrics-export/iot-successful-save-diagnostic-setting.png"::: 
 
