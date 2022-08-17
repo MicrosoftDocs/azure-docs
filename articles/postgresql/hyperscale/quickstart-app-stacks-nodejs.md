@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/15/2022
+ms.date: 08/17/2022
 ---
 
 # Node.js app to connect and query Hyperscale (Citus)
@@ -67,9 +67,9 @@ Create a folder called `db` and inside this folder create `citus.js` file with t
 * file: db/citus.js
 */
 
-const { Client } = require('pg');
+const { Pool, Client } = require('pg');
 
-const client = new Client({
+const pool = new Pool({
   host: 'c.citustest.postgres.database.azure.com',
   port: 5432,
   user: 'citus',
@@ -82,10 +82,10 @@ const client = new Client({
   max: 20,
 });
 
-client.connect();
+pool.connect();
 
 module.exports = {
-  client,
+  pool,
 };
 ```
 
@@ -97,7 +97,7 @@ and INSERT INTO SQL statements.
 * file: create.js
 */
 
-const { client } = require('./db/citus');
+const { pool } = require('./db/citus');
 
 async function queryDatabase() {
   const queryString = `
@@ -110,7 +110,7 @@ async function queryDatabase() {
   `;
 
   try {
-    await client.query(queryString);
+    await pool.query(queryString);
     console.log('Created the Pharmacy table and inserted rows.');
   } catch (err) {
     console.log(err.stack);
@@ -137,7 +137,7 @@ Use the following code to connect to the database and distribute the table.
 * file: distribute-table.js
 */
 
-const { client } = require('./db/citus');
+const { pool } = require('./db/citus');
 
 async function queryDatabase() {
   const queryString = `
@@ -145,12 +145,12 @@ async function queryDatabase() {
   `;
 
   try {
-    await client.query(queryString);
+    await pool.query(queryString);
     console.log('Distributed pharmacy table.');
   } catch (err) {
     console.log(err.stack);
   } finally {
-    client.end();
+    pool.end();
   }
 }
 
@@ -166,7 +166,7 @@ Use the following code to connect and read the data using a SELECT SQL statement
 * file: read.js
 */
 
-const { client } = require('./db/citus');
+const { pool } = require('./db/citus');
 
 async function queryDatabase() {
   const queryString = `
@@ -174,12 +174,12 @@ async function queryDatabase() {
   `;
 
   try {
-    const res = await client.query(queryString);
+    const res = await pool.query(queryString);
     console.log(res.rows);
   } catch (err) {
     console.log(err.stack);
   } finally {
-    client.end();
+    pool.end();
   }
 }
 
@@ -204,13 +204,13 @@ async function queryDatabase() {
   `;
 
   try {
-    const result = await client.query(queryString);
+    const result = await pool.query(queryString);
     console.log('Update completed.');
     console.log(`Rows affected: ${result.rowCount}`);
   } catch (err) {
     console.log(err.stack);
   } finally {
-    client.end();
+    pool.end();
   }
 }
 
@@ -226,7 +226,7 @@ Use the following code to connect and read the data using a DELETE SQL statement
 * file: delete.js
 */
 
-const { client } = require('./db/citus');
+const { pool } = require('./db/citus');
 
 async function queryDatabase() {
   const queryString = `
@@ -235,13 +235,13 @@ async function queryDatabase() {
   `;
 
   try {
-    const result = await client.query(queryString);
+    const result = await pool.query(queryString);
     console.log('Delete completed.');
     console.log(`Rows affected: ${result.rowCount}`);
   } catch (err) {
     console.log(err.stack);
   } finally {
-    client.end();
+    pool.end();
   }
 }
 
@@ -273,7 +273,7 @@ It requires the file [pharmacies.csv](https://download.microsoft.com/download/d/
 const inputFile = require('path').join(__dirname, '/pharmacies.csv');
 const fileStream = require('fs').createReadStream(inputFile);
 const copyFrom = require('pg-copy-streams').from;
-const { client } = require('./db/citus');
+const { pool } = require('./db/citus');
 
 async function importCsvDatabase() {
   return new Promise((resolve, reject) => {
@@ -283,7 +283,7 @@ async function importCsvDatabase() {
 
     fileStream.on('error', reject);
 
-    const stream = client
+    const stream = pool
       .query(copyFrom(queryString))
       .on('error', reject)
       .on('end', () => {
@@ -300,7 +300,7 @@ async function importCsvDatabase() {
 (async () => {
   console.log('Copying from CSV...');
   await importCsvDatabase();
-  await client.end();
+  await pool.end();
   console.log('Inserted csv successfully');
 })();
 ```
@@ -324,11 +324,11 @@ The following code is an example for copying in-memory data to a table.
 
 const through2 = require('through2');
 const copyFrom = require('pg-copy-streams').from;
-const { client } = require('./db/citus');
+const { pool } = require('./db/citus');
 
 async function importInMemoryDatabase() {
   return new Promise((resolve, reject) => {
-    const stream = client
+    const stream = pool
       .query(copyFrom('COPY pharmacy FROM STDIN'))
       .on('error', reject)
       .on('end', () => {
@@ -361,7 +361,7 @@ async function importInMemoryDatabase() {
 }
 (async () => {
   await importInMemoryDatabase();
-  await client.end();
+  await pool.end();
   console.log('Inserted inmemory data successfully.');
 })();
 ```
