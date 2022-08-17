@@ -1,5 +1,5 @@
 ---
-title: Entity Linking cognitive skill v3
+title: Entity Linking cognitive skill (v3)
 titleSuffix: Azure Cognitive Search
 description: Extract different linked entities from text in an enrichment pipeline in Azure Cognitive Search.
 
@@ -11,9 +11,9 @@ ms.topic: reference
 ms.date: 08/17/2022
 ---
 
-# Entity Linking cognitive skill v3
+# Entity Linking cognitive skill (v3)
 
-The **Entity Linking** skill v3 returns a list of recognized entities with links to articles in a well-known knowledge base (Wikipedia).
+The **Entity Linking** skill (v3) returns a list of recognized entities with links to articles in a well-known knowledge base (Wikipedia).
 
 > [!NOTE]
 > This skill is bound to the [Entity Linking](../cognitive-services/language-service/entity-linking/overview.md) machine learning models in [Azure Cognitive Services for Language](../cognitive-services/language-service/overview.md) and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
