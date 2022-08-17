@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/21/2022
+ms.date: 08/17/2022
 ms.author: lenalepa
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
@@ -95,8 +95,6 @@ To hide an enterprise application using [Graph Explorer](https://developer.micro
    ```http
    PATCH https://graph.microsoft.com/v1.0/servicePrincipals/5f214ccd-3f74-41d7-b683-9a6d845eea4d/
    ```
-   >[!WARNING]
-   >If you have other tags, you must include them in the PATCH. Otherwise, the query will overwrite them.   
 
     Supply the following request body.
 
@@ -107,6 +105,10 @@ To hide an enterprise application using [Graph Explorer](https://developer.micro
         ]
     }
     ```
+   
+   >[!WARNING]
+   >If the application has other tags, you must include them in the request body. Otherwise, the query will overwrite them.
+
 :::zone-end
 
 :::zone pivot="portal"
