@@ -31,6 +31,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/netmotion-mobility-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/whats-new-microsoft-365-government.md",
       "redirect_url": "/azure/active-directory/fundamentals/whats-new",
       "redirect_document_id": true
@@ -7850,11 +7855,6 @@
       "source_path_from_root": "/articles/active-directory/active-directory-saas-bridge-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/bridge-tutorial",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/active-directory-saas-netmotion-mobility-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-brightspace-desire2learn-tutorial.md",
