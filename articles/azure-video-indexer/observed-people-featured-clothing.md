@@ -80,4 +80,5 @@ For more information, see the [limitations of observed people](observed-people-t
 
 ## Next steps 
 
-[Trace observed people in a video](observed-people-tracing.md)
+- [Trace observed people in a video](observed-people-tracing.md)
+- [People's detected clothing](detected-clothing.md)
