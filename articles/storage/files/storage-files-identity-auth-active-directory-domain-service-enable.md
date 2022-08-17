@@ -150,10 +150,10 @@ By default, Azure AD DS authentication uses Kerberos RC4 encryption. We recommen
 
 The action requires running an operation on the Active Directory domain that's managed by Azure AD DS to reach a domain controller to request a property change to the domain object. The cmdlets below are Windows Server Active Directory PowerShell cmdlets, not Azure PowerShell cmdlets. Because of this, these PowerShell commands must be run from a machine that's domain-joined to the Azure AD DS domain.  
 
-As an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions), execute the following Azure PowerShell commands.
+> [!IMPORTANT]
+> Azure Cloud Shell won't work in this scenario. 
 
-    > [!IMPORTANT]
-    > Azure Cloud Shell won't work in this scenario. 
+As an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions), execute the following PowerShell commands.
 
 ```powershell
 # 1. Find the service account in your managed domain that represents the storage account.
