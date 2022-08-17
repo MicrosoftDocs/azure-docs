@@ -60,7 +60,7 @@
   - name: Device certification
     href: ../certification/program-requirements-pnp.md
   - name: IOT device selection table
-    hfref: iot-device-selection.md
+    href: iot-device-selection.md
   - name: Device models
     items:
     - name: Modeling guide
