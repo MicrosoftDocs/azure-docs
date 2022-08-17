@@ -155,7 +155,7 @@ A network interface is automatically created and attached to the chosen virtual 
 
 2. Select **myVM**.
 
-3. Select **Stop**, to stop the virtual machine. Wait for the machine to shutdown.
+3. Select **Stop**, to stop the virtual machine. Wait for the machine to shut down.
 
 4. Select **Networking** in **Settings**.
 
