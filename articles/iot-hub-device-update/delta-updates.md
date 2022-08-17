@@ -17,11 +17,11 @@ Delta updates allow you to generate a small update, which represents only the ch
 ## Requirements for using delta updates in Device Update for IoT Hub
 
 1.	The source and target updates must:  
-a.	Be .swu format (SWUpdate)  
+a.	Be ".swu" format (SWUpdate)  
 b.	Use Ext2, Ext3, or Ext4 filesystem  
 c.	Be a raw image (writeable to device)  
 d.	Compressed originally with gzip or zstd
-2.	The delta generation process will re-compress the target .swu update using ZSTD compression in order to produce an optimal delta. You'll import this re-compressed target .swu update to the DU service along with the generated delta update file.
+2.	The delta generation process will recompress the target ".swu" update using ZSTD compression in order to produce an optimal delta. You'll import this recompressed target ".swu" update to the DU service along with the generated delta update file.
 3.	ZSTD decompression must be enabled in SWUpdate on the device.  
 a.	Note: Requires using [SWUpdate 2019.11](https://github.com/sbabic/swupdate/releases/tag/2019.11) or later.
 
@@ -48,7 +48,7 @@ Alternatively, on a non-Debian Linux you can install the shared object (libadudi
 
 ## Deploy a full image update to your device
 
-After a delta update has been downloaded to a device, in order to be re-created into a full image, it must be diffed against a valid _source .swu file_ that has been previously cached on the device. For this preview, the simplest way to populate this cached image is to deploy a full image update to the device via the DU service (using the existing import and deployment processes in our [public documentation](https://docs.microsoft.com/azure/iot-hub-device-update/)). As long as the device has been configured with the Early Access DU Agent and Delta processor, the installed .swu file will be cached automatically by the DU Agent for future delta update use.
+After a delta update has been downloaded to a device, in order to be re-created into a full image, it must be compared against a valid _source ".swu" file_ that has been previously cached on the device. For this preview, the simplest way to populate this cached image is to deploy a full image update to the device via the DU service (using the existing import and deployment processes in our [public documentation](https://docs.microsoft.com/azure/iot-hub-device-update/)). As long as the device has been configured with the Early Access DU Agent and Delta processor, the installed ".swu" file will be cached automatically by the DU Agent for future delta update use.
 
 ## Generate delta updates using the DiffGen tool
 
@@ -83,7 +83,7 @@ The DiffGen tool is run with several arguments. All arguments are required, and 
 - The script recompress_tool.py will be run to create the file [recompressed_target_archive], which will then be used instead of [target_archive] as the target file for creating the diff
 - The image files within [recompressed_target_archive] will be compressed with ZSTD
 
-If your .swu files are signed (likely), you will need another argument as well:
+If your ".swu" files are signed (likely), you will need another argument as well:
 
 `DiffGenTool [source_archive] [target_archive] [output_path] [log_folder] [working_folder] [recompressed_target_archive] "[signing_command]"`
 - In addition to using [recompressed_target_archive] as the target file, providing a signing command string parameter will run recompress_and_sign_tool.py to create the file [recompressed_target_archive] and have the sw-description file within the archive signed (meaning a sw-description.sig file will be present)
@@ -94,8 +94,8 @@ The following table describes the arguments in more detail:
 
 | Argument  | Description   |  
 |-------------------------------|----------------------------------------------------------------------------|  
-| [source_archive]  | When creating the delta, the image that the delta will be based against. Important: the image must be identical to the image that is already present on the device (for example, cached from a previous update).|
-| [target_archive]  | When creating the delta, the image that the delta will update the source image to.|
+| [source_archive]  | When creating the delta, this is the image that the delta will be based against. Important: the image must be identical to the image that is already present on the device (for example, cached from a previous update).|
+| [target_archive]  | When creating the delta, this is the image that the delta will update the source image to.|
 | [output_path] | The path (including the desired name of the delta file being generated) on the host machine where the delta will get placed after creation.  If the path does not exist, the directory will be created by the tool.|
 | [log_folder]  | The path on the host machine where logs will get created and dropped into. We recommend defining this location as a sub folder of the output path. If path does not exist, it will be created by the tool. |
 | [working_folder]  | Path on the machine where collateral and other working files are placed during the delta generation. We recommend defining this location as a subfolder of the output path. If the path does not exist, it will be created by the tool. |
@@ -139,7 +139,7 @@ Importantly, however, there are specific aspects of delta support that are not f
 
 The first step in importing an update into the Device Update service is always to create an import manifest. You can learn about the import manifest concept [here](https://docs.microsoft.com/azure/iot-hub-device-update/import-concepts#import-manifest), but note that delta updates require a new import manifest format that is not yet ready for our public documentation. Therefore, use New-ImportManifest.ps1 instead to generate your import manifest.
 
-The script includes example usage. The new/unique elements for delta update relative to our publicly-documented import manifest format are "-DeltaFile" and "-SourceFile", and there is a specific usage for the "-File" element as well:
+The script includes example usage. The new/unique elements for delta update relative to our publicly documented import manifest format are "-DeltaFile" and "-SourceFile", and there is a specific usage for the "-File" element as well:
  - The **File** element represents the Target update used when generating the delta.
  - The **SourceFile** element represents the Source update used when generating the delta. 
     - Of note, this version is also the update version that must be available on the device.
@@ -158,7 +158,7 @@ You must include these items when importing:
 
 When you deploy a delta update, the experience in the Azure portal will look identical to deploying a regular image update. For more information on deploying updates, see this public documentation page: [Deploy an update by using Device Update for Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/deploy-update)
 
-Once you have created the deployment for your delta update, the Device Update service and client will automatically identify if there is a valid delta update for each device you are deploying to. If a valid delta is found, the delta update will be downloaded and installed on that device. If there is no valid delta update found, the full image update (the Target .swu update) will be downloaded instead. This approach ensures that all devices you are deploying the update to will get to the appropriate version.
+Once you have created the deployment for your delta update, the Device Update service and client will automatically identify if there is a valid delta update for each device you are deploying to. If a valid delta is found, the delta update will be downloaded and installed on that device. If there is no valid delta update found, the full image update (the Target ".swu" update) will be downloaded instead. This approach ensures that all devices you are deploying the update to will get to the appropriate version.
 
 There are three possible outcomes for a delta update deployment:
 - Delta update installed successfully. Device is on new version.
