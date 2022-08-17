@@ -57,7 +57,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust-github.md",
-      "redirect_url":"/azure/active-directory/develop/workload-identity-federation-create-trust",
+      "redirect_url": "/azure/active-directory/develop/workload-identity-federation-create-trust",
       "redirect_document_id": false
     },
     {
@@ -2800,7 +2800,7 @@
       "redirect_url": "/azure/active-directory/develop/howto-authenticate-service-principal-powershell",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-devhowto-multi-tenant-overview.md",
       "redirect_url": "/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant",
@@ -7849,6 +7849,11 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-bridge-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/bridge-tutorial",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/active-directory-saas-netmotion-mobility-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/netmotion-mobility-tutorial",
       "redirect_document_id": true
     },
     {
