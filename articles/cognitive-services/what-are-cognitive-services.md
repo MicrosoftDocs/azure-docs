@@ -80,7 +80,7 @@ With Azure and Cognitive Services, you have access to several development option
 * Automation and integration tools like Logic Apps and Power Automate.
 * Deployment options such as Azure Functions and the App Service. 
 * Cognitive Services Docker containers for secure access.
-* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios. 
+* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for big data scenarios. 
 
 To learn more, see [Cognitive Services development options](./cognitive-services-development-options.md).
 
