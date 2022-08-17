@@ -211,6 +211,8 @@ df = spark.read\
   * Spark pools in Azure Synapse will represent these columns as `string`.
   * SQL serverless pools in Azure Synapse will represent these columns as `varchar(8000)`.
 
+* Properties with `UNIQUEIDENTIFIER (guid)` types are represented as `string` in analytical store and should be converted to `VARCHAR` in **SQL** or to `string` in **Spark** for correct visualization.
+
 * SQL serverless pools in Azure Synapse support result sets with up to 1000 columns, and exposing nested columns also counts towards that limit. Please consider this information when designing your data architecture and modeling your transactional data.
 
 * If you rename a property, in one or many documents, it will be considered a new column. If you execute the same rename in all documents in the collection, all data will be migrated to the new column and the old column will be represented with `NULL` values.
