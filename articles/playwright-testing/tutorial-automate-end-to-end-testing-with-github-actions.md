@@ -18,8 +18,7 @@ In this tutorial, you won't be writing Playwright test specifications and fork a
 
 > [!div class="checklist"]
 > * Set up the sample repository.
-> * Create a Microsoft Playwright Testing access key.
-> * Store the access key in the CI/CD secrets store.
+> * Create a GitHub secret to authenticate with Microsoft Playwright Testing.
 > * Create a GitHub Actions workflow.
 > * Trigger tests from CI/CD on every code push.
 > * Explore test results in GitHub Actions.
@@ -46,17 +45,9 @@ The sample repository contains Playwright tests and the configuration settings t
 
 To run Playwright tests from your CI/CD pipeline, you need a Microsoft Playwright Testing workspace access key.
 
+To create a Microsoft Playwright Testing access key and use it securely in your CI/CD workflow:
+
 1. In the [Microsoft Playwright Testing portal](https://dashboard.playwright-ppe.io/), create an access key for your workspace. Follow these steps to [create an access key](./how-to-manage-access-keys.md#create-an-access-key).
-
-1. After you've created the access key, select **Copy** to copy the generated access key value.
-
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/copy-access-key-value.png" alt-text="Screenshot that shows how to copy the access key functionality in the Playwright portal.":::
-
-## Create a CI/CD secret for the access key
-
-Your GitHub Actions workflow uses a CI/CD secret to securely store and use your Microsoft Playwright Testing workspace access key.
-
-To create a CI/CD secret to store and use the access key securely:
 
 1. In your forked GitHub repository, select **Settings > Secrets > Actions > New repository secret**.
 
