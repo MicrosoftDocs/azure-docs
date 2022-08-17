@@ -1,7 +1,7 @@
 ---
 title: Azure Percept Open-Source Project Overview
 description: An overview of the Azure Percept Open-Source project
-author: v-mdequadros
+author: yvonne-deq
 ms.author: v-mdequadros
 manager: amiyouss
 ms.service: azure-percept
