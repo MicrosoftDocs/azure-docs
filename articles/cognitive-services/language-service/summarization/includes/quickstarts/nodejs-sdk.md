@@ -127,6 +127,11 @@ summarization_example(textAnalyticsClient).catch((err) => {
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
 
+### Command
+
+```console
+node index.js
+```
 ### Output
 
 ```console
