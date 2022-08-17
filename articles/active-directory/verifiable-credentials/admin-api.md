@@ -838,11 +838,11 @@ If the property `customStatusEndpoint` property isn't specified then the `anonym
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`idTokens`| [idTokenAttestation](#idTokenAttestation-type) (array) (optional) | describes id token inputs|
-|`idTokenHints`| [idTokenHintAttestation](#idTokenHintAttestation-type) (array) (optional) | describes id token hint inputs |
-|`presentations`| [verifiablePresentationAttestation](#verifiablePresentationAttestation-type) (array) (optional) | describes verifiable presentations inputs |
-|`selfIssued`| [selfIssuedAttestation](#selfIssuedAttestation-type) (array) (optional) | describes self issued inputs |
-|`accessTokens`| [accessTokenAttestation](#accessTokenAttestation-type) (array) (optional) | describes access token inputs |
+|`idTokens`| [idTokenAttestation](#idtokenattestation-type) (array) (optional) | describes id token inputs|
+|`idTokenHints`| [idTokenHintAttestation](#idtokenhintattestation-type) (array) (optional) | describes id token hint inputs |
+|`presentations`| [verifiablePresentationAttestation](#verifiablepresentationattestation-type) (array) (optional) | describes verifiable presentations inputs |
+|`selfIssued`| [selfIssuedAttestation](#selfissuedattestation-type) (array) (optional) | describes self issued inputs |
+|`accessTokens`| [accessTokenAttestation](#accesstokenattestation-type) (array) (optional) | describes access token inputs |
 
 #### idTokenAttestation type
 
