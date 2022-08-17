@@ -117,7 +117,7 @@ In Windows, you can use Event Viewer to extract XPath queries as shown below.
 
 When you paste the XPath query into the field on the **Add data source** screen, (step 5 in the picture below), you must append the log type category followed by '!'.
 
-[!Screenshot of steps in Azure portal showing the steps to create an XPath query in the Windows Event Viewer.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png#lightbox)
+[![Screenshot of steps in Azure portal showing the steps to create an XPath query in the Windows Event Viewer.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png#lightbox)
 
 See [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitations) for a list of limitations in the XPath supported by Windows event log.
 
