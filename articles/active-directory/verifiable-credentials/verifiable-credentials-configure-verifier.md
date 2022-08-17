@@ -4,10 +4,10 @@ description: In this tutorial, you learn how to configure your tenant to verify 
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 08/16/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
