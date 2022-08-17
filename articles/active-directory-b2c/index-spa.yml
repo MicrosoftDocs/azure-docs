@@ -29,7 +29,7 @@ landingContent:
   - title: "Build your own app"
     linkLists:
       - linkListType: how-to-guide
-        links:
+        links: 
           - text: Angular
             url: enable-authentication-angular-spa-app.md
           - text: JavaScript
