@@ -119,7 +119,7 @@ Have the following information ready:
     id_scope = "PASTE_YOUR_SCOPE_ID_HERE"
 
     # Uncomment to send a custom payload during DPS registration
-    # payload = { uri = "OPTIONAL_PATH_TO_JSON_FILE" }
+    # payload = { uri = "PATH_TO_JSON_FILE" }
     
     [provisioning.attestation]
     method = "symmetric_key"
@@ -142,7 +142,7 @@ Have the following information ready:
 
 <!-- iotedge-1.4 -->
 :::moniker range=">=iotedge-1.4"
-1. Optionally, uncomment the `payload` parameter to specify the path to a local json file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
+1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
 :::moniker-end
 
 <!-- iotedge-2020-11 -->
