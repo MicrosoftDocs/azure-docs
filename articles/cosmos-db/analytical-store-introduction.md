@@ -222,35 +222,6 @@ There are two types of schema representation in the analytical store. These type
 * Well-defined schema representation, default option for SQL (CORE) API accounts. 
 * Full fidelity schema representation, default option for Azure Cosmos DB API for MongoDB accounts.
 
-#### Full fidelity schema for SQL API accounts
-
-It's possible to use full fidelity Schema for SQL (Core) API accounts, instead of the default option, by setting the schema type when enabling Synapse Link on a Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
-
- * This option is only valid for accounts that **don't** have Synapse Link already enabled.
- * It isn't possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
- * Currently Azure Cosmos DB API for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
- * Currently this change can't be made through the Azure portal. All database accounts that have Synapse Link enabled by the Azure portal will have the default schema representation type, well-defined schema.
- 
-The schema representation type decision must be made at the same time that Synapse Link is enabled on the account, using Azure CLI or PowerShell.
- 
- With the Azure CLI:
- ```cli
- az cosmosdb create --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --subscription MySubscription --analytical-storage-schema-type "FullFidelity" --enable-analytical-storage true
- ```
- 
-> [!NOTE]
-> In the command above, replace `create` with `update` for existing accounts.
- 
-  With the PowerShell:
-  ```
-   New-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount  -EnableAnalyticalStorage true -AnalyticalStorageSchemaType "FullFidelity"
-   ```
- 
-> [!NOTE]
-> In the command above, replace `New-AzCosmosDBAccount` with `Update-AzCosmosDBAccount` for existing accounts.
- 
-
-
 #### Well-defined schema representation
 
 The well-defined schema representation creates a simple tabular representation of the schema-agnostic data in the transactional store. The well-defined schema representation has the following considerations:
@@ -325,7 +296,7 @@ salary: 1000000
 
 The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it's a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
 
-**Data type to suffix map**
+##### Data type to suffix map
 
 Here's a map of all the property data types and their suffix representations in the analytical store:
 
@@ -352,6 +323,59 @@ Here's a map of all the property data types and their suffix representations in 
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
+##### Working with the MongoDB `_id` field
+
+the MongoDB `_id` field is fundamental to every collection in MongoDB and originally has a hexadecimal representation. As you can see in the table above, `Full Fidelity Schema` will preserve its characteristics, creating a challenge for its vizualiation in Azure Synapse Analytics. For correct visualization, you must convert the `_id` datatype as below:
+
+###### Spark
+```scala
+import org.apache.spark.sql.types._
+val simpleSchema = StructType(Array(
+    StructField("_id", StructType(Array(StructField("objectId",BinaryType,true)) ),true),
+    StructField("id", StringType, true)
+  ))
+
+var df = spark.read.format("cosmos.olap").option("spark.synapse.linkedService", "CosmosDbMongoDbApi2").option("spark.cosmos.container", "HTAP").schema(simpleSchema).load()
+
+df.select("id", "_id.objectId").show()
+![image](https://user-images.githubusercontent.com/11827523/185008672-e6a98513-2a1d-410b-aeb5-de67ec4e984f.png)
+```
+###### SQL
+
+```SQL
+SELECT TOP 100 id=CAST(_id as VARBINARY(1000))
+FROM OPENROWSET('CosmosDB',
+                'Account=your-account;Database=your-database;Key=your-key',
+                HTAP) WITH (_id VARCHAR(1000)) as HTAP
+```
+
+#### Full fidelity schema for SQL API accounts
+
+It's possible to use full fidelity Schema for SQL (Core) API accounts, instead of the default option, by setting the schema type when enabling Synapse Link on a Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
+
+ * This option is only valid for accounts that **don't** have Synapse Link already enabled.
+ * It isn't possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
+ * Currently Azure Cosmos DB API for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
+ * Currently this change can't be made through the Azure portal. All database accounts that have Synapse Link enabled by the Azure portal will have the default schema representation type, well-defined schema.
+ 
+The schema representation type decision must be made at the same time that Synapse Link is enabled on the account, using Azure CLI or PowerShell.
+ 
+ With the Azure CLI:
+ ```cli
+ az cosmosdb create --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --subscription MySubscription --analytical-storage-schema-type "FullFidelity" --enable-analytical-storage true
+ ```
+ 
+> [!NOTE]
+> In the command above, replace `create` with `update` for existing accounts.
+ 
+  With the PowerShell:
+  ```
+   New-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount  -EnableAnalyticalStorage true -AnalyticalStorageSchemaType "FullFidelity"
+   ```
+ 
+> [!NOTE]
+> In the command above, replace `New-AzCosmosDBAccount` with `Update-AzCosmosDBAccount` for existing accounts.
+> 
 ## <a id="analytical-ttl"></a> Analytical Time-to-Live (TTL)
 
 Analytical TTL (ATTL) indicates how long data should be retained in your analytical store, for a container.
