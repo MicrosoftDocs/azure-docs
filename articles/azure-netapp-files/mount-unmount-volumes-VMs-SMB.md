@@ -10,7 +10,7 @@ ms.date: 08/18/2022
 ---
 # Mount an SMB volume for Windows or Linux VMs
 
-You can mount an SMB file for Windows or Linux virtual virtual machines (VMs). 
+You can mount an SMB file for Windows or Linux virtual machines (VMs). 
 
 ## Steps
 
