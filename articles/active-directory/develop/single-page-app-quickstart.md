@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/06/2021
+ms.date: 08/17/2022
 ms.author: dmwendia
 ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js, mode-api
 zone_pivot_groups: single-page-app-quickstart
