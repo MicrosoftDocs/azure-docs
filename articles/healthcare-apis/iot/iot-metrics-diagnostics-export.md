@@ -21,7 +21,7 @@ In this article, you'll learn how to configure diagnostic settings for the MedTe
 
 2. Select the MedTech service that you want to configure for metrics exporting. For this example, we'll be using a MedTech service named **mt-azuredocsdemo**. You'll be selecting a MedTech service named by you within your Azure Health Data Services workspace.
    
-   :::image type="content" source="media/iot-metrics-export/iot-select-medtech-service.png" alt-text="Screenshot of select the MedTech service for exporting metrics" lightbox="media/iot-metrics-export/iot-select-medtech-service.png":::
+   :::image type="content" source="media/iot-metrics-export/iot-select-medtech-service.png" alt-text="Screenshot of select the MedTech service for exporting metrics." lightbox="media/iot-metrics-export/iot-select-medtech-service.png":::
 
 3. Select the **Diagnostic settings** option under **Monitoring**.
 
@@ -33,7 +33,7 @@ In this article, you'll learn how to configure diagnostic settings for the MedTe
 
 5. The **+ Add diagnostic setting** page will open, requiring configuration inputs from you.
 
-   :::image type="content" source="media/iot-metrics-export/iot-select-diagnostic-setting-options.png" alt-text="Screenshot diagnostic setting and required fields." lightbox="media/iot-metrics-export/iot-select-diagnostic-setting-options.png":::    
+   :::image type="content" source="media/iot-metrics-export/iot-select-diagnostic-setting-options.png" alt-text="Screenshot of diagnostic setting and required fields." lightbox="media/iot-metrics-export/iot-select-diagnostic-setting-options.png":::    
 
    1. Enter a display name in the **Diagnostic setting name** box. For this example, we'll name it **MedTech_service_All_Metrics**. You'll enter a display name of your own choosing.  
    
@@ -72,14 +72,14 @@ In this article, you'll learn how to configure diagnostic settings for the MedTe
 
 7. To view your saved diagnostic setting, select **Diagnostic settings**.
 
-   :::image type="content" source="media/iot-metrics-export/iot-navigate-to-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings option to view the saved diagnostic setting" lightbox="media/iot-metrics-export/iot-navigate-to-diagnostic-settings.png"::: 
+   :::image type="content" source="media/iot-metrics-export/iot-navigate-to-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings option to view the saved diagnostic setting." lightbox="media/iot-metrics-export/iot-navigate-to-diagnostic-settings.png"::: 
 
 8. The **Diagnostic settings** page will open, displaying your newly created diagnostic setting for your MedTech service. You'll have the ability to: 
    
    1. **Edit setting**: Edit or delete your saved MedTech service diagnostic setting. 
    2. **+ Add diagnostic setting**: Create more diagnostic settings for your MedTech service (for example: you may also want to send your MedTech service metrics to another destination like a Logs Analytics workspace). 
 
-   :::image type="content" source="media/iot-metrics-export/iot-view-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings options" lightbox="media/iot-metrics-export/iot-view-diagnostic-settings.png"::: 
+   :::image type="content" source="media/iot-metrics-export/iot-view-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings options." lightbox="media/iot-metrics-export/iot-view-diagnostic-settings.png"::: 
  
    > [!TIP]
    > 
