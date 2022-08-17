@@ -124,10 +124,10 @@ We recommend enabling auto provisioning, but it's disabled by default.
 
 ## How does auto provisioning work?
 
-Defender for Cloud's auto provisioning settings has a toggle for each type of supported extension. When you enable auto provisioning of an extension, you assign the appropriate **Deploy if not exists** policy. This policy type ensures the extension is provisioned on all existing and future resources of that type.
+Defender for Cloud's auto provisioning settings page has a toggle for each type of supported extension. When you enable auto provisioning of an extension, you assign the appropriate **Deploy if not exists** policy. This policy type ensures the extension is provisioned on all existing and future resources of that type.
 
 > [!TIP]
-> Learn more about Azure Policy effects including deploy if not exists in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
+> Learn more about Azure Policy effects including **Deploy if not exists** in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
 
 
 <a name="auto-provision-mma"></a>
