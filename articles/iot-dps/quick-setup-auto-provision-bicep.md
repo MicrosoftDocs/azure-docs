@@ -6,6 +6,7 @@ ms.date: 08/17/2022
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
+author: mumian
 ms.custom: mvc, subject-bicepqs
 ---
 
