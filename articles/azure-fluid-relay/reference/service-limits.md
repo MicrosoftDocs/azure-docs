@@ -15,11 +15,15 @@ This article outlines known limitations of Azure Fluid Relay.
 
 ## Distributed Data Structures
 
-The Azure Fluid Relay doesn't support [experimental distributed data structures (DDSes)](https://fluidframework.com/docs/data-structures/experimental/). These include but are not limited to DDS packages with the `@fluid-experimental` package namespace.
+The Azure Fluid Relay doesn't support [experimental distributed data structures (DDSes)](https://fluidframework.com/docs/data-structures/overview). These include but are not limited to DDS packages with the `@fluid-experimental` package namespace.
 
 ## Fluid sessions
 
 The maximum number of simultaneous users in one session on Azure Fluid Relay is 100 users. This limit is on simultaneous users. What this means is that the 101st user won't be allowed to join the session. In the case where an existing user leaves the session, a new user will be able to join. This is because the number of simultaneous users at that point will be less than the limit. 
+
+## Fluid operations
+
+Operations are incremental updates sent over the websocket connection. The size of any individual operation is limited to 700KB. The size of an operation is determined by the Distributed Data Structure being used.
 
 ## Fluid summaries
 
@@ -27,7 +31,7 @@ Incremental summaries uploaded to Azure Fluid Relay can't exceed 28 MB in size. 
 
 ## Signals
 
-Azure Fluid Relay doesn't currently have support for Signals. Learn about Signals [here](https://fluidframework.com/docs/concepts/signals/).
+Azure Fluid Relay doesn't currently have support for Signals.
 
 ## Need help?
 

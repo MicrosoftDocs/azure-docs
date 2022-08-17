@@ -182,22 +182,9 @@ Each event is stored in the PT1H.json file with the following format. This forma
 
 ## Legacy collection methods
 
-This section describes legacy methods for collecting the activity log that were used prior to diagnostic settings. If you're using these methods, consider transitioning to diagnostic settings that provide better functionality and consistency with resource logs.
+Log profiles are the legacy method for sending the activity log to storage or event hubs. If you're using this method, consider transitioning to diagnostic settings, which provide better functionality and consistency with resource logs.
 
-### Log profiles
-
-Log profiles are the legacy method for sending the activity log to storage or event hubs. Use the following procedure to continue working with a log profile or to disable it in preparation for migrating to a diagnostic setting.
-
-1. From the **Azure Monitor** menu in the Azure portal, select **Activity log**.
-1. Select **Export Activity Logs**.
-
-   ![Screenshot that shows exporting activity logs.](media/activity-log/diagnostic-settings-export.png)
-
-1. Select the purple banner for the legacy experience.
-
-    ![Screenshot that shows the legacy experience.](media/activity-log/legacy-experience.png)
-
-### Configure a log profile by using PowerShell
+### [PowerShell](#tab/powershell)
 
 If a log profile already exists, you first must remove the existing log profile and then create a new one.
 
@@ -225,9 +212,9 @@ If a log profile already exists, you first must remove the existing log profile 
     | RetentionInDays |Yes |Number of days for which events should be retained in the storage account, from 1 through 365. A value of zero stores the logs indefinitely. |
     | Category |No |Comma-separated list of event categories to be collected. Possible values are Write, Delete, and Action. |
 
-### Example script
+**Example script**
 
-The following sample PowerShell script is used to create a log profile that writes the activity log to both a storage account and an event hub.
+This sample PowerShell script creates a log profile that writes the activity log to both a storage account and an event hub.
 
    ```powershell
    # Settings needed for the new log profile
@@ -247,7 +234,7 @@ The following sample PowerShell script is used to create a log profile that writ
    Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId  $storageAccountId -ServiceBusRuleId $serviceBusRuleId
    ```
 
-### Configure a log profile by using the Azure CLI
+### [CLI](#tab/cli)
 
 If a log profile already exists, you first must remove the existing log profile and then create a log profile.
 
@@ -267,21 +254,7 @@ If a log profile already exists, you first must remove the existing log profile 
     |enabled | Yes |True or False. Used to enable or disable the retention policy. If True, then the `days` parameter must be a value greater than zero.
     | categories |Yes |Space-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
-### Log Analytics workspace
-
-The legacy method for sending the activity log into a Log Analytics workspace is connecting the sign-in for the workspace configuration.
-
-1. From the **Log Analytics workspaces** menu in the Azure portal, select the workspace to collect the activity log.
-1. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
-1. Select the subscription that you want to connect to.
-
-    ![Screenshot that shows Log Analytics workspace with Azure Activity log selected.](media/activity-log/workspaces.png)
-
-1. Select **Connect** to connect the activity sign-in subscription to the selected workspace. If the subscription is already connected to another workspace, select **Disconnect** first to disconnect it.
-
-    ![Screenshot that shows connecting workspaces.](media/activity-log/connect-workspace.png)
-
-To disable the setting, do the same procedure and select **Disconnect** to remove the subscription from the workspace.
+---
 
 ### Data structure changes
 

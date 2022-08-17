@@ -64,11 +64,14 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
     # Send a completion call to generate an answer
     print('Sending a test completion job')
-    start_phrase = 'When I go to the store, I want a'
+    start_phrase = 'Write a tagline for an ice cream shop. '
     response = openai.Completion.create(engine=deployment_id, prompt=start_phrase, max_tokens=10)
-    text = response['choices'][0]['text'].split('\n')[0]
+    text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
     print(start_phrase+text)
     ```
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
 
 1. Run the application with the `python` command on your quickstart file
 
@@ -80,21 +83,21 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 ```console
 Sending a test completion job
-"When I go to the store, I want a can of black beans"
+Write a tagline for an ice cream shop. The coldest ice cream in town!
 ```
 
 Run the code a few more times to see what other types of responses you get as the response won't always be the same.
 
 ### Understanding your results
 
-Since our example of `When I go to the store, I want a` provides very little context, it's normal for the model to not always return expected results. We're also intentionally limiting the response up to the first newline `\n` character, so occasional truncated responses with only our prompt text may occur as the model's response in that instance was split over multiple lines. If you wish to see the larger responses, you can remove `.split('\n')[0]` from your code and adjust the max number of tokens.
+Since our example of `Write a tagline for an ice cream shop.` provides very little context, it's normal for the model to not always return expected results. You can adjust the maximum number of tokens if the response seems unexpected or truncated.
 
 ## Clean up resources
 
 If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
-- [Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
+- [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+- [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 

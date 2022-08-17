@@ -6,7 +6,7 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 02/24/2022
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom: devx-track-js, vscode-azure-extension-update-not-needed
 ---
 # Azure Functions JavaScript developer guide
 
@@ -538,7 +538,7 @@ You can see the current version that the runtime is using by logging `process.ve
 
 # [Windows](#tab/windows-setting-the-node-version)
 
-For Windows function apps, target the version in Azure by setting the `WEBSITE_NODE_DEFAULT_VERSION` [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~14`.
+For Windows function apps, target the version in Azure by setting the `WEBSITE_NODE_DEFAULT_VERSION` [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~16`.
 
 # [Linux](#tab/linux-setting-the-node-version)
 

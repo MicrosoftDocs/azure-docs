@@ -92,7 +92,7 @@ The steps in this paragraph have to be performed for each storage account that s
 > If your Remote Rendering account is not listed, refer to this [troubleshoot section](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 > [!IMPORTANT]
-> Azure role assignments are cached by Azure Storage, so there may be a delay of up to 30 minutes between when you grant access to your remote rendering account and when it can be used to access your storage account. See the [Azure role-based access control (Azure RBAC) documentation](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) for details.
+> Azure role assignments are cached by Azure Storage, so there may be a delay of up to 30 minutes between when you grant access to your remote rendering account and when it can be used to access your storage account. See the [Azure role-based access control (Azure RBAC) documentation](../../role-based-access-control/troubleshooting.md#symptom---role-assignment-changes-are-not-being-detected) for details.
 
 ## Next steps
 

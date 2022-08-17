@@ -13,10 +13,7 @@ ms.reviewer: cynthn
 
 # Spot Virtual Machine size recommendation 
 
-**Applies to:** :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
-
 The Spot VM size recommendations tool is an easy way to view and select alternative VM sizes that are better suited for your stateless, flexible, and fault tolerant workload needs during the Virtual Machine Scale Set deployment process in the Azure portal. This tool allows Azure to recommend appropriate VM sizes to you after you filter by region, price, and eviction rate. You can further filter the recommended VMs list by size, type, generation, and disk (premium or ephemeral OS disk). 
-
 
 ## Azure portal 
 

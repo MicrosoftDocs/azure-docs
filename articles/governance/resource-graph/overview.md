@@ -58,7 +58,7 @@ With Azure Resource Graph, you can:
 > [!NOTE]
 > As a _preview_ feature, some `type` objects have additional non-Resource Manager properties
 > available. For more information, see
-> [Extended properties (preview)](./concepts/query-language.md#extended-properties-preview).
+> [Extended properties](./concepts/query-language.md#extended-properties).
 
 ## How Resource Graph is kept current
 
