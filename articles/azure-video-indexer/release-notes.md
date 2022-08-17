@@ -45,7 +45,7 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ### Featured clothing insight (preview)
 
-When indexing a video using Azure Video Indexer advanced video settings, you can view the new featured clothing insight. You can enable more targeted ads placement based on featured clothing images. 
+When indexing a video using Azure Video Indexer advanced video settings, you can view the new featured clothing insight. With the new featured clothing insight information, you can enable more targeted ads placement. 
 
 For details on how featured clothing images are ranked and how to view this insight, see [observed people featured clothing](observed-people-featured-clothing.md).
 
@@ -158,7 +158,7 @@ Azure Video Indexer introduces source languages support for STT (speech-to-text)
 
 ### Matched person detection capability
 
-When indexing a video through our advanced video settings, you can view the new matched person detection capability. If there are people observed  in your media file, you can now view the specific person who matched each of them through the media player.
+When indexing a video with Azure Video Indexer advanced video settings, you can view the new matched person detection capability. If there are people observed  in your media file, you can now view the specific person who matched each of them through the media player.
 
 ## November 2021
 
@@ -175,7 +175,7 @@ For more information go to [create an Azure Video Indexer account](https://techc
 
 ### People’s clothing detection
 
-When indexing a video through the advanced video settings, you can view the new **People’s clothing detection** capability. If there are people detected in your media file, you can now view the clothing type they are wearing through the media player.
+When indexing a video with Azure Video Indexer advanced video settings, you can view the new people’s clothing detection capability. If there are people detected in your media file, you can now view the clothing type they are wearing through the media player.
 
 ### Face bounding box (preview)
 
