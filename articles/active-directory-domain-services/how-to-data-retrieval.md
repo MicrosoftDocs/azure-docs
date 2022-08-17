@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/17/2022
+ms.date: 04/14/2022
 ms.author: justinha
 ms.reviewer: manthanm
 ---
