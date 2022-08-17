@@ -29,9 +29,9 @@ Business metadata is a template that contains custom attributes (key values). Yo
 
 ### Atlas endpoint
 
-For all the requests, you will need the Atlas endpoint for your Microsoft Purview account.
+For all the requests, you'll need the Atlas endpoint for your Microsoft Purview account.
 
-1. Find your Microsoft Purview account in the [Azure Portal](https://portal.azure.com)
+1. Find your Microsoft Purview account in the [Azure portal](https://portal.azure.com)
 1. Select the **Properties** page on the left side menu
 1. Copy the **Atlas endpoint** value
 
