@@ -22,8 +22,7 @@ This article guides you through the process of creating and managing Azure Stora
 - An Azure account. If you don't yet have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Azure subscription enabled for the Storage Mover preview.
 - A resource group in which to create the project.
-- A Data Mover resource within your resource group.
-- An NFS share available on a machine reachable through your local network.
+- A Storage Mover resource within your resource group.
 
 <!-- 
 4. H2s (Docs Required)
@@ -39,7 +38,67 @@ The first step to making Haushaltswaffeln is the preparation of the batter. To p
 
 # [PowerShell](#tab/powershell)
 
-PowerShell content
+Use the `New-AzStorageMoverProject` cmdlet to create new storage mover projects. You'll need to supply values for the `-Name`, `-ResourceGroupName`, and `-StorageMoverName`. The `-Description` parameter is optional.
+
+The following examples contain sample values. You'll need to substitute actual values to complete the example.
+
+1. Prepare your environment by ensuring that all account, subscription, and credential information has been cleared for your powershell session. You may find it helpful to store potentially complex strings in variables.
+
+   ```powershell
+   ## Clear session data
+   Clear-AzContext
+
+   ## Set variables
+   $subscriptionID     = "0a12b3c4-5d67-8e63-9c12-7b38c901de2f"
+   $resourceGroupName  = "demoResourceGroup"
+   $storageMoverName   = "demoMover"
+   $projectName        = "demoProject"
+   $projectDescription = "This is a project used for demonstration."
+
+   ```
+
+1. Connect to your Azure account by using the `Connect-AzAccount` cmdlet. Specify the ID for the subscription previously enabled for the Storage Mover preview by passing the `-Subscription` parameter as shown below.
+
+  ```powershell
+  Connect-AzAccount -Subscription $subscriptionID
+  ```
+
+1. After you've successfully connected, you can use the `New-AzStorageMoverProject` cmdlet to create your new project as shown in the following example.
+
+   ```powershell
+   New-AzStorageMoverProject `
+   -ResourceGroupName $resourceGroupName `
+   -StorageMoverName $storageMoverName `
+   -Name $projectName `
+   -Description $projectDescription
+   ```
+
+   The following sample response contains the `ProvisioningState` property whose value indicates that the project was successfully created.
+  
+   ```Response
+   Description                  : This is a project used for demonstration.
+   Id                           : /subscriptions/0a12b3c4-5d67-8e63-9c12-7b38c901de2f/resourceGroups/demoResourceGroup/
+                                  providers/Microsoft.StorageMover/storageMovers/demoMover/projects/demoProject
+   Name                         : testingAgain
+   ProvisioningState            : Succeeded
+   SystemDataCreatedAt          : 8/17/2022 1:19:00 AM
+   SystemDataCreatedBy          : user@contoso.com
+   SystemDataCreatedByType      : User
+   SystemDataLastModifiedAt     : 8/17/2022 1:19:00 AM
+   SystemDataLastModifiedBy     : user@contoso.com
+   SystemDataLastModifiedByType : User
+   Type                         : microsoft.storagemover/storagemovers/projects
+   ```
+
+1. To verify that the project was created, you can use the `Get-AzStorageMoverProject` cmdlet to return a list of all projects created within your Storage Mover. You can return a single project by passing the project name via the `-Name` parameter as shown below.
+
+   ```powershell
+   Get-AzStorageMoverProject `
+   -ResourceGroupName $resourceGroupName `
+   -StorageMoverName $storageMoverName `
+   -Name $projectName 
+   ```
+
 
 # [CLI](#tab/cli)
 
@@ -89,6 +148,7 @@ CLI content
 1. In the editing pane, modify your project's description. At the bottom onf the pane, select **Save** to commit your changes.
 
    :::image type="content" source="media/projects-manage/project-explorer-edit-sml.png" alt-text="project explorer edit" lightbox="media/projects-manage/project-explorer-edit-lrg.png":::
+
 ---
 
 
@@ -106,9 +166,12 @@ CLI content
 
 
 
-## Edit a project's description
+## Delete a project
 
 The first step to making Haushaltswaffeln is the preparation of the batter. To prepare the batter, complete the steps listed below.
+
+> [!WARNING]
+> Deleting a project is a permanent action and cannot be undone. It's a good idea to ensure that you're prepared to delete the project since you will not be able to restore it at a later time.
 
 # [PowerShell](#tab/powershell)
 
@@ -122,15 +185,12 @@ CLI content
 
 1. Navigate to the **Project Explorer** page  in the [Azure Portal](https://portal.azure.com). The default **All projects** view displays the name of your individual project and a summary of the jobs they contain.
 
-   :::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="project explorer2" lightbox="media/projects-manage/project-explorer-lrg.png":::
+   :::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="project explorer3" lightbox="media/projects-manage/project-explorer-lrg.png":::
 
-1. In the **All projects** group, select the name of the project whose description you want to edit. The **Project** pane opens, displaying the project's settings and any job summary data. Select **Edit description** or the **Edit** icon next to the description heading to open the editing pane.
+1. In the **All projects** group, select the name of the project whose description you want to edit. The **Project** pane opens, displaying the project's settings and any job summary data. Select **Delete project** icon next to the description heading to open the editing pane. Select **Delete** from within the **Confirm Project Deletion** dialog to permanently delete your project.
 
-   :::image type="content" source="media/projects-manage/project-explorer-view-sml.png" alt-text="project explorer view" lightbox="media/projects-manage/project-explorer-view-lrg.png":::
+   :::image type="content" source="media/projects-manage/project-explorer-delete-sml.png" alt-text="project explorer delete" lightbox="media/projects-manage/project-explorer-delete-lrg.png":::
 
-1. In the editing pane, modify your project's description. At the bottom onf the pane, select **Save** to commit your changes.
-
-   :::image type="content" source="media/projects-manage/project-explorer-edit-sml.png" alt-text="project explorer edit" lightbox="media/projects-manage/project-explorer-edit-lrg.png":::
 ---
 
 
