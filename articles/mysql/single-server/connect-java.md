@@ -19,10 +19,10 @@ This topic demonstrates creating a sample application that uses Java and [JDBC](
 
 JDBC is the standard Java API to connect to traditional relational databases.
 
-In this article, we will include two authentication methods, one is Azure Active Directory (Azure AD) authenction and the other is MySQL authentication. The "Credential-free connection" tab is using the Azure AD authentication, and the "Password" tab is using the MySQL authentication.
+In this article, we'll include two authentication methods, one is Azure Active Directory (Azure AD) authenction and the other is MySQL authentication. The "Credential-free connection" tab is using the Azure AD authentication, and the "Password" tab is using the MySQL authentication.
 
 - Azure AD authentication is a mechanism of connecting to Azure Database for MySQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
-- MySQL authentication is to use accounts that stored in MySQL. And if you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. So these passwords are stored in MySQL and you will need to manage the rotation of the passwords by yourself.
+- MySQL authentication is to use accounts that stored in MySQL. And if you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. So these passwords are stored in MySQL and you'll need to manage the rotation of the passwords by yourself.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ In this article, we will include two authentication methods, one is Azure Active
 
 ## Prepare the working environment
 
-We are going to use environment variables to limit typing mistakes, and to make it easier for you to customize the following configuration for your specific needs.
+We're going to use environment variables to limit typing mistakes, and to make it easier for you to customize the following configuration for your specific needs.
 
 First, set up some environment variables. In [Azure Cloud Shell](https://shell.azure.com/), run the following commands:
 
@@ -51,7 +51,7 @@ Replace the placeholders with the following values, which are used throughout th
 
 - `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
-- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it's to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 ### [Password](#tab/password)
 
@@ -71,7 +71,7 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
 - `<YOUR_MYSQL_ADMIN_PASSWORD>` and `<YOUR_MYSQL_NON_ADMIN_PASSWORD>`: The password of your MySQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
-- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Java application. One convenient way to find it is to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Java application. One convenient way to find it's to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 ---
 
@@ -95,7 +95,7 @@ The first thing we'll create is a managed MySQL server.
 
 #### [Credential-free connection (Recommended)](#tab/credential-free)
 
-If you are using Azure CLI, run the following command to make sure it has sufficient permission:
+If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
 ```bash
 az login --scope https://graph.microsoft.com/.default
@@ -126,7 +126,7 @@ az mysql server ad-admin create \
 > [!IMPORTANT]
 >  When setting the administrator, a new user is added to the Azure Database for MySQL server with full administrator permissions. Only one Azure AD admin can be created per MySQL server and selection of another one will overwrite the existing Azure AD admin configured for the server.
 
-This command creates a small MySQL server and set the Active Directory admin to the signed-in user.
+This command creates a small MySQL server and sets the Active Directory admin to the signed-in user.
 
 #### [Password](#tab/password)
 
@@ -148,7 +148,7 @@ This command creates a small MySQL server.
 
 ### Configure a firewall rule for your MySQL server
 
-Azure Database for MySQL instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
+Azure Databases for MySQL instances are secured by default.. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
 
 Because you configured our local IP address at the beginning of this article, you can open the server's firewall by running the following command:
 
@@ -209,9 +209,9 @@ This step will create a non-admin user and grant all permissions on the `demo` d
 
 #### [Credential-free connection (Recommended)](#tab/credential-free)
 
-We have already enabled the Azure AD authentication, and this step will create an Azure AD user and grant permissions.
+We've already enabled the Azure AD authentication, and this step will create an Azure AD user and grant permissions.
 
-Save a sql script of creating non-admin user to local:
+Save an sql script of creating non-admin user to local:
 
 ```bash
 AZ_MYSQL_AD_NON_ADMIN_USERID=`az ad signed-in-user show --query id -o tsv`
@@ -368,7 +368,7 @@ password=${AZ_MYSQL_NON_ADMIN_PASSWORD}
 
 ### Create an SQL file to generate the database schema
 
-We will use a *src/main/resources/`schema.sql`* file in order to create a database schema. Create that file, with the following content:
+We'll use a *src/main/resources/`schema.sql`* file in order to create a database schema. Create that file, with the following content:
 
 ```sql
 DROP TABLE IF EXISTS todo;
@@ -381,7 +381,7 @@ CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARC
 
 Next, add the Java code that will use JDBC to store and retrieve data from your MySQL server.
 
-Create a *src/main/java/DemoApplication.java* file, that contains:
+Create a *src/main/java/DemoApplication.java* file that contains:
 
 #### [Credential-free connection (Recommended)](#tab/credential-free)
 
@@ -494,7 +494,7 @@ public class DemoApplication {
 
 This Java code will use the *application.properties* and the *schema.sql* files that we created earlier, in order to connect to the MySQL server and create a schema that will store our data.
 
-In this file, you can see that we commented methods to insert, read, update and delete data: we will code those methods in the rest of this article, and you will be able to uncomment them one after each other.
+In this file, you can see that we commented methods to insert, read, update and delete data: We'll code those methods in the rest of this article, and you'll be able to uncomment them one after each other.
 
 > [!NOTE]
 > The database credentials are stored in the *user* and *password* properties of the *application.properties* file. Those credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`, as the properties file is passed as an argument.
