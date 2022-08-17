@@ -214,7 +214,7 @@ We've already enabled the Azure AD authentication, and this step will create an 
 Save an sql script of creating non-admin user to local:
 
 ```bash
-AZ_MYSQL_AD_NON_ADMIN_USERID=`az ad signed-in-user show --query id -o tsv`
+export AZ_MYSQL_AD_NON_ADMIN_USERID=`az ad signed-in-user show --query id -o tsv`
 
 cat << EOF > create_ad_user.sql
 SET aad_auth_validate_oids_in_tenant = OFF;
@@ -344,21 +344,31 @@ This file is an [Apache Maven](https://maven.apache.org/) that configures our pr
 
 ### Prepare a configuration file to connect to Azure Database for MySQL
 
-Create a *src/main/resources/application.properties* file, and add:
+Create a *src/main/resources/application.properties* file, and add configuration:
 
 #### [Credential-free connection (Recommended)](#tab/credential-free)
 
-```properties
+```bash
+mkdir -p src/main/resources && touch src/main/resources/application.properties
+
+cat << EOF > src/main/resources/application.properties
 url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?useSSL=true&sslMode=REQUIRED&serverTimezone=UTC
-user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+user=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+EOF
 ```
 
 #### [Password](#tab/password)
 
-```properties
-url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?serverTimezone=UTC
+```bash
+password=${AZ_MYSQL_NON_ADMIN_PASSWORD}
+
+mkdir -p src/main/resources && touch src/main/resources/application.properties
+
+cat << EOF > src/main/resources/application.properties
+url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?useSSL=true&sslMode=REQUIRED&serverTimezone=UTC
 user=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
 password=${AZ_MYSQL_NON_ADMIN_PASSWORD}
+EOF
 ```
 
 ---
