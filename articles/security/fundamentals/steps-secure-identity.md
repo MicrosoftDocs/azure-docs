@@ -7,7 +7,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/01/2022
+ms.date: 08/17/2022
 
 ms.author: martinco
 author: martincoetzer
