@@ -32,7 +32,7 @@ You can quickly create a new IoT hub using the Azure Cloud Shell terminal in the
 
 1. On the upper right of the page, select the Cloud Shell button.
 
-   ![Cloud Shell button](./media/publish-iot-hub-events-to-logic-apps/portal-cloud-shell.png)
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/portal-cloud-shell.png" alt-text="Screenshot of how to open the Azure Cloud Shell from the Azure portal." lightbox="./media/publish-iot-hub-events-to-logic-apps/portal-cloud-shell.png":::
 
 1. Run the following command to create a new resource group:
 
@@ -114,7 +114,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
    ```
  
    > [!IMPORTANT]
-   > Be sure to paste the JSON snippet into the box provided by **Use sample payload to generate schema** link and not directly into the **Request Body JSON Schema** box. The sample payload link provides a way to generate the JSON content based on the JSON snippet. The final JSON that ends up in the request body is different than the JSON snippet.
+   > Be sure to paste the JSON snippet into the box provided by the **Use sample payload to generate schema** link and not directly into the **Request Body JSON Schema** box. The sample payload link provides a way to generate the JSON content based on the JSON snippet. The final JSON that ends up in the request body is different than the JSON snippet.
 
    This event publishes when a device is connected to an IoT hub.
 
@@ -232,7 +232,7 @@ Test your logic app by quickly simulating a device connection using the Azure CL
 
 1. When the simulation completes, you'll receive an email notifying you of a "DeviceDisconnected" event. 
 
-    ![Example alert mail](./media/publish-iot-hub-events-to-logic-apps/alert-mail.png)
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/alert-mail.png" alt-text="Screenshot of the email you should receive." lightbox="./media/publish-iot-hub-events-to-logic-apps/alert-mail.png":::
 
 ## Clean up resources
 
