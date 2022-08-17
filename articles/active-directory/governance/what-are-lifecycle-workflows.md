@@ -2,7 +2,7 @@
 title: 'What are lifecycle workflows? - Azure Active Directory'
 description: Describes overview of Lifecycle workflows.
 services: active-directory
-author: owinfrey
+author: owinfreyATL
 manager: billmath
 ms.service: active-directory
 ms.workload: identity
@@ -70,11 +70,15 @@ You can use Lifecycle workflows to address any of the following conditions.
 
 
 
+## License Requirements
 
+You need a valid Azure AD Premium (P2) license for each person, other than Global administrators or User administrators, who will create lifecycle workflows. 
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 
 
 
 ## Next steps
-- [Create a custom workflow using the Azure Portal](tutorial-create-custom-workflow-portal.md)
+- [Create a custom workflow using the Azure Portal](tutorial-onboard-custom-workflow-portal.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)
