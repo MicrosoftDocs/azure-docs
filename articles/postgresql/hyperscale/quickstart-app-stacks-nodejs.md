@@ -370,5 +370,7 @@ async function importInMemoryDatabase() {
 
 ## Next steps
 
-Learn to [build scalable applications](howto-build-scalable-apps-overview.md)
+[!INCLUDE[app-stack-next-steps](includes/app-stack-next-steps.md)]
+
+Learn to [!INCLUDE[build scalable applications](howto-build-scalable-apps-overview.md)
 with Hyperscale (Citus).
