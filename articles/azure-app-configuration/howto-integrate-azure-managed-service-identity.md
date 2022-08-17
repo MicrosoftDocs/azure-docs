@@ -7,7 +7,7 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps, devdivchpfy22
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 08/17/2022
 zone_pivot_groups: appconfig-provider
 ---
 # Use managed identities to access App Configuration
@@ -29,7 +29,7 @@ This article shows how you can take advantage of the managed identity to access 
 :::zone-end
 
 > [!IMPORTANT]
-> Managed Identity can't be used to authenticate locally-running applications. Your application must be deployed to an Azure service that supports Managed Identity. This article uses Azure App Service as an example. However, the same concept applies to any other Azure service that supports managed identity. For example, [Azure Kubernetes Service](../aks/use-azure-ad-pod-identity.md), [Azure Virtual Machine](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md), and [Azure Container Instances](../container-instances/container-instances-managed-identity.md). If your workload is hosted in one of those services, you can leverage the service's managed identity support, too.
+> Managed identity can't be used to authenticate locally running applications. Your application must be deployed to an Azure service that supports Managed Identity. This article uses Azure App Service as an example. However, the same concept applies to any other Azure service that supports managed identity. For example, [Azure Kubernetes Service](../aks/use-azure-ad-pod-identity.md), [Azure Virtual Machine](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md), and [Azure Container Instances](../container-instances/container-instances-managed-identity.md). If your workload is hosted in one of those services, you can also leverage the service's managed identity support.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
@@ -52,9 +52,9 @@ To complete this tutorial, you must have:
 
 :::zone target="docs" pivot="framework-spring"
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
-- [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
+* [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 :::zone-end
 
@@ -64,13 +64,13 @@ To complete this tutorial, you must have:
 
 To set up a managed identity in the portal, you first create an application and then enable the feature.
 
-1. Access your App Services resource in the [Azure portal](https://portal.azure.com). If you don't have an existing App Services resource to work with, create one.
+1. Access your App Services resource in the [Azure portal](https://portal.azure.com). If you don't have an existing App Services resource to use, create one.
 
 1. Scroll down to the **Settings** group in the left pane, and select **Identity**.
 
 1. On the **System assigned** tab, switch **Status** to **On** and select **Save**.
 
-1. When prompted, answer **Yes** to enable system assigned managed identity.
+1. When prompted, answer **Yes** to turn on the system-assigned managed identity.
 
     :::image type="content" source="./media/add-managed-identity-app-service.png" alt-text="Screenshot of how to add a managed identity in App Service.":::
 
@@ -84,21 +84,21 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. Select **Add** > **Add role assignment**.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows the Access control (IAM) page with Add role assignment menu open.":::
 
-   If you don't have permissions to assign roles, the **Add role assignment** option will be disabled. For more information, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
+   If you don't have permission to assign roles, then the **Add role assignment** option will be disabled. For more information, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
 1. On the **Role** tab, select the **App Configuration Data Reader** role and then select **Next**.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/select-role-assignment.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
+    :::image type="content" source="../../includes/role-based-access-control/media/select-role-assignment.png" alt-text="Screenshot that shows the Add role assignment page with Role tab selected.":::
 
 1. On the **Members** tab, select **Managed identity** and then select **Select members**.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-members.png" alt-text="Screenshot showing Add role assignment page with Members tab selected.":::
+    :::image type="content" source="../../includes/role-based-access-control/media/add-members.png" alt-text="Screenshot that shows the Add role assignment page with Members tab selected.":::
 
-1. Select your Azure subscription, for Managed Identity select **App Service**, then select your App Service name.
+1. Select your Azure subscription, for Managed identity select **App Service**, then select your App Service name.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/select-managed-identity-members.png" alt-text="Screenshot showing select managed identities page.":::
+    :::image type="content" source="../../includes/role-based-access-control/media/select-managed-identity-members.png" alt-text="Screenshot that shows the select managed identities page.":::
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
@@ -106,7 +106,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 :::zone target="docs" pivot="framework-dotnet"
 
-1. Add a reference to the *Azure.Identity* package:
+1. Add a reference to the `Azure.Identity` package:
 
     ```bash
     dotnet add package Azure.Identity
@@ -114,7 +114,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. Find the endpoint to your App Configuration store. This URL is listed on the **Access keys** tab for the store in the Azure portal.
 
-1. Open *appsettings.json* and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your App Configuration store.
+1. Open the *appsettings.json* file and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your App Configuration store.
 
     ```json
     "AppConfig": {
@@ -122,7 +122,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
     }
     ```
 
-1. Open *Program.cs* and add a reference to the `Azure.Identity` and `Microsoft.Azure.Services.AppAuthentication` namespaces:
+1. Open the *Program.cs* file and add a reference to the `Azure.Identity` and `Microsoft.Azure.Services.AppAuthentication` namespaces:
 
     ```csharp-interactive
     using Azure.Identity;
@@ -180,14 +180,14 @@ The following steps describe how to assign the App Configuration Data Reader rol
     ---
 
     > [!NOTE]
-    > If you want to use a **user-assigned managed identity**, ensure that you specify the clientId when creating the [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).
+    > If you want to use a **user-assigned managed identity**, be sure to specify the `clientId` when creating the [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).
     >```csharp
     >config.AddAzureAppConfiguration(options =>
     >       {
     >           options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential("<your_clientId>"))
     >        });
     >```
-    >As explained in the [Managed Identities for Azure resources FAQs](../active-directory/managed-identities-azure-resources/known-issues.md), there is a default way to resolve which managed identity is used. In this case, the Azure Identity library enforces you to specify the desired identity to avoid possible runtime issues in the future. For instance, if a new user-assigned managed identity is added or if the system-assigned managed identity is enabled. So, you will need to specify the clientId even if only one user-assigned managed identity is defined, and there is no system-assigned managed identity.
+    >As explained in the [Managed Identities for Azure resources FAQs](../active-directory/managed-identities-azure-resources/known-issues.md), there is a default way to resolve which managed identity is used. In this case, the Azure Identity library enforces you to specify the desired identity to avoid possible runtime issues in the future. For instance, if a new user-assigned managed identity is added or if the system-assigned managed identity is enabled. So, you will need to specify the `clientId` even if only one user-assigned managed identity is defined, and there is no system-assigned managed identity.
 
 :::zone-end
 
@@ -202,7 +202,7 @@ spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
 ```
 
 > [!NOTE]
-> If you want to use **user-assigned managed identity** the property `spring.cloud.azure.appconfiguration.stores[0].managed-identity.client-id`, ensure that you specify the clientId when creating the [ManagedIdentityCredential](/java/api/com.azure.identity.managedidentitycredential).
+> If you want to use **user-assigned managed identity** the property `spring.cloud.azure.appconfiguration.stores[0].managed-identity.client-id`, ensure that you specify the `clientId` when creating the [ManagedIdentityCredential](/java/api/com.azure.identity.managedidentitycredential).
 
 :::zone-end
 
@@ -210,13 +210,13 @@ spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
 
 :::zone target="docs" pivot="framework-dotnet"
 
-Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally running apps. To deploy the .NET Core app that you created in the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=netcore31#publish-your-web-app).
+You must deploy your app to an Azure service when you use managed identities. Managed identities can't be used for authentication of locally running apps. To deploy the .NET Core app that you created in the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=netcore31#publish-your-web-app).
 
 :::zone-end
 
 :::zone target="docs" pivot="framework-spring"
 
-Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally-running apps. To deploy the Spring app that you created in the [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux).
+Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally running apps. To deploy the Spring app that you created in the [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux).
 
 :::zone-end
 

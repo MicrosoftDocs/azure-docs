@@ -5,7 +5,7 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 08/17/2022
 ms.custom: devdivchpfy22
 ---
 
@@ -32,7 +32,7 @@ You can use any unicode character in key names except for `%`. A key name can't 
 
 ### Design key namespaces
 
-There are two general approaches to naming keys used for configuration data: flat or hierarchical. These methods are similar from an application usage standpoint, but hierarchical naming offers many advantages:
+Two general approaches to naming keys are used for configuration data: flat or hierarchical. These methods are similar from an application usage standpoint, but hierarchical naming offers many advantages:
 
 * Easier to read. Delimiters in a hierarchical key name function as spaces in a sentence. They also provide natural breaks between words.
 * Easier to manage. A key name hierarchy represents logical groups of configuration data.
@@ -57,7 +57,7 @@ Label provides a convenient way to create variants of a key. A common use of lab
 Use labels as a way to create multiple versions of a key-value. For example, you can input an application version number or a Git commit ID in labels to identify key-values associated with a particular software build.
 
 > [!NOTE]
-> If you're looking for change versions, App Configuration keeps all changes of a key-value occurred in the past certain period of time automatically. For more information, see [point-in-time snapshot](./concept-point-time-snapshot.md).
+> If you're looking for change versions, App Configuration keeps all changes of a key-value that occurred in the past certain period of time automatically. For more information, see [point-in-time snapshot](./concept-point-time-snapshot.md).
 
 ### Query key-values
 
@@ -87,12 +87,17 @@ You also can include the following label patterns:
 
 Values assigned to keys are also unicode strings. You can use all unicode characters for values.
 
-### Use Content-Type
+### Use content type
 
-Each key-value in App Configuration has a content-type attribute. You can optionally use this attribute to store information about the type of value in a key-value that helps your application to process it properly. You can use any format for the content-type. App Configuration uses [Media Types]( https://www.iana.org/assignments/media-types/media-types.xhtml) (also known as MIME types) for built-in data types such as feature flags, Key Vault references, and JSON key-values.
+Each key-value in App Configuration has a content type attribute. You can optionally use this attribute to store information about the type of value in a key-value that helps your application to process it properly. You can use any format for the content type. App Configuration uses [Media Types]( https://www.iana.org/assignments/media-types/media-types.xhtml) (also known as MIME types) for built-in data types such as feature flags, Key Vault references, and JSON key-values.
 
 ## Next steps
 
-* [Point-in-time snapshot](./concept-point-time-snapshot.md)
-* [Feature management](./concept-feature-management.md)
-* [Event handling](./concept-app-configuration-event.md)
+> [!div class="nextstepaction"]
+> [Point-in-time snapshot](./concept-point-time-snapshot.md)
+
+> [!div class="nextstepaction"]
+> [Feature management](./concept-feature-management.md)
+
+> [!div class="nextstepaction"]
+> [Event handling](./concept-app-configuration-event.md)
