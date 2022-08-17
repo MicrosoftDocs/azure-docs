@@ -3,7 +3,7 @@ title: Manage guest access with access reviews - Azure AD
 description: Manage guest users as members of a group or assigned to an application with Azure Active Directory access reviews
 services: active-directory
 documentationcenter: ''
-author: ajburnle
+author: amsliu
 manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 4/16/2021
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---

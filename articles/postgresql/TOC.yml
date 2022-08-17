@@ -16,11 +16,11 @@
     items:
       - name: Single Server to Flexible Server migration (preview)
         items:
-          - name: Single to Flexible server migration (Preview) - Concepts
+          - name: Single to Flexible server migration tool (Preview) - Concepts
             href: migrate/concepts-single-to-flexible.md
-          - name: Single to Flexible server migration (Preview) - Migrate using portal
+          - name: Single to Flexible server migration tool (Preview) - Using portal
             href: migrate/how-to-migrate-single-to-flexible-portal.md
-          - name: Single to Flexible server migration (Preview)- Migrate using CLI
+          - name: Single to Flexible server migration tool (Preview)- Using CLI
             href: migrate/how-to-migrate-single-to-flexible-cli.md
           - name: Single to Flexible server migration (Preview) - Set up Azure AD app using portal
             href: migrate/how-to-set-up-azure-ad-app-portal.md
@@ -791,7 +791,7 @@
         href: hyperscale/howto-scale-rebalance.md
       - name: Change compute quotas
         href: hyperscale/howto-compute-quota.md
-      - name: Manage read replicas
+      - name: Scale with read replicas
         href: hyperscale/howto-read-replicas-portal.md
     - name: Availability and resilience
       items:

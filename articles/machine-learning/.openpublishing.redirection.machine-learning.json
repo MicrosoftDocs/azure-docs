@@ -6,6 +6,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-data.md",
+        "redirect_url": "/azure/machine-learning/how-to-read-write-data-v2",
+        " redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/concept-open-source.md",
         "redirect_url": "https://azure.microsoft.com/solutions/open-source/machine-learning/",
         "redirect_document_id": false
@@ -1186,9 +1191,14 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-troubleshoot-deployment.md",
-        "redirect_url": "/azure/machine-learning/how-to-troubleshoot-deployment",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/how-to-troubleshoot-deployment.md",
+        "redirect_url": "/azure/machine-learning/how-to-troubleshoot-online-endpoints",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-troubleshoot-deployment-local.md",
+        "redirect_url": "/azure/machine-learning/how-to-troubleshoot-online-endpoints",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-transform-data.md",
@@ -1366,8 +1376,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-enable-data-collection.md",
-        "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
+        "source_path_from_root": "/articles/machine-learning/how-to-enable-data-collection.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-enable-data-collection",
         "redirect_document_id": true
     },
     {
@@ -1411,8 +1421,23 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-deploy-local-container-notebook-vm.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-local-container-notebook-vm",
+        "source_path_from_root": "/articles/machine-learning/how-to-authenticate-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-authenticate-online-endpoint",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-deploy-local-container-notebook-vm.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-managed-online-endpoint-sdk-v2",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-deploy-local.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-managed-online-endpoint-sdk-v2",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-deploy-model-designer.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-deploy-model-designer",
         "redirect_document_id": true
     },
     {
@@ -1501,9 +1526,9 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-consume-web-service.md",
-        "redirect_url": "/azure/machine-learning/how-to-consume-web-service",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/how-to-consume-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-authenticate-online-endpoint",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-configure-environment.md",
@@ -2261,9 +2286,19 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-deploy-package-models.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-deploy-package-models",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-no-code-deployment.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-deploy-advanced-entry-script.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-deploy-advanced-entry-script",
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-functions.md",
