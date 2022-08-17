@@ -68,7 +68,7 @@ To use it, be sure to fill out these variables:
 - **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
 - **sentShareName** - a name for your new data share
 - **description** - an optional description for your data share
-- **referenceName** - the name of the collection where your share will be housed. For the root collection, give the name of the Microsoft Purview account. For any other collection, you'll need to give the internal reference name for the collection.
+- **collectionName** - the name of the collection where your share will be housed.
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure.Core;
@@ -77,6 +77,23 @@ using Azure.Identity;
 var credential = new DefaultAzureCredential();
 var endPoint = "https://<my-account-name>.purview.azure.com/share";
 var sentShareClient = new SentSharesClient(endPoint, credential);
+var collectionName = "<name of your collection>";
+
+// Get collection internal reference name
+// Collections that are not the root collection have a friendlyName (the name you see in the Microsoft Purview Data Map) and an internal reference name used to access the collection programmatically.
+var collectionsResponse = await accountClient.GetCollectionsAsync();
+
+var collectionsResponseDocument = JsonDocument.Parse(collectionsResponse.Content);
+var collections = collectionsResponseDocument.RootElement.GetProperty("value");
+
+foreach (var collection in collections.EnumerateArray())
+{
+    if (String.Equals(collectionName, collection.GetProperty("friendlyName").ToString(), StringComparison.OrdinalIgnoreCase))
+    {
+        collectionName = collection.GetProperty("name").ToString();
+    }
+}
+
 // Create sent share
 var sentShareName = "sample-Share";
 var inPlaceSentShareDto = new
@@ -87,8 +104,7 @@ var inPlaceSentShareDto = new
         description = "demo share",
         collection = new
         {
-            // for root collection else name of any accessible child collection in the Purview account.
-            referenceName = "<reference>",
+            referenceName = collectionName,
             type = "CollectionReference"
         }
     }
@@ -242,7 +258,7 @@ To use it, be sure to fill out these variables:
 - **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
 - **receivedShareName** - a name for the share that is being received
 -  **sentShareLocation** - the region where the share is housed. It should be the same region as the sent share and will be one of [Microsoft Purview's available regions](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all).
-- **referenceName** - the name of the collection where your share will be housed. For the root collection, give the name of the Microsoft Purview account. For any other collection, you'll need to give the internal reference name for the collection.
+- **collectionName** - the name of the collection where your share will be housed.
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_06_Namespaces
 using System.Linq;
@@ -252,11 +268,30 @@ using Azure.Identity;
 
 var credential = new DefaultAzureCredential();
 var endPoint = "https://<my-account-name>.purview.azure.com/share";
+var collectionName = "<name of your collection>"
+
 // Create received share
 var receivedInvitationsClient = new ReceivedInvitationsClient(endPoint, credential);
 var receivedInvitations = receivedInvitationsClient.GetReceivedInvitations();
 var receivedShareName = "fabrikam-received-share";
 var receivedInvitation = receivedInvitations.LastOrDefault();
+
+// Get collection internal reference name
+// Collections that are not the root collection have a friendlyName (the name you see in the Microsoft Purview Data Map) and an internal reference name used to access the collection programmatically.
+var collectionsResponse = await accountClient.GetCollectionsAsync();
+
+var collectionsResponseDocument = JsonDocument.Parse(collectionsResponse.Content);
+var collections = collectionsResponseDocument.RootElement.GetProperty("value");
+
+foreach (var collection in collections.EnumerateArray())
+{
+    if (collection.Equals(collection.GetProperty("friendlyName").ToString(), StringComparison.OrdinalIgnoreCase))
+    {
+        collectionName = collection.GetProperty("name").ToString();
+    }
+}
+
+
 if (receivedInvitation == null)
 {
     //No received invitations
@@ -273,8 +308,7 @@ var receivedShareData = new
         sentShareLocation = "eastus",
         collection = new
         {
-            // for root collection else name of any accessible child collection in the Purview account.
-            referenceName = "<purivewAccountName>",
+            referenceName = collectionName,
             type = "CollectionReference"
         }
     }
