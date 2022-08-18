@@ -1,13 +1,13 @@
 ---
-title: About failover and failback in Azure Site Recovery - Preview
-description: Learn about failover and failback in Azure Site Recovery - Preview
+title: About failover and failback in Azure Site Recovery - Modernized
+description: Learn about failover and failback in Azure Site Recovery - Modernized
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 08/18/2022
 
 ---
-# About on-premises disaster recovery failover/failback - Preview
+# About on-premises disaster recovery failover/failback - Modernized
 
-This article provides an overview of failover and failback during disaster recovery of on-premises machines to Azure with [Azure Site Recovery](site-recovery-overview.md) - Preview.
+This article provides an overview of failover and failback during disaster recovery of on-premises machines to Azure with [Azure Site Recovery](site-recovery-overview.md) - Modernized.
 
 For information about failover and failback in Azure Site Recovery Classic releases, [see this article](failover-failback-overview.md).
 

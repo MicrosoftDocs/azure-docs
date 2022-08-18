@@ -1,17 +1,17 @@
 ---
-title: VMware VM disaster recovery architecture in Azure Site Recovery - Preview
-description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Preview
+title: VMware VM disaster recovery architecture in Azure Site Recovery - Modernized
+description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 08/18/2022
 ---
 
-# VMware to Azure disaster recovery architecture - Preview
+# VMware to Azure disaster recovery architecture - Modernized
 
-This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Preview
+This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the Modernized VMware/Physical machine protection expereince.
 
 >[!NOTE]
-> Ensure you create a new Recovery Services vault for setting up the preview appliance. Don't use an existing vault.
+> Ensure you create a new Recovery Services vault for setting up the ASR replication appliance. Don't use an existing vault.
 
 For information about Azure Site Recovery architecture in Classic architecture, see [this article](vmware-azure-architecture.md).
 
@@ -20,7 +20,7 @@ For information about Azure Site Recovery architecture in Classic architecture, 
 
 The following table and graphic provide a high-level view of the components used for VMware VMs/physical machines disaster recovery to Azure.
 
-[![VMware to Azure architecture](./media/vmware-azure-architecture-preview/architecture-preview.png)](./media/vmware-azure-architecture-preview/architecture-preview.png#lightbox)
+[![VMware to Azure architecture](./media/vmware-azure-architecture-modernized/architecture-modernized.png)](./media/vmware-azure-architecture-modernized/architecture-modernized.png#lightbox)
 
 **Component** | **Requirement** | **Details**
 --- | --- | ---

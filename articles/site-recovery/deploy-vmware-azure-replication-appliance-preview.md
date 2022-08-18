@@ -1,23 +1,20 @@
 ---
-title: Deploy Azure Site Recovery replication appliance - Preview
-description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Preview
+title: Deploy Azure Site Recovery replication appliance - Modernized
+description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/01/2021
+ms.date: 08/18/2022
 ---
 
-# Deploy Azure Site Recovery replication appliance - Preview
+# Deploy Azure Site Recovery replication appliance - Modernized
 
 >[!NOTE]
-> The information in this article applies to Azure Site Recovery - Preview. For information about configuration server requirements in Classic releases, [see this article](vmware-azure-configuration-server-requirements.md).
+> The information in this article applies to Azure Site Recovery - Modernized. For information about configuration server requirements in Classic releases, [see this article](vmware-azure-configuration-server-requirements.md).
 
 >[!NOTE]
-> Ensure you create a new and exclusive Recovery Services vault for setting up the preview appliance. Don't use an existing vault.
+> Ensure you create a new and exclusive Recovery Services vault for setting up the ASR replication appliance. Don't use an existing vault.
 
->[!NOTE]
-> Enabling replication for physical machines is not supported with this preview.
-
-You deploy an on-premises replication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs to Azure.
+You deploy an on-premises replication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs or physical servers to Azure.
 
 - The replication appliance coordinates communications between on-premises VMware and Azure. It also manages data replication.
 - [Learn more](vmware-azure-architecture-preview.md) about the Azure Site Recovery replication appliance components and processes.
@@ -161,7 +158,7 @@ You need to set up an Azure Site Recovery replication appliance in the on-premis
 Go to **Recovery Services Vault** > **Getting Started**. In VMware machines to Azure, select
 **Prepare Infrastructure** and proceed with the sections detailed below:
 
-![Recovery Services Vault Preview](./media/deploy-vmware-azure-replication-appliance-preview/prepare-infra.png)
+![Recovery Services Vault Modernized](./media/deploy-vmware-azure-replication-appliance-modernized/prepare-infra.png)
 
 To set up a new appliance, you can use an OVF template (recommended) or PowerShell. Ensure you meet all the [hardware ](#hardware-requirements) and [software requirements](#software-requirements), and any other prerequisites.
 
@@ -178,7 +175,7 @@ You can create the Site Recovery replication appliance by using the OVF template
 We recommend this approach as Azure Site Recovery ensures all prerequisite configurations are handled by the template.
 The OVF template spins up a machine with the required specifications.
 
-![Prepare infrastructure for appliance creation](./media/deploy-vmware-azure-replication-appliance-preview/prepare-infra.png)
+![Prepare infrastructure for appliance creation](./media/deploy-vmware-azure-replication-appliance-modernized/prepare-infra.png)
 
 **Follow these steps:**
 
@@ -188,9 +185,6 @@ The OVF template spins up a machine with the required specifications.
 4. Select **Finalize,** the system reboots and you can login with the administrator user account.
 
 ### Set up the appliance through PowerShell
-
->[!NOTE]
-> Enabling replication for physical machines is not supported with this preview.
 
 In case of any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Follow these steps:
 
@@ -237,7 +231,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 5. Ensure the [prerequisites](#pre-requisites) are met, proceed with registration.
 
-    ![Register appliance](./media/deploy-vmware-azure-replication-appliance-preview/app-setup-register.png)
+    ![Register appliance](./media/deploy-vmware-azure-replication-appliance-modernized/app-setup-register.png)
 
   - **Friendly name of appliance**: Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
 
@@ -251,7 +245,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
       After successful registration, you can close the tab and move to appliance configuration manager to continue the set up.
 
-      ![authentication code](./media/deploy-vmware-azure-replication-appliance-preview/enter-code.png)
+      ![authentication code](./media/deploy-vmware-azure-replication-appliance-modernized/enter-code.png)
 
       > [!NOTE]
       > An authentication code expires within 5 minutes of generation. In case of inactivity for more than this duration, you will be prompted to login again to Azure.
@@ -259,11 +253,11 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 6. After successful login, Subscription, Resource Group and Recovery Services vault details are displayed. You can log out in case you want to change the vault. Else, select **Continue** to proceed.
 
-    ![Appliance registered](./media/deploy-vmware-azure-replication-appliance-preview/app-setup.png)
+    ![Appliance registered](./media/deploy-vmware-azure-replication-appliance-modernized/app-setup.png)
 
     After successful registration, proceed to configure vCenter details.
 
-    ![Configuration of vCenter](./media/deploy-vmware-azure-replication-appliance-preview/vcenter-information.png)
+    ![Configuration of vCenter](./media/deploy-vmware-azure-replication-appliance-modernized/vcenter-information.png)
 
 7. Select **Add vCenter Server** to add vCenter information. Enter the server name or IP address of the vCenter and port information. Post that, provide username, password and friendly name. This is used to fetch details of [virtual machine managed through the vCenter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery). The user account details will be encrypted and stored locally in the machine.
 
@@ -288,13 +282,13 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 After successful configuration of Azure Site Recovery replication appliance, navigate to Azure portal, **Recovery Services Vault**.
 
-Select **Prepare infrastructure (Preview)** under **Getting started**, you can see that an Azure Site Recovery replication appliance is already registered with this vault. Now you are all set! Start protecting your source machines through this replication appliance.
+Select **Prepare infrastructure (Modernized)** under **Getting started**, you can see that an Azure Site Recovery replication appliance is already registered with this vault. Now you are all set! Start protecting your source machines through this replication appliance.
 
 When you click  *Select 1 appliance(s)*, you will be re-directed to Azure Site Recovery replication appliance view, where the list of appliances registered to this vault is displayed.
 
 You will also be able to see a tab for **Discovered items** that lists all of the discovered vCenter Servers/vSphere hosts."
 
-![Replication appliance preview](./media/deploy-vmware-azure-replication-appliance-preview/discovered-items.png)
+![Replication appliance modernized](./media/deploy-vmware-azure-replication-appliance-modernized/discovered-items.png)
 
 
 ## Next steps
