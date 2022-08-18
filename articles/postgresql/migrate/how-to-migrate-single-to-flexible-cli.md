@@ -34,7 +34,7 @@ This article shows you how to use the migration tool in the Azure CLI to migrate
 
    A browser window opens with the Azure sign-in page. Provide your Azure credentials to do a successful authentication. For other ways to sign with the Azure CLI, see [this article](/cli/azure/authenticate-azure-cli).
 
-4. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#prerequisites). It is very important to complete the prerequisite steps to ensure a successful migration.
+4. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#prerequisites). It is very important to complete the prerequisite steps before you initiate a migration using this tool.
 
 ## Migration CLI commands
 
@@ -139,7 +139,7 @@ The structure of the JSON is:
 
 ```
 >[!NOTE]
-> Gentle reminder to complete the [prerequisites](./concepts-single-to-flexible.md#prerequisites) before you execute **Create** in case it is not yet done. It is very important to complete the prerequisite steps to ensure a successful migration.
+> Gentle reminder to complete the [prerequisites](./concepts-single-to-flexible.md#prerequisites) before you execute **Create** in case it is not yet done. It is very important to complete the prerequisite steps in before you initiate a migration using this tool.
 
 Here are the `create` parameters:
 

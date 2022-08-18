@@ -54,7 +54,7 @@ You choose the source server and can select up to eight databases from it. This 
 The following diagram shows the process flow for migration from Single Server to Flexible Server via the migration tool.
 
 :::image type="content" source="./media/concepts-single-to-flexible/concepts-flow-diagram.png" alt-text="Diagram that shows the Migration from Single Server to Flexible Server." lightbox="./media/concepts-single-to-flexible/concepts-flow-diagram.png":::
-    
+
 The steps in the process are:
 
 1. Create a Flexible Server target.
@@ -64,7 +64,7 @@ The steps in the process are:
    1. Initial dump/restore (online and offline) 
    1. Streaming the changes (online only)
 5. Cut over to the target.
-   
+
 The migration tool is exposed through the Azure portal and through easy-to-use Azure CLI commands. It allows you to create migrations, list migrations, display migration details, modify the state of the migration, and delete migrations.
 
 ## Comparison of migration modes
@@ -117,20 +117,11 @@ The time for completing an online migration depends on the incoming writes to th
 ### Prerequisites
 
 >[!NOTE]
-> It is very important to complete the prerequisite steps in this section beforehand to ensure a successful migration.
+> It is very important to complete the prerequisite steps in this section before you initiate a migration using this tool.
 
 Before you start using the migration tool:
 
-1. [Create an Azure Database for PostgreSQL Flexible server](../flexible-server/quickstart-create-server-portal.md) which will be used as the Target.
-
-2. [Enable logical replication](../single-server/concepts-logical.md) on the source server.
-
-   :::image type="content" source="./media/concepts-single-to-flexible/logical-replication-support.png" alt-text="Screenshot of logical replication support in the Azure portal." lightbox="./media/concepts-single-to-flexible/logical-replication-support.png":::
-
-  >[!NOTE]
-  > Enabling logical replication will require a server restart for the change to take effect.
-
-3. Register your subscription for Azure Database Migration Service:
+1. Register your subscription for Azure Database Migration Service:
 
    1. On the Azure portal, go to your subscription.
 
@@ -140,7 +131,16 @@ Before you start using the migration tool:
 
       :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-register-data-migration.png" alt-text="Screenshot of the Register button for Azure Data Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-register-data-migration.png":::
 
-4. [Set up an Azure Active Directory (Azure AD) app](./how-to-set-up-azure-ad-app-portal.md). An Azure AD app is a critical component of the migration tool. It helps with role-based access control as the migration tool accesses both the source and target servers.
+2. [Enable logical replication](../single-server/concepts-logical.md) on the source server.
+
+   :::image type="content" source="./media/concepts-single-to-flexible/logical-replication-support.png" alt-text="Screenshot of logical replication support in the Azure portal." lightbox="./media/concepts-single-to-flexible/logical-replication-support.png":::
+
+   >[!NOTE]
+   > Enabling logical replication will require a server restart for the change to take effect.
+
+3. [Create an Azure Database for PostgreSQL Flexible server](../flexible-server/quickstart-create-server-portal.md) which will be used as the Target (if not created already).
+
+4. [Set up and configure an Azure Active Directory (Azure AD) app](./how-to-set-up-azure-ad-app-portal.md). An Azure AD app is a critical component of the migration tool. It helps with role-based access control as the migration tool accesses both the source and target servers.
 
 5. If you are using any PostgreSQL extensions on the Single Server, it has to be allow-listed on the Flexible Server before initiating the migration using the steps below:
 
@@ -225,7 +225,7 @@ After you finish the prerequisites, migrate the data and schemas by using one of
 - Batch similar-sized databases in a migration task.  
 - Perform large database migrations with one or two databases at a time to avoid source-side load and migration failures.
 - Perform test migrations before migrating for production:
-  - Test migrations are an important for ensuring that you cover all aspects of the database migration, including application testing. 
+  - Test migrations are an important for ensuring that you cover all aspects of the database migration, including application testing.
   
     The best practice is to begin by running a migration entirely for testing purposes. After a newly started migration enters the continuous replication (CDC) phase with minimal lag, make your Flexible Server target the primary database server. Use that target for testing the application to ensure expected performance and results. If you're migrating to a higher Postgres version, test for application compatibility.
 
