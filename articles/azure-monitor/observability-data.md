@@ -5,7 +5,7 @@ documentationcenter: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2022
+ms.date: 08/18/2022
 ---
 
 # Observability data in Azure Monitor
@@ -40,8 +40,7 @@ Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [A
 > [!NOTE]
 > It's important to distinguish between Azure Monitor Logs and sources of log data in Azure. For example, subscription level events in Azure are written to an [activity log](essentials/platform-logs-overview.md) that you can view from the Azure Monitor menu. Most resources will write operational information to a [resource log](essentials/platform-logs-overview.md) that you can forward to different locations. Azure Monitor Logs is a log data platform that collects activity logs and resource logs along with other monitoring data to provide deep analysis across your entire set of resources.
 
-
- You can work with [log queries](logs/log-query-overview.md) interactively with [Log Analytics](logs/log-query-overview.md) in the Azure portal or add the results to an [Azure dashboard](app/tutorial-app-dashboards.md) for visualization in combination with other data. You can also create [log alerts](alerts/alerts-log.md) which will trigger an alert based on the results of a schedule query.
+You can work with [log queries](logs/log-query-overview.md) interactively with [Log Analytics](logs/log-query-overview.md) in the Azure portal or add the results to an [Azure dashboard](app/tutorial-app-dashboards.md) for visualization in combination with other data. You can also create [log alerts](alerts/alerts-log.md) which will trigger an alert based on the results of a schedule query.
 
 Read more about Azure Monitor Logs including their sources of data in [Logs in Azure Monitor](logs/data-platform-logs.md).
 
@@ -52,6 +51,13 @@ Distributed tracing in Azure Monitor is enabled with the [Application Insights S
 
 Read more about distributed tracing at [What is Distributed Tracing?](app/distributed-tracing.md).
 
+## Changes
+
+Change Analysis alerts you to live site issues, outages, component failures, or other change data. It also provides insights into those application changes, increases observability, and reduces the mean time to repair. You automatically register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource Manager subscription by going to Change Analysis via the Azure portal. For web app in-guest changes, you can enable Change Analysis by using the [Diagnose and solve problems tool](./change/change-analysis-enable.md#enable-web-app-in-guest-change-collection-via-azure-portal).
+
+Change Analysis builds on [Azure Resource Graph](../governance/resource-graph/overview.md) to provide a historical record of how your Azure resources have changed over time. It detects managed identities, platform operating system upgrades, and hostname changes. Change Analysis securely queries IP configuration rules, TLS settings, and extension versions to provide more detailed change data.
+
+Read more about Change Analysis, including observability, in [Use Change Analysis in Azure Monitor](./change/change-analysis.md).
 
 ## Next steps
 
