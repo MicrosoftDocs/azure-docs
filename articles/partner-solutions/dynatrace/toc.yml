@@ -21,9 +21,13 @@
     href: dynatrace-troubleshoot.md
 - name: Reference
   items:
-  - name: Azure CLI
-    href: /cli/azure/Dynatrace
-  - name: Azure PowerShell
-    href: /powershell/module/az.Dynatrace/#Dynatrace
-  - name: REST API
-    href: /rest/api/Dynatrace
+  - name: Python
+    href: /python/api/overview/azure/mgmt-dynatrace-readme
+  - name: JavaScript
+    href: /javascript/api/overview/azure/arm-dynatrace-readme
+  - name: .NET
+    href: /dotnet/api/overview/azure/dynatrace?view=azure-dotnet-preview
+  - name: Java
+    href: /java/api/overview/azure/dynatrace?view=azure-java-preview
+
+
