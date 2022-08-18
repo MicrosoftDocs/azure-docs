@@ -35,12 +35,7 @@ With the generated model's training code you can,
 * **Track/version/audit** trained models. Store versioned code to track what specific training code is used with the model that's to be deployed to production.
 * **Customize** the training code by changing hyperparameters or applying your ML and algorithms skills/experience, and retrain a new model with your customized code.
 
-You can generate the code for automated ML experiments with task types classification, regression, and time-series forecasting.
-
-> [!WARNING]
-> Computer vision models and natural language processing based models in AutoML do not currently support model's training code generation. 
-
-The following diagram illustrates that you can enable code generation for any AutoML created model from the Azure Machine Learning studio UI or with the Azure Machine Learning SDK. First select a model. The model you selected will be highlighted, then Azure Machine Learning copies the code files used to create the model, and displays them into your notebooks shared folder. From here, you can view and customize the code as needed. 
+The following diagram illustrates that you can generate the code for automated ML experiments with all task types. First select a model. The model you selected will be highlighted, then Azure Machine Learning copies the code files used to create the model, and displays them into your notebooks shared folder. From here, you can view and customize the code as needed. 
 
 :::image type="content" source="media/how-to-generate-automl-training-code/code-generation-demonstration.png" alt-text="Screenshot showing models tab, as well as having a model selected, as explained in the above text.":::
 
@@ -489,5 +484,5 @@ However, in order to load that model in a notebook in your custom local Conda en
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
+* Learn more about [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 * See how to [enable interpretability features](how-to-machine-learning-interpretability-automl.md) specifically within automated ML experiments.

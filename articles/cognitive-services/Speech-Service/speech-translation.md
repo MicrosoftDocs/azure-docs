@@ -35,10 +35,6 @@ As your first step, try the [Speech translation quickstart](get-started-speech-t
 
 You'll find [Speech SDK speech-to-text and translation samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk) on GitHub. These samples cover common scenarios, such as reading audio from a file or stream, continuous and single-shot recognition and translation, and working with custom models.
 
-## Migration guide
-
-If your applications, tools, or products are using the [Translator Speech API](./how-to-migrate-from-translator-speech-api.md), see [Migrate from the Translator Speech API to Speech service](how-to-migrate-from-translator-speech-api.md).
-
 ## Next steps
 
 * Try the [speech translation quickstart](get-started-speech-translation.md)

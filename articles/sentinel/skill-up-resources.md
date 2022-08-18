@@ -202,7 +202,7 @@ If you want to _retain data_ for more than two years or _reduce the retention co
 
 Want more in-depth information? View the ["Improving the breadth and coverage of threat hunting with ADX support, more entity types, and updated MITRE integration"](https://www.youtube.com/watch?v=5coYjlw2Qqs&ab_channel=MicrosoftSecurityCommunity) webinar.
 
-If you prefer another long-term retention solution, see [Export from Microsoft Sentinel / Log Analytics workspace to Azure Storage and Event Hubs](/cli/azure/monitor/log-analytics/workspace/data-export.md) or [Move logs to long-term storage by using Azure Logic Apps](../azure-monitor/logs/logs-export-logic-app.md). The advantage of using Logic Apps is that it can export historical data.
+If you prefer another long-term retention solution, see [Export from Microsoft Sentinel / Log Analytics workspace to Azure Storage and Event Hubs](/cli/azure/monitor/log-analytics/workspace/data-export) or [Move logs to long-term storage by using Azure Logic Apps](../azure-monitor/logs/logs-export-logic-app.md). The advantage of using Logic Apps is that it can export historical data.
 
 Finally, you can set fine-grained retention periods by using [table-level retention settings](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-log-analytics-data-retention-by-type-in-real-life/ba-p/1416287). For more information, see [Configure data retention and archive policies in Azure Monitor Logs (Preview)](../azure-monitor/logs/data-retention-archive.md).
 

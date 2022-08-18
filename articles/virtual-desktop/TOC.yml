@@ -191,7 +191,7 @@
         href: deploy-azure-ad-joined-vm.md
       - name: Deploy a Windows 7 virtual machine
         href: deploy-windows-7-virtual-machine.md
-      - name: Deploy Windows Server based machine
+      - name: Deploy a Windows Server-based virtual machine
         href: deploy-windows-server-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
@@ -239,7 +239,7 @@
         href: install-office-on-wvd-master-image.md
   - name: Scale session hosts 
     items:
-      - name: Autoscale (preview)
+      - name: Autoscale
         items:
         - name: Create a scaling plan
           href: autoscale-scaling-plan.md
