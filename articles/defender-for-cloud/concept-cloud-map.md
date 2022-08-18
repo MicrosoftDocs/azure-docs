@@ -12,7 +12,7 @@ Cloud map security allows businesses to prioritize how they organize and remedia
 
 Security teams in general have many cloud misconfigurations and vulnerabilities to resolve. For them, it's hard to quickly understand each security risk imposed by their security issues and prioritize them in a meaningful way in order to remediate the highest risk issues. By using cloud map's graph based context and risk assessment engines, security teams can focus on the small percent of security issues that matter the most. 
 
-:::image type="content" source="media/concept-cloud-map/security-map.png" alt-text="Image of a conceptualized graph that shows the complexity of security graphing.":::
+:::image type="content" source="media/concept-cloud-map/security-map.png" alt-text="Image of a conceptualized graph that shows the complexity of security graphing." lightbox="media/concept-cloud-map/security-map.png":::
 
 ## Assessing risk
 

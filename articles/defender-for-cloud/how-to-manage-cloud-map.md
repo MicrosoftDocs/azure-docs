@@ -33,15 +33,15 @@ Attack path analysis allows you to see the details of each node within your envi
 
 1. Select an attack path.
 
-    :::image type="content" source="media/how-to-manage-cloud-map/attack-path.png" alt-text="Screenshot that shows the a sample of attack paths.":::
+    :::image type="content" source="media/how-to-manage-cloud-map/attack-path.png" alt-text="Screenshot that shows the a sample of attack paths." lightbox="media/how-to-manage-cloud-map/attack-path.png":::
 
 1. Select a node to view the associated recommendations.
 
-    :::image type="content" source="media/how-to-manage-cloud-map/node-select.png" alt-text="Screenshot of the attack path screen that shows you where the nodes are located for selection.":::
+    :::image type="content" source="media/how-to-manage-cloud-map/node-select.png" alt-text="Screenshot of the attack path screen that shows you where the nodes are located for selection." lightbox="media/how-to-manage-cloud-map/node-select.png":::
 
 1. Select **Recommendations**.
 
-    :::image type="content" source="media/how-to-manage-cloud-map/attack-path-recommendations.png" alt-text="Screenshot that shows you where to select recommendations on the screen.":::
+    :::image type="content" source="media/how-to-manage-cloud-map/attack-path-recommendations.png" alt-text="Screenshot that shows you where to select recommendations on the screen." lightbox="media/how-to-manage-cloud-map/attack-path-recommendations.png":::
 
 1. Select a recommendation.
 
