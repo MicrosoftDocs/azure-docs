@@ -25,7 +25,7 @@ Sign into your Azure account by using the [`Connect-AzAccount`](/powershell/modu
 Connect-AzAccount
 ```
 
-The variables below are needed for various commands used in the article. Update the variables to your liking.
+The variables below are needed for various commands used in the article. Update the variables per your specifications.
 
 ```powershell-interactive
 $location = "eastus"
@@ -38,8 +38,6 @@ $containerregistryURL = "myContainerregistry.azurecr.io"
 $containerimagename = "mycontainerregistry.azurecr.io/windows:latest"
 ```
 
-
-
 ## 2 - Create a new resource group
 
 Create a new Resource Group by using the [New-AzResourceGroup](/powershell/module/az.websites/myResourceGroup) command:
@@ -47,16 +45,7 @@ Create a new Resource Group by using the [New-AzResourceGroup](/powershell/modul
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $resourcegroup -Location $location
 ```
-
-## 3 - Create your App Service Plan
-
-Create a new App service Plan by using the [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) command:
-
-```azurepowershell-interactive
-New-AzAppServicePlan -Name $appserviceplan -Location $location -ResourceGroupName $resourcegroup -Tier $tier -HyperV
-```
-
-## 4 - Create container registry
+## 3 - Create container registry
 
 Next, create a container registry in your new resource group with the [New-AzContainerRegistry][New-AzContainerRegistry] command.
 
@@ -66,7 +55,7 @@ The following example creates a registry in the Basic SKU with Admin User enable
 $registry = New-AzContainerRegistry -ResourceGroupName $resourcegroup -Name $containerregistryname -EnableAdminUser -Sku Basic
 ```
 
-## 5 - Log in to registry
+## 4 - Log in to registry
 
 Before pushing and pulling container images, you must log in to your registry with the [Connect-AzContainerRegistry][connect-azcontainerregistry] cmdlet. The following example uses the same credentials you logged in with when authenticating to Azure with the `Connect-AzAccount` cmdlet.
 
@@ -78,7 +67,7 @@ Connect-AzContainerRegistry -Name $registry.Name
 ```
 
 The command returns `Login Succeeded` once completed.
-## 6 - Push the image to registry
+## 5 - Push the image to registry
 
 Before you can push an image to your registry, you must tag it with the fully qualified name of your registry login server. The login server name is in the format *\<registry-name\>.azurecr.io* (must be all lowercase), for example, *mycontainerregistry.azurecr.io*.
 
@@ -94,7 +83,7 @@ Finally, use [docker push][docker-push] to push the image to the registry instan
 docker push mycontainerregistry.azurecr.io/windows:latest
 ```
 
-## 7 - Get registry credentials
+## 6 - Get registry credentials
 
 In order to create the web app with a container image located in Azure Container Registry, you need to get the registry login credentials using [Get-AzContainerRegistryCredential]() as shown below:
 
@@ -108,6 +97,15 @@ You need to convert the password to a Secure String in order to access the regis
 $securePassword = ConvertTo-SecureString $pass.password -AsPlainText -Force
 ```
 
+## 7 - Create your App Service Plan
+
+Create a new App service Plan by using the [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) command:
+
+```azurepowershell-interactive
+New-AzAppServicePlan -Name $appserviceplan -Location $location -ResourceGroupName $resourcegroup -Tier $tier -HyperV
+```
+
+
 ## 8 - Create your web app
 
 Create a new app by using the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command:
@@ -116,13 +114,16 @@ Create a new app by using the [New-AzWebApp](/powershell/module/az.websites/new-
 New-AzWebApp -Name $webappname -AppServicePlan $appserviceplan -Location $location -ResourceGroupName $resourcegroup  -ContainerRegistryUrl $containerregistryURL -ContainerRegistryUser $pass.username -ContainerRegistryPassword $securePassword -ContainerImageName $containerimagename
 ```
 
-- The Location parameter specifies
-- The ResourceGroupName parameter
+- The Name parameter specifies the web app name.
+- The AppServicePlan parameter specifies the App Service Plan Name.
+- The Location parameter specifies the location.
+- The ResourceGroupName parameter specifies the name of the Resource Group.
+- The ContainerRegistryUrl parameter specifies the container registry URL.
+- The ContainerRegistryUser parameter specifies the container registry username.
+- The ContainerRegistryPassword parameter specifies the container registry password.
 - The ContainerImageName parameter specifies a Container Image Name and optional tag, for example (image:tag).
 
-
 The command might take a few minutes to complete. While running, it creates the App Service resource.
-
 
 ## 9 - Browse to the app
 
