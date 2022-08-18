@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 ---
 
-# Use Change Analysis in Azure Monitor (preview)
+# Use Change Analysis in Azure Monitor
 
 While standard monitoring solutions might alert you to a live site issue, outage, or component failure, they often don't explain the cause. For example, your site worked five minutes ago, and now it's broken. What changed in the last five minutes? 
 
@@ -21,15 +21,6 @@ Building on the power of [Azure Resource Graph](../../governance/resource-graph/
 - Provides insights into your Azure application changes.
 - Increases observability.
 - Reduces mean time to repair (MTTR).
-
-> [!IMPORTANT]
-> Change Analysis is currently in preview. This version:
->
-> - Is provided without a service-level agreement. 
-> - Is not recommended for production workloads. 
-> - Includes unsupported features and might have constrained capabilities. 
->
-> For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
 > Change Analysis is currently only available in Public Azure Cloud.
@@ -113,11 +104,11 @@ Changes to resource dependencies can also cause issues in a resource. For exampl
 
 As another example, if port 22 was closed in a virtual machine's Network Security Group, it will cause connectivity errors.
 
-#### Web App diagnose and solve problems navigator (Preview)
+#### Web App diagnose and solve problems navigator
 
 To detect changes in dependencies, Change Analysis checks the web app's DNS record. In this way, it identifies changes in all app components that could cause issues.
 
-Currently the following dependencies are supported in **Web App Diagnose and solve problems | Navigator (Preview)**:
+Currently the following dependencies are supported in **Web App Diagnose and solve problems | Navigator**:
 
 - Web Apps
 - Azure Storage
