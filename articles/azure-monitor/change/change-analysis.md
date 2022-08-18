@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 07/29/2022 
+ms.date: 08/18/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 
@@ -65,47 +65,35 @@ Azure Monitor Change Analysis service supports resource property level changes i
 ## Data sources
 
 Azure Monitor's Change Analysis queries for:
-- Azure Resource Manager resource properties.
-- Configuration changes.
-- Web app in-guest changes. 
+- [Azure Resource Manager resource properties.](#azure-resource-manager-resource-properties-changes)
+- [Configuration changes.](#configuration-changes)
+- [Web app in-guest changes.](#changes-in-web-app-deployment-and-configuration-in-guest-changes) 
 
-Change Analysis also tracks resource dependency changes to diagnose and monitor an application end-to-end.
+Change Analysis also tracks [resource dependency changes](#dependency-changes) to diagnose and monitor an application end-to-end.
 
 ### Azure Resource Manager resource properties changes
 
-Using [Azure Resource Graph](../../governance/resource-graph/overview.md), Change Analysis provides a historical record of how the Azure resources that host your application have changed over time. The following tracked settings can be detected:
+Using [Azure Resource Graph](../../governance/resource-graph/overview.md), Change Analysis provides a historical record of how the Azure resources that host your application have changed over time. The following basic configuration settings are set using Azure Resource Manager and tracked by Azure Resource Graph:
 - Managed identities
 - Platform OS upgrade
 - Hostnames
 
-### Azure Resource Manager configuration changes
+### Configuration changes
 
-Unlike Azure Resource Graph, Change Analysis securely queries and computes IP Configuration rules, TLS settings, and extension versions to provide more change details in the app.
+In addition to the settings set via Azure Resource Manager, you can set configuration settings using the CLI, Bicep, etc., such as:
+- IP Configuration rules
+- TLS settings
+- Extension versions
 
-### Changes in web app deployment and configuration (in-guest changes)
+These setting changes are not captured by Azure Resource Graph. Change Analysis fills this gap by capturing snapshots of changes in those main configuration properties. Snapshots are taken of configuration changes and change details every 6 hours. [See known limitations.](#limitations)
 
-Every 30 minutes, Change Analysis captures the deployment and configuration state of an application. For example, it can detect changes in the application environment variables. The tool computes the differences and presents the changes. 
+### Changes in web app configuration (in-guest changes)
 
-Unlike Azure Resource Manager changes, code deployment change information might not be available immediately in the Change Analysis tool. To view the latest changes in Change Analysis, select **Refresh**.
+Every 30 minutes, Change Analysis captures the configuration state of a web application. For example, it can detect changes in the application environment variables. The tool computes the differences and presents the changes. 
 
 :::image type="content" source="./media/change-analysis/scan-changes.png" alt-text="Screenshot of the Scan changes now button":::   
 
 If you don't see changes within 30 minutes, refer to [our troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app). 
-
-Currently, all text-based files under site root **wwwroot** with the following extensions are supported:
-- *.json
-- *.xml
-- *.ini
-- *.yml
-- *.config
-- *.properties
-- *.html
-- *.cshtml
-- *.js
-- requirements.txt
-- Gemfile
-- Gemfile.lock
-- config.gemspec
 
 ### Dependency changes
 
@@ -123,18 +111,10 @@ Currently the following dependencies are supported in **Web App Diagnose and sol
 - Azure Storage
 - Azure SQL
 
-#### Related resources
+## Limitations
 
-Change Analysis detects related resources. Common examples are:
-
-- Network Security Group
-- Virtual Network
-- Azure Monitor Gateway
-- Load Balancer related to a Virtual Machine.
-
-Network resources are usually provisioned in the same resource group as the resources using it. Filter the changes by resource group to show all changes for the virtual machine and its related networking resources.
-
-:::image type="content" source="./media/change-analysis/network-changes.png" alt-text="Screenshot of Networking changes":::   
+- **Web app deployment changes**: Code deployment change information might not be available immediately in the Change Analysis tool. To view the latest changes in Change Analysis, select **Refresh**.
+- **Snapshot timestamps**: Due to the snapshot approach to configuration changes, timestamps of configuration changes could show as up to 6 hours from when the change actually happened.
 
 ## Next steps
 
