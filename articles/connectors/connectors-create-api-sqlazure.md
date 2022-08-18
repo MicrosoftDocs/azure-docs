@@ -36,7 +36,7 @@ The SQL Server connector has different versions, based on [logic app type and ho
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql). <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Standard class) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version doesn't have triggers. You can use either an SQL managed connector trigger or a completely different trigger. <br><br>- The built-in version connects directly to an SQL server and database requiring only a connection string. You don't need the on-premises data gateway. <br><br>- The built-in version can directly access Azure virtual networks. You don't need the on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Standard class) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version doesn't have triggers. You can use either an SQL managed connector trigger or a different trigger. <br><br>- The built-in version connects directly to an SQL server and database requiring only a connection string. You don't need the on-premises data gateway. <br><br>- The built-in version can directly access Azure virtual networks. You don't need the on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 ||||
 
 ## Limitations
@@ -492,7 +492,7 @@ Deletes and returns the table rows that match the specified **Where condition** 
 | Name | Type |
 |------|------|
 | **Result** | An array object that returns all the deleted rows. Each row contains the column name and the corresponding deleted value. |
-| **Result Item** | An array object that returns each deleted row one at a time. A **For each** loop is automatically added to your workflow to iterate through the array. Each row contains the column name and the corresponding deleted value. |
+| **Result Item** | An array object that returns one deleted row at a time. A **For each** loop is automatically added to your workflow to iterate through the array. Each row contains the column name and the corresponding deleted value. |
 |||
 
 *Example*
@@ -542,7 +542,7 @@ Runs a query on an SQL database.
 | Name | Type |
 |------|------|
 | **Result** | An array object that returns all the query results. Each row contains the column name and the corresponding value. |
-| **Result Item** | An array object that returns each query result one at a time. A **For each** loop is automatically added to your workflow to iterate through the array. Each row contains the column name and the corresponding value. |
+| **Result Item** | An array object that returns one query result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. Each row contains the column name and the corresponding value. |
 |||
 
 <a name="execute-stored-procedure"></a>
@@ -566,7 +566,7 @@ Runs a stored procedure on an SQL database.
 | Name | Type |
 |------|------|
 | **Result** | An array object that returns all the query results |
-| **Result Result sets** | An array object that returns each query result one at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result Result sets** | An array object that returns one query result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
 | **Result Stored procedure parameters** |  The final values of the stored procedure's output and input-output parameters |
 | **Result Return code** | The return code from the stored procedure |
 | **Status code** | The status code from the **Execute stored procedure** operation |
@@ -593,7 +593,7 @@ Get the table rows that match the specified **Where condition** value.
 | Name | Type |
 |------|------|
 | **Result** | An array object that returns all the row results. |
-| **Result Item** | An array object that returns each row result one at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result Item** | An array object that returns one row result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
 |||
 
 *Example*
@@ -641,7 +641,7 @@ None.
 | **Result** | An array object that contains the full names and display names for all tables in the database. |
 | **Result Display Name** | An array object that contains the display name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
 | **Result Full Name** | An array object that contains the full name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
-| **Result Item** | An array object that returns the full name and display name for each table one at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result Item** | An array object that returns the full name and display name one at time for each table. A **For each** loop is automatically added to your workflow to iterate through the array. |
 |||
 
 <a name="insert-row"></a>
@@ -685,7 +685,7 @@ Update the specified columns in all the table rows that match the specified **Wh
 | Name | Type |
 |------|------|
 | **Result** | An array object that returns all the columns for the updated rows. |
-| **Result Item** | An array object that returns the columns in the updated rows one at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result Item** | An array object that returns one column at a time from the updated rows. A **For each** loop is automatically added to your workflow to iterate through the array. |
 |||
 
 *Example*
