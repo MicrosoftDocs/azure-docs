@@ -40,7 +40,10 @@ If your search service was was created in a region that supports availability zo
 
 ### How to recreate your search service
 
-1. [Create a new search service](../search/search-create-service-portal.md) in the same region as the old search service. This region should [support availability zones on or after the current date](../search/search-performance-optimization.md#availability-zones). The [free and basic tiers do not support availability zones](../search/search-sku-tier#feature-availability-by-tier), so they should not be used.
+1. [Create a new search service](../search/search-create-service-portal.md) in the same region as the old search service. This region should [support availability zones on or after the current date](../search/search-performance-optimization.md#availability-zones). 
+
+>[!IMPORTANT]
+>The [free and basic tiers do not support availability zones](../search/search-sku-tier#feature-availability-by-tier), and so they should not be used.
 1. Add at [least two replicas to your new search service](..search/search-capacity-planning.md#add-or-reduce-replicas-and-partitions). Once the search service has at least two replicas, it automatically takes advantage of availability zone support.
 1. Migrate your data from your old search service to your new search service by rebuilding of all your search indexes from your old service.
 
