@@ -66,10 +66,10 @@ Below is the currently supported list of dependency calls that are automatically
 | ------------------------|----------|
 | [HTTP](https://nodejs.org/api/http.html), [HTTPS](https://nodejs.org/api/https.html) | 0.10+ |
 | <b>Storage clients</b> | |
-| [Redis](https://www.npmjs.com/package/redis) | 2.x |
+| [Redis](https://www.npmjs.com/package/redis) | 2.x - 3.x |
 | [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2.x - 3.x |
-| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0 - 2.16.x |
-| [PostgreSql](https://www.npmjs.com/package/pg); | 6.x - 7.x |
+| [MySQL](https://www.npmjs.com/package/mysql) | 2.x |
+| [PostgreSql](https://www.npmjs.com/package/pg); | 6.x - 8.x |
 | [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x - 2.x |
 | <b>Logging libraries</b> | |
 | [console](https://nodejs.org/api/console.html) | 0.10+ |
