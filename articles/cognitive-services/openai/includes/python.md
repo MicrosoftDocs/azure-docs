@@ -64,9 +64,9 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
     # Send a completion call to generate an answer
     print('Sending a test completion job')
-    start_phrase = 'When I go to the store, I want a'
+    start_phrase = 'Write a tagline for an ice cream shop. '
     response = openai.Completion.create(engine=deployment_id, prompt=start_phrase, max_tokens=10)
-    text = response['choices'][0]['text'].split('\n')[0]
+    text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
     print(start_phrase+text)
     ```
 
@@ -83,14 +83,14 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 ```console
 Sending a test completion job
-"When I go to the store, I want a can of black beans"
+Write a tagline for an ice cream shop. The coldest ice cream in town!
 ```
 
 Run the code a few more times to see what other types of responses you get as the response won't always be the same.
 
 ### Understanding your results
 
-Since our example of `When I go to the store, I want a` provides very little context, it's normal for the model to not always return expected results. We're also intentionally limiting the response up to the first newline `\n` character, so occasional truncated responses with only our prompt text may occur as the model's response in that instance was split over multiple lines. If you wish to see the larger responses, you can remove `.split('\n')[0]` from your code and adjust the max number of tokens.
+Since our example of `Write a tagline for an ice cream shop.` provides very little context, it's normal for the model to not always return expected results. You can adjust the maximum number of tokens if the response seems unexpected or truncated.
 
 ## Clean up resources
 

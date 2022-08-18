@@ -22,6 +22,8 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 Use this quickstart to send text summarization requests using the REST API. In the following example, you will use cURL to summarize documents or text-based customer service conversations.
 
+[!INCLUDE [Use Language Studio](../use-language-studio.md)]
+
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/).

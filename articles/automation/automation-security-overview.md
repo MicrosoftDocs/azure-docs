@@ -58,6 +58,8 @@ For details on using managed identities, see [Enable managed identity for Azure 
 ## Run As accounts
 
 Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model. There are two types of Run As accounts in Azure Automation:
+- Azure Run As Account
+- Azure Classic Run As Account
 
 To create or renew a Run As account, permissions are needed at three levels:
 
