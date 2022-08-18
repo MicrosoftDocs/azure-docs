@@ -11,7 +11,6 @@ ms.date: 5/10/2022
 Azure Kubernetes Service (AKS) uses certificates for authentication with many of its components. If you have a RBAC-enabled cluster built after March 2022 it is enabled with certificate auto-rotation. Periodically, you may need to rotate those certificates for security or policy reasons. For example, you may have a policy to rotate all your certificates every 90 days.
 
 > [!NOTE]
-
 > Certificate auto-rotation will *only* be enabled by default for RBAC enabled AKS clusters. 
 
 This article shows you how certificate rotation works in your AKS cluster.
