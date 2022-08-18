@@ -4,7 +4,7 @@ description: This article describes how to manage Dynatrace on the Azure portal.
 ms.topic: conceptual
 author: flang-msft
 ms.author: franlanglois
-ms.date: 06/07/2022
+ms.date: 08/24/2022
 
 ---
 
