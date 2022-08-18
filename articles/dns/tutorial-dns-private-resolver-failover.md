@@ -12,9 +12,10 @@ ms.author: greglin
 
 # Tutorial: Set up DNS failover using private resolvers
 
-You can eliminate a single point of failure in your on-premises DNS services by using two or more Azure DNS private resolvers.
+This article details how to eliminate a single point of failure in your on-premises DNS services by using two or more Azure DNS private resolvers deployed across different regions. DNS failover is enabled by assigning a local resolver as your primary DNS and the resolver in an adjacent region as secondary DNS. 
 
-When you deploy multiple resolvers across different regions, DNS failover can be enabled by assigning a local resolver as your primary DNS and the resolver in an adjacent region as secondary DNS. 
+> [!IMPORTANT]
+> Azure DNS Private Resolver is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 In this tutorial, you learn how to:
 
@@ -26,12 +27,12 @@ The following diagram shows the failover scenario discussed in this article.
 
 [ ![Azure DNS Private Resolver architecture](./media/tutorial-dns-private-resolver-failover/private-resolver-failover.png) ](./media/tutorial-dns-private-resolver-failover/private-resolver-failover_highres.png#lightbox)
 
-Important architecture elements numbered in the digram are: 
-1) On-premises DNS [conditional forwarders](#on-premises-forwarding) that send DNS queries to inbound endpoints.
-2) [Inbound endpoints](#inbound-endpoints) that receive DNS queries from outside the virtual network.
-3) Outbound endpoints and DNS forwarding rulesets that perform custom processing on DNS queries.
+The path for DNS resolution on-prem is numbered in the diagram:
+1) On-premises DNS [conditional forwarders](#on-premises-forwarding) send DNS queries to inbound endpoints.
+2) [Inbound endpoints](#inbound-endpoints) receive DNS queries from outside the virtual network.
+3) Outbound endpoints and DNS forwarding rulesets perform custom processing on DNS queries and return DNS replies to on-premises DNS.
 
-Outbound endpoints and DNS forwarding rulesets are included in the diagram for completeness, but are not in scope for the failover scenario. Rulesets can be used is to resolve on-premises domains from Azure. For more information, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md) and [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md).
+Outbound endpoints and DNS forwarding rulesets are not needed for the failover scenario, but are included here for completeness. Rulesets can be used is to resolve on-premises domains from Azure. For more information, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md) and [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md).
 
 ## Prerequisites
 

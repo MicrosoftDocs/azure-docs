@@ -14,6 +14,9 @@ ms.author: greglin
 
 In this article, you'll learn about components of the [Azure DNS Private Resolver](dns-private-resolver-overview.md). Inbound endpoints, outbound endpoints, and DNS forwarding rulesets are discussed. Properties and settings of these components are described, and examples are provided for how to use them. 
 
+> [!IMPORTANT]
+> Azure DNS Private Resolver is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+
 ## Inbound endpoints
 
 As the name suggests, inbound endpoints will ingress to Azure. Inbound endpoints provide an IP address to forward DNS queries from on-premise and other locations outside your virtual network. DNS queries sent to the inbound endpoint are resolved using Azure DNS. Private DNS zones that are linked to the virtual network where the inbound endpoint is provisioned are resolved by the inbound endpoint. 
