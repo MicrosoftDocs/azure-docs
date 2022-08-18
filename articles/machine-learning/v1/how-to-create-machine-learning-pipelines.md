@@ -15,25 +15,25 @@ ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 
 # Create and run machine learning pipelines with Azure Machine Learning SDK
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). Use **ML pipelines** to create a workflow that stitches together various ML phases. Then, publish that pipeline for later access or sharing with others. Track ML pipelines to see how your model is performing in the real world and to detect data drift. ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, and sharing ML workflows with others.
+In this article, you learn how to create and run [machine learning pipelines](../concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). Use **ML pipelines** to create a workflow that stitches together various ML phases. Then, publish that pipeline for later access or sharing with others. Track ML pipelines to see how your model is performing in the real world and to detect data drift. ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, and sharing ML workflows with others.
 
-This article isn't a tutorial. For guidance on creating your first pipeline, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](tutorial-pipeline-batch-scoring-classification.md) or [Use automated ML in an Azure Machine Learning pipeline in Python](how-to-use-automlstep-in-pipelines.md). 
+This article isn't a tutorial. For guidance on creating your first pipeline, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](../tutorial-pipeline-batch-scoring-classification.md) or [Use automated ML in an Azure Machine Learning pipeline in Python](how-to-use-automlstep-in-pipelines.md). 
 
-While you can use a different kind of pipeline called an [Azure Pipeline](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context&tabs=yaml) for CI/CD automation of ML tasks, that type of pipeline isn't stored in your workspace. [Compare these different pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+While you can use a different kind of pipeline called an [Azure Pipeline](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context&tabs=yaml) for CI/CD automation of ML tasks, that type of pipeline isn't stored in your workspace. [Compare these different pipelines](../concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
-The ML pipelines you create are visible to the members of your Azure Machine Learning [workspace](how-to-manage-workspace.md). 
+The ML pipelines you create are visible to the members of your Azure Machine Learning [workspace](../how-to-manage-workspace.md). 
 
-ML pipelines execute on compute targets (see [What are compute targets in Azure Machine Learning](./concept-compute-target.md)). Pipelines can read and write data to and from supported [Azure Storage](../storage/index.yml) locations.
+ML pipelines execute on compute targets (see [What are compute targets in Azure Machine Learning](../concept-compute-target.md)). Pipelines can read and write data to and from supported [Azure Storage](../../storage/index.yml) locations.
 
 If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. [Create workspace resources](quickstart-create-resources.md).
+* An Azure Machine Learning workspace. [Create workspace resources](../quickstart-create-resources.md).
 
-* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed.
+* [Configure your development environment](../how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed.
 
 Start by attaching your workspace:
 
@@ -52,13 +52,13 @@ Create the resources required to run an ML pipeline:
 
 * Configure a `Dataset` object to point to persistent data that lives in, or is accessible in, a datastore. Configure an `OutputFileDatasetConfig` object for temporary data passed between pipeline steps. 
 
-* Set up the [compute targets](v1/concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
+* Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
 
 ### Set up a datastore
 
 A datastore stores the data for the pipeline to access. Each workspace has a default datastore. You can register more datastores. 
 
-When you create your workspace, [Azure Files](../storage/files/storage-files-introduction.md) and [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md) are attached to the workspace. A default datastore is registered to connect to the Azure Blob storage. To learn more, see [Deciding when to use Azure Files, Azure Blobs, or Azure Disks](../storage/common/storage-introduction.md). 
+When you create your workspace, [Azure Files](/azure/storage/files/storage-files-introduction) and [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace. A default datastore is registered to connect to the Azure Blob storage. To learn more, see [Deciding when to use Azure Files, Azure Blobs, or Azure Disks](/azure/storage/common/storage-introduction). 
 
 ```python
 # Default datastore 
@@ -72,7 +72,7 @@ def_file_store = Datastore(ws, "workspacefilestore")
 
 ```
 
-Steps generally consume data and produce output data. A step can create data such as a model, a directory with model and dependent files, or temporary data. This data is then available for other steps later in the pipeline. To learn more about connecting your pipeline to your data, see the articles [How to Access Data](how-to-access-data.md) and [How to Register Datasets](./v1/how-to-create-register-datasets.md). 
+Steps generally consume data and produce output data. A step can create data such as a model, a directory with model and dependent files, or temporary data. This data is then available for other steps later in the pipeline. To learn more about connecting your pipeline to your data, see the articles [How to Access Data](how-to-access-data.md) and [How to Register Datasets](how-to-create-register-datasets.md). 
 
 ### Configure data with `Dataset` and `OutputFileDatasetConfig` objects
 
@@ -109,7 +109,7 @@ output_data_dataset = output_data1.register_on_complete(name = 'prepared_output_
 ## Set up a compute target
 
 
-In Azure Machine Learning, the term __compute__ (or __compute target__) refers to the machines or clusters that do the computational steps in your machine learning pipeline.   See [compute targets for model training](concept-compute-target.md#train) for a full list of compute targets and [Create compute targets](how-to-create-attach-compute-studio.md) for how to create and attach them to your workspace.   The process for creating and or attaching a compute target is the same whether you're training a model or running a pipeline step. After you create and attach your compute target, use the `ComputeTarget` object in your [pipeline step](#steps).
+In Azure Machine Learning, the term __compute__ (or __compute target__) refers to the machines or clusters that do the computational steps in your machine learning pipeline.   See [compute targets for model training](../concept-compute-target.md#train) for a full list of compute targets and [Create compute targets](../how-to-create-attach-compute-studio.md) for how to create and attach them to your workspace.   The process for creating and or attaching a compute target is the same whether you're training a model or running a pipeline step. After you create and attach your compute target, use the `ComputeTarget` object in your [pipeline step](#steps).
 
 > [!IMPORTANT]
 > Performing management operations on compute targets isn't supported from inside remote jobs. Since machine learning pipelines are submitted as a remote job, do not use management operations on compute targets from inside the pipeline.
@@ -172,9 +172,9 @@ else:
         pin_sdk_version=False)
 ```
 
-The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). For more information, see [Azure Machine Learning curated environments](resource-curated-environments.md).
+The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). For more information, see [Azure Machine Learning curated environments](../resource-curated-environments.md).
 
-The path taken if you change `USE_CURATED_ENV` to `False` shows the pattern for explicitly setting your dependencies. In that scenario, a new custom Docker image will be created and registered in an Azure Container Registry within your resource group (see [Introduction to private Docker container registries in Azure](../container-registry/container-registry-intro.md)). Building and registering this image can take quite a few minutes.
+The path taken if you change `USE_CURATED_ENV` to `False` shows the pattern for explicitly setting your dependencies. In that scenario, a new custom Docker image will be created and registered in an Azure Container Registry within your resource group (see [Introduction to private Docker container registries in Azure](/azure/container-registry/container-registry-intro)). Building and registering this image can take quite a few minutes.
 
 ## <a id="steps"></a>Construct your pipeline steps
 
@@ -306,9 +306,9 @@ step = PythonScriptStep(name="Hello World",
 When you submit the pipeline, Azure Machine Learning checks the dependencies for each step and uploads a snapshot of the source directory you specified. If no source directory is specified, the current local directory is uploaded. The snapshot is also stored as part of the experiment in your workspace.
 
 > [!IMPORTANT]
-> [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
+> [!INCLUDE [amlinclude-info](../../../includes/machine-learning-amlignore-gitignore.md)]
 >
-> For more information, see [Snapshots](v1/concept-azure-machine-learning-architecture.md#snapshots).
+> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 from azureml.core import Experiment
@@ -328,7 +328,7 @@ When you first run a pipeline, Azure Machine Learning:
 * Runs the step in the compute target specified in the step definition. 
 * Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user's default datastore.
 
-![Diagram of running an experiment as a pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
+![Diagram of running an experiment as a pipeline](../media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 For more information, see the [Experiment class](/python/api/azureml-core/azureml.core.experiment.experiment) reference.
 
@@ -365,16 +365,16 @@ See the list of all your pipelines and their run details in the studio:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
-1. [View your workspace](how-to-manage-workspace.md#view).
+1. [View your workspace](../how-to-manage-workspace.md#view).
 
 1. On the left, select **Pipelines** to see all your pipeline runs.
- ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/pipelines.png)
+ ![list of machine learning pipelines](../media/how-to-create-your-first-pipeline/pipelines.png)
  
 1. Select a specific pipeline to see the run results.
 
 ### Git tracking and integration
 
-When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For more information, see [Git integration for Azure Machine Learning](../concept-train-model-git-integration.md).
 
 ## Next steps
 
@@ -382,4 +382,4 @@ When you start a training run where the source directory is a local Git reposito
 - Use [these Jupyter notebooks on GitHub](https://aka.ms/aml-pipeline-readme) to explore machine learning pipelines further
 - See the SDK reference help for the [azureml-pipelines-core](/python/api/azureml-pipeline-core/) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/) package
 - See the [how-to](how-to-debug-pipelines.md) for tips on debugging and troubleshooting pipelines=
-- Learn how to run notebooks by following the article [Use Jupyter notebooks to explore this service](samples-notebooks.md).
+- Learn how to run notebooks by following the article [Use Jupyter notebooks to explore this service](../samples-notebooks.md).

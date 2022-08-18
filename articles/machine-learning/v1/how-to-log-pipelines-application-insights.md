@@ -14,7 +14,7 @@ ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 
 # Collect machine learning pipeline log files in Application Insights for alerts and debugging
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 The [OpenCensus](https://opencensus.io/quickstart/python/) Python library can be used to route logs to Application Insights from your scripts. Aggregating logs from pipeline runs in one place allows you to build queries and diagnose issues. Using Application Insights will allow you to track logs over time and compare pipeline logs across runs.
 
@@ -22,13 +22,13 @@ Having your logs in once place will provide a history of exceptions and error me
 
 ## Prerequisites
 
-* Follow the steps to create an [Azure Machine Learning workspace](quickstart-create-resources.md) and [create your first pipeline](./how-to-create-machine-learning-pipelines.md)
-* [Configure your development environment](./how-to-configure-environment.md) to install the Azure Machine Learning SDK.
+* Follow the steps to create an [Azure Machine Learning workspace](../quickstart-create-resources.md) and [create your first pipeline](./how-to-create-machine-learning-pipelines.md)
+* [Configure your development environment](../how-to-configure-environment.md) to install the Azure Machine Learning SDK.
 * Install the [OpenCensus Azure Monitor Exporter](https://pypi.org/project/opencensus-ext-azure/) package locally:
   ```python
   pip install opencensus-ext-azure
   ```
-* Create an [Application Insights instance](../azure-monitor/app/opencensus-python.md) (this doc also contains information on getting the connection string for the resource)
+* Create an [Application Insights instance](/azure/azure-monitor/app/opencensus-python) (this doc also contains information on getting the connection string for the resource)
 
 ## Getting Started
 
@@ -88,11 +88,11 @@ logger.warning("I will be sent to Application Insights")
 
 ## Logging with Custom Dimensions
  
-By default, logs forwarded to Application Insights won't have enough context to trace back to the run or experiment. To make the logs actionable for diagnosing issues, additional fields are needed. 
+By default, logs forwarded to Application Insights won't have enough context to trace back to the run or experiment. To make the logs actionable for diagnosing issues, more fields are needed. 
 
 To add these fields, Custom Dimensions can be added to provide context to a log message. One example is when someone wants to view logs across multiple steps in the same pipeline run.
 
-Custom Dimensions make up a dictionary of key-value (stored as string, string) pairs. The dictionary is then sent to Application Insights and displayed as a column in the query results. Its individual dimensions can be used as [query parameters](#additional-helpful-queries).
+Custom Dimensions make up a dictionary of key-value (stored as string, string) pairs. The dictionary is then sent to Application Insights and displayed as a column in the query results. Its individual dimensions can be used as [query parameters](#other-helpful-queries).
 
 ### Helpful Context to include
 
@@ -106,7 +106,7 @@ Custom Dimensions make up a dictionary of key-value (stored as string, string) p
 
 **Other helpful fields**
 
-These fields may require additional code instrumentation, and aren't provided by the run context.
+These fields may require extra code instrumentation, and aren't provided by the run context.
 
 | Field                   | Reasoning/Example                                                                                                                                                                                                           |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -143,23 +143,23 @@ The `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable is needed for t
 
 The logs routed to Application Insights will show up under 'traces' or 'exceptions'. Be sure to adjust your time window to include your pipeline run.
 
-![Application Insights Query result](./media/how-to-debug-pipelines-application-insights/traces-application-insights-query.png)
+![Application Insights Query result](../media/how-to-debug-pipelines-application-insights/traces-application-insights-query.png)
 
 The result in Application Insights will show the log message and level, file path, and code line number. It will also show any custom dimensions included. In this image, the customDimensions dictionary shows the key/value pairs from the previous [code sample](#creating-a-custom-dimensions-dictionary).
 
-### Additional helpful queries
+### Other helpful queries
 
-Some of the queries below use 'customDimensions.Level'. These severity levels correspond to the level the Python log was originally sent with. For additional query information, see [Azure Monitor Log Queries](/azure/data-explorer/kusto/query/).
+Some of the queries below use 'customDimensions.Level'. These severity levels correspond to the level the Python log was originally sent with. For more query information, see [Azure Monitor Log Queries](/azure/data-explorer/kusto/query/).
 
 | Use case                                                               | Query                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | Log results for specific custom dimension, for example 'parent_run_id' | <pre>traces \| <br>where customDimensions.parent_run_id == '931024c2-3720-11ea-b247-c49deda841c1</pre> |
-| Log results for all training runs over the last 7 days                     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.run_type == 'training'</pre>           |
-| Log results with severityLevel Error from the last 7 days              | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR'                     |
-| Count of log results with severityLevel Error over the last 7 days     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR' \| <br>summarize count()</pre> |
+| Log results for all training runs over the last seven days                     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.run_type == 'training'</pre>           |
+| Log results with severityLevel Error from the last seven days              | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR'                     |
+| Count of log results with severityLevel Error over the last seven days     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR' \| <br>summarize count()</pre> |
 
 ## Next Steps
 
-Once you have logs in your Application Insights instance, they can be used to set [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md) based on query results.
+Once you have logs in your Application Insights instance, they can be used to set [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) based on query results.
 
-You can also add results from queries to an [Azure Dashboard](../azure-monitor/app/tutorial-app-dashboards.md#add-logs-query) for additional insights.
+You can also add results from queries to an [Azure Dashboard](/azure/azure-monitor/app/tutorial-app-dashboards#add-logs-query) for more insights.

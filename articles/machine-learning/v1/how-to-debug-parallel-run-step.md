@@ -17,7 +17,7 @@ ms.date: 10/21/2021
 
 # Troubleshooting the ParallelRunStep
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to troubleshoot when you get errors using the [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep) class from the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
 
@@ -25,7 +25,7 @@ For general tips on troubleshooting a pipeline, see [Troubleshooting machine lea
 
 ## Testing scripts locally
 
- Your ParallelRunStep runs as a step in ML pipelines. You may want to [test your scripts locally](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) as a first step.
+ Your ParallelRunStep runs as a step in ML pipelines. You may want to [test your scripts locally](../how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) as a first step.
 
 ## Entry script requirements
 
@@ -400,4 +400,4 @@ ParallelRunStep will start new worker processes in replace of the ones exited ab
 
 * View reference [documentation](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig) for ParallelRunConfig class and [documentation](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) for ParallelRunStep class.
 
-* Follow the [advanced tutorial](tutorial-pipeline-batch-scoring-classification.md) on using pipelines with ParallelRunStep. The tutorial shows how to pass another file as a side input.
+* Follow the [advanced tutorial](../tutorial-pipeline-batch-scoring-classification.md) on using pipelines with ParallelRunStep. The tutorial shows how to pass another file as a side input.
