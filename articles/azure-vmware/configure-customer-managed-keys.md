@@ -35,14 +35,14 @@ The following diagram shows how Azure VMware Solution uses Azure Active Director
 
 Before you begin to enable customer-managed key (CMK) functionality, ensure the following listed requirements are met:
 
-1. You'll need an Azure Key Vault to use CMK functionality. If you don't have an Azure Key Vault, you can create one using [Quickstart: Create a key vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
-2. If you enabled restricted access to key vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall. Go to [Configure Azure Key Vault networking settings](https://docs.microsoft.com/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
+- You'll need an Azure Key Vault to use CMK functionality. If you don't have an Azure Key Vault, you can create one using [Quickstart: Create a key vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
+- If you enabled restricted access to key vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall. Go to [Configure Azure Key Vault networking settings](https://docs.microsoft.com/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
     >[!NOTE]
     >After firewall rules are in effect, users can only perform Key Vault [data plane](https://docs.microsoft.com/azure/key-vault/general/security-features#privileged-access) operations when their requests originate from allowed VMs or IPv4 address ranges. This also applies to accessing key vault from the Azure portal. This also affects the key vault Picker by Azure VMware Solution. Users may be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine or user does not have list permission in key vault.
 
-1. Enable **System Assigned identity** on your Azure VMware Solution private cloud if you didn't enable it during software-defined data center (SDDC) provisioning.
+- Enable **System Assigned identity** on your Azure VMware Solution private cloud if you didn't enable it during software-defined data center (SDDC) provisioning.
 
-    # [Azure Portal](#tab/azure-portal)
+    # [Portal](#tab/azure-portal)
     
     Use the following steps to enable System Assigned identity:
 
@@ -72,9 +72,9 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
     ```
 ---
 
-4. Configure the key vault access policy to grant permissions to the managed identity. It will be used to authorize access to the key vault.
+- Configure the key vault access policy to grant permissions to the managed identity. It will be used to authorize access to the key vault.
     
-    # [Azure Portal](#tab/azure-portal)
+    # [Portal](#tab/azure-portal)
 
     1. Sign in to Azure portal.
     1. Navigate to **Key vaults** and locate the key vault you want to use.
@@ -129,11 +129,11 @@ System-assigned identity is restricted to one per resource and is tied to the li
 >[!IMPORTANT]
 > Ensure that key vault is in the same region as the Azure VMware Solution private cloud.
 
-# [Azure Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 Navigate to your **Azure Key Vault** and provide access to the SDDC on Azure Key Vault using the Principal ID captured in the **Enable MSI** tab.
 
-1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption**, then **Customer-managed keys (CMK)**.
+1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption**, then select **Customer-managed keys (CMK)**.
 1. CMK provides two options for **Key Selection** from Azure Key Vault.
     
     **Option 1**
@@ -172,7 +172,7 @@ az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> 
 
 **Option 2**
 
-Supply key version as argument to use customer-managed keys with a specific key version, same as mentioned above in Azure Portal option 2. The following example shows the customer providing a specific key version.
+Supply key version as argument to use customer-managed keys with a specific key version, same as mentioned above in Azure portal option 2. The following example shows the customer providing a specific key version.
     
 ```azurecli-interactive
 az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name --enc-kv-key-version <keyvault_key_keyVersion>
