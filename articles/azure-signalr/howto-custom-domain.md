@@ -14,18 +14,16 @@ ms.author: dayshen
 
 In addition to the default domain provided Azure SignalR Service, you can also add custom domains.
 
-## Prerequisites
-
-* SignalR Service instance must be Premium tier
-* A custom certificate matching the custom domain is stored in Azure Key Vault
+> [!NOTE]
+> Custom domains is a Premium tier feature. Standard tier resources can be upgraded to Premium tier without downtime.
 
 ## Add a custom certificate
 
-You need to add a custom certificate to your key vault *before* you can add a custom domain. A custom certificate is a sub resource of your SignalR Service. It references a certificate stored in your Azure Key Vault. For security and compliance reasons, SignalR Service doesn't permanently store your certificate. Instead it fetches the certificate from your key vault on the fly and keeps it in memory.
+You need to add a custom certificate to your key vault before you can add a custom domain. A custom certificate is a resource of your SignalR Service. It references a certificate stored in your Azure Key Vault. For security and compliance reasons, SignalR Service doesn't permanently store your certificate. Instead it fetches the certificate from your key vault on the fly and keeps it in memory.
 
 There are three steps to adding a custom certificate.
 
-1. Enable managed identity in SignalR Service. You can use a system-assigned or user-assigned managed identity.
+1. Enable managed identity in SignalR Service.
 1. The managed identity created in the first step has to be given permission to access the key vault and the custom certificate.
 1. You need to create a custom certificate and store it in your key vault.
 
@@ -33,53 +31,56 @@ There are three steps to adding a custom certificate.
 
 1. In the Azure portal, go to your SignalR Service resource.
 1. In the menu pane on the left, select **Identity**.
-1. we will use a system assigned identity to simplify this procedure,  but you can configure a user assigned identity here if you want. On the **System assigned** table, set **Status** to **On**.
-
+1. we'll use a system assigned identity to simplify this procedure, but you can configure a user assigned identity here if you want. On the **System assigned** table, set **Status** to **On**.
    :::image type="content" alt-text="Screenshot of enabling managed identity." source="media\howto-custom-domain\portal-identity.png" :::
 1. Select **Save**, and then select **Yes** when prompted to enable system assigned managed identity.
 
-It will take a few moments for the managed identity to be created. When configuration is complete, the screen will show an **Object (principal) ID**. The object ID is the ID of the system-assigned managed identity SignalR Service will use to access the key vault. You don't need to configure role assignments at this time.
+It will take a few moments for the managed identity to be created. When configuration is complete, the screen will show an **Object (principal) ID**. The object ID is the ID of the system-assigned managed identity SignalR Service will use to access the key vault. The name of the managed identity is the same as the name of the SignalR Service instance. In the next step, you'll need to search for the principal (managed identity) using the name or Object ID.
 
 ### Grant your SignalR Service resource access to Key Vault
 
- SignalR Service uses a [managed identity](azure/active-directory-managed-identities-azure-resources/overview.md) to access your key vault. The managed identity used by SignalR Service has to be given permission to access your key vault. The way you grant permission depends on your key vault permission model.
+SignalR Service uses a [managed identity](azure\active-directory-managed-identities-azure-resources\overview.md) to access your key vault. The managed identity used by SignalR Service has to be given permission to access your key vault. The way you grant permission depends on your key vault permission model.
 
 #### [Vault access policy](#tab/vault-access-policy)
 
 If you're using **Vault access policy** as the key vault permission model, follow this procedure to add a new access policy.
 
-   :::image type="content" alt-text="Screenshot of built-in access policy selected as Key Vault permission model." source="media\howto-custom-domain\portal-key-vault-perm-model-access-policy.png" :::
-
 1. Go to your key vault resource.
 1. In the menu pane, under **Settings** select **Access policies**.
-   :::image type="content" alt-text="Screenshot of permissions selection in Key Vault." source="media\howto-custom-domain\portal-key-vault-permissions.png" :::
-1. Select **Create**. Select **Secret Get** permission and **Certificate Get** permission. Select **Next**.
-1. Search for the Azure SignalR Service resource name or the user assigned identity name. Select **Next**.
+
+   :::image type="content" alt-text="Screenshot of Vault access policy selected as the vault permission model." source="media\howto-custom-domain\portal-key-vault-perm-model-access-policy.png" :::
+
+1. In the **Add access policy** screen, select **Add access policy**. In the **Secret permissions** dropdown list, select  **Get** permission. In the **Certificate permissions** dropdown list, select **Get** permission.
+
+   :::image type="content" alt-text="Screenshot of Add access policy dialog." source="media\howto-custom-domain\portal-key-vault-permissions.png" :::
+
+1. Under **Select principal**, select **None selected**. The **Principal** pane will appear to the right. Search for the Azure SignalR Service resource name. Select **Select**.
 
    :::image type="content" alt-text="Screenshot of principal selection in Key Vault." source="media\howto-custom-domain\portal-key-vault-principal.png" :::
 
-1. Skip **Application (optional)**. Select **Next**.
-1. In **Review + create**, select **Create**.
+1. Select **Add**.
 
 #### [Azure role-based access control](#tab/azure-rbac)
 
-If you're using the **Azure role-based access control** permission model, follow this procedure to assign a role to the SignalR Service managed identity.
+If you're using the **Azure role-based access control** permission model, follow this procedure to assign a role to the SignalR Service managed identity. You must be a member of the [Azure built-in **Owner**](\azure\role-based-access-control\built-in-roles.md#owner) role to complete this procedure.
 
-   :::image type="content" alt-text="Screenshot of Azure RBAC selected as Key Vault permission model." source="media\howto-custom-domain\portal-key-vault-perm-model-rbac.png" :::
+   :::image type="content" alt-text="Screenshot of Azure role-based access control selected as the vault permission model." source="media\howto-custom-domain\portal-key-vault-perm-model-rbac.png" :::
 
-1. Go to your Key Vault resource.
-1. In the menu pane, select **Access control (IAM)**.
+1. Go to your key vault resource.
+1. In the menu on the left, select **Access control (IAM)**.
 1. Select **Add**. Select **Add role assignment**.
 
-   :::image type="content" alt-text="Screenshot of Key Vault IAM." source="media\howto-custom-domain\portal-key-vault-iam.png" :::
+   :::image type="content" alt-text="Screenshot of IAM Add role assignment." source="media\howto-custom-domain\portal-key-vault-iam.png" :::
 
 1. Under the **Role** tab, select **Key Vault Secrets User**. Select **Next**.
 
    :::image type="content" alt-text="Screenshot of role tab when adding role assignment to Key Vault." source="media\howto-custom-domain\portal-key-vault-role.png" :::
 
-1. Under the **Members** tab, select **Managed identity**. 1. Search for the Azure SignalR Service resource name or the user assigned identity name. Select **Next**.
+1. On the **Members** tab, under **Assign access to**, select **Managed identity**.
+1. Select **+Select members**. The **Select members** pane will open on the right.
+1. Search for the Azure SignalR Service resource name or the user assigned identity name. Select **Select**.
 
-   :::image type="content" alt-text="Screenshot of members tab when adding role assignment to Key Vault." source="media\howto-custom-domain\portal-key-vault-members.png" :::
+   :::image type="content" alt-text="Screenshot of members tab when adding a role assignment to Key Vault." source="media\howto-custom-domain\portal-key-vault-members.png" :::
 
 1. Select **Review + assign**.
 
@@ -177,5 +178,6 @@ It should return `200` status code without any certificate error.
 ## Next steps
 
 + [How to enable managed identity for Azure SignalR Service](howto-use-managed-identity.md)
++ [Managed identities for Azure SignalR Service](./howto-use-managed-identity.md)
 + [Get started with Key Vault certificates](../key-vault/certificates/certificate-scenarios.md)
 + [What is Azure DNS](../dns/dns-overview.md)
