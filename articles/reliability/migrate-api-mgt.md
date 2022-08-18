@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Migrate Azure API Management to availability zone support
 
-This guide describes how to enable availability zone support for your API Management instance. The API Management service supports [Zone redundancy](../availability-zones/overview-availability-zones.md#availability-zones), which provides resiliency and high availability to a service instance in a specific Azure region. With zone redundancy, the gateway and the control plane of your API Management instance (Management API, developer portal, Git configuration) are replicated across datacenters in physically separated zones, making it resilient to a zone failure.
+This guide describes how to enable availability zone support for your API Management instance. The API Management service supports [Zone redundancy](../reliability/overview-availability-zones.md#availability-zones), which provides resiliency and high availability to a service instance in a specific Azure region. With zone redundancy, the gateway and the control plane of your API Management instance (Management API, developer portal, Git configuration) are replicated across datacenters in physically separated zones, making it resilient to a zone failure.
 
 In this article, we'll take you through the different options for availability zone migration.
 

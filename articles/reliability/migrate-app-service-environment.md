@@ -17,7 +17,7 @@ This guide describes how to migrate an App Service Environment from non-availabi
 > [!NOTE]
 > This article is about App Service Environment v3, which is used with Isolated v2 App Service plans. Availability zones are only supported on App Service Environment v3. If you're using App Service Environment v1 or v2 and want to use availability zones, you'll need to migrate to App Service Environment v3.
 
-Azure App Service Environment can be deployed across [Availability Zones (AZ)](../availability-zones/overview-availability-zones.md) to help you achieve resiliency and reliability for your business-critical workloads. This architecture is also known as zone redundancy.
+Azure App Service Environment can be deployed across [Availability Zones (AZ)](../reliability/overview-availability-zones.md) to help you achieve resiliency and reliability for your business-critical workloads. This architecture is also known as zone redundancy.
 
 When you configure to be zone redundant, the platform automatically spreads the instances of the Azure App Service plan across all three zones in the selected region. If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. Otherwise, instance counts beyond 3*N are spread across the remaining one or two zones.
 
