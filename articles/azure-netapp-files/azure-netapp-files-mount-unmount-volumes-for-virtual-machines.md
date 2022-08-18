@@ -22,7 +22,7 @@ You can mount an NFS file for Windows or Linux virtual machines (VMs).
     * 4045 TCP/UDP = `nlockmgr` (NFSv3 only)
     * 4046 TCP/UDP = `status` (NFSv3 only)
 
-## <a name="linux"></a> Mount NFS volumes on Linux clients
+## Mount NFS volumes on Linux clients
 
 1. Review the [Linux NFS mount options best practices](performance-linux-mount-options.md).
 2. Select the **Volumes** pane and then the NFS volume that you want to mount.
@@ -46,7 +46,7 @@ Mounting NFSv4.1 volumes on Windows clients is supported. For more information, 
 
 If you want to mount NFSv3 volumes on a Windows client using NFS: 
 
-1. [Mount the volume onto a Unix or Linux VM first](#linux). 
+1. [Mount the volume onto a Unix or Linux VM first](#mount-nfs-volumes-on-linux-clients).
 1. Run a `chmod 777` or `chmod 775` command against the volume. 
 1. Mount the volume via the NFS client on Windows using the mount option `mtype=hard` to reduce connection issues. 
   See [Windows command line utility for mounting NFS volumes](../windows-server/administration/windows-commands/mount) for more detail. 
@@ -55,7 +55,7 @@ If you want to mount NFSv3 volumes on a Windows client using NFS:
 
 ## Next steps
 
-* [Mount SMB volumes for Windows or Linux virtual machines](mount-unmount-volumes-VMs-SMB.md)
+* [Mount SMB volumes for Windows or Linux virtual machines](mount-volumes-vms-smb.md)
 * [Linux NFS mount options best practices](performance-linux-mount-options.md) 
 * [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [NFS FAQs](faq-nfs.md)

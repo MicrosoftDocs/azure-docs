@@ -224,7 +224,7 @@
       - name: Mount an NFS volume for Windows or Linux VMs
         href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
       - name: Mount an SMB volume for Windows of Linux VMs
-        href: mount-unmount-volumes-VMs-SMB.md
+        href: mount-volumes-vms-smb.md
     - name: Manage volume capacity and performance 
       items:
       - name: Monitor the capacity of a volume
