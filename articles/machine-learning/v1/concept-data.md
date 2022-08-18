@@ -14,7 +14,7 @@ ms.custom: devx-track-python, data4ml, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
 ---
 
-# Secure data access in Azure Machine Learning
+# Data in Azure Machine Learning
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
 > * [v1](concept-data.md)
