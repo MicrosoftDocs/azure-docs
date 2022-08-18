@@ -54,7 +54,11 @@ You can create a basic group and add your members at the same time using the Azu
 
 1. Select **Create**. Your group is created and ready for you to manage other settings.
 
-## Add and remove members and owners
+### Turn off group welcome email
+
+When any new Microsoft 365 group is created, whether with dynamic or static membership, a welcome notification is sent to all users who are added to the group. When any attributes of a user or device change, all dynamic group rules in the organization are processed for potential membership changes. Users who are added then also receive the welcome notification. You can turn this behavior off in [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup).
+
+## Add or remove members and owners
 Members and owners can be added to and removed from existing Azure AD groups. The process is the same for members and owners.
 
 Need to add multiple members at one time? Learn about the [add members in bulk](../enterprise-users/groups-bulk-import-members.md) option.
@@ -113,10 +117,6 @@ To edit your group settings:
     - **Membership type.** Change the membership type. If you enabled the **Azure AD roles can be assigned to the group** option, you cannot change the membership type. For more info about the various available membership types, see [How to: Create a basic group and add members using the Azure Active Directory portal](active-directory-groups-create-azure-portal.md). 
     
     - **Object ID.** You can't change the Object ID, but you can copy it to use in your PowerShell commands for the group. For more info about using PowerShell cmdlets, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-v2-cmdlets.md).
-
-### Turn off group welcome email
-
-When any new Microsoft 365 group is created, whether with dynamic or static membership, a welcome notification is sent to all users who are added to the group. When any attributes of a user or device change, all dynamic group rules in the organization are processed for potential membership changes. Users who are added then also receive the welcome notification. You can turn this behavior off in [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup).
 
 ## Delete a group
 You can delete an Azure AD group for any number of reasons, but typically it'll be because you:
