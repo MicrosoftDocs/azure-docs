@@ -36,10 +36,12 @@
       href: migrate-app-gateway-v2.md
     - name: Cache for Redis
       href: migrate-cache-redis.md
-    - name: Log Analytics workspaces
-      href: migrate-monitor-log-analytics.md
+    - name: Cognitive Search
+      href: migrate-search-service.md
     - name: Container instances
       href: migrate-container-instances.md
+    - name: Log Analytics workspaces
+      href: migrate-monitor-log-analytics.md
     - name: Recovery Services vault
       href: migrate-recovery-services-vault.md
     - name: Storage accounts

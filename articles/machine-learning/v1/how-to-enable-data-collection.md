@@ -60,7 +60,7 @@ The path to the output data in the blob follows this syntax:
 
 - You need a trained machine-learning model to be deployed to AKS. If you don't have a model, see the [Train image classification model](../tutorial-train-deploy-notebook.md) tutorial.
 
-- You need an AKS cluster. For information on how to create one and deploy to it, see [How to deploy and where](how-to-deploy-and-where.md).
+- You need an AKS cluster. For information on how to create one and deploy to it, see [Deploy machine learning models to Azure](how-to-deploy-and-where.md).
 
 - [Set up your environment](../how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](/python/api/overview/azure/ml/install).
 
@@ -113,7 +113,7 @@ To enable data collection, you need to:
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ```
 
-1. To create a new image and deploy the machine learning model, see [How to deploy and where](how-to-deploy-and-where.md).
+1. To create a new image and deploy the machine learning model, see [Deploy machine learning models to Azure](how-to-deploy-and-where.md).
 
 1. Add the 'Azure-Monitoring' pip package to the conda-dependencies of the web service environment:
   ```Python
