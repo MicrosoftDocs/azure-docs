@@ -67,7 +67,7 @@ Twin twin = await client.GetTwinAsync();
 
 ## Image garbage collection
 
-Image garbage collection is a feature offered by IoT Edge to automatically clean up any unused docker images for IoT Edge modules that are downloaded to the device. Deleting unused module images helps in conserving the disk space, so we recommend leaving this feature ON. Image garbage collection offers the following features.  
+Image garbage collection is a feature offered by IoT Edge to automatically clean up any unused docker images for IoT Edge modules that are downloaded to the device. Deleting unused module images helps in conserving the disk space, so we recommend leaving this feature ON. Image garbage collection introduces the following features.  
 
  * Image garbage collection is enabled by default and runs once a day at midnight, and deletes images that have been unused for 7 days or longer 
  * Users may disable the feature or change the recurrence by modifying the settings in config.toml
