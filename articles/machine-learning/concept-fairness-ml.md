@@ -17,9 +17,6 @@ ms.custom: responsible-ml
 
 This article describes methods you can use for understanding your model performance and fairness in Azure Machine Learning.
 
-
-
-
 ## What is machine learning fairness?
 
 Artificial intelligence and machine learning systems can display unfair behavior. One way to define unfair behavior is by its harm, or impact on people. There are many types of harm that AI systems can give rise to. To learn more, [NeurIPS 2017 keynote by Kate Crawford](https://www.youtube.com/watch?v=fMym_BKWQzk).
@@ -35,11 +32,9 @@ To reduce unfair behavior in AI systems, you have to assess and mitigate these h
 >[!NOTE]
 > Fairness is a socio-technical challenge. Many aspects of fairness, such as justice and due process, are not captured in quantitative fairness metrics. Also, many quantitative fairness metrics can't all be satisfied simultaneously. The goal of the Fairlearn open-source package is to enable humans to assess the different impact and mitigation strategies. Ultimately, it is up to the human users building artificial intelligence and machine learning models to make trade-offs that are appropriate to their scenario.
 
-
 In this component of the Responsible AI dashboard, fairness is conceptualized through an approach known as **group fairness**, which asks: Which groups of individuals are at risk for experiencing harm? The term **sensitive features** suggests that the system designer should be sensitive to these features when assessing group fairness. 
 
 During the assessment phase, fairness is quantified through disparity metrics. **Disparity metrics** can evaluate and compare model behavior across different groups either as ratios or as differences. The Responsible AI dashboard supports two classes of disparity metrics:
-
 
 - Disparity in model performance: These sets of metrics calculate the disparity (difference) in the values of the selected performance metric across different subgroups of data. Some examples include:
 
@@ -52,13 +47,10 @@ During the assessment phase, fairness is quantified through disparity metrics. *
 
 - Disparity in selection rate: This metric contains the difference in selection rate (favorable prediction) among different subgroups. An example of this is disparity in loan approval rate. Selection rate means the fraction of data points in each class classified as 1 (in binary classification) or distribution of prediction values (in regression).
 
-
 The fairness assessment capabilities of this component are founded by the [Fairlearn](https://fairlearn.org/) package, providing a collection of model fairness assessment metrics and unfairness mitigation algorithms.
-
 
 >[!NOTE]
 > A fairness assessment is not a purely technical exercise.  The Fairlearn open-source package can help you assess the fairness of a model, but it will not perform the assessment for you.  The Fairlearn open-source package helps identify quantitative metrics to assess fairness, but developers must also perform a qualitative analysis to evaluate the fairness of their own models.  The sensitive features noted above is an example of this kind of qualitative analysis.
-
 
 ## Mitigate unfairness in machine learning models
 
@@ -87,10 +79,10 @@ The Fairlearn open-source package provides postprocessing and reduction unfairne
 
 | Algorithm | Description | Machine learning task | Sensitive features | Supported parity constraints | Algorithm Type |
 | --- | --- | --- | --- | --- | --- |
-| `ExponentiatedGradient` | Black-box approach to fair classification described in [A Reductions Approach to Fair Classification](https://arxiv.org/abs/1803.02453) | Binary classification | Categorical | [Demographic parity](#parity-constraints), [equalized odds](#parity-constraints) | Reduction |
-| `GridSearch` | Black-box approach described in [A Reductions Approach to Fair Classification](https://arxiv.org/abs/1803.02453)| Binary classification | Binary | [Demographic parity](#parity-constraints), [equalized odds](#parity-constraints) | Reduction |
-| `GridSearch` | Black-box approach that implements a grid-search variant of Fair Regression with the algorithm for bounded group loss described in [Fair Regression: Quantitative Definitions and Reduction-based Algorithms](https://arxiv.org/abs/1905.12843) | Regression | Binary | [Bounded group loss](#parity-constraints) | Reduction |
-| `ThresholdOptimizer` | Postprocessing algorithm based on the paper [Equality of Opportunity in Supervised Learning](https://arxiv.org/abs/1610.02413). This technique takes as input an existing classifier and the sensitive feature, and derives a monotone transformation of the classifier's prediction to enforce the specified parity constraints. | Binary classification | Categorical | [Demographic parity](#parity-constraints), [equalized odds](#parity-constraints) | Post-processing |
+| `ExponentiatedGradient` | Black-box approach to fair classification described in [A Reductions Approach to Fair Classification](https://arxiv.org/abs/1803.02453) | Binary classification | Categorical | Demographic parity, equalized odds| Reduction |
+| `GridSearch` | Black-box approach described in [A Reductions Approach to Fair Classification](https://arxiv.org/abs/1803.02453)| Binary classification | Binary | Demographic parity, equalized odds | Reduction |
+| `GridSearch` | Black-box approach that implements a grid-search variant of Fair Regression with the algorithm for bounded group loss described in [Fair Regression: Quantitative Definitions and Reduction-based Algorithms](https://arxiv.org/abs/1905.12843) | Regression | Binary | Bounded group loss| Reduction |
+| `ThresholdOptimizer` | Postprocessing algorithm based on the paper [Equality of Opportunity in Supervised Learning](https://arxiv.org/abs/1610.02413). This technique takes as input an existing classifier and the sensitive feature, and derives a monotone transformation of the classifier's prediction to enforce the specified parity constraints. | Binary classification | Categorical | Demographic parity, equalized odds| Post-processing |
 
 ## Next steps
 

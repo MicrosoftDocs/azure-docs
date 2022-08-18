@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 08/05/2022
+ms.date: 08/17/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
@@ -19,7 +19,7 @@ Implementing Responsible AI in practice requires rigorous engineering. Rigorous 
 The Responsible AI dashboard provides a single pane of glass that brings together several mature Responsible AI tools in the areas of model [performance and fairness assessment](http://fairlearn.org/), data exploration, [machine learning interpretability](https://interpret.ml/), [error analysis](https://erroranalysis.ai/), [counterfactual analysis and perturbations](https://github.com/interpretml/DiCE), and [causal inference](https://github.com/microsoft/EconML) for a holistic assessment and debugging of models and making informed data-driven decisions. Having access to all of these tools in one interface empowers you to:
 
 1. Evaluate and debug your machine learning models by identifying model errors and fairness issues, diagnosing why those errors are happening, and informing your mitigation steps.
-2. Boost your data-driven decision-making abilities by addressing questions such as *“what is the minimum change the end user could apply to their features to get a different outcome from the model?” and/or “what is the causal effect of reducing or increasing a feature (e.g., red meat consumption) on a real-world outcome (e.g., diabetes progression)?”*
+2. Boost your data-driven decision-making abilities by addressing questions such as *“what is the minimum change the end user could apply to their features to get a different outcome from the model?” and/or “what is the causal effect of reducing or increasing a feature (for example, red meat consumption) on a real-world outcome (for example, diabetes progression)?”*
 
 The dashboard could be customized to include the only subset of tools that are relevant to your use case.
 
@@ -65,7 +65,7 @@ Below are the components of the Responsible AI dashboard supporting model debugg
 | Identify | Model Overview | The Model Overview component aggregates various model assessment metrics, showing a high-level view of model prediction distribution for better investigation of its performance. It also enables group fairness assessment, highlighting the breakdown of model performance across different sensitive groups. |
 | Diagnose | Data Explorer | The Data Explorer component helps to visualize datasets based on predicted and actual outcomes, error groups, and specific features. This helps to identify issues of over- and underrepresentation and to see how data is clustered in the dataset.  |
 | Diagnose | Model Interpretability | The Interpretability component generates human-understandable explanations of the predictions of a machine learning model. It provides multiple views into a model’s behavior: global explanations (for example, which features affect the overall behavior of a loan allocation model) and local explanations (for example, why an applicant’s loan application was approved or rejected). <br><br> The capabilities of this component in the dashboard are founded by the [InterpretML](https://interpret.ml/) package. |
-| Diagnose | Counterfactual Analysis and What-If| The Counterfactual Analysis and what-if component consist of two functionalities for better error diagnosis: <br> - Generating a set of examples with minimal changes to a given point such that those changes alter the model's prediction (a.k.a. showing the closest data points with opposite model predictions). <br> - Enabling interactive and custom what-if perturbations for individual data points to understand how the model reacts to feature changes. <br> <br> The capabilities of this component in the dashboard are founded by the [DiCE](https://github.com/interpretml/DiCE) package.  |
+| Diagnose | Counterfactual Analysis and What-If| The Counterfactual Analysis and what-if component consist of two functionalities for better error diagnosis: <br> - Generating a set of examples with minimal changes to a given point such that those changes alter the model's prediction (showing the closest data points with opposite model predictions). <br> - Enabling interactive and custom what-if perturbations for individual data points to understand how the model reacts to feature changes. <br> <br> The capabilities of this component in the dashboard are founded by the [DiCE](https://github.com/interpretml/DiCE) package.  |
 
 Mitigation steps are available via standalone tools such as [Fairlearn](https://fairlearn.org/) (see [unfairness mitigation algorithms](https://fairlearn.org/v0.7.0/user_guide/mitigation.html)).
 
@@ -83,7 +83,7 @@ Exploratory data analysis, counterfactual analysis, and causal inference capabil
 Below are the components of the Responsible AI dashboard supporting responsible decision-making:
 
 - **Data Explorer**
-    - The component could be reused here to understand data distributions and identify over- and underrepresentation. Data exploration is a critical part of decision making as one can conclude that it is not feasible to make informed decisions about a cohort that is underrepresented within data.
+    - The component could be reused here to understand data distributions and identify over- and underrepresentation. Data exploration is a critical part of decision making as one can conclude that it isn't feasible to make informed decisions about a cohort that is underrepresented within data.
 - **Causal Inference**
     -  The Causal Inference component estimates how a real-world outcome changes in the presence of an intervention. It also helps to construct promising interventions by simulating different feature responses to various interventions and creating rules to determine which population cohorts would benefit from a particular intervention. Collectively, these functionalities allow you to apply new policies and effect real-world change.
     - The capabilities of this component are founded by the [EconML](https://github.com/Microsoft/EconML) package, which estimates heterogeneous treatment effects from observational data via machine learning.
@@ -95,16 +95,18 @@ Below are the components of the Responsible AI dashboard supporting responsible 
 
 ### Challenges with the status quo
 
-While progress has been made on individual tools for specific areas of Responsible AI, data scientists often need to use various tools (e.g., performance assessment and model interpretability and fairness assessment) together, to holistically evaluate their models and data. For example, if a data scientist discovers a fairness issue with one tool, they then need to jump to a different tool to understand what data or model factors lie at the root of the issue before taking any steps on mitigation. This highly challenging process is further complicated for the following reasons. 
-- First, there is no central location to discover and learn about the tools, extending the time it takes to research and learn new techniques. 
-- Second, the different tools do not exactly communicate with each other. Data scientists must wrangle the datasets, models, and other metadata as they pass them between the different tools. - Third, the metrics and visualizations are not easily comparable, and the results are hard to share.
+While progress has been made on individual tools for specific areas of Responsible AI, data scientists often need to use various tools (for example, performance assessment and model interpretability and fairness assessment) together, to holistically evaluate their models and data. For example, if a data scientist discovers a fairness issue with one tool, they then need to jump to a different tool to understand what data or model factors lie at the root of the issue before taking any steps on mitigation. This highly challenging process is further complicated for the following reasons.
+
+- First, there's no central location to discover and learn about the tools, extending the time it takes to research and learn new techniques. 
+- Second, the different tools don't exactly communicate with each other. Data scientists must wrangle the datasets, models, and other metadata as they pass them between the different tools. - Third, the metrics and visualizations aren't easily comparable, and the results are hard to share.
 
 ### Responsible AI dashboard challenging the status quo
+
 The Responsible AI dashboard is the first comprehensive yet customizable tool, bringing together fragmented experiences under one roof, enabling you to seamlessly onboard to a single customizable framework for model debugging and data-driven decision making. 
 
-Using the Responsible AI dashboard, you can create dataset cohorts (subgroups of data), pass those cohorts to all of the supported components (for example, model interpretability, data explorer, model performance, etc) and observe your model health for your identified cohorts. You can further compare insights from all supported components across a variety of pre-built cohorts to perform disaggregated analysis and find the blind spots of your model.
+Using the Responsible AI dashboard, you can create dataset cohorts (subgroups of data), pass those cohorts to all of the supported components (for example, model interpretability, data explorer, model performance, etc.) and observe your model health for your identified cohorts. You can further compare insights from all supported components across a variety of pre-built cohorts to perform disaggregated analysis and find the blind spots of your model.
 
-Whenever you are ready to share those insights with other stakeholders, you can extract them easily via our [Responsible AI PDF scorecard](how-to-responsible-ai-scorecard.md)) and attach the PDF report to your compliance reports or simply share it with other colleagues to build trust and get their approval.
+Whenever you're ready to share those insights with other stakeholders, you can extract them easily via our [Responsible AI PDF scorecard](how-to-responsible-ai-scorecard.md)) and attach the PDF report to your compliance reports or share it with other colleagues to build trust and get their approval.
 
 
 ## How to customize the Responsible AI dashboard?
@@ -131,7 +133,7 @@ The Responsible AI dashboard, and its corresponding [Responsible AI scorecard](h
 - Product managers and business stakeholders who are reviewing machine learning models pre-deployment.
 - Risk officers who are reviewing machine learning models for understanding fairness and reliability issues.
 - Providers of solutions to end users who would like to explain model decisions to the end users and/or help them improve the outcome next time.
-- Those professionals in heavily-regulated spaces who need to review machine learning models with regulators and auditors.
+- Those professionals in heavily regulated spaces who need to review machine learning models with regulators and auditors.
 
 ## Supported scenarios and limitations
 
@@ -140,11 +142,7 @@ The Responsible AI dashboard, and its corresponding [Responsible AI scorecard](h
 - The Responsible AI dashboard currently visualizes up to 5K of your data points in the dashboard UI. You should downsample your dataset to 5K or less before passing it to the dashboard.
 - The dataset inputs to the Responsible AI dashboard must be pandas DataFrames in Parquet format. Numpy and Scipy sparse data are currently not supported. 
 - The Responsible AI dashboard currently supports numeric or categorical features.  For categorical features, currently the user has to explicitly specify the feature names.  
-- The Responsible AI dashboard currently does not support datasets with more than 10K columns.
-
-
-
-
+- The Responsible AI dashboard currently doesn't support datasets with more than 10K columns.
 
 
 ## Next steps
