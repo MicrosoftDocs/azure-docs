@@ -244,7 +244,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
       * [Built-in actions](#built-in-connector-operations)
 
-        This example selects the only available built-in action named **Execute Query**.
+        This example selects the built-in action named **Execute Query**.
 
         ![Screenshot showing the designer search box with "sql server" and "Built-in" selected underneath with the "Execute Query" action selected in the "Actions" list.](./media/connectors-create-api-sqlazure/select-sql-execute-query-action-standard.png)
 
@@ -256,13 +256,13 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 1. Provide the [information for your connection](#create-connection). When you're done, select **Create**.
 
-1. If you haven't already provided the SQL server name and database name, provide those values. Otherwise, from the **Table name** list, select the table that you want to use.  In the **Row id** property, enter the ID for the record that you want.
+1. Provide the information required by your selected action.
 
-   In this example, the table name is **SalesLT.Customer**.
+   The following example continues with the managed action named **Get row**. If you haven't already provided the SQL server name and database name, provide those values. Otherwise, from the **Table name** list, select the table that you want to use.  In this example, the table name is **SalesLT.Customer**. In the **Row id** property, enter the ID for the record that you want.
 
-   ![Screenshot showing Standard workflow designer and "Get row" action with the example "Table name" property value and empty row ID.](./media/connectors-create-api-sqlazure/specify-table-row-id-standard.png)
+   ![Screenshot showing Standard workflow designer and managed action "Get row" with the example "Table name" property value and empty row ID.](./media/connectors-create-api-sqlazure/specify-table-row-id-standard.png)
 
-   This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions. For example, such actions might create a file, include the fields from the returned row, and store the file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
+   This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions. For example, such actions might create a file, include the fields from the returned row, and store the file in a cloud storage account. To learn about other available actions for this connector, review the [managed connector's reference page](/connectors/sql/).
 
 1. When you're done, save your workflow.
 
