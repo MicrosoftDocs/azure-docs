@@ -36,14 +36,10 @@ landingContent:
   # Card (optional)
   - title: Get started
     linkLists:
-      - linkListType: get-started
+      - linkListType: quickstart
         links:
           - text: Create and use an Azure file share
             url: storage-how-to-use-files-portal.md
-
-  # Card
-  - title: Tutorial
-    linkLists:
       - linkListType: tutorial
         links:
           - text: Create an SMB Azure file share - Windows
@@ -85,6 +81,6 @@ landingContent:
           - text: Use Azure file shares in a hybrid environment
             url: /azure/architecture/hybrid/azure-file-share
           - text: Hybrid file share with disaster recovery for remote and local branch workers
-            url: /azure/architecture/hybrid/hybrid-file-services
+            url: /azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers
           - text: Azure files accessed on-premises and secured by AD DS
             url: /azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication
