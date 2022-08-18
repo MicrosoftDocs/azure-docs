@@ -78,7 +78,7 @@ We've seen the greatest success in customer deployments, and recommend the follo
 * Set up an API approval process that runs on each pull request.  The API approval process should include breaking change detection, linting, and automated API testing. 
 * Use the [Azure API Ops Toolkit][5] publisher to publish the API to your production API Management service.
 
-Review [Automated API deployments with APIOps][28] in the Azure Architecture Center for more details on how to configure and run a CI/CD deployment pipeline with APIOps.
+Review [Automated API deployments with API Ops][28] in the Azure Architecture Center for more details on how to configure and run a CI/CD deployment pipeline with API Ops.
 
 ## References
 
