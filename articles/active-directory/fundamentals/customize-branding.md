@@ -3,13 +3,13 @@ title: Add branding to your organization's sign-in page - Azure AD
 description: Instructions about how to add your organization's branding to the Azure Active Directory sign-in page.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 07/03/2021
+ms.date: 08/17/2022
 ms.author: barclayn
 ms.reviewer: kexia
 ms.custom: "it-pro, seodec18, fasttrack-edit"
@@ -17,20 +17,23 @@ ms.collection: M365-identity-device-management
 ---
 
 # Add branding to your organization's Azure Active Directory sign-in page
+
 Use your organization's logo and custom color schemes to provide a consistent look-and-feel on your Azure Active Directory (Azure AD) sign-in pages. Your sign-in pages appear when users sign in to your organization's web-based apps, such as Microsoft 365, which uses Azure AD as your identity provider.
 
 >[!NOTE]
 >Adding custom branding requires you to have either Azure Active Directory Premium 1, Premium 2, or Office 365 (for Office 365 apps) licenses. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure Active Directory Forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## Customize your Azure AD sign-in page
+
 You can customize your Azure AD sign-in pages, which appear when users sign in to your organization's tenant-specific apps, such as `https://outlook.com/contoso.com`, or when passing a domain variable, such as `https://passwordreset.microsoftonline.com/?whr=contoso.com`.
 
-Your custom branding won't immediately appear when your users go to sites such as, www\.office.com. Instead, the user has to sign-in before your customized branding appears. After the user has signed in, the branding may take 15 minutes or longer to appear. 
+Your custom branding won't immediately appear when your users go to sites such as, www\.office.com. Instead, the user has to sign-in before your customized branding appears. After the user has signed in, the branding may take 15 minutes, or longer to appear. 
 
 > [!NOTE]
 > **All branding elements are optional and will remain default when unchanged.** For example, if you specify a banner logo with no background image, the sign-in page will show your logo with a default background image from the destination site such as Microsoft 365.<br><br>Additionally, sign-in page branding doesn't carry over to personal Microsoft accounts. If your users or business guests sign in using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
 
 ### To configure your branding for the first time
+
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory**, and then select **Company branding**, and then select **Configure**.
@@ -50,11 +53,11 @@ Your custom branding won't immediately appear when your users go to sites such a
         
         - **Sign-in page background image.** Select a .png or .jpg image file to appear as the background for your sign-in pages. The image will be anchored to the center of the browser, and will scale to the size of the viewable space. You can't select an image larger than 1920x1080 pixels in size or that has a file size more than 300,000 bytes.
         
-            It's recommended to use images without a strong subject focus, e.g., an opaque white box appears in the center of the screen, and could cover any part of the image depending on the dimensions of the viewable space.
+            It's recommended to use images without a strong subject focus, for example, an opaque white box appears in the center of the screen, and could cover any part of the image depending on the dimensions of the viewable space.
 
         - **Banner logo.** Select a .png or .jpg version of your logo to appear on the sign-in page after the user enters a username and on the **My Apps** portal page.
             
-            The image can't be taller than 60 pixels or wider than 280 pixels, and the file shouldn’t be larger than 10KB. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small. 
+            The image can't be taller than 60 pixels or wider than 280 pixels, and the file shouldn’t be larger than 10 KB. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small. 
 
         - **Username hint.** Type the hint text that appears to users if they forget their username. This text must be Unicode, without links or code, and can't exceed 64 characters. If guests sign in to your app, we suggest not adding this hint.
 
@@ -139,7 +142,7 @@ You can't change your original configuration's language from your default langua
     ![Contoso - Company branding page, with the new language configuration shown](media/customize-branding/company-branding-french-config.png)
 
 ## Add your custom branding to pages
-Add your custom branding to pages by modifying the end of the URL with the text, `?whr=yourdomainname`. This specific modification works on different types of pages, including the Multi-Factor Authentication (MFA) setup page, the Self-service Password Reset (SSPR) setup page, and the sign in page.
+Add your custom branding to pages by modifying the end of the URL with the text, `?whr=yourdomainname`. This specific modification works on different types of pages, including the Multi-Factor Authentication (MFA) setup page, the Self-service Password Reset (SSPR) setup page, and the sign-in page.
 
 Whether an application supports customized URLs for branding or not depends on the specific application, and should be checked before attempting to add a custom branding to a page.
 
