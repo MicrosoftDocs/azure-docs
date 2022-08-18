@@ -76,7 +76,7 @@ A new queue named `outqueue` is created in your storage account by the Functions
 
 ## Examine the output queue
 
-1. In Visual Studio from the **View** menu, select **Cloud Explorer**.
+1. In Visual Studio from the **View** menu, select **Cloud Explorer**. ([This view as been removed in Visual Studio 2022](https://docs.microsoft.com/en-us/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2022))
 
 1. In **Cloud Explorer**, expand your Azure subscription and **Storage Accounts**, then expand the storage account used by your function. If you can't remember the storage account name, check the `AzureWebJobsStorage` connection string setting in the *local.settings.json* file.  
 
