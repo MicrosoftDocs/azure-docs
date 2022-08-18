@@ -484,7 +484,7 @@ Deletes and returns the table rows that match the specified **Where condition** 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **Table name** | `tableName` | True | String | The name for the table |
-| **Where condition** | `columnValuesForWhereCondition` | True | Object | This object contains the column names and corresponding values to delete. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*. |
+| **Where condition** | `columnValuesForWhereCondition` | True | Object | This object contains the column names and corresponding values to delete. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*, which also lets you delete single or specific rows.|
 ||||||
 
 #### Returns
@@ -585,7 +585,7 @@ Get the table rows that match the specified **Where condition** value.
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **Table name** | `tableName` | True | String | The name for the table |
-| **Where condition** | `columnValuesForWhereCondition` | False | Dynamic | This object contains the column names and corresponding values to get. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*. |
+| **Where condition** | `columnValuesForWhereCondition` | False | Dynamic | This object contains the column names and corresponding values to get. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*, which also lets you get single or specific rows. |
 ||||||
 
 #### Returns
@@ -677,7 +677,7 @@ Update the specified columns in all the table rows that match the specified **Wh
 |------|-----|----------|------|-------------|
 | **Table name** | `tableName` | True | String | The name for the table |
 | **Where condition** | `columnValuesForWhereCondition` | True | Dynamic | This object contains the column names and corresponding values to update. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*. |
-| **Set columns** | `setColumns` | True | Dynamic | This object contains the column names and the corresponding values to use for the update. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*. |
+| **Set columns** | `setColumns` | True | Dynamic | This object contains the column names and the corresponding values to use for the update. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*, which also lets you update single or specific rows. |
 ||||||
 
 #### Returns
