@@ -21,7 +21,7 @@ Azure IoT Edge lets you deploy and manage business logic on the edge in the form
 * A **module instance** is the specific unit of computation running the module image on an IoT Edge device. The module instance is started by the IoT Edge runtime.
 * A **module identity** is a piece of information (including security credentials) stored in IoT Hub, that is associated to each module instance.
 * A **module twin** is a JSON document stored in IoT Hub, that contains state information for a module instance, including metadata, configurations, and conditions.
-* A **image garbage collection** is a feature offered by IoT Edge to automatically clean up any unused docker images for IoT Edge modules that are downloaded to the device.
+* **Image garbage collection** is a feature offered by IoT Edge to automatically clean up any unused docker images for IoT Edge modules that are downloaded to the device.
 
 ## Module images and instances
 
