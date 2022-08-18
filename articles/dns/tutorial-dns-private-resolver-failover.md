@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 The following diagram shows the failover scenario discussed in this article.
 
-[ ![Azure DNS Private Resolver architecture](./media/tutorial-private-resolver-failover/private-resolver-failover.png) ](./media/tutorial-private-resolver-failover/private-resolver-failover_highres.png#lightbox)
+[ ![Azure DNS Private Resolver architecture](./media/tutorial-dns-private-resolver-failover/private-resolver-failover.png) ](./media/tutorial-dns-private-resolver-failover/private-resolver-failover_highres.png#lightbox)
 
 Important architecture elements numbered in the digram are: 
 1) On-premises DNS [conditional forwarders](#on-premises-forwarding) that send DNS queries to inbound endpoints.
