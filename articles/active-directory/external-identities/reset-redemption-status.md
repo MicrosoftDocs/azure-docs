@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 08/18/2022
 
 ms.author: mimart
 author: msmimart
@@ -16,7 +16,7 @@ manager: celestedg
 ms.collection: M365-identity-device-management
 ---
 
-# Reset redemption status for a guest user (Preview)
+# Reset redemption status for a guest user
 
 After a guest user has redeemed your invitation for B2B collaboration, there might be times when you'll need to update their sign-in information, for example when:
 
@@ -42,7 +42,7 @@ To manage these scenarios previously, you had to manually delete the guest userâ
 
 1. In the **Overview** tab, underâ€¯**My Feed**, select **B2B collaboration**. 
     ![new user profile page displaying the B2B Collaboration tile](./media/reset-redemption-status/user-profile-b2b-collaboration.png)
-1. Under **Redemption status**, next to **Reset invitation status? (Preview)**, select **Yes**.
+1. Under **Redemption status**, next to **Reset invitation status?**, select **Yes**.
 1. Select **Yes** to confirm.
 
 
@@ -57,7 +57,6 @@ If a user wants to sign in using a different email:
 1. Use one of the methods below to reset the user's redemption status.
 
 > [!NOTE]
->During public preview, we have two recommendations:
 >- When you're resetting the user's email address to a new address, we recommend setting the `mail` property. This way the user can redeem the invitation by signing into your directory in addition to using the redemption link in the invitation.
 >- When you're resetting the status for a B2B guest user, be sure to do so under the user context. App-only calls are currently not supported.
 >
