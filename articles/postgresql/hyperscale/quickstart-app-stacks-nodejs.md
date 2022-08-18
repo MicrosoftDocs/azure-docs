@@ -67,22 +67,19 @@ Create a folder called `db` and inside this folder create `citus.js` file with t
 * file: db/citus.js
 */
 
-const { Pool, Client } = require('pg');
+const { Pool } = require('pg');
 
 const pool = new Pool({
+  max: 300,
+  connectionTimeoutMillis: 5000,
+
   host: 'c.citustest.postgres.database.azure.com',
   port: 5432,
   user: 'citus',
   password: 'Password123$',
   database: 'citus',
   ssl: true,
-  connectionTimeoutMillis: 0,
-  idleTimeoutMillis: 0,
-  min: 10,
-  max: 20,
 });
-
-pool.connect();
 
 module.exports = {
   pool,
@@ -101,21 +98,26 @@ const { pool } = require('./db/citus');
 
 async function queryDatabase() {
   const queryString = `
-      DROP TABLE IF EXISTS pharmacy;
-      CREATE TABLE pharmacy (pharmacy_id integer,pharmacy_name text,city text,state text,zip_code integer);
-      INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (0,'Target','Sunnyvale','California',94001);
-      INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (1,'CVS','San Francisco','California',94002);
-      INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (2,'Walgreens','San Diego','California',94003);
-      CREATE INDEX idx_pharmacy_id ON pharmacy(pharmacy_id);
+    DROP TABLE IF EXISTS pharmacy;
+    CREATE TABLE pharmacy (pharmacy_id integer,pharmacy_name text,city text,state text,zip_code integer);
+    INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (0,'Target','Sunnyvale','California',94001);
+    INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (1,'CVS','San Francisco','California',94002);
+    INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (2,'Walgreens','San Diego','California',94003);
+    CREATE INDEX idx_pharmacy_id ON pharmacy(pharmacy_id);
   `;
 
   try {
+    /* Real application code would probably request a dedicated client with
+       pool.connect() and run multiple queries with the client. In this example, we're
+       running only one query, so we use the pool.query() helper method to run it on
+       the first available idle client. */
+
     await pool.query(queryString);
     console.log('Created the Pharmacy table and inserted rows.');
   } catch (err) {
     console.log(err.stack);
   } finally {
-    client.end();
+    pool.end();
   }
 }
 
@@ -197,7 +199,7 @@ Use the following code to connect and read the data using a UPDATE SQL statement
 * file: update.js
 */
 
-const { client } = require('./db/citus');
+const { pool } = require('./db/citus');
 
 async function queryDatabase() {
   const queryString = `
@@ -280,22 +282,30 @@ const { pool } = require('./db/citus');
 async function importCsvDatabase() {
   return new Promise((resolve, reject) => {
     const queryString = `
-    COPY pharmacy FROM STDIN WITH (FORMAT CSV, HEADER true, NULL '');
-  `;
+      COPY pharmacy FROM STDIN WITH (FORMAT CSV, HEADER true, NULL '');
+    `;
 
     fileStream.on('error', reject);
 
-    const stream = pool
-      .query(copyFrom(queryString))
-      .on('error', reject)
-      .on('end', () => {
-        reject(new Error('Connection closed!'));
-      })
-      .on('finish', () => {
-        resolve();
-      });
+    pool
+      .connect()
+      .then(client => {
+        const stream = client
+          .query(copyFrom(queryString))
+          .on('error', reject)
+          .on('end', () => {
+            reject(new Error('Connection closed!'));
+          })
+          .on('finish', () => {
+            client.release();
+            resolve();
+          });
 
-    fileStream.pipe(stream);
+        fileStream.pipe(stream);
+      })
+      .catch(err => {
+        reject(new Error(err));
+      });
   });
 }
 
@@ -321,8 +331,8 @@ The following code is an example for copying in-memory data to a table.
 
 ```javascript
 /**
-* file: copyinmemory.js
-*/
+ * file: copyinmemory.js
+ */
 
 const through2 = require('through2');
 const copyFrom = require('pg-copy-streams').from;
@@ -330,35 +340,43 @@ const { pool } = require('./db/citus');
 
 async function importInMemoryDatabase() {
   return new Promise((resolve, reject) => {
-    const stream = pool
-      .query(copyFrom('COPY pharmacy FROM STDIN'))
-      .on('error', reject)
-      .on('end', () => {
-        reject(new Error('Connection closed!'));
+    pool
+      .connect()
+      .then(client => {
+        const stream = client
+          .query(copyFrom('COPY pharmacy FROM STDIN'))
+          .on('error', reject)
+          .on('end', () => {
+            reject(new Error('Connection closed!'));
+          })
+          .on('finish', () => {
+            client.release();
+            resolve();
+          });
+
+        const internDataset = [
+          ['100', 'Target', 'Sunnyvale', 'California', '94001'],
+          ['101', 'CVS', 'San Francisco', 'California', '94002'],
+        ];
+
+        let started = false;
+        const internStream = through2.obj((arr, _enc, cb) => {
+          const rowText = (started ? '\n' : '') + arr.join('\t');
+          started = true;
+          cb(null, rowText);
+        });
+
+        internStream.on('error', reject).pipe(stream);
+
+        internDataset.forEach((record) => {
+          internStream.write(record);
+        });
+
+        internStream.end();
       })
-      .on('finish', () => {
-        resolve();
+      .catch(err => {
+        reject(new Error(err));
       });
-
-    const internDataset = [
-      ['100', 'Target', 'Sunnyvale', 'California', '94001'],
-      ['101', 'CVS', 'San Francisco', 'California', '94002'],
-    ];
-
-    let started = false;
-    const internStream = through2.obj((arr, _enc, cb) => {
-      const rowText = (started ? '\n' : '') + arr.join('\t');
-      started = true;
-      cb(null, rowText);
-    });
-
-    internStream.on('error', reject).pipe(stream);
-
-    internDataset.forEach((record) => {
-      internStream.write(record);
-    });
-
-    internStream.end();
   });
 }
 (async () => {
