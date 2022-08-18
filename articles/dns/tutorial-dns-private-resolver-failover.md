@@ -27,10 +27,15 @@ The following diagram shows the failover scenario discussed in this article.
 
 [ ![Azure DNS Private Resolver architecture](./media/tutorial-dns-private-resolver-failover/private-resolver-failover.png) ](./media/tutorial-dns-private-resolver-failover/private-resolver-failover_highres.png#lightbox)
 
-The path for DNS resolution on-prem is numbered in the diagram:
-1) On-premises DNS [conditional forwarders](#on-premises-forwarding) send DNS queries to inbound endpoints.
-2) [Inbound endpoints](#inbound-endpoints) receive DNS queries from outside the virtual network.
-3) Outbound endpoints and DNS forwarding rulesets perform custom processing on DNS queries and return DNS replies to on-premises DNS.
+In this scenario, you have connections from two on-premises locations to two Azure hub vnets. 
+- In the east region, the primary path is to the east vnet hub. You have a secondary connection to the west hub. The west region is configured in the reverse.
+- Due to an Internet connectivity issue, the connection to one vnet (west) is temporarily broken.
+- Services are maintained in both regions due to the redundant design.
+
+The DNS resolution path is:
+1) Redundant on-premises DNS [conditional forwarders](#on-premises-forwarding) send DNS queries to inbound endpoints.
+2) [Inbound endpoints](#inbound-endpoints) receive DNS queries from on-premises.
+3) Outbound endpoints and DNS forwarding rulesets process DNS queries and return replies to your on-premises resources.
 
 Outbound endpoints and DNS forwarding rulesets are not needed for the failover scenario, but are included here for completeness. Rulesets can be used is to resolve on-premises domains from Azure. For more information, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md) and [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md).
 
