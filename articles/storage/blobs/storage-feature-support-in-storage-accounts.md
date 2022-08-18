@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/28/2022
+ms.date: 08/18/2022
 ms.author: normesta
 ---
 
@@ -38,7 +38,7 @@ Even though a feature is not be negatively impacted, it might not be compatible 
 The following table describes whether a feature is supported in a standard general-purpose v2 account when you enable a hierarchical namespace (HNS), NFS 3.0 protocol, or SFTP. 
 
 > [!IMPORTANT]
-> This table describes the impact of **enabling** the capability and not the specific use of that capability.
+> This table describes the impact of **enabling** HNS, NFS, or SFTP and not the specific use of those capabilities.
 
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
@@ -86,7 +86,7 @@ The following table describes whether a feature is supported in a standard gener
 The following table describes whether a feature is supported in a premium block blob account when you enable a hierarchical namespace (HNS), NFS 3.0 protocol, or SFTP.
 
 > [!IMPORTANT]
-> This table describes the impact of **enabling** the capability and not the specific use of that capability.
+> This table describes the impact of **enabling** HNS, NFS, or SFTP and not the specific use of those capabilities.
 
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
