@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 08/17/2022
+ms.date: 08/22/2022
 ms.author: paulhsu
 ---
 

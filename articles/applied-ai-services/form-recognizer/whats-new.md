@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/17/2022
+ms.date: 08/22/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -19,7 +19,21 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## August 2022
 
-Form Recognizer REST API v3.0 is now generally available and ready for use in production applications!
+Form Recognizer REST API v3.0 is now generally available and ready for use in production applications! The August release introduces substantive user experience and model performance updates:
+
+* [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract sub-fields for address components like address, city, state, country, and zip code.
+
+* [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards as well as passport visa information.
+
+* [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
+
+* [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields will now resolve to the existing fields TotalTax and Line/Tax respectively.
+
+* [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables and improved recognition of long spanning cells. As well improved paragraph grouping detection and logical identification of headers and titles.
+
+* [**prebuilt-document**](concept-general-document.md). Improved value and check box detection.
+
+* [**custom-neural**](concept-custom-neural.md). Improved accuracy for table detection and extraction.
 
 ## June 2022
 

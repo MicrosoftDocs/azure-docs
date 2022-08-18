@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 08/22/2022
 ms.author: bemabonsu
 recommendations: false
 #Customer intent: I want to learn how to use create a Form Recognizer service in the Azure portal.

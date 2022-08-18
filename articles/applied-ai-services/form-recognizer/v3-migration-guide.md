@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 07/20/2022
+ms.date: 08/22/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -22,7 +22,7 @@ Form Recognizer v3.0  introduces several new features and capabilities:
 
 * [Form Recognizer REST API](quickstarts/get-started-v3-sdk-rest-api.md) has been redesigned for better usability.
 * [**General document (v3.0)**](concept-general-document.md) model is a new API that extracts text, tables, structure, and key-value pairs, from forms and documents.
-* [**Custom document model (v3.0)**](concept-custom-neural.md) is a new custom model type to extract fields from structured and unstructured documents.
+* [**Custom neural model (v3.0)**](concept-custom-neural.md) is a new custom model type to extract fields from structured and unstructured documents.
 * [**Receipt (v3.0)**](concept-receipt.md) model supports single-page hotel receipt processing.
 * [**ID document (v3.0)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
 * [**Custom model API (v3.0)**](concept-custom.md) supports signature detection for custom template models.
@@ -254,7 +254,7 @@ The model object has three updates in the new API
 
 * ```modelId``` is now a property that can be set on a model for a human readable name.
 * ```modelName``` has been renamed to ```description```
-* ```buildMode``` is a new property with values of  ```template``` for custom form models or ```neural``` for custom document models.
+* ```buildMode``` is a new property with values of  ```template``` for custom form models or ```neural``` for custom neural models.
 
 The ```build``` operation is invoked to train a model. The request payload and call pattern remain unchanged. The build operation specifies the model and training dataset, it returns the result via the Operation-Location header in the response. Poll this model operation URL, via a GET request to check the status of the build operation (minimum recommended interval between requests is 1 second). Unlike v2.1, this URL isn't the resource location of the model. Instead, the model URL can be constructed from the given modelId, also retrieved from the resourceLocation property in the response. Upon success, status is set to ```succeeded``` and result contains the custom model info. If errors are encountered, status is set to ```failed```, and the error is returned.
 
