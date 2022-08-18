@@ -44,7 +44,7 @@ The following checklist covers the scope of resiliency planning.
 
 Regions and Availability Zones are a big part of the resiliency equation. Regions feature multiple, physically separate Availability Zones, connected by a high-performance network featuring less than 2ms latency between physical zones to help your data stay synchronized and accessible when things go wrong. You can leverage this infrastructure strategically as you architect applications and data infrastructure that automatically replicate and deliver uninterrupted services between zones and across regions. Choose the best region for your needs based on technical and regulatory considerations—service capabilities, data residency, compliance requirements, latency—and begin advancing your resiliency strategy.
 
-Microsoft Azure services support availability zones and are enabled to drive your cloud operations at optimum high availability while supporting your disaster recovery and business continuity strategy needs. Choose the best region for your needs based on technical and regulatory considerations—service capabilities, data residency, compliance requirements, latency—and begin advancing your resiliency strategy. See [Azure regions and availability zones](az-overview.md) for more information.
+Microsoft Azure services support availability zones and are enabled to drive your cloud operations at optimum high availability while supporting your disaster recovery and business continuity strategy needs. Choose the best region for your needs based on technical and regulatory considerations—service capabilities, data residency, compliance requirements, latency—and begin advancing your resiliency strategy. See [Azure regions and availability zones](overview-availability-zones.md) for more information.
 
 ## Shared responsibility
 
@@ -54,7 +54,7 @@ Building resilient systems on Azure is a shared responsibility. Microsoft is res
 
 Microsoft Azure services are available globally to drive your cloud operations at an optimal level. You can choose the best region for your needs based on technical and regulatory considerations: service capabilities, data residency, compliance requirements, and latency.
 
-Azure services deployed to Azure regions are listed on the [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all) page. To better understand regions and Availability Zones in Azure, see [Regions and Availability Zones in Azure](az-overview.md).
+Azure services deployed to Azure regions are listed on the [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all) page. To better understand regions and Availability Zones in Azure, see [Regions and Availability Zones in Azure](overview-availability-zones.md).
 
 Azure services are built for resiliency including high availability and disaster recovery. There are no services that are dependent on a single logical data center (to avoid single points of failure). Non-regional services listed on [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all) are services for which there is no dependency on a specific Azure region. Non-regional services are deployed to two or more regions and if there is a regional failure, the instance of the service in another region continues servicing customers. Certain non-regional services enable customers to specify the region where the underlying virtual machine (VM) on which service runs will be deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) enables customers to specify the region location where the VM resides. All Azure services that store customer data allow the customer to specify the specific regions in which their data will be stored. The exception is [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/), which has geo placement (such as Europe or North America). For more information about data storage residency, see the [Data residency map](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
@@ -62,7 +62,7 @@ If you need to understand dependencies between Azure services to help better arc
 
 ## Next steps
 
-- [Regions and availability zones in Azure](az-overview.md)
+- [Regions and availability zones in Azure](overview-availability-zones.md)
 - [Azure services that support availability zones](availability-zone-services.md)
 - [Azure Resiliency whitepaper](https://azure.microsoft.com/resources/resilience-in-azure-whitepaper/)
 - [Azure Well-Architected Framework](https://www.aka.ms/WellArchitected/Framework)

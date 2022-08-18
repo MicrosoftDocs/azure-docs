@@ -122,7 +122,7 @@ Follow these steps:
 Learn more about:
 
 > [!div class="nextstepaction"]
-> [Regions and Availability Zones in Azure](az-overview.md)
+> [Regions and Availability Zones in Azure](overview-availability-zones.md)
 
 > [!div class="nextstepaction"]
 > [Azure Services that support Availability Zones](availability-zone-services.md)

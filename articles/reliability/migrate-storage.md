@@ -112,7 +112,7 @@ Learn more about:
 > [Azure Storage redundancy](../storage/common/storage-redundancy.md)
 
 > [!div class="nextstepaction"]
-> [Regions and Availability Zones in Azure](az-overview.md)
+> [Regions and Availability Zones in Azure](overview-availability-zones.md)
 
 > [!div class="nextstepaction"]
 > [Azure Services that support Availability Zones](availability-zone-services.md)

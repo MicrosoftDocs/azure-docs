@@ -21,7 +21,7 @@ Azure strives to enable high resiliency across every service and offering. Runni
 
 [!INCLUDE [availability-zone-regions-include](./includes/availability-zone-regions-include.md)]
 
-For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](overview-availability-zones.md.md).
+For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](overview-availability-zones.md).
 
 ## Highly available services
 

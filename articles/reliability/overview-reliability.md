@@ -18,7 +18,7 @@ The Azure service reliability documentation is organized into three sections:
 * Availability zone guides
 * Service availability 
 
-# Reliability guides
+## Reliability guides
 
 Azure service reliability guides help you to learn how to prepare your applications and resources to recover from failures and continue to function. Reliability consists of two principles: resiliency and availability. The goal of resiliency is to return your application to a fully functioning state after a failure occurs. The goal of availability is to provide consistent access to your application or workload be users as they need to.
 

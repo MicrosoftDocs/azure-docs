@@ -55,7 +55,7 @@ To delete and redeploy a container group:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Regions and Availability Zones in Azure](az-overview.md)
+> [Regions and Availability Zones in Azure](overview-availability-zones.md)
 
 > [!div class="nextstepaction"]
 > [Azure Services that support Availability Zones](availability-zone-services.md)
