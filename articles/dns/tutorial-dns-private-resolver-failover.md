@@ -147,5 +147,11 @@ You can now demonstrate that DNS resolution works when one of the connections is
 
 ## Next steps
 
-Review components, benefits, and requirements for Azure DNS Private Resolver, see [What is Azure DNS Private Resolver?](dns-private-resolver-overview.md).
+* Review components, benefits, and requirements for [Azure DNS Private Resolver](dns-private-resolver-overview.md).
+* Learn how to create an Azure DNS Private Resolver by using [Azure PowerShell](./dns-private-resolver-get-started-powershell.md) or [Azure portal](./dns-private-resolver-get-started-portal.md).
+* Understand how to [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md) using the Azure DNS Private Resolver.
+* Learn about [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
+* Learn how to [configure hybrid DNS](private-resolver-hybrid-dns.md) using private resolvers.
+* Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
+* [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
 

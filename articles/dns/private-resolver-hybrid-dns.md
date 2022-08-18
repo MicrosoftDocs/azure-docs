@@ -81,6 +81,9 @@ Next, create a rule in your ruleset for your on-premises domain. In this example
 
 [ ![View rules](./media/private-resolver-hybrid-dns/ruleset-rules_small.png) ](./media/private-resolver-hybrid-dns/ruleset-rules.png#lightbox)
 
+> [!NOTE]
+> Don't change the DNS settings for your virtual network to use the inbound endpoint IP address. Leave the default DNS settings.
+
 ## Configure on-premises DNS conditional forwarders
 
 The procedure to configure on-premises DNS depends on the type of DNS server you are using. In the following example, a Windows DNS server at **10.100.0.2** is configured with a conditional forwarder for the private DNS zone **azure.contoso.com**. The conditional forwarder is is set to forward queries to **10.10.0.4**, which is the inbound endpoint IP address for your Azure DNS Private Resolver. There is another IP address also configured here to enable DNS failover. For more information about enabling failover, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md). For the purposes of this demonstration, only the **10.10.0.4** inbound endpoint is required.
@@ -89,13 +92,23 @@ The procedure to configure on-premises DNS depends on the type of DNS server you
 
 ## Demonstrate hybrid DNS
 
+Using a VM located in the virtual network where the Azure DNS Private Resolver is provisioned, issue a DNS query for a resource record in your on-premises domain.  In this example, a query is performed for the record **testdns.contoso.com**:
 
+![View on-premises forwarding](./media/private-resolver-hybrid-dns/azure-to-on-premises-lookup.png) 
+
+The path for the query is: Azure DNS > inbound endpoint > outbound endpoint > ruleset rule for contoso.com > on-premises DNS (10.100.0.2).  The DNS server at 10.100.0.2 is an on-premises DNS resolver, but it could also be an authoritative DNS server.
+
+Using an on-premises VM or device, issue a DNS query for a resource record in your Azure private DNS zone. In this example, a query is performed for the record **test.azure.contoso.com**:
+
+![View on-premises forwarding](./media/private-resolver-hybrid-dns/on-premises-to-azure-lookup.png) 
+
+The path for this query is: client's default DNS resolver (10.100.0.2) > on-premises conditional forwarder rule for azure.contoso.com > inbound endpoint (10.10.0.4) 
 
 ## Next steps
-To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md).
-
-Learn how to [create a private DNS zone](./private-dns-getstarted-powershell.md) in Azure DNS.
-
-Learn about DNS zones and records by visiting: [DNS zones and records overview](dns-zones-records.md).
-
-Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
+* Review components, benefits, and requirements for [Azure DNS Private Resolver](dns-private-resolver-overview.md).
+* Learn how to create an Azure DNS Private Resolver by using [Azure PowerShell](./dns-private-resolver-get-started-powershell.md) or [Azure portal](./dns-private-resolver-get-started-portal.md).
+* Understand how to [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md) using the Azure DNS Private Resolver.
+* Learn about [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
+* Learn how to [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md)
+* Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
+* [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).

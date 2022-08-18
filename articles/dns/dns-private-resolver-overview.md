@@ -136,5 +136,6 @@ Outbound endpoints have the following limitations:
 * Understand how to [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md) using the Azure DNS Private Resolver.
 * Learn about [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
 * Learn how to [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md)
+* Learn how to [configure hybrid DNS](private-resolver-hybrid-dns.md) using private resolvers.
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
 * [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
