@@ -1,5 +1,5 @@
 ---
-title: Understand Device Update for IoT Hub delta update capabilities | Microsoft Docs
+title: Understand Device Update for Azure IoT Hub delta update capabilities | Microsoft Docs
 description: Key concepts for using delta (differential) updates with Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
@@ -9,9 +9,6 @@ ms.service: iot-hub-device-update
 ---
 
 # How to understand and use delta updates in Device Update for IoT Hub
-
-## What are delta (or "differential") updates?
-
 Delta updates allow you to generate a small update, which represents only the changes between two full updates - a source image and a target image. This approach is ideal for reducing the bandwidth used to download an update to a device, particularly if there have only been a few changes between the source and target updates.
 
 ## Requirements for using delta updates in Device Update for IoT Hub
@@ -23,7 +20,7 @@ c.	Be a raw image (writeable to device)
 d.	Compressed originally with gzip or zstd
 2.	The delta generation process will recompress the target SWU update using ZSTD compression in order to produce an optimal delta. You'll import this recompressed target SWU update to the DU service along with the generated delta update file.
 3.	ZSTD decompression must be enabled in SWUpdate on the device.  
-a.	Note: Requires using [SWUpdate 2019.11](https://github.com/sbabic/swupdate/releases/tag/2019.11) or later.
+a.	Requires using [SWUpdate 2019.11](https://github.com/sbabic/swupdate/releases/tag/2019.11) or later.
 
 ## Pre-requisites for using delta updates
 
@@ -57,14 +54,10 @@ Before creating deltas with DiffGen, several things need to be downloaded and/or
 
 The following table provides a list of the content needed, where to retrieve them and the recommended installation if necessary.
 
----
-
 | Binary Name       | Where to acquire      | How to install        |
 |-------------------------------|----------------------------------------------------------------------------|------------------------------------|
 | DiffGen           | You'll find all the DiffGen code in the file you previously downloaded: **Delta_generation.zip**  | Download all content and place into a known directory.
 | .NET (Runtime)    |Via Terminal / Package Managers    | Since running a pre-built version of the tool, only the Runtime is required. [Microsoft Doc Link](https://docs.microsoft.com/dotnet/core/install/linux-ubuntu).
-
----
 
 **Dependencies**
 
@@ -90,8 +83,6 @@ If your SWU files are signed (likely), you'll need another argument as well:
 
 The following table describes the arguments in more detail:
 
----
-
 | Argument  | Description   |  
 |-------------------------------|----------------------------------------------------------------------------|  
 | [source_archive]  | This is the image that the delta will be based against when creating the delta. Important: the image must be identical to the image that is already present on the device (for example, cached from a previous update).|
@@ -101,8 +92,6 @@ The following table describes the arguments in more detail:
 | [working_folder]  | Path on the machine where collateral and other working files are placed during the delta generation. We recommend defining this location as a subfolder of the output path. If the path doesn't exist, it will be created by the tool. |
 | [recompressed_target_archive]  | The path on the host machine where the recompressed target file will be created. This file will be used instead of <target_archive> as the target file for diff generation. If this path exists before calling DiffGenTool, the path will be overwritten. We recommend defining this path as a file in the subfolder of the output path. |
 | "[signing_command]" _(optional)_    | The desired command used for signing the sw-description file within the recompressed archive file. A few notes: Surround the parameter in double quotes so that the whole command is passed in as a single parameter, provide [recompressed_target_archive], and don't put the '~' character in a key path that is used for signing, use the full home path instead (for example, use /home/USER/keys/priv.pem instead of ~/keys/priv.pem) |
-
----
 
 ### DiffGen Examples
 In the examples below, we're operating out of the /mnt/o/temp directory (in WSL):
@@ -125,7 +114,7 @@ _Creating diff between input source file and recompressed/re-signed target file_
 `/mnt/o/temp/[recompressed file to be created.swu]`  
 `"openssl dgst -sha256 -sign [path to directory with key]/priv.pem"`
 
-Note: if you encounter an error "_Parameters failed. Status: MissingBinaries Issues: dumpextfs zstd_compress_file bsdiff_", add executable permissions for those files (such as set chmod 755).
+If you encounter an error "_Parameters failed. Status: MissingBinaries Issues: dumpextfs zstd_compress_file bsdiff_", add executable permissions for those files (such as set chmod 755).
 
 ## Importing the generated delta update into Device Update for IoT Hub
 
@@ -200,4 +189,8 @@ If the update was unsuccessful:
     - 9 is "Delta Facility"
     - 0A is "Delta Processor Component" (ADUC_COMPONENT_DELTA_DOWNLOAD_HANDLER_DELTA_PROCESSOR)
     - XXXXX is the 20-bit error code from FIT delta processor
-- If you aren't able to solve the issue based on the error code information, file a GitHub issue so we can address it. Thanks!
+- If you aren't able to solve the issue based on the error code information, file a GitHub issue so we can address it.
+
+## Next steps
+
+[Troubleshoot common issues](troubleshoot-device-update.md)
