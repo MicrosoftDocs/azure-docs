@@ -1,5 +1,5 @@
 ---
-title: Create Dynatrace for Azure (preview) resource - Azure partner solutions
+title: Create Dynatrace for Azure resource - Azure partner solutions
 description: This article describes how to use the Azure portal to create an instance of Dynatrace.
 ms.topic: quickstart
 author: flang-msft
@@ -10,7 +10,7 @@ ms.date: 06/07/2022
 
 # QuickStart: Get started with Dynatrace
 
-In this quickstart, you create a new instance of Dynatrace for Azure (preview). You can either create a new Dynatrace environment or [link to an existing Dynatrace environment](dynatrace-link-to-existing.md#link-to-existing-dynatrace-environment).
+In this quickstart, you create a new instance of Dynatrace for Azure. You can either create a new Dynatrace environment or [link to an existing Dynatrace environment](dynatrace-link-to-existing.md#link-to-existing-dynatrace-environment).
 
 When you use the integrated Dynatrace experience in Azure portal, the following entities are created and mapped for monitoring and billing purposes.
 
