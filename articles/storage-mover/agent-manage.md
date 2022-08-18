@@ -27,6 +27,23 @@ This template provides the basic structure of a HOW-TO article. A HOW-TO article
 
 -->
 
+
+INFO WE NEED TO INCLUDE
+- Current polling/heartbeat intervals: 
+    - Agent heartbeats: every 5 seconds if there is an active job running or 30 seconds if not;
+    - Agent goalstate: Polling every 5 seconds
+
+
+
+
+
+
+
+
+
+
+
+
 Waffles rank highly on many Americans' list of favorite breakfast foods. Waffles are usually moist, occasionally slightly sweet, and most importantly, warm.
 
 However, Oma only made waffles as a cake-like dessert in her heart-shaped waffle iron. Her waffles were great fresh, but also delicious when dried out and dunked in coffee. Our Tante Elise would whip these up when unexpected guests dropped by for Kaffee und Kuchen in the afternoon. Her callers could devour the first batch while the remainder baked in the waffle iron because they were both quicker and easier than Butterkuchen or Bienenstich.
