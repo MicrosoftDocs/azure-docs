@@ -234,5 +234,5 @@ identity:
 ## Next steps
 
 * [Create an Azure Machine Learning dataset](./v1/how-to-create-register-datasets.md)
-* [Train with datasets](how-to-train-with-datasets.md)
+* [Train with datasets](v1/how-to-train-with-datasets.md)
 * [Create a datastore with key-based data access](v1/how-to-access-data.md)
