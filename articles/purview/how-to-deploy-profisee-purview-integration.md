@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Microsoft Purview - Profisee MDM Integration
 
-Master data management (MDM) is a key pillar of any unified data governance solution. Microsoft Purview supports master data management with our partner [Profisee](https://profisee.com/profisee-advantage/). This tutorial compiles reference and integration deployment materials in one place; firstly to put Purview Unified Data Governance and MDM in the context of an Azure data estate; and more importantly, to get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
+Master data management (MDM) is a key pillar of any unified data governance solution. Microsoft Purview supports master data management with our partner [Profisee](https://profisee.com/profisee-advantage/). This tutorial compiles reference and integration deployment materials in one place; firstly to put Microsoft Purview Unified Data Governance and MDM in the context of an Azure data estate; and more importantly, to get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
 
 ## Why Data Governance and Master Data Management (MDM) are essential to the modern Data Estate?
 
@@ -36,10 +36,10 @@ More Details on [Profisee MDM](https://profisee.com/master-data-management-what-
 
 Microsoft Purview and Profisee MDM are often discussed as being a ‘Better Together’ value proposition due to the complementary nature of the solutions. Microsoft Purview excels at cataloging data sources and defining data standards, while Profisee MDM enforces those standards across master data drawn from multiple siloed sources. It's clear not only that either system has independent value to offer, but also that each reinforces the other for a natural ‘Better Together’ synergy that goes deeper than the independent offerings.
   - Common technical foundation – Profisee was born out of Microsoft technologies using common tools, databases & infrastructure so any ‘Microsoft shop’ will find the Profisee solution familiar.  In fact, for many years Profisee MDM was built on Microsoft Master Data Services (MDS) and now that MDS is nearing end of life, Profisee is the premier upgrade/replacement solution for MDS. 
-  - Developer collaboration and joint development – Profisee and Purview developers have collaborated extensively to ensure a good complementary fit between their respective solutions to deliver a seamless integration that meets the needs of their customers. 
-  - Joint sales and deployments – Profisee has more MDM deployments on Azure, and jointly with Purview, than any other MDM vendor, and can be purchased through Azure Marketplace.  In FY2023 Profisee is the only MDM vendor with a Top Tier Microsoft partner certification available as an IaaS/CaaS or SaaS offering through Azure Marketplace.
+  - Developer collaboration and joint development – Profisee and Microsoft Purview developers have collaborated extensively to ensure a good complementary fit between their respective solutions to deliver a seamless integration that meets the needs of their customers. 
+  - Joint sales and deployments – Profisee has more MDM deployments on Azure, and jointly with Microsoft Purview, than any other MDM vendor, and can be purchased through Azure Marketplace.  In FY2023 Profisee is the only MDM vendor with a Top Tier Microsoft partner certification available as an IaaS/CaaS or SaaS offering through Azure Marketplace.
   - Rapid and reliable deployment – Rapid and reliable deployment is critical for any enterprise software and Gartner points out that Profisee has more implementations taking under 90 days than any other MDM vendor.
-  - Inherently multi-domain – Profisee offers an inherently multi-domain approach to MDM where there are no limitations to the number of specificity of master data domains.  This design aligns well with customers looking to modernize their data estate who may start with a limited number of domains, but ultimately will benefit from maximizing domain coverage (matched to their data governance coverage) across their whole data estate.  
+  - Inherently multi-domain – Profisee offers a multi-domain approach to MDM where there are no limitations to the number of specificity of master data domains.  This design aligns well with customers looking to modernize their data estate who may start with a limited number of domains, but ultimately will benefit from maximizing domain coverage (matched to their data governance coverage) across their whole data estate.  
   - Engineered for Azure – Profisee has been engineered to be cloud-native with options for both SaaS and managed IaaS/CaaS deployments on Azure (see next section) 
 
 ## Profisee MDM: Deployment Flexibility – Turnkey SaaS Experience or IaaS/CaaS Flexibility
@@ -47,7 +47,7 @@ Profisee MDM has been engineered for a cloud-native experience and may be deploy
 
 ### Turnkey SaaS Experience
 A fully managed instance of Profisee MDM hosted by Profisee in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.  Profisee MDM SaaS can be purchased on [Azure Marketplace Profisee MDM - SaaS](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/profisee.profisee_saas_private/product~/).
-- **Platform and Management in one** – Leverage a true, end-to-end SaaS platform with one agreement and no third parties.
+- **Platform and Management in one** – Use a true, end-to-end SaaS platform with one agreement and no third parties.
 - **Industry-leading Cloud service** – Hosted on Azure for industry-leading scalability and availability.
 - **The fastest path to Trusted Data** – Deploy in minutes with minimal technical knowledge. Leave the networking, firewalls and storage to us so you can deploy in minutes.
 
@@ -67,14 +67,14 @@ The reference architecture shows how both Microsoft Purview and Profisee MDM wor
 
 :::image type="content" alt-text="Diagram of Profisee-Purview Reference Architecture." source="./media/how-to-deploy-profisee-purview/profisee-purview-mdm-reference-architecture.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-purview-mdm-reference-architecture.png":::
 
-1.	Scan & classify metadata from LOB systems – uses pre-built Purview connectors to scan data sources and populate the Purview Data Catalog
-2.	Publish master data model to Purview – any master data entities created in Profisee MDM are seamlessly published into Purview to further populate the Purview Data Catalog and ensure Purview is ‘aware’ of this critical source of data 
-3.	Enrich master data model with governance details – Governance Data Stewards can enrich master data entity definitions with data dictionary and glossary information as well as ownership and sensitive data classifications, etc. in Purview
-4.	Leverage enriched governance data for data stewardship – any definitions and metadata available on Purview are visible in real-time in Profisee as guidance for the MDM Data Stewards
+1.	Scan & classify metadata from LOB systems – uses pre-built Microsoft Purview connectors to scan data sources and populate the Microsoft Purview Data Catalog
+2.	Publish master data model to Microsoft Purview – any master data entities created in Profisee MDM are seamlessly published into Microsoft Purview to further populate the Microsoft Purview Data Catalog and ensure Microsoft Purview is ‘aware’ of this critical source of data 
+3.	Enrich master data model with governance details – Governance Data Stewards can enrich master data entity definitions with data dictionary and glossary information as well as ownership and sensitive data classifications, etc. in Microsoft Purview
+4.	Apply enriched governance data for data stewardship – any definitions and metadata available in Microsoft Purview are visible in real-time in Profisee as guidance for the MDM Data Stewards
 5.	Load source data from business applications – Azure Data Factory extracts data from source systems with 100+ pre-built connectors and/or REST gateway
-	Transactional and unstructured data is loaded to downstream analytics solution – All ‘raw’ source data can be loaded to analytics database such as Synapse (Synapse is generally the preferred analytic database but other such as Snowflake are also common).  Analysis on this raw information without proper master (‘golden’) data will be subject to inaccuracy as data overlaps, mismatches and conflicts won't yet have been resolved. 
+	Transactional and unstructured data is loaded to downstream analytics solution – All ‘raw’ source data can be loaded to analytics database such as Synapse (Synapse is generally the preferred analytic database but others such as Snowflake are also common).  Analysis on this raw information without proper master (‘golden’) data will be subject to inaccuracy as data overlaps, mismatches and conflicts won't yet have been resolved. 
 7.	Master data from source systems is loaded to Profisee MDM application – Multiple streams of ‘master’ data is loaded to Profisee MDM.  Master data is the data that defines a domain entity such as customer, product, asset, location, vendor, patient, household, menu item, ingredient, and so on.  This data is typically present in multiple systems and resolving differing definitions and matching and merging this data across systems is critical to the ability to use any cross-system data in a meaningful way. 
-8.	Master data is standardized, matched, merged, enriched and validated according to governance rules – Although data quality and governance rules may be defined in other systems (such as Purview), Profisee MDM is where they're enforced.  Source records are matched and merged both within and across source systems to create the most complete and correct record possible.  Data quality rules check each record for compliance with business and technical requirements.   
+8.	Master data is standardized, matched, merged, enriched and validated according to governance rules – Although data quality and governance rules may be defined in other systems (such as Microsoft Purview), Profisee MDM is where they're enforced.  Source records are matched and merged both within and across source systems to create the most complete and correct record possible.  Data quality rules check each record for compliance with business and technical requirements.   
 9.	Extra data stewardship to review and confirm matches, data quality, and data validation issues, as required – Any record failing validation or matching with only a low probability score is subject to remediation. To remediate failed validations, a workflow process assigns records requiring review to Data Stewards who are experts in their business data domain.  Once records have been verified or corrected, they're ready to use as a ‘golden record’ master.  
 10.	Direct access to curated master data including secure data access for reporting in Power BI – Power BI users may report directly on master data through a dedicated Power BI Connector that recognizes and enforces role-based security and hides various system fields for simplicity.
 11.	High-quality, curated master data published to downstream analytics solution – Verified master data can be published out to any target system using Azure Data Factory.  Master data including the parent-child lineage of merged records published into Azure Synapse (or wherever the ‘raw’ source transactional data was loaded).  With this combination of properly curated master data plus transactional data, we have a solid foundation of trusted data for further analysis.         
@@ -91,7 +91,7 @@ The reference architecture shows how both Microsoft Purview and Profisee MDM wor
 1. Get the license file from Profisee by raising a support ticket on [https://support.profisee.com/](https://support.profisee.com/). Only pre-requisite for this step is your need to pre-determine the DNS resolved URL your Profisee setup on Azure. In other words, keep the DNS HOST NAME of the load balancer used in the deployment. It will be something like "[profisee_name].[region].cloudapp.azure.com".
 For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Supply this DNSHOSTNAME to Profisee support when you raise the support ticket and Profisee will revert with the license file. You'll need to supply this file during the next configuration steps below.
 
-1. [Create a user-assigned managed identity in Azure](/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) that you will use to run the deployment. This managed identity must have the following permissions when running a deployment. After the deployment is done, the managed identity can be deleted. Based on your ARM template choices, you'll need some or all of the following roles and permissions assigned to your managed identity:
+1. [Create a user-assigned managed identity in Azure](/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) that you'll use to run the deployment. This managed identity must have the following permissions when running a deployment. After the deployment is done, the managed identity can be deleted. Based on your ARM template choices, you'll need some or all of the following roles and permissions assigned to your managed identity:
     - Contributor role to the resource group where AKS will be deployed. It can either be assigned directly to the resource group **OR** at the subscription level and down.
     - DNS Zone Contributor role to the particular DNS zone where the entry will be created **OR** Contributor role to the DNS Zone resource group. This DNS role is needed only if updating DNS hosted in Azure.
     - Application Administrator role in Azure Active Directory so the required permissions that are needed for the application registration can be assigned.
@@ -103,10 +103,10 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
     - Set authentication to match the settings below:
         - Support ID tokens (used for implicit and hybrid flows)
         - Set the redirect URL to: https://\<your-deployment-url>/profisee/auth/signin-microsoft
-            - Your deployment URL is the URL you will have provided Profisee in step 1
+            - Your deployment URL is the URL you'll have provided Profisee in step 1
 
 1. [Create a service principal](/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal) that Microsoft Purview will use to take some actions on itself during this Profisee deployment. To create a service principal, create an application like you did in the previous step, then [create an application secret](/active-directory/develop/howto-create-service-principal-portal#option-2-create-a-new-application-secret). Save the **Object ID** for the application, and the **Value** of the secret you created for later use.
-    - Give this service principal (using the name or Object ID to locate it) **Data Curator** permissions on the root collection of your Microsoft Purview acount.
+    - Give this service principal (using the name or Object ID to locate it) **Data Curator** permissions on the root collection of your Microsoft Purview account.
 
 1. Go to [https://github.com/Profisee/kubernetes](https://github.com/Profisee/kubernetes) and select Microsoft Purview [**Azure ARM**](https://github.com/profisee/kubernetes/blob/master/Azure-ARM/README.md#deploy-profisee-platform-on-to-aks-using-arm-template).
     - The ARM template will deploy Profisee on a load balanced AKS (Azure Kubernetes Service) infrastructure using an ingress controller.
@@ -127,9 +127,9 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
 
 1. For your Profisee configuration, you can have your information stored in Key Vault or supply the details during deployment. 
     1. Choose your Profisee version, and provide your admin user account and license. 
-    1. Select to configure using Purview.
+    1. Select to configure using Microsoft Purview.
     1. For the Application Registration Client ID, provide the [**application (client) ID**](/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in) for the [application registration you created earlier](#microsoft-purview---profisee-integration-deployment-on-azure-kubernetes-service-aks).
-    1. Select your Purview account.
+    1. Select your Microsoft Purview account.
     1. Add the **object ID** for the [service principal you created earlier](#microsoft-purview---profisee-integration-deployment-on-azure-kubernetes-service-aks).
     1. Add the value for the secret you created for that service principal.
     1. Give your web application a name.
@@ -147,7 +147,7 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
 
     :::image type="content" alt-text="Screenshot of SQL configuration page in the ARM deployment wizard, with Yes, create a new SQL Server selected and details provided." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-c-sqlserver.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-c-sqlserver.png":::
 
-1. On the storage configuration page you can choose to create a new storage account or use an existing one. You will need to provide an access key and the name of an existing file share if you choose an existing account.
+1. On the storage configuration page, you can choose to create a new storage account or use an existing one. You'll need to provide an access key and the name of an existing file share if you choose an existing account.
 
     :::image type="content" alt-text="Screenshot of ARM deployment wizard storage account page, with details provided." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-e-storage.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-e-storage.png":::
 
@@ -161,11 +161,11 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
     >[!WARNING]
     > The default Azure DNS URL (for example URL="https://purviewprofisee.southcentralus.cloudapp.azure.com/profisee") will be picked up by thr ARM template deployment wizard from the license file supplied to you by Profisee. If you intend to make changes and not use the default Azure DNS, make sure to communicate the full DNS and the fully qualified URL of the Profisee DNS to the Profisee support team so that they can re-generate and provide you the updated license file. Failure to do this will result in a malfunctioning installation of Profisee.
 
-1. On the review + create page, review your details to ensure they are correct while the wizard validates your configuration. Once validation passes, select **Create**.
+1. On the review + create page, review your details to ensure they're correct while the wizard validates your configuration. Once validation passes, select **Create**.
 
     :::image type="content" alt-text="Screenshot of the review + create page of the ARM deployment wizard, showing all details with a validation passed flag at the top of the page." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-f-final-template-validation.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-f-final-template-validation.png":::
 
-1. It will take around 45-50 Minutes for deployment to complete installing Profisee. During the deployment you'll see the aspects that are in progress, and can refresh the page to review progress. The deployment will show as complete when all is finished. Completion of "InstallProfiseePlatform" stage also indicates deployment is complete!
+1. It will take around 45-50 Minutes for deployment to complete installing Profisee. During the deployment, you'll see the aspects that are in progress, and can refresh the page to review progress. The deployment will show as complete when all is finished. Completion of "InstallProfiseePlatform" stage also indicates deployment is complete!
 
     :::image type="content" alt-text="Screenshot of Profisee Azure ARM Wizard Deployment Progress, showing intermediate progress." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-mid.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-mid.png":::
 
@@ -173,7 +173,7 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
 
 1. Once deployment is completed, open the resource group where you deployed your integration.
 
-    :::image type="content" alt-text="Screenshot of the resource group where the profisee resources were deployed, withe the deployment script highlighted." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png":::
+    :::image type="content" alt-text="Screenshot of the resource group where the Profisee resources were deployed, withe the deployment script highlighted." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png":::
 
 1. Under outputs, fetch the final deployment URL. The final WEBURL is what you need to paste on your browser address bar and start enjoying Profisee-Purview integration! This URL will be the same that you'd have supplied to Profisee support while obtaining the license file. Unless you chose to change the URL format, it will look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/
 
@@ -187,7 +187,7 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
 
     :::image type="content" alt-text="Screenshot of the Profisee FastApp Studio once you sign in, showing the Accounts and Teams menu selected, and the FastApps link highlighted." source="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png":::
 
-1. As a final validation step to ensure successful installation and for checking whether Profisee has been successfully connected to your Microsoft Purview instance, go to **/Profisee/api/governance/health** It should look something like - "https://[profisee_name].[region].cloudapp.azure.com//Profisee/api/governance/health". The output response will indicate the words **"Status": "Healthy"** on all the Purview subsystems. 
+1. As a final validation step to ensure successful installation and for checking whether Profisee has been successfully connected to your Microsoft Purview instance, go to **/Profisee/api/governance/health** It should look something like - "https://[profisee_name].[region].cloudapp.azure.com//Profisee/api/governance/health". The output response will indicate the words **"Status": "Healthy"** on all the Microsoft Purview subsystems. 
 
     ```
     {
