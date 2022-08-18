@@ -9,22 +9,24 @@ ms.date: 08/03/2022
 ---
 # IoT device selection list
 
-This IoT device selection list aims to give partners a starting point with IoT hardware to build prototypes and proof-of-concepts quickly and easily.[1]
+This IoT device selection list aims to give partners a starting point with IoT hardware to build prototypes and proof-of-concepts quickly and easily.[^1]
+
+
 
 All boards listed support users of all experience levels.
 
 >[!NOTE]
->This table is not intended to be an exhaustive list or for bringing solutions to production. [2, 3]
+>This table is not intended to be an exhaustive list or for bringing solutions to production. [^2] [^3]
 
 **Security advisory:** Except for the Azure Sphere, it's recommended to keep these devices behind a router and/or firewall.
 
 ---
 
-*[1] If you're new to hardware programming, for MCU dev work we recommend using VS Code Arduino Extension or VS Code Platform IO Extension. For SBC dev work, you program the device like you would a laptop, that is, on the device itself. The Raspberry Pi supports VS Code development.*
+[^1]: *If you're new to hardware programming, for MCU dev work we recommend using VS Code Arduino Extension or VS Code Platform IO Extension. For SBC dev work, you program the device like you would a laptop, that is, on the device itself. The Raspberry Pi supports VS Code development.*
 
-*[2] Devices were chosen based on availability of support resources, common boards used for prototyping and PoCs, and boards that support beginner-friendly IDEs like Arduino IDE and VS Code extensions; for example, Arduino Extension and Platform IO extension. For simplicity, we aimed to keep the total device list <6. Some of these metrics are "squishy," which means that other teams and individuals may have chosen to feature different boards based on their interpretation of the criteria.*
+[^2]: *Devices were chosen based on availability of support resources, common boards used for prototyping and PoCs, and boards that support beginner-friendly IDEs like Arduino IDE and VS Code extensions; for example, Arduino Extension and Platform IO extension. For simplicity, we aimed to keep the total device list <6. Some of these metrics are "squishy," which means that other teams and individuals may have chosen to feature different boards based on their interpretation of the criteria.*
 
-*[3] For bringing devices to production, you'll likely want to test a PoC with a specific chipset, ST's STM32 or Microchip's Pic-IoT breakout board series, design a custom board that can be manufactured for lower cost than the MCUs and SBCs listed here, or even explore FPGA-based dev kits. You may also want to use a development environment for professional electrical engineering like STM32CubeMX or ARM mBed browser-based programmer.*
+[^3]: *For bringing devices to production, you'll likely want to test a PoC with a specific chipset, ST's STM32 or Microchip's Pic-IoT breakout board series, design a custom board that can be manufactured for lower cost than the MCUs and SBCs listed here, or even explore FPGA-based dev kits. You may also want to use a development environment for professional electrical engineering like STM32CubeMX or ARM mBed browser-based programmer.*
 
 ## Contents
 
@@ -102,6 +104,9 @@ Below are some suggestions for criteria to consider when choosing a device for y
 
 ## Application selection visual
 
+>[!NOTE]
+>This list is for educational purposes only, it is not intended to endorse any products.
+>
 :::image type="content" source="media/iot-device-selection/iot-device-selection-visual.png" alt-text="Table that shows common selection criteria with possible hardware choices.":::
 
 ## Terminology and ML requirements
@@ -141,7 +146,7 @@ Terminology and acronyms are listed in alphabetical order.
 
 #### Speech ML
 
-- Speed: 60 MHz [1]
+- Speed: 60 MHz [^4]
 - Flash: 50 kB
 - RAM: 8 kB
 
@@ -151,34 +156,46 @@ Terminology and acronyms are listed in alphabetical order.
 - Flash: 20 kB
 - RAM: 2 kB
 
-#### Notes
-
-[1] Speed requirement is largely due to the need for processors to be able to sample a minimum of 6 kHz for microphones to be able to process human vocal frequencies.
+[^4]: *Speed requirement is largely due to the need for processors to be able to sample a minimum of 6 kHz for microphones to be able to process human vocal frequencies.*
 
 ## MCU device list
 
-Following is a comparison table of MCUs in alphabetical order. Please note this is an intentionally brief list, it is not intended to be exhaustive. This list is for educational purposes only, it is not intended to endorse any products. 
+Following is a comparison table of MCUs in alphabetical order. Please note this is an intentionally brief list, it is not intended to be exhaustive. 
+
+>[!NOTE]
+>This list is for educational purposes only, it is not intended to endorse any products. 
 
 | Board Name | Price Range (USD) | What is it used for? | Software| Speed | Processor | Memory | Onboard Sensors and Other Features | IO Pins | Video | Radio | Battery Connector? | Operating Voltage | Getting Stated Guides | **Alternatives** |
 | ---- | ---- | ---- | ----| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | [Azure Sphere MT3620 Dev Kit](https://aka.ms/IotDeviceList/Sphere) | ~$40 - $100 | Highly secure applications | C/C++, VS Code, VS | 500 MHz & 200 MHz | MT3620 (tri-core--1 x Cortex A7, 2 x Cortex M4) | 4-MB RAM + 2 x 64-KB RAM | Certifications: CE/FCC/MIC/RoHS | 4 x Digital IO, 1 x I2S, 4 x ADC, 1 x RTC | - | Dual-band 802.11 b/g/n with antenna diversity | - | 5 V | 1. [Azure Sphere Samples Gallery](https://github.com/Azure/azure-sphere-gallery#azure-sphere-gallery), 2. [Azure Sphere Weather Station](https://www.hackster.io/gatoninja236/azure-sphere-weather-station-d5a2bc)| N/A |
-| [Adafruit HUZZAH32 – ESP32 Feather Board](https://aka.ms/IotDeviceList/AdafruitFeather) | ~$20 | Monitoring; Beginner IoT; Home automation | Arduino IDE, VS Code | 240 MHz | 32-Bit ESP32 (dual-core Tensilica LX6) | 4 MB SPI Flash, 520 KB SRAM | Hall sensor, 10x capacitive touch IO pins, 50+ add-on boards | 3 x UARTs, 3 x SPI, 2 x I2C, 12 x ADC inputs, 2 x I2S Audio, 2 x DAC | - | 802.11b/g/n HT40 Wi-Fi transceiver, baseband, stack and LWIP, Bluetooth and BLE | √ | 3.3 V | 1. [Scientific freezer monitor](https://www.hackster.io/adi-azulay/azure-edge-impulse-scientific-freezer-monitor-5448ee), 2. [Azure IoT SDK Arduino samples](https://github.com/Azure/azure-sdk-for-c-arduino) | [Arduino Uno WiFi Rev 2](https://aka.ms/IotDeviceList/ArduinoUnoWifi) |
-| [Arduino Nano 33 BLE Sense](https://aka.ms/IotDeviceList/ArduinoNanoBLE) | ~$30 | Monitoring; ML; Game controller; Beginner IoT | Arduino IDE, VS Code | 64 MHz | 32-bit Nordic nRF52840 (Cortex M4F) | 1 MB Flash, 256 KB SRAM | 9-axis inertial sensor, Humidity and temp sensor, Barometric sensor, Microphone, Gesture, proximity, light color and light intensity sensor | 14 x Digital IO, 1 x UART, 1 x SPI, 1 x I2C, 8 x ADC input | - | Bluetooth and BLE | - | 3.3 V – 21 V | 1. [Connect Nano BLE to Azure IoT Hub](https://create.arduino.cc/projecthub/Arduino_Genuino/securely-connecting-an-arduino-nb-1500-to-azure-iot-hub-af6470), 2. [Monitor beehive with Azure Functions](https://www.hackster.io/clementchamayou/how-to-monitor-a-beehive-with-arduino-nano-33ble-bluetooth-eabc0d) | [Seeed XIAO BLE sense ($16)](https://aka.ms/IotDeviceList/SeeedXiao) |
-| [Arduino Nano RP2040 Connect](https://aka.ms/IotDeviceList/ArduinoRP2040Nano) | ~$25  | Remote control; Monitoring | Arduino IDE, VS Code, C/C++, MicroPython | 133 MHz | 32-bit RP2040 (dual-core Cortex M0+) | 16 MB Flash, 264-kB RAM | Microphone, Six-axis IMU with AI capabilities | 22 x Digital IO, 20 x PWM, 8 x ADC | - | WiFi, Bluetooth | - | 3.3 V | - |[Adafruit Feather RP2040 (NOTE: also need a FeatherWing for WiFi)](https://aka.ms/IotDeviceList/AdafruitRP2040) |
-| [ESP32-S2 Saola-1](https://aka.ms/IotDeviceList/ESPSaola) | ~$10 | Home automation; Beginner IoT; ML; Monitoring; Mesh networking | Arduino IDE, Circuit Python, ESP IDF | 240 MHz | 32-bit ESP32-S2 (single-core Xtensa LX7) | 128 kB Flash, 320 kB SRAM, 16 kB SRAM (RTC) | 14 x capacitive touch IO pins, Temp sensor | 43 x Digital pins, 8 x PWM, 20 x ADC, 2 x DAC | Serial LCD, Parallel PCD | Wi-Fi 802.11 b/g/n (802.11n up to 150 Mbps) | - | 3.3 V | 1. [Secure face detection with Azure ML](https://www.hackster.io/achindra/microsoft-azure-machine-learning-and-face-detection-in-iot-2de40a), 2. [Azure Cost Monitor](https://www.hackster.io/jenfoxbot/azure-cost-monitor-31811a) | [ESP32-DevKitC](https://aka.ms/IotDeviceList/ESPDevKit) |
-| [Wio Terminal (Seeed Studio)](https://aka.ms/IotDeviceList/WioTerminal) | ~$40 | Monitoring; Home Automation; ML | Arduino IDE, VS Code, MicroPython, ArduPy | 120 MHz | 32-bit ATSAMD51 (single-core Cortex-M4F) | 4 MB SPI Flash, 192-kB RAM | On-board screen, Microphone, IMU, buzzer, microSD slot, light sensor, IR emitter, Raspberry Pi GPIO mount (as child device) | 26 x Digital Pins, 5 x PWM, 9 x ADC | 2.4" 320x420 Color LCD | dual-band 2.4Ghz/5Ghz (Realtek RTL8720DN) | - | 3.3 V | [Monitor plants with Azure IoT](https://github.com/microsoft/IoT-For-Beginners/tree/main/2-farm/lessons/4-migrate-your-plant-to-the-cloud) | [Adafruit FunHouse ($35)](https://aka.ms/IotDeviceList/AdafruitFunhouse) |
+| [Adafruit HUZZAH32 – ESP32 Feather Board](https://aka.ms/IotDeviceList/AdafruitFeather) | ~$20 - $25 | Monitoring; Beginner IoT; Home automation | Arduino IDE, VS Code | 240 MHz | 32-Bit ESP32 (dual-core Tensilica LX6) | 4 MB SPI Flash, 520 KB SRAM | Hall sensor, 10x capacitive touch IO pins, 50+ add-on boards | 3 x UARTs, 3 x SPI, 2 x I2C, 12 x ADC inputs, 2 x I2S Audio, 2 x DAC | - | 802.11b/g/n HT40 Wi-Fi transceiver, baseband, stack and LWIP, Bluetooth and BLE | √ | 3.3 V | 1. [Scientific freezer monitor](https://www.hackster.io/adi-azulay/azure-edge-impulse-scientific-freezer-monitor-5448ee), 2. [Azure IoT SDK Arduino samples](https://github.com/Azure/azure-sdk-for-c-arduino) | [Arduino Uno WiFi Rev 2 (~$50 - $60)](https://aka.ms/IotDeviceList/ArduinoUnoWifi) |
+| [Arduino Nano 33 BLE Sense](https://aka.ms/IotDeviceList/ArduinoNanoBLE) | ~$30 - $35 | Monitoring; ML; Game controller; Beginner IoT | Arduino IDE, VS Code | 64 MHz | 32-bit Nordic nRF52840 (Cortex M4F) | 1 MB Flash, 256 KB SRAM | 9-axis inertial sensor, Humidity and temp sensor, Barometric sensor, Microphone, Gesture, proximity, light color and light intensity sensor | 14 x Digital IO, 1 x UART, 1 x SPI, 1 x I2C, 8 x ADC input | - | Bluetooth and BLE | - | 3.3 V – 21 V | 1. [Connect Nano BLE to Azure IoT Hub](https://create.arduino.cc/projecthub/Arduino_Genuino/securely-connecting-an-arduino-nb-1500-to-azure-iot-hub-af6470), 2. [Monitor beehive with Azure Functions](https://www.hackster.io/clementchamayou/how-to-monitor-a-beehive-with-arduino-nano-33ble-bluetooth-eabc0d) | [Seeed XIAO BLE sense (~$15 - $20)](https://aka.ms/IotDeviceList/SeeedXiao) |
+| [Arduino Nano RP2040 Connect](https://aka.ms/IotDeviceList/ArduinoRP2040Nano) | ~$20 - $25  | Remote control; Monitoring | Arduino IDE, VS Code, C/C++, MicroPython | 133 MHz | 32-bit RP2040 (dual-core Cortex M0+) | 16 MB Flash, 264-kB RAM | Microphone, Six-axis IMU with AI capabilities | 22 x Digital IO, 20 x PWM, 8 x ADC | - | WiFi, Bluetooth | - | 3.3 V | - |[Adafruit Feather RP2040 (NOTE: also need a FeatherWing for WiFi)](https://aka.ms/IotDeviceList/AdafruitRP2040) |
+| [ESP32-S2 Saola-1](https://aka.ms/IotDeviceList/ESPSaola) | ~$10 - $15 | Home automation; Beginner IoT; ML; Monitoring; Mesh networking | Arduino IDE, Circuit Python, ESP IDF | 240 MHz | 32-bit ESP32-S2 (single-core Xtensa LX7) | 128 kB Flash, 320 kB SRAM, 16 kB SRAM (RTC) | 14 x capacitive touch IO pins, Temp sensor | 43 x Digital pins, 8 x PWM, 20 x ADC, 2 x DAC | Serial LCD, Parallel PCD | Wi-Fi 802.11 b/g/n (802.11n up to 150 Mbps) | - | 3.3 V | 1. [Secure face detection with Azure ML](https://www.hackster.io/achindra/microsoft-azure-machine-learning-and-face-detection-in-iot-2de40a), 2. [Azure Cost Monitor](https://www.hackster.io/jenfoxbot/azure-cost-monitor-31811a) | [ESP32-DevKitC (~$10 - $15)](https://aka.ms/IotDeviceList/ESPDevKit) |
+| [Wio Terminal (Seeed Studio)](https://aka.ms/IotDeviceList/WioTerminal) | ~$40 - $50 | Monitoring; Home Automation; ML | Arduino IDE, VS Code, MicroPython, ArduPy | 120 MHz | 32-bit ATSAMD51 (single-core Cortex-M4F) | 4 MB SPI Flash, 192-kB RAM | On-board screen, Microphone, IMU, buzzer, microSD slot, light sensor, IR emitter, Raspberry Pi GPIO mount (as child device) | 26 x Digital Pins, 5 x PWM, 9 x ADC | 2.4" 320x420 Color LCD | dual-band 2.4Ghz/5Ghz (Realtek RTL8720DN) | - | 3.3 V | [Monitor plants with Azure IoT](https://github.com/microsoft/IoT-For-Beginners/tree/main/2-farm/lessons/4-migrate-your-plant-to-the-cloud) | [Adafruit FunHouse (~$30 - $40)](https://aka.ms/IotDeviceList/AdafruitFunhouse) |
 
 ## SBC device list
 
-Following is a comparison table of SBCs in alphabetical order. Please note this is an intentionally brief list, it is not intended to be exhaustive. This list is for educational purposes only, it is not intended to endorse any products.
+Following is a comparison table of SBCs in alphabetical order. Please note this is an intentionally brief list, it is not intended to be exhaustive.
+
+>[!NOTE]
+>This list is for educational purposes only, it is not intended to endorse any products.
 
 | Board Name | Price Range (USD) | What is it used for? | Software| Speed | Processor | Memory | Onboard Sensors and Other Features | IO Pins | Video | Radio | Battery Connector? | Operating Voltage | Getting Started Guides | **Alternatives** |
 | ---- | ---- | ---- | ----| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----|
-| [Raspberry Pi 4, Model B](https://aka.ms/IotDeviceList/RpiModelB) | ~$30 - $80 | Home automation; Robotics; Autonomous vehicles; Control systems; Field science | Raspberry Pi OS, Raspbian, Ubuntu 20.04/21.04, RISC OS, Windows 10 IoT, more | 1.5 GHz CPU, 500 MHz GPU | 64-bit Broadcom BCM2711 (quad-core Cortex-A72), VideoCore VI GPU | 2GB/4GB/8GB LPDDR4 RAM, SD Card (not included) | 2 x USB 3 ports, 1 x MIPI DSI display port, 1 x MIPI CSI camera port, 4-pole stereo audio and composite video port, Power over Ethernet (requires HAT) | 26 x Digital, 4 x PWM | 2 micro-HDMI composite, MPI DSI | WiFi, Bluetooth | √ | 5 V | 1. [Send data to IoT Hub](https://www.hackster.io/jenfoxbot/how-to-send-see-data-from-a-raspberry-pi-to-azure-iot-hub-908924), 2. [Monitor plants with Azure IoT](https://github.com/microsoft/IoT-For-Beginners/tree/main/2-farm/lessons/4-migrate-your-plant-to-the-cloud)| [BeagleBone Black Wireless ($55)](https://aka.ms/IotDeviceList/BeagleBoard) |
-| [NVIDIA Jetson 2 GB Nano Dev Kit](https://aka.ms/IotDeviceList/NVIDIAJetson) | ~$50 - $100 | AI/ML; Autonomous vehicles | Ubuntu-based JetPack | 1.43 GHz CPU, 921 MHz GPU | 64-bit Nvidia CPU (quad-core Cortex-A57), 128-CUDA-core Maxwell GPU coprocessor | 2GB/4GB LPDDR4 RAM | 472 GFLOPS for AI Perf, 1 x MIPI CSI-2 connector | 28 x Digital, 2 x PWM | HDMI, DP (4 GB only) | Gigabit Ethernet, 802.11ac WiFi | √ | 5 V | [Deepstream integration with Azure IoT Central](https://www.hackster.io/pjdecarlo/nvidia-deepstream-integration-with-azure-iot-central-d9f834) | [BeagleBone AI ($116)](https://aka.ms/IotDeviceList/BeagleBoneAI) |
-| [Raspberry Pi Zero W2](https://aka.ms/IotDeviceList/RpiZeroW) | ~$15 | Home automation; ML; Vehicle modifications; Field Science | Raspberry Pi OS, Raspbian, Ubuntu 20.04/21.04, RISC OS, Windows 10 IoT, more | 1 GHz CPU, 400 MHz GPU | 64-bit Broadcom BCM2837 (quad-core Cortez-A53), VideoCore IV GPU | 512 MB LPDDR2 RAM, SD Card (not included) | 1 x CSI-2 Camera connector | 26 x Digital, 4 x PWM | Mini-HDMI | WiFi, Bluetooth | - | 5 V | [Send and visualize data to Azure IoT Hub](https://www.hackster.io/jenfoxbot/how-to-send-see-data-from-a-raspberry-pi-to-azure-iot-hub-908924) | [Onion Omega2+ ($13)](https://onion.io/Omega2/) |
-| [DFRobot LattePanda](https://aka.ms/IotDeviceList/DFRobotLattePanda) | ~$100 - $160 | Home automation; Hyperscale cloud connectivity; AI/ML | Windows 10, Ubuntu 16.04, OpenSuSE 15 | 1.92 GHz | 64-bit Intel Z8350 (quad-core x86-64), Atmega32u4 coprocessor | 2 GB DDR3L RAM, 32 GB eMMC/4GB DDR3L RAM, 64-GB eMMC | - | 6 x Digital (20 x via Atmega32u4), 6 x PWM, 12 x ADC | HDMI, MIPI DSI | WiFi, Bluetooth | √ | 5 V | 1. [Getting started with Microsoft Azure](https://www.hackster.io/45361/dfrobot-lattepanda-with-microsoft-azure-getting-started-0ae8fb), 2. [Home Monitoring System with Azure](https://www.hackster.io/JiongShi/home-monitoring-system-based-on-lattepanda-zigbee-and-azure-ce4e03)| [Seeed Odyssey X86J4125800 ($218)](https://aka.ms/IotDeviceList/SeeedOdyssey) |
+| [Raspberry Pi 4, Model B](https://aka.ms/IotDeviceList/RpiModelB) | ~$30 - $80 | Home automation; Robotics; Autonomous vehicles; Control systems; Field science | Raspberry Pi OS, Raspbian, Ubuntu 20.04/21.04, RISC OS, Windows 10 IoT, more | 1.5 GHz CPU, 500 MHz GPU | 64-bit Broadcom BCM2711 (quad-core Cortex-A72), VideoCore VI GPU | 2GB/4GB/8GB LPDDR4 RAM, SD Card (not included) | 2 x USB 3 ports, 1 x MIPI DSI display port, 1 x MIPI CSI camera port, 4-pole stereo audio and composite video port, Power over Ethernet (requires HAT) | 26 x Digital, 4 x PWM | 2 micro-HDMI composite, MPI DSI | WiFi, Bluetooth | √ | 5 V | 1. [Send data to IoT Hub](https://www.hackster.io/jenfoxbot/how-to-send-see-data-from-a-raspberry-pi-to-azure-iot-hub-908924), 2. [Monitor plants with Azure IoT](https://github.com/microsoft/IoT-For-Beginners/tree/main/2-farm/lessons/4-migrate-your-plant-to-the-cloud)| [BeagleBone Black Wireless (~$50 - $60)](https://aka.ms/IotDeviceList/BeagleBoard) |
+| [NVIDIA Jetson 2 GB Nano Dev Kit](https://aka.ms/IotDeviceList/NVIDIAJetson) | ~$50 - $100 | AI/ML; Autonomous vehicles | Ubuntu-based JetPack | 1.43 GHz CPU, 921 MHz GPU | 64-bit Nvidia CPU (quad-core Cortex-A57), 128-CUDA-core Maxwell GPU coprocessor | 2GB/4GB LPDDR4 RAM | 472 GFLOPS for AI Perf, 1 x MIPI CSI-2 connector | 28 x Digital, 2 x PWM | HDMI, DP (4 GB only) | Gigabit Ethernet, 802.11ac WiFi | √ | 5 V | [Deepstream integration with Azure IoT Central](https://www.hackster.io/pjdecarlo/nvidia-deepstream-integration-with-azure-iot-central-d9f834) | [BeagleBone AI (~$110 - $120)](https://aka.ms/IotDeviceList/BeagleBoneAI) |
+| [Raspberry Pi Zero W2](https://aka.ms/IotDeviceList/RpiZeroW) | ~$15 - $20 | Home automation; ML; Vehicle modifications; Field Science | Raspberry Pi OS, Raspbian, Ubuntu 20.04/21.04, RISC OS, Windows 10 IoT, more | 1 GHz CPU, 400 MHz GPU | 64-bit Broadcom BCM2837 (quad-core Cortez-A53), VideoCore IV GPU | 512 MB LPDDR2 RAM, SD Card (not included) | 1 x CSI-2 Camera connector | 26 x Digital, 4 x PWM | Mini-HDMI | WiFi, Bluetooth | - | 5 V | [Send and visualize data to Azure IoT Hub](https://www.hackster.io/jenfoxbot/how-to-send-see-data-from-a-raspberry-pi-to-azure-iot-hub-908924) | [Onion Omega2+ (~$10 - $15)](https://onion.io/Omega2/) |
+| [DFRobot LattePanda](https://aka.ms/IotDeviceList/DFRobotLattePanda) | ~$100 - $160 | Home automation; Hyperscale cloud connectivity; AI/ML | Windows 10, Ubuntu 16.04, OpenSuSE 15 | 1.92 GHz | 64-bit Intel Z8350 (quad-core x86-64), Atmega32u4 coprocessor | 2 GB DDR3L RAM, 32 GB eMMC/4GB DDR3L RAM, 64-GB eMMC | - | 6 x Digital (20 x via Atmega32u4), 6 x PWM, 12 x ADC | HDMI, MIPI DSI | WiFi, Bluetooth | √ | 5 V | 1. [Getting started with Microsoft Azure](https://www.hackster.io/45361/dfrobot-lattepanda-with-microsoft-azure-getting-started-0ae8fb), 2. [Home Monitoring System with Azure](https://www.hackster.io/JiongShi/home-monitoring-system-based-on-lattepanda-zigbee-and-azure-ce4e03)| [Seeed Odyssey X86J4125800 (~$210 - $230)](https://aka.ms/IotDeviceList/SeeedOdyssey) |
 
 ## Questions? Requests?
 
 Please submit an issue!
+
+## See Also
+
+Other helpful resources include:
+1. [Overview of Azure IoT device types](https://docs.microsoft.com/en-us/azure/iot-develop/concepts-iot-device-types)
+2. [Overview of Azure IoT Device SDKs](https://docs.microsoft.com/en-us/azure/iot-develop/about-iot-sdks)
+3. [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-ansi-c)
+4. [AzureRTOS ThreadX Documentation](https://docs.microsoft.com/en-us/azure/rtos/threadx/)
