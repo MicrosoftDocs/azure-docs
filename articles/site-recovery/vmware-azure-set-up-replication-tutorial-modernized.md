@@ -13,7 +13,7 @@ This article describes how to enable replication for on-premises VMware VMs, for
 
 For information on how to set up disaster recovery in Azure Site Recovery Classic releases, see [the tutorial](vmware-azure-tutorial.md).
 
-This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-preview.md) for disaster recovery to Azure.
+This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-modernized.md) for disaster recovery to Azure.
 
 
 In this tutorial, you learn how to:
@@ -30,7 +30,7 @@ VMware to Azure replication includes the following procedures:
 - Sign in to the [Azure portal](https://portal.azure.com/).
 - Prepare Azure account
 - [Create a recovery Services vault](./quickstart-create-vault-template.md?tabs=CLI)
-- Prepare infrastructure - [deploy an Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-preview.md)
+- Prepare infrastructure - [deploy an Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-modernized.md)
 - Enable replication
 
 ## Prepare Azure account
@@ -63,7 +63,7 @@ Use the following steps to assign the required permissions:
 
 ## Prepare infrastructure - set up Azure Site Recovery Replication appliance
 
-You need to [set up an Azure Site Recovery replication appliance on the on-premises environment](deploy-vmware-azure-replication-appliance-preview.md) to channel mobility agent communications.
+You need to [set up an Azure Site Recovery replication appliance on the on-premises environment](deploy-vmware-azure-replication-appliance-modernized.md) to channel mobility agent communications.
 
 ![Replication appliance](./media/vmware-azure-set-up-replication-tutorial-modernized/replication-appliance.png)
 
