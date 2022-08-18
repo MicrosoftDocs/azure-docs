@@ -3,7 +3,7 @@ title: Reliability in Azure Lab Services
 description: Learn about reliability in Azure Lab Services
 ms.topic: overview
 ms.custom: subject-resiliency
-ms.date: 08/16/2022
+ms.date: 08/18/2022
 ---
 
 # What is reliability in Azure Lab Services?
@@ -50,7 +50,7 @@ In the event of a zone outage in these regions, you can still perform the follow
 
 Data loss may occur only with an unrecoverable disaster in the Cosmos DB region. For more information, see [Region Outages](/azure/cosmos-db/high-availability#region-outages).
 
-For regions not listed, access to the Azure Lab Services infrastructure is not guaranteed when there is an outage in the region containing the lab plan. You will only be able to perform the following tasks:
+For regions not listed, access to the Azure Lab Services infrastructure is not guaranteed when there is a zone outage in the region containing the lab plan. You will only be able to perform the following tasks:
 
 - Access the Azure Lab Services website
 - Create/manage lab plans, labs, and VMs in regions unaffected by the zone outage
@@ -83,16 +83,21 @@ If infrastructure is impacted, it will be restored when the zone availability is
 
 #### Azure Lab Services infrastructure
 
-In a regional outage, the experience of using the Azure Lab Services infrastructure is the same as in a zone outage. For lab plans in zone-redundant regions, you can perform the same tasks described in the [Zone down experience](#zone-down-experience) section for Azure Lab Services infrastructure.
-
-For regions not listed as zone-redundant, the experience of using the Azure Lab Services infrastructure is the same as in a zone outage. You will only be able to perform the following tasks:
+In a regional outage, in most scenarios you will only be able to perform the following tasks related to Azure Lab Services infrastructure:
 
 - Access the Azure Lab Services website
 - Create/manage lab plans, labs, and VMs in regions unaffected by the zone outage
 
+Typically, labs are in the same region as the lab plan. However, if the outage is in the lab plan region and the lab is in an unaffected region, you can still perform the following tasks:
+
+- Access the Azure Lab Services website
+- Create Users
+- Configure lab schedules
+- Create/manage lab plans, labs, and VMs in regions unaffected by the zone outage
+
 #### Labs and VMs
 
-In a regional outage, you will be unable to manage or use any labs or VMs in the region.
+In a regional outage, labs and VMs in the region are unavailable, so you will not be able to use or manage them.
 
 Existing labs and VMs in regions unaffected by the zone outage aren't affected by a loss of infrastructure in the lab plan region. Existing labs and VMs in unaffected regions can still run and operate as normal.
 
