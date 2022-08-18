@@ -19,9 +19,6 @@ ms.custom: mode-other
 
 [!INCLUDE [Short code eligibility notice](../../includes/public-preview-include-short-code-eligibility.md)]
 
-> [!Data sharing notice]
->  Short code service involves an integration between Microsoft, SMS aggregators and the wireless carriers. Wireless carriers are the final reviewers and approvers of the short code application. Microsoft must share the short code program brief information with the carriers for them to confirm that the program details meet the CTIA guidelines and standards set by carriers. By submitting a short code program brief, you agree that Microsoft may share the program brief details as necessary for provisioning the short code.
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
