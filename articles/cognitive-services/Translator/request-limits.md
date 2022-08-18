@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 08/17/2022
 ms.author: lajanuar
 ---
 
@@ -59,23 +59,6 @@ These limits are restricted to Microsoft's standard translation models. Custom t
 ## Latency
 
 The Translator has a maximum latency of 15 seconds using standard models and 120 seconds when using custom models. Typically, responses *for text within 100 characters* are returned in 150 milliseconds to 300 milliseconds. The custom translator models have similar latency characteristics on sustained request rate and may have a higher latency when your request rate is intermittent. Response times will vary based on the size of the request and language pair. If you don't receive a translation or an [error response](./reference/v3-0-reference.md#errors) within that timeframe, check your code, your network connection, and retry.
-
-## Sentence length limits
-
-When you're using the [BreakSentence](./reference/v3-0-break-sentence.md) function, sentence length is limited to 275 characters. There are exceptions for these languages:
-
-| Language | Code | Character limit |
-|----------|------|-----------------|
-| Chinese | `zh` | 166 |
-| German | `de` | 800 |
-| Italian | `it` | 800 |
-| Japanese | `ja` | 166 |
-| Portuguese | `pt` | 800 |
-| Spanish | `es` | 800 |
-| Thai | `th` | 180 |
-
-> [!NOTE]
-> This limit doesn't apply to translations.
 
 ## Next steps
 
