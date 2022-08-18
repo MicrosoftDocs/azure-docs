@@ -4,7 +4,7 @@ description: Learn how to build an Azure Resource Manager template that deploys 
 
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 08/18/2022
 ms.custom: fasttrack-edit, devx-track-azurepowershell
 ---
 
@@ -15,6 +15,7 @@ You can use an Azure Resource Manager template to deploy a function app. This ar
 For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 For sample templates, see:
+
 - [ARM templates for function app deployment](https://github.com/Azure-Samples/function-app-arm-templates)
 - [Function app on Consumption plan]
 - [Function app on Azure App Service plan]
@@ -42,14 +43,14 @@ An Azure storage account is required for a function app. You need a general purp
 
 ```json
 {
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2019-06-01",
-    "location": "[resourceGroup().location]",
-    "kind": "StorageV2",
-    "sku": {
-        "name": "[parameters('storageAccountType')]"
-    }
+  "type": "Microsoft.Storage/storageAccounts",
+  "name": "[variables('storageAccountName')]",
+  "apiVersion": "2019-06-01",
+  "location": "[resourceGroup().location]",
+  "kind": "StorageV2",
+  "sku": {
+    "name": "[parameters('storageAccountType')]"
+  }
 }
 ```
 
@@ -61,14 +62,14 @@ These properties are specified in the `appSettings` collection in the `siteConfi
 
 ```json
 "appSettings": [
-    {
-        "name": "AzureWebJobsStorage",
-        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
-    },
-    {
-        "name": "AzureWebJobsDashboard",
-        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
-    }
+  {
+    "name": "AzureWebJobsStorage",
+    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
+  },
+  {
+    "name": "AzureWebJobsDashboard",
+    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
+  }
 ]
 ```
 
@@ -77,39 +78,40 @@ These properties are specified in the `appSettings` collection in the `siteConfi
 Application Insights is recommended for monitoring your function apps. The Application Insights resource is defined with the type **Microsoft.Insights/components** and the kind **web**:
 
 ```json
-        {
-            "apiVersion": "2015-05-01",
-            "name": "[variables('appInsightsName')]",
-            "type": "Microsoft.Insights/components",
-            "kind": "web",
-            "location": "[resourceGroup().location]",
-            "tags": {
-                "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', variables('functionAppName'))]": "Resource"
-            },
-            "properties": {
-                "Application_Type": "web",
-                "ApplicationId": "[variables('appInsightsName')]"
-            }
-        },
+{
+  "apiVersion": "2015-05-01",
+  "name": "[variables('appInsightsName')]",
+  "type": "Microsoft.Insights/components",
+  "kind": "web",
+  "location": "[resourceGroup().location]",
+  "tags": {
+    "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', variables('functionAppName'))]": "Resource"
+  },
+  "properties": {
+    "Application_Type": "web",
+    "ApplicationId": "[variables('appInsightsName')]"
+  }
+},
 ```
 
 In addition, the instrumentation key needs to be provided to the function app using the `APPINSIGHTS_INSTRUMENTATIONKEY` application setting. This property is specified in the `appSettings` collection in the `siteConfig` object:
 
 ```json
 "appSettings": [
-    {
-        "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
-    }
+  {
+    "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+    "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
+  }
 ]
 ```
 
 ### Hosting plan
 
 The definition of the hosting plan varies, and can be one of the following:
-* [Consumption plan](#consumption) (default)
-* [Premium plan](#premium)
-* [App Service plan](#app-service-plan)
+
+- [Consumption plan](#consumption) (default)
+- [Premium plan](#premium)
+- [App Service plan](#app-service-plan)
 
 ### Function app
 
@@ -117,15 +119,15 @@ The function app resource is defined by using a resource of type **Microsoft.Web
 
 ```json
 {
-    "apiVersion": "2015-08-01",
-    "type": "Microsoft.Web/sites",
-    "name": "[variables('functionAppName')]",
-    "location": "[resourceGroup().location]",
-    "kind": "functionapp",
-    "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
-        "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
-    ]
+  "apiVersion": "2015-08-01",
+  "type": "Microsoft.Web/sites",
+  "name": "[variables('functionAppName')]",
+  "location": "[resourceGroup().location]",
+  "kind": "functionapp",
+  "dependsOn": [
+    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
+  ]
 }
 ```
 
@@ -145,26 +147,26 @@ These properties are specified in the `appSettings` collection in the `siteConfi
 
 ```json
 "properties": {
-    "siteConfig": {
-        "appSettings": [
-            {
-                "name": "AzureWebJobsStorage",
-                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
-            },
-            {
-                "name": "FUNCTIONS_WORKER_RUNTIME",
-                "value": "node"
-            },
-            {
-                "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                "value": "~14"
-            },
-            {
-                "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~4"
-            }
-        ]
-    }
+  "siteConfig": {
+    "appSettings": [
+      {
+        "name": "AzureWebJobsStorage",
+        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
+      },
+      {
+        "name": "FUNCTIONS_WORKER_RUNTIME",
+        "value": "node"
+      },
+      {
+        "name": "WEBSITE_NODE_DEFAULT_VERSION",
+        "value": "~14"
+      },
+      {
+        "name": "FUNCTIONS_EXTENSION_VERSION",
+        "value": "~4"
+      }
+    ]
+  }
 }
 ```
 
@@ -227,6 +229,7 @@ To run your app on Linux, you must also set the property `"reserved": true` for 
   }
 }
 ```
+
 ---
 
 ### Create a function app
@@ -317,7 +320,7 @@ For a sample Azure Resource Manager template, see [Azure Function App Hosted on 
   "properties": {
     "reserved": true,
     "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-    "siteConfig": {          
+    "siteConfig": {
       "linuxFxVersion": "node|14",
       "appSettings": [
         {
@@ -336,11 +339,12 @@ For a sample Azure Resource Manager template, see [Azure Function App Hosted on 
           "name": "FUNCTIONS_WORKER_RUNTIME",
           "value": "node"
         }
-      ]    
+      ]
     }
   }
 }
 ```
+
 ---
 
 <a name="premium"></a>
@@ -396,6 +400,7 @@ To run your app on Linux, you must also set property `"reserved": true` for the 
   "kind": "elastic"
 }
 ```
+
 ---
 
 ### Create a function app
@@ -459,6 +464,7 @@ The settings required by a function app running in Premium plan differ between W
   }
 }
 ```
+
 > [!IMPORTANT]
 > You don't need to set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting because it's generated for you when the site is first created.
 
@@ -513,6 +519,7 @@ The function app must have set `"kind": "functionapp,linux"`, and it must have s
   }
 }
 ```
+
 ---
 
 <a name="app-service-plan"></a>
@@ -566,6 +573,7 @@ To run your app on Linux, you must also set property `"reserved": true` for the 
   }
 }
 ```
+
 ---
 
 ### Create a function app
@@ -669,6 +677,7 @@ The function app must have set `"kind": "functionapp,linux"`, and it must have s
   }
 }
 ```
+
 ---
 
 ### Custom Container Image
@@ -677,55 +686,55 @@ If you are [deploying a custom container image](./functions-create-function-linu
 
 ```json
 {
-    "apiVersion": "2016-03-01",
-    "type": "Microsoft.Web/sites",
-    "name": "[variables('functionAppName')]",
-    "location": "[resourceGroup().location]",
-    "kind": "functionapp",
-    "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-    ],
-    "properties": {
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "siteConfig": {
-            "appSettings": [
-                {
-                    "name": "AzureWebJobsStorage",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
-                },
-                {
-                    "name": "FUNCTIONS_WORKER_RUNTIME",
-                    "value": "node"
-                },
-                {
-                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                    "value": "~14"
-                },
-                {
-                    "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~3"
-                },
-                {
-                    "name": "DOCKER_REGISTRY_SERVER_URL",
-                    "value": "[parameters('dockerRegistryUrl')]"
-                },
-                {
-                    "name": "DOCKER_REGISTRY_SERVER_USERNAME",
-                    "value": "[parameters('dockerRegistryUsername')]"
-                },
-                {
-                    "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
-                    "value": "[parameters('dockerRegistryPassword')]"
-                },
-                {
-                    "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
-                    "value": "false"
-                }
-            ],
-            "linuxFxVersion": "DOCKER|myacr.azurecr.io/myimage:mytag"
+  "apiVersion": "2016-03-01",
+  "type": "Microsoft.Web/sites",
+  "name": "[variables('functionAppName')]",
+  "location": "[resourceGroup().location]",
+  "kind": "functionapp",
+  "dependsOn": [
+    "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+  ],
+  "properties": {
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+    "siteConfig": {
+      "appSettings": [
+        {
+          "name": "AzureWebJobsStorage",
+          "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
+        },
+        {
+          "name": "FUNCTIONS_WORKER_RUNTIME",
+          "value": "node"
+        },
+        {
+          "name": "WEBSITE_NODE_DEFAULT_VERSION",
+          "value": "~14"
+        },
+        {
+          "name": "FUNCTIONS_EXTENSION_VERSION",
+          "value": "~3"
+        },
+        {
+          "name": "DOCKER_REGISTRY_SERVER_URL",
+          "value": "[parameters('dockerRegistryUrl')]"
+        },
+        {
+          "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+          "value": "[parameters('dockerRegistryUsername')]"
+        },
+        {
+          "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+          "value": "[parameters('dockerRegistryPassword')]"
+        },
+        {
+          "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+          "value": "false"
         }
+      ],
+      "linuxFxVersion": "DOCKER|myacr.azurecr.io/myimage:mytag"
     }
+  }
 }
 ```
 
@@ -737,14 +746,14 @@ To create the app and plan resources, you must have already [created an App Serv
 
 ```json
 {
-    "parameters": {
-        "kubeEnvironmentId" : {
-            "type": "string"
-        },
-        "customLocationId" : {
-            "type": "string"
-        }
+  "parameters": {
+    "kubeEnvironmentId" : {
+      "type": "string"
+    },
+    "customLocationId" : {
+      "type": "string"
     }
+  }
 }
 ```
 
@@ -752,10 +761,10 @@ Both sites and plans must reference the custom location through an `extendedLoca
 
 ```json
 {
-    "extendedLocation": {
-        "type": "customlocation",
-        "name": "[parameters('customLocationId')]"
-    },
+  "extendedLocation": {
+    "type": "customlocation",
+    "name": "[parameters('customLocationId')]"
+  },
 }
 ```
 
@@ -763,29 +772,29 @@ The plan resource should use the Kubernetes (K1) SKU, and its `kind` field shoul
 
 ```json
 {
-    "type": "Microsoft.Web/serverfarms",
+  "type": "Microsoft.Web/serverfarms",
+  "name": "[variables('hostingPlanName')]",
+  "location": "[parameters('location')]",
+  "apiVersion": "2020-12-01",
+  "kind": "linux,kubernetes",
+  "sku": {
+    "name": "K1",
+    "tier": "Kubernetes"
+  },
+  "extendedLocation": {
+    "type": "customlocation",
+    "name": "[parameters('customLocationId')]"
+  },
+  "properties": {
     "name": "[variables('hostingPlanName')]",
     "location": "[parameters('location')]",
-    "apiVersion": "2020-12-01",
-    "kind": "linux,kubernetes",
-    "sku": {
-        "name": "K1",
-        "tier": "Kubernetes"
+    "workerSizeId": "0",
+    "numberOfWorkers": "1",
+    "kubeEnvironmentProfile": {
+        "id": "[parameters('kubeEnvironmentId')]"
     },
-    "extendedLocation": {
-        "type": "customlocation",
-        "name": "[parameters('customLocationId')]"
-    },
-    "properties": {
-        "name": "[variables('hostingPlanName')]",
-        "location": "[parameters('location')]",
-        "workerSizeId": "0",
-        "numberOfWorkers": "1",
-        "kubeEnvironmentProfile": {
-            "id": "[parameters('kubeEnvironmentId')]"
-        },
-        "reserved": true
-    }
+    "reserved": true
+  }
 }
 ```
 
@@ -793,42 +802,42 @@ The function app resource should have its `kind` field set to "functionapp,linux
 
 ```json
  {
-    "apiVersion": "2018-11-01",
-    "type": "Microsoft.Web/sites",
-    "name": "[variables('appName')]",
-    "kind": "kubernetes,functionapp,linux,container",
-    "location": "[parameters('location')]",
-    "extendedLocation": {
-        "type": "customlocation",
-        "name": "[parameters('customLocationId')]"
-    },
-    "dependsOn": [
-        "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]",
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
-        "[variables('hostingPlanId')]"
-    ],
-    "properties": {
-        "serverFarmId": "[variables('hostingPlanId')]",
-        "siteConfig": {
-            "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice-quickstart",
-            "appSettings": [
-                {
-                    "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~3"
-                },
-                {
-                    "name": "AzureWebJobsStorage",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+  "apiVersion": "2018-11-01",
+  "type": "Microsoft.Web/sites",
+  "name": "[variables('appName')]",
+  "kind": "kubernetes,functionapp,linux,container",
+  "location": "[parameters('location')]",
+  "extendedLocation": {
+    "type": "customlocation",
+    "name": "[parameters('customLocationId')]"
+  },
+  "dependsOn": [
+    "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]",
+    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+    "[variables('hostingPlanId')]"
+  ],
+  "properties": {
+    "serverFarmId": "[variables('hostingPlanId')]",
+    "siteConfig": {
+      "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice-quickstart",
+      "appSettings": [
+        {
+          "name": "FUNCTIONS_EXTENSION_VERSION",
+          "value": "~3"
+        },
+        {
+          "name": "AzureWebJobsStorage",
+          "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
 
-                },
-                {
-                    "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                    "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
-                }
-            ],
-            "alwaysOn": true
+        },
+        {
+          "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+          "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
         }
+      ],
+      "alwaysOn": true
     }
+  }
 }
 ```
 
@@ -867,39 +876,40 @@ A function app has many child resources that you can use in your deployment, inc
      }
   },
   "resources": [
-     {
-        "apiVersion": "2015-08-01",
-        "name": "appsettings",
-        "type": "config",
-        "dependsOn": [
-          "[resourceId('Microsoft.Web/Sites', parameters('appName'))]",
-          "[resourceId('Microsoft.Web/Sites/sourcecontrols', parameters('appName'), 'web')]",
-          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-        ],
-        "properties": {
-          "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
-          "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
-          "FUNCTIONS_EXTENSION_VERSION": "~3",
-          "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-          "Project": "src"
-        }
-     },
-     {
-          "apiVersion": "2015-08-01",
-          "name": "web",
-          "type": "sourcecontrols",
-          "dependsOn": [
-            "[resourceId('Microsoft.Web/sites/', parameters('appName'))]"
-          ],
-          "properties": {
-            "RepoUrl": "[parameters('sourceCodeRepositoryURL')]",
-            "branch": "[parameters('sourceCodeBranch')]",
-            "IsManualIntegration": "[parameters('sourceCodeManualIntegration')]"
-          }
-     }
+    {
+      "apiVersion": "2015-08-01",
+      "name": "appsettings",
+      "type": "config",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/Sites', parameters('appName'))]",
+        "[resourceId('Microsoft.Web/Sites/sourcecontrols', parameters('appName'), 'web')]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+      ],
+      "properties": {
+        "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
+        "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
+        "FUNCTIONS_EXTENSION_VERSION": "~3",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        "Project": "src"
+      }
+    },
+    {
+      "apiVersion": "2015-08-01",
+      "name": "web",
+      "type": "sourcecontrols",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites/', parameters('appName'))]"
+      ],
+      "properties": {
+        "RepoUrl": "[parameters('sourceCodeRepositoryURL')]",
+        "branch": "[parameters('sourceCodeBranch')]",
+        "IsManualIntegration": "[parameters('sourceCodeManualIntegration')]"
+      }
+    }
   ]
 }
 ```
+
 > [!TIP]
 > This template uses the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) app settings value, which sets the base directory in which the Functions deployment engine (Kudu) looks for deployable code. In our repository, our functions are in a subfolder of the **src** folder. So, in the preceding example, we set the app settings value to `src`. If your functions are in the root of your repository, or if you are not deploying from source control, you can remove this app settings value.
 
@@ -907,10 +917,10 @@ A function app has many child resources that you can use in your deployment, inc
 
 You can use any of the following ways to deploy your template:
 
-* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-* [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
-* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
-* [REST API](../azure-resource-manager/templates/deploy-rest.md)
+- [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+- [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+- [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+- [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### Deploy to Azure button
 
@@ -953,9 +963,9 @@ To test out this deployment, you can use a [template like this one](https://raw.
 
 Learn more about how to develop and configure Azure Functions.
 
-* [Azure Functions developer reference](functions-reference.md)
-* [How to configure Azure function app settings](functions-how-to-use-azure-function-app-settings.md)
-* [Create your first Azure function](./functions-get-started.md)
+- [Azure Functions developer reference](functions-reference.md)
+- [How to configure Azure function app settings](functions-how-to-use-azure-function-app-settings.md)
+- [Create your first Azure function](./functions-get-started.md)
 
 <!-- LINKS -->
 
