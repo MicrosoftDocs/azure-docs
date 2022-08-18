@@ -109,9 +109,9 @@ Create a `src/main/resources/application.properties` file, and add:
 
 ``` properties
 driver.class.name=org.postgresql.Driver
-url=jdbc:postgresql://<host>:5432/citus?ssl=true&sslmode=require
-user=citus
-password=<password>
+db.url=jdbc:postgresql://<host>:5432/citus?ssl=true&sslmode=require
+db.username=citus
+db.password=<password>
 ```
 
 Replace the  \<host\> using the Connection string that you gathered previously. Replace \<password\> with the password that you set for the database.
@@ -593,23 +593,23 @@ Executing the `main` class should now produce the following output:
 The following code is an example for copying in-memory data to table.
 
 ```java
-private static void inMemory(Connection connection) throws SQLException,IOException {
-    log.info("Copying in-memory data into table");
-    String[] input = {"0,Target,Sunnyvale,California,94001"};
-
-    Connection unwrap = connection.unwrap(Connection.class);
-    BaseConnection  connSec = (BaseConnection) unwrap;
-
-    CopyManager copyManager = new CopyManager((BaseConnection) connSec);
-    String copyCommand = "COPY pharmacy FROM STDIN with csv";
-
-    for (String var : input)
+private static void inMemory(Connection connection) throws SQLException,IOException
     {
-        Reader reader = new StringReader(var);
+    log.info("Copying inmemory data into table");
+            
+    final List<String> rows = new ArrayList<>();
+    rows.add("0,Target,Sunnyvale,California,94001");
+    rows.add("1,Apollo,Guntur,Andhra,94003");
+        
+    final BaseConnection baseConnection = (BaseConnection) connection.unwrap(Connection.class);
+    final CopyManager copyManager = new CopyManager(baseConnection);
+
+    // COPY command can change based on the format of rows. This COPY command is for above rows.
+    final String copyCommand = "COPY pharmacy FROM STDIN with csv";        
+       
+    try (final Reader reader = new StringReader(String.join("\n", rows))) {
         copyManager.copyIn(copyCommand, reader);
     }
-
-    copyManager.copyIn(copyCommand);
 }
 ```
 
@@ -649,7 +649,7 @@ It's sometimes possible that requests from your application to database fail. Su
 Below example shows how to implement retry logic in your app. The sample code snippet tries a db request every 60 seconds for five times until it succeeds. Number of retries & frequency of retries can be configured based on your application needs.
 
 ```java
-package test1.crud2;
+package test.crud;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
