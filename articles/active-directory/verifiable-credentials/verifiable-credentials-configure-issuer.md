@@ -112,13 +112,13 @@ In this step, you create the verified credential expert card by using Microsoft 
             ],
             "required": false
           }
-        ],
-        "validityInterval": 2592000,
-        "vc": {
-          "type": [
-            "VerifiedCredentialExpert"
-          ]
-        }
+        ]
+      },
+      "validityInterval": 2592000,
+      "vc": {
+        "type": [
+          "VerifiedCredentialExpert"
+        ]
       }
     }
     ```
