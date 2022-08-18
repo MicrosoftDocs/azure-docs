@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 08/18/2022
 
 ms.author: justinha
 author: Gargi-Sinha
@@ -76,11 +76,9 @@ The seed file contains the secret keys, token serial numbers, and other necessar
 If you no longer have the seed file with the secret keys, it isn't possible to export the secret keys from MFA Server. 
 If you no longer have access to the secret keys, contact your hardware vendor for support.
 
-The MFA Server Web Service SDK can be used to export the serial number for any OATH tokens assigned to a given user. 
-Using this information along with the seed file, IT admins can import the tokens into Azure AD and assign the OATH token to the specified user based on the serial number. 
+The [MFA Server Migration Utility](how-to-mfa-server-migration-utility.md) migrate OATH token settings assigned to a given user. 
 The user will also need to be contacted at the time of import to supply OTP information from the device to complete the registration. 
 Refer to the GetUserInfo > userSettings > OathTokenSerialNumber topic in the Multi-Factor Authentication Server help file on your MFA Server. 
-
 
 ### More migrations
 
