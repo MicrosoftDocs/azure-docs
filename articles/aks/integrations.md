@@ -20,8 +20,13 @@ The following rules are used by AKS for applying updates to installed add-ons:
 - Only an add-on's patch version can be upgraded within a Kubernetes minor version. The add-on's major/minor version will not be upgraded within the same Kubernetes minor version.
 - The major/minor version of the add-on will only be upgraded when moving to a later Kubernetes minor version.
 - Any breaking or behavior changes to the add-on will be announced well before, usually 60 days, a later minor version of Kubernetes is released on AKS.
-- Add-ons can be patched weekly with every new release of AKS which will be announced in the release notes. AKS releases can be controlled using [maintenance windows][maintenance-windows] and followed using [release tracker][release-tracker].
+- Add-ons can be patched weekly with every new release of AKS which will be announced in the release notes. AKS releases can be controlled using [maintenance windows][maintenance-windows] and followed using [release tracker][release-tracker]. 
 
+### Exceptions 
+The following exceptions apply to bringing in major/minor or breaking changes to the add-ons:
+   - In the event that the Kubernetes version is in preview
+   - In the event that the addon or feature is in preview
+   
 The below table shows the available add-ons.
 
 | Name | Description | More details |
