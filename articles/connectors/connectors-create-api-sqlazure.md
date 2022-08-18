@@ -37,7 +37,6 @@ The SQL Server connector has different versions, based on [logic app type and ho
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql). <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Standard class) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version doesn't have triggers. You can use either an SQL managed connector trigger or a different trigger. <br><br>- The built-in version connects directly to an SQL server and database requiring only a connection string. You don't need the on-premises data gateway. <br><br>- The built-in version can directly access Azure virtual networks. You don't need the on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
-||||
 
 ## Limitations
 
@@ -317,7 +316,6 @@ In the connection information box, complete the following steps:
    | **Server name** | Yes | The address for your SQL server, for example, **Fabrikam-Azure-SQL.database.windows.net** |
    | **Database name** | Yes | The name for your SQL database, for example, **Fabrikam-Azure-SQL-DB** |
    | **Table name** | Yes | The table that you want to use, for example, **SalesLT.Customer** |
-   ||||
 
    > [!TIP]
    >
@@ -358,7 +356,6 @@ In the connection information box, complete the following steps:
    |----------------|-------------|
    | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supported with the SQL Server managed connector, SQL Server built-in connector, and ISE-versioned connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server. <br><br>For more information, see [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    | [**Windows Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Supported with the SQL Server managed connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid Windows user name and password to confirm your identity through your Windows account. <br><br>For more information, see [Windows Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication). |
-   |||
 
 1. Select or provide the following values for your SQL database:
 
@@ -370,7 +367,6 @@ In the connection information box, complete the following steps:
    | **Password** | Yes | Your password for the SQL server and database |
    | **Subscription** |  Yes, for Windows authentication | The Azure subscription for the data gateway resource that you previously created in Azure |
    | **Connection Gateway** | Yes, for Windows authentication | The name for the data gateway resource that you previously created in Azure <br><br><br><br>**Tip**: If your gateway doesn't appear in the list, check that you correctly [set up your gateway](../logic-apps/logic-apps-gateway-connection.md). |
-   |||
 
    > [!TIP]
    > You can find this information in your database's connection string:
@@ -469,7 +465,6 @@ The SQL Server built-in connector is available only for Standard logic app workf
 | [**Get tables**](#get-tables) | Get a list of files and subfolders in the specified folder. |
 | [**Insert row**](#insert-row) | Update a file using the specified file path and file content. |
 | [**Update rows**](#update-rows) | Update a file using the specified file path and file content. |
-|||
 
 <a name="delete-rows"></a>
 
@@ -485,7 +480,6 @@ Deletes and returns the table rows that match the specified **Where condition** 
 |------|-----|----------|------|-------------|
 | **Table name** | `tableName` | True | String | The name for the table |
 | **Where condition** | `columnValuesForWhereCondition` | True | Object | This object contains the column names and corresponding values to delete. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*, which also lets you delete single or specific rows.|
-||||||
 
 #### Returns
 
@@ -493,7 +487,6 @@ Deletes and returns the table rows that match the specified **Where condition** 
 |------|------|
 | **Result** | An array object that returns all the deleted rows. Each row contains the column name and the corresponding deleted value. |
 | **Result Item** | An array object that returns one deleted row at a time. A **For each** loop is automatically added to your workflow to iterate through the array. Each row contains the column name and the corresponding deleted value. |
-|||
 
 *Example*
 
