@@ -57,7 +57,7 @@ You can buy reservations in the [Azure portal](https://portal.azure.com/#blade/M
 3. Select **Add** and then in the Purchase reservations pane, select **Azure Cache for Redis** to purchase a new reservation for your caches.
 4. Fill in the required fields. Existing or new databases that match the attributes you select qualify to get the reservation discount. The actual number of your Azure Cache for Redis instances that get the discount depend on the scope and quantity selected.
 
-![Overview of reserved pricing](media/cache-reserved-pricing/cache-reserved-price.png)
+:::image type="content" source="media/cache-reserved-pricing/cache-reserved-price.png" alt-text="Screenshot showing an overview of reserved pricing.":::
 
 The following table describes required fields.
 
