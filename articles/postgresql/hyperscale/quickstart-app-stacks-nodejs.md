@@ -108,9 +108,10 @@ async function queryDatabase() {
 
   try {
     /* Real application code would probably request a dedicated client with
-       pool.connect() and run multiple queries with the client. In this example, we're
-       running only one query, so we use the pool.query() helper method to run it on
-       the first available idle client. */
+       pool.connect() and run multiple queries with the client. In this
+       example, we're running only one query, so we use the pool.query()
+       helper method to run it on the first available idle client.
+    */
 
     await pool.query(queryString);
     console.log('Created the Pharmacy table and inserted rows.');
