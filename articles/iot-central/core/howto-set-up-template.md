@@ -30,6 +30,8 @@ The device template has the following sections:
 
 To learn more, see [What are device templates?](concepts-device-templates.md).
 
+To learn how to manage device templates by using the IoT Central REST API, see [How to use the IoT Central REST API to manage device templates.](../core/howto-manage-device-templates-with-rest-api.md)
+
 ## Create a device template
 
 You have several options to create device templates:

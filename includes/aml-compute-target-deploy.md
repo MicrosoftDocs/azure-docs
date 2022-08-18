@@ -16,7 +16,7 @@ The compute target you use to host your model will affect the cost and availabil
 
 | Compute target | Used for | GPU support | FPGA support | Description |
 | ----- | ----- | ----- | ----- | ----- |
-| [Local&nbsp;web&nbsp;service](../articles/machine-learning/how-to-deploy-local-container-notebook-vm.md) | Testing/debugging | &nbsp; | &nbsp; | Use for limited testing and troubleshooting. Hardware acceleration depends on use of libraries in the local system.
+| [Local&nbsp;web&nbsp;service](../articles/machine-learning/v1/how-to-deploy-local-container-notebook-vm.md) | Testing/debugging | &nbsp; | &nbsp; | Use for limited testing and troubleshooting. Hardware acceleration depends on use of libraries in the local system.
 | [Azure Machine Learning Kubernetes](../articles/machine-learning/how-to-attach-kubernetes-anywhere.md) | Real-time inference <br/><br/> Batch inference | Yes | N/A | Run inferencing workloads on on-premise, cloud, and edge Kubernetes clusters. |  
 | [Azure Container Instances](../articles/machine-learning/v1/how-to-deploy-azure-container-instance.md) | Real-time inference <br/><br/> Recommended for dev/test purposes only.| &nbsp;  | &nbsp; | Use for low-scale CPU-based workloads that require less than 48 GB of RAM. Doesn't require you to manage a cluster. <br/><br/> Supported in the designer. |
 | [Azure Machine Learning compute clusters](../articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md) | Batch&nbsp;inference | [Yes](../articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md) (machine learning pipeline) | &nbsp;  | Run batch scoring on serverless compute. Supports normal and low-priority VMs. No support for real-time inference.|
