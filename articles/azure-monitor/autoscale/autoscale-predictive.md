@@ -318,7 +318,7 @@ The modeling works best with workloads that exhibit periodicity. We recommend th
 Standard autoscaling is a necessary fallback if the predictive model doesn't work well for your scenario. Standard autoscale will cover unexpected load spikes, which aren't part of your typical CPU load pattern. It also provides a fallback if an error occurs in retrieving the predictive data.
 
 ### Which rule will take effect if both predictive and standard autoscale rules are set?
-In the case of unexpected spikes or error retrieving predictive data, standard autoscale rules are used. 
+Standard autoscale rules are used if there is an unexpected spike in the CPU load, or an error occurs when retrieving predictive data```
 
 We use the threshold set in standard autoscale rules to understand when you’d like to scale out and by how many instances. Let's say you want your VMSS to scale out when 70% CPU is met. If actual or predictive (future) data shows that 70% CPU is met, then scale out will occur.
 
