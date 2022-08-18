@@ -43,7 +43,7 @@ Each service guide will also provide the following disaster recovery information
 > * Capacity and proactive disaster recovery resiliency
 
 
-For more detailed information on reliability and reliability principles in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](https://docs.microsoft.com/azure/architecture/framework/#reliability).
+For more detailed information on reliability and reliability principles in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](/azure/architecture/framework/#reliability).
 
 
 ## Availability zone guides
