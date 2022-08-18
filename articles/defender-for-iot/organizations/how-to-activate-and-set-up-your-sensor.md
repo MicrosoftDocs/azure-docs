@@ -33,7 +33,10 @@ Before signing in to the sensor console, administrator users should have access 
 
 - The activation file associated with this sensor. The file was generated and downloaded during sensor onboarding by Defender for IoT.
 
+
 - An SSL/TLS CA-signed certificate that your company requires.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 ### About activation files
 

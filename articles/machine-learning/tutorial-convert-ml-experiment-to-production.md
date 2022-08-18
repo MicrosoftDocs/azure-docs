@@ -526,4 +526,4 @@ Now that you understand how to convert from an experiment to production code, se
 
 + [MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md): Build a CI/CD pipeline to train, evaluate and deploy your own model using Azure Pipelines and Azure Machine Learning
 + [Monitor Azure ML experiment jobs and metrics](./how-to-log-view-metrics.md)
-+ [Monitor and collect data from ML web service endpoints](./how-to-enable-app-insights.md)
++ [Monitor and collect data from ML web service endpoints](./v1/how-to-enable-app-insights.md)

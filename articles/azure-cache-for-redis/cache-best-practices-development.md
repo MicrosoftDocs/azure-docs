@@ -78,7 +78,12 @@ While you can connect from outside of Azure, it isn't recommended *especially wh
 
 ## Rely on hostname not public IP address
 
-The public IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on the hostname, in the form `<cachename>.redis.cache.windows.net`, instead of an explicit public IP address.
+The public IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on the hostname instead of an explicit public IP address. Here are the recommended forms for the various tiers:
+
+|Tier | Form |
+|----|----|
+| Basic, Standard, Premium | `<cachename>.redis.cache.windows.net` |
+| Enterprise, Enterprise Flash | `<DNS name>.<Azure region>.redisenterprise.cache.azure.net.`  |
 
 ## Choose an appropriate Redis version
 

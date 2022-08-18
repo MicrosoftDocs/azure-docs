@@ -13,7 +13,7 @@ Azure Kubernetes Service (AKS) provides additional, supported functionality for 
 
 ## Add-ons
 
-Add-ons are a fully-supported way to provide extra capabilities for your AKS cluster. Add-ons' installation, configuration, and lifecycle is managed by AKS. Use `az aks addon` to install an add-on or manage the add-ons for your cluster.
+Add-ons are a fully supported way to provide extra capabilities for your AKS cluster. Add-ons' installation, configuration, and lifecycle is managed by AKS. Use `az aks addon` to install an add-on or manage the add-ons for your cluster.
 
 The following rules are used by AKS for applying updates to installed add-ons:
 
@@ -43,6 +43,10 @@ Cluster extensions build on top of certain Helm charts and provide an Azure Reso
 ## Difference between extensions and add-ons
 
 Both extensions and add-ons are supported ways to add functionality to your AKS cluster. When you install an add-on, the functionality is added as part of the AKS resource provider in the Azure API. When you install an extension, the functionality is added as part of a separate resource provider in the Azure API.
+
+## GitHub Actions
+
+GitHub Actions helps you automate your software development workflows from within GitHub. For more details on using GitHub Actions with Azure, see [What is GitHub Actions for Azures][github-actions]. For an example of using GitHub Actions with an AKS cluster, see [Build, test, and deploy containers to Azure Kubernetes Service using GitHub Actions][github-actions-aks].
 
 ## Open source and third-party integrations
 
@@ -100,3 +104,16 @@ The below table shows a few examples of open-source and third-party integrations
 [web-app-routing]: web-app-routing.md
 [maintenance-windows]: planned-maintenance.md
 [release-tracker]: release-tracker.md
+[github-actions]: /azure/developer/github/github-actions
+[azure/aks-set-context]: https://github.com/Azure/aks-set-context
+[azure/k8s-set-context]: https://github.com/Azure/k8s-set-context
+[azure/k8s-bake]: https://github.com/Azure/k8s-bake
+[azure/k8s-create-secret]: https://github.com/Azure/k8s-create-secret
+[azure/k8s-deploy]: https://github.com/Azure/k8s-deploy
+[azure/k8s-lint]: https://github.com/Azure/k8s-lint
+[azure/setup-helm]: https://github.com/Azure/setup-helm
+[azure/setup-kubectl]: https://github.com/Azure/setup-kubectl
+[azure/k8s-artifact-substitute]: https://github.com/Azure/k8s-artifact-substitute
+[azure/aks-create-action]: https://github.com/Azure/aks-create-action
+[azure/aks-github-runner]: https://github.com/Azure/aks-github-runner
+[github-actions-aks]: kubernetes-action.md

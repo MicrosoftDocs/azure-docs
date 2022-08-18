@@ -11,9 +11,6 @@ ms.service: azure-fluid
 
 # Azure Fluid Relay token contract
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
 Requests sent to Azure Fluid Relay should contain a JWT token in the authorization header. This token should be [signed by the tenant key](../concepts/authentication-authorization.md).
 
 ## Claims

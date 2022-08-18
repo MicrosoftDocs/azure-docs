@@ -199,13 +199,6 @@ sections:
             Which file formats does Form Recognizer support? Are there size limitations for input documents?
         answer:  |
 
-            - Form Recognizer extracts data from document images JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned) formats and returns a structured output.
-            - For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-            - Your file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
-            - Image dimensions must be between 50 x 50 pixels and 10000 x 10,000 pixels.
-            - PDF dimensions can be a maximum of 17 x 17 inches (corresponding to Legal or A3 paper size) or smaller.
-            - The total allowable size of training data is 500 pages or less.
-
             To ensure the best results, see [input requirements](concept-model-overview.md#input-requirements).
 
       - question: |
@@ -241,13 +234,13 @@ sections:
         answer: |
          Form Recognizer billing is  calculated monthly based on the model type and number of pages analyzed:
 
-          - When you submit a document for analysis, all pages are analyzed unless you specify a page range with the `pages` parameter in your request.
+          - When you submit a document for analysis, all pages are analyzed unless you specify a page range with the `pages` parameter in your request. When analyzing Microsoft Excel and PowerPoint documents with the new Read OCR model, each worksheet and slide is counted as one page respectively.
 
-          - When analyzing Microsoft Word and HTML files with the new Read OCR model, pages are counted in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, it will be counted as three pages as two pages with 3,000 characters each and one page with 1,000 characters.
+          - When analyzing PDF and TIFF files, each page in the PDF file or each image in the TIFF file is counted as one page with no maximum character limits.
+          
+          - When analyzing Microsoft Word and HTML files supported by only the Read model, pages are counted in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, the two pages with 3,000 characters each and one page with 1,000 characters will add up to a total of three pages.
 
-          - In addition, if your Microsoft Word, Excel, and PowerPoint documents have embedded images, each image will be analyzed for text extraction and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents will be equal to the sum of total text pages and total images analyzed. In the previous example if the document contains two embedded images, the total page count in the service output will be three + two = five pages.
-
-          - When analyzing Microsoft Excel and PowerPoint documents with the new Read OCR model, each worksheet and slide is counted as one page respectively.
+          - In addition, when using the Read model, if your Microsoft Word, Excel, and PowerPoint pages have embedded images, each image will be analyzed and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents will be equal to the sum of total text pages and total images analyzed. In the previous example if the document contains 2 embedded images, the total page count in the service output will be three text pages plus two images equaling a total of five pages.
 
           - Training a custom model is always free with Form Recognizer. You’re only charged when a model is used to analyze a document.
 
@@ -417,7 +410,7 @@ sections:
 
           - For **document analysis and prebuilt models**, you need full access—**Contributor** role—to at least one [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to enter the analyze page. Once you access the model analyze page, you can change the endpoint and key to access other resources, if needed.
 
-          - For custom models, you can use the endpoint and key of a [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project, and access to at least one blob storage account.
+          - For **custom models**, you can either use a **Contributor** role, or use the endpoint and key of a [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project. You also need to have **Contributor** role to access to at least one blob storage account.
 
           - For more information, *see* [Azure AD built-in roles](../../role-based-access-control/built-in-roles.md).
 
@@ -477,7 +470,7 @@ sections:
         answer: |
           Each request to an Azure service must include an authentication header. You can authenticate a request with several methods:
 
-          - [Authenticate](create-a-form-recognizer-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
+          - [Authenticate](create-a-form-recognizer-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
 
           - [Authenticate](../../cognitive-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
 
