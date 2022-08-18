@@ -16,7 +16,15 @@ In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped t
 
 ## Before you begin
 
-* You need the Azure CLI version 2.3.1 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+### [Azure CLI](#tab/azure-cli)
+
+You need the Azure CLI version 2.3.1 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+You need the Azure PowerShell version 7.5.0 or later installed and configured. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][install-azure-powershell].
+
+---
 
 ## Limitations
 
@@ -56,6 +64,8 @@ You can do the following operations with node pools:
 
 ## Create a new AKS cluster with a system node pool
 
+### [Azure CLI](#tab/azure-cli)
+
 When you create a new AKS cluster, you automatically create a system node pool with a single node. The initial node pool defaults to a mode of type system. When you create new node pools with `az aks nodepool add`, those node pools are user node pools unless you explicitly specify the mode parameter.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* region.
@@ -71,10 +81,28 @@ Use the [az aks create][az-aks-create] command to create an AKS cluster. The fol
 az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+When you create a new AKS cluster, you automatically create a system node pool with a single node. The initial node pool defaults to a mode of type system. When you create new node pools with `New-AzAksNodePool`, those node pools are user node pools. A node pool's mode can be [updated at any time][update-node-pool-mode].
+
+The following example creates a resource group named *myResourceGroup* in the *eastus* region.
+
+```azurepowershell-interactive
+New-AzResourceGroup -ResourceGroupName myResourceGroup -Location eastus
+```
+
+Use the [New-AzAksCluster][new-azakscluster] cmdlet to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one dedicated system pool containing one node. For your production workloads, ensure you are using system node pools with at least three nodes. This operation may take several minutes to complete.
+
+```azurepowershell-interactive
+# Create a new AKS cluster with a single system pool
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1 -GenerateSshKey
+```
+
+---
+
 ## Add a dedicated system node pool to an existing AKS cluster
 
-> [!Important]
-> You can't change node taints through the CLI after the node pool is created.
+### [Azure CLI](#tab/azure-cli)
 
 You can add one or more system node pools to existing AKS clusters. It's recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. This prevents rogue application pods from accidentally killing system pods. Enforce this behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools. 
 
@@ -89,9 +117,35 @@ az aks nodepool add \
     --node-taints CriticalAddonsOnly=true:NoSchedule \
     --mode System
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+You can add one or more system node pools to existing AKS clusters. It's recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. This prevents rogue application pods from accidentally killing system pods. Enforce this behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools. 
+
+The following command adds a dedicated node pool of mode type system with a default count of three nodes.
+
+```azurepowershell-interactive
+# By default, New-AzAksNodePool creates a user node pool
+# We need to update the node pool's mode to System later
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -Name systempool -Count 3
+
+# Update the node pool's mode to System and add the 'CriticalAddonsOnly=true:NoSchedule' taint
+$myAKSCluster = Get-AzAksCluster -ResourceGroupName myResourceGroup2 -Name myAKSCluster
+$systemPool = $myAKSCluster.AgentPoolProfiles | Where-Object Name -eq 'systempool'
+$systemPool.Mode = 'System'
+$nodeTaints = [System.Collections.Generic.List[string]]::new()
+$NodeTaints.Add('CriticalAddonsOnly=true:NoSchedule')
+$systemPool.NodeTaints = $NodeTaints
+$myAKSCluster | Set-AzAksCluster
+```
+
+---
+
 ## Show details for your node pool
 
-You can check the details of your node pool with the following command.  
+You can check the details of your node pool with the following command. 
+
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n systempool
@@ -103,7 +157,7 @@ A mode of type **System** is defined for system node pools, and a mode of type *
 {
   "agentPoolType": "VirtualMachineScaleSets",
   "availabilityZones": null,
-  "count": 1,
+  "count": 3,
   "enableAutoScaling": null,
   "enableNodePublicIp": false,
   "id": "/subscriptions/yourSubscriptionId/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/systempool",
@@ -120,7 +174,7 @@ A mode of type **System** is defined for system node pools, and a mode of type *
   "orchestratorVersion": "1.16.10",
   "osDiskSizeGb": 128,
   "osType": "Linux",
-  "provisioningState": "Failed",
+  "provisioningState": "Succeeded",
   "proximityPlacementGroupId": null,
   "resourceGroup": "myResourceGroup",
   "scaleSetEvictionPolicy": null,
@@ -136,7 +190,43 @@ A mode of type **System** is defined for system node pools, and a mode of type *
 }
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Get-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -Name systempool
+```
+
+A mode of type **System** is defined for system node pools, and a mode of type **User** is defined for user node pools. For a system pool, verify the taint is set to `CriticalAddonsOnly=true:NoSchedule`, which will prevent application pods from beings scheduled on this node pool.
+
+```Output
+Count                  : 3
+VmSize                 : Standard_D2_v2
+OsDiskSizeGB           : 128
+VnetSubnetID           :
+MaxPods                : 30
+OsType                 : Linux
+MaxCount               :
+MinCount               :
+EnableAutoScaling      :
+AgentPoolType          : VirtualMachineScaleSets
+OrchestratorVersion    : 1.23.3
+ProvisioningState      : Succeeded
+AvailabilityZones      : {}
+EnableNodePublicIP     :
+ScaleSetPriority       :
+ScaleSetEvictionPolicy :
+NodeTaints             : {CriticalAddonsOnly=true:NoSchedule}
+Id                     : /subscriptions/yourSubscriptionId/resourcegroups/myResourceGroup/providers
+                         /Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/systempool
+Name                   : systempool
+Type                   : Microsoft.ContainerService/managedClusters/agentPools
+```
+
+---
+
 ## Update existing cluster system and user node pools
+
+### [Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
 > An API version of 2020-03-01 or greater must be used to set a system node pool mode. Clusters created on API versions older than 2020-03-01 contain only user node pools as a result. To receive system node pool functionality and benefits on older clusters, update the mode of existing node pools with the following commands on the latest Azure CLI version.
@@ -155,6 +245,31 @@ This command changes a user node pool to a system node pool.
 az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+> [!NOTE]
+> An API version of 2020-03-01 or greater must be used to set a system node pool mode. Clusters created on API versions older than 2020-03-01 contain only user node pools as a result. To receive system node pool functionality and benefits on older clusters, update the mode of existing node pools with the following commands on the latest Azure PowerShell version.
+
+You can change modes for both system and user node pools. You can change a system node pool to a user pool only if another system node pool already exists on the AKS cluster.
+
+This command changes a system node pool to a user node pool.
+
+```azurepowershell-interactive
+$myAKSCluster = Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster
+($myAKSCluster.AgentPoolProfiles | Where-Object Name -eq 'mynodepool').Mode = 'User'
+$myAKSCluster | Set-AzAksCluster
+```
+
+This command changes a user node pool to a system node pool.
+
+```azurepowershell-interactive
+$myAKSCluster = Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster
+($myAKSCluster.AgentPoolProfiles | Where-Object Name -eq 'mynodepool').Mode = 'System'
+$myAKSCluster | Set-AzAksCluster
+```
+
+---
+
 ## Delete a system node pool
 
 > [!Note]
@@ -162,11 +277,23 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 
 You must have at least two system node pools on your AKS cluster before you can delete one of them.
 
+### [Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -Name mynodepool
+```
+
+---
+
 ## Clean up resources
+
+### [Azure CLI](#tab/azure-cli)
 
 To delete the cluster, use the [az group delete][az-group-delete] command to delete the AKS resource group:
 
@@ -174,7 +301,15 @@ To delete the cluster, use the [az group delete][az-group-delete] command to del
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
 
+To delete the cluster, use the [Remove-AzResourceGroup][remove-azresourcegroup] command to delete the AKS resource group:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup
+```
+
+---
 
 ## Next steps
 
@@ -191,21 +326,24 @@ In this article, you learned how to create and manage system node pools in an AK
 <!-- INTERNAL LINKS -->
 [aks-taints]: use-multiple-node-pools.md#setting-nodepool-taints
 [aks-windows]: windows-container-cli.md
-[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
-[az-aks-create]: /cli/azure/aks#az_aks_create
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
-[az-aks-nodepool-list]: /cli/azure/aks/nodepool#az_aks_nodepool_list
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az_aks_nodepool_update
-[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az_aks_nodepool_upgrade
-[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az_aks_nodepool_scale
-[az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az_aks_nodepool_delete
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-group-create]: /cli/azure/group#az_group_create
-[az-group-delete]: /cli/azure/group#az_group_delete
-[az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[new-azakscluster]: /powershell/module/az.aks/new-azakscluster
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
+[az-aks-nodepool-list]: /cli/azure/aks/nodepool#az-aks-nodepool-list
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az-aks-nodepool-upgrade
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az-aks-nodepool-scale
+[az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az-aks-nodepool-delete
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-group-create]: /cli/azure/group#az-group-create
+[az-group-delete]: /cli/azure/group#az-group-delete
+[remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[install-azure-powershell]: /powershell/azure/install-az-ps
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [quotas-skus-regions]: quotas-skus-regions.md
 [supported-versions]: supported-kubernetes-versions.md
@@ -214,3 +352,4 @@ In this article, you learned how to create and manage system node pools in an AK
 [vm-sizes]: ../virtual-machines/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [maximum-pods]: configure-azure-cni.md#maximum-pods-per-node
+[update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools

@@ -4,7 +4,7 @@ description: Learn how to implement a webhook on the SaaS service by using the f
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 03/16/2022
+ms.date: 06/14/2022
 author: arifgani
 ms.author: argani
 ---
@@ -45,17 +45,58 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
 
 ```json
 {
-"id": "<guid>",
-"activityId": "<guid>",
-"publisherId": "XXX",
-"offerId": "offerid",
-"planId": "planid",
-"quantity": 100,
-"subscriptionId": "<guid>",
-"timeStamp": "2022-02-14T20:26:05.1419317Z",
-"action": "ChangeQuantity",
-"status": "InProgress",
-"operationRequestSource": "Partner",
+  "id": "<guid>",
+  "activityId": "<guid>",
+  "publisherId": "XXX",
+  "offerId": "YYY",
+  "planId": "plan1",
+  "quantity": 100,
+  "subscriptionId": "<guid>",
+  "timeStamp": "2022-02-14T20:26:05.1419317Z",
+  "action": "ChangeQuantity",
+  "status": "InProgress",
+  "operationRequestSource": "Partner",
+  "subscription":
+    {
+      "id": "<guid>",
+      "name": "Test",
+      "publisherId": "XXX",
+      "offerId": "YYY",
+      "planId": "plan1",
+      "quantity": 10,
+      "beneficiary":
+        {
+          "emailId": "XX@gmail.com",
+          "objectId": "<guid>",
+          "tenantId": "<guid>",
+          "puid": "1234567890",
+        },
+      "purchaser":
+        {
+          "emailId": "XX@gmail.com",
+          "objectId": "<guid>",
+          "tenantId": "<guid>",
+          "puid": "1234567890",
+        },
+      "allowedCustomerOperations": ["Delete", "Update", "Read"],
+      "sessionMode": "None",
+      "isFreeTrial": false,
+      "isTest": false,
+      "sandboxType": "None",
+      "saasSubscriptionStatus": "Subscribed",
+      "term":
+        {
+          "startDate": "2022-02-10T00:00:00Z",
+          "endDate": "2022-03-12T00:00:00Z",
+          "termUnit": "P1M",
+          "chargeDuration": null,
+        },
+      "autoRenew": true,
+      "created": "2022-01-10T23:15:03.365988Z",
+      "lastModified": "2022-02-14T20:26:04.5632549Z",
+    },
+  "purchaseToken": null,
+}
 ```
 
 *Webhook payload example of a subscription reinstatement event:*
@@ -240,15 +281,6 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
     "lastModified": "2022-03-11T22:32:06.720473Z"
   },
   "purchaseToken": null
-}
-```
-
-*Webhook payload example of reinstate event:*
-
-```json
-{
-  "subscriptionId": "<guid>",
-  "operationType": "Reinstate"
 }
 ```
 

@@ -56,7 +56,7 @@ As you create the account, make sure to configure settings with the following va
 > The migration tool in the Azure portal doesn't move account settings. Therefore, after you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection.
 
 > [!IMPORTANT]
-> Ensure that you use a newly created Gen2 account that's empty. It's important that you don't migrate to a previously used Gen2 account.
+> Ensure that you use a fresh, newly created Gen2 account that has no history of any usage. **Don't** migrate to a previously used Gen2 account or use a Gen2 account in which containers have been deleted to make the Gen2 account empty.
 
 ## Verify RBAC role assignments
 
@@ -73,6 +73,9 @@ For more information, see [Manage Azure Data Lake Analytics using the Azure port
 ## Perform the migration
 
 Before you begin, review the two migration options below, and decide whether to only copy data from Gen1 to Gen2 (recommended) or perform a complete migration.
+
+> [!NOTE]
+> No matter which option you select, a container named **gen1** will be created on the Gen2 account, and all data from the Gen1 account will be copied to this new 'gen1' container. When the migration is complete, in order to find the data on a path that existed on Gen1, you must add the prefix **gen1/** to the same path to access it on Gen2. For example, a path that was named 'FolderRoot/FolderChild/FileName.csv' on Gen1 will be available at 'gen1/FolderRoot/FolderChild/FileName.csv' on Gen2. Container names can't be renamed on Gen2, so this **gen1** container on Gen2 can't be renamed post migration. However, the data can be copied to a new container in Gen2 if needed.
 
 ## Choose a migration option
 

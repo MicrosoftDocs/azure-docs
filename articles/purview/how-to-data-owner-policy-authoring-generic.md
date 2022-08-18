@@ -26,13 +26,14 @@ Access policies allow a data owner to delegate in Microsoft Purview access manag
 
 Before authoring data policies in the Microsoft Purview governance portal, you'll need to configure the data sources so that they can enforce those policies.
 
-1. Follow any policy-specific prerequisites for your source. Check the [Microsoft Purview supported data sources table](azure-purview-connector-overview.md#microsoft-purview-data-sources) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
-1. Register the data source in Microsoft Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](azure-purview-connector-overview.md) for your resources.
+1. Follow any policy-specific prerequisites for your source. Check the [Microsoft Purview supported data sources table](microsoft-purview-connector-overview.md) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
+1. Register the data source in Microsoft Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](microsoft-purview-connector-overview.md) for your resources.
 1. [Enable the Data Use Management toggle on the data source](how-to-enable-data-use-management.md#enable-data-use-management). Additional permissions for this step are described in the linked document.
 
 ## Create a new policy
 
 This section describes the steps to create a new policy in Microsoft Purview.
+Ensure you have the *Policy Author* permission as described [here](#permissions-for-policy-authoring-and-publishing)
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
@@ -75,8 +76,9 @@ This section describes the steps to create a new policy in Microsoft Purview.
 Now that you have created your policy, you will need to publish it for it to become active.
 
 ## Publish a policy
-
 A newly created policy is in the **draft** state. The process of publishing associates the new policy with one or more data sources under governance. This is called "binding" a policy to a data source.
+
+Ensure you have the *Data Source Admin* permission as described [here](#permissions-for-policy-authoring-and-publishing)
 
 The steps to publish a policy are as follows:
 
@@ -100,6 +102,7 @@ The steps to publish a policy are as follows:
 ## Update or delete a policy
 
 Steps to update or delete a policy in Microsoft Purview are as follows.
+Ensure you have the *Policy Author* permission as described [here](#permissions-for-policy-authoring-and-publishing)
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 

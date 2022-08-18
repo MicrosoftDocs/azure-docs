@@ -62,7 +62,7 @@ The example shown in this article demonstrates how to use a custom container ima
 - Define environment variables
 - Set container CPU or memory requirements
 - Enable and configure Dapr
-- Enable internal or internal ingress
+- Enable external or internal ingress
 - Provide minimum and maximum replica values or scale rules
 
 For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help`.

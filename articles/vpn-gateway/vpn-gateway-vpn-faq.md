@@ -6,9 +6,10 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 06/10/2022
 ms.author: cherylmc
 ---
+
 # VPN Gateway FAQ
 
 ## <a name="connecting"></a>Connecting to virtual networks

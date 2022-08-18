@@ -3,7 +3,7 @@ title: How to use the IoT Central REST API to manage devices
 description: How to use the IoT Central REST API to add devices in an application
 author: v-krishnag
 ms.author: v-krishnag
-ms.date: 12/18/2021
+ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -19,6 +19,8 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
+
+To learn how to manage devices by using the IoT Central UI, see [Manage individual devices in your Azure IoT Central application.](../core/howto-manage-devices-individually.md)
 
 ## Devices REST API
 
@@ -39,12 +41,12 @@ Use the following request to create a new device.
 PUT https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
 ```
 
-The following example shows a request body that adds a device for a device template. You can get the `template` details from the device templates page in IoT Central application UI. 
+The following example shows a request body that adds a device for a device template. You can get the `template` details from the device templates page in IoT Central application UI.
 
 ```json
 {
-  "displayName": "CheckoutThermostatccc",
-  "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+  "displayName": "CheckoutThermostat",
+  "template": "dtmi:contoso:Thermostat;1",
   "simulated": true,
   "enabled": true
 }
@@ -58,16 +60,16 @@ The request body has some required fields:
 * `simulated`: Whether the device is simulated.
 * `template` : The device template definition for the device.
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
     "id": "thermostat1",
     "etag": "eyJoZWFkZXIiOiJcIjI0MDAwYTdkLTAwMDAtMDMwMC0wMDAwLTYxYjgxZDIwMDAwMFwiIiwiZGF0YSI6IlwiMzMwMDQ1M2EtMDAwMC0wMzAwLTAwMDAtNjFiODFkMjAwMDAwXCIifQ",
-    "displayName": "CheckoutThermostatccc",
+    "displayName": "CheckoutThermostat",
     "simulated": true,
     "provisioned": false,
-    "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+    "template": "dtmi:contoso:Thermostat;1",
     "enabled": true
 }
 ```
@@ -89,10 +91,10 @@ The response to this request looks like the following example:
 {
     "id": "5jcwskdwbm",
     "etag": "eyJoZWFkZXIiOiJcIjI0MDBlMDdjLTAwMDAtMDMwMC0wMDAwLTYxYjgxYmVlMDAwMFwiIn0",
-    "displayName": "RS40 Occupancy Sensor - 5jcwskdwbm",
+    "displayName": "Thermostat - 5jcwskdwbm",
     "simulated": false,
     "provisioned": false,
-    "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+    "template": "dtmi:contoso:Thermostat;1",
     "enabled": true
 }
 ```
@@ -131,7 +133,7 @@ The sample request body looks like the following example which updates the `disp
 ```json
 {
   "displayName": "CheckoutThermostat5",
-  "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+  "template": "dtmi:contoso:Thermostat;1",
   "simulated": true,
   "enabled": true
 }
@@ -147,7 +149,7 @@ The response to this request looks like the following example:
     "displayName": "CheckoutThermostat5",
     "simulated": true,
     "provisioned": false,
-    "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+    "template": "dtmi:contoso:Thermostat;1",
     "enabled": true
 }
 ```
@@ -176,19 +178,19 @@ The response to this request looks like the following example:
         {
             "id": "5jcwskdwbm",
             "etag": "eyJoZWFkZXIiOiJcIjI0MDBlMDdjLTAwMDAtMDMwMC0wMDAwLTYxYjgxYmVlMDAwMFwiIn0",
-            "displayName": "RS40 Occupancy Sensor - 5jcwskdwbm",
+            "displayName": "Thermostat - 5jcwskdwbm",
             "simulated": false,
             "provisioned": false,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         },
         {
             "id": "ccc",
             "etag": "eyJoZWFkZXIiOiJcIjI0MDAwYjdkLTAwMDAtMDMwMC0wMDAwLTYxYjgxZDJjMDAwMFwiIn0",
-            "displayName": "CheckoutThermostatccc",
+            "displayName": "CheckoutThermostat",
             "simulated": true,
             "provisioned": true,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         }
     ]
@@ -220,10 +222,10 @@ The response to this request looks like the following example:
         {
             "id": "5jcwskdwbm",
             "etag": "eyJoZWFkZXIiOiJcIjI0MDBlMDdjLTAwMDAtMDMwMC0wMDAwLTYxYjgxYmVlMDAwMFwiIn0",
-            "displayName": "RS40 Occupancy Sensor - 5jcwskdwbm",
+            "displayName": "Thermostat - 5jcwskdwbm",
             "simulated": false,
             "provisioned": false,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         },
         {
@@ -301,7 +303,7 @@ The response to this request looks like the following example:
             "displayName": "thermostat1",
             "simulated": false,
             "provisioned": false,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         },
         {
@@ -310,7 +312,7 @@ The response to this request looks like the following example:
             "displayName": "thermostat2",
             "simulated": true,
             "provisioned": true,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         }
     ]
@@ -340,19 +342,19 @@ The response to this request looks like the following example:
         {
             "id": "ccc",
             "etag": "eyJoZWFkZXIiOiJcIjI0MDAwYjdkLTAwMDAtMDMwMC0wMDAwLTYxYjgxZDJjMDAwMFwiIn0",
-            "displayName": "CheckoutThermostatccc",
+            "displayName": "CheckoutThermostat",
             "simulated": true,
             "provisioned": true,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         },
         {
             "id": "5jcwskdwbm",
             "etag": "eyJoZWFkZXIiOiJcIjI0MDBlMDdjLTAwMDAtMDMwMC0wMDAwLTYxYjgxYmVlMDAwMFwiIn0",
-            "displayName": "RS40 Occupancy Sensor - 5jcwskdwbm",
+            "displayName": "Thermostat - 5jcwskdwbm",
             "simulated": false,
             "provisioned": false,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         }
     ]
@@ -378,7 +380,7 @@ The response to this request looks like the following example:
             "displayName": "thermostat1",
             "simulated": false,
             "provisioned": false,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         },
         {
@@ -387,7 +389,7 @@ The response to this request looks like the following example:
             "displayName": "thermostat2",
             "simulated": true,
             "provisioned": true,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         }
     ]

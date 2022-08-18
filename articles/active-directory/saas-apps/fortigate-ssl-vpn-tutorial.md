@@ -46,6 +46,8 @@ To configure the integration of FortiGate SSL VPN into Azure AD, you need to add
 1. In the **Add from the gallery** section, enter **FortiGate SSL VPN** in the search box.
 1. Select **FortiGate SSL VPN** in the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](https://docs.microsoft.com/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide).
+
 ## Configure and test Azure AD SSO for FortiGate SSL VPN
 
 You'll configure and test Azure AD SSO with FortiGate SSL VPN by using a test user named B.Simon. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding SAML SSO user group in FortiGate SSL VPN.
@@ -78,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
     `https://<FortiGate IP or FQDN address>:<Custom SSL VPN port>/remote/saml/login`.
 
     c. In the **Sign on URL** box, enter a URL in the pattern
-    `https://<FortiGate IP or FQDN address>:<Custom SSL VPN port>/remote/login`.
+    `https://<FortiGate IP or FQDN address>:<Custom SSL VPN port>/remote/saml/login`.
 
     d. In the **Logout URL** box, enter a URL in the pattern
     `https://<FortiGate IP or FQDN address>:<Custom SSL VPN port><FQDN>/remote/saml/logout`.
@@ -109,6 +111,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
    d. For **Source attribute**, select **user.userprincipalname**.
 
    e. Select **Save**.
+
+   > [!NOTE]
+   > **User Attributes & Claims** allow only one group claim. To add a group claim, delete the existing group claim **user.groups [SecurityGroup]** already present in the       claims to add the new claim or edit the existing one to **All groups**.
 
    f. Select **Add a group claim**.
 
@@ -215,6 +220,7 @@ To complete these steps, you'll need the values you recorded earlier:
     		set single-sign-on-url < Reply URL Reply URL>
     		set single-logout-url <Logout URL>
     		set idp-entity-id <Azure AD Identifier>
+		set idp-single-sign-on-url <Azure AD Identifier>
     		set idp-single-logout-url <Azure Logout URL>
     		set idp-cert <Base64 SAML Certificate Name>
     		set user-name username

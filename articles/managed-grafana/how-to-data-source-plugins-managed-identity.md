@@ -13,7 +13,7 @@ ms.date: 3/31/2022
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](./how-to-permissions.md).
+- An Azure Managed Grafana instance. If you don't have one yet, [create an Azure Managed Grafana instance](./how-to-permissions.md).
 - A resource including monitoring data with  Managed Grafana monitoring permissions. Read [how to configure permissions](how-to-permissions.md) for more information.
 
 ## Sign in to Azure
@@ -47,27 +47,32 @@ Other data sources include:
 - [TestData DB](https://grafana.com/docs/grafana/latest/datasources/testdata/)
 - [Zipkin](https://grafana.com/docs/grafana/latest/datasources/zipkin/)
 
-You can find all available Grafana data sources by going to your workspace and selecting this page from the left menu: **Configuration** > **Data sources** > **Add a data source** . Search for the data source you need from the available list. For more information about data sources, go to [Data sources](https://grafana.com/docs/grafana/latest/datasources/) on the Grafana Labs website.
+You can find all available Grafana data sources by going to your resource and selecting **Configuration** > **Data sources** from the left menu. Search for the data source you need from the available list and select **Add data source**.
 
    :::image type="content" source="media/managed-grafana-how-to-source-plugins.png" alt-text="Screenshot of the Add data source page.":::
 
+> [!NOTE]
+> Installing Grafana plugins listed on the page **Configuration** > **Plugins** isn’t currently supported.
+
+For more information about data sources, go to [Data sources](https://grafana.com/docs/grafana/latest/datasources/) on the Grafana Labs website.
+
 ## Default configuration for Azure Monitor
 
-The Azure Monitor data source is automatically added to all new Managed Grafana resources. To review or modify its configuration, follow these steps in your workspace endpoint:
+The Azure Monitor data source is automatically added to all new Managed Grafana resources. To review or modify its configuration, follow these steps in your Managed Grafana endpoint:
 
 1. From the left menu, select **Configuration** > **Data sources**.
 
    :::image type="content" source="media/managed-grafana-how-to-source-configuration.png" alt-text="Screenshot of the Add data sources page.":::
 
-1. Azure Monitor should be listed as a built-in data source for your workspace. Select **Azure Monitor**.
+1. Azure Monitor is listed as a built-in data source for your Managed Grafana instance. Select **Azure Monitor**.
 1. In **Settings**, authenticate through **Managed Identity** and select your subscription from the dropdown list or enter your **App Registration** details
 
    :::image type="content" source="media/managed-grafana-how-to-source-configuration-Azure-Monitor-settings.png" alt-text="Screenshot of the Azure Monitor page in data sources.":::
 
-Authentication and authorization are subsequently made through the provided managed identity. With Managed Identity, you can assign permissions for your Managed Grafana workspace to access Azure Monitor data without having to manually manage service principals in Azure Active Directory (Azure AD).
+Authentication and authorization are subsequently made through the provided managed identity. With Managed Identity, you can assign permissions for your Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Azure Active Directory (Azure AD).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Modify access permissions to Azure Monitor](./how-to-permissions.md)
-> [Share an Azure Managed Grafana workspace](./how-to-share-grafana-workspace.md)
+> [Share an Azure Managed Grafana instance](./how-to-share-grafana-workspace.md)

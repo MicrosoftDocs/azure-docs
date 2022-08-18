@@ -45,16 +45,16 @@
     items:
     - name: Host your domain in Azure DNS
       href: dns-delegate-domain-azure-dns.md
+    - name: Create child DNS zones
+      href: tutorial-public-dns-zones-child.md    
     - name: Create custom DNS records for a web app
       href: dns-web-sites-custom-domain.md
-    - name: Create new child DNS zone
-      href: tutorial-public-dns-zones-child.md
-    - name: Alias records for Traffic Manager
-      href: tutorial-alias-tm.md
-    - name: Alias records for Public IP addresses
-      href: tutorial-alias-pip.md
-    - name: Alias records for zone records
+    - name: Create alias records for zone records
       href: tutorial-alias-rr.md
+    - name: Create alias records for public IP addresses
+      href: tutorial-alias-pip.md
+    - name: Create alias records for Traffic Manager
+      href: tutorial-alias-tm.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -66,7 +66,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/dns-security-baseline?toc=/azure/dns/TOC.json
+      href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
   - name: Public DNS
     items:
     - name: Zones and records
@@ -203,6 +203,8 @@
       href: https://www.npmjs.com/package/@azure/arm-dnsresolver
     - name: Go
       href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/dnsresolver/armdnsresolver
+    - name: Resource Manager template
+      href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azure-dns-private-resolver   
 - name: Resources
   items:
   - name: Azure Roadmap

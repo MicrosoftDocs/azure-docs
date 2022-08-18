@@ -29,7 +29,7 @@ If you prefer a no-code experience, you can also [Set up no-code AutoML training
 ## Prerequisites
 
 For this article you need, 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](../quickstart-create-resources.md).
 
 * The Azure Machine Learning Python SDK installed.
     To install the SDK you can either, 
@@ -456,9 +456,9 @@ RunDetails(run).show()
 
 Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of the experiment. This remote test run is done at the end of the experiment, once the best model is determined. See how to [pass test data into your `AutoMLConfig`](../how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 
-### Get test run results 
+### Get test job results 
 
-You can get the predictions and metrics from the remote test run from the [Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) or with the following code. 
+You can get the predictions and metrics from the remote test job from the [Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md#view-remote-test-job-results-preview) or with the following code. 
 
 
 ```python
@@ -483,11 +483,11 @@ predictions_df = pd.read_csv("predictions.csv")
 
 ```
 
-The model test run generates the predictions.csv file that's stored in the default datastore created with the workspace. This datastore is visible to all users with the same subscription. Test runs are not recommended for scenarios if any of the information used for or created by the test run needs to remain private.
+The model test job generates the predictions.csv file that's stored in the default datastore created with the workspace. This datastore is visible to all users with the same subscription. Test jobs are not recommended for scenarios if any of the information used for or created by the test job needs to remain private.
 
 ### Test existing automated ML model
 
-To test other existing automated ML models created, best run or child run, use [`ModelProxy()`](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy) to test a model after the main AutoML run has completed. `ModelProxy()` already returns the predictions and metrics and does not require further processing to retrieve the outputs.
+To test other existing automated ML models created, best job or child job, use [`ModelProxy()`](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy) to test a model after the main AutoML run has completed. `ModelProxy()` already returns the predictions and metrics and does not require further processing to retrieve the outputs.
 
 > [!NOTE]
 > ModelProxy is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview class, and may change at any time.
@@ -523,7 +523,7 @@ model = run.register_model(model_name = model_name,
 ```
 
 
-For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](../how-to-deploy-and-where.md?tabs=python#define-a-deployment-configuration).
+For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 
 > [!TIP]
 > For registered models, one-click deployment is available via the [Azure Machine Learning studio](https://ml.azure.com). See [how to deploy registered models from the studio](../how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
@@ -542,7 +542,7 @@ For general information on how model explanations and feature importance can be 
 
 ## Next steps
 
-+ Learn more about [how and where to deploy a model](../how-to-deploy-and-where.md).
++ Learn more about [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 
 + Learn more about [how to train a regression model with Automated machine learning](../tutorial-auto-train-models.md).
 

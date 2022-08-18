@@ -19,6 +19,8 @@ items:
   items:
   - name: What is Text Translation?
     href: text-translation-overview.md
+  - name: Create a Translator resource
+    href: how-to-create-translator-resource.md  
   - name: Quickstart
     href: quickstart-translator.md
   - name: Samples
@@ -47,8 +49,8 @@ items:
       href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby
   - name: How-to guides
     items:
-    - name: Create a Translator resource
-      href: ./how-to-create-translator-resource.md
+    - name: Use the Text Translator APIs
+      href: translator-text-apis.md
     - name: Migrate to V3 Text API
       href: migrate-to-v3.md
     - name: Add profanity filtering

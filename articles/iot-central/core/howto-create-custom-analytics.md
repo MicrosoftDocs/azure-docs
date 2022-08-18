@@ -3,7 +3,7 @@ title: Extend Azure IoT Central with custom analytics | Microsoft Docs
 description: As a solution developer, configure an IoT Central application to do custom analytics and visualizations. This solution uses Azure Databricks.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 12/21/2021
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -206,7 +206,7 @@ Use the following steps to import a Databricks notebook that contains the Python
 
     :::image type="content" source="media/howto-create-custom-analytics/databricks-import.png" alt-text="Screenshot of data bricks import.":::
 
-1. Choose to import from a URL and enter the following address: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
+1. Choose to import from a URL and enter the following address: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/main/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/main/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
 1. To import the notebook, choose **Import**.
 

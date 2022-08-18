@@ -12,6 +12,9 @@ ms.custom: MVC
 
 This article describes options for migrating Amazon Web Services (AWS) instances to Azure.
 
+> [!NOTE]
+> On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported. [Learn more](./vmware-physical-azure-support-matrix.md#for-linux).
+
 ## Migrate with Azure Migrate
 
 We recommend that you migrate AWS EC2 instances to Azure using the [Azure Migrate](../migrate/migrate-services-overview.md) service. Azure Migrate is purpose-built for server migration. Azure Migrate provides a centralized hub for discovery, assessment and migration of on-premises machines to Azure.
@@ -27,7 +30,7 @@ If you're already using Azure Site Recovery, and you want to continue using it f
 
 
 > [!NOTE]
-> When you run a failover for disaster recovery, as a last step you commit the failover. When you migrate AWS instances, the **Commit** option isn't relevant. Instead, you select the **Complete Migration** option. 
+> When you run a failover for disaster recovery, as a last step you commit the failover. When you migrate AWS instances, the **Commit** option isn't relevant. Instead, you select the **Complete Migration** option.
 
 ## Next steps
 

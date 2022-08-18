@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/23/2022
+ms.date: 08/10/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -230,18 +230,19 @@ The patch for this situation needs to update both the model and the twin's tempe
 
 ### Update a property's sourceTime
 
-You may optionally decide to use the `sourceTime` field on twin properties to record timestamps for when property updates are observed in the real world. Azure Digital Twins natively supports `sourceTime` in the metadata for each twin property. For more information about this field and other fields on digital twins, see [Digital twin JSON format](concepts-twins-graph.md#digital-twin-json-format).
+You may optionally decide to use the `sourceTime` field on twin properties to record timestamps for when property updates are observed in the real world. Azure Digital Twins natively supports `sourceTime` in the metadata for each twin property. The `sourceTime` value must comply to ISO 8601 date and time format. For more information about this field and other fields on digital twins, see [Digital twin JSON format](concepts-twins-graph.md#digital-twin-json-format).
 
-The minimum REST API version to support this field is the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version. To work with this field using the [Azure Digital Twins SDKs](concepts-apis-sdks.md), we recommend using the latest version of the SDK to make sure this field is included (keep in mind that the latest version of an SDK may be in beta or preview).
-
-The `sourceTime` value must comply to ISO 8601 date and time format.
+The minimum stable REST API version to support this field is the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version. To work with this field using the [Azure Digital Twins SDKs](concepts-apis-sdks.md), we recommend using the latest version of the SDK to make sure this field is included.
 
 Here's an example of a JSON Patch document that updates both the value and the `sourceTime` field of a `Temperature` property:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch-sourcetime.json":::
 
->[!TIP]
->To update the `sourceTime` field on a property that's part of a component, include the component at the start of the path. In the previous example, this would mean changing the path from `/$metadata/Temperature/sourceTime` to `myComponent/$metadata/Temperature/sourceTime`.
+To update the `sourceTime` field on a property that's part of a component, include the component at the start of the path. In the example above, this would mean changing the path value from `/$metadata/Temperature/sourceTime` to `myComponent/$metadata/Temperature/sourceTime`.
+
+>[!NOTE]
+> If you update both the `sourceTime` and value on a property, and then later update only the property's value, the `sourceTime` timestamp from the first update will remain.
+
 
 ### Handle conflicting update calls
 
@@ -274,7 +275,7 @@ You can use the runnable code sample below to create a twin, update its details,
 
 ### Set up sample project files
 
-The snippet uses a sample model definition, [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json). To **download the model file** so you can use it in your code, use this link to go directly to the file in GitHub. Then, right-click anywhere on the screen, select **Save as** in your browser's right-click menu, and use the Save As window to save the file as **Room.json**.
+The snippet uses a sample model definition, [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/main/AdtSampleApp/SampleClientApp/Models/Room.json). To **download the model file** so you can use it in your code, use this link to go directly to the file in GitHub. Then, right-click anywhere on the screen, select **Save as** in your browser's right-click menu, and use the Save As window to save the file as **Room.json**.
 
 Next, create a **new console app project** in Visual Studio or your editor of choice.
 

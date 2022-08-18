@@ -3,13 +3,13 @@ title: Azure Load Balancer SKUs
 description: Overview of Azure Load Balancer SKUs
 services: load-balancer
 documentationcenter: na
-author: greg-lindsay
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/22/2021
-ms.author: greglin
+ms.author: mbender
 
 ---
 # Azure Load Balancer SKUs
@@ -19,7 +19,7 @@ Azure Load Balancer has three SKUs.
 ## <a name="skus"></a> SKU comparison
 Azure Load Balancer has 3 SKUs - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. 
 
-To compare and understand the differences between Basic and Standard SKU, see the following table. For more information, see [Azure Standard Load Balancer overview](./load-balancer-overview.md). For information on Gateway SKU - catered for third-party network virtual appliances (NVAs) currently in preview, see [Gateway Load Balancer overview](gateway-overview.md)
+To compare and understand the differences between Basic and Standard SKU, see the following table. For more information, see [Azure Standard Load Balancer overview](./load-balancer-overview.md). For information on Gateway SKU - catered for third-party network virtual appliances (NVAs), see [Gateway Load Balancer overview](gateway-overview.md)
 
 >[!NOTE]
 > Microsoft recommends Standard load balancer. See [Upgrade from Basic to Standard Load Balancer](upgrade-basic-standard.md) for a guided instruction on upgrading SKUs along with an upgrade script.
