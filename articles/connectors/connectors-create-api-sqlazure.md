@@ -229,7 +229,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    1. Under the **Choose an operation** search box, select either of the following options:
 
-      * **Built-in** when you want to use SQL Server [built-in actions](#built-in-connector-operations) such as **Execute Query**
+      * **Built-in** when you want to use SQL Server [built-in actions](#built-in-connector-operations) such as **Execute query**
 
         ![Screenshot showing the Azure portal, workflow designer for Standard logic app, and designer search box with "Built-in" selected underneath.](./media/connectors-create-api-sqlazure/select-built-in-category-standard.png)
 
@@ -243,9 +243,9 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
       * [Built-in actions](#built-in-connector-operations)
 
-        This example selects the built-in action named **Execute Query**.
+        This example selects the built-in action named **Execute query**.
 
-        ![Screenshot showing the designer search box with "sql server" and "Built-in" selected underneath with the "Execute Query" action selected in the "Actions" list.](./media/connectors-create-api-sqlazure/select-sql-execute-query-action-standard.png)
+        ![Screenshot showing the designer search box with "sql server" and "Built-in" selected underneath with the "Execute query" action selected in the "Actions" list.](./media/connectors-create-api-sqlazure/select-sql-execute-query-action-standard.png)
 
       * [Managed actions](/connectors/sql/#actions)
 
@@ -458,7 +458,7 @@ The SQL Server built-in connector is available only for Standard logic app workf
 | Action | Description |
 |--------|-------------|
 | [**Delete rows**](#delete-rows) | Deletes and returns the table rows that match the specified **Where condition** value. |
-| [**Execute Query**](#execute-query) | Runs a query on an SQL database. |
+| [**Execute query**](#execute-query) | Runs a query on an SQL database. |
 | [**Execute stored procedure**](#execute-stored-procedure) | Runs a stored procedure on an SQL database. |
 | [**Get rows**](#get-rows) | Gets the table rows that match the specified **Where condition** value. |
 | [**Get tables**](#get-tables) | Gets all the tables from the database. |
@@ -512,7 +512,7 @@ The following example shows sample parameter values for the **Delete rows** acti
 
 <a name="execute-query"></a>
 
-### Execute Query
+### Execute query
 
 Operation ID: `executeQuery`
 
@@ -523,14 +523,14 @@ Runs a query on an SQL database.
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **Query** | `query` | True | Dynamic | The body for your query |
-| **Query Parameters** | `queryParameters` | False | Objects | The parameters for your query. <br><br>**Note**: If the query requires input parameters, you must provide these parameters. |
+| **Query parameters** | `queryParameters` | False | Objects | The parameters for your query. <br><br>**Note**: If the query requires input parameters, you must provide these parameters. |
 
 #### Returns
 
 | Name | Type |
 |------|------|
 | **Result** | An array object that returns all the query results. Each row contains the column name and the corresponding value. |
-| **Result Item** | An array object that returns one query result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. Each row contains the column name and the corresponding value. |
+| **Result item** | An array object that returns one query result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. Each row contains the column name and the corresponding value. |
 
 <a name="execute-stored-procedure"></a>
 
@@ -552,9 +552,9 @@ Runs a stored procedure on an SQL database.
 | Name | Type |
 |------|------|
 | **Result** | An array object that returns all the query results |
-| **Result Result sets** | An array object that returns one query result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
-| **Result Stored procedure parameters** |  The final values of the stored procedure's output and input-output parameters |
-| **Result Return code** | The return code from the stored procedure |
+| **Result result sets** | An array object that returns one query result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result stored procedure parameters** |  The final values of the stored procedure's output and input-output parameters |
+| **Result return code** | The return code from the stored procedure |
 | **Status code** | The status code from the **Execute stored procedure** operation |
 
 <a name="get-rows"></a>
@@ -577,7 +577,7 @@ Gets the table rows that match the specified **Where condition** value.
 | Name | Type |
 |------|------|
 | **Result** | An array object that returns all the row results. |
-| **Result Item** | An array object that returns one row result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result item** | An array object that returns one row result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
 
 *Example*
 
@@ -619,8 +619,8 @@ None.
 | Name | Type |
 |------|------|
 | **Result** | An array object that contains the full names and display names for all tables in the database. |
-| **Result Display Name** | An array object that contains the display name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
-| **Result Full Name** | An array object that contains the full name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result display Name** | An array object that contains the display name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result full name** | An array object that contains the full name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
 | **Result Item** | An array object that returns the full name and display name one at time for each table. A **For each** loop is automatically added to your workflow to iterate through the array. |
 
 <a name="insert-row"></a>
