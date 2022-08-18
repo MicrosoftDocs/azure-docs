@@ -48,17 +48,17 @@
         href: /graph/tutorial-accessreviews-roleassignments
     - name: Lifecycle Workflows (Preview)
       items:
-      - name: Automate employee onboarding tasks with Azure portal (Preview)
+      - name: Automate employee onboarding tasks - Azure portal (Preview)
         href: tutorial-onboard-custom-workflow-portal.md 
-      - name: Automate employee onboarding tasks with Microsoft Graph (Preview)
+      - name: Automate employee onboarding tasks - Microsoft Graph (Preview)
         href: tutorial-onboard-custom-workflow-graph.md
-      - name: Offboarding employees in real-time with Azure portal (Preview)
+      - name: Offboarding employees in real-time - Azure portal (Preview)
         href: tutorial-offboard-custom-workflow-portal.md
-      - name: Offboarding employees in real-time with Microsoft Graph (Preview)
+      - name: Offboarding employees in real-time - Microsoft Graph (Preview)
         href: tutorial-offboard-custom-workflow-graph.md
-      - name: Automate employee offboarding tasks with Azure portal (preview)
+      - name: Automate employee offboarding tasks - Azure portal (preview)
         href: tutorial-scheduled-leaver-portal.md  
-      - name: Automate employee offboarding tasks with Microsoft Graph (preview)
+      - name: Automate employee offboarding tasks - Microsoft Graph (preview)
         href: tutorial-scheduled-leaver-graph.md 
 - name: Concepts
   expanded: true
