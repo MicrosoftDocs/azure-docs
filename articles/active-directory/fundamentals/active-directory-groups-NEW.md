@@ -38,6 +38,8 @@ You can create a basic group and add your members at the same time using the Azu
 
 1. Enter a **Group name.** Choose a name that you'll remember and that makes sense for the group. A check will be performed to determine if the name is already in use. If the name is already in use, you'll be asked to change the name of your group.
 
+1. **Group email address**: Only available for Microsoft 365 group types. Enter an email address manually or use the email address built from the Group name you provided.
+ 
 1. **Group description.** Add an optional description to your group.
 
 1. Switch the **Azure AD roles can be assigned to the group** setting to yes to use this group to assign Azure AD roles to members.
