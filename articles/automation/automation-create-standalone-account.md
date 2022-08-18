@@ -79,11 +79,11 @@ The following image shows a standard configuration for a new Automation account.
 
 :::image type="content" source="./media/automation-create-standalone-account/create-account-networking-v2.png" alt-text="Required fields for creating the Automation account on Networking tab":::
 
-### Tags tab
+### Tags
 
 On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
 
-### Review + create tab
+### Review + create
 
 When you navigate to the **Review + create** tab, Azure runs validation on the Automation account settings that you have chosen. If validation passes, you can proceed to create the Automation account.
 
