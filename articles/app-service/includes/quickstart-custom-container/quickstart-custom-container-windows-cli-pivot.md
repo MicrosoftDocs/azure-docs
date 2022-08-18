@@ -9,6 +9,10 @@ ms.author: msangapu
 
 [Azure App Service](../../overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the pre-configured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
+> [!NOTE]
+> For information regarding running containerized applications in a serverless environment, please see [Container Apps](../../../container-apps/overview.md).
+>
+
 This quickstart shows you how to deploy an ASP.NET app in a Windows image from Azure Container Registry to Azure App Service. 
 
 To complete this quickstart, you need:
@@ -67,26 +71,25 @@ You now create the required Azure resources then deploy the web app.
 
 1. Create a new resource group.
 
-    ```cli
+    ```azurecli
     az group create --location eastus --resource-group my-xenon-rg
     ```
 
 1. Create your App Service Plan.
 
-    ```cli
+    ```azurecli
     az appservice plan create --resource-group jefmarti-xenon-cli-delete --location eastus --name pv3aspcli2 --hyper-v --sku p1v3
     ```
 
 > [!NOTE]
 > If you run into the follow error during this step, make sure the appservice-kube extension is removed:
-
-```The behavior of this command has been altered by thef ollowing extension: appservice-kube
-Invalid sku entered: P1V3
-```
+>
+> ```The behavior of this command has been altered by thef ollowing extension: appservice-kube
+>```
 
 1. Create your web app
 
-    ```cli
+    ```azurecli
     az webapp create --resource-group jefmarti-cli-x-delete --plan pv3aspcli2 --name jefmarti-delete-webapp-xenon-cli --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
     ```
 ##  4 - Browse to the app

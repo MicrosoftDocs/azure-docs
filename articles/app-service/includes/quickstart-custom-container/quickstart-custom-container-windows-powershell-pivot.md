@@ -9,6 +9,10 @@ ms.author: msangapu
 
 [Azure App Service](../../overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the pre-configured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
+> [!NOTE]
+> For information regarding running containerized applications in a serverless environment, please see [Container Apps](../../../container-apps/overview.md).
+>
+
 This quickstart shows you how to deploy an ASP.NET app in a Windows image from Azure Container Registry to Azure App Service. 
 
 To complete this quickstart, you need:
@@ -28,14 +32,14 @@ Connect-AzAccount
 The variables below are needed for various commands used in the article. Update the variables per your specifications.
 
 ```powershell-interactive
-$location = "eastus"
-$appserviceplan = "PV3ASP"
-$tier = "PremiumV3"
-$webappname = "myWebApp"
-$resourcegroup = "myResourceGroup"
-$containerregistryname = "mycontainerregistry" #The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
-$containerregistryURL = "myContainerregistry.azurecr.io"
-$containerimagename = "mycontainerregistry.azurecr.io/windows:latest"
+$location = "eastus" # Azure region. Use Get-AzLocation to get all locations.
+$appserviceplan = "PV3ASP" #App Service Plan name
+$tier = "PremiumV3" #SKU 
+$webappname = "myWebApp" #web app name
+$resourcegroup = "myResourceGroup" #Name of Resource Group
+$containerregistryname = "mycontainerregistry" #registry name (unique within Azure, with 5-50 alphanumeric characters)
+$containerregistryURL = "myContainerregistry.azurecr.io" #registry URL
+$containerimagename = "mycontainerregistry.azurecr.io/windows:latest" #container image name
 ```
 
 ## 2 - Create a new resource group
