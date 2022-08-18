@@ -63,49 +63,32 @@ Make sure you are in the cloned repository's root folder. This repository contai
 
 ## 3 - Deploy to Azure
 
-### Sign in to Azure portal
+You now create the required Azure resources then deploy the web app.
 
-Sign in to the Azure portal at https://portal.azure.com.
+1. Create a new resource group.
 
-### Create Azure resources
+    ```cli
+    az group create --location eastus --resource-group my-xenon-rg
+    ```
 
-1. Type **app services** in the search. Under **Services**, select **App Services**.
+1. Create your App Service Plan.
 
-     :::image type="content" source="../../media/quickstart-custom-container/portal-search.png?text=Azure portal search details" alt-text="Screenshot of searching for 'app services' in the Azure portal.":::
+    ```cli
+    az appservice plan create --resource-group jefmarti-xenon-cli-delete --location eastus --name pv3aspcli2 --hyper-v --sku p1v3
+    ```
 
-1. In the **App Services** page, select **+ Create**.
+> [!NOTE]
+> If you run into the follow error during this step, make sure the appservice-kube extension is removed:
 
-1. In the **Basics** tab, under **Project details**, ensure the correct subscription is selected and then select to **Create new** resource group. Type *myResourceGroup* for the name.
+```The behavior of this command has been altered by thef ollowing extension: appservice-kube
+Invalid sku entered: P1V3
+```
 
-    :::image type="content" source="../../media/quickstart-custom-container/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app.":::
+1. Create your web app
 
-1. Under **Instance details**, type a globally unique name for your web app and select **Docker Container**. Select *Windows* for the **Operating System**. Select a **Region** you want to serve your app from.
-
-    :::image type="content" source="../../media/quickstart-custom-container/instance-details-windows.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
-
-1. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. To change to the Free tier, select **Change size**, select the **Dev/Test** tab, select **P1v3**, and select the **Apply** button at the bottom of the page.
-
-    :::image type="content" source="../../media/quickstart-custom-container/app-service-plan-details-windows.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password.":::
-
-1. Select the **Next: Docker >** button at the bottom of the page.
-
-1. In the **Docker** tab, select *Azure Container Registry* for the **Image Source**. Under **Azure container registry options**, set the following values:
-   - **Registry**: Select your Azure Container Registry.
-   - **Image**: Select *dotnetcore-docs-hello-world-windows*.
-   - **Tag**: Select *latest*.
-
-    :::image type="content" source="../../media/quickstart-custom-container/azure-container-registry-options-windows.png" alt-text="Screenshot showing the Azure Container Registry options.":::
-
-1. Select the **Review + create** button at the bottom of the page.
-
-    :::image type="content" source="../../media/quickstart-custom-container/review-create.png" alt-text="Screenshot showing the Review and create button at the bottom of the page.":::
-
-1. After validation runs, select the **Create** button at the bottom of the page.
-
-1. After deployment is complete, select **Go to resource**.
-
-    :::image type="content" source="../../media/quickstart-custom-container/next-steps.png" alt-text="Screenshot showing the next step of going to the resource.":::
-
+    ```cli
+    az webapp create --resource-group jefmarti-cli-x-delete --plan pv3aspcli2 --name jefmarti-delete-webapp-xenon-cli --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
+    ```
 ##  4 - Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
