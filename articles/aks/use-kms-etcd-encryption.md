@@ -3,7 +3,7 @@ title: Use KMS etcd encryption in Azure Kubernetes Service (AKS)
 description: Learn how to use kms etcd encryption with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/26/2022
+ms.date: 08/10/2022
 
 ---
 
@@ -48,10 +48,41 @@ KMS supports [public key vault][Enable-KMS-with-public-key-vault] and [private k
 > 
 > If you need to recover your Key Vault or key, see the [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md?tabs=azure-cli) documentation.
 
+#### For non-RBAC key vault
+
 Use `az keyvault create` to create a KeyVault.
 
 ```azurecli
 az keyvault create --name MyKeyVault --resource-group MyResourceGroup
+```
+
+Use `az keyvault key create` to create a key.
+
+```azurecli
+az keyvault key create --name MyKeyName --vault-name MyKeyVault
+```
+
+Use `az keyvault key show` to export the Key ID.
+
+```azurecli
+export KEY_ID=$(az keyvault key show --name MyKeyName --vault-name MyKeyVault --query 'key.kid' -o tsv)
+echo $KEY_ID
+```
+
+The above example stores the Key ID in *KEY_ID*.
+
+#### For RBAC key vault
+
+Use `az keyvault create` to create a KeyVault using Azure Role Based Access Control.
+
+```azurecli
+export KEYVAULT_RESOURCE_ID=$(az keyvault create --name MyKeyVault --resource-group MyResourceGroup  --enable-rbac-authorization true --query id -o tsv)
+```
+
+Assign yourself permission to create a key.
+
+```azurecli-interactive
+az role assignment create --role "Key Vault Crypto Officer" --assignee-object-id $(az ad signed-in-user show --query id --out tsv) --assignee-principal-type "User" --scope $KEYVAULT_RESOURCE_ID
 ```
 
 Use `az keyvault key create` to create a key.
@@ -97,10 +128,20 @@ The above example stores the value of the Identity Resource ID in *IDENTITY_RESO
 
 ### Assign permissions (decrypt and encrypt) to access key vault
 
-Use `az keyvault set-policy` to create an Azure KeyVault policy.
+#### For non-RBAC key vault
+
+If your key vault is not enabled with  `--enable-rbac-authorization`, you could use `az keyvault set-policy` to create an Azure KeyVault policy.
 
 ```azurecli-interactive
 az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
+```
+
+#### For RBAC key vault
+
+If your key vault is enabled with `--enable-rbac-authorization`, you need to assign the "Key Vault Crypto User" RBAC role which has decrypt, encrypt permission. 
+
+```azurecli-interactive
+az role assignment create --role "Key Vault Crypto User" --assignee-object-id $IDENTITY_OBJECT_ID --assignee-principal-type "ServicePrincipal" --scope $KEYVAULT_RESOURCE_ID
 ```
 
 ### Create an AKS cluster with KMS etcd encryption enabled
@@ -195,11 +236,23 @@ The above example stores the value of the Identity Resource ID in *IDENTITY_RESO
 
 ### Assign permissions (decrypt and encrypt) to access key vault
 
-Use `az keyvault set-policy` to create an Azure KeyVault policy.
+#### For non-RBAC key vault
+
+If your key vault is not enabled with  `--enable-rbac-authorization`, you could use `az keyvault set-policy` to create an Azure KeyVault policy.
 
 ```azurecli-interactive
 az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
 ```
+
+#### For RBAC key vault
+
+If your key vault is enabled with `--enable-rbac-authorization`, you need to assign a RBAC role which at least contains decrypt, encrypt permission. 
+
+```azurecli-interactive
+az role assignment create --role "Key Vault Crypto User" --assignee-object-id $IDENTITY_OBJECT_ID --assignee-principal-type "ServicePrincipal" --scope $KEYVAULT_RESOURCE_ID
+```
+
+### Assign permission for creating private link
 
 For private key vault, the AKS needs *Key Vault Contributor*  role to create private link between private key vault and cluster.
 

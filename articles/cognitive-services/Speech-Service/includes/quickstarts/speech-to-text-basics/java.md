@@ -18,11 +18,53 @@ ms.author: eur
 
 Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
 
+1. Install [Apache Maven](https://maven.apache.org/install.html)
+1. Create a new `pom.xml` file in the root of your project, and copy the following into it:
+    ```xml
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.microsoft.cognitiveservices.speech.samples</groupId>
+        <artifactId>quickstart-eclipse</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <build>
+            <sourceDirectory>src</sourceDirectory>
+            <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+                </configuration>
+            </plugin>
+            </plugins>
+        </build>
+        <repositories>
+            <repository>
+            <id>maven-cognitiveservices-speech</id>
+            <name>Microsoft Cognitive Services Speech Maven Repository</name>
+            <url>https://azureai.azureedge.net/maven/</url>
+            </repository>
+        </repositories>
+        <dependencies>
+            <dependency>
+            <groupId>com.microsoft.cognitiveservices.speech</groupId>
+            <artifactId>client-sdk</artifactId>
+            <version>1.23.0</version>
+            </dependency>
+        </dependencies>
+    </project>
+    ```
+1. Install the Speech SDK and dependencies.
+    ```console
+    mvn clean dependency:copy-dependencies
+    ```
+
 ## Recognize speech from a microphone
 
 Follow these steps to create a new console application for speech recognition.
 
-1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.java`.
+1. Create a new file named `SpeechRecognition.java` in the same project root directory.
 1. Copy the following code into `SpeechRecognition.java`:
 
     ```java
@@ -82,7 +124,8 @@ Follow these steps to create a new console application for speech recognition.
 Run your new console application to start speech recognition from a microphone:
 
 ```console
-java SpeechRecognition
+javac SpeechRecognition.java -cp ".;target\dependency\*"
+java -cp ".;target\dependency\*" SpeechRecognition
 ```
 
 Speak into your microphone when prompted. What you speak should be output as text: 
