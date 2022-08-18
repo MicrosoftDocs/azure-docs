@@ -249,6 +249,9 @@
     - name: Azure Cosmos DB
       href: cosmos-db-managed-identity.md
       displayName: managed identity, identities, authenticate
+    - name: Azure Data Explorer
+      href: azure-data-explorer-managed-identity.md
+      displayName: managed identity, identities, authenticate
     - name: Azure Event Hubs
       href: event-hubs-managed-identity.md
       displayName: managed identity, identities, authenticate

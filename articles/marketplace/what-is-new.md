@@ -5,7 +5,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/18/2022
+ms.date: 08/01/2022
 ---
 
 # What's new in the Microsoft commercial marketplace
@@ -16,6 +16,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
+| Offers | Software as a service (SaaS) plans now support 2-year and 3-year billing term with upfront, monthly or annually payment options. To learn more, see [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#saas-billing-terms-and-payment-options). | 2022-08-01 |
 | Offers | ISVs can now offer custom prices, terms, conditions, and pricing for a specific customer through private offers. See [ISV to customer private offers](isv-customer.md) and the [FAQ](isv-customer-faq.yml). | 2022-04-06 |
 | Offers | Publishers can now [change transactable offer and plan pricing](price-changes.md) without having to discontinue an offer and recreate it with new pricing (also see [this FAQ](price-changes-faq.yml)). | 2022-03-30 |
 | Offers | An ISV can now specify time-bound margins for CSP partners to incentivize them to sell it to their customers. When their partner makes a sale to a customer, Microsoft will pay the ISV the wholesale price. See [ISV to CSP Partner private offers](./isv-csp-reseller.md) and [the FAQs](./isv-csp-faq.yml). | 2022-02-15 |
