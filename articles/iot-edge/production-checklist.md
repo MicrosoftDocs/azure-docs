@@ -178,6 +178,7 @@ In some cases, for example when dependencies exist between modules, it may be de
   * Manage volumes
 * **Helpful**
   * Store runtime containers in your private registry
+  * Configure image garbage collection
 
 ### Use tags to manage versions
 
@@ -216,6 +217,9 @@ Next, be sure to update the image references in the deployment.template.json fil
 * edgeHub:
 
     `"image": "<registry name and server>/azureiotedge-hub:1.1",`
+
+## Configure image garbage collection
+Image garbage collection is a feature offered by IoT Edge to automatically clean up any unused docker images for IoT Edge modules that are downloaded to the device. Deleting unused module images helps in conserving the disk space. This feature is enabled by default, so we recommend leaving this feature ON. However, if you choose to disable the feature or change the recurrence of the cleanup schedule, you may do so by modifying the settings in config.toml. For more information, See [image garbage collection](iot-edge-modules.md#image-garbage-collection) for more information 
 
 ## Networking
 

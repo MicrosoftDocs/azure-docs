@@ -21,6 +21,7 @@ Azure IoT Edge lets you deploy and manage business logic on the edge in the form
 * A **module instance** is the specific unit of computation running the module image on an IoT Edge device. The module instance is started by the IoT Edge runtime.
 * A **module identity** is a piece of information (including security credentials) stored in IoT Hub, that is associated to each module instance.
 * A **module twin** is a JSON document stored in IoT Hub, that contains state information for a module instance, including metadata, configurations, and conditions.
+* A **module image garbage collection** is a feature used by IoT Edge to automatically clean up any unused docker images in any IoT Edge devices.
 
 ## Module images and instances
 
@@ -63,6 +64,28 @@ await client.OpenAsync();
 // Get the module twin
 Twin twin = await client.GetTwinAsync();
 ```
+
+## Image garbage collection
+
+Image garbage collection is a feature offered by IoT Edge to automatically clean up any unused docker images for IoT Edge modules that are downloaded to the device. Deleting unused module images helps in conserving the disk space, so we recommend leaving this feature ON. Image garbage collection offers the following features.  
+
+ * Image garbage collection is enabled by default and runs once a day at midnight, and deletes images that have been unused for 7 days or longer 
+ * Users may disable the feature or change the recurrence by modifying the settings in config.toml
+ * Image garbage collection will not delete docker images that are not pulled by IoT Edge 
+
+The MIGC follows this structure in config.toml
+
+```json
+[image_garbage_collection]
+enabled = “true”  
+cleanup_recurrence = “1d”  
+image_age_cleanup_threshold = “7d” 
+cleanup_time = “00:00”  
+```
+ * 'enabled' controls whether image garbage collection runs or not. 
+ * 'cleanup_recurrence' is how frequently a user wants the image garbage collection to run. 
+ * 'image_age_cleanup_threshold' is the "age" of unused images, after which they will be cleaned up. 
+ * 'cleanup_time' in 24-hour HH:MM format is a best effort dictate of when the cleanup job runs. 
 
 ## Offline capabilities
 
