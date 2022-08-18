@@ -56,7 +56,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/language-service/concepts/role-based-access-control.md",
+            "source_path_from_root": "articles/cognitive-services/language-service/concepts/role-based-access-control.md",
             "redirect_url": "/azure/cognitive-services/language-service/overview",
             "redirect_document_id": false
         },
