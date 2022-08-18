@@ -171,15 +171,16 @@ The [Collection CRUD Samples](https://github.com/Azure/azure-documentdb-java/blo
 
 | Task | API reference |
 | --- | --- |
-| Exclude a document from the index | ExcludedIndex<br>IndexingPolicy |
-| Use Lazy Indexing | IndexingPolicy.IndexingMode |
-| [Include specified documents paths in the index](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/indexmanagement/sync/SampleIndexManagement.java#L145-L148) | IndexingPolicy.IncludedPaths |
-| [Exclude specified documents paths from the index](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/indexmanagement/sync/SampleIndexManagement.java#L150-L153) | IndexingPolicy.ExcludedPaths |
-| [Create a composite index](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/indexmanagement/sync/SampleIndexManagement.java#L171-L186) | IndexingPolicy.setCompositeIndexes<br>CompositePath |
-| Force a range scan operation on a hash indexed path | FeedOptions.EnableScanInQuery |
-| Use range indexes on Strings | IndexingPolicy.IncludedPaths<br>RangeIndex |
-| Perform an index transform | - |
-| [Create a geospatial index](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/indexmanagement/sync/SampleIndexManagement.java#L157-L166) | IndexingPolicy.setSpatialIndexes<br>SpatialSpec<br>SpatialType |
+| Include specified documents paths in the index | [IndexingPolicy.IncludedPaths](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/indexmanagement/sync/SampleIndexManagement.java#L143-L146) |
+| Exclude specified documents paths from the index | [IndexingPolicy.ExcludedPaths](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/indexmanagement/sync/SampleIndexManagement.java#L148-L151) |
+| Create a composite index | [IndexingPolicy.setCompositeIndexes](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/indexmanagement/sync/SampleIndexManagement.java#L167-L184) <br> CompositePath |
+| Create a geospatial index | [IndexingPolicy.setSpatialIndexes](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/indexmanagement/sync/SampleIndexManagement.java#L153-L165) <br> SpatialSpec <br> SpatialType |
+<!-- | Exclude a document from the index | ExcludedIndex<br>IndexingPolicy | -->
+<!-- | Use Lazy Indexing | IndexingPolicy.IndexingMode | -->
+<!-- | Force a range scan operation on a hash indexed path | FeedOptions.EnableScanInQuery | -->
+<!-- | Use range indexes on Strings | IndexingPolicy.IncludedPaths<br>RangeIndex | -->
+<!-- | Perform an index transform | - | -->
+
 
 For more information about indexing, see [Azure Cosmos DB indexing policies](../index-policy.md).
 
@@ -202,16 +203,16 @@ The Query Samples files for [sync](https://github.com/Azure-Samples/azure-cosmos
 | Query with parameterized SQL using SqlQuerySpec | [CosmosContainer.queryItems](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L387-L416) <br> [CosmosAsyncContainer.queryItems](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/0ead4ca33dac72c223285e1db866c9dc06f5fb47/src/main/java/com/azure/cosmos/examples/queries/async/QueriesQuickstartAsync.java#L426-L455)|
 | Query with explicit paging | [CosmosContainer.queryItems](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L211-L261) <br>  [CosmosAsyncContainer.queryItems](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/0ead4ca33dac72c223285e1db866c9dc06f5fb47/src/main/java/com/azure/cosmos/examples/queries/async/QueriesQuickstartAsync.java#L250-L300)|
 | Query partitioned collections in parallel | [CosmosContainer.queryItems](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L263-L284) <br> [CosmosAsyncContainer.queryItems](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/0ead4ca33dac72c223285e1db866c9dc06f5fb47/src/main/java/com/azure/cosmos/examples/queries/async/QueriesQuickstartAsync.java#L302-L323)|
-| Query with ORDER BY for partitioned collections | CosmosContainer.queryItems <br> CosmosAsyncContainer.queryItems |
+<!-- | Query with ORDER BY for partitioned collections | CosmosContainer.queryItems <br> CosmosAsyncContainer.queryItems | -->
 
 ## Change feed examples 
 The [Change Feed Processor Sample](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java) file shows how to do the following tasks. To learn about change feed in Azure Cosmos DB before you run the following samples, see [Read Azure Cosmos DB change feed](read-change-feed.md) and [Change feed processor](https://docs.microsoft.com/azure/cosmos-db/sql/change-feed-processor?tabs=java).
 
 | Task | API reference |
 | --- | --- |
-| [Basic change feed functionality](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java#L141-L172) |ChangeFeedProcessor.changeFeedProcessorBuilder |
-| Read change feed from a specific time | ChangeFeedProcessor.changeFeedProcessorBuilder |
-| [Read change feed from the beginning](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/0ead4ca33dac72c223285e1db866c9dc06f5fb47/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java#L65) | ChangeFeedProcessorOptions.setStartFromBeginning() |
+| Basic change feed functionality | [ChangeFeedProcessor.changeFeedProcessorBuilder](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java#L141-L172) |
+| Read change feed from the beginning | [ChangeFeedProcessorOptions.setStartFromBeginning()](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/0ead4ca33dac72c223285e1db866c9dc06f5fb47/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java#L65) |
+<!-- | Read change feed from a specific time | ChangeFeedProcessor.changeFeedProcessorBuilder | -->
 
 ## Server-side programming examples
 
@@ -219,9 +220,9 @@ The [Stored Procedure Sample](https://github.com/Azure-Samples/azure-cosmos-java
 
 | Task | API reference |
 | --- | --- |
-| [Create a stored procedure](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/storedprocedure/sync/SampleStoredProcedure.java#L132-L151) | CosmosScripts.createStoredProcedure |
-| [Execute a stored procedure](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/storedprocedure/sync/SampleStoredProcedure.java#L167-L181) | CosmosStoredProcedure.execute |
-| [Delete a stored procedure](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/storedprocedure/sync/SampleStoredProcedure.java#L183-L193) | CosmosStoredProcedure.delete |
+| Create a stored procedure | [CosmosScripts.createStoredProcedure](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/storedprocedure/sync/SampleStoredProcedure.java#L134-L153) |
+| Execute a stored procedure | [CosmosStoredProcedure.execute](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/storedprocedure/sync/SampleStoredProcedure.java#L213-L227) |
+| Delete a stored procedure | [CosmosStoredProcedure.delete](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/storedprocedure/sync/SampleStoredProcedure.java#L254-L264) |
 
 <!-- ## User management examples
 The User Management Sample file shows how to do the following tasks:
