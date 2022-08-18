@@ -30,6 +30,7 @@ In this article, we'll include two authentication methods, one is Azure Active D
 - [Azure Cloud Shell](../../cloud-shell/quickstart.md) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
 - A supported [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 (included in Azure Cloud Shell).
 - The [Apache Maven](https://maven.apache.org/) build tool.
+- MySQL command line client. You can connect to your server using a popular client tool, [mysql.exe](https://dev.mysql.com/downloads/) command-line tool with Azure Cloud Shell. Alternatively, you can use mysql command line on your local environment.
 
 ## Prepare the working environment
 
@@ -353,7 +354,7 @@ mkdir -p src/main/resources && touch src/main/resources/application.properties
 
 cat << EOF > src/main/resources/application.properties
 url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?useSSL=true&sslMode=REQUIRED&serverTimezone=UTC
-user=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
 EOF
 ```
 
