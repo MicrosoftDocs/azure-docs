@@ -5,8 +5,8 @@ author: ravibak
 ms.author: ravibak
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 08/10/2022
-ms.custom: template-how-to
+ms.date: 08/18/2022
+ms.custom: how-to
 ---
 
 # Deploy Windows Server-based virtual machines on Azure Virtual Desktop
