@@ -47,7 +47,6 @@ ms.date: 08/17/2022
     > - Performance: Standard
     > - Redundancy options: LRS, GRS, RA-GRS
 
-* If the storage accounts are in an Azure subscription different than Microsoft Purview account, [register the Microsoft.Purview resource provider](../../azure-resource-manager/management/resource-providers-and-types.md) in the Azure subscription where the storage accounts are located.
 * Latest version of the storage SDK, PowerShell, CLI and Azure Storage Explorer. Storage REST API version must be February 2020 or later.
 * The storage accounts need to be registered in the collections where you'll send or receive the share. If you're using one Microsoft Purview account, this can be two different collections, or the same collection. For instructions to register, see the [ADLS Gen2](../register-scan-adls-gen2.md) or [Blob storage](../register-scan-azure-blob-storage-source.md) data source pages.
 * If the source or target storage accounts are in a different Azure subscription than the one for Microsoft Purview account, the Microsoft.Purview resource provider is automatically registered in the Azure subscription where the data store is located at the time of share provider adding an asset or share consumer mapping an asset and **ONLY** if the user has permission to do the /register/action operation for the resource provider. The permission is included in the Contributor and Owner roles.
