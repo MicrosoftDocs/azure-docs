@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 08/19/2022
 tags: connectors
 ---
 
@@ -435,10 +435,9 @@ When you call a stored procedure by using the SQL Server connector, the returned
 
    > [!NOTE]
    >
-   > If you get an error that Azure Logic Apps can't generate a schema, 
-   > check that your sample output's syntax is correctly formatted. 
-   > If you still can't generate the schema, in the **Schema** box, 
-   > manually enter the schema.
+   > If you get an error that Azure Logic Apps can't generate a schema, check that your 
+   > sample output's syntax is correctly formatted. If you still can't generate the schema, 
+   > in the **Schema** box, manually enter the schema.
 
 1. When you're done, save your workflow.
 
@@ -479,7 +478,7 @@ Deletes and returns the table rows that match the specified **Where condition** 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **Table name** | `tableName` | True | String | The name for the table |
-| **Where condition** | `columnValuesForWhereCondition` | True | Object | This object contains the column names and corresponding values to delete. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*, which also lets you delete single or specific rows.|
+| **Where condition** | `columnValuesForWhereCondition` | True | Object | This object contains the column names and corresponding values used for selecting the rows to delete. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*, which also lets you specify single or specific rows to delete. |
 
 #### Returns
 
@@ -490,7 +489,7 @@ Deletes and returns the table rows that match the specified **Where condition** 
 
 *Example*
 
-The following example shows sample parameter values for the **Delete rows** action and the resulting SQL query that runs:
+The following example shows sample parameter values for the **Delete rows** action:
 
 **Sample values**
 
@@ -510,8 +509,6 @@ The following example shows sample parameter values for the **Delete rows** acti
    }
 },
 ```
-
-**SQL query**: `DELETE FROM tableName1 WHERE columnName1 = columnValue1 AND columnName2 = columnValue2`
 
 <a name="execute-query"></a>
 
@@ -573,7 +570,7 @@ Gets the table rows that match the specified **Where condition** value.
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **Table name** | `tableName` | True | String | The name for the table |
-| **Where condition** | `columnValuesForWhereCondition` | False | Dynamic | This object contains the column names and corresponding values to get. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*, which also lets you get single or specific rows. |
+| **Where condition** | `columnValuesForWhereCondition` | False | Dynamic | This object contains the column names and corresponding values used for selecting the rows to get. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*, which also lets you specify single or specific rows to get. |
 
 #### Returns
 
@@ -584,7 +581,7 @@ Gets the table rows that match the specified **Where condition** value.
 
 *Example*
 
-The following example shows sample parameter values for the **Get rows** action and the resulting SQL query that runs:
+The following example shows sample parameter values for the **Get rows** action:
 
 **Sample values**
 
@@ -604,8 +601,6 @@ The following example shows sample parameter values for the **Get rows** action 
    }
 },
 ```
-
-**SQL query**: `SELECT * FROM tableName1 WHERE columnName1 = columnValue1 AND columnName2 = columnValue2`
 
 <a name="get-tables"></a>
 
@@ -658,8 +653,8 @@ Updates the specified columns in all the table rows that match the specified **W
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **Table name** | `tableName` | True | String | The name for the table |
-| **Where condition** | `columnValuesForWhereCondition` | True | Dynamic | This object contains the column names and corresponding values to update. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*. |
-| **Set columns** | `setColumns` | True | Dynamic | This object contains the column names and the corresponding values to use for the update. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*, which also lets you update single or specific rows. |
+| **Where condition** | `columnValuesForWhereCondition` | True | Dynamic | This object contains the column names and corresponding values for selecting the rows to update. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*, which also lets you specify single or specific rows to update. |
+| **Set columns** | `setColumns` | True | Dynamic | This object contains the column names and the corresponding values to use for the update. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*. |
 
 #### Returns
 
@@ -670,7 +665,7 @@ Updates the specified columns in all the table rows that match the specified **W
 
 *Example*
 
-The following example shows sample parameter values for the **Update rows** action and the resulting SQL query that runs:
+The following example shows sample parameter values for the **Update rows** action:
 
 **Sample values**
 
@@ -690,8 +685,6 @@ The following example shows sample parameter values for the **Update rows** acti
    }
 },
 ```
-
-**SQL query**: `UPDATE * FROM tableName1 WHERE columnName1 = columnValue1 AND columnName2 = columnValue2`
 
 ## Troubleshoot problems
 
