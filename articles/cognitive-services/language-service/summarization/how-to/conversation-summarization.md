@@ -8,12 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 08/18/2022
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # How to use conversation summarization (preview)
+
+[!INCLUDE [availability](../includes/regional-availability.md)]
 
 > [!IMPORTANT] 
 > The conversation summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Conversation Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of conversation summarization. 
@@ -31,16 +33,6 @@ There's another feature in Azure Cognitive Service for Language named [document 
 * Conversation summarization returns summaries based on full chat logs including a reason for the chat (a problem), and the resolution. For example, a chat log between a customer and a customer service agent.
 
 ## Submitting data
-
-> [!NOTE]
-> * To use conversation summarization, you must [submit an online request and have it approved](https://aka.ms/applyforconversationsummarization/).
-> * Conversation summarization is only available through Language resources in the following regions:
->     * North Europe
->     * East US
->     * UK South
-> * Conversation summarization is only available using:
->     * REST API
->     * Python
 
 You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is [asynchronous](../../concepts/use-asynchronously.md), there may be a delay between sending an API request and receiving the results.  For information on the size and number of requests you can send per minute and second, see the data limits below.
 
@@ -87,6 +79,8 @@ Conversation summarization also enables you to get summaries from speech transcr
 ```
 
 ## Getting conversation summarization results
+
+[!INCLUDE [availability](../includes/regional-availability.md)]
 
 When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.
 
