@@ -28,7 +28,7 @@ Azure Percept on Azure Stack HCI integrates with Azure Percept Studio, Azure IoT
 
 The following diagram provides a high-level view of the Azure Percept on Azure Stack HCI architecture.
 
-![Architecture diagram for Azure Percept on Azure Stack HCI.](./media/azure-percept-on-azure-stack-hci-overview/azure-percept-component-diagram.png)
+![Architecture diagram for Azure Percept on Azure Stack HCI.](./media/azure-percept-component-diagram.png)
 
 **Azure Percept on Azure Stack HCI includes the following key components:**  
 
