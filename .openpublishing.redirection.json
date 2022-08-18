@@ -5918,12 +5918,12 @@
     },
     {
       "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
-      "redirect_url": "/azure/reliability/cross-region-replication-azure",
+      "redirect_url": "/azure/availability-zones/cross-region-replication-azure",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/availability-zones/index.md",
-      "redirect_url": "/azure/reliablity/index.md",
+      "redirect_url": "/azure/availability-zones/az-overview",
       "redirect_document_id": false
     },
     {
@@ -40275,12 +40275,12 @@
     },
     {
       "source_path_from_root": "/articles/app-service/environment/overview-zone-redundancy.md",
-      "redirect_url": "/azure/reliability/migrate-app-service-environment",
+      "redirect_url": "/azure/availability-zones/migrate-app-service-environment",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/app-service/how-to-zone-redundancy.md",
-      "redirect_url": "/azure/reliability/migrate-app-service",
+      "redirect_url": "/azure/availability-zones/migrate-app-service",
       "redirect_document_id": true
     },
     {
@@ -40314,74 +40314,9 @@
       "redirect_document_id": false
     },
     {
-        "source_path_from_root":"/articles/availability-zones/az-overview.md",
-        "redirect_URL": "/azure/reliability/overview-availablity",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/availability-zones/az-region.md",
-        "redirect_URL": "/azure/reliability/availability-zones-region",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/availability-zones/business-continuity-management-program.md",
-        "redirect_URL": "/azure/reliability/business-continuity-management-program",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/availability-zones/cross-region-replication-azure.md",
-        "redirect_URL": "/azure/reliability/cross-region-replication-azure",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/availability-zones/glossary.md",
-        "redirect_URL": "/azure/reliability/glossary",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/availability-zones/migrate-app-service-environment.md",
-        "redirect_URL": "/azure/reliability/migrate-app-service-environment",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/availability-zones/migrate-app-service.md",
-        "redirect_URL": "/azure/reliability/migrate-app-service",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/availability-zones/migrate-cache-redis.md",
-        "redirect_URL": "/azure/reliability/migrate-cache-redis",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/availability-zones/migrate-recovery-services-vault.md",
-        "redirect_URL": "/azure/reliability/migrate-recovery-services-vault",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/availability-zones/migrate-storage.md",
-        "redirect_URL": "/azure/reliability/migrate-storage",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/availability-zones/migrate-vm.md",
-        "redirect_URL": "/azure/reliability/migrate-vm",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/availability-zones/overview.md",
-        "redirect_URL": "/azure/reliability/overview-resiliency",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/availability-zones/region-types-service-categories-azure.md",
-        "redirect_URL": "/azure/reliability/availability-service-by-category",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/applied-ai-services/form-recognizer/tutorial-ai-builder.md",
-        "redirect_url": "https://docs.microsoft.com/ai-builder/create-form-processing-model",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/tutorial-ai-builder.md",
+      "redirect_url": "https://docs.microsoft.com/ai-builder/create-form-processing-model",
+      "redirect_document_id": false
     }
   ]
 }

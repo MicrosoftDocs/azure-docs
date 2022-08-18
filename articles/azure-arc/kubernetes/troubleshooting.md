@@ -4,7 +4,7 @@ services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
 ms.date: 06/13/2022
-ms.topic: article
+ms.topic: how-to
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
 keywords: "Kubernetes, Arc, Azure, containers, GitOps, Flux"
 ---

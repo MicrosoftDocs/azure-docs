@@ -32,7 +32,7 @@
       href: migrate-app-service-environment.md
     - name: App Service
       href: migrate-app-service.md
-    - name: Application Gateway v2
+    - name: Application Gateway
       href: migrate-app-gateway-v2.md
     - name: Cache for Redis
       href: migrate-cache-redis.md

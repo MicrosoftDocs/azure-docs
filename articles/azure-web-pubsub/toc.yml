@@ -168,7 +168,8 @@
     href: /rest/api/webpubsub/
   - name: Azure CLI
     href: /cli/azure/webpubsub
-
+  - name: Web PubSub client specification
+    href: reference-client-specification.md
 - name: Resources
   items:
   - name: Samples
