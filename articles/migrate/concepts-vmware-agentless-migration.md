@@ -89,15 +89,15 @@ The Azure Migrate appliance compresses data and encrypts before uploading. Data 
 ## Replication status 
 
 When a VM undergoes replication(data copy), there are a few possible states:
-- **Initial replication (Queued)**: The VM is queued for replication (or migration) as there are other VMs that are consuming the on-premises resources (during replication or migration). Once the resources are free, this VM will be processed.
+- **Initial replication queued**: The VM is queued for replication (or migration) as there may be other VMs that are consuming the on-premises resources (during replication or migration). Once the resources are free, this VM will be processed.
 - **Initial replication in progress**: The VM is being scheduled for initial replication. 
-- **Initial sync**: The VM is undergoing initial replication. When the VM is undergoing initial replication, you cannot proceed with test migration and migration. You can only stop replication at this stage.
-- **Initial sync (x%)**: The initial replication is active and has progressed by x%. 
+- **Initial replication**: The VM is undergoing initial replication. When the VM is undergoing initial replication, you cannot proceed with test migration and migration. You can only stop replication at this stage.
+- **Initial replication (x%)**: The initial replication is active and has progressed by x%. 
 - **Delta sync**: The VM may be undergoing a delta replication cycle that replicates the remaining data churn since the last replication cycle.
-- **Pause in progress**: The VM is undergoing an active delta replication cycle and will be paused at some time.  
+- **Pause in progress**: The VM is undergoing an active delta replication cycle and will be paused in some time.  
 - **Paused**: The replication cycles have been paused. The replication cycles can be resumed by performing a resume replication operation. 
-- **Resuming (Queued)**: The VM is queued for resuming replication as there are other VMs that are currently consuming the on-premises resources. 
-- **Resume in progress (x%)**: Replication cycle is being resumed for the VM and has progressed by x%. 
+- **Resume queued**: The VM is queued for resuming replication as there are other VMs that are currently consuming the on-premises resources. 
+- **Resume in progress (x%)**: The replication cycle is being resumed for the VM and has progressed by x%. 
 - **Stop replication in progress**: Replication cleanup is in progress. When you stop replication, the intermediate managed disks (seed disks) created during replication will be deleted. [Learn more](#stop-replicationcomplete-migration).  
 - **Complete migration in progress**: Migration cleanup is in progress. When you complete migration, the intermediate managed disks (seed disks) created during replication will be deleted. [Learn more](#stop-replicationcomplete-migration).  
 - **–** : When the VM has successfully migrated and/or when you have stopped replication, the status changes to “-“. Once you stop replication / complete migration and the operation finishes successfully, the VM will be removed from the list of replicating machines. You can find the VM in the virtual machines tab in the replicate wizard.
@@ -105,8 +105,8 @@ When a VM undergoes replication(data copy), there are a few possible states:
 ### Other states
 
 - **Initial replication failed**: The initial data could not be copied for the VM. Follow the remediation guidance to resolve. 
-- **Repair replication**: There was an issue in the replication cycle.  You can select the link to understand possible causes and actions to remediate (as applicable). If you had opted for **Automatically repair replication** by selecting **Yes** when you triggered replication of VM, the tool will try to repair it for you. Else, select on the VM, and select **Repair Replication**. If you did not opt for **Automatically repair replication** or the above step did not work for you, then stop replication for the virtual machine, reset changed block tracking on the virtual machine, and then reconfigure the replication.
-- **Repair replication (Queued)**: The VM is queued for replication repair as there are other VMs that are consuming the on-premises resources. Once the resources are free, the VM will be processed for repair replication.
+- **Repair pending**: There was an issue in the replication cycle.  You can select the link to understand possible causes and actions to remediate (as applicable). If you had opted for **Automatically repair replication** by selecting **Yes** when you triggered replication of VM, the tool will try to repair it for you. Else, select the VM, and select **Repair Replication**. If you did not opt for **Automatically repair replication** or if the above step did not work for you, then stop replication for the virtual machine, reset the changed block tracking on the virtual machine, and then reconfigure the replication.
+- **Repair replication queued**: The VM is queued for replication repair as there are other VMs that are consuming the on-premises resources. Once the resources are free, the VM will be processed for repair replication.
 - **Resync (x%)**: The VM is undergoing a data resynchronization. This can happen if there was some issue / mismatch during data replication. 
 - **Stop replication/complete migration failed**: Select the link to understand the possible causes for failure and actions to remediate (as applicable).
 
@@ -118,16 +118,15 @@ When a VM undergoes replication(data copy), there are a few possible states:
 - **Test migration pending**: The VM is in delta replication phase, and you can now perform test migration (or migration).
 - **Test migration clean up pending**: After test migration is complete, perform a test migration clean up to avoid charges in Azure. 
 - **Ready to migrate**: The VM is ready to be migrated to Azure. 
-- **Migration in progress (Queued)**: The VM is queued for migration as there are other VMs that are consuming the on-premises resources during replication (or migration). Once the resources are free, the VM will be processed.
-- **Migration in progress**: The VM is migrating. You can select the link to check the ongoing migration job. This job consists of five stages: Prerequisites check for migration, shutting down the virtual machine (optional step), prepare for migration, creation of Azure VM, start the Azure VM. 
-- **Test migration in progress**: The VM is undergoing a test migration. You can select the link to check the ongoing migration job. 
-- **Date, timestamp**: The migration / test migration date and timestamp. 
+- **Migration in progress queued**: The VM is queued for migration as there are other VMs that are consuming the on-premises resources during replication (or migration). Once the resources are free, the VM will be processed.
+- **Test migration/Migration in progress**: The VM is undergoing a test migration/migration. You can select the link to check the ongoing migration job. 
+- **Date, timestamp**: The migration/test migration date and timestamp. 
 
 ### Other states
 
-- **Completed with info**: The migration / test migration job completed with information. You can select the link to check the last migration job for possible causes and actions to remediate (as applicable). 
-Failed: The migration / test migration job failed. You can select the link to check the last migration job for possible causes and actions to remediate.
-- **–**: Initial replication is progress. You can perform a migration or test migration after the replication process transitions to a delta sync (incremental replication) phase. 
+- **Completed with info**: The migration/test migration job completed with information. You can select the link to check the last migration job for possible causes and actions to remediate (as applicable). 
+- **Failed**: The migration/test migration job failed. You can select the link to check the last migration job for possible causes and actions to remediate.
+- **–**: Initial replication is in progress. You can perform a migration or test migration after the replication process transitions to a delta sync (incremental replication) phase. 
 
 ## Scheduling logic
 
