@@ -10,18 +10,157 @@ ms.reviewer: mmcc
 
 # Upgrading from Application Insights Java 2.x SDK
 
-If you're already using Application Insights Java 2.x SDK in your application, you can keep using it.
-The Application Insights Java 3.x agent will detect it,
-and capture and correlate any custom telemetry you're sending via the 2.x SDK,
-while suppressing any auto-collection performed by the 2.x SDK to prevent duplicate telemetry.
+## Step-by-step
 
-If you were using Application Insights 2.x agent, you need to remove the `-javaagent:` JVM arg
-that was pointing to the 2.x agent.
+#### Step 1
+
+If you are using `applicationinsights-core` and/or `applicationinsights-web` dependencies, update those to the latest
+3.x version, e.g.
+
+Change
+
+```
+<dependency>
+   <groupId>com.microsoft.azure</groupId>
+   <artifactId>applicationinsights-core</artifactId>
+   <version>2.6.4</version>
+</dependency>
+```
+
+to
+
+```
+<dependency>
+   <groupId>com.microsoft.azure</groupId>
+   <artifactId>applicationinsights-core</artifactId>
+   <version>3.4.0</version>
+</dependency>
+```
+
+#### Step 2
+
+If you are using `applicationinsights-web-auto` dependency, remove that and replace it with the latest 3.x version of
+`applicationinsights-web`, e.g.
+
+Change
+
+```
+<dependency>
+   <groupId>com.microsoft.azure</groupId>
+   <artifactId>applicationinsights-web-auto</artifactId>
+   <version>2.6.4</version>
+</dependency>
+```
+
+to
+
+```
+<dependency>
+   <groupId>com.microsoft.azure</groupId>
+   <artifactId>applicationinsights-web</artifactId>
+   <version>3.4.0</version>
+</dependency>
+```
+
+#### Step 3
+
+If you have the Application Insights web filter `com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter`
+added your web.xml, remove that, since requests are now auto-instrumented in 3.x and this custom web filter is no longer
+needed, e.g.
+
+Remove
+
+```
+<filter>
+   <filter-name>ApplicationInsightsWebFilter</filter-name>
+   <filter-class>com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter</filter-class>
+</filter>
+<filter-mapping>
+   <filter-name>ApplicationInsightsWebFilter</filter-name>
+   <url-pattern>/*</url-pattern>
+</filter-mapping>
+```
+
+#### Step 4
+
+If you are using `applicationinsights-logging-log4j1_2`, `applicationinsights-logging-log4j2`,
+and/or `applicationinsights-logging-logback`, remove those dependencies, since loggers are now auto-instrumented in 3.x
+and these custom logging appenders are no longer needed, e.g.
+
+Remove
+
+```
+<dependency>
+   <groupId>com.microsoft.azure</groupId>
+   <artifactId>applicationinsights-logging-log4j1_2</artifactId>
+   <version>2.6.4</version>
+</dependency>
+```
+
+#### Step 5
+
+If you are using `applicationinsights-spring-boot-starter`, remove that and replace it with the latest 3.x version of
+`applicationinsights-web`, e.g.
+
+Change
+
+```
+<dependency>
+   <groupId>com.microsoft.azure</groupId>
+   <artifactId>applicationinsights-spring-boot-starter</artifactId>
+   <version>2.6.4</version>
+</dependency>
+```
+
+to
+
+```
+<dependency>
+   <groupId>com.microsoft.azure</groupId>
+   <artifactId>applicationinsights-web</artifactId>
+   <version>3.4.0</version>
+</dependency>
+```
+
+Note: the cloud role name will no longer default to `spring.application.name`, see the
+[3.x configuration docs](./java-standalone-config.md#cloud-role-name) for configuring the cloud role name.
+
+#### Step 6
+
+If you were using the Application Insights 2.x Javaagent, you need to replace that with the 3.x Javaagent, e.g.
+
+Change
+
+```
+-javaagent:path/to/applicationinsights-agent-2.6.4.jar
+```
+
+to
+
+```
+-javaagent:path/to/applicationinsights-agent-3.4.0.jar
+```
+
+#### Step 7
+
+If you were not using the Application Insights 2.x Javaagent, you will need to add the Application Insights 3.x
+Javaagent to your JVM args, e.g.
+
+```
+-javaagent:path/to/applicationinsights-agent-3.4.0.jar
+```
+
+Note: if you were using the spring-boot-starter, there is an alternative to using the Javaagent if you prefer, see
+[3.x Spring Boot](./java-spring-boot.md).
+
+#### Step 8
+
+[Configure the connection string](./java-standalone-config.md#connection-string).
+
+## Additional notes
 
 The rest of this document describes limitations and changes that you may encounter
 when upgrading from 2.x to 3.x, as well as some workarounds that you may find helpful.
-
-
 
 ## TelemetryInitializers and TelemetryProcessors
 
@@ -126,21 +265,3 @@ The telemetry processors perform the following actions (in order):
   }
 }
 ```
-
-## 2.x SDK logging appenders
-
-Application Insights Java 3.x [auto-collects logging](./java-standalone-config.md#auto-collected-logging)
-without the need for configuring any logging appenders.
-If you are using 2.x SDK logging appenders, those can be removed,
-as they will be suppressed by the Application Insights Java 3.x anyways.
-
-## 2.x SDK spring boot starter
-
-There is no Application Insights Java 3.x spring boot starter.
-3.x setup and configuration follows the same [simple steps](./java-in-process-agent.md#get-started)
-whether you are using spring boot or not.
-
-When upgrading from the Application Insights Java 2.x SDK spring boot starter,
-note that the cloud role name will no longer default to `spring.application.name`.
-See the [3.x configuration docs](./java-standalone-config.md#cloud-role-name)
-for setting the cloud role name in 3.x via json config or environment variable.
