@@ -70,6 +70,7 @@ The following steps show you how to create a dev center.
 You may choose to delete a dev center to reflect organizational or workload changes. Deleting a dev center is irreversible and you must prepare for the deletion carefully. 
 
 A dev center cannot be deleted if it contains any projects. You must delete the projects before you can delete the dev center.
+Attached network connections and their associated virtual networks are not deleted when you delete a dev center.
 
 When you are ready to delete your dev center, follow these steps:
 
