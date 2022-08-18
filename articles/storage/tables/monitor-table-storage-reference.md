@@ -25,7 +25,7 @@ Capacity metrics values are sent to Azure Monitor every hour. The values are ref
 
 Azure Storage provides the following capacity metrics in Azure Monitor.
 
-#### Account Level
+#### Account-level metrics
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
 
