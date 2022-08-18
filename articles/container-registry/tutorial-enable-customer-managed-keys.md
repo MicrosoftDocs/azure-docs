@@ -90,7 +90,7 @@ keyvaultID=$(az keyvault show --resource-group <resource-group-name> --name <key
 
 #### Enable key vault access by trusted services
 
-If the key vault is in protection with a firewall or virtual network (private endpoint), We suggest enabling the network setting to allow access by [trusted Azure services.](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)
+If the key vault is in protection with a firewall or virtual network (private endpoint), you must enable the network settings to allow access by [trusted Azure services.](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)
 
 For more information, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-cli).
 
@@ -278,9 +278,9 @@ Alternatively, assign the `Key Vault Crypto Service Encryption User` role to the
 
 For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-### Create key (optional)
+### Create key 
 
-Optionally, create a key in the key vault and use it to encrypt the registry. Follow these steps if you want to select a specific key version as a customer-managed key. You may also need to create a key before creating the registry if key vault access is restricted to a private endpoint or selected networks. 
+Create a key in the key vault and use it to encrypt the registry. Follow these steps if you want to select a specific key version as a customer-managed key. You may also need to create a key before creating the registry if key vault access is restricted to a private endpoint or selected networks. 
 
 1. Navigate to your key vault.
 1. Select **Settings** > **Keys**.
@@ -440,10 +440,6 @@ az deployment group create \
 ```azurecli
 az acr encryption show --name <registry-name>
 ```
-
-## Use the registry
-
-Once you enable a customer-managed key in a registry, you can perform all the registry operations that you perform in a registry that's not encrypted with a customer-managed key. Such as authenticate with the registry and push Docker images. For example, see [Push and pull an image.](container-registry-get-started-docker-cli.md)
 
 ## Next steps
 

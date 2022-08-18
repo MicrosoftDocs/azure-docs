@@ -44,6 +44,8 @@ Update a Customer managed key version manually:
 
  1. Rotate key and use user-assigned identity
 
+If you're using the key from a different key vault, verify the `principal-id-user-assigned-identity` has the `get`, `wrap`, and `unwrap` permissions on that key vault.
+
 ```azurecli
 az acr encryption rotate-key \
   --name <registry-name> \
@@ -52,6 +54,8 @@ az acr encryption rotate-key \
 ```
 
  2. Rotate key and use system-assigned identity
+
+Before you use the system-assigned identity, verify for the `get`, `wrap`, and `unwrap` permissions assigned to it.
 
 ```azurecli
 az acr encryption rotate-key \
