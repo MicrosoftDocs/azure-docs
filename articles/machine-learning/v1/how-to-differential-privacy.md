@@ -18,7 +18,7 @@ ms.date: 10/21/2021
 
 Learn how to apply differential privacy best practices to Azure Machine Learning models by using the SmartNoise Python open-source libraries.
 
-Differential privacy is the gold-standard definition of privacy. Systems that adhere to this definition of privacy provide strong assurances against a wide range of data reconstruction and reidentification attacks, including attacks by adversaries who possess auxiliary information. Learn more about [how differential privacy works](./concept-differential-privacy.md).
+Differential privacy is the gold-standard definition of privacy. Systems that adhere to this definition of privacy provide strong assurances against a wide range of data reconstruction and reidentification attacks, including attacks by adversaries who possess auxiliary information. Learn more about [how differential privacy works](../concept-differential-privacy.md).
 
 
 ## Prerequisites
@@ -45,7 +45,7 @@ import opendp.smartnoise.core
 import opendp.smartnoise.sql
 ```
 
-If the imports succeed, the libraries are installed and ready to use.
+If the imports succeed, the libraries are installed, and ready to use.
 
 ### Docker image installation
 
@@ -71,7 +71,7 @@ This starts a Jupyter server at port `8989` on your `localhost`, with password `
 docker exec -it smartnoise-run bash
 ```
 
-The Docker instance clears all state on shutdown, so you will lose any notebooks you create in the running instance. To remedy this, you can bind mount a local folder to the container when you launch it:
+The Docker instance clears all state on shutdown, so you'll lose any notebooks you create in the running instance. To remedy this, you can mount a local folder to the container when you launch it:
 
 ```sh
 docker run --rm -p 8989:8989 --name smartnoise-run --mount type=bind,source=/Users/your_name/my-notebooks,target=/home/privacy/my-notebooks opendp/smartnoise:privacy
@@ -95,7 +95,7 @@ data_path = os.path.join('.', 'data', 'PUMS_california_demographics_1000', 'data
 var_names = ["age", "sex", "educ", "race", "income", "married", "pid"]
 ```
 
-In this example, we compute the mean and the variance of the age.  We use a total `epsilon` of 1.0 (epsilon is our privacy parameter, spreading our privacy budget across the two quantities we want to compute. Learn more about [privacy metrics](concept-differential-privacy.md#differential-privacy-metrics).
+In this example, we compute the mean and the variance of the age.  We use a total `epsilon` of 1.0 (epsilon is our privacy parameter, spreading our privacy budget across the two quantities we want to compute. Learn more about [privacy metrics](../concept-differential-privacy.md#differential-privacy-metrics).
 
 ```python
 with sn.Analysis() as analysis:
@@ -179,19 +179,19 @@ The result of that operation should look similar to that below:
 Age accuracy is: 0.2995732273553991
 ```
 
-This example computes the mean as above, and uses the `get_accuracy` function to request accuracy at `alpha` of 0.05. An `alpha` of 0.05 represents a 95% interval, in that released value will fall within the reported accuracy bounds about 95% of the time.  In this example, the reported accuracy is 0.3, which means the released value will be within an interval of width 0.6, about 95% of the time.  It is not correct to think of this value as an error bar, since the released value will fall outside the reported accuracy range at the rate specified by `alpha`, and values outside the range may be outside in either direction.
+This example computes the mean as above, and uses the `get_accuracy` function to request accuracy at `alpha` of 0.05. An `alpha` of 0.05 represents a 95% interval, in that released value will fall within the reported accuracy bounds about 95% of the time.  In this example, the reported accuracy is 0.3, which means the released value will be within an interval of width 0.6, about 95% of the time.  It isn't correct to think of this value as an error bar, since the released value will fall outside the reported accuracy range at the rate specified by `alpha`, and values outside the range may be outside in either direction.
 
-Analysts may query `get_accuracy` for different values of `alpha` to get narrower or wider confidence intervals, without incurring additional privacy cost.
+Analysts may query `get_accuracy` for different values of `alpha` to get narrower or wider confidence intervals, without incurring other privacy cost.
 
 ## Generate a histogram
 
 The built-in `dp_histogram` function creates differentially private histograms over any of the following data types:
 
 - A continuous variable, where the set of numbers has to be divided into bins
-- A boolean or dichotomous variable, that can only take on two values
+- A boolean or dichotomous variable that can only take on two values
 - A categorical variable, where there are distinct categories enumerated as strings
 
-Here is an example of an `Analysis` specifying bins for a continuous variable histogram:
+Here's an example of an `Analysis` specifying bins for a continuous variable histogram:
 
 ```python
 income_edges = list(range(0, 100000, 10000))
@@ -220,7 +220,7 @@ SmartNoise offers three different functionalities with its `dp_covariance` funct
 - Covariance matrix of a matrix
 - Cross-covariance matrix of a pair of matrices
 
-Here is an example of computing a scalar covariance:
+Here's an example of computing a scalar covariance:
 
 ```python
 with sn.Analysis() as analysis:

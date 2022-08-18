@@ -18,18 +18,18 @@ In this article, you'll learn how to export the data labels from an Azure Machin
 
 ## What are datasets with labels 
 
-Azure Machine Learning datasets with labels are referred to as labeled datasets. These specific datasets are [TabularDatasets](/python/api/azureml-core/azureml.data.tabular_dataset.tabulardataset) with a dedicated label column and are only created as an output of Azure Machine Learning data labeling projects. Create a data labeling project [for image labeling](how-to-create-image-labeling-projects.md) or [text labeling](how-to-create-text-labeling-projects.md). Machine Learning supports data labeling projects for image classification, either multi-label or multi-class, and object identification together with bounded boxes.
+Azure Machine Learning datasets with labels are referred to as labeled datasets. These specific datasets are [TabularDatasets](/python/api/azureml-core/azureml.data.tabular_dataset.tabulardataset) with a dedicated label column and are only created as an output of Azure Machine Learning data labeling projects. Create a data labeling project [for image labeling](../how-to-create-image-labeling-projects.md) or [text labeling](../how-to-create-text-labeling-projects.md). Machine Learning supports data labeling projects for image classification, either multi-label or multi-class, and object identification together with bounded boxes.
 
 ## Prerequisites
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or access to [Azure Machine Learning studio](https://ml.azure.com/).
-* A Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
-* Access to an Azure Machine Learning data labeling project. If you don't have a labeling project, first create one for [image labeling](how-to-create-image-labeling-projects.md) or [text labeling](how-to-create-text-labeling-projects.md).
+* A Machine Learning workspace. See [Create workspace resources](../quickstart-create-resources.md).
+* Access to an Azure Machine Learning data labeling project. If you don't have a labeling project, first create one for [image labeling](../how-to-create-image-labeling-projects.md) or [text labeling](../how-to-create-text-labeling-projects.md).
 
 ## Export data labels 
 
-When you complete a data labeling project, you can [export the label data from a labeling project](how-to-create-image-labeling-projects.md#export-the-labels). Doing so, allows you to capture both the reference to the data and its labels, and export them in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. 
+When you complete a data labeling project, you can [export the label data from a labeling project](../how-to-create-image-labeling-projects.md#export-the-labels). Doing so, allows you to capture both the reference to the data and its labels, and export them in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. 
 
 Use the **Export** button on the **Project details** page of your labeling project.
 
@@ -46,10 +46,10 @@ Use the **Export** button on the **Project details** page of your labeling proje
 
 You can access the exported Azure Machine Learning dataset in the **Datasets** section of your Azure Machine Learning studio. The dataset **Details** page also provides sample code to access your labels from Python.
 
-![Exported dataset](./media/how-to-create-labeling-projects/exported-dataset.png)
+![Exported dataset](../media/how-to-create-labeling-projects/exported-dataset.png)
 
 > [!TIP]
-> Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md)
+> Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python (preview)](../how-to-auto-train-image-models.md)
 
 ## Explore labeled datasets via pandas dataframe
 
@@ -90,5 +90,5 @@ imgplot = plt.imshow(img)
 
 ## Next steps
 
-* Learn to [train image classification models in Azure](./tutorial-train-deploy-notebook.md)
-* [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md)
+* Learn to [train image classification models in Azure](../tutorial-train-deploy-notebook.md)
+* [Set up AutoML to train computer vision models with Python (preview)](../how-to-auto-train-image-models.md)

@@ -30,7 +30,7 @@ For this tutorial, you need:
 
 - [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install). This SDK includes the [azureml-datasets](/python/api/azureml-core/azureml.core.dataset) package.
     
-- An [Azure Machine Learning workspace](concept-workspace.md). Retrieve an existing one by running the following code, or [create a new workspace](../quickstart-create-resources.md).
+- An [Azure Machine Learning workspace](../concept-workspace.md). Retrieve an existing one by running the following code, or [create a new workspace](../quickstart-create-resources.md).
 
     ```Python
     import azureml.core
@@ -114,7 +114,7 @@ dataset2.register(workspace = workspace,
 
 ## Version an ML pipeline output dataset
 
-You can use a dataset as the input and output of each [ML pipeline](concept-ml-pipelines.md) step. When you rerun pipelines, the output of each pipeline step is registered as a new dataset version.
+You can use a dataset as the input and output of each [ML pipeline](../concept-ml-pipelines.md) step. When you rerun pipelines, the output of each pipeline step is registered as a new dataset version.
 
 ML pipelines populate the output of each step into a new folder every time the pipeline reruns. This behavior allows the versioned output datasets to be reproducible. Learn more about [datasets in pipelines](./how-to-create-machine-learning-pipelines.md#steps).
 

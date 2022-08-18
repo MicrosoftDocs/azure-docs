@@ -17,7 +17,7 @@ ms.custom: contperf-fy20q4, devx-track-python, data4ml, sdkv1, event-tier1-build
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-This article provides code for importing, transforming, and moving data between steps in an Azure Machine Learning pipeline. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](concept-ml-pipelines.md)
+This article provides code for importing, transforming, and moving data between steps in an Azure Machine Learning pipeline. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](../concept-ml-pipelines.md)
 
 This article will show you how to:
 
@@ -38,7 +38,7 @@ You'll need:
 
 - An Azure Machine Learning workspace.
   
-  Either [create an Azure Machine Learning workspace](quickstart-create-resources.md) or use an existing one via the Python SDK. Import the `Workspace` and `Datastore` class, and load your subscription information from the file `config.json` using the function `from_config()`. This function looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`.
+  Either [create an Azure Machine Learning workspace](../quickstart-create-resources.md) or use an existing one via the Python SDK. Import the `Workspace` and `Datastore` class, and load your subscription information from the file `config.json` using the function `from_config()`. This function looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`.
 
    ```python
    import azureml.core
@@ -171,7 +171,7 @@ dataprep_step = PythonScriptStep(
 ```
 
 > [!NOTE]
-> Concurrent writes to a `OutputFileDatasetConfig` will fail. Do not attempt to use a single `OutputFileDatasetConfig` concurrently. Do not share a single `OutputFileDatasetConfig` in a multiprocessing situation, such as when using [distributed training](how-to-train-distributed-gpu.md). 
+> Concurrent writes to a `OutputFileDatasetConfig` will fail. Do not attempt to use a single `OutputFileDatasetConfig` concurrently. Do not share a single `OutputFileDatasetConfig` in a multiprocessing situation, such as when using [distributed training](../how-to-train-distributed-gpu.md). 
 
 ### Use `OutputFileDatasetConfig` as outputs of a training step
 
@@ -239,7 +239,7 @@ Azure does not automatically delete intermediate data written with `OutputFileDa
 * Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](/azure/storage/blobs/lifecycle-management-overview)) 
 * Regularly review and delete no-longer-needed data
 
-For more information, see [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md).
+For more information, see [Plan and manage costs for Azure Machine Learning](../concept-plan-manage-cost.md).
 
 ## Next steps
 

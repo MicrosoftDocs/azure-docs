@@ -154,7 +154,7 @@ published_pipeline.endpoint
 
 ## Create a Logic App
 
-Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. If you wish, [use an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment) and [set up a customer-managed key](/azure/logic-apps/customer-managed-keys-integration-service-environment) for use by your Logic App.
+Now create an [Azure Logic App](/azure/logic-apps/logic-apps-overview) instance. If you wish, [use an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment) and [set up a customer-managed key](/azure/logic-apps/customer-managed-keys-integration-service-environment) for use by your Logic App.
 
 Once your Logic App has been provisioned, use these steps to configure a trigger for your pipeline:
 
@@ -214,13 +214,13 @@ Once your Logic App has been provisioned, use these steps to configure a trigger
 1. Select **Save** and your schedule is now ready.
 
 > [!IMPORTANT]
-> If you are using Azure role-based access control (Azure RBAC) to manage access to your pipeline, [set the permissions for your pipeline scenario (training or scoring)](how-to-assign-roles.md#common-scenarios).
+> If you are using Azure role-based access control (Azure RBAC) to manage access to your pipeline, [set the permissions for your pipeline scenario (training or scoring)](../how-to-assign-roles.md#common-scenarios).
 
 ## Call machine learning pipelines from Azure Data Factory pipelines
 
 In an Azure Data Factory pipeline, the *Machine Learning Execute Pipeline* activity runs an Azure Machine Learning pipeline. You can find this activity in the Data Factory's authoring page under the *Machine Learning* category:
 
-:::image type="content" source="media/how-to-trigger-published-pipeline/azure-data-factory-pipeline-activity.png" alt-text="Screenshot showing the ML pipeline activity in the Azure Data Factory authoring environment":::
+:::image type="content" source="./media/how-to-trigger-published-pipeline/azure-data-factory-pipeline-activity.png" alt-text="Screenshot showing the ML pipeline activity in the Azure Data Factory authoring environment":::
 
 ## Next steps
 
@@ -229,7 +229,7 @@ In this article, you used the Azure Machine Learning SDK for Python to schedule 
 For more information, see:
 
 > [!div class="nextstepaction"]
-> [Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
+> [Use Azure Machine Learning Pipelines for batch scoring](../tutorial-pipeline-batch-scoring-classification.md)
 
-* Learn more about [pipelines](concept-ml-pipelines.md)
-* Learn more about [exploring Azure Machine Learning with Jupyter](samples-notebooks.md)
+* Learn more about [pipelines](../concept-ml-pipelines.md)
+* Learn more about [exploring Azure Machine Learning with Jupyter](../samples-notebooks.md)

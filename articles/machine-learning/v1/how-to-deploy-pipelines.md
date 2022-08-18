@@ -24,9 +24,9 @@ Machine learning pipelines are reusable workflows for machine learning tasks. On
 
 * Create an [Azure Machine Learning workspace](../quickstart-create-resources.md) to hold all your pipeline resources
 
-* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed
+* [Configure your development environment](../how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../-compute-instance.md) with the SDK already installed
 
-* Create and run a machine learning pipeline, such as by following [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](tutorial-pipeline-batch-scoring-classification.md). For other options, see [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)
+* Create and run a machine learning pipeline, such as by following [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](../tutorial-pipeline-batch-scoring-classification.md). For other options, see [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)
 
 ## Publish a pipeline
 
@@ -72,7 +72,7 @@ Once you have a pipeline up and running, you can publish a pipeline so that it r
 All published pipelines have a REST endpoint. With the pipeline endpoint, you can trigger a run of the pipeline from any external systems, including non-Python clients. This endpoint enables "managed repeatability" in batch scoring and retraining scenarios.
 
 > [!IMPORTANT]
-> If you are using Azure role-based access control (Azure RBAC) to manage access to your pipeline, [set the permissions for your pipeline scenario (training or scoring)](how-to-assign-roles.md#common-scenarios).
+> If you are using Azure role-based access control (Azure RBAC) to manage access to your pipeline, [set the permissions for your pipeline scenario (training or scoring)](../how-to-assign-roles.md#common-scenarios).
 
 To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token. Getting such a token is described in the [AzureCliAuthentication class](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication) reference and in the [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
@@ -339,12 +339,12 @@ You can also run a published pipeline from the studio:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
-1. [View your workspace](how-to-manage-workspace.md#view).
+1. [View your workspace](../how-to-manage-workspace.md#view).
 
 1. On the left, select **Endpoints**.
 
 1. On the top, select **Pipeline endpoints**.
- ![list of machine learning published pipelines](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
+ ![list of machine learning published pipelines](../media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
 
 1. Select a specific pipeline to run, consume, or review results of previous runs of the pipeline endpoint.
 

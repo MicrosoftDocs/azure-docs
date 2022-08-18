@@ -17,7 +17,7 @@ ms.custom: designer, event-tier1-build-2022
 In this article, you learn how to import your own data in the designer to create custom solutions. There are two ways you can import data into the designer: 
 
 * **Azure Machine Learning datasets** - Register [datasets](concept-data.md) in Azure Machine Learning to enable advanced features that help you manage your data.
-* **Import Data component** - Use the [Import Data](algorithm-module-reference/import-data.md) component to directly access data from online data sources.
+* **Import Data component** - Use the [Import Data](../algorithm-module-reference/import-data.md) component to directly access data from online data sources.
 
 [!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
 
@@ -62,15 +62,15 @@ If you register a file dataset, the output port type of the dataset is **AnyDire
 - Currently the designer only supports preview outputs which are stored in **Azure blob storage**. You can check and change your output datastore in the **Output settings** under **Parameters** tab in the right panel of the component.
 - If your data is stored in virtual network (VNet) and you want to preview, you need to enable workspace managed identity of the datastore.
     1. Go the related datastore and click **Update authentication**
-    :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Update Credentials":::
+    :::image type="content" source="../media/resource-known-issues/datastore-update-credential.png" alt-text="Update Credentials":::
     1. Select **Yes** to enable workspace managed identity.
-    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Enable Workspace Managed Identity":::
+    :::image type="content" source="../media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Enable Workspace Managed Identity":::
 
 ## Import data using the Import Data component
 
-While we recommend that you use datasets to import data, you can also use the [Import Data](algorithm-module-reference/import-data.md) component. The Import Data component skips registering your dataset in Azure Machine Learning and imports data directly from a [datastore](concept-data.md) or HTTP URL.
+While we recommend that you use datasets to import data, you can also use the [Import Data](../algorithm-module-reference/import-data.md) component. The Import Data component skips registering your dataset in Azure Machine Learning and imports data directly from a [datastore](concept-data.md) or HTTP URL.
 
-For detailed information on how to use the Import Data component, see the [Import Data reference page](algorithm-module-reference/import-data.md).
+For detailed information on how to use the Import Data component, see the [Import Data reference page](../algorithm-module-reference/import-data.md).
 
 > [!NOTE]
 > If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-connect-data-ui.md#create-datasets).
@@ -100,16 +100,16 @@ The designer internally recognizes the following data types:
 * Boolean
 * Date
 
-The designer uses an internal data type to pass data between components. You can explicitly convert your data into data table format using the [Convert to Dataset](algorithm-module-reference/convert-to-dataset.md) component. Any component that accepts formats other than the internal format will convert the data silently before passing it to the next component.
+The designer uses an internal data type to pass data between components. You can explicitly convert your data into data table format using the [Convert to Dataset](../algorithm-module-reference/convert-to-dataset.md) component. Any component that accepts formats other than the internal format will convert the data silently before passing it to the next component.
 
 ## Data constraints
 
-Modules in the designer are limited by the size of the compute target. For larger datasets, you should use a larger Azure Machine Learning compute resource. For more information on Azure Machine Learning compute, see [What are compute targets in Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
+Modules in the designer are limited by the size of the compute target. For larger datasets, you should use a larger Azure Machine Learning compute resource. For more information on Azure Machine Learning compute, see [What are compute targets in Azure Machine Learning?](../concept-compute-target.md#azure-machine-learning-compute-managed)
 
 ## Access data in a virtual network
 
-If your workspace is in a virtual network, you must perform additional configuration steps to  visualize data in the designer. For more information on how to use datastores and datasets in a virtual network, see [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md).
+If your workspace is in a virtual network, you must perform additional configuration steps to  visualize data in the designer. For more information on how to use datastores and datasets in a virtual network, see [Use Azure Machine Learning studio in an Azure virtual network](../how-to-enable-studio-virtual-network.md).
 
 ## Next steps
 
-Learn the designer fundamentals with this [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).
+Learn the designer fundamentals with this [Tutorial: Predict automobile price with the designer](../tutorial-designer-automobile-price-train-score.md).

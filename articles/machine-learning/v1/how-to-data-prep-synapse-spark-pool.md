@@ -42,7 +42,7 @@ The Azure Synapse Analytics integration with Azure Machine Learning (preview) al
 
 * [Create Apache Spark pool using Azure portal, web tools, or Synapse Studio](/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
 
-* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md#create) with the SDK already installed. 
+* [Configure your development environment](../how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md#create) with the SDK already installed. 
 
 * Install the `azureml-synapse` package (preview) with the following code:
 
@@ -50,9 +50,9 @@ The Azure Synapse Analytics integration with Azure Machine Learning (preview) al
   pip install azureml-synapse
   ```
 
-* Link your Azure Machine Learning workspace and Azure Synapse Analytics workspace with the [Azure Machine Learning Python SDK](how-to-link-synapse-ml-workspaces.md#link-sdk) or via the [Azure Machine Learning studio](how-to-link-synapse-ml-workspaces.md#link-studio)
+* Link your Azure Machine Learning workspace and Azure Synapse Analytics workspace with the [Azure Machine Learning Python SDK](../how-to-link-synapse-ml-workspaces.md#link-sdk) or via the [Azure Machine Learning studio](../how-to-link-synapse-ml-workspaces.md#link-studio)
 
-* [Attach a Synapse Spark pool](how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute) as a compute target.
+* [Attach a Synapse Spark pool](../how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute) as a compute target.
 
 ## Launch Synapse Spark pool for data wrangling tasks
 
@@ -73,7 +73,7 @@ After the session starts, you can check the session's metadata.
 %synapse meta
 ```
 
-You can specify an [Azure Machine Learning environment](concept-environments.md) to use during your Apache Spark session. Only Conda dependencies specified in the environment will take effect. Docker image is not supported.
+You can specify an [Azure Machine Learning environment](../concept-environments.md) to use during your Apache Spark session. Only Conda dependencies specified in the environment will take effect. Docker image isn't supported.
 
 >[!WARNING]
 >  Python dependencies specified in environment Conda dependencies are not supported in Apache Spark pools. Currently, only fixed Python versions are supported. 
@@ -173,7 +173,7 @@ df = spark.read.csv("abfss://<container name>@<storage account>.dfs.core.windows
 
 You can also get an existing registered dataset in your workspace and perform data preparation on it by converting it into a spark dataframe.
 
-The following example authenticates to the workspace, gets a registered TabularDataset, `blob_dset`, that references files in blob storage, and converts it into a spark dataframe. When you convert your datasets into a spark dataframe, you can leverage `pyspark` data exploration and preparation libraries.  
+The following example authenticates to the workspace, gets a registered TabularDataset, `blob_dset`, that references files in blob storage, and converts it into a spark dataframe. When you convert your datasets into a spark dataframe, you can use `pyspark` data exploration and preparation libraries.  
 
 ``` python
 %%synapse
@@ -251,14 +251,14 @@ input1 = train_ds.as_mount()
 
 ## Use a `ScriptRunConfig` to submit an experiment run to a Synapse Spark pool
 
-If you are ready to automate and productionize your data wrangling tasks, you can submit an experiment run to [an attached Synapse Spark pool](how-to-link-synapse-ml-workspaces.md#attach-a-pool-with-the-python-sdk) with the [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object.  
+If you're ready to automate and productionize your data wrangling tasks, you can submit an experiment run to [an attached Synapse Spark pool](../how-to-link-synapse-ml-workspaces.md#attach-a-pool-with-the-python-sdk) with the [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object.  
 
 Similarly, if you have an Azure Machine Learning pipeline, you can use the [SynapseSparkStep to specify your Synapse Spark pool as the compute target](how-to-use-synapsesparkstep.md) for the data preparation step in your pipeline.
 
 Making your data available to the Synapse Spark pool depends on your dataset type. 
 
 * For a FileDataset, you can use the [`as_hdfs()`](/python/api/azureml-core/azureml.data.filedataset#as-hdfs--) method. When the run is submitted, the dataset is made available to the Synapse Spark pool as a Hadoop distributed file system (HFDS). 
-* For a [TabularDataset](./v1/how-to-create-register-datasets.md#tabulardataset), you can use the [`as_named_input()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset#as-named-input-name-) method. 
+* For a [TabularDataset](how-to-create-register-datasets.md#tabulardataset), you can use the [`as_named_input()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset#as-named-input-name-) method. 
 
 The following code, 
 
@@ -313,7 +313,7 @@ run = exp.submit(config=script_run_config)
 run
 ```
 
-For additional details, like the `dataprep.py` script used in this example, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb).
+For more details, like the `dataprep.py` script used in this example, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb).
 
 After your data is prepared, you can then use it as input for your training jobs. In the aforementioned code example, the `registered_dataset` is what you would specify as your input data for training jobs. 
 
@@ -325,5 +325,5 @@ See the example notebooks for more concepts and demonstrations of the Azure Syna
 
 ## Next steps
 
-* [Train a model](how-to-set-up-training-targets.md).
+* [Train a model](../how-to-set-up-training-targets.md).
 * [Train with Azure Machine Learning dataset](how-to-train-with-datasets.md).

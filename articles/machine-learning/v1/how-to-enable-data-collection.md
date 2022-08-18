@@ -20,7 +20,7 @@ This article shows how to collect data from an Azure Machine Learning model depl
 
 Once collection is enabled, the data you collect helps you:
 
-* [Monitor data drifts](../how-to-monitor-datasets.md) on the production data you collect.
+* [Monitor data drifts](how-to-monitor-datasets.md) on the production data you collect.
 
 * Analyze collected data using [Power BI](#powerbi) or [Azure Databricks](#databricks)
 
@@ -215,4 +215,4 @@ You can choose a tool of your preference to analyze the data collected in your B
 
 ## Next steps
 
-[Detect data drift](../how-to-monitor-datasets.md) on the data you have collected.
+[Detect data drift](how-to-monitor-datasets.md) on the data you have collected.

@@ -23,9 +23,9 @@ Azure Machine Learning's automated ML capability helps you discover high-perform
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).  
+* An Azure Machine Learning workspace. See [Create workspace resources](../quickstart-create-resources.md).  
 
-* Familiarity with Azure's [automated machine learning](concept-automated-ml.md) and [machine learning pipelines](concept-ml-pipelines.md) facilities and SDK.
+* Familiarity with Azure's [automated machine learning](../concept-automated-ml.md) and [machine learning pipelines](../concept-ml-pipelines.md) facilities and SDK.
 
 ## Review automated ML's central classes
 
@@ -35,7 +35,7 @@ There are several subclasses of `PipelineStep`. In addition to the `AutoMLStep`,
 
 The preferred way to initially move data _into_ an ML pipeline is with `Dataset` objects. To move data _between_ steps and possible save data output from runs, the preferred way is with [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig) and [`OutputTabularDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig) objects. To be used with `AutoMLStep`, the `PipelineData` object must be transformed into a `PipelineOutputTabularDataset` object. For more information, see [Input and output data from ML pipelines](how-to-move-data-in-out-of-pipelines.md).
 
-The `AutoMLStep` is configured via an `AutoMLConfig` object. `AutoMLConfig` is a flexible class, as discussed in [Configure automated ML experiments in Python](./how-to-configure-auto-train.md#configure-your-experiment-settings). 
+The `AutoMLStep` is configured via an `AutoMLConfig` object. `AutoMLConfig` is a flexible class, as discussed in [Configure automated ML experiments in Python](../how-to-configure-auto-train.md#configure-your-experiment-settings). 
 
 A `Pipeline` runs in an `Experiment`. The pipeline `Run` has, for each step, a child `StepRun`. The outputs of the automated ML `StepRun` are the training metrics and highest-performing model.
 
@@ -65,7 +65,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-The code first logs in to the Azure Machine Learning workspace defined in **config.json** (for an explanation, see [Create a workspace configuration file](how-to-configure-environment.md#workspace). If there isn't already a dataset named `'titanic_ds'` registered, then it creates one. The code downloads CSV data from the Web, uses them to instantiate a `TabularDataset` and then registers the dataset with the workspace. Finally, the function `Dataset.get_by_name()` assigns the `Dataset` to `titanic_ds`. 
+The code first logs in to the Azure Machine Learning workspace defined in **config.json** (for an explanation, see [Create a workspace configuration file](../how-to-configure-environment.md#workspace). If there isn't already a dataset named `'titanic_ds'` registered, then it creates one. The code downloads CSV data from the Web, uses them to instantiate a `TabularDataset` and then registers the dataset with the workspace. Finally, the function `Dataset.get_by_name()` assigns the `Dataset` to `titanic_ds`. 
 
 ### Configure your storage and compute target
 
@@ -226,7 +226,7 @@ The `prepped_data_path` object is of type `OutputFileDatasetConfig` which points
 
 ## Train with AutoMLStep
 
-Configuring an automated ML pipeline step is done with the `AutoMLConfig` class. This flexible class is described in [Configure automated ML experiments in Python](./how-to-configure-auto-train.md). Data input and output are the only aspects of configuration that require special attention in an ML pipeline. Input and output for `AutoMLConfig` in pipelines is discussed in detail below. Beyond data, an advantage of ML pipelines is the ability to use different compute targets for different steps. You might choose to use a more powerful `ComputeTarget` only for the automated ML process. Doing so is as straightforward as assigning a more powerful `RunConfiguration` to the `AutoMLConfig` object's `run_configuration` parameter.
+Configuring an automated ML pipeline step is done with the `AutoMLConfig` class. This flexible class is described in [Configure automated ML experiments in Python](../how-to-configure-auto-train.md). Data input and output are the only aspects of configuration that require special attention in an ML pipeline. Input and output for `AutoMLConfig` in pipelines is discussed in detail below. Beyond data, an advantage of ML pipelines is the ability to use different compute targets for different steps. You might choose to use a more powerful `ComputeTarget` only for the automated ML process. Doing so is as straightforward as assigning a more powerful `RunConfiguration` to the `AutoMLConfig` object's `run_configuration` parameter.
 
 ### Send data to `AutoMLStep`
 
@@ -279,7 +279,7 @@ The snippet above creates the two `PipelineData` objects for the metrics and mod
 
 ### Configure and create the automated ML pipeline step
 
-Once the inputs and outputs are defined, it's time to create the `AutoMLConfig` and `AutoMLStep`. The details of the configuration will depend on your task, as described in [Configure automated ML experiments in Python](./how-to-configure-auto-train.md). For the Titanic survival classification task, the following snippet demonstrates a simple configuration.
+Once the inputs and outputs are defined, it's time to create the `AutoMLConfig` and `AutoMLStep`. The details of the configuration will depend on your task, as described in [Configure automated ML experiments in Python](../how-to-configure-auto-train.md). For the Titanic survival classification task, the following snippet demonstrates a simple configuration.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -318,7 +318,7 @@ The `automl_settings` dictionary is passed to the `AutoMLConfig` constructor as 
 - `task` is set to `classification` for this example. Other valid values are `regression` and `forecasting`
 - `path` and `debug_log` describe the path to the project and a local file to which debug information will be written 
 - `compute_target` is the previously defined `compute_target` that, in this example, is an inexpensive CPU-based machine. If you're using AutoML's Deep Learning facilities, you would want to change the compute target to be GPU-based
-- `featurization` is set to `auto`. More details can be found in the [Data Featurization](./how-to-configure-auto-train.md#data-featurization) section of the automated ML configuration document 
+- `featurization` is set to `auto`. More details can be found in the [Data Featurization](../how-to-configure-auto-train.md#data-featurization) section of the automated ML configuration document 
 - `label_column_name` indicates which column we are interested in predicting 
 - `training_data` is set to the `OutputTabularDatasetConfig` objects made from the outputs of the data preparation step 
 
@@ -488,6 +488,6 @@ Finally, the actual metrics and model are downloaded to your local machine, as w
 ## Next Steps
 
 - Run this Jupyter notebook showing a [complete example of automated ML in a pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) that uses regression to predict taxi fares
-- [Create automated ML experiments without writing code](how-to-use-automated-ml-for-ml-models.md)
+- [Create automated ML experiments without writing code](../how-to-use-automated-ml-for-ml-models.md)
 - Explore a variety of [Jupyter notebooks demonstrating automated ML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
-- Read about integrating your pipeline in to [End-to-end MLOps](./concept-model-management-and-deployment.md#automate-the-machine-learning-lifecycle) or investigate the [MLOps GitHub repository](https://github.com/Microsoft/MLOpspython)
+- Read about integrating your pipeline in to [End-to-end MLOps](./concept-model-management-and-deployment.md) or investigate the [MLOps GitHub repository](https://github.com/Microsoft/MLOpspython)
