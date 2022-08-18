@@ -1221,8 +1221,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-train-with-datasets.md",
-        "redirect_url": "/azure/machine-learning/how-to-train-with-datasets",
+        "source_path_from_root": "/articles/machine-learning/how-to-train-with-datasets.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-train-with-datasets",
         "redirect_document_id": true
     },
     {
@@ -1306,8 +1306,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-monitor-datasets.md",
-        "redirect_url": "/azure/machine-learning/how-to-monitor-datasets",
+        "source_path_from_root": "/articles/machine-learning/how-to-monitor-datasets.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-monitor-datasets",
         "redirect_document_id": true
     },
     {
@@ -1363,6 +1363,11 @@
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-label-images.md",
         "redirect_url": "/azure/machine-learning/how-to-label-images",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-data-ingest-adf.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-data-ingest-adf",
         "redirect_document_id": true
     },
     {
