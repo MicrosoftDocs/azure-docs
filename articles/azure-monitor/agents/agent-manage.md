@@ -8,13 +8,13 @@ ms.date: 04/06/2022
 ms.reviewer: luki
 ---
 
-# Managing and maintaining the Log Analytics agent for Windows and Linux
+# Manage and maintain the Log Analytics agent for Windows and Linux
 
 After initial deployment of the Log Analytics Windows or Linux agent in Azure Monitor, you may need to reconfigure the agent, upgrade it, or remove it from the computer if it has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
-## Upgrading agent
+## Upgrade the agent
 
 Upgrade to the latest release of the Log Analytics agent for Windows and Linux manually or automatically based on your deployment scenario and the environment the VM is running in:
 
@@ -109,7 +109,7 @@ az vm extension set \
 ```
 ---
 
-## Adding or removing a workspace
+## Add or remove a workspace
 
 ### Windows agent
 The steps in this section are necessary when you want to not only reconfigure the Windows agent to report to a different workspace or to remove a workspace from its configuration, but also when you want to configure the agent to report to more than one workspace (commonly referred to as multi-homing). Configuring the Windows agent to report to multiple workspaces can only be performed after initial setup of the agent and using the methods described below.    
