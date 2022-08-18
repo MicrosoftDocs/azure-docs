@@ -16,21 +16,6 @@ ms.custom: mode-other
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
----
-title: include file
-description: include file
-services: azure-communication-services
-author: peiliu
-manager: alexokun
-
-ms.service: azure-communication-services
-ms.subservice: azure-communication-services
-ms.date: 08/18/2022
-ms.topic: include
-ms.custom: include file
-ms.author: peiliu
----
-
 Get started with Azure Communication Services by using the Communication Services C# Media Composition SDK to compose and stream videos.
 
 ## Prerequisites
@@ -73,14 +58,12 @@ To set up an environment for using media composition, take the steps in the foll
 1. Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
 
    ```csharp
-
    using System;
    using System.Collections.Generic;
 
    using Azure;
    using Azure.Communication;
    using Azure.Communication.MediaComposition;
-
    ```
 
 ## Authenticate the media composition client
@@ -93,12 +76,12 @@ Open **Program.cs** in a text editor and replace the body of the `Main` method w
 ```csharp
 // Find your Communication Services resource in the Azure portal
 var connectionString = "<connection_string>";
-MediaCompositionClient mediaCompositionClient = new MediaCompositionClient(connectionString);
+var mediaCompositionClient = new MediaCompositionClient(connectionString);
 ```
 
 ## Create a media composition
 
-Create a new media composition by defining the `inputs`, `layout`, `outputs`, as well as a user-friendly `id`. For more details on how to define the values, refer to [this page](./define-media-composition.md). These values are passed into the `CreateAsync` function exposed on the client. The code snippet below shows and example of defining a simple two by two grid layout:
+Create a new media composition by defining the `inputs`, `layout`, `outputs`, as well as a user-friendly `mediaCompositionId`. For more details on how to define the values, refer to [this page](./define-media-composition.md). These values are passed into the `CreateAsync` function exposed on the client. The code snippet below shows and example of defining a simple two by two grid layout:
 
 ```csharp
 var layout = new GridLayout(rows: 2, columns: 2, inputIds: new List<List<string>>{ new List<string> { "jill", "jack" }, new List<string> { "jane", "jerry" } })
@@ -205,7 +188,7 @@ var inputIdsToRemove = new List<string>()
 var response = await mediaCompositionClient.RemoveInputsAsync(mediaCompositionId, inputIdsToRemove);
 ```
 
-## Upsert or remove outputs
+### Upsert or remove outputs
 
 To upsert outputs, you can use the `UpsertOutputsAsync` function from the client.
 ```csharp
@@ -226,7 +209,7 @@ var outputIdsToRemove = new List<string>()
 var response = await mediaCompositionClient.RemoveOutputsAsync(mediaCompositionId, outputIdsToRemove);
 ```
 
-## Start running a created media
+## Start running a media composition
 
 After defining the media composition with the correct properties, you can start composing the media by calling the `StartAsync` function using the `mediaCompositionId`.
 
@@ -234,7 +217,7 @@ After defining the media composition with the correct properties, you can start 
 var compositionSteamState = await mediaCompositionClient.StartAsync(mediaCompositionId);
 ```
 
-## Stop a running media composition
+## Stop running a media composition
 
 To stop a media composition, call the `StopAsync` function using the `mediaCompositionId`.
 
