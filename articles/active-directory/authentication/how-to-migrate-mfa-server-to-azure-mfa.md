@@ -8,7 +8,7 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/23/2022
 
-ms.author: gasinh
+ms.author: justinha
 author: Gargi-Sinha
 manager: martinco
 ms.reviewer: michmcla
@@ -55,11 +55,9 @@ Microsoft’s MFA server can be integrated with many systems, and you must evalu
 
 ### Migrating MFA user information
 
-Common ways to think about moving users in batches include moving them by regions, departments, or roles such as administrators. 
-Whichever strategy you choose, ensure that you move users iteratively, starting with test and pilot groups, and that you have a rollback plan in place. 
+Common ways to think about moving users in batches include moving them by regions, departments, or roles such as administrators. You should move user accounts iteratively, starting with test and pilot groups, and make sure you have a rollback plan in place. 
 
-While you can migrate users’ registered multifactor authentication phone numbers and hardware tokens, you can't migrate device registrations such as their Microsoft Authenticator app settings. 
-Users will need to register and add a new account on the Authenticator app and remove the old account. 
+You can use the [MFA Server Migration Utility](how-to-mfa-server-migration-utility.md) to synchronize MFA data stored in the on-premises Azure MFA Server to Azure AD MFA and use [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md) to re-route users to Azure MFA. Staged Rollout helps you test without making any changes to your domain federation settings.
 
 To help users to differentiate the newly added account from the old account linked to the MFA Server, make sure the Account name for the Mobile App on the MFA Server is named in a way to distinguish the two accounts. 
 For example, the Account name that appears under Mobile App on the MFA Server has been renamed to On-Premises MFA Server. 
@@ -98,12 +96,12 @@ Our recommendations:
 - Use Azure AD for authentication as it enables more robust security and governance
 - Move applications to Azure AD if possible
 
-To select the user authentication method best for your organization, see [Choose the right authentication method for your Azure AD hybrid identity solution](../hybrid/choose-ad-authn.md). 
+To select the best user authentication method for your organization, see [Choose the right authentication method for your Azure AD hybrid identity solution](../hybrid/choose-ad-authn.md). 
 We recommend that you use Password Hash Synchronization (PHS).
 
 ### Passwordless authentication
 
-As part of enrolling users to use Microsoft Authenticator as a second factor, we recommend you enable passwordless phone sign-in as part of their registration. For more information, including other passwordless methods such as FIDO and Windows Hello for Business, visit [Plan a passwordless authentication deployment with Azure AD](howto-authentication-passwordless-deployment.md#plan-for-and-deploy-microsoft-authenticator).
+As part of enrolling users to use Microsoft Authenticator as a second factor, we recommend you enable passwordless phone sign-in as part of their registration. For more information, including other passwordless methods such as FIDO2 security keys and Windows Hello for Business, visit [Plan a passwordless authentication deployment with Azure AD](howto-authentication-passwordless-deployment.md#plan-for-and-deploy-microsoft-authenticator).
 
 ### Microsoft Identity Manager self-service password reset 
 

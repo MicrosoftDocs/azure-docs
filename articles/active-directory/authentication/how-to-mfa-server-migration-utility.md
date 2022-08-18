@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 ## Solution overview
 
-The MFA Server Migration Utility helps synchronize multi-factor authentication data stored in the on-premises Azure MFA Server directly to Azure AD MFA. 
+The MFA Server Migration Utility helps synchronize multifactor authentication data stored in the on-premises Azure MFA Server directly to Azure AD MFA. 
 After the authentication data is migrated to Azure AD, users can perform cloud-based MFA seamlessly without having to re-register or confirm authentication methods. 
 Admins can use the MFA Server Migration Utility to target single users or groups of users for testing and controlled rollout without having to make any tenant-wide changes.
 
