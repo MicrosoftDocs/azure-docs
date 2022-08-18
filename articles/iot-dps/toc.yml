@@ -14,6 +14,9 @@ items:
       href: quick-setup-auto-provision.md
     - name: Azure CLI
       href: quick-setup-auto-provision-cli.md
+    - name: Bicep
+      displayName: Resource Manager,ARM,template
+      href: quick-setup-auto-provision-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: quick-setup-auto-provision-rm.md

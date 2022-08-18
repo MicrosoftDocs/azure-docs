@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 08/17/2022
 ms.author: lajanuar
 ---
 
@@ -18,7 +18,7 @@ This article provides throttling limits for the Translator translation, translit
 
 ## Character and array limits per request
 
-Each translate request is limited to 50,000 characters, across all the target languages you are translating to. For example, sending a translate request of 3,000 characters to translate to three different languages results in a request size of 3000x3 = 9,000 characters, which satisfy the request limit. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
+Each translate request is limited to 50,000 characters, across all the target languages you're translating to. For example, sending a translate request of 3,000 characters to translate to three different languages results in a request size of 3000x3 = 9,000 characters, which satisfy the request limit. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
 
 The following table lists array element and character limits for each operation of the Translator.
 
@@ -35,9 +35,14 @@ The following table lists array element and character limits for each operation 
 
 Your character limit per hour is based on your Translator subscription tier.
 
-The hourly quota should be consumed evenly throughout the hour. For example, at the F0 tier limit of 2 million characters per hour, characters should be consumed no faster than roughly 33,300 characters per minute sliding window (2 million characters divided by 60 minutes).
+The hourly quota should be consumed evenly throughout the hour. For example, at the F0 tier limit of 2 million characters per hour, characters should be consumed no faster than roughly 33,300 characters per minute. The sliding window range is 2 million characters divided by 60 minutes.
 
-If you reach or surpass these limits, or send too large of a portion of the quota in a short period of time, you'll likely receive an out of quota response. There are no limits on concurrent requests.
+You're likely to receive an out-of-quota response under the following circumstances:
+
+* You've reached or surpass the quota limit.
+* You've sent a large portion of the quota in too short a period of time.
+
+There are no limits on concurrent requests.
 
 | Tier | Character limit |
 |------|-----------------|

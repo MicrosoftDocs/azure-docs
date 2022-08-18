@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/21/2022
+ms.date: 08/16/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -48,6 +48,8 @@ Organizations can choose to deploy this policy using the steps outlined below or
 After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Next steps
+
+[Remediate risks and unblock users](../identity-protection/howto-identity-protection-remediate-unblock.md)
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
 
