@@ -1,6 +1,6 @@
 ---
 title: People's featured clothing
-description: This article gives an overview of a featured clothing images appearing in a video.
+description: This article gives an overview of featured clothing images appearing in a video.
 ms.topic: conceptual
 ms.date: 11/15/2021
 ms.author: juliako
@@ -8,7 +8,7 @@ ms.author: juliako
 
 # People's featured clothing (preview)
 
-Azure Video Indexer enables you to get data on the featured clothing of an observed person. The featured clothing feature, helps to enable the following scenarios: 
+Azure Video Indexer enables you to get data on the featured clothing of an observed person. The people's featured clothing feature, helps to enable the following scenarios: 
 
 - Ads placement - using the featured clothing insight information, you can enable more targeted ads placement.  
 - Video summarization - you can create a summary of the most interesting outfits appearing in the video. 
@@ -17,7 +17,7 @@ Azure Video Indexer enables you to get data on the featured clothing of an obser
 
 The featured clothing insight is available when indexing your file by choosing the Advanced option -> Advanced video or Advanced video + audio preset (under Video + audio indexing). Standard indexing will not include this insight.
 
-:::image type="content" source="./media/detected-clothing/index-video.png" alt-text="This screenshot represents an indexing video option":::
+:::image type="content" source="./media/detected-clothing/index-video.png" alt-text="This screenshot represents an indexing video option.":::
 
 The featured clothing images are ranked based on some of the following factors: key moments of the video, general emotions from text or audio. The `id` property indicates the ranking index. For example, `"id": 1` signifies the most important featured clothing.
 
