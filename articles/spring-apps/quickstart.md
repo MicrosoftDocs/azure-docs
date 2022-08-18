@@ -197,6 +197,8 @@ Use the following steps to import the project.
 > [!NOTE]
 > To run the project locally, add `spring.config.import=optional:configserver:` to the project's `application.properties` file.
 
+1. If you haven't already installed the Azure Toolkit for IntelliJ, follow the steps in [Install the Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/install-toolkit) to install it.
+
 1. Right-click your project in IntelliJ project explorer, then select **Azure** -> **Deploy to Azure Spring Apps**.
 
    :::image type="content" source="media/quickstart/intellij-deploy-azure-1.png" alt-text="Screenshot of IntelliJ IDEA menu showing Deploy to Azure Spring Apps option." lightbox="media/quickstart/intellij-deploy-azure-1.png":::
