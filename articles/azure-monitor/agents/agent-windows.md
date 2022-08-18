@@ -72,7 +72,7 @@ Regardless of the installation method used, you'll require the workspace ID and 
 [![Screenshot that shows workspace details.](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
 
 > [!NOTE]
-> You can't configure the agent to report to more than one workspace during initial setup. [Add or remove a workspace](agent-manage.md#adding-or-removing-a-workspace) after installation by updating the settings from Control Panel or PowerShell.
+> You can't configure the agent to report to more than one workspace during initial setup. [Add or remove a workspace](agent-manage.md#add-or-remove-a-workspace) after installation by updating the settings from Control Panel or PowerShell.
 
 ## Install the agent 
 
