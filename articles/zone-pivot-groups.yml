@@ -1155,12 +1155,6 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title:
-- id: acs-csharp
-  title: Platform
-  prompt: Choose a platform
-  pivots:
-  - id: programming-language-csharp
-    title: C#
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines

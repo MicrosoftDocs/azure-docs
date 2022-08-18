@@ -11,15 +11,243 @@ ms.date: 08/18/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: mode-other
-zone_pivot_groups: acs-csharp
 ---
 # Quickstart: Create and manage a media composition resource
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [Use Media Composition with .NET SDK](./includes/media-comp-quickstart-net.md)]
-::: zone-end
+---
+title: include file
+description: include file
+services: azure-communication-services
+author: peiliu
+manager: alexokun
+
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
+ms.date: 08/18/2022
+ms.topic: include
+ms.custom: include file
+ms.author: peiliu
+---
+
+Get started with Azure Communication Services by using the Communication Services C# Media Composition SDK to compose and stream videos.
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- The latest version of [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+
+### Prerequisite check
+
+- In a terminal or command window, run the `dotnet` command to check that the .NET SDK is installed.
+
+## Set up the application environment
+
+To set up an environment for using media composition, take the steps in the following sections.
+
+### Create a new C# application
+
+1. In a console window, such as cmd, PowerShell, or Bash, use the `dotnet new` command to create a new console app with the name `MediaCompositionQuickstart`. This command creates a simple "Hello World" C# project with a single source file, **Program.cs**.
+
+   ```console
+   dotnet new console -o MediaCompositionQuickstart
+   ```
+
+1. Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
+
+   ```console
+   cd MediaCompositionQuickstart
+   dotnet build
+   ```
+
+### Install the package
+
+1. While still in the application directory, install the Azure Communication Services MediaComposition SDK for .NET package by using the following command.
+
+   ```console
+   dotnet add package Azure.Communication.MediaCompositionQuickstart --version 1.0.0-beta.1
+   ```
+
+1. Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
+
+   ```csharp
+
+   using System;
+   using System.Collections.Generic;
+
+   using Azure;
+   using Azure.Communication;
+   using Azure.Communication.MediaComposition;
+
+   ```
+
+## Authenticate the media composition client
+
+Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize a `MediaCompositionClient` with your connection string. The `MediaCompositionClient` will be used to create and manage media composition objects.
+
+ You can find your Communication Services resource connection string in the Azure portal. For more information on connection strings, see [this page](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+
+
+```csharp
+// Find your Communication Services resource in the Azure portal
+var connectionString = "<connection_string>";
+MediaCompositionClient mediaCompositionClient = new MediaCompositionClient(connectionString);
+```
+
+## Create a media composition
+
+Create a new media composition by defining the `inputs`, `layout`, `outputs`, as well as a user-friendly `id`. For more details on how to define the values, refer to [this page](../define-media-composition.md). These values are passed into the `CreateAsync` function exposed on the client. The code snippet below shows and example of defining a simple two by two grid layout:
+
+```csharp
+var layout = new GridLayout(rows: 2, columns: 2, inputIds: new List<List<string>>{ new List<string> { "jill", "jack" }, new List<string> { "jane", "jerry" } })
+{
+    Resolution = new(1920, 1080)
+};
+
+var inputs = new Dictionary<string, MediaInput>()
+{
+    ["jill"] = new ParticipantInput
+    (
+        id: new MicrosoftTeamsUserIdentifier("f3ba9014-6dca-4456-8ec0-fa03cfa2b7b7"),
+        call: "teamsMeeting")
+    {
+        PlaceholderImageUri = "https://imageendpoint"
+    },
+    ["jack"] = new ParticipantInput
+    (
+        id: new MicrosoftTeamsUserIdentifier("fa4337b5-f13a-41c5-a34f-f2aa46699b61"),
+        call: "teamsMeeting")
+    {
+        PlaceholderImageUri = "https://imageendpoint"
+    },
+    ["jane"] = new ParticipantInput
+    (
+        id: new MicrosoftTeamsUserIdentifier("2dd69470-dc25-49cf-b5c3-f562f08bf3b2"),
+        call: "teamsMeeting"
+    )
+    {
+        PlaceholderImageUri = "https://imageendpoint"
+    },
+    ["jerry"] = new ParticipantInput
+    (
+        id: new MicrosoftTeamsUserIdentifier("30e29fde-ac1c-448f-bb34-0f3448d5a677"),
+        call: "teamsMeeting")
+    {
+        PlaceholderImageUri = "https://imageendpoint"
+    },
+    ["teamsMeeting"] = new TeamsMeetingInput(teamsJoinUrl: "https://teamsJoinUrl")
+};
+
+var outputs = new Dictionary<string, MediaOutput>()
+{
+    ["acsGroupCall"] = new GroupCallOutput("d12d2277-ffec-4e22-9979-8c0d8c13d193")
+};
+
+var mediaCompositionId = "twoByTwoGridLayout"
+var response = await mediaCompositionClient.CreateAsync(mediaCompositionId, layout, inputs, outputs);
+```
+
+You may want to keep track of and persist the `mediaCompositionId` in the storage medium of choice. You can reference the `mediaCompositionId` to view or update the properties of a media composition object.
+
+## Get properties of an existing media composition
+
+Retrieve the details of an existing media composition by referencing the `mediaCompositionId`.
+
+```C# Snippet:GetMediaComposition
+var gridMediaComposition = await mediaCompositionClient.GetAsync(mediaCompositionId);
+```
+
+## Updates
+
+Note that for private preview, updating the `layout` of a media composition can happen on-the-fly as the media composition is running. However, `input` updates while the media composition is running is not supported. The media composition will need to be stopped and restarted before any changes to the inputs are applied.
+
+### Update layout
+
+Updating the `layout` can be issued by passing in the new `layout` object as well as the `mediaCompositionId`. For example, we can update the grid layout to an auto-grid layout following the snippet below:
+
+```csharp
+var layout = new AutoGridLayout(new List<string>() { "teamsMeeting" })
+{
+    Resolution = new(720, 480),
+};
+
+var response = await mediaCompositionClient.UpdateLayoutAsync(mediaCompositionId, layout);
+```
+
+### Upsert or remove inputs
+
+To upsert inputs from the media composition object, use the `UpsertInputsAsync` function exposed in the client.
+
+```csharp
+var inputsToUpsert = new Dictionary<string, MediaInput>()
+{
+    ["james"] = new ParticipantInput
+    (
+        id: new MicrosoftTeamsUserIdentifier("f3ba9014-6dca-4456-8ec0-fa03cfa2b70p"),
+        call: "teamsMeeting"
+    )
+    {
+        PlaceholderImageUri = "https://imageendpoint"
+    }
+};
+
+var response = await mediaCompositionClient.UpsertInputsAsync(mediaCompositionId, inputsToUpsert);
+```
+
+You can also explictly remove inputs from the list.
+```csharp
+var inputIdsToRemove = new List<string>()
+{
+    "jane", "jerry"
+};
+var response = await mediaCompositionClient.RemoveInputsAsync(mediaCompositionId, inputIdsToRemove);
+```
+
+## Upsert or remove outputs
+
+To upsert outputs, you can use the `UpsertOutputsAsync` function from the client.
+```csharp
+var outputsToUpsert = new Dictionary<string, MediaOutput>()
+{
+    ["youtube"] = new RtmpOutput("key", new(1920, 1080), "rtmp://a.rtmp.youtube.com/live2")
+};
+
+var response = await mediaCompositionClient.UpsertOutputsAsync(mediaCompositionId, outputsToUpsert);
+```
+
+You can remove outputs by following the snippet below:
+```csharp
+var outputIdsToRemove = new List<string>()
+{
+    "acsGroupCall"
+};
+var response = await mediaCompositionClient.RemoveOutputsAsync(mediaCompositionId, outputIdsToRemove);
+```
+
+## Start running a created media
+
+After defining the media composition with the correct properties, you can start composing the media by calling the `StartAsync` function using the `mediaCompositionId`.
+
+```csharp
+var compositionSteamState = await mediaCompositionClient.StartAsync(mediaCompositionId);
+```
+
+## Stop a running media composition
+
+To stop a media composition, call the `StopAsync` function using the `mediaCompositionId`.
+
+```csharp
+var compositionSteamState = await mediaCompositionClient.StopAsync(mediaCompositionId);
+```
+
+## Delete a media composition
+
+If you wish to delete a media composition, you may issue a delete request:
+```csharp
+await mediaCompositionClient.DeleteAsync(mediaCompositionId);
+```
 
 ## Object model
 
