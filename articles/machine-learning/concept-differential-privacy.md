@@ -77,6 +77,6 @@ The system library provides the following tools and services for working with ta
 
 Learn more about differential privacy in machine learning: 
 
- - [How to build a differentially private system](how-to-differential-privacy.md) in Azure Machine Learning.
+ - [How to build a differentially private system](v1/how-to-differential-privacy.md) in Azure Machine Learning with SDK v1.
 
  - To learn more about the components of SmartNoise, check out the GitHub repositories for [SmartNoise Core](https://github.com/opendifferentialprivacy/smartnoise-core), [SmartNoise SDK](https://github.com/opendifferentialprivacy/smartnoise-sdk), and [SmartNoise samples](https://github.com/opendifferentialprivacy/smartnoise-samples).
