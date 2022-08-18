@@ -14,7 +14,7 @@ ms.date: 08/19/2022
 
 Azure Cache for Redis can help you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Cache for Redis reservations, you make an upfront commitment on a cache for one or three years to get a significant discount on the compute costs. To purchase Azure Cache for Redis reservations, you need to specify the Azure region, service tier, and term.
 
-You do not need to assign the reservation to specific Azure Cache for Redis instances. If you have a cache already running or new ones that are being deployed, they automatically get the benefit of reserved pricing, up to the reserved cache size. By purchasing a reservation, you are pre-paying for the compute costs for one or three years. As soon as you buy a reservation, the compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover networking or storage charges associated with the cache. At the end of the reservation term, the billing benefit expires and the cache is billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [Azure Cache for Redis pricing page](https://azure.microsoft.com/pricing/details/cache).
+You don't need to assign the reservation to specific Azure Cache for Redis instances. If you have a cache already running or new ones that are being deployed, they automatically get the benefit of reserved pricing, up to the reserved cache size. By purchasing a reservation, you're pre-paying for the compute costs for one or three years. As soon as you buy a reservation, the compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation doesn't cover networking or storage charges associated with the cache. At the end of the reservation term, the billing benefit expires and the cache is billed at the pay-as-you go price. Reservations don't auto-renew. For pricing information, see the [Azure Cache for Redis pricing page](https://azure.microsoft.com/pricing/details/cache).
 
 You can buy a reservation in the [Azure portal](https://portal.azure.com/). To buy the reservations:
 
@@ -68,7 +68,7 @@ The following table describes required fields.
 | Region | The Azure region that’s covered by the reservation.
 | Pricing tier | The service tier for the instances.
 | Term | One year or three years
-| Quantity | The amount of compute resources being purchased within the reservation. The quantity is the number of nodes in the selected Azure region and service tier that is being reserved, and will get the billing discount. For example, if you are running or planning to run an instance in the Premium tier with the total cache capacity of 26 GB in the East US region, then you would specify a quantity that gives you the equivalent of 26 GB to maximize the benefit for all caches.
+| Quantity | The amount of compute resources being purchased within the reservation. The quantity is the number of nodes in the selected Azure region and service tier that is being reserved, and will get the billing discount. For example, if you're running or planning to run an instance in the Premium tier with the total cache capacity of 26 GB in the East US region, then you would specify a quantity that gives you the equivalent of 26 GB to maximize the benefit for all caches.
 
 ## Cancel, exchange, or refund reservations
 
