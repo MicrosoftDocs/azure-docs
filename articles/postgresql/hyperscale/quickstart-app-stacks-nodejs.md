@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/17/2022
+ms.date: 08/18/2022
 ---
 
 # Node.js app to connect and query Hyperscale (Citus)
@@ -124,7 +124,7 @@ async function queryDatabase() {
 queryDatabase();
 ```
 
-To execute this code sample below please use the `node create.js` command. Once you run this command a new table and insertations data will be created in your 'Pharmacy' table.
+To execute the code above, run `node create.js`. This command will create a new "pharmacy" table and insert some sample data.
 
 ## Super power of Distributed Tables
 
