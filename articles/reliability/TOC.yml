@@ -4,7 +4,21 @@
   href: overview-reliability.md
 - name: Reliability guides
   items:
-  - name: Azure lab service v2
+  - name: App Services
+    href: overview-reliability.md
+  - name: Batch Service
+    href: overview-reliability.md
+  - name: Container Instances
+    href: overview-reliability.md
+  - name: Key Vault Service
+    href: overview-reliability.md
+  - name: Kubernetes Service
+    href: overview-reliability.md
+  - name: PostgreSQL Service
+    href: overview-reliability.md
+  - name: Redis Service
+    href: overview-reliability.md
+  - name: Virtual Machines and virtual machine scale sets
     href: overview-reliability.md
 - name: Availability zone guides
   items:
