@@ -112,7 +112,7 @@ training_file_name = 'training.jsonl'
 validation_file_name = 'validation.jsonl'
 
 sample_data = [{"prompt": "When I go to the store, I want an", "completion": "apple"},
-    {"prompt": "When I go to work, I want a", "completion": "coffe"},
+    {"prompt": "When I go to work, I want a", "completion": "coffee"},
     {"prompt": "When I go home, I want a", "completion": "soda"}]
 
 print(f'Generating the training file: {training_file_name}')

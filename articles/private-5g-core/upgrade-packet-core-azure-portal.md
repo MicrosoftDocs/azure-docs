@@ -14,9 +14,6 @@ ms.custom: template-how-to
 
 Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). You'll need to periodically upgrade your packet core instances to get access to the latest Azure Private 5G Core features and maintain support for your private mobile network. In this how-to guide, you'll learn how to upgrade a packet core instance using the Azure portal.
 
-> [!NOTE]
-> Azure Resource Manager templates (ARM templates) are not currently available for upgrading packet core instances. Use the Azure portal to carry out upgrades.
-
 ## Prerequisites
 
 - Contact your Microsoft assigned trials engineer. They'll guide you through the upgrade process and provide you with the required information, including the amount of time you'll need to allow for the upgrade to complete.

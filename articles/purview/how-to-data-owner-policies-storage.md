@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.custom: references_regions, event-tier1-build-2022
-ms.date: 05/27/2022
+ms.date: 8/11/2022
 ---
 
 # Access provisioning by data owner to Azure Storage datasets (Preview)
@@ -38,9 +38,7 @@ To register your resources, follow the **Prerequisites** and **Register** sectio
 
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Microsoft Purview](register-scan-adls-gen2.md#prerequisites)
 
-After you've registered your resources, you'll need to enable *Data Use Management*. Data Use Management can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to data sources that have been registered. Secure practices related to *Data Use Management* are described in this guide:
-
-- [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
+After you've registered your resources, you'll need to enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
 
 Once your data source has the  **Data Use Management** toggle **Enabled**, it will look like this picture:
 
@@ -54,10 +52,13 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 >[!Important]
 > - Publish is a background operation. Azure Storage accounts can take up to **2 hours** to reflect the changes.
 
-## Additional information
-- Policy statements set below container level on a Storage account are supported. If no access has been provided at Storage account level or container level, then the App that requests the data must execute a direct access by providing a fully qualified name to the data object. If the App attempts to crawl down the hierarchy starting from the Storage account or Container (like Storage Explorer does), and there's no access at that level, the request will fail. The following documents show examples of how to perform a direct access. See also the blogs in the *Next steps* section of this how-to-guide.
+## Data Consumption
+- Data consumer can access the requested dataset using tools such as PowerBI or Azure Synapse Analytics workspace.
+- Sub-container access: Policy statements set below container level on a Storage account are supported. However, users will not be able to browse to the data asset using Azure Portal's Storage Browser or Microsoft Azure Storage Explorer tool if access is granted only at file or folder level of the Azure Storage account. This is because these apps attempt to crawl down the hierarchy starting at container level, and the request fails because no access has been granted at that level. Instead, the App that requests the data must execute a direct access by providing a fully qualified name to the data object. The following documents show examples of how to perform a direct access. See also the blogs in the *Next steps* section of this how-to-guide.
   - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
   - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
+
+## Additional information
 - Creating a policy at Storage account level will enable the Subjects to access system containers, for example *$logs*.  If this is undesired, first scan the data source(s) and then create finer-grained policies for each (that is, at container or subcontainer level).
 - The root blob in a container will be accessible to the Azure AD principals in a Microsoft Purview *allow*-type RBAC policy if the scope of such policy is either subscription, resource group, Storage account or container in Storage account.
 - The root container in a Storage account will be accessible to the Azure AD principals in a Microsoft Purview *allow*-type RBAC policy if the scope of such policy is either subscription, resource group, or Storage account.
