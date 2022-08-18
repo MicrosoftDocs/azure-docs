@@ -10,6 +10,7 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ---
 
+
 # Enable Push Notifications
 Push notifications let clients be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app isn't running in the foreground. Azure Communication Services supports a [list of events that you can subscribe to](../concepts/chat/concepts.md#push-notifications).
 > [!NOTE]
