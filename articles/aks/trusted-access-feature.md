@@ -10,9 +10,23 @@ ms.author: schaffererin
 
 # Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access
 
-Many first-party partners depend on clusterAdmin kubeconfig and the publicly accessible kube-apiserver endpoint for authentication and access between their services and their customers' Azure Kubernetes Service (AKS) clusters. This approach
+Many first-party partners depend on clusterAdmin kubeconfig and the publicly accessible kube-apiserver endpoint for authentication and access between their Microsoft Azure services and their customers' Azure Kubernetes Service (AKS) clusters. This approach has many disadvantages, including:
 
+* First-party services may not have stable access to customer api-servers
 
+  * Unable to access when the authorized IP range is enabled
+
+  * Unable to access in private clusters unless first-party services implement a complex private endpoint access model
+
+* clusterAdmin kubeconfig in first-party services creates a risks or privilege escalation and leaking kubeconfig
+
+* First-party services have to be able to call the `listClusterAdminCredential` API when depending on clusterAdmin kubeconfig
+
+  * Customers may have to take extra steps to grant role access
+
+  * First-party services may have to implement high-privileged service-to-service permissions
+
+The AKS Trusted Access feature enables you to bypass the private endpoint restriction by using . Instead of relying on an overpowered first-party [Azure Active Directory (AAD)](../../../azure-docs-pr/articles/active-directory/fundamentals/active-directory-whatis.md) application, this feature can use your system-assigned MSI to authenticate with the managed services and applications you want to use on top of AKS.
 
 This article shows you how to use the AKS Trusted Access feature to enable your Azure resources to access your AKS clusters.
 
@@ -22,14 +36,7 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
 
 ![Azure Kubernetes Trusted Access feature workflow](media/trusted-access-feature/aks_trusted_access_workflow.png)
 
-At this time, the Trusted Access feature isn't available in any sovereign clouds. It's also hidden under the private feature flag, meaning that only allowed subscriptions can access this feature. To request access for your subscription, contact akssec@microsoft.com with the following thread:
-
-    ```md
-    Title: [TrustedAccess] Request feature preview for <your team name>
-    Content:
-    Team contact email(s): <>
-    Subscription(s): <>
-    ```
+> [!NOTE]: At this time, the Trusted Access feature isn't available in any sovereign clouds.
 
 ## Prerequisites
 
