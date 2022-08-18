@@ -37,19 +37,27 @@ Microsoft Playwright Testing workspaces have three built-in roles that are avail
 
 ## Manage workspace access
 
-You can manage access to the Microsoft Playwright Testing workspace by using the Azure portal:
+To manage access to the Microsoft Playwright Testing workspace by using the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), go to your Microsoft Playwright Testing workspace.
 
-1. On the left pane, select **Access Control (IAM)**, and then select **Add role assignment**.
+1. On the left pane, select **Access Control (IAM)**, and then select **Add > Add role assignment**.
 
-    <!-- :::image type="content" source="media/how-to-assign-roles/load-test-access-control.png" alt-text="Screenshot that shows how to configure access control."::: -->
+    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-1. Assign one of the Microsoft Playwright Testing [built-in roles](#default-roles). For details about how to assign roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    :::image type="content" source="media/how-to-assign-roles/add-role-assignment.png" alt-text="Screenshot that shows how to add a role assignment to your workspace in the Azure portal.":::
 
-    The role assignments might take a few minutes to become active for your account. Refresh the webpage for the user interface to reflect the updated permissions.
+1. On the **Role** tab, select one of the Microsoft Playwright Testing [built-in roles](#default-roles), and then select **Next**.
 
     <!-- :::image type="content" source="media/how-to-assign-roles/add-role-assignment.png" alt-text="Screenshot that shows the role assignment screen."::: -->
+
+1. On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Azure AD users, groups, or service principals (applications).
+
+1. Select **Select members**, find and select the users, groups, or service principals.
+
+1. Select **Review + assign** to assign the role.
+
+    For more details about how to assign roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 Alternatively, you can manage access without using the Azure portal:
 
