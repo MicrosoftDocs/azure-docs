@@ -476,8 +476,8 @@ The following table lists the prebuilt neural voices supported in each language.
 | Arabic (United Arab Emirates) | `ar-AE` | Male | `ar-AE-HamdanNeural` | General |
 | Arabic (Yemen) | `ar-YE` | Female | `ar-YE-MaryamNeural` | General |
 | Arabic (Yemen) | `ar-YE` | Male | `ar-YE-SalehNeural` | General |
-| Azerbaijani (Azerbaijan) | `az-AZ` | Female | `az-AZ-BabekNeural` <sup>New</sup> | General |
-| Azerbaijani (Azerbaijan) | `az-AZ` | Male | `az-AZ-BanuNeural` <sup>New</sup> | General |
+| Azerbaijani (Azerbaijan) | `az-AZ` | Male | `az-AZ-BabekNeural` <sup>New</sup> | General |
+| Azerbaijani (Azerbaijan) | `az-AZ` | Female | `az-AZ-BanuNeural` <sup>New</sup> | General |
 | Bangla (Bangladesh) | `bn-BD` | Female | `bn-BD-NabanitaNeural` | General |
 | Bangla (Bangladesh) | `bn-BD` | Male | `bn-BD-PradeepNeural` | General |
 | Bengali (India) | `bn-IN` | Female | `bn-IN-TanishaaNeural` | General |
@@ -812,6 +812,7 @@ The following neural voices are in public preview.
 | Chinese (Mandarin, Simplified) | `zh-CN-sichuan` | Male | `zh-CN-sichuan-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
 | English (United States) | `en-US` | Female | `en-US-JaneNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Female | `en-US-NancyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Male | `en-US-AIGenerate1Neural` <sup>New</sup>  | General|
 | English (United States) | `en-US` | Male | `en-US-DavisNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-JasonNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-RogerNeural` <sup>New</sup> | General|

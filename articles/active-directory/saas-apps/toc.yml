@@ -82,6 +82,8 @@
         href: agiloft-tutorial.md
       - name: Aha!
         href: aha-tutorial.md
+      - name: Ahrtemis
+        href: ahrtemis-tutorial.md
       - name: Air
         href: air-tutorial.md
       - name: Airstack
@@ -182,6 +184,8 @@
         href: archie-tutorial.md  
       - name: Ardoq
         href: ardoq-tutorial.md
+      - name: Arena
+        href: arena-tutorial.md
       - name: ARES for Enterprise
         href: ares-for-enterprise-tutorial.md
       - name: Ariba
@@ -588,6 +592,8 @@
         href: cs-stars-tutorial.md
       - name: Culture Shift
         href: culture-shift-tutorial.md  
+      - name: Curator
+        href: curator-tutorial.md
       - name: Curricula SAML
         href: curricula-saml-tutorial.md
       - name: Cyara CX Assurance Platform
@@ -764,6 +770,8 @@
         href: equinix-federation-app-tutorial.md
       - name: Equisolve
         href: equisolve-tutorial.md
+      - name: ERA_EHS_CORE
+        href: era-ehs-core-tutorial.md
       - name: EasySSO for Jira
         href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
@@ -991,6 +999,8 @@
       items:
       - name: Hackerone
         href: hackerone-tutorial.md
+      - name: HackNotice
+        href: hacknotice-tutorial.md
       - name: Halosys
         href: halosys-tutorial.md
       - name: HappyFox
@@ -1307,6 +1317,8 @@
         href: korn-ferry-alp-tutorial.md
       - name: Kpifire
         href: kpifire-tutorial.md
+      - name: KPMG Leasing Tool
+        href: kpmg-tool-tutorial.md
       - name: Kronos
         href: kronos-tutorial.md
       - name: Kronos Workforce Dimensions
@@ -1823,6 +1835,8 @@
         href: qmarkets-idea-innovation-management-tutorial.md
       - name: QPrism
         href: qprism-tutorial.md
+      - name: QReserve
+        href: qreserve-tutorial.md
       - name: Qualaroo
         href: qualaroo-tutorial.md  
       - name: Quantum Workplace
@@ -2237,6 +2251,8 @@
         href: tangoanalytics-tutorial.md
       - name: Tangoe Command Premium Mobile
         href: tangoe-tutorial.md
+      - name: Tango Reserve by AgilQuest (EU Instance)
+        href: tango-reserve-tutorial.md
       - name: TAP App Security
         href: tap-app-security-tutorial.md  
       - name: TargetProcess
@@ -2401,6 +2417,8 @@
         href: uservoice-tutorial.md
       - name: UserZoom
         href: userzoom-tutorial.md
+      - name: valid8Me
+        href: valid8me-tutorial.md
       - name: ValidSign
         href: validsign-tutorial.md
       - name: Vault Platform
@@ -2505,6 +2523,8 @@
         href: wisdom-by-invictus-tutorial.md
       - name: Wizergos Productivity Software
         href: wizergosproductivitysoftware-tutorial.md
+      - name: Wiz SSO
+        href: wiz-sso-tutorial.md
       - name: Wootric
         href: wootric-tutorial.md
       - name: Work.com
@@ -2878,8 +2898,10 @@
         href: linkedinelevate-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
+      - name: Lucid (All Products)
+        href: lucid-all-products-provisioning-tutorial.md
       - name: Lucidchart
-        href: lucidchart-provisioning-tutorial.md
+        href: lucidchart-provisioning-tutorial.md        
       - name: Leapsome
         href: leapsome-provisioning-tutorial.md
       - name: LogicGate
