@@ -452,7 +452,7 @@ When you call a stored procedure by using the SQL Server connector, the returned
 
 ## Built-in connector app settings
 
-In a Standard logic app resource, the SQL Server built-in connector includes app settings that control various thresholds for performance, throughput, capacity, and so on. For example, you can change the default timeout value for connector operations. For more information, review [Reference for app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#reference-local-settings-json).
+In a Standard logic app resource, the SQL Server built-in connector includes app settings that control various thresholds for performance, throughput, capacity, and so on. For example, you can change the query timeout value from 30 seconds. For more information, review [Reference for app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#reference-local-settings-json).
 
 <a name="built-in-connector-operations"></a>
 
