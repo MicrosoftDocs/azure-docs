@@ -1,16 +1,15 @@
 ---
-title: Available services by category
-description: Learn about Region types and service categories in Azure.
-author: obeling
+title: Available services by region types and categories
+description: Learn about Azure region types and service categories.
+author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
-ms.date: 12/10/2021
-ms.author: mamccrea
-ms.reviewer: cynthn
+ms.date: 08/18/2022
+ms.author: anaharris
 ms.custom: references_regions
 ---
 
-# Available services by category 
+# Available services by region types and categories 
 
 Availability of services across Azure regions depends on a region's type. There are two types of regions in Azure: *recommended* and *alternate*.
 
@@ -34,7 +33,7 @@ If a service offering isn't available in a region, contact your Microsoft sales 
 | Recommended | **Y** | **Y** | **Y** | Demand-driven | **Y** | **Y** |
 | Alternate | **Y** | **Y** | Demand-driven | Demand-driven | N/A | **Y** |
 
-## Available services by category
+## Available services by region category
 
 Azure assigns service categories as foundational, mainstream, and strategic at general availability. Typically, services start as a strategic service and are upgraded to mainstream and foundational as demand and use grow.
 
@@ -85,7 +84,7 @@ Azure services are presented in the following tables by category. Note that some
 > |                                        | Virtual Machines: Fsv2-series                     | 
 > |                                        | Virtual Machines: M-series                        | 
 
-### Strategic Services
+### Strategic services
 As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and strategic. Service categories are assigned at general availability. Often, services start their lifecycle as a strategic service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists strategic services. 
 
 > [!div class="mx-tableFixed"]
@@ -146,9 +145,9 @@ As mentioned previously, Azure classifies services into three categories: founda
 
 Older generations of services or virtual machines aren't listed. For more information, see [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md).
 
-To learn more about preview services that aren't yet in general availability and to see a listing of these services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). For a complete listing of services that support availability zones, see [Azure services that support availability zones](az-region.md).
+To learn more about preview services that aren't yet in general availability and to see a listing of these services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). For a complete listing of services that support availability zones, see [Azure services that support availability zones](availability-zone-services.md).
 
 ## Next steps
 
-- [Azure services that support availability zones](az-region.md)
-- [Regions and availability zones in Azure](az-overview.md)
+- [Azure services that support availability zones](availability-zone-services.md)
+- [Regions and availability zones in Azure](overview-availability-zones.md)

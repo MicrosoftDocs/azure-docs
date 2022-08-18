@@ -47,5 +47,5 @@ Some organizations require high availability of availability zones and protectio
 ## Next steps
 
 - [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
-- [Azure services that support availability zones](az-region.md)
+- [Azure services that support availability zones](availability-zone-services.md)
 - [Azure services](region-types-service-categories-azure.md)

@@ -11,7 +11,7 @@ ms.custom: references_regions
 ---
 # Azure services that support availability zones
 
-Azure [regions and availability zones](az-overview.md) are physically separate locations within each Azure region that are tolerant to datacenter failures because of redundant infrastructure and logical isolation of Azure services. 
+Azure [regions and availability zones](overview-availability-zones.md) are physically separate locations within each Azure region that are tolerant to datacenter failures because of redundant infrastructure and logical isolation of Azure services. 
 
 Azure services that support availability zones are designed to provide the right level of resiliency and flexibility along with ultra-low latency. With Azure services that support availability zones, whether you architect your own resiliency or opt for automatic replication and distribution, the benefit is the same. You get superior resiliency across highly available services, no matter the service type. 
 
@@ -21,7 +21,7 @@ Azure strives to enable high resiliency across every service and offering. Runni
 
 [!INCLUDE [availability-zone-regions-include](./includes/availability-zone-regions-include.md)]
 
-For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](az-overview.md).
+For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](overview-availability-zones.md.md).
 
 ## Highly available services
 
@@ -31,7 +31,7 @@ Three types of Azure services support availability zones: *zonal*, *zone-redunda
 - **Zone-redundant services**: Resources are replicated or distributed across zones automatically. For example, zone-redundant services replicate the data across three zones so that a failure in one zone doesn't affect the high availability of the data. 
 - **Always-available services**: Always available across all Azure geographies and are resilient to zone-wide outages and region-wide outages. For a complete list of always-available services, also called non-regional services, in Azure, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
-Azure offerings are grouped into three categories that reflect their _regional_ availability: *foundational*, *mainstream*, and *strategic* services. Azure's general policy on deploying services into any given region is primarily driven by region type, service category, and customer demand. For more information, see [Azure services](region-types-service-categories-azure.md).
+Azure offerings are grouped into three categories that reflect their _regional_ availability: *foundational*, *mainstream*, and *strategic* services. Azure's general policy on deploying services into any given region is primarily driven by region type, service category, and customer demand. For more information, see [Azure services](availability-service-by-category.md).
 
 - **Foundational services**: Available in all recommended and alternate regions when a region is generally available, or within 90 days of a new foundational service becoming generally available.
 - **Mainstream services**: Available in all recommended regions within 90 days of a region's general availability. Mainstream services are demand-driven in alternate regions, and many are already deployed into a large subset of alternate regions.
@@ -188,7 +188,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | Microsoft Intune  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Microsoft Sentinel  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 
-For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](az-overview.md).
+For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](overview-availability-zones.md).
 
 ## Pricing for virtual machines in availability zones
 

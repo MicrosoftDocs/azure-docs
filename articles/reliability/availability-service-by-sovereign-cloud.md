@@ -42,5 +42,5 @@ Product support is represented by the following symbols:
 
 ## Next steps
 
-- [Azure services that support availability zones](availability-zones-region.md)
+- [Azure services that support availability zones](availability-zone-services.md)
 - [Regions and availability zones in Azure](overview-availability-zones.md)

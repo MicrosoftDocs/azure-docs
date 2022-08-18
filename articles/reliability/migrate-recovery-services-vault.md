@@ -125,4 +125,4 @@ Learn more about:
 > [Regions and Availability Zones in Azure](az-overview.md)
 
 > [!div class="nextstepaction"]
-> [Azure Services that support Availability Zones](az-region.md)
+> [Azure Services that support Availability Zones](availability-zone-services.md)

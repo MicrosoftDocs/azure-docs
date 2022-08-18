@@ -63,7 +63,7 @@ If you need to understand dependencies between Azure services to help better arc
 ## Next steps
 
 - [Regions and availability zones in Azure](az-overview.md)
-- [Azure services that support availability zones](az-region.md)
+- [Azure services that support availability zones](availability-zone-services.md)
 - [Azure Resiliency whitepaper](https://azure.microsoft.com/resources/resilience-in-azure-whitepaper/)
 - [Azure Well-Architected Framework](https://www.aka.ms/WellArchitected/Framework)
 - [Azure architecture guidance](/azure/architecture/high-availability/building-solutions-for-high-availability)

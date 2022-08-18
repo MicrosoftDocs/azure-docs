@@ -28,7 +28,7 @@ To migrate to availability zone support, your VM SKUs must be available across t
 
 - Use PowerShell to [Check VM SKU availability](../virtual-machines/windows/create-PowerShell-availability-zone.md#check-vm-sku-availability).
 - Use the Azure CLI to [Check VM SKU availability](../virtual-machines/linux/create-cli-availability-zone.md#check-vm-sku-availability).
-- Go to [Foundational Services](az-region.md#an-icon-that-signifies-this-service-is-foundational-foundational-services).
+- Go to [Foundational Services](availability-zone-services.md#an-icon-that-signifies-this-service-is-foundational-foundational-services).
 
 ## Downtime requirements
 
@@ -93,4 +93,4 @@ Learn more about:
 > [Regions and Availability Zones in Azure](az-overview.md)
 
 > [!div class="nextstepaction"]
-> [Azure Services that support Availability Zones](az-region.md)
+> [Azure Services that support Availability Zones](availability-zone-services.md)

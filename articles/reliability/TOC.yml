@@ -23,7 +23,7 @@
 - name: Availability zone guides
   items:
   - name: Azure services that support availability zones
-    href: availability-zones-region.md
+    href: availability-zone-services.md
   - name: Migration guides
     items:
     - name: API Management
