@@ -530,7 +530,7 @@ Runs a query on an SQL database.
 | Name | Type |
 |------|------|
 | **Result** | An array object that returns all the query results. Each row contains the column name and the corresponding value. |
-| **Result item** | An array object that returns one query result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. Each row contains the column name and the corresponding value. |
+| **Result Item** | An array object that returns one query result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. Each row contains the column name and the corresponding value. |
 
 <a name="execute-stored-procedure"></a>
 
@@ -552,10 +552,10 @@ Runs a stored procedure on an SQL database.
 | Name | Type |
 |------|------|
 | **Result** | An array object that returns all the query results |
-| **Result result sets** | An array object that returns one query result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
-| **Result stored procedure parameters** |  The final values of the stored procedure's output and input-output parameters |
-| **Result return code** | The return code from the stored procedure |
-| **Status code** | The status code from the **Execute stored procedure** operation |
+| **Result Result Sets** | An array object that returns one query result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result Stored Procedure Parameters** |  The final values of the stored procedure's output and input-output parameters |
+| **Result Return Code** | The return code from the stored procedure |
+| **Status Code** | The status code from the **Execute stored procedure** operation |
 
 <a name="get-rows"></a>
 
@@ -577,7 +577,7 @@ Gets the table rows that match the specified **Where condition** value.
 | Name | Type |
 |------|------|
 | **Result** | An array object that returns all the row results. |
-| **Result item** | An array object that returns one row result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result Item** | An array object that returns one row result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
 
 *Example*
 
