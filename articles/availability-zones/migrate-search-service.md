@@ -36,7 +36,7 @@ Downtime will be dependent on how you decide to carry out the migration. Migrati
 
 ### When to recreate your search service
 
-If your search service was was created in a region that supports availability zones before this support was enabled, the search service needs to be recreated.
+If you created your search service in a region that supports availability zones before this support was enabled, you'll need to recreate the search service.
 
 ### How to recreate your search service
 
