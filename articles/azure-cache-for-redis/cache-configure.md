@@ -87,7 +87,7 @@ Select **Diagnose and solve problems** to be provided with common issues and str
 
 Select **Events** to add event subscriptions to your cache. Use events to build reactive, event-driven apps with the fully managed event routing service that is built into Azure.
 
-The Event Grid helps you build automation into your cloud infrastructure, create serverless apps, and integrate across services and clouds. For more information, see [What is Azure Event Grid](/azure/event-grid/overview).
+The Event Grid helps you build automation into your cloud infrastructure, create serverless apps, and integrate across services and clouds. For more information, see [What is Azure Event Grid](../event-grid/overview.md).
 
 ## Redis console
 
@@ -282,7 +282,7 @@ The **Virtual Network** section allows you to configure the virtual network sett
 
 The **Private Endpoint** section allows you to configure the private endpoint settings for your cache. Private endpoint is supported on all cache tiers Basic, Standard, Premium, and Enterprise. We recommend using private endpoint instead of VNets. Private endpoints are easy to set up or remove, are supported on all tiers, and can connect your cache to multiple different VNets at once.
 
-For more information, see [Azure Cache for Redis with Azure Private Link](/azure/azure-cache-for-redis/cache-private-link).
+For more information, see [Azure Cache for Redis with Azure Private Link](./cache-private-link.md).
 
 ### Firewall
 
@@ -427,7 +427,7 @@ Azure Automation delivers a cloud-based automation, operating system updates, an
 
 Select **Tasks** to  help you manage Azure Cache for Redis resources more easily. These tasks vary in number and availability, based on the resource type. Presently, you can only use the **Send monthly cost for resource** template to create a task while in preview.
 
-For more information, see [Manage Azure resources and monitor costs by creating automation tasks](/azure/logic-apps/create-automation-tasks-azure-resources).
+For more information, see [Manage Azure resources and monitor costs by creating automation tasks](../logic-apps/create-automation-tasks-azure-resources.md).
 
 ### Export template
 

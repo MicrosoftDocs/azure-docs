@@ -1,5 +1,5 @@
 ---
-title: How to get facial pose events for lip-sync
+title: Get facial position with viseme
 titleSuffix: Azure Cognitive Services
 description: Speech SDK supports viseme events during speech synthesis, which represent key poses in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme.
 services: cognitive-services
@@ -41,8 +41,6 @@ The overall workflow of viseme is depicted in the following flowchart:
 
 ![Diagram of the overall workflow of viseme.](media/text-to-speech/viseme-structure.png)
 
-You can request viseme output in SSML. For details, see [how to use viseme element in SSML](speech-synthesis-markup.md#viseme-element).
-
 ## Viseme ID
 
 Viseme ID refers to an integer number that specifies a viseme. We offer 22 different visemes, each depicting the mouth shape for a specific set of phonemes. There's no one-to-one correspondence between visemes and phonemes. Often, several phonemes correspond to a single viseme, because they look the same on the speaker's face when they're produced, such as `s` and `z`. For more specific information, see the table for [mapping phonemes to viseme IDs](#map-phonemes-to-visemes).
@@ -70,6 +68,9 @@ The blend shapes JSON string is represented as a 2-dimensional matrix. Each row 
 ## Get viseme events with the Speech SDK
 
 To get viseme with your synthesized speech, subscribe to the `VisemeReceived` event in the Speech SDK.
+
+> [!NOTE]
+> To request SVG or blend shapes output, you should use the `mstts:viseme` element in SSML. For details, see [how to use viseme element in SSML](speech-synthesis-markup.md#viseme-element).
 
 The following snippet shows how to subscribe to the viseme event:
 
