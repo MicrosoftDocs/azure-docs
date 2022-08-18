@@ -134,9 +134,9 @@ App Service Environment v3 is available in the following regions:
 
 | Region               | Normal and dedicated host   | Availability zone support   |
 | -------------------- | :-------------------------: | :-------------------------: |
-| US Gov Texas         | x                           |                             |
-| US Gov Arizona       | x                           |                             |
-| US Gov Virginia      | x                           |                             |
+| US Gov Texas         | ✅                           |                             |
+| US Gov Arizona       | ✅                           |                             |
+| US Gov Virginia      | ✅                           |                             |
 
 ## App Service Environment v2
 
