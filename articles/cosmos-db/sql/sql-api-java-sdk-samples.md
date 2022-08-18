@@ -223,14 +223,14 @@ The [Stored Procedure Sample](https://github.com/Azure-Samples/azure-cosmos-java
 | [Execute a stored procedure](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/storedprocedure/sync/SampleStoredProcedure.java#L167-L181) | CosmosStoredProcedure.execute |
 | [Delete a stored procedure](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/storedprocedure/sync/SampleStoredProcedure.java#L183-L193) | CosmosStoredProcedure.delete |
 
-## User management examples
+<!-- ## User management examples
 The User Management Sample file shows how to do the following tasks:
 
 | Task | API reference |
 | --- | --- |
 | Create a user | - |
 | Set permissions on a collection or document | - |
-| Get a list of a user's permissions |- |
+| Get a list of a user's permissions |- | -->
 
 ## Next steps
 
