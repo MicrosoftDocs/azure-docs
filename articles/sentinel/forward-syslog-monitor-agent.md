@@ -1,20 +1,20 @@
 ---
 title: Forward syslog data to Microsoft Sentinel and Azure Monitor by using the Azure Monitor agent
-description: In this tutorial, you will forward syslog data to a Log Analytics workspace by using the Azure Monitor agent. 
+description: Monitor linux-based devices by forwarding syslog data to a Log Analytics workspace. 
 author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
 ms.topic: tutorial 
-ms.date: 08/17/2022
+ms.date: 08/18/2022
 ms.custom: template-tutorial
 #Customer intent: As a security-engineer, I want to get syslog data into Microsoft Sentinel so that I can use the data with other data to do attack detection, threat visibility, proactive hunting, and threat response. As an IT administrator, I want to get syslog data into my Log Analytics workspace to monitor my linux-based devices.
 ---
 
 # Tutorial: Forward syslog data to a Log Analytics workspace by using the Azure Monitor agent
 
-In this tutorial, you'll configure a Linux virtual machine (VM) to forward syslog data to your workspace by using the Azure Monitor agent.  Configure your linux-based device to send data to a Linux VM. The Azure Monitor agent on the VM forwards the syslog data to the Log Analytics workspace.
-
-Use these steps to collect data from Linux-based devices where you can't install an agent like a firewall network device. Then use Microsoft Sentinel or Azure Monitor to monitor the device from the data stored in the Log Analytics workspace.
+In this tutorial, you'll configure a Linux virtual machine (VM) to forward syslog data to your workspace by using the Azure Monitor agent. These steps allow you to collect and monitor data from Linux-based devices where you can't install an agent like a firewall network device.
+ 
+Configure your linux-based device to send data to a Linux VM. The Azure Monitor agent on the VM forwards the syslog data to the Log Analytics workspace. Then use Microsoft Sentinel or Azure Monitor to monitor the device from the data stored in the Log Analytics workspace.
 
 In this tutorial, you learn how to:
 
