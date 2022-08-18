@@ -99,6 +99,8 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 1. You'll see the new network group added to the *Network Groups* page.
     :::image type="content" source="./media/create-virtual-network-manager-portal/network-groups-list.png" alt-text="Screenshot of network group page with list of network groups.":::
 
+1. Once your network group is created, you'll add virtual networks as members. Choose one of the options: Static membership or Dynamic membership with Azure Policy
+### Option 1: Static membership
 1. From the list of network groups, select **myNetworkGroup** and select **Add** under **Static membership** on the *myNetworkGroup* page.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-static-member.png" alt-text="Screenshot of add a virtual network f.":::
@@ -110,6 +112,33 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 1. Return to the *Network groups* page, and you'll see 3 members added under **Member virtual network**.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/list-network-members.png" alt-text="Screenshot of network manager instance page with three member virtual networks.":::
+
+### Option 2: Dynamic membership with Azure Policy
+
+1. From the list of network groups, select **myNetworkGroup**.
+
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-page.png" alt-text="Screenshot of the network groups page.":::
+
+1. On the **Overview** page, select **Create Azure Policy** under *Create policy to dynamically add members*.
+
+:::image type="content" source="media/create-virtual-network-manager-portal/define-dynamic-membership.png" alt-text="Screenshot of Create Azure Policy button.":::
+
+1. On the **Create Azure Policy** page, select or enter the following information:
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-conditional.png" alt-text="Screenshot of create a network group conditional statements tab.":::
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Policy name | Enter **VNetAZPolicy** in the text box. |
+    | Scope | Select **Select Scopes** and choose your current subscription. |
+    | Criteria |  |
+    | Parameter | Select **Name** from the drop-down.|
+    | Operator | Select **Contains** from the drop-down.| 
+    | Condition | Enter **VNet** to dynamically add the three previously created virtual networks into this network group. |
+
+1. Select **Save** to deploy the group membership.
+1. Under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy.
+:::image type="content" source="media/tutorial-create-secured-hub-and-spoke/group-members-dynamic-thumb.png" alt-text="Screenshot of dynamic group membership under Group Membership blade." lightbox="media/tutorial-create-secured-hub-and-spoke/group-members-dynamic.png":::
 
 ## Create  a connectivity configuration
 
