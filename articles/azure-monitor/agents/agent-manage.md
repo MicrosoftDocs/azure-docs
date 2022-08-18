@@ -41,7 +41,7 @@ You can download the latest version of the Windows agent from your Log Analytics
 5. From the **Windows Servers** page, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.
 
 >[!NOTE]
->During the upgrade of the Log Analytics agent for Windows, it does not support configuring or reconfiguring a workspace to report to. To configure the agent, you need to follow one of the supported methods listed under [Adding or removing a workspace](#adding-or-removing-a-workspace).
+>During the upgrade of the Log Analytics agent for Windows, it does not support configuring or reconfiguring a workspace to report to. To configure the agent, you need to follow one of the supported methods listed under [Adding or removing a workspace](#add-or-remove-a-workspace).
 >
 
 #### To upgrade using the Setup Wizard
