@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 08/18/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -24,8 +24,6 @@ Use this quickstart to create a text summarization application with the client l
 [!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
 ## Prerequisites
-
-[!INCLUDE [availability](../regional-availability.md)]
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)

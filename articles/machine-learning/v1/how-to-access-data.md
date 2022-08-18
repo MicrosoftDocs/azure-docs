@@ -290,7 +290,7 @@ Azure Machine Learning provides several ways to use your models for scoring. Som
 | Method | Datastore access | Description |
 | ----- | :-----: | ----- |
 | [Batch prediction](../tutorial-pipeline-batch-scoring-classification.md) | ✔ | Make predictions on large quantities of data asynchronously. |
-| [Web service](../how-to-deploy-and-where.md) | &nbsp; | Deploy models as a web service. |
+| [Web service](how-to-deploy-and-where.md) | &nbsp; | Deploy models as a web service. |
 
 For situations where the SDK doesn't provide access to datastores, you might be able to create custom code by using the relevant Azure SDK to access the data. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) is a client library that you can use to access data stored in blobs or files.
 
@@ -304,4 +304,4 @@ Azure Data Factory provides efficient and resilient data transfer with more than
 
 * [Create an Azure machine learning dataset](how-to-create-register-datasets.md)
 * [Train a model](../how-to-set-up-training-targets.md)
-* [Deploy a model](../how-to-deploy-and-where.md)
+* [Deploy a model](how-to-deploy-and-where.md)

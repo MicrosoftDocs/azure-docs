@@ -99,11 +99,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: About Azure Quotas
-            url: /azure/quotas/quotas-overview
+            url: ../quotas/quotas-overview.md
       - linkListType: quickstart
         links:
           - text: Request a quota increase
-            url: /azure/quotas/quickstart-increase-quota-portal
+            url: ../quotas/quickstart-increase-quota-portal.md
 
             
   # Card
@@ -128,4 +128,3 @@ landingContent:
             url: /cli/azure/portal
           - text: Azure PowerShell
             url: /powershell/module/az.portal
-     

@@ -85,7 +85,7 @@ It's important to ensure that the output of your Stream Analytics job matches th
 
 ## Next steps
 
-* [Use SQL reference data as input source](/azure/stream-analytics/sql-reference-data)
+* [Use SQL reference data as input source](./sql-reference-data.md)
 * [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md)
 * [Understand inputs for Azure Stream Analytics](stream-analytics-add-inputs.md)
