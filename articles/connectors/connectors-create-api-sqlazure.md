@@ -458,13 +458,13 @@ The SQL Server built-in connector is available only for Standard logic app workf
 
 | Action | Description |
 |--------|-------------|
-| [**Delete rows**](#delete-rows) | Delete a file using the specified file path. |
-| [**Execute Query**](#execute-query) | Get the content of a file using the specified file path. |
-| [**Execute stored procedure**](#execute-stored-procedure) | Create a file using the specified file path and file content. |
-| [**Get rows**](#get-rows) | Get the metadata or properties of a file using the specified file path. |
-| [**Get tables**](#get-tables) | Get a list of files and subfolders in the specified folder. |
-| [**Insert row**](#insert-row) | Update a file using the specified file path and file content. |
-| [**Update rows**](#update-rows) | Update a file using the specified file path and file content. |
+| [**Delete rows**](#delete-rows) | Deletes and returns the table rows that match the specified **Where condition** value. |
+| [**Execute Query**](#execute-query) | Runs a query on an SQL database. |
+| [**Execute stored procedure**](#execute-stored-procedure) | Runs a stored procedure on an SQL database. |
+| [**Get rows**](#get-rows) | Gets the table rows that match the specified **Where condition** value. |
+| [**Get tables**](#get-tables) | Gets all the tables from the database. |
+| [**Insert row**](#insert-row) | Inserts a single row in the specified table. |
+| [**Update rows**](#update-rows) | Updates the specified columns in all the table rows that match the specified **Where condition** value using the **Set columns** column names and values. |
 
 <a name="delete-rows"></a>
 
@@ -566,7 +566,7 @@ Runs a stored procedure on an SQL database.
 
 Operation ID: `getRows`
 
-Get the table rows that match the specified **Where condition** value.
+Gets the table rows that match the specified **Where condition** value.
 
 #### Parameters
 
@@ -613,7 +613,7 @@ The following example shows sample parameter values for the **Get rows** action 
 
 Operation ID: `getTables`
 
-Get all the tables from the database.
+Gets all the tables from the database.
 
 #### Parameters
 
@@ -634,7 +634,7 @@ None.
 
 Operation ID: `insertRow`
 
-Insert a single row in the specified table.
+Inserts a single row in the specified table.
 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
@@ -653,7 +653,7 @@ Insert a single row in the specified table.
 
 Operation ID: `updateRows`
 
-Update the specified columns in all the table rows that match the specified **Where condition** value using the **Set columns** column names and values.
+Updates the specified columns in all the table rows that match the specified **Where condition** value using the **Set columns** column names and values.
 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
