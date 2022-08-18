@@ -39,7 +39,7 @@ This table shows [Table storage metrics](../../azure-monitor/essentials/metrics-
 | TableCount   | The number of tables in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | TableEntityCount | The number of table entities in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
-To learn how to calculate Table storage capacity, see [Calculate the size/capacity of storage account and it services](https://techcommunity.microsoft.com/t5/azure-paas-blog/calculate-the-size-capacity-of-storage-account-and-it-services/ba-p/1064046)
+To learn how to calculate Table storage capacity, see [Calculate the size/capacity of storage account and it services](https://techcommunity.microsoft.com/t5/azure-paas-blog/calculate-the-size-capacity-of-storage-account-and-it-services/ba-p/1064046).
 
 ### Transaction metrics
 
