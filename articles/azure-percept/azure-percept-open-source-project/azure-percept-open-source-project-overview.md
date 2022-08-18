@@ -39,11 +39,14 @@ Azure Percept Open-Source Project has a no- to low-code portal experience as wel
 
 ## Next steps
 
-You're now ready to start using Azure Percept Open-Source Project. We recommend the following resources to get started. 
+Text to come.
 
-<!-- - TBD (getting started) How to get started and setup Azure Percept Open-Source Project -->
+<!-- You're now ready to start using Azure Percept Open-Source Project. We recommend the following resources to get started. 
+
+ - TBD (getting started) How to get started and setup Azure Percept Open-Source Project 
 
 - [Introduction to Azure Percept for Open-Source Project core concepts](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/EQwRE6w96T1OiO_kstWw1lMBs1yZFUow_ik3kx3rV12EVg?e=bactOi) 
 
 - [Tutorial: Create an Edge AI solution with Azure Percept for Open-Source Project](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/ERF8mxgtOqhIt2YJWFafuZoBC6kZ6hC-iRAMuCJeyZjD-w?e=BS4cN5)
+-->
 
