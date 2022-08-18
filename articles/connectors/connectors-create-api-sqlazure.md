@@ -522,7 +522,7 @@ Runs a query on an SQL database.
 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
-| **Query** | `query` | True | Dynamic | The body for your query |
+| **Query** | `query` | True | Dynamic | The body for your SQL query |
 | **Query parameters** | `queryParameters` | False | Objects | The parameters for your query. <br><br>**Note**: If the query requires input parameters, you must provide these parameters. |
 
 #### Returns
@@ -545,14 +545,14 @@ Runs a stored procedure on an SQL database.
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **Procedure name** | `storedProcedureName` | True | String | The name for your stored procedure |
-| **Parameters** | `storedProcedureParameters` | False | Dynamic | The parameters for stored procedure. <br><br>**Note**: If the stored procedure requires input parameters, you must provide these parameters. |
+| **Parameters** | `storedProcedureParameters` | False | Dynamic | The parameters for your stored procedure. <br><br>**Note**: If the stored procedure requires input parameters, you must provide these parameters. |
 
 #### Returns
 
 | Name | Type |
 |------|------|
-| **Result** | An array object that returns all the query results |
-| **Result Result Sets** | An array object that returns one query result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result** | An array object that returns all the stored procedure results |
+| **Result Result Sets** | An array object that returns one stored procedure result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
 | **Result Stored Procedure Parameters** |  The final values of the stored procedure's output and input-output parameters |
 | **Result Return Code** | The return code from the stored procedure |
 | **Status Code** | The status code from the **Execute stored procedure** operation |
@@ -608,7 +608,7 @@ The following example shows sample parameter values for the **Get rows** action:
 
 Operation ID: `getTables`
 
-Gets all the tables from the database.
+Gets a list of all the tables in the database.
 
 #### Parameters
 
