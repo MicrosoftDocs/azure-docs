@@ -37,7 +37,23 @@ To recover a deleted cognitive service resource, use the following commands. Whe
 * `{resourceName}` with your resource name
 * `{location}` with the location of your resource
 
-# [Using the Rest API](#tab/rest-api)
+
+# [Azure Portal](#tab/azure-portal)
+
+If you need to recover a deleted resource, navigate to the hub of the cognitive services API type and select "Manage deleted resources" from the menu. For example, if you would like to recover an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the option under the "Services" section to land on the "Anomaly detector" hub that will list deleted resources.
+
+
+:::image type="content" source="media/recovery-of-deleted-resources.png" alt-text="How to recover a deleted resource step 1":::
+
+
+Select the subscription in the dropdown list to locate the deleted resource you would like to recover.
+Select one or more of the deleted resources and click "Recover". 
+
+:::image type="content" source="media/managing-deleted-resources.png" alt-text="How to recover a deleted resource step 2":::
+
+Please note that it can take a couple of minutes for your deleted resource(s) to recover and show up in the list of the resources. Click on the "Refresh" button in the menu to update the list of resources.
+
+# [Rest API](#tab/rest-api)
 
 Use the following `PUT` command:
 
@@ -56,7 +72,7 @@ In the request body, use the following JSON format:
 } 
 ```
 
-# [Using PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 Use the following command to restore the resource: 
 
@@ -70,23 +86,11 @@ If you need to find the name of your deleted resources, you can get a list of de
 Get-AzResource -ResourceId /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/deletedAccounts -ApiVersion 2021-04-30 
 ```
 
-# [Using the Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource create --subscription {subscriptionID} -g {resourceGroup} -n {resourceName} --location {location} --namespace Microsoft.CognitiveServices --resource-type accounts --properties "{\"restore\": true}"
 ```
-# [Using Azure Portal](#tab/azure-portal)
-
-If you need to recover a deleted resource, navigate to the Azure portal and select your Cognitive Services subscription. 
-Select "Manage deleted resources". 
-
-:::image type="content" source="media/recovery-of-deleted-resources.png" alt-text="How to recover a deleted resource step 1":::
-
-
-Select the subscription in the dropdown list to locate the deleted resource you would like to recover.
-Select the deleted resource and click Recover. 
-
-:::image type="content" source="media/managing-deleted-resources.png" alt-text="How to recover a deleted resource step 2":::
 
 ---
 
@@ -104,7 +108,25 @@ To purge a deleted cognitive service resource, use the following commands. Where
 > [!NOTE]
 > Once a resource is purged, it is permanently deleted and cannot be restored. You will lose all data and keys associated with the resource.
 
-# [Using the Rest API](#tab/rest-api)
+
+# [Azure Portal](#tab/azure-portal)
+
+If you need to purge a deleted resource, the steps are similar to recovering a deleted resource.
+
+Navigate to the hub of the cognitive services API type of your deleted resource. For example, if you would like to purge an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the option under the "Services" section to land on the "Anomaly detector" hub that will list deleted resources.
+
+Select "Manage deleted resources" from the menu. 
+
+:::image type="content" source="media/recovery-of-deleted-resources.png" alt-text="How to purge a deleted resource step 1":::
+
+Select the subscription in the dropdown list to locate the deleted resource you would like to purge.
+Select one or more deleted resources and click "Purge".
+Purging will permanently delete a Cognitive Services resource. 
+
+:::image type="content" source="media/managing-deleted-resources.png" alt-text="How to purge a deleted resource step 2":::
+
+
+# [Rest API](#tab/rest-api)
 
 Use the following `DELETE` command:
 
@@ -112,35 +134,19 @@ Use the following `DELETE` command:
 https://management.azure.com/subscriptions/{subscriptionID}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}?Api-Version=2021-04-30`
 ```
 
-# [Using PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 Remove-AzResource -ResourceId /subscriptions/{subscriptionID}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}  -ApiVersion 2021-04-30`
 ```
 
-# [Using the Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource delete --ids /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}
 ```
-# [Using Azure Portal](#tab/azure-portal)
-
-If you wish to purge a deleted resource, the steps are similar when recovering a deleted resource.
-
-Navigate to the Azure portal and select your Cognitive Services subscription.
-Select "Manage deleted resources".
-
-:::image type="content" source="media/recovery-of-deleted-resources.png" alt-text="How to purge a deleted resource step 1":::
-
-Select the subscription in the dropdown list to locate the deleted resource you would like to purge.
-Select the deleted resource and click Purge.
-Purging will permanently delete a Cognitive Services resource. 
-
-
-:::image type="content" source="media/managing-deleted-resources.png" alt-text="How to purge a deleted resource step 2":::
 
 ---
-
 
 
 ## See also
