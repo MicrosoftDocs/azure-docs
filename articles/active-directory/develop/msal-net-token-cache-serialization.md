@@ -99,7 +99,7 @@ services.Configure<MsalDistributedTokenCacheAdapterOptions>(options =>
   {
     // Optional: Disable the L1 cache in apps that don't use session affinity
     //                 by setting DisableL1Cache to 'true'.
-    options.DisableL1Cache = true;
+    options.DisableL1Cache = false;
     
     // Or limit the memory (by default, this is 500 MB)
     options.L1CacheOptions.SizeLimit = 1024 * 1024 * 1024; // 1 GB
