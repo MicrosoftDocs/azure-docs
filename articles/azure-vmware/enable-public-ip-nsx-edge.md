@@ -28,7 +28,7 @@ With this capability, you have the following features:
 - HCX Migration support over the Public Internet.
 
 ## Prerequisites
-- Azure Solution VMware private cloud
+- Azure VMware Solution private cloud
 - DNS Server configured on the NSX-T Datacenter
 
 ## Reference architecture    
