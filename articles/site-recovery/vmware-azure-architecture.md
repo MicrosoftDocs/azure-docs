@@ -10,7 +10,7 @@ ms.date: 08/19/2021
 
 This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Classic.
 
-For architecture details in Preview, [see this article](vmware-azure-architecture-preview.md)
+For architecture details in Preview, [see this article](vmware-azure-architecture-modernized.md)
 
 
 ## Architectural components

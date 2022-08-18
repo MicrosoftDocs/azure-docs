@@ -11,7 +11,7 @@ ms.date: 08/18/2022
 >[!NOTE]
 > The information in this article applies to Azure Site Recovery - Modernized.
 
-You need to [create and deploy an on-premises Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-preview.md) when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. For detailed information about replication appliance, see [the architecture](vmware-azure-architecture-preview.md). You can create and use multiple replication appliances based on the capacity requirements of your organization.
+You need to [create and deploy an on-premises Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-modernized.md) when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. For detailed information about replication appliance, see [the architecture](vmware-azure-architecture-modernized.md). You can create and use multiple replication appliances based on the capacity requirements of your organization.
 
 This article provides information about how you can switch between replication appliances.
 
@@ -73,4 +73,4 @@ As an example, here is the scenario where replication appliance 1 (RA1) has beco
    Once the resync is complete, the replication status turns healthy for the VMs that are moved to a new appliance.
 
 ## Next steps
-Set up disaster recovery of [VMware VMs](vmware-azure-set-up-replication-tutorial-preview.md) to Azure.
+Set up disaster recovery of [VMware VMs](vmware-azure-set-up-replication-tutorial-modernized.md) to Azure.
