@@ -230,7 +230,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    1. Under the **Choose an operation** search box, select either of the following options:
 
-      * **Built-in** when you want to use SQL Server built-in actions such as **Execute Query**
+      * **Built-in** when you want to use SQL Server [built-in actions](#built-in-connector-operations) such as **Execute Query**
 
         ![Screenshot showing the Azure portal, workflow designer for Standard logic app, and designer search box with "Built-in" selected underneath.](./media/connectors-create-api-sqlazure/select-built-in-category-standard.png)
 
@@ -242,13 +242,13 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    1. From the actions list, select the SQL Server action that you want.
 
-      * Built-in actions
+      * [Built-in actions](#built-in-connector-operations)
 
         This example selects the only available built-in action named **Execute Query**.
 
         ![Screenshot showing the designer search box with "sql server" and "Built-in" selected underneath with the "Execute Query" action selected in the "Actions" list.](./media/connectors-create-api-sqlazure/select-sql-execute-query-action-standard.png)
 
-      * Managed actions
+      * [Managed actions](/connectors/sql/#actions)
 
         This example selects the action named **Get row**, which gets a single record.
 
