@@ -31,7 +31,7 @@
     "redirect_document_id":  false
 },
 {
-    "source_path":  "security/fundamentals/azure-disk-encryption-vms-vmss.md",
+    "source_path":  "articles/security/fundamentals/azure-disk-encryption-vms-vmss.md",
     "redirect_url":  "/azure/virtual-machines/disk-encryption-overview",
     "redirect_document_id":  false
 },
