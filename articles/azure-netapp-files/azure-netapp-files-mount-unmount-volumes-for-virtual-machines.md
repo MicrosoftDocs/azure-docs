@@ -42,7 +42,7 @@ You can mount an NFS file for Windows or Linux virtual machines (VMs).
 
 ## Mount NFS volumes on Windows clients 
 
-Mounting NFSv4.1 volumes on Windows clients is supported. For more information, see [Network File System overview](../../windows-server/storage/nfs/nfs-overview). You will experience better SMB performance from a dual-protocol volume than from using the NFS client on Windows with an NFS volume. 
+Mounting NFSv4.1 volumes on Windows clients is supported. For more information, see [Network File System overview](../../windows-server/storage/nfs/nfs-overview).
 
 If you want to mount NFSv3 volumes on a Windows client using NFS: 
 
@@ -51,7 +51,7 @@ If you want to mount NFSv3 volumes on a Windows client using NFS:
 1. Mount the volume via the NFS client on Windows using the mount option `mtype=hard` to reduce connection issues. 
   See [Windows command line utility for mounting NFS volumes](../windows-server/administration/windows-commands/mount) for more detail. 
   For example: `Mount -o rsize=256 -o wsize=256 -o mtype=hard \\10.x.x.x\testvol X:* `
-1. You can also access NFS volumes from Windows clients via SMB by setting the protocol access for the volume to “dual-protocol”. This setting allows access to the volume via SMB and NFS (NFSv3 or NFSv4.1). See [Create a dual-protocol volume](create-volumes-dual-protocol.md) for details, and take note of the security style mappings table. Mount a dual-protocol volume from Windows clients using the same procedure as regular SMB volumes. 
+1. You can also access NFS volumes from Windows clients via SMB by setting the protocol access for the volume to “dual-protocol”. This setting allows access to the volume via SMB and NFS (NFSv3 or NFSv4.1) and will result in better performance than using the NFS client on Windows with an NFS volume. See [Create a dual-protocol volume](create-volumes-dual-protocol.md) for details, and take note of the security style mappings table. Mounting a dual-protocol volume from Windows clients using the same procedure as regular SMB volumes. 
 
 ## Next steps
 
