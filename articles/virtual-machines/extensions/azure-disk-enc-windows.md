@@ -173,4 +173,4 @@ Alternatively, you can file an Azure support incident. Go to [Azure support](htt
 ## Next steps
 
 * For more information about extensions, see [Virtual machine extensions and features for Windows](features-windows.md).
-* For more information about Azure Disk Encryption for Windows, see [Windows virtual machines](../../virtual-machines/disk-encryption-overview.md#windows-virtual-machines).
+* For more information about Azure Disk Encryption for Windows, see [Windows virtual machines](../../virtual-machines/windows/disk-encryption-overview.md).

@@ -38,7 +38,7 @@ To select a target schema, the `typeHandlerVersion` property must be set equal t
 The v1.1 schema is recommended and does not require Azure Active Directory (AAD) properties.
 
 > [!NOTE]
-> The `DiskFormatQuery` parameter is deprecated. Its functionity has been replaced by the EncryptFormatAll option instead, which is the recommended way to format data disks at time of encryption.
+> The `DiskFormatQuery` parameter is deprecated. Its functionality has been replaced by the EncryptFormatAll option instead, which is the recommended way to format data disks at time of encryption.
 
 ```json
 {
@@ -185,4 +185,4 @@ Alternatively, you can file an Azure support incident. Go to [Azure support](htt
 ## Next steps
 
 * For more information about VM extensions, see [Virtual machine extensions and features for Linux](features-linux.md).
-* For more information about Azure Disk Encryption for Linux, see [Linux virtual machines](../../virtual-machines/disk-encryption-overview.md#linux-virtual-machines).
+* For more information about Azure Disk Encryption for Linux, see [Linux virtual machines](../../virtual-machines/linux/disk-encryption-overview.md).
