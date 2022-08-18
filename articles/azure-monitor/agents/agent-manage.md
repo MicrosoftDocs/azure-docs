@@ -81,6 +81,7 @@ Run the following command to upgrade the agent.
 ### Enable Auto-Update for the Linux Agent
 
 The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature, using the following PowerShell commands.
+
 # [Powershell](#tab/PowerShellLinux)
 ```powershell
 Set-AzVMExtension \
@@ -106,6 +107,7 @@ az vm extension set \
   --version latestVersion \
 --enable-auto-upgrade true
 ```
+---
 
 ## Adding or removing a workspace
 
