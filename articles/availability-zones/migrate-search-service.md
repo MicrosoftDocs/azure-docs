@@ -26,7 +26,7 @@ The following are the current requirements/limitations for enabling availability
 
 - The search service must be in [a region that supports availability zones](../search/search-performance-optimization.md#availability-zones)
 - The search service must be created after availability zone support was enabled in its region.
-- The search service must have [at least 2 replicas](../search/search-performance-optimization.md#high-availability)
+- The search service must have [at least two replicas](../search/search-performance-optimization.md#high-availability)
 
 ## Downtime requirements
 
