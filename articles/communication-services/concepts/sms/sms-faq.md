@@ -70,7 +70,7 @@ Azure Communication Services will detect the STOP message and block all further 
 
 ## Short codes
 ### What is the eligibility to apply for a short code?
-Short Code availability is currently restricted to paid Azure subscriptions that have a billing address in the United States. Short Codes cannot be acquired on trial accounts or using Azure free credits. For more details, check out our [subscription eligibility page](../numbers/sub-eligibility-number-capability.md).
+Short Code availability is currently restricted to paid Azure subscriptions that have a billing address in the United States. Short Codes cannot be acquired on trial accounts or using Azure free credits. For more details, check out our [subscription eligibility page](../numbers/sub-eligibility-number-capability.md). 
 
 ### Can you text to a toll-free number from a short code?
 No. Texting to a toll-free number from a short code is not supported. You also wont be able to receive a message from a toll-free number to a short code.
@@ -79,7 +79,7 @@ No. Texting to a toll-free number from a short code is not supported. You also w
 Short codes do not fall under E.164 formatting guidelines and do not have a country code, or a "+" sign prefix. In the SMS API request, your short code should be passed as the 5-6 digit number you see in your short codes blade without any prefix. 
 
 ### How long does it take to get a short code? What happens after a short code program brief application is submitted?
-Once you have submitted the short code program brief application in the Azure portal, Azure Communication Services works with the aggregators to get your application approved by each mobile carrier. This process generally takes 8-12 weeks. We will let you know any updates and the status of your applications via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
+Once you have submitted the short code program brief application in the Azure portal, the service desk works with the aggregators to get your application approved by each wireless carrier. This process generally takes 8-12 weeks. We will let you know any updates and the status of your applications via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
 
 ## Toll-Free Verification
 ### What is toll free verification and why is it mandatory?
@@ -97,9 +97,6 @@ Toll-free verification (TFV) involves an integration between Microsoft and the T
 
 ### What happens if I don't verify my toll-free numbers? 
 Unverified numbers may face SMS service interruptions and are subject to carrier filtering and throttling.
-
-### How long will the process take?
-Toll-free verifications can take up to 2-3 weeks. 
 
 ### What happens after I submit the toll-free verification form?
 Once we receive your toll-free verification form, we will relay it to the toll-free messaging aggregator for them to review and approve it. This process takes 2-3 weeks. We will let you know any updates and the status of your applications via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
