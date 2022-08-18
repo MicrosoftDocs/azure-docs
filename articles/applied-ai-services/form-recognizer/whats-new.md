@@ -129,15 +129,15 @@ Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/d
 
   | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables** |**Signatures**|
   | --- | :---: |:---:| :---: | :---: |:---: |
-  |Read | ✓  |   |   |   |   | |
-  |General document  | ✓  |  ✓ | ✓  | ✓  | ✓  | |
-  | Layout  | ✓  |   | ✓  | ✓  |   | |
-  | Invoice  | ✓ | ✓  | ✓  | ✓ || |
-  |Receipt  | ✓  |   ✓ |   |  || |
-  | ID document | ✓  |   ✓  |   |   || |
-  | Business card    | ✓  |   ✓ |   |   || |
-  | Custom template  |✓  |  ✓ | ✓  | ✓  |   | ✓ |
-  | Custom neural    |✓  |  ✓ | ✓  | ✓  |   | |
+  |Read | ✓  |   |   |   |   |
+  |General document  | ✓  |  ✓ | ✓  | ✓  |   |
+  | Layout  | ✓  |   | ✓  | ✓  |   |
+  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
+  |Receipt  | ✓  |   ✓ |   |  |✓|
+  | ID document | ✓  |   ✓  |   |   ||
+  | Business card    | ✓  |   ✓ |   |   ||
+  | Custom template  |✓  |  ✓ | ✓  | ✓  |  ✓ |
+  | Custom neural    |✓  |  ✓ | ✓  | ✓  |   |
 
 #### Form Recognizer SDK beta preview release
 
