@@ -12,9 +12,54 @@ This article provides an overview of strategies to optimize Apache Spark jobs on
 
 ## Overview
 
-The performance of your Apache Spark jobs depends on multiple factors. These performance factors include: how your data is stored, how the cluster is configured, and the operations that are used when processing the data.
+You might face below common Scenarios
 
-Common challenges you might face include: memory constraints due to improperly sized executors, long-running operations, and tasks that result in cartesian operations.
+- The same spark job is slower than before in the same HDInsight cluster
+- The spark job is slower in HDInsight cluster than on-premise or other third party service provider
+- The spark job is slower in one HDI cluster than another HDI cluster
+
+The performance of your Apache Spark jobs depends on multiple factors. These performance factors include: 
+
+- How your data is stored
+- How the cluster is configured
+- The operations that are used when processing the data.
+- Unhealthy yarn service
+- Memory constraints due to improperly sized executors and OutOfMemoryError
+- Too many tasks or too less tasks
+- Data skew casued a few heavy tasks or slow tasks
+- Tasks slower in bad nodes
+
+
+
+## Step 1: Check if your yarn service is healthy
+
+1. Go to Ambari UI:
+- Check if ResourceManager or NodeManager alerts
+- Check ResourceManager and NodeManager status in YARN > SUMMARY: All NodeManager should be in Started and only Active ResourceManager should be in Started
+
+2. Check if Yarn UI is accessible through `https://YOURCLUSTERNAME.azurehdinsight.net/yarnui/hn/cluster`
+
+3. Check if any exceptions or errors in ResourceManager log in `/var/log/hadoop-yarn/yarn/hadoop-yarn-resourcemanager-*.log`
+
+
+## Step 2: Compare your new application resources with yarn available resources
+
+1. Go to **Ambari UI > YARN > SUMMARY**, check **CLUSTER MEMORY** in ServiceMetrics
+
+2. Check yarn queue metrics in details:
+- Go to Yarn UI, check Yarn scheduler metrics through `https://YOURCLUSTERNAME.azurehdinsight.net/yarnui/hn/cluster/scheduler`
+- Alternatively, you can check yarn scheduler metrics through Yarn Rest API. For example, `curl -u "xxxx" -sS -G "https://YOURCLUSTERNAME.azurehdinsight.net/ws/v1/cluster/scheduler"`. For ESP, you should use domain admin user.
+
+3. Calculate total resources for your new application
+- All executors resources: `spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) and spark.executor.instances * spark.executor.cores`
+- ApplicationMaster
+  - In cluster mode, use `spark.driver.memory` and `spark.driver.cores`
+  - In client mode, use `spark.yarn.am.memory+spark.yarn.am.memoryOverhead` and `spark.yarn.am.cores`
+
+> [!NOTE]
+> `yarn.scheduler.minimum-allocation-mb <= spark.executor.memory+spark.yarn.executor.memoryOverhead <= yarn.scheduler.maximum-allocation-mb`
+
+4. Compare your new application total resources with yarn available resources in your specified queue
 
 There are also many optimizations that can help you overcome these challenges, such as caching, and allowing for data skew.
 
