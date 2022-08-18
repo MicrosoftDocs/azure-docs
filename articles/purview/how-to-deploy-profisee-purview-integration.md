@@ -134,7 +134,7 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
     1. Add the value for the secret you created for that service principal.
     1. Give your web application a name.
 
-    :::image type="content" alt-text="Screenshot of the Profisee page of the Azure ARM Wizard, with all values filled out.." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png":::
+    :::image type="content" alt-text="Screenshot of the Profisee page of the Azure ARM Wizard, with all values filled out." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png":::
 
 1. On the Kubernetes page, you may choose an older version of Kubernetes if needed, but leave the field **blank** to deploy the **latest** version.
 
@@ -163,7 +163,7 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
 
 1. On the review + create page, review your details to ensure they're correct while the wizard validates your configuration. Once validation passes, select **Create**.
 
-    :::image type="content" alt-text="Screenshot of the review + create page of the ARM deployment wizard, showing all details with a validation passed flag at the top of the page." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-f-final-template-validation.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-f-final-template-validation.png":::
+    :::image type="content" alt-text="Screenshot of the review plus create page of the ARM deployment wizard, showing all details with a validation passed flag at the top of the page." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-f-final-template-validation.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-f-final-template-validation.png":::
 
 1. It will take around 45-50 Minutes for deployment to complete installing Profisee. During the deployment, you'll see the aspects that are in progress, and can refresh the page to review progress. The deployment will show as complete when all is finished. Completion of "InstallProfiseePlatform" stage also indicates deployment is complete!
 
@@ -173,11 +173,11 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
 
 1. Once deployment is completed, open the resource group where you deployed your integration.
 
-    :::image type="content" alt-text="Screenshot of the resource group where the Profisee resources were deployed, withe the deployment script highlighted." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png":::
+    :::image type="content" alt-text="Screenshot of the resource group where the Profisee resources were deployed, with the deployment script highlighted." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png":::
 
 1. Under outputs, fetch the final deployment URL. The final WEBURL is what you need to paste on your browser address bar and start enjoying Profisee-Purview integration! This URL will be the same that you'd have supplied to Profisee support while obtaining the license file. Unless you chose to change the URL format, it will look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/
 
-    :::image type="content" alt-text="Screenshot of the outputs of the deployment script, showing the deployment WEB U R L highlighted in the output." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png":::
+    :::image type="content" alt-text="Screenshot of the outputs of the deployment script, showing the deployment WEB URL highlighted in the output." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png":::
     
 1. Populate and hydrate data to the newly installed Profisee environment by installing FastApp. Go to your Profisee deployment URL and select **/Profisee/api/client**. It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client". Select the Downloads for "Profisee FastApp Studio" utility and the "Profisee Platform Tools". Install both these tools on your local client machine.
 
