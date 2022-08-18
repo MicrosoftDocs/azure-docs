@@ -88,7 +88,7 @@ The Azure Migrate appliance compresses data and encrypts before uploading. Data 
 
 ## Replication status 
 
-When a VM undergoes replication(data copy), there are a few possible states:
+When a VM undergoes replication (data copy), there are a few possible states:
 - **Initial replication queued**: The VM is queued for replication (or migration) as there may be other VMs that are consuming the on-premises resources (during replication or migration). Once the resources are free, this VM will be processed.
 - **Initial replication in progress**: The VM is being scheduled for initial replication. 
 - **Initial replication**: The VM is undergoing initial replication. When the VM is undergoing initial replication, you cannot proceed with test migration and migration. You can only stop replication at this stage.
