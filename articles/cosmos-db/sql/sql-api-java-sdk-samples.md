@@ -97,7 +97,7 @@ where *sample.synchronicity.MainClass* can be
 ...etc...
 
 > [!NOTE]
-> Each sample is self-contained; it sets itself up and cleans up after itself. The samples issue multiple calls to create a `CosmosContainer`. Each time this is done, your subscription is billed for 1 hour of usage for the performance tier of the collection created. 
+> Each sample is self-contained; it sets itself up and cleans up after itself. The samples issue multiple calls to create a `CosmosContainer` or `CosmosAsyncContainer`. Each time this is done, your subscription is billed for 1 hour of usage for the performance tier of the collection created. 
 > 
 > 
 
