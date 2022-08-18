@@ -1263,7 +1263,7 @@ In the example of a request to update a user, the object provided as the value o
 |`(PatchRequest as PatchRequest2).Operations.ElementAt(0).OperationName`| `OperationName.Add`|
 |`(PatchRequest as PatchRequest2).Operations.ElementAt(0).Path.AttributePath`| Manager|
 |`(PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.Count`|1|
-|`(PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference`|<http://.../scim/Users/2819c223-7f76-453a-919d-413861904646>|
+|`(PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference`|`http://.../scim/Users/2819c223-7f76-453a-919d-413861904646`|
 |`(PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value`| 2819c223-7f76-453a-919d-413861904646|
 
 ***Example 6. Deprovision a user***
