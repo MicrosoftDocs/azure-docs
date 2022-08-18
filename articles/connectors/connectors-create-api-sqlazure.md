@@ -9,7 +9,7 @@ ms.date: 08/17/2022
 tags: connectors
 ---
 
-# Connect to a SQL database from workflows in Azure Logic Apps
+# Connect to an SQLdatabase from workflows in Azure Logic Apps
 
 This article shows how to access your SQL database from a workflow in Azure Logic Apps with the SQL Server connector. You can then create automated workflows that run when triggered by events in your SQL database or in other systems and run actions to manage your SQL data and resources.
 
@@ -36,7 +36,7 @@ The SQL Server connector has different versions, based on [logic app type and ho
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql). <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Standard class) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version doesn't have triggers. You can use either a SQL managed connector trigger or a completely different trigger. <br><br>- The built-in version connects directly to a SQL server and database requiring only a connection string. You don't need the on-premises data gateway. <br><br>- The built-in version can directly access Azure virtual networks. You don't need the on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Standard class) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version doesn't have triggers. You can use either an SQL managed connector trigger or a completely different trigger. <br><br>- The built-in version connects directly to an SQLserver and database requiring only a connection string. You don't need the on-premises data gateway. <br><br>- The built-in version can directly access Azure virtual networks. You don't need the on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 ||||
 
 ## Limitations
@@ -51,14 +51,14 @@ For more information, review the [SQL Server managed connector reference](/conne
 
   The SQL Server connector requires that your tables contain data so that the connector operations can return results when called. For example, if you use Azure SQL Database, you can use the included sample databases to try the SQL Server connector operations.
 
-* The information required to create a SQL database connection, such as your SQL server and database name. If you're using Windows Authentication or SQL Server Authentication to authenticate access, you also need your user name and password. You can usually find this information in the connection string.
+* The information required to create an SQLdatabase connection, such as your SQL server and database name. If you're using Windows Authentication or SQL Server Authentication to authenticate access, you also need your user name and password. You can usually find this information in the connection string.
 
   > [!IMPORTANT]
   >
-  > If you use a SQL Server connection string that you copied directly from the Azure portal, 
+  > If you use an SQL Server connection string that you copied directly from the Azure portal, 
   > you have to manually add your password to the connection string.
 
-  * For a SQL database in Azure, the connection string has the following format: 
+  * For an SQL database in Azure, the connection string has the following format: 
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
@@ -527,7 +527,7 @@ The following example shows sample parameter values for the **Delete rows** acti
 
 Operation ID: `executeQuery`
 
-Runs a query on a SQL database.
+Runs a query on an SQLdatabase.
 
 #### Parameters
 
@@ -551,7 +551,7 @@ Runs a query on a SQL database.
 
 Operation ID: `executeStoredProcedure`
 
-Runs a stored procedure on a SQL database.
+Runs a stored procedure on an SQLdatabase.
 
 #### Parameters
 
