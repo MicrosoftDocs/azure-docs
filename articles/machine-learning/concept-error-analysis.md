@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 05/10/2022
+ms.date: 08/17/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 # Assess errors in ML models (preview)
@@ -40,13 +40,13 @@ Often, error patterns may be complex and involve more than one or two features. 
 - **Error coverage**: a portion of all errors that fall into the node. This is shown through the fill rate of the node.
 - **Data representation**: number of instances in each node of the error tree. This is shown through the thickness of the incoming edge to the node along with the actual total number of instances in the node.
 
-:::image type="content" source="./media/concept-error-analysis/error-analysis-tree.png" alt-text="Error Analysis tree showing cohorts with higher or lower error rates and coverage":::
+:::image type="content" source="./media/concept-error-analysis/error-analysis-tree.png" alt-text="Screenshot of an error Analysis tree showing cohorts with higher or lower error rates and coverage." lightbox ="./media/concept-error-analysis/error-analysis-tree.png":::
 
 ## Error Heatmap
 
 The view slices the data based on a one- or two-dimensional grid of input features. Users can choose the input features of interest for analysis. The heatmap visualizes cells with higher error with a darker red color to bring the user’s attention to regions with high error discrepancy. This is beneficial especially when the error themes are different in different partitions, which happen frequently in practice. In this error identification view, the analysis is highly guided by the users and their knowledge or hypotheses of what features might be most important for understanding failure.
 
-:::image type="content" source="./media/concept-error-analysis/error-analysis-heatmap.png" alt-text="Error Analysis heatmap showing model errors partitioned by one or two features":::
+:::image type="content" source="./media/concept-error-analysis/error-analysis-heatmap.png" alt-text="Screenshot of an error Analysis heatmap showing model errors partitioned by one or two features.":::
 
 ## Next steps
 

@@ -8,19 +8,20 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: lagayhar
 author: lgayhardt
-ms.date: 08/12/2022
+ms.date: 08/17/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
 # Generate Responsible AI dashboard in the studio UI (preview)
 
 You can create a Responsible AI dashboard with a no-code experience in the [Azure Machine Learning studio UI](https://ml.azure.com/). Use the following steps to access the dashboard generation wizard:
-- [Register your model](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-manage-models?tabs=use-local) in Azure Machine Learning before being able to access the no-code experience. 
-- Navigate to the **Models** tab from the left navigation bar in Azure Machine Learning studio. 
-- Select the registered model you’d like to create Responsible AI insights for and select the **Details** tab. 
+
+- [Register your model](how-to-manage-models.md) in Azure Machine Learning before being able to access the no-code experience.
+- Navigate to the **Models** tab from the left navigation bar in Azure Machine Learning studio.
+- Select the registered model you’d like to create Responsible AI insights for and select the **Details** tab.
 - Select the **Create Responsible AI dashboard (preview)** button from the top panel.
 
-Please see the Responsible AI dashboard's [supported model types, and limitations](
+To learn more, see the Responsible AI dashboard's [supported model types, and limitations](concept-responsible-ai-dashboard.md#supported-machine-learning-models-and-scenarios)
 
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-page.png" alt-text="Screenshot of the wizard details tab with create responsible AI dashboard tab highlighted." lightbox ="./media/how-to-responsible-ai-dashboard-ui/model-page.png":::
@@ -111,7 +112,7 @@ Finally, configure your experiment to kick off a job to generate your Responsibl
 1. **Name**: Give your dashboard a unique name so that you can differentiate it when you’re viewing the list of dashboards for a given model.
 2. **Experiment name**: Select an existing experiment to run the job in, or create a new experiment.
 3. **Existing experiment**: Select an existing experiment from drop-down.
-4. **Select compute type**: Specify which compute type you’d like to use to execute your job. 
+4. **Select compute type**: Specify which compute type you’d like to use to execute your job.
 5. **Select compute**: Select from a drop-down that compute you’d like to use. If there are no existing compute resources, select the “+” to create a new compute resource and refresh the list.
 6. **Description**: Add a more verbose description for your Responsible AI dashboard.
 7. **Tags**: Add any tags to this Responsible AI dashboard.

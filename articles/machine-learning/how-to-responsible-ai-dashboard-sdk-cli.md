@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: lagayhar
 author: lgayhardt
-ms.date: 05/10/2022
+ms.date: 08/17/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
@@ -88,12 +88,13 @@ The ` RAI Insights Dashboard Constructor` and `Gather RAI Insights Dashboard ` c
 Below are specifications of the Responsible AI components and examples of code snippets in YAML and Python. To view the full code, see [sample YAML and Python notebook](https://aka.ms/RAIsamplesProgrammer)
 
 ### Limitations
+
 The current set of components have a number of limitations on their use:
 
 - All models must be in registered in AzureML in MLFlow format with a sklearn flavor.
 - The models must be loadable in the component environment.
 - The models must be pickleable.
-- The models must be supplied to the RAI components using the 'Fetch Registered Model' component which we provide.
+- The models must be supplied to the RAI components using the 'Fetch Registered Model' component that we provide.
 - The dataset inputs must be `pandas` DataFrames in Parquet format. 
 - A model must still be supplied even if only a causal analysis of the data is performed. The `DummyClassifier` and `DummyRegressor` estimators from SciKit-Learn can be used for this purpose.
 
@@ -318,7 +319,7 @@ This component has a single output port, which can be connected to one of the `i
 
 ### Add Error Analysis to RAI Insights Dashboard 
 
-This component generates an error analysis for the model. It has a single input port, which accepts the output of the RAI Insights Dashboard Constructor. It also accepts the following parameters: 
+This component generates an error analysis for the model. It has a single input port, which accepts the output of the RAI Insights Dashboard Constructor. It also accepts the following parameters:
 
 | Parameter Name    | Description                                                 | Type                                                 |
 |-------------------|-------------------------------------------------------------|------------------------------------------------------|

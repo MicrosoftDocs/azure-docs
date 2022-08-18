@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 08/08/2022
+ms.date: 08/17/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
@@ -36,7 +36,7 @@ Use What-If Counterfactuals when you need to:
 
 ## How are counterfactual examples generated?
 
-To generate counterfactuals, DiCE implements a few model-agnostic techniques. These methods apply to any opaque-box classifier or regressor. They're based on sampling nearby points to an input point, while optimizing a loss function based on proximity (and optionally, sparsity, diversity, and feasibility). Currently-supported methods are:
+To generate counterfactuals, DiCE implements a few model-agnostic techniques. These methods apply to any opaque-box classifier or regressor. They're based on sampling nearby points to an input point, while optimizing a loss function based on proximity (and optionally, sparsity, diversity, and feasibility). Currently supported methods are:
 
 - [Randomized Search](http://interpret.ml/DiCE/notebooks/DiCE_model_agnostic_CFs.html#1.-Independent-random-sampling-of-features): Samples points randomly near the given query point and returns counterfactuals as those points whose predicted label is the desired class.
 - [Genetic Search](http://interpret.ml/DiCE/notebooks/DiCE_model_agnostic_CFs.html#2.-Genetic-Algorithm): Samples points using a genetic algorithm, given the combined objective of optimizing proximity to the given query point, changing as few features as possible, and diversity among the counterfactuals generated.
@@ -45,5 +45,5 @@ To generate counterfactuals, DiCE implements a few model-agnostic techniques. Th
 ## Next steps
 
 - Learn how to generate the Responsible AI dashboard via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI](how-to-responsible-ai-dashboard-ui.md).
-- Explore the [supported counterfactual analysis and what-if perturbation visualizations](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-responsible-ai-dashboard#counterfactual-what-if) of the Responsible AI dashboard.
+- Explore the [supported counterfactual analysis and what-if perturbation visualizations](how-to-responsible-ai-dashboard.md#counterfactual-what-if) of the Responsible AI dashboard.
 - Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.

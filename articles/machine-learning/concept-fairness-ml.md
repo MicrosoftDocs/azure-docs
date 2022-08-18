@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: mesameki
-author: lgayhardt
-ms.date: 08/08/2022
+author: mesameki
+ms.date: 08/17/2022
 ms.custom: responsible-ml
 #Customer intent: As a data scientist, I want to learn about machine learning fairness and how to assess and mitigate unfairness in machine learning models.
 ---
@@ -22,15 +22,15 @@ This article describes methods you can use for understanding your model performa
 
 ## What is machine learning fairness?
 
-Artificial intelligence and machine learning systems can display unfair behavior. One way to define unfair behavior is by its harm, or impact on people. There are many types of harm that AI systems can give rise to. See the [NeurIPS 2017 keynote by Kate Crawford](https://www.youtube.com/watch?v=fMym_BKWQzk) to learn more.
+Artificial intelligence and machine learning systems can display unfair behavior. One way to define unfair behavior is by its harm, or impact on people. There are many types of harm that AI systems can give rise to. To learn more, [NeurIPS 2017 keynote by Kate Crawford](https://www.youtube.com/watch?v=fMym_BKWQzk).
 
 Two common types of AI-caused harms are:
 
 - Harm of allocation: An AI system extends or withholds opportunities, resources, or information for certain groups. Examples include hiring, school admissions, and lending where a model might be much better at picking good candidates among a specific group of people than among other groups.
 
-- Harm of quality-of-service: An AI system does not work as well for one group of people as it does for another. As an example, a voice recognition system might fail to work as well for women as it does for men.
+- Harm of quality-of-service: An AI system doesn't work as well for one group of people as it does for another. As an example, a voice recognition system might fail to work as well for women as it does for men.
 
-To reduce unfair behavior in AI systems, you have to assess and mitigate these harms. The model overview component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) contributes to the “identify” stage of the model lifecycle by generating a variety of model performance metrics for your entire dataset, your identified cohorts of data, and across subgroups identified in terms of **sensitive features** or sensitive attributes.
+To reduce unfair behavior in AI systems, you have to assess and mitigate these harms. The model overview component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) contributes to the “identify” stage of the model lifecycle by generating various model performance metrics for your entire dataset, your identified cohorts of data, and across subgroups identified in terms of **sensitive features** or sensitive attributes.
 
 >[!NOTE]
 > Fairness is a socio-technical challenge. Many aspects of fairness, such as justice and due process, are not captured in quantitative fairness metrics. Also, many quantitative fairness metrics can't all be satisfied simultaneously. The goal of the Fairlearn open-source package is to enable humans to assess the different impact and mitigation strategies. Ultimately, it is up to the human users building artificial intelligence and machine learning models to make trade-offs that are appropriate to their scenario.
@@ -64,12 +64,12 @@ The fairness assessment capabilities of this component are founded by the [Fairl
 
 Upon understanding your model's fairness issues, you can use [Fairlearn](https://fairlearn.org/)'s mitigation algorithms to mitigate your observed fairness issues.
 
-The Fairlearn open-source package includes a variety of unfairness mitigation algorithms. These algorithms support a set of constraints on the predictor's behavior called **parity constraints** or criteria. Parity constraints require some aspects of the predictor behavior to be comparable across the groups that sensitive features define (for example, different races). The mitigation algorithms in the Fairlearn open-source package use such parity constraints to mitigate the observed fairness issues.
+The Fairlearn open-source package includes various unfairness mitigation algorithms. These algorithms support a set of constraints on the predictor's behavior called **parity constraints** or criteria. Parity constraints require some aspects of the predictor behavior to be comparable across the groups that sensitive features define (for example, different races). The mitigation algorithms in the Fairlearn open-source package use such parity constraints to mitigate the observed fairness issues.
 
 >[!NOTE]
 > Mitigating unfairness in a model means reducing the unfairness, but this technical mitigation cannot eliminate this unfairness completely.  The unfairness mitigation algorithms in the Fairlearn open-source package can provide suggested mitigation strategies to help reduce unfairness in a machine learning model, but they are not solutions to eliminate unfairness completely.  There may be other parity constraints or criteria that should be considered for each particular developer's machine learning model. Developers using Azure Machine Learning must determine for themselves if the mitigation sufficiently eliminates any unfairness in their intended use and deployment of machine learning models.  
 
-The Fairlearn open-source package supports the following types of parity constraints: 
+The Fairlearn open-source package supports the following types of parity constraints:
 
 |Parity constraint  | Purpose  |Machine learning task  |
 |---------|---------|---------|
@@ -82,7 +82,7 @@ The Fairlearn open-source package supports the following types of parity constra
 
 The Fairlearn open-source package provides postprocessing and reduction unfairness mitigation algorithms:
 
-- Reduction: These algorithms take a standard black-box machine learning estimator (for example, a LightGBM model) and generate a set of retrained models using a sequence of re-weighted training datasets. For example, applicants of a certain gender might be up-weighted or down-weighted to retrain models and reduce disparities across different gender groups. Users can then pick a model that provides the best trade-off between accuracy (or other performance metric) and disparity, which generally would need to be based on business rules and cost calculations.  
+- Reduction: These algorithms take a standard black-box machine learning estimator (for example, a LightGBM model) and generate a set of retrained models using a sequence of reweighted training datasets. For example, applicants of a certain gender might be up-weighted or down-weighted to retrain models and reduce disparities across different gender groups. Users can then pick a model that provides the best trade-off between accuracy (or other performance metric) and disparity, which generally would need to be based on business rules and cost calculations.  
 - Post-processing: These algorithms take an existing classifier and the sensitive feature as input. Then, they derive a transformation of the classifier's prediction to enforce the specified fairness constraints. The biggest advantage of threshold optimization is its simplicity and flexibility as it doesn’t need to retrain the model.
 
 | Algorithm | Description | Machine learning task | Sensitive features | Supported parity constraints | Algorithm Type |
@@ -95,6 +95,6 @@ The Fairlearn open-source package provides postprocessing and reduction unfairne
 ## Next steps
 
 - Learn how to generate the Responsible AI dashboard via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI](how-to-responsible-ai-dashboard-ui.md).
-- Explore the [supported model overview and fairness assessment visualizations](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-responsible-ai-dashboard#model-overview) of the Responsible AI dashboard.
+- Explore the [supported model overview and fairness assessment visualizations](how-to-responsible-ai-dashboard.md#model-overview) of the Responsible AI dashboard.
 - Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.
-- Learn how to use the different components by checking out the Fairlearn's [GitHub](https://github.com/fairlearn/fairlearn/), [user guide](https://fairlearn.github.io/main/user_guide/index.html), [examples](https://fairlearn.github.io/main/auto_examples/index.html), and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
+- Learn how to use the different components by checking out the [Fairlearn's GitHub](https://github.com/fairlearn/fairlearn/), [user guide](https://fairlearn.github.io/main/user_guide/index.html), [examples](https://fairlearn.github.io/main/auto_examples/index.html), and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks).

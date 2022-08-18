@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 08/12/2022
+ms.date: 08/17/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
@@ -16,7 +16,7 @@ ms.custom: responsible-ml, event-tier1-build-2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-Azure Machine Learning’s Responsible AI scorecard is a PDF report generated based our your Responsible AI dashboard insights and customizations to accompany your machine learning models. You can easily configure, download, and share your PDF scorecard with your technical and non-technical stakeholders to educate them about your data and model health, compliance, and build trust. This scorecard could also be used in audit reviews to inform the stakeholders about the characteristics of your model.
+Azure Machine Learning’s Responsible AI scorecard is a PDF report generated based our Responsible AI dashboard insights and customizations to accompany your machine learning models. You can easily configure, download, and share your PDF scorecard with your technical and non-technical stakeholders to educate them about your data and model health, compliance, and build trust. This scorecard could also be used in audit reviews to inform the stakeholders about the characteristics of your model.
 
 
 ## Why Responsible AI scorecard?
@@ -33,7 +33,7 @@ One of the biggest benefits of using the Azure Machine Learning ecosystem is rel
 
 - If you are a data scientist or a machine learning professional, after training your model and generating its corresponding Responsible AI dashboard(s) for assessment and decision-making purposes, you can extract those learnings via our PDF scorecard and share the report easily with your technical and non-technical stakeholders to build trust and gain their approval for deployment.  
 
-- If you are a product manager, business leader, or an accountable stakeholders on an AI product, you can pass your desired model performance and fairness target values such as your target accuracy, target error rate, etc., to your data science team, asking them to generate this scorecard with respect to your identified target values and whether your model meets them. That can provide guidance into whether the model should be deployed or further improved.
+- If you're a product manager, business leader, or an accountable stakeholder on an AI product, you can pass your desired model performance and fairness target values such as your target accuracy, target error rate, etc., to your data science team, asking them to generate this scorecard with respect to your identified target values and whether your model meets them. That can provide guidance into whether the model should be deployed or further improved.
 
 ## How to generate a Responsible AI scorecard?
 
@@ -175,6 +175,7 @@ This section defines the list of parameters required to configure the Responsibl
 
 > [!NOTE]
 > For multi-class classification, you should first use the One-vs-Rest strategy to choose your reference class, and hence, split your multi-class classification model into a binary classification problem for your selected reference class vs the rest of classes.
+
 #### Metrics
 
 | Performance Metric    | Definition                                                                                                                             | Model Type     |

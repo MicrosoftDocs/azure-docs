@@ -8,13 +8,13 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 08/08/2022
+ms.date: 08/17/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
 # Understand your datasets (preview)
 
-Machine learning models "learn" from historical decisions and actions captured in training data. As a result, their performance in real-world scenarios is heavily influenced by the data they are trained on. When feature distribution in a dataset is skewed, this can cause a model to incorrectly predict data points belonging to an underrepresented group or to be optimized along an inappropriate metric. For example, while training a housing price prediction AI, the training set was representing 75% of newer houses that have less than median prices. As a result, it was much less accurate in successfully identifying more expensive historic houses. The fix was to add older and expensive houses to the training data and augment the features to include insights about the historic value of the house. Upon incorporating that data augmentation, results improved.
+Machine learning models "learn" from historical decisions and actions captured in training data. As a result, their performance in real-world scenarios is heavily influenced by the data they're trained on. When feature distribution in a dataset is skewed, it can cause a model to incorrectly predict data points belonging to an underrepresented group or to be optimized along an inappropriate metric. For example, while training a housing price prediction AI, the training set was representing 75% of newer houses that have less than median prices. As a result, it was much less accurate in successfully identifying more expensive historic houses. The fix was to add older and expensive houses to the training data and augment the features to include insights about the historic value of the house. Upon incorporating that data augmentation, results improved.
 
 The Data Explorer component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) helps visualize datasets based on predicted and actual outcomes, error groups, and specific features. This enables you to identify issues of over- and under-representation and to see how data is clustered in the dataset. Data visualizations consist of aggregate plots or individual data points.
 
