@@ -22,12 +22,10 @@
 - name: Reference
   items:
   - name: Python
-    href: /python/api/overview/azure/mgmt-dynatrace-readme
+    href: /python/api/overview/azure/mgmt-dynatrace-readme?view=azure-python-preview
   - name: JavaScript
-    href: /javascript/api/overview/azure/arm-dynatrace-readme
+    href: /javascript/api/overview/azure/arm-dynatrace-readme?view=azure-node-preview
   - name: .NET
     href: /dotnet/api/overview/azure/dynatrace?view=azure-dotnet-preview
   - name: Java
     href: /java/api/overview/azure/dynatrace?view=azure-java-preview
-
-
