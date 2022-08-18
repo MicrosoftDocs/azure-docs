@@ -218,7 +218,7 @@ Use the following steps to import the project.
 
    :::image type="content" source="media/quickstart/intellij-create-new-app-2.png" alt-text="Screenshot of IntelliJ IDEA Create Azure Spring Apps dialog box with public endpoint Disable button highlighted.":::
 
-1. Under **Before launch**, select the **Run Maven Goal 'hellospring:package'** line, then select the pencil to edit the command line.
+1. Under **Before launch**, select the **Run Maven Goal 'hellospring:package'** line, then select the pencil icon to edit the command line.
 
    :::image type="content" source="media/quickstart/intellij-edit-maven-goal.png" alt-text="Screenshot of IntelliJ IDEA Create Azure Spring Apps dialog box with Maven Goal edit button highlighted.":::
 
