@@ -7,10 +7,10 @@ ms.service: playwright-testing
 ms.topic: how-to
 ms.author: nicktrog
 author: ntrogh
-ms.date: 08/08/2022
+ms.date: 08/18/2022
 ---
 
-# Manage Microsoft Playwright Testing Preview workspaces in the portal
+# Manage Microsoft Playwright Testing Preview workspaces in the Azure portal
 
 In this article, you create, view, and delete Microsoft Playwright Testing Preview workspaces, using the Azure portal.
 
