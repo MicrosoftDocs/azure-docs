@@ -10,7 +10,7 @@ author: rsethur
 ms.author:  seramasu
 ms.reviewer: larryfr
 ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022
-ms.date: 08/15/2022
+ms.date: 08/18/2022
 ---
 
 # MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning v1
@@ -74,7 +74,7 @@ Registered models are identified by name and version. Each time you register a m
 > You can also register models trained outside Azure Machine Learning.
 
 You can't delete a registered model that is being used in an active deployment.
-For more information, see the register model section of [Deploy models](../how-to-deploy-and-where.md#registermodel).
+For more information, see the register model section of [Deploy models](how-to-deploy-and-where.md#registermodel).
 
 > [!IMPORTANT]
 > When using Filter by `Tags` option on the Models page of Azure Machine Learning Studio, instead of using `TagName : TagValue` customers should use `TagName=TagValue` (without space)
@@ -126,7 +126,7 @@ To deploy the model as a web service, you must provide the following items:
 * Dependencies required to use the model. For example, a script that accepts requests and invokes the model, conda dependencies, etc.
 * Deployment configuration that describes how and where to deploy the model.
 
-For more information, see [Deploy models](../how-to-deploy-and-where.md).
+For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 #### Controlled rollout
 
@@ -205,7 +205,7 @@ You can also use Azure Data Factory to create a data ingestion pipeline that pre
 
 Learn more by reading and exploring the following resources:
 
-+ [How & where to deploy models](../how-to-deploy-and-where.md) with Azure Machine Learning
++ [How & where to deploy models](how-to-deploy-and-where.md) with Azure Machine Learning
 
 + [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md).
 
