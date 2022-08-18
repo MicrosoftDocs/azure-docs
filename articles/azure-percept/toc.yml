@@ -1,7 +1,7 @@
 - name: Azure Percept documentation
   href: index.yml
 
-- name: Overview
+- name: Azure Percept DK Overview
   items:
     - name: Azure Percept overview
       href: overview-azure-percept.md   
@@ -27,7 +27,7 @@
       href: /open-source/azure-percept-open-source-project-overview.md
    
 
-- name: Quickstarts
+- name: Azure Percept DK Quickstarts
   items:
     - name: Set up your Azure Percept devices
       items:
@@ -38,7 +38,7 @@
         - name: Set up the Azure Percept Audio device
           href: quickstart-percept-audio-setup.md
 
-- name: Tutorials
+- name: Azure Percept DK Tutorials
   items:
     - name: Start prototyping with Azure Percept
       items:
@@ -52,7 +52,7 @@
           href: create-people-counting-solution-with-azure-percept-devkit-vision.md
 
 
-- name: Concepts
+- name: Azure Percept DK Concepts
   items:
     - name: Azure Percept DK
       items:
@@ -79,7 +79,7 @@
         - name: Azure Percept security recommendations
           href: concept-security-configuration.md        
 
-- name: How-to guides
+- name: Azure Percept DK How-to guides
   items:
     - name: Vision solution development with Azure Percept DK
       items:
@@ -158,7 +158,7 @@
         - name: Get Azure Percept hardware support from ASUS
           href: how-to-get-hardware-support.md
 
-- name: Reference
+- name: Azure Percept DK Reference
   items:
     - name: Releases
       items:
