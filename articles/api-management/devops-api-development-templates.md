@@ -16,7 +16,7 @@ With the strategic value of APIs in the enterprise, adopting DevOps continuous i
 
 API DevOps consists of three parts:
 
-:::image type="content" source="media/devops-api-development-templates/apim-cicdflow.png" alt-text="Diagram that illustrates API DevOps.":::
+:::image type="content" source="media/devops-api-development-templates/api-management-cicd-flow.png" alt-text="Diagram that illustrates API DevOps.":::
 
 Each part of the API DevOps pipeline is discussed below.
 
