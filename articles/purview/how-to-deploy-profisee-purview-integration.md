@@ -88,6 +88,9 @@ The reference architecture shows how both Microsoft Purview and Profisee MDM wor
 
 ## Microsoft Purview - Profisee integration deployment on Azure Kubernetes Service (AKS)
 
+1. Get the license file from Profisee by raising a support ticket on [https://support.profisee.com/](https://support.profisee.com/). Only pre-requisite for this step is your need to pre-determine the DNS resolved URL your Profisee setup on Azure. In other words, keep the DNS HOST NAME of the load balancer used in the deployment. It will be something like "[profisee_name].[region].cloudapp.azure.com".
+For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Supply this DNSHOSTNAME to Profisee support when you raise the support ticket and Profisee will revert with the license file. You'll need to supply this file during the next configuration steps below.
+
 1. [Create a user-assigned managed identity in Azure](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). You must have a managed identity created to run the deployment. This managed identity must have the following permissions when running a deployment. After the deployment is done, the managed identity can be deleted. Based on your ARM template choices, you'll need some or all of the following roles and permissions assigned to your managed identity:
     - Contributor role to the resource group where AKS will be deployed. It can either be assigned directly to the resource group **OR** at the subscription level and down.
     - DNS Zone Contributor role to the particular DNS zone where the entry will be created **OR** Contributor role to the DNS Zone resource group. This DNS role is needed only if updating DNS hosted in Azure.
@@ -97,20 +100,15 @@ The reference architecture shows how both Microsoft Purview and Profisee MDM wor
     :::image type="content" alt-text="Screenshot of Profisee Managed Identity Azure Role Assignments." source="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png":::
 
 1. [Create an application](/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal) that will act as the login identity once Profisee is installed. It needs to be a part of the Azure Active Directory that will be used to sign in to Profisee.
-    - Set permissions at least to the scope of the resource group where you will house your Profisee deployment.
     - Set authentication to match the settings below:
         - Support ID tokens (used for implicit and hybrid flows)
-        - Set the redirect URL to: https://purviewprofisee.westus.cloudapp.azure.com/profisee/auth/signin-microsoft
-
-    - - Data Curator Role added for the Microsoft Purview account for the Microsoft Purview specific application registration.  
+        - Set the redirect URL to: https://\<your-deployment-url>/profisee/auth/signin-microsoft
+            - Your deployment URL is the URL you will have provided Profisee in step 1
 
 1. Go to [https://github.com/Profisee/kubernetes](https://github.com/Profisee/kubernetes) and select Microsoft Purview [**Azure ARM**](https://github.com/profisee/kubernetes/blob/master/Azure-ARM/README.md#deploy-profisee-platform-on-to-aks-using-arm-template).
     - The ARM template will deploy Profisee on a load balanced AKS (Azure Kubernetes Service) infrastructure using an ingress controller.
     - The readme includes troubleshooting steps.
     - Read all the steps and troubleshooting wiki page carefully.  
-
-1. Get the license file from Profisee by raising a support ticket on [https://support.profisee.com/](https://support.profisee.com/). Only pre-requisite for this step is your need to pre-determine the DNS resolved URL your Profisee setup on Azure. In other words, keep the DNS HOST NAME of the load balancer used in the deployment. It will be something like "[profisee_name].[region].cloudapp.azure.com".
-For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Supply this DNSHOSTNAME to Profisee support when you raise the support ticket and Profisee will revert with the license file. You'll need to supply this file during the next configuration steps below.  
 
 1. Select "Deploy to Azure"
 
