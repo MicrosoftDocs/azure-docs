@@ -48,9 +48,9 @@ landingContent:
       - linkListType: reference
         links:
           - text: Python
-            url: /python/api/overview/azure/mgmt-dynatrace-readme
+            url: /python/api/overview/azure/mgmt-dynatrace-readme?view=azure-python-preview
           - text: JavaScript
-            url: /javascript/api/overview/azure/arm-dynatrace-readme
+            url: /javascript/api/overview/azure/arm-dynatrace-readme?view=azure-node-preview
           - text: .NET
             url: /dotnet/api/overview/azure/dynatrace?view=azure-dotnet-preview
           - text: Java
