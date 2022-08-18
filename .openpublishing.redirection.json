@@ -5795,13 +5795,8 @@
 },
 {
     "source_path_from_root":  "/articles/best-practices-availability-paired-regions.md",
-    "redirect_url":  "/azure/availability-zones/cross-region-replication-azure",
+    "redirect_url":  "/azure/reliability/cross-region-replication-azure",
     "redirect_document_id":  true
-},
-{
-    "source_path_from_root":  "/articles/availability-zones/index.md",
-    "redirect_url":  "/azure/availability-zones/az-overview",
-    "redirect_document_id":  false
 },
 {
     "source_path_from_root":  "/articles/partner-solutions/index.md",
@@ -34174,13 +34169,8 @@
     "redirect_document_id":  true
 },
 {
-    "source_path_from_root":  "/articles/app-service/environment/overview-zone-redundancy.md",
-    "redirect_url":  "/azure/availability-zones/migrate-app-service-environment",
-    "redirect_document_id":  true
-},
-{
     "source_path_from_root":  "/articles/app-service/how-to-zone-redundancy.md",
-    "redirect_url":  "/azure/availability-zones/migrate-app-service",
+    "redirect_url":  "/azure/reliability/migrate-app-service",
     "redirect_document_id":  true
 },
 {
@@ -34226,11 +34216,6 @@
 {
   "source_path_from_root": "/articles/app-service/environment/overview-zone-redundancy.md",
   "redirect_url": "/azure/reliability/migrate-app-service-environment",
-  "redirect_document_id": true
-},
-{
-  "source_path_from_root": "/articles/app-service/how-to-zone-redundancy.md",
-  "redirect_url": "/azure/reliability/migrate-app-service",
   "redirect_document_id": true
 },
 {
