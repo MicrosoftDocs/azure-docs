@@ -37,7 +37,7 @@ Get started with Azure Communication Services by using the Communication Service
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The latest version of [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
 ### Prerequisite check
 
@@ -87,7 +87,7 @@ To set up an environment for using media composition, take the steps in the foll
 
 Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize a `MediaCompositionClient` with your connection string. The `MediaCompositionClient` will be used to create and manage media composition objects.
 
- You can find your Communication Services resource connection string in the Azure portal. For more information on connection strings, see [this page](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+ You can find your Communication Services resource connection string in the Azure portal. For more information on connection strings, see [this page](../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 
 ```csharp
@@ -98,7 +98,7 @@ MediaCompositionClient mediaCompositionClient = new MediaCompositionClient(conne
 
 ## Create a media composition
 
-Create a new media composition by defining the `inputs`, `layout`, `outputs`, as well as a user-friendly `id`. For more details on how to define the values, refer to [this page](../define-media-composition.md). These values are passed into the `CreateAsync` function exposed on the client. The code snippet below shows and example of defining a simple two by two grid layout:
+Create a new media composition by defining the `inputs`, `layout`, `outputs`, as well as a user-friendly `id`. For more details on how to define the values, refer to [this page](./define-media-composition.md). These values are passed into the `CreateAsync` function exposed on the client. The code snippet below shows and example of defining a simple two by two grid layout:
 
 ```csharp
 var layout = new GridLayout(rows: 2, columns: 2, inputIds: new List<List<string>>{ new List<string> { "jill", "jack" }, new List<string> { "jane", "jerry" } })

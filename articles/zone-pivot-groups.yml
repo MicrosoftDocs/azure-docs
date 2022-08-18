@@ -1154,7 +1154,7 @@ groups:
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-python
-    title:
+    title: Python
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines
