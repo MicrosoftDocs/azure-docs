@@ -2,8 +2,8 @@
 title: Managing the Azure Log Analytics agent 
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Log Analytics Windows or Linux agent deployed on a machine.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 04/06/2022
 ms.reviewer: luki
 ---
@@ -81,6 +81,7 @@ Run the following command to upgrade the agent.
 ### Enable Auto-Update for the Linux Agent
 
 The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature, using the following PowerShell commands.
+
 # [Powershell](#tab/PowerShellLinux)
 ```powershell
 Set-AzVMExtension \
@@ -106,6 +107,7 @@ az vm extension set \
   --version latestVersion \
 --enable-auto-upgrade true
 ```
+---
 
 ## Adding or removing a workspace
 
