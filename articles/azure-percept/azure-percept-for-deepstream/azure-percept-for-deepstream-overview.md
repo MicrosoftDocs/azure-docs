@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 08/10/2022
 ---
 
-# Azure Percept for DeepStream Overview
+# Azure Percept for DeepStream overview
 
 Azure Percept for DeepStream includes developer tools that provide a custom developer experience. It enables you to create NVIDIA DeepStream containers using Microsoft-based images and guidance, supported models from NVIDIA out of the box, and/or bring your own models. 
 
@@ -49,9 +49,11 @@ The following table provides a list of Azure Percept for DeepStream’s key comp
 
 ## Next steps
 
-You are now ready to start using Azure Percept for DeepStream to create, manage, and deploy custom Edge AI solutions. We recommend the following resources to get started:  
+Text to come.
+
+<!-- You are now ready to start using Azure Percept for DeepStream to create, manage, and deploy custom Edge AI solutions. We recommend the following resources to get started:  
 
 - [Getting started checklist for Azure Percept for DeepStream](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/EeWQwQ8T-LVDmTMqC62Gss0Bo_1Fbjj9I8mDSLYwlICd_Q?e=f9FajM)
 
-- [Tutorial: Deploy a supported model to your Azure Percept for DeepStream solution ](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/EQ9Wux4CkO5Iss8s82lcZj4B9XCwagaVoUEKyK0q2y-A1w?e=YfOaWn) 
+- [Tutorial: Deploy a supported model to your Azure Percept for DeepStream solution ](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/EQ9Wux4CkO5Iss8s82lcZj4B9XCwagaVoUEKyK0q2y-A1w?e=YfOaWn)  -->
 
