@@ -36,7 +36,7 @@ From here, select the **create new deployment** button in the banner at the top.
 
 ## Deployments
 
-Before you can generate text or inference, you need to deploy a model. This is done by clicking the **create new deployment** on the deployments page. From here you can select from one of our many available models. For getting started we recommend `text-davinci-002` for users in South Central and `text-davinci-001` for users in West Europe (text-davinci-002 isn't available in this region).
+Before you can generate text or inference, you need to deploy a model. This is done by clicking the **create new deployment** on the deployments page. From here you can select from one of our many available models. For getting started we recommend `text-davinci-002`.
 
 Once this is complete, select the 'Playground' button on the left nav to start experimenting.
 
@@ -62,7 +62,7 @@ The best way to start exploring completions is through our Playground. It's simp
 2. Then select `Generate`. You should get a result that looks like:
 
     ```
-    Tl;dr A neutron star is the collapsed core of a massive supergiant star. These ultra-dense objects are incredibly fascinating due to their strange properties and their potential for phenomena such as extreme gravitational forces and a strong magnetic field.
+    Tl;dr A neutron star is the collapsed core of a massive supergiant star, which had a total mass of between 10 and 25 solar masses, possibly more if the star was especially metal-rich.
     ```
 
 Keep in mind the accuracy of the response will vary depending on what model you've selected under **Deployments**. The response above was generated from a davinci based model, which is well-suited to this type of summarization whereas a Codex based model wouldn't perform as well at this particular task.
