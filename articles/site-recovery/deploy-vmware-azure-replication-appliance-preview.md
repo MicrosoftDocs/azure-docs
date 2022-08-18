@@ -277,6 +277,17 @@ In case of any organizational restrictions, you can manually set up the Site Rec
     >[!NOTE]
     > Appliance cloning is not supported with this preview. If you attempt to clone, it might disrupt the recovery flow.
 
+10.	After you add the vCenter details, expand **Provide Physical server details** to add the details of any physical servers that you plan to protect.
+
+    ![Physical server credentials](./media/deploy-vmware-azure-replication-appliance-modernized/physical-server-credentials.png)
+
+11. Select **Add credentials** to add the credentials of the machine(s) you plan to protect. Add all the details such as *Operating system*, *Provide a friendly name for the credential*, *User name*, and *Password*. The user account details will be encrypted and stored locally in the machine. Select **Add**. 
+
+    ![Add Physical server credentials](./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-credentials.png)
+
+12. Select **Add server** to add physical server details. Provide the machine’s *IP address/FQDN of  physical server* and *Select credential account* and select **Add**.
+
+    ![Add Physical server details](./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-details.png)
 
 ## View Azure Site Recovery replication appliance in Azure portal
 
