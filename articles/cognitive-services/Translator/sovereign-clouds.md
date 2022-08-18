@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 08/15/2022
+ms.date: 08/17/2022
 ms.author: lajanuar
 ---
 
@@ -176,10 +176,8 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&
 
 #### Document Translation custom endpoint
 
-#### Document Translation custom endpoint
-
 ```http
-https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.us/translator/text/batch/v1.0
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.cn/translator/text/batch/v1.0
 ```
 
 ### Example batch translation request
