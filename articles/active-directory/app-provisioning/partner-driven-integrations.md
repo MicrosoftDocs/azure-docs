@@ -3,7 +3,7 @@ title: 'Use partner driven integrations to provision accounts into all your appl
 description: Use partner driven integrations to provision accounts into all your applications.
 services: active-directory
 author: billmath
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview

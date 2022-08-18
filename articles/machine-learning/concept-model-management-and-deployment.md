@@ -172,7 +172,7 @@ For more information, see [Enable model data collection](v1/how-to-enable-data-c
 
 ## Retrain your model on new data
 
-Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](how-to-monitor-datasets.md), model performance can degrade because of:
+Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](v1/how-to-monitor-datasets.md), model performance can degrade because of:
 
 - Changes to a particular sensor.
 - Natural data changes such as seasonal effects.
@@ -202,7 +202,7 @@ For more information on using Azure Pipelines with Machine Learning, see:
 * [Machine Learning MLOps](https://aka.ms/mlops) repository
 * [Machine Learning MLOpsPython](https://github.com/Microsoft/MLOpspython) repository
 
-You can also use Azure Data Factory to create a data ingestion pipeline that prepares data for use with training. For more information, see [Data ingestion pipeline](how-to-cicd-data-ingestion.md).
+You can also use Azure Data Factory to create a data ingestion pipeline that prepares data for use with training. For more information, see [Data ingestion pipeline](v1/how-to-cicd-data-ingestion.md).
 
 ## Next steps
 
