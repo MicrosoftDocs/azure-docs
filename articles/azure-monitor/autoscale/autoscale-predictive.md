@@ -301,7 +301,7 @@ For more information on Azure Resource Manager templates, see [Resource Manager 
 This section answers common questions.
 
 ### Why is CPU percentage over 100 percent on predictive charts?
-The chart showcases cumulative load of all machines in the VMSS. If you have 5 VMs in a VMSS, the max cumulative load of all machines will be 500%. This is because the max CPU load of each VM is 100%.
+The predictive chart shows the cumulative load for all machines in the scale set. If you have 5 VMs in a scale set, the maximum cumulative load for all VMs will be 500%, that is, five times the 100% maximum CPU load of each VM. 
 
 ### What happens over time when you turn on predictive autoscale for a virtual machine scale set?
 
