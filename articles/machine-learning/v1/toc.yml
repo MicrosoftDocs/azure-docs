@@ -27,10 +27,6 @@
     items: 
     - name: Data access
       href: concept-data.md
-    - name: Data ingestion
-      href: ../concept-data-ingestion.md
-    - name: Data processing
-      href: ../concept-optimize-data-processing.md
     - name: Studio network data access
       href: ../concept-network-data-access.md      
   - name: Automated ML overview
@@ -49,6 +45,15 @@
 - name: Tutorials
   expanded: true
   items:
+    - name: Python get started (Day 1)
+      expanded: true
+      items: 
+        - name: 1. Run a Python script
+          href: tutorial-1st-experiment-hello-world.md
+        - name: 2. Train your model
+          href: tutorial-1st-experiment-sdk-train.md
+        - name: 3. Use your own data
+          href: tutorial-1st-experiment-bring-data.md
     - name: "Build a training pipeline (Python)"
       href: "tutorial-pipeline-python-sdk.md"
 - name: How-to guides
@@ -56,6 +61,8 @@
   - name: Install and set up the CLI (v1)
     displayName: azurecli, mlops
     href: reference-azure-machine-learning-cli.md
+  - name: Manage workspace using CLI (v1)
+    href: how-to-manage-workspace-cli.md
   - name: Set up software environments CLI (v1)
     href: how-to-use-environments.md
   - name: Automated machine learning
@@ -92,19 +99,21 @@
       href: how-to-create-attach-compute-cluster.md
     - name: Azure Kubernetes Service
       displayName: AKS, inference
-      href: ../how-to-create-attach-kubernetes.md
+      href: how-to-create-attach-kubernetes.md
   - name: Security
     items:
     - name: Use managed identities for access control
       href: how-to-use-managed-identities.md
+    - name: Authenticate from the SDK v1
+      href: how-to-setup-authentication.md
     - name: Network security
       items:
       - name: Secure inferencing environment (v1)
         displayName: vnet
-        href: ../how-to-secure-inferencing-vnet.md
+        href: how-to-secure-inferencing-vnet.md
       - name: Configure secure web services (v1)
         displayName: ssl, tls
-        href: ../how-to-secure-web-service.md
+        href: how-to-secure-web-service.md
   - name: Work with data
     items:
     - name: Access data
@@ -172,11 +181,13 @@
     - name: Prepare data for computer vision with AutoML
       displayName: nlp, auto ML, automl, SDK
       href: how-to-prepare-datasets-for-automl-images-v1.md
+    - name: Reinforcement learning
+      href: how-to-use-reinforcement-learning.md
   - name: Deploy models
     items:
     - name: Where and how to deploy
       displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
-      href: ../how-to-deploy-and-where.md
+      href: how-to-deploy-and-where.md
     - name: Hyperparameter tuning a model (v1)
       displayName: azurecli, AzureML
       href: how-to-tune-hyperparameters-v1.md
@@ -191,51 +202,55 @@
       href: how-to-deploy-mlflow-models.md
     - name: Update web service
       displayName: update hot reload model mounting
-      href: ../how-to-deploy-update-web-service.md
+      href: how-to-deploy-update-web-service.md
     - name: Deployment targets
       items: 
-        - name: Local
-          href: ../how-to-deploy-local-container-notebook-vm.md
+        - name: Deploy locally
+          href: how-to-deploy-local.md
+        - name: Deploy locally on compute instance
+          href: how-to-deploy-local-container-notebook-vm.md
         - name: GPU inference
-          href: ../how-to-deploy-inferencing-gpus.md
+          href: how-to-deploy-inferencing-gpus.md
         - name: Azure Cognitive Search
           href: ../how-to-deploy-model-cognitive-search.md
         - name: FPGA inference
-          href: ../how-to-deploy-fpga-web-service.md
+          href: how-to-deploy-fpga-web-service.md
     - name: Profile models
       displayName: profile resource requirement
-      href: ../how-to-deploy-profile-model.md
+      href: how-to-deploy-profile-model.md
     - name: Troubleshoot deployment
-      href: ../how-to-troubleshoot-deployment.md
+      href: how-to-troubleshoot-deployment.md
     - name: Troubleshoot deployment (local)
-      href: ../how-to-troubleshoot-deployment-local.md
+      href: how-to-troubleshoot-deployment-local.md
+    - name: Authenticate web service
+      href: how-to-authenticate-web-service.md
     - name: Consume web service
       displayName: create client consume request response synchronous
-      href: ../how-to-consume-web-service.md
+      href: how-to-consume-web-service.md
     - name: Advanced entry script authoring
       displayName: swagger inference schema binary cors
-      href: ../how-to-deploy-advanced-entry-script.md
+      href: how-to-deploy-advanced-entry-script.md
     - name: Prebuilt Docker images
       items: 
         - name: Python extensibility
-          href: ../how-to-prebuilt-docker-images-inference-python-extensibility.md
+          href: how-to-prebuilt-docker-images-inference-python-extensibility.md
         - name: Dockerfile extensibility
-          href: ../how-to-extend-prebuilt-docker-image-inference.md
+          href: how-to-extend-prebuilt-docker-image-inference.md
         - name: Troubleshoot prebuilt docker images
-          href: ../how-to-troubleshoot-prebuilt-docker-image-inference.md
+          href: how-to-troubleshoot-prebuilt-docker-image-inference.md
     - name: Monitor web services
       items: 
         - name: Collect & evaluate model data
           displayName: track production
-          href: ../how-to-enable-data-collection.md
+          href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
-          href: ../how-to-enable-app-insights.md
+          href: how-to-enable-app-insights.md
     - name: Deploy designer models
       displayName: designer, studio
-      href: ../how-to-deploy-model-designer.md
+      href: how-to-deploy-model-designer.md
     - name: Package models
       displayName: docker file download
-      href: ../how-to-deploy-package-models.md
+      href: how-to-deploy-package-models.md
   - name: Manage the ML lifecycle
     items:
       - name: Build & use ML pipelines

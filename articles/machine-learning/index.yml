@@ -73,7 +73,7 @@ landingContent:
         - text: Batch scoring with managed endpoints (preview)
           url: how-to-use-batch-endpoint.md
         - text: Options for deploying models without using endpoints            
-          url: how-to-deploy-and-where.md
+          url: how-to-deploy-managed-online-endpoints.md
   # Card
   - title: "Manage the ML lifecycle (MLOps)"
     linkLists:

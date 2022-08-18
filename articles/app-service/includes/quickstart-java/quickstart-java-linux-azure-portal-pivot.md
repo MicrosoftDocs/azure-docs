@@ -69,7 +69,7 @@ To complete this quickstart you need:
 
 # [JBoss EAP](#tab/jbosseap)
 
-1. In your browser, navigate to the repository containing [the sample code](https://github.com/agoncal/agoncall-application-petstore-ee7).
+1. In your browser, navigate to the repository containing [the sample code](https://github.com/agoncal/agoncal-application-petstore-ee7).
 
 1. In the upper right corner, select **Fork**.
 

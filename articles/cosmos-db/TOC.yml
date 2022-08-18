@@ -161,6 +161,8 @@
         href: data-residency.md
   - name: Automatic recommendations
     href: automated-recommendations.md
+  - name: Move data within Azure Cosmos DB
+    href: intra-account-container-copy.md
 - name: SQL/Core API
   href: sql/index.yml
 - name: Cassandra API
@@ -331,7 +333,7 @@
         - name: Use Azure monitor metrics
           items:
             - name: Azure Monitor for Cosmos DB
-              href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+              href: cosmosdb-insights-overview.md
             - name: Scenarios to monitor
               href: use-metrics.md
             - name: Monitor server-side latency
@@ -362,6 +364,9 @@
           href: monitor-cosmos-db-reference.md
         - name: Third-party monitoring solutions
           href: monitoring-solutions.md
+    - name: Move data within Cosmos DB
+      displayName: Move data within Cosmos DB
+      href: how-to-container-copy.md
     - name: Migrate data to Cosmos DB
       items:
         - name: Options to migrate data into Cosmos DB
