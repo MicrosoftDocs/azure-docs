@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/16/2022
+ms.date: 08/22/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -19,7 +19,21 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## August 2022
 
-Form Recognizer REST API v3.0 is now generally available and ready for use in production applications!
+Form Recognizer REST API v3.0 is now generally available and ready for use in production applications! The August release introduces substantive user experience and model performance updates:
+
+* [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract sub-fields for address components like address, city, state, country, and zip code.
+
+* [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards as well as passport visa information.
+
+* [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
+
+* [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields will now resolve to the existing fields TotalTax and Line/Tax respectively.
+
+* [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables and improved recognition of long spanning cells. As well improved paragraph grouping detection and logical identification of headers and titles.
+
+* [**prebuilt-document**](concept-general-document.md). Improved value and check box detection.
+
+* [**custom-neural**](concept-custom-neural.md). Improved accuracy for table detection and extraction.
 
 ## June 2022
 
@@ -27,22 +41,22 @@ Form Recognizer REST API v3.0 is now generally available and ready for use in pr
 
 The June release is the latest update to the Form Recognizer Studio. There are considerable user experience and accessibility improvements addressed in this update:
 
-*  **Code sample for Javascript and C#**. The Studio code tab now adds JavaScript and C# code samples in addition to the existing Python one.
-*  **New document upload UI**. Studio now supports uploading a document with drag & drop into the new upload user interface.
-*  **New feature for custom projects**. Custom projects now support creating storage account and blobs when configuring the project. In addition, custom project now supports uploading training files directly within the Studio and copying the existing custom model.
+* **Code sample for Javascript and C#**. The Studio code tab now adds JavaScript and C# code samples in addition to the existing Python one.
+* **New document upload UI**. Studio now supports uploading a document with drag & drop into the new upload user interface.
+* **New feature for custom projects**. Custom projects now support creating storage account and blobs when configuring the project. In addition, custom project now supports uploading training files directly within the Studio and copying the existing custom model.
 
 ### Form Recognizer v3.0 preview release
 
-The **2022-06-30-preview** release is the latest update to the Form Recognizer service for v3.0 capabilities and presents extensive updates across the feature APIs:
+The **2022-06-30-preview** release presents extensive updates across the feature APIs:
 
-* [ **Layout extends structure extraction**](concept-layout.md). Layout now includes added structure elements including sections, section headers, and paragraphs. This update enables finer grain document segmentation scenarios. For a complete list of structure elements identified, _see_ [enhanced structure](concept-layout.md#data-extraction).
-* [ **Custom neural model tabular fields support**](concept-custom-neural.md). Custom document models now support tabular fields. Tabular fields by default are also multi page. To learn more about tabular fields in custom neural models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields).
-* [ **Custom template model tabular fields support for cross page tables**](concept-custom-template.md). Custom form models now support tabular fields across pages. To learn more about tabular fields in custom template models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields).
-* [ **Invoice model output now includes general document key-value pairs**](concept-invoice.md). Where invoices contain required fields beyond the fields included in the prebuilt model, the general document model supplements the output with key-value pairs. _See_ [key value pairs](concept-invoice.md#key-value-pairs).
-* [ **Invoice language expansion**](concept-invoice.md). The invoice model includes expanded language support. _See_ [supported languages](concept-invoice.md#supported-languages-and-locales).
-* [ **Prebuilt business card**](concept-business-card.md) now includes Japanese language support. _See_ [supported languages](concept-business-card.md#supported-languages-and-locales).
-* [ **Prebuilt ID document model**](concept-id-document.md). The ID document model now extracts DateOfIssue, Height, Weight, EyeColor, HairColor, and DocumentDiscriminator from US driver's licenses. _See_ [field extraction](concept-id-document.md).
-* [ **Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [page extraction](concept-read.md#pages).
+* [**Layout extends structure extraction**](concept-layout.md). Layout now includes added structure elements including sections, section headers, and paragraphs. This update enables finer grain document segmentation scenarios. For a complete list of structure elements identified, _see_ [enhanced structure](concept-layout.md#data-extraction).
+* [**Custom neural model tabular fields support**](concept-custom-neural.md). Custom document models now support tabular fields. Tabular fields by default are also multi page. To learn more about tabular fields in custom neural models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields).
+* [**Custom template model tabular fields support for cross page tables**](concept-custom-template.md). Custom form models now support tabular fields across pages. To learn more about tabular fields in custom template models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields).
+* [**Invoice model output now includes general document key-value pairs**](concept-invoice.md). Where invoices contain required fields beyond the fields included in the prebuilt model, the general document model supplements the output with key-value pairs. _See_ [key value pairs](concept-invoice.md#key-value-pairs).
+* [**Invoice language expansion**](concept-invoice.md). The invoice model includes expanded language support. _See_ [supported languages](concept-invoice.md#supported-languages-and-locales).
+* [**Prebuilt business card**](concept-business-card.md) now includes Japanese language support. _See_ [supported languages](concept-business-card.md#supported-languages-and-locales).
+* [**Prebuilt ID document model**](concept-id-document.md). The ID document model now extracts DateOfIssue, Height, Weight, EyeColor, HairColor, and DocumentDiscriminator from US driver's licenses. _See_ [field extraction](concept-id-document.md).
+* [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [page extraction](concept-read.md#pages).
 
 #### Form Recognizer SDK beta preview release
 
@@ -101,9 +115,9 @@ This new release includes the following updates:
 
  Form Recognizer v3.0 preview release introduces several new features and capabilities and enhances existing one:
 
-* [ **Custom neural model**](concept-custom-neural.md) or custom document model is a new custom model to extract text and selection marks from structured forms, semi-strutured and **unstructured documents**.
-* [ **W-2 prebuilt model**](concept-w2.md) is a new prebuilt model to extract fields from W-2 forms for tax reporting and income verification scenarios.
-* [ **Read**](concept-read.md) API extracts printed text lines, words, text locations, detected languages, and handwritten text, if detected.
+* [**Custom neural model**](concept-custom-neural.md) or custom document model is a new custom model to extract text and selection marks from structured forms, semi-strutured and **unstructured documents**.
+* [**W-2 prebuilt model**](concept-w2.md) is a new prebuilt model to extract fields from W-2 forms for tax reporting and income verification scenarios.
+* [**Read**](concept-read.md) API extracts printed text lines, words, text locations, detected languages, and handwritten text, if detected.
 * [**General document**](concept-general-document.md) pre-trained model is now updated to support selection marks in addition to API  text, tables, structure, key-value pairs, and named entities from forms and documents.
 * [**Invoice API**](language-support.md#invoice-model) Invoice prebuilt model expands support to Spanish invoices.
 * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
@@ -113,17 +127,17 @@ Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/d
 
 #### Form Recognizer model data extraction
 
-  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |**Signatures**|
+  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables** |**Signatures**|
   | --- | :---: |:---:| :---: | :---: |:---: |
-  |Read | ✓  |   |   |   |   | |
-  |General document  | ✓  |  ✓ | ✓  | ✓  | ✓  | |
-  | Layout  | ✓  |   | ✓  | ✓  |   | |
-  | Invoice  | ✓ | ✓  | ✓  | ✓ || |
-  |Receipt  | ✓  |   ✓ |   |  || |
-  | ID document | ✓  |   ✓  |   |   || |
-  | Business card    | ✓  |   ✓ |   |   || |
-  | Custom template  |✓  |  ✓ | ✓  | ✓  |   | ✓ |
-  | Custom neural    |✓  |  ✓ | ✓  | ✓  |   | |
+  |Read | ✓  |   |   |   |   |
+  |General document  | ✓  |  ✓ | ✓  | ✓  |   |
+  | Layout  | ✓  |   | ✓  | ✓  |   |
+  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
+  |Receipt  | ✓  |   ✓ |   |  |✓|
+  | ID document | ✓  |   ✓  |   |   ||
+  | Business card    | ✓  |   ✓ |   |   ||
+  | Custom template  |✓  |  ✓ | ✓  | ✓  |  ✓ |
+  | Custom neural    |✓  |  ✓ | ✓  | ✓  |   |
 
 #### Form Recognizer SDK beta preview release
 

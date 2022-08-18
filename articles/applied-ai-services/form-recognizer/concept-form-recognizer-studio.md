@@ -7,7 +7,7 @@ manager: netahw
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/16/2022
+ms.date: 08/22/2022
 ms.author: sajagtap
 ---
 

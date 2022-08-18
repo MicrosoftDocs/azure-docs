@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/20/2022
+ms.date: 08/22/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -20,7 +20,7 @@ The General document v3.0 model combines powerful Optical Character Recognition 
 The general document API supports most form types and will analyze your documents and extract keys and associated values. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
 
 > [!NOTE]
-> The ```2022-06-30``` update to the general document model adds support for selection marks. 
+> The ```2022-06-30``` and later versions of the general document model add support for selection marks.
 
 ## General document features
 
@@ -78,7 +78,7 @@ You'll need the following resources:
 
 Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, these pairs could be the label and the value the user entered for that field. In an unstructured  document, they could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
-Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key-value pairs are spans of text contained in the document. If you have documents where the same value is described in different ways, for example, customer and user, the associated key will be either customer or user based on context.
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key-value pairs are spans of text contained in the document. If you have documents where the same value is described in different ways, for example, customer and user, the associated key will be either customer or user, based on context.
 
 ## Data extraction
 

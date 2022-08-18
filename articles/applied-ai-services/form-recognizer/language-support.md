@@ -174,7 +174,7 @@ Business Card supports all English business cards with the following locales:
 |English (India|`en-in`|
 |English (United States)| `en-us`|
 
-The **2022-06-30** and **2022-08-31** releases  include Japanese language support:
+The **2022-06-30** and later releases  include Japanese language support:
 
 |Language| Locale code |
 |:-----|:----:|
@@ -186,11 +186,11 @@ Language| Locale code |
 |:-----|:----:|
 |English (United States) |en-US|
 |Spanish| es|
-|German (**2022-06-30**, **2022-08-31**)| de|
-|French (**2022-06-30**, **2022-08-31**)| fr|
-|Italian (**2022-06-30**, **2022-08-31**)|it|
-|Portuguese (**2022-06-30**, **2022-08-31**)|pt|
-|Dutch (**2022-06-30**, **2022-08-31**)| nl|
+|German (**2022-06-30** and later)| de|
+|French (**2022-06-30** and later)| fr|
+|Italian (**2022-06-30** and later)|it|
+|Portuguese (**2022-06-30** and later)|pt|
+|Dutch (**2022-06-30** and later)| nl|
 
 ## ID document model
 

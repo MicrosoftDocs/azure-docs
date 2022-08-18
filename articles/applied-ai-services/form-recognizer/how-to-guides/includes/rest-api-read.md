@@ -45,7 +45,7 @@ Before you run the following cURL command, make the following changes:
 1. Replace `{key}` with the key value from your Azure portal Form Recognizer instance.
 
 ```bash
-curl -v -i POST "{endpoint}/formrecognizer/documentModels/prebuilt-read:analyze?api-version=2022-06-30" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png'}"
+curl -v -i POST "{endpoint}/formrecognizer/documentModels/prebuilt-read:analyze?api-version=2022-08-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png'}"
 ```
 
 #### Operation-Location
@@ -63,7 +63,7 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 1. Replace `{resultID}` with the result ID from the [Operation-Location](#operation-location) header.
 
 ```bash
-curl -v -X GET "{endpoint}/formrecognizer/documentModels/prebuilt-read/analyzeResults/{resultId}?api-version=2022-06-30" -H "Ocp-Apim-Subscription-Key: {key}"
+curl -v -X GET "{endpoint}/formrecognizer/documentModels/prebuilt-read/analyzeResults/{resultId}?api-version=2022-08-31" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 ### Read Model Output
@@ -76,7 +76,7 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
     "createdDateTime": "2022-04-08T00:36:48Z",
     "lastUpdatedDateTime": "2022-04-08T00:36:50Z",
     "analyzeResult": {
-        "apiVersion": "2022-06-30",
+        "apiVersion": "2022-08-31",
         "modelId": "prebuilt-read",
         "stringIndexType": "textElements",
         "content": "While healthcare is still in the early stages of its Al journey, we\nare seeing...",

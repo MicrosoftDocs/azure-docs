@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/16/2022
+ms.date: 08/22/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -28,7 +28,7 @@ Custom template models support key-value pairs, selection marks, tables, signatu
 
 ## Tabular fields
 
-With the release of API version **2022-06-30-preview** and **2022-08-31**, custom template models will add support for **cross page** tabular fields (tables):  
+With the release of API versions **2022-06-30-preview** and  later, custom template models will add support for **cross page** tabular fields (tables):  
 
 * To label a table that spans multiple pages, label each row of the table across the different pages in a single table.
 * As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where the entire table is on a single page and where tables span two or more pages if you expect to see those variations in documents.
@@ -51,7 +51,7 @@ Template models are available generally [v2.1 API](https://westus.dev.cognitive.
 On the v3 API, the build operation to train model supports a new ```buildMode``` property, to train a custom template model, set the ```buildMode``` to ```template```.
 
 ```REST
-https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-06-30
+https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-08-31
 
 {
   "modelId": "string",

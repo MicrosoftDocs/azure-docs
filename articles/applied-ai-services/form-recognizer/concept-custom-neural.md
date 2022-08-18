@@ -35,10 +35,10 @@ Custom neural models currently only support key-value pairs and selection marks,
 
 ## Tabular fields
 
-With the release of API version **2022-06-30-preview** and **2022-08-31**, custom neural models will support tabular fields (tables):
+With the release of API versions **2022-06-30-preview** and  later, custom neural models will support tabular fields (tables):
 
 * Models trained with API version 2022-08-31,  or later will accept tabular field labels.
-* Documents analyzed with custom neural models using API version 2022-06-30-preview, 2022-08-31, or later will produce tabular fields aggregated across the tables.
+* Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables.
 * The results can be found in the ```analyzeResult``` object's ```documents``` array that is returned following an analysis operation.
 
 Tabular fields support **cross page tables** by default:
@@ -106,7 +106,7 @@ Custom neural models are only available in the [v3 API](v3-migration-guide.md).
 The build operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
 
 ```REST
-https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-06-30
+https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-08-31
 
 {
   "modelId": "string",
