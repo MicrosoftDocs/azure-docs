@@ -1254,6 +1254,7 @@ items:
     items:
     - name: 1 - Introduction and architecture
       href: sap-change-data-capture-introduction-architecture.md
+      displayName: SAP, change data capture, CDC
     - name: 2 - Prerequisites and configuration
       href: sap-change-data-capture-prerequisites-configuration.md
     - name: 3 - Self-hosted integration runtime preparation

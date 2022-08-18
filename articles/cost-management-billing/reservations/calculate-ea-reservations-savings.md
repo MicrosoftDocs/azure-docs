@@ -36,7 +36,7 @@ To view and download usage data as an EA customer, you must be an Enterprise Adm
 5. For the month you want to download, select **Download**.  
     :::image type="content" source="./media/calculate-ea-reservations-savings/download-usage-ea.png" alt-text="Screenshot showing Usage + charges download." lightbox="./media/calculate-ea-reservations-savings/download-usage-ea.png" :::
 6. On the Download Usage + Charges page, under Usage Details, select **Amortized charges (usage and purchases)**.  
-    :::image type="content" source="./media/calculate-ea-reservations-savings/select-usage-detail-charge-type.png" alt-text="Screenshot showing the Download usage + charges window." lightbox="./media/calculate-ea-reservations-savings/select-usage-detail-charge-type.png" :::
+    :::image type="content" source="./media/calculate-ea-reservations-savings/select-usage-detail-charge-type-small.png" alt-text="Screenshot showing the Download usage + charges window." lightbox="./media/calculate-ea-reservations-savings/select-usage-detail-charge-type.png" :::
 7. Select **Prepare document**.
 8. It could take a while for Azure to prepare your download, depending on your monthly usage. When it's ready for download, select **Download csv**.
 
@@ -50,10 +50,10 @@ Because Azure usage files are in CSV format, you need to prepare the data for us
 3. In the Home ribbon, select **Format as Table**.
 4. In the Create Table window, select **My table has headers**.
 5. In the ReservationName column, set a filter to clear **Blanks**.  
-    :::image type="content" source="./media/calculate-ea-reservations-savings/reservation-name-clear-blanks.png" alt-text="Screenshot showing clear Blanks data." lightbox="./media/calculate-ea-reservations-savings/reservation-name-clear-blanks.png" :::
+    :::image type="content" source="./media/calculate-ea-reservations-savings/reservation-name-clear-blanks-small.png" alt-text="Screenshot showing clear Blanks data." lightbox="./media/calculate-ea-reservations-savings/reservation-name-clear-blanks.png" :::
 6. Find the ChargeType column and then to the right of the column name, select the sort and filter symbol (the down arrow).
 7. For the **ChargeType** column, set a filter on it to select only **Usage**. Clear any other selections.  
-    :::image type="content" source="./media/calculate-ea-reservations-savings/charge-type-selection.png" alt-text="Screenshot showing ChargeType selection." lightbox="./media/calculate-ea-reservations-savings/charge-type-selection.png" :::
+    :::image type="content" source="./media/calculate-ea-reservations-savings/charge-type-selection-small.png" alt-text="Screenshot showing ChargeType selection." lightbox="./media/calculate-ea-reservations-savings/charge-type-selection.png" :::
 8. To the right of **UnitPrice** , insert add a column and label it with a title like **TotalUsedSavings**.
 9. In the first cell under TotalUsedSavings, create a formula that calculates (_UnitPrice – EffectivePrice) \* Quantity_.  
     :::image type="content" source="./media/calculate-ea-reservations-savings/total-used-savings-formula.png" alt-text="Screenshot showing the TotalUsedSavings formula." lightbox="./media/calculate-ea-reservations-savings/total-used-savings-formula.png" :::

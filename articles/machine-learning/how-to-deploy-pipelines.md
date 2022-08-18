@@ -63,6 +63,10 @@ Once you have a pipeline up and running, you can publish a pipeline so that it r
         version="1.0")
    ```
 
+4. After you publish your pipeline, you can check it in the UI. Pipeline ID is the unique identified of the published pipeline.
+
+    :::image type="content" source="./media/how-to-deploy-pipelines/published-pipeline-detail.png" alt-text="Screenshot showing published pipeline detail." lightbox= "./media/how-to-deploy-pipelines/published-pipeline-detail.png":::
+
 ## Run a published pipeline
 
 All published pipelines have a REST endpoint. With the pipeline endpoint, you can trigger a run of the pipeline from any external systems, including non-Python clients. This endpoint enables "managed repeatability" in batch scoring and retraining scenarios.
@@ -296,7 +300,7 @@ You can create a Pipeline Endpoint with multiple published pipelines behind it. 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
 
-published_pipeline = PublishedPipeline.get(workspace=ws, name="My_Published_Pipeline")
+published_pipeline = PublishedPipeline.get(workspace=ws, id="My_Published_Pipeline_id")
 pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpointTest",
                                             pipeline=published_pipeline, description="Test description Notebook")
 ```
