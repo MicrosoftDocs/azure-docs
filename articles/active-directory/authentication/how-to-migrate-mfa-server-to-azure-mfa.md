@@ -160,5 +160,5 @@ Others might include:
 
 - [Moving to Azure AD Multi-Factor Authentication with federation](how-to-migrate-mfa-server-to-azure-mfa-with-federation.md)
 - [Moving to Azure AD Multi-Factor Authentication and Azure AD user authentication](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md)
-
+- [How to use the MFA Server Migration Utility](how-to-mfa-server-migration-utility.md)
 
