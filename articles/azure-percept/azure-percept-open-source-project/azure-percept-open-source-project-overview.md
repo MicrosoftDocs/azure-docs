@@ -1,5 +1,5 @@
 ---
-title: Azure Percept Open-Source Project Overview
+title: Azure Percept Open-Source Project overview
 description: An overview of the Azure Percept Open-Source project
 author: yvonne-deq
 ms.author: v-mdequadros
@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 08/17/2022 
 ---
 
-# Azure Percept Open-Source Project Overview
+# Azure Percept Open-Source Project overview
 
 Azure Percept Open-Source Project is a framework for creating, deploying, and operating Edge artificial intelligence (AI) solutions at scale with the control and flexibility of open-source natively on your environment. It's fully open-sourced and leverages the open-source software (OSS) community to deliver enhanced experiences. And, as a self-managed solution, you can host the experience on your own Kubernetes clusters.
 
@@ -23,7 +23,7 @@ Azure Percept Open-Source Project has a no- to low-code portal experience as wel
 
 - **Solution deployment and management experience at scale**
 
-  Azure Percept Open-Source Project is Kubernetes native, so you can run the experience wherever Kubernetes runs; on prem, hybrid, cloud, or multicloud environments. You can manage your experience using Kubernetes native tools such as Kubectl, our unique command line interface (CLI), and/or our no- to low-code native web portal. Edge AI apps and assets you create are projected and managed as Kubernetes objects, which allows you to rely on the Kubernetes control plane to manage the state of your Edge AI assets across many environments at scale.
+  Azure Percept Open-Source Project is Kubernetes native, so you can run the experience wherever Kubernetes runs; on-premises, hybrid, cloud, or multicloud environments. You can manage your experience using Kubernetes native tools such as Kubectl, our unique command line interface (CLI), and/or our no- to low-code native web portal. Edge AI apps and assets you create are projected and managed as Kubernetes objects, which allows you to rely on the Kubernetes control plane to manage the state of your Edge AI assets across many environments at scale.
 
 - **Standard-based**
 
