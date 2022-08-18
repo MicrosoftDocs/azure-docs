@@ -55,7 +55,7 @@ For better performance, use only one container per storage account.
 
 ## Choose a cluster type
 
-The cluster type determines the workload your HDInsight cluster is configured to run. Types include [Apache Hadoop](./hadoop/apache-hadoop-introduction.md), [Apache Storm](./storm/apache-storm-overview.md), [Apache Kafka](./kafka/apache-kafka-introduction.md), or [Apache Spark](./spark/apache-spark-overview.md). For a detailed description of the available cluster types, see [Introduction to Azure HDInsight](hdinsight-overview.md#cluster-types-in-hdinsight). Each cluster type has a specific deployment topology that includes requirements for the size and number of nodes.
+The cluster type determines the workload your HDInsight cluster is configured to run. Types include [Apache Hadoop](./hadoop/apache-hadoop-introduction.md), [Apache Kafka](./kafka/apache-kafka-introduction.md), or [Apache Spark](./spark/apache-spark-overview.md). For a detailed description of the available cluster types, see [Introduction to Azure HDInsight](hdinsight-overview.md#cluster-types-in-hdinsight). Each cluster type has a specific deployment topology that includes requirements for the size and number of nodes.
 
 ## Choose the VM size and type
 

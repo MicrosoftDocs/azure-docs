@@ -76,11 +76,11 @@ $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
 $SamAccountName = "<sam-account-name-here>"
 $DomainAccountType = "<ComputerAccount|ServiceLogonAccount>" # Default is set as ComputerAccount
-# ServiceLogonAccount does not support AES256 encryption.
 # If you don't provide the OU name as an input parameter, the AD identity that represents the 
 # storage account is created under the root directory.
 $OuDistinguishedName = "<ou-distinguishedname-here>"
 # Specify the encryption algorithm used for Kerberos authentication. Using AES256 is recommended.
+# Note that ServiceLogonAccount does not support AES256 encryption.
 $EncryptionType = "<AES256|RC4|AES256,RC4>"
 
 # Select the target subscription for the current session
@@ -143,7 +143,7 @@ The cmdlets above should return the key value. Once you have the kerb1 key, crea
 1. Set the SPN to **cifs/your-storage-account-name-here.file.core.windows.net** either in the AD GUI or by running the `Setspn` command from the Windows command line as administrator (remember to replace the example text with your storage account name):
 
    ```shell
-   Setspn -S cifs/your-storage-account-name-here.file.core.windows.net
+   Setspn -S cifs/your-storage-account-name-here.file.core.windows.net <ADAccountName>
    ```
 
 2. Use PowerShell to set the AD account password to the value of the kerb1 key (you must have AD PowerShell cmdlets installed):
@@ -158,7 +158,7 @@ Keep the SID of the newly created identity, you'll need it for the next step. Th
 
 ### Enable the feature on your storage account
 
-Modify the following command to include configuration details for the domain properties in the following command, then run it to enable the feature. The storage account SID required in the following command is the SID of the identity you created in your AD DS in [the previous section](#create-an-identity-representing-the-storage-account-in-your-ad-manually).
+Modify the following command to include configuration details for the domain properties in the following command, then run it to enable the feature. The storage account SID required in the following command is the SID of the identity you created in your AD DS in [the previous section](#create-an-identity-representing-the-storage-account-in-your-ad-manually). Make sure that you provide the **ActiveDirectorySamAccountName** property without the trailing '$' sign.
 
 ```PowerShell
 # Set the feature flag on the target storage account and provide the required AD domain information
@@ -181,7 +181,7 @@ Set-AzStorageAccount `
 To enable AES-256 encryption, follow the steps in this section. If you plan to use RC4, skip this section.
 
 > [!IMPORTANT]
-> The domain object that represents your storage account must be created as a computer object in the on-premises AD domain. If your domain object doesn't meet this requirement, delete it and create a new domain object that does.
+> The domain object that represents your storage account must be created as a computer object in the on-premises AD domain. If your domain object doesn't meet this requirement, delete it and create a new domain object that does. Note that Service Logon Accounts do not support AES256 encryption.
 
 Replace `<domain-object-identity>` and `<domain-name>` with your values, then run the following cmdlet to configure AES-256 support:
 

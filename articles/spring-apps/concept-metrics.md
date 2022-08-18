@@ -2,7 +2,7 @@
 title: Metrics for Azure Spring Apps
 description: Learn how to review metrics in Azure Spring Apps
 author: karlerickson
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: karler

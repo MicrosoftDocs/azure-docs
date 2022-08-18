@@ -2,7 +2,7 @@
 title: Microsoft Defender for Containers feature availability
 description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 07/27/2022
+ms.date: 08/10/2022
 ms.custom: references_regions
 ---
 
@@ -16,7 +16,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
 |--|--|--|--|--|--|--|--|
-| Compliance | Docker CIS | VM, VMSS | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
+| Compliance | Docker CIS | VM, Virtual Machine Scale Set | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Vulnerability Assessment <sup>[2](#footnote2)</sup> | Registry scan - OS packages | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Vulnerability Assessment <sup>[3](#footnote3)</sup> | Registry scan - language specific packages | ACR, Private ACR | Preview | - | Agentless | Defender for Containers  | Commercial clouds |
 | Vulnerability Assessment | View vulnerabilities for running images | AKS | Preview | Preview | Defender profile | Defender for Containers | Commercial clouds |
@@ -53,10 +53,22 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 <sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
 
-<sup><a name="footnote2"></a>2</sup>To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for you should onboard to [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
+<sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you will need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+
+### Network restrictions
+
+#### Private link
+
+Defender for Containers relies on the Defender profile\extension for several features. The Defender profile\extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that no machine can send data to that workstation except those that are configured to send traffic through Azure Monitor Private Link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
+
+:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to turn data ingestion off.":::
+
+Allowing data ingestion to occur only through Private Link Scope on your workspace Network Isolation settings, can result in communication failures and partial converge of the Defender for Containers feature set.
+
+Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
 
 ### [**AWS (EKS)**](#tab/aws-eks)
 
@@ -86,31 +98,26 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 <sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
 
-<sup><a name="footnote2"></a>2</sup>To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for you should onboard to [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
+<sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you will need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-### Outbound proxy support
+### Network restrictions
+
+#### Private link
+
+Defender for Containers relies on the Defender profile\extension for several features. The Defender profile\extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that no machine can send data to that workstation except those that are configured to send traffic through Azure Monitor Private Link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
+
+:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to turn data ingestion off.":::
+
+Allowing data ingestion to occur only through Private Link Scope on your workspace Network Isolation settings, can result in communication failures and partial converge of the Defender for Containers feature set.
+
+Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
+
+#### Outbound proxy support
 
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
-
-### Supported host operating systems
-
-Defender for Containers relies on the **Defender extension** for several features. The Defender extension is supported on the following host operating systems:
-
-- Amazon Linux 2
-- CentOS 8
-- Debian 10
-- Debian 11
-- Google Container-Optimized OS 
-- Red Hat Enterprise Linux 8
-- Ubuntu 16.04 
-- Ubuntu 18.04
-- Ubuntu 20.04
-- Ubuntu 22.04
-
-Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
 
 ### [**GCP (GKE)**](#tab/gcp-gke)
 
@@ -140,31 +147,26 @@ Ensure your Kubernetes node is running on one of the verified supported operatin
 
 <sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
 
-<sup><a name="footnote2"></a>2</sup>To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for you should onboard to [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
+<sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you will need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-### Outbound proxy support
+### Network restrictions
+
+#### Private link
+
+Defender for Containers relies on the Defender profile\extension for several features. The Defender profile\extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that no machine can send data to that workstation except those that are configured to send traffic through Azure Monitor Private Link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
+
+:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to turn data ingestion off.":::
+
+Allowing data ingestion to occur only through Private Link Scope on your workspace Network Isolation settings, can result in communication failures and partial converge of the Defender for Containers feature set.
+
+Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
+
+#### Outbound proxy support
 
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
-
-### Supported host operating systems
-
-Defender for Containers relies on the **Defender extension** for several features. The Defender extension is supported on the following host operating systems:
-
-- Amazon Linux 2
-- CentOS 8
-- Debian 10
-- Debian 11
-- Google Container-Optimized OS 
-- Red Hat Enterprise Linux 8
-- Ubuntu 16.04 
-- Ubuntu 18.04
-- Ubuntu 20.04
-- Ubuntu 22.04
-
-Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
 
 ### [**On-prem/IaaS (Arc)**](#tab/iaas-arc)
 
@@ -177,7 +179,7 @@ Ensure your Kubernetes node is running on one of the verified supported operatin
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | Arc enabled K8s clusters | Preview | - | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| Arc enabled K8s clusters | Preview | Preview | Defender extension | Defender for Containers |
-| Runtime protection| Threat detection (workload) | Arc enabled K8s clusters | Preview | - | Defender extension | Defender for Containers |
+| Runtime protection <sup>[4](#footnote4)</sup> | Threat detection (workload)| Arc enabled K8s clusters | Preview | - | Defender extension | Defender for Containers |
 | Discovery and provisioning | Discovery of unprotected clusters | Arc enabled K8s clusters | Preview | - | Agentless | Free |
 | Discovery and provisioning | Collection of control plane threat data | Arc enabled K8s clusters | Preview | Preview | Defender extension | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Defender extension | Arc enabled K8s clusters | Preview | Preview | Agentless | Defender for Containers |
@@ -188,6 +190,9 @@ Ensure your Kubernetes node is running on one of the verified supported operatin
 <sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for these [OS packages](#registries-and-images-1). 
 
 <sup><a name="footnote3"></a>3</sup> VA can detect vulnerabilities for these [language specific packages](#registries-and-images-1).
+
+<sup><a name="footnote4"></a>4</sup> Runtime protection can detect threats for these [Supported host operating systems](#supported-host-operating-systems).
+
 
 ## Additional information
 
@@ -207,14 +212,10 @@ Ensure your Kubernetes node is running on one of the verified supported operatin
 
 <sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
 
-<sup><a name="footnote2"></a>2</sup>To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for you should onboard to [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
+<sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you will need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
-
-### Outbound proxy support
-
-Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
 ### Supported host operating systems
 
@@ -225,6 +226,8 @@ Defender for Containers relies on the **Defender extension** for several feature
 - Debian 10
 - Debian 11
 - Google Container-Optimized OS 
+- Mariner 1.0 
+- Mariner 2.0 
 - Red Hat Enterprise Linux 8
 - Ubuntu 16.04 
 - Ubuntu 18.04
@@ -232,6 +235,22 @@ Defender for Containers relies on the **Defender extension** for several feature
 - Ubuntu 22.04
 
 Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
+
+### Network restrictions
+
+#### Private link
+
+Defender for Containers relies on the Defender profile\extension for several features. The Defender profile\extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that no machine can send data to that workstation except those that are configured to send traffic through Azure Monitor Private Link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
+
+:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to turn data ingestion off.":::
+
+Allowing data ingestion to occur only through Private Link Scope on your workspace Network Isolation settings, can result in communication failures and partial converge of the Defender for Containers feature set.
+
+Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
+
+#### Outbound proxy support
+
+Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
 ---
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise Tier
 description: How to set up single sign-on with Azure Active Directory for Spring Cloud Gateway and API Portal for Tanzu with Azure Spring Apps Enterprise Tier.
 author: karlerickson
 ms.author: ninpan
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 05/20/2022
 ms.custom: devx-track-java, devx-track-azurecli

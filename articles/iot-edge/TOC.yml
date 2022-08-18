@@ -17,8 +17,6 @@
     href: quickstart.md
 - name: Tutorials
   items:
-  - name: Monitor devices and modules
-    href: tutorial-monitor-with-workbooks.md
   - name: Set up development environment
     items:
     - name: Develop with Linux containers
@@ -59,9 +57,7 @@
     items:
     - name: Create hierarchies of IoT Edge devices
       href: tutorial-nested-iot-edge.md
-  - name: Configure EST server
-    href: tutorial-configure-est-server.md
-  - name: End-to-end example of machine learning at the edge
+  - name: Machine learning at the edge
     items:
     - name: Introduction
       href: tutorial-machine-learning-edge-01-intro.md
@@ -77,6 +73,12 @@
       href: tutorial-machine-learning-edge-06-custom-modules.md
     - name: Send data to IoT Hub via transparent gateway
       href: tutorial-machine-learning-edge-07-send-data-to-hub.md
+  - name: Monitor devices and modules
+    href: tutorial-monitor-with-workbooks.md
+  - name: Configure EST server
+    href: tutorial-configure-est-server.md
+  - name: Configure, connect, and verify a GPU
+    href: configure-connect-verify-gpu.md
 - name: Concepts
   items:
   - name: IoT Edge runtime
@@ -225,6 +227,14 @@
       href: how-to-access-dtpm.md
     - name: Configure virtual machine on a demilitarized zone (DMZ)
       href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md
+    - name: Troubleshoot
+      items:
+        - name: Diagnose virtual machine
+          href: troubleshoot-iot-edge-for-linux-on-windows.md
+        - name: Diagnose virtual machine networking
+          href: troubleshoot-iot-edge-for-linux-on-windows-networking.md
+        - name: Resolve common errors
+          href: troubleshoot-iot-edge-for-linux-on-windows-common-errors.md
   - name: Develop custom modules
     items:
     - name: Develop with Visual Studio 2022
