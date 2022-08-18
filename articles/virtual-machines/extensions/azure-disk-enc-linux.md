@@ -28,14 +28,14 @@ For a full list of prerequisites, see [Azure Disk Encryption for Linux VMs](../l
 ## Extension Schema
 
 There are two versions of extension schema for Azure Disk Encryption (ADE):
-- v1.1 - A newer recommended schema that does not use Azure Active Directory (AAD) properties.
-- v0.1 - An older schema that requires Azure Active Directory (AAD) properties.
+- v1.1 - A newer recommended schema that does not use Azure Active Directory (Azure AD) properties.
+- v0.1 - An older schema that requires Azure Active Directory (Azure AD) properties.
 
 To select a target schema, the `typeHandlerVersion` property must be set equal to version of schema you want to use.
 
-### Schema v1.1: No AAD (recommended)
+### Schema v1.1: No Azure AD (recommended)
 
-The v1.1 schema is recommended and does not require Azure Active Directory (AAD) properties.
+The v1.1 schema is recommended and does not require Azure Active Directory (Azure AD) properties.
 
 > [!NOTE]
 > The `DiskFormatQuery` parameter is deprecated. Its functionality has been replaced by the EncryptFormatAll option instead, which is the recommended way to format data disks at time of encryption.
@@ -67,7 +67,7 @@ The v1.1 schema is recommended and does not require Azure Active Directory (AAD)
 ```
 
 
-### Schema v0.1: with AAD
+### Schema v0.1: with Azure AD
 
 The 0.1 schema requires `AADClientID` and either `AADClientSecret` or `AADClientCertificate`.
 

@@ -178,7 +178,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
 
-1. In **Disks**, specify the VM disks that needs to be replicated to Azure. Then click **Next**.
+1. In **Disks**, specify the VM disks that need to be replicated to Azure. Then click **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration.
 
