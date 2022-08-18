@@ -12,6 +12,12 @@ ms.author: shaas
 
 # Release notes for the Azure Storage Mover service
 
+Quick notes we need to write out:
+- HyperV only
+- HyperV version 1 VM only
+- re-registration of a previously registered VM is currently not supported
+- 
+
 Azure Storage Mover allows you to do some cool stuff.
 
 This article provides the release notes for the supported versions of the hybrid Azure Storage Mover service.
