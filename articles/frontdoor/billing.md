@@ -64,7 +64,7 @@ If the request can be served from the Front Door edge location's cache, Front Do
 
 When your origin server processes a request, it sends data back to Front Door so that it can be returned to the client. This traffic not billed by Front Door, even if the origin is in a diferent region to the Front Door edge location for the request.
 
-If your origin is within Azure, you should determine whether those Azure services might bill you for request processing or outbound traffic. For example, if you use an Azure Storage origin, then Azure Storage might bill you for the read operations that take place to serve the request.
+If your origin is within Azure, you should determine whether those Azure services might bill you to process your requests. For example, if you use an Azure Storage origin, then Azure Storage might bill you for the read operations that take place to serve the request.
 
 If your origin is outside of Azure, you might incur charges from other network providers.
 
@@ -90,7 +90,7 @@ Front Door charges for traffic from the edge location to the origin. Traffic is 
 
 ## Example scenarios
 
-### Example 1: Azure origin, no caching
+### Example 1: Azure origin without caching
 
 Contoso hosts their website on Azure App Service, which runs in the West US region. Contoso has deployed Front Door with the standard SKU. They have disabled caching.
 
@@ -108,7 +108,7 @@ The following billing meters are incremented:
 
 Azure App Service might charge other fees.
 
-### Example 2: Azure origin, caching and compression enabled
+### Example 2: Azure origin with compression enabled
 
 Suppose Contoso updates their Front Door configuration to enable [content compression](front-door-caching.md#file-compression). Now, the same response as in example 1 might be able to be compressed down to 30 KB:
 
