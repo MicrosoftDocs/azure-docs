@@ -244,8 +244,7 @@ In this case, start with the list of attributes in this topic and identify those
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |mechanical property. The user’s country/region
-. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 | wWWHomePage |X |X | | |
 
