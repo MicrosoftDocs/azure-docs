@@ -74,7 +74,7 @@ For more information, see:[Customize app SAML token claims - Microsoft Entra | M
 
 You can now create trusts on both user and resource forests. On-premises AD DS users can't authenticate to resources in the Azure AD DS resource forest until you create an outbound trust to your on-premises AD DS. An outbound trust requires network connectivity to your on-premises virtual network on which you have installed Azure AD Domain Service. On a user forest, trusts can be created for on-premises AD forests that aren't synchronized to Azure AD DS.
 
-To learn more about trusts and how to deploy your own, visit [How trust relationships work for forests in Active Directory](/azure/active-directory-domain-services/concepts-forest-trust).
+To learn more about trusts and how to deploy your own, visit [How trust relationships work for forests in Active Directory](../../active-directory-domain-services/concepts-forest-trust.md).
  
  
 
@@ -193,14 +193,14 @@ Note that end users are encouraged to enable the optional telemetry setting in t
 Previously to set up and administer your AAD-DS instance you needed top level permissions of Azure Contributor and Azure AD Global Admin. Now for both initial creation, and ongoing administration, you can utilize more fine grain permissions for enhanced security and control. The prerequisites now minimally require:
 
 - You need [Application Administrator](../roles/permissions-reference.md#application-administrator) and [Groups Administrator](../roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS.
-- You need [Domain Services Contributor](/azure/role-based-access-control/built-in-roles#domain-services-contributor) Azure role to create the required Azure AD DS resources.
+- You need [Domain Services Contributor](../../role-based-access-control/built-in-roles.md#domain-services-contributor) Azure role to create the required Azure AD DS resources.
  
 
 Check out these resources to learn more:
 
-- [Tutorial - Create an Azure Active Directory Domain Services managed domain | Microsoft Docs](/azure/active-directory-domain-services/tutorial-create-instance#prerequisites)
+- [Tutorial - Create an Azure Active Directory Domain Services managed domain | Microsoft Docs](../../active-directory-domain-services/tutorial-create-instance.md#prerequisites)
 - [Least privileged roles by task - Azure Active Directory | Microsoft Docs](../roles/delegate-by-task.md#domain-services)
-- [Azure built-in roles - Azure RBAC | Microsoft Docs](/azure/role-based-access-control/built-in-roles#domain-services-contributor)
+- [Azure built-in roles - Azure RBAC | Microsoft Docs](../../role-based-access-control/built-in-roles.md#domain-services-contributor)
 
  
 
@@ -1056,10 +1056,3 @@ We've improved the Privileged Identity management (PIM) time to role activation 
 ---
 
  
- 
-
-
-
-
-
-

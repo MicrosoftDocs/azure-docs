@@ -365,6 +365,7 @@ Follow one of these paths to access the explanations dashboard in Azure Machine 
    [![Visualization Dashboard with Aggregate Feature Importance in AzureML studio in experiments](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png)](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png#lightbox)
 
 * **Models** pane
+
   1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](./how-to-deploy-managed-online-endpoints.md), you can select **Models** in the left pane to view it.
   1. Select a model, and then the **Explanations** tab to view the explanations dashboard.
 
