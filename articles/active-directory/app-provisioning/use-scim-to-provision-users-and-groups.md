@@ -238,7 +238,7 @@ Group provisioning and deprovisioning are optional. When implemented and enabled
 
 The following diagram shows the group deprovisioning sequence:
 
-![Diagram that shows the group deprovisioning sequence.](media/use-scim-to-provision-users-and-groups/scim-figure-5.png)
+[![Diagram that shows the group deprovisioning sequence.](media/use-scim-to-provision-users-and-groups/scim-figure-5.png)](media/use-scim-to-provision-users-and-groups/scim-figure-5.png#lightbox)
 
 ### SCIM protocol requests and responses
 
