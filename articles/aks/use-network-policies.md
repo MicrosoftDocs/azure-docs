@@ -14,11 +14,11 @@ When you run modern, microservices-based applications in Kubernetes, you often w
 
 This article shows you how to install the network policy engine and create Kubernetes network policies to control the flow of traffic between pods in AKS. Network policy could be used for Linux-based or Windows-based nodes and pods in AKS.
 
-### Before you begin
+## Before you begin
 
 You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-### Overview of network policy
+## Overview of network policy
 
 All pods in an AKS cluster can send and receive traffic without limitations, by default. To improve security, you can define rules that control the flow of traffic. Back-end applications are often only exposed to required front-end services, for example. Or, database components are only accessible to the application tiers that connect to them.
 
@@ -26,39 +26,41 @@ Network Policy is a Kubernetes specification that defines access policies for co
 
 These network policy rules are defined as YAML manifests. Network policies can be included as part of a wider manifest that also creates a deployment or service.
 
-### Network policy options in AKS
+## Network policy options in AKS
 
 Azure provides two ways to implement network policy. You choose a network policy option when you create an AKS cluster. The policy option can't be changed after the cluster is created:
 
 * Azure's own implementation, called *Azure Network Policies*.
 * *Calico Network Policies*, an open-source network and network security solution founded by [Tigera][tigera].
 
-Azure NPM for Linux uses Linux *IPTables* and Azure NPM for windows uses HNS *ACLPolicies* to enforce the specified policies . Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable/HNS ACLPolicy filter rules.
+Azure Network Policy for Linux uses Linux *IPTables* and Azure Network Policy for Windows uses *HNS ACLPolicies* to enforce the specified policies . Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable/HNS ACLPolicy filter rules.
 
-### Differences between Azure and Calico policies and their capabilities
+## Differences between Azure and Calico policies and their capabilities
 
 | Capability                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
-| Supported platforms                      | Linux, Windows Server 2019 and 2022                      | Linux, Windows Server 2022  |
+| Supported platforms                      | Linux, Windows Server 2022                      | Linux, Windows Server 2019 and 2022  |
 | Supported networking options             | Azure CNI                  | Azure CNI (Linux, Windows Server 2019 and 2022) and kubenet (Linux)  |
 | Compliance with Kubernetes specification | All policy types supported |  All policy types supported |
 | Additional features                      | None                       | Extended policy model consisting of Global Network Policy, Global Network Set, and Host Endpoint. For more information on using the `calicoctl` CLI to manage these extended features, see [calicoctl user reference][calicoctl]. |
 | Support                                  | Supported by Azure support and Engineering team | Calico community support. For more information on additional paid support, see [Project Calico support options][calico-support]. |
-| Logging                                  | Logs available with **kubectl log -n kube-system <npm-pod>** command | For more information, see [Calico component logs][calico-logs] |
+| Logging                                  | Logs available with **kubectl log -n kube-system <network-policy-pod>** command | For more information, see [Calico component logs][calico-logs] |
 
-### Limitations:
+## Limitations:
 
-* NPM does not support IPv6. Otherwise, NPM fully supports the Network Policy spec in Linux.
-* In Windows, NPM cannot support the following due to HNS limitations:
+* NPNetwork Policy does not support IPv6. Otherwise, Network Policy fully supports the Network Policy spec in Linux.
+* In Windows, Network Policy does not support the following:
     * named ports
     * SCTP protocol
     * negative match label or namespace selectors (e.g. all labels except "debug=true")
+    * potential latency issues for policy application
     * "except" CIDR blocks (a CIDR with exceptions)
 
 >[!NOTE]
-> NPM pod logs will record an error if an unsupported policy is created.
+> * The limitations listed above does have alternatives to it.
+> * Network Policy pod logs will record an error if an unsupported policy is created.
 
-### Create an AKS cluster and enable network policy
+## Create an AKS cluster and enable network policy
 
 To see network policies in action, let's create an AKS cluster that supports network policy and then work on adding policies. 
 
@@ -75,12 +77,9 @@ The following example script:
 
 Instead of using a system-assigned identity, you can also use a user-assigned identity. For more information, see [Use managed identities](use-managed-identity.md).
 
-#### Create an AKS cluster for Azure network policies
+### Preview Flag for Windows Sever 2022
 
-In ths section, we will work on creating a cluster with Azure network Polices set.
-You should replace the `resource-group-name`, `cluster-name`, `windows-user-name`, `windows-password` and `k8s-Version` variables found in the cluster creation command with your own values.
-
-To set network policy for Windows Server 2022 node pools, please execute the following commands prior to creating a cluster:
+To enable Azure Network Policy on Windows Server 2022 node pools, please execute the following commands prior to creating a cluster:
 
 ```azurecli
  az extension add --name aks-preview
@@ -93,26 +92,47 @@ To set network policy for Windows Server 2022 node pools, please execute the fol
 > At this time, Azure network policies with Windows nodes is available on Windows Server 2022 only
 >
 
+### Create an AKS cluster with Azure Network Policy
+
+In this section, we will work on creating a cluster with Azure Network Policy enabled.
+
+To begin, you should replace the values for *$RESOURCE_GROUP_NAME* and *$CLUSTER_NAME* variables. 
+
+```azurecli-interactive
+$RESOURCE_GROUP_NAME=myResourceGroup-NP
+$CLUSTER_NAME=myAKSCluster
+$LOCATION=canadaeast
+```
+
+In case, you are planning to create Windows Server 2022 node pools, you will need to replace values for *$WINDOWS_USERNAME*, *$WINDOWS_PASSWORD* and *$k8S_VERSION* variables in addition to the ones mentioned above.
+
+```azurecli-interactive
+$WINDOWS_USERNAME=myWindowsUserName
+$WINDOWS_PASSWORD=myWindowsPassword
+$k8S_VERSION=myk8sVersion
+```
+
 Create the AKS cluster and specify *azure* for the network plugin and network policy.
 
 Use the following command for cluster running with **only Linux** node pools:
 ```azurecli
 az aks create \
-    --resource-group <resource-group-name> \
-    --name <cluster-name> \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
     --node-count 1 \
     --network-plugin azure \
     --network-policy azure
 ```
 Use the following command for cluster running with **Windows Server 2022** node pools:
+
 ```azurecli
 az aks create \
-    --resource-group <resource-group-name> \
-    --name <cluster-name> \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
     --generate-ssh-keys \
-    --windows-admin-username <windows-user-name> \
-    --windows-admin-password <windows-password> \
-    --kubernetes-version <k8s-Version> \
+    --windows-admin-username $WINDOWS_USERNAME  \
+    --windows-admin-password $WINDOWS_PASSWORD \
+    --kubernetes-version $k8S_VERSION \
     --network-plugin azure \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 1
@@ -124,7 +144,7 @@ It takes a few minutes to create the cluster. When the cluster is ready, configu
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
 ```
 
-#### Create an AKS cluster for Calico network policies
+### Create an AKS cluster for Calico network policies
 
 Create the AKS cluster and specify *azure* for the network plugin, and *calico* for the network policy. Using *calico* as the network policy enables Calico networking on both Linux and Windows node pools.
 
@@ -135,18 +155,18 @@ If you plan on adding Windows node pools to your cluster, include the `windows-a
 >
 > For clusters with only Linux node pools running Kubernetes 1.20 with earlier versions of Calico, the Calico version will automatically be upgraded to 3.17.2.
 
-Create a username to use as administrator credentials for your Windows Server containers on your cluster. The following commands prompt you for a username and set it `windows-user-Name` for use in a later command (remember that the commands in this article are entered into a BASH shell).
+Create a username to use as administrator credentials for your Windows Server containers on your cluster. The following command prompts you for a username. Set it to `$WINDOWS_USERNAME`(remember that the commands in this article are entered into a BASH shell).
 
 ```azurecli-interactive
-echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read `windows-user-name`
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read $WINDOWS_USERNAME
 ```
 
 ```azurecli
 az aks create \
-    --resource-group <resource-group-name> \
-    --name <cluster-name> \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
     --node-count 1 \
-    --windows-admin-username <windows-user-name> \
+    --windows-admin-username $WINDOWS_USERNAME \
     --network-plugin azure \
     --network-policy calico
 ```
@@ -155,8 +175,8 @@ It takes a few minutes to create the cluster. By default, your cluster is create
 
 ```azurecli
 az aks nodepool add \
-    --resource-group <resource-group-name> \
-    --cluster-name <cluster-name> \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
     --os-type Windows \
     --name npwin \
     --node-count 1
@@ -169,9 +189,9 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 ```
 ### Verify Network Policy Setup
 
-Now that we have created a cluster, lets create a sample  application and set traffic rules.
+Now that we have created a cluster, lets create a sample application and set traffic rules.
 
-First, lest create a namespace called *demo* to run the example pods:
+First, let's create a namespace called *demo* to run the example pods:
 
 ```console
 kubectl create namespace demo
@@ -181,8 +201,9 @@ We will now create two pods in the cluster named *client* and *server*.
 
 >[!NOTE]
 > If you want to schedule the *client* or *server* on a particular node, add the following bit before the *--comand* argument in the pod creation [kubectl run][kubectl-run] command:
+
 > ```console
->--overrides='{"spec": { "nodeSelector": {"kubernetes.io/os": "linux"}}}'
+>--overrides='{"spec": { "nodeSelector": {"kubernetes.io/os": "linux|windows"}}}'
 
 Create a *server* pod. This pod will serve on TCP port 80:
 
@@ -200,10 +221,16 @@ Now, in a separate window, run the following command to get the server IP:
 ```console
 kubectl get pod --output=wide
 ```
+The output should look like:
+
+```output
+NAME     READY   STATUS    RESTARTS   AGE   IP            NODE             NOMINATED NODE   READINESS GATES
+server   1/1     Running   0          30s   10.224.0.72   akswin22000001   <none>           <none>
+```
 
 #### Test Connectivity without Network Policy
 
-In the client's shell, verify connectivity with the server by executing the following command. Replace *server-ip* by IP found in the output from executing  previous command. There will be no output if the connection is successful:
+In the client's shell, verify connectivity with the server by executing the following command. Replace *server-ip* by IP found in the output from executing previous command. There will be no output if the connection is successful:
 
 ```console
 /agnhost connect <server-ip>:80 --timeout=3s --protocol=tcp
@@ -217,7 +244,6 @@ Create a file named demo-pods-policy.yaml and paste the following YAML manifest 
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  creationTimestamp: null
   name: demo-policy
   namespace: demo
 spec:
@@ -234,29 +260,32 @@ spec:
       protocol: TCP
 ```
 Specify the name of your YAML manifest and apply it using [kubectl apply][kubectl-apply]:
+
 ```console
 kubectl apply –f demo-pods.yaml
 ```
 
-Now, in the client's shell, verify connectivity with the server by executing the following command:
+Now, in the client's shell, verify connectivity with the server by executing the following `/agnhost` command:
 
 ```console
 /agnhost connect <server-ip>:80 --timeout=3s --protocol=tcp
 ```
+
 Connectivity will be blocked since the server is labeled with app=server, but the client is not labeled. The connect command above will yield this output: 
 
 ```output
 TIMEOUT
 ```
 
-Run the following command to label the *client* and repeat the process of testing the connectivity :
+Run the following command to label the *client* and retry verifying connectivity with the server. The output should return noting, in case of success.
+
 ```console
 kubectl label pod client -n demo app=client
 ```
 
 ## Clean up resources
 
-In this article, we created a namespace, two pods and applied a network policy. To clean up these resources, use the [kubectl delete][kubectl-delete] command and specify the resource names:
+In this article, we created a namespace, two pods and applied a network policy. To clean up these resources, use the [kubectl delete][kubectl-delete] command and specify the resource name:
 
 ```console
 kubectl delete namespace demo
