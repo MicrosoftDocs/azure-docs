@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package to include a policy for users to get and lose access package assignments automatically, without them or an administrator needing to request access.
 
 ---
-# Configure an automatic assignment policy for an access package in Azure AD entitlement management
+# Configure an automatic assignment policy for an access package in Azure AD entitlement management (Preview)
 
 You can use rules to determine access package assignment based on user properties in Azure Active Directory (Azure AD), part of Microsoft Entra.  In Entitlement Management, an access package can have multiple policies, and each policy establishes how users get an assignment to the access package, and for how long.  As an administrator, you can establish a policy for automatic assignments by supplying a membership rule, that Entitlement Management will follow to create and remove assignments automatically.  Similar to a [dynamic group](../enterprise-users/groups-create-rule.md), when an automatic assignment policy is created, user attributes are evaluated for matches with the policy's membership rule. When an attribute changes for a user, these automatic assignment policy rules in the access packages are processed for membership changes. Assignments to users are then added or removed depending on whether they meet the rule criteria.
 
@@ -64,7 +64,7 @@ To create a policy for an access package, you need to start from the access pack
 
 1. Azure AD will evaluate the users in the organization that are in scope of this rule, and create assignments for those users who don't already have assignments to the access package.  It may take several minutes for the evaluation to occur, or for subsequent updates to user's attributes to be reflected in the access package assignments.
 
-## Creating an automatic assignment policy programmatically (Preview)
+## Create an automatic assignment policy programmatically (Preview)
 
 You can also create a policy using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application in a catalog role or with the `EntitlementManagement.ReadWrite.All` permission, can call the [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-1.0&preserve-view=true) API.  In your [request payload](/graph/api/resources/accesspackageassignmentpolicy?view=graph-rest-1.0&preserve-view=true), include the `displayName`, `description`, `specificAllowedTargets`, [`automaticRequestSettings`](/graph/api/resources/accesspackageautomaticrequestsettings?view=graph-rest-1.0&preserve-view=true) and `accessPackage` properties of the policy.
 
