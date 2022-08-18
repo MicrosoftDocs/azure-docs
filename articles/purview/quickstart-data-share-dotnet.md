@@ -31,7 +31,7 @@ Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/) on
 ## Create an application in Azure Active Directory
 
 1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you're creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
-1. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), get the **application ID** and **tenant ID**, and note down these values that you use later in this tutorial.
+1. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), get the **application ID**,**tenant ID**, and **object ID**, and note down these values that you use later in this tutorial.
 1. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), get the **authentication key**, and note down this value that you use later in this tutorial.
 1. [assign the application to these roles:](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)
 
@@ -58,6 +58,8 @@ Next, create a C# .NET console application in Visual Studio:
     Install-Package Microsoft.Azure.Purview.Share.ManagementClient
     Install-Package Microsoft.Azure.Management.ResourceManager -IncludePrerelease
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+    Install-Package Azure.Analytics.Purview.Share
+    Install-Package Azure.Analytics.Purview.Account
     ```
 
 ## Create a sent share
@@ -230,7 +232,7 @@ if (responseInvitation == null)
     return;
 }
 var responseInvitationDocument = JsonDocument.Parse(responseInvitation);
-var targetEmail = responseInvitationDocument.RootElement.GetProperty("name");
+var targetEmail = responseInvitationDocument.RootElement.GetProperty("properties").GetProperty("targetEmail");
 ```
 
 ## View received invitations
