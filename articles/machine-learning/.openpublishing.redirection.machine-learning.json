@@ -1131,11 +1131,6 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-version-track-datasets.md",
-        "redirect_url": "/azure/machine-learning/how-to-version-track-datasets",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/machine-learning/service/how-to-use-secrets-in-runs.md",
         "redirect_url": "/azure/machine-learning/how-to-use-secrets-in-runs",
         "redirect_document_id": true
@@ -1376,11 +1371,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-export-delete-data.md",
-        "redirect_url": "/azure/machine-learning/how-to-export-delete-data",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/machine-learning/service/how-to-explore-prepare-data.md",
         "redirect_url": "/python/api/azureml-core/azureml.core.dataset.dataset",
         "redirect_document_id": false
@@ -1493,11 +1483,6 @@
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-define-task-type.md",
         "redirect_url": "/azure/machine-learning/how-to-define-task-type",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-debug-pipelines.md",
-        "redirect_url": "/azure/machine-learning/how-to-debug-pipelines",
         "redirect_document_id": true
     },
     {
@@ -2377,7 +2362,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-create-your-first-pipeline.md",
-        "redirect_url": "/azure/machine-learning/how-to-create-machine-learning-pipelines",
+        "redirect_url": "/azure/machine-learning/v1/how-to-create-machine-learning-pipelines",
         "redirect_document_id": true
     },
     {
