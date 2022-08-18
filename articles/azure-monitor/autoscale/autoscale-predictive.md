@@ -320,7 +320,7 @@ Standard autoscaling is a necessary fallback if the predictive model doesn't wor
 ### Which rule will take effect if both predictive and standard autoscale rules are set?
 Standard autoscale rules are used if there is an unexpected spike in the CPU load, or an error occurs when retrieving predictive data```
 
-We use the threshold set in standard autoscale rules to understand when you’d like to scale out and by how many instances. Let's say you want your VMSS to scale out when 70% CPU is met. If actual or predictive (future) data shows that 70% CPU is met, then scale out will occur.
+We use the threshold set in the standard autoscale rules to understand when you’d like to scale out and by how many instances. If you want your VM scale set to scale out when the CPU usage exceeds 70%, and actual or predicted data shows that CPU usage is or will be over 70%, then a scale out will occur.
 
 ## Errors and warnings
 
