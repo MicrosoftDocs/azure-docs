@@ -360,8 +360,6 @@ EOF
 #### [Password](#tab/password)
 
 ```bash
-password=${AZ_MYSQL_NON_ADMIN_PASSWORD}
-
 mkdir -p src/main/resources && touch src/main/resources/application.properties
 
 cat << EOF > src/main/resources/application.properties
