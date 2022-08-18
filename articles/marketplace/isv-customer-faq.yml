@@ -206,7 +206,7 @@ sections:
           You should use the new private offer experience in the commercial marketplace for all negotiated deals for offers on Azure Marketplace. The private plans feature will continue to be supported and can be used for specific scenarios. For example, if you want to use a private (custom) VM image for your customer as part of the private deal or it meets requirements for their specific use case.
 
       - question: |
-          WI have customers who have subscribed to private plans. How do I move those customers to private offers?
+          I have customers who have subscribed to private plans. How do I move those customers to private offers?
         answer: |
           To leverage private offers, ISVs must have an offer with public transactable plans published in the Azure marketplace.
 
