@@ -11,10 +11,9 @@ ms.service: azure-communication-services
 ---
 
 # Enable Push Notifications
+Push notifications let clients be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app isn't running in the foreground. Azure Communication Services supports a [list of events that you can subscribe to](../concepts/chat/concepts.md#push-notifications).
 > [!NOTE]
 > Chat push notifications are supported for Android SDK in versions starting from 1.1.0-beta.4 and 1.1.0. It is recommended that you use version 1.2.0 or newer, as older versions have a known issue with the registration renewal. Steps from 8 to 12 are only needed for versions equal to or greater than 1.2.0.
-
-Push notifications let clients be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app isn't running in the foreground. Azure Communication Services supports a [list of events that you can subscribe to](../concepts/chat/concepts.md#push-notifications).
 
 1. Set up Firebase Cloud Messaging for the ChatQuickstart project. Complete steps `Create a Firebase project`, `Register your app with Firebase`, `Add a Firebase configuration file`, `Add Firebase SDKs to your app`, and `Edit your app manifest` in [Firebase Documentation](https://firebase.google.com/docs/cloud-messaging/android/client).
 
