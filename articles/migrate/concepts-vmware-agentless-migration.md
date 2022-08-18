@@ -121,12 +121,13 @@ When a VM undergoes replication (data copy), there are a few possible states:
 - **Migration in progress queued**: The VM is queued for migration as there are other VMs that are consuming the on-premises resources during replication (or migration). Once the resources are free, the VM will be processed.
 - **Test migration/Migration in progress**: The VM is undergoing a test migration/migration. You can select the link to check the ongoing migration job. 
 - **Date, timestamp**: The migration/test migration date and timestamp. 
+- **–**: Initial replication is in progress. You can perform a migration or test migration after the replication process transitions to a delta sync (incremental replication) phase. 
+
 
 ### Other states
 
 - **Completed with info**: The migration/test migration job completed with information. You can select the link to check the last migration job for possible causes and actions to remediate (as applicable). 
 - **Failed**: The migration/test migration job failed. You can select the link to check the last migration job for possible causes and actions to remediate.
-- **–**: Initial replication is in progress. You can perform a migration or test migration after the replication process transitions to a delta sync (incremental replication) phase. 
 
 ## Scheduling logic
 
