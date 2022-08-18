@@ -34,7 +34,7 @@ Admins can use the MFA Server Migration Utility to target single users or groups
 
 ## Migration guide
 
-|Phase | Steps |
+| Phase | Steps |
 |:------|:-------|
 |Preparations |[Identify Azure AD MFA Server dependencies](#identify-azure-ad-mfa-server-dependencies) |
 ||[Backup Azure AD MFA Server datafile](#backup-azure-ad-mfa-server-datafile) |
