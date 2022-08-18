@@ -1,6 +1,6 @@
 ---
-title: Supported versions Postgres with Azure Arc-enabled PostgreSQL Hyperscale
-description: Supported versions Postgres with Azure Arc-enabled PostgreSQL Hyperscale
+title: Supported versions Postgres with Azure Arc-enabled PostgreSQL server
+description: Supported versions Postgres with Azure Arc-enabled PostgreSQL server
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -11,7 +11,7 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Supported versions of Postgres with Azure Arc-enabled PostgreSQL Hyperscale
+# Supported versions of Postgres with Azure Arc-enabled PostgreSQL server
 The list of supported versions evolves over time as we progress on ensuring parity with Postgres managed services in Azure PaaS. Today, the major versions that are supported are:
 - Postgres 12 (default)
 - Postgres 11
@@ -25,7 +25,7 @@ To learn more, read about each version on the official Postgres site:
 - [Postgres 12 (default)](https://www.postgresql.org/docs/12/index.html)
 - [Postgres 11](https://www.postgresql.org/docs/11/index.html)
 
-## How to create a particular version in Azure Arc-enabled PostgreSQL Hyperscale?
+## How to create a particular version in Azure Arc-enabled PostgreSQL server?
 At creation time, you have the possibility to indicate what version to create by passing the _--engine-version_ parameter. 
 If you do not indicate a version information, by default, a server group of Postgres version 12 will be created.
 
@@ -55,5 +55,5 @@ Come back and read this article. It will be updated as appropriate.
 
 
 ## Next steps:
-- [Read about creating Azure Arc-enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)
-- [Read about getting a list of the Azure Arc-enabled PostgreSQL Hyperscale server groups created in your Arc Data Controller](list-server-groups-postgres-hyperscale.md)
+- [Read about creating Azure Arc-enabled PostgreSQL server](create-postgresql-hyperscale-server-group.md)
+- [Read about getting a list of the Azure Arc-enabled PostgreSQL servers created in your Arc Data Controller](list-server-groups-postgres-hyperscale.md)

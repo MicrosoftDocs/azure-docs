@@ -210,11 +210,11 @@ items:
               href: managed-instance-high-availability.md
             - name: Disaster recovery
               href: managed-instance-disaster-recovery.md
-- name: Azure Arc-enabled PostgreSQL Hyperscale (preview) 
+- name: Azure Arc-enabled PostgreSQL server (preview) 
   items:
     - name: Overview
       items:
-        - name: What is Azure Arc-enabled PostgreSQL Hyperscale
+        - name: What is Azure Arc-enabled PostgreSQL server
           href: what-is-azure-arc-enabled-postgres-hyperscale.md
         - name: Limitations
           href: limitations-postgresql-hyperscale.md
@@ -270,7 +270,7 @@ items:
               href: using-extensions-in-postgresql-hyperscale-server-group.md
         - name: Migrate
           items:
-            - name: Migrate PostgreSQL data into a PostgreSQL Hyperscale server group
+            - name: Migrate PostgreSQL data into a PostgreSQL server
               href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
             - name: Import the sample database AdventureWorks
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md

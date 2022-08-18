@@ -67,7 +67,7 @@ landingContent:
           - text: Jumpstart
             url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
  # Card
-  - title: Azure Arc-enabled PostgreSQL Hyperscale (preview)
+  - title: Azure Arc-enabled PostgreSQL server (preview)
     linkLists:
       - linkListType: quickstart
         links:

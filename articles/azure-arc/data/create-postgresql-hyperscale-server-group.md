@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Arc-enabled PostgreSQL Hyperscale server group from CLI
-description: Create an Azure Arc-enabled PostgreSQL Hyperscale server group from CLI
+title: Create an Azure Arc-enabled PostgreSQL server from CLI
+description: Create an Azure Arc-enabled PostgreSQL server from CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -11,9 +11,9 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Create an Azure Arc-enabled PostgreSQL Hyperscale server group from CLI
+# Create an Azure Arc-enabled PostgreSQL server from CLI
 
-This document describes the steps to create a PostgreSQL Hyperscale server group on Azure Arc and to connect to it.
+This document describes the steps to create a PostgreSQL server on Azure Arc and to connect to it.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
@@ -31,7 +31,7 @@ If you prefer to try out things without provisioning a full environment yourself
 
 
 ## Preliminary and temporary step for OpenShift users only
-Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL Hyperscale server group. The security context constraint (SCC) arc-data-scc is the one you added when you deployed the Azure Arc data controller.
+Implement this step before moving to the next step. To deploy PostgreSQL server onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL server. The security context constraint (SCC) arc-data-scc is the one you added when you deployed the Azure Arc data controller.
 
 ```Console
 oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace-name>
@@ -42,9 +42,9 @@ oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace-
 For more details on SCCs in OpenShift, refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html). Proceed to the next step.
 
 
-## Create an Azure Arc-enabled PostgreSQL Hyperscale server group
+## Create an Azure Arc-enabled PostgreSQL server
 
-To create an Azure Arc-enabled PostgreSQL Hyperscale server group on your Arc data controller, you will use the command `az postgres arc-server create` to which you will pass several parameters.
+To create an Azure Arc-enabled PostgreSQL server on your Arc data controller, you will use the command `az postgres arc-server create` to which you will pass several parameters.
 
 For details about all the parameters you can set at the creation time, review the output of the command:
 ```azurecli
@@ -56,20 +56,20 @@ The main parameters should consider are:
 
 - **the version of the PostgreSQL engine** you want to deploy: by default it is version 12. To deploy version 12, you can either omit this parameter or pass one of the following parameters: `--engine-version 12` or `-ev 12`. To deploy version 11, indicate `--engine-version 11` or `-ev 11`.
 
-- **the number of worker nodes** you want to deploy to scale out and potentially reach better performances. Before proceeding here, read the [concepts about PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md). To indicate the number of worker nodes to deploy, use the parameter `--workers` or `-w` followed by an integer. The table below indicates the range of supported values and what form of Postgres deployment you get with them. For example, if you want to deploy a server group with two worker nodes, indicate `--workers 2` or `-w 2`. This will create three pods, one for the coordinator node/instance and two for the worker nodes/instances (one for each of the workers).
+- **the number of worker nodes** you want to deploy to scale out and potentially reach better performances. Before proceeding here, read the [concepts about PostgreSQL server](concepts-distributed-postgres-hyperscale.md). To indicate the number of worker nodes to deploy, use the parameter `--workers` or `-w` followed by an integer. The table below indicates the range of supported values and what form of Postgres deployment you get with them. For example, if you want to deploy a server group with two worker nodes, indicate `--workers 2` or `-w 2`. This will create three pods, one for the coordinator node/instance and two for the worker nodes/instances (one for each of the workers).
 
 
 
     |You need   |Shape of the server group you will deploy   |`-w` parameter to use   |Note   |
     |---|---|---|---|
     |A scaled out form of Postgres to satisfy the scalability needs of your applications.   |Three or more Postgres instances, one is coordinator, n  are workers with n >=2.   |Use `-w n`, with n>=2.   |The Citus extension that provides the Hyperscale capability is loaded.   |
-    |A basic form of PostgreSQL Hyperscale for you to do functional validation of your application at minimum cost. Not valid for performance and scalability validation. For that you need to use the type of deployments described above.   |One Postgres instance that is both coordinator and worker.   |Use `-w 0` and load the Citus extension. Use the following parameters if deploying from command line: `-w 0` --extensions Citus.   |The Citus extension that provides the Hyperscale capability is loaded.   |
+    |A basic form of PostgreSQL server for you to do functional validation of your application at minimum cost. Not valid for performance and scalability validation. For that you need to use the type of deployments described above.   |One Postgres instance that is both coordinator and worker.   |Use `-w 0` and load the Citus extension. Use the following parameters if deploying from command line: `-w 0` --extensions Citus.   |The Citus extension that provides the Hyperscale capability is loaded.   |
     |A simple instance of Postgres that is ready to scale out when you need it.   |One Postgres instance. It is not yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes and distribute the data.   |Use `-w 0` or do not specify `-w`.   |The Citus extension that provides the Hyperscale capability is present on your deployment but is not yet loaded.   |
     |   |   |   |   |
 
     This table is demonstrated in the following figure:
 
-    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts PostgreSQL Hyperscale worker node parameters and associated architecture." border="false":::
+    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts PostgreSQL server worker node parameters and associated architecture." border="false":::
 
     While using `-w 1` works, we do not recommend you use it. This deployment will not provide you much value. With it, you will get two instances of Postgres: One coordinator and one worker. With this setup, you actually do not scale out the data since you deploy a single worker. As such you will not see an increased level of performance and scalability. We will remove the support of this deployment in a future release.
 
@@ -92,13 +92,13 @@ az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespa
 ```
 
 > [!NOTE]  
-> - If you deployed the data controller using `AZDATA_USERNAME` and `AZDATA_PASSWORD` session environment variables in the same terminal session, then the values for `AZDATA_PASSWORD` will be used to deploy the PostgreSQL Hyperscale server group too. If you prefer to use another password, either (1) update the value for `AZDATA_PASSWORD` or (2) delete the `AZDATA_PASSWORD` environment variable or (3) delete its value to be prompted to enter a password interactively when you create a server group.
-> - Creating a PostgreSQL Hyperscale server group will not immediately register resources in Azure. As part of the process of uploading [resource inventory](upload-metrics-and-logs-to-azure-monitor.md)  or [usage data](view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure portal.
+> - If you deployed the data controller using `AZDATA_USERNAME` and `AZDATA_PASSWORD` session environment variables in the same terminal session, then the values for `AZDATA_PASSWORD` will be used to deploy the PostgreSQL server too. If you prefer to use another password, either (1) update the value for `AZDATA_PASSWORD` or (2) delete the `AZDATA_PASSWORD` environment variable or (3) delete its value to be prompted to enter a password interactively when you create a server group.
+> - Creating a PostgreSQL server will not immediately register resources in Azure. As part of the process of uploading [resource inventory](upload-metrics-and-logs-to-azure-monitor.md)  or [usage data](view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure portal.
 
 
-## List the PostgreSQL Hyperscale server groups deployed in your Arc data controller
+## List the PostgreSQL servers deployed in your Arc data controller
 
-To list the PostgreSQL Hyperscale server groups deployed in your Arc data controller, run the following command:
+To list the PostgreSQL servers deployed in your Arc data controller, run the following command:
 
 ```azurecli
 az postgres arc-server list --k8s-namespace <namespace> --use-k8s
@@ -114,7 +114,7 @@ az postgres arc-server list --k8s-namespace <namespace> --use-k8s
   }
 ```
 
-## Get the endpoints to connect to your Azure Arc-enabled PostgreSQL Hyperscale server groups
+## Get the endpoints to connect to your Azure Arc-enabled PostgreSQL servers
 
 To view the endpoints for a PostgreSQL server group, run the following command:
 
@@ -147,7 +147,7 @@ For example:
 }
 ```
 
-You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hyperscale server group from your favorite tool:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc. When you do so, you connect to the coordinator node/instance, which takes care of routing the query to the appropriate worker nodes/instances if you have created distributed tables. For more details, read the [concepts of Azure Arc-enabled PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md).
+You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL server from your favorite tool:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc. When you do so, you connect to the coordinator node/instance, which takes care of routing the query to the appropriate worker nodes/instances if you have created distributed tables. For more details, read the [concepts of Azure Arc-enabled PostgreSQL server](concepts-distributed-postgres-hyperscale.md).
 
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
@@ -159,7 +159,7 @@ az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o 
 ```
 You can then combine the public IP address with the port to make your connection.
 
-You may also need to expose the port of the PostgreSQL Hyperscale server group through the network security gateway (NSG). To allow traffic through the (NSG), set a rule. To set a rule, you will need to know the name of your NSG. You determine the NSG using the command below:
+You may also need to expose the port of the PostgreSQL server through the network security gateway (NSG). To allow traffic through the (NSG), set a rule. To set a rule, you will need to know the name of your NSG. You determine the NSG using the command below:
 
 ```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
@@ -191,7 +191,7 @@ az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o 
 
 ## Connect with psql
 
-To access your PostgreSQL Hyperscale server group, pass the external endpoint of the PostgreSQL Hyperscale server group that you retrieved from above:
+To access your PostgreSQL server, pass the external endpoint of the PostgreSQL server that you retrieved from above:
 
 You can now connect either psql:
 
@@ -201,8 +201,8 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
 ## Next steps
 
-- Connect to your Azure Arc-enabled PostgreSQL Hyperscale: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
-- Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from better performances potentially:
+- Connect to your Azure Arc-enabled PostgreSQL server: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
+- Read the concepts and How-to guides of Azure Database for PostgreSQL server to distribute your data across multiple PostgreSQL server nodes and to benefit from better performances potentially:
     * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
     * [Determine application type](../../postgresql/hyperscale/howto-app-type.md)
     * [Choose a distribution column](../../postgresql/hyperscale/howto-choose-distribution-column.md)
@@ -211,9 +211,9 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
     * [Design a multi-tenant database](../../postgresql/hyperscale/tutorial-design-database-multi-tenant.md)*
     * [Design a real-time analytics dashboard](../../postgresql/hyperscale/tutorial-design-database-realtime.md)*
 
-    > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc-enabled PostgreSQL Hyperscale.
+    > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL server offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc-enabled PostgreSQL server.
 
-- [Scale out your Azure Arc-enabled for PostgreSQL Hyperscale server group](scale-out-in-postgresql-hyperscale-server-group.md)
+- [Scale out your Azure Arc-enabled for PostgreSQL server](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Expanding Persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)

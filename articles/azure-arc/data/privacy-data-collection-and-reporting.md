@@ -21,7 +21,7 @@ This article describes the data that Azure Arc-enabled data services transmits t
 Azure Arc-enabled data services may use some or all of the following products:
 
 - SQL MI – Azure Arc 
-- PostgreSQL Hyperscale – Azure Arc
+- PostgreSQL server – Azure Arc
 - Azure Data Studio
 
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
@@ -82,7 +82,7 @@ Every database instance and the data controller itself will be reflected in Azur
 There are three resource types: 
 
 - Azure Arc-enabled SQL Managed Instance 
-- Azure Arc-enabled PostgreSQL Hyperscale server group 
+- Azure Arc-enabled PostgreSQL server 
 - SQL Server on Azure Arc-enabled servers 
 - Data controller 
 
@@ -127,7 +127,7 @@ The following sections show the properties, types, and descriptions that are col
 - Data controller state
    - `string: ProvisioningState` 
 
-### PostgreSQL Hyperscale Server Group 
+### PostgreSQL server Server Group 
 
 - The data controller ID
    - `string: DataControllerId`
