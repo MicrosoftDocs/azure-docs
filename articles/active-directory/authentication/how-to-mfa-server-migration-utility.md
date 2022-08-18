@@ -34,8 +34,8 @@ Admins can use the MFA Server Migration Utility to target single users or groups
 
 ## Migration guide
 
-| Phase | Steps |
-|:------|:-------|
+|Phase|Steps|
+|:---------|:--------|
 |Preparations |[Identify Azure AD MFA Server dependencies](#identify-azure-ad-mfa-server-dependencies) |
 ||[Backup Azure AD MFA Server datafile](#backup-azure-ad-mfa-server-datafile) |
 ||[Install MFA Server update](#install-mfa-server-update) |
@@ -47,7 +47,7 @@ Admins can use the MFA Server Migration Utility to target single users or groups
 |Finalize |[Migrate MFA Server dependencies](#migrate-mfa-server-dependencies)|
 ||[Update domain federation settings](#update-domain-federation-settings)|
 ||[Disable MFA Server User portal](#optional-disable-mfa-server-user-portal)|
-||[Decommission Azure AD MFA server](#decommission-azure-ad-mfa-server)|
+||[Decommission MFA server](#decommission-mfa-server)|
 
 An MFA Server migration generally includes the steps in the following process:
 
@@ -151,7 +151,7 @@ If you've enabled the [MFA Server Authentication provider in AD FS 2.0](/azure/a
 
 Determine the best plan of action for each of the above dependencies and make note of each.
 
-### Backup Azure MFA Server datafile
+### Backup Azure AD MFA Server datafile
 Make a backup of the MFA Server data file located at %programfiles%\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (default location) on your primary MFA Server. Make sure you have a copy of the installer for your currently installed version in case you need to roll back. If you no longer have a copy, contact Customer Support Services. 
 
 Depending on user activity, the data file can become outdated quickly. Any changes made to MFA Server, or any end-user changes made through the portal after the backup won't be captured. If you roll back, any changes made after this point won't be restored.
@@ -382,7 +382,7 @@ Once you've completed migrating all user data, end users can begin using the Azu
 - Redirect your MFA Server User portal URL to [aka.ms/mfasetup](https://aka.ms/mfasetup) 
 - Clear the **Allow users to log in** checkbox under the **Settings** tab in the User portal section of MFA Server to prevent users from logging into the portal altogether.
 
-### Decommission Azure MFA Server
+### Decommission MFA Server
 
 When you no longer need the Azure MFA server, follow your normal server deprecation practices. No special action is required in Azure AD to indicate MFA Server retirement.
 
