@@ -41,6 +41,9 @@
             - name: Object detection with AutoML
               displayName: automl, automated, auto ml, computer vision, images, image model
               href: tutorial-auto-train-image-models.md
+            - name: Forecast demand (Bike share data)
+              displayName: automl, automated, auto ml, portal, ui
+              href: tutorial-automated-ml-forecast.md
         - name: Prep your code for production
           displayName: mlops, mlopspython, production
           href: tutorial-convert-ml-experiment-to-production.md
