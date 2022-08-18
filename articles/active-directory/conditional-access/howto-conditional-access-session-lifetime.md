@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 08/18/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -58,7 +58,7 @@ Sign-in frequency previously applied to only to the first factor authentication 
 
 ### User sign-in frequency and device identities
 
-If you have Azure AD joined, hybrid Azure AD joined, or Azure AD registered devices, when a user unlocks their device or signs in interactively, this event will satisfy the sign-in frequency policy as well. In the following two examples user sign-in frequency is set to 1 hour:
+On Azure AD joined, hybrid Azure AD joined, or Azure AD registered devices, unlocking the device or signing in interactively will satisfy the sign-in frequency policy. In the following two examples user sign-in frequency is set to 1 hour:
 
 Example 1:
 
@@ -89,7 +89,7 @@ When administrators select **Every time**, it will require full reauthentication
 
 A persistent browser session allows users to remain signed in after closing and reopening their browser window.
 
-The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured in AD FS using the guidance in the article [AD FS Single Sign-On Settings](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online), we'll comply with that policy and persist the Azure AD session as well. You can also configure whether users in your tenant see the “Stay signed in?” prompt by changing the appropriate setting in the company branding pane in Azure portal using the guidance in the article [Customize your Azure AD sign-in page](../fundamentals/customize-branding.md).
+The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured in AD FS using the guidance in the article [AD FS single sign-on settings](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online), we'll comply with that policy and persist the Azure AD session as well. You can also configure whether users in your tenant see the “Stay signed in?” prompt by changing the appropriate setting in the [company branding pane](../fundamentals/customize-branding.md).
 
 ## Configuring authentication session controls
 
@@ -122,8 +122,6 @@ To make sure that your policy works as expected, the recommended best practice i
 
 ![Conditional Access policy configured for sign-in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
-On Azure AD registered Windows devices, sign in to the device is considered a prompt. For example, if you've configured the sign-in frequency to 24 hours for Office apps, users on Azure AD registered Windows devices will satisfy the sign-in frequency policy by signing in to the device and will be not prompted again when opening Office apps.
-
 ### Policy 2: Persistent browser session
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
@@ -141,7 +139,7 @@ On Azure AD registered Windows devices, sign in to the device is considered a pr
 1. Save your policy.
 
 > [!NOTE]
-> Persistent Browser Session configuration in Azure AD Conditional Access will overwrite the “Stay signed in?” setting in the company branding pane in the Azure portal for the same user if you have configured both policies.
+> Persistent Browser Session configuration in Azure AD Conditional Access overrides the “Stay signed in?” setting in the company branding pane in the Azure portal for the same user if you have configured both policies.
 
 ### Policy 3: Sign-in frequency control every time risky user
 
@@ -164,15 +162,16 @@ After administrators confirm your settings using [report-only mode](howto-condit
 
 ### Validation
 
-Use the [What If tool](what-if-tool.md) to simulate a sign in from the user to the target application and other conditions based on how you configured your policy. The authentication session management controls show up in the result of the tool.
+Use the [What If tool](what-if-tool.md) to simulate a sign-in from the user to the target application and other conditions based on how you configured your policy. The authentication session management controls show up in the result of the tool.
 
 ## Prompt tolerance
 
-We factor for five minutes of clock skew, so that we don’t prompt users more often than once every five minutes. If the user has done MFA in the last 5 minutes, and they hit another Conditional Access policy that requires reauthentication, we won't prompt the user. Over-promoting users for reauthentication can impact their productivity and increase the risk of users approving MFA requests they didn’t initiate. We highly recommend using “Sign-in frequency – every time” only for specific business needs. 
+We factor for five minutes of clock skew, so that we don’t prompt users more often than once every five minutes. If the user has done MFA in the last 5 minutes, and they hit another Conditional Access policy that requires reauthentication, we won't prompt the user. Over-promoting users for reauthentication can impact their productivity and increase the risk of users approving MFA requests they didn’t initiate. Use “Sign-in frequency – every time” only for specific business needs. 
 
 ## Known issues
-- If you configure sign-in frequency for mobile devices, authentication after each sign-in frequency interval could be slow (it can take 30 seconds on average). Also, it could happen across various apps at the same time. 
-- In iOS devices, if an app configures certificates as the first authentication factor and the app has both Sign-in frequency and [Intune mobile application management](/mem/intune/apps/app-lifecycle) policies applied, the end-users will be blocked from signing in to the app when the policy is triggered.
+
+- If you configure sign-in frequency for mobile devices: Authentication after each sign-in frequency interval could be slow, it can take 30 seconds on average. Also, it could happen across various apps at the same time. 
+- On iOS devices: If an app configures certificates as the first authentication factor and the app has both Sign-in frequency and [Intune mobile application management policies](/mem/intune/apps/app-lifecycle) applied, end-users are blocked from signing in to the app when the policy triggers.
 
 ## Next steps
 
