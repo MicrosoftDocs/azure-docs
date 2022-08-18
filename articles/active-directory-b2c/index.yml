@@ -121,6 +121,9 @@ conceptualContent:
           - text: Create a user sign-in/sign-up experience
             url: index-create-user-flow.yml
             itemType: how-to-guide
+          - text: Sign-in options
+            url: sign-in-options.md
+            itemType: how-to-guide
           - text: Enable self-service sign-in
             url: user-flow-overview.md
             itemType: how-to-guide
@@ -148,7 +151,7 @@ conceptualContent:
           - text: Manage admin users
             url: tenant-management.md#add-an-administrator-work-account
             itemType: how-to-guide
-          - text: User and app migration
+          - text: User and app migration approaches
             url: user-migration.md
             itemType: how-to-guide
           - text: Force password reset
@@ -189,7 +192,10 @@ conceptualContent:
             itemType: how-to-guide
           - text: Use custom domains 
             url: custom-domain.md
-            itemType: how-to-guide            
+            itemType: how-to-guide   
+          - text: API connectors 
+            url: add-api-connector.md?pivots=b2c-user-flow
+            itemType: how-to-guide                     
           - text: Customize email verification 
             url: custom-email-sendgrid.md
             itemType: how-to-guide  
