@@ -67,8 +67,6 @@ To find more Bicep files or ARM templates that are related to Azure Load Balance
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location centralus
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
-
-    Write-Host "Press [ENTER] to continue."
     ```
 
     ---
@@ -76,11 +74,11 @@ To find more Bicep files or ARM templates that are related to Azure Load Balance
     > [!NOTE]
     > The Bicep file deployment creates three availability zones. Availability zones are supported only in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you aren't sure, enter **centralus**.
 
-    You will be prompt to enter the following values:
+    You will be prompted to enter the following values:
 
     - **projectName**: used for generating resource names.
     - **adminUsername**: virtual machine administrator username.
-    - **adminPassword**:virtual machine administrator password.
+    - **adminPassword**: virtual machine administrator password.
 
 It takes about 10 minutes to deploy the Bicep file.
 
@@ -90,17 +88,17 @@ It takes about 10 minutes to deploy the Bicep file.
 
 1. Select **Resource groups** from the left pane.
 
-1. Select the resource group that you created in the previous section. The default resource group name is the project name with **rg** appended.
+1. Select the resource group that you created in the previous section. The default resource group name is **exampleRG**.
 
 1. Select the load balancer. Its default name is the project name with **-lb** appended.
 
 1. Copy only the IP address part of the public IP address, and then paste it into the address bar of your browser.
 
-   ![Azure standard load balancer Resource Manager template public IP](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-deployment-public-ip.png)
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-deployment-public-ip.png" alt-text="Azure standard load balancer Resource Manager template public IP":::
 
     The browser displays the default page of the Internet Information Services (IIS) web server.
 
-   ![IIS web server](./media/quickstart-load-balancer-standard-public-template/load-balancer-test-web-page.png)
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-template/load-balancer-test-web-page.png" alt-text="IIS web server":::
 
 To see the load balancer distribute traffic across all three VMs, you can force a refresh of your web browser from the client machine.
 
