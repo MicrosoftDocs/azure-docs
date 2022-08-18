@@ -154,3 +154,5 @@ Once you have initiated the planned failover and it completes successfully, your
 - [Planned failover (preview)](vmware-azure-tutorial-failover-failback-preview.md#planned-failover-from-azure-to-on-premises)
 - [Re-protect (preview)](vmware-azure-tutorial-failover-failback-preview.md#re-protect-the-on-premises-machine-to-azure-after-successful-planned-failover)
 - [Cancel failover (preview)](vmware-azure-tutorial-failover-failback-preview.md#cancel-planned-failover)
+
+
