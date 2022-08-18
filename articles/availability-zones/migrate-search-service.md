@@ -45,7 +45,8 @@ If your search service was was created in a region that supports availability zo
 1. Migrate your data from your old search service to your new search service by rebuilding of all your search indexes from your old service.
 
 To rebuild all of your search indexes, choose one of the following two options:
-   1. You can [move individual indexes from your old search service to your new one](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/index-backup-restore), or you can rebuild indexes from an external data source if one is available.
+   - [Move individual indexes from your old search service to your new one](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/index-backup-restore)
+   - Rebuild indexes from an external data source if one is available.
 1. Redirect traffic from your old search service to your new search service. This may require updates to your application that uses the old search service.
 >[!TIP]
 >Services such as [Azure Front Door](../frontdoor/front-door-overview.md) and [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) help simplify this process.
