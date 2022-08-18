@@ -15,7 +15,9 @@ ms.custom: mvc
 
 ## Update (August 2022)
 
-- SQL discovery and assessment for Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
+- SQL discovery and assessment for Microsoft Hyper-V and Physical/Bare-metal environments as well as IaaS services of other public clouds.
+- Java web apps discovery on Apache Tomcat running on Linux servers hosted in VMware environment. 
+- Enhanced discovery data collection including detection of database connecting strings, application directories, and authentication mechanisms for ASP.NET web apps.  
 
 ## Update (June 2022)
 
