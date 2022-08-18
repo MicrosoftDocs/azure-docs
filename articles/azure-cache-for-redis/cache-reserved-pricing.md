@@ -87,10 +87,11 @@ If you have questions or need help, [create a support request](https://portal.az
 The reservation discount is applied automatically to the Azure Cache for Redis instances that match the reservation scope and attributes. You can update the scope of the reservation through the Azure portal, PowerShell, Azure CLI, or the API.
 
 - To learn how reservation discounts are applied to Azure Cache for Redis, see [Understand the Azure reservation discount](../cost-management-billing/reservations/understand-azure-cache-for-redis-reservation-charges.md)
+
 - To learn more about Azure Reservations, see the following articles:
   - [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
   - [Manage Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
   - [Understand Azure Reservations discount](../cost-management-billing/reservations/understand-reservation-charges.md)
   - [Understand reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reservation-charges-mysql.md)
   - [Understand reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
-    - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
+  - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
