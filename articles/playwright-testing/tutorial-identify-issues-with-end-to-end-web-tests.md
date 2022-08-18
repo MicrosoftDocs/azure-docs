@@ -242,7 +242,7 @@ To use Visual Studio Code for running Playwright tests in an interactive way:
       [Galaxy S9+] › todo-persistence.spec.ts:16:3 › Persistence › should persist its data ===========
   
       145 passed (2m)
-    Test report: https://dashboard.playwright-int.io/playwright-service/Default%20Group/987351621824417792    
+    Test report: https://dashboard.playwright-ppe.io/playwright-service/Default%20Group/987351621824417792    
     ```
 
 ### Run tests in the CLI
@@ -272,7 +272,7 @@ To run your tests from the command-line with [Playwright Test](https://playwrigh
     ...
 
       145 passed (2m)
-    Test report: https://dashboard.playwright-int.io/playwright-service/Default%20Group/987351621824417792
+    Test report: https://dashboard.playwright-ppe.io/playwright-service/Default%20Group/987351621824417792
     ```
 
 ## Analyze test results and diagnose failures

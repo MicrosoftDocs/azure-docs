@@ -131,7 +131,7 @@ To run Playwright tests with Microsoft Playwright Testing, you need a workspace 
 
 To generate a new workspace access key: 
 
-1. Open the [Playwright portal](https://dashboard.playwright-int.io/) and sign in with your Azure credentials.
+1. Open the [Playwright portal](https://dashboard.playwright-ppe.io/) and sign in with your Azure credentials.
 
 1. Access the **Settings > Access key** menu in the top-right of the screen.
 
@@ -198,7 +198,7 @@ You've now configured your Playwright tests to run in the cloud with Microsoft P
     ...
 
       145 passed (2m)
-    Test report: https://dashboard.playwright-int.io/playwright-service/Default%20Group/987351621824417792
+    Test report: https://dashboard.playwright-ppe.io/playwright-service/Default%20Group/987351621824417792
     ```
 
     > [!NOTE]
