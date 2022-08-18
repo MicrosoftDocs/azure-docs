@@ -22,7 +22,7 @@ Each part of the API DevOps pipeline is discussed below.
 
 ## API definition
 
-An API developer writes an API definition by providing a specification, settings (such as logging, diagnostics, and backend settings), and policies to be applied to the API. The API definition provides the information requires to provision the API on an Azure API Management service. The specification  may be based on a standards-based API specification (such as [WSDL][1], [OpenAPI][2], or [GraphQL][3]), or it may be defined using the Azure Resource Manager (ARM) APIs (for example, an ARM template describing the API and operations). The API definition will change over time and should be considered "source code".  Ensure that the API definition is stored under source code control and has appropriate review before adoption.  
+An API developer writes an API definition by providing a specification, settings (such as logging, diagnostics, and backend settings), and policies to be applied to the API. The API definition provides the information required to provision the API on an Azure API Management service. The specification  may be based on a standards-based API specification (such as [WSDL][1], [OpenAPI][2], or [GraphQL][3]), or it may be defined using the Azure Resource Manager (ARM) APIs (for example, an ARM template describing the API and operations). The API definition will change over time and should be considered "source code". Ensure that the API definition is stored under source code control and has appropriate review before adoption.  
 
 There are several tools to assist producing the API definition:
 
