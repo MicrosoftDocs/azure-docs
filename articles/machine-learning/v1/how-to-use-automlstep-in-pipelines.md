@@ -15,7 +15,7 @@ ms.custom: devx-track-python, automl, sdkv1, event-tier1-build-2022
 
 # Use automated ML in an Azure Machine Learning pipeline in Python
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 Azure Machine Learning's automated ML capability helps you discover high-performing models without you reimplementing every possible approach. Combined with Azure Machine Learning pipelines, you can create deployable workflows that can quickly discover the algorithm that works best for your data. This article will show you how to efficiently join a data preparation step to an automated ML step. Automated ML can quickly discover the algorithm that works best for your data, while putting you on the road to MLOps and model lifecycle operationalization with pipelines.
 
@@ -45,7 +45,7 @@ To make things concrete, this article creates a simple pipeline for a classifica
 
 ### Retrieve initial dataset
 
-Often, an ML workflow starts with pre-existing baseline data. This is a good scenario for a registered dataset. Datasets are visible across the workspace, support versioning, and can be interactively explored. There are many ways to create and populate a dataset, as discussed in [Create Azure Machine Learning datasets](./v1/how-to-create-register-datasets.md). Since we'll be using the Python SDK to create our pipeline, use the SDK to download baseline data and register it with the name 'titanic_ds'.
+Often, an ML workflow starts with pre-existing baseline data. This is a good scenario for a registered dataset. Datasets are visible across the workspace, support versioning, and can be interactively explored. There are many ways to create and populate a dataset, as discussed in [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). Since we'll be using the Python SDK to create our pipeline, use the SDK to download baseline data and register it with the name 'titanic_ds'.
 
 ```python
 from azureml.core import Workspace, Dataset
@@ -94,11 +94,11 @@ if not compute_name in ws.compute_targets :
 compute_target = ws.compute_targets[compute_name]
 ```
 
-[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
 
 The intermediate data between the data preparation and the automated ML step can be stored in the workspace's default datastore, so we don't need to do more than call `get_default_datastore()` on the `Workspace` object. 
 
-After that, the code checks if the AzureML compute target `'cpu-cluster'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md). 
+After that, the code checks if the AzureML compute target `'cpu-cluster'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu). 
 
 The code blocks until the target is provisioned and then prints some details of the just-created compute target. Finally, the named compute target is retrieved from the workspace and assigned to `compute_target`. 
 
@@ -452,7 +452,7 @@ with open(model_filename, "rb" ) as f:
 # ... inferencing code not shown ...
 ```
 
-For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](./v1/how-to-deploy-and-where.md).
+For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### Download the results of an automated ML run
 

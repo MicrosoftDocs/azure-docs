@@ -16,10 +16,10 @@ ms.custom: synapse-azureml, sdkv1, event-tier1-build-2022
 # How to use Apache Spark (powered by Azure Synapse Analytics) in your machine learning pipeline (preview)
 
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [preview disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 In this article, you'll learn how to use Apache Spark pools powered by Azure Synapse Analytics as the compute target for a data preparation step in an Azure Machine Learning pipeline. You'll learn how a single pipeline can use compute resources suited for the specific step, such as data preparation or training. You'll see how data is prepared for the Spark step and how it's passed to the next step. 
 
@@ -27,11 +27,11 @@ In this article, you'll learn how to use Apache Spark pools powered by Azure Syn
 
 ## Prerequisites
 
-* Create an [Azure Machine Learning workspace](quickstart-create-resources.md) to hold all your pipeline resources.
+* Create an [Azure Machine Learning workspace](../quickstart-create-resources.md) to hold all your pipeline resources.
 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed.
 
-* Create an Azure Synapse Analytics workspace and Apache Spark pool (see [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)). 
+* Create an Azure Synapse Analytics workspace and Apache Spark pool (see [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](/azure/synapse-analytics/quickstart-create-apache-spark-pool-studio)). 
 
 ## Link your Azure Machine Learning workspace and Azure Synapse Analytics workspace 
 
@@ -50,7 +50,7 @@ Once your Azure Machine Learning workspace and your Azure Synapse Analytics work
 > [!Important]
 > To link to the Azure Synapse Analytics workspace successfully, you must have the Owner role in the Azure Synapse Analytics workspace resource. Check your access in the Azure portal.
 >
-> The linked service will get a system-assigned managed identity (SAI) when you create it. You must assign this link service SAI the "Synapse Apache Spark administrator" role from Synapse Studio so that it can submit the Spark job (see [How to manage Synapse RBAC role assignments in Synapse Studio](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md)). 
+> The linked service will get a system-assigned managed identity (SAI) when you create it. You must assign this link service SAI the "Synapse Apache Spark administrator" role from Synapse Studio so that it can submit the Spark job (see [How to manage Synapse RBAC role assignments in Synapse Studio](/azure/synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments)). 
 > 
 > You must also give the user of the Azure Machine Learning workspace the role "Contributor" from Azure portal of resource management.
 
@@ -92,7 +92,7 @@ synapse_compute=ComputeTarget.attach(
 synapse_compute.wait_for_completion()
 ```
 
-The first step is to configure the `SynapseCompute`. The `linked_service` argument is the `LinkedService` object you created or retrieved in the previous step. The `type` argument must be `SynapseSpark`. The `pool_name` argument in `SynapseCompute.attach_configuration()` must match that of an existing pool in your Azure Synapse Analytics workspace. For more information on creating an Apache spark pool in the Azure Synapse Analytics workspace, see [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md). The type of `attach_config` is `ComputeTargetAttachConfiguration`.
+The first step is to configure the `SynapseCompute`. The `linked_service` argument is the `LinkedService` object you created or retrieved in the previous step. The `type` argument must be `SynapseSpark`. The `pool_name` argument in `SynapseCompute.attach_configuration()` must match that of an existing pool in your Azure Synapse Analytics workspace. For more information on creating an Apache spark pool in the Azure Synapse Analytics workspace, see [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](/azure/synapse-analytics/quickstart-create-apache-spark-pool-studio). The type of `attach_config` is `ComputeTargetAttachConfiguration`.
 
 Once the configuration is created, you create a machine learning `ComputeTarget` by passing in the `Workspace`, `ComputeTargetAttachConfiguration`, and the name by which you'd like to refer to the compute within the machine learning workspace. The call to `ComputeTarget.attach()` is asynchronous, so the sample blocks until the call completes.
 
@@ -118,7 +118,7 @@ step1_input2 = titanic_file_dataset.as_named_input("file_input").as_hdfs()
 
 The above code assumes that the file `Titanic.csv` is in blob storage. The code shows how to read the file as a `TabularDataset` and as a `FileDataset`. This code is for demonstration purposes only, as it would be confusing to duplicate inputs or to interpret a single data source as both a table-containing resource and just as a file.
 
-> [!Important]
+> [!IMPORTANT]
 > In order to use a `FileDataset` as input, your `azureml-core` version must be at least `1.20.0`. How to specify this using the `Environment` class is discussed below.
 
 When a step completes, you may choose to store output data using code similar to:

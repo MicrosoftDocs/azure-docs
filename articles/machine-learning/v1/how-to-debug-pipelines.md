@@ -15,7 +15,7 @@ ms.custom: troubleshooting, devx-track-python, contperf-fy21q2, sdkv1, event-tie
 
 # Troubleshooting machine learning pipelines
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to troubleshoot when you get errors running a [machine learning pipeline](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) and [Azure Machine Learning designer](./concept-designer.md). 
 
@@ -31,7 +31,7 @@ The following table contains common problems during pipeline development, with p
 | Pipeline not reusing steps | Step reuse is enabled by default, but ensure you haven't disabled it in a pipeline step. If reuse is disabled, the `allow_reuse` parameter in the step will be set to `False`. |
 | Pipeline is rerunning unnecessarily | To ensure that steps only rerun when their underlying data or scripts change, decouple your source-code directories for each step. If you use the same source directory for multiple steps, you may experience unnecessary reruns. Use the `source_directory` parameter on a pipeline step object to point to your isolated directory for that step, and ensure you aren't using the same `source_directory` path for multiple steps. |
 | Step slowing down over training epochs or other looping behavior | Try switching any file writes, including logging, from `as_mount()` to `as_upload()`. The **mount** mode uses a remote virtualized filesystem and uploads the entire file each time it is appended to. |
-| Compute target takes a long time to start | Docker images for compute targets are loaded from Azure Container Registry (ACR). By default, Azure Machine Learning creates an ACR that uses the *basic* service tier. Changing the ACR for your workspace to standard or premium tier may reduce the time it takes to build and load images. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md). |
+| Compute target takes a long time to start | Docker images for compute targets are loaded from Azure Container Registry (ACR). By default, Azure Machine Learning creates an ACR that uses the *basic* service tier. Changing the ACR for your workspace to standard or premium tier may reduce the time it takes to build and load images. For more information, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus). |
 
 ### Authentication errors
 
@@ -233,7 +233,7 @@ For pipelines created in the designer, you can find the **70_driver_log** file i
 
 ### Enable logging for real-time endpoints
 
-In order to troubleshoot and debug real-time endpoints in the designer, you must enable Application Insight logging using the SDK. Logging lets you troubleshoot and debug model deployment and usage issues. For more information, see [Logging for deployed models](./v1/how-to-enable-app-insights.md). 
+In order to troubleshoot and debug real-time endpoints in the designer, you must enable Application Insight logging using the SDK. Logging lets you troubleshoot and debug model deployment and usage issues. For more information, see [Logging for deployed models](how-to-enable-app-insights.md). 
 
 ### Get logs from the authoring page
 
