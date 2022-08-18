@@ -9,4 +9,4 @@ ms.date: 08/18/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# How to load datasets into a Microsoft Energy Data Service instance?
+# How to load datasets?

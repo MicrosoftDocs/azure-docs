@@ -9,4 +9,4 @@ ms.date: 08/18/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Indexing and Search concepts
+# Indexing and search concepts

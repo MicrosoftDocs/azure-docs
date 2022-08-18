@@ -1,5 +1,5 @@
 ---
-title: Manifest Ingestion concepts #Required; page title is displayed in search results. Include the brand.
+title: Manifest ingestion concepts #Required; page title is displayed in search results. Include the brand.
 description: This article describes manifest ingestion concepts #Required; article description that is displayed in search results. 
 author: bharathim #Required; your GitHub user alias, with correct capitalization.
 ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.

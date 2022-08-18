@@ -9,4 +9,4 @@ ms.date: 08/18/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# How to convert SEG-Y to ZGY?
+# How to convert a SEG-Y file to ZGY?

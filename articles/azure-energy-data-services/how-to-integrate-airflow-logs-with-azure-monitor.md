@@ -9,4 +9,4 @@ ms.date: 08/18/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Integrate Airflow Logs with Azure Monitor
+# Integrate airflow logs with Azure monitor

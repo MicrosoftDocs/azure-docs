@@ -9,4 +9,4 @@ ms.date: 08/18/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Integrate Elastic Logs with Azure Monitor
+# Integrate elastic logs with Azure monitor
