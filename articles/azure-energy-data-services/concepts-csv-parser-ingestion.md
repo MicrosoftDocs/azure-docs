@@ -1,6 +1,6 @@
 ---
-title: CSV Parser ingestion workflow concept #Required; page title is displayed in search results. Include the brand.
-description: Learn how to use CSV Parser ingestion. #Required; article description that is displayed in search results. 
+title: CSV parser ingestion workflow concept #Required; page title is displayed in search results. Include the brand.
+description: Learn how to use CSV parser ingestion. #Required; article description that is displayed in search results. 
 author: bharathim #Required; your GitHub user alias, with correct capitalization.
 ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
 ms.service: azure #Required; service per approved list. slug assigned by ACOM.

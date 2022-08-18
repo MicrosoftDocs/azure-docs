@@ -1,5 +1,5 @@
 ---
-title: How to manage partitions in an existing microsoft energy data services instance
+title: How to manage partitions
 description: This is a how-to article on managing data partitions using the microsoft energy data services instance UI.
 author: nitinnms
 ms.author: nitindwivedi

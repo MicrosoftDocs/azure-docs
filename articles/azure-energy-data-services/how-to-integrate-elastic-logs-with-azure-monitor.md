@@ -1,5 +1,5 @@
 ---
-title: Integrate Elastic Logs with Azure Monitor
+title: Integrate elastic logs with Azure monitor
 description: This is a how-to article on how to start collecting ElasticSearch logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics Workspace.
 author: nitinnms
 ms.author: nitindwivedi

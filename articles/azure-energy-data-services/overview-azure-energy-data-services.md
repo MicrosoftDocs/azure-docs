@@ -1,5 +1,5 @@
 ---
-title: What is Microsoft energy data services? #Required; page title is displayed in search results. Include the brand.
+title: Overview of Microsoft energy data services #Required; page title is displayed in search results. Include the brand.
 description: This article provides an overview of Microsoft energy data services #Required; article description that is displayed in search results. 
 author: bharathim #Required; your GitHub user alias, with correct capitalization.
 ms.service: azure
