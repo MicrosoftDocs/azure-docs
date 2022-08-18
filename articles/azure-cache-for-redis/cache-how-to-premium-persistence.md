@@ -110,7 +110,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [Can I use the same storage account for persistence across two different caches?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
 - [Will I be charged for the storage being used in Data Persistence](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
 - [How frequently does RDB and AOF persistence write to my blobs, and should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
-- [Will having firewall exceptions on the storage account affect persistence](#Will having firewall exceptions on the storage account affect persistence)
+- [Will having firewall exceptions on the storage account affect persistence](#will-having-firewall-exceptions-on-the-storage-account-affect-persistence)
 
 ### RDB persistence
 
@@ -218,6 +218,7 @@ When clustering is enabled, each shard in the cache has its own set of page blob
 After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the background and append to the first set of files. Set operations, sent to the cache during the rewrite, append to the second set. A backup is temporarily stored during rewrites if there's a failure. The backup is promptly deleted after a rewrite finishes. If soft delete is turned on for your storage account, the soft delete setting applies and existing backups continue to stay in the soft delete state.
 
 ### Will having firewall exceptions on the storage account affect persistence
+
 Using managed identity adds the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to carry out. If you aren't using managed identity and instead authorizing to a storage account using a key, then having firewall exceptions on the storage account tends to break the persistence process.
 
 ## Next steps

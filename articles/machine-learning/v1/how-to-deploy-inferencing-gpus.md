@@ -274,7 +274,7 @@ print("label:", y_test[random_index])
 print("prediction:", resp.text)
 ```
 
-For more information on creating a client application, see [Create client to consume deployed web service](../how-to-consume-web-service.md).
+For more information on creating a client application, see [Create client to consume deployed web service](how-to-consume-web-service.md).
 
 ## Clean up the resources
 
