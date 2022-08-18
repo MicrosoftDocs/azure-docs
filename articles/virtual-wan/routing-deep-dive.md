@@ -104,11 +104,11 @@ Virtual WAN will display that both circuits are connected to both hubs:
 
 Going back to the default hub routing preference of ExpressRoute, the routes to remote branches and VNets in hub 1 will show again ExpressRoute as next hop. Although this time the reason is not Global Reach, but the fact that the ExpressRoute circuits will bounce back the route advertisements they get from one hub to the other. For example, for hub 1 these are the effective routes with hub routing preference of ExpressRoute:
 
-:::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-3-er-hub1.png" alt-text="Screenshot of effective routes in Virtual hub 1 in bow tie design with Global Reach and routing preference ExpressRoute." lightbox="./media/routing-deep-dive/vwan-routing-deepdive-scenario-3-er-hub1.png":::
+:::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-3-er-hub1.png" alt-text="Screenshot of effective routes in Virtual hub 1 in bow tie design with Global Reach and routing preference ExpressRoute." lightbox="./media/routing-deep-dive/vwan-routing-deepdive-scenario-3-er-hub1-expanded.png":::
 
 Changing back the hub routing preference again to AS Path will return the inter hub routes to the optimal path using the direct connection between hubs 1 and 2:
 
-:::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-3-aspath-hub1.png" alt-text="Screenshot of effective routes in Virtual hub 1 in bow tie design with Global Reach and routing preference A S Path." lightbox="./media/routing-deep-dive/vwan-routing-deepdive-scenario-3-aspath-hub1.png":::
+:::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-3-aspath-hub1.png" alt-text="Screenshot of effective routes in Virtual hub 1 in bow tie design with Global Reach and routing preference A S Path." lightbox="./media/routing-deep-dive/vwan-routing-deepdive-scenario-3-aspath-hub1-expanded.png":::
 
 ## Next steps
 
