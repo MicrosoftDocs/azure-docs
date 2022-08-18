@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/23/2022
+ms.date: 08/18/2022
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -388,7 +388,7 @@ The following device attributes can be used.
  accountEnabled | true false | device.accountEnabled -eq true
  deviceCategory | a valid device category name | device.deviceCategory -eq "BYOD"
  deviceId | a valid Azure AD device ID | device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d"
- deviceManagementAppId | a valid MDM application ID in Azure AD | device.deviceManagementAppId -eq "0000000a-0000-0000-c000-000000000000" for Intune MDM app ID
+ deviceManagementAppId | a valid MDM application ID in Azure AD | device.deviceManagementAppId -eq "0000000a-0000-0000-c000-000000000000" for Microsoft Intune managed or "54b943f8-d761-4f8d-951e-9cea1846db5a" for System Center Configuration Manager Co-managed devices
  deviceManufacturer | any string value | device.deviceManufacturer -eq "Samsung"
  deviceModel | any string value | device.deviceModel -eq "iPad Air"
  displayName | any string value | device.displayName -eq "Rob iPhone"

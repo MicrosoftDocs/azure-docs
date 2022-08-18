@@ -91,7 +91,7 @@ The reference architecture shows how both Microsoft Purview and Profisee MDM wor
 1. Get the license file from Profisee by raising a support ticket on [https://support.profisee.com/](https://support.profisee.com/). Only pre-requisite for this step is your need to pre-determine the DNS resolved URL your Profisee setup on Azure. In other words, keep the DNS HOST NAME of the load balancer used in the deployment. It will be something like "[profisee_name].[region].cloudapp.azure.com".
 For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Supply this DNSHOSTNAME to Profisee support when you raise the support ticket and Profisee will revert with the license file. You'll need to supply this file during the next configuration steps below.
 
-1. [Create a user-assigned managed identity in Azure](/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) that you'll use to run the deployment. This managed identity must have the following permissions when running a deployment. After the deployment is done, the managed identity can be deleted. Based on your ARM template choices, you'll need some or all of the following roles and permissions assigned to your managed identity:
+1. [Create a user-assigned managed identity in Azure](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity). You must have a managed identity created to run the deployment. This managed identity must have the following permissions when running a deployment. After the deployment is done, the managed identity can be deleted. Based on your ARM template choices, you'll need some or all of the following roles and permissions assigned to your managed identity:
     - Contributor role to the resource group where AKS will be deployed. It can either be assigned directly to the resource group **OR** at the subscription level and down.
     - DNS Zone Contributor role to the particular DNS zone where the entry will be created **OR** Contributor role to the DNS Zone resource group. This DNS role is needed only if updating DNS hosted in Azure.
     - Application Administrator role in Azure Active Directory so the required permissions that are needed for the application registration can be assigned.
@@ -189,37 +189,39 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
 
 1. As a final validation step to ensure successful installation and for checking whether Profisee has been successfully connected to your Microsoft Purview instance, go to **/Profisee/api/governance/health** It should look something like - "https://[profisee_name].[region].cloudapp.azure.com//Profisee/api/governance/health". The output response will indicate the words **"Status": "Healthy"** on all the Microsoft Purview subsystems. 
 
-    ```
-    {
-      "OverallStatus": "Healthy",
-      "TotalCheckDuration": "0:XXXXXXX",
-      "DependencyHealthChecks": {
-        "purview_service_health_check": {
-          "Status": "Healthy",
-          "Duration": "00:00:NNNN",
-          "Description": "Successfully connected to Purview."
-        },
-        "governance_service_health_check": {
-          "Status": "Healthy",
-          "Duration": "00:00:NNNN",
-          "Description": "Purview cache loaded successfully. 
-          Total assets: NNN; Instances: 1; Entities: NNN; Attributes: NNN; Relationships: NNN; Hierarchies: NNN"
-        },
-        "messaging_db_health_check": {
-          "Status": "Healthy",
-          "Duration": "00:00:NNNN",
-          "Description": null
-        },
-        "logging_db_health_check": {
-          "Status": "Healthy",
-          "Duration": "00:00:NNNN",
-          "Description": null
-        }
-      }
+```json
+{
+  "OverallStatus": "Healthy",
+  "TotalCheckDuration": "0:XXXXXXX",
+  "DependencyHealthChecks": {
+    "purview_service_health_check": {
+      "Status": "Healthy",
+      "Duration": "00:00:NNNN",
+      "Description": "Successfully connected to Purview."
+    },
+    "governance_service_health_check": {
+      "Status": "Healthy",
+      "Duration": "00:00:NNNN",
+      "Description": "Purview cache loaded successfully. 
+      Total assets: NNN; Instances: 1; Entities: NNN; Attributes: NNN; Relationships: NNN; Hierarchies: NNN"
+    },
+    "messaging_db_health_check": {
+      "Status": "Healthy",
+      "Duration": "00:00:NNNN",
+      "Description": null
+    },
+    "logging_db_health_check": {
+      "Status": "Healthy",
+      "Duration": "00:00:NNNN",
+      "Description": null
     }
-    ```
-    An output response that looks similar as the above confirms successful installation, completes all the deployment steps; and validates whether Profisee has been successfully connected to your Microsoft Purview and indicates that the two systems are able to communicate properly.
+  }
+}
+```
+
+An output response that looks similar as the above confirms successful installation, completes all the deployment steps; and validates whether Profisee has been successfully connected to your Microsoft Purview and indicates that the two systems are able to communicate properly.
 
 ## Next steps
+
 Through this guide, we learned of the importance of MDM in driving and supporting Data Governance in the context of the Azure data estate, and how to set up and deploy a Microsoft Purview-Profisee integration.
 For more usage details on Profisee MDM, register for scheduled trainings, live product demonstration and Q&A on [Profisee Academy Tutorials and Demos](https://profisee.com/demo/)!

@@ -87,7 +87,7 @@
       href: ./security-controls-policy.md
   - name: Use with big data
     items:
-    - name: Cognitive Services for Big Data
+    - name: Cognitive Services for big data
       href: ./big-data/cognitive-services-for-big-data.md
     - name: Getting started
       href: ./big-data/getting-started.md

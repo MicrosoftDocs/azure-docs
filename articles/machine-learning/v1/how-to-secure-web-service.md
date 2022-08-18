@@ -264,6 +264,6 @@ aks_target.update(update_config)
 
 ## Next steps
 Learn how to:
-+ [Consume a machine learning model deployed as a web service](../how-to-consume-web-service.md)
++ [Consume a machine learning model deployed as a web service](how-to-consume-web-service.md)
 + [Virtual network isolation and privacy overview](../how-to-network-security-overview.md)
 + [How to use your workspace with a custom DNS server](../how-to-custom-dns.md)
