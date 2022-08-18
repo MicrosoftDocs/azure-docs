@@ -50,7 +50,7 @@ The following table describes the fields on the **Basics** tab.
 
 The following image shows a standard configuration for a new Automation account.
 
-:::image type="content" source="./media/automation-create-standalone-account/create-account-basics-v2.png" alt-text="Required fields for creating the Automation account on Basics tab":::
+:::image type="content" source="./media/automation-create-standalone-account/create-account-basics-v2.png" alt-text="Screenshot shows the required fields for creating the Automation account on Basics tab.":::
 
 ### Advanced
 
@@ -69,7 +69,7 @@ You can chose to enable managed identities later, and the Automation account is 
 
 The following image shows a standard configuration for a new Automation account.
 
-:::image type="content" source="./media/automation-create-standalone-account/create-account-advanced-v2.png" alt-text="Required fields for creating the Automation account on Advanced tab":::
+:::image type="content" source="./media/automation-create-standalone-account/create-account-advanced-v2.png" alt-text="Screenshot shows the required fields for creating the Automation account on Advanced tab.":::
 
 ### Networking
 
@@ -77,7 +77,7 @@ On the **Networking** tab, you can configure connectivity to Automation Account 
 
 The following image shows a standard configuration for a new Automation account.
 
-:::image type="content" source="./media/automation-create-standalone-account/create-account-networking-v2.png" alt-text="Required fields for creating the Automation account on Networking tab":::
+:::image type="content" source="./media/automation-create-standalone-account/create-account-networking-v2.png" alt-text="Screenshot shows the required fields for creating the Automation account on Networking tab.":::
 
 ### Tags
 
