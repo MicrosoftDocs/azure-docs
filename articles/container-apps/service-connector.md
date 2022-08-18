@@ -9,7 +9,7 @@ ms.date: 06/16/2022
 # Customer intent: As an app developer, I want to connect a containerized app to a storage account in the Azure portal using Service Connector.
 ---
 
-# How to connect a Container Apps instance to a backing service
+# Connect a container app to a cloud service with Service Connector
 
 Azure Container Apps allows you to use Service Connector to connect to cloud services in just a few steps. Service Connector manages the configuration of the network settings and connection information between different services. To view all supported services, [learn more about Service Connector](../service-connector/overview.md#what-services-are-supported-in-service-connector).
 

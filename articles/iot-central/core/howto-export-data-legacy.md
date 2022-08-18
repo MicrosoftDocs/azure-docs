@@ -4,7 +4,7 @@ description: How to export data from your Azure IoT Central application to Azure
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/06/2022
+ms.date: 06/20/2022
 ms.topic: how-to
 ms.service: iot-central
 ---
@@ -139,8 +139,8 @@ Now that you have a destination to export data to, follow these steps to set up 
 
 4. Enter a name for the export. In the drop-down list box, select your **namespace**, or **Enter a connection string**.
 
-    - You only see storage accounts, Event Hubs namespaces, and Service Bus namespaces in the same subscription as your IoT Central application. If you want to export to a destination outside of this subscription, choose **Enter a connection string** and see step 6.
-    - For apps created using the free pricing plan, the only way to configure data export is through a connection string. Apps on the free pricing plan don't have an associated Azure subscription.
+    > [!Tip]
+    > You only see storage accounts, Event Hubs namespaces, and Service Bus namespaces in the same subscription as your IoT Central application. If you want to export to a destination outside of this subscription, choose **Enter a connection string** and see step 6.
 
     ![Create new Event Hub](media/howto-export-data-legacy/export-event-hub.png)
 

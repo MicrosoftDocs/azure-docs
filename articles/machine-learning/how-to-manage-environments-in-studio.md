@@ -28,7 +28,7 @@ For a high-level overview of how environments work in Azure Machine Learning, se
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md)
+* An [Azure Machine Learning workspace](quickstart-create-resources.md).
 
 ## Browse curated environments
 

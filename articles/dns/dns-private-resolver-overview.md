@@ -6,7 +6,7 @@ ms.custom: references_regions
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 06/02/2022
+ms.date: 08/02/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -21,6 +21,8 @@ Azure DNS Private Resolver is a new service that enables you to query Azure DNS 
 ## How does it work?
 
 Azure DNS Private Resolver requires an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).  When you create an Azure DNS Private Resolver inside a virtual network, one or more [inbound endpoints](#inbound-endpoints) are established that can be used as the destination for DNS queries. The resolver's [outbound endpoint](#outbound-endpoints) processes DNS queries based on a [DNS forwarding ruleset](#dns-forwarding-rulesets) that you configure.  DNS queries that are initiated in networks linked to a ruleset can be sent to other DNS servers.
+
+You don't need to change any DNS client settings on your virtual machines (VMs) to use the Azure DNS Private Resolver.
 
 The DNS query process when using an Azure DNS Private Resolver is summarized below:
 
@@ -49,7 +51,7 @@ For more information about creating a private DNS resolver, see:
 Azure DNS Private Resolver provides the following benefits:
 * Fully managed: Built-in high availability, zone redundancy.
 * Cost reduction: Reduce operating costs and run at a fraction of the price of traditional IaaS solutions.
-* Private access to your Private DNS Zones: Conditionally forward to and from on-premises.
+* Private access to your Private DNS zones: Conditionally forward to and from on-premises.
 * Scalability: High performance per endpoint.
 * DevOps Friendly: Build your pipelines with Terraform, ARM, or Bicep.
 
@@ -74,7 +76,9 @@ Azure DNS Private Resolver is available in the following regions:
 
 ### Inbound endpoints
 
-An inbound endpoint enables name resolution from on-premises or other private locations via an IP address that is part of your private virtual network address space. This endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services. DNS queries received by the inbound endpoint will ingress to Azure. You can resolve names in scenarios where you have Private DNS Zones, including VMs that are using auto registration, or Private Link enabled services.
+An inbound endpoint enables name resolution from on-premises or other private locations via an IP address that is part of your private virtual network address space. To resolve your Azure private DNS zone from on-premises, enter the IP address of the inbound endpoint into your on-premises DNS conditional forwarder. The on-premises DNS conditional forwarder must have a network connection to the virtual network.
+
+The inbound endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services. DNS queries received by the inbound endpoint will ingress to Azure. You can resolve names in scenarios where you have Private DNS zones, including VMs that are using auto registration, or Private Link enabled services.
 
 ### Outbound endpoints
 
@@ -86,14 +90,14 @@ Virtual network links enable name resolution for virtual networks that are linke
 
 ## DNS forwarding rulesets
 
-A DNS forwarding ruleset is a group of DNS forwarding rules (up to 1,000) that can be applied to one or more outbound endpoints, or linked to one or more virtual networks. This is a 1:N relationship.
+A DNS forwarding ruleset is a group of DNS forwarding rules (up to 1,000) that can be applied to one or more outbound endpoints, or linked to one or more virtual networks. This is a 1:N relationship. Rulesets are associated with a specific outbound endpoint. 
 
 ## DNS forwarding rules
 
 A DNS forwarding rule includes one or more target DNS servers that will be used for conditional forwarding, and is represented by:
-- A domain name, 
-- A target IP address, 
-- A target Port and Protocol (UDP or TCP).
+- A domain name
+- A target IP address 
+- A target Port and Protocol (UDP or TCP)
 
 ## Restrictions:
 

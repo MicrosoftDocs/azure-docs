@@ -42,7 +42,7 @@ To create and work with datasets, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An [Azure Machine Learning workspace](../how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](../quickstart-create-resources.md).
 
 * The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install), which includes the azureml-datasets package.
 
@@ -88,7 +88,10 @@ With TabularDatasets, you can specify a time stamp from a column in the data or 
 Create a TabularDataset with [the Python SDK](#create-a-tabulardataset) or [Azure Machine Learning studio](../how-to-connect-data-ui.md#create-datasets).
 
 >[!NOTE]
-> [Automated ML](../concept-automated-ml.md) workflows generated via the Azure Machine Learning studio currently only support TabularDatasets. 
+> [Automated ML](../concept-automated-ml.md) workflows generated via the Azure Machine Learning studio currently only support TabularDatasets.
+> 
+>[!NOTE]
+> For TabularDatasets generating from [SQL query results](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-), T-SQL (e.g. 'WITH' sub query) or duplicate column name is not supported. Complex queries like T-SQL can cause performance issues. Duplicate column names in a dataset can cause ambiguity issues.
 
 ## Access datasets in a virtual network
 

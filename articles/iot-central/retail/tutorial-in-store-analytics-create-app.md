@@ -61,8 +61,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- There are no specific prerequisites required to deploy this app.
-- You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create in-store analytics application
 
@@ -93,7 +92,7 @@ To select a predefined application theme:
 
 3. Select **Save**.
 
-Rather than use a predefined theme, you can create a custom theme. If you want to use a set of sample images to customize the application and complete the tutorial, download the [Contoso sample images](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/retail).
+Rather than use a predefined theme, you can create a custom theme. If you want to use a set of sample images to customize the application and complete the tutorial, download the [Contoso sample images](https://github.com/Azure-Samples/iot-central-docs-samples/tree/main/retail).
 
 To create a custom theme:
 
@@ -173,7 +172,7 @@ To customize the built-in interfaces of the RuuviTag device template:
 
     :::image type="content" source="media/tutorial-in-store-analytics-create-app/ruuvitag-device-summary-view.png" alt-text="Azure IoT Central RuuviTag device template summary view.":::
 
-1. Select **Customize** in the RuuviTag device template menu. 
+1. Select **RuvviTag** model in the RuuviTag device template menu. 
 
 1. Scroll in the list of capabilities and find the `RelativeHumidity` telemetry type. It's the row item with the editable **Display name** value of *RelativeHumidity*.
 
@@ -193,13 +192,11 @@ For the `RelativeHumidity` telemetry type, make the following changes:
 
 To add a cloud property to a device template in your application:
 
-1. Select **Cloud Properties** in the RuuviTag device template menu.
-
-1. Select **Add Cloud Property**. 
-
 Specify the following values to create a custom property to store the location of each device:
 
 1. Enter the value *Location* for the **Display Name**. This value is automatically copied to the **Name** field, which is a friendly name for the property. You can use the copied value or change it.
+
+1. Select **Capability Type** as **Cloud Property**.
 
 1. Select *String* in the **Schema** dropdown. A string type enables you to associate a location name string with any device based on the template. For instance, you could associate an area in a store with each device.
 

@@ -151,7 +151,7 @@ Once your migration and any testing with your new environment is complete, delet
 - **Do I need to change anything about my apps to get them to run on App Service Environment v3?**  
   No, apps that run on App Service Environment v1 and v2 shouldn't need any modifications to run on App Service Environment v3.
 - **What if my App Service Environment has a custom domain suffix?**  
-  App Service Environment v3 doesn't support custom domain suffixes at this time. You won't be able to migrate until it's supported if you want to continue using this feature.
+  The migration feature doesn't support migration of App Service Environments with custom domain suffixes at this time. You won't be able to migrate until it's supported.
 - **What if my App Service Environment is zone pinned?**  
   Zone pinning isn't a supported feature on App Service Environment v3. Use [zone redundancy](overview-zone-redundancy.md) instead.
 - **What properties of my App Service Environment will change?**  

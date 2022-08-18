@@ -25,13 +25,23 @@ Call Recording provides a set of APIs to start, stop, pause and resume recording
 ![Call recording concept diagram](../media/call-recording-concept.png)
 
 ## Media output types
-Call recording currently supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats. The mixed audio+video output media matches meeting recordings produced via Microsoft Teams recording.
+Call recording currently supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats in Public Preview. The mixed audio+video output media matches meeting recordings produced via Microsoft Teams recording. 
 
-| Channel Type | Content Format | Video | Audio |
-| :----------- | :------------- | :---- | :--------------------------- |
-| audioVideo | mp4 | 1920x1080 8 FPS video of all participants in default tile arrangement | 16kHz mp4a mixed audio of all participants |
-| audioOnly| mp3/wav | N/A | 16kHz mp3/wav mixed audio of all participants |
+| Content Type | Content Format | Channel Type | Video | Audio |
+| :----------- | :------------- | :----------- | :---- | :--------------------------- |
+| audioVideo | mp4 | mixed | 1920x1080 8 FPS video of all participants in default tile arrangement | 16kHz mp4a mixed audio of all participants |
+| audioOnly| mp3/wav | mixed | N/A | 16kHz mp3/wav mixed audio of all participants |
+| audioOnly| wav | unmixed | N/A | 16kHz wav, 0-5 channels for each participant |
 
+## Channel types
+> [!NOTE]
+> **Unmixed audio-only** is still in a **Private Preview** and NOT enabled for Teams Interop meetings.
+
+| Channel type              | Content format               | Output                                                                                | Scenario                                                |
+|---------------------|-----------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------|
+| Mixed audio-video   | Mp4                         | Single file, single channel                                                           | Keeping records and meeting notes Coaching and Training |
+| Mixed audio-only    | Mp3 (lossy)/ wav (lossless) | Single file, single channel                                                           | Compliance & Adherence Coaching and Training            |
+| **Unmixed audio-only**  | Mp3/wav                     | Single file, multiple channels maximum number of channels is 6 for mp3 and 50 for wav | Quality Assurance  Analytics                            |
 
 ## Run-time Control APIs
 Run-time control APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation, or from a user-triggered action that tells the server application to start recording. Call Recording APIs are [Out-of-Call APIs](./call-automation-apis.md#out-of-call-apis), using the `serverCallId` to initiate recording. When creating a call, a `serverCallId` is returned via the `Microsoft.Communication.CallLegStateChanged` event after a call has been established. The `serverCallId` can be found in the `data.serverCallId` field. See our [Call Recording Quickstart Sample](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn about retrieving the `serverCallId` from the Calling Client SDK. A `recordingOperationId` is returned when recording is started, which is then used for follow-on operations like pause and resume.   

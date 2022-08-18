@@ -75,12 +75,11 @@ Registered models are identified by name and version. Each time you register a m
 > [!TIP]
 > You can also register models trained outside Machine Learning.
 
-You can't delete a registered model that's being used in an active deployment.
-For more information, see the "Register model" section of [Deploy models](how-to-deploy-and-where.md#registermodel).
-
 > [!IMPORTANT]
-> When you use the **Filter by** `Tags` option on the **Models** page of Azure Machine Learning Studio, instead of using `TagName : TagValue`, use `TagName=TagValue` without spaces.
+> * When you use the **Filter by** `Tags` option on the **Models** page of Azure Machine Learning Studio, instead of using `TagName : TagValue`, use `TagName=TagValue` without spaces.
+> * You can't delete a registered model that's being used in an active deployment.
 
+For more information, [Work with models in Azure Machine Learning](how-to-manage-models.md).
 
 ### Package and debug models
 
@@ -88,7 +87,7 @@ Before you deploy a model into production, it's packaged into a Docker image. In
 
 If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
 
-For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](how-to-troubleshoot-deployment.md).
+For more information, see [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
 
 ### Convert and optimize models
 
@@ -127,7 +126,7 @@ To deploy the model to an endpoint, you must provide the following items:
 * Dependencies required to use the model. Examples are a script that accepts requests and invokes the model and conda dependencies.
 * Deployment configuration that describes how and where to deploy the model.
 
-For more information, see [Deploy models](how-to-deploy-and-where.md).
+For more information, see [Deploy online endpoints](how-to-deploy-managed-online-endpoints.md).
 
 #### Controlled rollout
 
@@ -169,7 +168,7 @@ Monitoring enables you to understand what data is being sent to your model, and 
 
 This information helps you understand how your model is being used. The collected input data might also be useful in training future versions of the model.
 
-For more information, see [Enable model data collection](how-to-enable-data-collection.md).
+For more information, see [Enable model data collection](v1/how-to-enable-data-collection.md).
 
 ## Retrain your model on new data
 
@@ -209,10 +208,10 @@ You can also use Azure Data Factory to create a data ingestion pipeline that pre
 
 Learn more by reading and exploring the following resources:
 
-+ [How and where to deploy models](how-to-deploy-and-where.md) with Machine Learning
++ [Learning path: End-to-end MLOps with Azure Machine Learning](/learn/paths/build-first-machine-operations-workflow/)
++ [How to deploy a model to an online endpoint](how-to-deploy-managed-online-endpoints.md) with Machine Learning
 + [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
 + [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
 + [CI/CD of machine learning models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
-+ Create clients that [consume a deployed model](how-to-consume-web-service.md)
 + [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 + [Azure AI reference architectures and best practices repo](https://github.com/microsoft/AI)

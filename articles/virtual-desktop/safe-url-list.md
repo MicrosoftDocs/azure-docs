@@ -25,7 +25,9 @@ Below is the list of URLs your session host VMs need to access for Azure Virtual
 | `*.wvd.microsoft.com` | 443 | Service traffic | WindowsVirtualDesktop |
 | `*.prod.warm.ingest.monitor.core.windows.net` | 443 | Agent traffic | AzureMonitor |
 | `catalogartifact.azureedge.net` | 443 | Azure Marketplace | AzureFrontDoor.Frontend |
+| `gcs.prod.monitoring.core.windows.net` | 443 | Agent traffic | AzureCloud |
 | `kms.core.windows.net` | 1688 | Windows activation | Internet |
+| `azkms.core.windows.net` | 1688 | Windows activation | Internet |
 | `mrsglobalsteus2prod.blob.core.windows.net` | 443 | Agent and SXS stack updates | AzureCloud |
 | `wvdportalstorageblob.blob.core.windows.net` | 443 | Azure portal support | AzureCloud |
 | `169.254.169.254` | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
@@ -34,11 +36,10 @@ Below is the list of URLs your session host VMs need to access for Azure Virtual
 | `www.microsoft.com` | 80 | Certificates | N/A |
 
 > [!IMPORTANT]
-> We have finished transitioning the URLs we use for Agent traffic. We no longer support the URLs below. To avoid your session host VMs from showing *Needs Assistance* related to this, please allow `\*.prod.warm.ingest.monitor.core.windows.net` if you have not already. Please remove these URLs if you have previously explicitly allowed them:
+> We have finished transitioning the URLs we use for Agent traffic. We no longer support the URLs below. To avoid your session host VMs from showing *Needs Assistance* related to this, please allow `*.prod.warm.ingest.monitor.core.windows.net` if you have not already. Please remove these URLs if you have previously explicitly allowed them:
 > 
 > | Address | Outbound TCP port | Purpose | Service Tag |
 > |--|--|--|--|
-> | `gcs.prod.monitoring.core.windows.net` | 443 | Agent traffic | AzureCloud |
 > | `production.diagnostics.monitoring.core.windows.net` | 443 | Agent traffic | AzureCloud |
 > | `*xt.blob.core.windows.net` | 443 | Agent traffic | AzureCloud |
 > | `*eh.servicebus.windows.net` | 443 | Agent traffic | AzureCloud |
@@ -65,6 +66,7 @@ The following table lists optional URLs that your session host virtual machines 
 |--|--|--|--|
 | `*.wvd.azure.us` | 443 | Service traffic | WindowsVirtualDesktop |
 | `*.prod.warm.ingest.monitor.core.usgovcloudapi.net` | 443 | Agent traffic | AzureMonitor |
+| `gcs.monitoring.core.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
 | `kms.core.usgovcloudapi.net` | 1688 | Windows activation | Internet |
 | `mrsglobalstugviffx.blob.core.usgovcloudapi.net` | 443 | Agent and SXS stack updates | AzureCloud |
 | `wvdportalstorageblob.blob.core.usgovcloudapi.net` | 443 | Azure portal support | AzureCloud |
@@ -73,11 +75,10 @@ The following table lists optional URLs that your session host virtual machines 
 | `ocsp.msocsp.com` | 80 | Certificates | N/A |
 
 > [!IMPORTANT]
-> We have finished transitioning the URLs we use for Agent traffic. We no longer support the URLs below. To avoid your session host VMs from showing *Needs Assistance* related to this, please allow `\*.prod.warm.ingest.monitor.core.usgovcloudapi.net`, if you have not already. Please remove these URLs if you have previously explicitly allowed them:
+> We have finished transitioning the URLs we use for Agent traffic. We no longer support the URLs below. To avoid your session host VMs from showing *Needs Assistance* related to this, please allow `*.prod.warm.ingest.monitor.core.usgovcloudapi.net`, if you have not already. Please remove these URLs if you have previously explicitly allowed them:
 > 
 > | Address | Outbound TCP port | Purpose | Service Tag |
 > |--|--|--|--|
-> | `gcs.monitoring.core.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
 > | `monitoring.core.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
 > | `fairfax.warmpath.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
 > | `*xt.blob.core.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
@@ -126,8 +127,8 @@ Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=%2Fa
 
 | Address | Outbound TCP port | Purpose | Client(s) |
 |--|--|--|--|
-| `\*.wvd.microsoft.com` | 443 | Service traffic | All |
-| `\*.servicebus.windows.net` | 443 | Troubleshooting data | All |
+| `*.wvd.microsoft.com` | 443 | Service traffic | All |
+| `*.servicebus.windows.net` | 443 | Troubleshooting data | All |
 | `go.microsoft.com` | 443 | Microsoft FWLinks | All |
 | `aka.ms` | 443 | Microsoft URL shortener | All |
 | `docs.microsoft.com` | 443 | Documentation | All |
@@ -138,8 +139,8 @@ Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=%2Fa
 
 | Address | Outbound TCP port | Purpose | Client(s) |
 |--|--|--|--|
-| `\*.wvd.microsoft.us` | 443 | Service traffic | All |
-| `\*.servicebus.usgovcloudapi.net` | 443 | Troubleshooting data | All |
+| `*.wvd.azure.us` | 443 | Service traffic | All |
+| `*.servicebus.usgovcloudapi.net` | 443 | Troubleshooting data | All |
 | `go.microsoft.com` | 443 | Microsoft FWLinks | All |
 | `aka.ms` | 443 | Microsoft URL shortener | All |
 | `docs.microsoft.com` | 443 | Documentation | All |

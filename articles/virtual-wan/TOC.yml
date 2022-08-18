@@ -91,11 +91,11 @@
       href: path-selection-multiple-links.md
   - name: Point-to-site
     items:
-    - name: About P2S IPsec policies
+    - name: P2S IPsec policies
       href: point-to-site-ipsec.md
-    - name: About P2S client address pools
+    - name: P2S client address pools
       href: about-client-address-pools.md
-    - name: About P2S global and hub-based profiles
+    - name: P2S global and hub profiles
       href: global-hub-profile.md
   - name: Virtual hub settings
     href: hub-settings.md
@@ -123,8 +123,12 @@
     href: cross-tenant-vnet.md
   - name: ExpressRoute
     items:
-    - name: Create an ExpressRoute connection
-      href: virtual-wan-expressroute-portal.md
+    - name: Create an ExpressRoute association
+      items:
+      - name: Azure portal
+        href: virtual-wan-expressroute-portal.md
+      - name: Azure PowerShell
+        href: expressroute-powershell.md
     - name: Configure ExpressRoute encryption
       href: vpn-over-expressroute.md
   - name: Site-to-site
@@ -147,40 +151,56 @@
         href: nat-rules-vpn-gateway-powershell.md
   - name: User VPN (point-to-site)
     items:
-    - name: Create User VPN
-      items: 
-        - name: Certificate or RADIUS - portal
-          href: virtual-wan-point-to-site-portal.md
-        - name: Certificate or RADIUS - PowerShell
-          href: virtual-wan-point-to-site-powershell.md
-        - name: Azure AD authentication
+    - name: P2S server configuration
+      items:
+      - name: Certificate or RADIUS authentication
+        items:
+        - name: Configure a P2S VPN
+          items: 
+          - name: Azure portal
+            href: virtual-wan-point-to-site-portal.md
+          - name: PowerShell
+            href: virtual-wan-point-to-site-powershell.md
+        - name: Generate self-signed certificates
+          href: certificates-point-to-site.md
+      - name: Azure AD authentication
+        items:
+        - name: Configure a P2S VPN
           href: virtual-wan-point-to-site-azure-ad.md
-    - name: Generate certificates
-      href: certificates-point-to-site.md
-    - name: Configure Azure AD tenant
-      href: openvpn-azure-ad-tenant.md
-    - name: VPN client profiles
+        - name: Configure a tenant
+          href: openvpn-azure-ad-tenant.md
+        - name: Configure Multi-Factor Authentication(MFA)
+          href: openvpn-azure-ad-mfa.md   
+    - name: P2S client configuration
       items:
-      - name: Download global and hub-based profiles
-        href: global-hub-profile.md
-      - name: Extract and view profile information
-        href: about-vpn-profile-download.md
-      - name: Deploy profiles using Intune
-        href: vpn-profile-intune.md
-    - name: VPN clients
-      items:
-        - name: OpenVPN
-          href: howto-openvpn-clients.md
-        - name: Azure AD authentication
-          items:
-            - name: Windows 10
-              href: openvpn-azure-ad-client.md
-            - name: macOS
-              href: openvpn-azure-ad-client-mac.md
-    - name: Multi-Factor Authentication(MFA)
-      href: openvpn-azure-ad-mfa.md   
-    - name: Multi-application Azure AD authentication
-      href: openvpn-azure-ad-tenant-multi-app.md
+      - name: Azure AD authentication clients
+        items:
+        - name: Windows clients
+          href: openvpn-azure-ad-client.md
+        - name: macOS clients
+          href: openvpn-azure-ad-client-mac.md
+        - name: Multi-application Azure AD authentication
+          href: openvpn-azure-ad-tenant-multi-app.md
+      - name: Certificate authentication clients
+        items:
+        - name: Windows clients
+          href: vpn-client-certificate-windows.md
+        - name: macOS and iOS clients
+          href: point-to-site-vpn-client-cert-mac.md    
+        - name: Install client certificates
+          href: install-client-certificates.md
+      - name: VPN client profiles
+        items:
+        - name: Download global and hub profiles
+          href: global-hub-profile.md
+        - name: Extract and view profile information
+          href: about-vpn-profile-download.md
+        - name: Intune- Deploy VPN client profile
+          href: vpn-profile-intune.md
+      - name: Azure VPN client optional settings
+        href: azure-vpn-client-optional-configurations-windows.md
+      - name: OpenVPN client software configuration
+        href: howto-openvpn-clients.md
     - name: Configure Always On tunnels
       items:
       - name: User tunnel

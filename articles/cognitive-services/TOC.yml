@@ -29,6 +29,8 @@
   items:
   - name: Plan and manage costs 
     href: plan-manage-costs.md
+  - name: Increase rate limit
+    href: autoscale.md
   - name: Diagnostic logging
     href: diagnostic-logging.md
   - name: Manage resources
@@ -85,7 +87,7 @@
       href: ./security-controls-policy.md
   - name: Use with big data
     items:
-    - name: Cognitive Services for Big Data
+    - name: Cognitive Services for big data
       href: ./big-data/cognitive-services-for-big-data.md
     - name: Getting started
       href: ./big-data/getting-started.md

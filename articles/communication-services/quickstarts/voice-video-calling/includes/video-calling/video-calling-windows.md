@@ -8,8 +8,14 @@ To complete this tutorial, you’ll need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload. 
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service.
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
+- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+  ```azurecli-interactive
+  az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -208,6 +214,8 @@ private async void CallButton_ClickAsync(object sender, RoutedEventArgs e)
     };
 
     call = await callAgent.StartCallAsync(callees, startCallOptions);
+    call.OnRemoteParticipantsUpdated += Call_OnRemoteParticipantsUpdated;
+    call.OnStateChanged += Call_OnStateChanged;
 }
 ```
 
@@ -260,8 +268,6 @@ private async void Agent_OnCallsUpdated(object sender, CallsUpdatedEventArgs arg
             await AddVideoStreams(remoteParticipant.VideoStreams);
             remoteParticipant.OnVideoStreamsUpdated += async (s, a) => await AddVideoStreams(a.AddedRemoteVideoStreams);
         }
-        call.OnRemoteParticipantsUpdated += Call_OnRemoteParticipantsUpdated;
-        call.OnStateChanged += Call_OnStateChanged;
     }
 }
 

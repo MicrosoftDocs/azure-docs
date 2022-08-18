@@ -21,7 +21,7 @@ The Spring Data Azure Cosmos DB version 3 for Core (SQL) allows developers to us
 
 The [Spring Framework](https://spring.io/projects/spring-framework) is a programming and configuration model that streamlines Java application development. Spring streamlines the "plumbing" of applications by using dependency injection. Many developers like Spring because it makes building and testing applications more straightforward. [Spring Boot](https://spring.io/projects/spring-boot) extends this handling of the plumbing with an eye toward web application and microservices development. [Spring Data](https://spring.io/projects/spring-data) is a programming model and framework for accessing datastores like Azure Cosmos DB from the context of a Spring or Spring Boot application. 
 
-You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) applications.
+You can use Spring Data Azure Cosmos DB in your applications hosted in [Azure Spring Apps](https://azure.microsoft.com/services/spring-apps/).
 
 ## Spring Boot support policy
 
@@ -79,7 +79,7 @@ Release history is maintained in the azure-sdk-for-java repo, for detailed list 
 
 ## Recommended version
 
-It's strongly recommended to use version 3.10.0 and above.
+It's strongly recommended to use version 3.22.0 and above.
 
 ## Additional notes
 

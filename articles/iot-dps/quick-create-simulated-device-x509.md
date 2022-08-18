@@ -169,7 +169,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-python"
 
-1. In your Windows command prompt, clone the [Azure IoT Samples for Python](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
+1. In your Windows command prompt, clone the [Azure IoT Samples for Python](https://github.com/Azure/azure-iot-sdk-python.git) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
@@ -234,7 +234,7 @@ Perform the steps in this section in your Git Bash prompt.
 
     A public key certificate file (*device-cert.pem*) and private key file (*device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
-    The certificate file has its subject common name (CN) set to `my-x509-device`. For X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
+    The certificate file has its subject common name (CN) set to `my-x509-device`. For X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format. DPS supports registration IDs up to 128 characters long; however, the maximum length of the subject common name in an X.509 certificate is 64 characters. The registration ID, therefore, is limited to 64 characters when using X.509 certificates.
 
 5. The certificate file is Base64 encoded. To view the subject common name (CN) and other properties of the certificate file, enter the following command:
 
@@ -658,7 +658,7 @@ In this section, you'll use your Windows command prompt.
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot of the I D scope and global device endpoint on Azure portal.":::
 
-1. In your Windows command prompt, go to the directory of the [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/async-hub-scenarios/provision_x509.py) sample. The path shown is relative to the location where you cloned the SDK.
+1. In your Windows command prompt, go to the directory of the [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py) sample. The path shown is relative to the location where you cloned the SDK.
 
     ```cmd
     cd ./azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios
@@ -698,7 +698,7 @@ In this section, you'll use your Windows command prompt.
     set PASS_PHRASE=1234
     ```
 
-1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())`.
+1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())`.
 
 1. Save your changes.
 

@@ -22,7 +22,7 @@ Having your logs in once place will provide a history of exceptions and error me
 
 ## Prerequisites
 
-* Follow the steps to create an [Azure Machine Learning](./how-to-manage-workspace.md) workspace and [create your first pipeline](./how-to-create-machine-learning-pipelines.md)
+* Follow the steps to create an [Azure Machine Learning workspace](quickstart-create-resources.md) and [create your first pipeline](./how-to-create-machine-learning-pipelines.md)
 * [Configure your development environment](./how-to-configure-environment.md) to install the Azure Machine Learning SDK.
 * Install the [OpenCensus Azure Monitor Exporter](https://pypi.org/project/opencensus-ext-azure/) package locally:
   ```python

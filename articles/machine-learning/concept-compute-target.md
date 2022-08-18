@@ -39,7 +39,7 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 
 [!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
-Learn [where and how to deploy your model to a compute target](how-to-deploy-and-where.md).
+Learn [where and how to deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md).
 
 <a name="amlcompute"></a>
 ## Azure Machine Learning compute (managed)
@@ -70,14 +70,16 @@ When created, these compute resources are automatically part of your workspace, 
 
 ### Supported VM series and sizes
 
+> [!NOTE] 
+> H-series virtual machine series will be retired on August 31, 2022. Create compute instance and compute clusters with alternate VM sizes. Existing compute instances and clusters with H-series virtual machines will not work after August 31, 2022.
+
 When you select a node size for a managed compute resource in Azure Machine Learning, you can choose from among select VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows for different workloads. To learn more, see [VM types and sizes](../virtual-machines/sizes.md).
 
 There are a few exceptions and limitations to choosing a VM size:
 
 * Some VM series aren't supported in Azure Machine Learning.
-* Some VM series are restricted. To use a restricted series, contact support and request a quota increase for the series. Please note that for GPUs and specialty SKUs, you would always have to request for quota due to high demand and limited supply. For information on how to contact support, see [Azure support options](https://azure.microsoft.com/support/options/).
-
-See the following table to learn more about supported series and restrictions.
+* There are some VM series, such as GPUs and other special SKUs, which may not initially appear in your list of available VMs.  But you can still use them, once you request a quota change. For more information about requesting quotas, see [Request quota increases](how-to-manage-quotas.md#request-quota-increases).
+See the following table to learn more about supported series.
 
 | **Supported VM series** | **Category** | **Supported by** |
 |------------|------------|------------|------------|
@@ -170,4 +172,4 @@ For more information, see [set up compute targets for model training and deploym
 
 Learn how to:
 * [Use a compute target to train your model](how-to-set-up-training-targets.md)
-* [Deploy your model to a compute target](how-to-deploy-and-where.md)
+* [Deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md)

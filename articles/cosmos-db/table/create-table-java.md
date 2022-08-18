@@ -172,7 +172,7 @@ To access your table(s) in Cosmos DB, your app will need the table connection st
 
 ### [Azure CLI](#tab/azure-cli)
 
-To get the primary table storage connection string using Azure CLI, use the [az Cosmos DB keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command with the option `--type connection-strings`.  This command uses a [JMESPath query](https://jmespath.org/) to display only the primary table connection string.
+To get the primary table storage connection string using Azure CLI, use the [az Cosmos DB keys list](/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) command with the option `--type connection-strings`.  This command uses a [JMESPath query](/cli/azure/query-azure-cli) to display only the primary table connection string.
 
 ```azurecli
 # This gets the primary Table connection string
@@ -219,7 +219,7 @@ The connection string for your Cosmos DB account is considered an app secret and
 
 ## 4 - Include the azure-data-tables package
 
-To access the Cosmos DB Tables API from a java application, include the [azure-data-tables](https://search.maven.org/artifact/com.azure/azure-data-tables) package.
+To access the Cosmos DB Tables API from a Java application, include the [azure-data-tables](https://search.maven.org/artifact/com.azure/azure-data-tables) package.
 
 ```xml
 <dependency>

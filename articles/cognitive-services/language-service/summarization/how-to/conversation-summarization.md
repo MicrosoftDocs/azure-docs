@@ -8,12 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 08/18/2022
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # How to use conversation summarization (preview)
+
+[!INCLUDE [availability](../includes/regional-availability.md)]
 
 > [!IMPORTANT] 
 > The conversation summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Conversation Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of conversation summarization. 
@@ -77,6 +79,8 @@ Conversation summarization also enables you to get summaries from speech transcr
 ```
 
 ## Getting conversation summarization results
+
+[!INCLUDE [availability](../includes/regional-availability.md)]
 
 When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.
 

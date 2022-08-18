@@ -16,16 +16,16 @@ ms.custom: devx-track-js, mode-api
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
-> - [.NET V3](create-sql-api-dotnet.md)
-> - [.NET V4](create-sql-api-dotnet-V4.md)
-> - [Java SDK v4](create-sql-api-java.md)
-> * [Spring Data v3](create-sql-api-spring-data.md)
-> * [Spark v3 connector](create-sql-api-spark.md)
-> - [Node.js](create-sql-api-nodejs.md)
-> - [Python](create-sql-api-python.md)
+>
+> * [.NET](quickstart-dotnet.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Java](create-sql-api-java.md)
+> * [Spring Data](create-sql-api-spring-data.md)
+> * [Python](create-sql-api-python.md)
+> * [Spark v3](create-sql-api-spark.md)
 > * [Go](create-sql-api-go.md)
-
-In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal, and by using a Node.js app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+>
+In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal, and by using a Node.js app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. Without a credit card or an Azure subscription, you can set up a free 30 day [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). 
 
 ## Walkthrough video
 

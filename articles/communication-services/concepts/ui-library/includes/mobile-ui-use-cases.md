@@ -1,7 +1,7 @@
 ---
-title: Mobile UI Library use cases scenarios
-titleSuffix: An Azure Communication Services - Mobile UI Library use cases scenarios
-description: In this document, introduce the Mobile UI Library capabilities and how is going to work in your applications
+title:  UI Library for Mobile native platforms use cases scenarios
+titleSuffix: An Azure Communication Services - UI Library for Mobile native platforms use cases scenarios
+description: In this document, introduce the UI Library for Mobile native platforms capabilities and how is going to work in your applications
 author: jorgegarc
 
 ms.author: jorgegarc
@@ -10,7 +10,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Mobile UI Library for iOS and Android supports calling use cases by using the **calling composite**.
+The UI Library for iOS and Android supports calling use cases by using the **calling composite**.
 
 Composites enable developers to easily integrate a whole calling experience into their application with only a couple of lines of code; those composites take care of the entire lifecycle of the call from setup to the call ending.
 
@@ -46,14 +46,14 @@ For more information on authentication, see [Authentication](../../authenticatio
 
 ![Teams Interop pattern for calling and chat](../../media/mobile-ui/teams-interop-diagram.png)
 
-For [Teams Interop](../../teams-interop.md) scenarios, developers can use the Mobile UI Library Components to join Teams meetings through Azure Communication Services.
+For [Teams Interop](../../teams-interop.md) scenarios, developers can use the UI Library composites to join Teams meetings through Azure Communication Services.
 To enable Teams Interop, developers can use the calling composite, which will take care of the lifecycle of joining a Teams Interop call.
 
 :::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Pre-meeting experience":::
 
 ## View shared content
 
-The Mobile UI Library provides the capability of the calling participants to view the shared content when other participants share their screens during the calling. Also, the participant can zoom on the screen, making the pinching gestures over the screen to get a better look over the shared content.
+The UI Library for Mobile  native platforms provides the capability of the calling participants to view the shared content when other participants share their screens during the calling. Also, the participant can zoom on the screen, making the pinching gestures over the screen to get a better look over the shared content.
 
 ## Theming
 
@@ -73,7 +73,7 @@ The calling composite offers to adapt to any screen size that would bring suppor
 
 ## Localization
 
-Localization is a key to making products that can be used across the world and by people who speak different languages. The Mobile UI Library now provides support for 12 languages: ***English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish and Chinese*** and RTL capabilities. [How to add localization to your app.](../../../how-tos/ui-library-sdk/localization.md)
+Localization is a key to making products that can be used across the world and by people who speak different languages. The UI Library, provides support for 12 languages: ***English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish and Chinese*** and RTL capabilities. [How to add localization to your app.](../../../how-tos/ui-library-sdk/localization.md)
 
 ## Accessibility
 
@@ -81,7 +81,7 @@ Accessibility is a key focus of the calling libraries. Screen Readers are suppor
 
 ## Participant View Data Injection
 
-The Mobile UI Library gives the developers the ability to modify both Local and Remote Participants and how they are displayed in the call. On call launch the developer can supply a local avatar and custom display name to show to the local user. For Remote Users, methods are available to allow customization of avatars as they join the meetings. [How to customize participant views.](../../../how-tos/ui-library-sdk/data-model.md)
+The UI Library for Mobile native platforms gives the developers the ability to modify both Local and Remote Participants and how they are displayed in the call. On call launch the developer can supply a local avatar and custom display name to show to the local user. For Remote Users, methods are available to allow customization of avatars as they join the meetings. [How to customize participant views.](../../../how-tos/ui-library-sdk/data-model.md)
 
 :::image type="content" source="../../media/mobile-ui/ios-composite.gif" alt-text="Gif animation shows the pre-meeting experience and joining experience on iOS.":::
 

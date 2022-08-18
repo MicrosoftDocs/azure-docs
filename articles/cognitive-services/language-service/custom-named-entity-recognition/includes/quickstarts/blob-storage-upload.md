@@ -28,4 +28,4 @@ After you have created an Azure storage account and connected it to your Languag
     :::image type="content" source="../../media/file-upload-screen.png" alt-text="A screenshot showing the button for uploading files to the storage account." lightbox="../../media/file-upload-screen.png":::
 
 
-The provided sample dataset contains 20 loan agreements, each agreement includes two parties: a lender and a borrower. You can use the provided sample file to extract relevant information for both parties, an agreement date, a loan amount, and an interest rate.
+The provided sample dataset contains 20 loan agreements. Each agreement includes two parties: a lender and a borrower. You can use the provided sample file to extract relevant information for: both parties, an agreement date, a loan amount, and an interest rate.

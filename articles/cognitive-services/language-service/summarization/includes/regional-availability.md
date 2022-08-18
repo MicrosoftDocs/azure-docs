@@ -10,15 +10,13 @@ ms.author: aahi
 ms.custom: references_regions
 ---
 
-> [!NOTE]
-> For document summarization and conversation summarization:
-> * These features are only available through Language resources in the following regions:
+> [!IMPORTANT]
+> * To use conversation summarization, you must [submit an online request and have it approved](https://aka.ms/applyforconversationsummarization/).
+> * Conversation summarization is only available through Language resources in the following regions:
 >     * North Europe
 >     * East US
 >     * UK South
-> 
-> For conversation summarization only:
-> * To use conversation summarization, you must [submit an online request and have it approved](https://aka.ms/applyforconversationsummarization/).
 > * Conversation summarization is only available using:
 >     * REST API
 >     * Python 
+>     * C#

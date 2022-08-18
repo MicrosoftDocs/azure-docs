@@ -3,7 +3,7 @@ title: How to use device commands in an Azure IoT Central solution
 description: How to use device commands in Azure IoT Central solution. This tutorial shows you how to use device commands in client app to your Azure IoT Central application. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021 
+ms.date: 06/22/2022 
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -23,6 +23,8 @@ A device can:
 * Respond to IoT Central when it receives the command and then later notify IoT Central when the *long-running command* is complete.
 
 By default, commands expect a device to be connected and fail if the device can't be reached. If you select the **Queue if offline** option in the device template UI a command can be queued until a device comes online. These *offline commands* are described in a separate section later in this article.
+
+To learn how to manage commands by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md)
 
 ## Define your commands
 

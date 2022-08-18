@@ -3,12 +3,12 @@ title: Storage account overview
 titleSuffix: Azure Storage
 description: Learn about the different types of storage accounts in Azure Storage. Review account naming, performance tiers, access tiers, redundancy, encryption, endpoints, and more.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/26/2022
-ms.author: tamram
+ms.date: 06/28/2022
+ms.author: jammart
 ms.subservice: common
 ---
 
@@ -97,12 +97,12 @@ The following table lists the format for Azure DNS Zone endpoints for each of th
 
 | Storage service | Endpoint |
 |--|--|
-| Blob Storage | `https://<storage-account>.z[00-99].blob.core.windows.net` |
-| Static website (Blob Storage) | `https://<storage-account>.z[00-99].web.core.windows.net` |
-| Data Lake Storage Gen2 | `https://<storage-account>.z[00-99].dfs.core.windows.net` |
-| Azure Files | `https://<storage-account>.z[00-99].file.core.windows.net` |
-| Queue Storage | `https://<storage-account>.z[00-99].queue.core.windows.net` |
-| Table Storage | `https://<storage-account>.z[00-99].table.core.windows.net` |
+| Blob Storage | `https://<storage-account>.z[00-99].blob.storage.azure.net` |
+| Static website (Blob Storage) | `https://<storage-account>.z[00-99].web.storage.azure.net` |
+| Data Lake Storage Gen2 | `https://<storage-account>.z[00-99].dfs.storage.azure.net` |
+| Azure Files | `https://<storage-account>.z[00-99].file.storage.azure.net` |
+| Queue Storage | `https://<storage-account>.z[00-99].queue.storage.azure.net` |
+| Table Storage | `https://<storage-account>.z[00-99].table.storage.azure.net` |
 
 > [!IMPORTANT]
 > You can create up to 5000 accounts with Azure DNS Zone endpoints per subscription. However, you may need to update your application code to query for the account endpoint at runtime. You can call the [Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation to query for the storage account endpoints.

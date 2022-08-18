@@ -20,7 +20,7 @@ ms.date: 05/24/2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](./v1/how-to-create-register-datasets.md)
-> * [v2 (current version)](how-to-create-register-datasets.md)
+> * [v2 (current version)](how-to-create-register-data-assets.md)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 [!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
@@ -42,7 +42,7 @@ To create and work with Data assets, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. [Create workspace resources](quickstart-create-resources.md).
 
 * The [Azure Machine Learning CLI/SDK installed](how-to-configure-cli.md) and MLTable package installed (`pip install mltable`).
 

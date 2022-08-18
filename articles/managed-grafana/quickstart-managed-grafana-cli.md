@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 06/10/2022
+ms.date: 07/25/2022
 ms.devlang: azurecli
 --- 
 
@@ -15,6 +15,9 @@ Get started by creating an Azure Managed Grafana Preview workspace using the Azu
 
 > [!NOTE]
 > The CLI experience for Azure Managed Grafana Preview is part of the amg extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run an `az grafana` command.
+
+> [!NOTE]
+> Azure Managed Grafana doesn't support personal [Microsoft accounts](https://account.microsoft.com) currently.
 
 ## Prerequisite
 
@@ -50,7 +53,7 @@ Run the code below to create an Azure Managed Grafana workspace.
 | Parameter    | Description                                      | Example |
 |--------------|-----------------------------------------------------------------------------------------|----------|
 | --name       | Choose a unique name for your new Managed Grafana instance. | *grafana-test*     |
-| --location   | Choose an Azure Region where Managed Grafana is available.   | *eastus*     |
+| --resource-group   | Choose a resource group for your Managed Grafana instance.   | *my-resource-group*     |
 
 ```azurecli
    az grafana create --name <managed-grafana-resource-name> --resource-group <resource-group-name>

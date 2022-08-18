@@ -111,7 +111,7 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |**[APPLICATION-ATTACK-RFI](#drs931-10)**|Protection against remote file inclusion attacks|
 |**[APPLICATION-ATTACK-RCE](#drs932-10)**|Protection against remote command execution|
 |**[APPLICATION-ATTACK-PHP](#drs933-10)**|Protect against PHP-injection attacks|
-|**[CROSS-SITE-SCRIPTING](#drs941-10)**|XSS - Cross-site Scripting|
+|**[APPLICATION-ATTACK-XSS](#drs941-10)**|Protect against cross-site scripting attacks|
 |**[APPLICATION-ATTACK-SQLI](#drs942-10)**|Protect against SQL-injection attacks|
 |**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-10)**|Protect against session-fixation attacks|
 |**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-10)**|Protect against JAVA attacks|
@@ -238,12 +238,10 @@ Front Door.
 |933110|PHP Injection Attack: PHP Script File Upload Found|
 |933120|PHP Injection Attack: Configuration Directive Found|
 |933130|PHP Injection Attack: Variables Found|
-|933131|PHP Injection Attack: Variables Found|
 |933140|PHP Injection Attack: I/O Stream Found|
 |933150|PHP Injection Attack: High-Risk PHP Function Name Found|
 |933151|PHP Injection Attack: Medium-Risk PHP Function Name Found|
 |933160|PHP Injection Attack: High-Risk PHP Function Call Found|
-|933161|PHP Injection Attack: Low-Value PHP Function Call Found|
 |933170|PHP Injection Attack: Serialized Object Injection|
 |933180|PHP Injection Attack: Variable Function Call Found|
 |933200|PHP Injection Attack: Wrapper scheme detected|
@@ -535,8 +533,8 @@ Front Door.
 |944110|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |944120|Remote Command Execution: Java serialization (CVE-2015-5842)|
 |944130|Suspicious Java class detected|
-|944200|Magic bytes Detected, probable java serialization in use|
-|944210|Magic bytes Detected Base64 Encoded, probable java serialization in use|
+|944200|Magic bytes Detected, probable Java serialization in use|
+|944210|Magic bytes Detected Base64 Encoded, probable Java serialization in use|
 |944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
 
@@ -622,12 +620,10 @@ Front Door.
 |933110|PHP Injection Attack: PHP Script File Upload Found|
 |933120|PHP Injection Attack: Configuration Directive Found|
 |933130|PHP Injection Attack: Variables Found|
-|933131|PHP Injection Attack: Variables Found|
 |933140|PHP Injection Attack: I/O Stream Found|
 |933150|PHP Injection Attack: High-Risk PHP Function Name Found|
 |933151|PHP Injection Attack: Medium-Risk PHP Function Name Found|
 |933160|PHP Injection Attack: High-Risk PHP Function Call Found|
-|933161|PHP Injection Attack: Low-Value PHP Function Call Found|
 |933170|PHP Injection Attack: Serialized Object Injection|
 |933180|PHP Injection Attack: Variable Function Call Found|
 
@@ -762,7 +758,7 @@ Front Door.
 |Bot300300|General purpose HTTP clients and SDKs|
 |Bot300400|Service agents|
 |Bot300500|Site health monitoring services|
-|Bot300600|Unknown bots detected by threat intelligence|
+|Bot300600|Unknown bots detected by threat intelligence<br />(This rule also includes IP addresses matched to the Tor network.)|
 |Bot300700|Other bots|
 
 ---

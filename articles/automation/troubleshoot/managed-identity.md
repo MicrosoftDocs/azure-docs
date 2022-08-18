@@ -11,6 +11,51 @@ ms.topic: troubleshooting
 
 This article discusses solutions to problems that you might encounter when you use a managed identity with your Automation account. For general information about using managed identity with Automation accounts, see [Azure Automation account authentication overview](../automation-security-overview.md#managed-identities).
 
+## Scenario: Managed Identity in a Runbook cannot authenticate against Azure
+
+### Issue
+When using a Managed Identity in your runbook, you receive an error as:
+`connect-azaccount : ManagedIdentityCredential authentication failed: Failed to get MSI token for account d94c0db6-5540-438c-9eb3-aa20e02e1226 and resource https://management.core.windows.net/. Status: 500 (Internal Server Error)`
+
+### Cause
+
+This can happen either when:
+
+- **Cause 1**:  You use the Automation account System Managed Identity, which has not yet been created and the `Code Connect-AzAccount -Identity` tries to authenticate to Azure and run a runbook in Azure or on a Hybrid Runbook Worker.
+
+- **Cause 2**: The Automation account has a User managed identity assigned and not a System Managed Identity and the - `Code Connect-AzAccount -Identity` tries to authenticate to Azure and run a runbook on an Azure virtual machine Hybrid Runbook Worker using the Azure VM System Managed Identity.
+
+
+### Resolution
+
+- **Resolution 1**: You must create the Automation Account System Managed Identity and grant it access to the Azure Resources.
+
+- **Resolution 2**: As appropriate for your requirements, you can:
+
+    - Create the Automation Account System Managed Identity and use it to authenticate.</br>
+                Or </br> 
+    - Delete the Automation Account User Assigned Managed Identity.
+
+## Scenario: Unable to find the user assigned managed identity to add it to the Automation account
+
+### Issue
+
+You want to add a user-assigned managed identity to the Automation account. However, you can't find the account in the Automation blade.
+
+### Cause
+
+This issue occurs when you don't have the following permissions for the user-assigned managed identity to view it in the Automation blade.
+
+- `Microsoft.ManagedIdentity/userAssignedIdentities/*/read`
+- `Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action`
+
+>[!NOTE]
+> The above permissions are granted by default to Managed Identity Operator and Managed Identity Contributor.
+
+### Resolution
+Ensure that you have [Identity Operator role permission](../../role-based-access-control/built-in-roles.md#managed-identity-operator) to add the user-assigned managed identity to your Automation account.
+
+
 ## Scenario: Runbook fails with "this.Client.SubscriptionId cannot be null." error message
 
 ### Issue

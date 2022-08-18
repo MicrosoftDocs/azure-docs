@@ -252,7 +252,7 @@ def main(mytimer: azure.functions.TimerRequest, context: azure.functions.Context
     logging.info(f'Current retry count: {context.retry_context.retry_count}')
     
     if context.retry_context.retry_count == context.retry_context.max_retry_count:
-        logging.info(
+        logging.warn(
             f"Max retries of {context.retry_context.max_retry_count} for "
             f"function {context.function_name} has been reached")
    

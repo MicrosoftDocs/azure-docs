@@ -1,10 +1,8 @@
 ---
 title: Container security architecture in Microsoft Defender for Cloud
 description: Learn about the architecture of Microsoft Defender for Containers for each container platform
-author: bmansheim
-ms.author: benmansheim
 ms.topic: overview
-ms.date: 05/31/2022
+ms.date: 06/19/2022
 ---
 # Defender for Containers architecture
 
@@ -36,12 +34,9 @@ To protect your Kubernetes containers, Defender for Containers receives and anal
 
 When Defender for Cloud protects a cluster hosted in Azure Kubernetes Service, the collection of audit log data is agentless and frictionless.
 
-The **Defender profile (preview)** deployed to each node provides the runtime protections and collects signals from nodes using [eBPF technology](https://ebpf.io/).
+The **Defender profile** deployed to each node provides the runtime protections and collects signals from nodes using [eBPF technology](https://ebpf.io/).
 
 The **Azure Policy add-on for Kubernetes** collects cluster and workload configuration for admission control policies as explained in [Protect your Kubernetes workloads](kubernetes-workload-protections.md).
-
-> [!NOTE]
-> Defender for Containers **Defender profile** is a preview feature.
 
 :::image type="content" source="./media/defender-for-containers/architecture-aks-cluster.png" alt-text="Diagram of high-level architecture of the interaction between Microsoft Defender for Containers, Azure Kubernetes Service, and Azure Policy." lightbox="./media/defender-for-containers/architecture-aks-cluster.png":::
 

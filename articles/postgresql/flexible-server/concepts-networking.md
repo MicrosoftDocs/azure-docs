@@ -88,6 +88,10 @@ When using private network access with Azure virtual network, providing the priv
 
 Using Azure Portal, CLI or ARM,  you can also change private DNS Zone from the one you provided when creating your Azure Database for PostgreSQL - Flexible Server to another private DNS zone that exists the same or different subscription. 
 
+  > [!IMPORTANT]
+  > Ability to change private DNS Zone from the one you provided when creating your Azure Database for PostgreSQL - Flexible Server to another private DNS zone is currently disabled for servers with High Availability feature enabled. 
+
+
 ### Integration with a custom DNS server
 
 If you're using a custom DNS server, you must use a DNS forwarder to resolve the FQDN of Azure Database for PostgreSQL - Flexible Server. The forwarder IP address should be [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md). 
