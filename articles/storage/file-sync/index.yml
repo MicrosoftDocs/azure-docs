@@ -68,3 +68,15 @@ landingContent:
             url: ../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json
           - text: Migration guides
             url: ../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json#migration-guides
+
+  # Card
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Azure enterprise cloud file share
+            url: /azure/architecture/hybrid/azure-files-private
+          - text: Hybrid file services
+            url: /azure/architecture/hybrid/hybrid-file-services
+          - text: Hybrid file share with disaster recovery for remote and local branch workers
+            url: /azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers
