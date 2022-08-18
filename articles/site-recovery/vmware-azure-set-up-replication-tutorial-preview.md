@@ -1,15 +1,15 @@
 ---
-title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Preview
-description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Preview.
+title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Modernized
+description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Modernized.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/19/2021
+ms.date: 08/18/2022
 ms.custom: MVC
 
 ---
-# Set up disaster recovery to Azure for on-premises VMware VMs - Preview
+# Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
 
-This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Preview.
+This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the Modernized VMware/Physical machine protection expereince.
 
 For information on how to set up disaster recovery in Azure Site Recovery Classic releases, see [the tutorial](vmware-azure-tutorial.md).
 
@@ -65,7 +65,7 @@ Use the following steps to assign the required permissions:
 
 You need to [set up an Azure Site Recovery replication appliance on the on-premises environment](deploy-vmware-azure-replication-appliance-preview.md) to channel mobility agent communications.
 
-![Replication appliance](./media/vmware-azure-set-up-replication-tutorial-preview/replication-appliance.png)
+![Replication appliance](./media/vmware-azure-set-up-replication-tutorial-modernized/replication-appliance.png)
 
 ## Enable replication of VMware VMs
 
@@ -75,14 +75,14 @@ Ensure the [pre-requisites](vmware-physical-azure-support-matrix.md) across stor
 
 Follow these steps to enable replication:
 
-1. Select **Site Recovery** under **Getting Started** section. Click **Enable Replication (Preview)** under the VMware section.
+1. Select **Site Recovery** under **Getting Started** section. Click **Enable Replication (Modernized)** under the VMware section.
 
 2. Choose the machine type you want to protect through Azure Site Recovery.
 
    > [!NOTE]
-   > In Preview, the support is limited to virtual machines.
+   > In Modernized, the support is limited to virtual machines.
 
-   ![Select source machines](./media/vmware-azure-set-up-replication-tutorial-preview/select-source.png)
+   ![Select source machines](./media/vmware-azure-set-up-replication-tutorial-modernized/select-source.png)
 
 3. After choosing the machine type, select the vCenter server added to Azure Site Recovery replication appliance, registered in this vault.
 
@@ -93,11 +93,11 @@ Follow these steps to enable replication:
    >[!NOTE]
    >For Linux OS, ensure to provide the root credentials. For Windows OS, a user account with admin privileges should be added. These credentials will be used to push Mobility Service on to the source machine during enable replication operation.
 
-   ![Source settings](./media/vmware-azure-set-up-replication-tutorial-preview/source-settings.png)
+   ![Source settings](./media/vmware-azure-set-up-replication-tutorial-modernized/source-settings.png)
 
 6. Select **Next** to provide target region properties. By default, Vault subscription and Vault resource group are selected. You can choose a subscription and resource group of your choice. Your source machines will be deployed in this subscription and resource group when you failover in the future.
 
-   ![Target properties](./media/vmware-azure-set-up-replication-tutorial-preview/target-properties.png)
+   ![Target properties](./media/vmware-azure-set-up-replication-tutorial-modernized/target-properties.png)
 
 7. Next, you can select an existing Azure network or create a new target network to be used during failover. If you select **Create new**, you will be redirected to create virtual network context blade and asked to provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
 
@@ -137,7 +137,7 @@ Follow these steps to enable replication:
 
 11. After choosing the replication policy, select **Next**. Review the Source and Target properties. Select **Enable  Replication** to initiate the operation.
 
-    ![Site recovery](./media/vmware-azure-set-up-replication-tutorial-preview/enable-replication.png)
+    ![Site recovery](./media/vmware-azure-set-up-replication-tutorial-modernized/enable-replication.png)
 
     A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
 

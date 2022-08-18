@@ -1,17 +1,17 @@
 ---
-title: VMware VM disaster recovery architecture in Azure Site Recovery - Preview
-description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Preview
+title: VMware VM disaster recovery architecture in Azure Site Recovery - Modernized
+description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 08/18/2022
 ---
 
-# VMware to Azure disaster recovery architecture - Preview
+# VMware to Azure disaster recovery architecture - Modernized
 
-This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Preview
+This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the Modernized VMware/Physical machine protection expereince.
 
 >[!NOTE]
-> Ensure you create a new Recovery Services vault for setting up the preview appliance. Don't use an existing vault.
+> Ensure you create a new Recovery Services vault for setting up the ASR replication appliance. Don't use an existing vault.
 
 For information about Azure Site Recovery architecture in Classic architecture, see [this article](vmware-azure-architecture.md).
 
@@ -20,14 +20,14 @@ For information about Azure Site Recovery architecture in Classic architecture, 
 
 The following table and graphic provide a high-level view of the components used for VMware VMs/physical machines disaster recovery to Azure.
 
-[![VMware to Azure architecture](./media/vmware-azure-architecture-preview/architecture-preview.png)](./media/vmware-azure-architecture-preview/architecture-preview.png#lightbox)
+[![VMware to Azure architecture](./media/vmware-azure-architecture-modernized/architecture-modernized.png)](./media/vmware-azure-architecture-modernized/architecture-modernized.png#lightbox)
 
 **Component** | **Requirement** | **Details**
 --- | --- | ---
 **Azure** | An Azure subscription, Azure Storage account for cache, Managed Disk, and Azure network. | Replicated data from on-premises VMs is stored in Azure storage. Azure VMs are created with the replicated data when you run a failover from on-premises to Azure. The Azure VMs connect to the Azure virtual network when they're created.
 **Azure Site Recovery replication appliance** | 	This is the basic building block of the entire Azure Site Recovery on-premises infrastructure. <br/><br/> All components in the appliance coordinate with the replication appliance. This service oversees all end-to-end Site Recovery activities including monitoring the health of protected machines, data replication, automatic updates, etc. | The appliance hosts various crucial components like:<br/><br/>**Azure Site Recovery Proxy server:** This component acts as a proxy channel between mobility agent and Site Recovery  services in the cloud. It ensures there is no additional internet connectivity required from production workloads to generate recovery points.<br/><br/>**Discovered items:** This component gathers information of vCenter and coordinates with Azure Site Recovery management service in the cloud.<br/><br/>**Re-protection server:** This component coordinates between Azure and on-premises machines during reprotect and failback operations.<br/><br/>**Azure Site Recovery Process server:** This component is used for caching, compression of data before being sent to Azure. <br/><br/> [Learn more](switch-replication-appliance-preview.md) about replication appliance and how to use multiple replication appliances.<br/><br/>**Recovery services agent:** This component is used for configuring/registering with Site Recovery services, and for monitoring the health of all the components.<br/><br/>**Site Recovery provider:** This component is used for facilitating re-protect. It identifies between alternate location re-protect and original location re-protect for a source machine. <br/><br/> **Replication service:** This component is used for replicating data from source location to Azure.
 **VMware servers** | VMware VMs are hosted on on-premises vSphere ESXi servers. We recommend a vCenter server to manage the hosts. | During Site Recovery deployment, you add VMware servers to the Recovery Services vault.
-**Replicated machines** | Mobility Service is installed on each VMware VM that you replicate. | We recommend that you allow automatic installation of the Mobility Service. Alternatively, you can install the [service manually](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-preview).
+**Replicated machines** | Mobility Service is installed on each VMware VM that you replicate. | We recommend that you allow automatic installation of the Mobility Service. Alternatively, you can install the [service manually](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized).
 
 
 ## Set up outbound network connectivity
