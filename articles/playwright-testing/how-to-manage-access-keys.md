@@ -42,7 +42,7 @@ You can view the list of workspace access keys from the Microsoft Playwright Tes
 
 To view the list of access keys in your workspace from the Microsoft Playwright Testing portal:
 
-1. Open the [Microsoft Playwright Testing portal](https://dashboard.playwright-ppe.io/) and sign in with your Azure credentials.
+1. Open the [Microsoft Playwright Testing portal](https://dashboard.playwright-int.io/) and sign in with your Azure credentials.
 
 1. Access the **Settings > Access key** menu in the top-right of the screen.
 
@@ -58,7 +58,7 @@ Create an access key to authorize access to your Microsoft Playwright Testing wo
 
 To create a new workspace access key: 
 
-1. In the [Microsoft Playwright Testing portal](https://dashboard.playwright-ppe.io/), access the **Settings > Access key** menu in the top-right of the screen.
+1. In the [Microsoft Playwright Testing portal](https://dashboard.playwright-int.io/), access the **Settings > Access key** menu in the top-right of the screen.
 
 1. Select **Generate a new key**.
 
@@ -100,7 +100,7 @@ You can delete a workspace access key from the Microsoft Playwright Testing port
 
 To delete an existing workspace access key:
 
-1. In the [Microsoft Playwright Testing portal](https://dashboard.playwright-ppe.io/), access the **Settings > Access key** menu in the top-right of the screen.
+1. In the [Microsoft Playwright Testing portal](https://dashboard.playwright-int.io/), access the **Settings > Access key** menu in the top-right of the screen.
 
 1. Select **Delete** for the access key you want to delete.
 
