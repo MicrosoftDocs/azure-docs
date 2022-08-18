@@ -619,8 +619,8 @@ None.
 | Name | Type |
 |------|------|
 | **Result** | An array object that contains the full names and display names for all tables in the database. |
-| **Result display Name** | An array object that contains the display name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
-| **Result full name** | An array object that contains the full name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result Display Name** | An array object that contains the display name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result Full Name** | An array object that contains the full name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
 | **Result Item** | An array object that returns the full name and display name one at time for each table. A **For each** loop is automatically added to your workflow to iterate through the array. |
 
 <a name="insert-row"></a>
