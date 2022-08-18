@@ -14,13 +14,13 @@ Azure Percept on Azure Stack HCI is a virtualized workload that enables you to q
 
 ## Azure Percept on Azure Stack HCI enables you:
 
-### Maximize your investments easily.
+### Maximize your investments easily
 Maximize your existing investments in the Azure Stack HCI computer infrastructure when you run Azure Percept on Azure Stack HCI. You can leverage [Windows Admin Center (WAC)](https://www.microsoft.com/windows-server/windows-admin-center) management expertise with Azure Percept for Azure Stack HCI extension to ingest and analyze data streams from your existing IP camera infrastructure. Using WAC also enables you to easily deploy, manage, scale, and secure your Azure Percept virtual machine (VM).
 
-### Bring data to storage and compute.
+### Bring data to storage and compute
 Use Azure Stack HCI’s robust storage and compute options to pre-process raw data at the Edge before sending it to Azure for further processing and training. Since artificial intelligence/machine learning (AI/ML) solutions at the edge generate and process a significant amount of data, using Azure Stack HCI reduces the amount of data transfer or bandwidth consumed into Azure.
 
-### Maintain device security.
+### Maintain device security
 Azure Percept on Azure Stack HCI provides multiple layers of security. Leverage security mechanisms and processes built into the solution, including virtual trusted platform module (TPM), secure boot, secure provisioning, trusted software, secure update, and [Microsoft Defender for IoT](https://www.microsoft.com/security/blog/2021/11/02/how-microsoft-defender-for-iot-can-secure-your-iot-devices/#:~:text=Microsoft%20Defender%20for%20IoT%20is%20an%20open%20platform,to%20enrich%20the%20information%20coming%20from%20multiple%20sources).
 
 ## Key components of Azure Percept on Azure Stack HCI
@@ -56,9 +56,12 @@ Whether you are a beginner, an expert, or anywhere in between, from zero to low 
 [Azure Percept Open-Source Project](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/Eeoh0pZk5g1MqwJZUAZFEvEBMYmfAqdibII6Znm-PnnDIQ?e=4ZDfUT) is a framework for creating, deploying, and operating Edge artificial intelligence (AI) solutions at scale with the control and flexibility of open-source natively on your environment. Azure Percept Open-Source Project is fully open-sourced and leverages the open-source software (OSS) community to deliver enhanced experiences. It is a self-managed solution where you host the environment in your own cluster. 
 
 ## Next steps
-Before you start setting up your Azure Percept virtual machine (VM), we recommend the following articles: 
+
+Text to come.
+
+<!-- Before you start setting up your Azure Percept virtual machine (VM), we recommend the following articles: 
 - [Getting started checklist for Azure Percept on Azure Stack HCI](https://github.com/microsoft/santa-cruz-workload/blob/main/articles/getting-started-checklist-for-azure-percept.md)
 - [Azure Percept solution development paths overview](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/EU92ZnNynDBGuVn3P5Xr5gcBFKS5HQguZm7O5sEENPUvPA?e=DKZtr6) 
 
 If you’re ready to start setting up your Azure Percept virtual machine (VM), we recommend the following tutorial: 
-- [Tutorial: Setting up Azure Percept on Azure Stack HCI using WAC extension (Cluster server)](https://github.com/microsoft/santa-cruz-workload/blob/main/articles/tutorial-setting-up-azure-percept-using-wac-extension-cluster.md)
+- [Tutorial: Setting up Azure Percept on Azure Stack HCI using WAC extension (Cluster server)](https://github.com/microsoft/santa-cruz-workload/blob/main/articles/tutorial-setting-up-azure-percept-using-wac-extension-cluster.md) -->
