@@ -14,7 +14,7 @@ ms.custom: "mvc, references_regions"
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
-Azure Database for PostgreSQL Flexible Server provides zone-redundant high availability, control over price, and control over maintenance windows. You can use the available migration tool to move your databases from Single Server to Flexible Server. To understand the differences between the two deployment options, see [this comparison chart](../flexible-server/concepts-compare-single-server-flexible-server.md). 
+Azure Database for PostgreSQL Flexible Server provides zone-redundant high availability, control over price, and control over maintenance windows. You can use the available migration tool to move your databases from Single Server to Flexible Server. To understand the differences between the two deployment options, see [this comparison chart](../flexible-server/concepts-compare-single-server-flexible-server.md).
 
 Single to Flexible server migration tool is designed to help you with your migration from Single to flexible server task. The tool allows you to initiate migrations for multiple servers and databases in a repeatable way. The tool automates most of the migration steps to make the migration journey across Azure platforms as seamless as possible. The tool is offered **free of cost**.
 
@@ -61,7 +61,7 @@ The steps in the process are:
 2. Invoke migration.
 3. Provision the migration infrastructure by using Azure Database Migration Service.
 4. Start the migration.
-   1. Initial dump/restore (online and offline) 
+   1. Initial dump/restore (online and offline)
    1. Streaming the changes (online only)
 5. Cut over to the target.
 
@@ -142,7 +142,9 @@ Before you start using the migration tool:
 
 4. [Set up and configure an Azure Active Directory (Azure AD) app](./how-to-set-up-azure-ad-app-portal.md). An Azure AD app is a critical component of the migration tool. It helps with role-based access control as the migration tool accesses both the source and target servers.
 
-5. If you are using any PostgreSQL extensions on the Single Server, it has to be allow-listed on the Flexible Server before initiating the migration using the steps below:
+5. Assign [contributor roles](./how-to-set-up-azure-ad-app-portal.md#add-contributor-privileges-to-an-azure-resource) to source server, target server and the migration resource group. In case of private access for source/target server, add Contributor privileges to the corresponding VNet as well.
+
+6. If you are using any PostgreSQL extensions on the Single Server, it has to be allow-listed on the Flexible Server before initiating the migration using the steps below:
 
    1. Use select command in the Single Server environment to list all the extensions in use.
 
