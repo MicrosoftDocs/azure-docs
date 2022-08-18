@@ -42,13 +42,13 @@ For B2B collaboration with other Azure AD organizations, you should also review 
 
    - **Guest users have limited access to properties and memberships of directory objects**: (Default) This setting blocks guests from certain directory tasks, like enumerating users, groups, or other directory resources. Guests can see membership of all non-hidden groups. [Learn more about default guest permissions](../fundamentals/users-default-permissions.md#member-and-guest-users).
 
-   - **Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)**: With this setting, guests can access only their own profiles. Guests are not allowed to see other users' profiles, groups, or group memberships.
+   - **Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)**: With this setting, guests can access only their own profiles. Guests aren't allowed to see other users' profiles, groups, or group memberships.
 
 1. Under **Guest invite settings**, choose the appropriate settings:
 
     ![Screenshot showing Guest invite settings.](./media/external-collaboration-settings-configure/guest-invite-settings.png)
 
-   - **Anyone in the organization can invite guest users including guests and non-admins (most inclusive)**: To allow guests in the organization to invite other guests including those who are not members of an organization, select this radio button.
+   - **Anyone in the organization can invite guest users including guests and non-admins (most inclusive)**: To allow guests in the organization to invite other guests including those who aren't members of an organization, select this radio button.
    - **Member users and users assigned to specific admin roles can invite guest users including guests with member permissions**: To allow member users and users who have specific administrator roles to invite guests, select this radio button.
    - **Only users assigned to specific admin roles can invite guest users**: To allow only those users with administrator roles to invite guests, select this radio button. The administrator roles include [Global Administrator](../roles/permissions-reference.md#global-administrator), [User Administrator](../roles/permissions-reference.md#user-administrator), and [Guest Inviter](../roles/permissions-reference.md#guest-inviter).
    - **No one in the organization can invite guest users including admins (most restrictive)**: To deny everyone in the organization from inviting guests, select this radio button.
@@ -61,8 +61,8 @@ For B2B collaboration with other Azure AD organizations, you should also review 
 
 1. Under **External user leave settings**, you can control whether external users can remove themselves from your organization. If you set this option to **No**, external users will need to contact your admin or privacy contact to be removed.
 
-   - **Yes**: Users can leave the organization without approval from your admin or privacy contact.
-   - **No**: Users can't leave your organization themselves. They'll see a message guiding them to contact your admin or privacy contact to request approval to leave your organization.
+   - **Yes**: Users can leave the organization themselves without approval from your admin or privacy contact.
+   - **No**: Users can't leave your organization themselves. They'll see a message guiding them to contact your admin or privacy contact to request removal from your organization.
 
    > [!IMPORTANT]
    > You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/active-directory-properties-area.md) to your Azure AD tenant. Otherwise, this setting will be unavailable.

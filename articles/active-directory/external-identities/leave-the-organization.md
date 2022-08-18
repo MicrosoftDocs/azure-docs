@@ -56,19 +56,21 @@ If your organization allows users to remove themselves from external organizatio
    ![Screenshot showing Leave organization option in the user interface.](media/leave-the-organization/leave-org.png)
 
 1. When asked to confirm, select **Leave**.
-1. If you select **Leave** for an organization but you see the following message, it means you’ll need to contact your admin or privacy contact and ask to leave the external organization.
+1. If you select **Leave** for an organization but you see the following message, it means you’ll need to contact the organization's admin or privacy contact and ask them to remove you from their organization.
 
    ![Screenshot showing the message when you need permission to leave an organization.](media/leave-the-organization/need-permission-leave.png)
 
 ## Why can’t I leave an organization?
 
-Sometimes you're unable to leave an organization on your own, for example:
+In the **Home organization** section, there's no option to **Leave** your organization. Only an administrator can remove your account from your home organization.
 
-- If the organization is your home organization (there's no option to **Leave** your home organization)
-- If the organization you want to leave doesn’t allow users to leave by themselves
-- If your account has been disabled
+For the external organizations listed under **Other organizations you collaborate with**, you might not be able to leave on your own, for example when:
 
-In these cases, you'll need to contact your admin or privacy contact and ask to leave the external organization.
+
+- the organization you want to leave doesn’t allow users to leave by themselves
+- your account has been disabled
+
+In these cases, you can select **Leave**, but then you'll see a message saying you need to contact the admin or privacy contact for that organization to ask them to remove you.
 
 ## More information for administrators
 
@@ -83,8 +85,8 @@ Administrators can use the **External user leave settings** to control whether e
 
 1. Under **External user leave** settings, choose whether to allow external users to leave your organization themselves:
 
-   - **Yes**: Users can leave the organization without approval from your admin or privacy contact.
-   - **No**: Users can't leave your organization themselves. They'll see a message guiding them to contact your admin or privacy contact to request approval to leave your organization.
+   - **Yes**: Users can leave the organization themselves without approval from your admin or privacy contact.
+   - **No**: Users can't leave your organization themselves. They'll see a message guiding them to contact your admin or privacy contact to request removal from your organization.
 
    ![Screenshot showing External user leave settings in the portal.](media/leave-the-organization/external-user-leave-settings.png)
 
