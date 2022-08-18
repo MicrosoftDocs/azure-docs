@@ -111,7 +111,7 @@ Review [Automated API deployments with API Ops][28] in the Azure Architecture Ce
 [20]: https://learn.hashicorp.com/tutorials/terraform/github-actions
 [21]: https://git-scm.com/
 [22]: https://github.com/
-[23]: /azure/devops/repos/get-started/what-is-repos?view=azure-devops&preserve-view=true
+[23]: /azure/devops/repos/get-started/what-is-repos
 [24]: ./policy-fragments.md
 [25]: https://azure.microsoft.com/services/devops/
 [26]: https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md
