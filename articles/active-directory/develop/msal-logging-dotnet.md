@@ -23,36 +23,88 @@ ms.custom: aaddev
 
 In MSAL logging is set at application creation using the `.WithLogging` builder modifier. This method takes optional parameters:
 
-- `Level` enables you to decide which level of logging you want. Setting it to Errors will only get errors
+- `IIdentityLogger` The logging implementation MSAL will send its logs too after chacking if logging is enabled.
 - `PiiLoggingEnabled` enables you to log personal and organizational data (PII) if set to true. By default this is set to false, so that your application does not log personal data.
-- `LogCallback` is set to a delegate that does the logging. If `PiiLoggingEnabled` is true, this method will receive messages that can have PII, in which case the `containsPii` flag will be set to true.
-- `DefaultLoggingEnabled` enables the default logging for the platform. By default it's false. If you set it to true it uses Event Tracing in Desktop/UWP applications, NSLog on iOS and logcat on Android.
 
-```csharp
-class Program
-{
-  private static void Log(LogLevel level, string message, bool containsPii)
-  {
-     if (containsPii)
-     {
-        Console.ForegroundColor = ConsoleColor.Red;
-     }
-     Console.WriteLine($"{level} {message}");
-     Console.ResetColor();
-  }
 
-  static void Main(string[] args)
-  {
-    var scopes = new string[] { "User.Read" };
+#### IIdentityLogger Interface
+```CSharp
+    public interface IIdentityLogger
+    {
+        //
+        // Summary:
+        //     Checks to see if logging is enabled at given eventLogLevel.
+        //
+        // Parameters:
+        //   eventLogLevel:
+        //     Log level of a message.
+        bool IsEnabled(EventLogLevel eventLogLevel);
 
-    var application = PublicClientApplicationBuilder.Create("<clientID>")
-                      .WithLogging(Log, LogLevel.Info, true)
-                      .Build();
+        //
+        // Summary:
+        //     Writes a log entry.
+        //
+        // Parameters:
+        //   entry:
+        //     Defines a structured message to be logged at the provided Microsoft.IdentityModel.Abstractions.LogEntry.EventLogLevel.
+        void Log(LogEntry entry);
+    }
+```
 
-    AuthenticationResult result = application.AcquireTokenInteractive(scopes)
-                                             .ExecuteAsync().Result;
-  }
-}
+#### IIdentityLogger Implementation
+
+###### Log Level as Environment Variable
+
+It is highly recommended to configure your code to use an environment variable on the machine to set the log level as it will enable your code to change the MSAL logging level without needing to rebuild the application. This is critical for diagnostic purposes, enabling us to quickly gather the required logs from the application that is currently deployed and in production.
+
+See [EventLogLevel](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/dev/src/Microsoft.IdentityModel.Abstractions/EventLogLevel.cs) for details on the available log levels.
+
+Example: 
+
+```CSharp
+    class MyIdentityLogger : IIdentityLogger
+    {
+        public EventLogLevel MinLogLevel { get; }
+
+        public TestIdentityLogger()
+        {
+            //Try to pull the log level from an environment variable
+            var msalEnvLogLevel = Environment.GetEnvironmentVariable("MSAL_LOG_LEVEL");
+
+            if (Enum.TryParse(msalEnvLogLevel, out EventLogLevel msalLogLevel))
+            {
+                MinLogLevel = msalLogLevel;
+            }
+            else
+            {
+                //Recommended default log level
+                MinLogLevel = EventLogLevel.Informational;
+            }
+        }
+
+        public bool IsEnabled(EventLogLevel eventLogLevel)
+        {
+            return eventLogLevel <= MinLogLevel;
+        }
+
+        public void Log(LogEntry entry)
+        {
+            //Log Message here:
+            Console.WriteLine(entry.message);
+        }
+    }
+```
+
+Using IdentityLogger:
+```CSharp
+    MyIdentityLogger myLogger = new MyIdentityLogger(logLevel);
+
+    var app = ConfidentialClientApplicationBuilder
+        .Create(TestConstants.ClientId)
+        .WithClientSecret("secret")
+        .WithExperimentalFeatures() //Currently an experimental feature, will be removed soon
+        .WithLogging(myLogger, piiLogging)
+        .Build();
 ```
 
 > [!TIP]
