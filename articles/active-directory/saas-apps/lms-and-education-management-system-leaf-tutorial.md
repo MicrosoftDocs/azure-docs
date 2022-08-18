@@ -132,9 +132,9 @@ To configure single sign-on on **LMS and Education Management System Leaf** side
 3. Click the **Registration CSV** button to download the registration CSV.
 4. Open the downloaded CSV, enter (Leaf) login ID, nameID format, authentication server, and save.
 
-    ![Screenshot for Registration CSV](./media/lms-and-education-management-system-leaf-tutorial/create-test-user.png)
+    ![Screenshot for Registration CSV.](./media/lms-and-education-management-system-leaf-tutorial/create-test-user.png)
 
-    ![Screenshot for Name ID](./media/lms-and-education-management-system-leaf-tutorial/name-identifier.png)
+    ![Screenshot for Name ID.](./media/lms-and-education-management-system-leaf-tutorial/name-identifier.png)
 
     a. Please enter `leaftest` in the **(Leaf) Login ID** column.
 
