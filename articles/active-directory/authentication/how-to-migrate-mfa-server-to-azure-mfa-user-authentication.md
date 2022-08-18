@@ -254,12 +254,46 @@ We recommend that you [secure the security registration process with Conditional
 
 ### Migrate MFA settings from MFA Server
 
-You can migrate registered MFA settings for users, including phone numbers, hardware tokens, and device registrations such as their Microsoft Authenticator app settings. 
-Migrating phone numbers can lead to stale numbers being migrated, and make users more likely to stay on phone-based MFA instead of setting up more secure methods like [passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md). 
-We therefore recommend that regardless of the migration path you choose, that you have all users register for [combined security information](howto-registration-mfa-sspr-combined.md). 
-Combined security information enables users to also register for self-service password reset.
+You can use the [MFA Server Migration utility](how-to-mfa-server-migration-utility.md) to synchronize registered MFA settings for users from MFA Server to Azure AD. 
+You can synchronize phone numbers, hardware tokens, and device registrations such as Microsoft Authenticator app settings. 
 
-You can use the [MFA Server Migration utility](how-to-mfa-server-migration-utility.md) to migrate MFA settings for users from MFA Server to Azure AD. 
+### Migrate phone numbers from MFA Server
+
+If you only want to migrate registered MFA phone numbers, you can export the users along with their phone numbers from MFA Server and import the phone numbers into Azure AD. 
+
+#### Export user phone numbers from MFA Server 
+
+1. Open the Multi-Factor Authentication Server admin console on the MFA Server. 
+1. Select **File** > **Export Users**.
+3)	Save the CSV file. The default name is Multi-Factor Authentication Users.csv.
+
+#### Interpret and format the .csv file
+
+The .csv file contains a number of fields not necessary for migration and will need to be edited and formatted prior to importing the phone numbers into Azure AD. 
+
+When opening the .csv file, columns of interest include Username, Primary Phone, Primary Country Code, Backup Country Code, Backup Phone, Backup Extension. You must interpret this data and format it, as necessary.
+
+#### Tips to avoid errors during import
+
+* The CSV file will need to be modified prior to using the Authentication Methods API to import the phone numbers into Azure AD. 
+* We recommend simplifying the .csv to three columns: UPN, PhoneType, and PhoneNumber. 
+
+  ![Screenshot of a csv example.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/csv-example.png)
+
+* Make sure the exported MFA Server Username matches the Azure AD UserPrincipalName. If it does not, update the username in the CSV file to match what is in Azure AD, otherwise the user will not be found.
+
+Users may have already registered phone numbers in Azure AD. 
+When importing the phone numbers using the Authentication Methods API, you must decide whether to overwrite the existing phone number or to add the imported number as an alternate phone number.
+
+The following PowerShell cmdlets takes the CSV file you supply and add the exported phone numbers as a phone number for each UPN using the Authentication Methods API. You must replace "myPhones" with the name of your CSV file.
+
+
+```powershell
+$csv = import-csv myPhones.csv
+$csv|% { New-MgUserAuthenticationPhoneMethod -UserId $_.UPN -phoneType $_.PhoneType -phoneNumber $_.PhoneNumber} 
+```
+
+For more information about managing users’ authentication methods, see [Manage authentication methods for Azure AD Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
 
 ### Add users to the appropriate groups 
 

@@ -66,19 +66,20 @@ The account name on the Authenticator App will change with the next push notific
 Migrating phone numbers can also lead to stale numbers being migrated and make users more likely to stay on phone-based MFA instead of setting up more secure methods like Microsoft Authenticator in passwordless mode. 
 We therefore recommend that regardless of the migration path you choose, that you have all users register for [combined security information](howto-registration-mfa-sspr-combined.md).
 
-
 #### Migrating hardware security keys
 
-Azure AD provides support for OATH hardware tokens. 
-In order to migrate the tokens from MFA Server to Azure AD Multi-Factor Authentication, the [tokens must be uploaded into Azure AD using a CSV file](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview), commonly referred to as a "seed file". 
+Azure AD provides support for OATH hardware tokens. You can use the [MFA Server Migration Utility](how-to-mfa-server-migration-utility.md) to synchronize MFA settings between MFA Server and Azure AD MFA and use [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md) to test user migrations without changing domain federation settings. 
+
+If you only want to migrate OATH hardware tokens, you need to [upload tokens to Azure AD by using a CSV file](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview), commonly referred to as a "seed file". 
 The seed file contains the secret keys, token serial numbers, and other necessary information needed to upload the tokens into Azure AD. 
 
 If you no longer have the seed file with the secret keys, it isn't possible to export the secret keys from MFA Server. 
 If you no longer have access to the secret keys, contact your hardware vendor for support.
 
-The [MFA Server Migration Utility](how-to-mfa-server-migration-utility.md) migrate OATH token settings assigned to a given user. 
+The MFA Server Web Service SDK can be used to export the serial number for any OATH tokens assigned to a given user. 
+Using this information along with the seed file, IT admins can import the tokens into Azure AD and assign the OATH token to the specified user based on the serial number. 
 The user will also need to be contacted at the time of import to supply OTP information from the device to complete the registration. 
-Refer to the GetUserInfo > userSettings > OathTokenSerialNumber topic in the Multi-Factor Authentication Server help file on your MFA Server. 
+Refer to the **GetUserInfo** > **userSettings** > **OathTokenSerialNumber** topic in the Multi-Factor Authentication Server help file on your MFA Server. 
 
 ### More migrations
 
@@ -130,7 +131,6 @@ Check with the service provider for supported product versions and their capabil
 - Available MFA methods for RADIUS clients are controlled by the client systems sending the RADIUS access requests.
   - MFA methods that require user input after they enter a password can only be used with systems that support access-challenge responses with RADIUS. Input methods might include OTP, hardware OATH tokens or the Microsoft Authenticator application.
   - Some systems might limit available multifactor authentication methods to Microsoft Authenticator push notifications and phone calls.
-
 
 >[!NOTE]
 >The password encryption algorithm used between the RADIUS client and the NPS system, and the input methods the client can use affect which authentication methods are available. For more information, see [Determine which authentication methods your users can use](howto-mfa-nps-extension.md). 
