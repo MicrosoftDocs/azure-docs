@@ -1,5 +1,5 @@
 ---
-title: 'On-boarding users to your organization using Lifecycle workflows with Azure portal (preview)'
+title: 'Automate employee onboarding tasks before their first day of work with Azure portal (preview)'
 description: Tutorial for onboarding users to an organization using Lifecycle workflows with Azure portal (preview).
 services: active-directory
 author: amsliu
@@ -14,7 +14,7 @@ ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
 
-# On-boarding users to your organization using Lifecycle workflows with Azure portal (preview)
+# Automate employee onboarding tasks before their first day of work with Azure portal (preview)
 
 This tutorial provides a step-by-step guide on how to automate pre-hire tasks with Lifecycle workflows using the Azure portal. 
 

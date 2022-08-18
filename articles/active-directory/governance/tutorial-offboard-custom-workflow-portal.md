@@ -1,5 +1,5 @@
 ---
-title: 'Off-boarding users from your organization using Lifecycle workflows with Azure portal (preview)'
+title: 'Execute employee offboarding tasks in real-time on their last day of work with Azure portal (preview)'
 description: Tutorial for off-boarding users from an organization using Lifecycle workflows with Azure portal (preview).
 services: active-directory
 author: amsliu
@@ -14,7 +14,7 @@ ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
 
-# Off-boarding users from your organization using Lifecycle workflows with Azure portal (preview)
+# Execute employee offboarding tasks in real-time on their last day of work with Azure portal (preview)
 
 This tutorial provides a step-by-step guide on how to execute a real-time employee termination with Lifecycle workflows using the Azure portal.
 

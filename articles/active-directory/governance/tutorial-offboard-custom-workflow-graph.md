@@ -1,5 +1,5 @@
 ---
-title: 'Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (preview)'
+title: 'Execute employee offboarding tasks in real-time on their last day of work with Microsoft Graph (preview)'
 description: Tutorial for off-boarding users from an organization using Lifecycle workflows with Microsoft Graph (preview).
 services: active-directory
 author: amsliu
@@ -13,7 +13,7 @@ ms.author: amsliu
 ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
-# Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (preview)
+# Execute employee offboarding tasks in real-time on their last day of work with Microsoft Graph (preview)
 
 This tutorial provides a step-by-step guide on how to execute a real-time employee termination with Lifecycle workflows using the GRAPH API.
 

@@ -1,5 +1,5 @@
 ---
-title: 'On-boarding users to your organization using Lifecycle workflows with Microsoft Graph (preview)'
+title: 'Automate employee onboarding tasks before their first day of work with Microsoft Graph (preview)'
 description: Tutorial for onboarding users to an organization using Lifecycle workflows with Microsoft Graph (preview).
 services: active-directory
 author: amsliu
@@ -13,7 +13,7 @@ ms.author: amsliu
 ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
-# On-boarding users to your organization using Lifecycle workflows with Microsoft Graph (preview)
+# Automate employee onboarding tasks before their first day of work with Microsoft Graph (preview)
 
 This tutorial provides a step-by-step guide on how to automate pre-hire tasks with Lifecycle workflows using the GRAPH API. 
 
