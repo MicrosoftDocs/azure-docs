@@ -1392,7 +1392,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-export-delete-data.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-export-data",
+        "redirect_url": "/azure/machine-learning/v1/how-to-export-delete-data",
         "redirect_document_id": true
     },
     {
@@ -1417,7 +1417,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-designer-import-data.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-designer-import-data.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-designer-import-data",
         "redirect_document_id": true
     },
     {
@@ -1427,7 +1427,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-differential-privacy.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-differential-privacy.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-differential-privacy",
         "redirect_document_id": true
     },
     {
@@ -2207,7 +2207,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-use-labeled-dataset.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-use-labeled-dataset.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-use-labeled-dataset",
         "redirect_document_id": true
     },
     {
