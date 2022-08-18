@@ -185,4 +185,4 @@ Alternatively, you can file an Azure support incident. Go to [Azure support](htt
 ## Next steps
 
 * For more information about VM extensions, see [Virtual machine extensions and features for Linux](features-linux.md).
-* For more information about Azure Disk Encryption for Linux, see [Linux virtual machines](../../security/fundamentals/azure-disk-encryption-vms-vmss.md#linux-virtual-machines).
+* For more information about Azure Disk Encryption for Linux, see [Linux virtual machines](../../virtual-machines/disk-encryption-overview.md#linux-virtual-machines).
