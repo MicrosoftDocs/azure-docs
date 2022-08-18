@@ -206,9 +206,9 @@ Monitor the following key scenarios, in addition to any scenarios specific to yo
 
 - **Suspicious activity**
 
-  Monitor all Azure AD risk events for suspicious activity. See [Risk detection and remediation](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation). Azure AD Identity Protection is natively integrated with Microsoft Defender for Cloud. See [What is Identity Protection](../identity-protection/overview-identity-protection.md).
+  Monitor all Azure AD risk events for suspicious activity. See [How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md). Azure AD Identity Protection is natively integrated with [Microsoft Defender for Identity](/defender-for-identity/what-is).
 
-  Define the network named locations to avoid noisy detections on location-based signals. See [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md).
+  Define network named locations to avoid noisy detections on location-based signals. See [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md).
 
 - **User and Entity Behavioral Analytics (UEBA) alerts**
 

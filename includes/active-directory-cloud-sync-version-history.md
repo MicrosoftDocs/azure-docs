@@ -2,8 +2,12 @@ This article lists the versions and features of Azure Active Directory Connect P
 > [!NOTE]
 > All new Provisioning Agent releases are made available through auto upgrade for existing installations and can be downloaded for new installations.
 
-
-Microsoft provides support for the latest agent version and one version before.
+>[!NOTE]
+> Azure Active Directory (Azure AD) Connect Provisioning agent follows the [Modern Lifecycle Policy](/lifecycle/policies/modern). Changes for products and services  under the Modern Lifecycle Policy may be more frequent and require customers to be alert for forthcoming modifications to their product or service.
+>
+> Products governed by the Modern Policy follow a [continuous support and servicing model](/lifecycle/overview/product-end-of-support-overview). Customers must take the latest update to remain supported. 
+>
+> For products and services governed by the Modern Lifecycle Policy, Microsoft's policy is to provide a minimum 30 days' notification when customers are required to take action in order to avoid significant degradation to the normal use of the product or service.
 
 ## Download link
 You can download the latest version of the agent using [this link](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
@@ -14,12 +18,12 @@ Release date: August 8, 2022
 
 ### New or changed functionality
 
- - We added a new cmdlet to enable and disable writeback of passwords. You can learn more about Azure AD Cloud Sync PowerShell in [the online documentation](https://docs.microsoft.com/azure/active-directory/cloud-sync/reference-powershell).
+ - We added a new cmdlet to enable and disable writeback of passwords. For more information about this cmdlet and its use, see [Enable password writeback in Azure AD Connect cloud sync](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md#enable-password-writeback-in-azure-ad-connect-cloud-sync).
  - We now return more info in the 'Get-AADCloudSyncDomains' cmdlet. 
  - We updated new cmdlets of CloudSync powershell module in the unattended agent install script. 
  - We have added support for the installation of the provisioning agent using the commandline. 
  - We added support for EX and RX environments.
- - 
+  
 ### Fixed issues
 
  - After the Newtonsoft.Json upgrade, AADConnectProvisioningAgent.exe.config isn't updated after install, which results in a failure of sync. We now remove the app.config file on upgrade of the agent.
@@ -40,7 +44,7 @@ November 2, 2021 - released for download
 
 New features and improvements
 
-- Cmdlet to configure Password Writeback
+- We added a cmdlet to configure Password Writeback
 
 
 ## 1.1.584.0 

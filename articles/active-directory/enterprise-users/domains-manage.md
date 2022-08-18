@@ -4,7 +4,7 @@ description: Management concepts and how-tos for managing a domain name in Azure
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: enterprise-users
