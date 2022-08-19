@@ -5,8 +5,8 @@ author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/06/2022
-ms.author: harshacs
+ms.date: 09/30/2020
+ms.author: v-pgaddala
 ms.custom: MVC
 
 ---
