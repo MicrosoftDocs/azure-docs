@@ -25,17 +25,17 @@ This article shows how to configure encryption with customer-managed keys stored
 
 ## Prerequisites
 
-When you configure customer-managed keys in an Azure key vault, you associate the key vault with your Azure storage account. The storage account can be a new or existing account.
+When you configure customer-managed keys in an Azure key vault, you must associate the key vault with your Azure storage account by configuring a key vault access policy. You can configure customer-managed keys for a new storage account at the time that you create it, or you can configure customer-managed keys for an existing storage account.
 
 ### Configuring customer-managed keys for a new storage account
 
-If you are creating a new storage account, create the key vault first, then create the storage account. You'll  
+If you are configuring customer-managed keys for a new storage account, configure the key vault first, then create the storage account. 
 
 you'll either need to create a new storage account, or have an existing storage account
 
 ### Configuring customer-managed keys for an existing storage account
 
-xyz
+If you are 
 
 ## Configure the key vault
 
