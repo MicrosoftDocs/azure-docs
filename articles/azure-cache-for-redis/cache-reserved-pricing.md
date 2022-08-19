@@ -29,7 +29,7 @@ For the details on how enterprise customers and Pay-As-You-Go customers are char
 ### Supported Tiers for reservations
 
 | Feature | Basic and Standard | Premium | Enterprise and Enterprise Flash |
-|----- |--------------------|---------|------------------|
+|-- |:-: | :-: |:-:|
 |**Reservation Support** | No        |Yes     |      Yes   |
 
 The size of reservation should be based on the total amount of memory size that is used by the existing or soon-to-be-deployed cache within a specific region, and using the same service tier.
