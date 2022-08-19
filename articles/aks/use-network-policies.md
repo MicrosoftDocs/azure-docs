@@ -129,7 +129,7 @@ $LOCATION=canadaeast
 Create a username to use as administrator credentials for your Windows Server containers on your cluster. The following command prompts you for a username. Set it to `$WINDOWS_USERNAME`(remember that the commands in this article are entered into a BASH shell).
 
 ```azurecli-interactive
-echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read $WINDOWS_USERNAME
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
 ```
 
 Use the following command to create a cluster :
@@ -149,7 +149,7 @@ It takes a few minutes to create the cluster. By default, your cluster is create
 ```azurecli
 az aks nodepool add \
     --resource-group $RESOURCE_GROUP_NAME \
-    --name $CLUSTER_NAME \
+    --cluster-name $CLUSTER_NAME \
     --os-type Windows \
     --name npwin \
     --node-count 1
@@ -171,7 +171,7 @@ If you plan on adding Windows node pools to your cluster, include the `windows-a
 Create a username to use as administrator credentials for your Windows Server containers on your cluster. The following command prompts you for a username. Set it to `$WINDOWS_USERNAME`(remember that the commands in this article are entered into a BASH shell).
 
 ```azurecli-interactive
-echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read $WINDOWS_USERNAME
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
 ```
 
 ```azurecli
@@ -189,7 +189,7 @@ It takes a few minutes to create the cluster. By default, your cluster is create
 ```azurecli
 az aks nodepool add \
     --resource-group $RESOURCE_GROUP_NAME \
-    --name $CLUSTER_NAME \
+    --cluster-name $CLUSTER_NAME \
     --os-type Windows \
     --name npwin \
     --node-count 1
