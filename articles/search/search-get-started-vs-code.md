@@ -203,7 +203,7 @@ The `fields` collection defines the structure of documents in the search index. 
 
 To create a new index, right-click on **Indexes** and then select **Create new index**. An editor with a name similar to `indexes-new-28c972f661.azsindex` will pop up. 
 
-Paste the index definition from above into the window. Save the file and select **Upload** when prompted if you want to update the index. This step creates the index and displays it in the tree view.
+Paste the index definition from above into the window. Save the file and select **Upload** when prompted if you want to update the index. This step creates the index and adds it to the tree view on the left.
 
 ![Gif of creating an index](media/search-get-started-rest/create-index.gif)
 
@@ -322,7 +322,7 @@ At this point, you should see all four documents available in the documents sect
 
 Now that the index contains content, you can issue queries using [Search Documents REST API](/rest/api/searchservice/search-documents):
 
-1. Right-click the index you want to search and select **Search index**. This step opens an editor with a name similar to `sandbox-b946dcda48.azs`.
+1. Right-click the index you want to search and select **Search**. This step opens an editor with a name similar to `sandbox-b946dcda48.azs`.
 
     ![search view of extension](media/search-get-started-rest/search-vscode.png)
 
@@ -347,14 +347,14 @@ In the next query, we specify the search term `wifi` and also include a filter t
 
 ```
 // Query example 2 - Search with filter, orderBy, select, and count
-search=wifi&$filter=Address/StateProvince eq 'FL'&$select=HotelId,HotelName,Rating&$orderby=Rating desc
+search=wifi&$filter=Address/StateProvince eq 'FL'&$select=HotelId,HotelName,Rating,Address/StateProvince&$orderby=Rating desc
 ```
 
 Next, the search is limited to a single searchable field using the `searchFields` parameter. This is a great option to make your query more efficient if you know you're only interested in matches in certain fields.
 
 ```
 // Query example 3 - Limit searchFields
-search=submlime cliff&$select=HotelId,HotelName,Rating&searchFields=HotelName
+search=sublime cliff&$select=HotelId,HotelName,Rating&searchFields=HotelName
 ```
 
 Another common option to include in a query is `facets`. Facets allow you to build out filters on your app to make it easy for users to know what values they can filter down to.
