@@ -91,7 +91,7 @@ Need to add multiple members at one time? Learn about the [add members in bulk](
 
 1. Choose a name from the list and select the **Remove** button.
 
-### Edit group settings
+## Edit group settings
 Using Azure AD, you can edit a group's name, description, or membership type. 
 
 To edit your group settings:
