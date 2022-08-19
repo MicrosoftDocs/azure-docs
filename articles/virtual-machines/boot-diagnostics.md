@@ -21,9 +21,10 @@ When creating a VM in Azure portal, boot diagnostics is enabled by default. The 
 > [!IMPORTANT]
 > The boot diagnostics data blobs (which comprise of logs and snapshot images) are stored in a managed storage account. Customers will be charged only on used GiBs by the blobs, not on the disk's provisioned size. The snapshot meters will be used for billing of the managed storage account. Because the managed accounts are created on either Standard LRS or Standard ZRS, customers will be charged at $0.05/GB per month for the size of their diagnostic data blobs only. For more information on this pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Customers will see this charge tied to their VM resource URI. 
 
-An alternative boot diagnostic experience is to use a user managed storage account. A user can either create a new storage account or use an existing one.
+An alternative boot diagnostic experience is to use a custom storage account. A user can either create a new storage account or use an existing one. When the storgae firewall is enabled on the custom storage account, you must [add the client/bowser IP to the storage firewall allow list](/troubleshoot/azure/virtual-machines/serial-console-linux#use-serial-console-with-custom-boot-diagnostics-storage-account-firewall-enabled). 
+
 > [!NOTE]
-> User managed storage accounts associated with boot diagnostics require the storage account and the associated virtual machines reside in the same region and subscription and accessible from all networks.
+> The custom storage account associated with boot diagnostics requires the storage account and the associated virtual machines reside in the same region and subscription. 
 
 
 
