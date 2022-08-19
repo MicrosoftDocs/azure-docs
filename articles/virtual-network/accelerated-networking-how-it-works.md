@@ -229,7 +229,7 @@ The mlx5 driver initializes the VF interface, and the interface is now functiona
 
 The data path has been switched back to the VF interface. 
 
-## Disable/Enable Accelerated Networking in a Running VM 
+## Disable/Enable Accelerated Networking in a non-running VM 
 
 Accelerated Networking can be toggled on a virtual NIC in a non-running VM with Azure CLI. For example: 
 
