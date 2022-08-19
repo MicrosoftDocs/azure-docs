@@ -6825,7 +6825,7 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/write | Create or update an voice endpoint. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/delete | Delete the specified voice endpoint. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/read | Get one or more voice endpoints |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/manifest/read | Returns an endpoint manifest which can be used in an on-premise container. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/manifest/read | Returns an endpoint manifest which can be used in an on-premises container. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/delete | Deletes the specified evaluation. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/read | Gets details of one or more evaluations |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/features/read | Gets a list of allowed features. |
@@ -7478,8 +7478,8 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/models/write | Create or update a model. |
 > | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/models/delete | Delete a model |
 > | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/models/read | Get one or more models |
-> | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/models/base/manifest/read | Returns an manifest for this base model which can be used in an on-premise container. |
-> | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/models/manifest/read | Returns an manifest for this model which can be used in an on-premise container. |
+> | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/models/base/manifest/read | Returns an manifest for this base model which can be used in an on-premises container. |
+> | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/models/manifest/read | Returns an manifest for this model which can be used in an on-premises container. |
 > | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/projects/write | Create or update a project |
 > | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/projects/delete | Delete a project |
 > | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/projects/read | Get one or more projects |
@@ -8080,11 +8080,11 @@ Azure service: [IoT security](../iot-fundamentals/iot-security-architecture.md)
 > | Microsoft.IoTSecurity/locations/sites/sensors/triggerTiPackageUpdate/action | Triggers threat intelligence package update |
 > | Microsoft.IoTSecurity/locations/sites/sensors/downloadResetPassword/action | Downloads reset password file for IoT Sensors |
 > | Microsoft.IoTSecurity/locations/sites/sensors/updateSoftwareVersion/action | Trigger sensor update |
-> | Microsoft.IoTSecurity/onPremiseSensors/read | Gets on-premise IoT Sensors |
-> | Microsoft.IoTSecurity/onPremiseSensors/write | Creates or updates on-premise IoT Sensors |
-> | Microsoft.IoTSecurity/onPremiseSensors/delete | Deletes on-premise IoT Sensors |
-> | Microsoft.IoTSecurity/onPremiseSensors/downloadActivation/action | Gets on-premise IoT Sensor Activation File |
-> | Microsoft.IoTSecurity/onPremiseSensors/downloadResetPassword/action | Downloads file for reset password of the on-premise IoT Sensor |
+> | Microsoft.IoTSecurity/onPremiseSensors/read | Gets on-premises IoT Sensors |
+> | Microsoft.IoTSecurity/onPremiseSensors/write | Creates or updates on-premises IoT Sensors |
+> | Microsoft.IoTSecurity/onPremiseSensors/delete | Deletes on-premises IoT Sensors |
+> | Microsoft.IoTSecurity/onPremiseSensors/downloadActivation/action | Gets on-premises IoT Sensor Activation File |
+> | Microsoft.IoTSecurity/onPremiseSensors/downloadResetPassword/action | Downloads file for reset password of the on-premises IoT Sensor |
 > | Microsoft.IoTSecurity/onPremiseSensors/listDiagnosticsUploadDetails/action | Get details required to upload sensor diagnostics data |
 > | Microsoft.IoTSecurity/sensors/read | Gets IoT Sensors |
 > | Microsoft.IoTSecurity/sensors/write | Creates or updates IoT Sensors |
