@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, rarayudu, azla
 ms.topic: how-to
-ms.date: 05/01/2022
+ms.date: 08/19/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -668,6 +668,9 @@ In the [Azure portal](https://portal.azure.com), add one or more authorization p
    | **Policy name** | Yes | The name that you want to use for the authorization policy |
    | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. The claim value is limited to a [maximum number of characters](logic-apps-limits-and-config.md#authentication-limits). Here are the available claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token identifier) <p><p>At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, review [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
    |||
+
+> [!IMPORTANT]
+> Each claim can only be a single string value. Array value is not supported. 
 
 1. To add another claim, select from these options:
 
