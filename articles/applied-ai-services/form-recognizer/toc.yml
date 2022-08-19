@@ -126,7 +126,7 @@ items:
     href: concept-general-document.md
   - name: W-2 form model | v3.0
     href: concept-w2.md
-  - name: Read model | v3.0
+  - name: Read OCR model | v3.0
     href: concept-read.md
   - name: Layout model
     href: concept-layout.md
