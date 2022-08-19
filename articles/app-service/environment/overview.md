@@ -97,46 +97,46 @@ App Service Environment v3 is available in the following regions:
 
 ### Azure Public:
 
-| Region               | Normal and dedicated host   | Availability zone support   |
-| -------------------- | :-------------------------: | :-------------------------: |
-| Australia East       | x                           | x                           |
-| Australia Southeast  | x                           |                             |
-| Brazil South         | x                           | x                           |
-| Canada Central       | x                           | x                           |
-| Canada East          | x                           |                             |
-| Central India        | x                           | x                           |
-| Central US           | x                           | x                           |
-| East Asia            | x                           | x                           |
-| East US              | x                           | x                           |
-| East US 2            | x                           | x                           |
-| France Central       | x                           | x                           |
-| Germany West Central | x                           | x                           |
-| Japan East           | x                           | x                           |
-| Korea Central        | x                           | x                           |
-| North Central US     | x                           |                             |
-| North Europe         | x                           | x                           |
-| Norway East          | x                           | x                           |
-| South Africa North   | x                           | x                           |
-| South Central US     | x                           | x                           |
-| Southeast Asia       | x                           | x                           |
-| Sweden Central       | x                           | x                           |
-| Switzerland North    | x                           | x                           |
-| UAE North            | x                           |                             |
-| UK South             | x                           | x                           |
-| UK West              | x                           |                             |
-| West Central US      | x                           |                             |
-| West Europe          | x                           | x                           |
-| West US              | x                           |                             |
-| West US 2            | x                           | x                           |
-| West US 3            | x                           | x                           |
+| Region               | Normal and dedicated host    | Availability zone support   |
+| -------------------- | :--------------------------: | :-------------------------: |
+| Australia East       | ✅                           | ✅                          |
+| Australia Southeast  | ✅                           |                             |
+| Brazil South         | ✅                           | ✅                          |
+| Canada Central       | ✅                           | ✅                          |
+| Canada East          | ✅                           |                             |
+| Central India        | ✅                           | ✅                          |
+| Central US           | ✅                           | ✅                          |
+| East Asia            | ✅                           | ✅                          |
+| East US              | ✅                           | ✅                          |
+| East US 2            | ✅                           | ✅                          |
+| France Central       | ✅                           | ✅                          |
+| Germany West Central | ✅                           | ✅                          |
+| Japan East           | ✅                           | ✅                          |
+| Korea Central        | ✅                           | ✅                          |
+| North Central US     | ✅                           |                             |
+| North Europe         | ✅                           | ✅                          |
+| Norway East          | ✅                           | ✅                          |
+| South Africa North   | ✅                           | ✅                          |
+| South Central US     | ✅                           | ✅                          |
+| Southeast Asia       | ✅                           | ✅                          |
+| Sweden Central       | ✅                           | ✅                          |
+| Switzerland North    | ✅                           | ✅                          |
+| UAE North            | ✅                           |                             |
+| UK South             | ✅                           | ✅                          |
+| UK West              | ✅                           |                             |
+| West Central US      | ✅                           |                             |
+| West Europe          | ✅                           | ✅                          |
+| West US              | ✅                           |                             |
+| West US 2            | ✅                           | ✅                          |
+| West US 3            | ✅                           | ✅                          |
 
 ### Azure Government:
 
 | Region               | Normal and dedicated host   | Availability zone support   |
 | -------------------- | :-------------------------: | :-------------------------: |
-| US Gov Texas         | x                           |                             |
-| US Gov Arizona       | x                           |                             |
-| US Gov Virginia      | x                           |                             |
+| US Gov Texas         | ✅                           |                             |
+| US Gov Arizona       | ✅                           |                             |
+| US Gov Virginia      | ✅                           |                             |
 
 ## App Service Environment v2
 
