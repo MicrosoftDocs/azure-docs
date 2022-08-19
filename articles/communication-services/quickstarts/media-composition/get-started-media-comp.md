@@ -138,7 +138,7 @@ var mediaCompositionId = "twoByTwoGridLayout"
 var response = await mediaCompositionClient.CreateAsync(mediaCompositionId, layout, inputs, outputs);
 ```
 
-You can use the mediaCompositionId to view or update the properties of a media composition object. Therefore, its is important to keep track of and persist the mediaCompositionId in your storage medium of choice.
+You can use the `mediaCompositionId` to view or update the properties of a media composition object. Therefore, its is important to keep track of and persist the `mediaCompositionId` in your storage medium of choice.
 
 ## Get properties of an existing media composition
 
