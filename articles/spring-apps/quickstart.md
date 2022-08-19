@@ -120,7 +120,7 @@ Deploying the application can take a few minutes.
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-- [Azure Toolkit for IntelliJ](./developer/java/toolkit-for-intellij/install-toolkit.md).
+- [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
 
 ### Generate a Spring project
 
