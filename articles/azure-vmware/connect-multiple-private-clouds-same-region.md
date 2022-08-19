@@ -2,7 +2,7 @@
 title: Connect multiple Azure VMware Solution private clouds in the same region
 description: Learn how to create a network connection between two or more Azure VMware Solution private clouds located in the same region.
 ms.topic: how-to 
-ms.date: 04/11/2022
+ms.date: 09/20/2021
 
 #Customer intent: As an Azure service administrator, I want create a network connection between two or more Azure VMware Solution private clouds located in the same region.  
 
