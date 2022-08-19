@@ -217,12 +217,19 @@ conceptualContent:
           - text: Learn where data is stored
             url: data-residency.md
             itemType: how-to-guide
+          - text: Security analytics with Microsoft Sentinel 
+            url: azure-sentinel.md
+            itemType: how-to-guide             
           - text: Regulations
             url: https://docs.microsoft.com/azure/compliance/
-            itemType: concept  
-          - text: Microsoft Sentinel with Azure AD B2C 
-            url: azure-sentinel.md
-            itemType: how-to-guide                                                  
+            itemType: concept 
+          - text: 'Manage uses access: Minors and parental consent'
+            url: manage-user-access.md
+            itemType: how-to-guide 
+          - text: 'Manage user data: delete or export'
+            url: manage-user-data.md
+            itemType: how-to-guide                          
+                                                 
     ## CARD 8 ######################
     - title: Automate
       links:
