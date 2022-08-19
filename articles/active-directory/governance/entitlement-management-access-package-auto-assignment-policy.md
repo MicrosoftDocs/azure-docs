@@ -47,7 +47,7 @@ To create a policy for an access package, you need to start from the access pack
    > [!NOTE]
    > The rule builder might not be able to display some rules constructed in the text box. For more information, see [rule builder in the Azure portal](/enterprise-users/groups-create-rule.md#rule-builder-in-the-azure-portal).
 
-    ![Access package automatic assignment policy Rule configuration](./media/entitlement-management-access-package-auto-assignment-policy/auto-assignment-rule-configuration.png)
+    ![Screenshot of an access package automatic assignment policy rule configuration.](./media/entitlement-management-access-package-auto-assignment-policy/auto-assignment-rule-configuration.png)
 
 1. Click **Save** to close the dynamic membership rule editor, then click **Next** to open the **Custom Extensions** tab.
 
@@ -55,7 +55,7 @@ To create a policy for an access package, you need to start from the access pack
 
 1. Type a name and a description for the policy.
 
-    ![Access package automatic assignment policy Review tab](./media/entitlement-management-access-package-auto-assignment-policy/auto-assignment-review.png)
+    ![Screenshot of an access package automatic assignment policy review tab.](./media/entitlement-management-access-package-auto-assignment-policy/auto-assignment-review.png)
 
 1. Click **Create** to save the policy.
 
