@@ -1,6 +1,6 @@
 ---
 title: Animated character detection with Azure Video Indexer how to
-description: This how to demonstrates how to use animated character detection with Azure Video Indexer.
+description: This topic demonstrates how to use animated character detection with Azure Video Indexer.
 author: Juliako
 manager: femila
 
@@ -107,7 +107,7 @@ Before tagging and training the model, all animated characters will be named “
     1. Review each character group: 
 
         * If the group contains unrelated images, it's recommended to delete these in the Custom Vision website. 
-        * If there are images that belong to a different character, change the tag on these specific images by select the image, adding the right tag and deleting the wrong tag. 
+        * If there are images that belong to a different character, change the tag on these specific images by selecting the image, adding the right tag and deleting the wrong tag. 
         * If the group isn't correct, meaning it contains mainly non-character images or images from multiple characters, you can delete in Custom Vision website or in Azure Video Indexer insights. 
         * The grouping algorithm will sometimes split your characters to different groups. It's therefore recommended to give all the groups that belong to the same character the same name (in Azure Video Indexer Insights), which will immediately cause all these groups to appear as on in Custom Vision website. 
     1. Once the group is refined, make sure the initial name you tagged it with reflects the character in the group. 
