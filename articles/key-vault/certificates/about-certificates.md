@@ -144,6 +144,9 @@ Key Vault allows for creation of multiple issuer objects with different issuer p
 
 Issuer objects are created in the vault and can only be used with KV certificates in the same vault.  
 
+>[!Note]
+>Publicly trusted certificates are sent to Certificate Authorities (CAs) and Certificate Transparency (CT) logs outside of the Azure boundary during enrollment and will be covered by the GDPR policies of those entities.
+
 ## Certificate contacts
 
 Certificate contacts contain contact information to send notifications triggered by certificate lifetime events. The contacts information is shared by all the certificates in the key vault. A notification is sent to all the specified contacts for an event for any certificate in the key vault. For information on how to set Certificate contact, see [here](overview-renew-certificate.md#steps-to-set-certificate-notifications)  
