@@ -13,7 +13,7 @@ ms.date: 07/01/2022
 
 In this quickstart, you'll set up end-to-end web tests and run them at cloud-scale with Microsoft Playwright Testing Preview. Use cloud infrastructure to validate your application across multiple browsers, devices, and operating systems.
 
-After you complete this quickstart, you'll have a test suite and a Microsoft Playwright Testing resource that you can use for other tutorials.
+You won't be writing Playwright test specifications, and instead use a sample repository of Playwrights tests. After you complete this quickstart, you'll have a test suite and a Microsoft Playwright Testing workspace that you can use for other tutorials.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -37,58 +37,22 @@ Clone the sample repository to your workstation:
 
     ```bash
     git clone https://github.com/microsoft/playwright-service-preview
-    ```
-
-1. Navigate to the sample directory:
-
-    ```bash
     cd playwright-service-preview/samples/PlaywrightTestRunner
     ```
 
-## Authenticate with the private npm repository
+## Install dependencies
 
-To run tests with Microsoft Playwright Testing, you use the `@microsoft/playwright-service` npm package. This package resides in a private package registry.
+To install the package dependencies in your local directory:
 
-To authenticate your GitHub user account with the private repository, follow these steps:
+```bash
+npm install
+```
 
-1. Create a [GitHub personal access token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for your account.
+## Create an access key for service authentication
 
-    The token should have the `read:packages` permission.
+To authorize Playwright to run tests with Microsoft Playwright Testing, you need an access key.
 
-    :::image type="content" source="./media/quickstart-run-end-to-end-tests/access-token-permissions.png" alt-text="Screenshot that shows the access token permissions.":::
-
-    > [!IMPORTANT]
-    > After generating the token, make sure to copy the token value, as you won't see it again.
-
-1. If your organization requires SAML SSO for GitHub, authorize your personal access token to use SSO.
-
-    1. Go to your [Personal access tokens](https://github.com/settings/tokens) page.
-    1. Select **[Configure SSO](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)** to the right of the token.
-    1. Select your organization from the list to authorize SSO.
-
-1. Authenticate with the private npm registry to enable you to download the latest `@microsoft/playwright-service` package when you run `npm install`:
-
-    ```bash
-    npm login --scope=@microsoft --registry=https://npm.pkg.github.com
-    ```
-
-    Provide your GitHub username, password and email address. For the password, paste the value of the token you created in the earlier step.
-    
-1. You can now install all the package dependencies in your local directory:
-
-    ```bash
-    npm install
-    ```
-
-    > [!NOTE]
-    > If you get an **E403 Forbidden** error, this means that the token is not authorized or has expired.
-    > Verify that your [personal access token](https://github.com/settings/tokens) has not expired. Validate also that you have authorized SSO, as described earlier.
-    
-## Authenticate with Microsoft Playwright Testing
-
-To run Playwright tests with Microsoft Playwright Testing, you need a workspace access key.
-
-To generate a new workspace access key: 
+To generate a new workspace access key:
 
 1. Open the [Playwright portal](https://dashboard.playwright-ppe.io/) and sign in with your Azure credentials.
 
@@ -106,7 +70,7 @@ To generate a new workspace access key:
 
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/copy-access-key-value.png" alt-text="Screenshot that shows how to copy the access key functionality in the Playwright portal.":::
     
-    > [!NOTE]
+    > [!IMPORTANT]
     > You can only access the key value immediately after you've created it. You can't access the key value anymore at a later time.
 
 ## Configure Playwright for Microsoft Playwright Testing
@@ -129,7 +93,9 @@ On your machine, create an environment variable `ACCESS_KEY`, and set its value 
 
 ## Run tests
 
-You've now configured your Playwright tests to run in the cloud with Microsoft Playwright Testing. The sample test configuration specifies multiple browser and device configurations.
+You've now configured your Playwright tests to run in the cloud with Microsoft Playwright Testing. The tests in the sample repository run across multiple browser and device configurations.
+
+To run the Playwright tests by using the command-line interface:
 
 1. Navigate to the samples directory:
 
