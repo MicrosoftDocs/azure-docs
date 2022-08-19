@@ -10,7 +10,7 @@ ms.date: 12/07/2020
 ms.author: juliako
 ---
 
-# Use the animated character detection (preview) with portal and API 
+# Use the animated character detection with portal and API 
 
 Azure Video Indexer supports detection, grouping, and recognition of characters in animated content, this functionality is available through the Azure portal and through API. Review [this overview](animated-characters-recognition.md) article.
 
