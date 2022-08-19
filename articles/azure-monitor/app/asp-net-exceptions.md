@@ -247,7 +247,8 @@ namespace MVC2App.Controllers
         {
             if (filterContext != null && filterContext.HttpContext != null && filterContext.Exception != null)
             {
-                //If customError is Off, then AI HTTPModule will report the exception
+                //The attribute should track exceptions only when CustomErrors setting is On
+                //if CustomErrors is Off, exceptions will be caught by AI HTTP Module
                 if (filterContext.HttpContext.IsCustomErrorEnabled)
                 {   //or reuse instance (recommended!). see note above
                     var ai = new TelemetryClient();
