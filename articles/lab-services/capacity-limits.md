@@ -20,6 +20,10 @@ These actions may be disabled if there no more cores that can be enabled for you
 
 :::image type="content" source="./media/capacity-limits/warning-message.png" alt-text="Screenshot of core limit warning in Azure Lab Services.":::
 
+> [!NOTE]
+> Azure Lab Services capacity limits are set per subscription.
+
+
 ## Request a limit increase
 
 If you reach the cores limit, you can request a limit increase to continue using Azure Lab Services. The request process is a checkpoint to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments.

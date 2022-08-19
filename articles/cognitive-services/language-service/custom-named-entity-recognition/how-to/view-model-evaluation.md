@@ -57,5 +57,5 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 
 ## Next steps
 
-* After reviewing your model's evaluation, you can start [improving your model](improve-model.md).
+* [Deploy your model](deploy-model.md)
 * Learn about the [metrics used in evaluation](../concepts/evaluation-metrics.md). 
