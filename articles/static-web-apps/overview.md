@@ -37,6 +37,7 @@ With Static Web Apps, static assets are separated from a traditional web server 
 - **Customizable authorization role definition** and assignments.
 - **Back-end routing rules** enabling full control over the content and routes you serve.
 - **Generated staging versions** powered by pull requests enabling preview versions of your site before publishing.
+- **CLI support** through the [Azure CLI](/cli/azure/staticwebapp?view=azure-cli-latest) to create cloud resources, and via the [Azure Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli#azure-static-web-apps-cli) for local development.
 
 ## What you can do with Static Web Apps
 
