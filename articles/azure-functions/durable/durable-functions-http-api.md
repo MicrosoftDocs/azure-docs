@@ -280,7 +280,7 @@ Request parameters for this API include the default set mentioned previously as 
 | **`createdTimeFrom`**   | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or after the given ISO8601 timestamp.|
 | **`createdTimeTo`**     | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or before the given ISO8601 timestamp.|
 | **`runtimeStatus`**     | Query string    | Optional parameter. When specified, filters the list of returned instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) article. |
-| **`instanceIdPrefix`**  | Query string    | Optional parameter. When specified, filters the list of returned instances to include only instances whose instance id starts with the specified prefix string.  Available starting with [version 2.7.2](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.7.2) of the extension. |
+| **`instanceIdPrefix`**  | Query string    | Optional parameter. When specified, filters the list of returned instances to include only instances whose instance ID starts with the specified prefix string.  Available starting with [version 2.7.2](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.7.2) of the extension. |
 | **`top`**               | Query string    | Optional parameter. When specified, limits the number of instances returned by the query. |
 
 ### Response
@@ -337,9 +337,12 @@ Here is an example of response payloads including the orchestration status (form
 ```
 
 > [!NOTE]
-> This operation can be very expensive in terms of Azure Storage I/O if you are using the [default Azure Storage provider](durable-functions-storage-providers.md#azure-storage) and if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Performance and scale in Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) documentation.
+> This operation can be very expensive in terms of Azure Storage I/O if you are using the [default Azure Storage provider](durable-functions-storage-providers.md#azure-storage) and if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Azure Storage provider](durable-functions-azure-storage-provider.md#instances-table) documentation.
 
 If more results exist, a continuation token is returned in the response header.  The name of the header is `x-ms-continuation-token`.
+
+> [!CAUTION]
+> The query result may return fewer items than the limit specified by `top`. When receiving results, you should therefore *always* check to see if there is a continuation token.
 
 If you set continuation token value in the next request header, you can get the next page of results. This name of the request header is also `x-ms-continuation-token`.
 
@@ -433,7 +436,7 @@ Request parameters for this API include the default set mentioned previously as 
 | **`runtimeStatus`**   | Query string    | Optional parameter. When specified, filters the list of purged instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) article. |
 
 > [!NOTE]
-> This operation can be very expensive in terms of Azure Storage I/O if you are using the [default Azure Storage provider](durable-functions-storage-providers.md#azure-storage) and if there are many rows in the Instances and/or History tables. More details on these tables can be found in the [Performance and scale in Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) documentation.
+> This operation can be very expensive in terms of Azure Storage I/O if you are using the [default Azure Storage provider](durable-functions-storage-providers.md#azure-storage) and if there are many rows in the Instances and/or History tables. More details on these tables can be found in the [Performance and scale in Durable Functions (Azure Functions)](durable-functions-azure-storage-provider.md#instances-table) documentation.
 
 ### Response
 
