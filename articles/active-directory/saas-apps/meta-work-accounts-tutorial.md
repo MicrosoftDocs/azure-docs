@@ -125,11 +125,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Enable **Single-sign on(SSO)** checkbox and click **+Add new SSO Provider**.
 
-    ![Screenshot shows the SSO Account.](./media/meta-work-accounts-tutorial/security.png "SSO Account")
+<!-- ![Screenshot shows the SSO Account.](./media/meta-work-accounts-tutorial/security.png "SSO Account") -->
 
 1. On the **Single Sign-On (SSO) Setup** page, perform the following steps:
 
-    ![Screenshot shows the SSO Configuration.](./media/meta-work-accounts-tutorial/certificate.png "Configuration")
+<!--     ![Screenshot shows the SSO Configuration.](./media/meta-work-accounts-tutorial/certificate.png "Configuration") -->
 
     1. Enter a valid **Name of the SSO Provider**.
 
