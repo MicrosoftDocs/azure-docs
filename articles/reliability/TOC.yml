@@ -28,8 +28,9 @@
     href: az-service-support.md
   - name: Cross-region replication
     href: across-region-replication-azure.md
-  - name: Migration guides
+  - name: Migration to availability zone support
     href: az-migration-overview.md
+  - name: Migration guides
     items:
     - name: API Management
       href: migrate-api-mgt.md
