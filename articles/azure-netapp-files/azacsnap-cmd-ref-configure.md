@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 08/19/2022
 ms.author: phjensen
 ---
 
@@ -87,7 +87,7 @@ Database section
 
 # [SAP HANA](#tab/sap-hana)
 
-When adding a *SAP HANA database* to the configuration, the following values are required:
+When you add an *SAP HANA database* to the configuration, the following values are required:
 
 - **HANA Server's Address** = The SAP HANA server hostname or IP address.
 - **HANA SID** = The SAP HANA System ID.
@@ -124,7 +124,7 @@ the configuration file directly.
 
 # [Oracle](#tab/oracle)
 
-When adding an *Oracle database* to the configuration, the following values are required:
+When you add an *Oracle database* to the configuration, the following values are required:
 
 - **Oracle DB Server's Address** = The database server hostname or IP address.
 - **SID** = The database System ID.
@@ -134,7 +134,7 @@ When adding an *Oracle database* to the configuration, the following values are 
 
 # [Azure Large Instance (Bare Metal)](#tab/azure-large-instance)
 
-When adding *HLI Storage* to a database section, the following values are required:
+When you add *HLI Storage* to a database section, the following values are required:
 
 - **Storage User Name** = This value is the user name used to establish the SSH connection to the Storage.
 - **Storage IP Address** = The address of the Storage system.
@@ -154,11 +154,11 @@ When adding *HLI Storage* to a database section, the following values are requir
 
 # [Azure NetApp Files (with VM)](#tab/azure-netapp-files)
 
-When adding *ANF Storage* to a database section, the following values are required:
+When you add *ANF Storage* to a database section, the following values are required:
 
-- **Service Principal Authentication filename** = this is the `authfile.json` file generated in the Cloud Shell when configuring
+- **Service Principal Authentication filename** = the `authfile.json` file generated in the Cloud Shell when configuring
     communication with Azure NetApp Files storage.
-- **Full ANF Storage Volume Resource ID** = the full Resource ID of the Volume being snapshot.  This can be retrieved from:
+- **Full ANF Storage Volume Resource ID** = the full Resource ID of the Volume being snapshot.  This string can be retrieved from:
     Azure portal –> ANF –> Volume –> Settings/Properties –> Resource ID
 
 ---
