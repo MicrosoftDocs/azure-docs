@@ -313,29 +313,29 @@ tools:
     url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/1-WebApp-OIDC/1-5-B2C/README.md
     imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
   - title: MSAL Android
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-android
+    url: https://github.com/Azure-Samples/ms-identity-android-java#b2cmodefragment-class
     imageSrc: ../active-directory/develop/media/hub/android.svg
   - title: MSAL Angular
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular
+    url: https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/3-Authorization-II/2-call-api-b2c
     imageSrc: ../active-directory/develop/media/hub/angular.svg
   ## ROW 2 ######################
   - title: MSAL iOS
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-objc
+    url: https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal
     imageSrc: https://docs.microsoft.com/media/logos/logo_ios.svg
   - title: MSAL Java
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-java
+    url: https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/1.%20Server-Side%20Scenarios/msal-b2c-web-sample
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
   - title: MSAL.js
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser
+    url: https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa
     imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
   ## ROW 3 ######################
   - title: MSAL Node
-    url: https://github.com/Azure-Samples/ms-identity-javascript-nodejs-tutorial/blob/main/1-Authentication/2-sign-in-b2c/README.md
+    url: https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp
     imageSrc: ../active-directory/develop/media/hub/node.svg
   - title: MSAL Python
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-python
+    url: https://github.com/Azure-Samples/ms-identity-python-webapp
     imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
   - title: MSAL React
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react
+    url: https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c
     imageSrc: ../active-directory/develop/media/hub/react.svg
 ## BAND 4 - TOOLS END #######################################################################################################################################
