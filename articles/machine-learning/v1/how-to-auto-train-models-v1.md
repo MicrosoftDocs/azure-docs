@@ -1,29 +1,29 @@
 ---
-title: 'Tutorial: AutoML-train regression model'
+title: 'AutoML-train regression model (SDK v1)'
 titleSuffix: Azure Machine Learning
-description: Train a regression model to predict NYC taxi fares with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML.
+description: Train a regression model to predict NYC taxi fares with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML SDK (v1).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.topic: tutorial
+ms.topic: how-to
 author: blackmist
 ms.author: larryfr
-ms.reviewer: nibaccam
+ms.reviewer: sgilley
 ms.date: 10/21/2021
 ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
 ---
 
-# Tutorial: Train a regression model with AutoML and Python
+# Train a regression model with AutoML and Python (SDK v1)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-In this tutorial, you learn how to train a regression model with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML. This regression model predicts NYC taxi fares. 
+In this article, you learn how to train a regression model with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML. This regression model predicts NYC taxi fares. 
 
 This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model. 
 
-![Flow diagram](./media/tutorial-auto-train-models/flow2.png)
+![Flow diagram](./media/how-to-auto-train-models/flow2.png)
 
-You'll write code using the Python SDK in this tutorial.  You'll learn the following tasks:
+You'll write code using the Python SDK in this article.  You'll learn the following tasks:
 
 > [!div class="checklist"]
 > * Download, transform, and clean data using Azure Open Datasets
@@ -32,22 +32,22 @@ You'll write code using the Python SDK in this tutorial.  You'll learn the follo
 
 For no-code AutoML, try the following tutorials: 
 
-* [Tutorial: Train no-code classification models](tutorial-first-experiment-automated-ml.md)
+* [Tutorial: Train no-code classification models](../tutorial-first-experiment-automated-ml.md)
 
-* [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md)
+* [Tutorial: Forecast demand with automated machine learning](../tutorial-automated-ml-forecast.md)
 
 ## Prerequisites
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
 
-* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace or a compute instance.
+* Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace or a compute instance.
 * After you complete the quickstart:
     1. Select **Notebooks** in the studio.
     1. Select the **Samples** tab.
     1. Open the *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* notebook.
     1. To run each cell in the tutorial, select **Clone this notebook**
 
-This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). 
+This article is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](../how-to-configure-environment.md#local). 
 To get the required packages, 
 * [Install the full `automl` client](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment).
 * Run `pip install azureml-opendatasets azureml-widgets` to get the required packages.
@@ -155,7 +155,7 @@ final_df.describe()
 
 ## Configure workspace
 
-Create a workspace object from the existing workspace. A [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **config.json** and loads the authentication details into an object named `ws`. `ws` is used throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. A [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **config.json** and loads the authentication details into an object named `ws`. `ws` is used throughout the rest of the code in this article.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -186,9 +186,9 @@ To automatically train a model, take the following steps:
 
 ### Define training settings
 
-Define the experiment parameter and model settings for training. View the full list of [settings](how-to-configure-auto-train.md). Submitting the experiment with these default settings will take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_hours` parameter.
+Define the experiment parameter and model settings for training. View the full list of [settings](how-to-configure-auto-train-v1.md). Submitting the experiment with these default settings will take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_hours` parameter.
 
-|Property| Value in this tutorial |Description|
+|Property| Value in this article |Description|
 |----|----|---|
 |**iteration_timeout_minutes**|10|Time limit in minutes for each iteration. Increase this value for larger datasets that need more time for each iteration.|
 |**experiment_timeout_hours**|0.3|Maximum amount of time in hours that all iterations combined can take before the experiment terminates.|
@@ -292,8 +292,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-![Jupyter widget run details](./media/tutorial-auto-train-models/automl-dash-output.png)
-![Jupyter widget plot](./media/tutorial-auto-train-models/automl-chart-output.png)
+![Jupyter widget run details](./media/how-to-auto-train-models/automl-dash-output.png)
+![Jupyter widget plot](./media/how-to-auto-train-models/automl-chart-output.png)
 
 ### Retrieve the best model
 
@@ -367,7 +367,7 @@ Do not complete this section if you plan on running other Azure Machine Learning
 
 ### Stop the compute instance
 
-[!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### Delete everything
 
@@ -382,11 +382,11 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 ## Next steps
 
-In this automated machine learning tutorial, you did the following tasks:
+In this automated machine learning article, you did the following tasks:
 
 > [!div class="checklist"]
 > * Configured a workspace and prepared data for an experiment.
 > * Trained by using an automated regression model locally with custom parameters.
 > * Explored and reviewed training results.
 
-[Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md) with Azure Machine Learning.
+[Set up AutoML to train computer vision models with Python (v1)](how-to-auto-train-image-models-v1.md)
