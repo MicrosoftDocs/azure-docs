@@ -127,7 +127,7 @@ These changes are visible immediately on the YARN Scheduler UI.
 - [Apache Hadoop YARN concepts and applications](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
 
-## Common Issues
+## How do I troubleshoot YARN common issues?
 
 ### Yarn UI is not loading
 
