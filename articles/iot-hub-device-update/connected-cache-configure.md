@@ -4,7 +4,7 @@ titleSuffix:  Device Update for Azure IoT Hub
 description: Overview of Microsoft Connected Cache for Device Update for Azure IoT Hub
 author: andyriv
 ms.author: andyriv
-ms.date: 2/16/2021
+ms.date: 08/19/2022
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---

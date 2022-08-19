@@ -3,7 +3,7 @@ title: Security for Device Update for Azure IoT Hub | Microsoft Docs
 description: Understand how Device Update for IoT Hub ensures devices are updated securely.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 06/24/2022
+ms.date: 08/19/2022
 ms.topic: conceptual
 ms.service: iot-hub
 ---
@@ -12,7 +12,7 @@ ms.service: iot-hub
 
 Device Update for IoT Hub offers a secure method to deploy updates for device firmware, images, and applications to your IoT devices. The workflow provides an end-to-end secure channel with a full chain-of-custody model that a device can use to prove an update is trusted, unmodified, and intentional.
 
-Each step in the Device Update workflow is protected through various security features and processes to ensure that every step in the pipeline performs a secured handoff to the next. The Device Update agent reference code identifies and properly manages any legitimate update requests. The reference agent also checks every download to ensure that the content is trusted, unmodified, and intentional.
+Each step in the Device Update workflow is protected through various security features and processes to ensure that every step in the pipeline performs a secured handoff to the next. The Device Update agent reference code identifies and properly manages any illegitimate update requests. The reference agent also checks every download to ensure that the content is trusted, unmodified, and intentional.
 
 ## Summary
 
