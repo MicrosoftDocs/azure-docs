@@ -15,7 +15,7 @@ ms.author: ladolan
 
 After you've created infrastructure for your new SAP system using *Azure Center for SAP solutions (ACSS)*, you need to install the SAP software.
 
-In this how-to guide, you'll learn how to upload and install all the required components in your Azure account. You can either [run a pre-installation script to automate the upload process](#upload-components-with-script) or [manually upload the components](#upload-components-manually). Then, you can [run the software installation wizard](#install-software).
+In this how-to guide, you'll learn how to upload and install all the required components in your Azure account. You can either [run a pre-installation script to automate the upload process](#option-:1-upload-software-components-with-script) or [manually upload the components](#option-2:-upload-components-manually). Then, you can [run the software installation wizard](#install-software).
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ The following components are necessary for the SAP installation:
 
 - SAP software installation media (part of the `sapbits` container described later in this article)
     - All essential SAP packages (*SWPM*, *SAPCAR*, etc.)
-    - SAP software (for example, S/4HANA 2021 ISS 00*)
+    - SAP software (for example, *S/4HANA 2021 ISS 00*)
 - Supporting software packages for the installation process (part of the `deployervmpackages` container described later in this article)
     - `pip3` version `pip-21.3.1.tar.gz`
     - `wheel` version 0.37.1
@@ -324,7 +324,7 @@ You also can [run scripts to automate this process](#option-1:-upload-software-c
 
 Now, you can [install the SAP software](#install-software) using the installation wizard.
 
-##  Install SAP software
+##  Install software
 
 To install the SAP software on Azure, use the ACSS installation wizard.
 
@@ -362,7 +362,7 @@ To install the SAP software on Azure, use the ACSS installation wizard.
 
 1. Wait for the installation to complete. The process takes approximately three hours. You can see the progress, along with estimated times for each step, in the wizard.
 
-1. After the installation completes, sign in with your SAP system credentials. Refer to this[manage-virtual-instance#find-sap-and-hana-passwords] to find the SAP system and HANA DB credentials for the newly installed system.
+1. After the installation completes, sign in with your SAP system credentials. Refer to [this section](manage-virtual-instance.md) to find the SAP system and HANA DB credentials for the newly installed system.
 
 ## Limitations
 
