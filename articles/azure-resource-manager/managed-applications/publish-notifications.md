@@ -83,7 +83,7 @@ DELETE | Failed | After any error during the deprovisioning process that blocks 
 
 When you create your webhook endpoint to handle notifications, you'll need to parse the payload to get important properties to then act upon the notification. Service catalog and Azure Marketplace managed application notifications provide many of the same properties, but there are some differences. The `applicationDefinitionId` property only applies to service catalog. The `billingDetails` and `plan` properties only apply to Azure Marketplace.
 
-Azure appends `/resource` to the notification endpoint URI you provided in the managed application definition. For example, if you provided a notification endpoint URI like `https://fabrikam.com` then the webhook endpoint URI is `https://fabrikam.com/resource`. The webhook URI must be able to handle notifications on the `/resource` URI.
+Azure appends `/resource` to the notification endpoint URI you provided in the managed application definition. The webhook endpoint must be able to handle notifications on the `/resource` URI. For example, if you provided a notification endpoint URI like `https://fabrikam.com` then the webhook endpoint URI is `https://fabrikam.com/resource`.
 
 ### Service catalog application notification schema
 
