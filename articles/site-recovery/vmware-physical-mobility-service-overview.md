@@ -430,7 +430,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 
 This downloads the Mobility Service configuration file. Copy the downloaded file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
 
-See information about [upgrading the mobility services](upgrade-mobility-service-preview.md).
+See information about [upgrading the mobility services](upgrade-mobility-service-modernized.md).
 
 ## Next steps
 
