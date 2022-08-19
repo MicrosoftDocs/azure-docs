@@ -1,12 +1,13 @@
 ---
 title: Azure CLI Samples for Azure Cosmos DB Cassandra API
 description: Azure CLI Samples for Azure Cosmos DB Cassandra API
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 02/21/2022
-ms.author: mjbrown 
+ms.author: sidandrews
+ms.reviewer: mjbrown 
 ms.custom: devx-track-azurecli
 ---
 

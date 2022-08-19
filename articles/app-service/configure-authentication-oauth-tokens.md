@@ -38,7 +38,7 @@ When your provider's access token (not the [session token](#extend-session-token
 - **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/authentication/faq)).
 - **Microsoft**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
     1. At the top of the page, select **Read/Write**.
-    2. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app\_name>_** > **config** > **authsettingsV2**.
+    2. In the left browser, navigate to **subscriptions** > **_\<subscription\_name>_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app\_name>_** > **config** > **authsettingsV2**.
     3. Click **Edit**.
     4. Modify the following property.
 

@@ -34,6 +34,9 @@ items:
       href: create-data-warehouse-portal.md
     - name: PowerShell
       href: create-data-warehouse-powershell.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quickstart-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-arm-template.md
@@ -145,6 +148,8 @@ items:
       href: sql-data-warehouse-overview-develop.md
     - name: Best practices
       href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+    - name: Distribution Advisor 
+      href: ../sql/distribution-advisor.md
     - name: JSON
       items:
       - name: JSON
@@ -347,6 +352,8 @@ items:
       href: sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md
     - name: Troubleshooting a missed classification
       href: sql-data-warehouse-how-to-troubleshoot-missed-classification.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+    - name: Identify queries running beyond execution timeout
+      href: sql-data-warehouse-how-to-find-queries-running-beyond-wlm-elapsed-timeout.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
   - name: Manage and monitor
     items:
     - name: Upgrade to Gen2

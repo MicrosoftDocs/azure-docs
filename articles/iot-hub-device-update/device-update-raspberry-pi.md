@@ -154,7 +154,7 @@ Here are two examples for the `du-config.json` and the `du-diagnostics-config.js
 	      ssh raspberrypi3 -l root
 	   ```
 
-   1. Create or open the `du-config.jso` file for editing by using:
+   1. Create or open the `du-config.json` file for editing by using:
    
 	   ```bash
 	      nano /adu/du-config.json

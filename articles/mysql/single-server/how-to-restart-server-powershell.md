@@ -1,12 +1,12 @@
 ---
 title: Restart server - Azure PowerShell - Azure Database for MySQL
 description: This article describes how you can restart an Azure Database for MySQL server using PowerShell.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: savjani
+ms.author: pariks
 ms.topic: how-to
-ms.date: 4/28/2020 
+ms.date: 06/20/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -38,6 +38,9 @@ To complete this how-to guide, you need:
 > Once the Az.MySql PowerShell module is generally available, it becomes part of future Az
 > PowerShell module releases and available natively from within Azure Cloud Shell.
 
+>[!Note]
+>If the user restarting the server is part of [custom role](../../role-based-access-control/custom-roles.md) the user should have write privilege on the server.
+
 If you choose to use PowerShell locally, connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet.
 
@@ -50,6 +53,7 @@ Restart the server with the following command:
 ```azurepowershell-interactive
 Restart-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
+
 
 ## Next steps
 

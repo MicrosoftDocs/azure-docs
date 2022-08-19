@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 01/16/2022
+ms.date: 06/13/2022
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: text to speech

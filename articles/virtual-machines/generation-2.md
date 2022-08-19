@@ -1,13 +1,13 @@
 ---
 title: Azure support for generation 2 VMs 
 description: Overview of Azure support for generation 2 VMs
-author: ju-shim
+author: lauradolan
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
-ms.author: jushiman
+ms.author: ladolan
 ---
 
 # Support for generation 2 VMs on Azure
@@ -144,7 +144,7 @@ For more information, see [Trusted launch](trusted-launch.md).
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Compute Gallery             | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
+| [Azure disk encryption](../virtual-machines/disk-encryption-overview.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Server-side encryption](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 

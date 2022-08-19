@@ -47,6 +47,9 @@ An IoT Hub identity registry:
 > [!IMPORTANT]
 > Only use the identity registry for device management and provisioning operations. High throughput operations at run time should not depend on performing operations in the identity registry. For example, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates](iot-hub-devguide-quotas-throttling.md) for the identity registry, and the [device heartbeat](iot-hub-devguide-identity-registry.md#device-heartbeat) pattern.
 
+> [!NOTE]
+> It can take a few seconds for a device or module identity to be available for retrieval after creation. Please retry `get` operation of device or module identities in case of failures.
+
 ## Disable devices
 
 You can disable devices by updating the **status** property of an identity in the identity registry. Typically, you use this property in two scenarios:
@@ -87,83 +90,7 @@ A more complex implementation could include the information from [Azure Monitor]
 
 ## Device and module lifecycle notifications
 
-IoT Hub can notify your IoT solution when a device identity is created or deleted by sending lifecycle notifications. To do so, your IoT solution needs to create a route and to set the Data Source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. By creating a route with Data Source equal to *DeviceLifecycleEvents*, lifecycle events will be sent for both device identities and module identities; however, the message contents will differ depending on whether the events are generated for module identities or device identities.  It should be noted that for IoT Edge modules, the module identity creation flow is different than for other modules, as a result for IoT Edge modules the create notification is only sent if the corresponding IoT Edge Device for the updated IoT Edge module identity is running. For all other modules, lifecycle notifications are sent whenever the module identity is updated on the IoT Hub side.  The notification message includes properties, and body.
-
-Properties: Message system properties are prefixed with the `$` symbol.
-
-Notification message for device:
-
-| Name | Value |
-| --- | --- |
-|$content-type | application/json |
-|$iothub-enqueuedtime |  Time when the notification was sent |
-|$iothub-message-source | deviceLifecycleEvents |
-|$content-encoding | utf-8 |
-|opType | **createDeviceIdentity** or **deleteDeviceIdentity** |
-|hubName | Name of IoT Hub |
-|deviceId | ID of the device |
-|operationTimestamp | ISO8601 timestamp of operation |
-|iothub-message-schema | deviceLifecycleNotification |
-
-Body: This section is in JSON format and represents the twin of the created device identity. For example,
-
-```json
-{
-    "deviceId":"11576-ailn-test-0-67333793211",
-    "etag":"AAAAAAAAAAE=",
-    "properties": {
-        "desired": {
-            "$metadata": {
-                "$lastUpdated": "2016-02-30T16:24:48.789Z"
-            },
-            "$version": 1
-        },
-        "reported": {
-            "$metadata": {
-                "$lastUpdated": "2016-02-30T16:24:48.789Z"
-            },
-            "$version": 1
-        }
-    }
-}
-```
-Notification message for module:
-
-| Name | Value |
-| --- | --- |
-$content-type | application/json |
-$iothub-enqueuedtime |  Time when the notification was sent |
-$iothub-message-source | moduleLifecycleEvents |
-$content-encoding | utf-8 |
-opType | **createModuleIdentity** or **deleteModuleIdentity** |
-hubName | Name of IoT Hub |
-moduleId | ID of the module |
-operationTimestamp | ISO8601 timestamp of operation |
-iothub-message-schema | moduleLifecycleNotification |
-
-Body: This section is in JSON format and represents the twin of the created module identity. For example,
-
-```json
-{
-    "deviceId":"11576-ailn-test-0-67333793211",
-    "moduleId":"tempSensor",
-    "etag":"AAAAAAAAAAE=",
-    "properties": {
-        "desired": {
-            "$metadata": {
-                "$lastUpdated": "2016-02-30T16:24:48.789Z"
-            },
-            "$version": 1
-        },
-        "reported": {
-            "$metadata": {
-                "$lastUpdated": "2016-02-30T16:24:48.789Z"
-            },
-            "$version": 1
-        }
-    }
-}
-```
+IoT Hub can notify your IoT solution when a device identity is created or deleted by sending lifecycle notifications. To do so, your IoT solution needs to create a route and to set the Data Source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. By creating a route with Data Source equal to *DeviceLifecycleEvents*, lifecycle events will be sent for both device identities and module identities; however, the message contents will differ depending on whether the events are generated for module identities or device identities.  It should be noted that for IoT Edge modules, the module identity creation flow is different than for other modules, as a result for IoT Edge modules the create notification is only sent if the corresponding IoT Edge Device for the updated IoT Edge module identity is running. For all other modules, lifecycle notifications are sent whenever the module identity is updated on the IoT Hub side.  To learn more about the properties and body returned in the notification message, see  [Non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).
 
 ## Device identity properties
 

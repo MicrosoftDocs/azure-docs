@@ -3,7 +3,8 @@ title: Limitations of Azure Arc-enabled SQL Managed Instance
 description: Limitations of Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
+ms.custom: event-tier1-build-2022
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
@@ -14,8 +15,6 @@ ms.topic: conceptual
 # Limitations of Azure Arc-enabled SQL Managed Instance
 
 This article describes limitations of Azure Arc-enabled SQL Managed Instance. 
-
-At this time, the business critical service tier is public preview. The general purpose service tier is generally available.
 
 ## Backup and restore
 

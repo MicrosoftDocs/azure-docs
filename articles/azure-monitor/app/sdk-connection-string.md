@@ -4,6 +4,7 @@ description: How to use connection strings.
 ms.topic: conceptual
 ms.date: 04/13/2022
 ms.custom: "devx-track-js, devx-track-csharp"
+ms.reviewer: cogoodson
 ---
 
 # Connection strings
@@ -89,7 +90,12 @@ See also: [Regions that require endpoint modification](./custom-endpoints.md#reg
 - [Profiler](./profiler-overview.md): `profiler`
 - [Snapshot](./snapshot-debugger.md): `snapshot`
 
+#### Is Connection string a secret?
 
+Connection string contains iKey which is a unique identifier used by the ingestion service to associate telemetry to a specific Application Insights resource.  It is not to be considered a security token or key. The ingestion endpoint provides Azure AD-based authenticated telemetry ingestion options if you want to protect your AI resource from misuse.
+
+> [!NOTE]
+> Application Insights JavaScript SDK requires the connection string to be passed in during initialization/configuration.  This is viewable in plain text in client browsers. There is no easy way to use the Azure AD-based authentication for browser telemetry.  It is recommended that customers consider creating a separate Application Insights resource for browser telemetry if they need to secure the service telemetry.
 
 ## Connection string examples
 
@@ -135,7 +141,7 @@ In this example, the connection string specifies the South Central US region.
 - The regional service URIs are based on the explicit override values: 
    - Ingestion: `https://southcentralus.in.applicationinsights.azure.com/`
 
-Run the following command in the [Azure Command-Line Interface (CLI)](/cli/azure/account?view=azure-cli-latest#az-account-list-locations) to list available regions.
+Run the following command in the [Azure Command-Line Interface (CLI)](/cli/azure/account?view=azure-cli-latest#az-account-list-locations&preserve-view=true) to list available regions.
 
 `az account list-locations -o table`
 

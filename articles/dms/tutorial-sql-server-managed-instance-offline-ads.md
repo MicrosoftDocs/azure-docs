@@ -3,8 +3,8 @@ title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline using
 titleSuffix: Azure Database Migration Service
 description: Migrate SQL Server to an Azure SQL Managed Instance offline using Azure Data Studio with Azure Database Migration Service (Preview)
 services: dms
-author: mokabiru
-ms.author: mokabiru
+author: croblesm
+ms.author: roblescarlos
 manager: 
 ms.reviewer: 
 ms.service: dms
@@ -52,7 +52,6 @@ To complete this tutorial, you need to:
 * Provide an SMB network share, Azure storage account file share, or Azure storage account blob container that contains your full database backup files and subsequent transaction log backup files, which Azure Database Migration Service can use for database migration.
     > [!IMPORTANT]
     > - If your database backup files are provided in an SMB network share, [Create an Azure storage account](../storage/common/storage-account-create.md) that allows DMS service to upload the database backup files to and use for migrating databases.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
-    > - You can't use an Azure Storage account that has a private endpoint with Azure Database Migration Service.
     > - Azure Database Migration Service does not initiate any backups, and instead uses existing backups, which you may already have as part of your disaster recovery plan, for the migration.
     > - You need to take [backups using the `WITH CHECKSUM` option](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?preserve-view=true&view=sql-server-2017). 
     > - Each backup can be written to either a separate backup file or multiple backup files. However, appending multiple backups (i.e. full and t-log) into a single backup media is not supported. 
@@ -174,7 +173,7 @@ To complete this tutorial, you need to:
 After all database backups are restored on Azure SQL Managed Instance, an automatic migration cutover will be initiated by the Azure DMS to ensure the migrated database in Azure SQL Managed Instance is ready for use and the migration status changes from *in progress* to *Succeeded*.
 
 > [!IMPORTANT]
-> After the migration, availability of SQL Managed Instance with Business Critical service tier can take significantly longer than General Purpose as three secondary replicas have to be seeded for AlwaysOn High Availability group. This operation duration depends on the size of data, for more information, see [Management operations duration](/azure/azure-sql/managed-instance/management-operations-overview#duration).
+> After the migration, availability of SQL Managed Instance with Business Critical service tier can take significantly longer than General Purpose as three secondary replicas have to be seeded for Always On High Availability group. This operation duration depends on the size of data, for more information, see [Management operations duration](/azure/azure-sql/managed-instance/management-operations-overview#duration).
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
-title: Mobile UI Library use cases scenarios
-titleSuffix: An Azure Communication Services - Mobile UI Library use cases scenarios
-description: In this document, introduce the Mobile UI Library capabilities and how is going to work in your applications
+title:  UI Library for Mobile native platforms use cases scenarios
+titleSuffix: An Azure Communication Services - UI Library for Mobile native platforms use cases scenarios
+description: In this document, introduce the UI Library for Mobile native platforms capabilities and how is going to work in your applications
 author: jorgegarc
 
 ms.author: jorgegarc
@@ -10,9 +10,8 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
+The UI Library for iOS and Android supports calling use cases by using the **calling composite**.
 
-Mobile UI Library for iOS and Android supports calling use cases by using the **calling composite**.
 Composites enable developers to easily integrate a whole calling experience into their application with only a couple of lines of code; those composites take care of the entire lifecycle of the call from setup to the call ending.
 
 ## Calling
@@ -27,6 +26,7 @@ Composites enable developers to easily integrate a whole calling experience into
 |                                                                                                 | Video preview available throughout call for local user |
 |                                                                                                 | Default avatars available when video is off            |
 |                                                                                                 | Shared screen content displayed on participant gallery |
+|                                                                                                 | Participant Avatar Customization                |
 |                                                                                     | Participant roster                                     |
 | Call configuration                                                                              | Microphone device management                           |
 |                                                                                                 | Camera device management                               |
@@ -35,6 +35,7 @@ Composites enable developers to easily integrate a whole calling experience into
 | Call Controls                                                                                   | Mute/unmute call                                       |
 |                                                                                                 | Video on/off on call                                   |
 |                                                                                                 | End call                                               |
+|                                                                                                 | Hold/Resume Call on Audio Interruption                 |
 
 ## Supported Identities
 
@@ -45,18 +46,18 @@ For more information on authentication, see [Authentication](../../authenticatio
 
 ![Teams Interop pattern for calling and chat](../../media/mobile-ui/teams-interop-diagram.png)
 
-For [Teams Interop](../../teams-interop.md) scenarios, developers can use the Mobile UI Library Components to join Teams meetings through Azure Communication Services.
+For [Teams Interop](../../teams-interop.md) scenarios, developers can use the UI Library composites to join Teams meetings through Azure Communication Services.
 To enable Teams Interop, developers can use the calling composite, which will take care of the lifecycle of joining a Teams Interop call.
 
 :::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Pre-meeting experience":::
 
 ## View shared content
 
-The Mobile UI Library provides the capability of the calling participants to view the shared content when other participants share their screens during the calling; also, the participant can zoom on the screen, making the pinching gestures over the screen to get a better look over the shared content.
+The UI Library for Mobile  native platforms provides the capability of the calling participants to view the shared content when other participants share their screens during the calling. Also, the participant can zoom on the screen, making the pinching gestures over the screen to get a better look over the shared content.
 
 ## Theming
 
-The UI Library Calling Composite for iOS and Android provides the capability for developers to update the theme of the all experience by passing a primary color. The Composite uses that primary color to provide appropriate theming across the experience.
+The UI Library Calling Composite for iOS and Android provides the capability for developers to create a custom theme of the all experience by passing a set of theming colors. [How to create your theme.](../../../how-tos/ui-library-sdk/theming.md)
 
 | Android                            | iOS                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
@@ -72,9 +73,17 @@ The calling composite offers to adapt to any screen size that would bring suppor
 
 ## Localization
 
-Localization is a key to making products that can be used across the world and by people who speak different languages.
+Localization is a key to making products that can be used across the world and by people who speak different languages. The UI Library, provides support for 12 languages: ***English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish and Chinese*** and RTL capabilities. [How to add localization to your app.](../../../how-tos/ui-library-sdk/localization.md)
 
-Localization is a key to making products that can be used across the world. The Mobile UI Library now provides support for 13 languages: ***English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish and Chinese*** and RTL capabilities.
+## Accessibility
+
+Accessibility is a key focus of the calling libraries. Screen Readers are supported to make important announcements regarding calling status and to help ensure that visibility impaired users can effectively participate in using the application.
+
+## Participant View Data Injection
+
+The UI Library for Mobile native platforms gives the developers the ability to modify both Local and Remote Participants and how they are displayed in the call. On call launch the developer can supply a local avatar and custom display name to show to the local user. For Remote Users, methods are available to allow customization of avatars as they join the meetings. [How to customize participant views.](../../../how-tos/ui-library-sdk/data-model.md)
+
+:::image type="content" source="../../media/mobile-ui/ios-composite.gif" alt-text="Gif animation shows the pre-meeting experience and joining experience on iOS.":::
 
 ## Recommended Architecture
 
@@ -83,7 +92,7 @@ trusted service that you manage. See [Quickstart: Create Access Tokens](../../..
 
 :::image type="content" source="../../media/mobile-ui/ui-library-architecture.png" alt-text="Recommended architecture diagram":::
 
-These client libraries also require the context for the call they will join. Similar to user access tokens, this context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
+These client libraries also require the context for the call they'll join. Similar to user access tokens, this context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
 
 | Contoso Responsibilities                                 | UI Library Responsibilities                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
@@ -97,7 +106,7 @@ These client libraries also require the context for the call they will join. Sim
 |Platform | Versions|
 |---------|---------|
 | iOS     | iOS 14+ |
-| Android | v21+    |
+| Android | Api 21+ |
 
 > [!div class="nextstepaction"]
 > [Quickstart guides](../../../quickstarts/ui-library/get-started-composites.md)

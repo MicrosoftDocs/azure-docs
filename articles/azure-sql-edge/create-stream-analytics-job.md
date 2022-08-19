@@ -246,6 +246,9 @@ The streaming job can have any one of the following statuses:
 | Stopped | The streaming job has been stopped. |
 | Failed | The streaming job failed. This is generally an indication of a fatal error during processing. |
 
+> [!NOTE]
+> Since the streaming job is executed asynchronously, the job might encounter errors at runtime. In order to troubleshoot a streaming job failure, use the `sys.sp_get_streaming_job` stored procedure, or review the docker log from the Azure SQL Edge container, which can provide the error details from the streaming job.
+
 ## Next steps
 
 - [View metadata associated with streaming jobs in Azure SQL Edge](streaming-catalog-views.md) 

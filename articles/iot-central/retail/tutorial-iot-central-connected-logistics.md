@@ -1,12 +1,12 @@
 ---
 title: Tutorial of IoT Connected logistics | Microsoft Docs
 description: A tutorial of Connected logistics application template for IoT Central
-author: KishorIoT
-ms.author: nandab
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.date: 01/06/2022
+ms.date: 06/13/2022
 
 ---
 
@@ -48,8 +48,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* There are no specific prerequisites required to deploy this app.
-* You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create connected logistics application
 
@@ -65,7 +64,7 @@ Create the application using following steps:
 
 
     * **Application name**: you can use default suggested name or enter your friendly application name.
-    * **URL**: you can use suggested default URL or enter your friendly unique memorable URL. Next, the default setting is recommended if you already have an Azure Subscription. You can start with 7-day free trial pricing plan and choose to convert to a standard pricing plan at any time before the free trail expires.
+    * **URL**: you can use suggested default URL or enter your friendly unique memorable URL.
     * **Billing Info**: The directory, Azure subscription, and region details are required to provision the resources.
     * **Create**: Select create at the bottom of the page to deploy your application.
 

@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.custom: contperf-fy22q2
 ---
@@ -32,6 +32,8 @@ When you give users access to your application, the higher in the hierarchy you 
 The following screenshot shows an organization hierarchy definition in IoT Central:
 
 :::image type="content" source="media/howto-create-organization/organizations-definition.png" alt-text="Screenshot of organizations hierarchy definition." lightbox="media/howto-create-organization/organizations-definition.png":::
+
+To learn how to manage organizations by using the IoT Central REST API, see [How to use the IoT Central REST API to manage organizations.](../core/howto-manage-organizations-with-rest-api.md)
 
 ## Create a hierarchy
 

@@ -39,13 +39,13 @@ Even though the correct H265 codec might be installed, security properties on th
 
 Azure Remote Rendering currently only supports **HoloLens 2** and Windows desktop as a target device. See the [platform limitations](../reference/limits.md#platform-limitations) section.
 
-On desktop, it is required to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
+On desktop, it's required to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
 
 It's important to use the latest HEVC codec, as newer versions have significant improvements in latency. To check which version is installed on your device:
 
 1. Start the **Microsoft Store**.
-1. Click the **"Library"** button in the bottom left.
-1. Find **HEVC Video Extensions from Device Manufacturer** in the list. If it is not listed under updates, the most recent version is already installed. Otherwise click the **Get Updates** button and wait for it to install.
+1. Select the **"Library"** button in the bottom left.
+1. Find **HEVC Video Extensions from Device Manufacturer** in the list. If it isn't listed under updates, the most recent version is already installed. Otherwise select the **Get Updates** button and wait for it to install.
 1. Make sure the listed codec has at least version **1.0.21821.0**.
     1. Select the **HEVC Video Extensions from Device Manufacturer** entry from the list.
     1. Scroll down to the **Additional Information** section.
@@ -60,8 +60,6 @@ See dedicated chapter for [network requirements](../reference/network-requiremen
 For troubleshooting network issues, refer to the [Troubleshooting Guide](../resources/troubleshoot.md#unstable-holograms).
 
 ### Network firewall
-
-### SDK version >= 0.1.76
 
 Remote Rendering virtual machines use shared IP addresses from the following IP ranges:
 
@@ -84,16 +82,6 @@ Make sure that your firewalls (on device, inside routers, etc.) don't block thes
 |-------------------|---------- |----------|
 | 49152-65534       | TCP / UDP | Outgoing |
 
-#### SDK version < 0.1.76
-
-Make sure that your firewalls (on device, inside routers, etc.) don't block the following ports:
-
-| Port              | Protocol | Allow    | Description |
-|-------------------|----------|----------|-------------|
-| 50051             | TCP      | Outgoing | Initial connection (HTTP handshake) |
-| 8266              | UDP      | Outgoing | Data transfer |
-| 5000, 5433, 8443  | TCP      | Outgoing | Required for [ArrInspector tool](../resources/tools/arr-inspector.md)|
-
 ## Software
 
 The following software must be installed:
@@ -111,7 +99,7 @@ The following software must be installed:
 For development with Unity, install a supported version of Unity [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
 
 > [!IMPORTANT]
-> In addition to the supported versions mentioned below, make sure to check out the [Unity known issues page](/mixed-reality/develop/unity/known-issues).
+> In addition to the supported versions mentioned below, make sure to check out the [Unity known issues page](/windows/mixed-reality/develop/unity/known-issues).
 
 Make sure to include the following modules in your Unity installation:
 * **UWP** - Universal Windows Platform Build Support
