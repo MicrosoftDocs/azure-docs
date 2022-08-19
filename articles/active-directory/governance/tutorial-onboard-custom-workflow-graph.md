@@ -99,8 +99,9 @@ Content-type: application/json
             { 
                 "name": "tapIsUsableOnce", 
                 "value": "true" 
-            } 
-        }  
+            }
+          ]
+       }  
     ]     
 } 
 ```
