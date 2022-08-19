@@ -44,14 +44,14 @@ $containerimagename = "mycontainerregistry.azurecr.io/windows:latest" #container
 
 ## 2 - Create a new resource group
 
-Create a new Resource Group by using the [New-AzResourceGroup](/powershell/module/az.websites/myResourceGroup) command:
+Create a new Resource Group by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $resourcegroup -Location $location
 ```
 ## 3 - Create container registry
 
-Next, create a container registry in your new resource group with the [New-AzContainerRegistry][New-AzContainerRegistry] command.
+Next, create a container registry in your new resource group with the [New-AzContainerRegistry](/powershell/module/az.containerregistry/new-azcontainerregistry) command.
 
 The following example creates a registry in the Basic SKU with Admin User enabled.
 
@@ -61,7 +61,7 @@ $registry = New-AzContainerRegistry -ResourceGroupName $resourcegroup -Name $con
 
 ## 4 - Log in to registry
 
-Before pushing and pulling container images, you must log in to your registry with the [Connect-AzContainerRegistry][connect-azcontainerregistry] cmdlet. The following example uses the same credentials you logged in with when authenticating to Azure with the `Connect-AzAccount` cmdlet.
+Before pushing and pulling container images, you must log in to your registry with the [Connect-AzContainerRegistry](/powershell/module/az.containerregistry/connect-azcontainerregistry) cmdlet. The following example uses the same credentials you logged in with when authenticating to Azure with the `Connect-AzAccount` cmdlet.
 
 > [!NOTE]
 > In the following example, the value of `$registry.Name` is the resource name, not the fully qualified registry name.
@@ -89,7 +89,7 @@ docker push mycontainerregistry.azurecr.io/windows:latest
 
 ## 6 - Get registry credentials
 
-In order to create the web app with a container image located in Azure Container Registry, you need to get the registry login credentials using [Get-AzContainerRegistryCredential]() as shown below:
+In order to create the web app with a container image located in Azure Container Registry, you need to get the registry login credentials using [Get-AzContainerRegistryCredential](/powershell/module/az.containerregistry/get-azcontainerregistrycredential) as shown below:
 
 ```azurepowershell-interactive
 $pass = Get-AzContainerRegistryCredential -ResourceGroupName $resourcegroup -Name $containerregsitryname
@@ -138,6 +138,8 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 Note that the Host operating system appears in the footer, confirming we are running in a Windows container.
 
 ## 10 - Clean up resources
+
+Remove the resrouce group by using the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup myResourceGroup

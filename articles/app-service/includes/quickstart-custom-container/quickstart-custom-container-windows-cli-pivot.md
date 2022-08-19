@@ -17,11 +17,10 @@ This quickstart shows you how to deploy an ASP.NET app in a Windows image from A
 
 To complete this quickstart, you need:
 
-- An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
-- [Switch Docker to run Windows containers](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
 
 ## 1 - Clone the sample repository
 
@@ -31,7 +30,71 @@ Clone the [the .NET 6.0 sample app](https://github.com/Azure-Samples/dotnetcore-
 git clone https://github.com/Azure-Samples/dotnetcore-docs-hello-world.git
 ```
 
-## 2 - Push the image to Azure Container Registry
+## 2 - Create a resource group
+
+Create a resource group with the [az group create][az-group-create] command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+
+```azurecli
+az group create --name myResourceGroup --location eastus
+```
+
+## 3 - Create a container registry
+
+In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
+
+Create an ACR instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. Update this to a unique value.
+
+```azurecli
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry --sku Basic
+```
+
+When the registry is created, the output is similar to the following:
+
+```json
+{
+  "adminUserEnabled": false,
+  "creationDate": "2019-01-08T22:32:13.175925+00:00",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
+  "location": "eastus",
+  "loginServer": "mycontainerregistry.azurecr.io",
+  "name": "myContainerRegistry007",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "status": null,
+  "storageAccount": null,
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+```
+
+Take note of `loginServer` in the output, which is the fully qualified registry name (all lowercase). Throughout the rest of this quickstart `<registry-name>` is a placeholder for the container registry name, and `<login-server>` is a placeholder for the registry's login server name.
+
+[!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]
+
+## 4 - Log in to registry
+
+Before pushing and pulling container images, you must log in to the registry. To do so, use the [az acr login][az-acr-login] command. Specify only the registry resource name when logging in with the Azure CLI. Don't use the fully qualified login server name. 
+
+```azurecli
+az acr login --name <registry-name>
+```
+
+Example:
+
+```azurecli
+az acr login --name mycontainerregistry
+```
+
+The command returns a `Login Succeeded` message once completed.
+
+## 5 - Push the image to Azure Container Registry
 
 Make sure you are in the cloned repository's root folder. This repository contains a **Dockerfile.windows** file. We will be using Windows Nano Server Long Term Servicing Channel (LTSC) 2022 as the base operating system, explicitly calling out our Windows base.
 
@@ -65,7 +128,7 @@ Make sure you are in the cloned repository's root folder. This repository contai
     > [!NOTE]
     > The Dockerfile sets the port number to 80 internally. For more information about configuring the container, see [Configure custom container](../../configure-custom-container.md).
 
-## 3 - Deploy to Azure
+## 6 - Deploy to Azure
 
 You now create the required Azure resources then deploy the web app.
 
@@ -92,7 +155,7 @@ You now create the required Azure resources then deploy the web app.
     ```azurecli
     az webapp create --resource-group jefmarti-cli-x-delete --plan pv3aspcli2 --name jefmarti-delete-webapp-xenon-cli --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
     ```
-##  4 - Browse to the app
+##  7 - Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
@@ -100,7 +163,7 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 
 Note that the Host operating system appears in the footer, confirming we are running in a Windows container.
 
-## 5 - Clean up resources
+## 8 - Clean up resources
 
 [!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
 
