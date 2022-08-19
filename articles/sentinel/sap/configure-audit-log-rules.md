@@ -14,7 +14,7 @@ The SAP audit log records audit and security actions on SAP systems, such as fai
 
 You use two analytics rules to monitor and analyze your SAP audit log data:
 
-- **SAP - Dynamic Deterministic Audit Log Monitor**. Alerts on SAP audit log events only when anomalies are detected, using machine learning capabilities and with no coding required. [Learn how to configure the rule](#set-up-the-sap---dynamic-deterministic-audit-log-monitor-for-anomaly-detection)
+- **SAP - Dynamic Deterministic Audit Log Monitor**. Alerts on SAP audit log events only when anomalies are detected, using machine learning capabilities and with no coding required. [Learn how to configure the rule](#set-up-the-sap---dynamic-deterministic-audit-log-monitor-for-anomaly-detection).
 - **SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)**. Alerts on any SAP audit log events with minimal configuration. You can configure the rule for an even lower false-positive rate. [Learn how to configure the rule](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-for-sap-news-dynamic-sap-security-audit-log/ba-p/3326842).
 
 The two [SAP Audit log monitor rules](sap-solution-security-content.md#built-in-sap-analytics-rules-for-monitoring-the-sap-audit-log) are delivered as ready to run out of the box, and allow for further fine tuning using the [SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlists](sap-solution-security-content.md#available-watchlists).
@@ -52,7 +52,7 @@ As with every machine learning solution, it will perform better with time. Anoma
 
 ### Configure event types with the SAP_Dynamic_Audit_Log_Monitor_Configuration watchlist
 
-You can further configure event types that produce too many incidents using the **SAP_Dynamic_Audit_Log_Monitor_Configuration** watchlist. Here are a few options for reducing incidents. 
+You can further configure event types that produce too many incidents using the [SAP_Dynamic_Audit_Log_Monitor_Configuration](sap-solution-security-content.md#available-watchlists) watchlist. Here are a few options for reducing incidents. 
 
 |Option  |Description  |
 |---------|---------|
@@ -61,7 +61,7 @@ You can further configure event types that produce too many incidents using the 
 |Exclude users by their SOC tags     |This is a great way for SOC teams to come up with their own grouping, without relying on complicated SAP definitions or even without SAP authorization.<br><br>Conceptually, this works like name tags: you can set multiple events in the configuration with multiple tags. You don’t get alerts for a user with a tag associated with a specific event. For example, you don’t want specific service accounts to be alerted for Generic table access by RFC events, but can’t find an SAP role or an SAP profile that groups these users. In this case, you can add the **GenTableRFCReadOK** tag next to the relevant event in the watchlist list, and then go to the **SAP_User_Config** watchlist and assign the interface users the same tag.    |
 |Specify a frequency threshold per event type and system role     |This works like a speed limit. For example, you can decide that the noisy User Master Record Change events only trigger alerts if more than 12 activities are observed in an hour, by the same user in a production system. If a user exceeds the 12 per hour limit—for example, 2 events in a 10-minute window—an incident is triggered.  |
 |Determinism or anomalies     |If you know the event’s characteristics, you can use the deterministic capabilities. If you aren't sure how to correctly configure the event, the machine learning capabilities can decide.         |
-|SOAR capabilities     |Microsoft Sentinel has additional capabilities intended to further orchestrate, automate and respond to incidents that can be applied to the SAP audit log dynamic alerts. Learn about [Security Orchestration, Automation, and Response (SOAR)](automation.md) in Microsoft Sentinel.   |
+|SOAR capabilities     |Microsoft Sentinel has additional capabilities intended to further orchestrate, automate and respond to incidents that can be applied to the SAP audit log dynamic alerts. Learn about [Security Orchestration, Automation, and Response (SOAR)](../automation.md).  |
 
 
 
