@@ -19,7 +19,7 @@ If you'd like to contribute a widget to the API Management developer portal [Git
 
 1. Open a pull request to include your widget in the official repository.
 
-Your widget will inherit the repository's license. It will be available for [opt-in installation](developer-portal-use-community-widgets.md) in either the managed self-hosted version of the portal. The developer portal team may decide to also include it in the managed version of the portal.
+Your widget will inherit the repository's license. It will be available for [opt-in installation](developer-portal-use-community-widgets.md) in either the managed developer portal or a [self-hosted version](developer-portal-self-host.md) of the portal. The developer portal team may decide to also include it in the managed version of the portal.
 
 For an example of how to develop your own widget and upload it to your developer portal, see [Create and upload custom widget](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widget).
 
@@ -56,6 +56,6 @@ This guidance is intended to ensure the safety and privacy of our customers and 
 
 - For more information about contributions, see the API Management developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal/).
 
-- See [Extend the developer portal with custom features](developer-portal-externd-custom-functionality.md) to learn about options to add custom functionality to the developer portal.
+- See [Extend the developer portal with custom features](developer-portal-extend-custom-functionality.md) to learn about options to add custom functionality to the developer portal.
 
 - See [Use community widgets](developer-portal-use-community-widgets.md) to learn how to use widgets contributed by the community.
