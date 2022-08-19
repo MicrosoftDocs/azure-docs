@@ -129,43 +129,43 @@
         href: how-to-create-register-datasets.md
       - name: Connect to data (UI)
         displayName: blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set
-        href: ../how-to-connect-data-ui.md
+        href: how-to-connect-data-ui.md
     - name: Manage & consume data
       items:
       - name: Train with datasets
         displayName: data, dataset, mount
-        href: ../how-to-train-with-datasets.md
+        href: how-to-train-with-datasets.md
       - name: Detect drift on datasets
         displayName: data, dataset
-        href: ../how-to-monitor-datasets.md
+        href: how-to-monitor-datasets.md
       - name: Version & track datasets
         displayName: data, data set
-        href: ../how-to-version-track-datasets.md
+        href: how-to-version-track-datasets.md
       - name: Create datasets with labels
         displayName: data, labels, torchvision
-        href: ../how-to-use-labeled-dataset.md
+        href: how-to-use-labeled-dataset.md
     - name: Get & prepare data
       items: 
       - name: Data ingestion with Azure Data Factory
         displayName: data, ingestion, adf
-        href: ../how-to-data-ingest-adf.md
+        href: how-to-data-ingest-adf.md
       - name: Data preparation with Azure Synapse
         displayName: data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore
-        href: ../how-to-data-prep-synapse-spark-pool.md
+        href: how-to-data-prep-synapse-spark-pool.md
       - name: DevOps for data ingestion
         displayName: data, ingestion, devops
-        href: ../how-to-cicd-data-ingestion.md
+        href: how-to-cicd-data-ingestion.md
       - name: Import data in the designer
         displayName: designer, data, import, dataset, datastore
-        href: ../how-to-designer-import-data.md
+        href: how-to-designer-import-data.md
     - name: Compliance
       items: 
       - name: Preserve data privacy
         displayName: data,privacy,differential privacy
-        href: ../how-to-differential-privacy.md
+        href: how-to-differential-privacy.md
       - name: Export and delete data
         displayName: GDPR
-        href: ../how-to-export-delete-data.md
+        href: how-to-export-delete-data.md
   - name: Train models
     items: 
     - name: Train with SDK v1
@@ -257,30 +257,30 @@
         displayName: pipelines
         items: 
           - name: Create ML pipelines (Python)
-            href: ../how-to-create-machine-learning-pipelines.md
+            href: how-to-create-machine-learning-pipelines.md
           - name: Moving data into and between ML pipeline steps (Python)
-            href: ../how-to-move-data-in-out-of-pipelines.md
+            href: how-to-move-data-in-out-of-pipelines.md
           - name: Use automated ML in ML pipelines (Python)
             displayName: machine learning automl
-            href: ../how-to-use-automlstep-in-pipelines.md
+            href: how-to-use-automlstep-in-pipelines.md
           - name: Deploy ML pipelines (Python)
-            href: ../how-to-deploy-pipelines.md
+            href: how-to-deploy-pipelines.md
           - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
-            href: ../how-to-use-synapsesparkstep.md
+            href: how-to-use-synapsesparkstep.md
           - name: Trigger a pipeline
-            href: ../how-to-trigger-published-pipeline.md
+            href: how-to-trigger-published-pipeline.md
 - name: Troubleshoot & debug
   items: 
     - name: Pipeline issues
       items: 
         - name: Troubleshoot pipelines
           displayName: designer
-          href: ../how-to-debug-pipelines.md
+          href: how-to-debug-pipelines.md
         - name: Log pipeline data to Application Insights
-          href: ../how-to-log-pipelines-application-insights.md
+          href: how-to-log-pipelines-application-insights.md
         - name: Troubleshoot the ParallelRunStep
           displayName: debug_batch consume pipeline parallelrunstep inference
-          href: ../how-to-debug-parallel-run-step.md
+          href: how-to-debug-parallel-run-step.md
 - name: Reference
   items: 
   - name: Machine learning CLI pipeline YAML reference
