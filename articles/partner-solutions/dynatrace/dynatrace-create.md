@@ -104,5 +104,3 @@ Use the Azure portal to find Dynatrace for Azure application.
 ## Next steps
 
 - [Manage the Dynatrace resource](dynatrace-how-to-manage.md)
-- [Java](/java/api/overview/azure/dynatrace?view=azure-java-preview)
-- [Python](/python/api/overview/azure/mgmt-dynatrace-readme?view=azure-python-preview)
