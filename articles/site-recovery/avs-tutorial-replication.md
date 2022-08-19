@@ -89,7 +89,7 @@ All of these components are installed together on a single Azure VMware Solution
 3. On **Select source**, enter the location of the downloaded OVF.
 4. On **Review details**, select **Next**.
 5. On **Select name and folder** and **Select configuration**, accept the default settings.
-6. On **Select storage**, for best performance select **Thick Provision Eager Zero** in **Select virtual disk format**.
+6. On **Select storage**, for best performance select **Thick Provision Eager Zeroed** in **Select virtual disk format**.
 7. On the rest of the wizard pages, accept the default settings.
 8. On **Ready to complete**, to set up the VM with the default settings, select **Power on after deployment** > **Finish**.
 
