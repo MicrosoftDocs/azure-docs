@@ -10,65 +10,30 @@ ms.reviewer: mmcc
 
 # Upgrading from Application Insights Java 2.x SDK
 
-## Step-by-step
+There are typically no code changes when upgrading to 3.x. The 3.x SDK dependencies are just no-op API versions of the
+2.x SDK dependencies, but when used in conjunction with the 3.x Javaagent, the 3.x Javaagent provides the implementation
+for these 3.x SDK dependencies, so that any of your custom instrumentation will be correlated with all of the new
+auto-instrumentation which is provided by the 3.x Javaagent.
 
-#### Step 1
+## Step 1: Update dependencies
 
-If you are using `applicationinsights-core` and/or `applicationinsights-web` dependencies, update those to the latest
-3.x version, e.g.
+* If you are using `applicationinsights-core` and/or `applicationinsights-web` dependencies, update those to the latest
+  3.x version.
+* If you are using `applicationinsights-web-auto` dependency, remove that and replace it with the latest 3.x version of
+  `applicationinsights-web`.
+* If you are using `applicationinsights-logging-log4j1_2`, `applicationinsights-logging-log4j2`,
+  and/or `applicationinsights-logging-logback`, remove those dependencies, since loggers are now auto-instrumented in
+  3.x and these custom logging appenders are no longer needed.
+* If you are using `applicationinsights-spring-boot-starter`, remove that and replace it with the latest 3.x version of
+  `applicationinsights-web`.
+  * Note: the cloud role name will no longer default to `spring.application.name`, see the
+    [3.x configuration docs](./java-standalone-config.md#cloud-role-name) for configuring the cloud role name.
 
-Change
-
-```
-<dependency>
-   <groupId>com.microsoft.azure</groupId>
-   <artifactId>applicationinsights-core</artifactId>
-   <version>2.6.4</version>
-</dependency>
-```
-
-to
-
-```
-<dependency>
-   <groupId>com.microsoft.azure</groupId>
-   <artifactId>applicationinsights-core</artifactId>
-   <version>3.4.0</version>
-</dependency>
-```
-
-#### Step 2
-
-If you are using `applicationinsights-web-auto` dependency, remove that and replace it with the latest 3.x version of
-`applicationinsights-web`, e.g.
-
-Change
-
-```
-<dependency>
-   <groupId>com.microsoft.azure</groupId>
-   <artifactId>applicationinsights-web-auto</artifactId>
-   <version>2.6.4</version>
-</dependency>
-```
-
-to
-
-```
-<dependency>
-   <groupId>com.microsoft.azure</groupId>
-   <artifactId>applicationinsights-web</artifactId>
-   <version>3.4.0</version>
-</dependency>
-```
-
-#### Step 3
+## Step 2: Remove references from web.xml (if any)
 
 If you have the Application Insights web filter `com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter`
 added your web.xml, remove that, since requests are now auto-instrumented in 3.x and this custom web filter is no longer
-needed, e.g.
-
-Remove
+needed, e.g. remove
 
 ```
 <filter>
@@ -81,79 +46,20 @@ Remove
 </filter-mapping>
 ```
 
-#### Step 4
+## Step 3: Add the 3.x Javaagent
 
-If you are using `applicationinsights-logging-log4j1_2`, `applicationinsights-logging-log4j2`,
-and/or `applicationinsights-logging-logback`, remove those dependencies, since loggers are now auto-instrumented in 3.x
-and these custom logging appenders are no longer needed, e.g.
-
-Remove
-
-```
-<dependency>
-   <groupId>com.microsoft.azure</groupId>
-   <artifactId>applicationinsights-logging-log4j1_2</artifactId>
-   <version>2.6.4</version>
-</dependency>
-```
-
-#### Step 5
-
-If you are using `applicationinsights-spring-boot-starter`, remove that and replace it with the latest 3.x version of
-`applicationinsights-web`, e.g.
-
-Change
-
-```
-<dependency>
-   <groupId>com.microsoft.azure</groupId>
-   <artifactId>applicationinsights-spring-boot-starter</artifactId>
-   <version>2.6.4</version>
-</dependency>
-```
-
-to
-
-```
-<dependency>
-   <groupId>com.microsoft.azure</groupId>
-   <artifactId>applicationinsights-web</artifactId>
-   <version>3.4.0</version>
-</dependency>
-```
-
-Note: the cloud role name will no longer default to `spring.application.name`, see the
-[3.x configuration docs](./java-standalone-config.md#cloud-role-name) for configuring the cloud role name.
-
-#### Step 6
-
-If you were using the Application Insights 2.x Javaagent, you need to replace that with the 3.x Javaagent, e.g.
-
-Change
-
-```
--javaagent:path/to/applicationinsights-agent-2.6.4.jar
-```
-
-to
+Add the 3.x Javaagent to your JVM command-line args, e.g.
 
 ```
 -javaagent:path/to/applicationinsights-agent-3.4.0.jar
 ```
 
-#### Step 7
+If you were using the Application Insights 2.x Javaagent, just replace your existing `-javaagent:...` with the above.
 
-If you were not using the Application Insights 2.x Javaagent, you will need to add the Application Insights 3.x
-Javaagent to your JVM args, e.g.
-
-```
--javaagent:path/to/applicationinsights-agent-3.4.0.jar
-```
-
-Note: if you were using the spring-boot-starter, there is an alternative to using the Javaagent if you prefer, see
+Note: if you were using the spring-boot-starter and if you prefer, there is an alternative to using the Javaagent, see
 [3.x Spring Boot](./java-spring-boot.md).
 
-#### Step 8
+#### Step 4: Configure your Application Insights connection string
 
 [Configure the connection string](./java-standalone-config.md#connection-string).
 
