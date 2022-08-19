@@ -108,7 +108,7 @@ The general problem scope with hybrid rendering can be stated like this: Remote 
 
 ![Diagram that illustrates remote and local pose in relation to target viewport.](./media/reprojection-remote-local.png)
 
-ARR provides two reprojection modes that work orthogonally to the LSR mode discussed above. These modes are referred to as **:::no-loc text="Remote pose mode":::** and **:::no-loc text="Local pose mode":::**. Unlike the LSR mode, the pose modes define how remote and local content is combined. The choice of the mode trades visual quality of local content for runtime performance, so applications should carefully consider which option is appropriate. See considerations below.
+Depending on the `GraphicsBinding` used, ARR provides up to three reprojection modes that work orthogonally to the LSR mode discussed above. These modes are referred to as **:::no-loc text="Remote pose mode":::**, **:::no-loc text="Local pose mode":::**, and **:::no-loc text="Passthrough pose mode":::**. Unlike the LSR mode, the pose modes define how remote and local content is combined. The choice of the mode trades visual quality of local content for runtime performance, so applications should carefully consider which option is appropriate. See considerations below.
 
 ### :::no-loc text="Remote pose mode":::
 
@@ -125,6 +125,12 @@ In this mode, the reprojection is split into two distinct steps: In the first st
 Accordingly, the illustration looks like this:
 
 ![Reprojection steps in local pose mode.](./media/reprojection-pose-mode-local.png)
+
+### :::no-loc text="Passthrough pose mode":::
+
+This pose mode behaves essentially the same as **:::no-loc text="Remote pose mode":::**, meaning the local and remote content are combined in remote space. However, the content will not be reprojected after combination but remain in remote pose space. The main advantage of this mode is that the resulting image will not be affected by reprojection artifacts.
+
+Conceptually, this mode can be compared to conventional cloud-streaming applications. Due to the high latency it incurs, it is not suitable for head-mounted scenarios, but is a viable alternative for Desktop and other flat-screen applications where higher image quality is desired. It is therefore only available on `GraphicsBindingSimD3D11` for the time being.
 
 ### Performance and quality considerations
 
@@ -146,7 +152,7 @@ ApiHandle<RenderingSession> session = ...;
 session->GetGraphicsBinding()->SetPoseMode(PoseMode::Local); // set local pose mode
 ```
 
-In general, the mode can be changed anytime the graphics binding object is available. There is an important distinction for `GraphicsBindingSimD3D11`: the pose mode can only be changed to `PoseMode.Remote`, if it has been initialized with proxy textures. If this isn't the case, `PoseMode.Local` is forced until the graphics binding is reinitialized. See the two overloads of `GraphicsBindingSimD3d11.InitSimulation`, which take either native pointers to [ID3D11Texture2D](/windows/win32/api/d3d11/nn-d3d11-id3d11texture2d) objects (proxy path) or the `width` and `height` of the desired user viewport (non-proxy path).
+In general, the mode can be changed anytime the graphics binding object is available. There is an important distinction for `GraphicsBindingSimD3D11`: the pose mode can only be changed to `PoseMode.Remote`, if it has been initialized with proxy textures. If this isn't the case, the pose mode can only be toggled between `PoseMode.Local` and`PoseMode.Passthrough` until the graphics binding is reinitialized. See the two overloads of `GraphicsBindingSimD3d11.InitSimulation`, which take either native pointers to [ID3D11Texture2D](/windows/win32/api/d3d11/nn-d3d11-id3d11texture2d) objects (proxy path) or the `width` and `height` of the desired user viewport (non-proxy path).
 
 ### Desktop Unity runtime considerations
 
@@ -160,12 +166,12 @@ public static void InitRemoteManager(Camera camera)
 }
 ```
 
-If `PoseMode.Remote` is specified, the graphics binding will be initialized with offscreen proxy textures and all rendering will be redirected from the Unity scene's main camera to a proxy camera. This code path is only recommended for usage if runtime pose mode changes are required.
+If `PoseMode.Remote` is specified, the graphics binding will be initialized with offscreen proxy textures and all rendering will be redirected from the Unity scene's main camera to a proxy camera. This code path is only recommended for usage if runtime pose mode changes to `PoseMode.Remote` are required. If no pose mode is specified, the ARR Unity runtime will select an appropriate default depending on the current platform.
 
 > [!WARNING]
 > The proxy camera redirection might be incompatible with other Unity extensions, which expect scene rendering to take place with the main camera. The proxy camera can be retrieved via the `RemoteManagerUnity.ProxyCamera` property if it needs to be queried or registered elsewhere.
 
-If `PoseMode.Local` is used instead, the graphics binding will not be initialized with offscreen proxy textures and a fast path using the Unity scene's main camera to render will be used. This means that if the respective use case requires pose mode changes at runtime, `PoseMode.Remote` should be specified on `RemoteManagerUnity` initialization. It is strongly recommended to only use local pose mode and thus the non-proxy rendering path.
+If `PoseMode.Local` or `PoseMode.Passthrough` is used instead, the graphics binding will not be initialized with offscreen proxy textures and a fast path using the Unity scene's main camera to render will be used. This means that if the respective use case requires remote pose mode at runtime, `PoseMode.Remote` should be specified on `RemoteManagerUnity` initialization. Since directly rendering with Unity's main camera is more efficient and can prevent issues with other Unity extensions, it is strongly recommended to use the non-proxy rendering path.
 
 ## Next steps
 
