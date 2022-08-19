@@ -24,16 +24,16 @@ All pods in an AKS cluster can send and receive traffic without limitations, by 
 
 Network Policy is a Kubernetes specification that defines access policies for communication between Pods. Using network policies, you define an ordered set of rules to send and receive traffic and apply them to a collection of pods that match one or more label selectors.
 
-These Network Policy rules are defined as YAML manifests. Network Policies can be included as part of a wider manifest that also creates a deployment or service.
+These Network Policy rules are defined as YAML manifests. Network policies can be included as part of a wider manifest that also creates a deployment or service.
 
 ## Network policy options in AKS
 
 Azure provides two ways to implement Network Policy. You choose a Network Policy option when you create an AKS cluster. The policy option can't be changed after the cluster is created:
 
-* Azure's own implementation, called *Azure Network Policy Manager(NPM)*.
+* Azure's own implementation, called *Azure Network Policy Manager (NPM)*.
 * *Calico Network Policies*, an open-source network and network security solution founded by [Tigera][tigera].
 
-Azure NPM for Linux uses Linux *IPTables* and Azure NPM for Windows uses *Host Network Service(HNS) ACLPolicies* to enforce the specified policies. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable/HNS ACLPolicy filter rules.
+Azure NPM for Linux uses Linux *IPTables* and Azure NPM for Windows uses *Host Network Service (HNS) ACLPolicies* to enforce the specified policies. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable/HNS ACLPolicy filter rules.
 
 ## Differences between Azure NPM and Calico Network Policy and their capabilities
 
@@ -48,7 +48,7 @@ Azure NPM for Linux uses Linux *IPTables* and Azure NPM for Windows uses *Host N
 
 ## Limitations:
 
-*Azure Network Policy Manager(NPM) does not support IPv6. Otherwise, Azure NPM fully supports the network policy spec in Linux.
+Azure Network Policy Manager(NPM) does not support IPv6. Otherwise, Azure NPM fully supports the network policy spec in Linux.
 * In Windows, Azure NPM does not support the following:
     * named ports
     * SCTP protocol
@@ -111,6 +111,7 @@ Please execute the following commands prior to creating a cluster:
  az feature register --namespace Microsoft.ContainerService --name AKSWindows2022Preview
  az feature register --namespace Microsoft.ContainerService --name WindowsNetworkPolicyPreview
  az provider register -n Microsoft.ContainerService
+```
 
 > [!NOTE]
 > At this time, Azure NPM with Windows nodes is available on Windows Server 2022 only
@@ -126,7 +127,14 @@ $WINDOWS_PASSWORD=myWindowsPassword
 $k8S_VERSION=myk8sVersion
 $LOCATION=canadaeast
 ```
-Use the following command for cluster running with **Windows Server 2022** node pools:
+
+Create a username to use as administrator credentials for your Windows Server containers on your cluster. The following command prompts you for a username. Set it to `$WINDOWS_USERNAME`(remember that the commands in this article are entered into a BASH shell).
+
+```azurecli-interactive
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read $WINDOWS_USERNAME
+```
+
+Use the following command for a cluster running with **Windows Server 2022** node pools:
 
 ```azurecli
 az aks create \
@@ -141,9 +149,16 @@ az aks create \
     --node-count 1
 ```
 
-> [!NOTE]
-> You can still add Linux node pools to the cluster created using the above command, by default.
->
+It takes a few minutes to create the cluster. By default, your cluster is created with only a Linux node pool. If you would like to use Windows node pools, you can add one. For example:
+
+```azurecli
+az aks nodepool add \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
+    --os-type Windows \
+    --name npwin \
+    --node-count 1
+```
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -185,19 +200,14 @@ az aks nodepool add \
     --node-count 1
 ```
 
+## Verify Network Policy Setup
+
 When the cluster is ready, configure `kubectl` to connect to your Kubernetes cluster by using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
 ```
-## Verify Network Policy Setup
-
-It takes a few minutes to create the cluster. When the cluster is ready, configure `kubectl` to connect to your Kubernetes cluster by using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them:
-
-```azurecli-interactive
-az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
-```
-To begin verification of network policy, we will create a sample application and set traffic rules.
+To begin verification of Network Policy, we will create a sample application and set traffic rules.
 
 Firstly, let's create a namespace called *demo* to run the example pods:
 
@@ -208,7 +218,7 @@ kubectl create namespace demo
 We will now create two pods in the cluster named *client* and *server*.
 
 >[!NOTE]
-> If you want to schedule the *client* or *server* on a particular node, add the following bit before the *--comand* argument in the pod creation [kubectl run][kubectl-run] command:
+> If you want to schedule the *client* or *server* on a particular node, add the following bit before the *--command* argument in the pod creation [kubectl run][kubectl-run] command:
 
 > ```console
 >--overrides='{"spec": { "nodeSelector": {"kubernetes.io/os": "linux|windows"}}}'
@@ -219,7 +229,7 @@ Create a *server* pod. This pod will serve on TCP port 80:
 kubectl run server -n demo --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 --labels="app=server" --port=80 --command -- /agnhost serve-hostname --tcp --http=false --port "80"
 ```
 
-Create a *client* pod:
+Create a *client* pod. The below command will run bash on the client pod:
 
 ```console
 kubectl run -it client -n demo --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 --command -- bash
@@ -246,7 +256,7 @@ In the client's shell, verify connectivity with the server by executing the foll
 
 ### Test Connectivity with Network Policy
 
-Create a file named demo-pods-policy.yaml and paste the following YAML manifest to add network policies:
+Create a file named demo-policy.yaml and paste the following YAML manifest to add network policies:
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -270,7 +280,7 @@ spec:
 Specify the name of your YAML manifest and apply it using [kubectl apply][kubectl-apply]:
 
 ```console
-kubectl apply –f demo-pods.yaml
+kubectl apply –f demo-policy.yaml
 ```
 
 Now, in the client's shell, verify connectivity with the server by executing the following `/agnhost` command:
@@ -279,13 +289,13 @@ Now, in the client's shell, verify connectivity with the server by executing the
 /agnhost connect <server-ip>:80 --timeout=3s --protocol=tcp
 ```
 
-Connectivity will be blocked since the server is labeled with app=server, but the client is not labeled. The connect command above will yield this output: 
+Connectivity with traffic will be blocked since the server is labeled with app=server, but the client is not labeled. The connect command above will yield this output: 
 
 ```output
 TIMEOUT
 ```
 
-Run the following command to label the *client* and retry verifying connectivity with the server. The output should return noting, in case of success.
+Run the following command to label the *client* and verify connectivity with the server (output should return nothing).
 
 ```console
 kubectl label pod client -n demo app=client
@@ -293,7 +303,7 @@ kubectl label pod client -n demo app=client
 
 ## Clean up resources
 
-In this article, we created a namespace, two pods and applied a Network Policy. To clean up these resources, use the [kubectl delete][kubectl-delete] command and specify the resource name:
+In this article, we created a namespace and two pods and applied a Network Policy. To clean up these resources, use the [kubectl delete][kubectl-delete] command and specify the resource name:
 
 ```console
 kubectl delete namespace demo
