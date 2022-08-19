@@ -7,7 +7,7 @@ ms.date: 08/09/2022
 
 # Enable VMware Cloud Director service with Azure VMware Solution (Preview)
 
-[VMware Cloud Director Service (CDs)](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/getting-started-with-vmware-cloud-director-service/GUID-149EF3CD-700A-4B9F-B58B-8EA5776A7A92.htmlor) with Azure VMware Solution enables enterprise customers to use APIs or the Cloud Director services portal to self-service provision and manage virtual datacenters through multi-tenancy with reduced time and complexity.
+[VMware Cloud Director Service (CDs)](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/getting-started-with-vmware-cloud-director-service/GUID-149EF3CD-700A-4B9F-B58B-8EA5776A7A92.html) with Azure VMware Solution enables enterprise customers to use APIs or the Cloud Director services portal to self-service provision and manage virtual datacenters through multi-tenancy with reduced time and complexity.
 
 In this article, you'll learn how to enable VMware Cloud Director service (CDs) with Azure VMware Solution for enterprise customers to use Azure VMware Solution resources and Azure VMware Solution private clouds with underlying resources for virtual datacenters.
 
@@ -17,18 +17,18 @@ In this article, you'll learn how to enable VMware Cloud Director service (CDs) 
 ## Reference architecture
 The following diagram shows typical architecture for Cloud Director Services with Azure VMware Solution and how they're connected. Communications to Azure VMware Solution endpoints from Cloud Director service are supported by an SSL reverse proxy. 
 
-:::image type="content" source="media/vmware-cds/reference-architecture-diagram.png" alt-text="Diagram showing typical architecture and how CDS is connected with Azure VMware Solution" border="false" lightbox="media/vmware-cds/reference-architecture-diagram-expanded.png":::
+:::image type="content" source="media/vmware-cds/reference-architecture-diagram.png" alt-text="Diagram showing typical architecture and how CDS is connected with Azure VMware Solution." border="false" lightbox="media/vmware-cds/reference-architecture-diagram-expanded.png":::
 
 VMware Cloud Director supports multi-tenancy by using organizations. A single organization can have multiple organization virtual data centers (VDC). Each Organization’s VDC can have their own dedicated Tier-1 router (Edge Gateway) which is further connected with the provider’s managed shared Tier-0 router.
 
 ## Connect tenants and their organization virtual datacenters to Azure vNet based resources
 
-To provide access to vNET based Azure resources, each tenant can have their own dedicated Azure vNET with Azure VPN gateway. A Site-to-site VPN between customer organization VDC and Azure vNET is established. To achieve this connectivity, the provider will provide public IP to the organization VDC. Organization VDC’s administrator can configure IPSEC VPN connectivity from Cloud Director Service portal. 
+To provide access to vNET based Azure resources, each tenant can have their own dedicated Azure vNET with Azure VPN gateway. A site-to-site VPN between customer organization VDC and Azure vNET is established. To achieve this connectivity, the provider will provide public IP to the organization VDC. Organization VDC’s administrator can configure IPSEC VPN connectivity from Cloud Director Service portal. 
 
 :::image type="content" source="media/vmware-cds/site-to-site-vpn-diagram.png" alt-text="Diagram showing site to site VPN connection and how CDS is connected with Azure VMware Solution." border="false" lightbox="media/vmware-cds/site-to-site-vpn-diagram-expanded.png":::
 
-As shown in the diagram above, Organization 01 has two organization Virtual datacenters (VDCs): VDC1 and VDC2. The virtual datacenter of each organization has its own Azure vNETs connected with their respective organization VDC Edge gateway through IPSEC VPN.
-Providers provide public IP addresses to the organization VDC Edge gateway for IPSEC VPN configuration. An ORG VDC Edge gateway firewall blocks all traffic by default, specific allow rules needs to be added on Organization Edge gateway firewall.
+As shown in the diagram above, organization 01 has two organization Virtual datacenters (VDCs): VDC1 and VDC2. The virtual datacenter of each organization has its own Azure vNETs connected with their respective organization VDC Edge gateway through IPSEC VPN.
+Providers provide public IP addresses to the organization VDC Edge gateway for IPSEC VPN configuration. An ORG VDC Edge gateway firewall blocks all traffic by default, specific allow rules needs to be added on organization Edge gateway firewall.
 
 Organization VDCs can be part of a single organization and still provide isolation between them. For example, VM1 hosted in organization VDC1 cannot ping Azure VM JSVM2 for tenant2.
 
