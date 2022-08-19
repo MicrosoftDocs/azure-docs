@@ -38,7 +38,7 @@ The benefits of creating data assets are:
 
 ## Prerequisites
 
-To create and work with ata assets, you need:
+To create and work with data assets, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
