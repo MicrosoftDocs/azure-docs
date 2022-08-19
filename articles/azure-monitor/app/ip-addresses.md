@@ -1,6 +1,6 @@
 ---
 title: IP addresses used by Azure Monitor | Microsoft Docs
-description: This article discusses server firewall exceptions that are required by Application Insights.
+description: This article discusses server firewall exceptions that are required by Azure Monitor
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.reviewer: saars
