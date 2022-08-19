@@ -120,7 +120,7 @@ Deploying the application can take a few minutes.
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-- [Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/install-toolkit).
+- [Azure Toolkit for IntelliJ](./developer/java/toolkit-for-intellij/install-toolkit.md).
 
 ### Generate a Spring project
 
@@ -238,7 +238,7 @@ To deploy a Spring Boot web app to Azure Spring Apps, follow the steps in [Build
 
 Once deployment has completed, you can access the app at `https://<service instance name>-hellospring.azuremicroservices.io/`.
 
-You also have access to powerful logs, metrics, and distributed tracing capability from the Azure portal. For more information, see [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing).
+You also have access to powerful logs, metrics, and distributed tracing capability from the Azure portal. For more information, see [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md).
 
 ## Clean up resources
 
