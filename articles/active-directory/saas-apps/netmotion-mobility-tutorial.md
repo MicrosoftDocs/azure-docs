@@ -55,8 +55,8 @@ Configure and test Azure AD SSO with NetMotion Mobility using a test user called
 
 To configure and test Azure AD SSO with NetMotion Mobility, perform the following steps:
 
-1. **[Configure Mobility for SAML-based Authentication](configure-mobility-for-saml-based-authentication)** - to enable end users to authenticate using their Azure AD credentials. 
-2. **[Configure Azure AD SSO](configure-azure-ad-sso)** - to enable your users to use this feature.
+1. **[Configure Mobility for SAML-based Authentication](#configure-mobility-for-saml-based-authentication)** - to enable end users to authenticate using their Azure AD credentials. 
+2. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 3. **[Configure NetMotion Mobility SSO](#configure-netmotion-mobility-sso)** - to configure the single sign-on settings on application side.
