@@ -152,7 +152,7 @@ ApiHandle<RenderingSession> session = ...;
 session->GetGraphicsBinding()->SetPoseMode(PoseMode::Local); // set local pose mode
 ```
 
-In general, the mode can be changed anytime the graphics binding object is available. There is an important distinction for `GraphicsBindingSimD3D11`: the pose mode can only be changed to `PoseMode.Remote`, if it has been initialized with proxy textures. If this isn't the case, the pose mode can only be toggled between `PoseMode.Local` and`PoseMode.Passthrough` until the graphics binding is reinitialized. See the two overloads of `GraphicsBindingSimD3d11.InitSimulation`, which take either native pointers to [ID3D11Texture2D](/windows/win32/api/d3d11/nn-d3d11-id3d11texture2d) objects (proxy path) or the `width` and `height` of the desired user viewport (non-proxy path).
+In general, the mode can be changed anytime the graphics binding object is available. There is an important distinction for `GraphicsBindingSimD3D11`: the pose mode can only be changed to `PoseMode.Remote`, if it has been initialized with proxy textures. If this isn't the case, the pose mode can only be toggled between `PoseMode.Local` and `PoseMode.Passthrough` until the graphics binding is reinitialized. See the two overloads of `GraphicsBindingSimD3d11.InitSimulation`, which take either native pointers to [ID3D11Texture2D](/windows/win32/api/d3d11/nn-d3d11-id3d11texture2d) objects (proxy path) or the `width` and `height` of the desired user viewport (non-proxy path).
 
 ### Desktop Unity runtime considerations
 
