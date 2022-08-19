@@ -90,7 +90,7 @@ You can create a connection from Azure Spring Apps using an access key or a mana
     | `Name of the storage account`                           | The name of the storage account you want to connect to. In this guide, we're using a Blob Storage. |
 
 > [!TIP]
-> If you don't have a Blob Storage, you can run `az spring connection create storage-blob --new --system-identity` to provision a new Blob Storage and directly connect it to application hosted by Azure Spring Apps using a managed identity.
+> If you don't have a Blob Storage, you can run `az spring connection create storage-blob --new --system-identity` to provision a new Blob Storage and directly connect it to your application hosted by Azure Spring Apps using a managed identity.
 
 ---
 
