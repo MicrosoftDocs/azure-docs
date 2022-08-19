@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 Applications provide an attack surface for security breaches and must be monitored. While not targeted as often as user accounts, breaches can occur. Since applications often run without human intervention, the attacks may be harder to detect.
 
-This article provides guidance to monitor and alert on application events. It's regularly updated to help ensure that you:
+This article provides guidance to monitor and alert on application events and helps enable you to:
 
 * Prevent malicious applications from getting unwarranted access to data.
 
