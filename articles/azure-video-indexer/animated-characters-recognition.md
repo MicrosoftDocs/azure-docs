@@ -17,7 +17,8 @@ Before you start training your model, the characters are detected namelessly. As
 
 The following diagram demonstrates the flow of the animated character detection process.
 
-![Flow diagram](./media/animated-characters-recognition/flow.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/animated-characters-recognition/flow.png" alt-text="Image of a flow diagram ." lightbox="./media/animated-characters-recognition/flow.png":::
 
 ## Accounts
 
@@ -32,7 +33,7 @@ Depending on a type of your Azure Video Indexer account, different feature sets 
 |---|---|---|
 |Custom Vision account|Managed behind the scenes by Azure Video Indexer. |Your Custom Vision account is connected to Azure Video Indexer.|
 |Number of animation models|One|Up to 100 models per account (Custom Vision limitation).|
-|Training the model|Azure Video Indexer trains the model for new characters additional examples of existing characters.|The account owner trains the model when they are ready to make changes.|
+|Training the model|Azure Video Indexer trains the model for new characters additional examples of existing characters.|The account owner trains the model when they're ready to make changes.|
 |Advanced options in Custom Vision|No access to the Custom Vision portal.|You can adjust the models yourself in the Custom Vision portal.|
 
 ## Use the animated character detection with portal  and API
@@ -41,7 +42,7 @@ For details, see [Use the animated character detection with portal and API](anim
 
 ## Limitations
 
-* Currently, the "animation identification" capability is not supported in East-Asia region.
+* Currently, the "animation identification" capability isn't supported in East-Asia region.
 * Characters that appear to be small or far in the video may not be identified properly if the video's quality is poor.
 * The recommendation is to use a model per set of animated characters (for example per an animated series).
 

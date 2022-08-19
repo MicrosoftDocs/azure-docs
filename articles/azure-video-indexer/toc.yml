@@ -20,7 +20,7 @@
     href: invite-users.md
 - name: Tutorials
   items:
-  - name: Create an ARM-based account
+  - name: Create an ARM-based account (preview)
     href: create-account-portal.md
   - name: Create a classic account
     href: connect-to-azure.md
@@ -52,16 +52,16 @@
     items:
     - name: Language identification model
       href: language-identification-model.md
-    - name: Observed people 
+    - name: Observed people (preview)
       href: observed-people-tracing.md
       items:
-      - name: People's detected clothing
+      - name: Detected clothing (preview)
         href: detected-clothing.md
-      - name: People's featured clothing
+      - name: Featured clothing (preview)
         href: observed-people-featured-clothing.md
-    - name: Matched person
+    - name: Matched person (preview)
       href: matched-person.md
-    - name: Audio effects detection
+    - name: Audio effects detection (preview)
       href: audio-effects-detection.md
   - name: Customizing content models
     items:

@@ -151,7 +151,7 @@ Once trained, any video that will be indexed or reindexed with that model will r
 1. Create an animated characters model.
 
     Use the [create animation model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Animation-Model) API.
-1. Index or re-index a video.
+1. Index or reindex a video.
 
     Use the [re-indexing](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) API. 
 1. Customize the animated characters models.
