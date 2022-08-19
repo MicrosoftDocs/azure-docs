@@ -78,7 +78,7 @@ See a [configuration for these alerts](#setup-alerts-for-alertmanager) below.
 2. Correlate cluster counts (e.g. ACLs) to execution times.
 3. Get the human-friendly name of an ipset in a given iptables rule (e.g. "azure-npm-487392" represents "podlabel-role:database").
  
-### All Supported Metrics
+### All supported metrics
 The following is the list of supported metrics. Any `quantile` label has possible values `0.5`, `0.9`, and `0.99`. Any `had_error` label has possible values `false` and `true`, representing whether the operation succeeded or failed.
 
 | Metric Name                          | Description                                    | Prometheus Metric Type | Labels         |
