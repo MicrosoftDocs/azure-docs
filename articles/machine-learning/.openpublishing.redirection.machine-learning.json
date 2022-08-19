@@ -1012,7 +1012,12 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/tutorial-auto-train-models.md",
-        "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
+        "redirect_url": "/azure/machine-learning/v1/how-to-auto-train-models-v1",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/tutorial-auto-train-models.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-auto-train-models-v1",
         "redirect_document_id": true
     },
     {

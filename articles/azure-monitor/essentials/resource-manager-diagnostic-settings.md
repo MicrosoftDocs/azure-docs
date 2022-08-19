@@ -43,7 +43,7 @@ param storageAccountId string
 @description('The resource Id for the event hub authorization rule.')
 param eventHubAuthorizationRuleId string
 
-@description('The name of teh event hub.')
+@description('The name of the event hub.')
 param eventHubName string
 
 resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
@@ -125,7 +125,7 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
     "eventHubName": {
       "type": "string",
       "metadata": {
-        "description": "The name of teh event hub."
+        "description": "The name of the event hub."
       }
     }
   },
