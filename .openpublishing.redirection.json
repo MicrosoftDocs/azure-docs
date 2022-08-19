@@ -1,8 +1,13 @@
 {
 	"redirections": [
-		{
+{
     "source_path":  "articles/api-management/zone-redundancy.md",
     "redirect_url":  "/azure/availability-zones/migrate-api-mgt",
+    "redirect_document_id":  false
+},
+{
+    "source_path":  "articles/api-management/developer-portal-implement-widgets.md",
+    "redirect_url":  "/azure/api-management/developer-portal-extend-custom-functionality",
     "redirect_document_id":  false
 },
 {

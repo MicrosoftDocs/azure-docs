@@ -11,16 +11,16 @@ ms.topic: how-to
 
 # Extend the developer portal with custom features
 
-The API Management [developer portal](api-management-howto-developer-portal.md) features a visual editor and built-in widgets so that you can customize and style the portal's appearance. However, you may need to customize the developer portal further with custom functionality. For example, you might want to integrate your developer portal with a support system that involves adding a custom control. This article explains ways to add custom functionality such as custom widgets to your API Management developer portal.
+The API Management [developer portal](api-management-howto-developer-portal.md) features a visual editor and built-in widgets so that you can customize and style the portal's appearance. However, you may need to customize the developer portal further with custom functionality. For example, you might want to integrate your developer portal with a support system that involves adding a custom interface. This article explains ways to add custom functionality such as custom widgets to your API Management developer portal.
 
 The following table summarizes three options, with links to more detail.
 
 
 |Method   |Description  |
 |---------|---------|
-|[Custom HTML code widget](#use-custom-html-code-widget)     | - Lightweight solution for API publishers to add custom logic for basic use cases<br/><br/>- Copy and paste custom HTML code into a form, and developer portal renders in an iframe |
-|[Create and upload custom widget](#create-and-upload-custom-widget)     | - Developer solution for more advanced widget use cases<br/><br/>- Requires local implementation in React, Vue, or plain TypeScript<br/><br/>- Widget scaffold provided to help developers create widget and upload to developer portal<br/><br/>- Supports workflows for source control, versioning, and code reuse<br/><br/>        |
-|[Self-host developer portal](developer-portal-self-host.md)     | - Legacy extensibility option to customize source code of the entire portal core<br/><br/> - Gives complete flexibility for customizing portal experience<br/><br/>- Customer responsible for managing complete code lifecycle: fork code base, develop, deploy, host, patch, and upgrade       |
+|[Custom HTML code widget](#use-custom-html-code-widget)     | - Lightweight solution for API publishers to add custom logic for basic use cases<br/><br/>- Copy and paste custom HTML code into a form, and developer portal renders it in an iframe |
+|[Create and upload custom widget](#create-and-upload-custom-widget)     | - Developer solution for more advanced widget use cases<br/><br/>- Requires local implementation in React, Vue, or plain TypeScript<br/><br/>- Widget scaffold and tools provided to help developers create widget and upload to developer portal<br/><br/>- Supports workflows for source control, versioning, and code reuse<br/><br/>        |
+|[Self-host developer portal](developer-portal-self-host.md)     | - Legacy extensibility option for customers who need to customize source code of the entire portal core<br/><br/> - Gives complete flexibility for customizing portal experience<br/><br/>- Requires advanced configuration<br/><br/>- Customer responsible for managing complete code lifecycle: fork code base, develop, deploy, host, patch, and upgrade       |
 
 
 ## Use Custom HTML code widget
@@ -50,7 +50,6 @@ The managed developer portal includes a **Custom HTML code** widget where you ca
 
 ### Prerequisites 
  
-* Active [developer portal](api-management-howto-developer-portal.md) 
 * Install [Node.JS runtime](https://nodejs.org/en/) locally 
 * Basic knowledge of programming and web development
 
@@ -117,7 +116,7 @@ The managed developer portal includes a **Custom HTML code** widget where you ca
     If prompted, sign in to your Azure account. 
 
 
-The custom widget is now deployed to your developer portal. Using the portal's administrative interface, you can add it on pages in the developer portal and set any custom properties configured in the widget.
+The custom widget is now deployed to your developer portal. Using the portal's administrative interface, you can add it on pages in the developer portal and set values for any custom properties configured in the widget.
 
 ### Publish the developer portal
 
@@ -139,20 +138,20 @@ All templates are based on the TypeScript programming language.
 
 The React template contains prepared custom hooks in the `hooks.ts` file and established providers for sharing context through the component tree with dedicated `useSecrets`, `useValues`, and `useEditorValues` hooks. 
 
-### Using another framework 
-
-To implement your widget using another JavaScript UI framework and libraries, you need to set up the project yourself with the following guidelines:
-
-* In most cases, we recommend that you start from the TypeScript template. 
-* Install dependencies as in any other npm project. 
-* If your framework of choice isn't compatible with [Vite build tool](https://vitejs.dev/), configure it so that it outputs compiled files to the `./dist` folder. Optionally, redefine where the compiled files are located by providing a relative path as the fourth argument for the [`deployNodeJs`](#azureapi-management-custom-widgets-toolsdeploynodejs) function.
-* For local development, the `config.msapim.json` file must be accessible at the URL `localhost:<port>/config.msapim.json` when the server is running. 
-
-
-
 ### Use the `@azure/api-management-custom-widgets-tools` package 
 
-This package contains a set of tools to help you develop your custom widget and provides features including communication between the developer portal and your widget. 
+This [npm package](https://www.npmjs.com/package/@azure/api-management-custom-widgets-tools) contains the following functions to help you develop your custom widget and provides features including communication between the developer portal and your widget:
+
+
+|Function  |Description  |
+|---------|---------|
+|[getValues](#azureapi-management-custom-widgets-toolsgetvalues) | Returns a JSON object containing values set in the widget editor combined with default values |
+|[getEditorValues](#azureapi-management-custom-widgets-toolsgeteditorvalues)     | Returns a JSON object containing only values set in the widget editor        |
+|[buildOnChange](#azureapi-management-custom-widgets-toolsbuildonchange)     |  Takes one parameter: a JSON object with updated values; returns a function to update the widget values       |
+|[askForSecrets](#azureapi-management-custom-widgets-toolsaskforsecrets)     | Returns a JavaScript promise, which after resolution returns a JSON object of data needed to communicate with backend        |
+|[deployNodeJs](#azureapi-management-custom-widgets-toolsdeploynodejs)     | Deploys widget to blob storage        |
+|[getWidgetData](#azureapi-management-custom-widgets-toolsgetwidgetdata)     | Returns all data passed to your custom widget from the developer portal<br/><br/>Used internally in templates         |
+
 
 #### `@azure/api-management-custom-widgets-tools/getValues` 
 
@@ -219,22 +218,33 @@ This function returns all data passed to your custom widget from the developer p
 
 * `instanceId` - ID of this instance of the widget 
 
-### Add or remove input fields 
+### Add or remove custom properties
 
-You can further customize every instance of your custom widget through the developer portal editor. By default, four input fields are defined. You can add or remove other input fields as needed. 
+Custom properties let you adjust values in the custom widget's code from the administrative user interface of the developer portal, without changing the code or redeploying the custom widget. By default, input fields for four custom properties are defined. You can add or remove other custom properties as needed. 
 
-To add an input field:  
+To add a custom property:  
 
-1. In the file `src/values.ts`,  add to the `Values` type the name of the field and type of the data it will save. 
+1. In the file `src/values.ts`,  add to the `Values` type the name of the property and type of the data it will save. 
 1. In the same file, add a default value for it. 
 1. Navigate to the `editor.html` or `editor/index` file (exact location depends on the framework you've chosen) and duplicate an existing input or add one yourself. 
 1. Make sure the input field reports the changed value to the `onChange` function, which you can get from `[buildOnChange`](#azureapi-management-custom-widgets-toolsbuildonchange). 
+
+### (Optional) Use another framework 
+
+To implement your widget using another JavaScript UI framework and libraries, you need to set up the project yourself with the following guidelines:
+
+* In most cases, we recommend that you start from the TypeScript template. 
+* Install dependencies as in any other npm project. 
+* If your framework of choice isn't compatible with [Vite build tool](https://vitejs.dev/), configure it so that it outputs compiled files to the `./dist` folder. Optionally, redefine where the compiled files are located by providing a relative path as the fourth argument for the [`deployNodeJs`](#azureapi-management-custom-widgets-toolsdeploynodejs) function.
+* For local development, the `config.msapim.json` file must be accessible at the URL `localhost:<port>/config.msapim.json` when the server is running. 
+
+
 
 ## Next steps
 
 Learn more about the developer portal:
 
 - [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
-
 - [Frequently asked questions](developer-portal-faq.md)
-
+- [Scaffolder of a custom widget for developer portal of Azure API Management service](https://www.npmjs.com/package/@azure/api-management-custom-widgets-scaffolder)
+- [Tools for working with custom widgets of developer portal of Azure API Management service](https://www.npmjs.com/package/@azure/api-management-custom-widgets-tools)
