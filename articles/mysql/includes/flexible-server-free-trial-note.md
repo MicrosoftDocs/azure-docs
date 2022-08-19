@@ -1,9 +1,9 @@
 ---
-author: shreyaaithal
 ms.service: mysql
 ms.topic: include
-ms.date: 09/09/2021
+author: shreyaaithal
 ms.author: shaithal
+ms.date: 09/09/2021
 ---
 
 If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free) before you begin. 
