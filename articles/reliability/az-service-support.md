@@ -11,14 +11,6 @@ ms.custom: references_regions
 
 # Availability zone service and regional support
 
-Azure regions and [availability zones](#availability-zones) are physically separate locations within each Azure region that are tolerant to datacenter failures because of redundant infrastructure and logical isolation of Azure services. 
-
-[Azure services that support availability zones](#azure-services-with-availability-zone-support) are designed to provide the right level of resiliency and flexibility along with ultra-low latency. With Azure services that support availability zones, whether you architect your own resiliency or opt for automatic replication and distribution, the benefit is the same. You get superior resiliency across highly available services, no matter the service type. 
-
-Azure strives to enable high resiliency across every service and offering. Running Azure services that support availability zones provides fully transparent and consistent resiliency against nearly all scenarios, without interruption.
-
-## Availability zones
-
 Azure *availability zones* are physically separate locations within each Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions.
 
 Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2ms. They help your data stay synchronized and accessible when things go wrong. Each zone is composed of one or more datacenters equipped with independent power, cooling, and networking infrastructure. Availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.

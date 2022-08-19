@@ -19,7 +19,7 @@ The table below lists each product that offers migration guidance and/or informa
 
 ### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services 
 
-| Products  | 
+| **Products**  | 
 | --- | 
 | [Azure Application Gateway (V2)](migrate-app-gateway-v2.md) |
 | [Azure Backup](migrate-recovery-services-vault.md)  | 
