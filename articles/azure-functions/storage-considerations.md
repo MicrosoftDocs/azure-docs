@@ -103,7 +103,7 @@ When Azure Files isn't used, you must account for the following:
 
 If the above are properly accounted for, you may create the app without Azure Files. Create the function app without specifying the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` application settings. You can do this by generating an ARM template for a standard deployment, removing these two settings, and then deploying the template. 
 
-Because Functions use Azure Files during parts of the the dynamic scale-out process, scaling could be limited when running without Azure Files on Consumption and Premium plans.
+Because Functions use Azure Files during parts of the dynamic scale-out process, scaling could be limited when running without Azure Files on Consumption and Premium plans.
 
 ## Mount file shares
 
