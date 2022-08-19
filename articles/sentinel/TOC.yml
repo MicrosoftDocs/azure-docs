@@ -426,6 +426,8 @@
         href: sap/collect-sap-hana-audit-logs.md
       - name: Deploy SAP connector manually
         href: sap/sap-solution-deploy-alternate.md
+      - name: Configure SAP audit log monitoring rules
+        href: sap/configure-audit-log-rules.md
     - name: Troubleshooting
       items:
       - name: Troubleshooting SAP solution deployment

@@ -36,7 +36,7 @@ Follow your deployment journey through this series of articles, in which you'll 
 | **4. Deploy data connector agent** | [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md) |
 | **5. Deploy SAP security content** | [Deploy SAP security content](deploy-sap-security-content.md)
 | **6. Microsoft Sentinel Solution for SAP** | [Configure Microsoft Sentinel Solution for SAP](deployment-solution-configuration.md)
-| **7. Optional steps** | - [Configure auditing](configure-audit.md)<br>- [Configure Microsoft Sentinel for SAP data connector to use SNC](configure-snc.md)
+| **7. Optional steps** | - [Configure auditing](configure-audit.md)<br>- [Configure Microsoft Sentinel for SAP data connector to use SNC](configure-snc.md)<br>- [Configure audit log monitoring rules](configure-audit-log-rules.md)
 
 ## Next steps
 
