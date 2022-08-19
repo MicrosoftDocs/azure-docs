@@ -62,7 +62,7 @@ The availability of services section contains information on which services are 
 To learn which services support availability zones:
 
 > [!div class="nextstepaction"]
-> [Availability zones by region](availability-zone-services.md)
+> [Availability zones by region](az-service-support.md)
 
 To see the availability of services:
 

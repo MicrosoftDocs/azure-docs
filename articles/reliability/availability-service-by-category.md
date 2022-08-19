@@ -145,9 +145,9 @@ As mentioned previously, Azure classifies services into three categories: founda
 
 Older generations of services or virtual machines aren't listed. For more information, see [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md).
 
-To learn more about preview services that aren't yet in general availability and to see a listing of these services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). For a complete listing of services that support availability zones, see [Azure services that support availability zones](availability-zone-services.md).
+To learn more about preview services that aren't yet in general availability and to see a listing of these services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). For a complete listing of services that support availability zones, see [Azure services that support availability zones](az-service-support.md).
 
 ## Next steps
 
-- [Azure services that support availability zones](availability-zone-services.md)
-- [Regions and availability zones in Azure](overview-availability-zones.md)
+- [Azure services and regions that support availability zones](az-service-support.md)
+

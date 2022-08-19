@@ -20,12 +20,12 @@
     href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
   - name: Virtual Machines and virtual machine scale sets
     href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
-- name: Availability zone guides
+- name: Availability zone support
   items:
-  - name: Azure services that support availability zones
-    href: availability-zone-services.md
+  - name: Availability zone service and regional support
+    href: az-service-support.md
   - name: Migration guides
-    href: overview-az-migration.md
+    href: az-migration-overview.md
     items:
     - name: API Management
       href: migrate-api-mgt.md

@@ -34225,12 +34225,12 @@
 },
 {
     "source_path_from_root":"/articles/availability-zones/az-overview.md",
-    "redirect_URL": "/azure/reliability/overview-availablity",
+    "redirect_URL": "/azure/reliability/az-overview",
     "redirect_document_id": false
 },
 {
     "source_path_from_root": "/articles/availability-zones/az-region.md",
-    "redirect_URL": "/azure/reliability/availability-zone-services",
+    "redirect_URL": "/azure/reliability/az-service-support",
     "redirect_document_id": false
 },
 {
