@@ -2,7 +2,7 @@
 title: Azure Video Indexer compliance, privacy and security
 description: This article discusses Azure Video Indexer compliance, privacy and security.
 ms.topic: overview
-ms.date: 08/158/2022
+ms.date: 08/18/2022
 ms.author: juliako
 ---
 
