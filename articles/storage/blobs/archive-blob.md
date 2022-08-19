@@ -285,7 +285,7 @@ You can use the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manage
 
 To create a lifecycle management policy to archive blobs in the Azure portal, follow these steps:
 
-### Step 1: Create the rule and specify the blob type
+#### Step 1: Create the rule and specify the blob type
 
 1. Navigate to your storage account in the portal.
 
@@ -301,7 +301,7 @@ To create a lifecycle management policy to archive blobs in the Azure portal, fo
 
     :::image type="content" source="media/archive-blob/lifecycle-policy-details-tab-portal.png" alt-text="Screenshot showing how to configure a lifecycle management policy - Details tab.":::
 
-### Step 2: Add rule conditions
+#### Step 2: Add rule conditions
 
 1. Depending on your selections, you can configure rules for base blobs (current versions), previous versions, or blob snapshots. Specify one of two conditions to check for:
 
@@ -320,7 +320,7 @@ To create a lifecycle management policy to archive blobs in the Azure portal, fo
 
 10. If you chose to limit the blobs affected by the rule with filters, you can specify a filter, either with a blob prefix or blob index match.
 
-### Step 3: Ensure that the rule excludes rehydrated blobs
+#### Step 3: Ensure that the rule excludes rehydrated blobs
 
 If you rehydrate a blob by changing it's tier, this rule will move the blob back to the archive tier if the last modified time, creation time, or last access time is beyond the threshold set for the policy. 
 
@@ -332,7 +332,7 @@ To prevent this from happening, select **Skip blobs that have been rehydrated in
 Select the **Add** button to add the rule to the policy.
 
 
-### (Optional) View the policy JSON
+#### View the policy JSON
 
 After you create the lifecycle management policy, you can view the JSON for the policy on the **Lifecycle management** page by switching from **List view** to **Code view**.
 
