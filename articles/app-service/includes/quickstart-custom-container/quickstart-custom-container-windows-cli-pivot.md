@@ -18,7 +18,6 @@ This quickstart shows you how to deploy an ASP.NET app in a Windows image from A
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
@@ -44,11 +43,10 @@ az group create --name myResourceGroup --location eastus
 
 In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
 
-Create an ACR instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. Update this to a unique value.
+Create an ACR instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Update `mycontainerregistry` to a unique value.
 
 ```azurecli
-az acr create --resource-group myResourceGroup \
-  --name myContainerRegistry --sku Basic
+az acr create --resource-group myResourceGroup --name mycontainerregistry --sku Basic
 ```
 
 When the registry is created, the output is similar to the following:
@@ -107,12 +105,6 @@ Make sure you are in the cloned repository's root folder. This repository contai
     az login
     ```
 
-1. Log in to Azure Container Registry.
-
-    ```azurecli
-    az acr login -n <your_registry_name>
-    ```
-
 1. Build the container image. We are naming the image **dotnetcore-docs-hello-world-windows**.
 
     ```docker
@@ -132,28 +124,20 @@ Make sure you are in the cloned repository's root folder. This repository contai
 
 You now create the required Azure resources then deploy the web app.
 
-1. Create a new resource group.
-
-    ```azurecli
-    az group create --location eastus --resource-group my-xenon-rg
-    ```
-
 1. Create your App Service Plan.
 
     ```azurecli
-    az appservice plan create --resource-group jefmarti-xenon-cli-delete --location eastus --name pv3aspcli2 --hyper-v --sku p1v3
+    az appservice plan create --resource-group myResourceGroup --location eastus --name pv3aspcli2 --hyper-v --sku p1v3
     ```
 
-> [!NOTE]
-> If you run into the follow error during this step, make sure the appservice-kube extension is removed:
->
-> ```The behavior of this command has been altered by thef ollowing extension: appservice-kube
->```
+    > [!NOTE]
+    > If you run into the error, `The behavior of this command has been altered by the following extension: appservice-kube`, remove the `appservice-kube` extension. 
+    >
 
 1. Create your web app
 
     ```azurecli
-    az webapp create --resource-group jefmarti-cli-x-delete --plan pv3aspcli2 --name jefmarti-delete-webapp-xenon-cli --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
+    az webapp create --resource-group myResourceGroup --plan pv3aspcli2 --name myContainerApp --deployment-container-image-name mycontainerregistry.azurecr.io/dotnetcore-docs-hello-world-windows
     ```
 ##  7 - Browse to the app
 
@@ -181,3 +165,14 @@ The App Service app pulls from the container registry every time it starts. If y
 
 > [!div class="nextstepaction"]
 > [Multi-container app tutorial](../../tutorial-multi-container-app.md)
+
+
+<!-- LINKS - internal -->
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
+[azure-cli]: /cli/azure/install-azure-cli
+[container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
+[container-registry-skus]: container-registry-skus.md
+[container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md
