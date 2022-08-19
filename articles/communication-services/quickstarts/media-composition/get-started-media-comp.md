@@ -89,7 +89,7 @@ var layout = new GridLayout(
     columns: 2,
     inputIds: new List<List<string>>
     {
-        new List<string> { "jill", "jack" }, new List<string> { "jane", "jerry" }
+        new List<string> { "Jill", "Jack" }, new List<string> { "Jane", "Jerry" }
     })
     {
         Resolution = new(1920, 1080)
@@ -97,21 +97,21 @@ var layout = new GridLayout(
 
 var inputs = new Dictionary<string, MediaInput>()
 {
-    ["jill"] = new ParticipantInput
+    ["Jill"] = new ParticipantInput
     (
         id: new MicrosoftTeamsUserIdentifier("f3ba9014-6dca-4456-8ec0-fa03cfa2b7b7"),
         call: "teamsMeeting")
     {
         PlaceholderImageUri = "https://imageendpoint"
     },
-    ["jack"] = new ParticipantInput
+    ["Jack"] = new ParticipantInput
     (
         id: new MicrosoftTeamsUserIdentifier("fa4337b5-f13a-41c5-a34f-f2aa46699b61"),
         call: "teamsMeeting")
     {
         PlaceholderImageUri = "https://imageendpoint"
     },
-    ["jane"] = new ParticipantInput
+    ["Jane"] = new ParticipantInput
     (
         id: new MicrosoftTeamsUserIdentifier("2dd69470-dc25-49cf-b5c3-f562f08bf3b2"),
         call: "teamsMeeting"
@@ -119,7 +119,7 @@ var inputs = new Dictionary<string, MediaInput>()
     {
         PlaceholderImageUri = "https://imageendpoint"
     },
-    ["jerry"] = new ParticipantInput
+    ["Jerry"] = new ParticipantInput
     (
         id: new MicrosoftTeamsUserIdentifier("30e29fde-ac1c-448f-bb34-0f3448d5a677"),
         call: "teamsMeeting")
@@ -172,7 +172,7 @@ To upsert inputs from the media composition object, use the `UpsertInputsAsync` 
 ```csharp
 var inputsToUpsert = new Dictionary<string, MediaInput>()
 {
-    ["james"] = new ParticipantInput
+    ["James"] = new ParticipantInput
     (
         id: new MicrosoftTeamsUserIdentifier("f3ba9014-6dca-4456-8ec0-fa03cfa2b70p"),
         call: "teamsMeeting"
@@ -189,7 +189,7 @@ You can also explictly remove inputs from the list.
 ```csharp
 var inputIdsToRemove = new List<string>()
 {
-    "jane", "jerry"
+    "Jane", "Jerry"
 };
 var response = await mediaCompositionClient.RemoveInputsAsync(mediaCompositionId, inputIdsToRemove);
 ```
