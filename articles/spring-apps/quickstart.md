@@ -242,13 +242,13 @@ Once deployment has completed, you can access the app at `https://<service insta
 
 #### [CLI](#tab/Azure-CLI)
 
-Use the following command to get real-time logs from the App.
+Use the following command to get real-time logs from the app.
 
 ```azurecli-interactive
 az spring app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
 ```
 
-Logs appear in the results:
+The following example shows how logs are displayed in the results:
 
 :::image type="content" source="media/quickstart/streaming-logs.png" alt-text="Screenshot of streaming logs in a console window." lightbox="media/quickstart/streaming-logs.png":::
 
