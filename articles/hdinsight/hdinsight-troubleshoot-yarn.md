@@ -129,12 +129,12 @@ These changes are visible immediately on the YARN Scheduler UI.
 
 ## How do I troubleshoot YARN common issues?
 
-### Yarn UI is not loading
+### Yarn UI isn't loading
 
 If your YARN UI isn't loading or is unreachable, and it returns "HTTP Error 502.3 - Bad Gateway," it highly indicates your ResourceManager service is unhealthy. To mitigate the issue, follow these steps:
 
 1. Go to **Ambari UI** > **YARN** > **SUMMARY** and check to see if only the active ResourceManager is in the **Started** state. If not, try to mitigate by restarting the unhealthy or stopped ResourceManager.
-2. If step 1 doesn't resolve the issue, SSH the active ResourceManager head node and check the garbage collection status using `jstat -gcutil <ResourceManager pid> 1000 100`. If you see the **FGCT** increase significantly in just a few seconds, it indicates ResourceManager is busy in *Full GC* and is unable to process the other requests.
+2. If step 1 doesn't resolve the issue, SSH the active ResourceManager head node and check the garbage collection status using `jstat -gcutil <ResourceManager pid> 1000 100`. If you see the **FGCT** increase significantly in just a few seconds, it indicates ResourceManager is busy in *Full GC*, and is unable to process the other requests.
 3. Go to **Ambari UI** > **YARN** > **CONFIGS** > **Advanced** and increase `ResourceManager java heap size`.
 4. Restart required services in Ambari UI.
 
