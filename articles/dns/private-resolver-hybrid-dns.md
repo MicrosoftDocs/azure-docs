@@ -51,11 +51,11 @@ Create a private zone with at least one resource record to use for testing. The 
 
 In this article, the private zone **azure.contoso.com** and the resource record **test** are used.  Autoregistration isn't required for the current demonstration.  
 
-[ ![View resource records](./media/private-resolver-hybrid-dns/private-zone-records_small.png) ](./media/private-resolver-hybrid-dns/private-zone-records.png#lightbox)
+[ ![View resource records](./media/private-resolver-hybrid-dns/private-zone-records-small.png) ](./media/private-resolver-hybrid-dns/private-zone-records.png#lightbox)
 
 **Requirement**: You must create a virtual network link in the zone to the virtual network where you will deploy your Azure DNS Private Resolver.  In the example shown below, the private zone is linked to two vnets: **myeastvnet** and **mywestvnet**. At least one link is required.
 
-[ ![View zone links](./media/private-resolver-hybrid-dns/private-zone-links_small.png) ](./media/private-resolver-hybrid-dns/private-zone-links.png#lightbox)
+[ ![View zone links](./media/private-resolver-hybrid-dns/private-zone-links-small.png) ](./media/private-resolver-hybrid-dns/private-zone-links.png#lightbox)
 
 ## Create an Azure DNS Private Resolver
 
@@ -65,21 +65,21 @@ The following quickstarts are available to help you create a private resolver. T
 
  When you're finished, write down the IP address of the inbound endpoint for the Azure DNS Private Resolver, as shown below. In this case, the IP address is **10.10.0.4**.  This IP address will be used later to configure on-premises DNS conditional forwarders.
 
-[ ![View endpoint IP address](./media/private-resolver-hybrid-dns/inbound-endpoint-ip_small.png) ](./media/private-resolver-hybrid-dns/inbound-endpoint-ip.png#lightbox)
+[ ![View endpoint IP address](./media/private-resolver-hybrid-dns/inbound-endpoint-ip-small.png) ](./media/private-resolver-hybrid-dns/inbound-endpoint-ip.png#lightbox)
 
 ## Configure an Azure DNS forwarding ruleset
 
 Create a forwarding ruleset in the same region as your private resolver. The following example shows two rulesets. The **East US** region ruleset is used for the hybrid DNS demonstration.
 
-[ ![View ruleset region](./media/private-resolver-hybrid-dns/forwarding-ruleset-region_small.png) ](./media/private-resolver-hybrid-dns/forwarding-ruleset-region.png#lightbox)
+[ ![View ruleset region](./media/private-resolver-hybrid-dns/forwarding-ruleset-region-small.png) ](./media/private-resolver-hybrid-dns/forwarding-ruleset-region.png#lightbox)
 
 **Requirement**: You must create a virtual network link to the vnet where your private resolver is deployed.  In the following example, two virtual network links are present. The link **myeastvnet-link** is created to a hub vnet where the private resolver is provisioned. There's also a virtual network link **myeastspoke-link** that provides hybrid DNS resolution in a spoke vnet that doesn't have its own private resolver. The spoke network is able to use the private resolver because it peers with the hub network. The spoke vnet link isn't required for the current demonstration.
 
-[ ![View ruleset links](./media/private-resolver-hybrid-dns/ruleset-links_small.png) ](./media/private-resolver-hybrid-dns/ruleset-links.png#lightbox)
+[ ![View ruleset links](./media/private-resolver-hybrid-dns/ruleset-links-small.png) ](./media/private-resolver-hybrid-dns/ruleset-links.png#lightbox)
 
 Next, create a rule in your ruleset for your on-premises domain. In this example, we use **contoso.com**. Set the destination IP address for your rule to be the IP address of your on-premises DNS server.  In this example, the on-premises DNS server is at **10.100.0.2**.  Verify that the rule is **Enabled**.
 
-[ ![View rules](./media/private-resolver-hybrid-dns/ruleset-rules_small.png) ](./media/private-resolver-hybrid-dns/ruleset-rules.png#lightbox)
+[ ![View rules](./media/private-resolver-hybrid-dns/ruleset-rules-small.png) ](./media/private-resolver-hybrid-dns/ruleset-rules.png#lightbox)
 
 > [!NOTE]
 > Don't change the DNS settings for your virtual network to use the inbound endpoint IP address. Leave the default DNS settings.

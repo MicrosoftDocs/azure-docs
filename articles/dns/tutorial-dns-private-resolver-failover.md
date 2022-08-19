@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: tutorial
-ms.date: 08/16/2022
+ms.date: 08/18/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to avoid having a single point of failure for DNS resolution.
 ---
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 The following diagram shows the failover scenario discussed in this article.
 
-[ ![Azure DNS Private Resolver architecture](./media/tutorial-dns-private-resolver-failover/private-resolver-failover.png) ](./media/tutorial-dns-private-resolver-failover/private-resolver-failover_highres.png#lightbox)
+[ ![Azure DNS Private Resolver architecture](./media/tutorial-dns-private-resolver-failover/private-resolver-failover.png) ](./media/tutorial-dns-private-resolver-failover/private-resolver-failover-highres.png#lightbox)
 
 In this scenario, you have connections from two on-premises locations to two Azure hub vnets. 
 - In the east region, the primary path is to the east vnet hub. You have a secondary connection to the west hub. The west region is configured in the reverse.
