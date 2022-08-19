@@ -1385,6 +1385,8 @@ items:
           href: ../data-factory/connector-troubleshoot-azure-blob-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Azure Cosmos DB (including SQL API)
           href: ../data-factory/connector-troubleshoot-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure Data Explorer
+          href: ../data-factory/connector-troubleshoot-azure-data-explorer.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Azure Data Lake (Gen1 and Gen2)
           href: ../data-factory/connector-troubleshoot-azure-data-lake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Azure database for PostgreSQL
