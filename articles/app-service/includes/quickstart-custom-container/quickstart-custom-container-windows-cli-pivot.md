@@ -76,7 +76,7 @@ When the registry is created, the output is similar to the following:
 
 Take note of `loginServer` in the output, which is the fully qualified registry name (all lowercase). Throughout the rest of this quickstart `<registry-name>` is a placeholder for the container registry name, and `<login-server>` is a placeholder for the registry's login server name.
 
-[!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]
+[!INCLUDE [container-registry-quickstart-sku](../../../../includes/container-registry-quickstart-sku.md)]
 
 ## 4 - Log in to registry
 
