@@ -194,6 +194,9 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 | 1.24 | Apr-22-22 | May 2022 | Jul 2022 | 1.27 GA
 | 1.25 | Aug 2022 | Sept 2022 | Nov 2022 | 1.28 GA
 
+> [!NOTE]
+    > To find out more about the release version by region you can check [AKS release status webpage][release-tracker-webpage], visit [service health notification](../aks/release-tracker.md) for more information.
+
 ## FAQ
 
 **How does Microsoft notify me of new Kubernetes versions?**
@@ -273,3 +276,4 @@ For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes
 [az-aks-get-versions]: /cli/azure/aks#az_aks_get_versions
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [get-azaksversion]: /powershell/module/az.aks/get-azaksversion
+[release-tracker-webpage]: https://releases.aks.azure.com/webpage/index.html
