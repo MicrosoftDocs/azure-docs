@@ -48,7 +48,7 @@ Follow these steps to connect your Custom Vision account to Azure Video Indexer,
 1. Select the question mark on the top-right corner of the page and choose **API Reference**.
 1. Make sure you're subscribed to API Management by clicking **Products** tab. If you have an API connected you can continue to the next step, otherwise, subscribe. 
 1. On the developer portal, select the **Complete API Reference** and browse to **Operations**.  
-1. Select **Connect Custom Vision Account (PREVIEW)** and select **Try it**.
+1. Select **Connect Custom Vision Account** and select **Try it**.
 1. Fill in the required fields and the access token and select **Send**. 
 
     For more information about how to get the Video Indexer access token go to the [developer portal](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token), and see the [relevant documentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  

@@ -15,7 +15,7 @@
     href: invite-users.md
 - name: Tutorials
   items:
-  - name: Create an ARM-based account (preview)
+  - name: Create an ARM-based account
     href: create-account-portal.md
   - name: Create a classic account
     href: connect-to-azure.md

@@ -42,7 +42,9 @@ Azure Video Indexer's insights can be applied to many scenarios, among them are:
 
 ## Video/audio models
 
-The following list shows the insights you can retrieve from your videos using Azure Video Indexer video and audio models. Unless specified otherwise, a model is generally available.
+The following list shows the insights you can retrieve from your videos using Azure Video Indexer video and audio models. 
+
+Unless specified otherwise, a model is generally available.
 
 ### Video insights
 
