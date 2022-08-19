@@ -83,7 +83,7 @@ Content-type: application/json
             "timeBasedAttribute": "employeeHireDate",
             "offsetInDays": -2
         }
-    } 
+    }, 
    "tasks":[ 
       {
          "isEnabled":true, 
