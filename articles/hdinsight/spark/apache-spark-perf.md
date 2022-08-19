@@ -6,9 +6,9 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.custom: contperf-fy21q1
 ---
-# Optimize Apache Spark jobs in HDInsight
+# Optimize Apache Spark applications in HDInsight
 
-This article provides an overview of strategies to optimize Apache Spark jobs on Azure HDInsight.
+This article provides an overview of strategies to optimize Apache Spark applications on Azure HDInsight.
 
 ## Overview
 
@@ -51,7 +51,7 @@ The performance of your Apache Spark jobs depends on multiple factors. These per
 - Alternatively, you can check yarn scheduler metrics through Yarn Rest API. For example, `curl -u "xxxx" -sS -G "https://YOURCLUSTERNAME.azurehdinsight.net/ws/v1/cluster/scheduler"`. For ESP, you should use domain admin user.
 
 3. Calculate total resources for your new application
-- All executors resources: `spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) and spark.executor.instances * spark.executor.cores`
+- All executors resources: `spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) and spark.executor.instances * spark.executor.cores`. See more information in [spark executors configuration](apache-spark-settings.md#configuring-spark-executors)
 - ApplicationMaster
   - In cluster mode, use `spark.driver.memory` and `spark.driver.cores`
   - In client mode, use `spark.yarn.am.memory+spark.yarn.am.memoryOverhead` and `spark.yarn.am.cores`
@@ -59,9 +59,30 @@ The performance of your Apache Spark jobs depends on multiple factors. These per
 > [!NOTE]
 > `yarn.scheduler.minimum-allocation-mb <= spark.executor.memory+spark.yarn.executor.memoryOverhead <= yarn.scheduler.maximum-allocation-mb`
 
+
+
 4. Compare your new application total resources with yarn available resources in your specified queue
 
-There are also many optimizations that can help you overcome these challenges, such as caching, and allowing for data skew.
+
+## Step 3: Track your spark application
+
+1. [Monitor your running spark application through Spark UI](apache-spark-job-debugging.md#track-an-application-in-the-spark-ui)
+
+2. [Monitor your complete or incomplete spark application through Spark History Server UI](apache-spark-job-debugging.md#find-information-about-completed-jobs-using-the-spark-history-server)
+
+We need to identify below symptoms through Spark UI or Spark History UI:
+
+- Which stage is slow
+- Are total executor CPU v-cores fully utilized in Event-Timeline in **Stage** tab
+- If using spark sql, what's the physical plan in SQL tab
+- Is DAG too long in one stage
+- Observe tasks metrics(input size, shuffle write size, GC Time) in **Stage** tab
+
+See more information in [Monitoring your Spark Applications ](https://spark.apache.org/docs/latest/monitoring.html)
+
+## Step 4: Optimize your spark application
+
+There are many optimizations that can help you overcome these challenges, such as caching, and allowing for data skew.
 
 In each of the following articles, you can find information on different aspects of Spark optimization.
 
@@ -69,6 +90,13 @@ In each of the following articles, you can find information on different aspects
 * [Optimize data processing for Apache Spark](optimize-data-processing.md)
 * [Optimize memory usage for Apache Spark](optimize-memory-usage.md)
 * [Optimize HDInsight cluster configuration for Apache Spark](optimize-cluster-configuration.md)
+
+### Optimize Spark SQL partitions
+
+- `spark.sql.shuffle.paritions` is 200 by default. We can adjust based on the business needs when shuffling data for joins or aggregations.
+- `spark.sql.files.maxPartitionBytes` is 1G by default in HDI. The maximum number of bytes to pack into a single partition when reading files. This configuration is effective only when using file-based sources such as Parquet, JSON and ORC.
+- AQE in Spark 3.0. See [Adaptive Query Execution](https://spark.apache.org/docs/latest/sql-performance-tuning.html#adaptive-query-execution)
+
 
 ## Next steps
 
