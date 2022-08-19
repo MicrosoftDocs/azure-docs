@@ -27,7 +27,7 @@ When you design your application, [follow the .NET SDK best practices](performan
 Consider the following when developing your application:
 
 * The application should be in the same region as your Azure Cosmos DB account.
-* Your [ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion), [PreferredApplicationRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.preferredapplicationregions), or [PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) for V2 SDK configuration is should reflect your regional preference and point to the region your application is deployed on.
+* Your [ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion), [PreferredApplicationRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions), or [PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) for V2 SDK configuration is should reflect your regional preference and point to the region your application is deployed on.
 * There might be a bottleneck on the Network interface because of high traffic. If the application is running on Azure Virtual Machines, there are possible workarounds:
   * Consider using a [Virtual Machine with Accelerated Networking enabled](../../virtual-network/create-vm-accelerated-networking-powershell.md).
   * Enable [Accelerated Networking on an existing Virtual Machine](../../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
