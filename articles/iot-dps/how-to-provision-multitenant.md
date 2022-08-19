@@ -1,17 +1,17 @@
 ---
-title: How to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
-description: How to provision devices for multitenancy with your Device Provisioning Service (DPS) instance
+title: Tutorial - Provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
+description: This tutorial shows how to provision devices for multitenancy with your Device Provisioning Service (DPS) instance
 author: kgremban
 ms.author: kgremban
-ms.topic: how-to
-ms.date: 10/02/2021
+ms.topic: tutorial
+ms.date: 08/19/2022
 ms.service: iot-dps
 services: iot-dps
 ---
 
-# How to provision for multitenancy 
+# Tutorial: Provision for multitenancy
 
-This how-to shows how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). Allocation policies that are defined by the provisioning service support a variety of allocation scenarios. Two common scenarios are:
+This tutorial shows how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). Allocation policies that are defined by the provisioning service support a variety of allocation scenarios. Two common scenarios are:
 
 * **Geolocation / GeoLatency**: As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub that's closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs.
 
@@ -19,7 +19,7 @@ This how-to shows how to securely provision multiple simulated symmetric key dev
 
 It's common to combine these two scenarios. For example, a multitenant IoT solution commonly assigns tenant devices using a group of IoT hubs that are scattered across different regions. These tenant devices can be assigned to the IoT hub in the group that has the lowest latency based on geographic location.
 
-This article uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices in a multitenant scenario across regions. You will perform the following steps in this article:
+This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices in a multitenant scenario across regions. You will perform the following steps in this tutorial:
 
 > [!div class="checklist"]
 > * Use the Azure CLI to create two regional IoT hubs (**West US 2** and **East US**)
@@ -44,7 +44,7 @@ This article uses a simulated device sample from the [Azure IoT C SDK](https://g
 In this section, you'll create an Azure resource group, and two new regional IoT hub resources for a tenant. One IoT hub will be for the **West US 2** region and the other will be for the **East US** region.
 
 >[!IMPORTANT]
->It's recommended that you use the same resource group for all resources created in this article. This will make clean up easier after you are finished.
+>It's recommended that you use the same resource group for all resources created in this tutorial. This will make clean up easier after you are finished.
 
 1. In the Azure Cloud Shell, create a resource group with the following [az group create](/cli/azure/group#az-group-create) command:
 
@@ -72,7 +72,7 @@ In this section, you'll create an Azure resource group, and two new regional IoT
 
 In this section, you'll create a new enrollment group for the tenant devices.  
 
-For simplicity, this article uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
+For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
 
 1. In the Azure portal, select your Device Provisioning Service.
 
@@ -385,9 +385,9 @@ The sample code simulates a device boot sequence that sends the provisioning req
 
 ## Clean up resources
 
-If you plan to continue working with resources created in this article, you can leave them. Otherwise, use the following steps to delete all resources created by this article to avoid unnecessary charges.
+If you plan to continue working with resources created in this tutorial, you can leave them. Otherwise, use the following steps to delete all resources created by this tutorial to avoid unnecessary charges.
 
-The steps here assume that you created all resources in this article as instructed in the same resource group named **contoso-us-resource-group**.
+The steps here assume that you created all resources in this tutorial as instructed in the same resource group named **contoso-us-resource-group**.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
