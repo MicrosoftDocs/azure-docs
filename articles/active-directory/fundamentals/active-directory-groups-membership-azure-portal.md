@@ -3,13 +3,13 @@ title: Add or remove a group from another group - Azure AD
 description: Instructions about how to add or remove a group from another group using Azure Active Directory.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 10/19/2018
+ms.date: 08/17/2022
 ms.author: barclayn
 ms.custom: "it-pro, seodec18"
 ms.reviewer: krbain
@@ -17,15 +17,17 @@ ms.collection: M365-identity-device-management
 ---
 
 # Add or remove a group from another group using Azure Active Directory
+
 This article helps you to add and remove a group from another group using Azure Active Directory.
 
 >[!Note]
 >If you're trying to delete the parent group, see [How to update or delete a group and its members](active-directory-groups-delete-group.md).
 
 ## Add a group to another group
+
 You can add an existing Security group to another existing Security group (also known as nested groups), creating a member group (subgroup) and a parent group. The member group inherits the attributes and properties of the parent group, saving you configuration time.
 
->[!Important]
+>[!IMPORTANT]
 >We don't currently support:<ul><li>Adding groups to a group synced with on-premises Active Directory.</li><li>Adding Security groups to Microsoft 365 groups.</li><li>Adding Microsoft 365 groups to Security groups or other Microsoft 365 groups.</li><li>Assigning apps to nested groups.</li><li>Applying licenses to nested groups.</li><li>Adding distribution groups in nesting scenarios.</li><li>Adding security groups as members of mail-enabled security groups</li><li> Adding groups as members of a role-assignable group.</li></ul>
 
 ### To add a group as a member of another group
@@ -36,7 +38,7 @@ You can add an existing Security group to another existing Security group (also 
 
 3. On the **Groups - All groups** page, search for and select the group that's to become a member of another group. For this exercise, we're using the **MDM policy - West** group.
 
-    >[!Note]
+    >[!NOTE]
     >You can add your group as a member to only one group at a time. Additionally, the **Select Group** box filters the display based on matching your entry to any part of a user or device name. However, wildcard characters aren't supported.
 
     ![Groups - All groups page with MDM policy - West group selected](media/active-directory-groups-membership-azure-portal/group-all-groups-screen.png)
@@ -52,9 +54,11 @@ You can add an existing Security group to another existing Security group (also 
 6. For a more detailed view of the group and member relationship, select the group name (**MDM policy - All org**) and take a look at the **MDM policy - West** page details.
 
 ## Remove a group from another group
+
 You can remove an existing Security group from another Security group. However, removing the group also removes any inherited attributes and properties for its members.
 
 ### To remove a member group from another group
+
 1. On the **Groups - All groups** page, search for and select the group that's to be removed as a member of another group. For this exercise, we're again using the **MDM policy - West** group.
 
 2. On the **MDM policy - West overview** page, select **Group memberships**.
@@ -64,6 +68,7 @@ You can remove an existing Security group from another Security group. However, 
     ![Group membership page showing both the member and the group details](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
 
 ## Additional information
+
 These articles provide additional information on Azure Active Directory.
 
 - [View your groups and members](active-directory-groups-view-azure-portal.md)

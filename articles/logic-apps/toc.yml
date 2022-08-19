@@ -356,8 +356,6 @@
       href: ../connectors/connectors-create-api-sqlazure.md
     - name: Transform XML
       href: logic-apps-enterprise-integration-transform.md
-    - name: Twilio
-      href: ../connectors/connectors-create-api-twilio.md
     - name: X12
       href: logic-apps-enterprise-integration-x12.md
     - name: XML Validation
@@ -386,8 +384,8 @@
       href: plan-manage-costs.md
     - name: Move logic app resources
       href: move-logic-app-resources.md
-    - name: Migrate to latest schema
-      href: ../connectors/connectors-schema-migration.md
+    - name: Update schema for Consumption workflows
+      href: update-consumption-workflow-schema.md
   - name: Test
     items:
     - name: Test logic apps with mock data
