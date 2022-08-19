@@ -36,10 +36,9 @@ The following tools are supported by Form Recognizer v2.1:
 |----------|-------------------------|
 |**Receipt model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-receipts)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=receipt#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-
 ### Try Form Recognizer
 
-See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
+See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts using the Form Recognizer Studio. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -62,19 +61,6 @@ See how data, including time and date of transactions, merchant information, and
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
-
-#### Sample Labeling tool (API v2.1)
-
-You'll need a receipt document. You can use our [sample receipt document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
-
-1. On the Sample Labeling tool home page, select **Use prebuilt model to get data**.
-
-1. Select **Receipt** from the **Form Type** dropdown menu:
-
-      :::image type="content" source="media/try-receipt.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
-
-      > [!div class="nextstepaction"]
-      > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
 ## Input requirements
 

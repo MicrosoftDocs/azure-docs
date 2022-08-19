@@ -167,12 +167,6 @@ To use your SAS URL with the [REST API](https://westus.dev.cognitive.microsoft.c
   }
   ```
 
-### Sample Labeling Tool
-
-To use your SAS URL with the [Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net/connections/create), add the SAS URL to the **Connection Settings** → **Azure blob container** → **SAS URI** field:
-
-  :::image type="content" source="media/sas-tokens/fott-add-sas-uri.png" alt-text="Screenshot that shows the SAS URI field.":::
-
 That's it! You've learned how to create SAS tokens to authorize how clients access your data.
 
 ## Next step

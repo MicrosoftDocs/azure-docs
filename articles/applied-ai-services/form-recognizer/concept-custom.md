@@ -68,17 +68,18 @@ The table below compares custom template and custom neural features:
 
 ## Custom model tools
 
+The following tools are supported by Form Recognizer v3.0:
+
+| Feature | Resources | Model ID|
+|---|---|:---|
+|Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[Python SDK](quickstarts/get-started-v3-sdk-rest-api.md)</li></ul>|***custom-model-id***|
+
 The following tools are supported by Form Recognizer v2.1:
 
 | Feature | Resources | Model ID|
 |---|---|:---|
 |Custom model| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](quickstarts/try-sdk-rest-api.md)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|***custom-model-id***|
 
-The following tools are supported by Form Recognizer v3.0:
-
-| Feature | Resources | Model ID|
-|---|---|:---|
-|Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[Python SDK](quickstarts/get-started-v3-sdk-rest-api.md)</li></ul>|***custom-model-id***|
 
 ### Try Form Recognizer
 
@@ -108,17 +109,6 @@ Try extracting data from your specific or unique documents using custom models. 
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
-
-#### Sample Labeling tool (API v2.1)
-
-
-|Feature    |Custom Template | Custom Neural |
-|-----------|-----------------|-----------------------|
-|Document structure |Template, fixed form, and structured documents.| Structured, semi-structured, and unstructured documents.|
-|Training time | 1 - 5 minutes | 20 - 60 minutes |
-|Data extraction| Key-value pairs, tables, selection marks, signatures, and regions| Key-value pairs and selections marks.|
-|Models per Document type | Requires one model per each document-type variation| Supports a single model for all document-type variations.|
-|Language support| See [custom template model language support](language-support.md)| The custom neural model currently supports English-language documents only.|
 
 ## Model capabilities
 
