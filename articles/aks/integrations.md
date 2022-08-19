@@ -22,11 +22,14 @@ The following rules are used by AKS for applying updates to installed add-ons:
 - Any breaking or behavior changes to the add-on will be announced well before, usually 60 days, a later minor version of Kubernetes is released on AKS.
 - Add-ons can be patched weekly with every new release of AKS which will be announced in the release notes. AKS releases can be controlled using [maintenance windows][maintenance-windows] and followed using [release tracker][release-tracker].
 
-### Exceptions 
+### Exceptions
 
-The following exceptions apply to bringing in major/minor or breaking changes to the add-ons:
- - In the event that the Kubernetes version is in preview
- - In the event that the addon or feature is in preview
+AKS will not automatically update installed add-ons if:
+
+    * The cluster's Kubernetes version is in preview
+    * The add-on or feature is in preview
+
+### Available add-ons
 
 The below table shows the available add-ons.
 
