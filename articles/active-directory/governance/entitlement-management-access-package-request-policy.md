@@ -32,7 +32,7 @@ When you create an access package, you can specify the request, approval and lif
 
 For example, a single policy cannot be used to assign internal and external users to the same access package. However, you can create two policies in the same access package, one for internal users and one for external users. If there are multiple policies that apply to a user to request, they will be prompted at the time of their request to select the policy they would like to be assigned to. The following diagram shows an access package with two policies.
 
-![Multiple policies in an access package](./media/entitlement-management-access-package-request-policy/access-package-policy.png)
+![Diagram that illustrates multiple policies, along with multiple resource roles, can be contained within an access package.](./media/entitlement-management-access-package-request-policy/access-package-policy.png)
 
 In addition to policies for users to request access, you can also have policies for [automatic assignment](entitlement-management-access-package-auto-assignment-policy.md), and policies for direct assignment by administrators or catalog owners.
 
@@ -108,7 +108,7 @@ Follow these steps if you want to allow users in your directory to be able to re
  
 ## For users not in your directory
 
- **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to be allow invitations in **Collaboration restrictions**. For more information, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
+ **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to allow invitations in **Collaboration restrictions**. For more information, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
 
 > [!NOTE]
 > A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../external-identities/user-properties.md).
