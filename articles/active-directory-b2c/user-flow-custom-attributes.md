@@ -147,7 +147,7 @@ You can create these attributes by using the portal UI before or after you use t
 |`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](microsoft-graph-operations.md#application-extension-directory-extension-properties)|
 
 > [!NOTE] 
-> When using custom attributes in custom policies, the claim type ID must be prefixed with `extension_` to allow the correct data mapping to take place within the Azure AD B2C directory.
+> When using a custom attribute in custom policies, you must prefix the claim type ID with `extension_` to allow the correct data mapping to take place within the Azure AD B2C directory.
 
 The following example demonstrates the use of custom attributes in an Azure AD B2C custom policy claim definition.
 
