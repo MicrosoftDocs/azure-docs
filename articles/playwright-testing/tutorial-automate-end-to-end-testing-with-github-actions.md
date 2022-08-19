@@ -41,30 +41,20 @@ The sample repository contains Playwright tests and the configuration settings t
 
     :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/fork-github-repo.png" alt-text="Screenshot that shows the button to fork the sample application's GitHub repo.":::
 
-## Authenticate with Microsoft Playwright Testing
+## Configure GitHub secret
 
-To run Playwright tests from your CI/CD pipeline, you need a Microsoft Playwright Testing workspace access key.
-
-To create a Microsoft Playwright Testing access key and use it securely in your CI/CD workflow:
-
-1. In the [Microsoft Playwright Testing portal](https://dashboard.playwright-ppe.io/), create an access key for your workspace. Follow these steps to [create an access key](./how-to-manage-access-keys.md#create-an-access-key).
+To securely use the Microsoft Playwright Testing access key in your GitHub Actions workflow, create a GitHub secret.
 
 1. In your forked GitHub repository, select **Settings > Secrets > Actions > New repository secret**.
 
-1. Enter *ACCESS_KEY* for the **Name**, and paste the access key value that you copied previously, for the **Value**. Then, select **Add secret** to create the CI/CD secret.
+1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
+
+    | Parameter | Value |
+    | ----------- | ------------ |
+    | **Name** | *ACCESS_KEY* |  
+    | **Value** | Paste the workspace access key. Follow these steps to [create an access key](./how-to-manage-access-keys.md#create-an-access-key). |
 
     :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/create-secret-playwright-testing.png" alt-text="Screenshot that shows the page to add a GitHub secret for Microsoft Playwright Testing access key.":::
-
-The CI/CD workflow definition uses this secret to configure the `ACCESS_KEY` environment variable when running the tests:
-
-```yml
-- name: Run Playwright Tests
-  run: |
-    npm run test
-  env:
-    # Access Key for Microsoft Playwright Testing
-    ACCESS_KEY: ${{secrets.ACCESS_KEY}}
-```
 
 ## Create a GitHub Actions workflow
 
@@ -74,8 +64,6 @@ You'll now create a GitHub Actions workflow that runs your Playwright tests with
 1. Install all dependencies for running the tests.
 1. Run the Playwright tests with Microsoft Playwright Testing. This step uses the `ACCESS_KEY` CI/CD secret to authenticate with the service.
 
-Perform the following steps to create the GitHub Actions workflow:
-
 1. In your forked repository, select **Actions**, and then select **New workflow**.
 
       :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/create-github-actions-workflow.png" alt-text="Screenshot that shows Actions page in GitHub, highlighting the New workflow button.":::
@@ -83,6 +71,11 @@ Perform the following steps to create the GitHub Actions workflow:
 1. Select **set up a workflow yourself**, to create a new workflow.
 
 1. Replace the default workflow code with below code snippet:
+
+    * Trigger on every code push to the `main` branch, or when started manually.
+    * Check out the source code onto the CI/CD agent, and set up Node.js.
+    * Install all npm package dependencies for running the Playwright tests.
+    * Use the CLI to run the Playwright tests with Microsoft Playwright Testing. This step uses the `ACCESS_KEY` secret to authenticate with the service.
 
     ```yml
     name: Run end-to-end tests with Microsoft Playwright Testing
@@ -106,7 +99,6 @@ Perform the following steps to create the GitHub Actions workflow:
     
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
-          # Checks-out your repository
           - uses: actions/checkout@v3
     
           - name: Setup Node.js environment
@@ -120,7 +112,7 @@ Perform the following steps to create the GitHub Actions workflow:
             run: |
              npm run test
             env:
-                # Access Key for Microsoft Playwright Testing
+                # Access key for Microsoft Playwright Testing
                 ACCESS_KEY: ${{secrets.ACCESS_KEY}}
     ```
 
