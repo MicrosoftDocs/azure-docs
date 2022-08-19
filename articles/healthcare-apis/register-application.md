@@ -85,11 +85,13 @@ The following steps are required for the DICOM service, but optional for the FHI
 
 3. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **user_impersonation**, and then select **Add permissions**.
 
-   [ ![Select permissions scopes.](dicom/media/dicom-select-scopes.png) ](dicom/media/dicom-select-scopes.png#lightbox)
+   [ ![Select permissions scopes.](dicom/media/dicom-select-scopes-new.png) ](dicom/media/dicom-select-scopes-new.png#lightbox)
 
 >[!NOTE]
 >Use  grant_type of client_credentials when trying to obtain an access token for the FHIR service using tools such as Postman or REST Client. For more details, visit [Access using Postman](./fhir/use-postman.md) and [Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code](./fhir/using-rest-client.md).
->>Use  grant_type of client_credentials or authentication_doe when trying to obtain an access token for the DICOM service. For more details, visit [Using DICOM with cURL](dicom/dicomweb-standard-apis-curl.md).
+>>Use  grant_type of client_credentials or authentication_doe when trying to obtain an access token for the DICOM service. When you are requesting a token, change the resource to [https://dicom.healthcareapis.azure.com/](https://dicom.healthcareapis.azure.com/).
+ 
+For more details, visit [Using DICOM with cURL](dicom/dicomweb-standard-apis-curl.md).
 
 Your application registration is now complete.
 
