@@ -19,11 +19,13 @@ With a trial, account Azure Video Indexer provides up to 600 minutes of free ind
 > [!NOTE]
 > The trial account is not available on the Azure Government cloud.
 
-You can later create a paid account where you're not limited by the quota. Two types of paid accounts are available to you. Azure Resource Manager (ARM) (currently in preview) and classic (generally available) are both paid accounts with similar data plane capabilities and pricing. The main difference between the two is account management platform. While classic accounts are built on the API Management, ARM-based accounts management is built on Azure, which enables apply access control to all services with role-based access control (Azure RBAC) natively.
-
-With a trial account, you don't have to set up an Azure Subscription. When creating a paid account, you need to connect Azure Video Indexer [to your Azure subscription and an Azure Media Services account](connect-to-azure.md). 
+You can later create a paid account where you're not limited by the quota. Two types of paid accounts are available to you: Azure Resource Manager (ARM) (currently in preview) and classic (generally available). The main difference between the two is account management platform. While classic accounts are built on the API Management, ARM-based accounts management is built on Azure, which enables apply access control to all services with role-based access control (Azure RBAC) natively.
 
 Make sure to review [Pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
+
+## Connecting to Azure subscription
+
+With a trial account, you don't have to set up an Azure subscription. When creating a paid account, you need to connect Azure Video Indexer [to your Azure subscription and an Azure Media Services account](connect-to-azure.md). 
 
 ## To get access to your account
 
@@ -38,7 +40,7 @@ Make sure to review [Pricing](https://azure.microsoft.com/pricing/details/video-
 
     * Upgrade a trial account to an ARM based account and [**import** your content for free](connect-to-azure.md#import-your-content-from-the-trial-account).  
 * Classic accounts: [Create classic accounts using API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Paid-Account).
-* Connect a classic account to ARM: [Connect an existing classic paid Azure Video Indexer account to ARM-based account](connect-classic-account-to-arm.md).
+* Connect a classic account to ARM: [Connect an existing classic paid Azure Video Indexer account to an ARM-based account](connect-classic-account-to-arm.md).
 
 ## Limited access features
 
