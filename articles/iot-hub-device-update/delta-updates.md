@@ -13,14 +13,14 @@ Delta updates allow you to generate a small update, which represents only the ch
 
 ## Requirements for using delta updates in Device Update for IoT Hub
 
-1.	The source and target updates must:  
-a.	Be SWU ".swu" format (SWUpdate)  
-b.	Use Ext2, Ext3, or Ext4 filesystem  
-c.	Be a raw image (writeable to device)  
-d.	Compressed originally with gzip or zstd
-2.	The delta generation process will recompress the target SWU update using ZSTD compression in order to produce an optimal delta. You'll import this recompressed target SWU update to the DU service along with the generated delta update file.
-3.	ZSTD decompression must be enabled in SWUpdate on the device.  
-a.	Requires using [SWUpdate 2019.11](https://github.com/sbabic/swupdate/releases/tag/2019.11) or later.
+- The source and target updates must:  
+    - Be SWU ".swu" format (SWUpdate)  
+    - Use Ext2, Ext3, or Ext4 filesystem  
+    - Be a raw image (writeable to device)  
+    - Compressed originally with gzip or zstd
+- The delta generation process will recompress the target SWU update using ZSTD compression in order to produce an optimal delta. You'll import this recompressed target SWU update to the DU service along with the generated delta update file.
+- ZSTD decompression must be enabled in SWUpdate on the device.  
+    - Requires using [SWUpdate 2019.11](https://github.com/sbabic/swupdate/releases/tag/2019.11) or later.
 
 ## Pre-requisites for using delta updates
 
@@ -124,7 +124,7 @@ The basic process of importing an update to the Device Update service is unchang
 
 [How to prepare an update to be imported into Azure Device Update for IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/create-update)
 
-Importantly, however, there are specific aspects of delta support that aren't fully implemented yet for this preview. Therefore, we've created a script to simplify the process during Early Access, which you previously downloaded: **New-ImportManifest.ps1**. Note: the script uses PowerShell, which can be [installed](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) on Linux, Windows, or macOS.
+Importantly, however, there are specific aspects of delta support that aren't fully implemented yet for this preview. Therefore, we've created a script to simplify the process during Early Access, which you previously downloaded: **New-ImportManifest.ps1**. The script uses PowerShell, which can be [installed](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) on Linux, Windows, or macOS.
 
 The first step in importing an update into the Device Update service is always to create an import manifest. You can learn about the import manifest concept [here](https://docs.microsoft.com/azure/iot-hub-device-update/import-concepts#import-manifest), but note that delta updates require a new import manifest format that isn't yet ready for our public documentation. Therefore, use New-ImportManifest.ps1 instead to generate your import manifest.
 
