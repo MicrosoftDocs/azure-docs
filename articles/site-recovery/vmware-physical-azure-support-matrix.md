@@ -75,6 +75,9 @@ Machine name | Ensure that the display name of machine does not fall into [Azure
 
 ### For Windows
 
+> [!NOTE]
+> Ensure that 500MB free space is available on the installation folder in the on-premises and Azure machine.
+
 **Operating system** | **Details**
 --- | ---
 Windows Server 2022 | Supported from [Update rollup 59](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) (version 9.46 of the Mobility service) onwards.
