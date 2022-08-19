@@ -10,7 +10,7 @@ ms.author: alkohli
 ---
 # StorSimple Virtual Array system requirements
 
-[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner-2.md)]
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
 
 ## Overview
 
