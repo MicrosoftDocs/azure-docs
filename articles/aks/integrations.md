@@ -24,10 +24,7 @@ The following rules are used by AKS for applying updates to installed add-ons:
 
 ### Exceptions
 
-AKS will not automatically update installed add-ons if:
-
-    * The cluster's Kubernetes version is in preview
-    * The add-on or feature is in preview
+Addons will be upgraded to a new major/minor version (or breaking change) within a Kubernetes minor version if either the cluster's Kubernetes version or the add-on version are in preview.
 
 ### Available add-ons
 
