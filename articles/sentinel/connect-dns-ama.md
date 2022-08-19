@@ -61,7 +61,7 @@ Here are some benefits of using AMA for DNS log collection:
     > The Windows DNS Events via AMA connector currently supports analytic event activities only.
  
 1. The connector streams the events to the Microsoft Sentinel workspace to be further analyzed. 
-1. You can now use advanced filters to filter out specific events or information. This allows you to upload only the valuable data to monitor, and reduces costs and bandwidth usage. 
+1. You can now use advanced filters to filter out specific events or information. This allows you to upload only the valuable data you want to monitor, reducing costs and bandwidth usage. 
 
 ### Normalization using ASIM
 
@@ -75,7 +75,7 @@ See the [list of Windows DNS server fields](#asim-normalized-dns-schema) transla
 
 ## Set up the Windows DNS over AMA connector
 
-You can set up the Windows DNS server in two ways:  
+You can set up the connector in two ways:  
 - [Microsoft Sentinel portal](#set-up-the-connector-in-the-microsoft-sentinel-portal-ui). With this setup, you can create, manage, and delete a single DCR per workspace. Even if you define multiple DCRs via the API, the portal shows only a single DCR. 
 - [API](#set-up-the-connector-with-the-api). With this setup, you can create, manage, and delete multiple DCRs. 
 
@@ -101,29 +101,29 @@ Before you begin, verify that you have:
 
 The DCR name, subscription, and resource group are automatically set based on the workspace name, the current subscription, and the resource group the connector was selected from.
 
-:::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-create-DCR.png" alt-text="Screenshot of creating a new D C R for the Windows D N S over A M A connector.":::
+:::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-create-DCR.png" alt-text="Screenshot of creating a new D C R for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-create-DCR.png":::
 
 #### Define resources (VMs)
 
-1. Select the **Resources** tab, and select **Add Resource(s)**. 
+1. Select the **Resources** tab and select **Add Resource(s)**. 
 1. Select the VMs on which you want to install the connector to collect logs.
 
-    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-select-resource.png" alt-text="Screenshot of selecting resources for the Windows D N S over A M A connector.":::
+    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-select-resource.png" alt-text="Screenshot of selecting resources for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-select-resource.png":::
 
-1. Review your changes, and select **Save** > **Apply**.  
+1. Review your changes and select **Save** > **Apply**.  
 
 #### Filter out undesired events
 
 While this step is not required, it can help reduce costs and simplify event triage. 
 
 1. On the connector page, in the **Configuration** area, select **Add data collection filters**. 
-1. Type a name for the filter and select the filter type. The filter type is a parameter that reduces the number of collected events. The parameters are normalized according to the DNS normalized schema. See the list of available [filters and fields for filtering](#use-advanced-filters).
+1. Type a name for the filter and select the filter type. The filter type is a parameter that reduces the number of collected events. The parameters are normalized according to the DNS normalized schema. See the list of [available fields for filtering](#available-fields-for-filtering).
 
-    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-create-filter.png" alt-text="Screenshot of creating a filter for the Windows D N S over A M A connector.":::
+    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-create-filter.png" alt-text="Screenshot of creating a filter for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-create-filter.png":::
 
 1. To add complex filters, select **Add field to filter** and add the relevant field.
 
-    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-filter-fields.png" alt-text="Screenshot of adding fields to a filter for the Windows D N S over A M A connector.":::
+    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-filter-fields.png" alt-text="Screenshot of adding fields to a filter for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-filter-fields.png":::
 
 1. To add new filters, select **Add new filters**.  
 1. To edit, or delete existing filters or fields, select the edit or delete icons in the table under the **Configuration** area. To add fields or filters, select **Add data collection filters** again.
@@ -215,17 +215,7 @@ Filters are based on a combination of numerous fields.
 - To create compound filters, use different fields with an AND relation.  
 - To combine different filters, use an OR relation between them. 
 
-To learn more, review the [advanced filter examples](#advanced-filter-examples).
-
-This table shows the available fields. The field names are normalized using the [DNS schema](#asim-normalized-dns-schema).  
-
-|Field name  |Values  |Description  |
-|---------|---------|---------|
-|EventOriginalType   |Numbers between 256 and 280   |The Windows DNS eventID, which indicates the type of the DNS protocol event.    |
-|EventResultDetails   |• NOERROR<br>• FORMERR<br>• SERVFAIL<br>• NXDOMAIN<br>• NOTIMP<br>• REFUSED<br>• YXDOMAIN<br>• YXRRSET<br>• NXRRSET<br>• NOTAUTH<br>• NOTZONE<br>• DSOTYPENI<br>• BADVERS<br>• BADSIG<br>• BADKEY<br>• BADTIME<br>• BADALG<br>• BADTRUNC<br>• BADCOOKIE  |The operation's DNS result string as defined by the Internet Assigned Numbers Authority (IANA).  |
-|DvcIpAdrr  |IP addresses    |The IP address of the server reporting the event. This also includes geo-location and malicious IP information.    |
-|DnsQuery     |Domain names (FQDN)    |The string representing the domain name to be resolved. Can accept multiple values in a comma-separated list, and wildcards. For example:<br>`*.microsoft.com,google.com,facebook.com` |
-|DnsQueryTypeName      |• A<br>• NS<br>• MD<br>• MF<br>• CNAME<br>• SOA<br>• MB<br>• MG<br>• MR<br>• NULL<br>• WKS<br>• PTR<br>• HINFO<br>• MINFO<br>• MX<br>• TXT<br>• RP<br>• AFSDB<br>• X25<br>• ISDN<br>• RT<br>• NSAP<br>• NSAP-PTR<br>• SIG<br>• KEY<br>• PX<br>• GPOS<br>• AAAA<br>• LOC<br>• NXT<br>• EID<br>• NIMLOC<br>• SRV         |The requested DNS attribute. The DNS resource record type name as defined by IANA.  |
+Review the [available fields for filtering](#available-fields-for-filtering).
 
 ### Advanced filter examples
 
@@ -237,11 +227,11 @@ This filter instructs the connector not to collect EventID 256 or EventID 257 or
 
 1. Create a filter with the **EventOriginalType** field, using the **Equals** operator, with the values **256**, **257**, and **260**. 
 
-    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-eventid-filter.png" alt-text="Screenshot of filtering out event IDs for the Windows D N S over A M A connector.":::
+    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-eventid-filter.png" alt-text="Screenshot of filtering out event IDs for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/windows-dns-ama-connector-eventid-filter.png":::
 
 1. Create a filter with the **EventOriginalType** field defined above, and using the **And** operator, also including the **DnsQueryTypeName** field set to **AAAA**.
 
-    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-eventid-dnsquery-filter.png" alt-text="Screenshot of filtering out event IDs and IPv6 addresses for the Windows D N S over A M A connector.":::
+    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-eventid-dnsquery-filter.png" alt-text="Screenshot of filtering out event IDs and IPv6 addresses for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/windows-dns-ama-connector-eventid-filter.png":::
 
 **Using the API**:
 
@@ -292,7 +282,7 @@ This filter instructs the connector not to collect events with the domains micro
 
 Set the **DnsQuery** field using the **Equals** operator, with the list **microsoft.com, google.com, facebook.com, amazon.com, center.local**.
 
-:::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-domain-filter.png" alt-text="Screenshot of filtering out domains for the Windows D N S over A M A connector."::: 
+:::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-domain-filter.png" alt-text="Screenshot of filtering out domains for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/windows-dns-ama-connector-domain-filter.png"::: 
 
 To define different values in a single field, use the **OR** operator.
 
@@ -325,6 +315,18 @@ To define different values in a single field, use the **OR** operator.
 
 ] 
 ```
+
+## Available fields for filtering
+
+This table shows the available fields. The field names are normalized using the [DNS schema](#asim-normalized-dns-schema).  
+
+|Field name  |Values  |Description  |
+|---------|---------|---------|
+|EventOriginalType   |Numbers between 256 and 280   |The Windows DNS eventID, which indicates the type of the DNS protocol event.    |
+|EventResultDetails   |• NOERROR<br>• FORMERR<br>• SERVFAIL<br>• NXDOMAIN<br>• NOTIMP<br>• REFUSED<br>• YXDOMAIN<br>• YXRRSET<br>• NXRRSET<br>• NOTAUTH<br>• NOTZONE<br>• DSOTYPENI<br>• BADVERS<br>• BADSIG<br>• BADKEY<br>• BADTIME<br>• BADALG<br>• BADTRUNC<br>• BADCOOKIE  |The operation's DNS result string as defined by the Internet Assigned Numbers Authority (IANA).  |
+|DvcIpAdrr  |IP addresses    |The IP address of the server reporting the event. This also includes geo-location and malicious IP information.    |
+|DnsQuery     |Domain names (FQDN)    |The string representing the domain name to be resolved. Can accept multiple values in a comma-separated list, and wildcards. For example:<br>`*.microsoft.com,google.com,facebook.com` |
+|DnsQueryTypeName      |• A<br>• NS<br>• MD<br>• MF<br>• CNAME<br>• SOA<br>• MB<br>• MG<br>• MR<br>• NULL<br>• WKS<br>• PTR<br>• HINFO<br>• MINFO<br>• MX<br>• TXT<br>• RP<br>• AFSDB<br>• X25<br>• ISDN<br>• RT<br>• NSAP<br>• NSAP-PTR<br>• SIG<br>• KEY<br>• PX<br>• GPOS<br>• AAAA<br>• LOC<br>• NXT<br>• EID<br>• NIMLOC<br>• SRV         |The requested DNS attribute. The DNS resource record type name as defined by IANA.  |
 
 ## ASIM normalized DNS schema
 
