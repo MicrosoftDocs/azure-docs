@@ -12,7 +12,7 @@ ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
 ---
-# How to synchronize attributes for Lifecycle workflows'
+# How to synchronize attributes for Lifecycle workflows
 Workflows, contain specific tasks, which run automatically against users based on specific conditions or triggers.
 
 These triggers are based on user attributes in Azure AD.  For instance, the classic [on-boarding pre-hire scenario](lifecycle-workflow-templates.md#onboard-pre-hire-employee) uses the `EmployeeHireDate` attribute.

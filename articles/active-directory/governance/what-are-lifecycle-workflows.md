@@ -50,7 +50,6 @@ The following are key reasons to use Lifecycle workflows.
 - **centralize** your workflow process so you can easily create and manage workflows all in one location.
 - easily **troubleshoot** workflow scenarios with the Workflow history and Audit logs
 - **manage** user lifecycle at scale.  As your organization grows, the need for other resources to manage user lifecycles is minimalized.
-- integrate
 - **reduce** or remove manual tasks that were done in the past with automated lifecycle workflows
 - **apply** logic apps to extend workflows for more complex scenarios using your existing Logic apps
 
@@ -72,11 +71,7 @@ You can use Lifecycle workflows to address any of the following conditions.
 
 
 
-### License Requirements
 
-You need a valid Azure AD Premium (P2) license for each person, other than Global administrators or User administrators, who will create lifecycle workflows. 
-
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 
 

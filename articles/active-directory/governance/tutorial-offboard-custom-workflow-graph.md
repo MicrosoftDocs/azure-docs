@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 08/16/2022
+ms.date: 08/18/2022
 ms.author: amsliu
 ms.reviewer: krbain
 ms.custom: template-tutorial
@@ -109,8 +109,8 @@ Content-type: application/json
 
 {
     "category": "Leaver",
-    "description": "Execute real-time termination tasks for employees on their last day of work",
     "displayName": "Real-time employee termination",
+    "description": "Execute real-time termination tasks for employees on their last day of work",
     "isEnabled": true,
     "isSchedulingEnabled": false,
     "executionConditions":{
@@ -148,19 +148,19 @@ Content-type: application/json
 }
 ```
 ## Run the workflow 
-Now that the workflow is created, we would like to run it immediately. To run a workflow immediately, we can use the on-demand feature.
+Now that the workflow is created, it will automatically run the workflow every 3 hours. Lifecycle workflows will check every 3 hours for users in the associated execution condition and execute the configured tasks for those users.  However, for the tutorial, we would like to run it immediately. To run a workflow immediately, we can use the on-demand feature.
 
 >[!NOTE]
 >Be aware that you currently cannot run a workflow on-demand if it is set to disabled.  You need to set the workflow to enabled to use the on-demand feature.
 
 To run a workflow on-demand for users using the GRAPH API do the following steps:
 
-1.  Still in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1.  Open [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 2. Make sure the top is still set to **POST**, and **beta** and `https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<id>/activate` is in the box.  Change `<id>` to the ID of workflows. 
  3. Copy the code below in to the **Request body** 
- 4. Replace `<userid>` in the code below with the value of Melva Prince's ID.
+ 4. Replace `<userid>` in the code below with the value of the user's ID.
  5. Select **Run query**
-   ```msgraph-interactive
+   ```json
  {
    "subjects":[
       {"id":"<userid>"}
@@ -194,4 +194,4 @@ GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/work
 
 ## Next steps
 - [Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azuread-user-accounts.md)
-- [Off-boarding users from your organization using Lifecycle workflows with Azure portal (preview)](tutorial-offboard-custom-workflow-portal.md)
+- [Execute employee offboarding tasks in real-time on their last day of work with Azure portal (preview)](tutorial-offboard-custom-workflow-portal.md)

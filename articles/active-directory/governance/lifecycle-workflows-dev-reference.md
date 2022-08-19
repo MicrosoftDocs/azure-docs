@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Developer API reference lifecycle workflows 
-The following reference doc provides an overview of how a lifecycle workflow is constructed.  The examples here are using workflows that are created using GRAPH and not in the portal.  The concepts are however the same.  For information using the portal see [Understanding lifecycle workflows](lifecycle-workflows-concept-parts.md)
+The following reference doc provides an overview of how a lifecycle workflow is constructed.  The examples here are using workflows that are created using GRAPH and not in the portal.  The concepts are however the same.  For information using the portal see [Understanding lifecycle workflows](understanding-lifecycle-workflows.md)
 
 ## Parts of a workflow 
 LCW enables you to use workflows for managing the lifecycle of your Azure AD users. In order to create a workflow, you must either specify pre-defined or custom information.  Pre-defined workflows can be selected in the Azure AD portal.  

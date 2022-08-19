@@ -1,5 +1,5 @@
 ---
-title: 'Automate employee offboarding tasks after their last day of work with Azure portal (preview)'
+title: Automate employee offboarding tasks after their last day of work with Azure portal (preview)
 description: Tutorial for post off-boarding users from an organization using Lifecycle workflows with Azure portal (preview).
 services: active-directory
 author: amsliu
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 08/16/2022
+ms.date: 08/18/2022
 ms.author: amsliu
 ms.reviewer: krbain
 ms.custom: template-tutorial
@@ -47,48 +47,63 @@ Use the following steps to create a scheduled leaver workflow that will configur
  6. From the templates, select **Select** under **Post-offboarding of an employee**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3-1.png" alt-text="Leaver workflow" lightbox="media/tutorial-lifecycle-workflows/portal-3-1.png":::
 
- 7. Next, you will configure the workflow details and trigger details. Select **Next: Configure Scope** when you are done with this step. 
+ 7. Next, you will configure the basic information about the workflow.  This information includes when the workflow will trigger, known as **Days from event**.  So in this case, the workflow will trigger seven days after the employee's leave date.  On the post-offboarding of an employee screen, add the following settings and then select **Next: Configure Scope**. 
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3-2.png" alt-text="Configure workflow" lightbox="media/tutorial-lifecycle-workflows/portal-3-2.png":::
  
- 8. On the following page, you may inspect the scope details if desired but no additional configuration is needed. Select **Next: Review tasks** when you are done with this step.
+ 8. Next, you will configure the scope. The scope determines which users this workflow will run against.  In this case, it will be on all users in the Marketing department.  On the configure scope screen, under **Rule** add the following and then select **Next: Review tasks**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3-3.png" alt-text="Review scope details" lightbox="media/tutorial-lifecycle-workflows/portal-3-3.png":::
 
- 9. You may then inspect the tasks if desired but no additional configuration is needed.
+ 9. On the following page, you may inspect the tasks if desired but no additional configuration is needed. Select **Next: Select users** when you are finished.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3-4.png" alt-text="Review workflow task" lightbox="media/tutorial-lifecycle-workflows/portal-3-4.png":::
 
-10. Once you are satisfied with the settings for the task, select **Save** to save your configurations. 
-   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3-5.png" alt-text="Save workflow task" lightbox="media/tutorial-lifecycle-workflows/portal-3-5.png":::
-
-11. Select **Create** with the **Enable schedule** box unchecked to run the workflow on-demand. You may enable this setting later after checking the tasks and workflow status.
+10. On the review blade, verify the information is correct and select **Create**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3-6.png" alt-text="Select enable" lightbox="media/tutorial-lifecycle-workflows/portal-3-6.png":::
 
- 
+>[!NOTE]
+> Select **Create** with the **Enable schedule** box unchecked to run the workflow on-demand. You may enable this setting later after checking the tasks and workflow status. 
+
+## Run the workflow 
+Now that the workflow is created, it will automatically run the workflow every 3 hours. Lifecycle workflows will check every 3 hours for users in the associated execution condition and execute the configured tasks for those users.  However, for the tutorial, we would like to run it immediately. To run a workflow immediately, we can use the on-demand feature.
+
+>[!NOTE]
+>Be aware that you currently cannot run a workflow on-demand if it is set to disabled.  You need to set the workflow to enabled to use the on-demand feature.
+
+To run a workflow on-demand, for users using the Azure portal, do the following steps:
+
+ 1. On the workflow screen, select the specific workflow you want to run.
+ 2. Select **Run on demand**.
+ 3. On the **select users** tab, select **add users**.
+ 4. Add a user.
+ 5. Select **Run workflow**.
+
  ## Check tasks and workflow status
 
 At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks which are currently available in public preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow). In the course of this tutorial, we will look at the status using the user focused reports.
 
  To begin, select the **Workflow history (Preview)** tab on the left to view the user summary and associated workflow tasks and statuses.  
- :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history.png" alt-text="Workflow 1" lightbox="media/tutorial-lifecycle-workflows/workflow-history.png":::
+ :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history-post-offboard.png" alt-text="Workflow 1" lightbox="media/tutorial-lifecycle-workflows/workflow-history-post-offboard.png":::
 
 Once the **Workflow history (Preview)** tab has been selected, you will land on the workflow history page as shown.
- :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary.png" alt-text="Workflow 2" lightbox="media/tutorial-lifecycle-workflows/user-summary.png":::
+ :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary-post-offboard.png" alt-text="Workflow 2" lightbox="media/tutorial-lifecycle-workflows/user-summary-post-offboard.png":::
 
 Next, you may select **Total tasks** for the user Jane Smith to view the total number of tasks created and their statuses. In this example, there are three total tasks assigned to the user Jane Smith.  
- :::image type="content" source="media/tutorial-lifecycle-workflows/total-tasks.png" alt-text="Workflow 3" lightbox="media/tutorial-lifecycle-workflows/total-tasks.png":::
+ :::image type="content" source="media/tutorial-lifecycle-workflows/total-tasks-post-offboard.png" alt-text="Workflow 3" lightbox="media/tutorial-lifecycle-workflows/total-tasks-post-offboard.png":::
 
-To add an extra layer of granularity, you may select **Failed tasks** for the user Jeff Smith to view the total number of failed tasks assigned to the user Jeff Smith.
- :::image type="content" source="media/tutorial-lifecycle-workflows/failed-tasks.png" alt-text="Workflow 4" lightbox="media/tutorial-lifecycle-workflows/failed-tasks.png":::
+To add an extra layer of granularity, you may select **Failed tasks** for the user Wade Warren to view the total number of failed tasks assigned to the user Wade Warren.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/failed-tasks-post-offboard.png" alt-text="Workflow 4" lightbox="media/tutorial-lifecycle-workflows/failed-tasks-post-offboard.png":::
 
-Similarly, you may select **Unprocessed tasks** for the user Jeff Smith to view the total number of unprocessed or canceled tasks assigned to the user Jeff Smith.
- :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks.png" alt-text="Workflow 5" lightbox="media/tutorial-lifecycle-workflows/canceled-tasks.png":::
+Similarly, you may select **Unprocessed tasks** for the user Wade Warren to view the total number of unprocessed or canceled tasks assigned to the user Wade Warren.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks-post-offboard.png" alt-text="Workflow 5" lightbox="media/tutorial-lifecycle-workflows/canceled-tasks-post-offboard.png":::
 
-Finally, to enable the workflow schedule, you may select the **Enable Schedule** checkbox on the Properties (Preview) page.
+## Enable the workflow schedule
+
+After running your workflow on-demand and checking that everything is working fine, you may want to enable the workflow schedule. To enable the workflow schedule, you may select the **Enable Schedule** checkbox on the Properties (Preview) page.
 
 :::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Workflow 6" lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
 
 ## Next steps
 - [Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azuread-user-accounts.md)
-- [Post off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (preview)](tutorial-scheduled-leaver-graph.md)
+- [Automate employee offboarding tasks after their last day of work with Microsoft Graph (preview)](tutorial-scheduled-leaver-graph.md)
 
 
 

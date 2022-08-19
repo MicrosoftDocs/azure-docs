@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 08/16/2022
+ms.date: 08/18/2022
 ms.author: amsliu
 ms.reviewer: krbain
 ms.custom: template-tutorial
@@ -63,25 +63,20 @@ Use the following steps to create a pre-hire workflow that will generate a TAP a
  6. From the templates, select **select** under **Onboard pre-hire employee**.
   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2.png" alt-text="Select workflow" lightbox="media/tutorial-lifecycle-workflows/portal-2.png":::
     
- 7.  Next, you will configure the basic information about the workflow.  This information includes when the workflow will trigger, known as **Days from event**.  So in this case, the workflow will trigger two days before the employee's hire date.  On the onboard pre-hire employee screen, provide the following and then select **Next: Configure Scope**.
-        - **Name**:  Pre-hire employee
-        - **Description**: Configure pre-hire tasks for onboarding employees before their first day
-        - **Days from event**: 2 
+ 7.  Next, you will configure the basic information about the workflow.  This information includes when the workflow will trigger, known as **Days from event**.  So in this case, the workflow will trigger two days before the employee's hire date.  On the onboard pre-hire employee screen, add the following settings and then select **Next: Configure Scope**.
+
      :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3.png" alt-text="Configure workflow" lightbox="media/tutorial-lifecycle-workflows/portal-3.png":::
 
-   8.  Next, you will configure the scope. The scope determines which users this workflow will run against.  In this case, it will be on all users in the Sales department.  On the configure scope screen, under **Rule** add the following and then select **Next: Review tasks**
-		- **Property**:  department
-		- **Operator**:  equal
-		- **Value**:  Sales
+   8.  Next, you will configure the scope. The scope determines which users this workflow will run against.  In this case, it will be on all users in the Sales department.  On the configure scope screen, under **Rule** add the following settings and then select **Next: Review tasks**
+
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-5.png" alt-text="Scope workflow" lightbox="media/tutorial-lifecycle-workflows/portal-5.png":::
 
-   9. On the **Review tasks** screen, then select **Next: Review + Create**.
+   9. On the following page, you may inspect the task if desired but no additional configuration is needed. Select **Next: Review + Create** when you are finished.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-6.png" alt-text="Review workflow" lightbox="media/tutorial-lifecycle-workflows/portal-6.png":::
 
    10.  On the review blade, verify the information is correct and select **Create**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-4.png" alt-text="Create workflow" lightbox="media/tutorial-lifecycle-workflows/portal-4.png":::
 
-   11.  Back on the **Lifecycle workflows** screen, place a check in the new workflow (Pre-hire employee) and select **Enable** at the top.
  
 ## Run the workflow 
 Now that the workflow is created, it will automatically run the workflow every 3 hours. Lifecycle workflows will check every 3 hours for users in the associated execution condition and execute the configured tasks for those users.  However, for the tutorial, we would like to run it immediately. To run a workflow immediately, we can use the on-demand feature.
@@ -94,7 +89,7 @@ To run a workflow on-demand, for users using the Azure portal, do the following 
  1. On the workflow screen, select the specific workflow you want to run.
  2. Select **Run on demand**.
  3. On the **select users** tab, select **add users**.
- 4. Add **Melva Prince**
+ 4. Add a user.
  5. Select **Run workflow**.
 
 
@@ -117,10 +112,12 @@ To add an extra layer of granularity, you may select **Failed tasks** for the us
 Similarly, you may select **Unprocessed tasks** for the user Jeff Smith to view the total number of unprocessed or canceled tasks assigned to the user Jeff Smith.
  :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks.png" alt-text="Workflow 5" lightbox="media/tutorial-lifecycle-workflows/canceled-tasks.png":::
 
-Finally, to enable the workflow schedule, you may select the **Enable Schedule** checkbox on the Properties (Preview) page.
+## Enable the workflow schedule
+
+After running your workflow on-demand and checking that everything is working fine, you may want to enable the workflow schedule. To enable the workflow schedule, you may select the **Enable Schedule** checkbox on the Properties (Preview) page.
 
 :::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Workflow 6" lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
 
 ## Next steps
 - [Tutorial: Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azuread-user-accounts.md)
-- [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph (preview)](tutorial-onboard-custom-workflow-graph.md)
+- [Automate employee onboarding tasks before their first day of work with Microsoft Graph (preview)](tutorial-onboard-custom-workflow-graph.md)

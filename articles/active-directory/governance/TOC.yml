@@ -80,7 +80,7 @@
   - name: Lifecycle Workflows (Preview) 
     items:
     - name: Understanding Lifecycle Workflows (Preview)
-      href: lifecycle-workflows-concept-parts.md
+      href: understanding-lifecycle-workflows.md
     - name: Templates (Preview)
       href: lifecycle-workflow-templates.md    
     - name: Built-in tasks (Preview)

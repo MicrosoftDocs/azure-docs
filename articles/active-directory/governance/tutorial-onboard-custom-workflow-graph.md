@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 08/16/2022
+ms.date: 08/18/2022
 ms.author: amsliu
 ms.reviewer: krbain
 ms.custom: template-tutorial
@@ -57,8 +57,9 @@ Now that the pre-hire workflow attributes have been updated and correctly popula
 |displayName     |  A unique string that identifies the workflow.       |
 |description     |  A string that describes the purpose of the workflow for administrative use. (Optional)       |
 |isEnabled     |   A boolean value that denotes whether the workflow is set to run or not.  If set to “true" then the workflow will run.      |
+|isSchedulingEnabled     |   A Boolean value that denotes whether scheduling is enabled or not. Unlike isEnbaled, a workflow can still be run on demand if this value is set to false.      |
 |executionConditions     |    An argument that contains: </br><li>a time-based attribute and an integer parameter defining when a workflow will run between -60 and 60 </br></li><li>a scope attribute defining who the workflow runs for.</li>     |
-|Task     |  An argument in a workflow that has a unique displayName and a description. </br> It defines the specific tasks to be executed in the workflow. </br>The specified task is outlined by the taskDefinitionID and its parameters.  For a list of supported tasks, and their corresponding IDs, see [Supported Task Definitions](manage-lifecycle-workflows.md#supported-task-definitions).      |
+|tasks    |  An argument in a workflow that has a unique displayName and a description. </br> It defines the specific tasks to be executed in the workflow. </br>The specified task is outlined by the taskDefinitionID and its parameters.  For a list of supported tasks, and their corresponding IDs, see [Supported Task Definitions](manage-lifecycle-workflows.md#supported-task-definitions).      |
 
 The following POST API call will create a pre-hire workflow that will generate a TAP and send it via email to the user's manager.
 
@@ -70,10 +71,22 @@ Content-type: application/json
    "displayName":"Onboard pre-hire employee", 
    "description":"Configure pre-hire tasks for onboarding employees before their first day", 
    "isEnabled":true, 
+   "isSchedulingEnabled": false,
+   "executionConditions": {
+       "@odata.type": "microsoft.graph.identityGovernance.triggerAndScopeBasedConditions",
+        "scope": {
+            "@odata.type": "microsoft.graph.identityGovernance.ruleBasedSubjectSet",
+            "rule": "(department eq 'sales')"
+        },
+        "trigger": {
+            "@odata.type": "microsoft.graph.identityGovernance.timeBasedAttributeTrigger",
+            "timeBasedAttribute": "employeeHireDate",
+            "offsetInDays": -2
+        }
+    } 
    "tasks":[ 
       {
          "isEnabled":true, 
-         "isSchedulingEnabled": false,
          "category": "Joiner",
          "taskDefinitionId":"1b555e50-7f65-41d5-b514-5894a026d10d", 
          "displayName":"Generate TAP And Send Email", 
@@ -90,18 +103,6 @@ Content-type: application/json
             ]  
       }
    ], 
-   "executionConditions": {
-       "@odata.type": "microsoft.graph.identityGovernance.triggerAndScopeBasedConditions",
-        "scope": {
-            "@odata.type": "microsoft.graph.identityGovernance.ruleBasedSubjectSet",
-            "rule": "(department eq 'sales')"
-        },
-        "trigger": {
-            "@odata.type": "microsoft.graph.identityGovernance.timeBasedAttributeTrigger",
-            "timeBasedAttribute": "employeeHireDate",
-            "offsetInDays": -2
-        }
-    } 
 } 
 ```
 
@@ -113,12 +114,12 @@ Now that the workflow is created, it will automatically run the workflow every 3
 
 To run a workflow on-demand for users using the GRAPH API do the following steps:
 
-1.  Still in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1.  Open [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 2. Make sure the top is still set to **POST**, and **beta** and `https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<id>/activate` is in the box.  Change `<id>` to the ID of workflows. 
  3. Copy the code below in to the **Request body** 
- 4. Replace `<userid>` in the code below with the value of Melva Prince's ID.
+ 4. Replace `<userid>` in the code below with the value of the user's ID.
  5. Select **Run query**
-   ```msgraph-interactive
+   ```json
  {
    "subjects":[
       {"id":"<userid>"}
@@ -149,21 +150,24 @@ You may also check the full details about the tasks of a given userProcessingRes
 ```http
 GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflow_id>/userProcessingResults/<userProcessingResult_id>/taskProcessingResults
 ```
-Finally, to enable the workflow schedule, you may run the following PATCH call.
+
+## Enable the workflow schedule
+
+After running your workflow on-demand and checking that everything is working fine, you may want to enable the workflow schedule. To enable the workflow schedule, you may run the following PATCH call.
 
 ```http
 PATCH https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<id> 
 Content-type: application/json
 
 {
-   "displayName":"<Unique workflow name string>",
-   "description":"<workflow description>",
-   "isEnabled":<“true” or “false”>,
-   "isSchedulingEnabled":<“true” or “false”>,
+   "displayName":"Onboard pre-hire employee",
+   "description":"Configure pre-hire tasks for onboarding employees before their first day",
+   "isEnabled": true,
+   "isSchedulingEnabled": true
 }
 
 ```
 
 ## Next steps
 - [Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azuread-user-accounts.md)
-- [On-boarding users to your organization using Lifecycle workflows with Azure portal (preview)](tutorial-onboard-custom-workflow-portal.md)
+- [Automate employee onboarding tasks before their first day of work with Azure portal (preview)](tutorial-onboard-custom-workflow-portal.md)
