@@ -11,7 +11,7 @@
 ---
 <!-- put the ## header in the file that includes this file -->
 
-In this section, you create a device identity in the identity registry in your IoT hub. A device cannot connect to a hub unless it has an entry in the identity registry. For more information, see the [IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md#identity-registry-operations).
+In this section, you create a device identity in the identity registry in your IoT hub. A device can't connect to a hub unless it has an entry in the identity registry. For more information, see the [IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md#identity-registry-operations).
 
 1. In your IoT hub navigation menu, open **Devices**, then select **Add Device** to add a device in your IoT hub.
 
@@ -25,7 +25,7 @@ In this section, you create a device identity in the identity registry in your I
 
 1. After the device is created, open the device from the list in the **Devices** pane. Copy the **Primary Connection String**. This connection string is used by device code to communicate with the hub.
 
-    By default, the keys and connection strings are masked as they are sensitive information. If you click the eye icon, they are revealed. It is not necessary to reveal them to copy them with the copy button.
+    By default, the keys and connection strings are masked as they're sensitive information. If you click the eye icon, they're revealed. It's not necessary to reveal them to copy them with the copy button.
 
     :::image type="content" source="./media/iot-hub-include-create-device/device-details.png" alt-text="Screen capture that shows the device connection string" border="true" lightbox="./media/iot-hub-include-create-device/device-details.png":::
 

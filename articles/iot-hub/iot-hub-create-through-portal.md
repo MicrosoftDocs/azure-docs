@@ -42,9 +42,9 @@ Select **Add shared access policy** to open the **Add shared access policy** bla
 
 * The **Registry Read** and **Registry Write** policies grant read and write access rights to the identity registry. These permissions are used by back-end cloud services to manage device identities. Choosing the write option automatically chooses the read option.
 
-* The **Service Connect** policy grants permission to access service endpoints. This permission is used by back-end cloud services to send and receive messages from devices as well as to update and read device twin and module twin data.
+* The **Service Connect** policy grants permission to access service endpoints. This permission is used by back-end cloud services to send and receive messages from devices. It's also used to update and read device twin and module twin data.
 
-* The **Device Connect** policy grants permissions for sending and receiving messages using the IoT Hub device-side endpoints. This permission is used by devices to send and receive messages from an IoT hub, update and read device twin and module twin data, and perform file uploads.
+* The **Device Connect** policy grants permissions for sending and receiving messages using the IoT Hub device-side endpoints. This permission is used by devices to send and receive messages from an IoT hub or update and read device twin and module twin data. It's also used for file uploads.
 
 Select **Add** to add this newly created policy to the existing list.
 
@@ -60,7 +60,7 @@ Select **Message Routing** under **Messaging** to see the Message Routing pane, 
 
 ### Routes
 
-Routes is the first tab on the **Message Routing** pane. To add a new route, select **+ Add**. 
+**Routes** is the first tab on the **Message Routing** pane. To add a new route, select **+ Add**. 
 
 ![Message routing pane](./media/iot-hub-create-through-portal/iot-hub-message-routing.png)
 
@@ -105,7 +105,7 @@ Here are two ways to find a specific IoT hub in your subscription:
 
 1. If you know the resource group to which the IoT hub belongs, choose **Resource groups**, then select the resource group from the list. The resource group screen shows all of the resources in that group, including the IoT hubs. Select your hub.
 
-2. Choose **All resources**. On the **All resources** pane, there is a dropdown list that defaults to `All types`. Select the dropdown list, uncheck `Select all`. Find `IoT Hub` and check it. Select the dropdown list box to close it, and the entries will be filtered, showing only your IoT hubs.
+2. Choose **All resources**. On the **All resources** pane, there's a dropdown list that defaults to `All types`. Select the dropdown list, uncheck `Select all`. Find `IoT Hub` and check it. Select the dropdown list box to close it, and the entries will be filtered, showing only your IoT hubs.
 
 ## Delete the IoT hub
 

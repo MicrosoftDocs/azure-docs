@@ -46,14 +46,14 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
     - **Pricing and scale tier**: Your selected tier. You can choose from several tiers, depending on how many features you want and how many messages you send through your solution per day. The free tier is intended for testing and evaluation. It allows 500 devices to be connected to the hub and up to 8,000 messages per day. Each Azure subscription can create one IoT hub in the free tier.
 
-      If you are working through a quickstart, select the free tier.
+      If you're working through a quickstart, select the free tier.
 
     - **IoT Hub units**: The number of messages allowed per unit per day depends on your hub's pricing tier. For example, if you want the hub to support ingress of 700,000 messages, you choose two S1 tier units.
     For details about the other tier options, see [Choosing the right IoT Hub tier](../articles/iot-hub/iot-hub-scaling.md).
 
-    - **Microsoft Defender for IoT**: Turn this on to add an extra layer of threat protection to IoT and your devices. This option is not available for hubs in the free tier. Learn more about [security recommendations for IoT Hub in Defender for IoT](../articles/defender-for-iot/device-builders/concept-recommendations.md).
+    - **Microsoft Defender for IoT**: Turn Defender on to add an extra layer of threat protection to IoT and your devices. This option isn't available for hubs in the free tier. Learn more about [security recommendations for IoT Hub in Defender for IoT](../articles/defender-for-iot/device-builders/concept-recommendations.md).
 
-    - **Role-based access control**: Choose how access to the IoT hub is managed, whether shared access policies are allowed or only role-based access control is supported. For more information, see [Control access to IoT Hub by using Azure Active Directory](../articles/iot-hub/iot-hub-dev-guide-azure-ad-rbac.md).
+    - **Role-based access control**: Choose how to manage access to the IoT hub. Allow shared access policies or choose only role-based access control. For more information, see [Control access to IoT Hub by using Azure Active Directory](../articles/iot-hub/iot-hub-dev-guide-azure-ad-rbac.md).
 
     - **Device-to-cloud partitions**: This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most hubs need only four partitions.
 
