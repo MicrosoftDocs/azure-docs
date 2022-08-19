@@ -175,6 +175,8 @@
       href: vmware-physical-azure-support-matrix.md
     - name: Physical server to Azure architecture
       href: physical-azure-architecture.md
+    - name: Physical server to Azure architecture - Modernized 
+      href: physical-server-azure-architecture-modernized.md
     - name: About excluding disks from replication
       href: exclude-disks-replication.md
   - name: About networking for disaster recovery

@@ -35,7 +35,7 @@ To begin your configuration, sign in to your Azure account. If you use the Cloud
 az login
 ```
 
-Select the subscription for which you want to create an ExpressRoute circuit.
+Select the subscription where network manager will be deployed.
 
 ```azurecli-interactive
 az account set \
@@ -44,7 +44,7 @@ az account set \
 
 ## Create a resource group 
 
-Before you can create an Azure Route Server, you have to create a resource group to host the Route Server. Create a resource group with [az group create](/cli/azure/group#az-group-create). This example creates a resource group named **myAVNMResourceGroup** in the **westus** location:
+Before you can deploy Azure Virtual Network Manager, you have to create a resource group to host the . Create a rnetwork manager esource group with [az group create](/cli/azure/group#az-group-create). This example creates a resource group named **myAVNMResourceGroup** in the **westus** location:
 
 ```azurecli-interactive
 az group create \
