@@ -21,7 +21,7 @@ This discovery process is agentless that is, nothing is installed on the target 
     - Created an [Azure Migrate project](./create-manage-projects.md) before the announcement of SQL and web apps assessment feature for your region
     - Added the [Azure Migrate: Discovery and assessment](./how-to-assess.md) tool to a project
 - Review [app-discovery support and requirements](./migrate-support-matrix-vmware.md#vmware-requirements).
--  In case you are discovering assets on VMware environment then, Make sure servers where you're running app-discovery have PowerShell version 2.0 or later installed, and VMware Tools (later than 10.2.0) is installed.
+-  In case you're discovering assets on VMware environment then, Make sure servers where you're running app-discovery have PowerShell version 2.0 or later installed, and VMware Tools (later than 10.2.0) is installed.
 - Check the [requirements](./migrate-appliance.md) for deploying the Azure Migrate appliance.
 - Verify that you have the [required roles](./create-manage-projects.md#verify-permissions) in the subscription to create resources.
 - Ensure that your appliance has access to the internet
@@ -49,12 +49,12 @@ This discovery process is agentless that is, nothing is installed on the target 
 
     Some points to note:
     - Ensure that software inventory is enabled already, or provide Domain or Non-domain credentials to enable the same. Software inventory must be performed to discover SQL Server instances and web apps.
-    - Appliance will attempt to validate the Domain credentials with AD, as they are added. Ensure that appliance server has network line of sight to the AD server associated with the credentials. Non-domain credentials and credentials associated with SQL Server Authentication are not validated.
+    - Appliance will attempt to validate the Domain credentials with AD, as they're added. Ensure that appliance server has network line of sight to the AD server associated with the credentials. Non-domain credentials and credentials associated with SQL Server Authentication aren't validated.
 
-3. Once the desired credentials are added, please select Start Discovery, to begin the scan.
+3. Once the desired credentials are added, select Start Discovery, to begin the scan.
 
 > [!Note]
->Please allow web apps and SQL discovery to run for sometime before creating assessments for Azure App Service or Azure SQL. If the discovery of web apps and SQL Server instances and databases is not allowed to complete, the respective instances are marked as **Unknown** in the assessment report.
+> Allow web apps and SQL discovery to run for sometime before creating assessments for Azure App Service or Azure SQL. If the discovery of web apps and SQL Server instances and databases is not allowed to complete, the respective instances are marked as **Unknown** in the assessment report.
 
 ## Next steps
 
