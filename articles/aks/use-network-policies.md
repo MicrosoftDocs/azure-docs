@@ -89,7 +89,7 @@ $LOCATION=canadaeast
 
 Create the AKS cluster and specify *azure* for the `network-plugin` and `network-policy`.
 
-Use the following command for a cluster running with **Linux** node pools:
+Use the following command to create a cluster:
 ```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -117,14 +117,12 @@ Please execute the following commands prior to creating a cluster:
 > At this time, Azure NPM with Windows nodes is available on Windows Server 2022 only
 >
 
-Now, you should replace the values for *$RESOURCE_GROUP_NAME*, *$CLUSTER_NAME*, *$WINDOWS_USERNAME*, *$WINDOWS_PASSWORD* and *$k8S_VERSION* variables.
+Now, you should replace the values for *$RESOURCE_GROUP_NAME*, *$CLUSTER_NAME* and *$WINDOWS_USERNAME* variables.
 
 ```azurecli-interactive
 $RESOURCE_GROUP_NAME=myResourceGroup-NP
 $CLUSTER_NAME=myAKSCluster
 $WINDOWS_USERNAME=myWindowsUserName
-$WINDOWS_PASSWORD=myWindowsPassword
-$k8S_VERSION=myk8sVersion
 $LOCATION=canadaeast
 ```
 
@@ -134,19 +132,16 @@ Create a username to use as administrator credentials for your Windows Server co
 echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read $WINDOWS_USERNAME
 ```
 
-Use the following command for a cluster running with **Windows Server 2022** node pools:
+Use the following command to create a cluster :
 
 ```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
-    --generate-ssh-keys \
-    --windows-admin-username $WINDOWS_USERNAME  \
-    --windows-admin-password $WINDOWS_PASSWORD \
-    --kubernetes-version $k8S_VERSION \
+    --node-count 1 \
+    --windows-admin-username $WINDOWS_USERNAME \
     --network-plugin azure \
-    --vm-set-type VirtualMachineScaleSets \
-    --node-count 1
+    --network-policy azure
 ```
 
 It takes a few minutes to create the cluster. By default, your cluster is created with only a Linux node pool. If you would like to use Windows node pools, you can add one. For example:
