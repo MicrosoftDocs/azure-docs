@@ -54,7 +54,7 @@ Even if hub 1 knows the ExpressRoute prefix from circuit 2 (`10.5.2.0/24`) and h
 
 As explained in [Virtual hub routing preference (Preview)][virtual-wan-hrp] per default Virtual WAN will favor routes coming from ExpressRoute. Since routes are advertised from hub 1 to the ExpressRoute circuit 1, from the ExpressRoute circuit 1 to the circuit 2, and from the ExpressRoute circuit 2 to hub 2 (and vice versa), virtual hubs will prefer this path over the more direct inter hub link now, as the effective routes in hub 1 show:
 
-:::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-er-hub1.png" alt-text="Screenshot of effective routes in Virtual hub 1 with Global Reach and routing preference ExpressRoute." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-er-hub-1-expanded.png":::
+:::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-er-hub-1.png" alt-text="Screenshot of effective routes in Virtual hub 1 with Global Reach and routing preference ExpressRoute." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-er-hub-1-expanded.png":::
 
 As you can see in the routes, ExpressRoute Global Reach will prepend the ExpressRoute Autonomous System Number (12076) multiple times before sending routes back to Azure to make these routes less preferable. However, Virtual WAN default hub routing precedence of ExpressRoute ignores the AS path length when taking routing decision.
 
@@ -68,7 +68,7 @@ The routing preference can be changed to VPN or AS-Path as explained in [Virtual
 
 With a hub routing preference of VPN this is how the effective routes in hub 1 look like:
 
-:::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-vpn-hub1.png" alt-text="Screenshot of effective routes in Virtual hub 1 with Global Reach and routing preference V P N." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-vpn-hub-1-expanded.png":::
+:::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-vpn-hub-1.png" alt-text="Screenshot of effective routes in Virtual hub 1 with Global Reach and routing preference V P N." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-vpn-hub-1-expanded.png":::
 
 The previous image shows that the route to `10.4.2.0/24` has now a next hop of `VPN_S2S_Gateway`, while with the default routing preference of ExpressRoute it was `ExpressRouteGateway`. However, in hub 2 the route to `10.5.2.0/24` will still appear with a next hop of `ExpressRoute`, because in this case the alternative route doesn't come from a VPN Gateway but from an NVA integrated in the hub:
 
@@ -80,7 +80,7 @@ However, traffic between hubs is still preferring the routes coming via ExpressR
 
 Now the routes for remote spokes and branches in hub 1 will have a next hop of `Remote Hub` as intended:
 
-:::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-aspath-hub1.png" alt-text="Screenshot of effective routes in Virtual hub 1 with Global Reach and routing preference A S Path." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-aspath-hub1.png":::
+:::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-aspath-hub-1.png" alt-text="Screenshot of effective routes in Virtual hub 1 with Global Reach and routing preference A S Path." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-aspath-hub-1-expanded.png":::
 
 You can see that the IP prefix for hub 2 (`192.168.2.0/23`) still appears reachable over the Global Reach link, but this shouldn't impact traffic as there shouldn't be any traffic specifically addressed to devices in hub 2. This might be an issue though if there were NVAs in both hubs establishing SDWAN tunnels between each other.
 
@@ -104,11 +104,11 @@ Virtual WAN will display that both circuits are connected to both hubs:
 
 Going back to the default hub routing preference of ExpressRoute, the routes to remote branches and VNets in hub 1 will show again ExpressRoute as next hop. Although this time the reason is not Global Reach, but the fact that the ExpressRoute circuits will bounce back the route advertisements they get from one hub to the other. For example, for hub 1 these are the effective routes with hub routing preference of ExpressRoute:
 
-:::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3-er-hub1.png" alt-text="Screenshot of effective routes in Virtual hub 1 in bow tie design with Global Reach and routing preference ExpressRoute." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3-er-hub-1-expanded.png":::
+:::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3-er-hub-1.png" alt-text="Screenshot of effective routes in Virtual hub 1 in bow tie design with Global Reach and routing preference ExpressRoute." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3-er-hub-1-expanded.png":::
 
 Changing back the hub routing preference again to AS Path will return the inter hub routes to the optimal path using the direct connection between hubs 1 and 2:
 
-:::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3-aspath-hub1.png" alt-text="Screenshot of effective routes in Virtual hub 1 in bow tie design with Global Reach and routing preference A S Path." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3-aspath-hub-1-expanded.png":::
+:::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3-aspath-hub-1.png" alt-text="Screenshot of effective routes in Virtual hub 1 in bow tie design with Global Reach and routing preference A S Path." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3-aspath-hub-1-expanded.png":::
 
 ## Next steps
 
