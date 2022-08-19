@@ -285,7 +285,7 @@ When you try to create or update a custom role, you can't add more than one mana
 
 **Cause**
 
-You can only define one management group in `AssignableScopes` of a custom role.
+You can define only one management group in `AssignableScopes` of a custom role.
 
 **Solution**
 
