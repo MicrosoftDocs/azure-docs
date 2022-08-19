@@ -135,12 +135,12 @@
       href: concept-soft-delete.md
     - name: Geo-replication 
       href: concept-geo-replication.md
-    - name: Resiliency
+    - name: Reliability
       items:
+        - name: Migrate to availability zone support
+          href: ../availability-zones/migrate-app-configuration.md
         - name: Resiliency and disaster recovery
           href: concept-disaster-recovery.md
-        - name: Migrate App Configuration
-          href: migrate-app-configuration.md
     - name: Security
       items:
         - name: Encrypt using customer-managed keys
