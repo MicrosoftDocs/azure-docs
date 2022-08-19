@@ -40,16 +40,16 @@ Azure Video Indexer's insights can be applied to many scenarios, among them are:
 * Content moderation: Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization's values. You can automatically block certain videos or alert your users about the content.
 * Recommendations: Video insights can be used to improve user engagement by highlighting the relevant video moments to users. By tagging each video with additional metadata, you can recommend to users the most relevant videos and highlight the parts of the video that will match their needs.
 
-## Features
+## Video/audio models
 
-The following list shows the insights you can retrieve from your videos using Azure Video Indexer video and audio models:
+The following list shows the insights you can retrieve from your videos using Azure Video Indexer video and audio models. Unless specified otherwise, a model is generally available.
 
 ### Video insights
 
 * **Face detection**: Detects and groups faces appearing in the video.
-* **Celebrity identification**: Azure Video Indexer automatically identifies over 1 million celebrities—like world leaders, actors, actresses, athletes, researchers, business, and tech leaders across the globe. The data about these celebrities can also be found on various websites (IMDB, Wikipedia, and so on).
-* **Account-based face identification**: Azure Video Indexer trains a model for a specific account. It then recognizes faces in the video based on the trained model. For more information, see [Customize a Person model from the Azure Video Indexer website](customize-person-model-with-website.md) and [Customize a Person model with the Azure Video Indexer API](customize-person-model-with-api.md).
-* **Thumbnail extraction for faces** ("best face"): Automatically identifies the best captured face in each group of faces (based on quality, size, and frontal position) and extracts it as an image asset.
+* **Celebrity identification**: Identifies over 1 million celebrities—like world leaders, actors, actresses, athletes, researchers, business, and tech leaders across the globe. The data about these celebrities can also be found on various websites (IMDB, Wikipedia, and so on).
+* **Account-based face identification**: Trains a model for a specific account. It then recognizes faces in the video based on the trained model. For more information, see [Customize a Person model from the Azure Video Indexer website](customize-person-model-with-website.md) and [Customize a Person model with the Azure Video Indexer API](customize-person-model-with-api.md).
+* **Thumbnail extraction for faces**: Identifies the best captured face in each group of faces (based on quality, size, and frontal position) and extracts it as an image asset.
 * **Visual text recognition** (OCR): Extracts text that's visually displayed in the video.
 * **Visual content moderation**: Detects adult and/or racy visuals.
 * **Labels identification**: Identifies visual objects and actions displayed.
@@ -58,17 +58,17 @@ The following list shows the insights you can retrieve from your videos using Az
 * **Black frame detection**: Identifies black frames presented in the video.
 * **Keyframe extraction**: Detects stable keyframes in a video.
 * **Rolling credits**: Identifies the beginning and end of the rolling credits in the end of TV shows and movies.
-* **Animated characters detection** (preview): Detection, grouping, and recognition of characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). For more information, see [Animated character detection](animated-characters-recognition.md).
-* **Editorial shot type detection**: Tagging shots based on their type (like wide shot, medium shot, close up, extreme close up, two shot, multiple people, outdoor and indoor, and so on). For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
-* **Observed people tracking** (preview): detects observed people in videos and provides information such as the location of the person in the video frame (using bounding boxes) and the exact timestamp (start, end) and confidence when a person appears. For more information, see [Trace observed people in a video](observed-people-tracing.md).
-    * **People's detected clothing**: detects the clothing types of people appearing in the video and provides information such as long or short sleeves, long or short pants and skirt or dress. The detected clothing is associated with the people wearing it and the exact timestamp (start,end) along with a confidence level for the detection are provided.
-* **Matched person**: matches between people that were observed in the video with the corresponding faces detected. The matching between the observed people and the faces contain a confidence level.
+* **Animated characters detection** : Detects, groups, and recognizes characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). For more information, see [Animated character detection](animated-characters-recognition.md).
+* **Editorial shot type detection**: Tags shots based on their type (like wide shot, medium shot, close up, extreme close up, two shot, multiple people, outdoor and indoor, and so on). For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
+* **Observed people tracking** (preview): Detects observed people in videos and provides information such as the location of the person in the video frame (using bounding boxes) and the exact timestamp (start, end) and confidence when a person appears. For more information, see [Trace observed people in a video](observed-people-tracing.md).
+    * **People's detected clothing** (preview): Detects the clothing types of people appearing in the video and provides information such as long or short sleeves, long or short pants and skirt or dress. The detected clothing is associated with the people wearing it and the exact timestamp (start,end) along with a confidence level for the detection are provided.
+* **Matched person** (preview): Matches between people that were observed in the video with the corresponding faces detected. The matching between the observed people and the faces contain a confidence level.
 
 ### Audio insights
 
-* **Audio transcription**: Converts speech to text over 50 languages and allows extensions. Supported languages include English US, English United Kingdom, English Australia, Spanish, Spanish(Mexico), French, French(Canada), German, Italian, Mandarin Chinese, Chinese (Cantonese, Traditional), Chinese (Simplified), Japanese, Russian, Portuguese, Hindi, Czech, Dutch, Polish, Danish, Norwegian, Finish, Swedish, Thai, Turkish, Korean, Arabic(Egypt), Arabic(Syrian Arab Republic), Arabic(Israel), Arabic(Iraq), Arabic(Jordan), Arabic(Kuwait), Arabic(Lebanon), Arabic(Oman), Arabic(Qatar), Arabic(Saudi Arabia), Arabic(United Arab Emirates), Arabic(Palestinian Authority) and Arabic Modern Standard (Bahrain) .
-* **Automatic language detection**: Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Russian, and Portuguese. If the language can't be identified with confidence, Azure Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
-* **Multi-language speech identification and transcription**: Automatically identifies the spoken language in different segments from audio. It sends each segment of the media file to be transcribed and then combines the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
+* **Audio transcription**: Converts speech to text over 50 languages and allows extensions. For a comprehensive list of language support by service, see [language support](language-support.md).
+* **Automatic language detection**: Identifies the dominant spoken language. For a comprehensive list of language support by service, see [language support](language-support.md). If the language can't be identified with confidence, Azure Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
+* **Multi-language speech identification and transcription**: Identifies the spoken language in different segments from audio. It sends each segment of the media file to be transcribed and then combines the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
 * **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
 * **Two channel processing**: Auto detects separate transcript and merges to single timeline.
 * **Noise reduction**: Clears up telephony audio or noisy recordings (based on Skype filters).
