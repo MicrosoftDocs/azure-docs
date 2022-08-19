@@ -157,7 +157,7 @@ There are several ways that you can configure entitlement management for your or
 
 ## Programmatic administration
 
-You can also manage access packages, catalogs, policies, requests and assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the [entitlement management API](/graph/tutorial-access-package-api).  An application with those application permissions can also use many of those API functions, with the exception of managing resources in catalogs and access packages. An an applications which only needs to operate within specific catalogs, can be added to the **Catalog owner** or **Catalog reader** roles of a catalog to be authorized to update or read within that catalog.
+You can also manage access packages, catalogs, policies, requests and assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the [entitlement management API](/graph/tutorial-access-package-api).  An application with those application permissions can also use many of those API functions, with the exception of managing resources in catalogs and access packages. And an application which only needs to operate within specific catalogs can be added to the **Catalog owner** or **Catalog reader** roles of a catalog to be authorized to update or read within that catalog.
 
 ## Next steps
 
