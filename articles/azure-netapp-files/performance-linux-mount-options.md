@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 08/19/2022
 ms.author: anfdocs
 ---
 # Linux NFS mount options best practices for Azure NetApp Files
@@ -67,6 +67,10 @@ When you use `nconnect`, keep the following rules in mind:
 * `nconnect` may be used to increase storage concurrency from any given client. 
 
 For details, see [Linux concurrency best practices for Azure NetApp Files](performance-linux-concurrency-session-slots.md).
+
+### `Nconnect` considerations
+
+[!INCLUDE [nconnect krb5 performance warning](/includes/krb5-nconnect.md)]
 
 ## `Rsize` and `Wsize`
  
