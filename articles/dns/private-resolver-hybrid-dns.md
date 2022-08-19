@@ -86,7 +86,7 @@ Next, create a rule in your ruleset for your on-premises domain. In this example
 
 ## Configure on-premises DNS conditional forwarders
 
-The procedure to configure on-premises DNS depends on the type of DNS server you're using. In the following example, a Windows DNS server at **10.100.0.2** is configured with a conditional forwarder for the private DNS zone **azure.contoso.com**. The conditional forwarder is set to forward queries to **10.10.0.4**, which is the inbound endpoint IP address for your Azure DNS Private Resolver. There's another IP address also configured here to enable DNS failover. For more information about enabling failover, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md). For the purposes of this demonstration, only the **10.10.0.4** inbound endpoint is required.
+The procedure to configure on-premises DNS depends on the type of DNS server you're using. In the following example, a Windows DNS server at **10.100.0.2** is configured with a conditional forwarder for the private DNS zone **azure.contoso.com**. The conditional forwarder is set to forward queries to **10.10.0.4**, which is the inbound endpoint IP address for your Azure DNS Private Resolver. There's another IP address also configured here that can be used to enable DNS resolution in a spoke vnet. For the purposes of this demonstration, only the **10.10.0.4** inbound endpoint is required.
 
 ![View on-premises forwarding](./media/private-resolver-hybrid-dns/on-premises-forwarders.png) 
 

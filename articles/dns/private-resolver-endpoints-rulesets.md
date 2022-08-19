@@ -42,7 +42,11 @@ Rulesets have the following associations:
 - A ruleset can have up to 1000 DNS forwarding rules. 
 - A ruleset can be linked to any number of virtual networks in the same region
 
-A ruleset can't be linked to a virtual network in another region. When you link a ruleset to a virtual network, resources within that virtual network will use the DNS forwarding rules enabled in the ruleset. The linked virtual network must peer with the virtual network where the outbound endpoint exists. This configuration is typically used in a hub and spoke design, with spoke vnets peered to a hub vnet that has one or more private resolver endpoints. The following screenshot shows a DNS forwarding ruleset linked to two virtual networks: a hub vnet: **myeastvnet**, and a spoke vnet: **myeastspoke**.
+A ruleset can't be linked to a virtual network in another region. 
+
+When you link a ruleset to a virtual network, resources within that virtual network will use the DNS forwarding rules enabled in the ruleset. The linked virtual network must peer with the virtual network where the outbound endpoint exists. This configuration is typically used in a hub and spoke design, with spoke vnets peered to a hub vnet that has one or more private resolver endpoints. In this hub and spoke scenario, the spoke vnet does not need to be linked to the private DNS zone in order to resolve resource records in the zone, because the forwarding ruleset rule for the private zone sends queries to the hub vnet's inbound endpoint. For example: **azure.contoso.com** to **10.10.0.4**.
+
+The following screenshot shows a DNS forwarding ruleset linked to two virtual networks: a hub vnet: **myeastvnet**, and a spoke vnet: **myeastspoke**.
 
 ![View ruleset links](./media/private-resolver-endpoints-rulesets/ruleset-links.png)
 
