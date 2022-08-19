@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # Migrate App Configuration to a region with availability zone support
 
-Azure App Configuration supports Azure availability zones. This guide describes how to migrate an App Configuration store from non-availability zone support to a [region with availability zone support](/azure/availability-zones/az-overview#azure-regions-with-availability-zones).
+Azure App Configuration supports Azure availability zones. This guide describes how to migrate an App Configuration store from non-availability zone support to a [region with availability zone support](../az-overview#azure-regions-with-availability-zones.md).
 
 ## Availability zone support in Azure App Configuration
 
@@ -53,13 +53,13 @@ If App Configuration doesn't support availability zones in your region, you will
 App Configuration stores are region-specific and can't be moved across regions automatically. To migrate an App Configuration store to an Azure region with availability zone support, you must create a new App Configuration store in the target region, then move your content from the source store to the new target store.
 The following steps walk you through the process of creating a new target store and exporting your current store to the new region.
 
-1. Create a target configuration store in an [Azure region with availability zone](/azure/availability-zones/az-overview#azure-regions-with-availability-zones).
-1. Transfer your configuration key-values using the [import](howto-import-export-data.md) option in your target configuration store.
+1. Create a target configuration store in an [Azure region with availability zone](az-overview#azure-regions-with-availability-zones).
+1. Transfer your configuration key-values using the [import](../azure-app-configuration/howto-import-export-data.md) option in your target configuration store.
 1. Optionally, delete your source configuration store if you have no use for it.
 
-For detailed instructions, go to [Move an App Configuration store to another region](/azure/azure-app-configuration/howto-move-resource-between-regions).
+For detailed instructions, go to [Move an App Configuration store to another region](../azure-app-configuration/howto-move-resource-between-regions.md).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Resiliency and disaster recovery](/azure/azure-app-configuration/concept-disaster-recovery)
+> [Resiliency and disaster recovery](../azure-app-configuration/concept-disaster-recovery.md)
