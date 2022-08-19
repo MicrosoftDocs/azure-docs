@@ -49,7 +49,7 @@ If you want to mount NFSv3 volumes on a Windows client using NFS:
 1. [Mount the volume onto a Unix or Linux VM first](#mount-nfs-volumes-on-linux-clients).
 1. Run a `chmod 777` or `chmod 775` command against the volume. 
 1. Mount the volume via the NFS client on Windows using the mount option `mtype=hard` to reduce connection issues. 
-  See [Windows command line utility for mounting NFS volumes](../windows-server/administration/windows-commands/mount) for more detail. 
+  See [Windows command line utility for mounting NFS volumes](../../windows-server/administration/windows-commands/mount) for more detail. 
   For example: `Mount -o rsize=256 -o wsize=256 -o mtype=hard \\10.x.x.x\testvol X:* `
 1. You can also access NFS volumes from Windows clients via SMB by setting the protocol access for the volume to “dual-protocol”. This setting allows access to the volume via SMB and NFS (NFSv3 or NFSv4.1) and will result in better performance than using the NFS client on Windows with an NFS volume. See [Create a dual-protocol volume](create-volumes-dual-protocol.md) for details, and take note of the security style mappings table. Mounting a dual-protocol volume from Windows clients using the same procedure as regular SMB volumes. 
 
