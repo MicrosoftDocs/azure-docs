@@ -74,7 +74,7 @@ You can re-assign requests both approvals and tasks which are assigned to you to
 
 1. To re-assign, select request or task you are assigned and click on **Reassign** in the following window.
 
-    :::image type="content" source="./media/how-to-workflow-manage-requests-approval/reassign-button.png" alt-text="Screenshot showing the task selected and the Respond page is open, with details, a status, and a place for comments.":::
+    :::image type="content" source="./media/how-to-workflow-manage-requests-approval/reassign-button.png" alt-text="Screenshot showing the task selected and the Respond page is open, with details, a status, and a place for comments and re-assign button.":::
 
 1. You will be not presented with a list of all the users who are assigned to the request. Click on **Assignee**  where your user name or the group you are part of will be displayed and change it from your user name to the new user name. Click **Save** to complete the re-assignment. 
 
