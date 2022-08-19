@@ -12,7 +12,7 @@ fluid.url: https://fluidframework.com/docs/apis/azure-client/itokenprovider/
 
 # How to: Validate a User Created a Document
 
-When you create a document in Azure Fluid Relay, the JWT provided by the `ITokenProvider` for the creation request can only be used once. After creating a document, the client must generate a new JWT that contains the document ID provided by the service at creation time. If an application has an authorization service that manages document access control, it will need to know who created a document with a given ID in order to authorize the generation of a new JWT for access to that document.
+When you create a document in Azure Fluid Relay, the JWT provided by the [ITokenProvider](https://fluidframework.com/docs/apis/azure-client/itokenprovider/) for the creation request can only be used once. After creating a document, the client must generate a new JWT that contains the document ID provided by the service at creation time. If an application has an authorization service that manages document access control, it will need to know who created a document with a given ID in order to authorize the generation of a new JWT for access to that document.
 
 ## Inform an Authorization Service when a document is Created
 
