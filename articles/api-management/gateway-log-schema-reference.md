@@ -33,16 +33,16 @@ The following properties are logged for each API request.
 | BackendResponseBody | string | Backend response body |
 | BackendResponseCode | int | Code of the HTTP response received from a backend |
 | BackendResponseHeaders | dynamic | Collection of HTTP headers received from a backend |
-| BackendTime | long | Number of milliseconds spent on overall backend IO (connecting, sending, and receiving bytes) |
+| BackendTime | long | Number of milliseconds spent on overall backend I/O (connecting, sending, and receiving bytes) |
 | BackendUrl | string | URL of the request sent to a backend |
 | Cache | string | Status of API Management cache involvement in request processing (hit, miss, none) |
-| CacheTime | long | Number of miliseconds spent on overall API Management cache IO (connecting, sending and receiving bytes) |
+| CacheTime | long | Number of milliseconds spent on overall API Management cache IO (connecting, sending and receiving bytes) |
 | ClientProtocol | string | HTTP protocol version of the incoming request |
 | ClientTime | long | Number of milliseconds spent on overall client I/O (connecting, sending, and receiving bytes) |
 | ClientTlsVersion | string | TLS version used by client sending request |
 | Errors | dynamic | Collection of  error occured during request processing |
-| IsRequestSuccess | bool | Http request completed with response status code within 2xx or 3xx range |
-| LastErrorElapsed | long | Number of miliseconds elapsed since Gateway received request till the moment error occured |
+| IsRequestSuccess | bool | HTTP request completed with response status code within 2xx or 3xx range |
+| LastErrorElapsed | long | Number of milliseconds elapsed since gateway received request until the error occurred |
 | LastErrorMessage | string | Error message |
 | LastErrorReason | string | Error reason |
 | LastErrorScope | string | Scope of the policy document containing policy caused the error |
@@ -50,7 +50,7 @@ The following properties are logged for each API request.
 | LastErrorSource | string | Naming of the policy or processing internal handler caused the error |
 | Method | string | HTTP method of the incoming request |
 | OperationId | string | Operation entity identifier for current request |
-| ProductId | string | Operation entity identifier for current request |
+| ProductId | string | Product entity identifier for current request |
 | RequestBody | string | Client request body |
 | RequestHeaders | dynamic | Collection of HTTP headers sent by a client |
 | RequestSize | int | Number of bytes received from a client during request processing |
@@ -58,7 +58,7 @@ The following properties are logged for each API request.
 | ResponseCode | int | Status code of the HTTP response sent to a client |
 | ResponseHeaders | dynamic | Collection of HTTP headers sent to a client |
 | ResponseSize | int | Number of bytes sent to a client during request processing |
-| TotalTime | long | Number of milliseconds spent on overall HTTP request (from first byte received by a APIM to last byte a client received back) |
+| TotalTime | long | Number of milliseconds spent on overall HTTP request (from first byte received by API Management to last byte a client received back) |
 | TraceRecords | dynamic | Records emitted by trace policies |
 | Url | string | URL of the incoming request |
 | UserId | string | User entity identifier for current request |
