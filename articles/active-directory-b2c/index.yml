@@ -96,28 +96,28 @@ conceptualContent:
       links:
           - text: Authentication and authorization
             url: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-            itemType: concept
+            itemType: learn
           - text: Tokens
             url: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-            itemType: concept
+            itemType: learn
           - text: Protocols
             url: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-            itemType: concept
+            itemType: learn
           - text: Authentication library
             url: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-            itemType: concept
+            itemType: learn
           - text: Identity providers
             url: add-identity-provider.md
-            itemType: concept
+            itemType: learn
           - text: Authenticate users in a Node.js web app(Quick course)
             url: /learn/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
-            itemType: concept
+            itemType: learn
     ## CARD 3 ######################
     - title: 'Authenticate: Sign in users'
       links:
           - text: Register your applications
             url: index-register-apps.yml
-            itemType: how-to-guide
+            itemType: tutorial
           - text: Create a user sign-in/sign-up experience
             url: index-create-user-flow.yml
             itemType: how-to-guide
