@@ -2,7 +2,7 @@
 title: What is Azure Video Indexer?
 description: This article gives an overview of the Azure Video Indexer service.
 ms.topic: overview
-ms.date: 08/15/2022
+ms.date: 08/158/2022
 ms.author: juliako
 ---
 
@@ -46,7 +46,7 @@ The following list shows the insights you can retrieve from your videos using Az
 
 Unless specified otherwise, a model is generally available.
 
-### Video insights
+### Video models
 
 * **Face detection**: Detects and groups faces appearing in the video.
 * **Celebrity identification**: Identifies over 1 million celebrities—like world leaders, actors, actresses, athletes, researchers, business, and tech leaders across the globe. The data about these celebrities can also be found on various websites (IMDB, Wikipedia, and so on).
@@ -63,11 +63,11 @@ Unless specified otherwise, a model is generally available.
 * **Animated characters detection** : Detects, groups, and recognizes characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). For more information, see [Animated character detection](animated-characters-recognition.md).
 * **Editorial shot type detection**: Tags shots based on their type (like wide shot, medium shot, close up, extreme close up, two shot, multiple people, outdoor and indoor, and so on). For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
 * **Observed people tracking** (preview): Detects observed people in videos and provides information such as the location of the person in the video frame (using bounding boxes) and the exact timestamp (start, end) and confidence when a person appears. For more information, see [Trace observed people in a video](observed-people-tracing.md).
-    * **People's detected clothing** (preview): Detects the clothing types of people appearing in the video and provides information such as long or short sleeves, long or short pants and skirt or dress. The detected clothing is associated with the people wearing it and the exact timestamp (start,end) along with a confidence level for the detection are provided.
+    * **People's detected clothing** (preview): Detects the clothing types of people appearing in the video and provides information such as long or short sleeves, long or short pants and skirt or dress. The detected clothing is associated with the people wearing it and the exact timestamp (start,end) along with a confidence level for the detection are provided. For more information, see [detected clothing](detected-clothing.md).
     * **Featured clothing** (preview): captures featured clothing images appearing in a video. You can improve your targeted ads by using the featured clothing insight. For information on how the featured clothing images are ranked and how to get the insights, see [featured clothing](observed-people-featured-clothing.md).
 * **Matched person** (preview): Matches between people that were observed in the video with the corresponding faces detected. The matching between the observed people and the faces contain a confidence level.
 
-### Audio insights
+### Audio models
 
 * **Audio transcription**: Converts speech to text over 50 languages and allows extensions. For a comprehensive list of language support by service, see [language support](language-support.md).
 * **Automatic language detection**: Identifies the dominant spoken language. For a comprehensive list of language support by service, see [language support](language-support.md). If the language can't be identified with confidence, Azure Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
@@ -88,13 +88,13 @@ Unless specified otherwise, a model is generally available.
     > [!NOTE]
     > The full set of events is available only when you choose **Advanced Audio Analysis** when uploading a file, in upload preset. By default, only silence is detected.
 
-### Audio and video insights (multi-channels)
+### Audio and video models (multi-channels)
 
 When indexing by one channel, partial result for those models will be available.
 
 * **Keywords extraction**: Extracts keywords from speech and visual text.
 * **Named entities extraction**: Extracts brands, locations, and people from speech and visual text via natural language processing (NLP).
-* **Topic inference**: Extracts topics based on various keywords (i.e. keywords 'Stock Exchange', 'Wall Street' will produce the topic 'Economics'). The model uses three different ontologies ([IPTC](https://iptc.org/standards/media-topics/), [Wikipedia](https://www.wikipedia.org/) and the Video Indexer hierarchical topic ontology). The model uses transcription (spoken words), OCR content (visual text), and celebrities recognized in the video using the Video Indexer facial recognition model. 
+* **Topic inference**: Extracts topics based on various keywords (that is, keywords 'Stock Exchange', 'Wall Street' will produce the topic 'Economics'). The model uses three different ontologies ([IPTC](https://iptc.org/standards/media-topics/), [Wikipedia](https://www.wikipedia.org/) and the Video Indexer hierarchical topic ontology). The model uses transcription (spoken words), OCR content (visual text), and celebrities recognized in the video using the Video Indexer facial recognition model. 
 * **Artifacts**: Extracts rich set of "next level of details" artifacts for each of the models.
 * **Sentiment analysis**: Identifies positive, negative, and neutral sentiments from speech and visual text.
 
@@ -103,6 +103,21 @@ When indexing by one channel, partial result for those models will be available.
 ### Prerequisite
 
 Before creating a new account, review [Account types](accounts-overview.md).
+
+### Supported browsers
+
+The following list shows the supported browsers that you can use for the Azure Video Indexer website and for your apps that embed the widgets. The list also shows the minimum supported browser version:
+
+- Edge, version: 16
+- Firefox, version: 54
+- Chrome, version: 58
+- Safari, version: 11
+- Opera, version: 44
+- Opera Mobile, version: 59
+- Android Browser, version: 81
+- Samsung Browser, version: 7
+- Chrome for Android, version: 87
+- Firefox for Android, version: 83
 
 ### Start using Azure Video Indexer
 
@@ -118,21 +133,6 @@ You can access Azure Video Indexer capabilities in three ways:
 
     For more information, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
 If you're using the website, the insights are added as metadata and are visible in the portal. If you're using APIs, the insights are available as a JSON file.
-
-## Supported browsers
-
-The following list shows the supported browsers that you can use for the Azure Video Indexer website and for your apps that embed the widgets. The list also shows the minimum supported browser version:
-
-- Edge, version: 16
-- Firefox, version: 54
-- Chrome, version: 58
-- Safari, version: 11
-- Opera, version: 44
-- Opera Mobile, version: 59
-- Android Browser, version: 81
-- Samsung Browser, version: 7
-- Chrome for Android, version: 87
-- Firefox for Android, version: 83
 
 ## Next steps
 
