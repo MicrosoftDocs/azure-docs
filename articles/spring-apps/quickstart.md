@@ -238,45 +238,7 @@ To deploy a Spring Boot web app to Azure Spring Apps, follow the steps in [Build
 
 Once deployment has completed, you can access the app at `https://<service instance name>-hellospring.azuremicroservices.io/`.
 
-## (Optional) Streaming logs in real time
-
-#### [CLI](#tab/Azure-CLI)
-
-Use the following command to get real-time logs from the app.
-
-```azurecli-interactive
-az spring app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
-```
-
-The following example shows how logs are displayed in the results:
-
-:::image type="content" source="media/quickstart/streaming-logs.png" alt-text="Screenshot of streaming logs in a console window." lightbox="media/quickstart/streaming-logs.png":::
-
->[!TIP]
-> Use `az spring app logs -h` to explore more parameters and log stream functionalities.
-
-#### [IntelliJ](#tab/IntelliJ)
-
-1. Select **Azure Explorer**, then **Spring Apps**.
-1. Right-click the running app.
-1. Select **Streaming Logs** from the drop-down list.
-1. Select instance.
-
-    :::image type="content" source="media/quickstart/intellij-get-streaming-logs.png" alt-text="Screenshot of IntelliJ IDEA showing Select instance dialog box." lightbox="media/quickstart/intellij-get-streaming-logs.png":::
-
-1. The streaming log will be visible in the output window.
-
-    :::image type="content" source="media/quickstart/intellij-streaming-logs-output.png" alt-text="Screenshot of IntelliJ IDEA showing streaming log output." lightbox="media/quickstart/intellij-streaming-logs-output.png":::
-
-#### [Visual Studio Code](#tab/VS-Code)
-
-To get real-time application logs with Visual Studio Code, follow the steps in [Stream your application logs](https://code.visualstudio.com/docs/java/java-spring-cloud#_stream-your-application-logs).
-
----
-
-For advanced logs analytics features, visit the **Logs** tab in the menu on the [Azure portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
-
-:::image type="content" source="media/quickstart/logs-analytics.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Logs query." lightbox="media/quickstart/logs-analytics.png":::
+You also have access to powerful logs, metrics, and distributed tracing capability from the Azure portal. For more information, see [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing).
 
 ## Clean up resources
 
