@@ -218,6 +218,7 @@ This section provides solutions for Azure platform services.
 ### Azure Red Hat Openshift   
 
 *	[Using Trident to Automate Azure NetApp Files from OpenShift](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-trident-to-automate-azure-netapp-files-from-openshift/ba-p/2367351)
+*   [Deploy IBM Maximo Application Suite on Azure – Azure Example Scenarios](/azure/architecture/example-scenario/apps/deploy-ibm-maximo-application-suite)
 
 ### Azure Batch
 
