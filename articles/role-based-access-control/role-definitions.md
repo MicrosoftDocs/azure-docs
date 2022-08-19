@@ -337,7 +337,7 @@ The following table shows two examples of the effective date plane permissions f
 
 The `AssignableScopes` property specifies the scopes (root, management group, subscriptions, or resource groups) where a role definition can be assigned. You can make a custom role available for assignment in only the management group, subscriptions, or resource groups that require it. You must use at least one management group, subscription, or resource group.
 
-If `AssignableScopes` is set to a subscription, that means that the custom role is available for assignment at subscription scope for the specified subscription, resource group scope for any resource group in the subscription, or resource scope for any resource in the subscription.
+For example, if `AssignableScopes` is set to a subscription, that means that the custom role is available for assignment at subscription scope for the specified subscription, resource group scope for any resource group in the subscription, or resource scope for any resource in the subscription.
 
 Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes.
 
