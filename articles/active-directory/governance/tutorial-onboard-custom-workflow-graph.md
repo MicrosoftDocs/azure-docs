@@ -92,17 +92,16 @@ Content-type: application/json
          "displayName":"Generate TAP And Send Email", 
          "description":"Generate Temporary Access Pass and send via email to user's manager", 
          "arguments":[ 
-                { 
-                    "name": "tapLifetimeMinutes", 
-                    "value": "480" 
-                }, 
-                { 
-                    "name": "tapIsUsableOnce", 
-                    "value": "true" 
-                } 
-            ]  
-      }
-   ], 
+            { 
+                "name": "tapLifetimeMinutes", 
+                "value": "480" 
+            }, 
+            { 
+                "name": "tapIsUsableOnce", 
+                "value": "true" 
+            } 
+        }  
+    ]     
 } 
 ```
 

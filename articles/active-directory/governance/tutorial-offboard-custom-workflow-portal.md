@@ -45,7 +45,7 @@ Use the following steps to create a leaver on-demand workflow that will execute 
  3.  Select **Identity Governance**.
  4.  Select **Lifecycle workflows (Preview)**.
  5.  On the **Overview (Preview)** page, select **New workflow**. 
-   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-1.png" alt-text="New workflow" lightbox="media/tutorial-lifecycle-workflows/portal-2-1.png":::
+    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-1.png" alt-text="New workflow" lightbox="media/tutorial-lifecycle-workflows/portal-1.png":::
 
  6. From the templates, select **Select** under **Real-time employee termination**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-2.png" alt-text="Leaver workflow" lightbox="media/tutorial-lifecycle-workflows/portal-2-2.png":::
