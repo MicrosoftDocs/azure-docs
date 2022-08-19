@@ -70,7 +70,7 @@ For details, see [Linux concurrency best practices for Azure NetApp Files](perfo
 
 ### `Nconnect` considerations
 
-[!INCLUDE [nconnect krb5 performance warning](/includes/krb5-nconnect.md)]
+[!INCLUDE [nconnect krb5 performance warning](includes/kerberos-nconnect-performance.md)]
 
 ## `Rsize` and `Wsize`
  
