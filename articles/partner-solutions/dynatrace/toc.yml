@@ -22,9 +22,9 @@
 - name: Reference
   items:
   - name: Python
-    href: /python/api/overview/azure
+    href: /python/api/overview/azure/dynatrace
   - name: JavaScript
-    href: /javascript/api/overview/azure
+    href: /javascript/api/overview/azure/dynatrace
   - name: .NET
     href: /dotnet/api/overview/azure/dynatrace
   - name: Java

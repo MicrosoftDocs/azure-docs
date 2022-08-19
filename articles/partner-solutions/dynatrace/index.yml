@@ -48,9 +48,9 @@ landingContent:
       - linkListType: reference
         links:
           - text: Python
-            url: /python/api/overview/azure
+            url: /python/api/overview/azure/dynatrace
           - text: JavaScript
-            url: /javascript/api/overview/azure
+            url: /javascript/api/overview/azure/dynatrace
           - text: .NET
             url: /dotnet/api/overview/azure/dynatrace
           - text: Java
