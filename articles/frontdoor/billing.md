@@ -50,11 +50,11 @@ The following sections describe each of these request components in more detail.
 
 Front Door charges a fee for the number of requests that are received at a Front Door edge location for your profile. Front Door identifies requests by using the `Host` header on the HTTP request. If the `Host` header matches one from your Front Door profile, it counts as a request to your profile.
 
-The price is different depending on the geographical region of the Front Door edge location. The price is also different for the Standard and Premium SKUs.
+The price is different depending on the geographical region of the Front Door edge location that serves the request. The price is also different for the Standard and Premium SKUs.
 
 ### Data transfer from Front Door edge to origin
 
-Front Door charges for the bytes that are sent from the Front Door edge location to your origin server. The price is different depending on the geographical region of the Front Door edge location. The location of the origin doesn't affect the price.
+Front Door charges for the bytes that are sent from the Front Door edge location to your origin server. The price is different depending on the geographical region of the Front Door edge location that serves the request. The location of the origin doesn't affect the price.
 
 The price per gigabyte is lower when you have higher volumes of traffic.
 
@@ -70,7 +70,7 @@ If your origin is outside of Azure, you might incur charges from other network p
 
 ### Data transfer from Front Door to client
 
-Front Door charges for the bytes that are sent from the Front Door edge location back to the client. The price is different depending on the geographical region of the Front Door edge location.
+Front Door charges for the bytes that are sent from the Front Door edge location back to the client. The price is different depending on the geographical region of the Front Door edge location that serves the request.
 
 If a response is compressed, Front Door only charges for the compressed data.
 
