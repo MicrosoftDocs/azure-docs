@@ -30,7 +30,7 @@ The table below lists each product that offers migration guidance and/or informa
 | [Azure Storage: Blob Storage](migrate-storage.md) |
 | [Azure Storage: Managed Disks](migrate-storage.md)|
 | [Azure Virtual Machine Scale Sets](migrate-vm.md)|
-| [Azure Virtual Machines](migrate-vm.md) |  |
+| [Azure Virtual Machines](migrate-vm.md) |  
 | Virtual Machines: [Av2-Series](migrate-vm.md) |
 | Virtual Machines: [Bs-Series](migrate-vm.md) |
 | Virtual Machines: [DSv2-Series](migrate-vm.md) |

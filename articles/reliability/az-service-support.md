@@ -35,6 +35,7 @@ Some organizations require high availability of availability zones and protectio
 
 [!INCLUDE [availability-zone-regions-include](./includes/availability-zone-regions-include.md)]
 
+
 ## Azure services with availability zone support
 
 Three types of Azure services support availability zones: *zonal*, *zone-redundant*, and *always-available* services. You can combine all three of these approaches to architecture when you design your resiliency strategy.
