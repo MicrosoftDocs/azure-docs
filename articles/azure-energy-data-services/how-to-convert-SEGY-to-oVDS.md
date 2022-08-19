@@ -1,5 +1,5 @@
 ---
-title: How to convert SEG-Y to oVDS #Required; page title is displayed in search results. Include the brand.
+title: How to convert a segy to ovds file #Required; page title is displayed in search results. Include the brand.
 description: This article explains how to convert a SGY file to oVDS file format #Required; article description that is displayed in search results. 
 author: bharathim #Required; your GitHub user alias, with correct capitalization.
 ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
