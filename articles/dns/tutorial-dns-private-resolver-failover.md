@@ -34,7 +34,7 @@ In this scenario, you have connections from two on-premises locations to two Azu
 
 The DNS resolution path is:
 1) Redundant on-premises DNS [conditional forwarders](#on-premise-forwarding) send DNS queries to inbound endpoints.
-2) [Inbound endpoints](#inbound-endpoints) receive DNS queries from on-premise.
+2) [Inbound endpoints](#inbound-endpoints) receive DNS queries from on-premises.
 3) Outbound endpoints and DNS forwarding rulesets process DNS queries and return replies to your on-premises resources.
 
 Outbound endpoints and DNS forwarding rulesets aren't needed for the failover scenario, but are included here for completeness. Rulesets can be used is to resolve on-premises domains from Azure. For more information, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md) and [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md).

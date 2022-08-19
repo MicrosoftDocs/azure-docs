@@ -51,7 +51,7 @@ For more information about creating a private DNS resolver, see:
 Azure DNS Private Resolver provides the following benefits:
 * Fully managed: Built-in high availability, zone redundancy.
 * Cost reduction: Reduce operating costs and run at a fraction of the price of traditional IaaS solutions.
-* Private access to your Private DNS zones: Conditionally forward to and from on-premise.
+* Private access to your Private DNS zones: Conditionally forward to and from on-premises.
 * Scalability: High performance per endpoint.
 * DevOps Friendly: Build your pipelines with Terraform, ARM, or Bicep.
 
@@ -76,13 +76,13 @@ Azure DNS Private Resolver is available in the following regions:
 
 ### Inbound endpoints
 
-An inbound endpoint enables name resolution from on-premises or other private locations via an IP address that is part of your private virtual network address space. To resolve your Azure private DNS zone from on-premise, enter the IP address of the inbound endpoint into your on-premises DNS conditional forwarder. The on-premises DNS conditional forwarder must have a network connection to the virtual network.
+An inbound endpoint enables name resolution from on-premises or other private locations via an IP address that is part of your private virtual network address space. To resolve your Azure private DNS zone from on-premises, enter the IP address of the inbound endpoint into your on-premises DNS conditional forwarder. The on-premises DNS conditional forwarder must have a network connection to the virtual network.
 
 The inbound endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services. DNS queries received by the inbound endpoint will ingress to Azure. You can resolve names in scenarios where you have Private DNS zones, including VMs that are using auto registration, or Private Link enabled services.
 
 ### Outbound endpoints
 
-An outbound endpoint enables conditional forwarding name resolution from Azure to on-premise, other cloud providers, or external DNS servers. This endpoint requires a dedicated subnet in the VNet where it’s provisioned, with no other service running in the subnet, and can only be delegated to **Microsoft.Network/dnsResolvers**. DNS queries sent to the outbound endpoint will egress from Azure.
+An outbound endpoint enables conditional forwarding name resolution from Azure to on-premises, other cloud providers, or external DNS servers. This endpoint requires a dedicated subnet in the VNet where it’s provisioned, with no other service running in the subnet, and can only be delegated to **Microsoft.Network/dnsResolvers**. DNS queries sent to the outbound endpoint will egress from Azure.
 
 ## Virtual network links
 
@@ -112,7 +112,7 @@ The following restrictions hold with respect to virtual networks:
 Subnets used for DNS resolver have the following limitations:
 - A subnet must be a minimum of /28 address space or a maximum of /24 address space.
 - A subnet can't be shared between multiple DNS resolver endpoints. A single subnet can only be used by a single DNS resolver endpoint.
-- All IP configurations for a DNS resolver inbound endpoint must reference the same subnet. Spanning multiple subnets in the IP configuration for a single DNS resolver inbound endpoint is not allowed.
+- All IP configurations for a DNS resolver inbound endpoint must reference the same subnet. Spanning multiple subnets in the IP configuration for a single DNS resolver inbound endpoint isn't allowed.
 - The subnet used for a DNS resolver inbound endpoint must be within the virtual network referenced by the parent DNS resolver.
 
 ### Outbound endpoint restrictions

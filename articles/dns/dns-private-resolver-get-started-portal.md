@@ -15,7 +15,7 @@ ms.custom: mode-ui
 
 This quickstart walks you through the steps to create an Azure DNS Private Resolver (Public Preview) using the Azure portal. If you prefer, you can complete this quickstart using [Azure PowerShell](private-dns-getstarted-powershell.md).
 
-Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-premises environment, and vice versa, without deploying VM based DNS servers. You no longer need to provision IaaS based solutions on your virtual networks to resolve names registered on Azure private DNS zones. You can configure conditional forwarding of domains back to on-premise, multi-cloud and public DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
+Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-premises environment, and vice versa, without deploying VM based DNS servers. You no longer need to provision IaaS based solutions on your virtual networks to resolve names registered on Azure private DNS zones. You can configure conditional forwarding of domains back to on-premises, multicloud and public DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
 
 ## Prerequisites
 
@@ -173,7 +173,7 @@ In this example:
 
 You should now be able to send DNS traffic to your DNS resolver and resolve records based on your forwarding rulesets, including:
 - Azure DNS private zones linked to the virtual network where the resolver is deployed.
-- Private DNS zones that are hosted on-premise.
+- Private DNS zones that are hosted on-premises.
 - DNS zones in the public internet DNS namespace.
 
 ## Next steps

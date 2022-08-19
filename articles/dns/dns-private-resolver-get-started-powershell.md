@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/02/2022
+ms.date: 08/18/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api
@@ -229,7 +229,7 @@ In this example:
 You should now be able to send DNS traffic to your DNS resolver and resolve records based on your forwarding rulesets, including:
 - Azure DNS private zones linked to the virtual network where the resolver is deployed.
 - DNS zones in the public internet DNS namespace.
-- Private DNS zones that are hosted on-premise.
+- Private DNS zones that are hosted on-premises.
 
 ## Delete a DNS resolver
 
