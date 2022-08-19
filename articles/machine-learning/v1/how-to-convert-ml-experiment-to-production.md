@@ -11,9 +11,9 @@ ms.date: 10/21/2021
 ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 ---
 
-# Tutorial: Convert ML experiments to production Python code
+# Convert ML experiments to production Python code
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this tutorial, you learn how to convert Jupyter notebooks into Python scripts to make it testing and automation friendly using the MLOpsPython code template and Azure Machine Learning. Typically, this process is used to take experimentation / training code from a Jupyter notebook and convert it into Python scripts. Those scripts can then be used testing and CI/CD automation in your production environment. 
 
@@ -525,5 +525,5 @@ def test_train_model():
 Now that you understand how to convert from an experiment to production code, see the following links for more information and next steps:
 
 + [MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md): Build a CI/CD pipeline to train, evaluate and deploy your own model using Azure Pipelines and Azure Machine Learning
-+ [Monitor Azure ML experiment jobs and metrics](./how-to-log-view-metrics.md)
-+ [Monitor and collect data from ML web service endpoints](./v1/how-to-enable-app-insights.md)
++ [Monitor Azure ML experiment jobs and metrics](how-to-log-view-metrics.md)
++ [Monitor and collect data from ML web service endpoints](how-to-enable-app-insights.md)
