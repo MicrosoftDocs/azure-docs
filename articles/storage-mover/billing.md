@@ -9,6 +9,18 @@ ms.date: 07/19/2022
 ms.custom: template-concept
 ---
 
+<!-- 
+!########################################################
+STATUS: IN REVIEW
+
+CONTENT: final
+
+REVIEW Stephen/Fabian: not reviewed
+REVIEW Engineering: not reviewed
+
+!########################################################
+-->
+
 # Understanding Azure Storage Mover billing
 
 Azure Storage Mover facilitates the migration of unstructured data (files and folders) into Azure. This article provides insight into the categories of costs that may apply to your migration scenarios.
@@ -65,6 +77,7 @@ The following factors contribute to the complexity of answering this question:
 The cost of your upload bandwidth from the location of your Azure Storage Mover agent to your Azure target storage can be another cost component. There is no specific charge associated on the Azure Storage Mover side. You can estimate that the utilized capacity of your migration is charged/not charged just as any other traffic to Azure storage would be. Whether there is a charge associated with upload depends on your specific network connection and provider agreements.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Step 1](service-overview.md)
-- [Step 2](service-overview.md)
+
+After understanding the billing implications of your cloud migration, it's a good idea to get more familiar with the Storage Mover service. These articles may be good, next reads:
+- [Managing a Azure Storage Mover: resource hierarchy](resource-hierarchy.md)
+- [Deploy an Azure Storage Mover agent VM](agent-deploy.md)

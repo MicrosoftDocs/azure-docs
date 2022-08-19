@@ -2,11 +2,23 @@
 title: Understanding the Azure Storage Mover resource hierarchy
 description: Understanding the Azure Storage Mover resource hierarchy
 author: stevenmatthew
-ms.author: stevenmatthew
+ms.author: shaas
 ms.service: storage-mover
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 08/18/2022
 ---
+
+<!-- 
+!########################################################
+STATUS: IN REVIEW
+
+CONTENT: final
+
+REVIEW Stephen/Fabian: not reviewed
+REVIEW Engineering: not reviewed
+
+!########################################################
+-->
 
 # Understanding the Azure Storage Mover resource hierarchy
 
@@ -101,3 +113,8 @@ Endpoints are used in the creation of a job definition. Only certain types of en
 Endpoints are parented to the top-level storage mover resource and can be reused across different job definitions.
 
 ## Next steps
+
+After understanding the resources involved in an Azure Storage Mover deployment, it's a good idea to start a proof-of-concept deployment. These articles may be good, next reads:
+
+- [Deploy a storage mover resource in your subscription.](resource-create.md)
+- [Deploy an Azure Storage Mover agent VM.](agent-deploy.md)
