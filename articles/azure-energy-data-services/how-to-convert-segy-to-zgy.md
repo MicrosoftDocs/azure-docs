@@ -1,5 +1,5 @@
 ---
-title: How to convert SEG-Y to ZGY file #Required; page title is displayed in search results. Include the brand.
+title: How to convert segy to zgy file #Required; page title is displayed in search results. Include the brand.
 description: This article describes how to convert a SEG-Y file to a ZGY file #Required; article description that is displayed in search results. 
 author: marielgherz #Required; your GitHub user alias, with correct capitalization.
 ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
