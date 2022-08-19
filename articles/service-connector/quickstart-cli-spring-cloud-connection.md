@@ -43,6 +43,9 @@ Service Connector lets you quickly connect compute services to cloud services, w
     az spring connection list-support-types --output table
     ```
 
+    > [!TIP]
+    > If the `az spring` command isn't recognized by the system, check that you have installed the required extension by running `az extension add --name spring`.
+
 ## Create a service connection
 
 You can create a connection from Azure Spring Apps using an access key or a managed identity.
