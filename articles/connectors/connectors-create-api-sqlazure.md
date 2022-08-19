@@ -551,8 +551,8 @@ Runs a stored procedure on an SQL database.
 
 | Name | Type |
 |------|------|
-| **Result** | An array object that returns all the stored procedure results |
-| **Result Result Sets** | An array object that returns one stored procedure result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
+| **Result** | An array object that returns the stored procedure result |
+| **Result Result Sets** | An array object that returns all the stored procedure results |
 | **Result Stored Procedure Parameters** |  The final values of the stored procedure's output and input-output parameters |
 | **Result Return Code** | The return code from the stored procedure |
 | **Status Code** | The status code from the **Execute stored procedure** operation |
