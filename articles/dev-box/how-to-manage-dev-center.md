@@ -72,7 +72,7 @@ You may choose to delete a dev center to reflect organizational or workload chan
 A dev center cannot be deleted if it contains any projects. You must delete the projects before you can delete the dev center.
 Attached network connections and their associated virtual networks are not deleted when you delete a dev center.
 
-When you are ready to delete your dev center, follow these steps:
+When you're ready to delete your dev center, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -85,6 +85,67 @@ When you are ready to delete your dev center, follow these steps:
 
 1. In the confirmation message, select **OK**.
  
+## Attach a network connection
+
+You can attach existing network connections to a dev center. You must attach a network connection to a dev center before it can be used in projects to create dev box pools.
+
+1. In the [Azure portal](https://portal.azure.com), in the search box, type *Dev centers* and then select **Dev centers** from the list.
+
+1. Select the dev center you want to attach the network connection to and select **Networking**. 
+ 
+1. Select  **+ Add**.
+ 
+1. In the **Add network connection** pane, select the network connection you created earlier, and then select **Add**. 
+
+## Remove a network connection
+
+You can remove network connections from dev centers. Network connections cannot be removed if they are in use by one or more dev box pools. When a network connection is removed, it is no longer available for use in dev box pools within the DevCenter.
+
+1. In the [Azure portal](https://portal.azure.com), in the search box, type *Dev centers* and then select **Dev centers** from the list.
+
+1. Select the dev center you want to detach the network connection from and select **Networking**. 
+ 
+1. Select the network connection you want to detach and select **Remove**.
+ 
+1. In the confirmation message, select **OK**.
+## Assign permissions for users  
+
+You can assign multiple users permissions to a dev center to assist in administration. You can assign users or groups to the following built-in roles:
+
+|**Role**|**Description**|
+|-----|-----|
+|**Owner**|Grants full access to manage all resources, including the ability to assign roles in Azure RBAC.|
+|**Contributor**|Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.| 
+|**Reader**|View all resources, but doesn't allow you to make any changes.|
+
+To make role assignments, use the following steps:
+1. In the [Azure portal](https://portal.azure.com), in the search box, type *Dev centers* and then select **Dev centers** from the list.
+
+1. Select the dev center you want to provide access to.
+
+1. Select **Access Control (IAM)** from the left menu.
+
+   :::image type="content" source="./media/how-to-manage-dev-center/dev-center-access-control.png" alt-text="Screenshot showing the dev center page with the Access Control link highlighted.":::
+
+1. Select **Add** > **Add role assignment**.
+
+   :::image type="content" source="./media/how-to-manage-dev-center/add-role-assignment.png" alt-text="Screenshot showing the Add menu with Add role assignment highlighted.":::
+
+1. On the Add role assignment page, choose the built-in role you want to assign, and then select **Next**.
+
+   :::image type="content" source="./media/how-to-manage-dev-center/dev-center-built-in-roles.png" alt-text="Screenshot showing the Add role assignment search box highlighted.":::
+
+1. On the Members page, select **+ Select Members**.
+
+   :::image type="content" source="./media/how-to-manage-dev-center/dev-center-owner-select-members.png" alt-text="Screenshot showing the Members tab with Select members highlighted.":::
+
+1. On the **Select members** pane, select the Active Directory Users or Groups you want to add, and then select **Select**.
+
+   :::image type="content" source="./media/how-to-manage-dev-center/select-members-search.png" alt-text="Screenshot showing the Select members pane with a user account highlighted.":::
+
+1. On the Add role assignment page, select **Review + assign**.
+
+
 ## Next steps
 
 - [Provide access to projects for project admins](./how-to-project-admin.md)
