@@ -63,7 +63,7 @@ Ports | 443 used for control channel orchestration<br/>9443 for data transport
 
 ## Replicated machines
 
-In Modernized, replication is done by the Azure Site Recovery replication appliance. For detailed information about replication appliance, see [this article](deploy-vmware-azure-replication-appliance-preview.md).
+In Modernized, replication is done by the Azure Site Recovery replication appliance. For detailed information about replication appliance, see [this article](deploy-vmware-azure-replication-appliance-modernized.md).
 
 Site Recovery supports replication of any workload running on a supported machine.
 

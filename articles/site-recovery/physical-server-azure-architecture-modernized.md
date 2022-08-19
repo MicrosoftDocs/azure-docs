@@ -58,8 +58,6 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 |`*.blob.core.windows.net `|Upload data to Azure storage which is used to create target disks |
 |`*.backup.windowsazure.com `|Protection service URL – a microservice used by Azure Site Recovery for processing & creating replicated disks in Azure |
 
-
-
 ## Replication process
 
 1. When you enable replication for a VM, initial replication to Azure storage begins, using the specified replication policy. Note the following:

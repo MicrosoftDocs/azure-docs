@@ -55,8 +55,8 @@
     items:
     - name: Classic
       href: vmware-azure-tutorial.md
-    - name: Preview
-      href: vmware-azure-set-up-replication-tutorial-preview.md
+    - name: Modernized
+      href: vmware-azure-set-up-replication-tutorial-modernized.md
     - name: Run a disaster recovery drill
       href: tutorial-dr-drill-azure.md
   - name: Run VMware VMs failover to Azure
@@ -143,16 +143,16 @@
       href: vmware-physical-azure-config-process-server-overview.md
     - name: Support requirements for configuration and process servers
       href: vmware-azure-configuration-server-requirements.md
-    - name: Deploy Azure Site Recovery replication appliance (preview)
-      href: deploy-vmware-azure-replication-appliance-preview.md
-    - name: Switch replication appliance (preview)
-      href: switch-replication-appliance-preview.md
+    - name: Deploy Azure Site Recovery replication appliance (modernized)
+      href: deploy-vmware-azure-replication-appliance-modernized.md
+    - name: Switch replication appliance (modernized)
+      href: switch-replication-appliance-modernized.md
   - name: VMware to Azure architecture
     items:
     - name: Classic
       href: vmware-azure-architecture.md
-    - name: Preview
-      href: vmware-azure-architecture-preview.md
+    - name: Modernized
+      href: vmware-azure-architecture-modernized.md
   - name: About excluding disks from replication
     href: exclude-disks-replication.md
   - name: Failback location options from Azure to VMware
@@ -193,8 +193,8 @@
     items:
     - name: Classic
       href: failover-failback-overview.md
-    - name: Preview
-      href: failover-failback-overview-preview.md
+    - name: Modernized
+      href: failover-failback-overview-modernized.md
   - name: About recovery plans
     href: recovery-plan-overview.md
   - name: About migration to Azure
@@ -349,8 +349,8 @@
       items:
       - name: Manage the Mobility agent
         href: vmware-physical-manage-mobility-service.md
-      - name: Upgrade the Mobility agent (Preview)
-        href: upgrade-mobility-service-preview.md
+      - name: Upgrade the Mobility agent (Modernized)
+        href: upgrade-mobility-service-modernized.md
       - name: Manage the configuration server for VMware
         href: vmware-azure-manage-configuration-server.md
       - name: Manage process servers
