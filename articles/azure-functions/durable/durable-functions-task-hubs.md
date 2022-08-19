@@ -231,7 +231,7 @@ For more information on task hubs for the MSSQL storage provider, see [Task Hub 
 
 ## Task hub names
 
-Task hubs in Azure Storage are identified by a name that conforms to these rules:
+Task hubs are identified by a name that must conform to these rules:
 
 * Contains only alphanumeric characters
 * Starts with a letter
@@ -374,7 +374,7 @@ public HttpResponseMessage httpStart(
 > [!NOTE]
 > Configuring task hub names in client binding metadata is only necessary when you use one function app to access orchestrations and entities in another function app. If the client functions are defined in the same function app as the orchestrations and entities, you should avoid specifying task hub names in the binding metadata. By default, all client bindings get their task hub metadata from the **host.json** settings.
 
-Task hub names in Azure Storage must start with a letter and consist of only letters and numbers. If not specified, a default task hub name will be used as shown in the following table:
+Task hub names must start with a letter and consist of only letters and numbers. If not specified, a default task hub name will be used as shown in the following table:
 
 | Durable extension version | Default task hub name |
 | - | - |

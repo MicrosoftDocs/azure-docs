@@ -54,7 +54,7 @@ By default, the maximum batch size is 50 for consumption plans and 5000 for all 
 
 ## Instance caching
 
-Generally, to process an orchestration work item, a worker has to both
+Generally, to process an [orchestration work item](durable-functions-task-hubs.md#work-items), a worker has to both
 
 1. Fetch the orchestration history.
 1. Replay the orchestrator code using the history.
@@ -149,7 +149,7 @@ Some of the storage providers use a *partitioning* mechanism and allow specifyin
 When using partitioning, workers do not directly compete for individual work items. Instead, the work items are first grouped into `partitionCount` partitions. These partitions are then assigned to workers. This partitioned approach to load distribution can help to reduce the total number of storage accesses required. Also, it can enable [instance caching](durable-functions-perf-and-scale.md#instance-caching) and improve locality because it creates *affinity*: all work items for the same instance are processed by the same worker.
 
 > [!NOTE]
-> Partitioning limits the scale out: the maximum number of workers that can process elements from a partitioned queue is limited by `partitionCount`.
+> Partitioning limits scale out because at most `partitionCount` workers can process work items from a partitioned queue.
 
 The following table shows, for each storage provider, which queues are partitioned, and the allowable range and default values for the `partitionCount` parameter.
 
@@ -204,7 +204,11 @@ When planning to use Durable Functions for a production application, it is impor
 * **External event processing**: This scenario represents a single orchestrator function instance that waits on [external events](durable-functions-external-events.md), one at a time.
 * **Entity operation processing**: This scenario tests how quickly a _single_ [Counter entity](durable-functions-entities.md) can process a constant stream of operations.
 
-We provide throughput numbers for these scenarios in the respective documentation for the storage providers. In particular, see the [Performance Targets](durable-functions-azure-storage-provider.md#performance-targets) section of the Azure Storage provider documentation if using the default configuration.
+We provide throughput numbers for these scenarios in the respective documentation for the storage providers. In particular:
+
+* for the Azure Storage provider, see [Performance Targets](durable-functions-azure-storage-provider.md#performance-targets).
+* for the Netherite storage provider, see [Basic Scenarios](https://microsoft.github.io/durabletask-netherite/#/scenarios).
+* for the MSSQL storage provider, see [Orchestration Throughput Benchmarks](https://microsoft.github.io/durabletask-mssql/#/scaling?id=orchestration-throughput-benchmarks).
 
 > [!TIP]
 > Unlike fan-out, fan-in operations are limited to a single VM. If your application uses the fan-out, fan-in pattern and you are concerned about fan-in performance, consider sub-dividing the activity function fan-out across multiple [sub-orchestrations](durable-functions-sub-orchestrations.md).
