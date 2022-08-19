@@ -37,9 +37,9 @@ Azure Video Indexer's insights can be applied to many scenarios, among them are:
 * Content moderation: Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization's values. You can automatically block certain videos or alert your users about the content.
 * Recommendations: Video insights can be used to improve user engagement by highlighting the relevant video moments to users. By tagging each video with additional metadata, you can recommend to users the most relevant videos and highlight the parts of the video that will match their needs.
 
-## Video/audio models
+## Video/audio AI features
 
-The following list shows the insights you can retrieve from your videos using Azure Video Indexer video and audio models. 
+The following list shows the insights you can retrieve from your videos using Azure Video Indexer video and audio AI features (models. 
 
 Unless specified otherwise, a model is generally available.
 
@@ -49,7 +49,7 @@ Unless specified otherwise, a model is generally available.
 * **Celebrity identification**: Identifies over 1 million celebrities—like world leaders, actors, actresses, athletes, researchers, business, and tech leaders across the globe. The data about these celebrities can also be found on various websites (IMDB, Wikipedia, and so on).
 * **Account-based face identification**: Trains a model for a specific account. It then recognizes faces in the video based on the trained model. For more information, see [Customize a Person model from the Azure Video Indexer website](customize-person-model-with-website.md) and [Customize a Person model with the Azure Video Indexer API](customize-person-model-with-api.md).
 * **Thumbnail extraction for faces**: Identifies the best captured face in each group of faces (based on quality, size, and frontal position) and extracts it as an image asset.
-* **Visual text recognition** (OCR): Extracts text that's visually displayed in the video.
+* **On-screen text recognition (OCR)**: Extracts and groups text that appears on video as overlay, slides, or in the background.
 * **Visual content moderation**: Detects adult and/or racy visuals.
 * **Labels identification**: Identifies visual objects and actions displayed.
 * **Scene segmentation**: Determines when a scene changes in video based on visual cues. A scene depicts a single event and it's composed by a series of consecutive shots, which are semantically related.
