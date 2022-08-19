@@ -35,10 +35,10 @@ This article describes how to install and configure Primary Application Server (
 * SAP Note [2191498](https://launchpad.support.sap.com/#/notes/2191498) has the required SAP Host Agent version for Linux in Azure.
 * SAP Note [2243692](https://launchpad.support.sap.com/#/notes/224362) has information about SAP licensing on Linux in Azure.
 * SAP Note [1999351](https://launchpad.support.sap.com/#/notes/1999351) has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
-* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
-* [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
-* [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
-* [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
+* [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
+* [Azure Virtual Machines planning and implementation for SAP on Linux](planning-guide.md)
+* [Azure Virtual Machines deployment for SAP on Linux](deployment-guide.md)
+* [Azure Virtual Machines DBMS deployment for SAP on Linux](dbms-guide)
 * [SAP Netweaver in pacemaker cluster](https://access.redhat.com/articles/3150081)
 * General RHEL documentation
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
@@ -73,9 +73,9 @@ The example shown in this article to describe deployment uses following system i
 ### Important consideration for the cost optimization solution
 
 * Only two dialog instances, PAS and one AAS can be deployed with SAP ASCS/SCS cluster setup.
-* If you want to scale out your SAP system with additional application servers (like **sapa03** and **sapa04**), you can install it in a separate VM. With PAS and AAS being installed on virtual hostname, you can either install additional application server using physical or virtual hostname in separate VMs. To learn more on how to assign virtual hostname to a VM, refer to the blog [Use SAP Virtual Host Names with Linux in Azure](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/use-sap-virtual-host-names-with-linux-in-azure/ba-p/3251593).
+* If you want to scale out your SAP system with additional application servers (like **sapa03** and **sapa04**), you can install them in separate VMs. With PAS and AAS being installed on virtual hostnames, you can either install additional application server using physical or virtual hostname in separate VMs. To learn more on how to assign virtual hostname to a VM, refer to the blog [Use SAP Virtual Host Names with Linux in Azure](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/use-sap-virtual-host-names-with-linux-in-azure/ba-p/3251593).
 * With PAS and AAS deployment with SAP ASCS/SCS cluster setup, the instance number of ASCS, ERS, PAS and AAS must be different.
-* Consider sizing your VM SKUs appropriately based on the sizing guidelines. You have to factor the cluster behavior where multiple SAP instances (ASCS, ERS, PAS and AAS) may run on a single VM when other VM in the cluster is unavailable.
+* Consider sizing your VM SKUs appropriately based on the sizing guidelines. You have to factor in the cluster behavior where multiple SAP instances (ASCS, ERS, PAS and AAS) may run on a single VM when other VM in the cluster is unavailable.
 * The dialog instances (PAS and AAS) running with SAP ASCS/SCS cluster setup must be installed using virtual hostname.
 * You must use the same storage solution of SAP ASCS/SCS cluster setup to deploy PAS and AAS instances as well. For example, if you have configured SAP ASCS/SCS cluster using NFS on Azure files, same storage solution must be used to deploy PAS and AAS.
 * Instance directory `/usr/sap/<SID>/D<nr>` of PAS and AAS must be mounted on NFS file system and will be managed as resource by the cluster.
@@ -127,7 +127,7 @@ This document assumes that you’ve already configured SAP ASCS/SCS cluster setu
       5. Make sure to **enable Floating IP**
       6. Click OK
    2. Load balancing rule for AAS
-      * Repeat the steps above under “5.1” to create load balancing rule for AAS (for example, **lb.NW1.AAS**).
+      1. Repeat the steps above under “5.1” to create load balancing rule for AAS (for example, **lb.NW1.AAS**).
 
 > [!IMPORTANT]
 >
@@ -166,7 +166,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    10.90.90.31   sapaas
    ```
 
-2. **[1]** Create the SAP directories on the NFS share. Mount temporarily the NFS share **sapnw1** one of the VMs and create the SAP directories that will be used as nested mount points.
+2. **[1]** Create the SAP directories on the NFS share. Mount temporarily the NFS share **sapnw1** on one of the VMs and create the SAP directories that will be used as nested mount points.
 
    1. If using, NFS on Azure files
 
