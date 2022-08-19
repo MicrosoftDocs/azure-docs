@@ -84,10 +84,16 @@ var mediaCompositionClient = new MediaCompositionClient(connectionString);
 Create a new media composition by defining the `inputs`, `layout`, `outputs`, as well as a user-friendly `mediaCompositionId`. For more details on how to define the values, refer to [this page](./define-media-composition.md). These values are passed into the `CreateAsync` function exposed on the client. The code snippet below shows and example of defining a simple two by two grid layout:
 
 ```csharp
-var layout = new GridLayout(rows: 2, columns: 2, inputIds: new List<List<string>>{ new List<string> { "jill", "jack" }, new List<string> { "jane", "jerry" } })
-{
-    Resolution = new(1920, 1080)
-};
+var layout = new GridLayout(
+    rows: 2,
+    columns: 2,
+    inputIds: new List<List<string>>
+    {
+        new List<string> { "jill", "jack" }, new List<string> { "jane", "jerry" }
+    })
+    {
+        Resolution = new(1920, 1080)
+    };
 
 var inputs = new Dictionary<string, MediaInput>()
 {
@@ -132,7 +138,7 @@ var mediaCompositionId = "twoByTwoGridLayout"
 var response = await mediaCompositionClient.CreateAsync(mediaCompositionId, layout, inputs, outputs);
 ```
 
-You may want to keep track of and persist the `mediaCompositionId` in the storage medium of choice. You can reference the `mediaCompositionId` to view or update the properties of a media composition object.
+You can use the mediaCompositionId to view or update the properties of a media composition object. Therefore, its is important to keep track of and persist the mediaCompositionId in your storage medium of choice.
 
 ## Get properties of an existing media composition
 
