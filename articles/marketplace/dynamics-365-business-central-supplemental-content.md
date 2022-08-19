@@ -4,8 +4,8 @@ description: Set up Dynamics 365 Business Central offer supplemental content on 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
+author: trkeya
+ms.author: trkeya
 ms.date: 12/04/2021
 ---
 

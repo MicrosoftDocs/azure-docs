@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise Tier
 description: How to use Application Configuration Service for Tanzu with Azure Spring Apps Enterprise Tier.
 author: karlerickson
 ms.author: xiading
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 02/09/2022
 ms.custom: devx-track-java, event-tier1-build-2022

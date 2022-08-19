@@ -3,7 +3,7 @@ title: "How to self-diagnose Azure Spring Apps VNET"
 description: Learn how to self-diagnose and solve problems in Azure Spring Apps running in VNET.
 author: karlerickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.custom: devx-track-java, event-tier1-build-2022

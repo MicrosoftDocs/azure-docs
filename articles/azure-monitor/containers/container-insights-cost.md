@@ -31,7 +31,7 @@ The following is a summary of what types of data are collected from a Kubernetes
 
 ## What is collected from Kubernetes clusters
 
-Container insights includes a predefined set of metrics and inventory items collected that are written as log data in your Log Analytics workspace. All metrics listed below are collected by default every one minute.
+Container insights includes a predefined set of metrics and inventory items collected that are written as log data in your Log Analytics workspace. All metrics listed below are collected every one minute.
 
 ### Node metrics collected
 
@@ -176,7 +176,7 @@ The following are examples of what changes you can apply to your cluster by modi
       ttlSecondsAfterFinished: 100
     ```
 
-After applying one or more of these changes to your ConfigMaps, see [Applying updated ConfigMap](container-insights-prometheus-integration.md#applying-updated-configmap) to apply it to your cluster.
+After applying one or more of these changes to your ConfigMaps, see [Apply updated ConfigMap](container-insights-prometheus-integration.md#apply-updated-configmap) to apply it to your cluster.
 
 ### Prometheus metrics scraping
 

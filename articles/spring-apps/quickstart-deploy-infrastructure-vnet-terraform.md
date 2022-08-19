@@ -2,7 +2,7 @@
 title: Quickstart - Provision Azure Spring Apps using Terraform
 description: This quickstart shows you how to use Terraform to deploy an Azure Spring Apps cluster into an existing virtual network.
 author: karlerickson
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: quickstart
 ms.custom: devx-track-java, mode-other, event-tier1-build-2022
 ms.author: ariel
