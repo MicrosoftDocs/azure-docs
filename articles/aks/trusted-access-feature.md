@@ -12,27 +12,27 @@ ms.author: schaffererin
 
 Many first-party partners depend on clusterAdmin kubeconfig and the kube-apiserver endpoint for authentication and access between their Microsoft Azure services and their customers' AKS clusters. This approach has many disadvantages, including:
 
-* First-party services may not have stable access to customer api-servers
+* First-party services may not have stable access to customer api-servers.
 
-  * Unable to access when the authorized IP range is enabled
+  * Unable to access when the authorized IP range is enabled.
 
-  * Unable to access in private clusters unless first-party services implement a complex private endpoint access model
+  * Unable to access in private clusters unless first-party services implement a complex private endpoint access model.
 
-* clusterAdmin kubeconfig in first-party services creates a risks or privilege escalation and leaking kubeconfig
+* clusterAdmin kubeconfig in first-party services creates a risks or privilege escalation and leaking kubeconfig.
 
-* First-party services have to be able to call the `listClusterAdminCredential` API when depending on clusterAdmin kubeconfig
+* First-party services have to be able to call the `listClusterAdminCredential` API when depending on clusterAdmin kubeconfig.
 
-  * Customers may have to take extra steps to grant role access
+  * Customers may have to take extra steps to grant role access.
 
-  * First-party services may have to implement high-privileged service-to-service permissions
+  * First-party services may have to implement high-privileged service-to-service permissions.
 
-The AKS Trusted Access feature enables you to bypass the private endpoint restriction. Instead of relying on an overpowered first-party [Microsoft Azure Active Directory (Azure AD)](../../../azure-docs-pr/articles/active-directory/fundamentals/active-directory-whatis.md) application, this feature can use your system-assigned MSI to authenticate with the managed services and applications you want to use on top of AKS.
+The AKS Trusted Access feature enables you to bypass the private endpoint restriction. Instead of relying on an overpowered first-party [Microsoft Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) application, this feature can use your system-assigned MSI to authenticate with the managed services and applications you want to use on top of AKS.
 
 This article shows you how to use the AKS Trusted Access feature to enable your Azure resources to access your AKS clusters.
 
 ## Trusted Access feature overview
 
-Trusted Access enables you to give explicit consent to your system-assigned MSI of allowed resources to access your AKS clusters using an Azure resource *RoleBinding*. Your Azure resources access AKS clusters through the AKS regional gateway via system-assigned MSI authentication with the appropriate Kubernetes permissions via an Azure resource *Role*. The Trusted Access feature allows you to access AKS clusters with different configurations, including but not limited to [private clusters](private-clusters.md), [clusters with local accounts disabled](managed-aad#disable-local-accounts), [Azure AD clusters](managed-aad.md), and [authorized IP range clusters](api-server-authorized-ip-ranges.md). The workflow is as follows:
+Trusted Access enables you to give explicit consent to your system-assigned MSI of allowed resources to access your AKS clusters using an Azure resource *RoleBinding*. Your Azure resources access AKS clusters through the AKS regional gateway via system-assigned MSI authentication with the appropriate Kubernetes permissions via an Azure resource *Role*. The Trusted Access feature allows you to access AKS clusters with different configurations, including but not limited to [private clusters](private-clusters.md), [clusters with local accounts disabled](managed-aad#disable-local-accounts), [Azure AD clusters](managed-aad#create-an-aks-cluster-with-azure-ad-enabled), and [authorized IP range clusters](api-server-authorized-ip-ranges.md). The workflow is as follows:
 
 ![Azure Kubernetes Trusted Access feature workflow](media/trusted-access-feature/aks_trusted_access_workflow.png)
 
