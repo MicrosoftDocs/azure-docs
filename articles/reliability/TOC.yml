@@ -5,21 +5,21 @@
 - name: Reliability guides
   items:
   - name: App Services
-    href: overview-reliability.md
+    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
   - name: Batch Service
-    href: overview-reliability.md
+    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
   - name: Container Instances
-    href: overview-reliability.md
+    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
   - name: Key Vault Service
-    href: overview-reliability.md
+    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
   - name: Kubernetes Service
-    href: overview-reliability.md
+    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
   - name: PostgreSQL Service
-    href: overview-reliability.md
+    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
   - name: Redis Service
-    href: overview-reliability.md
+    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
   - name: Virtual Machines and virtual machine scale sets
-    href: overview-reliability.md
+    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
 - name: Availability zone guides
   items:
   - name: Azure services that support availability zones
@@ -137,7 +137,7 @@
   - name: Availability of services by sovereign cloud
     href: availability-service-by-sovereign-cloud.md
   - name: Availability of services by region
-    href: https://azure.microsoft.com/en-us/global-infrastructure/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
 - name: Resources
   items:
   - name: Use Azure Site Recovery
