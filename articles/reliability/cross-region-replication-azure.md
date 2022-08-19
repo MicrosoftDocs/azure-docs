@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Cross-region replication in Azure: Business continuity and disaster recovery 
 
-Many organizations require both high availability provided by availability zones that are also supported with protection from large-scale phenomena and regional disasters. As discussed in the resiliency [overview](overview.md) for regions and availability zones, Azure regions are designed to offer protection against local disasters with availability zones. But they can also provide protection from regional or large geography disasters with disaster recovery by making use of another region that uses *cross-region replication*.
+Many organizations require both high availability provided by availability zones that are also supported with protection from large-scale phenomena and regional disasters. Azure regions are designed to offer protection against local disasters with availability zones. But they can also provide protection from regional or large geography disasters with disaster recovery by making use of another region that uses *cross-region replication*.
 
 ## Cross-region replication
 

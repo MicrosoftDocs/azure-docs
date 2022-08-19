@@ -2,6 +2,8 @@
   href: index.yml
 - name: Overview
   href: overview-reliability.md
+- name: Business continuity management program
+  href: business-continuity-management-program.md
 - name: Reliability guides
   items:
   - name: App Services
@@ -24,6 +26,8 @@
   items:
   - name: Availability zone service and regional support
     href: az-service-support.md
+  - name: Cross-region replication
+    href: across-region-replication-azure.md
   - name: Migration guides
     href: az-migration-overview.md
     items:
