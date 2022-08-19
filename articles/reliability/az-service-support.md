@@ -83,19 +83,19 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | [Azure Storage: Disk Storage](migrate-storage.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Storage: Blob Storage](migrate-storage.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure Storage: Managed Disks](migrate-storage.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
-| [Azure Virtual Machine Scale Sets](../virtual-machines/availability) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| [Azure Virtual Machines](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
-| Virtual Machines: [Av2-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Bs-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [DSv2-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [DSv3-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Dv2-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Dv3-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [ESv3-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Ev3-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [F-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
-| Virtual Machines: [FS-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Azure Compute Gallery](../virtual-machines/availability)| ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Virtual Machine Scale Sets](../virtual-machines/availability.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| [Azure Virtual Machines](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Av2-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Bs-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [DSv2-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [DSv3-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Dv2-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Dv3-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [ESv3-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Ev3-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [F-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [FS-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Azure Compute Gallery](../virtual-machines/availability.md)| ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 
@@ -144,17 +144,17 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | [Azure Virtual WAN](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Power BI Embedded](/power-bi/admin/service-admin-failover#what-does-high-availability) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
-| Virtual Machines: [Azure Dedicated Host](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Ddsv4-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Ddv4-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Dsv4-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Dv4-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Edsv4-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Edv4-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Esv4-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Ev4-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Fsv2-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [M-Series](../virtual-machines/availability) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Azure Dedicated Host](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Ddsv4-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Ddv4-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Dsv4-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Dv4-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Edsv4-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Edv4-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Esv4-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Ev4-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Fsv2-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [M-Series](../virtual-machines/availability.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | Virtual WAN: [Azure ExpressRoute](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Virtual WAN: [Point-to-site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Virtual WAN: [Site-to-site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
