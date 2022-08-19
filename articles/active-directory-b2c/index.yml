@@ -87,7 +87,7 @@ conceptualContent:
           url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
           itemType: overview
         - text: Customer stories
-          url: https://customers.microsoft.com/search?sq=b2c&ff=language%26%3EEnglish%26%26story_product_categories%26%3EAzure&p=2&so=story_publish_date%20desc
+          url: https://customers.microsoft.com/
           itemType: overview
 
 
