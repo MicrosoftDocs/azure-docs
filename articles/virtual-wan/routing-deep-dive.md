@@ -90,7 +90,7 @@ However, note that `10.4.2.0/24` is now preferred over the VPN Gateway. This can
 
 Hub 2 will show a similar table for the effective routes, where the VNets and branches in the other hub now appear with `Remote Hub` as next hop:
 
-:::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-aspath-hub-2-prepend.png" alt-text="Screenshot of effective routes in Virtual hub 2 with Global Reach and routing preference A S Path." source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-aspath-hub-2-prepend-expanded.png":::
+:::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-aspath-hub-2-prepend.png" alt-text="Screenshot of effective routes in Virtual hub 2 with Global Reach and routing preference A S Path." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-aspath-hub-2-prepend-expanded.png":::
 
 ## Scenario 3: Cross-connecting the ExpressRoute circuits to both hubs
 
