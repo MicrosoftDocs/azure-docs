@@ -10,6 +10,8 @@ ms.author: juliako
 
 This article gives an overview of Azure Video Indexer accounts types and provides links to other articles for more details.
 
+## Overview
+
 The first time you visit the [www.videoindexer.ai/](https://www.videoindexer.ai/) website, a trial account is automatically created. A trial Azure Video Indexer account has limitation on number of indexing minutes, support, and SLA.
 
 With a trial, account Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://aka.ms/avam-dev-portal).
