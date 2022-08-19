@@ -17,36 +17,17 @@ auto-instrumentation which is provided by the 3.x Javaagent.
 
 ## Step 1: Update dependencies
 
-* If you are using `applicationinsights-core` and/or `applicationinsights-web` dependencies, update those to the latest
-  3.x version.
-* If you are using `applicationinsights-web-auto` dependency, remove that and replace it with the latest 3.x version of
-  `applicationinsights-web`.
-* If you are using `applicationinsights-logging-log4j1_2`, `applicationinsights-logging-log4j2`,
-  and/or `applicationinsights-logging-logback`, remove those dependencies, since loggers are now auto-instrumented in
-  3.x and these custom logging appenders are no longer needed.
-* If you are using `applicationinsights-spring-boot-starter`, remove that and replace it with the latest 3.x version of
-  `applicationinsights-web`.
-  * Note: the cloud role name will no longer default to `spring.application.name`, see the
-    [3.x configuration docs](./java-standalone-config.md#cloud-role-name) for configuring the cloud role name.
+| 2.x dependency | Action | Remarks |
+|----------------|--------|---------|
+| `applicationinsights-core` | Update the version to `3.4.0` or later | |
+| `applicationinsights-web` | Update the version to `3.4.0` or later, and remove the Application Insights web filter your `web.xml` file. | |
+| `applicationinsights-web-auto` | Replace with `3.4.0` or later of `applicationinsights-web` | |
+| `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | This is no longer needed since Log4j 1.2 is auto-instrumented in the 3.x Javaagent. | |
+| `applicationinsights-logging-log4j2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | This is no longer needed since Log4j 2 is auto-instrumented in the 3.x Javaagent. | |
+| `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your logback configuration. | This is no longer needed since Logback is auto-instrumented in the 3.x Javaagent. | |
+| `applicationinsights-spring-boot-starter` | Replace with `3.4.0` or later of `applicationinsights-web` | The cloud role name will no longer default to `spring.application.name`, see the [3.x configuration docs](./java-standalone-config.md#cloud-role-name) for configuring the cloud role name. |
 
-## Step 2: Remove references from web.xml (if any)
-
-If you have the Application Insights web filter `com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter`
-added your web.xml, remove that, since requests are now auto-instrumented in 3.x and this custom web filter is no longer
-needed, e.g. remove
-
-```
-<filter>
-   <filter-name>ApplicationInsightsWebFilter</filter-name>
-   <filter-class>com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter</filter-class>
-</filter>
-<filter-mapping>
-   <filter-name>ApplicationInsightsWebFilter</filter-name>
-   <url-pattern>/*</url-pattern>
-</filter-mapping>
-```
-
-## Step 3: Add the 3.x Javaagent
+## Step 2: Add the 3.x Javaagent
 
 Add the 3.x Javaagent to your JVM command-line args, e.g.
 
@@ -59,7 +40,7 @@ If you were using the Application Insights 2.x Javaagent, just replace your exis
 Note: if you were using the spring-boot-starter and if you prefer, there is an alternative to using the Javaagent, see
 [3.x Spring Boot](./java-spring-boot.md).
 
-#### Step 4: Configure your Application Insights connection string
+## Step 3: Configure your Application Insights connection string
 
 [Configure the connection string](./java-standalone-config.md#connection-string).
 
