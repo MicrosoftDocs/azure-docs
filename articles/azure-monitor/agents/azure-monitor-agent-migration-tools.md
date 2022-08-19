@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: guywild
 ms.author: guywild
 ms.reviewer: shseth
-ms.date: 6/22/2022 
+ms.date: 8/18/2022 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics Agent to Azure Monitor Agent and track the status of the migration in my account.    
 
 ---
 
-# Migration tools for Log Analytics Agent to Azure Monitor Agent
+# Tools for migrating from Log Analytics Agent to Azure Monitor Agent 
 
 Azure Monitor Agent (AMA) replaces the Log Analytics Agent (MMA/OMS) for Windows and Linux virtual machines, scale sets, and on premise and Arc-enabled servers. The [benefits of migrating to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) include enhanced security, cost-effectiveness, performance, manageability and reliability. This article explains how to use the AMA Migration Helper and DCR Config Generator tools to help automate and track the migration from Log Analytics Agent to Azure Monitor Agent.
 
@@ -34,7 +34,7 @@ You can access the workbook [here](https://portal.azure.com/#view/AppInsightsExt
 ## Installing and using DCR Config Generator (preview)
 Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) for configuration, whereas Log Analytics Agent inherits its configuration from Log Analytics workspaces. 
 
-Use the DCR Config Generator tool to parse Log Analytics Agent configuration from your workspaces and generate corresponding data collection rules automatically. You can then associate the rules to machines running the new agent using built-in association policies. 
+Use the DCR Config Generator tool to parse Log Analytics Agent configuration from your workspaces and generate/deploy corresponding data collection rules automatically. You can then associate the rules to machines running the new agent using built-in association policies. 
 
 > [!NOTE]
 > DCR Config Generator does not currently support additional configuration for [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) dependent on Log Analytics Agent.
@@ -53,15 +53,15 @@ To install DCR Config Generator:
 
 1. Run the script:
 
-	Option 1:
+	Option 1: Outputs **ready-to-deploy ARM template files** only that will create the generated DCR in the specified subscription and resource group, when deployed.
 
 	```powershell
 	.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath
 	```
-	Option 2 (if you just want the DCR payload JSON file):
+	Option 2: Outputs **ready-to-deploy ARM template files** and **the DCR JSON files** separately for you to deploy via other means. You need to set the `GetDcrPayload` parameter.
 
 	```powershell
-	$dcrJson = Get-DCRJson -ResourceGroupName $rgName -WorkspaceName $workspaceName -PlatformType $platformType $dcrJson | ConvertTo-Json -Depth 10 | Out-File "<filepath>\OutputFiles\dcr_output.json"
+	.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath -GetDcrPayload
 	```
 
 	**Parameters**  
@@ -73,9 +73,10 @@ To install DCR Config Generator:
 	| `WorkspaceName` | Yes | Name of the target workspace. |
 	| `DCRName` | Yes | Name of the new DCR. |
 	| `Location` | Yes | Region location for the new DCR. |
-	| `FolderPath` | No | Path in which to save the new data collection rules. By default, Azure Monitor uses the current directory. |  
+	| `GetDcrPayload` | No | When set, it generates additional DCR JSON files 
+	| `FolderPath` | No | Path in which to save the ARM template files and JSON files (optional). By default, Azure Monitor uses the current directory. |  
 	
-1. Review the output data collection rules. The script can produce two types of ARM template files, depending on the agent configuration in the target workspace:
+1. Review the output ARM template files. The script can produce two types of ARM template files, depending on the agent configuration in the target workspace:
 
 	- Windows ARM template and parameter files - if the target workspace contains Windows performance counters or Windows events.
 	- Linux ARM template and parameter files - if the target workspace contains Linux performance counters or Linux Syslog events.

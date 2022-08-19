@@ -87,7 +87,7 @@ The following samples show public client desktop applications that access the Mi
 
 ## Mobile
 
-The following samples show public client mobile applications that access the Microsoft Graph API, or your own web API in the name of the user. These client applications use the Microsoft Authentication Library (MSAL).
+The following samples show public client mobile applications that access the Microsoft Graph API. These client applications use the Microsoft Authentication Library (MSAL).
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |

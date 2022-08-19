@@ -78,7 +78,7 @@ Requirements for training data in machine learning:
 Azure Machine Learning datasets expose functionality to:
 
 * Easily transfer data from static files or URL sources into your workspace.
-* Make your data available to training scripts when running on cloud compute resources. See [How to train with datasets](../how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) for an example of using the `Dataset` class to mount data to your remote compute target.
+* Make your data available to training scripts when running on cloud compute resources. See [How to train with datasets](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) for an example of using the `Dataset` class to mount data to your remote compute target.
 
 The following code creates a TabularDataset from a web url. See [Create a TabularDataset](how-to-create-register-datasets.md) for code examples on how to create datasets from other sources like local files and datastores.
 
@@ -523,7 +523,7 @@ model = run.register_model(model_name = model_name,
 ```
 
 
-For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](../how-to-deploy-and-where.md?tabs=python#define-a-deployment-configuration).
+For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 
 > [!TIP]
 > For registered models, one-click deployment is available via the [Azure Machine Learning studio](https://ml.azure.com). See [how to deploy registered models from the studio](../how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
@@ -542,7 +542,7 @@ For general information on how model explanations and feature importance can be 
 
 ## Next steps
 
-+ Learn more about [how and where to deploy a model](../how-to-deploy-and-where.md).
++ Learn more about [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 
 + Learn more about [how to train a regression model with Automated machine learning](../tutorial-auto-train-models.md).
 
