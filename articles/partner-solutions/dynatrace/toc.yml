@@ -22,14 +22,14 @@
 - name: Reference
   items:
   - name: Python
-    href: /python/api/overview/azure/mgmt-dynatrace-readme
+    href: /python/api/overview/azure
   - name: JavaScript
-    href: /javascript/api/overview/azure/arm-dynatrace-readme
+    href: /javascript/api/overview/azure
   - name: .NET
     href: /dotnet/api/overview/azure/dynatrace
   - name: Java
     href: /java/api/overview/azure/dynatrace
   - name: REST API
-    href: /rest/api/dynatrace/dynatrace-overview
+    href: /rest/api/dynatrace
 #  - name: Azure PowerShell
 #    href: 

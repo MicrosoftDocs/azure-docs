@@ -48,15 +48,15 @@ landingContent:
       - linkListType: reference
         links:
           - text: Python
-            url: /python/api/overview/azure/mgmt-dynatrace-readme
+            url: /python/api/overview/azure
           - text: JavaScript
-            url: /javascript/api/overview/azure/arm-dynatrace-readme
+            url: /javascript/api/overview/azure
           - text: .NET
             url: /dotnet/api/overview/azure/dynatrace
           - text: Java
             url: /java/api/overview/azure/dynatrace
           - text: REST API
-            url: /rest/api/dynatrace/dynatrace-overview
+            url: /rest/api/dynatrace
 #          - text: Azure PowerShell
 #            url: 
           
