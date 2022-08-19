@@ -10,7 +10,7 @@ ms.date: 08/24/2022
 
 # Manage the Dynatrace integration with Azure
 
-This article describes how to manage the settings for your Dynatrace for Azure.
+This article describes how to manage the settings for Dynatrace for Azure.
 
 ## Resource overview
 
