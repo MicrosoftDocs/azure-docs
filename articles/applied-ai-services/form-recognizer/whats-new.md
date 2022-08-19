@@ -19,9 +19,19 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## August 2022
 
-Form Recognizer REST API v3.0 is now generally available and ready for use in production applications! The August release introduces model performance updates:
+Form Recognizer REST API v3.0 is now generally available and ready for use in production applications!
 
-<!-- #### Form Recognizer Studio updates -->
+The August release introduces the following model performance updates:
+
+#### Form Recognizer Studio updates
+
+* **Next steps**. Under each model page, the Studio now has a next steps section. Users can quickly reference sample code, troubleshooting guidelines, and pricing information.
+
+* **Custom models**. The Studio now includes the ability to reorder labels in custom model projects to improve labeling efficiency.
+
+* **Copy Models** Custom models can be copied across Form Recognizer services from within the Studio. This enables the promotion of a trained model to other environments and regions.
+
+* **Delete documents**. The Studio now supports deleting documents from labeled dataset within custom projects.
 
 #### Form Recognizer service updates
 
