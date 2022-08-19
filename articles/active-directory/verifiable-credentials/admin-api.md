@@ -1048,9 +1048,9 @@ Don't supply a request body for this method.
 
 example message:
 
-```
+```json
 {
-    value:
+    "value":
     [
         {
             "id": "ZjViZjJmYzYtNzEzNS00ZDk0LWE2ZmUtYzI2ZTQ1NDNiYzVhPHNjcmlwdD5hbGVydCgneWF5IScpOzwvc2NyaXB0Pg",
@@ -1058,7 +1058,7 @@ example message:
             "authorityId": "ffea7eb3-0000-1111-2222-000000000000",
             "status": "Enabled",
             "issueNotificationEnabled": false,
-            "manifestUrl" : "https:/...",
+            "manifestUrl" : "https://...",
             "rules": "<rules JSON>",
             "displays": [{<display JSON}]
         },
@@ -1068,7 +1068,7 @@ example message:
             "authorityId": "cc55ba22-0000-1111-2222-000000000000",
             "status": "Enabled",
             "issueNotificationEnabled": false,
-            "manifestUrl" : "https:/...",
+            "manifestUrl" : "https://...",
             "rules": "<rules JSON>",
             "displays": [{<display JSON}]
         }
