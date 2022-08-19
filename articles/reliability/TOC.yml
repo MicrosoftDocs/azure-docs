@@ -4,7 +4,7 @@
   href: overview-reliability.md
 - name: Business continuity management program
   href: business-continuity-management-program.md
-- name: Reliability guides
+- name: Reliability support guides
   items:
   - name: App Services
     href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
