@@ -1019,7 +1019,7 @@ After you deploy a logic app to the Azure portal from Visual Studio Code, you ca
 
    ![Screenshot that shows the Azure portal search box with the "logic apps" search text.](./media/create-single-tenant-workflows-visual-studio-code/portal-find-logic-app-resource.png)
 
-1. On the **Logic App (Standard)** pane, select the logic app that you deployed from Visual Studio Code.
+1. On the **Logic apps** pane, select the logic app that you deployed from Visual Studio Code.
 
    ![Screenshot that shows the Azure portal and the Logic App (Standard) resources deployed in Azure.](./media/create-single-tenant-workflows-visual-studio-code/logic-app-resources-pane.png)
 
