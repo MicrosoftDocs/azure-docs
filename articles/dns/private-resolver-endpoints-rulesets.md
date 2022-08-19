@@ -75,7 +75,7 @@ A query for `secure.store.azure.contoso.com` will match the **AzurePrivate** rul
 
 * Review components, benefits, and requirements for [Azure DNS Private Resolver](dns-private-resolver-overview.md).
 * Learn how to create an Azure DNS Private Resolver by using [Azure PowerShell](./dns-private-resolver-get-started-powershell.md) or [Azure portal](./dns-private-resolver-get-started-portal.md).
-* Understand how to [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md) using the Azure DNS Private Resolver.
+* Understand how to [Resolve Azure and on-premise domains](private-resolver-hybrid-dns.md) using the Azure DNS Private Resolver.
 * Learn how to [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md)
 * Learn how to [configure hybrid DNS](private-resolver-hybrid-dns.md) using private resolvers.
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.

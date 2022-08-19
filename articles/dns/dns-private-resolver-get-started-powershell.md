@@ -17,7 +17,7 @@ This article walks you through the steps to create your first private DNS zone a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Azure DNS Private Resolver is a new service currently in public preview. Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
+Azure DNS Private Resolver is a new service currently in public preview. Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-premise environment and vice versa without deploying VM based DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
 
 ## Prerequisites
 
@@ -107,7 +107,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ### Create the inbound endpoint
 
-Create an inbound endpoint to enable name resolution from on-premises or another private location using an IP address that is part of your private virtual network address space.
+Create an inbound endpoint to enable name resolution from on-premise or another private location using an IP address that is part of your private virtual network address space.
 
 ```Azure PowerShell
 $ipconfig = New-AzDnsResolverIPConfigurationObject -PrivateIPAllocationMethod Dynamic -SubnetId /subscriptions/<your sub id>/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/snet-inbound
@@ -189,7 +189,7 @@ $virtualNetworkLink.ToJsonString()
 
 ## Create a second virtual network and link it to your DNS forwarding ruleset
 
-Create a second virtual network to simulate an on-premises or other environment.
+Create a second virtual network to simulate an on-premise or other environment.
 
 ```Azure PowerShell
 $vnet2 = New-AzVirtualNetwork -Name myvnet2 -ResourceGroupName myresourcegroup -Location westcentralus -AddressPrefix "12.0.0.0/8"
@@ -221,7 +221,7 @@ $forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName my
 
 In this example: 
 - 10.0.0.4 is the resolver's inbound endpoint. 
-- 192.168.1.2 and 192.168.1.3 are on-premises DNS servers.
+- 192.168.1.2 and 192.168.1.3 are on-premise DNS servers.
 - 10.5.5.5 is a protective DNS service.
 
 ## Test the private resolver
@@ -229,7 +229,7 @@ In this example:
 You should now be able to send DNS traffic to your DNS resolver and resolve records based on your forwarding rulesets, including:
 - Azure DNS private zones linked to the virtual network where the resolver is deployed.
 - DNS zones in the public internet DNS namespace.
-- Private DNS zones that are hosted on-premises.
+- Private DNS zones that are hosted on-premise.
 
 ## Delete a DNS resolver
 
