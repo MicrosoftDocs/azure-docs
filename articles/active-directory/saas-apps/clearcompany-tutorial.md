@@ -74,6 +74,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Identifier** text box, type the URL:
     `https://api.clearcompany.com`
+    
+    In the Reply URL text box, tpye the URL:
+    `https://api.clearcompany.com/v1/auth/sso/saml`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
