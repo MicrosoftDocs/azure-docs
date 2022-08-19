@@ -134,7 +134,7 @@ Data assets in v2 (or File Datasets in v1) are *references* to files in object s
 
 For details on data in v2, see the [data concept article](concept-data.md).
 
-We recommend migrating the code for [creating data assets](how-to-create-register-data-assets.md) to v2.
+We recommend migrating the code for [creating data assets](how-to-create-data-assets.md) to v2.
 
 ### Model
 
