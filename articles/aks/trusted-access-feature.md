@@ -36,7 +36,8 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
 
 ![Azure Kubernetes Trusted Access feature workflow](media/trusted-access-feature/aks_trusted_access_workflow.png)
 
-> [!NOTE]: At this time, the Trusted Access feature isn't available in any sovereign clouds.
+> [!NOTE]
+> At this time, the Trusted Access feature isn't available in any sovereign clouds.
 
 ## Prerequisites
 
