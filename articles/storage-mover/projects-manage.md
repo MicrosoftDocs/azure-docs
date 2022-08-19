@@ -29,6 +29,55 @@ This article guides you through the process of creating and managing Azure Stora
 
 Prescriptively direct the customer through the procedure end-to-end. Don't link to other content (until the 'next steps' section). Instead, include whatever information the customer may require to complete the scenario addressed by the article. -->
 
+## View projects
+
+Depending on your use case, you may need to retrieve either a specific project resource, or a list of all your storage mover's projects.
+
+Follow the steps in this section to view projects accessible to your Storage Mover resource.
+
+### [Azure portal](#tab/portal)
+
+   1. Navigate to the **Project explorer** page within the [Azure Portal](https://portal.azure.com). The default **All projects** view displays the name of your individual project and a summary of the jobs they contain. You can create and utilize filters to limit or shape your view. Currently, only filtering projects by project name is supported.
+
+       :::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal showing " lightbox="media/projects-manage/project-explorer-lrg.png":::
+
+### [PowerShell](#tab/powershell)
+
+   Use the `Get-AzStorageMoverProject` cmdlet to retrieve a list of projects resources. Optionally, you can supply a `-Name` parameter value to retrieve a specific project resource.
+
+   The example below retrieves a specific project resource by specifying the **demoProject** value.
+
+   ```powershell
+
+     Get-AzStorageMoverProject `
+       -ResourceGroupName $resourceGroupName `
+       -StorageMoverName $storageMoverName `
+       -Name "demoProject" 
+
+   ```
+
+   The sample response below contains the specified project's properties, including the empty `Description`.
+
+   ```Response
+
+      Description                  :
+      Id                           : /subscriptions/3e05d9e5-9f02-4a63-9c12-7b38e046fd5b/resourceGroups/
+                                     demoResourceGroup/providers/Microsoft.StorageMover/storageMovers/
+                                     demoMover/projects/allArchives
+      Name                         : demoProject
+      ProvisioningState            : Succeeded
+      SystemDataCreatedAt          : 
+      SystemDataCreatedBy          : 
+      SystemDataCreatedByType      : 
+      SystemDataLastModifiedAt     : 8/16/2022 10:36:52 PM
+      SystemDataLastModifiedBy     : user@contoso.com
+      SystemDataLastModifiedByType : User
+      Type                         : microsoft.storagemover/storagemovers/projects   
+
+   ```
+
+---
+
 ## Create a project
 
 Before you define the source and target for your migration, you'll need to create a Storage Mover project resource. Follow the steps in this section to provision a project.
@@ -55,7 +104,7 @@ Before you define the source and target for your migration, you'll need to creat
 
    The following examples contain sample values. You'll need to substitute actual values to complete the example.
 
-   1. Prepare your environment by ensuring that all account, subscription, and credential information has been cleared for your powershell session. You may find it helpful to store potentially complex strings in variables.
+   1. Create variables to store potentially complex strings.
 
       ```powershell
 
@@ -111,51 +160,6 @@ Before you define the source and target for your migration, you'll need to creat
     ```
 
 ---
-
-### [PowerShell](#tab/powershell)
-
-## Retrieve a list projects
-
-   $projectDescription = "This is a project used for demonstration."
-
-   Depending on your use case, you may need to retrieve either a specific project resource, or a list of all your storage mover's projects. You can use the `Get-AzStorageMoverProject` cmdlet in both cases, and supply a `-Name` parameter value to specify a project. Omitting the parameter value will return a list of all project names available to your Storage Mover resource.
-
-   The example below retrieves a specific project resource by specifying the **demoProject** value.
-
-   ```powershell
-
-     Get-AzStorageMoverProject `
-       -ResourceGroupName $resourceGroupName `
-       -StorageMoverName $storageMoverName `
-       -Name "demoProject" 
-
-   ```
-
-   The sample response below contains the specified project's properties, including the empty `Description`.
-
-   ```Response
-
-      Description                  :
-      Id                           : /subscriptions/3e05d9e5-9f02-4a63-9c12-7b38e046fd5b/resourceGroups/
-                                     demoResourceGroup/providers/Microsoft.StorageMover/storageMovers/
-                                     demoMover/projects/allArchives
-      Name                         : demoProject
-      ProvisioningState            : Succeeded
-      SystemDataCreatedAt          : 
-      SystemDataCreatedBy          : 
-      SystemDataCreatedByType      : 
-      SystemDataLastModifiedAt     : 8/16/2022 10:36:52 PM
-      SystemDataLastModifiedBy     : user@contoso.com
-      SystemDataLastModifiedByType : User
-      Type                         : microsoft.storagemover/storagemovers/projects   
-
-   ```
-
----
-
-
-
-
 
 
 
