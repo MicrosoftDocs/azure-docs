@@ -143,7 +143,7 @@ This app will have access to get secrets from Azure Key Vault. Use the Azure Key
 1. Use the following command to generate a sample project from `start.spring.io` with Azure Key Vault Spring Starter.
 
    ```azurecli
-   curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault-secrets -d baseDir=springapp -d bootVersion=2.3.1.RELEASE -d javaVersion=1.8 | tar -xzvf -
+   curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault -d baseDir=springapp -d bootVersion=2.7.2 -d javaVersion=1.8 | tar -xzvf -
    ```
 
 1. Specify your Key Vault in your app.
@@ -158,16 +158,14 @@ This app will have access to get secrets from Azure Key Vault. Use the Azure Key
 ### [System-assigned managed identity](#tab/system-assigned-managed-identity)
 
 ```properties
-azure.keyvault.enabled=true
-azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
+spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://<your-keyvault-name>.vault.azure.net
 ```
 
 ### [User-assigned managed identity](#tab/user-assigned-managed-identity)
 
 ```properties
-azure.keyvault.enabled=true
-azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
-azure.keyvault.client-id={Client ID of user-assigned managed identity}
+spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://<your-keyvault-name>.vault.azure.net
+spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Client ID of user-assigned managed identity}
 ```
 
 ---
@@ -209,19 +207,19 @@ azure.keyvault.client-id={Client ID of user-assigned managed identity}
    }
    ```
 
-   If you open the *pom.xml* file, you'll see the dependency of `azure-keyvault-secrets-spring-boot-starter`. Add this dependency to your project in your *pom.xml* file.
+   If you open the *pom.xml* file, you'll see the dependency of `spring-cloud-azure-starter-keyvault`.
 
    ```xml
    <dependency>
-       <groupId>com.microsoft.azure</groupId>
-       <artifactId>azure-keyvault-secrets-spring-boot-starter</artifactId>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-starter-keyvault</artifactId>
    </dependency>
    ```
 
 1. Use the following command to package your sample app.
 
    ```azurecli
-   mvn clean package
+   ./mvnw clean package -DskipTests
    ```
 
 1. Now you can deploy your app to Azure with the following command:
