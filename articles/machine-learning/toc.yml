@@ -36,14 +36,9 @@
         - name: Train & deploy image classification
           displayName: MNIST
           href: tutorial-train-deploy-notebook.md
-        - name: Automated ML
-          items: 
-            - name: Regression (NYC Taxi data)
-              displayName: automl, automated, auto ml,
-              href: tutorial-auto-train-models.md
-            - name: Object detection with AutoML
-              displayName: automl, automated, auto ml, computer vision, images, image model
-              href: tutorial-auto-train-image-models.md
+        - name: Object detection with AutoML
+          displayName: automl, automated, auto ml, computer vision, images, image model
+          href: tutorial-auto-train-image-models.md
         - name: Prep your code for production
           displayName: mlops, mlopspython, production
           href: tutorial-convert-ml-experiment-to-production.md
@@ -56,7 +51,7 @@
               href: tutorial-first-experiment-automated-ml.md
             - name: Forecast demand (Bike share data)
               displayName: automl, automated, auto ml, portal, ui
-              href: tutorial-automated-ml-forecast.md
+              href: tutorial-automated-ml-forecast.md 
         - name: Designer (drag-n-drop)
           items: 
             - name: 1. Train a regression model
