@@ -204,3 +204,4 @@ You've successfully set up a continuous end-to-end testing workflow with GitHub 
 - Learn more about [running existing tests with Microsoft Playwright Testing](./how-to-run-with-playwright-testing.md).
 - Learn more about [running cross-platform tests](./how-to-cross-platform-tests.md).
 - Learn more about [testing privately hosted application endpoints](./how-to-test-private-endpoints.md).
+- Learn more about [managing workspaces in the Azure portal](./how-to-manage-workspace-in-azure-portal.md).

@@ -6,7 +6,7 @@ ms.service: playwright-testing
 ms.topic: quickstart
 author: ntrogh
 ms.author: nicktrog
-ms.date: 07/01/2022
+ms.date: 08/19/2022
 ---
 
 # Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview
@@ -47,6 +47,45 @@ To install the package dependencies in your local directory:
 ```bash
 npm install
 ```
+
+## Create a workspace
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Select the menu button in the upper-left corner of the portal, and then select **Create a resource** a resource.
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal menu to create a new resource.":::
+
+1. Enter *Microsoft Playwright Testing* in the search box.
+1. Select **Microsoft Playwright Testing (Preview)**.
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/azure-portal-search-playwright-resource.png" alt-text="Screenshot that shows the Azure Marketplace search page with the Microsoft Playwright Testing search result.":::
+
+1. On the Microsoft Playwright Testing page, select **Create**.
+1. Provide the following information to configure a new Microsoft Playwright Testing workspace:
+
+    |Field  |Description  |
+    |---------|---------|
+    |**Subscription**     | Select the Azure subscription that you want to use for this Microsoft Playwright Testing workspace. |
+    |**Resource group**     | Select an existing resource group. Or select **Create new**, and then enter a unique name for the new resource group.        |
+    |**Name**     | Enter a unique name to identify your workspace.<BR>The name can't contain special characters, such as \\/""[]:\|<>+=;,?*@&, or whitespace. |
+    |**Location**     | Select a geographic location to host your workspace. <BR>This location also determines where the test execution results and related artifacts are stored. |
+
+    >[!NOTE]
+    > Optionally, you can configure more details on the **Tags** tab. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
+
+1. After you're finished configuring the resource, select **Review + Create**.
+
+1. Review all the configuration settings and select **Create** to start the deployment of the Microsoft Playwright Testing workspace.
+
+    When the process has finished, a deployment success message appears.
+
+1. To view the new workspace, select **Go to resource**.
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/create-resource-deployment-complete.png" alt-text="Screenshot that shows the deployment completion information in the Azure portal.":::
+
+1. Select the dashboard URL on the **Overview** page to navigate directly to the Microsoft Playwright Testing dashboard for your workspace:
+
+    Sign in with the credentials for your Azure subscription.
 
 ## Create an access key for service authentication
 

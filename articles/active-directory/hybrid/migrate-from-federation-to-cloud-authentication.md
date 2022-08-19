@@ -94,6 +94,9 @@ Existing Legacy clients (Exchange ActiveSync, Outlook 2010/2013) aren't affected
 
 Modern authentication clients (Office 2016 and Office 2013, iOS, and Android apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients will continue to function without extra configuration.
 
+>[!NOTE] 
+>When you migrate from federated to cloud authentication, the process to convert the domain from federated to managed may take up to 60 minutes. During this process, users might not be prompted for credentials for any new logins to Azure portal or other browser based applications protected with Azure AD. We recommend that you include this delay in your maintenance window.
+
 ### Plan for rollback
 
 > [!TIP]

@@ -50,6 +50,13 @@ landingContent:
           - text: Test private endpoints
             url: how-to-test-private-endpoints.md
 
+  - title: Manage workspaces
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage workspaces in Azure portal
+            url: how-to-manage-workspace-in-azure-portal.md
+
   - title: Security
     linkLists:
       - linkListType: how-to-guide

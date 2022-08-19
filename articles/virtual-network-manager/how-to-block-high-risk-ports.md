@@ -39,7 +39,7 @@ For this how-to, you'll need a virtual network environment that includes virtual
 
 * Place all virtual networks in the same subscription, region, and resource group
 
-Not sure how to build a virtual network? Learn more in [Quickstart: Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal).
+Not sure how to build a virtual network? Learn more in [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
 ## Create a Virtual Network Manager
 
@@ -189,4 +189,3 @@ To apply the new rule collection, you'll redeploy your security admin configurat
 - Learn how to [create a mesh network topology with Azure Virtual Network Manager using the Azure portal](how-to-create-mesh-network.md)
 
 - Check out the [Azure Virtual Network Manager FAQ](faq.md)
-
