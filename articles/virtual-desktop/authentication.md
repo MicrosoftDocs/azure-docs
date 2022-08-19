@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 08/24/2022
 ms.author: helohr
 manager: femila
 ---
@@ -19,7 +19,7 @@ Azure Virtual Desktop supports different types of identities depending on which 
 
 ### On-premises identity
 
-Since users must be discoverable through Azure Active Directory (Azure AD) to access the Azure Virtual Desktop, user identities that exist only in Active Directory Domain Services (AD DS) are not supported. This includes standalone Active Directory deployments with Active Directory Federation Services (AD FS).
+Since users must be discoverable through Azure Active Directory (Azure AD) to access the Azure Virtual Desktop, user identities that exist only in Active Directory Domain Services (AD DS) aren't supported. This includes standalone Active Directory deployments with Active Directory Federation Services (AD FS).
 
 ### Hybrid identity
 
@@ -61,7 +61,7 @@ To use a smart card to authenticate to Azure AD, you must first [configure AD FS
 
 ## Session host authentication
 
-If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved your credentials locally, you'll also need to authenticate to the session host when launching a connection. These are the sign-in methods for the session host that the Azure Virtual Desktop clients currently support:
+If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved your credentials locally, you'll also need to authenticate to the session host when launching a connection. The sign-in methods for the session host that the Azure Virtual Desktop clients currently support are:
 
 - The Windows Desktop client supports the following authentication methods:
     - Username and password
@@ -85,11 +85,11 @@ If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved yo
 
 ### Single sign-on (SSO)
 
-SSO allows the connection to skip the session host credential prompt and automatically sign the user in to Windows. For session hosts that are Azure AD-joined or Hybrid Azure AD-joined, it is recommended to enable [SSO using Azure AD authentication](configure-single-sign-on.md). Azure AD authentication provides additional benefits including passwordless authentication and support for third-party identity providers.
+SSO allows the connection to skip the session host credential prompt and automatically sign the user in to Windows. For session hosts that are Azure AD-joined or Hybrid Azure AD-joined, it's recommended to enable [SSO using Azure AD authentication](configure-single-sign-on.md). Azure AD authentication provides other benefits including passwordless authentication and support for third-party identity providers.
 
 Azure Virtual Desktop also supports [SSO using Active Directory Federation Services (AD FS)](configure-adfs-sso.md) for the Windows Desktop and web clients.
 
-Without SSO, users will be prompted for the session host credentials for every connection. The only way to avoid being prompted is to save the credentials in the client. We recommend you only do this with secure devices to prevent other users from accessing your resources.
+Without SSO, users will be prompted for the session host credentials for every connection. The only way to avoid being prompted is to save the credentials in the client. We recommend you only save credentials on secure devices to prevent other users from accessing your resources.
 
 ### Smart card and Windows Hello for Business
 
@@ -106,16 +106,16 @@ Once you're connected to your remote app or desktop, you may be prompted for aut
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Virtual Desktop supports in-session passwordless authentication using [Windows Hello for Business](/security/identity-protection/hello-for-business/hello-overview) or security devices like FIDO keys. This functionality is enabled by default when the local PC and session hosts use a supported operating system, and you can configure it using the [WebAuthn redirection](configure-device-redirections.md#webauthn-redirection) RDP property. The supported operating systems are:
+Azure Virtual Desktop supports in-session passwordless authentication using [Windows Hello for Business](/security/identity-protection/hello-for-business/hello-overview) or security devices like FIDO keys. Passwordless authentication is currently only available when using an Insider version of Windows. When deploying new session hosts, choose one of the following images:
 
-- Windows 11 Enterprise single or multi-session with the [2022-09 Cumulative Updates for Windows 11]() or later installed.
-- Windows 10 Enterprise single or multi-session, versions 20H2 or later with the [2022-09 Cumulative Updates for Windows 10]() or later installed.
-- Windows Server, version 2022 with the [2022-09 Cumulative Update for Microsoft server operating system]() or later installed.
-- Windows Server, version 2019 with the [2022-09 Cumulative Update for Microsoft server operating system]() or later installed.
+- Windows 11 version 22H2 Enterprise, (Preview) - X64 Gen 2.
+- Windows 11 version 22H2 Enterprise multi-session, (Preview) - X64 Gen2.
 
-When enabled, all WebAuthn requests in the session are redirected to the local PC where you can use your local biometrics with Windows Hello for Business or locally attached security devices to complete the authentication process.
+Passwordless authentication is enabled by default when the local PC and session hosts use one of the supported operating systems above. You can disable it using the [WebAuthn redirection](configure-device-redirections.md#webauthn-redirection) RDP property.
 
-To access Azure AD resources using WebAuthn, the FIDO2 Security Key method must be enabled as an authentication method for users. This must also be done when using Windows Hello for Business. Follow the steps to [Enable FIDO2 security key method](../active-directory/authentication/howto-authentication-passwordless-security-key.md#enable-fido2-security-key-method).
+When enabled, all WebAuthn requests in the session are redirected to the local PC. You can use Windows Hello for Business or locally attached security devices to complete the authentication process.
+
+To access Azure AD resources with Windows Hello for Business or security devices, the FIDO2 Security Key method must be enabled as an authentication method for users. Follow the steps to [Enable FIDO2 security key method](../active-directory/authentication/howto-authentication-passwordless-security-key.md#enable-fido2-security-key-method).
 
 ### In-session smart card authentication
 
@@ -126,4 +126,4 @@ To use a smart card in your session, make sure you've installed the smart card d
 - Curious about other ways to keep your deployment secure? Check out [Security best practices](security-guide.md).
 - Having issues connecting to Azure AD-joined VMs? [Troubleshoot connections to Azure AD-joined VMs](troubleshoot-azure-ad-connections.md).
 - Having issues with in-session passwordless authentication? [Troubleshoot WebAuthn redirection](troubleshoot-device-redirections.md#webauthn-redirection).
-- Want to use smart cards from outside your corporate network? Review how to setup a [KDC Proxy server](key-distribution-center-proxy.md).
+- Want to use smart cards from outside your corporate network? Review how to set up a [KDC Proxy server](key-distribution-center-proxy.md).

@@ -3,13 +3,13 @@ title: Configure device redirection - Azure
 description: How to configure device redirection for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/09/2022
+ms.date: 08/24/2022
 ms.author: helohr
 manager: femila
 ---
 # Configure device redirection
 
-Configuring device redirection for your Azure Virtual Desktop environment allows you to use printers, USB devices, microphones and other peripheral devices in the remote session. Some device redirection require changes to both Remote Desktop Protocol (RDP) properties and Group Policy settings.
+Configuring device redirection for your Azure Virtual Desktop environment allows you to use printers, USB devices, microphones and other peripheral devices in the remote session. Some device redirections require changes to both Remote Desktop Protocol (RDP) properties and Group Policy settings.
 
 ## Supported device redirection
 

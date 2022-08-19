@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/09/2022
+ms.date: 08/24/2022
 ms.author: helohr
 ---
 # Connections to Azure AD-joined VMs

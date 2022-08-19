@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/09/2022
+ms.date: 08/24/2022
 ms.author: helohr
 ---
 # Device redirections
@@ -23,7 +23,7 @@ Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft
 
 ## WebAuthn redirection
 
-If WebAuthn requests from the session are not redirected to the local PC, verify that:
+If WebAuthn requests from the session aren't redirected to the local PC, verify that:
 
 - you're using supported operating systems for [in-session passwordless authentication](authentication.md#in-session-passwordless-authentication) on both the local PC and the session host.
 - WebAuthn redirection is enabled as a [device redirection](configure-device-redirections.md#webauthn-redirection).
@@ -32,11 +32,11 @@ If the option to use Windows Hello for Business or security keys isn't available
 
 If a user signs in to the session host using single factor credential like username and password, and then tries to access an Azure AD resource that requires MFA, they may not be able to use Windows Hello for Business. To authenticate to that resource, they can follow the steps below:
 
-1. If they are not prompted for a user account, they should first sign out.
+1. If they aren't prompted for a user account, they should first sign out.
 1. On the account selection page, choose Use another account.
 1. Choose Sign-in options at the bottom.
 1. Select Sign in with Windows Hello or a security key.
-1. They should not see option to select their local Windows Hello or security key authentication methods.
+1. They shouldn't see option to select their local Windows Hello or security key authentication methods.
 
 ## Next steps
 
