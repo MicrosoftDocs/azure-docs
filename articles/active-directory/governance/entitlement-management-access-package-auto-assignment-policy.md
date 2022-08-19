@@ -51,7 +51,7 @@ To create a policy for an access package, you need to start from the access pack
 
 1. Click **Save** to close the dynamic membership rule editor, then click **Next** to open the **Custom Extensions** tab.
 
-1. If you have a [custom extension](entitlement-management-logic-apps-integration.md) in your catalog you wish to have run when the policy assigns or removes access, you can add them to this policy.  Then click next to open the **Review** tab.
+1. If you have [custom extensions](entitlement-management-logic-apps-integration.md) in your catalog you wish to have run when the policy assigns or removes access, you can add them to this policy.  Then click next to open the **Review** tab.
 
 1. Type a name and a description for the policy.
 
