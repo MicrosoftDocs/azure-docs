@@ -4,7 +4,7 @@ description: Capture exceptions from ASP.NET apps along with request telemetry.
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 05/19/2021
+ms.date: 08/19/2022
 ms.reviewer: casocha
 ---
 
