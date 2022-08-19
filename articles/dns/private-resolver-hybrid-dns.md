@@ -53,7 +53,7 @@ In this article, the private zone **azure.contoso.com** and the resource record 
 
 [ ![View resource records](./media/private-resolver-hybrid-dns/private-zone-records-small.png) ](./media/private-resolver-hybrid-dns/private-zone-records.png#lightbox)
 
-**Requirement**: You must create a virtual network link in the zone to the virtual network where you will deploy your Azure DNS Private Resolver.  In the example shown below, the private zone is linked to two vnets: **myeastvnet** and **mywestvnet**. At least one link is required.
+**Requirement**: You must create a virtual network link in the zone to the virtual network where you'll deploy your Azure DNS Private Resolver.  In the example shown below, the private zone is linked to two vnets: **myeastvnet** and **mywestvnet**. At least one link is required.
 
 [ ![View zone links](./media/private-resolver-hybrid-dns/private-zone-links-small.png) ](./media/private-resolver-hybrid-dns/private-zone-links.png#lightbox)
 
@@ -86,7 +86,7 @@ Next, create a rule in your ruleset for your on-premise domain. In this example,
 
 ## Configure on-premise DNS conditional forwarders
 
-The procedure to configure on-premise DNS depends on the type of DNS server you're using. In the following example, a Windows DNS server at **10.100.0.2** is configured with a conditional forwarder for the private DNS zone **azure.contoso.com**. The conditional forwarder is is set to forward queries to **10.10.0.4**, which is the inbound endpoint IP address for your Azure DNS Private Resolver. There's another IP address also configured here to enable DNS failover. For more information about enabling failover, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md). For the purposes of this demonstration, only the **10.10.0.4** inbound endpoint is required.
+The procedure to configure on-premise DNS depends on the type of DNS server you're using. In the following example, a Windows DNS server at **10.100.0.2** is configured with a conditional forwarder for the private DNS zone **azure.contoso.com**. The conditional forwarder is set to forward queries to **10.10.0.4**, which is the inbound endpoint IP address for your Azure DNS Private Resolver. There's another IP address also configured here to enable DNS failover. For more information about enabling failover, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md). For the purposes of this demonstration, only the **10.10.0.4** inbound endpoint is required.
 
 ![View on-premise forwarding](./media/private-resolver-hybrid-dns/on-premise-forwarders.png) 
 

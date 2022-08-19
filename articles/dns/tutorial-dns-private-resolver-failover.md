@@ -30,14 +30,14 @@ The following diagram shows the failover scenario discussed in this article.
 In this scenario, you have connections from two on-premise locations to two Azure hub vnets. 
 - In the east region, the primary path is to the east vnet hub. You have a secondary connection to the west hub. The west region is configured in the reverse.
 - Due to an Internet connectivity issue, the connection to one vnet (west) is temporarily broken.
-- Services are maintained in both regions due to the redundant design.
+- Service is maintained in both regions due to the redundant design.
 
 The DNS resolution path is:
 1) Redundant on-premise DNS [conditional forwarders](#on-premise-forwarding) send DNS queries to inbound endpoints.
 2) [Inbound endpoints](#inbound-endpoints) receive DNS queries from on-premise.
 3) Outbound endpoints and DNS forwarding rulesets process DNS queries and return replies to your on-premise resources.
 
-Outbound endpoints and DNS forwarding rulesets are not needed for the failover scenario, but are included here for completeness. Rulesets can be used is to resolve on-premise domains from Azure. For more information, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md) and [Resolve Azure and on-premise domains](private-resolver-hybrid-dns.md).
+Outbound endpoints and DNS forwarding rulesets aren't needed for the failover scenario, but are included here for completeness. Rulesets can be used is to resolve on-premise domains from Azure. For more information, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md) and [Resolve Azure and on-premise domains](private-resolver-hybrid-dns.md).
 
 ## Prerequisites
 
@@ -125,7 +125,7 @@ Check that DNS settings for your virtual networks are set to Default (Azure-prov
 Now that DNS resolution is working from on-premise to Azure using two different Azure DNS Private Resolvers, we can configure forwarding to use both of these addresses.  This will enable redundancy in case one of the connections to Azure is interrupted. The procedure to configure forwarders will depend on the type of DNS server that you're using. The following example uses a Windows Server that is running the DNS Server role service and has an IP address of 10.100.0.2.
 
    > [!NOTE]
-   > The DNS server that you use to configure forwarding should be a server that client devices on your network will use for DNS resolution. If the server you're configuring is not the default, you will need to query it's IP address directly (ex: nslookup test.azure.contoso.com 10.100.0.2) after forwarding is configured.
+   > The DNS server that you use to configure forwarding should be a server that client devices on your network will use for DNS resolution. If the server you're configuring is not the default, you'll need to query it's IP address directly (ex: nslookup test.azure.contoso.com 10.100.0.2) after forwarding is configured.
 
 1. Open an elevated Windows PowerShell prompt and prompt commands. Replace **azure.contoso.com** with the name of your private zone, and replace the IP addresses below with the IP addresses for your private resolvers.
 
