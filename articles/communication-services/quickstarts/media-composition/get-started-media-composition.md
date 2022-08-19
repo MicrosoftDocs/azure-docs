@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create and manage a media composition
+title: Azure Communication Services Quickstart - Create and manage a media composition
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to create a media composition within your Azure Communication Services resource.
 services: azure-communication-services
@@ -81,7 +81,7 @@ var mediaCompositionClient = new MediaCompositionClient(connectionString);
 
 ## Create a media composition
 
-Create a new media composition by defining the `inputs`, `layout`, `outputs`, as well as a user-friendly `mediaCompositionId`. For more details on how to define the values, refer to [this page](./define-media-composition.md). These values are passed into the `CreateAsync` function exposed on the client. The code snippet below shows and example of defining a simple two by two grid layout:
+Create a new media composition by defining the `inputs`, `layout`, `outputs`, and a user-friendly `mediaCompositionId`. For more information on how to define the values, see [this page](./define-media-composition.md). These values are passed into the `CreateAsync` function exposed on the client. The code snippet below shows and example of defining a simple two by two grid layout:
 
 ```csharp
 var layout = new GridLayout(
@@ -138,7 +138,7 @@ var mediaCompositionId = "twoByTwoGridLayout"
 var response = await mediaCompositionClient.CreateAsync(mediaCompositionId, layout, inputs, outputs);
 ```
 
-You can use the `mediaCompositionId` to view or update the properties of a media composition object. Therefore, its is important to keep track of and persist the `mediaCompositionId` in your storage medium of choice.
+You can use the `mediaCompositionId` to view or update the properties of a media composition object. Therefore, it is important to keep track of and persist the `mediaCompositionId` in your storage medium of choice.
 
 ## Get properties of an existing media composition
 
@@ -150,11 +150,11 @@ var gridMediaComposition = await mediaCompositionClient.GetAsync(mediaCompositio
 
 ## Updates
 
-Note that for private preview, updating the `layout` of a media composition can happen on-the-fly as the media composition is running. However, `input` updates while the media composition is running is not supported. The media composition will need to be stopped and restarted before any changes to the inputs are applied.
+Updating the `layout` of a media composition can happen on-the-fly as the media composition is running. However, `input` updates while the media composition is running are not supported. The media composition will need to be stopped and restarted before any changes to the inputs are applied.
 
 ### Update layout
 
-Updating the `layout` can be issued by passing in the new `layout` object as well as the `mediaCompositionId`. For example, we can update the grid layout to an auto-grid layout following the snippet below:
+Updating the `layout` can be issued by passing in the new `layout` object and the `mediaCompositionId`. For example, we can update the grid layout to an auto-grid layout following the snippet below:
 
 ```csharp
 var layout = new AutoGridLayout(new List<string>() { "teamsMeeting" })
@@ -185,7 +185,7 @@ var inputsToUpsert = new Dictionary<string, MediaInput>()
 var response = await mediaCompositionClient.UpsertInputsAsync(mediaCompositionId, inputsToUpsert);
 ```
 
-You can also explictly remove inputs from the list.
+You can also explicitly remove inputs from the list.
 ```csharp
 var inputIdsToRemove = new List<string>()
 {
