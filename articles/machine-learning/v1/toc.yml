@@ -146,9 +146,6 @@
     items: 
     - name: Train with SDK v1
       href: how-to-attach-compute-targets.md
-    - name: Auto-train a natural language processing model
-      displayName: nlp, auto ML, automl, SDK
-      href: how-to-auto-train-nlp-models-v1.md
     - name: Automated machine learning
         displayName: automl, auto ml
         items:
@@ -271,6 +268,7 @@
           - name: Trigger a pipeline
             href: how-to-trigger-published-pipeline.md
       - name: Convert notebook code into Python scripts 
+        displayName: mlops, mlopspython, production
         href: how-to-convert-ml-experiment-to-production.md
 - name: Troubleshoot & debug
   items: 
