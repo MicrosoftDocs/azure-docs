@@ -1,7 +1,7 @@
 ---
 title: MLflow and Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Learn about how Azure Machine Learning uses MLflow to log metrics and artifacts from machine learning models, and deploy your machine learning models to an endpoint.
+description: Learn about how Azure Machine Learning uses MLflow to log metrics and artifacts from machine learning models, and to deploy your machine learning models to an endpoint.
 services: machine-learning
 author: abeomor
 ms.author: osomorog
@@ -62,7 +62,7 @@ To learn more about how to manage models by using the MLflow API in Azure Machin
 
 ## Model deployments of MLflow models
 
-You can [deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md) so that you can apply Azure Machine Learning's model management capabilities and no-code deployment offering. MLflow supports deploying models to both real-time and batch endpoints. You can use the `azureml-mlflow` MLflow plug-in, the Azure Machine Learning CLI v2, and the user interface in Azure Machine Learning studio.
+You can [deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md) so that you can apply the model management capabilities and no-code deployment offering in Azure Machine Learning. MLflow supports deploying models to both real-time and batch endpoints. You can use the `azureml-mlflow` MLflow plug-in, the Azure Machine Learning CLI v2, and the user interface in Azure Machine Learning studio.
 
 Learn more at [Deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md).
 
