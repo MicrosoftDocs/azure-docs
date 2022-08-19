@@ -41,7 +41,7 @@ The performance of your Apache Spark jobs depends on multiple factors. These per
 
 3. Check if any exceptions or errors in ResourceManager log in `/var/log/hadoop-yarn/yarn/hadoop-yarn-resourcemanager-*.log`
 
-See more information in [Yarn Common Issues](../hdinsight-troubleshoot-yarn.md#common-issues)
+See more information in [Yarn Common Issues](../hdinsight-troubleshoot-yarn.md#how-do-i-troubleshoot-yarn-common-issues)
 
 ## Step 2: Compare your new application resources with yarn available resources
 
