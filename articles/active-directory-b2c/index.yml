@@ -4,7 +4,7 @@
 title: Azure Active Directory B2C documentation # < 60 chars
 summary: >
   Azure Active Directory B2C (Azure AD B2C) is a customer identity access management (CIAM) solution that enables you to sign up and sign in users, 
-  and manage their profiles when using your iOS, Android, .NET, single-page (SPA), and other applications. Also, use Azure AD B2C to secure your web APIs. Learn how to use Azure AD B2C with our guides, tutorials, and code samples.
+  and manage their profiles when using your iOS, Android, .NET, single-page (SPA) and other applications. Also, use Azure AD B2C to secure your web APIs. Learn how to use Azure AD B2C with our guides, tutorials, and code samples.
 brand: azure
 
 metadata:
