@@ -23,7 +23,7 @@ You can start using Azure Monitor with a single Log Analytics workspace by using
 
 ### Configure pricing tier or dedicated cluster
 
-By default, workspaces will use pay-as-you-go pricing with no minimum data volume. If you collect a sufficient amount of data, you can significantly decrease your cost by using a [commitment tier](logs/cost-logs.md#commitment-tiers). You commit to a daily minimum of data collected in exchange for a lower rate.
+By default, workspaces will use pay-as-you-go pricing with no minimum data volume. If you collect enough amount of data, you can significantly decrease your cost by using a [commitment tier](logs/cost-logs.md#commitment-tiers). You commit to a daily minimum of data collected in exchange for a lower rate.
 
 [Dedicated clusters](logs/logs-dedicated-clusters.md) provide more functionality and cost savings if you ingest at least 500 GB per day collectively among multiple workspaces in the same region. Unlike commitment tiers, workspaces in a dedicated cluster don't need to individually reach 500 GB.
 
@@ -104,7 +104,7 @@ There are multiple methods that you can use to limit the amount of data collecte
 * **Disable unneeded modules**: [Edit ApplicationInsights.config](app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data aren't required.
 * **Pre-aggregate metrics**: If you put calls to TrackMetric in your application, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Alternatively, you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs).
 * **Limit the use of custom metrics**: The Application Insights option to [Enable alerting on custom metric dimensions](app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) can increase costs. Using this option can result in the creation of more pre-aggregation metrics.
-* **Ensure use of updated SDKs**: Earlier versions of the ASP.NET Core SDK and Worker Service SDK [collect a large number of counters by default](app/eventcounters.md#default-counters-collected), which were collected as custom metrics. Use later versions to specify [only required counters](app/eventcounters.md#customizing-counters-to-be-collected).
+* **Ensure use of updated SDKs**: Earlier versions of the ASP.NET Core SDK and Worker Service SDK [collect many counters by default](app/eventcounters.md#default-counters-collected), which were collected as custom metrics. Use later versions to specify [only required counters](app/eventcounters.md#customizing-counters-to-be-collected).
 
 ## Resource logs
 
@@ -149,7 +149,7 @@ After you've configured your environment and data collection for cost optimizati
 
 ### Set a daily cap
 
-A [daily cap](logs/daily-cap.md) disables data collection in a Log Analytics workspace for the rest of the day after your configured limit is reached. A daily cap shouldn't be used as a method to reduce costs, but rather as a preventative measure to ensure that you don't exceed a particular budget. Daily caps are typically used by organizations that are particularly cost conscious.
+A [daily cap](logs/daily-cap.md) disables data collection in a Log Analytics workspace for the rest of the day after your configured limit is reached. A daily cap shouldn't be used as a method to reduce costs but as a preventative measure to ensure that you don't exceed a particular budget. Daily caps are typically used by organizations that are particularly cost conscious.
 
 When data collection stops, you effectively have no monitoring of features and resources relying on that workspace. Instead of relying on the daily cap alone, you can configure an alert rule to notify you when data collection reaches some level before the daily cap. Notification allows you to address any increases before data collection shuts down, or even to temporarily disable collection for less critical resources.
 
