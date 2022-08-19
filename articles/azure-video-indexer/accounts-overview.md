@@ -17,7 +17,7 @@ Going forward, ARM account support more Azure native features and integrations s
 
 A trial account is automatically created the first time you visit the [www.videoindexer.ai/](https://www.videoindexer.ai/) website. A trial Azure Video Indexer account has limitation on number of videos, support, and SLA. A trial Azure Video Indexer account has limitation on number of videos, support, and SLA. 
 
-### To generate an access token
+### To get access to the account
 
 |   | ARM-based |Classic| Trial|
 |---|---|---|---|
