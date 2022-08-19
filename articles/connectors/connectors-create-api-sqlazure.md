@@ -551,10 +551,10 @@ Runs a stored procedure on an SQL database.
 
 | Name | Type |
 |------|------|
-| **Result** | An array object that returns the stored procedure result |
-| **Result Result Sets** | An array object that returns all the stored procedure results |
-| **Result Stored Procedure Parameters** |  The final values of the stored procedure's output and input-output parameters |
-| **Result Return Code** | The return code from the stored procedure |
+| **Result** | An object that contains the result sets object array, return code, and output parameters |
+| **Result Result Sets** | An object array that contains all the result sets. A stored procedure might return zero, one, or multiple result sets. |
+| **Result Return Code** | An integer that represents the status code from the stored procedure |
+| **Result Stored Procedure Parameters** |  An object that contains the final values of the stored procedure's output and input-output parameters |
 | **Status Code** | The status code from the **Execute stored procedure** operation |
 
 <a name="get-rows"></a>
