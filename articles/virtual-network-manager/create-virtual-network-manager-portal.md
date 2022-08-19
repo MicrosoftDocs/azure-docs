@@ -58,7 +58,7 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
     | ------- | ----- |
     | Subscription | Select the subscription you want to deploy this virtual network into. |
     | Resource group | Select or create a new resource group to store the virtual network. This quickstart will use new resource group named **myAVNMResourceGroup**.
-    | Name | Enter a **VNetA** for the virtual network name. |
+    | Name | Enter a **VNet-A** for the virtual network name. |
     | Region | Select **West US**. |
 
 1. Select **Next: IP Addresses >** and configure the following network address spaces:
@@ -79,7 +79,7 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
     | ------- | ----- |
     | Subscription | Select the same subscription you selected in step 3. |
     | Resource group | Select the **myAVNMResourceGroup**. |
-    | Name | Enter **VNetB** for the second virtual network and **VNetC** for the third virtual network. |
+    | Name | Enter **VNet-B** for the second virtual network and **VNet-C** for the third virtual network. |
     | Region | Region will be selected for you when you select the resource group. |
     | VNetB IP addresses | IPv4 address space: 10.1.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.1.0.0/24|
     | VNetC IP addresses | IPv4 address space: 10.2.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.2.0.0/24|
