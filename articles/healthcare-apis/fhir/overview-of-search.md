@@ -5,33 +5,33 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/06/2022
+ms.date: 08/18/2022
 ms.author: mikaelw
 ---
 # Overview of FHIR search
 
-The Fast Healthcare Interoperability Resources (FHIR&#174;) specification defines the fundamentals of search for FHIR resources. This article will guide you through some key aspects to searching resources in FHIR. For complete details about searching FHIR resources, refer to [Search](https://www.hl7.org/fhir/search.html) in the HL7 FHIR Specification. Throughout this article, we'll give examples of search syntax. Each search will be against your FHIR server, which typically has a URL of `https://<WORKSPACE NAME>-<ACCOUNT-NAME>.fhir.azurehealthcareapis.com`. In the examples, we'll use the placeholder {{FHIR_URL}} for this URL. 
+The Fast Healthcare Interoperability Resources (FHIR&#174;) specification defines the fundamentals of search for resources in a FHIR server database. This article will guide you through some key aspects of querying resources in FHIR. For complete details about the FHIR search API, refer to the [Search](https://www.hl7.org/fhir/search.html) documentation in the HL7 FHIR specification. Throughout this article, we'll demonstrate FHIR search syntax in example API calls with the placeholder `{{FHIR_URL}}` to represent the FHIR server URL. In the case of the FHIR service in Azure Health Data Services, this URL would be `https://<WORKSPACE NAME>-<ACCOUNT-NAME>.fhir.azurehealthcareapis.com`.
 
-FHIR searches can be against a specific resource type, a specified [compartment](https://www.hl7.org/fhir/compartmentdefinition.html), or all resources. The simplest way to execute a search in FHIR is to use a `GET` request. For example, if you want to pull all patients in the database, you could use the following request: 
+FHIR searches can be against a specific resource type, a specified [compartment](https://www.hl7.org/fhir/compartmentdefinition.html), or all resources in the FHIR server database. The simplest way to execute a search in FHIR is to use a `GET` request. For example, if you want to pull all `Patient` resources in the database, you could use the following request: 
 
 ```rest
 GET {{FHIR_URL}}/Patient
 ```
 
-You can also search using `POST`, which is useful if the query string is too long. To search using `POST`, the search parameters can be submitted as a form body. This allows for longer, more complex series of query parameters that might be difficult to see and understand in a query string.
+You can also search using `POST`. To search using `POST`, the search parameters are delivered in the body of the request in JSON format. This permits searching with longer, more complex series of query parameters.
 
-If the search request is successful, you'll receive a FHIR bundle response with the type `searchset`. If the search fails, you’ll find the error details in the `OperationOutcome` to help you understand why the search failed.
+If the search request is successful, you'll receive a FHIR bundle response with the type `searchset`. If the search fails, you’ll find the error details in an `OperationOutcome` response.
 
-In the following sections, we'll cover the various aspects involved in searching. Once you’ve reviewed these details, refer to our [samples page](search-samples.md) that has examples of searches that you can make in the FHIR service in the Azure Health Data Services.
+In the following sections, we'll cover the various aspects of querying resources in FHIR. Once you’ve reviewed these details, refer to the [FHIR search samples page](search-samples.md), which features different types of searches that you can run in the FHIR service in Azure Health Data Services.
 
 ## Search parameters
 
-When you do a search, you'll search based on various attributes of the resource. These attributes are called search parameters. Each resource has a set of defined search parameters. The search parameter must be defined and indexed in the database for you to successfully search against it.
+When you do a search in FHIR, you are searching the database for resource instances that match certain search criteria. FHIR search API calls use search parameters to define these search criteria. Each resource in FHIR carries information as a set of elements, and search parameters work to query the information in these elements. If any resource instances contain a positive match between their element values and the search parameter values specified in a FHIR search API call, then the FHIR server returns those resource instances in a bundle response.
 
-Each search parameter has a defined [data types](https://www.hl7.org/fhir/search.html#ptypes). The support for the various data types is outlined below:
+For each search parameter, FHIR defines the [data type(s)](https://www.hl7.org/fhir/search.html#ptypes) that can be used. The support in FHIR service for the various data types is outlined below.
 
 
-| **Search parameter type**  | **Azure API for FHIR** | **FHIR service in Azure Health Data Services** | **Comment**|
+| **Search parameter type**  | **FHIR service in Azure Health Data Services** | **Azure API for FHIR** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
 |  number                    | Yes                  | Yes                       |
 |  date                      | Yes                  | Yes                       |
@@ -45,9 +45,9 @@ Each search parameter has a defined [data types](https://www.hl7.org/fhir/search
 
 ### Common search parameters
 
-There are [common search parameters](https://www.hl7.org/fhir/search.html#all) that apply to all resources. These are listed below, along with their support:
+There are [common search parameters](https://www.hl7.org/fhir/search.html#all) that apply to all resources in FHIR. These are listed below, along with their support in the FHIR service:
 
-| **Common search parameter** | **Azure API for FHIR** | **FHIR service in Azure Health Data Services** | **Comment**|
+| **Common search parameter** | **FHIR service in Azure Health Data Services** | **Azure API for FHIR** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
 | _id                         | Yes                  | Yes                       
 | _lastUpdated                | Yes                  | Yes                       |
@@ -55,7 +55,7 @@ There are [common search parameters](https://www.hl7.org/fhir/search.html#all) t
 | _type                       | Yes                  | Yes                       |
 | _security                   | Yes                  | Yes                       |
 | _profile                    | Yes                  | Yes                       |
-| _has                        | Yes.                 | Yes                       |  |
+| _has                        | Yes                 | Yes                        |
 | _query                      | No                   | No                        |
 | _filter                     | No                   | No                        |
 | _list                       | No                   | No                        |
@@ -64,7 +64,7 @@ There are [common search parameters](https://www.hl7.org/fhir/search.html#all) t
 
 ### Resource-specific parameters
 
-With FHIR service in Azure Health Data Services, we support almost all [resource-specific search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) defined by the FHIR specification. The only search parameters we don’t support are available in the links below:
+The FHIR service in Azure Health Data Services supports almost all [resource-specific search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) defined by the FHIR specification. The only search parameters not supported are listed in the links below:
 
 * [STU3 Unsupported Search Parameters](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/Stu3/unsupported-search-parameters.json)
 
