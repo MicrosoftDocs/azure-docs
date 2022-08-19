@@ -8,9 +8,7 @@ ms.author: juliako
 
 # Azure Video Indexer account types
 
-This article gives an overview of Azure Video Indexer accounts and provides links to other articles for more details.
-
-## Differences between classic, ARM, trial accounts
+This article gives an overview of Azure Video Indexer accounts types and provides links to other articles for more details.
 
 The first time you visit the [www.videoindexer.ai/](https://www.videoindexer.ai/) website, a trial account is automatically created. A trial Azure Video Indexer account has limitation on number of indexing minutes, support, and SLA.
 
