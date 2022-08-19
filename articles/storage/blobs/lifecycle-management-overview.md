@@ -393,7 +393,13 @@ The updated policy takes up to 24 hours to go into effect. Once the policy is in
 
 ### I manually rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?
 
-When a blob is moved from one access tier to another, its last modification time doesn't change. If you manually rehydrate an archived blob to hot tier, it would be moved back to archive tier by the lifecycle management engine. Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. You may also copy the blob to another location if it needs to stay in hot or cool tier permanently.
+If there's a lifecycle management policy in effect for the storage account, then rehydrating a blob by changing it's tier can result in a scenario where the lifecycle policy moves the blob back to the Archive tier. This can happen if the last modified time, creation time, or last access time is beyond the threshold set for the policy. There's three ways to prevent this from happening:
+
+- Add the `daysAfterLastTierChangeGreaterThan` condition to the tierToArchive action of the policy. See [Use lifecycle management policies to archive blobs](archive-blob.md#use-lifecycle-management-policies-to-archive-blobs).
+
+- Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. 
+
+- Copy the blob to another location if it needs to stay in hot or cool tier permanently.
 
 ### The blob prefix match string didn't apply the policy to the expected blobs
 

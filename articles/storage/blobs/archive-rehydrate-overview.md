@@ -16,7 +16,7 @@ ms.reviewer: fryu
 
 While a blob is in the Archive access tier, it's considered to be offline, and can't be read or modified. In order to read or modify data in an archived blob, you must first rehydrate the blob to an online tier, either the Hot or Cool tier. There are two options for rehydrating a blob that is stored in the Archive tier:
 
-- [Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier): You can rehydrate an archived blob by copying it to a new blob in the Hot or Cool tier with the [Copy Blob](/rest/api/storageservices/copy-blob) operation. 
+- [Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier): You can rehydrate an archived blob by copying it to a new blob in the Hot or Cool tier with the [Copy Blob](/rest/api/storageservices/copy-blob) operation. Microsoft recommends this option for most scenarios.
 
 - [Change an archived blob's access tier to an online tier](#change-a-blobs-access-tier-to-an-online-tier): You can rehydrate an archived blob to the Hot or Cool tier by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
 
@@ -49,7 +49,11 @@ The first option for moving a blob from the Archive tier to an online tier is to
 
 You must copy the archived blob to a new blob with a different name or to a different container. You can't overwrite the source blob by copying to the same blob.
 
-By performing a copy operation, you can avoid the early deletion fee that is assessed if you change the tier of a blob from the Archive tier before the required 180-day period elapses. For more information, see [Archive access tier](access-tiers-overview.md#archive-access-tier). 
+Microsoft recommends performing a copy operation in most scenarios where you need to move a blob from the Archive tier to an online tier, for the following reasons:
+
+- A copy operation avoids the early deletion fee that is assessed if you change the tier of a blob from the Archive tier before the required 180-day period elapses. For more information, see [Archive access tier](access-tiers-overview.md#archive-access-tier).
+
+- If there's a lifecycle management policy in effect for the storage account, then rehydrating a blob with [Set Blob Tier](/rest/api/storageservices/set-blob-tier) can result in a scenario where the lifecycle policy moves the blob back to the Archive tier after rehydration because the last modified time is beyond the threshold set for the policy. A copy operation leaves the source blob in the Archive tier and creates a new blob with a different name and a new last modified time, so there's no risk that the rehydrated blob will be moved back to the Archive tier by the lifecycle policy.
 
 Copying a blob from the Archive tier can take hours to complete depending on the rehydration priority selected. Behind the scenes, a blob copy operation reads your archived source blob to create a new online blob in the selected destination tier. The new blob may be visible when you list the blobs in the parent container before the rehydration operation is complete, but its tier will be set to Archive. The data isn't available until the read operation from the source blob in the Archive tier is complete and the blob's contents have been written to the new destination blob in an online tier. The new blob is an independent copy, so modifying or deleting it doesn't affect the source blob in the Archive tier.
 
