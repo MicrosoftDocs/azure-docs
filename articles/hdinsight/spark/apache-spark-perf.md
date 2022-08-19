@@ -25,8 +25,8 @@ The performance of your Apache Spark jobs depends on multiple factors. These per
 - The operations that are used when processing the data.
 - Unhealthy yarn service
 - Memory constraints due to improperly sized executors and OutOfMemoryError
-- Too many tasks or too less tasks
-- Data skew casued a few heavy tasks or slow tasks
+- Too many tasks or too few tasks
+- Data skew caused a few heavy tasks or slow tasks
 - Tasks slower in bad nodes
 
 
