@@ -15,7 +15,7 @@ ms.author: ladolan
 
 After you've created infrastructure for your new SAP system using *Azure Center for SAP solutions (ACSS)*, you need to install the SAP software.
 
-In this how-to guide, you'll learn how to upload and install all the required components in your Azure account. You can either [run a pre-installation script to automate the upload process](#option-:1-upload-software-components-with-script) or [manually upload the components](#option-2:-upload-components-manually). Then, you can [run the software installation wizard](#install-software).
+In this how-to guide, you'll learn how to upload and install all the required components in your Azure account. You can either [run a pre-installation script to automate the upload process](#option-1-upload-software-components-with-script) or [manually upload the components](#option-2-upload-components-manually). Then, you can [run the software installation wizard](#install-software).
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ The following components are necessary for the SAP installation:
 
 You can use the following method to upload the SAP components to your Azure account using scripts. Then, you can [run the software installation wizard](#install-software) to install the SAP software.
 
-You also can [upload the components manually](#option-2:-upload-components-manually) instead.
+You also can [upload the components manually](#option-2-upload-components-manually) instead.
 
 ### Set up storage account
 
@@ -197,7 +197,7 @@ Now, you can [install the SAP software](#install-software) using the installatio
 
 You can use the following method to download and upload the SAP components to your Azure storage account manually. Then, you can [run the software installation wizard](#install-software) to install the SAP software.
 
-You also can [run scripts to automate this process](#option-1:-upload-software-components-with-script) instead.
+You also can [run scripts to automate this process](#option-1-upload-software-components-with-script) instead.
 
 1. Create a new Azure storage account for storing the software components.
 1. Grant the ACSS application *Azure SAP Workloads Management* **Storage Blob Data Reader** and **Reader and Data Access** role access to this storage account.
