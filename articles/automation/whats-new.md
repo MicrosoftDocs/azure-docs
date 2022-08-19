@@ -170,4 +170,4 @@ Azure Automation now supports [system-assigned managed identities](./automation-
 
 ## Next steps
 
-If you'd like to contribute to Azure Automation documentation, see the [Docs Contributor Guide](/contribute/).
+If you'd like to contribute to Azure Automation documentation, see our [contributor guide](/contribute/).
