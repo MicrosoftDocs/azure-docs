@@ -1,10 +1,10 @@
-- name: Azure SDK & CLI v1 Machine Learning Documentation
+- name: Azure Machine Learning Documentation (v1)
   href: introduction.md
 - name: Switch to current version documentation
   href: ../index.yml
-- name: Overview
+- name: Overview (v1)
   items:
-  - name: Architecture & terms
+  - name: Architecture & terms 
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
   - name: Migrate from ML Studio (classic)
@@ -21,7 +21,7 @@
       href: ../migrate-rebuild-integrate-with-client-app.md
     - name: Rebuild Execute R Script components
       href: ../migrate-execute-r-script.md
-- name: Concepts
+- name: Concepts (v1)
   items:
   - name: Work with data
     items: 
@@ -42,7 +42,7 @@
     - name: Manage resources VS Code
       displayName: vscode,resources
       href: ../how-to-manage-resources-vscode.md
-- name: Tutorials
+- name: Tutorials (v1)
   expanded: true
   items:
     - name: Python get started (Day 1)
@@ -56,7 +56,7 @@
           href: tutorial-1st-experiment-bring-data.md
     - name: "Build a training pipeline (Python)"
       href: "tutorial-pipeline-python-sdk.md"
-- name: How-to guides
+- name: How-to guides (v1)
   items:
   - name: Install and set up the CLI (v1)
     displayName: azurecli, mlops
@@ -270,7 +270,7 @@
       - name: Convert notebook code into Python scripts 
         displayName: mlops, mlopspython, production
         href: how-to-convert-ml-experiment-to-production.md
-- name: Troubleshoot & debug
+- name: Troubleshoot & debug (v1)
   items: 
     - name: Pipeline issues
       items: 
@@ -282,7 +282,7 @@
         - name: Troubleshoot the ParallelRunStep
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
-- name: Reference
+- name: Reference (v1)
   items: 
   - name: Machine learning CLI pipeline YAML reference
     href: reference-pipeline-yaml.md
