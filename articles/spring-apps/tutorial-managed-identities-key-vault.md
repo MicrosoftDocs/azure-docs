@@ -159,12 +159,14 @@ This app will have access to get secrets from Azure Key Vault. Use the Azure Key
 
 ```properties
 spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://<your-keyvault-name>.vault.azure.net
+spring.cloud.azure.keyvault.secret.property-sources[0].credential.managed-identity-enabled=true
 ```
 
 ### [User-assigned managed identity](#tab/user-assigned-managed-identity)
 
 ```properties
 spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://<your-keyvault-name>.vault.azure.net
+spring.cloud.azure.keyvault.secret.property-sources[0].credential.managed-identity-enabled=true
 spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Client ID of user-assigned managed identity}
 ```
 
