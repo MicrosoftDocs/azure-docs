@@ -66,7 +66,7 @@ The example shown in this article to describe deployment uses following system i
 
 > [!NOTE]
 >
-> Install additional application servers in separate VMs, if you want to scale out the instances.
+> Install additional SAP application instances on separate VMs, if you want to scale out.
 
 ![Architecture of dialog instance installation with SAP ASCS/SCS cluster](media/high-availability-guide-rhel/high-availability-rhel-dialog-instance-architecture.png)
 
@@ -78,7 +78,7 @@ The example shown in this article to describe deployment uses following system i
 * Consider sizing your VM SKUs appropriately based on the sizing guidelines. You have to factor the cluster behavior where multiple SAP instances (ASCS, ERS, PAS and AAS) may run on a single VM when other VM in the cluster is unavailable.
 * The dialog instances (PAS and AAS) running with SAP ASCS/SCS cluster setup must be installed using virtual hostname.
 * You must use the same storage solution of SAP ASCS/SCS cluster setup to deploy PAS and AAS instances as well. For example, if you have configured SAP ASCS/SCS cluster using NFS on Azure files, same storage solution must be used to deploy PAS and AAS.
-* Instance directory `/usr/sap/<SID>/D<nr>` of PAS and AAS must be mounted on shared file system (NFS) and will be managed as resource by the cluster.
+* Instance directory `/usr/sap/<SID>/D<nr>` of PAS and AAS must be mounted on NFS file system and will be managed as resource by the cluster.
   > [!NOTE]
   >
   > For SAP J2EE systems, it's not supported to place `/usr/sap/<SID>/J<nr>` on NFS on Azure Files.
@@ -364,7 +364,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 5. Update the `/usr/sap/sapservices` file
 
-   To prevent the start of the instances by the sapinit startup script, all instances managed by pacemaker must be commented out from `/usr/sap/sapservices` file. Don't comment out the SAP HANA instance if it will be used with HANA SR.
+   To prevent the start of the instances by the sapinit startup script, all instances managed by pacemaker must be commented out from `/usr/sap/sapservices` file.
 
    ```bash
    sudo vi /usr/sap/sapservices
@@ -547,7 +547,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 5. Update the `/usr/sap/sapservices` file
 
-   To prevent the start of the instances by the sapinit startup script, all instances managed by pacemaker must be commented out from `/usr/sap/sapservices` file. Don't comment out the SAP HANA instance if it will be used with HANA SR.
+   To prevent the start of the instances by the sapinit startup script, all instances managed by pacemaker must be commented out from `/usr/sap/sapservices` file.
 
    ```bash
    sudo vi /usr/sap/sapservices
