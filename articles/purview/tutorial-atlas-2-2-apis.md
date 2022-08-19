@@ -35,7 +35,7 @@ For all the requests, you'll need the Atlas endpoint for your Microsoft Purview 
 1. Select the **Properties** page on the left side menu
 1. Copy the **Atlas endpoint** value
 
-:::image type="content" source="media/turorial-atlas-2-2-apis/endpoint.png" alt-text="Screenshot of the properties page for Microsoft Purview with the Atlas endpoint box highlighted." border="true":::
+:::image type="content" source="media/tutorial-atlas-2-2-apis/endpoint.png" alt-text="Screenshot of the properties page for Microsoft Purview with the Atlas endpoint box highlighted." border="true":::
 
 ### Create business metadata with attributes
 
