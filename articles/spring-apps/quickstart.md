@@ -38,7 +38,7 @@ At the end of this quickstart, you'll have a working spring app running on Azure
 
 ### Provision an instance of Azure Spring Apps
 
-1. Select **try it** and sign-in to your Azure account in [Azure Cloud Shell](/azure/cloud-shell/overview).
+1. Select **Try It** and sign-in to your Azure account in [Azure Cloud Shell](/azure/cloud-shell/overview).
 
    ```azurecli-interactive
    az account show
@@ -120,7 +120,7 @@ Deploying the application can take a few minutes.
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-- [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
+- [Azure Toolkit for IntelliJ](https://docs.microsoft.com//azure/developer/java/toolkit-for-intellij/install-toolkit).
 
 ### Generate a Spring project
 
@@ -136,7 +136,7 @@ This example uses Java version 11.  To use a different Java version, change Java
 
 :::image type="content" source="media/quickstart/initializr-page.png" alt-text="Screenshot of Spring Initializr page." lightbox="media/quickstart/initializr-page.png":::
 
-1. When all dependencies are set, select **Generate** .
+1. When all dependencies are set, select **Generate**.
 1. Download and unpack the package, and then create a web controller for your web application by adding the file `src/main/java/com/example/hellospring/HelloController.java` with the following contents:
 
     ```java
@@ -197,16 +197,16 @@ Use the following steps to import the project.
 > [!NOTE]
 > To run the project locally, add `spring.config.import=optional:configserver:` to the project's `application.properties` file.
 
-1. If you haven't already installed the Azure Toolkit for IntelliJ, follow the steps in [Install the Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/install-toolkit) to install it.
+1. If you haven't already installed the Azure Toolkit for IntelliJ, follow the steps in [Install the Azure Toolkit for IntelliJ](https://docs.microsoft.com//azure/developer/java/toolkit-for-intellij/install-toolkit).
 
 1. Right-click your project in IntelliJ project explorer, then select **Azure** -> **Deploy to Azure Spring Apps**.
 
    :::image type="content" source="media/quickstart/intellij-deploy-azure-1.png" alt-text="Screenshot of IntelliJ IDEA menu showing Deploy to Azure Spring Apps option." lightbox="media/quickstart/intellij-deploy-azure-1.png":::
 
-1. Accept the name for the app in the **Name** field. **Name** refers to the configuration, not the app name. Users don't usually need to change it.
+1. Accept the name for the app in the **Name** field. **Name** refers to the configuration, not the app name. You don't usually need to change it.
 1. In the **Artifact** textbox, select **Maven:com.example:hellospring-0.0.1-SNAPSHOT**.
-1. In the **Subscription** textbox, verify your subscription is correct.
-1. In the **Service** textbox, select the instance of Azure Spring Apps that you created in [Provision an instance of Azure Spring Apps](./quickstart-provision-service-instance.md).
+1. In the **Subscription** textbox, verify that your subscription is correct.
+1. In the **Service** textbox, select the instance of Azure Spring Apps that you created in [Provision an instance of Azure Spring Apps](#provision-an-instance-of-azure-spring-apps).
 1. In the **App** textbox, select **+** to create a new app.
 
    :::image type="content" source="media/quickstart/intellij-create-new-app.png" alt-text="Screenshot of IntelliJ IDEA showing Deploy Azure Spring Apps dialog box.":::
