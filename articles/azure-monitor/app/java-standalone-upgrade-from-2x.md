@@ -42,7 +42,7 @@ Note: if you were using the spring-boot-starter and if you prefer, there is an a
 
 ## Step 3: Configure your Application Insights connection string
 
-[Configure the connection string](./java-standalone-config.md#connection-string).
+See [configuring the connection string](./java-standalone-config.md#connection-string).
 
 ## Additional notes
 
