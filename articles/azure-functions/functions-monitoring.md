@@ -1,20 +1,22 @@
 ---
-title: Monitor Azure Functions
-description: Learn how to use Azure Application Insights with Azure Functions to monitor function execution.
+title: Monitor executions in Azure Functions
+description: Learn how to use Azure Application Insights with Azure Functions to monitor function executions.
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 07/05/2022
 ms.custom: "devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js"
 # Customer intent: As a developer, I want to understand what facilities are provided to help me monitor my functions so I can know if they're running correctly.
 ---
 
-# Monitor Azure Functions
+# Monitor executions in Azure Functions
 
-[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor functions. This article provides an overview of the monitoring capabilities provided by Azure for monitoring Azure Functions.
+[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor functions executions. This article provides an overview of the monitoring capabilities provided by Azure for monitoring Azure Functions.
 
 Application Insights collects log, performance, and error data. By automatically detecting performance anomalies and featuring powerful analytics tools, you can more easily  diagnose issues and better understand how your functions are used. These tools are designed to help you continuously improve performance and usability of your functions. You can even use Application Insights during local function app project development. For more information, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
 As Application Insights instrumentation is built into Azure Functions, you need a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key is added to your application settings as you create your function app resource in Azure. If your function app doesn't already have this key, you can [set it manually](configure-monitoring.md#enable-application-insights-integration).  
+
+You can also monitor the function app itself by using Azure Monitor. To learn more, see [Monitoring Azure Functions with Azure Monitor](monitor-functions.md).
 
 ## Application Insights pricing and limits
 
@@ -107,15 +109,11 @@ Log streams can be viewed both in the portal and in most local development envir
 
 ## Diagnostic logs
 
-_This feature is in preview._ 
-
 Application Insights lets you export telemetry data to long-term storage or other analysis services.  
 
 Because Functions also integrates with Azure Monitor, you can also use diagnostic settings to send telemetry data to various destinations, including Azure Monitor logs. To learn more, see [Monitoring Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md).
 
 ## Scale controller logs
-
-_This feature is in preview._ 
 
 The [Azure Functions scale controller](./event-driven-scaling.md#runtime-scaling) monitors instances of the Azure Functions host on which your app runs. This controller makes decisions about when to add or remove instances based on current performance. You can have the scale controller emit logs to Application Insights to better understand the decisions the scale controller is making for your function app. You can also store the generated logs in Blob storage for analysis by another service. 
 
@@ -123,7 +121,7 @@ To enable this feature, you add an application setting named `SCALE_CONTROLLER_L
 
 ## Azure Monitor metrics
 
-In addition to log-based telemetry data collected by Application Insights, you can also get data about how the function app is running from [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md). To learn more, see [Using Azure Monitor Metric with Azure Functions](monitor-metrics.md).
+In addition to log-based telemetry data collected by Application Insights, you can also get data about how the function app is running from [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md). To learn more, see [Monitoring with Azure Monitor](monitor-functions.md).
 
 ## Report issues
 

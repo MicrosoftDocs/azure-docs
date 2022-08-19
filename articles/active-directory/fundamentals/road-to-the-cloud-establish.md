@@ -14,6 +14,8 @@ ms.custom: references_regions
 
 # Establish an Azure AD footprint
 
+## Required tasks
+
 If you're using Microsoft Office 365, Exchange Online, or Teams then you are already using Azure AD. If you do, your next step is to establish more Azure AD capabilities.
 
 * Establish hybrid identity synchronization between AD and Azure AD using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) or [Azure AD Connect Cloud Sync](../cloud-sync/what-is-cloud-sync.md).

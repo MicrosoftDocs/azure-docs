@@ -2,7 +2,7 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 09/09/2021
+ms.date: 07/25/2022
 ms.author: victorh
 ---
 | Resource | Limit | Note |
@@ -41,6 +41,7 @@ ms.author: victorh
 | Maximum Private Link Configurations| 2 | 1 for public IP, 1 for private IP |
 | Maximum Private Link IP Configurations| 8 | |
 | Maximum WAF custom rules|100||
+|WAF IP address ranges per match condition|540<br><br>600 - with CRS 3.2 or newer|
 | Maximum WAF exclusions per Application Gateway|40||
 
 <sup>1</sup> In case of WAF-enabled SKUs, you must limit the number of resources to 40.

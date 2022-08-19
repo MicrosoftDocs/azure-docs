@@ -21,7 +21,7 @@ Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios incl
 * Restoring into any region (where backups existed) at the restore point in time.
 
 >
-> [!VIDEO <https://aka.ms/docs.continuous-backup-restore>]
+> [!VIDEO https://aka.ms/docs.continuous-backup-restore]
 
 Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database. Continuous backups are taken in every region where the account exists. For example, an account can have a write region in West US and read regions in East US and East US 2. These replica regions can then be backed up to a remote Azure Storage account in each respective region. By default, each region stores the backup in Locally Redundant storage accounts. If the region has [Availability zones](/azure/architecture/reliability/architect) enabled  then the backup is stored in Zone-Redundant storage accounts.
 
@@ -107,7 +107,7 @@ For example, if you have 1 TB of data in two regions then:
 * Restore cost is calculated as (1000 \* 0.15) = $150 per restore
 
 > [!TIP]
-> For more information about measuring the current data usage of your Azure Cosmos DB account, see [Explore Azure Monitor Cosmos DB insights](../azure-monitor/insights/cosmosdb-insights-overview.md#view-utilization-and-performance-metrics-for-azure-cosmos-db). Continous 7-day tier does not incur charges for backup of the data.
+> For more information about measuring the current data usage of your Azure Cosmos DB account, see [Explore Azure Monitor Cosmos DB insights](cosmosdb-insights-overview.md#view-utilization-and-performance-metrics-for-azure-cosmos-db). Continous 7-day tier does not incur charges for backup of the data.
 
 ## Continuous 30-day tier vs Continuous 7-day tier
 
@@ -132,9 +132,7 @@ Currently the point in time restore functionality has the following limitations:
 
 * Multi-regions write accounts aren't supported.
 
-* Azure Synapse Link and periodic backup mode can coexist in the same database account. However, analytical store data isn't included in backups and restores. When Azure Synapse Link is enabled, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at a scheduled backup interval.
-
-* Azure Synapse Link and continuous backup mode can't coexist in the same database account. Currently database accounts with Azure Synapse Link enabled can't use continuous backup mode and vice-versa.
+* Currently Synapse Link isn't fully compatible with continuous backup mode. Click [here](analytical-store-introduction.md#backup) for more information.
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account didn't exist.
 

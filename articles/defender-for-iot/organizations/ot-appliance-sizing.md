@@ -11,16 +11,15 @@ This article is designed to help you choose the right OT appliances for your sen
 
 You can use both physical or virtual appliances.
 
-## C5600: IT/OT mixed environments
+## IT/OT mixed environments
 
 Use the following hardware profiles for high bandwidth corporate IT/OT mixed networks:
-
 
 |Hardware profile  |Max throughput |Max monitored Assets  |Deployment |
 |---------|---------|---------|---------|
 |C5600   | 3 Gbps        | 12 K        |Physical / Virtual         |
 
-## E1800, E1000, E500:  monitoring at the site level
+## Monitoring at the site level
 
 Use the following  hardware profiles for enterprise monitoring at the site level:
 
@@ -30,7 +29,6 @@ Use the following  hardware profiles for enterprise monitoring at the site level
 |E1000    |1 Gbps         |10K         |Physical / Virtual         |
 |E500    |1 Gbps         |10K         |Physical / Virtual         |
 
-
 ## Production line monitoring
 
 Use the following hardware profiles for production line monitoring:
@@ -39,7 +37,7 @@ Use the following hardware profiles for production line monitoring:
 |---------|---------|---------|---------|
 |L500   | 200 Mbps        |   1,000      |Physical / Virtual         |
 |L100    | 60 Mbps        |   800      | Physical / Virtual        |
-|L64    | 10 Mbps        |   100      |Physical / Virtual|
+|L60    | 10 Mbps        |   100      |Physical / Virtual|
 
 ## On-premises management console systems
 
@@ -62,4 +60,4 @@ Then, use any of the following procedures to continue:
 - [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](how-to-install-software.md)
 
-Reference articles for OT monitoring appliances also include installation procedures in case you need to install software on your own appliances, or re-install software on preconfigured appliances.
+Reference articles for OT monitoring appliances also include installation procedures in case you need to install software on your own appliances, or reinstall software on preconfigured appliances.

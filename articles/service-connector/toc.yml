@@ -64,7 +64,7 @@ items:
       href: how-to-integrate-postgres.md
     - name: Azure Database for MySQL
       href: how-to-integrate-mysql.md
-    - name: Azure Cosmos DB
+    - name: Azure Cosmos DB Mongo API
       href: how-to-integrate-cosmos-db.md
     - name: Azure Blob Storage
       href: how-to-integrate-storage-blob.md

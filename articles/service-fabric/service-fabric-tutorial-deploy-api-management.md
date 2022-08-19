@@ -1,11 +1,14 @@
 ---
 title: Integrate API Management with Service Fabric in Azure 
 description: Learn how to quickly get started with Azure API Management and route traffic to a back-end service in Service Fabric.
-
-ms.topic: conceptual
-ms.date: 07/10/2019
-ms.custom: mvc, devx-track-azurepowershell
+ms.topic: tutorial
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Integrate API Management with Service Fabric in Azure
 
 Deploying Azure API Management with Service Fabric is an advanced scenario.  API Management is useful when you need to publish APIs with a rich set of routing rules for your back-end Service Fabric services. Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. In Service Fabric, a gateway can be any stateless service designed for traffic ingress such as an ASP.NET Core application, Event Hubs, IoT Hub, or Azure API Management.

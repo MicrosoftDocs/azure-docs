@@ -26,20 +26,16 @@ In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model
 For no-code-deployment, Azure Machine Learning 
 
 * Dynamically installs Python packages provided in the `conda.yaml` file, this means the dependencies are installed during container runtime.
-    * The base container image/curated environment used for dynamic installation is `mcr.microsoft.com/azureml/mlflow-ubuntu18.04-py37-cpu-inference` or `AzureML-mlflow-ubuntu18.04-py37-cpu-inference`
 * Provides a MLflow base image/curated environment that contains the following items:
     * [`azureml-inference-server-http`](how-to-inference-server-http.md) 
     * [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
-    * `pandas`
     * The scoring script baked into the image.
 
-> [!NOTE]
-> Consider the following limitations when deploying MLflow models to Azure Machine Learning:
-> - Spark flavor is not supported at the moment for deployment.
-> - Data type `mlflow.types.DataType.Binary` is not supported as column type in signatures. For models that work with images, we suggest you to use or (a) tensors inputs using the [TensorSpec input type](https://mlflow.org/docs/latest/python_api/mlflow.types.html#mlflow.types.TensorSpec), or (b) `Base64` encoding schemes with a `mlflow.types.DataType.String` column type, which is commonly used when there is a need to encode binary data that needs be stored and transferred over media.
-> - Signatures with tensors with unspecified shapes (`-1`) is only supported at the batch size by the moment. For instance, a signature with shape `(-1, -1, -1, 3)` is not supported but `(-1, 300, 300, 3)` is.
+> [!IMPORTANT]
+> If you are used to deploying models using scoring scripts and custom environments and you are looking to know how to achieve the same functionality using MLflow models, we recommend reading [Using MLflow models for no-code deployment](how-to-log-mlflow-models.md).
 
-For more information about how to specify requests to online endpoints, view [Considerations when deploying to real-time inference](#considerations-when-deploying-to-real-time-inference). For more information about the supported file types in batch endpoints, view [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
+> [!NOTE]
+> For information about inputs format and limitation in online endpoints, view [Considerations when deploying to real-time inference](#considerations-when-deploying-to-real-time-inference). For more information about the supported file types in batch endpoints, view [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
 
 ## Deployment tools
 
@@ -404,6 +400,16 @@ Your inputs should be submitted inside a JSON payload containing a dictionary wi
     }
 }
 ```
+
+### Limitations
+
+The following limitations apply to real time inference deployments:
+
+> [!NOTE]
+> Consider the following limitations when deploying MLflow models to Azure Machine Learning:
+> - Spark flavor is not supported at the moment for deployment.
+> - Data type `mlflow.types.DataType.Binary` is not supported as column type in signatures. For models that work with images, we suggest you to use or (a) tensors inputs using the [TensorSpec input type](https://mlflow.org/docs/latest/python_api/mlflow.types.html#mlflow.types.TensorSpec), or (b) `Base64` encoding schemes with a `mlflow.types.DataType.String` column type, which is commonly used when there is a need to encode binary data that needs be stored and transferred over media.
+> - Signatures with tensors with unspecified shapes (`-1`) is only supported at the batch size by the moment. For instance, a signature with shape `(-1, -1, -1, 3)` is not supported but `(-1, 300, 300, 3)` is.
 
 ## Considerations when deploying to batch inference
 

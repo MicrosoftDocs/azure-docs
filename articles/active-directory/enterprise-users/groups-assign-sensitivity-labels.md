@@ -3,14 +3,14 @@ title: Assign sensitivity labels to groups - Azure AD | Microsoft Docs
 description: Learn how to assign sensitivity labels to groups. See troubleshooting information and view additional available resources.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/23/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ To apply published labels to groups, you must first enable the feature. These st
     ```powershell
     Install-Module AzureADPreview
     Import-Module AzureADPreview
-    Connect-AzureAD
+    AzureADPreview\Connect-AzureAD
     ```
 
     In the **Sign in to your account** page, enter your admin account and password to connect you to your service, and select **Sign in**.

@@ -1,6 +1,6 @@
 ---
-title: Azure Workbooks multi value parameters.
-description: Learn about adding multi value parameters to your Azure workbook.
+title: Azure Workbooks multi-value parameters
+description: Learn about adding multi-value parameters to your workbook.
 services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
@@ -9,31 +9,29 @@ ms.date: 07/05/2022
 ms.reviewer: gardnerjr
 ---
 
-# Multi-value Parameters
+# Multi-value parameters
 
-A multi-value parameter allows the user to set one or more arbitrary text values. Multi-value parameters are commonly used for filtering, often when a drop-down control may contain too many values to be useful.
+A multi-value parameter allows the user to set one or more arbitrary text values. Multi-value parameters are commonly used for filtering, often when a dropdown control might contain too many values to be useful.
 
+## Create a static multi-value parameter
 
-## Creating a static multi-value parameter
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links within the workbook.
-1. Select the blue _Add Parameter_ button.
-1. In the new parameter pane that pops up enter:
-    - Parameter name: `Filter`
-    - Parameter type: `Multi-value`
-    - Required: `unchecked`
-    - Get data from: `None`
-1. Select **Save** from the toolbar to create the parameter.
-1. The Filter parameter will be a multi-value parameter, initially with no values:
+1. Select **Add parameters** > **Add Parameter**.
+1. In the new parameter pane that opens, enter:
+    - **Parameter name**: `Filter`
+    - **Parameter type**: `Multi-value`
+    - **Required**: `unchecked`
+    - **Get data from**: `None`
+1. Select **Save** to create the parameter.
+1. The **Filter** parameter will be a multi-value parameter, initially with no values.
 
-   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-create.png" alt-text="Screenshot showing the creation of mulit-value parameter in workbooks.":::
+   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-create.png" alt-text="Screenshot that shows the creation of a multi-value parameter in a workbook.":::
 
-1. You can then add multiple values:
+1. You can then add multiple values.
 
-   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-third-value.png" alt-text="Screenshot showing the user adding a third value in workbooks.":::
+   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-third-value.png" alt-text="Screenshot that shows adding a third value in a workbook.":::
 
-
-A multi-value parameter behaves similarly to a multi-select [drop down parameter](workbooks-dropdowns.md). As such, it is commonly used in an "in" like scenario
+A multi-value parameter behaves similarly to a multi-select [dropdown parameter](workbooks-dropdowns.md) and is commonly used in an "in"-like scenario.
 
 ```
     let computerFilter = dynamic([{Computer}]);
@@ -44,38 +42,43 @@ A multi-value parameter behaves similarly to a multi-select [drop down parameter
 ```
 
 ## Parameter field style
-Multi-value parameter supports following field style:
-1. Standard: Allows a user to add or remove arbitrary text items
 
-   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-standard.png" alt-text="Screenshot showing standard workbooks multi-value field.":::
+A multi-value parameter supports the following field styles:
 
-1. Password: Allows a user to add or remove arbitrary password fields. The password values are only hidden on UI when user types. The values are still fully accessible as a param value when referred and they are stored unencrypted when workbook is saved.
+1. **Standard**: Allows you to add or remove arbitrary text items.
 
-   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-password.png" alt-text="Screenshot showing a workbooks password multi-value field.":::
+   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-standard.png" alt-text="Screenshot that shows the workbook standard multi-value field.":::
 
-## Creating a multi-value with initial values
-You can use a query to seed the multi-value parameter with initial values. The user can then manually remove values, or add more values. If a query is used to populate the multi-value parameter, a restore defaults button will appear on the parameter to restore back to the originally queried values.
+1. **Password**: Allows you to add or remove arbitrary password fields. The password values are only hidden in the UI when you type. The values are still fully accessible as a parameter value when referred. They're stored unencrypted when the workbook is saved.
+
+   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-password.png" alt-text="Screenshot that shows a workbook password multi-value field.":::
+
+## Create a multi-value parameter with initial values
+
+You can use a query to seed the multi-value parameter with initial values. You can then manually remove values or add more values. If a query is used to populate the multi-value parameter, a restore defaults button appears on the parameter to restore back to the originally queried values.
 
 1. Start with an empty workbook in edit mode.
-1. Select **add parameters** from the links within the workbook.
-1. Select **Add Parameter**.
-1. In the new parameter pane that pops up enter:
-    - Parameter name: `Filter`
-    - Parameter type: `Multi-value`
-    - Required: `unchecked`
-    - Get data from: `JSON`
-1. In the JSON Input text block, insert this json snippet:
+1. Select **Add parameters** > **Add Parameter**.
+1. In the new parameter pane that opens, enter:
+    - **Parameter name**: `Filter`
+    - **Parameter type**: `Multi-value`
+    - **Required**: `unchecked`
+    - **Get data from**: `JSON`
+1. In the **JSON Input** text block, insert this JSON snippet:
+
     ```
     ["apple", "banana", "carrot" ]
     ```
-    All of the items that are the result of the query will be shown as multi value items.
-    (you are not limited to JSON, you can use any query provider to provide initial values, but will be limited to the first 100 results)
-1. Select **Run Query**.
-1. Select **Save** from the toolbar to create the parameter.
-1. The Filter parameter will be a multi-value parameter with three initial values.
 
-   :::Screenshot type="content" source="media/workbooks-multi-value/workbooks-multi-value-initial-values.png" alt-text="Screenshot showing the creation of a dynamic drop-down in workbooks.":::
+    All the items that are the result of the query are shown as multi-value items.
+    You aren't limited to JSON. You can use any query provider to provide initial values, but you'll be limited to the first 100 results.
+1. Select **Run Query**.
+1. Select **Save** to create the parameter.
+1. The **Filter** parameter will be a multi-value parameter with three initial values.
+
+   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-initial-values.png" alt-text="Screenshot that shows the creation of a dynamic dropdown in a workbook.":::
+
 ## Next steps
 
-- [Workbook parameters](workbooks-parameters.md).
-- [Workbook drop down parameters](workbooks-dropdowns.md)
+- [Workbook parameters](workbooks-parameters.md)
+- [Workbook dropdown parameters](workbooks-dropdowns.md)

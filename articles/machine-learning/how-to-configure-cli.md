@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: lostmygithubaccount
-ms.author: copeters
+author: s-polly
+ms.author: scottpolly
 ms.date: 04/08/2022
 ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022

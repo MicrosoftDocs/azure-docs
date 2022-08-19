@@ -64,7 +64,7 @@ The detailed specifications of the available server types are as follows:
 |Standard_D32ds_v4	|32	|128	|20000	|21845
 |Standard_D48ds_v4	|48	|192	|20000	|32768
 |Standard_D64ds_v4	|64	|256	|20000	|43691
-|**Memory Optimized** |	
+|**Business Critical** |	
 |Standard_E2ds_v4	|	2	|	16	|	5000	|	2731
 |Standard_E4ds_v4	|	4	|	32	|	10000	|	5461
 |Standard_E8ds_v4	|	8	|	64	|	18000	|	10923
@@ -106,15 +106,13 @@ While the service attempts to make the server read-only, all new write transacti
 
 To get the server out of read-only mode, you should increase the provisioned storage on the server. This can be done using the Azure portal or Azure CLI. Once increased, the server will be ready to accept write transactions again.
 
-We recommend that you set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. Refer to the [monitoring article](./concepts-monitoring.md) to learn about metrics available. 
-
 We recommend that you <!--turn on storage auto-grow or to--> set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on alert documentation [how to set up an alert](how-to-alert-on-metric.md).
 
 ### Storage auto-grow
 
 Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto-grow is enabled, the storage automatically grows without impacting the workload. Storage auto-grow is enabled by default for all new server creates. For servers with less than equal to 100 GB provisioned storage, the provisioned storage size is increased by 5 GB when the free storage is below 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 10 GB of the provisioned storage size. Maximum storage limits as specified above apply. Refresh the server instance to see the updated storage provisioned under **Settings** on the **Compute + Storage** page. 
 
-For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 990 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 10 GB of storage, the storage size is increase to 15 GB when less than 1 GB of storage is free.
+For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 990 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 20 GB of storage, the storage size is increase to 25 GB when less than 2 GB of storage is free.
 
 Remember that storage once auto-scaled up, cannot be scaled down.
 

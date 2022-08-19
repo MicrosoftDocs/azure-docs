@@ -2,7 +2,7 @@
 title: Restore SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to restore SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 07/07/2022
+ms.date: 08/11/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -28,6 +28,9 @@ This article assumes you've an SQL database running on Azure VM that's backed-up
 * Protected container named *VMAppContainer;Compute;SQLResourceGroup;testSQLVM*
 * Backed-up database/item named *sqldatabase;mssqlserver;master*
 * Resources in the *westus2* region
+
+>[!Note]
+>See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## View restore points for a backed-up database
 
@@ -256,6 +259,8 @@ Name                                  Operation           Status      Item Name 
 ------------------------------------  ------------------  ----------  -------------------------  ------------------------  --------------------------------  --------------
 0d863259-b0fb-4935-8736-802c6667200b  CrossRegionRestore  InProgress  master [testSQLVM] 		 AzureWorkload             2022-06-21T08:29:24.919138+00:00  0:00:12.372421
 ```
+>[!Note]
+>The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
 
 ## Restore as files
 
@@ -326,7 +331,8 @@ The output appears as:
     "duration": "0:00:04.304322",
     "endTime": null,
     "entityFriendlyName": "master [testSQLVM]",
-    "errorDetails": null,
+    "errorDetails": > [!NOTE]
+> Information the user should notice even if skimmingnull,
     "extendedInfo": {
       "dynamicErrorMessage": null,
       "propertyBag": {
@@ -354,6 +360,8 @@ The output appears as:
 
 The response provides you the job name. You can use this job name to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
 
+> [!NOTE]
+> If you don't want to restore the entire chain but only a subset of files, follow the steps as documented [here](restore-sql-database-azure-vm.md#partial-restore-as-files).
 
 ## Next steps
 

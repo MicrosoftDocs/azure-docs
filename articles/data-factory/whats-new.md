@@ -22,18 +22,34 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly.
 
+## July 2022
+<br>
+<table>
+<tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+<tr><td rowspan=5><b>Data flow</b></td><td>Asana connector added as source</td><td>We’ve added a new REST-based connector to mapping data flows! Users can now read their tables from Asana. Note: This connector is only available when using inline datasets.<br><a href="connector-asana.md">Learn more</a></td></tr>
+<tr><td>3 new data transformation functions are supported</td><td>3 new data transformation functions have been added to mapping data flows in Azure Data Factory and Azure Synapse Analytics. Now, users are able to use collectUnique(), to create a new collection of unique values in an array, substringIndex(), to extract the substring before n occurrences of a delimiter, and topN(), to return the top n results after sorting your data.<br><a href=https://techcommunity.microsoft.com/t5/azure-data-factory-blog/3-new-data-transformation-functions-in-adf/ba-p/3582738>Learn more</a></td></tr>
+<tr><td>Refetch from source available in Refresh for data source change scenarios</td><td>When building and debugging a data flow, your source data can change. There is now a new easy way to refetch the latest updated source data from the refresh button in the data preview pane.<br><a href="concepts-data-flow-debug-mode.md#data-preview">Learn more</a></td></tr>
+<tr><td>User defined functions (GA) </td><td>Create reusable and customized expressions to avoid building complex logic over and over<br><a href="concepts-data-flow-debug-mode.md#data-preview">Learn more</a></td></tr>
+<tr><td>Easier configuration on data flow runtime – choose compute size among Small, Medium, and Large to pre-configure all integration runtime settings</td><td>Azure Data Factory has made it easier for users to configure Azure Integration Runtime for mapping data flows by choosing compute size among Small, Medium, and Large to pre-configure all integration runtime settings. You can still set your own custom configurations.<br><a href=https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-makes-it-easy-to-select-azure-ir-size-for-data-flows/ba-p/3578033>Learn more</a></td></tr>
+<tr><td rowspan=1><b>Continuous integration and continuous delivery (CI/CD)</b></td><td>Include Global parameters supported in ARM template</td><td>We’ve added a new mechanism to include Global Parameters in the ARM templates. This helps to solve an earlier issue, which overrode some configurations during deployments when users included global parameters in ARM templates.<br><a href=https://techcommunity.microsoft.com/t5/azure-data-factory-blog/ci-cd-improvement-using-global-parameters-in-azure-data-factory/ba-p/3557265#M665>Learn more</a></td></tr>
+<tr><td><b>Developer productivity</b></td><td>Azure Data Factory studio preview experience</td><td>Be a part of Azure Data Factory Preview features to experience latest Azure Data Factory capabilities, and be the first to share your feedback<br><a href=https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-the-azure-data-factory-studio-preview-experience/ba-p/3563880>Learn more</a></td></tr>
+</table>
+
+
 ## June 2022
 <br>
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 <tr><td rowspan=3><b>Data flow</b></td><td>Fuzzy join supported for data flows</td><td>Fuzzy join is now supported in Join transformation of data flows with configurable similarity score on join conditions.<br><a href="data-flow-join.md#fuzzy-join">Learn more</a></td></tr>
 <tr><td>Editing capabilities in source projection</td><td>Editing capabilities in source projection is available in Dataflow to make schemas modifications easily<br><a href="data-flow-source.md#source-options">Learn more</a></td></tr>
-<tr><td>Cast transformation and assert error handling</td><td>Cast transformation and assert error handling are now supported in data flows for better transformation.<br><a href="data-flow-assert.md">Learn more</a></td></tr>
+<tr><td>Assert error handling</td><td>Assert error handling are now supported in data flows for data quality and data validation<br><a href="data-flow-assert.md">Learn more</a></td></tr>
 <tr><td rowspan=2><b>Data Movement</b></td><td>Parameterization natively supported in additional 4 connectors</td><td>We added native UI support of parameterization for the following linked services: Azure Data Lake Gen1, Azure PostgreSQL, Google AdWords and PostgreSQL.<br><a href="parameterize-linked-services.md?tabs=data-factory#supported-linked-service-types">Learn more</a></td></tr>
-<tr><td>SAP Change Data Capture (CDC) capabilities in the new SAP ODP connector</td><td>SAP Change Data Capture (CDC) capabilities are now supported in the new SAP ODP connector.<br><a href="sap-change-data-capture-introduction-architecture.md">Learn more</a></td></tr> 
+<tr><td>SAP Change Data Capture (CDC) capabilities in the new SAP ODP connector (Public Preview)</td><td>SAP Change Data Capture (CDC) capabilities are now supported in the new SAP ODP connector.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/announcing-the-public-preview-of-the-sap-cdc-solution-in-azure/ba-p/3420904">Learn more</a></td></tr>
 <tr><td><b>Integration Runtime</b></td><td>Time-To-Live in managed VNET (Public Preview)</td><td>Time-To-Live can be set to the provisioned computes in managed VNET.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/announcing-public-preview-of-time-to-live-ttl-in-managed-virtual/ba-p/3552879">Learn more</a></td></tr>
-<tr><td><b>Monitoring</b></td><td> Rerun pipeline with new parameters</td><td>You can now rerun pipelines with new parameter values in Azure Data Factory.<br><a href="monitor-visually.md#rerun-pipelines-and-activities">Learn more</a></td></tr>
+<tr><td><b>Monitoring</b></td><td> Rerun pipeline with new parameters</td><td>You can now rerun pipelines with new parameter values in Azure Data Factory.<br><a href="monitor-visually.md#rerun-pipelines-and-activities">Learn more</a></td></tr> 
+<tr><td><b>Orchestration</b></td><td>‘turnOffAsync' property is available in Web activity</td><td>Web activity supports an async request-reply pattern that invokes HTTP GET on the Location field in the response header of an HTTP 202 Response. It helps web activity automatically poll the monitoring end-point till the job runs. ‘turnOffAsync' property is supported to disable this behavior in cases where polling isn't needed<br><a href="control-flow-web-activity.md#type-properties">Learn more</a></td></tr>
 </table>
+ 
 
 ## May 2022
 <br>
@@ -92,6 +108,8 @@ This page is updated monthly, so revisit it regularly.
 
 <tr><td rowspan=2><b>Data movement</b></td><td>Get metadata-driven data ingestion pipelines on the Data Factory Copy Data tool within 10 minutes (GA)</td><td>You can build large-scale data copy pipelines with a metadata-driven approach on the Copy Data tool within 10 minutes.<br><a href="copy-data-tool-metadata-driven.md">Learn more</a></td></tr>
 <tr><td>Data Factory Google AdWords connector API upgrade available</td><td>The Data Factory Google AdWords connector now supports the new AdWords API version. No action is required for the new connector user because it's enabled by default.<br><a href="connector-troubleshoot-google-adwords.md#migrate-to-the-new-version-of-google-ads-api">Learn more</a></td></tr>
+
+<tr><td><b>Continuous integration and continuous delivery (CI/CD)</b></td><td>Cross tenant Azure DevOps support</td><td>Configure a repository using Azure DevOps Git not in the same tenant as the Azure Data Factory。<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr>
 
 <tr><td><b>Region expansion</b></td><td>Data Factory is now available in West US3 and Jio India West</td><td>Data Factory is now available in two new regions: West US3 and Jio India West. You can colocate your ETL workflow in these new regions if you're using these regions to store and manage your modern data warehouse. You can also use these regions for business continuity and disaster recovery purposes if you need to fail over from another region within the geo.<br><a href="https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all">Learn more</a></td></tr>
  

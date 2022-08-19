@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 06/22/2022
+ms.date: 07/18/2022
 ms.custom: generated
 ---
 
@@ -80,11 +80,11 @@ The following table provides a brief description of each built-in role. Click th
 > | **Web** |  |  |
 > | [Azure Maps Data Contributor](#azure-maps-data-contributor) | Grants access to read, write, and delete access to map related data from an Azure maps account. | 8f5e0ce6-4f7b-4dcf-bddf-e6f48634a204 |
 > | [Azure Maps Data Reader](#azure-maps-data-reader) | Grants access to read map related data from an Azure maps account. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
-> | [Azure Spring Cloud Config Server Contributor](#azure-spring-cloud-config-server-contributor) | Allow read, write and delete access to Azure Spring Cloud Config Server | a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b |
-> | [Azure Spring Cloud Config Server Reader](#azure-spring-cloud-config-server-reader) | Allow read access to Azure Spring Cloud Config Server | d04c6db6-4947-4782-9e91-30a88feb7be7 |
-> | [Azure Spring Cloud Data Reader](#azure-spring-cloud-data-reader) | Allow read access to Azure Spring Cloud Data | b5537268-8956-4941-a8f0-646150406f0c |
-> | [Azure Spring Cloud Service Registry Contributor](#azure-spring-cloud-service-registry-contributor) | Allow read, write and delete access to Azure Spring Cloud Service Registry | f5880b48-c26d-48be-b172-7927bfa1c8f1 |
-> | [Azure Spring Cloud Service Registry Reader](#azure-spring-cloud-service-registry-reader) | Allow read access to Azure Spring Cloud Service Registry | cff1b556-2399-4e7e-856d-a8f754be7b65 |
+> | [Azure Spring Apps Config Server Contributor](#azure-spring-apps-config-server-contributor) | Allow read, write and delete access to Azure Spring Apps Config Server | a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b |
+> | [Azure Spring Apps Config Server Reader](#azure-spring-apps-config-server-reader) | Allow read access to Azure Spring Apps Config Server | d04c6db6-4947-4782-9e91-30a88feb7be7 |
+> | [Azure Spring Apps Data Reader](#azure-spring-apps-data-reader) | Allow read access to Azure Spring Apps Data | b5537268-8956-4941-a8f0-646150406f0c |
+> | [Azure Spring Apps Service Registry Contributor](#azure-spring-apps-service-registry-contributor) | Allow read, write and delete access to Azure Spring Apps Service Registry | f5880b48-c26d-48be-b172-7927bfa1c8f1 |
+> | [Azure Spring Apps Service Registry Reader](#azure-spring-apps-service-registry-reader) | Allow read access to Azure Spring Apps Service Registry | cff1b556-2399-4e7e-856d-a8f754be7b65 |
 > | [Media Services Account Administrator](#media-services-account-administrator) | Create, read, modify, and delete Media Services accounts; read-only access to other Media Services resources. | 054126f8-9a2b-4f1c-a9ad-eca461f08466 |
 > | [Media Services Live Events Administrator](#media-services-live-events-administrator) | Create, read, modify, and delete Live Events, Assets, Asset Filters, and Streaming Locators; read-only access to other Media Services resources. | 532bc159-b25e-42c0-969e-a1d439f60d77 |
 > | [Media Services Media Operator](#media-services-media-operator) | Create, read, modify, and delete Assets, Asset Filters, Streaming Locators, and Jobs; read-only access to other Media Services resources. | e4395492-1534-4db2-bedf-88c14621589c |
@@ -3326,9 +3326,9 @@ Grants access to read map related data from an Azure maps account. [Learn more](
 }
 ```
 
-### Azure Spring Cloud Config Server Contributor
+### Azure Spring Apps Config Server Contributor
 
-Allow read, write and delete access to Azure Spring Cloud Config Server [Learn more](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+Allow read, write and delete access to Azure Spring Apps Config Server [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3348,7 +3348,7 @@ Allow read, write and delete access to Azure Spring Cloud Config Server [Learn m
   "assignableScopes": [
     "/"
   ],
-  "description": "Allow read, write and delete access to Azure Spring Cloud Config Server",
+  "description": "Allow read, write and delete access to Azure Spring Apps Config Server",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b",
   "name": "a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b",
   "permissions": [
@@ -3363,15 +3363,15 @@ Allow read, write and delete access to Azure Spring Cloud Config Server [Learn m
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Spring Cloud Config Server Contributor",
+  "roleName": "Azure Spring Apps Config Server Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Azure Spring Cloud Config Server Reader
+### Azure Spring Apps Config Server Reader
 
-Allow read access to Azure Spring Cloud Config Server [Learn more](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+Allow read access to Azure Spring Apps Config Server [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3389,7 +3389,7 @@ Allow read access to Azure Spring Cloud Config Server [Learn more](../spring-clo
   "assignableScopes": [
     "/"
   ],
-  "description": "Allow read access to Azure Spring Cloud Config Server",
+  "description": "Allow read access to Azure Spring Apps Config Server",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d04c6db6-4947-4782-9e91-30a88feb7be7",
   "name": "d04c6db6-4947-4782-9e91-30a88feb7be7",
   "permissions": [
@@ -3402,15 +3402,15 @@ Allow read access to Azure Spring Cloud Config Server [Learn more](../spring-clo
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Spring Cloud Config Server Reader",
+  "roleName": "Azure Spring Apps Config Server Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Azure Spring Cloud Data Reader
+### Azure Spring Apps Data Reader
 
-Allow read access to Azure Spring Cloud Data
+Allow read access to Azure Spring Apps Data
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3428,7 +3428,7 @@ Allow read access to Azure Spring Cloud Data
   "assignableScopes": [
     "/"
   ],
-  "description": "Allow read access to Azure Spring Cloud Data",
+  "description": "Allow read access to Azure Spring Apps Data",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b5537268-8956-4941-a8f0-646150406f0c",
   "name": "b5537268-8956-4941-a8f0-646150406f0c",
   "permissions": [
@@ -3441,15 +3441,15 @@ Allow read access to Azure Spring Cloud Data
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Spring Cloud Data Reader",
+  "roleName": "Azure Spring Apps Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Azure Spring Cloud Service Registry Contributor
+### Azure Spring Apps Service Registry Contributor
 
-Allow read, write and delete access to Azure Spring Cloud Service Registry [Learn more](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+Allow read, write and delete access to Azure Spring Apps Service Registry [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3469,7 +3469,7 @@ Allow read, write and delete access to Azure Spring Cloud Service Registry [Lear
   "assignableScopes": [
     "/"
   ],
-  "description": "Allow read, write and delete access to Azure Spring Cloud Service Registry",
+  "description": "Allow read, write and delete access to Azure Spring Apps Service Registry",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/f5880b48-c26d-48be-b172-7927bfa1c8f1",
   "name": "f5880b48-c26d-48be-b172-7927bfa1c8f1",
   "permissions": [
@@ -3484,15 +3484,15 @@ Allow read, write and delete access to Azure Spring Cloud Service Registry [Lear
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Spring Cloud Service Registry Contributor",
+  "roleName": "Azure Spring Apps Service Registry Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Azure Spring Cloud Service Registry Reader
+### Azure Spring Apps Service Registry Reader
 
-Allow read access to Azure Spring Cloud Service Registry [Learn more](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+Allow read access to Azure Spring Apps Service Registry [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3510,7 +3510,7 @@ Allow read access to Azure Spring Cloud Service Registry [Learn more](../spring-
   "assignableScopes": [
     "/"
   ],
-  "description": "Allow read access to Azure Spring Cloud Service Registry",
+  "description": "Allow read access to Azure Spring Apps Service Registry",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/cff1b556-2399-4e7e-856d-a8f754be7b65",
   "name": "cff1b556-2399-4e7e-856d-a8f754be7b65",
   "permissions": [
@@ -3523,7 +3523,7 @@ Allow read access to Azure Spring Cloud Service Registry [Learn more](../spring-
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Spring Cloud Service Registry Reader",
+  "roleName": "Azure Spring Apps Service Registry Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -9207,6 +9207,10 @@ Can manage Azure AD Domain Services and related network configurations [Learn mo
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Logs/Read | Reading data from all your logs |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Metrics/Read | Read metrics |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettingsCategories/Read | Read diagnostic settings categories |
 > | [Microsoft.AAD](resource-provider-operations.md#microsoftaad)/register/action | Register Domain Service |
 > | [Microsoft.AAD](resource-provider-operations.md#microsoftaad)/unregister/action | Unregister Domain Service |
 > | [Microsoft.AAD](resource-provider-operations.md#microsoftaad)/domainServices/* |  |
@@ -9290,6 +9294,10 @@ Can manage Azure AD Domain Services and related network configurations [Learn mo
         "Microsoft.Insights/AlertRules/Resolved/Action",
         "Microsoft.Insights/AlertRules/Throttled/Action",
         "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Insights/Logs/Read",
+        "Microsoft.Insights/Metrics/Read",
+        "Microsoft.Insights/DiagnosticSettings/*",
+        "Microsoft.Insights/DiagnosticSettingsCategories/Read",
         "Microsoft.AAD/register/action",
         "Microsoft.AAD/unregister/action",
         "Microsoft.AAD/domainServices/*",
@@ -9363,6 +9371,10 @@ Can view Azure AD Domain Services and related network configurations
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Logs/Read | Reading data from all your logs |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Metrics/read | Read metrics |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettings/read | Read a resource diagnostic setting |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettingsCategories/Read | Read diagnostic settings categories |
 > | [Microsoft.AAD](resource-provider-operations.md#microsoftaad)/domainServices/*/read |  |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
@@ -9405,6 +9417,10 @@ Can view Azure AD Domain Services and related network configurations
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Insights/AlertRules/Read",
         "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Insights/Logs/Read",
+        "Microsoft.Insights/Metrics/read",
+        "Microsoft.Insights/DiagnosticSettings/read",
+        "Microsoft.Insights/DiagnosticSettingsCategories/Read",
         "Microsoft.AAD/domainServices/*/read",
         "Microsoft.Network/virtualNetworks/read",
         "Microsoft.Network/virtualNetworks/subnets/read",
@@ -11156,7 +11172,7 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | *none* |  |
+> | [Microsoft.Monitor](resource-provider-operations.md#microsoftmonitor)/accounts/data/metrics/read | Read metrics data in any Monitoring Account |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -11176,7 +11192,9 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
         "Microsoft.Support/*"
       ],
       "notActions": [],
-      "dataActions": [],
+      "dataActions": [
+        "Microsoft.Monitor/accounts/data/metrics/read"
+      ],
       "notDataActions": []
     }
   ],

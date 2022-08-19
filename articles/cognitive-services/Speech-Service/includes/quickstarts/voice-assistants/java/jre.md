@@ -21,7 +21,7 @@ Before you get started, make sure to:
 
 ## Create and configure project
 
-Create an Eclipse project and [install the Speech SDK](/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=jre).
+Create an Eclipse project and [install the Speech SDK](../../../../quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
 
 Additionally, to enable logging, update the _pom.xml_ file to include the following dependency:
 

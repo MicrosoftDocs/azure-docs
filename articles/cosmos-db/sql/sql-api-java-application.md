@@ -22,7 +22,7 @@ ms.custom: devx-track-java
 > * [Python](./create-sql-api-python.md)
 > 
 
-This Java web application tutorial shows you how to use the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service to store and access data from a Java application hosted on Azure App Service Web Apps. In this article, you will learn:
+This Java web application tutorial shows you how to use the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service to store and access data from a Java application hosted on Azure App Service Web Apps. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb).  In this article, you will learn:
 
 * How to build a basic JavaServer Pages (JSP) application in Eclipse.
 * How to work with the Azure Cosmos DB service using the [Azure Cosmos DB Java SDK](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos).
@@ -38,7 +38,7 @@ This Java application tutorial shows you how to create a web-based task-manageme
 
 Before you begin this application development tutorial, you must have the following:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+* If you don't have an Azure subscription, without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 

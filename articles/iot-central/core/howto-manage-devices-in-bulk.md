@@ -13,6 +13,8 @@ ms.topic: how-to
 
 You can use Azure IoT Central to manage your connected devices at scale through jobs. Jobs let you do bulk updates to device and cloud properties and run commands. You can also use CSV files to import and export devices in bulk. This article shows you how to get started with using jobs in your own application and how to use the import and export features.
 
+To learn how to manage jobs by using the IoT Central REST API, see [How to use the IoT Central REST API to manage devices.](../core/howto-manage-jobs-with-rest-api.md)
+
 ## Create and run a job
 
 The following example shows you how to create and run a job to set the light threshold for a group of devices. You use the job wizard to create and run jobs. You can save a job to run later.
@@ -166,7 +168,7 @@ Enter a job name and description, and then select **Rerun job**. A new job is su
 
 ## Import devices
 
-To register a large number of devices to your application, you can bulk import devices from a CSV file. You can find an example CSV file in the [Azure Samples repository](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/bulk-upload-devices). The CSV file should include the following column headers:
+To register a large number of devices to your application, you can bulk import devices from a CSV file. You can find an example CSV file in the [Azure Samples repository](https://github.com/Azure-Samples/iot-central-docs-samples/tree/main/bulk-upload-devices). The CSV file should include the following column headers:
 
 | Column | Description |
 | - | - |

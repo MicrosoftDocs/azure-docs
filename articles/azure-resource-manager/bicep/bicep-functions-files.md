@@ -2,7 +2,7 @@
 title: Bicep functions - files
 description: Describes the functions to use in a Bicep file to load content from a file.
 ms.topic: conceptual
-ms.date: 07/01/2022
+ms.date: 07/08/2022
 ---
 
 # File functions for Bicep
@@ -58,6 +58,8 @@ Use this function when you have JSON content or minified JSON content that is st
 In VS Code, the properties of the loaded object are available intellisense. For example, you can create a file with values to share across many Bicep files. An example is shown in this article.
 
 This function requires **Bicep version 0.7.4 or later**.
+
+The maximum allowed size of the file is **1,048,576 characters**, including line endings.
 
 ### Return value
 

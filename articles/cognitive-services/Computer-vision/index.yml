@@ -48,7 +48,7 @@ conceptualContent:
           url: computer-vision-how-to-install-containers.md
         - itemType: learn
           text: Microsoft Learn
-          url: https://docs.microsoft.com/learn/modules/read-text-images-documents-with-computer-vision-service/
+          url: /learn/modules/read-text-images-documents-with-computer-vision-service/
         - itemType: reference
           text: OCR API reference
           url: https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
@@ -181,4 +181,3 @@ additionalContent:
           url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
 
 
-     

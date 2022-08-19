@@ -1,7 +1,7 @@
 ---
 title: Authentication secrets in training
 titleSuffix: Azure Machine Learning
-description: Learn how to pass secrets to training runs in secure fashion using the Azure Key Vault for your workspace.
+description: Learn how to pass secrets to training jobs in secure fashion using the Azure Key Vault for your workspace.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -13,19 +13,19 @@ ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
 ---
 
-# Use authentication credential secrets in Azure Machine Learning training runs
+# Use authentication credential secrets in Azure Machine Learning training jobs
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
-In this article, you learn how to use secrets in training runs securely. Authentication information such as your user name and password are secrets. For example, if you connect to an external database in order to query training data, you would need to pass your username and password to the remote run context. Coding such values into training scripts in cleartext is insecure as it would expose the secret. 
+In this article, you learn how to use secrets in training jobs securely. Authentication information such as your user name and password are secrets. For example, if you connect to an external database in order to query training data, you would need to pass your username and password to the remote job context. Coding such values into training scripts in cleartext is insecure as it would expose the secret. 
 
-Instead, your Azure Machine Learning workspace has an associated resource called a [Azure Key Vault](../key-vault/general/overview.md). Use this Key Vault to pass secrets to remote runs securely through a set of APIs in the Azure Machine Learning Python SDK.
+Instead, your Azure Machine Learning workspace has an associated resource called a [Azure Key Vault](../key-vault/general/overview.md). Use this Key Vault to pass secrets to remote jobs securely through a set of APIs in the Azure Machine Learning Python SDK.
 
 The standard flow for using secrets is:
  1. On local computer, log in to Azure and connect to your workspace.
  2. On local computer, set a secret in Workspace Key Vault.
- 3. Submit a remote run.
- 4. Within the remote run, get the secret from Key Vault and use it.
+ 3. Submit a remote job.
+ 4. Within the remote job, get the secret from Key Vault and use it.
 
 ## Set secrets
 
@@ -56,10 +56,10 @@ You can list secret names using the [`list_secrets()`](/python/api/azureml-core/
 
 In your local code, you can use the [`get_secret()`](/python/api/azureml-core/azureml.core.keyvault.keyvault#get-secret-name-) method to get the secret value by name.
 
-For runs submitted the [`Experiment.submit`](/python/api/azureml-core/azureml.core.experiment.experiment#submit-config--tags-none----kwargs-)  , use the [`get_secret()`](/python/api/azureml-core/azureml.core.run.run#get-secret-name-) method with the [`Run`](/python/api/azureml-core/azureml.core.run%28class%29) class. Because a submitted run is aware of its workspace, this method shortcuts the Workspace instantiation and returns the secret value directly.
+For jobs submitted the [`Experiment.submit`](/python/api/azureml-core/azureml.core.experiment.experiment#submit-config--tags-none----kwargs-)  , use the [`get_secret()`](/python/api/azureml-core/azureml.core.run.run#get-secret-name-) method with the [`Run`](/python/api/azureml-core/azureml.core.run%28class%29) class. Because a submitted run is aware of its workspace, this method shortcuts the Workspace instantiation and returns the secret value directly.
 
 ```python
-# Code in submitted run
+# Code in submitted job
 from azureml.core import Experiment, Run
 
 run = Run.get_context()

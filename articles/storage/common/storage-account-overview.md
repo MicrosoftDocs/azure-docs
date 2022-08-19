@@ -3,12 +3,12 @@ title: Storage account overview
 titleSuffix: Azure Storage
 description: Learn about the different types of storage accounts in Azure Storage. Review account naming, performance tiers, access tiers, redundancy, encryption, endpoints, and more.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/28/2022
-ms.author: tamram
+ms.author: jammart
 ms.subservice: common
 ---
 

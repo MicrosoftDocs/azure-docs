@@ -22,8 +22,8 @@ In the following sections, you'll use  the Azure CLI to assign roles, and obtain
 
 - An Azure subscription
 - Access granted to service in the desired Azure subscription. 
-- Azure CLI. [Installation Guide](https://docs.microsoft.com/cli/azure/install-azure-cli)
-- The following python libraries: os, requests, json
+- Azure CLI. [Installation Guide](/cli/azure/install-azure-cli)
+- The following Python libraries: os, requests, json
 
 ## Sign into the Azure CLI
 

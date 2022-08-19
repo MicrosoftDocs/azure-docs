@@ -9,7 +9,7 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: srijangupta
-
+ms.reviewer: mattmcinnes
 ---
 # Prepare an Oracle Linux virtual machine for Azure
 
