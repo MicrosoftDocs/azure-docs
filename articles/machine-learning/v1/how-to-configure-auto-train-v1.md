@@ -78,7 +78,7 @@ Requirements for training data in machine learning:
 Azure Machine Learning datasets expose functionality to:
 
 * Easily transfer data from static files or URL sources into your workspace.
-* Make your data available to training scripts when running on cloud compute resources. See [How to train with datasets](../how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) for an example of using the `Dataset` class to mount data to your remote compute target.
+* Make your data available to training scripts when running on cloud compute resources. See [How to train with datasets](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) for an example of using the `Dataset` class to mount data to your remote compute target.
 
 The following code creates a TabularDataset from a web url. See [Create a TabularDataset](how-to-create-register-datasets.md) for code examples on how to create datasets from other sources like local files and datastores.
 

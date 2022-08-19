@@ -78,6 +78,8 @@ Network connections determine the region into which dev boxes are deployed and a
 
 To perform the steps in this section, you must have an existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md) to create them. 
 
+If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box, type *Network connections* and then select **Network connections** from the list.

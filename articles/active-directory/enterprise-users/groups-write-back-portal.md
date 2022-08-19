@@ -3,10 +3,10 @@ title: Group writeback portal operations (preview) in Azure Active Directory
 description: The access points for group writeback to on-premises Active Directory in the Azure Active Directory admin center.
 keywords:
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.author: barclayn
 ms.reviewer: jordan.dahl
-ms.date: 07/21/2022
+ms.date: 08/18/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
