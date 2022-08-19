@@ -38,7 +38,7 @@ This article describes how to install and configure Primary Application Server (
 * [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux](planning-guide.md)
 * [Azure Virtual Machines deployment for SAP on Linux](deployment-guide.md)
-* [Azure Virtual Machines DBMS deployment for SAP on Linux](dbms-guide)
+* [Azure Virtual Machines DBMS deployment for SAP on Linux](dbms_guide_general.md)
 * [SAP Netweaver in pacemaker cluster](https://access.redhat.com/articles/3150081)
 * General RHEL documentation
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
