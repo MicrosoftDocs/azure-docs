@@ -16,8 +16,10 @@ Use this article to learn how to develop Cognitive Services applications securel
 ## Prerequisites
 
 * A valid Azure subscription - Create one for free.
+* [Azure CLI](/cli/azure/install-azure-cli)
+    * Required for: Python, Java and JavaScript
 * An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
+* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">A Language resource </a>.  After it deploys, click **Go to resource**.
     
 > [!NOTE]
 > The code example in this article uses a Language service resource, and sends an example [Named Entity Recognition](./language-service/named-entity-recognition/overview.md) API call. You can use the steps and update the code sample to use any [available Cognitive Services](./what-are-cognitive-services.md) features, with the appropriate Azure resource.
@@ -228,6 +230,33 @@ Run the application by selecting the **Debug** button at the top of Visual studi
     pip install azure-ai-textanalytics==5.1.0
     ```
 
+## Authenticating your application 
+
+To successfully run your application, you must authenticate it by logging in to your Azure Active Directory with the user name and password for your Azure subscription.
+
+### Azure CLI
+
+To authenticate with the Azure CLI, run the `az login` command. For users running on a system with a default web browser, the Azure CLI will launch the browser to authenticate.
+
+For systems without a default web browser, the `az login` command will use the device code authentication flow. You can also force the Azure CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
+
+### Azure PowerShell
+
+You can also use [Azure PowerShell][/powershell/azure] to authenticate. Applications using the `DefaultAzureCredential` or the `AzurePowerShellCredential` can then use this account to authenticate calls in their application when running locally.
+
+To authenticate with Azure PowerShell, run the `Connect-AzAccount` command. If you're running on a system with a default web browser and azure PowerShell `v5.0.0` or later, it will launch the browser to authenticate the user.
+
+For systems without a default web browser, the `Connect-AzAccount` command will use the device code authentication flow. You can also force Azure PowerShell to use the device code flow rather than launching a browser by specifying the `UseDeviceAuthentication` argument.
+
+
+## Grant access to your key vault
+
+Create an access policy for your key vault that grants secret permissions to your user account with the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command.
+
+```azurecli
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge
+```
+
 ## Import the example code
 
 Add the following code sample to a file named `program.py`. Be sure `keySecretName` and `endpointSecretName` match the names you gave your key and endpoint in your key vault. 
@@ -333,6 +362,26 @@ npm init -y
     npm install @azure/ai-text-analytics@5.1.0
     ```
 
+
+## Authenticating your application 
+
+To successfully run your application, you must authenticate it by logging in to your Azure Active Directory with the user name and password for your Azure subscription.
+
+### Azure CLI
+
+To authenticate with the Azure CLI, run the `az login` command. For users running on a system with a default web browser, the Azure CLI will launch the browser to authenticate.
+
+For systems without a default web browser, the `az login` command will use the device code authentication flow. You can also force the Azure CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
+
+### Azure PowerShell
+
+You can also use [Azure PowerShell][/powershell/azure] to authenticate. Applications using the `DefaultAzureCredential` or the `AzurePowerShellCredential` can then use this account to authenticate calls in their application when running locally.
+
+To authenticate with Azure PowerShell, run the `Connect-AzAccount` command. If you're running on a system with a default web browser and azure PowerShell `v5.0.0` or later, it will launch the browser to authenticate the user.
+
+For systems without a default web browser, the `Connect-AzAccount` command will use the device code authentication flow. You can also force Azure PowerShell to use the device code flow rather than launching a browser by specifying the `UseDeviceAuthentication` argument.
+
+
 ## Grant access to your key vault
 
 Create an access policy for your key vault that grants secret permissions to your user account with the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command.
@@ -340,6 +389,7 @@ Create an access policy for your key vault that grants secret permissions to you
 ```azurecli
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge
 ```
+
 
 ## Import the code sample
 
