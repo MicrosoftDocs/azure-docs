@@ -10,10 +10,17 @@ ms.custom: devx-track-azurecli, sdkv2, event-tier1-build-2022
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 06/28/2022
+ms.date: 08/19/2022
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
+> * [SDK v1](v1/how-to-configure-private-link.md)
+> * [SDK v2 (current version)](how-to-configure-private-link.md)
 
 In this document, you learn how to configure a private endpoint for your Azure Machine Learning workspace. For information on creating a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 

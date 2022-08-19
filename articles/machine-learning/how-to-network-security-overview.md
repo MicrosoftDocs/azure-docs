@@ -16,6 +16,13 @@ ms.custom: devx-track-python, references_regions, contperf-fy21q1, contperf-fy21
 <!-- # Virtual network isolation and privacy overview -->
 # Secure Azure Machine Learning workspace resources using virtual networks (VNets)
 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
+> * [SDK v1](v1/how-to-network-security-overview.md)
+> * [SDK v2 (current version)](how-to-network-security-overview.md)
+
 Secure Azure Machine Learning workspace resources and compute environments using virtual networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
 
 > [!TIP]

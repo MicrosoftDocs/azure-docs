@@ -10,10 +10,17 @@ ms.custom: devx-track-azurecli, sdkv1, event-tier1-build-2022
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 06/28/2022
+ms.date: 08/19/2022
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace with SDK and CLI v1
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
+> * [SDK v1](how-to-configure-private-link.md)
+> * [SDK v2 (current version)](../how-to-configure-private-link.md)
 
 In this document, you learn how to configure a private endpoint for your Azure Machine Learning workspace. For information on creating a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 
@@ -58,7 +65,7 @@ Use one of the following methods to create a workspace with a private endpoint. 
 > [!TIP]
 > If you'd like to create a workspace, private endpoint, and virtual network at the same time, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](../how-to-create-workspace-template.md).
 
-# [Python SDK v1](#tab/python)
+# [Python](#tab/python)
 
 The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) class, which can be used with [Workspace.create()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) to create a workspace with a private endpoint. This class requires an existing virtual network.
 
@@ -78,7 +85,7 @@ ws = Workspace.create(name='myworkspace',
     show_output=True)
 ```
 
-# [Azure CLI extension 1.0](#tab/azurecliextensionv1)
+# [Azure CLI](#tab/azurecliextensionv1)
 
 If you are using the Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md), use the [az ml workspace create](/cli/azure/ml/workspace#az-ml-workspace-create) command. The following parameters for this command can be used to create a workspace with a private network, but it requires an existing virtual network:
 
@@ -89,6 +96,8 @@ If you are using the Azure CLI [extension 1.0 for machine learning](reference-az
 * `--pe-subnet-name`: The name of the subnet to create the private endpoint in. The default value is `default`.
 
 These parameters are in addition to other required parameters for the create command. For example, the following command creates a new workspace in the West US region, using an existing resource group and VNet:
+
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az ml workspace create -r myresourcegroup \
@@ -101,10 +110,6 @@ az ml workspace create -r myresourcegroup \
     --pe-subnet-name mysubnet
 ```
 
-# [Portal](#tab/azure-portal)
-
-The __Networking__ tab in Azure Machine Learning studio allows you to configure a private endpoint. However, it requires an existing virtual network. For more information, see [Create workspaces in the portal](../how-to-manage-workspace.md).
-
 ---
 
 ## Add a private endpoint to a workspace
@@ -115,7 +120,7 @@ Use one of the following methods to add a private endpoint to an existing worksp
 >
 > If you have any existing compute targets associated with this workspace, and they are not behind the same virtual network tha the private endpoint is created in, they will not work.
 
-# [Python SDK v1](#tab/python)
+# [Python1](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -134,19 +139,11 @@ For more information on the classes and methods used in this example, see [Priva
 
 The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint add](/cli/azure/ml(v1)/workspace/private-endpoint#az-ml-workspace-private-endpoint-add) command.
 
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+
 ```azurecli
 az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval --pe-vnet-name myvnet
 ```
-
-# [Portal](#tab/azure-portal)
-
-From the Azure Machine Learning workspace in the portal, select __Private endpoint connections__ and then select __+ Private endpoint__. Use the fields to create a new private endpoint.
-
-* When selecting the __Region__, select the same region as your virtual network. 
-* When selecting __Resource type__, use __Microsoft.MachineLearningServices/workspaces__. 
-* Set the __Resource__ to your workspace name.
-
-Finally, select __Create__ to create the private endpoint.
 
 ---
 
@@ -159,7 +156,7 @@ You can remove one or all private endpoints for a workspace. Removing a private 
 
 To remove a private endpoint, use the following information:
 
-# [Python SDK v1](#tab/python)
+# [Python](#tab/python)
 
 To remove a private endpoint, use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)#delete-private-endpoint-connection-private-endpoint-connection-name-). The following example demonstrates how to remove a private endpoint:
 
@@ -176,15 +173,9 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 # [Azure CLI extension 1.0](#tab/azurecliextensionv1)
 
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+
 The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint delete](/cli/azure/ml(v1)/workspace/private-endpoint#az-ml-workspace-private-endpoint-delete) command.
-
-# [Portal](#tab/azure-portal)
-
-1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace.
-1. From the left side of the page, select __Networking__ and then select the __Private endpoint connections__ tab.
-1. Select the endpoint to remove and then select __Remove__.
-
-:::image type="content" source="./media/how-to-configure-private-link/remove-private-endpoint.png" alt-text="Screenshot of the UI to remove a private endpoint.":::
 
 ---
 
@@ -210,7 +201,7 @@ To enable public access, use the following steps:
 >
 > Microsoft recommends using `public_network_access` to enable or disable public access to a workspace.
 
-# [Python SDK v1](#tab/python)
+# [Python](#tab/python)
 
 To enable public access, use [Workspace.update](/python/api/azureml-core/azureml.core.workspace(class)#update-friendly-name-none--description-none--tags-none--image-build-compute-none--service-managed-resources-settings-none--primary-user-assigned-identity-none--allow-public-access-when-behind-vnet-none-) and set `allow_public_access_when_behind_vnet=True`.
 
@@ -223,17 +214,11 @@ ws = Workspace.from_config()
 ws.update(allow_public_access_when_behind_vnet=True)
 ```
 
-# [Azure CLI extension 1.0](#tab/azurecliextensionv1)
+# [Azure CLI](#tab/azurecliextensionv1)
+
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable public access to the workspace, add the parameter `--allow-public-access true`.
-
-# [Portal](#tab/azure-portal)
-
-1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace.
-1. From the left side of the page, select __Networking__ and then select the __Public access__ tab.
-1. Select __All networks__, and then select __Save__.
-
-:::image type="content" source="./media/how-to-configure-private-link/workspace-public-access.png" alt-text="Screenshot of the UI to enable public endpoint.":::
 
 ---
 
