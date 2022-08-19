@@ -36,22 +36,6 @@ MacOS
 brew install jq moreutils gettext
 ```
 
-### Helm Prerequisites
-
-This acrticle includes instructions for using Help to deploy the GPU operator. If you plan to use Helm, you will need do the following:
-
-1. Add the MOBB chart repository to your Helm using the following command:
-
-    ```bash
-    helm repo add mobb https://rh-mobb.github.io/helm-charts/
-    ```
-
-1. Update your repositories using the following command:
-
-    ```bash
-    helm repo update
-    ```
-
 ## Request GPU quota
 
 All GPU quotas in Azure are 0 by default. You will need to sign in to the Azure portal and request GPU quota. Since there is a lot of competition for GPU workers, you may have to provision an ARO cluster in a region where you can actually reserve GPU.
@@ -91,46 +75,6 @@ Update your pull secret to make sure you can install operators and connect to [c
 > [!NOTE] 
 > Skip this step if you have already recreated a full pull secret with cloud.redhat.com enabled.
 
-### Using Helm
-
-1. Before deploying the Helm chart, you must adopt the existing pull secret:
-
-   ```bash
-   kubectl -n openshift-config annotate secret \
-    pull-secret meta.helm.sh/release-name=pull-secret
-   kubectl -n openshift-config annotate secret \
-     pull-secret meta.helm.sh/release-namespace=openshift-config
-   kubectl -n openshift-config label secret \
-     pull-secret app.kubernetes.io/managed-by=Helm
-   ```
-
-1. Download your new pull secret from **https://console.redhat.com/openshift/downloads -> Tokens -> Pull secret**.  
-
-1. Use the new pull secret to update/create the pull secret in your cluster. This chart will merge the in-cluster pull secret with the new pull secret:
-
-   ```
-   helm upgrade --install pull-secret mobb/aro-pull-secret \
-     -n openshift-config --set-file pullSecret=$HOME/Downloads/pull-secret.txt
-   ```
-
-1. Enable Operator Hub:
-
-   ```bash
-   oc patch configs.samples.operator.openshift.io cluster --type=merge \
-         -p='{"spec":{"managementState":"Managed"}}'
-   oc patch operatorhub cluster --type=merge \
-         -p='{"spec":{"sources":[
-           {"name":"redhat-operators","disabled":false},
-           {"name":"certified-operators","disabled":false},
-           {"name":"community-operators","disabled":false},
-           {"name":"redhat-marketplace","disabled":false}
-         ]}}'
-   ```
-
-1. Skip to [GPU Machine Set](#gpu-machine-set).
-
-### Manually
-
 1. Log into to [cloud.redhat.com](https://cloud.redhat.com/).
 
 1. Browse to https://cloud.redhat.com/openshift/install/azure/aro-provisioned.
@@ -168,28 +112,7 @@ Update your pull secret to make sure you can install operators and connect to [c
 
 ## GPU Machine Set
 
-ARO uses Kubernetes MachineSet to create machine sets. The procedures below explain how to export the first machine set in a cluster and use that as a template to build a single GPU machine. 
-
-<!--I'm going to export the first machine set in my cluster (az 1) and use that as a template to build a single GPU machine in southcentralus region 1.-->
-
-### Export using Helm
-
-1. Create a new machine-set (replicas of 1). See the Chart's [values](https://github.com/rh-mobb/helm-charts/blob/main/charts/aro-gpu/values.yaml) file for configuration options.
-
-   ```
-   helm upgrade --install -n openshift-machine-api \
-      gpu mobb/aro-gpu
-   ```
-
-1. Wait for the new GPU nodes to become available.
-
-   ```bash
-   watch oc get machines
-   ```
-
-1. Skip to [Install Nvidia GPU Operator](#install-nvidia-gpu-operator)
-
-### Export manually
+ARO uses Kubernetes MachineSet to create machine sets. The procedure below explains how to export the first machine set in a cluster and use that as a template to build a single GPU machine. 
 
 1. View existing machine sets.
 
@@ -285,57 +208,6 @@ Use the following steps to create the new GPU machine. It may take 10-15 minutes
 ## Install Nvidia GPU Operator
 
 This section explains how to create the `nvidia-gpu-operator` namespace, set up the operator group, and install the Nvidia GPU operator.
-
-### Helm
-
-1. Create namespaces.
-
-    ```bash
-    oc create namespace openshift-nfd
-    oc create namespace nvidia-gpu-operator
-    ```
-
-1. Use the `mobb/operatorhub` chart to deploy the needed operators.
-
-    ```bash
-    helm upgrade -n nvidia-gpu-operator nvidia-gpu-operator \
-      mobb/operatorhub --install \
-      --values https://raw.githubusercontent.com/rh-mobb/helm-charts/main/charts/nvidia-gpu/files/operatorhub.yaml
-    ```
-
-1. Wait until the two operators are running.
-
-    ```bash
-    watch kubectl get pods -n openshift-nfd
-    ```
-
-    ```
-    NAME                                      READY   STATUS    RESTARTS   AGE
-    nfd-controller-manager-7b66c67bd9-rk98w   2/2     Running   0          47s
-    ```
-
-    ```bash
-    watch oc get pods -n nvidia-gpu-operator
-    ```
-
-    ```
-    NAME                            READY   STATUS    RESTARTS   AGE
-    gpu-operator-5d8cb7dd5f-c4ljk   1/1     Running   0          87s
-    ```
-
-1. Install the Nvidia GPU Operator chart.
-
-    ```bash
-
-    ```bash
-    helm upgrade --install -n nvidia-gpu-operator nvidia-gpu \
-      mobb/nvidia-gpu --disable-openapi-validation
-    ```
-
-1. Skip to [Validate GPU](#validate-gpu).
-
-
-### Manually
 
 1. Create Nvidia namespace.
 
@@ -659,7 +531,7 @@ This sections explains how to apply the Nvidia cluster config. Please read the [
 
 It may take some time for the Nvidia Operator and NFD to completely install and self-identify the machines. Run the following commands to validate that everything is running as expected:
 
-1.  Verify that NFD can see your GPU(s).
+1. Verify that NFD can see your GPU(s).
 
     ```bash
     oc describe node | egrep 'Roles|pci-10de' | grep -v master
