@@ -1,6 +1,6 @@
 ---
 title: 'Virtual network enforcement with security admin rules in Azure Virtual Network Manager (Preview)'
-description: #Required; You'll learn why you should use Security Admin Rules and how they differ from NSGs. 
+description: This article covers using security admin rules Azure Virtual Network Manager to enforcement security policies across virtual networks.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
