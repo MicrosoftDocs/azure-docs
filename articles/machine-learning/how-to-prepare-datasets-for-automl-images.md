@@ -45,7 +45,25 @@ It helps to create, manage, and monitor data labeling tasks for
 + Object detection (bounding box)
 + Instance segmentation (polygon)
 
-If you already have a data labeling project and you want to use that data, you can [export your labeled data as an Azure ML Dataset](how-to-create-image-labeling-projects.md#export-the-labels). You can then access the exported dataset under the 'Datasets' tab in Azure ML Studio, and download the underlying JSONL file from the Dataset details page under Data sources. The downloaded JSONL file can then be used to create an `MLTable` that can be used by automated ML for training computer vision models.
+If you already have a data labeling project and you want to use that data, you can do the following
+
++ [Export your labeled data as an Azure ML Dataset](how-to-create-image-labeling-projects.md#export-the-labels). You can then access the exported dataset under the 'Datasets' tab in Azure ML Studio, and download the underlying JSONL file from the Dataset details page under Data sources. The downloaded JSONL file can then be used to create an `MLTable` that can be used by automated ML for training computer vision models.
++ You can also provide the dataset in yaml using the following format `azureml:<tabulardataset_name>:<version>`.
+
+# [CLI v2](#tab/CLI-v2)
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+Create a .yml file with the following configuration.
+
+```yml
+training_data:
+  path: azureml:odFridgeObjectsTrainingDataset:1
+  type: mltable
+```
+
+# [Python SDK v2 (preview)](#tab/SDK-v2)
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=data-load-v1)]
+---
 
 ### Using pre-labeled training data
 If you have previously labeled data that you would like to use to train your model, you will first need to upload the images to the default Azure Blob Storage of your Azure ML Workspace and register it as a data asset. 

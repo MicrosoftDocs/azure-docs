@@ -351,24 +351,10 @@ search_space:
     learning_rate: "uniform(0.001, 0.01)"
     layers_to_freeze: "choice(0, 2)"
 ```
+
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
-```python
-image_job.extend_search_space(
-    [
-        SearchSpace(
-            model_name=Choice(["vitb16r224", "vits16r224"]),
-            learning_rate=Uniform(0.001, 0.01),
-            number_of_epochs=Choice(15, 30)
-        ),
-        SearchSpace(
-            model_name=Choice(["seresnext", "resnet50"]),
-            learning_rate=Uniform(0.001, 0.01),
-            layers_to_freeze=Choice(0, 2),
-        ),
-    ]
-)
-```
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=search-space-settings)]
 
 ### Define the parameter search space
 
