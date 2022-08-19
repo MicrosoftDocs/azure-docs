@@ -108,7 +108,7 @@ After this orchestration is initiated by a client it's processed by the function
 
    The runtime state is now `Running`, two new `TaskScheduled` messages were added, and the history now contains the five events `OrchestratorStarted`, `ExecutionStarted`, `TaskScheduled`, `TaskScheduled`, `OrchestratorCompleted`. These events represent the first episode of this orchestration's execution.
 
-3. A worker executes an *activity work item* to process one of the `TaskScheduled` message. It calls the activity function with input "2". When the activity function completes, it creates a `TaskCompleted` message containing the result. After the worker commits this work item, the task hub contains
+3. A worker executes an *activity work item* to process one of the `TaskScheduled` messages. It calls the activity function with input "2". When the activity function completes, it creates a `TaskCompleted` message containing the result. After the worker commits this work item, the task hub contains
 
    ![workitems-illustration-step-3](./media/durable-functions-task-hubs/work-items-3.png)
 
