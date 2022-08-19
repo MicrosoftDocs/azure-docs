@@ -27,7 +27,7 @@
   - name: Availability zone service and regional support
     href: az-service-support.md
   - name: Cross-region replication
-    href: across-region-replication-azure.md
+    href: cross-region-replication-azure.md
   - name: Migration to availability zone support
     href: az-migration-overview.md
   - name: Migration guides
