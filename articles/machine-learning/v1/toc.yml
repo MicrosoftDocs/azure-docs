@@ -270,6 +270,8 @@
             href: how-to-use-synapsesparkstep.md
           - name: Trigger a pipeline
             href: how-to-trigger-published-pipeline.md
+      - name: Convert notebook code into Python scripts 
+        href: how-to-convert-ml-experiment-to-production.md
 - name: Troubleshoot & debug
   items: 
     - name: Pipeline issues
