@@ -807,6 +807,9 @@
           - name: IP services
             tocHref: /azure/virtual-network/ip-services
             topicHref: /azure/virtual-network/ip-services
+      - name: Virtual Network Manager
+        tocHref: /azure/virtual-network-manager
+        topicHref: /azure/virtual-network-manager
       - name: Virtual WAN
         tocHref: /azure/virtual-wan/
         topicHref: /azure/virtual-wan/
@@ -1088,4 +1091,4 @@
     topicHref: /azure/spring-apps/index
   - name: Dev Box
     tocHref: /azure/dev-box/
-    topicHref: /shows/ask-the-expert/ask-the-expert-windows-as-a-dev-box
+    topicHref: /azure/dev-box/overview-what-is-microsoft-dev-box

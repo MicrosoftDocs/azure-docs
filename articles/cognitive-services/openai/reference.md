@@ -40,10 +40,10 @@ The Azure OpenAI service provides two methods for authentication. you can use  e
 The service APIs are versioned using the ```api-version``` query parameter. All versions follow the YYYY-MM-DD date structure, with a -preview suffix for a preview service. For example:
 
 ```
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2021-11-01-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-06-01-preview
 ```
 
-We currently have the following versions available: ```2022-03-01-preview``` and ```2021-11-01-preview```
+We currently have the following versions available: ```2022-06-01-preview```
 
 ## Completions
 With the Completions operation, the model will generate one or more predicted completions based on a provided prompt. The service can also return the probabilities of alternative tokens at each position.
@@ -514,7 +514,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_i
 
 **Supported versions**
 
-- `2022-03-01-preview`
+- `2022-06-01-preview`
 
 #### Example request
 

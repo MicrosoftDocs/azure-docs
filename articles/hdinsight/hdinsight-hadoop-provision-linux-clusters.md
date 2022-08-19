@@ -4,7 +4,7 @@ description: Set up Hadoop, Kafka, Spark, or HBase clusters for HDInsight from a
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18, devx-track-azurecli
-ms.date: 07/22/2022
+ms.date: 08/17/2022
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
@@ -243,13 +243,9 @@ For more information, see [Sizes for virtual machines](../virtual-machines/sizes
 
 ### Disk attachment
 
-On each of the **NodeManager** machines, **LocalResources** are ultimately localized in the target directories.
+HDInsight cluster comes with pre-defined disk space based on SKU. Running some  large applications, can lead to insufficient disk space, (with disk full error -  ```LinkId=221672#ERROR_NOT_ENOUGH_DISK_SPACE```) and job failures. 
 
-By  normal configuration only the default disk is added as the local disk in NodeManager. For large applications this disk space may not be enough which can result in job failure.
-
-If the cluster is expected to run large data application, you can choose to add extra disks to the **NodeManager**.
-
-You can add number of disks per VM and each disk will be of 1 TB size.
+More discs can be added to the cluster using the new feature **NodeManager**’s local directory. At the time of Hive and Spark cluster creation, the number of discs can be selected and added to the worker nodes. The selected disk, which will be of size 1TB each, would be part of **NodeManager**'s local directories.
 
 1. From **Configuration + pricing** tab
 1. Select **Enable managed disk** option
