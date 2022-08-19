@@ -12,11 +12,11 @@ ms.date: 05/02/2022
 
 # Quickstart: Use Bicep to create an Azure Database for MySQL server
 
-[!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. In this quickstart, you use Bicep to create an Azure Database for MySQL server with virtual network integration. You can create the server in the Azure portal, Azure CLI, or Azure PowerShell.
 
-[!INCLUDE[About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE[About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ You need an Azure account with an active subscription. [Create one for free](htt
 
 ## Review the Bicep file
 
-You create an Azure Database for MySQL server with a defined set of compute and storage resources. To learn more, see [Azure Database for MySQL pricing tiers](concepts-pricing-tiers.md). You create the server within an [Azure resource group](../../azure-resource-manager/management/overview.md).
+You create an Azure Database for MySQL server with a defined set of compute and storage resources. To learn more, see [Azure Database for MySQL pricing tiers](concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/managed-mysql-with-vnet/).
 
@@ -116,4 +116,4 @@ Remove-AzResourceGroup -Name exampleRG
 For a step-by-step tutorial that guides you through the process of creating a Bicep file with Visual Studio Code, see:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create Bicep files with Visual Studio Code](../../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md)
+> [Quickstart: Create Bicep files with Visual Studio Code](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md)
