@@ -21,7 +21,7 @@ This article describes the architecture and processes used when you replicate, f
 
 The following table and graphic provide a high-level view of the components used for VMware VMs/physical machines disaster recovery to Azure.
 
-[![Physical server to Azure architecture](/media/physical-server-azure-architecture-modernized/architecture-modernized.png)](/media/physical-servers-azure-architecture-modernized/architecture-modernized.png#lightbox)
+[![Physical server to Azure architecture modernized](/media/physical-server-azure-architecture-modernized/architecture-modernized.png)](/media/physical-servers-azure-architecture-modernized/architecture-modernized.png#lightbox)
 
 **Component** | **Requirement** | **Details**
 --- | --- | ---
