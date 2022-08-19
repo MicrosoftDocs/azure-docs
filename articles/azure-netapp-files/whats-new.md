@@ -12,12 +12,14 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 08/16/2022
+ms.date: 08/22/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+* [Customer-managed keys](configure-customer-managed-keys.md) (Preview)
 
 ## August 2022
 

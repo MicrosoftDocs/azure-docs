@@ -18,9 +18,121 @@ ms.author: anfdocs
 
 # Configure customer-managed keys for Azure NetApp Files
 
-Customer-managed keys in Azure NetApp Files enables you to use your own keys rather than a Microsoft-managed key when creating a new volume. 
+Customer-managed keys (CMK) in Azure NetApp Files enables you to use your own keys rather than a Microsoft-managed key when creating a new volume. 
 
 ## Considerations
 
-## Requirements
+> [!IMPORTANT]
+> The customer-manged keys feature is currently in preview. The program is controlled via Azure Feature Exposure Control (AFEC). To access this preview program, contact your account team.
 
+* Support for Azure NetApp Files customer-managed keys (CMK) is only for new volumes. There is currently no support for migrating existing volumes to CMK encryption. 
+* To create a volume using CMK, you must select the *Standard* network features. CMK volumes are not supported for the basic network features. Follow instructions in [Configure network features for a volume to](configure-network-features.md):  
+    * [Register for the standard network features](configure-network-features.md#register-the-feature)
+    * [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page   
+* Rekey operation is currently not supported.
+* Switching from user-assigned identity to the system-assigned identity is currently not supported.
+* MSI Automatic certificate renewal is not currently supported.  
+* If the certificate is more than 46 days old, you can call proxy ARM operation via REST API to renew the certificate. For example: 
+    ```rest
+     /{accountResourceId}/renewCredentials?api-version=2022-01 – example /subscriptions/<16 digit subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-01  
+    ```  
+* If Azure NetApp Files fails to create a CMK volume, error messages are displayed. See the [Error messages and troubleshooting](#) for details. <!-- insert link -->
+
+## Requirements
+Before creating your first CMK volume, you must have set up the following: 
+* An [Azure Key Vault](../key-vault/general/overview.md), containing at least one key. 
+    * The key vault must have soft delete and purge protection enabled. 
+    * The key must be of type RSA. 
+* The key vault must have an [Azure Private Endpoint](../private-link/private-endpoint-overview.md).
+    * The private endpoint must reside in a different subnet than the one delegated to Azure NetApp Files. The subnet must be in the same VNet as the one delegated to Azure NetApp.  
+
+For more information about Azure Key Vault and Azure Private Endpoint, refer to:
+* [Quickstart: Create a key vault ](../key-vault/general/quick-create-portal.md)
+* [Create or import a key into the vault](../key-vault/keys/quick-create-portal.md)
+* [Create a private endpoint](../private-link/create-private-endpoint-portal?tabs=dynamic-ip.md)
+* [More about keys and supported key types](../key-vault/keys/about-keys)
+
+## Configure a NetApp account to use customer-managed keys
+
+1. In the Azure portal and under Azure NetApp Files, select **Encryption**.
+
+    The **Encryption** page enables you to manage encryption settings for your NetApp account. It includes an option to let you set your NetApp account to use your own encryption key, which is stored in [Azure Key Vault](../key-vault/general/basic-concepts.md). This setting provides a system-assigned identity to the NetApp account, and it adds an access policy for the identity with the required key permissions.
+
+    :::image type="content" source="../media/azure-netapp-files/<TKTKTKTK>.png" alt-text="Diagram depicting Azure native environment setup with cross-region VNet peering." lightbox="../media/azure-netapp-files/<TKTKTK>.png":::
+    <!-- insert image -->
+
+1. When you set your NetApp account to use customer-managed key, you have two ways to specify the Key URI:  
+    * The **Select from key vault** option allows you to select a key vault and a key. 
+    :::image type="content" source="../media/azure-netapp-files/<TKTKTKTK>.png" alt-text="Diagram depicting Azure native environment setup with cross-region VNet peering." lightbox="../media/azure-netapp-files/<TKTKTK>.png":::
+    <!-- insert image -->
+    * The **Enter key URI** option allows you to enter manually the key URI. 
+    :::image type="content" source="../media/azure-netapp-files/<TKTKTKTK>.png" alt-text="Diagram depicting Azure native environment setup with cross-region VNet peering." lightbox="../media/azure-netapp-files/<TKTKTK>.png":::
+    <!-- insert image -->
+
+## Configure a NetApp account to use customer-managed keys with user-assigned identity 
+
+The **Encryption** page does not currently support choosing an identity type (either system-assigned or user-assigned). To configure encryption with the user-assigned identity, you need to use the REST API to do so. A good tool to use Azure REST API is [projectkudu/ARMClient: A simple command line tool to invoke the Azure Resource Manager API (github.com)](https://github.com/projectkudu/ARMClient). 
+
+1. Create a user-assigned identity in the same region as your NetApp account. Alternately, you can use an existing identity. 
+    For more information, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp.md).
+1. Configure access to the key vault. You can use RBAC or access policies. 
+    1. For RBAC, configure the key vault to use RBAC authorization.
+    <!-- insert image get eng update -->
+    Create a custom role with permissions **read**, **encrypt**, and **decrypt**. 
+    <!-- insert image get eng update -->
+    Add an assignment for the user-assigned identity for the custom role on the key vault. Alternatively, you can use the built-in role `key vault crypto user`, but this role includes more permissions than are necessary.
+    1. Add an access policy for the user-assigned identity on the key vault. 
+    <!-- insert image get eng update -->
+    Select the permissions **Get**, **Encrypt**, and **Decrypt**. 
+    <!-- insert image get eng update -->
+    Select the user-assigned identity under **Select principal**. Leave **Authorized application** blank. 
+    <!-- insert image get eng update -->
+1. Send a PATCH request via the REST API to the NetApp account `/{accountResourceId}?api-version=2022-03` with the following request body:
+    Take note of the `Azure-AsyncOperation` header in the response. That URL can be polled to get the result of the asynchronous patch operation. 
+    ```rest
+    { 
+      "identity": { 
+        "type": "UserAssigned", 
+        "userAssignedIdentities": { 
+          "<User assigned identity resource id>": {} 
+        } 
+      }, 
+      "properties": { 
+        "encryption": { 
+          "keySource": "Microsoft.KeyVault", 
+          "keyVaultProperties": { 
+            "keyVaultUri": “<key vault uri>”, 
+            "keyName": "<key name>", 
+            "keyVaultResourceId": "<key vault resource id>" 
+          }, 
+          "identity": { 
+            "userAssignedIdentity": "<user assigned identity resource id>" 
+          } 
+        } 
+      } 
+    } 
+    Examples 
+    
+    User assigned identity resource id: `/subscriptions/ccdce6ae-b7b3-4a53-b9c5-48e2caa01800/resourcegroups/snaebjor-rotterdam-westcentralus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/snaebjor-wcu-identity` 
+    
+    Key vault URI: https://snaebjor-wcu2.vault.azure.net 
+    
+    Key name: `/subscriptions/ccdce6ae-b7b3-4a53-b9c5-48e2caa01800/resourceGroups/snaebjor-rotterdam-westcentralus/providers/Microsoft.KeyVault/vaults/snaebjor-wcu2`
+    ```
+
+## Use ARM REST API with ARMClient 
+
+ARMClient is an open-source tool that makes on-demand requests to ARM REST API convenient. Follow the readme document to install and sign into the tool: [projectkudu/ARMClient: A simple command line tool to invoke the Azure Resource Manager API (github.com)](https://github.com/projectkudu/ARMClient).
+
+If you are using ARMClient, save the request body in a JSON file for reference. Be sure to use the `–verbose` flag. 
+
+Example:  armclient patch <netapp account resource id>?api-version=2022-03-01 ./<path to json file> -verbose 
+
+Copy the Azure-AsyncOperation header from the response and poll the URI with armclient get <Azure-AsyncOperation value>. 
+
+<!-- insert image get eng update -->
+
+## Next steps
+
+* [Azure NetApp Files API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-11-01)
+* 
