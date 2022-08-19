@@ -18,7 +18,7 @@ The Azure VMware Solution management and control plane has the following resourc
 
 | **Area** | **Description** | **Provisioned vCPUs** | **Provisioned vRAM (GB)** | **Provisioned vDisk (GB)** |  **Typical CPU Usage (GHz)** | **Typical vRAM Usage (GB)** | **Typical Raw vSAN Datastore Usage (GB)** |
 | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
-| VMware vSphere | vCenter Server | 8 | 24 | 499 | 1.1 | 3.6 | 1020 |
+| VMware vSphere | vCenter Server | 8 | 24 | 499 | 1.1 | 3.6 | 1,020 |
 | VMware vSphere | ESXi node 1 | N/A | N/A | N/A | 9.4 | 0.4 | N/A |
 | VMware vSphere | ESXi node 2 | N/A | N/A | N/A | 9.4 | 0.4 | N/A |
 | VMware vSphere | ESXi node 3 | N/A | N/A | N/A | 9.4 | 0.4 | N/A |
