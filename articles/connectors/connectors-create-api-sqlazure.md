@@ -551,7 +551,7 @@ Runs a stored procedure on an SQL database.
 
 | Name | Type |
 |------|------|
-| **Result** | An object that contains the result sets object array, return code, and output parameters |
+| **Result** | An object that contains the result sets array, return code, and output parameters |
 | **Result Result Sets** | An object array that contains all the result sets. A stored procedure might return zero, one, or multiple result sets. |
 | **Result Return Code** | An integer that represents the status code from the stored procedure |
 | **Result Stored Procedure Parameters** |  An object that contains the final values of the stored procedure's output and input-output parameters |
