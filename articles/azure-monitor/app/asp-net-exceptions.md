@@ -4,7 +4,7 @@ description: Capture exceptions from ASP.NET apps along with request telemetry.
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 05/19/2021
+ms.date: 08/19/2022
 ms.reviewer: casocha
 ---
 
@@ -247,7 +247,8 @@ namespace MVC2App.Controllers
         {
             if (filterContext != null && filterContext.HttpContext != null && filterContext.Exception != null)
             {
-                //If customError is Off, then AI HTTPModule will report the exception
+                //The attribute should track exceptions only when CustomErrors setting is On
+                //if CustomErrors is Off, exceptions will be caught by AI HTTP Module
                 if (filterContext.HttpContext.IsCustomErrorEnabled)
                 {   //or reuse instance (recommended!). see note above
                     var ai = new TelemetryClient();
