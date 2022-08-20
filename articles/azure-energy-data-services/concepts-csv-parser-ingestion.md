@@ -15,7 +15,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 One of the simplest generic data formats that are supported by the Microsoft Energy Data Services ingestion process is the "comma separated values" format, which is called a CSV format. The CSV format is processed through a CSV Parser DAG definition. 
 
-CSV Parser DAG implements an ELT approach to data loading, i.e., data is loaded after it is extracted. Customers can leverage CSV Parser DAG to load data that does not match the [OSDU](https://osduforum.org) canonical schema. Customers need to create and register a custom schema using the schema service matching the format of the CSV file.
+CSV Parser DAG implements an ELT approach to data loading, that is, data is loaded after it's extracted. Customers can use CSV Parser DAG to load data that doesn't match the [OSDU](https://osduforum.org) canonical schema. Customers need to create and register a custom schema using the schema service matching the format of the CSV file.
 
 ## What does CSV Ingestion do?
 
@@ -37,12 +37,12 @@ The CSV Parser ingestion currently supports the following functionality as a one
 1. Unique data identity for an object in the Data Platform. - CSV Ingestion generates Unique Identifier (ID) for each record by combining source, entity type and a base64 encoded string formed by concatenating natural key(s) in the data. In case the schema used for CSV Ingestion doesn't contain any natural keys storage service will generate random IDs for every record
 1. Typecast to JSON-supported data types:
    1. **Number** - Typecast integers, doubles, floats, etc. as described in the schema to "number". Some common spatial formats, such as Degrees/Minutes/Seconds (DMS) or Easting/Northing should be typecast to "String." Special Handling of these string formats will be handled in the Spatial Data Handling Task.
-   1. **Date** - Typecast dates as described in the schema to a date, doing a date format conversion toISO8601TZ format (for fully qualified dates). Some date fragments (such as years) can't be easily converted to this format and should be typecast to a number instead, or in the case of textual date representations, for example, "July" should be typecast to string.
+   1. **Date** - Typecast dates as described in the schema to a date, doing a date format conversion toISO8601TZ format (for fully qualified dates). Some date fragments (such as years) can't be easily converted to this format and should be typecast to a number instead, or if textual date representations, for example, "July" should be typecast to string.
    1. **Others** - All other encountered attributes should be typecast as string.
 1. Stores a batch of records in the context of a particular ingestion job. Fragments/outputs from the previous steps are collected into a batch, and formatted in a way that is compatible with the Storage Service with the appropriate additional information, such as the ACL's, Legal tags, etc.
 1. Support frame of reference handling:
    1. **Unit** -converting declared frame of reference information into the appropriate persistable reference as per the Unit Service. This information is stored in the meta[] block.
-   1. **CRS** -the CRS Frame of Reference information should be included in the schema of the data, including the source CRS (either geographic or projected), and in the case of projected, This CRS info and persistable reference (if provided in schema) information is stored in the meta[] block.
+   1. **CRS** -the CRS Frame of Reference information should be included in the schema of the data, including the source CRS (either geographic or projected), and if projected, This CRS info and persistable reference (if provided in schema) information is stored in the meta[] block.
 1. Creates relationships as declared in the source schema.
 1. Supports publishing status of ingested/failed records on GSM article
 
@@ -68,7 +68,7 @@ The CSV Parser ingestion currently supports the following functionality as a one
 
 ### Pre-requisites
 
-* User is expected to have a valid auth token to trigger APIs. Auth token\User can use the ingestion framework and CSV DAG once he has the below access.
+* To trigger APIs, the user must have the below access and a valid authorization token
   * Access to services: Search, Storage, Schema, File Service, Entitlement, Legal
   * Access to Workflow service.
   * Following is list of service level groups that you need access to register and execute DAG using workflow service.
@@ -81,8 +81,8 @@ The CSV Parser ingestion currently supports the following functionality as a one
 * **Create schema** – Definition of the kind of records that will be created as outcome of ingestion workflow. The schema is uploaded through the schema service. The schema needs to be registered using schema service.
 * **Uploading the file** – Use file Service to upload a file. The file service provides a signed URL, which enables the customers to upload the data without credential requirements.
 * **Create Metadata record for the file** – Use file service to create meta data. The meta data enables discovery of file and secure downloads. It also provides a mechanism to provide information associated with the file that is needed during the processing of the file.  
-* The file ID created is provided to CSV parser, which takes care of downloading the file, ingesting the file, and ingesting the records. This is done with the help of workflow service. The customers also need to register the workflow, the CSV parser DAG is already deployed in the Airflow.
-* **Trigger the Workflow service** – This is an explicit way of starting an ingestion workflow. To trigger the workflow, the customer needs to provide the file ID, the kind of the file and data partition ID. As the workflow is triggered the customer gets a run ID.
+* The file ID created is provided to the CSV parser, which takes care of downloading the file, ingesting the file, and ingesting the records with the help of workflow service. The customers also need to register the workflow, the CSV parser DAG is already deployed in the Airflow.
+* **Trigger the Workflow service** – To trigger the workflow, the customer needs to provide the file ID, the kind of the file and data partition ID. Once the workflow is triggered, the customer gets a run ID.
 Workflow service provides API to monitor the status of each workflow run. Once the csv parser run is completed, data is ingested into OSDU platform, and can be searched through search service
 
 ## Next steps
