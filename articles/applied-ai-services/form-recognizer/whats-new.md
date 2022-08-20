@@ -19,11 +19,13 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## August 2022
 
-Form Recognizer REST API v3.0 is now generally available and ready for use in production applications!
+### Form Recognizer v3.0 generally available
 
-The August release introduces the following model performance updates:
+**Form Recognizer REST API v3.0 is now generally available and ready for use in production applications!**
 
-#### Form Recognizer Studio updates
+#### The August release introduces the following model performance updates:
+
+##### Form Recognizer Studio updates
 
 * **Next steps**. Under each model page, the Studio now has a next steps section. Users can quickly reference sample code, troubleshooting guidelines, and pricing information.
 
@@ -33,7 +35,7 @@ The August release introduces the following model performance updates:
 
 * **Delete documents**. The Studio now supports deleting documents from labeled dataset within custom projects.
 
-#### Form Recognizer service updates
+##### Form Recognizer service updates
 
 * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields will now resolve to the existing fields TotalTax and Line/Tax respectively.
 
