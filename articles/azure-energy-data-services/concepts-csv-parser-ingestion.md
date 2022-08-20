@@ -58,11 +58,11 @@ The CSV Parser ingestion currently supports the following functionality as a one
 
 ## CSV ingestion components diagram
 
-:::image type="content" source="media/concepts-csv-parser-ingestion/csv-ingestion-components-diagram.png" alt-text="Image":::
+:::image type="content" source="media/concepts-csv-parser-ingestion/csv-ingestion-components-diagram.png" alt-text="CSV ingestion components diagram":::
 
 ## CSV ingestion sequence diagram
 
-:::image type="content" source="media/concepts-csv-parser-ingestion/csv-ingestion-sequence-diagram.png" alt-text="Image":::
+:::image type="content" source="media/concepts-csv-parser-ingestion/csv-ingestion-sequence-diagram.png" alt-text="CSV ingestion sequence diagram":::
 
 ## CSV parser ingestion workflow
 
