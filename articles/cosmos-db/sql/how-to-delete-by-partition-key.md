@@ -98,6 +98,6 @@ Support for other SDKs is planned for the future.
 
 See the following articles to learn about more SDK operations in Azure Cosmos DB.
 - [Query an Azure Cosmos container
-](https://docs.microsoft.com/en-us/azure/cosmos-db/sql/how-to-query-container)
+](how-to-query-container.md)
 - [Transactional batch operations in Azure Cosmos DB using the .NET SDK
-](https://docs.microsoft.com/en-us/azure/cosmos-db/sql/transactional-batch?tabs=dotnet)
+](transactional-batch.md)
