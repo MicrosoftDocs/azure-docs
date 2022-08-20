@@ -53,6 +53,8 @@ Use [version 4.19.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos) 
 
 
 ```java
+// Suppose our container is partitioned by tenantId, and we want to delete all the data for a particular tenant Contoso
+
 // Delete by logical partition key
 CosmosItemResponse<?> deleteResponse = container.deleteAllItemsByPartitionKey(
             new PartitionKey("Contoso"), new CosmosItemRequestOptions()).block();
