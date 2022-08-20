@@ -17,6 +17,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-create-register-data-assets.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-data-assets",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-prebuilt-docker-images-inference-python-extensibility.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-prebuilt-docker-images-inference-python-extensibility",
         "redirect_document_id": true
