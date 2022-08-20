@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 08/19/2022
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -35,6 +35,11 @@ This section provides references for solutions for Linux OSS applications and da
 
 * [General mainframe refactor to Azure - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)
 * [Refactor mainframe applications with Advanced - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-advanced)
+* [Refactor mainframe applications with Astadia – Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-astadia)
+* [Refactor mainframe computer systems that run Adabas & Natural - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-adabas-aks)
+* [Refactor IBM z/OS mainframe coupling facility (CF) to Azure - Azure Example Scenarios](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)
+* [Refactor mainframe applications to Azure with Raincode compilers - Azure Example Scenarios](/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture)
+
 
 ### Oracle
 
@@ -155,6 +160,10 @@ This section provides references for Virtual Desktop infrastructure solutions.
 * [Azure Virtual Desktop at enterprise scale](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 * [Microsoft FSLogix for the enterprise - Azure NetApp Files best practices](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
 * [Setting up Azure NetApp Files for MSIX App Attach](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/setting-up-azure-netapp-files-for-msix-app-attach-step-by-step/m-p/1990021)
+* [Multiple forests with AD DS and Azure AD – Azure Example Scenarios](/azure/architecture/example-scenario/wvd/multi-forest)
+* [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop – Azure Example Scenarios](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr)
+* [Deploy Esri ArcGIS Pro in Azure Virtual Desktop – Azure Example Scenarios](/azure/architecture/example-scenario/data/esri-arcgis-azure-virtual-desktop)
+
 
 ### Citrix   
 
@@ -213,6 +222,7 @@ This section provides solutions for Azure platform services.
 ### Azure Red Hat Openshift   
 
 *	[Using Trident to Automate Azure NetApp Files from OpenShift](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-trident-to-automate-azure-netapp-files-from-openshift/ba-p/2367351)
+*   [Deploy IBM Maximo Application Suite on Azure – Azure Example Scenarios](/azure/architecture/example-scenario/apps/deploy-ibm-maximo-application-suite)
 
 ### Azure Batch
 
