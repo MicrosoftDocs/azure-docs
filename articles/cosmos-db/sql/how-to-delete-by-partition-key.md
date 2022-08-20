@@ -25,7 +25,7 @@ To help limit the resources used by this background task, the delete by partitio
 
 ## Getting started
 
-To use the feature, your Cosmos account must be enrolled in the preview. To enroll, submit a request for the **DeleteAllItemsByPartitionKey** feature via the [**Preview Features** page](../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page. 
+To use the feature, your Cosmos account must be enrolled in the preview. To enroll, submit a request for the **DeleteAllItemsByPartitionKey** feature via the [**Preview Features** page](../../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page. 
 
 :::image type="content" source="media/how-to-delete-by-partition-key/preview-enrollment-delete-by-partition-key.png" alt-text="Enroll in DeleteAllItemsByPartitionKey in Preview Features blade":::
 
@@ -78,9 +78,9 @@ For example, suppose you have provisioned 1000 RU/s on a container. There is an 
 ### Known issues
 For certain scenarios, the effects of a delete by partition key operation is not guaranteed to be immediately reflected. The effect may be partially seen as the operation progresses. 
 
-- [Aggregate queries](sql-query-aggregate-functions.md.md) that use the index - for example, COUNT queries - that are issued during an ongoing delete by partition key operation may contain the results of the documents to be deleted. This may occur until the delete operation is fully complete.
+- [Aggregate queries](sql-query-aggregate-functions.md) that use the index - for example, COUNT queries - that are issued during an ongoing delete by partition key operation may contain the results of the documents to be deleted. This may occur until the delete operation is fully complete.
 - Queries issued against the [analytical store](../analytical-store-introduction.md) during an ongoing delete by partition key operation may contain the results of the documents to be deleted. This may occur until the delete operation is fully complete.
-- [Continuous backup (point in time restore)](../continuous-backup-restore-introduction.md.md) - a restore that is triggered during an ongoing delete by partition key operation may contain the results of the documents to be deleted in the restored collection. It is not recommended to use this preview feature if you have a scenario that requires continuous backup. 
+- [Continuous backup (point in time restore)](../continuous-backup-restore-introduction.md) - a restore that is triggered during an ongoing delete by partition key operation may contain the results of the documents to be deleted in the restored collection. It is not recommended to use this preview feature if you have a scenario that requires continuous backup. 
 
 ## How to give feedback or report an issue/bug
 * Email cosmosPkDeleteFeedbk@microsoft.com with questions or feedback.
