@@ -39,9 +39,7 @@
         - name: Object detection with AutoML
           displayName: automl, automated, auto ml, computer vision, images, image model
           href: tutorial-auto-train-image-models.md
-        - name: Prep your code for production
-          displayName: mlops, mlopspython, production
-          href: tutorial-convert-ml-experiment-to-production.md
+
     - name: Studio
       items: 
         - name: Automated ML (UI)
@@ -283,7 +281,7 @@
           displayName: compute target, low priority, managed identity
           href: how-to-create-attach-compute-cluster.md
         - name: AKS and Arc Enabled Kubernetes cluster
-          displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
+          displayName: Azure Arc, Kubernetes, on-premises, multi-cloud, attach
           href: how-to-attach-kubernetes-anywhere.md
         - name: Manage compute resources
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
@@ -356,7 +354,7 @@
           href: how-to-datastore.md
         - name: Create data assets
           displayName: Create data assets
-          href: how-to-create-register-data-assets.md
+          href: how-to-create-data-assets.md
         - name: Read & write data in jobs
           displayName: Read & write data in jobs
           href: how-to-read-write-data-v2.md
