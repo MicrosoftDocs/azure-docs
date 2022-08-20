@@ -54,7 +54,7 @@ Only one Blob trigger exists and has either of the following names, based on whe
 ||||
 
 > [!IMPORTANT]
-> The Built-in Blob trigger will process all **existing** blobs in the container when you set up the trigger, while the managed Blob trigger will ignore all existing blobs when you set up the trigger.
+> When you set up the Blob trigger, the built-in version processes all existing blobs in the container, while the managed version ignores existing blobs in the container.
 
 When the trigger fires each time, Azure Logic Apps creates a logic app instance and starts running the workflow.
 
