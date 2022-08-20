@@ -30,7 +30,7 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
   
 ## Step by Step guide
 
-1. The user needs to be part of the `users.datalake.admins` group and user needs to generate a valid refresh token. See documentation [here](./how-to-generate-refresh-token.md) to find instructions about how to generate a refresh token. If you continue to follow other "how-to" documentation, you'll use this refresh token again. Once you've generated the token, store it in a place where you'll be able to access it in the future. If it isn't present, add the group for the member ID. In this case, use the app ID you have been using for everything as the `user-email`.
+1. The user needs to be part of the `users.datalake.admins` group and user needs to generate a valid refresh token. See documentation [here](how-to-generate-refresh-token.md) to find instructions about how to generate a refresh token. If you continue to follow other "how-to" documentation, you'll use this refresh token again. Once you've generated the token, store it in a place where you'll be able to access it in the future. If it isn't present, add the group for the member ID. In this case, use the app ID you have been using for everything as the `user-email`.
 
     **Note:** `data-partition-id` should be in the format `<instance-name>-<data-partition-name>` in both the header and the url, and will be for any following    command that requires `data-partition-id`.
 
