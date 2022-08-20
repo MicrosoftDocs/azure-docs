@@ -93,14 +93,13 @@ export SERVICE_IDENTITY=$(az spring app show --name "springapp" -s "myspringclou
 
 ### [User-assigned managed identity](#tab/user-assigned-managed-identity)
 
-First, create a user-assigned managed identity in advance with its resource ID set to `$USER_IDENTITY_RESOURCE_ID`.
+First, create a user-assigned managed identity in advance with its resource ID set to `$USER_IDENTITY_RESOURCE_ID`. Save the client ID for property configuration below.
 
-:::image type="content" source="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png" alt-text="Screenshot of Azure portal showing the Managed Identity Properties screen with 'Principle I D' and 'Client I D' highlighted." lightbox="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png":::
+:::image type="content" source="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png" alt-text="Screenshot of Azure portal showing the Managed Identity Properties screen with 'Resource I D', 'Principle I D' and 'Client I D' highlighted." lightbox="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png":::
 
 ```azurecli
 export SERVICE_IDENTITY={principal ID of user-assigned managed identity}
 export USER_IDENTITY_RESOURCE_ID={resource ID of user-assigned managed identity}
-export USER_IDENTITY_CLIENT_ID={client ID of user-assigned managed identity}
 ```
 
 The following example creates an app named `springapp` with a user-assigned managed identity, as requested by the `--user-assigned` parameter.
@@ -231,7 +230,7 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Cli
        --resource-group <your-resource-group-name> \
        --name "springapp" \
        --service <your-Azure-Spring-Apps-instance-name> \
-       --jar-path target/demo-0.0.1-SNAPSHOT.jar
+       --artifact-path target/demo-0.0.1-SNAPSHOT.jar
    ```
 
 1. To test your app, access the public endpoint or test endpoint by using the following command:
