@@ -23,11 +23,9 @@ When creating a VM in Azure portal, boot diagnostics is enabled by default. The 
 
 An alternative boot diagnostic experience is to use a custom storage account. A user can either create a new storage account or use an existing one. When the storage firewall is enabled on the custom storage account (not enable access from all networks), make sure that：
 
-- The access through the storage firewall is allowed for the Azure platform to publish the screenshot and serial log. To do this, follow these steps;
+- The access through the storage firewall is allowed for the Azure platform to publish the screenshot and serial log. To do this, go to the custom boot diagnostics storage account in the Azure portal, and then select **Networking** from the **Security + networking** section. Make sure that the **Allow Azure services on the trusted services list to access this storage account** setting is selected. This setting is enabled by default.
 
-   In the Azure portal, go to the custom boot diagnostics storage account, and then select **Networking** from the **Security + networking** section. Make sure that the **Allow Azure services on the trusted services list to access this storage account** setting is selected. This setting is enabled by default.
-
--  The firewall access is allowed for users to view the boot screenshot or serial log. To do this, add your network or client/bowser's Internet IPs as firewall exclusions. For more information, see Configure Azure Storage firewalls and virtual networks. 
+-  The storage firewall access is allowed for users to view the boot screenshot or serial log. To do this, add your network or client/bowser's Internet IPs as firewall exclusions. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md). 
 
 To configure the storage firewall for Azure Serial Console, see [Use Serial Console with custom boot diagnostics storage account firewall enabled](/troubleshoot/azure/virtual-machines/serial-console-windows#use-serial-console-with-custom-boot-diagnostics-storage-account-firewall-enabled).
 
