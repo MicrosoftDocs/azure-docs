@@ -318,7 +318,7 @@ This error can happen when your logic app can't successfully establish a connect
 
 * If this error happens intermittently, change the **Retry policy** setting on the SFTP-SSH action to a retry count higher than the default four retries.
 
-* Check whether SFTP server puts a limit on the number of connections from each IP address. Any such limit will hinder the communication between the connector and the SFTP server and shall be removed.
+* Check whether your SFTP server puts a limit on the number of connections from each IP address. Any such limit hinders communication between the connector and the SFTP server. Make sure to remove this limit.
 
 * To reduce connection establishment cost, in the SSH configuration for your SFTP server, increase the [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) property to around one hour.
 
