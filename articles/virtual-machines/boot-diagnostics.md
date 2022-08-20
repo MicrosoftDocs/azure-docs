@@ -21,7 +21,16 @@ When creating a VM in Azure portal, boot diagnostics is enabled by default. The 
 > [!IMPORTANT]
 > The boot diagnostics data blobs (which comprise of logs and snapshot images) are stored in a managed storage account. Customers will be charged only on used GiBs by the blobs, not on the disk's provisioned size. The snapshot meters will be used for billing of the managed storage account. Because the managed accounts are created on either Standard LRS or Standard ZRS, customers will be charged at $0.05/GB per month for the size of their diagnostic data blobs only. For more information on this pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Customers will see this charge tied to their VM resource URI. 
 
-An alternative boot diagnostic experience is to use a custom storage account. A user can either create a new storage account or use an existing one. When the storage firewall is enabled on the custom storage account (not enable access from all networks), you must [add the client/bowser IP and the Serial Console service IPs to the storage firewall allow list](/troubleshoot/azure/virtual-machines/serial-console-linux#use-serial-console-with-custom-boot-diagnostics-storage-account-firewall-enabled). 
+An alternative boot diagnostic experience is to use a custom storage account. A user can either create a new storage account or use an existing one. When the storage firewall is enabled on the custom storage account (not enable access from all networks), make sure that：
+
+- The access through the storage firewall is allowed for the Azure platform to publish the screenshot and serial log. To do this, follow these steps;
+
+   In the Azure portal, go to the custom boot diagnostics storage account, and then select **Networking** from the **Security + networking** section. Make sure that the **Allow Azure services on the trusted services list to access this storage account** setting is selected. This setting is enabled by default.
+
+-  The firewall access is allowed for users to view the boot screenshot or serial log. To do this, add your network or client/bowser's Internet IPs as firewall exclusions. For more information, see Configure Azure Storage firewalls and virtual networks. 
+
+To configure the storage firewall for Azure Serial Console, see [Use Serial Console with custom boot diagnostics storage account firewall enabled](/troubleshoot/azure/virtual-machines/serial-console-windows#use-serial-console-with-custom-boot-diagnostics-storage-account-firewall-enabled).
+
 
 > [!NOTE]
 > The custom storage account associated with boot diagnostics requires the storage account and the associated virtual machines reside in the same region and subscription. 
