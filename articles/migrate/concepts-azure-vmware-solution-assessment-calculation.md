@@ -290,4 +290,4 @@ In the Azure readiness report for Azure VMware Solution (AVS) assessment, you ca
 
 ## Next steps
 
-Create an assessment for [AVS VMware Solution VMs](how-to-create-azure-vmware-solution-assessment.md).
+Create an assessment for [Azure VMware Solution VMs](how-to-create-azure-vmware-solution-assessment.md).
