@@ -20,7 +20,7 @@ Using customer-managed keys with Azure Storage encryption requires that both sof
 
 To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../articles/key-vault/general/quick-create-portal.md). When you create the key vault, select **Enable purge protection**, as shown in the following image.
 
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Screenshot showing how to enable purge protection when creating a key vault":::
+:::image type="content" source="media/customer-managed-keys-key-vault-include/configure-key-vault-portal.png" alt-text="Screenshot showing how to enable purge protection when creating a key vault":::
 
 To enable purge protection on an existing key vault, follow these steps:
 

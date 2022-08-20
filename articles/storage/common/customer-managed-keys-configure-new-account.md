@@ -39,7 +39,7 @@ Both new and existing storage accounts can use a user-assigned identity to autho
 
 ### [Azure portal](#tab/portal)
 
-When you configure customer-managed keys with the Azure portal, you can select an existing user-assigned identity through the portal user interface. For details, see [Configure customer-managed keys for a new account](#configure-customer-managed-keys-for-a-new-account).
+When you configure customer-managed keys with the Azure portal, you can select an existing user-assigned identity through the portal user interface. For details, see [Configure customer-managed keys for a new storage account](#configure-customer-managed-keys-for-a-new-storage-account).
 
 ### [PowerShell](#tab/powershell)
 
@@ -110,7 +110,6 @@ Azure Storage can automatically update the customer-managed key that is used for
 
 > [!IMPORTANT]
 > Azure Storage checks the key vault for a new key version only once daily. When you rotate a key, be sure to wait 24 hours before disabling the older version.
-
 
 ### [Azure portal](#tab/portal)
 
@@ -252,11 +251,11 @@ To change the key with the Azure portal, follow these steps:
 
 # [PowerShell](#tab/powershell)
 
-To change the key with PowerShell, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) as shown in [Configure customer-managed keys for an existing account](#configure-customer-managed-keys-for-an-existing-account) and provide the new key name and version. If the new key is in a different key vault, then you must also update the key vault URI.
+To change the key with PowerShell, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) as shown in [Configure customer-managed keys for a new storage account](#configure-customer-managed-keys-for-a-new-storage-account) and provide the new key name and version. If the new key is in a different key vault, then you must also update the key vault URI.
 
 # [Azure CLI](#tab/azure-cli)
 
-To change the key with Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update) as shown in [Configure customer-managed keys for an existing account](#configure-customer-managed-keys-for-an-existing-account) and provide the new key name and version. If the new key is in a different key vault, then you must also update the key vault URI.
+To change the key with Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update) as shown in [Configure customer-managed keys for a new storage account](#configure-customer-managed-keys-for-a-new-storage-account) and provide the new key name and version. If the new key is in a different key vault, then you must also update the key vault URI.
 
 ---
 
