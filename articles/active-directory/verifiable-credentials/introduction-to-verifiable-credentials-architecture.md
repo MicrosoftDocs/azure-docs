@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory architecture overview
+title: Microsoft Entra Verified ID architecture overview
 description: Learn foundational information to plan and design your solution
 documentationCenter: ''
 author: barclayn
@@ -80,7 +80,7 @@ Terminology for verifiable credentials (VCs) might be confusing if you're not fa
 
 * In the scenario above, both the issuer and verifier have a DID, and a DID document. The DID document contains the public key, and the list of DNS web domains associated with the DID (also known as linked domains).
 
-* Woodgrove (issuer) signs their employees’ VCs with its public key; similarly, Proseware (verifier) signs requests to present a VC using its key, which is also associated with its DID.
+* Woodgrove (issuer) signs their employees’ VCs with its private key; similarly, Proseware (verifier) signs requests to present a VC using its key, which is also associated with its DID.
 
 A ***trust system*** is the foundation in establishing trust between decentralized systems. It can be a distributed ledger or it can be something centralized, such as [DID Web](https://w3c-ccg.github.io/did-method-web/). 
 

@@ -3,7 +3,7 @@ title: Link your Domain to your Decentralized Identifier (DID) - Microsoft Entra
 description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
@@ -16,7 +16,6 @@ ms.author: barclayn
 # Link your domain to your Decentralized Identifier (DID)
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
-
 
 
 ## Prerequisites
@@ -107,8 +106,8 @@ It is of high importance that you link your DID to a domain recognizable to the 
 
 ## How do you update the linked domain on your DID?
 
-1. Navigate to the Verifiable Credentials | Getting Started page.  
-1. On the left side of the page, select **Domain**.
+1. Navigate to the Verified ID in the Azure portal.  
+1. On the left side of the page, select **Registration**.
 1. In the Domain box, enter your new domain name.
 1. Select **Publish**.
 
@@ -135,7 +134,7 @@ If the trust system is ION, once the domain changes are published to ION, the do
 
 ## Distribute well-known config
 
-1. From the Azure portal, navigate to the Verifiable Credentials page. Select **Domain** and choose **Verify this domain**
+1. From the Azure portal, navigate to the Verified ID page. Select **Registration** and choose **Verify** for the domain
 
 2. Download the did-configuration.json file shown in the image below.
 

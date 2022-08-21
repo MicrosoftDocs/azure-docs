@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/29/2022
+ms.date: 08/09/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -66,6 +66,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- August 09, 2022: Release of scenario [HA for SAP ASCS/ERS with NFS simple mount](./high-availability-guide-suse-nfs-simple-mount.md) on SLES 15 for SAP Applications
 - July 18, 2022: Clarify statement around Pacemaker support on Oracle Linux in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md)
 - June 29, 2022: Add recommendation and links to Pacemaker usage for Db2 versions 11.5.6 and higher in the documents [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md), [High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server with Pacemaker](./dbms-guide-ha-ibm.md), and [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md)
 - June 08, 2022: Change in [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) to adjust timeouts when using NFSv4.1 (related to NFSv4.1 lease renewal) for more resilient Pacemaker configuration  

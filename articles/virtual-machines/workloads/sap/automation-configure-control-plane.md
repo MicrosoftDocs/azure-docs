@@ -145,14 +145,16 @@ The table below defines the parameters used for defining the Virtual Machine aut
 The table below defines the parameters used for defining the Key Vault information
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                             | Description                                                                 | Type       | 
-> | ------------------------------------ | --------------------------------------------------------------------------- | ---------- | 
-> | `user_keyvault_id`	                 | Azure resource identifier for the user key vault                            | Optional	  |
-> | `spn_keyvault_id`                    | Azure resource identifier for the user key vault containing the SPN details | Optional	  |
-> | `deployer_private_key_secret_name`   | The Azure Key Vault secret name for the deployer private key                | Optional	  |
-> | `deployer_public_key_secret_name`    | The Azure Key Vault secret name for the deployer public key                 | Optional	  |
-> | `deployer_username_secret_name`	     | The Azure Key Vault secret name for the deployer username                   | Optional	  |
-> | `deployer_password_secret_name`	     | The Azure Key Vault secret name for the deployer password                   | Optional	  |
+> | Variable                                         | Description                                                                 | Type       | 
+> | ------------------------------------------------ | --------------------------------------------------------------------------- | ---------- | 
+> | `user_keyvault_id`	                             | Azure resource identifier for the user key vault                            | Optional	  |
+> | `spn_keyvault_id`                                | Azure resource identifier for the user key vault containing the SPN details | Optional	  |
+> | `deployer_private_key_secret_name`               | The Azure Key Vault secret name for the deployer private key                | Optional	  |
+> | `deployer_public_key_secret_name`                | The Azure Key Vault secret name for the deployer public key                 | Optional	  |
+> | `deployer_username_secret_name`	                 | The Azure Key Vault secret name for the deployer username                   | Optional	  |
+> | `deployer_password_secret_name`	                 | The Azure Key Vault secret name for the deployer password                   | Optional	  |
+> | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment KeyVault access policies | Optional	  |
+
 
 ### Other parameters
 

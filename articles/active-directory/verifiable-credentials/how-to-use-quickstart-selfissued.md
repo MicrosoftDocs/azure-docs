@@ -3,7 +3,7 @@ title: Create verifiable credentials for self-asserted claims
 description: Learn how to use a quickstart to create custom credentials for self-issued claims
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
@@ -115,11 +115,7 @@ To configure your sample code to issue and verify your custom credential, you ne
 - The credential type
 - The manifest URL to your credential 
 
-The easiest way to find this information for a custom credential is to go to your credential in the Azure portal. Select **Issue credential**, and then switch to the custom issue.
-
-![Screenshot of the quickstart "Issue credential" page.](media/how-to-use-quickstart/quickstart-config-sample-1.png)
-
-After you've switched to the custom issue, you have access to a text box with a JSON payload for the Request Service API. Replace the placeholder values with your environment's information. The issuer’s DID is the authority value.
+The easiest way to find this information for a custom credential is to go to your credential in the Azure portal. Select **Issue credential**. Then you have access to a text box with a JSON payload for the Request Service API. Replace the placeholder values with your environment's information. The issuer’s DID is the authority value.
 
 ![Screenshot of the quickstart custom credential issue.](media/how-to-use-quickstart/quickstart-config-sample-2.png)
 
