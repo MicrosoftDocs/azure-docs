@@ -14,16 +14,16 @@ ms.author: jodowns
 
 Azure Front Door's billing model includes several components. Front Door charges a base fee for each profile that you deploy. You're also charged for requests and data transfer based on your usage. *Billing meters* collect information about your Front Door usage. Your monthly Azure bill aggregates the billing information across the month and applies the pricing to determine the amount you need to pay.
 
-This page explains how Front Door pricing works so that you can understand and predict your monthly Azure Front Door bill.
+This article explains how Front Door pricing works so that you can understand and predict your monthly Azure Front Door bill.
 
-For Azure Front Door pricing information, see the [Azure Front Door pricing page](https://azure.microsoft.com/pricing/details/frontdoor/).
+For Azure Front Door pricing information, see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 > [!NOTE]
-> This article explains how billing works for Azure Front Door Standard and Premium SKUs. For information about Azure Front Door (classic), see the [Azure Front Door pricing page](https://azure.microsoft.com/pricing/details/frontdoor/).
+> This article explains how billing works for Azure Front Door Standard and Premium SKUs. For information about Azure Front Door (classic), see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 <!-- TODO -->
 > [!CAUTION]
-> **Note to reviewers:** The diagrams on this page are rough drafts for content review purposes only. After the article has been reviewed, I'll get the diagrams redrawn by the Azure illustration team.
+> **Note to reviewers:** The diagrams in this article are rough drafts for content review purposes only. After the article has been reviewed, I'll get the diagrams redrawn by the Azure illustration team.
 
 ## Base fees
 
