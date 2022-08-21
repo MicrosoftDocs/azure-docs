@@ -44,7 +44,7 @@ With a trial account, you don't have to set up an Azure subscription. When creat
       2. [Azure portal](https://portal.azure.com/#home)
       
     For the detailed description, [Get started with Azure Video Indexer in Azure portal](create-account-portal.md).
-* Upgrade a trial account to an ARM-based account and [import your content for free](import-content-from-trial-account.md).  
+* Upgrade a trial account to an ARM-based account and [import your content for free](import-content-from-trial.md).  
 * Classic accounts: [Create classic accounts using API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Paid-Account).
 * Connect a classic account to ARM: [Connect an existing classic paid Azure Video Indexer account to an ARM-based account](connect-classic-account-to-arm.md).
 
