@@ -39,7 +39,7 @@ A workflow can be broken down in to the following three main parts.
 ## Templates
 Creating a workflow via the portal requires the use of a template. An LCW template is a framework that is used for pre-defined tasks and helps automate the creation of a workflow.  
 
-  [![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-3.png)](media/understanding-lifecycle-workflows/workflow-3.png#lightbox)
+  [![Diagram of a lifecycle workflow 1](media/understanding-lifecycle-workflows/workflow-3.png)](media/understanding-lifecycle-workflows/workflow-3.png#lightbox)
 
 The template will define the task that is to be used and then guide you through the creation of the workflow.   The template provides input for description information and execution condition information.  
 
@@ -54,7 +54,7 @@ After selecting a template, on the basics screen:
  - Provide the information that will be used in the description portion of the workflow.
  - The trigger, defines the when portion of the execution condition.
 
- [![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-4.png)](media/understanding-lifecycle-workflows/workflow-4.png#lightbox)
+ [![Diagram of a lifecycle workflow 2](media/understanding-lifecycle-workflows/workflow-4.png)](media/understanding-lifecycle-workflows/workflow-4.png#lightbox)
 
 ### Workflow details
 Under the workflow details section, you can provide the following information:
@@ -87,7 +87,7 @@ The configure scope section determines **who** the workflow will run against.
 
 You can add extra expressions using **And/Or** to create complex conditionals, and apply the workflow more granularly across your organization.
 
- [![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-8.png)](media/understanding-lifecycle-workflows/workflow-8.png#lightbox)
+ [![Diagram of a lifecycle workflow 3](media/understanding-lifecycle-workflows/workflow-8.png)](media/understanding-lifecycle-workflows/workflow-8.png#lightbox)
 
 For more information, see [Create a lifecycle workflow.](create-lifecycle-workflow.md)
 
@@ -97,11 +97,11 @@ After defining the scope the review tasks screen will allow you to:
  - Verify that the correct template was selected, and the tasks associated with the workflow are correct.  
  - Add more tasks other than the ones in the template.
 
-[![Screenshot showing the review tasks screen](media/understanding-lifecycle-workflows/workflow-6.png)](media/understanding-lifecycle-workflows/workflow-6.png#lightbox)
+[![Screenshot showing the review tasks screen 1](media/understanding-lifecycle-workflows/workflow-6.png)](media/understanding-lifecycle-workflows/workflow-6.png#lightbox)
 
 You can use the **Add task** button to add extra tasks for the workflow. Select the additional tasks from the list provided.
 
- [![Screenshot showing additional tasks](media/understanding-lifecycle-workflows/workflow-6.png)](media/understanding-lifecycle-workflows/workflow-6.png#lightbox)
+ [![Screenshot showing additional tasks 2](media/understanding-lifecycle-workflows/workflow-6.png)](media/understanding-lifecycle-workflows/workflow-6.png#lightbox)
 
 For more information, see: [Lifecycle workflow tasks](lifecycle-workflow-tasks.md)
 
@@ -116,7 +116,7 @@ After reviewing the tasks on the review and create screen, you :
 - It will run against users who have **marketing** for the **department** attribute value.
 - It will generate a **TAP (temporary access password)**, and send an email to the user in the **manager** attribute of the pre-hire employee.
 
- [![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-7.png)](media/understanding-lifecycle-workflows/workflow-7.png#lightbox)
+ [![Diagram of a lifecycle workflow 4](media/understanding-lifecycle-workflows/workflow-7.png)](media/understanding-lifecycle-workflows/workflow-7.png#lightbox)
 
 ## Scheduling
 A workflow isn't scheduled to run by default. To enable the workflow, it needs to be scheduled.
@@ -127,7 +127,7 @@ To enable the workflow, simply select the **Enable schedule** option for the wor
 
 Once scheduled, the workflow will be evaluated every 3 hours to determine whether or not it should run based on the execution conditions.
 
- [![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-10.png)](media/understanding-lifecycle-workflows/workflow-10.png#lightbox)
+ [![Diagram of a lifecycle workflow 5](media/understanding-lifecycle-workflows/workflow-10.png)](media/understanding-lifecycle-workflows/workflow-10.png#lightbox)
 
 
 ### On-demand scheduling
@@ -147,7 +147,7 @@ By selecting on a workflow you created, you can manage the workflow.
 
 You can select which portion of the workflow you wish to update or change using the left navigation bar. Simply select the section you wish to update.
 
-[![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-11.png)](media/understanding-lifecycle-workflows/workflow-11.png#lightbox)
+[![Diagram of a lifecycle workflow 6](media/understanding-lifecycle-workflows/workflow-11.png)](media/understanding-lifecycle-workflows/workflow-11.png#lightbox)
 
 For more information, see [Manage lifecycle workflow properties](manage-workflow-properties.md)
 
@@ -157,7 +157,7 @@ Workflow versions are separate workflows built using the same information of an 
 
 You can view versioning information by selecting **Versions** under **Manage** from the left.
 
-[![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-12.png)](media/understanding-lifecycle-workflows/workflow-12.png#lightbox)
+[![Diagram of a lifecycle workflow 7](media/understanding-lifecycle-workflows/workflow-12.png)](media/understanding-lifecycle-workflows/workflow-12.png#lightbox)
 
 For more information, see [Lifecycle Workflow versioning](lifecycle-workflow-versioning.md)
 

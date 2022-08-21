@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 04/16/2021
-ms.author: bilmath
+ms.author: billmath
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 ---

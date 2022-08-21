@@ -1,6 +1,6 @@
 ---
 title: 'Developer API reference lifecycle workflows- Azure Active Directory'
-description: Describes an overview of Lifecycle workflows and the various parts.
+description: Provides an API reference guide for Developers using Lifecycle Workflows.
 services: active-directory
 author: owinfrey
 manager: billmath
