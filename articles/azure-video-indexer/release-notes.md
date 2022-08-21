@@ -41,7 +41,15 @@ In order to upload a video from a URL, change your code to send nu
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 ```
 
-## June 2022 release updates
+## July 2022 release updates
+
+### Featured clothing insight (preview)
+
+You can now view the featured clothing of an observed person, when indexing a video using Azure Video Indexer advanced video settings. With the new featured clothing insight information, you can enable more targeted ads placement. 
+
+For details on how featured clothing images are ranked and how to view this insight, see [observed people featured clothing](observed-people-featured-clothing.md).
+
+## June 2022
 
 ### Create Video Indexer blade improvements in Azure portal 
 
@@ -54,7 +62,7 @@ You can also change the primary managed identity using the **Identity** tab in t
 As part of Microsoft's commitment to responsible AI, we are designing and releasing Azure Video Indexer – identification and celebrity recognition features. These features are designed to protect the rights of individuals and society and fostering transparent human-computer interaction. Thus, there is a limited access and use of Azure Video Indexer – identification and celebrity recognition features. 
 
 Identification and celebrity recognition features require registration and are only available to Microsoft managed customers and partners. 
-Customers who wish to use this feature are required to apply and submit an [intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu). For more information, read [Azure Video Indexer limited access](limited-access-features.md). 
+Customers who wish to use this feature are required to apply and submit an [intake form](https://aka.ms/facerecognition). For more information, read [Azure Video Indexer limited access](limited-access-features.md). 
 
 Also, see the following: the [announcement blog post](https://aka.ms/AAh91ff) and [investment and safeguard for facial recognition](https://aka.ms/AAh9oye).
           
@@ -150,7 +158,7 @@ Azure Video Indexer introduces source languages support for STT (speech-to-text)
 
 ### Matched person detection capability
 
-When indexing a video through our advanced video settings, you can view the new matched person detection capability. If there are people observed  in your media file, you can now view the specific person who matched each of them through the media player.
+When indexing a video with Azure Video Indexer advanced video settings, you can view the new matched person detection capability. If there are people observed  in your media file, you can now view the specific person who matched each of them through the media player.
 
 ## November 2021
 
@@ -167,7 +175,7 @@ For more information go to [create an Azure Video Indexer account](https://techc
 
 ### People’s clothing detection
 
-When indexing a video through the advanced video settings, you can view the new **People’s clothing detection** capability. If there are people detected in your media file, you can now view the clothing type they are wearing through the media player.
+When indexing a video with Azure Video Indexer advanced video settings, you can view the new people’s clothing detection capability. If there are people detected in your media file, you can now view the clothing type they are wearing through the media player.
 
 ### Face bounding box (preview)
 

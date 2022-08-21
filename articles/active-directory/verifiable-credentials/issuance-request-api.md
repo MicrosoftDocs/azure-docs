@@ -4,7 +4,7 @@ titleSuffix: Microsoft Entra Verified ID
 description: Learn how to issue a verifiable credential that you've issued.
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
@@ -191,7 +191,7 @@ The callback endpoint is called when a user scans the QR code, uses the deep lin
 |Property |Type |Description |
 |---------|---------|---------|
 | `requestId`| string | Mapped to the original request when the payload was posted to the Verifiable Credentials service.|
-| `code` |string |The code returned when the request has an error. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the issuance flow.</li><li>`issuance_successful`: The issuance of the verifiable credentials was successful.</li><li>`issuance_error`: There was an error during issuance. For details, see the `error` property.</li></ul>    |
+| `requestStatus` |string |The status returned for the request. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the issuance flow.</li><li>`issuance_successful`: The issuance of the verifiable credentials was successful.</li><li>`issuance_error`: There was an error during issuance. For details, see the `error` property.</li></ul>    |
 | `state` |string| Returns the state value that you passed in the original payload.   |
 | `error`| error | When the `code` property value is `Issuance_error`, this property contains information about the error.| 
 | `error.code` | string| The return error code. |
@@ -202,7 +202,7 @@ The following example demonstrates a callback payload when the authenticator app
 ```json
 {  
     "requestId": "799f23ea-5241-45af-99ad-cf8e5018814e",  
-    "code":"request_retrieved",  
+    "requestStatus":"request_retrieved",  
     "state": "de19cb6b-36c1-45fe-9409-909a51292a9c"
 } 
 ```
@@ -212,7 +212,7 @@ The following example demonstrates a callback payload after the user successfull
 ```json
 {  
     "requestId": "799f23ea-5241-45af-99ad-cf8e5018814e",  
-    "code":"issuance_successful",
+    "requestStatus":"issuance_successful",
     "state": "de19cb6b-36c1-45fe-9409-909a51292a9c"
 } 
 ```
@@ -232,7 +232,7 @@ The following example demonstrates a callback payload when an error occurred:
 ```json
 {  
     "requestId": "799f23ea-5241-45af-99ad-cf8e5018814e",  
-    "code": "issuance_error",  
+    "requestStatus": "issuance_error",  
     "state": "de19cb6b-36c1-45fe-9409-909a51292a9c",  
     "error": { 
       "code":"IssuanceFlowFailed", 

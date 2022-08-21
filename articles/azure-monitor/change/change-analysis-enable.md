@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 07/29/2022 
+ms.date: 08/10/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -25,6 +25,9 @@ Register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource
 In this guide, you'll learn the two ways to enable Change Analysis for web app in-guest changes:
 - For one or a few web apps, enable Change Analysis via the UI.
 - For a large number of web apps (for example, 50+ web apps), enable Change Analysis using the provided PowerShell script.
+
+> [!NOTE]
+> Slot-level enablement for web app is not supported at the moment.
 
 ## Enable web app in-guest change collection via Azure Portal
 

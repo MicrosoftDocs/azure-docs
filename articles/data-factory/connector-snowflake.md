@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/17/2022
+ms.date: 07/28/2022
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
@@ -42,7 +42,7 @@ If your data store is located inside an on-premises network, an Azure virtual ne
 
 If your data store is a managed cloud data service, you can use the Azure Integration Runtime. If the access is restricted to IPs that are approved in the firewall rules, you can add [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the allowed list.
 
-The Snowflake account that is used for Source or Sink should have the necessary `USAGE` access on the Database and Read / Write access on Schema and the Tables/Views under it. In addition, it should also have `CREATE STAGE` on the schema to be able to create the External stage with SAS URI.
+The Snowflake account that is used for Source or Sink should have the necessary `USAGE` access on the database and read/write access on schema and the tables/views under it.. In addition, it should also have `CREATE STAGE` on the schema to be able to create the External stage with SAS URI.
 
 The following Account properties values must be set
 
@@ -191,6 +191,11 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: MAX_FILE_SIZE, OVERWRITE. For more information, see [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Additional file format options that are provided to COPY command as a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. For more information, see [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
 
+>[!Note]
+> Make sure you have permission to execute the following command and access the schema *INFORMATION_SCHEMA* and the table *COLUMNS*.
+>
+>- `COPY INTO <location>`
+
 #### Direct copy from Snowflake
 
 If your sink data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from Snowflake to sink. The service checks the settings and fails the Copy activity run if the following criteria is not met:
@@ -320,6 +325,15 @@ To copy data to Snowflake, the following properties are supported in the Copy ac
 | type | The type of import command, set to **SnowflakeImportCopyCommand**. | Yes |
 | additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. For more information, see [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Additional file format options provided to the COPY command, provided as a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. For more information, see [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
+
+>[!Note]
+> Make sure you have permission to execute the following command and access the schema *INFORMATION_SCHEMA* and the table *COLUMNS*.
+>
+>- `SELECT CURRENT_REGION()`
+>- `COPY INTO <table>`
+>- `SHOW REGIONS`
+>- `CREATE OR REPLACE STAGE`
+>- `DROP STAGE`
 
 #### Direct copy to Snowflake
 
