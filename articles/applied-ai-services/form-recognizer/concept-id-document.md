@@ -37,7 +37,7 @@ The following tools are supported by Form Recognizer v2.1:
 
 ### Try Form Recognizer
 
-Extract data, including name, birth date, machine-readable zone, and expiration date, from ID documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
+Extract data, including name, birth date, machine-readable zone, and expiration date, from ID documents using the Form Recognizer Studio. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 

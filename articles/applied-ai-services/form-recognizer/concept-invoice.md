@@ -38,7 +38,7 @@ The following tools are supported by Form Recognizer v2.1:
 
 ### Try Form Recognizer
 
-See how data, including customer information, vendor details, and line items, is extracted from invoices using  the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
+See how data, including customer information, vendor details, and line items, is extracted from invoices using  the Form Recognizer Studio. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -58,21 +58,6 @@ See how data, including customer information, vendor details, and line items, is
 
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
-
-#### Sample Labeling tool (API v2.1)
-> [!NOTE]
-> Unless you must use API v2.1, it is strongly suggested that you use the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com) for testing purposes instead of the sample labeling tool.
-
-You'll need an invoice document. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf).
-
-1. On the Sample Labeling tool home page, select **Use prebuilt model to get data**.
-
-1. Select **Invoice** from the **Form Type** dropdown menu:
-
-    :::image type="content" source="media/try-invoice.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
-
-    > [!div class="nextstepaction"]
-    > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
 ## Input requirements
 

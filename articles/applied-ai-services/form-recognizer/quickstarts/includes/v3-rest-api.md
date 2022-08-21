@@ -11,7 +11,7 @@ ms.date: 08/22/2022
 ms.author: lajanuar
 ---
 
-| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) |
+| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../sdk-overview.md)
 
 In this quickstart you'll, use the Form Recognizer REST API to analyze and extract data and values from forms and documents:
 

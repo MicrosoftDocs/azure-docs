@@ -50,6 +50,8 @@ items:
     href:  create-sas-tokens.md
   - name: Custom models
     items:
+    - name: Build a custom model (v3.0)
+      href: how-to-guides/build-custom-model-v3.md
     - name: Build a custom model (v2.1)
       items:
       - name: Assemble a training data set
@@ -60,8 +62,6 @@ items:
         href: label-tool.md
       - name: Use table tags to train your custom model
         href: supervised-table-tags.md
-    - name: Build a custom model (v3.0)
-      href: how-to-guides/build-custom-model-v3.md
   - name: Composed models
     items:
      - name: Compose models v3.0
@@ -126,7 +126,7 @@ items:
     href: concept-general-document.md
   - name: W-2 form model | v3.0
     href: concept-w2.md
-  - name: Read model | v3.0
+  - name: Read OCR model | v3.0
     href: concept-read.md
   - name: Layout model
     href: concept-layout.md
@@ -175,8 +175,6 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
-  - name: Error codes and messages v3.0
-    href: v3-error-guide.md
   - name: Azure Form Recognizer REST API v3.0
     items:
     - name: REST API v3.0 reference
@@ -191,6 +189,8 @@ items:
         href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.5/index.html
       - name: JavaScript
         href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.4/index.html
+  - name: Error codes and messages v3.0
+    href: v3-error-guide.md
   - name: Azure Form Recognizer REST API v2.1
     items:
     - name: REST API v2.1 reference

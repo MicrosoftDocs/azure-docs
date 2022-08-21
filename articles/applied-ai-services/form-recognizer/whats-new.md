@@ -19,21 +19,39 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## August 2022
 
-Form Recognizer REST API v3.0 is now generally available and ready for use in production applications! The August release introduces substantive user experience and model performance updates:
+### Form Recognizer v3.0 generally available
 
-* [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract sub-fields for address components like address, city, state, country, and zip code.
+**Form Recognizer REST API v3.0 is now generally available and ready for use in production applications!**
+
+#### The August release introduces the following performance updates:
+
+##### Form Recognizer Studio updates
+
+* **Next steps**. Under each model page, the Studio now has a next steps section. Users can quickly reference sample code, troubleshooting guidelines, and pricing information.
+
+* **Custom models**. The Studio now includes the ability to reorder labels in custom model projects to improve labeling efficiency.
+
+* **Copy Models** Custom models can be copied across Form Recognizer services from within the Studio. This enables the promotion of a trained model to other environments and regions.
+
+* **Delete documents**. The Studio now supports deleting documents from labeled dataset within custom projects.
+
+##### Form Recognizer service updates
+
+* [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields will now resolve to the existing fields TotalTax and Line/Tax respectively.
 
 * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards as well as passport visa information.
 
 * [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
 
-* [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields will now resolve to the existing fields TotalTax and Line/Tax respectively.
+* [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract sub-fields for address components like address, city, state, country, and zip code.
 
-* [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables and improved recognition of long spanning cells. As well improved paragraph grouping detection and logical identification of headers and titles.
+* **AI quality improvements**
 
-* [**prebuilt-document**](concept-general-document.md). Improved value and check box detection.
+  * [**custom-neural**](concept-custom-neural.md). Improved accuracy for table detection and extraction.
 
-* [**custom-neural**](concept-custom-neural.md). Improved accuracy for table detection and extraction.
+  * [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables, and improved recognition of long spanning cells. As well improved paragraph grouping detection and logical identification of headers and titles.
+
+  * [**prebuilt-document**](concept-general-document.md). Improved value and check box detection.
 
 ## June 2022
 

@@ -35,7 +35,6 @@ The following tools are supported by Form Recognizer v2.1:
 |----------|-------------------------|
 |**Business card model**|  <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-
 ### Try Form Recognizer
 
 See how data, including name, job title, address, email, and company name, is extracted from business cards using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
@@ -46,7 +45,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-#### Form Recognizer Studio 
+#### Form Recognizer Studio
 
 > [!NOTE]
 > Form Recognizer studio is available with the v3.0 API.
@@ -61,19 +60,6 @@ See how data, including name, job title, address, email, and company name, is ex
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)
-
-#### Sample Labeling tool (API v2.1)
-
-You'll need a business card document. You can use our [sample business card document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/businessCard.png).
-
-  1. On the Sample Labeling tool home page, select **Use prebuilt model to get data**.
-
-  1. Select **Business card** from the **Form Type** dropdown menu:
-
-      :::image type="content" source="media/try-business-card.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
-
-      > [!div class="nextstepaction"]
-      > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
 ## Input requirements
 
