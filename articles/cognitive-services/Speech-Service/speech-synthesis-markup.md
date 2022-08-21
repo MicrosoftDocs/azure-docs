@@ -133,6 +133,8 @@ Styles, style degree, and roles are supported for a subset of neural voices. If 
 
 You use the `mstts:express-as` element to express emotions like cheerfulness, empathy, and calm. You can also optimize the voice for different scenarios like customer service, newscast, and voice assistant.
 
+For a list of supported styles per neural voice, see [supported voice styles and roles](language-support.md#voice-styles-and-roles).
+
 **Syntax**
 
 ```xml
@@ -158,7 +160,7 @@ The following table has descriptions of each supported style.
 
 |Style|Description|
 |-----------|-------------|
-|`style="advertisement-upbeat"`|Expresses an excited and high-energy tone for promoting a product or service.|
+|`style="advertisement_upbeat"`|Expresses an excited and high-energy tone for promoting a product or service.|
 |`style="affectionate"`|Expresses a warm and affectionate tone, with higher pitch and vocal energy. The speaker is in a state of attracting the attention of the listener. The personality of the speaker is often endearing in nature.|
 |`style="angry"`|Expresses an angry and annoyed tone.|
 |`style="assistant"`|Expresses a warm and relaxed tone for digital assistants.|
@@ -187,15 +189,17 @@ The following table has descriptions of each supported style.
 |`style="sad"`|Expresses a sorrowful tone.|
 |`style="serious"`|Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.|
 |`style="shouting"`|Speaks like from a far distant or outside and to make self be clearly heard|
-|`style="sports-commentary"`|Expresses a relaxed and interesting tone for broadcasting a sports event.|
-|`style="sports-commentary-excited"`|Expresses an intensive and energetic tone for broadcasting exciting moments in a sports event.|
+|`style="sports_commentary"`|Expresses a relaxed and interesting tone for broadcasting a sports event.|
+|`style="sports_commentary_excited"`|Expresses an intensive and energetic tone for broadcasting exciting moments in a sports event.|
 |`style="whispering"`|Speaks very softly and make a quiet and gentle sound|
 |`style="terrified"`|Expresses a very scared tone, with faster pace and a shakier voice. It sounds like the speaker is in an unsteady and frantic status.|
 |`style="unfriendly"`|Expresses a cold and indifferent tone.|
 
 ### Style degree
 
-The intensity of speaking style can be adjusted to better fit your use case. You specify a stronger or softer style with the `styledegree` attribute to make the speech more expressive or subdued. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.
+The intensity of speaking style can be adjusted to better fit your use case. You specify a stronger or softer style with the `styledegree` attribute to make the speech more expressive or subdued. 
+
+For a list of neural voices that support speaking style degree, see [supported voice styles and roles](language-support.md#voice-styles-and-roles).
 
 **Syntax**
 
@@ -220,12 +224,9 @@ This SSML snippet illustrates how the `styledegree` attribute is used to change 
 
 ### Role
 
-Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice imitates a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices:
+Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice imitates a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. 
 
-* `zh-CN-XiaomoNeural`
-* `zh-CN-XiaoxuanNeural`
-* `zh-CN-YunxiNeural`
-* `zh-CN-YunyeNeural`
+For a list of supported roles per neural voice, see [supported voice styles and roles](language-support.md#voice-styles-and-roles).
 
 **Syntax**
 
