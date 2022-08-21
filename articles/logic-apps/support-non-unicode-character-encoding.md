@@ -47,7 +47,7 @@ If you set the `Content-Type` header to `application/octet-stream`, you also mig
 
 ## Base64 encode content
 
-Before you [base64 encode](workflow-definition-language-functions-reference.md#base64) content, make sure you've [converted the text to UTF-8](#convert-payload-encoding). If you base64 decode the content to a string before converting the text to UTF-8, characters might return corrupted.
+Before you [base64 encode](workflow-definition-language-functions-reference.md#base64) content to a string, make sure that you [converted the text to UTF-8](#convert-payload-encoding). Otherwise, characters might return corrupted.
 
 Next, convert any .NET-supported encoding to another .NET-supported encoding. Review the [Azure Functions code example](#azure-functions-version) or the [.NET code example](#net-version):
 
@@ -184,7 +184,7 @@ Using these same concepts, you can also [send a non-Unicode payload from your wo
 
 ## Sample payload conversions
 
-In this example, the base64-encoded sample input string is a personal name, *H&eacute;lo&iuml;se*, that contains accented characters.
+In this example, the base64-encoded sample input string is a personal name that contains accented characters: *H&eacute;lo&iuml;se*
 
 Example input:
 
