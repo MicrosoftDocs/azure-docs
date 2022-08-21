@@ -5,13 +5,12 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 06/15/2022
+ms.date: 08/21/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
 
 Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures. Default rule set also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
-
 
 ## Default rule sets
 
@@ -40,23 +39,26 @@ Custom rules are always applied before rules in the Default Rule Set are evaluat
 
 The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
-### Anomaly Scoring mode
+### Anomaly scoring mode
 
-OWASP has two modes for deciding whether to block traffic: Traditional mode and Anomaly Scoring mode.
+OWASP has two modes for deciding whether to block traffic: *traditional* mode and anomaly scoring* mode.
 
-In Traditional mode, traffic that matches any rule is considered independently of any other rule matches. This mode is easy to understand. But the lack of information about how many rules match a specific request is a limitation. So, Anomaly Scoring mode was introduced. It's the default for OWASP 3.*x*.
+In the traditional mode, traffic that matches any rule is considered independently of any other rule matches. This mode is easy to understand. But the lack of information about how many rules match a specific request is a limitation.
 
-In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked when the firewall is in Prevention mode. Rules have a certain severity: *Critical*, *Error*, *Warning*, or *Notice*. That severity affects a numeric value for the request, which is called the Anomaly Score. For example, one *Warning* rule match contributes 3 to the score. One *Critical* rule match contributes 5.
+The anomaly scoring mode was introduced in the OWASP 3.*x* rule sets, and it's the default mode. Traffic that matches any rule isn't immediately blocked when the firewall is in Prevention mode. Rules have a severity: *Critical*, *Error*, *Warning*, or *Notice*. The severity affects a numeric value for the request, which is called the *anomaly score*:
 
-|Severity  |Value  |
-|---------|---------|
-|Critical     |5|
-|Error        |4|
-|Warning      |3|
-|Notice       |2|
+| Severity | Contributes to anomaly score |
+|-|-|
+| Critical | 5 |
+| Error | 4 |
+| Warning | 3 |
+| Notice | 2 |
 
-There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ to learn what content types are supported for body inspection with different DRS versions.
+If the anomaly score is 5 or greater, WAF blocks the request.
 
+For example, a single *Critical* rule match is enough for the WAF to block a request, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic.
+
+For information about which content types are supported for body inspection with different DRS versions, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ.
 
 ### DRS 2.0
 
@@ -118,9 +120,6 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |**[MS-ThreatIntel-WebShells](#drs9905-10)**|Protect against Web shell attacks|
 |**[MS-ThreatIntel-CVEs](#drs99001-10)**|Protect against CVE attacks|
 
-
-
-
 ### Bot rules
 
 |Rule group|Description|
@@ -129,10 +128,7 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |**[GoodBots](#bot200)**|Identify good bots|
 |**[UnknownBots](#bot300)**|Identify unknown bots|
 
-
-
-The following rule groups and rules are available when using Web Application Firewall on Azure 
-Front Door.
+The following rule groups and rules are available when using Web Application Firewall on Azure Front Door.
 
 # [DRS 2.0](#tab/drs20)
 
@@ -289,7 +285,6 @@ Front Door.
 >[!NOTE]
 > This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
-
 ### <a name="drs942-20"></a> SQLI - SQL Injection
 |RuleId|Description|
 |---|---|
@@ -334,7 +329,6 @@ Front Door.
 |942480|SQL Injection Attack|
 |942500|MySQL in-line comment detected.|
 |942510|SQLi bypass attempt by ticks or backticks detected.|
-
 
 ### <a name="drs943-20"></a> SESSION-FIXATION
 |RuleId|Description|
@@ -382,6 +376,13 @@ Front Door.
 |99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
 |99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)
+
+> [!NOTE]
+> When reviewing your WAF's logs, you might see rule ID 949110, which has a description of *Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded*.
+>
+> This rule indicates that the total anomaly score for the request exceeded the maximum allowable score. For more information, see [Anomaly scoring mode](#anomaly-scoring-mode).
+> 
+> When you tune your WAF policies, you need to investigate the other rules that were triggered by the request so that you can adjust your WAF's configuration. For more information, see [Tuning Web Application Firewall (WAF) for Azure Front Door](waf-front-door-tuning.md).
 
 # [DRS 1.1](#tab/drs11)
 
