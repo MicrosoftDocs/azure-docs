@@ -10,6 +10,8 @@ ms.date: 10/08/2021
 
 # Test workflows with mock data in Azure Logic Apps (Preview)
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 > [!NOTE]
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
