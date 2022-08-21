@@ -37,7 +37,7 @@ To create a private endpoint on an existing IoT Central application:
 
 1. Select the **Private endpoint connections** tab, and then select **+ Private endpoint**.
 
-1. On the **Basics** tab, enter add a name and select a region for your private endpoint. Then select **Next: Resource**.
+1. On the **Basics** tab, enter a name and select a region for your private endpoint. Then select **Next: Resource**.
 
 1. The **Resource** tab is auto-populated for you. Select **Next: Virtual Network**.
 
@@ -129,14 +129,14 @@ In some situations, you may not be able to integrate with the private DNS zone o
 
 1. In the Azure portal, navigate to your private endpoint, and select **DNS configuration**. On this page, you can find the required information for the IP address mapping to the DNS name.
 
-:::image type="content" source="media/howto-create-private-endpoint/private-dns-configuration.png" alt-text="Screenshot from the Azure portal that show the private D N S configuration.":::
+:::image type="content" source="media/howto-create-private-endpoint/private-dns-configuration.png" alt-text="Screenshot from the Azure portal that shows the private D N S configuration.":::
 
 > [!WARNING]
 > This information lets you populate your custom DNS server with the necessary records. If at all possible, you should integrate with the private DNS Zones of the virtual network and not configure your own custom DNS server. Private endpoints for IoT Central applications differ from other Azure PaaS services. In some situations, such as IoT Central autoscaling, IoT Central scales out the number of IoT Hubs accessible through the private endpoint. If you choose to populate your own custom DNS server, it's your responsibility to update the DNS records whenever IoT Central autoscales, and later remove records when the number of IoT hubs scales in.
 
 ## Restrict public access
 
-To restrict public access for your devices to IoT Central, turn off access from public endpoints. After you turn off public access, devices can't connect to IoT Central from public networks and must use a private endpoint:
+To restrict public access for your devices to IoT Central, turn off access from public endpoints. After you turn off public access, devices can't connect to IoT Central from public networks, and must use a private endpoint:
 
 1. In the Azure portal, navigate to your IoT Central application and then select **Networking**.
 
