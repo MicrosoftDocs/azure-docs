@@ -1,8 +1,8 @@
 ---
 title: Azure App Configuration resiliency and disaster recovery
 description: Lean how to implement resiliency and disaster recovery with Azure App Configuration.
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 07/09/2020

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/30/2022
+ms.date: 08/19/2022
 tags: connectors
 ---
 
@@ -52,6 +52,9 @@ Only one Blob trigger exists and has either of the following names, based on whe
 | Consumption | Managed connector only: **When a blob is added or modified (properties only)** | The trigger fires when a blob's properties are added or updated in your storage container's root folder. |
 | Standard | - Built-in: **When a blob is Added or Modified in Azure Storage** <br><br>- Managed connector: **When a blob is added or modified (properties only)** | - Built-in: The trigger fires when a blob is added or updated in your storage container. The trigger also fires for any nested folders in your storage container, not just the root folder. <br><br>- Managed connector: The trigger fires when a blob's properties are added or updated in your storage container's root folder. |
 ||||
+
+> [!IMPORTANT]
+> When you set up the Blob trigger, the built-in version processes all existing blobs in the container, while the managed version ignores existing blobs in the container.
 
 When the trigger fires each time, Azure Logic Apps creates a logic app instance and starts running the workflow.
 

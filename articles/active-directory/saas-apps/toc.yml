@@ -827,8 +827,6 @@
         href: f5-big-ip-oracle-jd-edwards-easy-button.md
       - name: F5 BIG-IP Easy Button for SSO to SAP ERP using Azure AD
         href: f5-big-ip-sap-erp-easy-button.md    
-      - name: Facebook Work Accounts
-        href: facebook-work-accounts-tutorial.md  
       - name: FactSet
         href: factset-tutorial.md
       - name: Fastly Edge Cloud
@@ -2898,8 +2896,10 @@
         href: linkedinelevate-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
+      - name: Lucid (All Products)
+        href: lucid-all-products-provisioning-tutorial.md
       - name: Lucidchart
-        href: lucidchart-provisioning-tutorial.md
+        href: lucidchart-provisioning-tutorial.md        
       - name: Leapsome
         href: leapsome-provisioning-tutorial.md
       - name: LogicGate
