@@ -1,6 +1,6 @@
 ---
 title: 'How to synchronize attributes for Lifecycle workflows'
-description: Describes overview of Lifecycle workflows.
+description: Describes overview of Lifecycle workflow attributes.
 services: active-directory
 author: owinfrey
 manager: billmath
@@ -152,5 +152,5 @@ For more information, see [How to customize a synchronization rule](../hybrid/ho
 
 ## Next steps
 - [What are lifecycle workflows?](what-are-lifecycle-workflows.md)
-- [Create a custom workflow using the Azure Portal](tutorial-create-custom-workflow-portal.md)
+- [Create a custom workflow using the Azure Portal](tutorial-onboard-custom-workflow-portal.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)

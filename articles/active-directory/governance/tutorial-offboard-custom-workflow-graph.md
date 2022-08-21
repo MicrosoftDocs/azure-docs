@@ -49,7 +49,7 @@ Before introducing the API call to create this workflow, you may want to review 
 |isEnabled     |   A boolean value that denotes whether the workflow is set to run or not.  If set to “true" then the workflow will run.      |
 |isSchedulingEnabled     |   A Boolean value that denotes whether scheduling is enabled or not. Unlike isEnbaled, a workflow can still be run on demand if this value is set to false.      |
 |executionConditions     |    An argument that contains: </br><li>a time-based attribute and an integer parameter defining when a workflow will run between -60 and 60 </br></li><li>a scope attribute defining who the workflow runs for.</li>     |
-|tasks    |  An argument in a workflow that has a unique displayName and a description. </br> It defines the specific tasks to be executed in the workflow. </br>The specified task is outlined by the taskDefinitionID and its parameters.  For a list of supported tasks, and their corresponding IDs, see [Supported Task Definitions](manage-lifecycle-workflows.md#supported-task-definitions).      |
+|tasks    |  An argument in a workflow that has a unique displayName and a description. </br> It defines the specific tasks to be executed in the workflow. </br>The specified task is outlined by the taskDefinitionID and its parameters.  For a list of supported tasks, and their corresponding IDs, see [Supported Task Definitions](lifecycle-workflow-tasks.md).      |
 
 For the purpose of this tutorial, there are three tasks that will be introduced in this workflow:
 
@@ -172,7 +172,7 @@ To run a workflow on-demand for users using the GRAPH API do the following steps
 
 ## Check tasks and workflow status
 
-At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks which are currently available in public preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow). In the course of this tutorial, we will look at the status using the user focused reports.
+At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks which are currently available in public preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow.md). In the course of this tutorial, we will look at the status using the user focused reports.
 
 To begin, you will just need the ID of the workflow and the date range for which you want to see the summary of the status. You may obtain the workflow ID from the response code of the POST API call that was used to create the workflow.
 
