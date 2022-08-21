@@ -102,6 +102,8 @@
     href: /javascript/api/durable-functions/
   - name: Python API
     href: /python/api/azure-functions-durable/azure.durable_functions
+  - name: Azure storage provider
+    href: durable-functions-azure-storage-provider.md
 - name: How-to guides
   items:
   - name: Develop

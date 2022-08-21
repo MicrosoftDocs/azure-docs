@@ -827,8 +827,6 @@
         href: f5-big-ip-oracle-jd-edwards-easy-button.md
       - name: F5 BIG-IP Easy Button for SSO to SAP ERP using Azure AD
         href: f5-big-ip-sap-erp-easy-button.md    
-      - name: Facebook Work Accounts
-        href: facebook-work-accounts-tutorial.md  
       - name: FactSet
         href: factset-tutorial.md
       - name: Fastly Edge Cloud
