@@ -119,22 +119,22 @@ Log Analytics workspace and log queries in Azure Monitor are multitenancy servic
     
     You can use a sample output from **Run query and list results** step. Click **Run Trigger** in Logic App ribbon, then **Run**, download and save an output record. For the sample query in previous stem, you can use the following sample output:
 
-        ```json
-        {
-            "TimeGenerated": "2020-09-29T23:11:02.578Z",
-            "BlobTime": "2020-09-29T23:00:00Z",
-            "OperationName": "Returns Storage Account SAS Token",
-            "OperationNameValue": "MICROSOFT.RESOURCES/DEPLOYMENTS/WRITE",
-            "Level": "Informational",
-            "ActivityStatus": "Started",
-            "ResourceGroup": "monitoring",
-            "SubscriptionId": "00000000-0000-0000-0000-000000000000",
-            "Category": "Administrative",
-            "EventSubmissionTimestamp": "2020-09-29T23:11:02Z",
-            "ClientIpAddress": "192.168.1.100",
-            "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/monitoring/providers/microsoft.storage/storageaccounts/my-storage-account"
-        }
-        ```
+    ```json
+    {
+        "TimeGenerated": "2020-09-29T23:11:02.578Z",
+        "BlobTime": "2020-09-29T23:00:00Z",
+        "OperationName": "Returns Storage Account SAS Token",
+        "OperationNameValue": "MICROSOFT.RESOURCES/DEPLOYMENTS/WRITE",
+        "Level": "Informational",
+        "ActivityStatus": "Started",
+        "ResourceGroup": "monitoring",
+        "SubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "Category": "Administrative",
+        "EventSubmissionTimestamp": "2020-09-29T23:11:02Z",
+        "ClientIpAddress": "192.168.1.100",
+        "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/monitoring/providers/microsoft.storage/storageaccounts/my-storage-account"
+    }
+    ```
 
    1. Click **+ New step**, and then click **+ Add an action**. Under **Choose an action**, type **json** and then select **Parse JSON**.<br>
    [![Select Parse JSON operator](media/logs-export-logic-app/select-parse-json.png "Screenshot of Parse JSON operator")](media/logs-export-logic-app/select-parse-json.png#lightbox)
