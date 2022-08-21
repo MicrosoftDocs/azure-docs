@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, azla
 ms.topic: how-to
-ms.date: 08/20/022
+ms.date: 08/20/2022
 ---
 
 # Export flows from Power Automate and deploy to Azure Logic Apps
