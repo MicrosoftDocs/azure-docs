@@ -69,7 +69,7 @@ You can use the `voices/list` endpoint to get a full list of voices for a specif
 | West US 3 | `https://westus3.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 > [!TIP]
-> [Voices in preview](language-support.md#prebuilt-neural-voices-in-preview) are available in only these three regions: East US, West Europe, and Southeast Asia.
+> [Voices in preview](language-support.md#speech-to-text-and-text-to-speech) are available in only these three regions: East US, West Europe, and Southeast Asia.
 
 ### Request headers
 

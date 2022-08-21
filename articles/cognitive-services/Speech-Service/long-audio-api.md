@@ -60,7 +60,7 @@ These libraries are used to construct the HTTP request, and call the text-to-spe
 
 ### Get a list of supported voices
 
-The Long Audio API supports a subset of [Public Neural Voices](./language-support.md#prebuilt-neural-voices) and [Custom Neural Voices](./language-support.md#custom-neural-voice).
+The Long Audio API supports a subset of [Public Neural Voices](./language-support.md#prebuilt-neural-voices) and [Custom Neural Voices](./language-support.md#speech-to-text-and-text-to-speech).
 
 To get a list of supported voices, send a GET request to `https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/voices`.
 

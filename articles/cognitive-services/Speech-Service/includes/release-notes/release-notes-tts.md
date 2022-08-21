@@ -9,7 +9,7 @@ ms.author: eur
 
 #### Prebuilt Neural TTS Voice
 
-* Added 5 new voices of `zh-CN` Chinese (Mandarin, Simplified) and 1 new voice of `en-US` English (United States) in Public Preview. See [full language and voice list](../../language-support.md#prebuilt-neural-voices).
+* Added 5 new voices of `zh-CN` Chinese (Mandarin, Simplified) and 1 new voice of `en-US` English (United States) in Public Preview. See [full language and voice list](../../language-support.md#speech-to-text-and-text-to-speech).
 
 | Language | Locale  | Gender | Voice name| Style support|
 |---|---|---|---|---|
@@ -70,7 +70,6 @@ ms.author: eur
 | English (United Kingdom) | `en-GB` | Female | `en-GB-BellaNeural` | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-HollieNeural` | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-MaisieNeural` | General, child voice |
-| English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` <sup>Retired on 30 October 2021, see below</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-OliviaNeural` | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-SoniaNeural` | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-AlfieNeural` | General |
@@ -167,11 +166,11 @@ ms.author: eur
 
 #### Prebuilt Neural TTS Voice
 
-* Released 5 new voices in public preview with multiple styles to enrich the variety in American English. See [full language and voice list](../../language-support.md#prebuilt-neural-voices).
+* Released 5 new voices in public preview with multiple styles to enrich the variety in American English. See [full language and voice list](../../language-support.md#speech-to-text-and-text-to-speech).
 * Support these new styles `Angry`, `Excited`, `Friendly`, `Hopeful`, `Sad`, `Shouting`, `Unfriendly`, `Terrified` and `Whispering` in public preview for `en-US-AriaNeural`. 
 * Support these new styles `Angry`, `Cheerful`, `Excited`, `Friendly`, `Hopeful`, `Sad`, `Shouting`, `Unfriendly`, `Terrified` and `Whispering` in public preview for `en-US-GuyNeural`, `en-US-JennyNeural`. 
 * Support these new styles `Excited`, `Friendly`, `Hopeful`, `Shouting`, `Unfriendly`, `Terrified` and `Whispering` in public preview for `en-US-SaraNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
-* Released new voices `zh-CN-YunjianNeural`, `zh-CN-YunhaoNeural`, and `zh-CN-YunfengNeural` in public preview. See [full language and voice list](../../language-support.md#prebuilt-neural-voices).
+* Released new voices `zh-CN-YunjianNeural`, `zh-CN-YunhaoNeural`, and `zh-CN-YunfengNeural` in public preview. See [full language and voice list](../../language-support.md#speech-to-text-and-text-to-speech).
 * Support 2 new styles `sports-commentary`, `sports-commentary-excited` in public preview for `zh-CN-YunjianNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
 * Support 1 new style `advertisement-upbeat` in public preview for `zh-CN-YunhaoNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
 * The `cheerful` and `sad` styles for `fr-FR-DeniseNeural` are generally available in all regions.
@@ -184,7 +183,7 @@ ms.author: eur
 * Enabled to test your voice model by adding your own test script. Learn more on [how to upload your test script](../../how-to-custom-voice-create-voice.md#test-your-voice-model).
 * Enabled to update engine version for your voice model. Learn more on [how to update the model engine version](../../how-to-custom-voice-create-voice.md#update-engine-version-for-your-voice-model).
 * Supported more training regions. See [region support](../../regions.md#speech-service).
-* Supported 10 locales for Custom Neural Voice Lite (preview). See [language support](../../language-support.md#custom-neural-voice).
+* Supported 10 locales for Custom Neural Voice Lite (preview). See [language support](../../language-support.md#speech-to-text-and-text-to-speech).
 
 #### Audio Content Creation tool
 
@@ -214,7 +213,7 @@ ms.author: eur
 #### Custom Neural Voice
 
 * Released Custom Neural Voice Lite in public preview. Learn more about [what is Custom Neural Voice Lite](../../custom-neural-voice.md#custom-neural-voice-project-types).
-* Extended language support to 49 locales. See [language support](../../language-support.md#custom-neural-voice).
+* Extended language support to 49 locales. See [language support](../../language-support.md#speech-to-text-and-text-to-speech).
 * Supported more regions/datacenters. See [region support](../../regions.md#speech-service).
 
 #### Audio Content Creation tool
@@ -250,7 +249,7 @@ Added 10 new languages and variants for Neural text-to-speech:
 | Sinhala (Sri Lanka) | `si-LK` | Female | `si-LK-ThiliniNeural` <sup>New</sup> | General |
 | Sinhala (Sri Lanka) | `si-LK` | Male | `si-LK-SameeraNeural` <sup>New</sup> | General |
 
-For the full list of available voices, see [Language support](../../language-support.md#prebuilt-neural-voices).
+For the full list of available voices, see [Language support](../../language-support.md#speech-to-text-and-text-to-speech).
 
 #### New voices in preview
 
@@ -295,7 +294,7 @@ Added new voices for en-GB, fr-FR and de-DE in preview:
 | German (Germany) | `de-DE` | Male | `de-DE-KlausNeural` <sup>New</sup> | General |
 | German (Germany) | `de-DE` | Male | `de-DE-RalfNeural` <sup>New</sup> | General |
 
-For the full list of available voices, see [Language support](../../language-support.md#prebuilt-neural-voices-in-preview).
+For the full list of available voices, see [Language support](../../language-support.md#speech-to-text-and-text-to-speech).
 
 #### Pronunciation accuracy
 
@@ -447,7 +446,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 
 * **Neural text-to-speech**
     * **Extended to support 18 new languages/locales.** They are Bulgarian, Czech, German (Austria),  German (Switzerland), Greek, English (Ireland), French (Switzerland), Hebrew, Croatian, Hungarian, Indonesian, Malay, Romanian, Slovak, Slovenian, Tamil, Telugu and Vietnamese.
-    * **Released 14 new voices to enrich the variety in the existing languages.** See [full language and voice list](../../language-support.md#prebuilt-neural-voices).
+    * **Released 14 new voices to enrich the variety in the existing languages.** See [full language and voice list](../../language-support.md#speech-to-text-and-text-to-speech).
     * **New speaking styles for `en-US` and `zh-CN` voices.** Jenny, the new voice in English (US), supports chatbot, customer service, and assistant styles. 10 new speaking styles are available with our zh-CN voice, XiaoXiao. In addition, the XiaoXiao neural voice supports `StyleDegree` tuning. See [how to use the speaking styles in SSML](../../speech-synthesis-markup.md#adjust-speaking-styles).
 
 * **Containers: Neural text-to-speech Container released in public preview with 16 voices available in 14 languages.** Learn more on [how to deploy Speech Containers for Neural text-to-speech](../../speech-container-howto.md)
