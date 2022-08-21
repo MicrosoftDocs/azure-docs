@@ -38,7 +38,7 @@ Lifecycle Workflows are an [Azure AD Identity Governance](identity-governance-ov
  
 Planning your Lifecycle Workflow deployment is essential to make sure you achieve your desired governance strategy for users in your organization.
 
-For additional information on deployment plans see [Azure AD deployment plans](../fundamentals/active-directory-deployment-plans.md)
+For more information on deployment plans, see [Azure AD deployment plans](../fundamentals/active-directory-deployment-plans.md)
 
 ### Licenses
 
@@ -70,9 +70,9 @@ For Lifecycle Workflows, you'll likely include representatives from the followin
  - **Compliance manager** ensures that the organization follows internal policy and complies with regulations. This team:
 
    * Requests or schedules new Lifecycle Workflow reviews.
-   * Assesses processes and procedures for reviewing Lifecycle Workflows, which includes documentation and record keeping for compliance.
+   * Assesses processes and procedures for reviewing Lifecycle Workflows, which include documentation and record keeping for compliance.
    * Reviews results of past reviews for most critical resources.
-- **HR Representative** - assists with attribute mapping and populaton in HR provisioning scenarios.  This team:
+- **HR Representative** - Assists with attribute mapping and populaton in HR provisioning scenarios.  This team:
     * Helps determine attributes that will be used to populate employeeHireDate and employeeLeaveDateTime.
     * Ensures source attributes are populated and have values
     * Identifies and suggests alternate attributes that could be mapped to employeeHireDate and employeeLeaveDateTime 
@@ -89,7 +89,7 @@ Communication is critical to the success of any new business process. Proactivel
 
 #### Communicate changes in accountability
 
-Lifecycle Workflows support shifting responsibility of manual processes to to business owners. Decoupling these processes from the IT department drives more accuracy and automation.  This shift is a cultural change in the resource owner's accountability and responsibility. Proactively communicate this change and ensure resource owners are trained and able to use the insights to make good decisions.
+Lifecycle Workflows support shifting responsibility of manual processes to business owners. Decoupling these processes from the IT department drives more accuracy and automation.  This shift is a cultural change in the resource owner's accountability and responsibility. Proactively communicate this change and ensure resource owners are trained and able to use the insights to make good decisions.
 
 
 
@@ -125,10 +125,10 @@ The following table provides a quick checklist of steps you can use when designi
 |[Determine the execution conditions](#determine-the-execution-conditions)|Determine who and when the workflow will run|
 |[Review the tasks](#review-the-tasks)|Review and add additional tasks to the workflow|
 |[Create your workflow](#create-your-workflow)|Create your workflow after planning and design.|
-|[Plan a pilot](#plan-a-pilot)|Plan to pilot, run, and test your worklow.|
+|[Plan a pilot](#plan-a-pilot)|Plan to pilot, run, and test your workflow.|
 
 ## Determine your scenario
-Before building a Lifecycle Workflow in the portal you should determine which scenario or scenarios you wish to deploy.  You can use the table below to see a current list of the available scenarios.  These are based on the templates that are available in the portal and list the task associated with each one.
+Before building a Lifecycle Workflow in the portal, you should determine which scenario or scenarios you wish to deploy.  You can use the table below to see a current list of the available scenarios.  These are based on the templates that are available in the portal and list the task associated with each one.
 
 |Scenario|Pre-defined Tasks|
 |-----|-----|
@@ -139,20 +139,20 @@ Before building a Lifecycle Workflow in the portal you should determine which sc
 |Offboard an employee|Disable User Account</br>Remove user from all groups</br>Remove user from all Teams|
 |Post-Offboarding of an employee|Remove all licenses for user</br>Remove user from all Teams</br>Delete User Account|
 
-For more information on the built in templates, see [Lifecycle Workflow templates.](lifecycle-workflow-templates.md)
+For more information on the built-in templates, see [Lifecycle Workflow templates.](lifecycle-workflow-templates.md)
 
 
 ## Determine the execution conditions
-Now that you have determined your scenarios, you need to look at what users in your organization the scenarios will apply to.
+Now that you've determined your scenarios, you need to look at what users in your organization the scenarios will apply to.
 
-An Execution condition is the part of a workflows that defines the scope of **who** and the trigger of **when** a workflow will be performed.
+An Execution condition is the part of a workflow that defines the scope of **who** and the trigger of **when** a workflow will be performed.
 
 The [scope](understanding-lifecycle-workflows.md#configure-scope) determines who the workflow runs against.  This is defined by a rule that will filter users based on a condition.  For example, the rule, `"rule": "(department eq 'sales')"` will run the task only on users who are members of the sales department.
 
 The [trigger](understanding-lifecycle-workflows.md#trigger-details) determines when the workflow will run.  This can either be, on-demand, which is immediate, or time based.  Most of the pre-defined templates in the portal are time based.  
 
 ### Attribute information
-The scope of a workflow uses attributes under the rule section.  You can add the following additional conditionals to further refine **who** the tasks are applied to.
+The scope of a workflow uses attributes under the rule section.  You can add the following extra conditionals to further refine **who** the tasks are applied to.
   - And
   - And not
   - Or
@@ -170,12 +170,12 @@ Not all of these attributes are populated by default so you should verify with y
 The following is some important information regarding time zones that you should be aware of when designing workflows.
 - Workday and SAP SF will always send the time in Coordinated Universal Time or UTC.
 -  if you're in a single time zone it's recommended that you hardcode the time portion to something that works for you.  An example would be 5am for new hire scenarios and 10pm for last day of work scenarios.
-- It is recommended, that if you are using temporary access pass (TAP), that you set the maximum lifetime to 24 hours.  Doing this will help ensure that the TAP has not expired after being sent to an employee who may be in a different timezone.  For more information see [Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods.](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
+- It's recommended, that if you're using temporary access pass (TAP), that you set the maximum lifetime to 24 hours.  Doing this will help ensure that the TAP hasn't expired after being sent to an employee who may be in a different timezone.  For more information, see [Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods.](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
 
-For more information see [How to synchronize attributes for Lifecycle Workflows](../governance/how-to-lcw-synch-attributes.md)
+For more information, see [How to synchronize attributes for Lifecycle Workflows](../governance/how-to-lcw-synch-attributes.md)
 
 ## Review the tasks
-Now that we have determined the scenario and the who and when, you should consider whether the pre-defined tasks are sufficient or are you going to need additional tasks.  The table below has a list of the pre-defined tasks that are currently in the portal.  Use this table to determine if you want to add additional tasks.
+Now that we've determined the scenario and the who and when, you should consider whether the pre-defined tasks are sufficient or are you going to need additional tasks.  The table below has a list of the pre-defined tasks that are currently in the portal.  Use this table to determine if you want to add more tasks.
 
 |Task|Description|Relevant Scenarios|
 |-----|-----|-----|
@@ -184,7 +184,7 @@ Now that we have determined the scenario and the who and when, you should consid
 |Delete User Account| Delete user account in Azure AD| Leaver|
 |Disable User Account| Disable user account in the directory| Joiner - Leaver|
 |Enable User Account| Enable user account in the directory| Joiner - Leaver|
-|Generate TAP and Send Email| Generate Temporary Acces Pass and send via email to user's manager| Joiner|
+|Generate TAP and Send Email| Generate Temporary Access Pass and send via email to user's manager| Joiner|
 |Remove all licenses of user| Remove all licenses assigned to the user| Leaver|
 |Remove user from all groups| Remove user from all Azure AD group memberships| Leaver|
 |Remove user from all Teams| Remove user from all Teams memberships| Leaver|
@@ -197,14 +197,14 @@ Now that we have determined the scenario and the who and when, you should consid
 |Send Welcome Email| Send welcome email to new hire| Joiner|
 
 
-For more information on tasks see [Lifecycle Workflow tasks](lifecycle-workflow-tasks.md).
+For more information on tasks, see [Lifecycle Workflow tasks](lifecycle-workflow-tasks.md).
 
 ### Group and team tasks
-If you are using a group or team task, the workflow will need you to specify the group or groups.  In the screenshot below, you will see the yellow triangle on the task indicating that it is missing information.  
+If you're using a group or team task, the workflow will need you to specify the group or groups.  In the screenshot below, you'll see the yellow triangle on the task indicating that it's missing information.  
 
  [![Screenshot of Onboadrd new hire](media/lifecycle-workflows-deployment/group-1.png)](media/lifecycle-workflows-deployment/group-1.png#lightbox)
 
-By clicking on the task, you will be presented with a blade to add or remove groups.  Click the "x groups selected" link to add groups.
+By clicking on the task, you'll be presented with a navagation bar to add or remove groups.  Select the "x groups selected" link to add groups.
 
  [![Screenshot of add groups](media/lifecycle-workflows-deployment/group-2.png)](media/lifecycle-workflows-deployment/group-2.png#lightbox)
 
@@ -237,19 +237,19 @@ For more information, see [Best practices for a pilot](../fundamentals/active-di
 
 
 #### Test and run the workflow
-Once you have created a workflow, you should test it by running the workflow [on-demand](on-demand-workflow.md)
+Once you've created a workflow, you should test it by running the workflow [on-demand](on-demand-workflow.md)
 
 Using the on-demand feature will allow you to test and evaluate whether the Lifecycle Workflow is working as intended.
 
-Once you have completed testing, you can either re-work the Lifecycle Workflow or get ready for a broader distribution.
+Once you have completed testing, you can either rework the Lifecycle Workflow or get ready for a broader distribution.
 
 #### Example Lifecycle Workflow plan
 
 |Stage|Description|
 | - | - |
 |Determine the scenario| A pre-hire workflow that sends email to new manager. |
-|Determine the execution conditions|The workflow will run on new employees is the sales department, 2 days before the employeeHireDate.|
-|Review the tasks.|We will use the pre-defined tasks in the workflow.  No additional tasks will be added.|
+|Determine the execution conditions|The workflow will run on new employees is the sales department, two(2) days before the employeeHireDate.|
+|Review the tasks.|We'll use the pre-defined tasks in the workflow.  No extra tasks will be added.|
 |Create the workflow in the portal|Use the pre-defined template for new hire in the portal.|
 |Enable and test the workflow| Use the on-demand feature to test the workflow on one user.|
 |Review the test results|Review the test results and ensure the Lifecycle Workflow is working as intended.|

@@ -132,12 +132,12 @@ The final way you can filter workflow history information is by execution type. 
 
 Workflows created using Lifecycle Workflows can run in two ways:
 
-- **Scheduled**: A workflow can run on a schedule. A set time in which it will always run as long as execution conditions are met. For more information on the execution conditions which are required for a scheduled workflow to run, see [Execution Conditions](lifecycle-workflows-concept-parts.md#execution-conditions). By default workflows will run every three hours.
+- **Scheduled**: A workflow can run on a schedule. A set time in which it will always run as long as execution conditions are met. For more information on the execution conditions which are required for a scheduled workflow to run, see [Configure Scope](understanding-lifecycle-workflows.md#configure-scope). By default workflows will run every three hours.
 - **On-demand**:A workflow can also run on-demand. This allows a workflow to be run immediately irrespective of its scheduled properties. As the workflow runs immediately, execution conditions do not have to be met for a user to be processed by a workflow in this manner. For a step by step guide on running a workflow on-demand, see [Run a workflow on-demand](on-demand-workflow.md).
 
 
 ## Next steps
 
-- [Parts of lifecycle workflows](lifecycle-workflows-concept-parts.md)
+- [Understanding Lifecycle Workflows](understanding-lifecycle-workflows.md)
 - [Lifecycle Workflow templates](lifecycle-workflow-templates.md)
 

@@ -77,8 +77,8 @@ landingContent:
             url: tutorial-onboard-custom-workflow-graph.md
       - linkListType: concept
         links:
-          - text: Parts of lifecycle workflows 
-            url: lifecycle-workflows-concept-parts.md
+          - text: Understanding Lifecycle Workflows 
+            url: understanding-lifecycle-workflows.md
           - text: Lifecycle Workflows built-in tasks
             url: lifecycle-workflow-tasks.md  
   

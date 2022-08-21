@@ -54,7 +54,7 @@ Use the following steps to create a leaver on-demand workflow that will execute 
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-3.png" alt-text="Configure workflow" lightbox="media/tutorial-lifecycle-workflows/portal-2-3.png":::
 
  8. On the following page, you may inspect the tasks if desired but no additional configuration is needed. Select **Next: Select users** when you are finished.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-6.png" alt-text="Select next" lightbox="media/tutorial-lifecycle-workflows/portal-2-6.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-6.png" alt-text="Select next users" lightbox="media/tutorial-lifecycle-workflows/portal-2-6.png":::
 
  9. For the user selection, select **Select users**. This allows you to select users for which the workflow will be executed immediately after creation. Regardless of the selection, you can run the workflow on-demand later at any time as needed.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-7.png" alt-text="Select users" lightbox="media/tutorial-lifecycle-workflows/portal-2-7.png":::
@@ -66,7 +66,7 @@ Use the following steps to create a leaver on-demand workflow that will execute 
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-10.png" alt-text="Selected users" lightbox="media/tutorial-lifecycle-workflows/portal-2-10.png":::
 
  12. Select **Next: Review and create** when you are satisfied with your selection.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-11.png" alt-text="Select next" lightbox="media/tutorial-lifecycle-workflows/portal-2-11.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-11.png" alt-text="Select next review" lightbox="media/tutorial-lifecycle-workflows/portal-2-11.png":::
 
  13. On the review blade, verify the information is correct and select **Create**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-12.png" alt-text="Create workflow" lightbox="media/tutorial-lifecycle-workflows/portal-2-12.png":::
@@ -87,7 +87,7 @@ To run a workflow on-demand, for users using the Azure portal, do the following 
  
  ## Check tasks and workflow status
 
-At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks which are currently available in public preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow). In the course of this tutorial, we will look at the status using the user focused reports.
+At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks which are currently available in public preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow.md). In the course of this tutorial, we will look at the status using the user focused reports.
 
  To begin, select the **Workflow history (Preview)** tab on the left to view the user summary and associated workflow tasks and statuses.  
  :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history-real-time.png" alt-text="Workflow 1" lightbox="media/tutorial-lifecycle-workflows/workflow-history-real-time.png":::
