@@ -14,14 +14,14 @@ ms.custom: template-concept
 
 
 
-Workflows created using Lifecycle Workflows can be updated as needed to satisfy organizational requirements in terms of auditing the lifecycle of users in your organization. To manage updates in workflows, Lifecycle Workflows introduce the concept of workflow versioning. Workflow versions are new versions of existing workflows, triggered by updating execution conditions or it's tasks. Workflow versions can change the actions or even scope of an existing workflow.  Understanding how workflow versioning is handled during the workflow update process allows you to strategically set up workflows so that workflows tasks, and conditions, are always relevant for users processed by a workflow.
+Workflows created using Lifecycle Workflows can be updated as needed to satisfy organizational requirements in terms of auditing the lifecycle of users in your organization. To manage updates in workflows, Lifecycle Workflows introduce the concept of workflow versioning. Workflow versions are new versions of existing workflows, triggered by updating execution conditions or its tasks. Workflow versions can change the actions or even scope of an existing workflow.  Understanding how workflow versioning is handled during the workflow update process allows you to strategically set up workflows so that workflows tasks, and conditions, are always relevant for users processed by a workflow.
 
 
 ## Versioning benefits
 
-Versioning with Lifecycle Workflows provide many benefits over the alternative of creating a new workflow for each use case. These benefits show up in its ability to improve the reporting process for both troubleshooting, and record keeping, capabilities in the following ways:
+Versioning with Lifecycle Workflows provides many benefits over the alternative of creating a new workflow for each use case. These benefits show up in its ability to improve the reporting process for both troubleshooting, and record keeping, capabilities in the following ways:
 
-- **Long-term retention**- Versioning allows for longer retention of workflow information than by simply using the audit logs. While the audit logs only store information from the previous 30 days, with versioning you are able to keep track of workflow details from creation.
+- **Long-term retention**- Versioning allows for longer retention of workflow information than by only using the audit logs. While the audit logs only store information from the previous 30 days, with versioning you're able to keep track of workflow details from creation.
 - **Traceability**- Allows tracking of which specific version of a workflow processed a user.
 
 ## Workflow properties and versions
@@ -53,7 +53,7 @@ While new versions of these workflows are made as soon as you make the updates i
 
 ## What details are contained in workflow version history
 
-Unlike with changing basic properties of a workflow, newly created workflow versions can be completely different from previous versions. Tasks can be added or removed, and who the workflow runs for can be different. Due to the vast changes that can happen to a workflow between versions, version details are also there to give detailed information about not only the current version of the workflow, but also its previous iterations.
+Unlike with changing basic properties of a workflow, newly created workflow versions can be vastly different from previous versions. Tasks can be added or removed, and who the workflow runs for can be different. Due to the vast changes that can happen to a workflow between versions, version details are also there to give detailed information about not only the current version of the workflow, but also its previous iterations.
 
 Details contained in version information as shown in the Azure portal:
 
@@ -74,7 +74,7 @@ Detailed **Version information** are as follows:
 |Description     | Description of the workflow at this version.      |
 |Category     | Category of the workflow.      |
 |Execution Conditions    | Defines for who and when the workflow runs in this version.     |
-|Tasks   | The tasks present in this workflow version. If viewing through the API you are also able to see task arguments. For specific task definitions, see: [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md)    |
+|Tasks   | The tasks present in this workflow version. If viewing through the API, you're also able to see task arguments. For specific task definitions, see: [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md)    |
 
 
 

@@ -24,8 +24,6 @@
         href: identity-governance-automation.md
       - name: Governing an application's existing users - PowerShell
         href: identity-governance-applications-existing-users.md
-      - name: Preparing user accounts for Lifecycle workflows tutorials (Preview)
-        href: tutorial-prepare-azuread-user-accounts.md 
     - name: Entitlement Management
       items:
       - name: Manage access to resources - Azure portal
@@ -205,9 +203,7 @@
         - name: Create a Lifecycle Workflow (Preview)
           href: create-lifecycle-workflow.md
         - name: Trigger Logic Apps based on custom task extensions (Preview)  
-          href: trigger-custom-task.md
-        - name: Deployment (Preview)
-          href: lifecycle-workflows-deployment.md    
+          href: trigger-custom-task.md   
       - name: Manage
         items:
         - name: Synchronize attributes (Preview)
@@ -237,3 +233,7 @@
     href: workflows-faqs.md  
   - name: Developer API reference Lifecycle Workflows- Azure Active Directory
     href: lifecycle-workflows-dev-reference.md  
+  - name: Preparing user accounts for Lifecycle workflows tutorials (Preview)
+    href: tutorial-prepare-azuread-user-accounts.md   
+  - name: Lifecycle Workflows Deployment (Preview)
+    href: lifecycle-workflows-deployment.md   

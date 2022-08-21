@@ -110,11 +110,11 @@ The following is important information about your organization and the technolog
 
 
 ## Understanding parts of a workflow.
-Before you begin planning a Lifecycle Workflow deployment, you should familarize yourself with the parts of workflow and the terminology around Lifecycle Workflows.
+Before you begin planning a Lifecycle Workflow deployment, you should become familiar with the parts of workflow and the terminology around Lifecycle Workflows.
 
-The [Understanding Lifecycle Workflows](lifecycle-workflows-concept-parts.md) document, uses the portal to explain the parts of a workflow.  The [Developer API reference Lifecycle Workflows](lifecycle-workflows-dev-reference.md) document, uses a GRAPH example to explain the parts of a workflow. 
+The [Understanding Lifecycle Workflows](understanding-lifecycle-workflows.md) document, uses the portal to explain the parts of a workflow. The [Developer API reference Lifecycle Workflows](lifecycle-workflows-dev-reference.md) document, uses a GRAPH example to explain the parts of a workflow. 
 
-You can use this document to familiarize yourself with the parts of workflow prior to deploying them.
+You can use this document to become familiar with the parts of workflow prior to deploying them.
 
 ## Lifecycle workflow creation checklist
 The following table provides a quick checklist of steps you can use when designing and planning your workflows.
@@ -220,7 +220,7 @@ When creating custom task extensions, the scenarios for how it will interact wit
 - For more information on custom extensions, see [Lifecycle Workflow extensibility (Preview)](lifecycle-workflow-extensibility.md)
 
 ## Create your workflow
-Now that you have design and planned your worfklow, you can create it in the portal.  For detailed information on creating a workflow see [Create a Lifecycle workflow.](create-lifecycle-workflow.md)
+Now that you have design and planned your workflow, you can create it in the portal.  For detailed information on creating a workflow see [Create a Lifecycle workflow.](create-lifecycle-workflow.md)
 
 
 ## Plan a pilot
@@ -259,7 +259,6 @@ Once you have completed testing, you can either re-work the Lifecycle Workflow o
 
 Learn about the following related technologies:
 
-*
 * [How to synchronize attributes for Lifecycle Workflows](how-to-lcw-synch-attributes.md)
-* [Understanding Lifecycle Workflows](lifecycle-workflows-concept-parts.md)
+* [Understanding Lifecycle Workflows](understanding-lifecycle-workflows.md)
 * [Lifecycle Workflow templates.](lifecycle-workflow-templates.md)
