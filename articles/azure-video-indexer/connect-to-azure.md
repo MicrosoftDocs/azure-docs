@@ -1,13 +1,13 @@
 ---
-title: Create an Azure Video Indexer account connected to Azure
-description: Learn how to create an Azure Video Indexer account connected to Azure.
+title: Create a classic Azure Video Indexer account connected to Azure
+description: Learn how to create a classic Azure Video Indexer account connected to Azure.
 ms.topic: tutorial
 ms.date: 05/03/2022
 ms.author: itnorman
 ms.custom: ignite-fall-2021
 ---
 
-# Create an Azure Video Indexer account
+# Create a classic Azure Video Indexer account
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
@@ -106,7 +106,7 @@ The following Azure Media Services related considerations apply:
 
     ![Media Services reserved units](./media/create-account/ams-reserved-units.png)
 
-### Create a classic Azure Video Indexer account
+### Create a classic account
 
 1. On the [Azure Video Indexer website](https://aka.ms/vi-portal-link), select **Create unlimited account** (the paid account).
 2. To create a classic account, select **Switch to manual configuration**.
