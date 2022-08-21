@@ -445,6 +445,7 @@ You can use [Azure Machine Learning studio](https://ml.azure.com) to deploy mode
     :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" alt-text="Screenshot showing create option on the Endpoints UI page.":::
 
     b. Provide a name and authentication type for the endpoint, and then select __Next__.
+
     c. When selecting a model, select the MLflow model registered previously. Select __Next__ to continue.
 
     d. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment.
