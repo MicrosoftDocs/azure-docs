@@ -43,7 +43,11 @@ To create a private endpoint on an existing IoT Central application:
 
 1. On the **Virtual Network** tab, select the **Virtual network** and **Subnet** where you want to deploy your private endpoint.
 
-1. On the same tab, in the **Private DNS integration** section, select **Yes** for **Integrate with private DNS zone**. The private DNS resolves all the required endpoints to private IP addresses in your virtual network.
+1. On the same tab, in the **Private IP configuration** section, select **Dynamically allocate IP address**.
+
+1. Select **Next: DNS**.
+
+1. On the **DNS** tab,  select **Yes** for **Integrate with private DNS zone.** The private DNS resolves all the required endpoints to private IP addresses in your virtual network.
 
     :::image type="content" source="media/howto-create-private-endpoint/private-dns-integration​.png" alt-text="Screenshot from Azure portal that shows private D N S integration.":::
 
