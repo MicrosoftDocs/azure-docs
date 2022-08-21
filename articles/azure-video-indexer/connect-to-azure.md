@@ -11,7 +11,9 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
-This article shows how to create a new classic account connected to Azure using the [Azure Video Indexer website](https://aka.ms/vi-portal-link). You can also create an Azure Video Indexer classic account through our [API](https://aka.ms/avam-dev-portal).
+This topic shows how to create a new classic account connected to Azure using the [Azure Video Indexer website](https://aka.ms/vi-portal-link). You can also create an Azure Video Indexer classic account through our [API](https://aka.ms/avam-dev-portal).
+
+The topic discusses prerequisites that you need to connect to your Azure subscription and how to configure an Azure Media Services account.
 
 A few Azure Video Indexer account types are available to you. For detailed explanation, review [Account types](accounts-overview.md).
 
@@ -30,7 +32,6 @@ For the pricing details, see [pricing](https://azure.microsoft.com/pricing/detai
     This user should be an Azure AD user with a work or school account. Don't use a personal account, such as outlook.com, live.com, or hotmail.com.
 
     :::image type="content" alt-text="Screenshot that shows how to choose a user in your Azure A D domain." source="./media/create-account/all-aad-users.png":::
-
 * A user and member in your Azure AD domain.
 
     You'll use this member when connecting your Azure Video Indexer account to Azure.
@@ -49,9 +50,17 @@ For the pricing details, see [pricing](https://azure.microsoft.com/pricing/detai
 ## Connect to Azure 
 
 > [!NOTE]
-> It's mandatory to have the following three accounts located in the same region: the Azure Video Indexer account that you're connecting with the Media Services account, as well as the Azure storage account connected to the same Media Services account. When you create an Azure Video Indexer account and connect it to Media Services, the media and metadata files are stored in the Azure storage account associated with that Media Services account. 
->
-> If your storage account is behind a firewall, see [storage account that is behind a firewall](faq.yml#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
+> Use the same Azure AD user you used when connecting to Azure.
+
+It's mandatory to have the following three accounts located in the same region: 
+
+* The Azure Video Indexer account that you're creating.
+* The Azure Video Indexer account that you're connecting with the Media Services account.
+* The Azure storage account connected to the same Media Services account. 
+
+    When you create an Azure Video Indexer account and connect it to Media Services, the media and metadata files are stored in the Azure storage account associated with that Media Services account. 
+
+If your storage account is behind a firewall, see [storage account that is behind a firewall](faq.yml#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
 
 ### Create and configure a Media Services account
 
@@ -66,14 +75,13 @@ For the pricing details, see [pricing](https://azure.microsoft.com/pricing/detai
     :::image type="content" alt-text="Screenshot that shows how to specify a storage account." source="./media/create-account/create-new-ams-account.png":::
 
     > [!NOTE]
-    > Make sure to write down the Media Services resource and account names. You'll need them for the steps in the next section.
-
+    > Make sure to write down the Media Services resource and account names. 
 1. Before you can play your videos in the Azure Video Indexer web app, you must start the default **Streaming Endpoint** of the new Media Services account.
 
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
     :::image type="content" alt-text="Screenshot that shows how to specify streaming endpoints." source="./media/create-account/create-ams-account-se.png":::
-4. For Azure Video Indexer to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](/azure/media-services/previous/media-services-portal-get-started-with-aad):
+1. For Azure Video Indexer to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](/azure/media-services/previous/media-services-portal-get-started-with-aad):
 
     1. In the new Media Services account, select **API access**.
     2. Select [Service principal authentication method](/azure/media-services/previous/media-services-portal-get-started-with-aad).
@@ -106,7 +114,7 @@ The following Azure Media Services related considerations apply:
 
     ![Media Services reserved units](./media/create-account/ams-reserved-units.png)
 
-### Create a classic account
+## Create a classic account
 
 1. On the [Azure Video Indexer website](https://aka.ms/vi-portal-link), select **Create unlimited account** (the paid account).
 2. To create a classic account, select **Switch to manual configuration**.
@@ -187,4 +195,3 @@ The account will be permanently deleted in 90 days.
 
 You can programmatically interact with your trial account and/or with your Azure Video Indexer accounts that are connected to Azure by following the instructions in: [Use APIs](video-indexer-use-apis.md).
 
-You should use the same Azure AD user you used when connecting to Azure.
