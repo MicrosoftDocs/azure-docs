@@ -18329,6 +18329,11 @@
   "redirect_document_id": false
 },
 {
+    "source_path_from_root": "/articles/connectors/connectors-create-api-sendgrid.md",
+    "redirect_url": "/connectors/sendgrid",
+    "redirect_document_id": false
+},
+{
   "source_path_from_root":  "/articles/connectors/connectors-schema-migration.md",
   "redirect_url":  "/azure/logic-apps/update-consumption-workflow-schema",
   "redirect_document_id":  false
