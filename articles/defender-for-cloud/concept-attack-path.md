@@ -3,7 +3,7 @@ title: Attack path security
 description: Learn how to prioritize remediation of cloud misconfigurations and vulnerabilities based on risk. 
 titleSuffix: Defender for Cloud attack path.
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 08/21/2022
 ---
 
 # What is cloud map security
@@ -53,6 +53,50 @@ Defender for Cloud's security engine gathers all of the relevant information fro
 :::image type="content" source="media/concept-cloud-map/attack-path-analysis.png" alt-text="Screenshot that shows a sample scenario that has the attack path analysis displayed." lightbox="media/concept-cloud-map/attack-path-analysis.png":::
 
 By providing the environmental security context, organizations can prioritize and mitigate their most critical risks in their hybrid cloud environments.
+
+Defender for Cloud can protect your multicloud and hybrid workloads through the use of the following Defender for Cloud plans:
+
+| Plan name | Description|
+|--|--|
+| Defender for DevOps | Removes the separation that exist between security teams and developers by embedding security in your developer workflows giving security teams a centralized visibility and policy control.|
+| Defender for API | Focuses on threat protection for APIs that are built by organizations that provide cross-organizational visibility of the APIM API inventory, data classification and coverage to detect exploits of API risks. |
+| Defender for Serverless | Supports Azure Functions and AWSLambda to help organizations protect their serverless resources. |
+| Defender for Servers | Protects your Windows and Linux machines in Azure, AWS, GCP, and on-premises. |
+| Defender for Containers | Secures your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications. |
+| Defender for Data | Offers discovery, posture management and protection for all of your cloud datastores. | 
+
+## Features of the attack path overview page
+
+The attack path homepage offers you an overview of your total attack paths. From here you can see all of your affected resources and a list of all active recommendations.
+
+:::image type="content" source="media/concept-cloud-map/attack-path-homepage.png" alt-text="Screenshot of a sample attack path homepage.":::
+
+On this page you can you can organize your recommendations based on name, environment, paths count, risk categories.
+
+For each recommendation you can also see all of risk categories and affected resources.
+
+The potential risk categories include Credentials exposure, Compute abuse, Data exposure, Subscription/account takeover.
+
+The types of resources that can be infected include:
+
+| Resource icon | Name |
+|--|--|
+| :::image type="icon" source="media/concept-cloud-map/keyvault-icon.png" border="false":::  | Key Vault |
+| :::image type="icon" source="media/concept-cloud-map/managed-identity-icon.png" border="false"::: | Managed Identity |
+| :::image type="icon" source="media/concept-cloud-map/public-ip-icon.png" border="false"::: | Public IP |
+| :::image type="icon" source="media/concept-cloud-map/virtual-machine-icon.png" border="false"::: | Virtual Machine |
+| :::image type="icon" source="media/concept-cloud-map/container-icon.png" border="false"::: | Container |
+| :::image type="icon" source="media/concept-cloud-map/k8s-pods-icon.png" border="false"::: | Kubernetes pod |
+| :::image type="icon" source="media/concept-cloud-map/virtual-machine-scale-set-icon.png" border="false"::: | Virtual Machine Scale Set |
+| :::image type="icon" source="media/concept-cloud-map/k8s-namespace-icon.png" border="false"::: | Kubernetes namespace |
+| :::image type="icon" source="media/concept-cloud-map/container-image-icon.png" border="false"::: | Container image |
+| :::image type="icon" source="media/concept-cloud-map/k8s-service-icon.png" border="false"::: | Kubernetes service or ingress |
+| :::image type="icon" source="media/concept-cloud-map/managed-cluster-icon.png" border="false"::: | Managed cluster |
+| :::image type="icon" source="media/concept-cloud-map/subscription-icon.png" border="false"::: | Subscription |
+| :::image type="icon" source="media/concept-cloud-map/storage-icon.png" border="false"::: | Storage |
+| :::image type="icon" source="media/concept-cloud-map/resource-group-icon.png" border="false"::: | Resource group |
+| :::image type="icon" source="media/concept-cloud-map/sql-database-icon.png" border="false"::: | Sql Database |
+| :::image type="icon" source="media/concept-cloud-map/sql-server-icon.png" ::: | Sql Server |
 
 ## Next steps
 
