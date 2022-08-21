@@ -21,7 +21,7 @@ Language support varies by Speech service functionality. The following tables su
 
 The following table summarizes locale and voice support for Speech-to-text and Text-to-speech. Please see the table footnotes for additional information.
 
-| Locale | Language | Speech-to-text | Custom Speech support | Text-to-speech voices | Custom Neural Voice |
+| Locale (BCP-47) | Language | Speech-to-text | Custom Speech support | Text-to-speech voices | Custom Neural Voice |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | `af-ZA` | Afrikaans (South Africa) | `af-ZA` | Plain text | `af-ZA-AdriNeural` (Female)<br/>`af-ZA-WillemNeural` (Male) | Not supported | 
 | `am-ET` | Amharic (Ethiopia) | `am-ET` | Plain text | `am-ET-AmehaNeural` (Male)<br/>`am-ET-MekdesNeural` (Female) | Not supported | 
@@ -289,13 +289,15 @@ The following table lists the released languages and public preview languages.
 
 Speech Translation supports different languages for speech-to-speech and speech-to-text translation. The available target languages depend on whether the translation target is speech or text. 
 
+### Translate from language
+
 To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech-to-text language table](#speech-to-text) above. The default language is `en-US` if you don't specify a language.
+
+### Translate to text language
 
 To set the translation target language, with few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. See the speech translation target language table below. The default language is `en` if you don't specify a language.
 
-### Text languages
-
-| Text language           | Language code |
+| Translate to text language| Language code |
 |:------------------------|:-------------:|
 | Afrikaans | `af` |
 | Albanian | `sq` |
