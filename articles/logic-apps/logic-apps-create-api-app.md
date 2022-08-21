@@ -24,8 +24,8 @@ that you can call from workflows:
 Basically, connectors are web APIs that use REST for pluggable interfaces, 
 [Swagger metadata format](https://swagger.io/specification/) for documentation, 
 and JSON as their data exchange format. Because connectors are REST APIs 
-that communicate through HTTP endpoints, you can use any language, 
-like .NET, Java, Python, or Node.js, for building connectors. 
+that communicate through HTTP endpoints, you can use any language to build connectors, 
+such as .NET, Java, Python, or Node.js. 
 You can also host your APIs on [Azure App Service](../app-service/overview.md), 
 a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
 and most scalable ways for API hosting. 
@@ -49,7 +49,7 @@ easy API hosting.
 > consider deploying your APIs as API apps, 
 > which can make your job easier when you build, host, and consume APIs 
 > in the cloud and on premises. You don't have to change any code in your 
-> APIs -- just deploy your code to an API app. For example, learn how to 
+> APIs--just deploy your code to an API app. For example, learn how to 
 > build API apps created with these languages: 
 > 
 > * [ASP.NET](../app-service/quickstart-dotnetcore.md). 
@@ -86,7 +86,7 @@ You can also nominate registered connectors for Microsoft certification.
 This process verifies that registered connectors meet the criteria for public use 
 and makes those connectors available for users in Power Automate and Microsoft Power Apps.
 
-For more information about custom connectors, see 
+For more information, review the following documentation:
 
 * [Custom connectors overview](../logic-apps/custom-connector-overview.md)
 * [Create custom connectors from Web APIs](/connectors/custom-connectors/create-web-api-connector)
@@ -112,7 +112,7 @@ For logic apps to perform tasks, your custom API should provide
 Each operation in your API maps to an action. A basic action is a 
 controller that accepts HTTP requests and returns HTTP responses. 
 So for example, a workflow sends an HTTP request to your web app or API app. 
-Your app then returns an HTTP response, along with content that the workflowcan process.
+Your app then returns an HTTP response, along with content that the workflow can process.
 
 For a standard action, you can write an HTTP request method in your API and 
 describe that method in a Swagger file. You can then call your API directly 
@@ -208,7 +208,7 @@ checks and return these responses:
 When your API follows this pattern, you don't have to do anything in the 
 workflow definition to continue checking job status. 
 When the engine gets an HTTP `202 ACCEPTED` response and a 
-valid `location` header, the engine respects the asynchronous pattern 
+valid `location` header, the engine respects the asynchronous pattern, 
 and checks the `location` header until your API returns a non-202 response.
 
 > [!TIP]
@@ -221,7 +221,7 @@ and checks the `location` header until your API returns a non-202 response.
 
 As an alternative, you can use the webhook pattern 
 for long-running tasks and asynchronous processing. 
-This pattern has the workflowpause and wait for a "callback" 
+This pattern pauses the workflow and waits for a "callback" 
 from your API to finish processing before continuing workflow. 
 This callback is an HTTP POST that sends a message to a URL when an event happens. 
 
@@ -259,7 +259,7 @@ Here are some other tips and notes:
 
 * To pass in the callback URL, you can use the `@listCallbackUrl()` workflow function in any of the previous fields as necessary.
 
-* If you own both the logic app resource and the subscribed service, you don't have to call the `unsubscribe` endpoint after the callback URL is called. Otherwise, the Logic Apps runtime needs to call the `unsubscribe` endpoint to signal that no more calls are expected and to allow for resource cleanup on the server side.
+* If you own both the logic app resource and the subscribed service, you don't have to call the `unsubscribe` endpoint after the callback URL is called. Otherwise, the Azure Logic Apps runtime needs to call the `unsubscribe` endpoint to signal that no more calls are expected and to allow resource cleanup on the server side.
 
 <a name="triggers"></a>
 
@@ -352,7 +352,7 @@ Here are some other tips and notes:
 
 * To prevent processing the same data multiple times, your trigger should clean up data that was already read and passed to the logic app.
 
-* If you own both the logic app resource and the subscribed service, you don't have to call the `unsubscribe` endpoint after the callback URL is called. Otherwise, the Logic Apps runtime needs to call the `unsubscribe` endpoint to signal that no more calls are expected and to allow for resource clean up on the server side.
+* If you own both the logic app resource and the subscribed service, you don't have to call the `unsubscribe` endpoint after the callback URL is called. Otherwise, the Logic Apps runtime needs to call the `unsubscribe` endpoint to signal that no more calls are expected and to allow resource cleanup on the server side.
 
 ## Improve security for calls to your APIs from logic apps
 
