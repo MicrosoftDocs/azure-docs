@@ -265,11 +265,11 @@ Cloud role name overrides allow you to override the [default cloud role name](#c
     "roleNameOverrides": [
       {
         "httpPathPrefix": "/myapp1",
-        "roleName": "12345678-0000-0000-0000-0FEEDDADBEEF"
+        "roleName": "Role A"
       },
       {
         "httpPathPrefix": "/myapp2",
-        "roleName": "87654321-0000-0000-0000-0FEEDDADBEEF"
+        "roleName": "Role B"
       }
     ]
   }
