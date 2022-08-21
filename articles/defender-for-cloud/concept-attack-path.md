@@ -1,7 +1,7 @@
 ---
-title: Cloud map security
+title: Attack path security
 description: Learn how to prioritize remediation of cloud misconfigurations and vulnerabilities based on risk. 
-titleSuffix: Defender for Cloud cloud map.
+titleSuffix: Defender for Cloud attack path.
 ms.topic: conceptual
 ms.date: 08/18/2022
 ---
@@ -15,6 +15,14 @@ Security teams in general have many cloud misconfigurations and vulnerabilities 
 :::image type="content" source="media/concept-cloud-map/security-map.png" alt-text="Image of a conceptualized graph that shows the complexity of security graphing." lightbox="media/concept-cloud-map/security-map.png":::
 
 ## Assessing risk
+
+Defender for Cloud offers three ways to asses your risk of security issues that exist in your cloud environments. 
+
+- **Graph-based context engine**: <NEED A DESCRIPTION FOR THIS>
+
+- **Attack path analysis**: Shows you thr paths potential attackers can use to breach your environment.
+
+- **Graph-based queries**: Building a query allows you to proactively find security risks in your environment on top of the context engine.
 
 When you assess your environments, certain scenarios will have lower risks, and others will have higher risk. It isn't always easy to differentiate which are which. Below are some clear example of situations that would be low, medium and high risk.
 
