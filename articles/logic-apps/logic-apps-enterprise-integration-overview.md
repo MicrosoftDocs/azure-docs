@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: overview
-ms.date: 01/27/2022
+ms.date: 08/20/2022
 ---
 
 # B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack
