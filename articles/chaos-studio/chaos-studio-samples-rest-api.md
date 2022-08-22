@@ -5,7 +5,7 @@ services: chaos-studio
 author: johnkemnetz
 ms.topic: article
 ms.date: 11/01/2021
-ms.author: johnkem
+ms.author: azchaosstudiopm
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
 ---
