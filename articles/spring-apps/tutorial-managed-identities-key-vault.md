@@ -93,7 +93,7 @@ export SERVICE_IDENTITY=$(az spring app show --name "springapp" -s "myspringclou
 
 ### [User-assigned managed identity](#tab/user-assigned-managed-identity)
 
-First, create a user-assigned managed identity in advance with its resource ID set to `$USER_IDENTITY_RESOURCE_ID`. Save the client ID for property configuration below.
+First, create a user-assigned managed identity in advance with its resource ID set to `$USER_IDENTITY_RESOURCE_ID`. Save the client ID for the property configuration below.
 
 :::image type="content" source="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png" alt-text="Screenshot of Azure portal showing the Managed Identity Properties screen with 'Resource ID', 'Principle ID' and 'Client ID' highlighted." lightbox="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png":::
 
