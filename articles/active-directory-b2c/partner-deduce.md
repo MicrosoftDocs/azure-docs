@@ -557,7 +557,8 @@ At this point, the Deduce RESTfull API has been set up, but it's not yet availab
 Now that you've a user journey, add the orchestrations steps to call Deduce.
 
 
-1. Find the orchestration step element that includes Type=`CombinedSignInAndSignUp`, or Type=`ClaimsProviderSelection` in the user journey. It's usually the first orchestration step.
+1. Find the orchestration step element that includes `Type=CombinedSignInAndSignUp`, or `Type=ClaimsProviderSelection` in the user journey. It's usually the first orchestration step.
+
 
 2. Add a new orchestration step to invoke  `SelfAsserted-UserAgent` technical profile.
 
