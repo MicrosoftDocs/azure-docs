@@ -44,7 +44,7 @@ az account set \
       
 ## Create a resource group 
 
-Before you can deploy Azure Virtual Network Manager, you have to create a resource group to host the . Create a network manager resource group with [az group create](/cli/azure/group#az-group-create). This example creates a resource group named **myAVNMResourceGroup** in the **westus** location:
+Before you can deploy Azure Virtual Network Manager, you have to create a resource group to host a network manager with [az group create](/cli/azure/group#az-group-create). This example creates a resource group named **myAVNMResourceGroup** in the **westus** location:
 
 ```azurecli-interactive
 az group create \
@@ -168,7 +168,7 @@ az network manager group static-member create \
 ```
 ### Dynamic membership option
 
-Using Azure Policy, you'll dynamically add the three VNets with a tag value of **Prod**. the for your Mesh configuration to the Network Group based on the 
+Using Azure Policy, you'll dynamically add the three VNets with a tag **networkType** value of *Prod* to the Network Group. These are the three virtual networks to become part of the mesh configuration
 
 > [!NOTE] 
 > Policies can be applied to a subscription or management group, and must always be defined *at or above* the level they're created. Only virtual networks within a policy scope are added to a Network Group.
@@ -186,7 +186,7 @@ az policy definition create \
 ```
 ### Apply a Policy definition
 
-Once a policy is defined, it must also be applied. You will do this with the az policy assignment create command. Replace <subscription_id> with the subscription you want to apply this policy to. If you want to apply it to a management group, replace `--scope "/subscriptions/<subscription_id>"` with `--scope "/providers/Microsoft.Management/managementGroups/<mgName>`, and replace <mgName> with your management group.
+Once a policy is defined, it must also be applied with [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create). Replace <subscription_id> with the subscription you want to apply this policy to. If you want to apply it to a management group, replace `--scope "/subscriptions/<subscription_id>"` with `--scope "/providers/Microsoft.Management/managementGroups/<mgName>`, and replace <mgName> with your management group.
 
 ```azurecli-interactive
 az policy assignment create \
@@ -198,9 +198,7 @@ az policy assignment create \
 
 ## Create a configuration
 
-Now that the Network Group is created, and has the correct VNets, configurations can be applied to this group (and all VNets under it).
-
-Create a mesh network topology configuration with [az network manager connect-config create](/cli/azure/network/manager/connect-config#az-network-manager-connect-config-create). Replace <subscription_id> with your subscription.
+Now that the Network Group is created, and has the correct VNets, create a mesh network topology configuration with [az network manager connect-config create](/cli/azure/network/manager/connect-config#az-network-manager-connect-config-create). Replace <subscription_id> with your subscription.
 
 ```azurecli-interactive
 az network manager connect-config create \
