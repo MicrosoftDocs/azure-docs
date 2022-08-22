@@ -84,7 +84,7 @@ When installing or migrating existing SAP on Oracle systems to Azure, the follow
 
 9.  Oracle Home should be located outside of the “root” volume or disk. Use a separate disk or ANF volume. The disk holding the Oracle Home should be 64GB or larger
 
-10. The size of the boot disk for large high performance Oracle database servers is important. As a minimum a P10 disk should be used for M-series or E-series. Do not use small disks such as P4 or P6. This may cause performance problems
+10. The size of the boot disk for large high performance Oracle database servers is important. As a minimum a P10 disk should be used for M-series or E-series. Do not use small disks such as P4 or P6. A small disk can cause performance issues.
 
 11. Accelerated Networking must be enabled on all VMs. Upgrade to the latest OL release if there are any problems enabling Accelerated Networking
 
@@ -93,7 +93,7 @@ When installing or migrating existing SAP on Oracle systems to Azure, the follow
 For information about which Oracle versions and corresponding OS versions are supported for running SAP on Oracle on Azure Virtual
 Machines, see SAP Note [<u>2039619</u>](https://launchpad.support.sap.com/#/notes/2039619).
 
-General information about running SAP Business Suite on Oracle can be found in the [<u>SAP on Oracle community page</u>](https://www.sap.com/community/topic/oracle.html). SAP on Oracle on Azure is only supported on Oracle Linux (and not Suse or Red Hat). Oracle RAC is not supported on Azure as this requires Multicast networking.
+General information about running SAP Business Suite on Oracle can be found in the [<u>SAP on Oracle community page</u>](https://www.sap.com/community/topic/oracle.html). SAP on Oracle on Azure is only supported on Oracle Linux (and not Suse or Red Hat). Oracle RAC is not supported on Azure because RAC would require Multicast networking.
 
 **Storage configuration**
 
@@ -239,12 +239,9 @@ Major differences to Variant 1 are:
 </tbody>
 </table>
 
-**Variant 3** – very large data and data change volumes more than \~**5TB**, restore time crucial
+**Variant 3** – huge data and data change volumes more than \~**5TB**, restore time crucial
 
-Customer has very large databases where backup and/or restore + recovery
-of a
-
-single databases cannot be accomplished in a timely fashion.
+Customer has a huge database where backup and/or restore + recovery of a single databases cannot be accomplished in a timely fashion.
 
 Usually customers will use RMAN, Azure Backup for Oracle and/or disk snap techniques in combination. In this variant each relevant database file type is separated to different Oracle ASM disk groups.
 
