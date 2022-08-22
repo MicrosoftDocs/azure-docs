@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 08/29/2022
 ms.author: ladolan
 ---
 
