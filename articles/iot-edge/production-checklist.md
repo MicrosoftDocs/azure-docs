@@ -164,9 +164,9 @@ In some cases, for example when dependencies exist between modules, it may be de
                 "systemModules": {
                     "edgeAgent": {
                         "env": {
-+                            "ModuleUpdateMode": {
++                           "ModuleUpdateMode": {
 +                               "value": "WaitForAllPulls"
-+                            }
++                           }
                         ...
 }
 ```
@@ -218,13 +218,13 @@ Next, be sure to update the image references in the deployment.template.json fil
 
     `"image": "<registry name and server>/azureiotedge-hub:1.1",`
 
-## Configure image garbage collection
-Image garbage collection is a feature offered by IoT Edge to automatically clean up any unused docker images for IoT Edge modules that are downloaded to the device. Deleting unused module images helps in conserving the disk space. This feature is enabled by default, so we recommend leaving this feature ON. Image garbage collection introduces the following attributes.
- * Default settings include: enabled by default, recurrence of once a day at midnight, and cleanup threshold of 7 days. 
- * Users may disable the feature or change the recurrence by modifying the settings in config.toml. If the settings are not provided in config.toml, default settings are applied.
- * Image garbage collection will not delete docker images that are not pulled by the IoT Edge.
+::: moniker range=">=iotedge-1.4"
+### Configure image garbage collection
+Module image garbage collection is a feature offered by IoT Edge v1.4 and later to automatically clean up docker images that are no longer used by IoT Edge modules. It only deletes Docker images that were pulled by the IoT Edge runtime as part of a deployment. Deleting these unused module images helps conserve disk space.
 
-All of the parameters noted in the table below marked as **Required** need to be specified.
+By default, this feature is enabled to run once per day at midnight (device local time) and remove module images that are at least 7 days old. The parameters to disable the feature, modifying the recurrence or module image age cleanup threshold are set in the `config.toml`. If not specified, the default values are applied.
+
+If the default settings need to be modified, all of the parameters noted in the table below marked as **Required** need to be specified.
 
 | Parameter | Description |
 |-|-|
@@ -241,6 +241,7 @@ cleanup_recurrence = “1d” 
 image_age_cleanup_threshold = “7d” 
 cleanup_time = “00:00”  
 ```
+::: moniker-end
 ## Networking
 
 * **Helpful**
