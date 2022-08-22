@@ -198,6 +198,8 @@
         href: ../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
   - name: Lifecycle Workflows (Preview)
     items:
+      - name: Lifecycle Workflows Deployment (Preview)
+        href: lifecycle-workflows-deployment.md   
       - name: Create
         items: 
         - name: Create a Lifecycle Workflow (Preview)
@@ -234,6 +236,4 @@
   - name: Developer API reference Lifecycle Workflows- Azure Active Directory
     href: lifecycle-workflows-dev-reference.md  
   - name: Preparing user accounts for Lifecycle workflows tutorials (Preview)
-    href: tutorial-prepare-azuread-user-accounts.md   
-  - name: Lifecycle Workflows Deployment (Preview)
-    href: lifecycle-workflows-deployment.md   
+    href: tutorial-prepare-azuread-user-accounts.md 
