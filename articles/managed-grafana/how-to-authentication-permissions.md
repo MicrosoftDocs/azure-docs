@@ -36,7 +36,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 ---
 
-## Create a workspace and set up authentication and permissions
+## Set up authentication and permissions during the creation of the instance
 
 Create a workspace with the Azure portal or the CLI.
 
@@ -104,7 +104,7 @@ System-assigned managed identity is the default authentication method provided t
 
     :::image type="content" source="media/authentication/create-form-validation.png" alt-text="Screenshot of the Azure portal. Create workspace form. Validation.":::
 
- ### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 Run the [az group create](/cli/azure/group#az-group-create) command below to create a resource group to organize the Azure resources needed. Skip this step if you already have a resource group you want to use.
 
@@ -171,6 +171,20 @@ az grafana create --name <managed-grafana-resource-name> --resource-group <resou
 Once the deployment is complete, you'll see a note in the output of the command line stating that the instance was successfully created, alongside with additional information about the deployment.
 
 ---
+
+## Update authentication and permissions
+
+After your workspace has been created, you can still turn on or turn off system-assigned managed identity and update Azure role assignments for Azure Managed Grafana.
+
+1. In the Azure portal, from the left menu, under **Settings**, select **Identity**.
+1. Set the status for System assigned to **Off**, to deactivate the system assigned managed identity, or set it to **On** to activate this authentication method.
+1. Under permissions, select **Azure role assignments** to set Azure roles.
+1. When done, select **Save**
+
+    :::image type="content" source="media/authentication/update-identity.png" alt-text="Screenshot of the Azure portal. Updating the system-assigned managed identity. Basics.":::
+
+> [!NOTE]
+> Disabling a system-assigned managed identity is irreversible. If you re-enable the identity in the future, Azure will create a new identity.
 
 ## Next steps
 

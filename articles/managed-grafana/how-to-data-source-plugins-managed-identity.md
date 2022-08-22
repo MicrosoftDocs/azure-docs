@@ -56,7 +56,7 @@ You can find all available Grafana data sources by going to your resource and se
 
 For more information about data sources, go to [Data sources](https://grafana.com/docs/grafana/latest/datasources/) on the Grafana Labs website.
 
-## Default configuration for Azure Monitor
+## Configuration for Azure Monitor
 
 The Azure Monitor data source is automatically added to all new Managed Grafana resources. To review or modify its configuration, follow these steps in your Managed Grafana endpoint:
 
@@ -65,16 +65,30 @@ The Azure Monitor data source is automatically added to all new Managed Grafana 
    :::image type="content" source="media/data-sources/configuration.png" alt-text="Screenshot of the Add data sources page.":::
 
 1. Azure Monitor is listed as a built-in data source for your Managed Grafana instance. Select **Azure Monitor**.
-1. In **Settings**, authenticate through **Managed Identity** and select your subscription from the dropdown list or enter your **App Registration** details
+1. In the **Settings** tab, authenticate through **Managed Identity** and select your subscription from the dropdown list or enter your **App Registration** details
 
    :::image type="content" source="media/data-sources/configure-Azure-Monitor.png" alt-text="Screenshot of the Azure Monitor page in data sources.":::
 
 Authentication and authorization are then made through the provided managed identity. With Managed Identity, you can assign permissions for your Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Azure Active Directory (Azure AD).
 
-## Next steps
+## Configuration for Azure Data Explorer
 
-> [!div class="nextstepaction"]
-> [Modify access permissions to Azure Monitor](./how-to-permissions.md)
+Azure Managed Grafana can also access data sources using a service principal set up in Azure Active Directory (Azure AD).
+
+1. From the left menu, select **Configuration** > **Data sources**.
+
+   :::image type="content" source="media/data-sources/configuration.png" alt-text="Screenshot of the Add data sources page.":::
+
+1. **Azure Data Explorer Datasource** is listed as a built-in data source for your Managed Grafana instance. Select this data source.
+1. In the **Settings** tab, fill out the form under **Connection Details**,  and optionally also edit the **Query Optimizations**, **Database schema settings**, and **Tracking** sections.
+
+   :::image type="content" source="media/data-sources/data-explorer-connection-settings.jpg" alt-text="Screenshot of the Connection details section for Data Explorer in data sources.":::
+
+   To complete this process, you need to have an Azure AD service principal and connect Azure AD with an Azure Data Explorer User. For more information, go to [Configuring the datasource in Grafana](https://github.com/grafana/azure-data-explorer-datasource#configuring-the-datasource-in-grafana).
+
+1. Select **Save & test** to validate the connection. "Success" is displayed on screen and confirms that Azure Managed Grafana is able to fetch the data source through the provided connection details, using the service principal in Azure AD.
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Share an Azure Managed Grafana instance](./how-to-share-grafana-workspace.md)
