@@ -74,7 +74,7 @@ Set-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccount
 First, install the preview extension for the Azure CLI if it's not already installed:
 
 ```azurecli
-az extension add -name storage-preview
+az extension add --name storage-preview
 ```
 
 Then, to enable SFTP support, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--enable-sftp` parameter to true. Remember to replace the values in angle brackets with your own values:
@@ -279,7 +279,7 @@ When using a private endpoint the connection string is `myaccount.myuser@myaccou
 
 ## Networking considerations
 
-When using SFTP, you may want to limit public access through configuration of a firewall, virtual network, or private endpoint. These settings are enforced at the application layer, which means they are not specific to SFTP and will impact connectivity to all Azure Storage Endpoints. For more information on firewalls and network configuration, see [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
+SFTP is a platform level service, so port 22 will be open even if the account option is disabled. If SFTP access is not configured then all requests will receive a disconnect from the service. When using SFTP, may want to limit public access through configuration of a firewall, virtual network, or private endpoint. These settings are enforced at the application layer, which means they are not specific to SFTP and will impact connectivity to all Azure Storage Endpoints. For more information on firewalls and network configuration, see [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
 
 > [!NOTE]
 > Audit tools that attempt to determine TLS support at the protocol layer may return TLS versions in addition to the minimum required version when run directly against the storage account endpoint. For more information, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account](../common/transport-layer-security-configure-minimum-version.md).

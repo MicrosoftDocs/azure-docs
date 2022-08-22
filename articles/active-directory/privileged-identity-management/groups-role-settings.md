@@ -3,7 +3,7 @@ title: Configure privileged access groups settings in PIM - Azure Active Directo
 description: Learn how to configure role-assignable groups settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: amsliu
 manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---

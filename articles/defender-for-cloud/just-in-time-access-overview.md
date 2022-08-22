@@ -56,7 +56,7 @@ When Defender for Cloud finds a machine that can benefit from JIT, it adds that 
 
 ### What permissions are needed to configure and use JIT?
 
-JIT Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#plan-2-formerly-defender-for-servers) to be enabled on the subscription. 
+JIT Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans) to be enabled on the subscription. 
 
 **Reader** and **SecurityReader** roles can both view the JIT status and parameters.
 

@@ -3,7 +3,7 @@ title: Create an Azure Arc-enabled PostgreSQL Hyperscale server group from the A
 description: You can create an Azure Arc-enabled PostgreSQL Hyperscale server group from the Azure portal.
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
@@ -92,7 +92,7 @@ Be aware of the following considerations when you're deploying:
 
     This table is demonstrated in the following figure:
 
-    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts Postgres Hyperscale worker node parameters and associated architecture." border="false":::  
+    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts PostgreSQL Hyperscale worker node parameters and associated architecture." border="false":::  
 
     Although you can indicate *1* worker, it's not a good idea to do so. This deployment doesn't provide you with much value. With it, you get two instances of Azure Arc-enabled PostgreSQL Hyperscale: one coordinator and one worker. You don't scale out the data because you deploy a single worker. As such, you don't see an increased level of performance and scalability.
 

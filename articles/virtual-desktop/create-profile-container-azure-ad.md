@@ -4,10 +4,9 @@ description: Set up an FSLogix profile container on an Azure file share in an ex
 services: virtual-desktop
 author: Heidilohr
 manager: femila
-
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 08/03/2022
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory (preview)
@@ -105,7 +104,15 @@ Follow the instructions in the following sections to configure Azure AD authenti
 
 ### Configure the Azure AD service principal and application
 
-To enable Azure AD authentication on a storage account, you need to create an Azure AD application to represent the storage account in Azure AD. This configuration won't be available in the Azure portal during public preview. To create the application using PowerShell, follow these steps:
+To enable Azure AD authentication on a storage account, you need to create an Azure AD application to represent the storage account in Azure AD. This configuration won't be available in the Azure portal during public preview. If the cmdlets in the previous section auto-created the application on your behalf, you can skip this step. To verify if the application has already been created, run the following cmdlet:
+
+```powershell
+Get-AzureADServicePrincipal -Searchstring "[Storage Account] $storageAccountName.file.core.windows.net"
+```
+
+If you see an existing service principal with your storage account name, skip this section and proceed with [setting the API permissions on the application](#set-the-api-permissions-on-the-newly-created-application).
+
+If not, create the application using PowerShell, following these steps:
 
 - Set the password (service principal secret) based on the Kerberos key of the storage account. The Kerberos key is a password shared between Azure AD and Azure Storage. Kerberos derives the password's value from the first 32 bytes of the storage account’s kerb1 key. To set the password, run the following cmdlets:
 
@@ -181,7 +188,19 @@ To enable Azure AD authentication on a storage account, you need to create an Az
 
 ### Set the API permissions on the newly created application
 
-You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
+You can configure the API permissions from the [Azure portal](https://portal.azure.com).
+
+If the service principal was already created for you in the last section, follow these steps:
+
+1. Open **Azure Active Directory**.
+2. Select **App registrations** on the left pane.
+3. Select **All Applications**.
+4. Select the application with the name matching **[Storage Account] $storageAccountName.file.core.windows.net**.
+5. Select **API permissions** in the left pane.
+6. Select **Add permissions** at the bottom of the page.
+7. Select **Grant admin consent for "DirectoryName"**.
+
+If you created the service principal in the last section, follow these steps:
 
 1. Open **Azure Active Directory**.
 2. Select **App registrations** on the left pane.
@@ -262,7 +281,7 @@ To configure your storage account:
     $domainName = $domainInformation.DnsRoot
     $domainSid = $domainInformation.DomainSID.Value
     $forestName = $domainInformation.Forest
-    $netBiosDomainName = $domainInformation.DnsRoot
+    $netBiosDomainName = $domainInformation.netBiosName
     $azureStorageSid = $domainSid + "-123454321";
 
     Write-Verbose "Setting AD properties on $storageAccountName in $resourceGroupName : `
@@ -502,5 +521,3 @@ If you need to disable Azure AD authentication on your storage account:
 ## Next steps
 
 - To troubleshoot FSLogix, see [this troubleshooting guide](/fslogix/fslogix-trouble-shooting-ht).
-- To configure FSLogix profiles on Azure Files with Azure Active Directory Domain Services, see [Create a profile container with Azure Files and Azure AD DS](create-profile-container-adds.md).
-- To configure FSLogix profiles on Azure Files with Active Directory Domain Services, see [Create a profile container with Azure Files and AD DS](create-file-share.md).

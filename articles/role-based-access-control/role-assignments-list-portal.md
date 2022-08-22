@@ -3,7 +3,7 @@ title: List Azure role assignments using the Azure portal - Azure RBAC
 description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
@@ -132,11 +132,11 @@ You can list role assignments for system-assigned and user-assigned managed iden
 
 You can have up to **2000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
 
-The role assignments limit for a subscription is currently being increased. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#azure-role-assignments-limit).
+The role assignments limit for a subscription is currently being increased. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#limits).
 
 ![Access control - Number of role assignments chart](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
-If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. For ways that you can reduce the number of role assignments, see [Troubleshoot Azure RBAC](troubleshooting.md#azure-role-assignments-limit).
+If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. For ways that you can reduce the number of role assignments, see [Troubleshoot Azure RBAC](troubleshooting.md#limits).
 
 ![Access control - Add role assignment warning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 

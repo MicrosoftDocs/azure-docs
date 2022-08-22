@@ -33,7 +33,7 @@ The following table lists some of the most common grouping and filtering options
 | **Frequency** | Break down usage-based, one-time, and recurring costs. | |
 | **Invoice ID** | Break down costs by billed invoice. | Unbilled charges don't have an invoice ID yet and EA costs don't include invoice details and will show as **No invoice ID**.  |
 | **Location** | Break down costs by resource location or region. | Purchases and Marketplace usage may be shown as **unassigned**, or **No resource location**. |
-| **Meter** | Break down costs by usage meter. | Purchases and Marketplace usage will show as **No meter**. Refer to **Charge type** to identify purchases and **Publisher type** to identify Marketplace charges. |
+| **Meter** | Break down costs by usage meter. | Purchases and Marketplace usage will show as **unassigned** or **No meter**. Refer to **Charge type** to identify purchases and **Publisher type** to identify Marketplace charges. |
 | **Operation** | Break down AWS costs by operation. | Applicable only to AWS scopes and management groups. Azure data doesn't include operation and will show as **No operation** - use **Meter** instead. |
 | **Pricing model** | Break down costs by on-demand, reservation, or spot usage. | Purchases show as **OnDemand**. If you see **Not applicable**, group by **Reservation** to determine whether the usage is reservation or on-demand usage and **Charge type** to identify purchases.
 | **Provider** | Break down costs by the provider type: Azure, Microsoft 365, Dynamics 365, AWS, and so on. | Identifier for product and line of business. |

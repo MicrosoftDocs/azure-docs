@@ -1,11 +1,14 @@
 ---
 title: Package and deploy containers
 description: In this tutorial, you learn how to generate an Azure Service Fabric application definition using Yeoman and package the application. 
-
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: mvc, devx-track-azurecli
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Package and deploy containers as a Service Fabric application using Yeoman
 
 This tutorial is part two in a series. In this tutorial, a template generator tool (Yeoman) is used to generate a Service Fabric application definition. This application can then be used to deploy containers to Service Fabric. In this tutorial you learn how to:
@@ -27,13 +30,13 @@ This tutorial is part two in a series. In this tutorial, a template generator to
 
 Service fabric provides scaffolding tools to help create applications from terminal using Yeoman template generator. Follow the steps below to ensure you have the Yeoman template generator.
 
-1. Install nodejs and NPM on your machine. Note that, Mac OSX users will have to use the package manager Homebrew
+1. Install nodejs and Node Package Manager on your machine. If you use macOS X, you'll have to use the package manager Homebrew.
 
     ```bash
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
     nvm install node 
     ```
-2. Install Yeoman template generator on your machine from NPM
+2. Install Yeoman template generator on your machine from Node Package Manager:
 
     ```bash
     npm install -g yo
@@ -239,7 +242,7 @@ az group create --name $ResourceGroupName --location $Location
 # The certificate is downloaded locally as a PEM file.
 az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
 --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \ 
---cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
+--cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1804 --vault-name $VaultName \ 
 --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
 
