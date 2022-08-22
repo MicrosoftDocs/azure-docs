@@ -4,7 +4,7 @@ description: Described how to deploy an application to Azure Spring Apps.
 author: karlerickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 08/16/2022
+ms.date: 08/22/2022
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022
 ---
@@ -84,7 +84,7 @@ az spring app create -n hellospring -s <service instance name> -g <Name of Resou
 
 ### Clone the Spring Boot sample project
 
-1. Use the following command to clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from github.
+1. Use the following command to clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from GitHub.
 
    ```azurecli-interactive
    git clone https://github.com/spring-guides/gs-spring-boot.git
@@ -132,7 +132,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.1
 
 The following image shows the recommended Initializr settings for the *hellospring* sample project. 
 
-This example uses Java version 11.  To use a different Java version, change Java version option under **Project Metadata**. 
+This example uses Java version 11.  To use a different Java version, change the Java version setting under **Project Metadata**. 
 
 :::image type="content" source="media/quickstart/initializr-page.png" alt-text="Screenshot of Spring Initializr page." lightbox="media/quickstart/initializr-page.png":::
 
@@ -156,7 +156,7 @@ This example uses Java version 11.  To use a different Java version, change Java
     }
     ```
 
-### Provision an instance of Azure Spring Apps
+### <a name="provision-instance">Provision an instance of Azure Spring Apps</a>
 
 Use the following steps to create an instance of Azure Spring Apps using the Azure portal.
 
@@ -199,40 +199,40 @@ Use the following steps to import the project.
 
 1. If you haven't already installed the Azure Toolkit for IntelliJ, follow the steps in [Install the Azure Toolkit for IntelliJ](https://docs.microsoft.com//azure/developer/java/toolkit-for-intellij/install-toolkit).
 
-1. Right-click your project in IntelliJ project explorer, then select **Azure** -> **Deploy to Azure Spring Apps**.
+1. Right-click your project in the IntelliJ Project window, and then select **Azure** -> **Deploy to Azure Spring Apps**.
 
    :::image type="content" source="media/quickstart/intellij-deploy-azure-1.png" alt-text="Screenshot of IntelliJ IDEA menu showing Deploy to Azure Spring Apps option." lightbox="media/quickstart/intellij-deploy-azure-1.png":::
 
 1. Accept the name for the app in the **Name** field. **Name** refers to the configuration, not the app name. You don't usually need to change it.
 1. In the **Artifact** textbox, select **Maven:com.example:hellospring-0.0.1-SNAPSHOT**.
 1. In the **Subscription** textbox, verify that your subscription is correct.
-1. In the **Service** textbox, select the instance of Azure Spring Apps that you created in [Provision an instance of Azure Spring Apps](#provision-an-instance-of-azure-spring-apps).
-1. In the **App** textbox, select **+** to create a new app.
+1. In the **Service** textbox, select the instance of Azure Spring Apps that you created in [Provision an instance of Azure Spring Apps](#provision-instance).
+1. In the **App** textbox, select the plus sign (**+**) to create a new app.
 
    :::image type="content" source="media/quickstart/intellij-create-new-app.png" alt-text="Screenshot of IntelliJ IDEA showing Deploy Azure Spring Apps dialog box.":::
 
-1. In the **App name:** textbox, enter *hellospring*, then check the **More settings** check box.
-1. Select the **Enable** button next to **Public endpoint**. The button will change to *Disable \<to be enabled\>*.
-1. If you used Java 11, select **Java 11** in **Runtime**.
+1. In the **App name:** textbox under **App Basics**, enter *hellospring*, and then check the **More settings** check box.
+1. Select the **Enable** button next to **Public endpoint**. The button changes to *Disable \<to be enabled\>*.
+1. If you are using Java 11, select **Java 11** for the **Runtime** option.
 1. Select **OK**.
 
    :::image type="content" source="media/quickstart/intellij-create-new-app-2.png" alt-text="Screenshot of IntelliJ IDEA Create Azure Spring Apps dialog box with public endpoint Disable button highlighted.":::
 
-1. Under **Before launch**, select the **Run Maven Goal 'hellospring:package'** line, then select the pencil icon to edit the command line.
+1. Under **Before launch**, select **Run Maven Goal 'hellospring:package'**, and then select the pencil icon to edit the command line.
 
    :::image type="content" source="media/quickstart/intellij-edit-maven-goal.png" alt-text="Screenshot of IntelliJ IDEA Create Azure Spring Apps dialog box with Maven Goal edit button highlighted.":::
 
-1. In the **Command line** textbox, enter *-DskipTests* after *package*, then select **OK**.
+1. In the **Command line** textbox, enter *-DskipTests* after *package*, and then select **OK**.
 
    :::image type="content" source="media/quickstart/intellij-maven-goal-command-line.png" alt-text="Screenshot of IntelliJ IDEA Select Maven Goal dialog box with Command Line value highlighted.":::
 
-1. Start the deployment by selecting the **Run** button at the bottom of the **Deploy Azure Spring Apps app** dialog. The plug-in will run the command `mvn package -DskipTests` on the `hellospring` app and deploy the jar generated by the `package` command.
+1. To start the deployment, select the **Run** button at the bottom of the **Deploy Azure Spring Apps app** dialog box. The plug-in runs the command `mvn package -DskipTests` on the `hellospring` app and deploys the .jar file generated by the `package` command.
 
 ## [Visual Studio Code](#tab/VS-Code)
 
 ### Deploy a Spring Boot web app to Azure Spring Apps with Visual Studio Code
 
-To deploy a Spring Boot web app to Azure Spring Apps, follow the steps in [Build and Deploy Java Spring Boot Apps to Azure Spring Apps with Visual Studio Code](https://code.visualstudio.com/docs/java/java-spring-cloud#_download-and-test-the-spring-boot-app).
+To deploy a Spring Boot web app to Azure Spring Apps, follow the steps in [Java on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps).
 
 ---
 
@@ -242,7 +242,7 @@ You also have access to powerful logs, metrics, and distributed tracing capabili
 
 ## Clean up resources
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When you no longer need the resources, delete them by deleting the resource group. Use the following commands to delete the resource group:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
