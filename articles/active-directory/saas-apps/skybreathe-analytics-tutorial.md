@@ -57,8 +57,8 @@ To configure and test Azure AD SSO with Skybreathe® Analytics, perform the foll
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Skybreathe® Analytics SSO](#configure-skybreathe®-analytics-sso)** - to configure the single sign-on settings on application side.
-   1. **[Create Skybreathe® Analytics test user](#create-skybreathe®-analytics-test-user)** - to have a counterpart of B.Simon in Skybreathe® Analytics that is linked to the Azure AD representation of user.
+1. **[Configure Skybreathe Analytics SSO](#configure-skybreathe-analytics-sso)** - to configure the single sign-on settings on application side.
+   1. **[Create Skybreathe Analytics test user](#create-skybreathe-analytics-test-user)** - to have a counterpart of B.Simon in Skybreathe® Analytics that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -131,11 +131,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Skybreathe® Analytics SSO
+## Configure Skybreathe Analytics SSO
 
 To configure single sign-on on **Skybreathe® Analytics** side, you need to send the **App Federation Metadata Url** to [Skybreathe® Analytics support team](mailto:support@openairlines.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create Skybreathe® Analytics test user
+### Create Skybreathe Analytics test user
 
 In this section, you create a user called Britta Simon in Skybreathe® Analytics. Work with [Skybreathe® Analytics support team](mailto:support@openairlines.com) to add the users in the Skybreathe® Analytics platform. Users must be created and activated before you use single sign-on.
 
