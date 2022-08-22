@@ -103,24 +103,22 @@ The following table shows the approximate time for performing offline migrations
 | 500 GB | 08:00 |
 | 1,000 GB | 09:30 |
 
-### Migration considerations for online mode 
+### Migration considerations for online mode
 
 The migration process for online mode entails a dump of the Single Server database(s), a restore of that dump in the Flexible Server target, and then replication of ongoing changes. You capture change data by using logical decoding.
 
 The time for completing an online migration depends on the incoming writes to the source server. The higher the write workload is on the source, the more time it takes for the data to be replicated to Flexible Server.
 
-## Migration steps
+To begin the migration in either Online or Offline mode, you can get started with the Prerequisites below.
 
-### Prerequisites
+## Migration Prerequisites
 
 >[!NOTE]
 > It is very important to complete the prerequisite steps in this section before you initiate a migration using this tool.
 
-Before you start using the migration tool:
-
 #### Register your subscription for Azure Database Migration Service:
 
-   1. On the Azure portal, go to your subscription.
+   1. On the Azure portal, go to the subscription of your Target server.
 
       :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-azure-portal.png" alt-text="Screenshot of Azure portal subscription details." lightbox="./media/concepts-single-to-flexible/single-to-flex-azure-portal.png":::
 
