@@ -161,9 +161,11 @@ Composite search parameters can also be used to filter multiple component code v
 GET {{FHIR_URL}}/Observation?component-code-value-quantity=http://loinc.org|8462-4$gt90,http://loinc.org|8480-6$gt140
 ``` 
 
-## Search the next entry set
+Note how `,` functions as the logical OR operator between the two conditions.
 
-The maximum number of entries that can be returned per a single search query is 1000. However, you might have more than 1000 entries that match the search query, and you might want to see the next set of entries after the first 1000 entries that were returned. In such case, you would use the continuation token `url` value in `searchset` as in the `Bundle` result below:
+## View the next entry set
+
+The maximum number of resources that can be returned per a single search query is 1000. However, you might have more than 1000 resource instances that match the search query, and you might want to see the next set of entries after the first 1000 entries that were returned. In such a case, you would use the continuation token `url` value in `searchset` as in the `Bundle` result below:
 
 ```json
     "resourceType": "Bundle",
@@ -175,11 +177,11 @@ The maximum number of entries that can be returned per a single search query is 
     "link": [
         {
             "relation": "next",
-            "url": "[your-fhir-server]/Patient?_sort=_lastUpdated&ct=WzUxMDAxNzc1NzgzODc5MjAwODBd"
+            "url": "{{FHIR_URL}}/Patient?_sort=_lastUpdated&ct=WzUxMDAxNzc1NzgzODc5MjAwODBd"
         },
         {
             "relation": "self",
-            "url": "[your-fhir-server]/Patient?_sort=_lastUpdated"
+            "url": "{{FHIR_URL}}/Patient?_sort=_lastUpdated"
         }
     ],
 
@@ -188,22 +190,22 @@ The maximum number of entries that can be returned per a single search query is 
 And you would do a GET request for the provided URL under the field `relation: next`:
 
 ```rest
-GET [your-fhir-server]/Patient?_sort=_lastUpdated&ct=WzUxMDAxNzc1NzgzODc5MjAwODBd
+GET {{FHIR_URL}}/Patient?_sort=_lastUpdated&ct=WzUxMDAxNzc1NzgzODc5MjAwODBd
 
 ```
 
-This will return the next set of entries for your search result. The `searchset` is the complete set of search result entries, and the continuation token `url` is the link provided by the server for you to retrieve the entries that don't show up on the first set because the restriction on the maximum number of entries returned for a search query.
+This will return the next set of entries for your search results. The `searchset` bundle is the complete set of search result entries, and the continuation token `url` is the link provided by the FHIR service for you to retrieve the entries that don't show up in the first set because of the restriction on the maximum number of entries returned for a search query.
 
 ## Search using POST
 
-All of the search examples mentioned above have used `GET` requests. You can also do search operations using `POST` requests using `_search`:
+All of the search examples mentioned above use `GET` requests. However, you can also make FHIR search API calls using `POST` requests with `_search`:
 
 ```rest
 POST [your-fhir-server]/Patient/_search?_id=45
 
 ```
 
-This request would return all `Patient` resources with the `id` value of 45. Just as in GET requests, the server determines which of the set of resources meets the condition(s), and returns a bundle resource in the HTTP response.
+This request would return the `Patient` resource instance with the `id` value of 45. Just as with GET requests, the server determines which of the set of resources meets the condition(s) and returns a bundle in the HTTP response.
 
 Another example of searching using POST where the query parameters are submitted as a form body is:
 
@@ -216,7 +218,7 @@ name=John
 ```
 ## Next steps
 
-In this article, you learned about how to search using different search parameters, modifiers, and other search tools for FHIR. For more information about FHIR search, see
+In this article, you learned about how to search using different search parameters, modifiers, and other search methods for FHIR. For more information about FHIR search, see
 
 >[!div class="nextstepaction"]
 >[Overview of FHIR Search](overview-of-search.md)
