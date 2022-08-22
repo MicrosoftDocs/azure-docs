@@ -43,7 +43,7 @@ This article outlines how to manage workflows that are already running.
     :::image type="content" source="./media/how-to-workflow-manage-runs/cancel-workflows-inline.png" alt-text="Screenshot of the workflow runs page, with the workflow details page overlaid and cancel button to cancel the workflow run." lightbox="./media/how-to-workflow-manage-runs/cancel-workflows.png":::
 
     > [!NOTE]
-    > You can only cancel workflows which are in progress.
+    > You can only cancel workflows that are in progress.
 
 
 ## Next steps
