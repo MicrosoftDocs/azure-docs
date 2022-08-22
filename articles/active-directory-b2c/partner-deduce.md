@@ -68,8 +68,6 @@ The following sections describe the integration process.
 
 Follow the instructions in [Get the starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#get-the-starter-pack) to learn how to set up your Azure AD B2C tenant and configure policies. This samples article is based on the Local Accounts starter pack.
 
->[!NOTE]
->This sample policy is based on Local Accounts starter pack.
 
 ## Step 2: Customize the Azure AD B2C user interface
 
