@@ -82,7 +82,7 @@ Important elements of a `SearchParameter`:
 
 While you can’t use the search parameters in production until you run a reindex job, there are a few ways to test your search parameters before reindexing the entire database. 
 
-First, you can test your new search parameter to see what values will be returned. By running the command below against a specific resource instance (by inputting their ID), you'll get back a list of value pairs with the search parameter name and the value stored. This will include all of the search parameters for the resource and you can scroll through to find the search parameter you created. Running this command won't change any behavior in your FHIR service. 
+First, you can test your new search parameter to see what values will be returned. By running the command below against a specific resource instance (by supplying the resource ID), you'll get back a list of value pairs with the search parameter name and the value stored. This will include all of the search parameters for the resource. You can scroll through to find the search parameter you created. Running this command won't change any behavior in your FHIR service. 
 
 ```rest
 GET https://{{FHIR_URL}}/{{RESOURCE}}/{{RESOUCE_ID}}/$reindex
@@ -119,28 +119,32 @@ The result will look like this:
     },
 ...
 ```
-Once you see that your search parameter is displaying as expected, you can reindex a single resource to test searching with the element. First you'll reindex a single resource:
+Once you see that your search parameter is displaying as expected, you can reindex a single resource to test searching with your new search parameter. To reindex a single resource:
 
 ```rest
 POST https://{{FHIR_URL}/{{RESOURCE}}/{{RESOURCE_ID}}/$reindex
 ```
 
-Running this, sets the indices for any search parameters for the specific resource that you defined for that resource type. This does make an update to the FHIR service. Now you can search and set the use partial indices header to true, which means that it will return results where any of the resources has the search parameter indexed, even if not all resources of that type have it indexed. 
+Running this call sets the indices for any search parameters defined for the resource instance specified in the request. This call does make a change to the FHIR service database. Now you can search and set the `x-ms-use-partial-indices` header to `true`, which causes the FHIR service to return results where any of the resources has the search parameter indexed, even if not all resource instances of that type have it indexed. 
 
 Continuing with our example above, you could index one patient to enable the US Core Race `SearchParameter`:
 
 ```rest
-POST https://{{FHIR_URL}/Patient/{{PATIENT_ID}}/$reindex
+POST {{FHIR_URL}/Patient/{{PATIENT_ID}}/$reindex
 ```
 
-And then search for patients that have a specific race:
+And then do a test search for the patient by race:
 
 ```rest
-GET https://{{FHIR_URL}}/Patient?race=2028-9
+GET {{FHIR_URL}}/Patient?race=2028-9
 x-ms-use-partial-indices: true
 ```
 
-After you have tested and are satisfied that your search parameter is working as expected, run or schedule your reindex job so the search parameters can be used in the FHIR service for production use cases.
+After you have tested your new search parameter and confirmed that it is working as expected, run or schedule your reindex job so the new search parameter(s) can be used in the FHIR service in live production.
+
+```rest
+POST {{FHIR_URL}}/$reindex
+```
 
 ## Update a search parameter
 
