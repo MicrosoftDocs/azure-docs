@@ -55,7 +55,7 @@ az communication chat thread create --topic "<chatTopic>" --endpoint "<endpoint>
 az communication chat thread update-topic --thread <chatThreadId> --topic "<chatTopic>" --endpoint "<endpoint>" --access-token "<token>"
 ```
 
-- Replace `<chatThreadId>` with your chat thread id.
+- Replace `<chatThreadId>` with your chat thread ID.
 - Replace `<chatTopic>` with the new chat topic you want to set.
 - Replace `<endpoint>` with your ACS endpoint.
 - Replace `<token>` with your access token.
@@ -75,13 +75,13 @@ az communication chat thread list --start-time "<startTime>" --endpoint "<endpoi
 
 ### Send a message to a chat thread
 
-Use the `message send` command to send a message to a chat thread you just created, identified by `threadId`.
+Use the `message send` command to send a message to a chat thread you created, identified by `threadId`.
 
 ```azurecli-interactive
 az communication chat message send --thread "<chatThreadId>" --display-name "<displayName>" --content "<content>" --message-type "<messageType>"  --endpoint "<endpoint>" --access-token "<token>"
 ```
 
-- Replace `<chatThreadId>` with your chat thread id.
+- Replace `<chatThreadId>` with your chat thread ID.
 - Use `<content>` to provide the chat message content.
 - Use `<messageType>` to specify the message content type. Possible values are `text` and `html`. If you don't specify a value, the default is `text`.
 - Use `<displayName>` optionally to specify the display name of the sender.
@@ -97,7 +97,7 @@ The `message list` command returns the list of chat messages in a chat thread.
 az communication chat message list --thread "<chatThreadId>" --start-time "<startTime>" --endpoint "<endpoint>" --access-token "<token>"
 ```
 
-- Replace `<chatThreadId>` with your chat thread id.
+- Replace `<chatThreadId>` with your chat thread ID.
 - Use `<startTime>` optionally to specify the earliest point in time to get chat messages.
 - Replace `<endpoint>` with your ACS endpoint.
 - Replace `<token>` with your access token.
@@ -111,8 +111,8 @@ You can retrieve chat messages by using the `message list` command.
 az communication chat message get --thread "<chatThreadId>" --message-id "<messageId>" --endpoint "<endpoint>" --access-token "<token>"
 ```
 
-- Replace `<chatThreadId>` with your chat thread id.
-- Replace `<messageId>` with the id of the message you want to retrieve.
+- Replace `<chatThreadId>` with your chat thread ID.
+- Replace `<messageId>` with the ID of the message you want to retrieve.
 - Replace `<endpoint>` with your ACS endpoint.
 - Replace `<token>` with your access token.
 
@@ -125,7 +125,7 @@ You use the `message receipt send` command to post a read receipt event to a thr
 az communication chat message receipt send --thread "<chatThreadId>" --message-id "<messageId>" --endpoint "<endpoint>" --access-token "<token>"
 ```
 
-- Replace `<chatThreadId>` with your chat thread id.
+- Replace `<chatThreadId>` with your chat thread ID.
 - Replace `<messageId>` to specify the ID of the latest message read by current user.
 - Replace `<endpoint>` with your ACS endpoint.
 - Replace `<token>` with your access token.
@@ -133,13 +133,13 @@ az communication chat message receipt send --thread "<chatThreadId>" --message-i
 
 ### Add a user as a participant to the chat thread
 
-When you create a chat thread, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the chat thread, and add or remove other participants. Before calling the `participant add` command, ensure that you have acquired a new access token and identity for that user.
+When you create a chat thread, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the chat thread, and add or remove other participants. Before calling the `participant add` command, ensure that you've acquired a new access token and identity for that user.
 
 ```azurecli-interactive
 az communication chat participant add --thread "<chatThreadId>" --user "<userId>" --display-name "<displayName>" --start-time "<startTime>" --endpoint "<endpoint>" --access-token "<token>"
 ```
 
-- Replace `<chatThreadId>` with your chat thread id.
+- Replace `<chatThreadId>` with your chat thread ID.
 - Replace `<userId>` with your userId.
 - Use `<displayName>` optionally to specify the display name of the sender.
 - Use `<startTime>` optionally to specify the earliest point in time to get chat messages.
@@ -157,13 +157,13 @@ Use `participant list` command to retrieve the participants of the thread.
 az communication chat participant list --thread "<chatThreadId>" --skip "<skip>" --endpoint "<endpoint>" --access-token "<token>"
 ```
 
-- Replace `<chatThreadId>` with your chat thread id.
+- Replace `<chatThreadId>` with your chat thread ID.
 - Use `<skip>` optionally to skip participants up to a specified position in the response.
 - Replace `<endpoint>` with your ACS endpoint.
 - Replace `<token>` with your access token.
 
 
-### Remove a participant from a the chat thread
+### Remove a participant from a chat thread
 
 You can remove a chat participant from a chat thread by using the 'participant remove' command.
 
@@ -171,7 +171,7 @@ You can remove a chat participant from a chat thread by using the 'participant r
 az communication chat participant remove --thread "<chatThreadId>" --user "<userId>" --endpoint "<endpoint>" --access-token "<token>"
 ```
 
-- Replace `<chatThreadId>` with your chat thread id.
+- Replace `<chatThreadId>` with your chat thread ID.
 - Replace `<userId>` with the userId you want to remove from the chat thread.
 - Replace `<endpoint>` with your ACS endpoint.
 - Replace `<token>` with your access token.
