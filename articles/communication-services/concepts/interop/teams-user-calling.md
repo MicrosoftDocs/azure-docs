@@ -14,8 +14,6 @@ ms.subservice: calling
 ---
 # Support for Teams identity in Calling SDK
 
-[!INCLUDE [Communication services support for Teams identity eligibility notice](../../includes/public-preview-include.md)]
-
 The Azure Communication Services Calling SDK for JavaScript enables Teams user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away, check out [Calling quickstarts](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md). 
 
 Key features of the Calling SDK:
