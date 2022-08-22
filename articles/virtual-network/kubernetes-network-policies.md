@@ -134,7 +134,7 @@ Set up your Grafana Server and configure a Log Analytics Data Source as describe
 
 The dashboard has visuals similar to the Azure Workbook. You can add panels to chart & visualize NPM metrics from InsightsMetrics table.
 
-### Setup for Prometheus Server
+### Set up for Prometheus Server
 Some users may choose to collect metrics with a Prometheus Server instead of Azure Monitor for containers. You merely need to add two jobs to your scrape config to collect NPM metrics.
 
 To install a simple Prometheus Server, add this helm repo on your cluster
@@ -198,7 +198,7 @@ You can also replace the `azure-npm-node-metrics` job  with the content below or
     target_label: __address__
 ```
 
-#### Setup Alerts for AlertManager
+#### Set up Alerts for AlertManager
 If you use a Prometheus Server, you can set up an AlertManager like so. Here is an example config for [the two alerting rules described above](#alerts-via-a-prometheus-alertmanager):
 ```
 groups:
