@@ -208,7 +208,7 @@ You can also add machines to an existing hybrid worker group.
 
    After adding, you can see the machine type as Azure virtual machine, Server-Azure Arc or VMware virtual machine-Azure Arc. The **Platform** field shows the worker as **Agent based (V1)** or **Extension based (V2)**.
 
-   :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-inline.png" alt-text="Platform field showing agent or extension based." lightbox="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-expanded.png":::
+   :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-inline.png" alt-text="Screenshot of platform field showing agent or extension based." lightbox="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-expanded.png":::
 
 ## Install Extension-based (V2) on existing Agent-based (V1) Hybrid Worker
 
