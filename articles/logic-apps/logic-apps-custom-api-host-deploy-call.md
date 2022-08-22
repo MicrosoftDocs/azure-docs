@@ -43,7 +43,7 @@ After you set up the API definition properties and CORS, your custom API's trigg
 
 *  To view available actions and inputs by pointing at a Swagger document, use the [HTTP + Swagger action](../connectors/connectors-native-http-swagger.md).
 
-*  To call any API, including APIs that don't have or expose an Swagger document, you can always create a request with the [HTTP action](../connectors/connectors-native-http.md).
+*  To call any API, including APIs that don't have or expose a Swagger document, you can always create a request with the [HTTP action](../connectors/connectors-native-http.md).
 
 ## Next steps
 
