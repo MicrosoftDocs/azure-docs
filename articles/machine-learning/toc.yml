@@ -287,7 +287,7 @@
         - name: Compute cluster
           displayName: compute target, low priority, managed identity
           href: how-to-create-attach-compute-cluster.md
-        - name: Kubernetes cluster
+        - name: AKS and Arc Enabled Kubernetes cluster
           displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
           href: how-to-attach-kubernetes-anywhere.md
         - name: Manage compute resources
