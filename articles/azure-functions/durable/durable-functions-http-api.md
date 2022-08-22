@@ -591,7 +591,6 @@ Several possible status code values can be returned.
 * **HTTP 202 (Accepted)**: The suspend request was accepted for processing.
 * **HTTP 404 (Not Found)**: The specified instance was not found.
 * **HTTP 410 (Gone)**: The specified instance has completed, failed, or terminated.
-* **HTTP 500 (Internal Server Error)**: Returned when the user attempts to suspend an already suspended orchestration.
 
 The responses for this API do not contain any content.
 
