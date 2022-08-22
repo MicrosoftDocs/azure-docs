@@ -273,7 +273,7 @@ rm create_user.sql
 
 ### Create a new Java project
 
-Using your favorite IDE, create a new Java project, and add a `pom.xml` file in its root directory:
+Using your favorite IDE, create a new Java project using Java 8 or above, and add a `pom.xml` file in its root directory:
 
 #### [Credential-free connection (Recommended)](#tab/credential-free)
 
@@ -413,8 +413,8 @@ public class DemoApplication {
         properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
 
         log.info("Connecting to the database");
-        properties.put("defaultAuthenticationPlugin", "com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin");
-        properties.put("authenticationPlugins", "com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin");
+        properties.put("defaultAuthenticationPlugin", AzureIdentityMysqlAuthenticationPlugin.class.getName());
+        properties.put("authenticationPlugins", AzureIdentityMysqlAuthenticationPlugin.class.getName());
         Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
         log.info("Database connection test: " + connection.getCatalog());
 
@@ -425,7 +425,7 @@ public class DemoApplication {
             statement.execute(scanner.nextLine());
         }
 
-		/*
+		/* Prepare to store and retrieve data from the MySQL server.
 		Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
         insertData(todo, connection);
         todo = readData(connection);
@@ -478,7 +478,7 @@ public class DemoApplication {
             statement.execute(scanner.nextLine());
         }
 
-		/*
+		/* Prepare to store and retrieve data from the MySQL server.
 		Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
         insertData(todo, connection);
         todo = readData(connection);
