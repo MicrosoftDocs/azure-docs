@@ -219,8 +219,28 @@ Next, be sure to update the image references in the deployment.template.json fil
     `"image": "<registry name and server>/azureiotedge-hub:1.1",`
 
 ## Configure image garbage collection
-Image garbage collection is a feature offered by IoT Edge to automatically clean up any unused docker images for IoT Edge modules that are downloaded to the device. Deleting unused module images helps in conserving the disk space. This feature is enabled by default, so we recommend leaving this feature ON. However, if you choose to disable the feature or change the recurrence of the cleanup schedule, you may do so by modifying the settings in config.toml. For more information, See [image garbage collection](iot-edge-modules.md#image-garbage-collection) for more information 
+Image garbage collection is a feature offered by IoT Edge to automatically clean up any unused docker images for IoT Edge modules that are downloaded to the device. Deleting unused module images helps in conserving the disk space. This feature is enabled by default, so we recommend leaving this feature ON. Image garbage collection introduces the following attributes.
+ * Default settings include: enabled by default, recurrence of once a day at midnight, and cleanup threshold of 7 days. 
+ * Users may disable the feature or change the recurrence by modifying the settings in config.toml. If the settings are not provided in config.toml, default settings are applied.
+ * Image garbage collection will not delete docker images that are not pulled by the IoT Edge.
 
+All of the parameters noted in the table below marked as **Required** need to be specified.
+
+| Parameter | Description |
+|-|-|
+| `enabled` | Controls whether image garbage collection runs or not. Users may choose to disable the feature by changing this setting to `false`.   <br><br>  **Required** <br><br> Default value: *true* |
+| `cleanup_recurrence` | Option to change the frequency with which the cleanup job runs for image garbage collection. The value for `cleanup_recurrence` cannot be less than 1 day.  <br><br>  **Required** <br><br> Default value: *1d* |
+| `image_age_cleanup_threshold` | Option to define the "age" of unused images after which those unused images will be deleted.  Images are considered unused if they are not part of an active module identity or a deployment. <br><br>  **Required** <br><br> Default value: *7d* |
+| `cleanup_time` | Best-effort execution time when the cleanup job runs. `cleanup_time` is the device local time and should follow 24-hour HH:MM format. <br><br>  **Required** <br><br> Default value: *00:00* |
+
+The following is an example config.toml to configure image garbage collection. 
+```json
+[image_garbage_collection]
+enabled = “true”  
+cleanup_recurrence = “1d”  
+image_age_cleanup_threshold = “7d” 
+cleanup_time = “00:00”  
+```
 ## Networking
 
 * **Helpful**
