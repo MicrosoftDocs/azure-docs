@@ -10,7 +10,7 @@ ms.custom:
 
 # Tutorial: Add tags in your ARM template
 
-In this tutorial, you learn how to add tags to resources in your Azure Resource Manager template (ARM template). Tags are metadata elements made up of key-value pairs that help you identify resources and show up in cost reports. This instruction takes **8 minutes** to complete.
+In this tutorial, you learn how to add tags to resources in your Azure Resource Manager template (ARM template). [Tags](../management/tag-resources.md) are metadata elements made up of key-value pairs that help you identify resources and show up in cost reports. This instruction takes **8 minutes** to complete.
 
 ## Prerequisites
 
