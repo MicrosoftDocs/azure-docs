@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/22/2022
+ms.date: 08/20/2022
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)
