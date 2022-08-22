@@ -690,7 +690,8 @@ The relying party policy specifies the user journey which Azure AD B2C will exec
 
    a. Select the **Directories + subscriptions** icon in the portal toolbar.
 
-   b. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+   b. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch** button next to it.
+
 
 3. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
 
