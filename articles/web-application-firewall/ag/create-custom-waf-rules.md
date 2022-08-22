@@ -491,63 +491,6 @@ Corresponding JSON:
 }
 ```
 
-Alternative Azure PowerShell:
-
-```azurepowershell
-$variable1 = New-AzApplicationGatewayFirewallMatchVariable `
-   -VariableName RequestUri
-$condition1 = New-AzApplicationGatewayFirewallCondition `
-   -MatchVariable $variable1 `
-   -Operator Contains `
-   -MatchValue "1=1" `
-   -NegationCondition $False
-
-$rule1 = New-AzApplicationGatewayFirewallCustomRule `
-   -Name myrule1 `
-   -Priority 10 `
-   -RuleType MatchRule `
-   -MatchCondition $condition1 `
--Action Block
-
-$variable2 = New-AzApplicationGatewayFirewallMatchVariable `
-   -VariableName RequestUri
-
-$condition2 = New-AzApplicationGatewayFirewallCondition `
-   -MatchVariable $variable2 `
-   -Operator Contains `
-   -MatchValue "drop tables" `
-   -NegationCondition $False
-
-$rule2 = New-AzApplicationGatewayFirewallCustomRule `
-   -Name myrule2 `
-   -Priority 20 `
-   -RuleType MatchRule `
-   -MatchCondition $condition2 `
-   -Action Block
-
-$variable3 = New-AzApplicationGatewayFirewallMatchVariable `
-   -VariableName RequestUri
-
-$condition3 = New-AzApplicationGatewayFirewallCondition `
-   -MatchVariable $variable3 `
-   -Operator Contains `
-   -MatchValue "’—" `
-   -NegationCondition $False
-
-$rule3 = New-AzApplicationGatewayFirewallCustomRule `
-   -Name myrule3 `
-   -Priority 30 `
-   -RuleType MatchRule `
-   -MatchCondition $condition3 `
-   -Action Block
-```
-
-Corresponding JSON:
-
-```json
-TODO check this example
-```
-
 ## Example 7
 
 It is not uncommon to see Azure Front Door deployed in front of Application Gateway. In order to make sure the traffic received by Application Gateway comes from the Front Door deployment, the best practice is to check if the `X-Azure-FDID` header contains the expected unique value.  For more information on this, please see [How to lock down the access to my backend to only Azure Front Door](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
