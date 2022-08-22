@@ -6,14 +6,14 @@ ms.date: 7/19/2022
 ---
 # Enable HCX access over the internet
 
-In this article, you'll learn how to perform HCX migration over a Public IP address using Azure VMware Solution.
+In this article, you'll learn how to perform HCX migration over a public IP address using Azure VMware Solution.
 >[!IMPORTANT]
 >Before configuring a public IP on your Azure VMware Solution private cloud, consult your network administrator to understand the implications and the impact to your environment.
 
-You'll also learn how to pair HCX sites and create service mesh from on-premises to an Azure VMware Solution private cloud using Public IP. The service mesh allows you to migrate a workload from an on-premise datacenter to an Azure VMware Solution private cloud over the public internet. This solution is useful when the customer isn't using ExpressRoute or VPN connectivity with the Azure cloud.
+You'll also learn how to pair HCX sites and create service mesh from on-premises to an Azure VMware Solution private cloud using Public IP. The service mesh allows you to migrate a workload from an on-premises datacenter to an Azure VMware Solution private cloud over the public internet. This solution is useful when the customer isn't using ExpressRoute or VPN connectivity with the Azure cloud.
 
 > [!IMPORTANT]
-> The on-premise HCX appliance should be reachable from the internet to establish HCX communication from on-premises to the Azure VMware Solution private cloud.
+> The on-premises HCX appliance should be reachable from the internet to establish HCX communication from on-premises to the Azure VMware Solution private cloud.
 
 ## Configure public IP block  
 
@@ -42,12 +42,15 @@ The static null route is used to allow HCX private IP to route through the NSX T
 1. Under **Name**, enter the name of the route.
 1. Under **Network**, enter a non-overlapping /32 IP address under Network.  
     >[!NOTE]
-    > This address should not overlap with any other IP addresses on the private cloud network and the customer network.
+    > This address should not overlap with any other IP addresses on the private cloud network and the customer network. 
+ 
+     :::image type="content" source="media/hcx-over-internet/hcx-sample-static-route.png" alt-text="Diagram showing a sample static route configuration." border="false" lightbox="media/hcx-over-internet/hcx-sample-static-route.png":::    
 1. Under **Next hops**, select **Set**.
 1. Select **NULL** as IP Address.  
    Leave defaults for Admin distance and scope.
 1. Select **ADD**, then select **APPLY**.
 1. Select **SAVE**, then select **CLOSE**.
+    :::image type="content" source="media/hcx-over-internet/hcx-sample-null-route.png" alt-text="Diagram showing a sample Null route configuration." border="false" lightbox="media/hcx-over-internet/hcx-sample-null-route.png":::     
 1. Select **CLOSE EDITING**.
 
 ## Add NAT rule to Tier-1 gateway
@@ -60,6 +63,8 @@ The static null route is used to allow HCX private IP to route through the NSX T
     1. The DNAT Rule Destination is the Public IP for HCX Manager. The Translated IP is the HCX Manager IP in the cloud.
     1. The SNAT Rule Destination is the HCX Manager IP in the cloud.  The Translated IP is the non-overlapping /32 IP from the Static Route.
     1. Make sure to set the Firewall option on DNAT rule to **Match External Address**.
+    :::image type="content" source="media/hcx-over-internet/hcx-sample-public-access-route.png" alt-text="Diagram showing a sample NAT rule for public access of HCX Virtual machine." border="false" lightbox="media/hcx-over-internet/hcx-sample-public-access-route.png":::          
+
 1. Create Tier-1 Gateway Firewall rules to allow only expected traffic to the Public IP for HCX Manager and drop everything else.
      1. Create a Gateway Firewall rule on the T1 that allows your on-premises as the **Source IP** and the Azure VMware Solution reserved Public as the **Destination IP**. This rule should be the highest priority.
      1. Create a Gateway Firewall rule on the Tier-1 that denies all other traffic where the **Source IP** is **Any** and **Destination IP** is the Azure VMware Solution reserved Public IP.
@@ -95,7 +100,9 @@ Before you create a Public IP segment, get your credentials for NSX-T Manager fr
 1. Enter **Name**.
 1. Under IP pools, enter the **IP Ranges** for HCX uplink, **Prefix Length**, and **Gateway** of public IP segment.
 1. Scroll down and select the **HCX Uplink** checkbox under **HCX Traffic Type** as this profile will be used for HCX uplink.
-1. Select **Create** to create the network profile.
+1. Select **Create** to create the network profile.  
+   You will see network profile using a public segment. See sample diagram below. 
+   :::image type="content" source="media/hcx-over-internet/hcx-sample-network-profile-route.png" alt-text="Diagram showing a sample network profile using public segment." border="false" lightbox="media/hcx-over-internet/hcx-sample-network-profile-route.png":::  
 
 ## Create service mesh
 Service Mesh will deploy HCX WAN Optimizer, HCX Network Extension and HCX-IX appliances.
@@ -106,7 +113,11 @@ Service Mesh will deploy HCX WAN Optimizer, HCX Network Extension and HCX-IX app
 1. Select the compute profiles for both sites and select **Continue**.
 1. Select the HCX services to be activated and select **Continue**.
    >[!Note]
-   >Premium services require an additional HCX Enterprise license.   
+   >Premium services require an additional HCX Enterprise license.  
+
+    :::image type="content" source="media/hcx-over-internet/create-network-extension.png" alt-text="Screenshot that shows selections for starting to create a network extension." lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
+
+
 1. Select the network profile of source site.
 1. Select the network profile of destination that you created in the **Network Profile** section.
 1. Select **Continue**.
