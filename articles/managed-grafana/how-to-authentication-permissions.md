@@ -93,8 +93,8 @@ System-assigned managed identity is the default authentication method provided t
 
 1. Under **Grafana administrator role**, if you have the Owner or User Access Administrator role for the subscription, the box **Include myself** is checked by default. Optionally select **Add** to grant the Grafana administrator role to more members. If you don't have the necessary role, you won't be able to manage Grafana access rights yourself.
 
-> [!CAUTION]
-> Turning off system-assigned managed identity, disables the Azure Monitoring data source plugin for your Azure Managed Grafana instance.
+> [!NOTE]
+> Turning off system-assigned managed identity disables the Azure Monitor data source plugin for your Azure Managed Grafana instance. In this scenario, use a service principal instead of Azure Monitor to access data sources.
 
 #### Create a workspace: tags and review + create
 
@@ -165,8 +165,8 @@ Azure Managed Grafana can also access data sources with managed identity disable
 az grafana create --name <managed-grafana-resource-name> --resource-group <resource-group-name> --skip-role-assignment true --skip-system-assigned-identity true
 ```
 
-> [!CAUTION]
-> Turning off system-assigned managed identity, disables the Azure Monitoring data source plugin for your Azure Managed Grafana instance.
+> [!NOTE]
+> Turning off system-assigned managed identity disables the Azure Monitor data source plugin for your Azure Managed Grafana instance. In this scenario, use a service principal instead of Azure Monitor to access data sources.
 
 Once the deployment is complete, you'll see a note in the output of the command line stating that the instance was successfully created, alongside with additional information about the deployment.
 
