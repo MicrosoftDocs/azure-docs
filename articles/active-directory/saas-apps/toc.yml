@@ -2315,6 +2315,8 @@
         href: tidemark-tutorial.md
       - name: TigerConnect Secure Messenger
         href: tigertext-tutorial.md
+      - name: TigerGraph
+        href: tigergraph-tutorial.md
       - name: Timeclock 365 SAML
         href: timeclock-365-saml-tutorial.md
       - name: TimeLive
