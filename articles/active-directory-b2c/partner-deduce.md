@@ -54,7 +54,7 @@ The following architecture diagram shows the implementation:
 | 1.    | User opens Azure AD B2C's sign-in page, and then signs in or signs up by entering their username.|
 | 2.    | Azure AD B2C calls the middle layer API and passes on the user attributes.|
 | 3.    | Middle layer API collects user attributes and transforms it into a format that the Deduce API can consume and then sends it to Deduce.|
-| 4.    | Next, Deduce consumes the information and processes it to validate user identification based on the risk analysis. Then, it returns the result to the middle layer API.|
+| 4.    | Deduce consumes the information and processes it to validate user identification based on the risk analysis. Then, it returns the result to the middle layer API.|
 | 5.    | Middle layer API processes the information and sends back risk, trust and info signals in the correct JSON format to Azure AD B2C.|
 | 6.    | Azure AD B2C receives information back from the middle layer API. <br> If it shows a failure response, an error message is displayed to the user. <br> If it shows a success response, the user is authenticated and written into the directory. |
 
