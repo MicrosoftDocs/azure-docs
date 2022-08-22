@@ -32,7 +32,8 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
 
 1. The user needs to be part of the `users.datalake.admins` group and user needs to generate a valid refresh token. See documentation [here](how-to-generate-refresh-token.md) to find instructions about how to generate a refresh token. If you continue to follow other "how-to" documentation, you'll use this refresh token again. Once you've generated the token, store it in a place where you'll be able to access it in the future. If it isn't present, add the group for the member ID. In this case, use the app ID you have been using for everything as the `user-email`.
 
-    **Note:** `data-partition-id` should be in the format `<instance-name>-<data-partition-name>` in both the header and the url, and will be for any following    command that requires `data-partition-id`.
+    > [!NOTE]
+    > `data-partition-id` should be in the format `<instance-name>-<data-partition-name>` in both the header and the url, and will be for any following    command that requires `data-partition-id`.
 
     ```bash
     curl --location --request POST "<url>/api/entitlements/v2/groups/users.datalake.admins@<data-partition>.<domain>.com/members" \
@@ -62,7 +63,7 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
         --header 'Authorization: Bearer {{TOKEN}}'
     ```
 
-    You should see ZGY converter DAG in the list. IF NOT in the response list then REPORT the issue to AZURE Team
+    You should see ZGY converter DAG in the list. IF NOT in the response list then REPORT the issue to Azure Team
 
 3. Register Data partition to Seismic:
 
@@ -104,7 +105,8 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
 
 5. Create Subproject. Use your previously created entitlements groups that you would like to add as ACLs (Access Control List) admins and viewers. If you haven't yet created entitlements groups, follow the directions as outlined [here](how-to-manage-users.md). If you would like to see what groups you have, use [this request](https://github.com/MicrosoftDocs/Project-Oak-Forest/blob/main/how-to/how-to-manage-users.md#get-entitlement-groups-for-a-given-user). Data access isolation achieved with this dedicated ACL (access control list) per object within a given data partition. You may have many subprojects within a data partition, so this command allows you to provide access to a specific subproject without providing access to an entire data partition. Data partition entitlements don't necessarily translate to the subprojects within it, so it's important to be explicit about the ACLs for each subproject, regardless of what data partition it is in.
 
-    **Note** Later in this tutorial, you'll need at least one `owner` and at least one `viewer`. These user groups will look like `data.default.owners` and `data.default.viewers`. Make sure to include one of each in your list of `acls` in the request below.
+    > [!NOTE] 
+    > Later in this tutorial, you'll need at least one `owner` and at least one `viewer`. These user groups will look like `data.default.owners` and `data.default.viewers`. Make sure to include one of each in your list of `acls` in the request below.
 
     ```bash
     curl --location --request POST '<url>/seistore-svc/api/v3/subproject/tenant/<data-partition>/subproject/<subproject>' \
@@ -178,7 +180,8 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
     }'
     ```
 
-    **Note:** Recall that the format of the legal tag will be prefixed with the oak instance name and data partition name, so it looks like `<oakinstancename>`-`<datapartitionname>`-`<legaltagname>`.
+    > [!NOTE]
+    > Recall that the format of the legal tag will be prefixed with the oak instance name and data partition name, so it looks like `<oakinstancename>`-`<datapartitionname>`-`<legaltagname>`.
 
 7. Open the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable) codebase and edit the `config.yaml` at the root. Update this config to:
 
@@ -203,11 +206,13 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
         empty: none
     ```
 
-    **Note** Please see documentation [here](./how-to-generate-refresh-token.md) to find instructions about how to generate a refresh token. If you continue to follow other "how-to" documentation, you'll use this refresh token again. Once you've generated the token, store it in a place where you'll be able to access it in the future.
+    > [!NOTE]
+    > Please see documentation [here](./how-to-generate-refresh-token.md) to find instructions about how to generate a refresh token. If you continue to follow other "how-to" documentation, you'll use this refresh token again. Once you've generated the token, store it in a place where you'll be able to access it in the future.
 
 8. Run the following commands using **sdutil** to see its working fine.  Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`. If you run into errors with these commands, refer to the [SDUTIL tutorial](/tutorials/tutorial-seismic-ddms-sdutil.md).
 
-**Note**: when running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.
+    > [!NOTE]
+    > when running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.
 
     ```bash
     python sdutil config init
@@ -215,7 +220,7 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
     python sdutil ls sd://<data-partition>/<subproject>/
     ```
 
-1. Upload your seismic file to your Seismic Store. Here's an example with a SEGY-format file called `source.segy`:
+9. Upload your seismic file to your Seismic Store. Here's an example with a SEGY-format file called `source.segy`:
 
     ```bash
     python sdutil cp source.segy sd://<data-partition>/<subproject>/destination.segy
@@ -223,13 +228,14 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
 
     If you would like to use a test file we supply instead, download [this file](https://community.opengroup.org/osdu/platform/testing/-/tree/master/Postman%20Collection/40_CICD_OpenVDS) to your local machine then run the following command:
 
+
     ```bash
     python sdutil cp ST10010ZC11_PZ_PSDM_KIRCH_FULL_T.MIG_FIN.POST_STACK.3D.JS-017536.segy sd://<data-partition>/<subproject>/destination.segy
     ```
 
     The sample records were meant to be similar to real-world data so a significant part of their content isn't directly related to conversion. This file is large and will take up about 1 GB of space.
 
-1. Create the manifest file (otherwise known as the records file)
+10. Create the manifest file (otherwise known as the records file)
 
     ZGY conversion uses a manifest file that you'll upload to your storage account in order to run the conversion. This manifest file is created by using multiple JSON files and running a script. The JSON files for this process are stored [here](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/master/doc/sample-records/volve). For more information on Volve, where the dataset definitions come from, visit [their website](https://www.equinor.com/en/what-we-do/digitalisation-in-our-dna/volve-field-data-village-download.html). Complete the following steps in order to create the manifest file:
 
@@ -241,11 +247,12 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
       * `ACL_VIEWER=data.default.viewers@<your-partition-id>.<your-tenant>.com`
       * `LEGAL_TAG=<legal-tag-created-above>`
 
-    * **Note:** Recall that the format of the legal tag will be prefixed with the oak instance name and data partition name, so it looks like `<oakinstancename>`-`<datapartitionname>`-`<legaltagname>`.
+    > [!NOTE]
+    >  Recall that the format of the legal tag will be prefixed with the oak instance name and data partition name, so it looks like `<oakinstancename>`-`<datapartitionname>`-`<legaltagname>`.
     * The output will be a JSON array with all objects and will be saved in the `all_records.json` file.
     * Save the `filecollection_segy_id` and the `work_product_id` values in that JSON file to use in the conversion step. That way the converter knows where to look for this contents of your `all_records.json`.
 
-1. Insert the contents of your `all_records.json` file in storage for work-product, seismic trace data, seismic grid, and file collection (that is, copy and paste the contents of that file to the `--data-raw` field in the following command):
+11. Insert the contents of your `all_records.json` file in storage for work-product, seismic trace data, seismic grid, and file collection (that is, copy and paste the contents of that file to the `--data-raw` field in the following command):
 
     ```bash
         curl --location --request PUT '<url>/api/storage/v2/records' \
@@ -277,7 +284,7 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
         '
     ```
 
-1. Trigger the ZGY Conversion DAG to convert your data using the values you had saved above. Your call will look like this:
+12. Trigger the ZGY Conversion DAG to convert your data using the values you had saved above. Your call will look like this:
 
     ```bash
     curl --location --request POST '<url>/api/workflow/v1/workflow/<dag-name>/workflowRun' \
@@ -295,7 +302,7 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
         }'
     ```
 
-1. Let the DAG run to the `succeeded` state. You can check the status using the workflow status call. You'll get run ID in the response of the above call
+13. Let the DAG run to the `succeeded` state. You can check the status using the workflow status call. You'll get run ID in the response of the above call
 
     ```bash
     curl --location --request GET '<url>/api/workflow/v1/workflow/<dag-name>/workflowRun/<run-id>' \
@@ -304,13 +311,13 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
     --header 'Authorization: Bearer {{TOKEN}}'
     ```
 
-1. You can see if the converted file is present using the following command:
+14. You can see if the converted file is present using the following command:
 
     ```bash
     python sdutil ls sd://<data-partition>/<subproject>
     ```
 
-1. You can download and inspect the file using the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable) `cp` command:
+15. You can download and inspect the file using the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable) `cp` command:
 
     ```bash
     python sdutil cp sd://<data-partition>/<subproject>/<filename.zgy> <local/destination/path>

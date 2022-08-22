@@ -1,7 +1,7 @@
 ---
 title: How to generate a refresh token #Required; page title is displayed in search results. Include the brand.
 description: This article describes how to generate a refresh token #Required; article description that is displayed in search results. 
-author: elhalper #Required; your GitHub user alias, with correct capitalization.
+author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
 ms.author: elhalper #Required; microsoft alias of author; optional team alias.
 ms.service: azure #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
