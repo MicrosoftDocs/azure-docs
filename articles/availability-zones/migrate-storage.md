@@ -32,7 +32,10 @@ You can switch a storage account from one type of replication to any other type,
 
 Changes between local and geo-redundant storage, or between non-read-access (RA) and read-access (RA) storage are simple changes that can be made quickly using the Azure portal, PowerShell or the Azure CLI. But changes between non-zone-redundant and zone-redundant replication types require migration of the data in the storage account and can take considerably longer. 
 
-This article describes two basic options for migrating your storage account to availability zone support: live migration and manual migration.
+This article describes two basic options for migrating your storage account to availability zone support:
+
+- [Live migration](#migration-option-1-live-migration)
+- [Manual migration](#migration-option-2-manual-migration)
 
 ## Prerequisites
 
