@@ -19,7 +19,7 @@ Seismic store is a cloud-based solution designed to store and manage datasets of
 
 The **sdutil** is an intuitive command line utility tool to interact with seismic store and perform some basic operations like upload or download datasets to or from seismic store, manage users, list folders content and more.
 
-## Prerequisites
+## Pre-requisites
 
 Windows
 
@@ -43,7 +43,7 @@ Follow the directions in the sdutil documentation for [running sdutil in Azure e
 
 The utility requires other modules noted in [requirements.txt](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/blob/azure/stable/requirements.txt). You could either install the modules as is or install them in virtualenv to keep your host clean from package conflicts. if you don't want to install them in a virtual environment jump directly to the step 3.
 
-```sh
+```bash
 # check if virtualenv is already installed
 virtualenv --version
 
@@ -69,30 +69,31 @@ pip install -r requirements.txt
 
 ### Configuration
 
-1. Replace/edit config.yaml in sdlib/config.yaml by this [config-azure.yaml](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/blob/azure/stable/docs/config-azure.yaml)
+1. Replace/edit `config.yaml` in `sdlib/config.yaml` by this [config-azure.yaml](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/blob/azure/stable/docs/config-azure.yaml)
 
-2. Update three values in config.yaml:
-
+2. Update three values in `config.yaml`:
+  ```yaml
    - service: '{"Azure": {"azureGlabEnv":{"url": "<base-url-for-oak-instance>/seistore-svc/api/v3", "appkey": ""}}}'
    - url: '<base-url-for-oak-instance>/seistore-svc/api/v3'
    - "refresh_token": "<refresh-token-for-your-env>"
-
-**Note:** Follow the directions in [How to Generate a Refresh Token](/how-to/how-to-generate-refresh-token.md) to obtain a token if not already present.
+  ```
+  
+  > [!NOTE] 
+  > Follow the directions in [How to Generate a Refresh Token](/how-to-generate-refresh-token.md) to obtain a token if not already present.
 
 3. Export or set below environment variables
 
-```bash
-export AZURE_TENANT_ID=check-env-provisioning-team-as-specific-to-cluster
-export AZURE_CLIENT_ID=check-env-provisioning-team-as-specific-to-cluster
-export AZURE_CLIENT_SECRET=check-env-provisioning-team-as-specific-to-cluster
-
-```
+  ```bash
+  export AZURE_TENANT_ID=check-env-provisioning-team-as-specific-to-cluster
+  export AZURE_CLIENT_ID=check-env-provisioning-team-as-specific-to-cluster
+  export AZURE_CLIENT_SECRET=check-env-provisioning-team-as-specific-to-cluster
+  ```
 
 ### Running the Tool
 
 Run the utility from the extracted utility folder by typing:
 
-```sh
+```bash
 python sdutil
 ```
 
@@ -122,13 +123,13 @@ available commands:
 
 At first usage time, the utility required to be initialized by invoking the sdutil config init command.
 
-```sh
+```bash
 python sdutil config init
 ```
 
 Before start using the utility and perform any operation, you must sign-in the system. When you run the following sign-in command, sdutil will open a sign-in page in a web browser.
 
-```sh
+```bash
 python sdutil auth login
 ```
 
@@ -145,7 +146,7 @@ Before you start using the system, it's important to understand how resources ar
 
 - **Subproject:** the working subproject, directly linked under the main tenant project. Subproject is the second section of the seismic store path.
 
-- **Dataset**: the seismic store dataset entity. Dataset is the third and last section of the seismic store path. The Dataset resource can be specified by using the form `path/dataset_name` where `path` is optional and have the same meaning of a directory in a generic file-system and `dataset_name` is the name of the dataset entity.
+- **Dataset:** the seismic store dataset entity. Dataset is the third and last section of the seismic store path. The Dataset resource can be specified by using the form `path/dataset_name` where `path` is optional and have the same meaning of a directory in a generic file-system and `dataset_name` is the name of the dataset entity.
 
 The seismic store uri is a string used to uniquely address a resource in the system and can be obtained by appending the prefix `sd://` before the required resource path:
 
@@ -316,13 +317,15 @@ pip install -r requirements.txt
 
 - replace/edit config.yaml in sdlib/config.yaml by this [config-azure.yaml](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/blob/azure/stable/docs/config-azure.yaml)
 
-- You need to Update three values in config.yaml:
+- You need to Update three values in `config.yaml`:
+```yaml
+  - service: '{"Azure": {"azureGlabEnv":{"url": "<base-url-for-oak-instance>/seistore-svc/api/v3", "appkey": ""}}}'
+  - url: '<base-url-for-oak-instance>/seistore-svc/api/v3'
+  - "refresh_token": "<refresh-token-for-your-env>"
+```
 
-1. service: '{"Azure": {"azureGlabEnv":{"url": "<base-url-for-oak-instance>/seistore-svc/api/v3", "appkey": ""}}}'
-2. url: '<base-url-for-oak-instance>/seistore-svc/api/v3'
-3. "refresh_token": "<refresh-token-for-your-env>"
-
-**Note:** Follow the directions in [How to Generate a Refresh Token](/how-to/how-to-generate-refresh-token.md) to obtain a token if not already present.
+> [!NOTE] 
+> Follow the directions in [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to obtain a token if not already present.
 
 - Export or set below environment variables
 
@@ -369,7 +372,8 @@ python sdutil cp local-dir/file-name-at-source.txt sd://<datapartition>/test/fil
 python sdutil cp sd://<datapartition>/test/file-name-at-ddms.txt local-dir/file-name-at-destination.txt
 ```
 
-**Note:** Don't use `cp` command to download VDS files. The VDS conversion results in multiple files, therefore the `cp` command won't be able to download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
+> [!NOTE]
+> Don't use `cp` command to download VDS files. The VDS conversion results in multiple files, therefore the `cp` command won't be able to download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
 
 ## Next steps
 
