@@ -329,8 +329,8 @@ Source storage account can support up to 20 targets, and target storage account 
 ## Access policy
 
 To create an access policy for Azure Blob Storage, follow these guides:
-* [Single storage account](./how-to-data-owner-policies-storage.md) - This guide will allow you to enable access policies on a single Azure Storage account in your subscription.
-* [All sources in a subscription or resource group](./how-to-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
+* [Single storage account](./how-to-policies-data-owner-storage.md) - This guide will allow you to enable access policies on a single Azure Storage account in your subscription.
+* [All sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
 
 
 ## Next steps
