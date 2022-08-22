@@ -31,7 +31,7 @@ Default Rule Set is enabled by default in Detection mode in your WAF policies. Y
 
 Sometimes you may need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You may configure an exclusion list for a managed rule, rule group, or for the entire rule set.  
 
-The Default action is to BLOCK. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
+The Default action is to block. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
 
 Custom rules are always applied before rules in the Default Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Default Rule Set are processed. You can also remove the Default Rule Set from your WAF policies.
 
@@ -41,11 +41,9 @@ The Microsoft Threat Intelligence Collection rules are written in partnership wi
 
 ### Anomaly scoring mode
 
-OWASP has two modes for deciding whether to block traffic: *traditional* mode and anomaly scoring* mode.
+When you use DRS 2.0 or later, your WAF uses the *anomaly scoring*.
 
-In the traditional mode, traffic that matches any rule is considered independently of any other rule matches. This mode is easy to understand. But the lack of information about how many rules match a specific request is a limitation.
-
-The anomaly scoring mode was introduced in the OWASP 3.*x* rule sets, and it's the default mode. Traffic that matches any rule isn't immediately blocked when the firewall is in Prevention mode. Rules have a severity: *Critical*, *Error*, *Warning*, or *Notice*. The severity affects a numeric value for the request, which is called the *anomaly score*:
+Traffic that matches any rule isn't immediately blocked, even when your WAF is in prevention mode. Instead, the OWASP rule sets define a severity for each rule: *Critical*, *Error*, *Warning*, or *Notice*. The severity affects a numeric value for the request, which is called the *anomaly score*:
 
 | Severity | Contributes to anomaly score |
 |-|-|
@@ -58,7 +56,7 @@ If the anomaly score is 5 or greater, WAF blocks the request.
 
 For example, a single *Critical* rule match is enough for the WAF to block a request, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic.
 
-For information about which content types are supported for body inspection with different DRS versions, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ.
+When your WAF uses older version of the default rule set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visiblity into the complete set of rules that a specific request matched.
 
 ### DRS 2.0
 
