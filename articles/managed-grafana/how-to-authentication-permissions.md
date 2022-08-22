@@ -181,7 +181,7 @@ After your workspace has been created, you can still turn on or turn off system-
 1. Under permissions, select **Azure role assignments** to set Azure roles.
 1. When done, select **Save**
 
-    :::image type="content" source="media/authentication/update-identity.png" alt-text="Screenshot of the Azure portal. Updating the system-assigned managed identity. Basics.":::
+    :::image type="content" source="media/authentication/update-identity.jpg" alt-text="Screenshot of the Azure portal. Updating the system-assigned managed identity. Basics.":::
 
 > [!NOTE]
 > Disabling a system-assigned managed identity is irreversible. If you re-enable the identity in the future, Azure will create a new identity.
