@@ -5,124 +5,124 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/06/2022
+ms.date: 08/22/2022
 ms.author: mikaelw
 ---
 
 # FHIR search examples
 
-Below are some examples of using Fast Healthcare Interoperability Resources (FHIR&#174;) search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a `POST` request. For more information about search, see [Overview of FHIR Search](overview-of-search.md).
+Below are some examples of Fast Healthcare Interoperability Resources (FHIR&#174;) search API calls featuring various search parameters and modifiers, chain and reverse chain searches, composite searches, requests to view the next entry set for search results, and a `POST` search request. For a general introduction to searching in FHIR, see [Overview of FHIR Search](overview-of-search.md).
    
 ## Search result parameters
 
 ### _include
 
-`_include` searches for resources that include the specified parameter of the resource. For example, you can search across `MedicationRequest` resources to find only the ones that include information about the prescriptions for a specific patient, which is the `reference` parameter `patient`. In the example below, this will pull all the `MedicationRequests` and all patients that are referenced from the `MedicationRequests`:
+`_include` searches for resource instances and includes in the results other resources referenced by the target resource instances. For example, you can use `_include` to query for `MedicationRequest` resources and limit the search to prescriptions for a specific patient. The FHIR service would then return the `MedicationRequest` resources as well as the referenced `Patient` resource. In the example below, the request will pull all `MedicationRequest` resource instances in the database and all patients that are referenced by the `MedicationRequest` instances:
 
 ```rest
- GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient
+ GET {{FHIR_URL}}/MedicationRequest?_include=MedicationRequest:patient
 
 ```
 
 > [!NOTE]
-> **_include** and **_revinclude** are limited to 100 items.
+> The FHIR service in Azure Health Data Services limits searches with `_include` and `_revinclude` to return 100 items.
 
 ### _revinclude
 
-`_revinclude` allows you to search the opposite direction as `_include`. For example, you can search for patients and then reverse include all encounters that reference the patients:
+`_revinclude` allows you to search for resource instances and include in the results other resources that reference the target resource instances. For example, you can search for patients and then reverse include all encounters that reference the patients:
 
 ```rest
-GET [your-fhir-server]/Patient?_revinclude=Encounter:subject
+GET {{FHIR_URL}}/Patient?_revinclude=Encounter:subject
 
 ```
 ### _elements
 
-`_elements` narrows down the search result to a subset of fields to reduce the response size by omitting unnecessary data. The parameter accepts a comma-separated list of base elements:
+`_elements` narrows down the information in the search results to a subset of elements in a resource type. The `_elements` parameter accepts a comma-separated list of base elements:
 
 ```rest
-GET [your-fhir-server]/Patient?_elements=identifier,active
+GET {{FHIR_URL}}/Patient?_elements=identifier,active
 
 ```
 
-In this request, you'll get back a bundle of patients, but each resource will only include the identifier(s) and the patient's active status. Resources in this returned response will contain a `meta.tag` value of `SUBSETTED` to indicate that they're an incomplete set of results.
+In the above request, you'll get back a bundle of patients, but each resource instance will only include the identifier(s) and the patient's active status. Resources in the response will contain a `meta.tag` value of `SUBSETTED` to indicate that they are an incomplete set of results.
 
 ## Search modifiers
 
 ### :not
 
-`:not` allows you to find resources where an attribute isn't true. For example, you could search for patients where the gender isn't female:
+`:not` allows you to find resources with an element that does not have a given value. For example, you could search for patients where the gender isn't female:
 
 ```rest
-GET [your-fhir-server]/Patient?gender:not=female
+GET {{FHIR_URL}}/Patient?gender:not=female
 
 ```
 
-As a return value, you would get all patient entries where the gender isn't female, including empty values (entries specified without gender). This is different than searching for Patients where gender is male, since that wouldn't include the entries without a specific gender.
+In return, you would get all `Patient` resources whose `gender` element value isn't `female`, including any patients with no gender value specified. This is different from searching for patients with male gender, since that search wouldn't return any `Patient` resources that don't have a gender specified.
 
 ### :missing
 
-`:missing` returns all resources that don't have a value for the specified element when the value is `true`, and returns all the resources that contain the specified element when the value is `false`. For simple data type elements, `:missing=true` will match on all resources where the element is present with extensions but has an empty value. For example, if you want to find all `Patient` resources that are missing information on birth date, you can do:
+`:missing` returns all resources that don't have a value for the specified element when `:missing=true` is set and returns all resources that contain the specified element when `:missing=false` is set. For simple data type elements, `:missing=true` will match on all resources where an element is present but has an empty value. For example, if you want to find all `Patient` resources that are missing information on `birthdate`, you can do:
 
 ```rest
-GET [your-fhir-server]/Patient?birthdate:missing=true
+GET {{FHIR_URL}}/Patient?birthdate:missing=true
 
 ```
 
 ### :exact
-`:exact` is used for `string` parameters, and returns results that match the parameter precisely, such as in casing and character concatenating.
+`:exact` is used to search for elements with `string` data types and returns a positive match if the parameter value matches precisely with the element value in case and character sequence.
 
 ```rest
-GET [your-fhir-server]/Patient?name:exact=Jon
+GET {{FHIR_URL}}/Patient?name:exact=Jon
 
 ```
 
-This request returns `Patient` resources that have the name exactly the same as `Jon`. If the resource had patients with names such as `Jonathan` or `joN`, the search would ignore and skip the resource as it doesn't exactly match the specified value.
+This request returns `Patient` resources that have the `given` or `family` name of `Jon`. If there were patients with names such as `Jonathan` or `JON`, the search would ignore those resources as their names do not match the specified value exactly.
 
 ### :contains
-`:contains` is used for `string` parameters and searches for resources with partial matches of the specified value anywhere in the string within the field being searched. `contains` is case insensitive and allows character concatenating. For example:
+`:contains` is used to query for `string` type elements and allows for matches with the specified value anywhere within the field being searched. `contains` is case insensitive and recognizes strings concatenated with other characters. For example:
 
 ```rest
-GET [your-fhir-server]/Patient?address:contains=Meadow
+GET {{FHIR_URL}}/Patient?address:contains=Meadow
 
 ```
 
-This request would return you all `Patient` resources with `address` fields that have values that contain the string "Meadow". This means you could have addresses that include values such as "Meadowers" or "59 Meadow ST" returned as search results.
+This request would return all `Patient` resources with `address` element fields that contain the string "Meadow" (case insensitive). This means you could have addresses with values such as "Meadows Lane", "Homeadown Place", or "Meadowlark St" returned as search results.
 
 ## Chained search 
 
-To perform a series of search operations that cover multiple reference parameters, you can "chain" the series of reference parameters by appending them to the server request one by one using a period `.`. For example, if you want to view all `DiagnosticReport` resources with a `subject` reference to a `Patient` resource that includes a particular `name`:  
+To perform a series of search operations that cover multiple reference parameters, you can "chain" the series of reference parameters together one by one with `.`. For example, if you want to view all `DiagnosticReport` resources with a `subject` reference to a `Patient` resource that includes a particular `name`:  
 
 ```rest
- GET [your-fhir-server]/DiagnosticReport?subject:Patient.name=Sarah
+ GET {{FHIR_URL}}/DiagnosticReport?subject:Patient.name=Sarah
 
 ```
 
-This request would return all the `DiagnosticReport` resources with a patient subject named "Sarah". The period `.` after the field `Patient` performs the chained search on the reference parameter of the `subject` parameter.
+This request would return all the `DiagnosticReport` resources with a patient subject named "Sarah". The `.` after `Patient` performs the chained search on the `subject` reference parameter.
 
-Another common use of a regular search (not a chained search) is finding all encounters for a specific patient. `Patient`s will often have one or more `Encounter`s with a subject. To search for all `Encounter` resources for a `Patient` with the provided `id`:
+Another common use of FHIR search is finding all encounters for a specific patient. `Patient` resources will often be referenced by one or more `Encounter` subject references. To do a regular (non-chain) search for all `Encounter` resources that reference a `Patient` with the provided `id`:
 
 ```rest
-GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e6619399f
+GET {{FHIR_URL}}/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e6619399f
 
 ```
 
-Using chained search, you can find all the `Encounter` resources that match a particular piece of `Patient` information, such as the `birthdate`:
+Using chained search, you can find all the `Encounter` resources that reference a `Patient` with a particular piece of information, such as a specific `birthdate`:
 
 ```rest
-GET [your-fhir-server]/Encounter?subject:Patient.birthdate=1987-02-20
+GET {{FHIR_URL}}/Encounter?subject:Patient.birthdate=1987-02-20
 
 ```
 
-This would allow not just searching `Encounter` resources for a single patient, but across all patients that have the specified birth date value. 
+This would allow not just searching `Encounter` resources for a single patient, but across all patients that have the specified `birthdate` value. 
 
-In addition, chained search can be done more than once in one request by using the symbol `&`, which allows you to search for multiple conditions in one request. In such cases, chained search "independently" searches for each parameter, instead of searching for conditions that only satisfy all the conditions at once:
+In addition, chained search can occur more than once in a single request by using the symbol `&`, which allows you to search for multiple conditions in one request. In such cases, chained search "independently" searches for each parameter, instead of searching for conditions that only satisfy all the conditions at once:
 
 ```rest
 GET [your-fhir-server]/Patient?general-practitioner:Practitioner.name=Sarah&general-practitioner:Practitioner.address-state=WA
 
 ```
 
-This would return all `Patient` resources that have "Sarah" as the `generalPractitioner` and have a `generalPractitioner` that has the address with the state WA. In other words, if a patient had Sarah from the state NY and Bill from the state WA both referenced as the patient's `generalPractitioner`, the would be returned.
+This would return all `Patient` resources that have "Sarah" as the `generalPractitioner` and have a `generalPractitioner` that has the address with the state WA. In other words, if a patient had a doctor named Sarah from NY state and Bill from WA state both referenced as the patient's `generalPractitioner`, they would both be returned.
 
 For scenarios in which the search has to be an AND operation that covers all conditions as a group, refer to the **composite search** example below.
 
