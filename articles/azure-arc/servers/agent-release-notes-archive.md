@@ -2,7 +2,7 @@
 title: Archive for What's new with Azure Arc-enabled servers agent
 description: The What's new release notes in the Overview section for Azure Arc-enabled servers agent contains six months of activity. Thereafter, the items are removed from the main article and put into this article.
 ms.topic: overview
-ms.date: 07/06/2022
+ms.date: 08/17/2022
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,20 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Previous releases
 - Known issues
 - Bug fixes
+
+## Version 1.16 - March 2022
+
+### Known issues
+
+- `azcmagent logs` doesn't collect Guest Configuration logs in this release. You can locate the log directories in the [agent installation details](deployment-options.md#agent-installation-details).
+
+### New features
+
+- You can now granularly control which extensions are allowed to be deployed to your server and whether or not Guest Configuration should be enabled. See [local agent controls to enable or disable capabilities](security-overview.md#local-agent-security-controls) for more information.
+
+### Fixed
+
+- The "Arc" proxy bypass keyword no longer includes Azure Active Directory endpoints on Linux. Azure Storage endpoints for extension downloads are now included with the "Arc" keyword.
 
 ## Version 1.15 - February 2022
 

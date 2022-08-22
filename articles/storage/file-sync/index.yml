@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: khdownie #Required; your GitHub user alias, with correct capitalization.
   ms.author: kendownie #Required; microsoft alias of author; optional team alias.
-  ms.date: 04/19/2021
+  ms.date: 08/18/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -68,3 +68,15 @@ landingContent:
             url: ../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json
           - text: Migration guides
             url: ../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json#migration-guides
+
+  # Card
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Azure enterprise cloud file share
+            url: /azure/architecture/hybrid/azure-files-private
+          - text: Hybrid file services
+            url: /azure/architecture/hybrid/hybrid-file-services
+          - text: Hybrid file share with disaster recovery for remote and local branch workers
+            url: /azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers

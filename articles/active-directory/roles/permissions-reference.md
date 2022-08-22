@@ -3,7 +3,7 @@ title: Azure AD built-in roles - Azure Active Directory
 description: Describes the Azure Active Directory built-in roles and permissions.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
@@ -77,6 +77,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Knowledge Administrator](#knowledge-administrator) | Can configure knowledge, learning, and other intelligent features. | b5a8dcf3-09d5-43a9-a639-8e29ef291470 |
 > | [Knowledge Manager](#knowledge-manager) | Can organize, create, manage, and promote topics and knowledge. | 744ec460-397e-42ad-a462-8b3f9747a02c |
 > | [License Administrator](#license-administrator) | Can manage product licenses on users and groups. | 4d6ac14f-3453-41d0-bef9-a3e0c569773a |
+> | [Lifecycle Workflows Administrator](#lifecycle-workflows-administrator) | Create and manage all aspects of workflows and tasks associated with Lifecycle Workflows in Azure AD. | 59d46f88-662b-457b-bceb-5c3809e5908f |
 > | [Message Center Privacy Reader](#message-center-privacy-reader) | Can read security messages and updates in Office 365 Message Center only. | ac16e43d-7b2d-40e0-ac05-243ff356ab5b |
 > | [Message Center Reader](#message-center-reader) | Can read messages and updates for their organization in Office 365 Message Center only. | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b |
 > | [Modern Commerce User](#modern-commerce-user) | Can manage commercial purchases for a company, department or team. | d24aef57-1500-4070-84db-2666f29cf966 |
@@ -1479,6 +1480,20 @@ Users in this role can add, remove, and update license assignments on users, gro
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
+## Lifecycle Workflows Administrator
+
+Assign the Lifecycle Workflows Administrator role to users who need to do the following tasks:
+
+- Create and manage all aspects of workflows and tasks associated with Lifecycle Workflows in Azure AD
+- Check the execution of scheduled workflows
+- Launch on-demand workflow runs
+- Inspect workflow execution logs
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/lifecycleManagement/workflows/allProperties/allTasks | Manage all aspects of lifecycle management workflows and tasks in Azure AD |
+
 ## Message Center Privacy Reader
 
 Users in this role can monitor all notifications in the Message Center, including data privacy messages. Message Center Privacy Readers get email notifications including those related to data privacy and they can unsubscribe using Message Center Preferences. Only the Global Administrator and the Message Center Privacy Reader can read data privacy messages. Additionally, this role contains the ability to view groups, domains, and subscriptions. This role has no permission to view, create, or manage service requests.
@@ -1809,7 +1824,7 @@ Users with this role can manage role assignments in Azure Active Directory, as w
 
 ## Reports Reader
 
-Users with this role can view usage reporting data and the reports dashboard in Microsoft 365 admin center and the adoption context pack in Power BI. Additionally, the role provides access to sign-in reports and activity in Azure AD and data returned by the Microsoft Graph reporting API. A user assigned to the Reports Reader role can access only relevant usage and adoption metrics. They don't have any admin permissions to configure settings or access the product-specific admin centers like Exchange. This role has no access to view, create, or manage support tickets.
+Users with this role can view usage reporting data and the reports dashboard in Microsoft 365 admin center and the adoption context pack in Power BI. Additionally, the role provides access to all sign-in logs, audit logs, and activity reports in Azure AD and data returned by the Microsoft Graph reporting API. A user assigned to the Reports Reader role can access only relevant usage and adoption metrics. They don't have any admin permissions to configure settings or access the product-specific admin centers like Exchange. This role has no access to view, create, or manage support tickets.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

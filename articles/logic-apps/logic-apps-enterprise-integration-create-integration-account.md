@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, divyaswarnkar, azla
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 08/22/2022
 ---
 
 # Create and manage integration accounts for B2B workflows in Azure Logic Apps with the Enterprise Integration Pack
