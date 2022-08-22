@@ -112,10 +112,6 @@ Service Mesh will deploy HCX WAN Optimizer, HCX Network Extension and HCX-IX app
 1. Select the HCX services to be activated and select **Continue**.
    >[!Note]
    >Premium services require an additional HCX Enterprise license.  
-
-    :::image type="content" source="media/hcx-over-internet/create-network-extension.png" alt-text="Screenshot that shows selections for starting to create a network extension." lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
-
-
 1. Select the network profile of source site.
 1. Select the network profile of destination that you created in the **Network Profile** section.
 1. Select **Continue**.
