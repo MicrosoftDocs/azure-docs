@@ -16,7 +16,7 @@ items:
     href: device-update-raspberry-pi.md
   - name: Update device packages
     href: device-update-ubuntu-agent.md
-  - name: Update device components
+  - name: Update device components or connected sensors
     href: device-update-howto-proxy-updates.md
 - name: Concepts
   items:
