@@ -602,12 +602,12 @@ Resumes a suspended orchestration instance.
 
 In version 2.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
-```
-/runtime/webhooks/durabletask/instances/{instanceId}/resume
-?reason={text}
-&taskHub={taskHub}
-&connection={connectionName}
-&code={systemKey}
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/suspend
+    ?reason={text}
+    &taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
 ```
 
 | Field             | Parameter Type  | Description |
