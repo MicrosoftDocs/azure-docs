@@ -21,6 +21,16 @@ Deployments in Device Update for IoT Hub are dynamic in nature. Dynamic deployme
 
 Due to their dynamic nature, deployments remain active and in-progress until they are explicitly canceled. A deployment is considered inactive and superseded if a new deployment is created targeting the same device group. A deployment can be retried for devices that might fail. Once a deployment is canceled, it cannot be reactivated.
 
+## Deployment policies
+
+### Deployment scheduling
+
+Update deployments can be scheduled to start immediately or to start in the future at a particular time and date. This allows to efficiently plan for device downtime so that it doesn't interfere with any other critical device workflows. 
+
+### Automatic Rollback
+
+
+
 ## Next steps
 
 [Deploy an update](./deploy-update.md)
