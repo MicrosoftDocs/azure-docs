@@ -119,8 +119,7 @@ In order to collect the user_agent from client-side, create your own `ContentDef
 
    1. For **Allowed Methods**, select `GET` and `PUT`.
 
-   d. Select **Save**.
-
+   1. Select **Save**.
 
 ### Step 4: Configure Content Definition
 
