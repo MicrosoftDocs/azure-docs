@@ -25,6 +25,8 @@ compliant with the specific standard.
 - **App Service apps should only be accessible over HTTPS**
   - Update scope of policy to remove slots
     - Creation of "App Service app slots should only be accessible over HTTPS" to monitor slots
+  - Add "Deny" effect
+  - Creation of "Configure App Service apps to only be accessible over HTTPS" for enforcement of policy
 - **App Service app slots should only be accessible over HTTPS**
   - New policy created
 - **Configure App Service apps to only be accessible over HTTPS**
