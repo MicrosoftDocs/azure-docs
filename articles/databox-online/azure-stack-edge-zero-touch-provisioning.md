@@ -158,7 +158,6 @@ Run the following cmdlets in PowerShell:
    ```azurepowershell
    Get-DeviceConfiguration | to-json | Out-File "C:\<Local path>\testconfig2.json"
    ```
-   Sample output:
 
 ## Apply a full configuration to a device, without device activation
 
