@@ -19,10 +19,13 @@ This topic demonstrates creating a sample application that uses Java and [JDBC](
 
 JDBC is the standard Java API to connect to traditional relational databases.
 
+In this article, we will include two authentication methods, one is Azure Active Directory (Azure AD) authenction and the other is PostgreSQL authentication. The "Credential-free connection" tab is using the Azure AD authentication, and the "Password" tab is using the PostgreSQL authentication.
+- Azure AD authentication is a mechanism of connecting to Azure Database for PostgreSQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+- PostgreSQL authentication is to use accounts that stored in PostgreSQL. And if you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. So these passwords are stored in PostgreSQL and you will need to manage the rotation of the passwords by yourself.
 ## Prerequisites
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](../../cloud-shell/quickstart.md) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
+- [Azure Cloud Shell](../../cloud-shell/quickstart.md) or [Azure CLI](/cli/azure/install-azure-cli) 2.37.0 or above required. We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
 - A supported [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 (included in Azure Cloud Shell).
 - The [Apache Maven](https://maven.apache.org/) build tool.
 
@@ -30,23 +33,50 @@ JDBC is the standard Java API to connect to traditional relational databases.
 
 We are going to use environment variables to limit typing mistakes, and to make it easier for you to customize the following configuration for your specific needs.
 
-Set up those environment variables by using the following commands:
+First, set up some environment variables. In [Azure Cloud Shell](https://shell.azure.com/), run the following commands:
+
+### [Credential-free connection (Recommended)](#tab/credential-free)
 
 ```bash
-AZ_RESOURCE_GROUP=database-workshop
-AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
-AZ_LOCATION=<YOUR_AZURE_REGION>
-AZ_POSTGRESQL_USERNAME=demo
-AZ_POSTGRESQL_PASSWORD=<YOUR_POSTGRESQL_PASSWORD>
-AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
+export AZ_RESOURCE_GROUP=database-workshop
+export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+export AZ_LOCATION=<YOUR_AZURE_REGION>
+export AZ_POSTGRESQL_AD_ADMIN_USERNAME=demo@tenant.com
+export AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME=<YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>
+export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
 Replace the placeholders with the following values, which are used throughout this article:
 
 - `<YOUR_DATABASE_NAME>`: The name of your PostgreSQL server. It should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
-- `<YOUR_POSTGRESQL_PASSWORD>`: The password of your PostgreSQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+- `<YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>`: The username of your PostgreSQL database server. Make ensure the username is a valid user in your Azure AD tenant.
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+
+> [!IMPORTANT]
+>  When setting <YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>, the username must already exit in your Azure AD tenant, or [create Azure AD user](/azure/postgresql/single-server/how-to-configure-sign-in-azure-ad-authentication#creating-azure-ad-users-in-azure-database-for-postgresql)  will be failed.
+
+### [Password](#tab/password)
+
+```bash
+export AZ_RESOURCE_GROUP=database-workshop
+export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+export AZ_LOCATION=<YOUR_AZURE_REGION>
+export AZ_POSTGRESQL_ADMIN_USERNAME=demo
+export AZ_POSTGRESQL_ADMIN_PASSWORD=<YOUR_POSTGRESQL_ADMIN_PASSWORD>
+export AZ_POSTGRESQL_NON_ADMIN_USERNAME=demo_non_admin
+export AZ_POSTGRESQL_NON_ADMIN_PASSWORD=<YOUR_POSTGRESQL_NON_ADMIN_PASSWORD>
+export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
+```
+
+Replace the placeholders with the following values, which are used throughout this article:
+
+- `<YOUR_DATABASE_NAME>`: The name of your PostgreSQL server. It should be unique across Azure.
+- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
+- `<YOUR_POSTGRESQL_ADMIN_PASSWORD>` and `<YOUR_POSTGRESQL_NON_ADMIN_PASSWORD>`: The password of your PostgreSQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Java application. One convenient way to find it is to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+
+---
 
 Next, create a resource group by using the following command:
 
@@ -54,20 +84,27 @@ Next, create a resource group by using the following command:
 az group create \
     --name $AZ_RESOURCE_GROUP \
     --location $AZ_LOCATION \
-    | jq
+    --output tsv
 ```
-
-> [!NOTE]
-> We use the `jq` utility to display JSON data and make it more readable. This utility is installed by default on [Azure Cloud Shell](https://shell.azure.com/). If you don't like that utility, you can safely remove the `| jq` part of all the commands we'll use.
 
 ## Create an Azure Database for PostgreSQL instance
 
-The first thing we'll create is a managed PostgreSQL server.
+### Create a PostgreSQL server and set up admin user
+
+The first thing we'll create is a managed PostgreSQL server with an admin user.
 
 > [!NOTE]
 > You can read more detailed information about creating PostgreSQL servers in [Create an Azure Database for PostgreSQL server by using the Azure portal](./quickstart-create-server-database-portal.md).
 
-In [Azure Cloud Shell](https://shell.azure.com/), run the following command:
+#### [Credential-free connection (Recommended)](#tab/credential-free)
+
+If you are using Azure CLI, run the following command to make sure it has sufficient permission:
+
+```bash
+az login --scope https://graph.microsoft.com/.default
+```
+
+Then run following commands to create the server:
 
 ```azurecli
 az postgres server create \
@@ -76,12 +113,40 @@ az postgres server create \
     --location $AZ_LOCATION \
     --sku-name B_Gen5_1 \
     --storage-size 5120 \
-    --admin-user $AZ_POSTGRESQL_USERNAME \
-    --admin-password $AZ_POSTGRESQL_PASSWORD \
-    | jq
+    --output tsv
+```
+
+Then to set the Azure AD admin user:
+
+```azurecli
+az postgres server ad-admin create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --server-name $AZ_DATABASE_NAME \
+    --display-name $AZ_POSTGRESQL_AD_ADMIN_USERNAME \
+    --object-id `(az ad signed-in-user show --query id -o tsv)`
+```
+
+> [!IMPORTANT]
+>  When setting the administrator, a new user is added to the Azure Database for PostgreSQL server with full administrator permissions. Only one Azure AD admin can be created per PostgreSQL server and selection of another one will overwrite the existing Azure AD admin configured for the server.
+This command creates a small PostgreSQL server and set the Active Directory admin to the signed-in user.
+
+#### [Password](#tab/password)
+
+```azurecli
+az postgres server create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME \
+    --location $AZ_LOCATION \
+    --sku-name B_Gen5_1 \
+    --storage-size 5120 \
+    --admin-user $AZ_POSTGRESQL_ADMIN_USERNAME \
+    --admin-password $AZ_POSTGRESQL_ADMIN_PASSWORD \
+    --output tsv
 ```
 
 This command creates a small PostgreSQL server.
+
+---
 
 ### Configure a firewall rule for your PostgreSQL server
 
@@ -96,7 +161,32 @@ az postgres server firewall-rule create \
     --server $AZ_DATABASE_NAME \
     --start-ip-address $AZ_LOCAL_IP_ADDRESS \
     --end-ip-address $AZ_LOCAL_IP_ADDRESS \
-    | jq
+    --output tsv
+```
+
+If you're connecting to your PostgreSQL server from WSL on a Windows computer, you'll need to add the WSL host ID to your firewall.
+Obtain the IP address of your host machine by running the following command in WSL:
+
+```bash
+cat /etc/resolv.conf
+```
+
+Copy the IP address following the term `nameserver`, then use the following command to set an environment variable for the WSL IP Address:
+
+```bash
+AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
+```
+
+Then, use the following command to open the server's firewall to your WSL-based app:
+
+```azurecli
+az postgres server firewall-rule create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME-database-allow-local-ip \
+    --server $AZ_DATABASE_NAME \
+    --start-ip-address $AZ_WSL_IP_ADDRESS \
+    --end-ip-address $AZ_WSL_IP_ADDRESS \
+    --output tsv
 ```
 
 ### Configure a PostgreSQL database
@@ -108,12 +198,71 @@ az postgres db create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name demo \
     --server-name $AZ_DATABASE_NAME \
-    | jq
+    --output tsv
 ```
+
+### Create a PostgreSQL non-admin user and grant permission
+
+This step will create a non-admin user and grant all permissions on the `demo` database to it.
+
+> [!NOTE]
+> You can read more detailed information about creating PostgreSQL users in [Create users in Azure Database for PostgreSQL](/azure/PostgreSQL/single-server/how-to-create-users).
+#### [Credential-free connection (Recommended)](#tab/credential-free)
+
+We have already enabled the Azure AD authentication, and this step will create an Azure AD user and grant permissions.
+
+Save a sql script of creating non-admin user to local:
+
+```bash
+cat << EOF > create_ad_user.sql
+SET aad_validate_oids_in_tenant = off;
+CREATE ROLE "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME" WITH LOGIN IN ROLE azure_ad_user;
+GRANT ALL PRIVILEGES ON DATABASE demo TO "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME";
+EOF
+```
+
+Run the sql script to create the Azure AD non-admin user:
+
+```bash
+psql "host=$AZ_DATABASE_NAME.postgres.database.azure.com user=$AZ_POSTGRESQL_AD_ADMIN_USERNAME@$AZ_DATABASE_NAME dbname=demo port=5432 password='$' sslmode=require" < create_ad_user.sql
+```
+
+Remove the temporary sql script file:
+
+```bash
+rm create_ad_user.sql
+```
+
+#### [Password](#tab/password)
+
+Save a sql script of creating non-admin user to local:
+
+```bash
+cat << EOF > create_user.sql
+CREATE ROLE "$AZ_POSTGRESQL_NON_ADMIN_USERNAME" WITH LOGIN PASSWORD '$AZ_POSTGRESQL_NON_ADMIN_PASSWORD';
+GRANT ALL PRIVILEGES ON DATABASE demo TO "$AZ_POSTGRESQL_NON_ADMIN_USERNAME";
+EOF
+```
+
+Run the sql script to create the non-admin user:
+
+```bash
+psql "host=$AZ_DATABASE_NAME.postgres.database.azure.com user=$AZ_POSTGRESQL_ADMIN_USERNAME@$AZ_DATABASE_NAME dbname=demo port=5432 password=$AZ_POSTGRESQL_ADMIN_PASSWORD sslmode=require" < create_user.sql
+```
+
+Remove the temporary sql script file:
+
+```bash
+rm create_user.sql
+```
+
+---
 
 ### Create a new Java project
 
 Using your favorite IDE, create a new Java project, and add a `pom.xml` file in its root directory:
+
+#### [Credential-free connection (Recommended)](#tab/credential-free)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -132,14 +281,44 @@ Using your favorite IDE, create a new Java project, and add a `pom.xml` file in 
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.2.12</version>
-        </dependency>
+      <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity-providers-jdbc-postgresql</artifactId>
+        <version>1.0.0</version>
+      </dependency>
     </dependencies>
 </project>
 ```
+
+#### [Password](#tab/password)
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>demo</name>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>42.2.12</version>
+      </dependency>
+    </dependencies>
+</project>
+```
+
+---
 
 This file is an [Apache Maven](https://maven.apache.org/) that configures our project to use:
 
@@ -150,17 +329,26 @@ This file is an [Apache Maven](https://maven.apache.org/) that configures our pr
 
 Create a *src/main/resources/application.properties* file, and add:
 
+#### [Credential-free connection (Recommended)](#tab/credential-free)
+
 ```properties
 url=jdbc:postgresql://$AZ_DATABASE_NAME.postgres.database.azure.com:5432/demo?ssl=true&sslmode=require
-user=demo@$AZ_DATABASE_NAME
-password=$AZ_POSTGRESQL_PASSWORD
+user=$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME@$AZ_DATABASE_NAME
 ```
 
-- Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
-- Replace the `$AZ_POSTGRESQL_PASSWORD` variable with the value that you configured at the beginning of this article.
+#### [Password](#tab/password)
+
+```properties
+url=jdbc:postgresql://$AZ_DATABASE_NAME.postgres.database.azure.com:5432/demo?ssl=true&sslmode=require
+user=$AZ_POSTGRESQL_NON_ADMIN_USERNAME@$AZ_DATABASE_NAME
+password=$AZ_POSTGRESQL_NON_ADMIN_PASSWORD
+```
+
+---
 
 > [!NOTE]
 > We append `?ssl=true&sslmode=require` to the configuration property `url`, to tell the JDBC driver to use TLS ([Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security)) when connecting to the database. It is mandatory to use TLS with Azure Database for PostgreSQL, and it is a good security practice.
+
 
 ### Create an SQL file to generate the database schema
 
@@ -178,6 +366,58 @@ CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARC
 Next, add the Java code that will use JDBC to store and retrieve data from your PostgreSQL server.
 
 Create a *src/main/java/DemoApplication.java* file, that contains:
+
+#### [Credential-free connection (Recommended)](#tab/credential-free)
+
+```java
+package com.example.demo;
+
+import java.sql.*;
+import java.util.*;
+import java.util.logging.Logger;
+
+public class DemoApplication {
+
+    private static final Logger log;
+
+    static {
+        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
+        log =Logger.getLogger(DemoApplication.class.getName());
+    }
+
+    public static void main(String[] args) throws Exception {
+        log.info("Loading application properties");
+        Properties properties = new Properties();
+        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
+
+        log.info("Connecting to the database");
+        //TODO?
+        Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
+        log.info("Database connection test: " + connection.getCatalog());
+
+        log.info("Create database schema");
+        Scanner scanner = new Scanner(DemoApplication.class.getClassLoader().getResourceAsStream("schema.sql"));
+        Statement statement = connection.createStatement();
+        while (scanner.hasNextLine()) {
+            statement.execute(scanner.nextLine());
+        }
+
+		/*
+		Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
+        insertData(todo, connection);
+        todo = readData(connection);
+        todo.setDetails("congratulations, you have updated data!");
+        updateData(todo, connection);
+        deleteData(todo, connection);
+		*/
+
+        log.info("Closing database connection");
+        connection.close();
+    }
+}
+```
+
+#### [Password](#tab/password)
 
 ```java
 package com.example.demo;
@@ -225,6 +465,8 @@ public class DemoApplication {
     }
 }
 ```
+
+---
 
 This Java code will use the *application.properties* and the *schema.sql* files that we created earlier, in order to connect to the PostgreSQL server and create a schema that will store our data.
 
