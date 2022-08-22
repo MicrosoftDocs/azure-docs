@@ -107,9 +107,11 @@ $AppArgs = @{
     Location = $Location
     ResourceGroupName = $ResourceGroupName
     ManagedEnvironmentId = $EnvId
+    IdentityType = "SystemAssigned"
     TemplateContainer = $TemplateObj
     IngressTargetPort = 80
     IngressExternal = $true
+
 }
 New-AzContainerApp @AppArgs
 ```
