@@ -27,6 +27,8 @@ items:
 - name: How-to guides
   expanded: true
   items:
+  - name: Set up authentication and permissions
+    href: how-to-authentication-permissions.md
   - name: Configure data sources
     href: how-to-data-source-plugins-managed-identity.md
   - name: Modify access permissions to Azure Monitor
