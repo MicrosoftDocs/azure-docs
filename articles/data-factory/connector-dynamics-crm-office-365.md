@@ -515,13 +515,22 @@ To write data into a lookup field using alternate key columns, follow this guida
 
 1. Ensure your source contains all the lookup key columns. 
 
-2. The alternate key columns must be mapped to the column with the special naming pattern `{lookup_field_name}@{alternate_key_column_name}`. The column doesn't actually exist in Dynamics. It's used to indicate that this column is used to look up the record in the target entity.
+2. The alternate key columns must be mapped to the column with the special naming pattern `{lookup_field_name}@{alternate_key_column_name}`. The column doesn't exist in Dynamics. It's used to indicate that this column is used to look up the record in the target entity.
 
-3. Go to **Mapping** tab in the sink transformation of mapping data flows. At the drop-down list for lookup fields, select the alternate key columns as output columns, and map input columns to the them. For example:
+3. Go to **Mapping** tab in the sink transformation of mapping data flows. Select the alternate key as output columns under the Lookup field. The value after indicates the key columns of this alternate key.
 
     :::image type="content" source="./media/connector-dynamics-crm-office-365/select-alternate-key-columns.png" alt-text="Screenshot shows selecting alternate key columns.":::
 
-    :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping-alternate-key.png" alt-text="Screenshot shows mapping columns to lookup fields via alternate keys.":::
+4. Once selected, the alternate key columns will automatically be displayed in below.
+
+    :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping-alternate-key-1.png" alt-text="Screenshot shows mapping columns to lookup fields via alternate keys step 1.":::
+
+5. Map your input columns on left with the output columns.
+
+    :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping-alternate-key-2.png" alt-text="Screenshot shows mapping columns to lookup fields via alternate keys step 2.":::
+
+> [!Note]
+> You can only write data into Lookup field using alternate key columns in mapping data flows.
 
 ## Mapping data flow properties
 
