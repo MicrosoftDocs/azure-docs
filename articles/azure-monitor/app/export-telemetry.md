@@ -272,6 +272,8 @@ To migrate to diagnostic settings export:
 > If you want to store diagnostic logs in a Log Analytics workspace, there are two things to consider to avoid seeing duplicate data in Application Insights:
 > * The destination can't be the same Log Analytics workspace that your Application Insights resource is based on.
 > * The Application Insights user can't have access to both workspaces. This can be done by setting the Log Analytics [Access control mode](/azure/azure-monitor/logs/log-analytics-workspace-overview#permissions) to **Requires workspace permissions** and ensuring through [Azure role-based access control (Azure RBAC)](./resources-roles-access-control.md) that the user only has access to the Log Analytics workspace the Application Insights resource is based on.
+> 
+> These steps are necessary because Applications Insights accumulates telemetry across different Log Analyticics workspaces and uses the same table names for diagnostic logs, leading to duplicate data in Application Insights.
 
 <!--Link references-->
 
