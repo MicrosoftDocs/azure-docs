@@ -898,13 +898,13 @@ If you're receiving this error message and experience intermittent failures call
 
 1. Check SAP settings in your on-premises data gateway service configuration file, `Microsoft.PowerBI.EnterpriseGateway.exe.config`.
 
-   1. Add a `configSections` element under the `configuration` root node if it is not already present.
-   1. Add a `section` element with attributes `name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"` under the `configSections` node if it is not already present.
+   1. Under the `configuration` root node, add a `configSections` element, if none exists.
+   1. Under the `configSections` node, add a `section` element with the following attributes, if none exist: `name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"`
 
       > [!IMPORTANT]
-      > Do not modify attributes of existing `section` elements if such elements already exist.
+      > Don't change the attributes in existing `section` elements, if such elements already exist.
 
-   1. If no other section or section group is declared in the configuration, the `configSections` element will be a follows:
+      Your `configSections` element looks like the following version, if no other section or section group is declared in the gateway service configuration:
 
       ```xml
       <configSections>
@@ -912,13 +912,13 @@ If you're receiving this error message and experience intermittent failures call
       </configSections>
       ```
 
-   1. Add a `SapAdapterSection` element under the `configuration` root node if it is not already present.
-   1. Add a `Broker` element with attributes `WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2"` under the `SapAdapterSection` node if it is not already present.
+   1. Under the `configuration` root node, add an `SapAdapterSection` element, if none exists.
+   1. Under the `SapAdapterSection` node, add a `Broker` element with the following attributes, if none exist: `WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2"`
 
       > [!IMPORTANT]
-      > Modify attributes of existing `Broker` element if such element already exists.
+      > Change the attributes for the `Broker` element, even if the element already exists.
 
-   1. If no other element or attribute is declared in the SAP adapter configuration, the `SapAdapterSection` element will be a follows:
+      The `SapAdapterSection` element looks like the following version, if no other element or attribute is declared in the SAP adapter configuration:
 
       ```xml
       <SapAdapterSection>
@@ -926,11 +926,11 @@ If you're receiving this error message and experience intermittent failures call
       </SapAdapterSection>
       ```
 
-      The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` and the timespan format is `HH:mm:ss.ff`.
+      The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` where the timespan format is `HH:mm:ss.ff`.
 
    > [!NOTE]
    > For more information about the configuration file,
-   > read [Configuration file schema for .NET Framework](/dotnet/framework/configure-apps/file-schema/).
+   > review [Configuration file schema for .NET Framework](/dotnet/framework/configure-apps/file-schema/).
 
 1. Save your changes. Restart your on-premises data gateway.
 
