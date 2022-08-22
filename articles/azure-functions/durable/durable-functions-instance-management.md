@@ -628,7 +628,7 @@ Suspending an orchestration allows you to stop a running orchestration. Unlike w
 
 The two parameters for the terminate API are an instance ID and a reason string, which are written to logs and to the instance status.
 
-# [C#](#tab/CSharp_)
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("SuspendResumeInstance")]
@@ -643,13 +643,13 @@ public static Task Run(
 }
 ```
 
-# [JavaScript#](#tab/JavaScript)
+# [JavaScript](#tab/javascript)
 > [!NOTE]
 > This feature is currently not supported in JavaScript.
-# [Python#](#tab/Python)
+# [Python](#tab/python)
 > [!NOTE]
 > This feature is currently not supported in Python.
-# [Java#](#tab/Java)
+# [Java](#tab/java)
 > [!NOTE]
 > This feature is currently not supported in Java.
 
