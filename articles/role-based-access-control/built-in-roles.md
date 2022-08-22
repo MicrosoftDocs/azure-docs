@@ -6,8 +6,9 @@ ms.service: role-based-access-control
 ms.topic: reference
 ms.workload: identity
 author: rolyon
+manager: amycolannino
 ms.author: rolyon
-ms.date: 06/22/2022
+ms.date: 08/20/2022
 ms.custom: generated
 ---
 
@@ -1720,7 +1721,7 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
-> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/providers/operations/read |  |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1804,7 +1805,7 @@ Lets you manage backup service, but can't create vaults and give access to other
         "Microsoft.DataProtection/locations/operationStatus/read",
         "Microsoft.DataProtection/locations/operationResults/read",
         "Microsoft.DataProtection/backupVaults/validateForBackup/action",
-        "Microsoft.DataProtection/providers/operations/read"
+        "Microsoft.DataProtection/operations/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -2515,7 +2516,7 @@ Lets you perform backup and restore operations using Azure Backup on the storage
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/objectReplicationPolicies/delete | Delete object replication policy |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/objectReplicationPolicies/read | List object replication policies |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/objectReplicationPolicies/write | Create or update object replication policy |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/objectReplicationPolicies/restorePointMarkers/write |  |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/objectReplicationPolicies/restorePointMarkers/write | Create object replication restore point marker |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/write | Returns the result of put blob container |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
@@ -3328,7 +3329,7 @@ Grants access to read map related data from an Azure maps account. [Learn more](
 
 ### Azure Spring Cloud Config Server Contributor
 
-Allow read, write and delete access to Azure Spring Cloud Config Server [Learn more](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+Allow read, write and delete access to Azure Spring Cloud Config Server [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3371,7 +3372,7 @@ Allow read, write and delete access to Azure Spring Cloud Config Server [Learn m
 
 ### Azure Spring Cloud Config Server Reader
 
-Allow read access to Azure Spring Cloud Config Server [Learn more](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+Allow read access to Azure Spring Cloud Config Server [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3449,7 +3450,7 @@ Allow read access to Azure Spring Cloud Data
 
 ### Azure Spring Cloud Service Registry Contributor
 
-Allow read, write and delete access to Azure Spring Cloud Service Registry [Learn more](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+Allow read, write and delete access to Azure Spring Cloud Service Registry [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3492,7 +3493,7 @@ Allow read, write and delete access to Azure Spring Cloud Service Registry [Lear
 
 ### Azure Spring Cloud Service Registry Reader
 
-Allow read access to Azure Spring Cloud Service Registry [Learn more](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+Allow read access to Azure Spring Cloud Service Registry [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -9207,6 +9208,10 @@ Can manage Azure AD Domain Services and related network configurations [Learn mo
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Logs/Read | Reading data from all your logs |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Metrics/Read | Read metrics |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettingsCategories/Read | Read diagnostic settings categories |
 > | [Microsoft.AAD](resource-provider-operations.md#microsoftaad)/register/action | Register Domain Service |
 > | [Microsoft.AAD](resource-provider-operations.md#microsoftaad)/unregister/action | Unregister Domain Service |
 > | [Microsoft.AAD](resource-provider-operations.md#microsoftaad)/domainServices/* |  |
@@ -9290,6 +9295,10 @@ Can manage Azure AD Domain Services and related network configurations [Learn mo
         "Microsoft.Insights/AlertRules/Resolved/Action",
         "Microsoft.Insights/AlertRules/Throttled/Action",
         "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Insights/Logs/Read",
+        "Microsoft.Insights/Metrics/Read",
+        "Microsoft.Insights/DiagnosticSettings/*",
+        "Microsoft.Insights/DiagnosticSettingsCategories/Read",
         "Microsoft.AAD/register/action",
         "Microsoft.AAD/unregister/action",
         "Microsoft.AAD/domainServices/*",
@@ -9363,6 +9372,10 @@ Can view Azure AD Domain Services and related network configurations
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Logs/Read | Reading data from all your logs |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Metrics/read | Read metrics |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettings/read | Read a resource diagnostic setting |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettingsCategories/Read | Read diagnostic settings categories |
 > | [Microsoft.AAD](resource-provider-operations.md#microsoftaad)/domainServices/*/read |  |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
@@ -9405,6 +9418,10 @@ Can view Azure AD Domain Services and related network configurations
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Insights/AlertRules/Read",
         "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Insights/Logs/Read",
+        "Microsoft.Insights/Metrics/read",
+        "Microsoft.Insights/DiagnosticSettings/read",
+        "Microsoft.Insights/DiagnosticSettingsCategories/Read",
         "Microsoft.AAD/domainServices/*/read",
         "Microsoft.Network/virtualNetworks/read",
         "Microsoft.Network/virtualNetworks/subnets/read",
@@ -10246,7 +10263,8 @@ Microsoft Sentinel Contributor [Learn more](../sentinel/roles.md)
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
-> | *none* |  |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/ConfidentialWatchlists/* |  |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/ConfidentialWatchlist/* |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -10280,7 +10298,10 @@ Microsoft Sentinel Contributor [Learn more](../sentinel/roles.md)
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.SecurityInsights/ConfidentialWatchlists/*",
+        "Microsoft.OperationalInsights/workspaces/query/ConfidentialWatchlist/*"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
@@ -10320,7 +10341,8 @@ Microsoft Sentinel Reader [Learn more](../sentinel/roles.md)
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/templateSpecs/*/read |  |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
-> | *none* |  |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/ConfidentialWatchlists/* |  |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/ConfidentialWatchlist/* |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -10359,7 +10381,10 @@ Microsoft Sentinel Reader [Learn more](../sentinel/roles.md)
         "Microsoft.Resources/templateSpecs/*/read",
         "Microsoft.Support/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.SecurityInsights/ConfidentialWatchlists/*",
+        "Microsoft.OperationalInsights/workspaces/query/ConfidentialWatchlist/*"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
@@ -10407,6 +10432,8 @@ Microsoft Sentinel Responder [Learn more](../sentinel/roles.md)
 > | **NotActions** |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/cases/*/Delete |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/incidents/*/Delete |  |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/ConfidentialWatchlists/* |  |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/ConfidentialWatchlist/* |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -10453,7 +10480,9 @@ Microsoft Sentinel Responder [Learn more](../sentinel/roles.md)
       ],
       "notActions": [
         "Microsoft.SecurityInsights/cases/*/Delete",
-        "Microsoft.SecurityInsights/incidents/*/Delete"
+        "Microsoft.SecurityInsights/incidents/*/Delete",
+        "Microsoft.SecurityInsights/ConfidentialWatchlists/*",
+        "Microsoft.OperationalInsights/workspaces/query/ConfidentialWatchlist/*"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -11032,7 +11061,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | *none* |  |
+> | [microsoft.monitor](resource-provider-operations.md#microsoftmonitor)/accounts/data/metrics/read | Read metrics data in any Monitoring Account |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -11086,7 +11115,9 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "Microsoft.AlertsManagement/migrateFromSmartDetection/*"
       ],
       "notActions": [],
-      "dataActions": [],
+      "dataActions": [
+        "microsoft.monitor/accounts/data/metrics/read"
+      ],
       "notDataActions": []
     }
   ],
@@ -11156,7 +11187,7 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | *none* |  |
+> | [Microsoft.Monitor](resource-provider-operations.md#microsoftmonitor)/accounts/data/metrics/read | Read metrics data in any Monitoring Account |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -11176,7 +11207,9 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
         "Microsoft.Support/*"
       ],
       "notActions": [],
-      "dataActions": [],
+      "dataActions": [
+        "Microsoft.Monitor/accounts/data/metrics/read"
+      ],
       "notDataActions": []
     }
   ],

@@ -103,7 +103,7 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
                         ]
    ```
    > [!NOTE]
-   > If bandwidth is unavailable in the target location, open a [support request in the Azure Portal](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and select the ExpressRoute Direct Support Topic. 
+   > If bandwidth is unavailable in the target location, open a [support request in the Azure Portal](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and select the ExpressRoute Direct Support Topic. 
    >
 5. Create an ExpressRoute Direct resource based on the location chosen above
 
@@ -339,7 +339,6 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
 
     ```powershell
     Add-AzExpressRoutePortAuthorization -Name $Name -ExpressRoutePort $ERPort
-    Set-AzExpressRoutePort -ExpressRoutePort $ERPort
     ```
    
    Sample output:

@@ -14,7 +14,7 @@ Windows provides a wide variety of [performance counters](/windows/desktop/perfc
 
 ## Prerequisites
 
-Grant the app pool service account permission to monitor performance counters by adding it to the [Performance Monitor Users](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#bkmk-perfmonitorusers) group.
+Grant the app pool service account permission to monitor performance counters by adding it to the [Performance Monitor Users](/windows/security/identity-protection/access-control/active-directory-security-groups#bkmk-perfmonitorusers) group.
 
 ```shell
 net localgroup "Performance Monitor Users" /add "IIS APPPOOL\NameOfYourPool"

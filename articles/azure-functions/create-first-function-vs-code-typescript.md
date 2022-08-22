@@ -4,7 +4,7 @@ description: Learn how to create a TypeScript function, then publish the local N
 ms.topic: quickstart
 ms.date: 06/18/2022
 ms.devlang: typescript
-ms.custom: mode-ui
+ms.custom: mode-ui, vscode-azure-extension-update-complete
 ---
 
 # Quickstart: Create a function in Azure with TypeScript using Visual Studio Code

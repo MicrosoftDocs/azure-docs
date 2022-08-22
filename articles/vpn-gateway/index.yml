@@ -127,7 +127,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Monitoring and alerts
-            url: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
+            url: monitor-vpn-gateway.md
             
   # Card
   - title: Reference

@@ -4,10 +4,9 @@ description: Set up an FSLogix profile container on an Azure file share in an ex
 services: virtual-desktop
 author: Heidilohr
 manager: femila
-
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/15/2022
+ms.date: 08/03/2022
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory (preview)
@@ -91,5 +90,3 @@ Finally, verify the profile created in Azure Files after the user has successful
 ## Next steps
 
 - To troubleshoot FSLogix, see [this troubleshooting guide](/fslogix/fslogix-trouble-shooting-ht).
-- To configure FSLogix profiles on Azure Files with Azure Active Directory Domain Services, see [Create a profile container with Azure Files and Azure AD DS](create-profile-container-adds.md).
-- To configure FSLogix profiles on Azure Files with Active Directory Domain Services, see [Create a profile container with Azure Files and AD DS](create-file-share.md).

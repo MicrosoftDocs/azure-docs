@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 06/15/2022
 ms.reviewer: azfuncdf, antchu
 ms.devlang: python
-ms.custom: mode-api, devdivchpfy22
+ms.custom: mode-api, devdivchpfy22, vscode-azure-extension-update-complete
 ---
 
 # Create your first durable function in Python
@@ -48,7 +48,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | Python | Create a local Python Functions project. |
-    | Select a version | Azure Functions v3 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
+    | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
     | Python version | Python 3.6, 3.7, or 3.8 | Visual Studio Code will create a virtual environment with the version you select. |
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |

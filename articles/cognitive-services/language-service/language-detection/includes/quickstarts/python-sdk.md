@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 08/15/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -12,6 +12,8 @@ ms.custom: ignite-fall-2021
 
 
 Use this quickstart to create a language detection application with the client library for Python. In the following example, you will create a Python application that can identify the language a text sample was written in.
+
+[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
 
 
 ## Prerequisites

@@ -208,9 +208,3 @@ This section is based on [Create a profile container for a host pool using a fil
 
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/mount-path-folder.png)
-
-## Next steps
-
-You can use FSLogix profile containers to set up a user profile share. To learn how to create user profile shares with your new containers, see [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
-
-You can also create an Azure Files file share to store your FSLogix profile in. To learn more, see [Create an Azure Files file share with a domain controller](create-file-share.md).
