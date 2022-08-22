@@ -195,7 +195,7 @@ az aks nodepool add \
     --node-count 1
 ```
 
-## Verify Network Policy Setup
+## Verify Network Policy setup
 
 When the cluster is ready, configure `kubectl` to connect to your Kubernetes cluster by using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them:
 

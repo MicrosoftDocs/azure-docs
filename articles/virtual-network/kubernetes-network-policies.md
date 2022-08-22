@@ -48,7 +48,7 @@ For Linux:
   kubectl apply -f https://github.com/Azure/azure-container-networking/blob/master/npm/azure-npm.yaml
   ```
 
-For Windows :
+For Windows:
 
  ```
   kubectl apply -f https://github.com/Azure/azure-container-networking/blob/master/npm/examples/windows/azure-npm.yaml
@@ -99,7 +99,7 @@ There are also "exec_time_count" and "exec_time_sum" metrics for each "exec_time
 
 The metrics can be scraped through Azure Monitor for containers or through Prometheus.
 
-### Setup for Azure Monitor
+### Set up for Azure Monitor
 The first step is to enable Azure Monitor for containers for your Kubernetes cluster. Steps can be found in [Azure Monitor for containers Overview](../azure-monitor/containers/container-insights-overview.md). Once you have Azure Monitor for containers enabled, configure the [Azure Monitor for containers ConfigMap](https://aka.ms/container-azm-ms-agentconfig) to enable NPM integration and collection of Prometheus NPM metrics. Azure Monitor for containers ConfigMap has an ```integrations``` section with settings to collect NPM metrics. These settings are disabled by default in the ConfigMap. Enabling the basic setting ```collect_basic_metrics = true```, will collect basic NPM metrics. Enabling advanced setting ```collect_advanced_metrics = true``` will collect advanced metrics in addition to basic metrics. 
 
 After editing the ConfigMap, save it locally and apply the ConfigMap to your cluster as follows.
