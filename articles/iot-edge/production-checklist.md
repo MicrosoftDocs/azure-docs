@@ -233,7 +233,7 @@ All of the parameters noted in the table below marked as **Required** need to be
 | `image_age_cleanup_threshold` | Option to define the "age" of unused images after which those unused images will be deleted.  Images are considered unused if they are not part of an active module identity or a deployment. <br><br>  **Required** <br><br> Default value: *7d* |
 | `cleanup_time` | Best-effort execution time when the cleanup job runs. `cleanup_time` is the device local time and should follow 24-hour HH:MM format. <br><br>  **Required** <br><br> Default value: *00:00* |
 
-The following is an example config.toml to configure image garbage collection. 
+The following is an example config.toml for image garbage collection. 
 ```json
 [image_garbage_collection]
 enabled = “true”  
