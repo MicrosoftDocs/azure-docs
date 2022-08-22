@@ -12,7 +12,7 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/22/20222
+ms.date: 08/22/2022
 ms.author: alkohli
 
 ---
