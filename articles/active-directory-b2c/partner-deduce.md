@@ -554,7 +554,8 @@ At this point, the Deduce RESTfull API has been set up, but it's not yet availab
 
 ## Step 8: Add Deduce API to a user journey
 
-Now that you have a user journey, add the orchestrations steps to call Deduce.
+Now that you've a user journey, add the orchestrations steps to call Deduce.
+
 
 1. Find the orchestration step element that includes Type=`CombinedSignInAndSignUp`, or Type=`ClaimsProviderSelection` in the user journey. It's usually the first orchestration step.
 
