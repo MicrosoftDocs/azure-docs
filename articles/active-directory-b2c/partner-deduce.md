@@ -157,7 +157,7 @@ The **ClaimsSchema** element defines the claim types that can be referenced as p
 
 1. Open the `TrustFrameworksExtension.xml`
 
-1. Find the `**BuildingBlocks**` element. This element is where additional identity claims that Deduce supports can be added.
+1. In the `**BuildingBlocks**` element additional identity claims that Deduce supports can be added.
 
    ```xml
      <BuildingBlocks>
