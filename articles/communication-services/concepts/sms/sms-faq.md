@@ -3,11 +3,11 @@ title: SMS FAQ
 titleSuffix: An Azure Communication Services concept document
 description: SMS FAQ
 author: prakulka
-manager: nmurav
+manager: shahen
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 06/30/2021
+ms.date: 08/19/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
@@ -62,8 +62,8 @@ Opt-outs for US toll-free numbers are mandated and enforced by US carriers and c
 Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you will be asked for your preference to manage opt-outs. If you opt-in to use it, the opt-out management service will automatically use your responses in the program brief for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. 
 
 *Example:* 
-- **STOP** - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the short code. Azure Communication Services sends the following default response for STOP: *"Contoso Alerts: You’re opted out and will receive no further messages."*
-- **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP to the toll-free number. Azure Communication Service sends the following default response for START/UNSTOP: *“Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.”*
+- **STOP** - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the short code. Azure Communication Services sends your configured response for STOP: *"Contoso Alerts: You’re opted out and will receive no further messages."*
+- **START** - If the recipient wishes to resubscribe to text messages from a short code, they can send ‘START’ to the short code. Azure Communication Service sends your configured response for START: *“Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.”*
 - **HELP** - If the recipient wishes to get help with your service, they can send 'HELP' to the short code. Azure Communication Service sends the response you configured in the program brief for HELP: *"Thanks for texting Contoso! Call 1-800-800-8000 for support."*
 
 Azure Communication Services will detect the STOP message and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.” The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
@@ -83,14 +83,14 @@ Once you have submitted the short code program brief application in the Azure po
 
 ## Toll-Free Verification
 ### What is toll free verification and why is it mandatory?
-The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and industry best practices. This also provides relevant service information to reduce the likelihood of false positive filtering and wrongful spam blocks.  
+The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). This also provides relevant service information to reduce the likelihood of false positive filtering and wrongful spam blocks. 
 
-September 30, 2022 onwards, all new TFNs must complete a toll-free verification process. All existing TFNs must complete a toll-free verification process by September 30, 2022. If unverified, the TFNs may face SMS service interruptions. Verification can take up to 2-3 weeks.
+September 30, 2022 onwards, all new TFNs must complete a toll-free verification process. All existing TFNs must complete a toll-free verification process by September 30, 2022. If unverified, the TFNs may face SMS service interruptions. Verification can take 3-4 weeks.
  
-This decision has been made to ensure that the toll-free messaging channel is aligned with both short code and 10 DLC, whereby all services are reviewed. It also ensures that the sending brand and the type of traffic your messaging channels deliver is known, documented, and verified. 
+This decision has been made to ensure that the toll-free messaging channel is aligned with both short code and 10 DLC, whereby all services are reviewed. It also ensures that the sending brand and the type of traffic your messaging channels deliver is known, documented, and verified. This verification requirement is applicable to toll-free numbers in United States and Canada.
 
 ### How do I submit a toll-free verification?
-For submitting the toll-free verification form, go to the Azure Communications Service Resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Click on the Toll-Free verification application link displayed in the infobox at the top of the phone numbers blade. 
+Existing Azure Communications Service customers with toll-free numbers will have received an email with the toll-free verification form that can be filled out and submitted. If you have not received an email, please email acstnrequest@microsoft.com.
 
 ### How is my data being used?
 Toll-free verification (TFV) involves an integration between Microsoft and the Toll-Free messaging aggregator. The toll-free messaging aggregator is the final reviewer and approver of the TFV application. Microsoft must share the TFV application information with the toll-free messaging aggregator for them to confirm that the program details meet the CTIA guidelines and standards set by carriers. By submitting a TFV form, you agree that Microsoft may share the TFV application details as necessary for provisioning the toll-free number.
@@ -99,7 +99,7 @@ Toll-free verification (TFV) involves an integration between Microsoft and the T
 Unverified numbers may face SMS service interruptions and are subject to carrier filtering and throttling.
 
 ### What happens after I submit the toll-free verification form?
-Once we receive your toll-free verification form, we will relay it to the toll-free messaging aggregator for them to review and approve it. This process takes 2-3 weeks. We will let you know any updates and the status of your applications via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
+Once we receive your toll-free verification form, we will relay it to the toll-free messaging aggregator for them to review and approve it. This process takes 3-4 weeks. We will let you know any updates and the status of your applications via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
 
 ### Can I send messages while I wait for approval?
 You will be able to send messages while you wait for approval but the traffic will be subject to carrier filtering and throttling if it's flagged as spam.

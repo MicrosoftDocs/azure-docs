@@ -97,7 +97,7 @@ You can also create custom alerts to notify you of important status updates to y
 1. Select **Add action groups** > **Create action groups** to specify what should happen when your alert is triggered.
 
 1. Choose **Create alert rule** to finish creating your alert.
-1. 
+
 ## Logs
 
 There are three logs that can be enabled for online endpoints:
