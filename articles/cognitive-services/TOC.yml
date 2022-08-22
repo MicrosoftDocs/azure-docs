@@ -79,6 +79,8 @@
       href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Authenticate requests to Cognitive Services
       href: authentication.md
+    - name: Use Azure key vault
+      href: use-key-vault.md
     - name: Configure data loss prevention
       href: cognitive-services-data-loss-prevention.md
     - name: Security baseline

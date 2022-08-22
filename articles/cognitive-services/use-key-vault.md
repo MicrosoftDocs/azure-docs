@@ -210,9 +210,17 @@ Run the application by selecting the **Debug** button at the top of Visual studi
 
 ::: zone pivot="programming-language-python"
 
+## Authenticate your application 
+
+[!INCLUDE [key-vault-cli-authentication](includes/key-vault-cli-authentication.md)]
+
+## Create a python application
+
+Create a new folder named `keyVaultExample`. Then use your preferred code editor to create a file named `program.py` inside the newly created folder. 
+
 ### Install Key Vault and Language service packages
 
-1. In a terminal or command prompt, create a suitable project folder and install the Azure Active Directory identity library:
+1. In a terminal or command prompt, navigate to your project folder and install the Azure Active Directory identity library:
     
     ```terminal
     pip install azure-identity
@@ -230,36 +238,9 @@ Run the application by selecting the **Debug** button at the top of Visual studi
     pip install azure-ai-textanalytics==5.1.0
     ```
 
-## Authenticating your application 
-
-To successfully run your application, you must authenticate it by logging in to your Azure Active Directory with the user name and password for your Azure subscription.
-
-### Azure CLI
-
-To authenticate with the Azure CLI, run the `az login` command. For users running on a system with a default web browser, the Azure CLI will launch the browser to authenticate.
-
-For systems without a default web browser, the `az login` command will use the device code authentication flow. You can also force the Azure CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
-
-### Azure PowerShell
-
-You can also use [Azure PowerShell][/powershell/azure] to authenticate. Applications using the `DefaultAzureCredential` or the `AzurePowerShellCredential` can then use this account to authenticate calls in their application when running locally.
-
-To authenticate with Azure PowerShell, run the `Connect-AzAccount` command. If you're running on a system with a default web browser and azure PowerShell `v5.0.0` or later, it will launch the browser to authenticate the user.
-
-For systems without a default web browser, the `Connect-AzAccount` command will use the device code authentication flow. You can also force Azure PowerShell to use the device code flow rather than launching a browser by specifying the `UseDeviceAuthentication` argument.
-
-
-## Grant access to your key vault
-
-Create an access policy for your key vault that grants secret permissions to your user account with the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command.
-
-```azurecli
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge
-```
-
 ## Import the example code
 
-Add the following code sample to a file named `program.py`. Be sure `keySecretName` and `endpointSecretName` match the names you gave your key and endpoint in your key vault. 
+Add the following code sample to the file named `program.py`. Be sure `keySecretName` and `endpointSecretName` match the names you gave your key and endpoint in your key vault. 
 
 ```python
 from azure.keyvault.secrets import SecretClient
@@ -320,11 +301,103 @@ python ./program.py
 
 ::: zone pivot="programming-language-java"
 
-TBD
+## Authenticate your application 
+
+[!INCLUDE [key-vault-cli-authentication](includes/key-vault-cli-authentication.md)]
+
+## Create a java application
+
+In your preferred IDE, create a new Java console application project, and create a class named `Example`.
+
+## Add dependencies
+
+In your project, add the following dependencies to your `pom.xml` file.
+
+```xml
+<dependencies>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-ai-textanalytics</artifactId>
+            <version>5.1.12</version>
+        </dependency>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-security-keyvault-secrets</artifactId>
+            <version>4.2.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-identity</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+    </dependencies>
+```
+
+## Import the example code
+
+Copy the following code into a file named `Example.java`.
+
+```java
+import com.azure.identity.DefaultAzureCredentialBuilder;
+import com.azure.security.keyvault.secrets.SecretClient;
+import com.azure.security.keyvault.secrets.SecretClientBuilder;
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.ai.textanalytics.models.*;
+import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
+import com.azure.ai.textanalytics.TextAnalyticsClient;
+
+public class Example {
+
+    public static void main(String[] args) {
+
+        String keyVaultName = System.getenv("KEY_VAULT_NAME");
+        String keyVaultUri = "https://" + keyVaultName + ".vault.azure.net";
+
+        //variables for retrieving the key and endpoint from your key vault.
+        //Make sure these variables match the name you created for your secrets
+        String keySecretName = "key";
+        String endpointSecretName = "endpoint";
+
+        //Create key vault secrets client
+        SecretClient secretClient = new SecretClientBuilder()
+                .vaultUrl(keyVaultUri)
+                .credential(new DefaultAzureCredentialBuilder().build())
+                .buildClient();
+
+        //retrieve key and endpoint from key vault
+        String keyValue = secretClient.getSecret(keySecretName).getValue();
+        String endpointValue = secretClient.getSecret(endpointSecretName).getValue();
+
+        TextAnalyticsClient languageClient = new TextAnalyticsClientBuilder()
+                .credential(new AzureKeyCredential(keyValue))
+                .endpoint(endpointValue)
+                .buildClient();
+
+        // Example for recognizing entities in text
+        String text = "I had a wonderful trip to Seattle last week.";
+
+        for (CategorizedEntity entity : languageClient.recognizeEntities(text)) {
+            System.out.printf(
+                    "Recognized entity: %s, entity category: %s, entity sub-category: %s, score: %s, offset: %s, length: %s.%n",
+                    entity.getText(),
+                    entity.getCategory(),
+                    entity.getSubcategory(),
+                    entity.getConfidenceScore(),
+                    entity.getOffset(),
+                    entity.getLength());
+        }
+    }
+}
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+
+## Authenticate your application 
+
+[!INCLUDE [key-vault-cli-authentication](includes/key-vault-cli-authentication.md)]
 
 ## Create a new JavaScript application
 
@@ -361,35 +434,6 @@ npm init -y
     ```terminal
     npm install @azure/ai-text-analytics@5.1.0
     ```
-
-
-## Authenticating your application 
-
-To successfully run your application, you must authenticate it by logging in to your Azure Active Directory with the user name and password for your Azure subscription.
-
-### Azure CLI
-
-To authenticate with the Azure CLI, run the `az login` command. For users running on a system with a default web browser, the Azure CLI will launch the browser to authenticate.
-
-For systems without a default web browser, the `az login` command will use the device code authentication flow. You can also force the Azure CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
-
-### Azure PowerShell
-
-You can also use [Azure PowerShell][/powershell/azure] to authenticate. Applications using the `DefaultAzureCredential` or the `AzurePowerShellCredential` can then use this account to authenticate calls in their application when running locally.
-
-To authenticate with Azure PowerShell, run the `Connect-AzAccount` command. If you're running on a system with a default web browser and azure PowerShell `v5.0.0` or later, it will launch the browser to authenticate the user.
-
-For systems without a default web browser, the `Connect-AzAccount` command will use the device code authentication flow. You can also force Azure PowerShell to use the device code flow rather than launching a browser by specifying the `UseDeviceAuthentication` argument.
-
-
-## Grant access to your key vault
-
-Create an access policy for your key vault that grants secret permissions to your user account with the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command.
-
-```azurecli
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge
-```
-
 
 ## Import the code sample
 
