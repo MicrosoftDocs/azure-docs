@@ -87,7 +87,7 @@ The response payload for the **HTTP 202** cases is a JSON object with the follow
 | **`terminatePostUri`**      |The "terminate" URL of the orchestration instance. |
 | **`purgeHistoryDeleteUri`** |The "purge history" URL of the orchestration instance. |
 | **`rewindPostUri`**         |(preview) The "rewind" URL of the orchestration instance. |
-| **`suspendPostUri`**         |The "suspend" URL of the orchestration instance. |
+| **`suspendPostUri`**        |The "suspend" URL of the orchestration instance. |
 | **`resumePostUri`**         |The "resume" URL of the orchestration instance. |
 
 The data type of all fields is `string`.
