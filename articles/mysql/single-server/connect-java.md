@@ -374,9 +374,13 @@ EOF
 
 We'll use a *src/main/resources/`schema.sql`* file in order to create a database schema. Create that file, with the following content:
 
-```sql
+```bash
+touch src/main/resources/schema.sql
+
+cat << EOF > src/main/resources/schema.sql
 DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
+EOF
 ```
 
 ## Code the application
