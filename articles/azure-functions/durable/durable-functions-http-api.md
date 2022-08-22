@@ -565,7 +565,7 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 The responses for this API do not contain any content.
 
-## Suspend instance
+## Suspend instance (preview)
 
 Suspends a running orchestration instance.
 
