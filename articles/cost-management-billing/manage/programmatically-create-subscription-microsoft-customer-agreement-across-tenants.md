@@ -47,7 +47,7 @@ Save the following information to test and configure your environment:
 
 ### Create a billing role assignment for the application in the source tenant
 
-Review the information at [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md) to determine the appropriate scope and [billing role](understand-mca-roles#subscription-billing-roles-and-tasks.md) for the application.
+Review the information at [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md) to determine the appropriate scope and [billing role](understand-mca-roles.md#subscription-billing-roles-and-tasks.md) for the application.
 
 After you determine the scope and role, use the information at [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal) to create the role assignment for the application. Search for the application by using the name that you used when you registered the application in the preceding section.
 
@@ -76,7 +76,7 @@ When you create an MCA subscription in the source tenant, you must specify the s
 
 #### Azure CLI
 
-Sign in to Azure CLI and use the [az ad sp show](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-show) command:
+Sign in to Azure CLI and use the [az ad sp show](/cli/azure/ad/sp#az-ad-sp-show) command:
 
 ```sh
 az ad sp show --id 00000000-0000-0000-0000-000000000000 --query 'id'
