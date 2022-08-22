@@ -118,47 +118,47 @@ This would allow not just searching `Encounter` resources for a single patient, 
 In addition, chained search can occur more than once in a single request by using the symbol `&`, which allows you to search for multiple conditions in one request. In such cases, chained search "independently" searches for each parameter, instead of searching for conditions that only satisfy all the conditions at once:
 
 ```rest
-GET [your-fhir-server]/Patient?general-practitioner:Practitioner.name=Sarah&general-practitioner:Practitioner.address-state=WA
+GET {{FHIR_URL}}/Patient?general-practitioner:Practitioner.name=Sarah&general-practitioner:Practitioner.address-state=WA
 
 ```
 
-This would return all `Patient` resources that have "Sarah" as the `generalPractitioner` and have a `generalPractitioner` that has the address with the state WA. In other words, if a patient had a doctor named Sarah from NY state and Bill from WA state both referenced as the patient's `generalPractitioner`, they would both be returned.
+This would return all `Patient` resources that have "Sarah" as a `generalPractitioner` and have a `generalPractitioner` that has an address in the state of WA. In other words, if a patient had a doctor named Sarah from NY state and Bill from WA state both referenced as the patient's `generalPractitioner`, they would both be returned in this search.
 
-For scenarios in which the search has to be an AND operation that covers all conditions as a group, refer to the **composite search** example below.
+For scenarios in which the search has to be an AND operation that satisfies all conditions as a group, refer to the **composite search** example below.
 
 ## Reverse chain search
 
-Chain search lets you search for resources based on the properties of resources they refer to. Using reverse chain search, allows you do it the other way around. You can search for resources based on the properties of resources that refer to them, using `_has` parameter. For example, `Observation` resource has a search parameter `patient` referring to a Patient resource. To find all Patient resources that are referenced by `Observation` with a specific `code`:
+Chain search lets you search for resources based on the properties of resources they refer to. Using reverse chain search allows you to do it the other way around – searching for target resource instances referred to by other resources. In other words, you can search for resources based on the properties of resources that refer to them. This is accomplished with the `_has` parameter. For example, the `Observation` resource has a search parameter `patient` that refers to a `Patient` resource. To find all `Patient` resources that are referenced by an `Observation` with a specific `code`:
 
 ```rest
-GET [base]/Patient?_has:Observation:patient:code=527
+GET {{FHIR_URL}}/Patient?_has:Observation:patient:code=527
 
 ```
 
-This request returns Patient resources that are referred by `Observation` with the code `527`. 
+This request returns `Patient` resources that are referred to by `Observation` resources with the code `527`. 
 
-In addition, reverse chain search can have a recursive structure. For example, if you want to search for all patients that have `Observation` where the observation has an audit event from a specific user `janedoe`, you could do:
+In addition, reverse chain search can have a recursive structure. For example, if you want to search for all patients referenced by an `Observation` where the observation is referenced by an `AuditEvent` from a specific practitioner named `janedoe`, you could do:
 
 ```rest
-GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:Practitioner.name=janedoe
+GET {{FHIR_URL}}/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:Practitioner.name=janedoe
 
 ``` 
 
 ## Composite search
 
-To search for resources that meet multiple conditions at once, use composite search that joins a sequence of single parameter values with a symbol `$`. The returned result would be the intersection of the resources that match all of the conditions specified by the joined search parameters. Such search parameters are called composite search parameters, and they define a new parameter that combines the multiple parameters in a nested structure. For example, if you want to find all `DiagnosticReport` resources that contain `Observation` with a potassium value less than or equal to 9.2:
+To search for resources that contain elements as mutually inclusive pairs, FHIR defines composite search, which joins single parameter values together with the `$` symbol. The returned result would be the intersection of the resources that match all of the conditions specified by the joined search parameters. Such search parameters are called composite search parameters, and they search for elements that combine multiple values within a nested structure. For example, if you want to find all `DiagnosticReport` resources that contain a potassium value less than 9.2:
 
 ```rest
-GET [your-fhir-server]/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2
+GET {{FHIR_URL}}/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2
 
 ``` 
 
-This request specifies the component containing a code of `2823-3`, which in this case would be potassium. Following the `$` symbol, it specifies the range of the value for the component using `lt` for "less than or equal to" and `9.2` for the potassium value range. 
+This request specifies the element containing a code of `2823-3`, which in this case would be potassium. Following the `$` symbol, it specifies the range of the value for the element value using `lt` for "less than" and `9.2` for the potassium value limit. 
 
-Composite search parameters can also be used to filter multiple component code value quantities with an OR. For example, to express the query to find diastolic blood pressure greater than 90 OR systolic blood pressure greater than 140:
+Composite search parameters can also be used to filter multiple component code value quantities with a logical OR. For example, to express a query to find diastolic blood pressure greater than 90 OR systolic blood pressure greater than 140:
 
 ```rest
-GET [your-fhir-server]/Observation?component-code-value-quantity=http://loinc.org|8462-4$gt90,http://loinc.org|8480-6$gt140
+GET {{FHIR_URL}}/Observation?component-code-value-quantity=http://loinc.org|8462-4$gt90,http://loinc.org|8480-6$gt140
 ``` 
 
 ## Search the next entry set
