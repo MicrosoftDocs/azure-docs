@@ -529,7 +529,7 @@ node index.js
 
 ::: zone-end
 
-# Next steps
+## Next steps
 
 * [Best practices for using Azure Key Vault](/key-vault/general/best-practices)
 * [Cognitive Services security](cognitive-services-security.md)
