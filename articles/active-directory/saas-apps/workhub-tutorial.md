@@ -72,7 +72,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-    ![Screenshot shows to edit basic S A M L Configuration.](common/edit-urls.png "Configuration")
+    ![Screenshot shows how to edit basic SAML Configuration.](common/edit-urls.png "Configuration")
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up workhub** section, copy the appropriate URL(s) based on your requirement.
 
-	![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Metadata")  
+	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")  
 
 ### Create an Azure AD test user
 
