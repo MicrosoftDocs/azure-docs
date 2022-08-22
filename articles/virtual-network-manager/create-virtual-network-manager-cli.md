@@ -41,10 +41,10 @@ Select the subscription where network manager will be deployed.
 az account set \
     --subscription "<subscription ID>"
 ```
-
+      
 ## Create a resource group 
 
-Before you can deploy Azure Virtual Network Manager, you have to create a resource group to host the . Create a rnetwork manager esource group with [az group create](/cli/azure/group#az-group-create). This example creates a resource group named **myAVNMResourceGroup** in the **westus** location:
+Before you can deploy Azure Virtual Network Manager, you have to create a resource group to host the . Create a network manager resource group with [az group create](/cli/azure/group#az-group-create). This example creates a resource group named **myAVNMResourceGroup** in the **westus** location:
 
 ```azurecli-interactive
 az group create \
@@ -64,28 +64,45 @@ az network manager create \
     --scope-accesses "Connectivity" "SecurityAdmin" \
     --network-manager-scopes management-groups="/Microsoft.Management/{mgName}" subscriptions="/subscriptions/{subscriptionId}"
 ```
+## Create a Network Group
 
+Virtual Network Manager applies configurations to groups of VNets by placing them in **Network Groups.** Create a network group with [az network manager group create](/cli/azure/network/manager/group#az-network-manager-group-create).
+
+```azurecli-interactive
+az network manager group create \
+    --name "myNetworkGroup" \
+    --network-manager-name "myAVNM" \
+    --resource-group "myAVNMResourceGroup"
+```
 ## Create three virtual networks
 
-Create three virtual networks with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates virtual networks named **VNetA**, **VNetB** and **VNetC** in the **westus** location. If you already have virtual networks you want create a mesh network with, you can skip to the next section.
+Create three virtual networks with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates virtual networks named **VNetA**, **VNetB** and **VNetC** in the **westus** location. Each virtual network will have a tag of **org** used for dynamic membership. If you already have virtual networks you want create a mesh network with, you can skip to the next section.
 
 ```azurecli-interactive
 az network vnet create \
     --name "VNetA" \
     --resource-group "myAVNMResourceGroup" \
     --address-prefix "10.0.0.0/16"
+    --tags "Org=Prod"
 
 az network vnet create \
     --name "VNetB" \
     --resource-group "myAVNMResourceGroup" \
     --address-prefix "10.1.0.0/16"
+    --tags "Org=Prod"
 
 az network vnet create \
     --name "VNetC" \
     --resource-group "myAVNMResourceGroup" \
     --address-prefix "10.2.0.0/16"
+    --tags "Org=Prod"
 ```
-
+az network vnet create \
+    --name "VNetD" \
+    --resource-group "myAVNMResourceGroup" \
+    --address-prefix "10.3.0.0/16"
+    --tags "Org=Test"
+```
 ### Add a subnet to each virtual network
 
 To complete the configuration of the virtual networks add a /24 subnet to each one. Create a subnet configuration named **default** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
@@ -109,36 +126,49 @@ az network vnet subnet create \
     --vnet-name "VNetC" \
     --address-prefix "10.2.0.0/24"
 ```
+az network vnet subnet create \
+    --name "default" \
+    --resource-group "myAVNMResourceGroup" \
+    --vnet-name "VNetD" \
+    --address-prefix "10.3.0.0/24"
+```
+## Create a mesh configuration
 
-## Create a network group
+Azure Virtual Network manager allows you two methods for adding membership to a network group. Static membership involves manually adding virtual networks, and dynamic membership involves using Azure Policy to dynamically add virtual networks based on conditions. Choose the option you wish to complete below.
 
-Create a network group using static membership with [az network manager group create](/cli/azure/network/manager/group#az-network-manager-group-create). Replace the value *{subscriptionId}* with the subscription the virtual network is in.
+### Static membership option
+
+Using **static membership**, you'll manually add 3 VNets for your Mesh configuration to your Network Group with [az network manager group static-member create](/cli/azure/network/manager/group/static-member#az-network-manager-group-static-member-create). Replace {target subscription id} with the subscription these VNets were created under.
 
 ```azurecli-interactive
-az network manager group create \
-    --name "myNetworkGroup" \
-    --network-manager-name "myAVNM" \
-    --group-members resource-id="/subscriptions/{subscriptionId}/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA" \
-    --group-members resource-id="/subscriptions/{subscriptionId}/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetB" \
-    --group-members resource-id="/subscriptions/{subscriptionId}/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetC" \
-    --resource-group "myAVNMResourceGroup"
+az network manager group static-member create \
+    --name "VNetA" \
+    --network-group "myNetworkGroup" \
+    --network-manager "myAVNM" \
+    --resource-group "managerAVNMResourceGroup" \
+    --resource-id "/subscriptions/{target subscription id}/resourceGroups/targetAVNMResourceGroup/providers/Microsoft.Network/virtualnetworks/VNetA"
 ```
-
-## Create a configuration
-
-Create a mesh network topology configuration with [az network manager connect-config create](/cli/azure/network/manager/connect-config#az-network-manager-connect-config-create):
 
 ```azurecli-interactive
-az network manager connect-config create \
-    --configuration-name "connectivityconfig" \
-    --description "CLI Mesh Connectivity Config Example" \
-    --applies-to-groups network-group-id="/subscriptions/{subscriptionId}/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/networkManagers/myAVNM/networkGroups/myNetworkGroup" \
-    --connectivity-topology "Mesh" \
-    --delete-existing-peering true \
-    --network-manager-name "myAVNM" \
-    --resource-group "myAVNMResourceGroup"
+az network manager group static-member create \
+    --name "VNetB" \
+    --network-group "myNetworkGroup" \
+    --network-manager "myAVNM" \
+    --resource-group "managerAVNMResourceGroup" \
+    --resource-id "/subscriptions/{target subscription id}/resourceGroups/targetAVNMResourceGroup/providers/Microsoft.Network/virtualnetworks/VNetB"
 ```
 
+```azurecli-interactive
+az network manager group static-member create \
+    --name "VNetC" \
+    --network-group "myNetworkGroup" \
+    --network-manager "myAVNM" \
+    --resource-group "managerAVNMResourceGroup" \
+    --resource-id "/subscriptions/{target subscription id}/resourceGroups/targetAVNMResourceGroup/providers/Microsoft.Network/virtualnetworks/VNetC"
+```
+### Dynamic membership option
+
+Using Azure Policy, you'll dynamically add the three VNets with a tag value of **Prod**. the for your Mesh configuration to the Network Group based on the 
 ## Commit deployment
 
 Commit a connectivity configuration with [az network manager post-commit](/cli/azure/network/manager#az-network-manager-post-commit):
