@@ -551,7 +551,8 @@ At this point, the Deduce RESTfull API has been set up, but it's not yet availab
 
 4. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
 
-5. Rename the ID of the user journey. For example,  ID=`CustomSignUpSignIn`
+5. Rename the `Id` of the user journey. For example,  `Id=CustomSignUpSignIn`
+
 
 ## Step 8: Add Deduce API to a user journey
 
