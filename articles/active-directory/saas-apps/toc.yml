@@ -2545,6 +2545,8 @@
         href: workfront-tutorial.md
       - name: Workgrid
         href: workgrid-tutorial.md
+      - name: workhub
+        href: workhub-tutorial.md
       - name: Workpath
         href: workpath-tutorial.md
       - name: Workplace by Meta
