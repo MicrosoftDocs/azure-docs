@@ -632,14 +632,17 @@ The two parameters for the suspend API are an instance ID and a reason string, w
 
 ```csharp
 [FunctionName("SuspendResumeInstance")]
-public static Task Run(
+public static async Task Run(
     [DurableClient] IDurableOrchestrationClient client,
     [QueueTrigger("suspend-resume-queue")] string instanceId)
 {
     string suspendReason = "Need to pause workflow";
-    client.SuspendAsync(instanceId, suspendReason);
+    await client.SuspendAsync(instanceId, suspendReason);
+    
+    // ... wait for some period of time since suspending is an async operation...
+    
     string resumeReason = "Continue workflow";
-    return client.ResumeAsync(instanceId, resumeReason);
+    await client.ResumeAsync(instanceId, resumeReason);
 }
 ```
 
@@ -652,6 +655,8 @@ public static Task Run(
 # [Java](#tab/java)
 > [!NOTE]
 > This feature is currently not supported in Java.
+
+---
 
 A suspended instance will eventually transition to the `Suspended` state. However, this transition will not happen immediately. Rather, the suspend operation will be queued in the task hub along with other operations for that instance. You can use the instance query APIs to know when a running instance has actually reached the Suspended state.
 
