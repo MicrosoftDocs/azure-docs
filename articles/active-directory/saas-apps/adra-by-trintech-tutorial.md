@@ -86,10 +86,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    d. In the **Sign-on URL** text box, type the URL:
       `https://login.adra.com`
 
-   e. In the **Relay state** text box, type the URL which is same for all users and organizations that uses Adra:
+   e. In the **Relay state** text box, type the URL:
       `https://setup.adra.com` 
 
-   f. In the **Logout URL** text box, type the URL which is same for all users and organization:
+   f. In the **Logout URL** text box, type the URL:
       `https://login.adra.com/Saml/SLOServiceSP`
 
    > [!Note]
@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    a. Enter a valid **Name** and **Description** values in the textbox.
 
-   b. In the **Metadata URL** textbox, paste the **App Federation Metadata Url** which you have copied from the Azure portal and click on the **Test URL** button.
+   b. In the **Metadata URL** textbox, paste the **App Federation Metadata Url** which you've copied from the Azure portal and click on the **Test URL** button.
 
    c. Click **Save** to save the SAML configuration..
 
