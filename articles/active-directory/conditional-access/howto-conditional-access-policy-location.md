@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/05/2021
+ms.date: 08/22/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Block access by location
 
-With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. The location condition is commonly used to block access from countries/regions where your organization knows traffic should not come from.
+With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. The location condition is commonly used to block access from countries/regions where your organization knows traffic shouldn't come from.
 
 > [!NOTE]
 > Conditional Access policies are enforced after first-factor authentication is completed. Conditional Access isn't intended to be an organization's first line of defense for scenarios like denial-of-service (DoS) attacks, but it can use signals from these events to determine access.
@@ -29,7 +29,7 @@ With the location condition in Conditional Access, you can control access to you
 1. Choose **New location**.
 1. Give your location a name.
 1. Choose **IP ranges** if you know the specific externally accessible IPv4 address ranges that make up that location or **Countries/Regions**.
-   1. Provide the **IP ranges** or select the **Countries/Regions** for the location you are specifying.
+   1. Provide the **IP ranges** or select the **Countries/Regions** for the location you're specifying.
       * If you choose Countries/Regions, you can optionally choose to include unknown areas.
 1. Choose **Save**
 
@@ -42,10 +42,9 @@ More information about the location condition in Conditional Access can be found
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
-   1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, and select **All cloud apps**.
 1. Under **Conditions** > **Location**.
    1. Set **Configure** to **Yes**
