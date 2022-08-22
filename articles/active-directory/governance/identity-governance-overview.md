@@ -3,7 +3,7 @@ title: Identity Governance - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.
 services: active-directory
 documentationcenter: ''
-author: ajburnle
+author: amsliu
 manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.subservice: compliance
 ms.date: 8/10/2022
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
@@ -109,6 +109,7 @@ Once you've started using these identity governance features, you can easily aut
 | Creating, updating and deleting AD and Azure AD user accounts automatically for employees |[Plan cloud HR to Azure AD user provisioning](../app-provisioning/plan-cloud-hr-provision.md)|
 | Updating the membership of a group, based on changes to the member user's attributes | [Create a dynamic group](../enterprise-users/groups-create-rule.md)|
 | Assigning licenses | [group-based licensing](../enterprise-users/licensing-groups-assign.md) |
+| Adding and removing a user's group memberships, application roles, and SharePoint site roles, based on changes to the user's attributes | [Configure an automatic assignment policy for an access package in entitlement management](entitlement-management-access-package-auto-assignment-policy.md) (preview)|
 | Adding and removing a user's group memberships, application roles, and SharePoint site roles, on a specific date | [Configure lifecycle settings for an access package in entitlement management](entitlement-management-access-package-lifecycle-policy.md)|
 | Running custom workflows when a user requests or receives access, or access is removed | [Trigger Logic Apps in entitlement management](entitlement-management-logic-apps-integration.md) (preview) |
 | Regularly having memberships of guests in Microsoft groups and Teams reviewed, and removing guest memberships that are denied |[Create an access review](create-access-review.md) |

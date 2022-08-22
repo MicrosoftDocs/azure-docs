@@ -6,7 +6,7 @@ ms.date: 03/22/2022
 author: mijacobs
 ms.author: mijacobs
 ms.devlang: python
-ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22
+ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22, vscode-azure-extension-update-completed
 ---
 
 # Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service

@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 09/29/2021
+ms.date: 08/20/2022
 ---
 
 # Reference for EDIFACT message settings in agreements for Azure Logic Apps

@@ -27,7 +27,7 @@ The Defender for IoT architecture uses on-premises sensors and management server
 
     Fixes and new functionality are applied to each new version and are not applied to older versions.
 
-- **Software update packages include new functionality and security patches**. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
+- **Software update packages include new functionality and security patches**. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter. 
 
 - **Features available from the Azure portal that are dependent on a specific sensor version** are only available for sensors that have the required version installed, or higher.
 
@@ -46,8 +46,9 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.2.4 | 07/2022 | 04/2023 |
-| 22.2.3 | 07/2022 | 04/2023 |
+| 22.2.5 | 08/2022 | 04/2023 |
+| 22.2.4 | 07/2022 <br> There's a known compatibility issue with Hyper-V, please use version 22.1.7 | 04/2023 |
+| 22.2.3 | 07/2022 <br> There's a known compatibility issue with Hyper-V, please use version 22.1.7 | 04/2023 |
 | 22.1.7 | 07/2022 | 04/2023 |
 | 22.1.6 | 06/2022 | 10/2022 |
 | 22.1.5 | 06/2022 | 10/2022 |
@@ -61,6 +62,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ## August 2022
 
+- **Sensor software version 22.2.5**: Minor version with stability improvements
 - [New alert columns with timestamp data](#new-alert-columns-with-timestamp-data)
 - [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview)
 
@@ -151,8 +153,7 @@ Now you can add any of the following parameters to your query to fine tune your 
 - “**score**” - Determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. Default = **0**.
 - “**deviceIds**” -  A comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456**
 
-For more information, see [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
->>>>>>> 3e9c47c4758cdb6f63a6873219cab9498206cb2a
+For more information, see [Management console APIs - Version 3](references-work-with-defender-for-iot-apis.md#version-3).
 
 ### OT appliance hardware profile updates
 
