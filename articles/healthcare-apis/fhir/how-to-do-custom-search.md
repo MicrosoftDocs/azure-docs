@@ -148,10 +148,10 @@ POST {{FHIR_URL}}/$reindex
 
 ## Update a search parameter
 
-To update a search parameter, use `PUT` to create a new version of the search parameter. You must include the `SearchParameter ID` in the `id` element of the body of the `PUT` request and in the `PUT` call.
+To update a search parameter, use `PUT` to create a new version of the search parameter. You must include the `SearchParameter` ID in the `id` field in the body of the `PUT` request and in the `PUT` request string.
 
 > [!NOTE]
-> If you don't know the ID for your search parameter, you can search for it. Using `GET {{FHIR_URL}}/SearchParameter` will return all custom search parameters, and you can scroll through the search parameter to find the search parameter you need. You could also limit the search by name. With the example below, you could search for name using `USCoreRace: GET {{FHIR_URL}}/SearchParameter?name=USCoreRace`.
+> If you don't know the ID for your search parameter, you can search for it. Using `GET {{FHIR_URL}}/SearchParameter` will return all custom search parameters, and you can scroll through the search parameter list to find the search parameter you need. You could also limit the search by name. With the example below, you could search for name using `USCoreRace`: `GET {{FHIR_URL}}/SearchParameter?name=USCoreRace`.
 
 ```rest
 PUT {{FHIR_URL}}/SearchParameter/{SearchParameter ID}
@@ -200,7 +200,7 @@ PUT {{FHIR_URL}}/SearchParameter/{SearchParameter ID}
 The result will be an updated `SearchParameter` and the version will increment.
 
 > [!Warning]
-> Be careful when updating SearchParameters that have already been indexed in your database. Changing an existing SearchParameter’s behavior could have impacts on the expected behavior. We recommend running a reindex job immediately.
+> Be careful when updating search parameters. Changing an existing search parameter could have impacts on the expected behavior. We recommend running a reindex job immediately.
 
 ## Delete a search parameter
 
@@ -211,11 +211,11 @@ Delete {{FHIR_URL}}/SearchParameter/{SearchParameter ID}
 ```
 
 > [!Warning]
-> Be careful when deleting SearchParameters that have already been indexed in your database. Changing an existing SearchParameter’s behavior could have impacts on the expected behavior. We recommend running a reindex job immediately.
+> Be careful when deleting search parameters. Changing an existing search parameter could have impacts on the expected behavior. We recommend running a reindex job immediately.
 
 ## Next steps
 
-In this article, you’ve learned how to create a search parameter. Next you can learn how to reindex your FHIR service. For more information, see
+In this article, you’ve learned how to create a custom search parameter. Next you can learn how to reindex your FHIR service. For more information, see
 
 >[!div class="nextstepaction"]
 >[How to run a reindex job](how-to-run-a-reindex.md)
