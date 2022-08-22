@@ -72,7 +72,7 @@ Azure Private 5G Core is able to leverage this low latency with the security and
 
 Azure Private 5G Core instantiates a single private mobile network distributed across one or more enterprise sites across the world. Each site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). A packet core instance authenticates end devices and aggregates their data traffic over 5G Standalone wireless and access technologies. Each packet core instance includes the following components:
 
-- A high performance and highly programmable 5G User Plane Function (UPF).
+- A high performance (25 Gbps rated load) and highly programmable 5G User Plane Function (UPF).
 - Core control plane functions including policy and subscriber management.
 - A portfolio of service-based architecture elements.
 - Management components for network monitoring.
@@ -133,9 +133,21 @@ Azure Private 5G Core supports the following algorithms for ciphering and integr
 - 128-bit Snow3G
 - 128-bit Advanced Encryption System (AES) encryption
 
+### UE-to-UE traffic
+
+Azure Private 5G Core supports traffic flow from UE to UE through the user plane, allowing machine-to-machine (M2M) communication between 5G devices for a range of applications including robot control.
+
+An external router is responsible for hairpinning traffic from UE to UE over the N6 interface. This means that traffic leaving the UPF destined to a UE IP address will be routed back to the UPF’s N6 IP address.
+
 ### Index to RAT/Frequency Selection Priority (RFSP)
 
 The packet core instance can provide a RAN with an RFSP Index. The RAN can match the RFSP Index to its local configuration to apply specific radio resource management (RRM) policies, such as cell reselection or frequency layer redirection.
+
+### Multi-Operator Core Network (MOCN)
+
+Multi-operator Core Network (MOCN) aims to maximize resource usage by sharing a RAN between multiple core networks. Azure Private 5G Core supports MOCN, allowing multiple public land mobile networks (PLMNs) to be shared by a gNodeB (for 5G deployments) or eNodeB (for 4G deployments).
+
+In the context of private mobile networks, a single RAN can connect to both a private and a standard macro network, with traffic automatically routed to the appropriate core network based on the PLMN ID.
 
 ## Flexible integration with Azure private multi-access edge compute (MEC) partners
 

@@ -24,8 +24,12 @@ items:
       href: quickstart-ARM-create-azure-purview.md
   - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
-  - name: Share and receive data
-    href: quickstart-data-share.md
+  - name: Data sharing
+    items:
+    - name: Share and receive data
+      href: quickstart-data-share.md
+    - name: .NET Data Sharing
+      href: quickstart-data-share-dotnet.md
 - name: Tutorials
   items:
   - name: Deployment checklist
@@ -197,6 +201,8 @@ items:
       href: register-scan-erwin-source.md
     - name: Google BigQuery
       href: register-scan-google-bigquery-source.md
+    - name: HDFS
+      href: register-scan-hdfs.md
     - name: Hive Metastore Database
       href: register-scan-hive-metastore-source.md
     - name: Looker
@@ -381,6 +387,8 @@ items:
   items:
     - name: Product glossary reference
       href: reference-azure-purview-glossary.md
+    - name: Available source metadata
+      href: available-metadata.md
     - name: Supported browsers
       href: supported-browsers.md
     - name: Supported classifications

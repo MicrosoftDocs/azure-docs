@@ -92,6 +92,8 @@ landingContent:
           url: confidential-containers.md
         - text: App enclave nodes in AKS
           url: confidential-nodes-aks-overview.md
+        - text: Confidential VM node pool in AKS
+          url: confidential-node-pool-aks.md
       - linkListType: quickstart
         links:
           - text: CLI based provisioning with a hello from enclave container app on AKS
@@ -105,7 +107,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure architecture center confidential container scenarios
-            url: https://docs.microsoft.com/en-us/search/?terms=confidential%20containers&scope=Azure%20Architecture%20Center
+            url: /search/?terms=confidential%20containers&scope=Azure%20Architecture%20Center
           - text: About Azure Kubernetes Service (AKS) 
             url: ..\aks\intro-kubernetes.md
           - text: App enclave nodes on AKS FAQ 

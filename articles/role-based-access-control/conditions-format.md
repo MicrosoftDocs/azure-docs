@@ -3,6 +3,7 @@ title: Azure role assignment condition format and syntax (preview) - Azure RBAC
 description: Get an overview of the format and syntax of Azure role assignment conditions for Azure attribute-based access control (Azure ABAC).
 services: active-directory
 author: rolyon
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
@@ -272,7 +273,7 @@ To use principal attributes, you must have **all** of the following:
 For more information about custom security attributes, see:
 
 - [Allow read access to blobs based on tags and custom security attributes](conditions-custom-security-attributes.md)
-- [Principal does not appear in Attribute source when adding a condition](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition)
+- [Principal does not appear in Attribute source](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
 - [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md)
 
 ## Function operators

@@ -55,6 +55,9 @@ npm install axios qs
 Create a new file called _.env_ in the root of your project. Paste the following code into it, supplying the values given when you created your Immersive Reader resource.
 Do not include quotation marks or the "{" and "}" characters.
 
+> [!IMPORTANT]
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
+
 ```text
 TENANT_ID={YOUR_TENANT_ID}
 CLIENT_ID={YOUR_CLIENT_ID}

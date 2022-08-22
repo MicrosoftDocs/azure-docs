@@ -68,13 +68,13 @@ export KAFKA_OPTS="-Djava.security.auth.login.config=<path-to-jaas.conf>"
        
 ```
     # specify any number of cluster aliases
-    clusters = src, dest
+    clusters = source, destination
 
     # connection information for each cluster
     # This is a comma separated host:port pairs for each cluster
-    # for example. "A_host1:9092, A_host2:9092, A_host3:9092"
-    source.bootstrap.servers = wn0-src-kafka.azurehdinsight.net:9092,wn1-src-kafka.azurehdinsight.net:9092,wn2-src-kafka.azurehdinsight.net:9092
-    destination.bootstrap.servers = wn0-dest-kafka.azurehdinsight.net:9092,wn1-dest-kafka.azurehdinsight.net:9092,wn2-dest-kafka.azurehdinsight.net:9092
+    # for example. "A_host1:9092, A_host2:9092, A_host3:9092"  and you can see the exact host name on Ambari > Hosts
+    source.bootstrap.servers = wn0-src-kafka.bx.internal.cloudapp.net:9092,wn1-src-kafka.bx.internal.cloudapp.net:9092,wn2-src-kafka.bx.internal.cloudapp.net:9092
+    destination.bootstrap.servers = wn0-dest-kafka.bx.internal.cloudapp.net:9092,wn1-dest-kafka.bx.internal.cloudapp.net:9092,wn2-dest-kafka.bx.internal.cloudapp.net:9092
 
     # enable and configure individual replication flows
     source->destination.enabled = true
