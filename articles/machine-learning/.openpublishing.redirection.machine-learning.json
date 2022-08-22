@@ -27,6 +27,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/concept-network-data-access.md",
+        "redirect_url": "/azure/machine-learning/how-to-administrate-data-authentication",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/concept-optimize-data-processing.md",
         "redirect_url": "/azure/machine-learning/concept-data",
         "redirect_document_id": false
