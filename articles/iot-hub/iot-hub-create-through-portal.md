@@ -54,7 +54,7 @@ For more detailed information about the access granted by specific permissions, 
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## Message Routing for an IoT hub
+## Message routing for an IoT hub
 
 Select **Message Routing** under **Messaging** to see the Message Routing pane, where you define routes and custom endpoints for the hub. [Message routing](iot-hub-devguide-messages-d2c.md) enables you to manage how data is sent from your devices to your endpoints. The first step is to add a new route. Then you can add an existing endpoint to the route, or create a new one of the types supported, such as blob storage.
 
@@ -62,7 +62,7 @@ Select **Message Routing** under **Messaging** to see the Message Routing pane, 
 
 **Routes** is the first tab on the **Message Routing** pane. To add a new route, select **+ Add**. 
 
-![Message routing pane](./media/iot-hub-create-through-portal/iot-hub-message-routing.png)
+![Screenshot showing the 'Message Routing' pane with the '+ Add' button.](./media/iot-hub-create-through-portal/iot-hub-message-routing.png)
 
 You see the following screen.
 
@@ -74,7 +74,7 @@ For **Endpoint**, select one from the dropdown list or add a new one. In this ex
 
 The following screen shows where the storage account and container are specified.
 
-![Screenshot showing adding a storage endpoint for the routing rule](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
+![Screenshot showing how to add a storage endpoint for the routing rule.](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
 
 Add an endpoint name in **Endpoint name** if needed. Select **Pick a container** to select the storage account and container. When you've chosen a container then **Select**, the page returns to the **Add a storage endpoint** pane. Use the defaults for the rest of the fields and **Create** to create the endpoint for the storage account and add it to the routing rules. 
 
@@ -109,7 +109,7 @@ Here are two ways to find a specific IoT hub in your subscription:
 
 ## Delete the IoT hub
 
-To delete an Iot hub, find the IoT hub you want to delete, then choose **Delete**.
+To delete an IoT hub, find the IoT hub you want to delete, then choose **Delete**.
 
 ## Next steps
 
