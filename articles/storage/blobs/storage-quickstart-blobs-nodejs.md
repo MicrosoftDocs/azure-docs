@@ -166,7 +166,33 @@ The preceding code calls the [listBlobsFlat](/javascript/api/@azure/storage-blob
     :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_DownloadBlobs":::
 
     The preceding code calls the [download](/javascript/api/@azure/storage-blob/blockblobclient#download-undefined---number--undefined---number--blobdownloadoptions-) method. 
+    ### Extra: Add the following code to get the url of the uploaded blob file 
+    ```javascript
+        const uploadImageRoute = async (req, res) => {
+            const { file } = req;
+            // create a buffer from the file
+            const buffer = fs.readFileSync(file.path);
+            const filename = file.filename;
+            const containerName = "quickstart-uploads";
+            const containerClient = blobServiceClient.getContainerClient(containerName);
+        try {
+            const blockBlobClient = containerClient.getBlockBlobClient(filename);
+            console.log("\nUploading to Azure storage as blob:\n\t", filename);
+            const uploadBlobResponse = await blockBlobClient.upload(buffer,buffer.length);
+            console.log("Blob was uploaded successfully. requestId: ",uploadBlobResponse,blockBlobClient.url); 
+            // This provides the url of the blob file uploaded
+            
+            return res.status(200).json({message: "Image uploaded successfully",url: blockBlobClient.url,});
+            
+           } catch (error) {
+            console.error(error.message);
+            return res.status(400).json({message: error.message});
+            }
+        };
+    ```
 
+      For the uploaded blob file url to be publicly accessible, check [​here](https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-configure?tabs=portal)
+    
 2. Copy the following code *after* the `main` function to convert a stream back into a string.
 
     :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_ConvertStreamToText":::
