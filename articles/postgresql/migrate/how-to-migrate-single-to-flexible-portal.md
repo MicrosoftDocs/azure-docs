@@ -22,7 +22,7 @@ This article shows you how to use the migration tool in the Azure portal to migr
 
 1. If you're new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate the offerings.
 
-2. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#prerequisites). It is very important to complete the prerequisite steps before you initiate a migration using this tool.
+2. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#migration-prerequisites). It is very important to complete the prerequisite steps before you initiate a migration using this tool.
 
 ## Configure the migration task
 
@@ -74,7 +74,7 @@ Alternatively, you can initiate the migration process from the Azure Database fo
 
 ### Setup tab
 
-The first tab is **Setup**. It has basic information about the migration and the list of prerequisites for getting started with migrations. These prerequisites are the same as the ones listed in the [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#prerequisites) article.
+The first tab is **Setup**. It has basic information about the migration and the list of prerequisites for getting started with migrations. These prerequisites are the same as the ones listed in the [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#migration-prerequisites) article.
 
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-setup.png" alt-text="Screenshot of the details belonging to Setup tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-setup.png":::
 
@@ -145,7 +145,7 @@ After you choose a subnet, select the **Next** button.
 ### Review + create tab
 
 >[!NOTE]
-> Gentle reminder to complete the [prerequisites](./concepts-single-to-flexible.md#prerequisites) before you click **Create** in case it is not yet complete.
+> Gentle reminder to complete the [prerequisites](./concepts-single-to-flexible.md#migration-prerequisites) before you click **Create** in case it is not yet complete.
 
 The **Review + create** tab summarizes all the details for creating the migration. Review the details and select the **Create** button to start the migration.
 
