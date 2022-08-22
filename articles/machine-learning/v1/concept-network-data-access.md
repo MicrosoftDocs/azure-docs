@@ -54,7 +54,7 @@ In general, data access from studio involves the following checks:
 
 The following diagram shows the general flow of a data access call. In this example, a user is trying to make a data access call through a machine learning workspace, without using any compute resource.
 
-:::image type="content" source=".././media/concept-network-data-access/data-access-flow.svg" alt-text="Diagram of the logic flow when accessing data":::
+:::image type="content" source=".././media/concept-network-data-access/data-access-flow.svg" alt-text="Diagram of the logic flow when accessing data.":::
 
 ### Scenarios and identities
 
