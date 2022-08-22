@@ -660,7 +660,7 @@ public static async Task Run(
 
 A suspended instance will eventually transition to the `Suspended` state. However, this transition will not happen immediately. Rather, the suspend operation will be queued in the task hub along with other operations for that instance. You can use the instance query APIs to know when a running instance has actually reached the Suspended state.
 
-There is no new state when an orchestrator is resumed. That is, when a suspended orchestrator is resumed, its status will change back to `Running`.
+When a suspended orchestrator is resumed, its status will change back to `Running`.
 
 ### Azure Functions Core Tools
 
