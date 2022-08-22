@@ -62,7 +62,7 @@ To learn more about how to manage models by using the MLflow API in Azure Machin
 
 ## Model deployments of MLflow models
 
-You can [deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md) so that you can apply the model management capabilities and no-code deployment offering in Azure Machine Learning. MLflow supports deploying models to both real-time and batch endpoints. You can use the `azureml-mlflow` MLflow plug-in, the Azure Machine Learning CLI v2, and the user interface in Azure Machine Learning studio.
+You can [deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md) so that you can apply the model management capabilities and no-code deployment offering in Azure Machine Learning. Azure Machine Learning supports deploying models to both real-time and batch endpoints. You can use the `azureml-mlflow` MLflow plug-in, the Azure Machine Learning CLI v2, and the user interface in Azure Machine Learning studio.
 
 Learn more at [Deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md).
 
@@ -70,7 +70,7 @@ Learn more at [Deploy MLflow models to Azure Machine Learning](how-to-deploy-mlf
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-You can submit training jobs to Azure Machine Learning by using [MLflow projects](https://www.mlflow.org/docs/latest/projects.html) (preview). You can submit jobs locally with Azure Machine Learning tracking or migrate your jobs to the cloud via an [Azure Machine Learning compute instance](./how-to-create-attach-compute-cluster.md).
+You can submit training jobs to Azure Machine Learning by using [MLflow projects](https://www.mlflow.org/docs/latest/projects.html) (preview). You can submit jobs locally with Azure Machine Learning tracking or migrate your jobs to the cloud via [Azure Machine Learning compute](./how-to-create-attach-compute-cluster.md).
 
 Learn more at [Train machine learning models with MLflow projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
 

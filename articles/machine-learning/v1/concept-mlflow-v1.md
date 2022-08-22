@@ -57,7 +57,7 @@ With MLflow Tracking, you can connect Azure Machine Learning as the back end of 
 
 [!INCLUDE [preview disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-You can use MLflow Tracking to submit training jobs with [MLflow Projects](https://www.mlflow.org/docs/latest/projects.html) and Azure Machine Learning back-end support (preview). You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud via an [Azure Machine Learning compute instance](../how-to-create-attach-compute-cluster.md).
+You can use MLflow Tracking to submit training jobs with [MLflow Projects](https://www.mlflow.org/docs/latest/projects.html) and Azure Machine Learning back-end support (preview). You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud via [Azure Machine Learning compute](../how-to-create-attach-compute-cluster.md).
 
 Learn more at [Train machine learning models with MLflow projects and Azure Machine Learning (preview)](../how-to-train-mlflow-projects.md).
 
