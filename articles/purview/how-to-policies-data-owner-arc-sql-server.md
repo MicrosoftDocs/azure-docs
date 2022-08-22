@@ -13,7 +13,7 @@ ms.custom: references_regions, event-tier1-build-2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Access policies](concept-data-owner-policies.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
+[Access policies](concept-policies-data-owner.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
 
 This how-to guide describes how a data owner can delegate authoring policies in Microsoft Purview to enable access to SQL Server on Azure Arc-enabled servers. The following actions are currently enabled: *SQL Performance Monitoring*, *SQL Security Auditing* and *Read*. These 3 actions are only supported for policies at server level. *Modify* is not supported at this point. 
 
@@ -60,7 +60,7 @@ This section describes the steps to configure the SQL Server on Azure Arc to use
 1. Navigate to **Azure Active Directory** feature on the left pane
 
 1. Verify that Azure Active Directory Authentication is configured and scroll down.
-![Screenshot shows how to configure Microsoft Purview endpoint in Azure AD section.](./media/how-to-data-owner-policies-sql/setup-sql-on-arc-for-purview.png)
+![Screenshot shows how to configure Microsoft Purview endpoint in Azure AD section.](./media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview.png)
 
 1. Set **External Policy Based Authorization** to enabled
 
@@ -76,7 +76,7 @@ Register each data source with Microsoft Purview to later define access policies
 1. Sign in to Microsoft Purview Studio.
 
 1. Navigate to the **Data map** feature on the left pane, select **Sources**, then select **Register**. Type "Azure Arc" in the search box and select **SQL Server on Azure Arc**. Then select **Continue**
-![Screenshot shows how to select a source for registration.](./media/how-to-data-owner-policies-sql/select-arc-sql-server-for-registration.png)
+![Screenshot shows how to select a source for registration.](./media/how-to-policies-data-owner-sql/select-arc-sql-server-for-registration.png)
 
 1. Enter a **Name** for this registration. It is best practice to make the name of the registration the same as the server name in the next step.
 
@@ -92,24 +92,24 @@ Register each data source with Microsoft Purview to later define access policies
 1. Select **Register** or **Apply** at the bottom
 
 Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. 
-![Screenshot shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-arc-sql.png)
+![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
 
 > [!Note]
-> - If you want to create a policy on a resource group or subscription and have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently for *Data use management* to provide their App ID. See this document on how to create policies at resource group or subscription level: [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md).
+> - If you want to create a policy on a resource group or subscription and have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently for *Data use management* to provide their App ID. See this document on how to create policies at resource group or subscription level: [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md).
 
 ## Create and publish a data owner policy
 
-Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to one of the examples shown in the images.
+Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-policies-data-owner-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to one of the examples shown in the images.
 
 **Example #1: SQL Performance Monitor policy**. This policy assigns the Azure AD principal 'Christie Cline' to the *SQL Performance monitoring* action, in the scope of Arc-enabled SQL server *DESKTOP-xxx*. This policy has also been published to that server. Note: Policies related to this action are not supported below server level.
 
-![Screenshot shows a sample data owner policy giving SQL Performance Monitor access to an Azure SQL Database.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-arc-sql-server-performance-monitor.png)
+![Screenshot shows a sample data owner policy giving SQL Performance Monitor access to an Azure SQL Database.](./media/how-to-policies-data-owner-sql/data-owner-policy-example-arc-sql-server-performance-monitor.png)
 
 **Example #2: SQL Security Auditor policy**. Similar to example 1, but choose the *SQL Security auditing* action (instead of *SQL Performance monitoring*), when authoring the policy. Note: Policies related to this action are not supported below server level.
 
 **Example #3: Read policy**. This policy assigns the Azure AD principal 'sg-Finance' to the *SQL Data reader* action, in the scope of SQL server *DESKTOP-xxx*. This policy has also been published to that server. Note: Policies related to this action are not supported below server level.
 
-![Screenshot shows a sample data owner policy giving Data Reader access to an Azure SQL Database.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-arc-sql-server-data-reader.png)
+![Screenshot shows a sample data owner policy giving Data Reader access to an Azure SQL Database.](./media/how-to-policies-data-owner-sql/data-owner-policy-example-arc-sql-server-data-reader.png)
 
 > [!Note]
 > - Given that scan is not currently available for this data source, data reader policies can only be created at server level. Use the **Data sources** box instead of the Asset box when authoring the **data resources** part of the policy.
@@ -190,7 +190,7 @@ This section contains a reference of how actions in Microsoft Purview data polic
 ## Next steps
 Check blog, demo and related how-to guides
 * [Demo of access policy for Azure Storage](https://learn-video.azurefd.net/vod/player?id=caa25ad3-7927-4dcc-88dd-6b74bcae98a2)
-* [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
+* [Concepts for Microsoft Purview data owner policies](./concept-policies-data-owner.md)
 * Blog: [Private preview: controlling access to Azure SQL at scale with policies in Purview](https://techcommunity.microsoft.com/t5/azure-sql-blog/private-preview-controlling-access-to-azure-sql-at-scale-with/ba-p/2945491)
-* [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
-* [Enable Microsoft Purview data owner policies on an Azure SQL DB](./how-to-data-owner-policies-azure-sql-db.md)
+* [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
+* [Enable Microsoft Purview data owner policies on an Azure SQL DB](./how-to-policies-data-owner-azure-sql-db.md)

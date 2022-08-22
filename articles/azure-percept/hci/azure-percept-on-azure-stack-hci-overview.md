@@ -6,7 +6,7 @@ ms.author: v-mdequadros
 manager: amiyouss
 ms.service: azure-percept
 ms.topic: overview
-ms.date: 08/15/2022 
+ms.date: 08/22/2022 
 ---
 
 # Azure Percept on Azure Stack HCI overview
@@ -47,13 +47,13 @@ The Percept VM leverages Azure IoT Edge to communicate with [Azure IoT Hub](http
 Whether you're a beginner, an expert, or anywhere in between, from zero to low code, to creating or bringing your own models, Azure Percept has a solution development path for you to build your Edge artificial intelligence (AI) solution. Azure Percept has three solution development paths that you can use to build Edge AI solutions: Azure Percept Studio, Azure Percept for DeepStream, and Azure Percept Open-Source Project. You aren't limited to one path; you can choose any or all of them depending on your business needs. For more information about the solution development paths, visit [Azure Percept solution development paths overview](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/EU92ZnNynDBGuVn3P5Xr5gcBFKS5HQguZm7O5sEENPUvPA?e=33T6Vi).
 
 #### *Azure Percept Studio* 
-[Azure Percept Studio](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/EeyEj0dBcplEs9LSFaz95DsBApnmxRMdjZ9I3QinSgO0yA?e=cbIJkI) is a user-friendly portal for creating, deploying, and operating Edge artificial intelligence (AI) solutions. Using a low-code to no-code approach, you can discover and complete guided workflows and create an end-to-end Edge AI solution. This solution integrates Azure IoT and Azure AI cloud services like Azure IoT Hub, IoT Edge, Azure Storage, Log Analytics, and Spatial Analysis from Azure Cognitive Services.   
+[Azure Percept Studio](/azure/azure-percept/studio/azure-percept-studio-overview) is a user-friendly portal for creating, deploying, and operating Edge artificial intelligence (AI) solutions. Using a low-code to no-code approach, you can discover and complete guided workflows and create an end-to-end Edge AI solution. This solution integrates Azure IoT and Azure AI cloud services like Azure IoT Hub, IoT Edge, Azure Storage, Log Analytics, and Spatial Analysis from Azure Cognitive Services.   
 
 #### *Azure Percept for DeepStream*
-[Azure Percept for DeepStream](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/ETDSdi6ruptBkwMqvLPRL90Bzv3ORhpmAZ1YLeGt1LvtVA?e=lY2Q4f&CID=DDDB383F-4BFE-4C97-86A7-70766B16EB93&wdLOR=cDA23C19C-5685-46EC-BA28-7C9DEC460A5B&isSPOFile=1&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMjA3MzEwMTAwNSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D) includes developer tools that provide a custom developer experience. It enables you to create NVIDIA DeepStream containers using Microsoft-based images and guidance, supported models from NVIDIA out of the box, and/or bring your own models (BYOM). DeepStream is NVIDIA’s toolkit to develop and deploy Vision AI applications and services. It provides multi-platform, scalable, Transport Layer Security (TLS)-encrypted security that can be deployed on-premises, on the edge, and in the cloud.  
+[Azure Percept for DeepStream](/azure/azure-percept/deepstream/azure-percept-for-deepstream-overview) includes developer tools that provide a custom developer experience. It enables you to create NVIDIA DeepStream containers using Microsoft-based images and guidance, supported models from NVIDIA out of the box, and/or bring your own models (BYOM). DeepStream is NVIDIA’s toolkit to develop and deploy Vision AI applications and services. It provides multi-platform, scalable, Transport Layer Security (TLS)-encrypted security that can be deployed on-premises, on the edge, and in the cloud.  
 
 #### *Azure Percept Open-Source Project*
-[Azure Percept Open-Source Project](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/Eeoh0pZk5g1MqwJZUAZFEvEBMYmfAqdibII6Znm-PnnDIQ?e=4ZDfUT) is a framework for creating, deploying, and operating Edge artificial intelligence (AI) solutions at scale with the control and flexibility of open-source natively on your environment. Azure Percept Open-Source Project is fully open-sourced and leverages the open-source software (OSS) community to deliver enhanced experiences. It's a self-managed solution where you host the environment in your own cluster. 
+[Azure Percept Open-Source Project](/azure/azure-percept/open-source/azure-percept-open-source-project-overview) is a framework for creating, deploying, and operating Edge artificial intelligence (AI) solutions at scale with the control and flexibility of open-source natively on your environment. Azure Percept Open-Source Project is fully open-sourced and leverages the open-source software (OSS) community to deliver enhanced experiences. It's a self-managed solution where you host the environment in your own cluster. 
 
 ## Next steps
 
