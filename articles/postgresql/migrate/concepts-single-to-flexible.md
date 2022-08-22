@@ -6,7 +6,7 @@ author: shriram-muthukrishnan
 ms.author: shriramm
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 08/17/2022
 ms.custom: "mvc, references_regions"
 ---
 
@@ -27,8 +27,8 @@ The migration tool is agnostic of source and target PostgreSQL versions. Here ar
 
 | Source Postgres version (Single Server) | Suggested Target Postgres version (Flexible server) | Remarks |
 |:---------------|:-------------|:-----------------|
-| Postgres 9.5 (Retired) | Postgres 12 | You can even directly migrate to Postgres 14. Verify your application compatibility. |
-| Postgres 9.6 (Retired) | Postgres 12 | You can even directly migrate to Postgres 14. Verify your application compatibility. |
+| Postgres 9.5 (Retired) | Postgres 13 | You can even directly migrate to Postgres 14. Verify your application compatibility. |
+| Postgres 9.6 (Retired) | Postgres 13 | You can even directly migrate to Postgres 14. Verify your application compatibility. |
 | Postgres 10 (Retiring Nov'22) | Postgres 14 |  Verify your application compatibility. |
 | Postgres 11  | Postgres 14 | Verify your application compatibility. |
 | Postgres 11  | Postgres 11 | You can choose to migrate to the same version in Flexible Server. You can then upgrade to a higher version in Flexible Server |
