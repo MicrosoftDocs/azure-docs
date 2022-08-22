@@ -28,9 +28,9 @@ In the following sections, we'll cover the various aspects of querying resources
 
 ## Search parameters
 
-When you do a search in FHIR, you are searching the database for resources that match certain search criteria. The FHIR API specifies a rich set of search parameters for fine-tuning search criteria. Each resource in FHIR carries information as a set of elements, and search parameters work to query the information in these elements. In a FHIR search API call, if a positive match is found between the request's search parameters and certain element values stored within resources in the database, then the FHIR server returns a bundle containing the resource instances whose elements satisfied the search criteria. 
+When you do a search in FHIR, you are searching the database for resources that match certain search criteria. The FHIR API specifies a rich set of search parameters for fine-tuning search criteria. Each resource in FHIR carries information as a set of elements, and search parameters work to query the information in these elements. In a FHIR search API call, if a positive match is found between the request's search parameters and element values stored in the database, then the FHIR server returns a bundle containing the resource instances whose elements satisfied the search criteria. 
 
-For each search parameter, the FHIR specification defines the [data type(s)](https://www.hl7.org/fhir/search.html#ptypes) that can be used to set parameter values. Support in the FHIR service for the various data types is outlined below.
+For each search parameter, the FHIR specification defines the [data type(s)](https://www.hl7.org/fhir/search.html#ptypes) that can be used. Support in the FHIR service for the various data types is outlined below.
 
 
 | **Search parameter type**  | **FHIR service in Azure Health Data Services** | **Azure API for FHIR** | **Comment**|
@@ -138,9 +138,9 @@ FHIR specifies a set of search result parameters to help manage the information 
 | `_score`                        | No                   | No                        |
 
 > [!NOTE]
-> By default `_sort` arranges records in ascending order. You can use the prefix `-` to sort in descending order. In addition, the FHIR service only allows you to sort on a single field at a time.
+> By default, `_sort` arranges records in ascending order. You can also use the prefix `-` to sort in descending order. The FHIR service only allows you to sort on a single field at a time.
 
-By default, the FHIR service in Azure Health Data Services is set to lenient handling. This means that the server will ignore any unknown or unsupported parameters. If you want to use strict handling, you can use the `Prefer` header and set `handling=strict`.
+By default, the FHIR service in Azure Health Data Services is set to lenient handling. This means that the server will ignore any unknown or unsupported parameters. If you want to use strict handling, you can include the `Prefer` header and set `handling=strict`.
 
  ## Chained & reverse chained searching
 
