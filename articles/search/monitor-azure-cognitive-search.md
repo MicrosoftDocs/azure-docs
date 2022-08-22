@@ -13,7 +13,8 @@ ms.custom: subject-monitoring
 
 # Monitoring Azure Cognitive Search
 
-[Azure Monitor](../azure-monitor/overview.md) is enabled with every subscription to provide monitoring capabilities over all Azure resources, including Cognitive Search. When you sign up for search, Azure Monitor collects [**activity logs**](../azure-monitor/agents/data-sources.md#azure-activity-log) and [**metrics**](../azure-monitor/essentials/data-platform-metrics.md) as soon as you start using the service. 
+[Azure Monitor](../azure-monitor/overview.md) is enabled with every subscription to provide monitoring capabilities over all Azure resources, including Cognitive Search. When you sign up for search, Azure Monitor collects [**activity logs**](../azure-monitor/data-sources.md#azure-activity-log) and [**metrics**](../azure-monitor/essentials/data-platform-metrics.md) as soon as you start using the service. 
+
 
 Optionally, you can enable diagnostic settings to collect [**resource logs**](../azure-monitor/essentials/resource-logs.md). Resource logs contain detailed information about search service operations that's useful for deeper analysis and investigation. 
 
@@ -50,7 +51,7 @@ For REST calls, use an [admin API key](search-security-api-keys.md) and [Postman
 
 ## Monitor activity logs
 
-In Azure Cognitive Search, [**activity logs**](../azure-monitor/agents/data-sources.md#azure-activity-log) reflect control plane activity, such as service and capacity updates, or API key usage or management. Activity logs are collected [free of charge](../azure-monitor/usage-estimated-costs.md#pricing-model), with no configuration required. Data retention is 90 days, but you can configure durable storage for longer retention.
+In Azure Cognitive Search, [**activity logs**](../azure-monitor/data-sources.md#azure-activity-log) reflect control plane activity, such as service and capacity updates, or API key usage or management. Activity logs are collected [free of charge](../azure-monitor/usage-estimated-costs.md#pricing-model), with no configuration required. Data retention is 90 days, but you can configure durable storage for longer retention.
 
 1. In the Azure portal, find your search service. From the menu on the left, select **Activity logs** to view the logs for your search service.
 

@@ -1,13 +1,14 @@
 ---
 title: Connect to a Linux VM
 description: Learn how to connect to a Linux VM in Azure.
-author: cynthn
+author: mattmcinnes
 ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/25/2022
-ms.author: cynthn
+ms.author: mattmcinnes
+ms.reviewer: jamesser
 
 ---
 # Connect to a Linux VM
@@ -177,4 +178,4 @@ Once the above prerequisites are met, you are ready to connect to your VM. Open 
 
 ## Next steps
 
-Learn how to transfer files to an existing Linux VM, see [Use SCP to move files to and from a Linux VM](./linux/copy-files-to-linux-vm-using-scp.md).
+Learn how to transfer files to an existing VM, see [Use SCP to move files to and from a VM](./copy-files-to-vm-using-scp.md).

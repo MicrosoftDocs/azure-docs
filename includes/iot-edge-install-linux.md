@@ -70,7 +70,7 @@ Installing can be done with a few commands. Open a terminal and run the followin
    ```bash
     wget https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm -O packages-microsoft-prod.rpm
     sudo yum localinstall packages-microsoft-prod.rpm
-    rm packages-microsoft-prod.deb
+    rm packages-microsoft-prod.rpm
     ```
 
 ---

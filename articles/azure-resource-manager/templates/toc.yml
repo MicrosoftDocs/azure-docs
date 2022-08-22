@@ -79,7 +79,7 @@
       href: template-tutorial-deploy-vm-extensions.md
     - name: Deploy SQL extensions
       href: template-tutorial-deploy-sql-extensions-bacpac.md
-  - name: Microsoft Learn path about templates
+  - name: Learning path for templates
     href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Samples - Azure services
   items:
@@ -306,7 +306,7 @@
   - name: Create templates
     items:
     - name: JSON structure
-      displayName: parameters,variables,resources,outputs,condition
+      displayName: parameters,variables,resources,outputs,condition,comments
       href: syntax.md
     - name: Write template expressions
       href: template-expressions.md

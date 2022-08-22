@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 06/10/2022
+ms.date: 07/25/2022
 ms.devlang: azurecli
 --- 
 
@@ -53,7 +53,7 @@ Run the code below to create an Azure Managed Grafana workspace.
 | Parameter    | Description                                      | Example |
 |--------------|-----------------------------------------------------------------------------------------|----------|
 | --name       | Choose a unique name for your new Managed Grafana instance. | *grafana-test*     |
-| --location   | Choose an Azure Region where Managed Grafana is available.   | *eastus*     |
+| --resource-group   | Choose a resource group for your Managed Grafana instance.   | *my-resource-group*     |
 
 ```azurecli
    az grafana create --name <managed-grafana-resource-name> --resource-group <resource-group-name>

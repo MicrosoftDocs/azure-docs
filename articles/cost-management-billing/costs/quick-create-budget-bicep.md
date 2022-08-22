@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Create an Azure budget with Bicep
 description: Quickstart showing how to create a budget with Bicep.
-author: schaffererin
-ms.author: v-eschaffer
+author: bandersmsft 
+ms.author: banders 
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart

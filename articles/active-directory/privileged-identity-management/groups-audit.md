@@ -3,7 +3,7 @@ title: View audit report for privileged access group assignments in Privileged I
 description: View activity and audit history for privileged access group assignments in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: amsliu
 manager: karenhoran
 editor: ''
 
@@ -12,7 +12,7 @@ ms.topic: article
 ms.workload: identity
 ms.subservice: pim
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
