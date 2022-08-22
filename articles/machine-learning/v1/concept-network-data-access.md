@@ -37,9 +37,9 @@ In general, data access from studio involves the following checks:
     - If authentication is made using a user identity, then it's important to know *which* user is trying to access storage. Learn more about [identity-based data access](how-to-identity-based-data-access.md).
 2. Do they have permission?
     - Are the credentials correct? If so, does the service principal, managed identity, etc., have the necessary permissions on the storage? Permissions are granted using Azure role-based access controls (Azure RBAC).
-    - [Reader](../role-based-access-control/built-in-roles.md#reader) of the storage account reads metadata of the storage.
-    - [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) reads data within a blob container.
-    - [Contributor](../role-based-access-control/built-in-roles.md#contributor) allows write access to a storage account.
+    - [Reader](../../role-based-access-control/built-in-roles.md#reader) of the storage account reads metadata of the storage.
+    - [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) reads data within a blob container.
+    - [Contributor](../../role-based-access-control/built-in-roles.md#contributor) allows write access to a storage account.
     - More roles may be required depending on the type of storage.
 3. Where is access from?
     - User: Is the client IP address in the VNet/subnet range?
@@ -54,7 +54,7 @@ In general, data access from studio involves the following checks:
 
 The following diagram shows the general flow of a data access call. In this example, a user is trying to make a data access call through a machine learning workspace, without using any compute resource.
 
-:::image type="content" source="./media/concept-network-data-access/data-access-flow.svg" alt-text="Diagram of the logic flow when accessing data":::
+:::image type="content" source=".././media/concept-network-data-access/data-access-flow.svg" alt-text="Diagram of the logic flow when accessing data.":::
 
 ### Scenarios and identities
 
@@ -74,16 +74,16 @@ The following table lists what identities should be used for specific scenarios:
 
 When using an Azure Storage Account from Azure Machine Learning studio, you must add the managed identity of the workspace to the following Azure RBAC roles for the storage account:
 
-* [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
-* If the storage account uses a private endpoint to connect to the VNet, you must grant the managed identity the [Reader](../role-based-access-control/built-in-roles.md#reader) role for the storage account private endpoint.
+* [Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
+* If the storage account uses a private endpoint to connect to the VNet, you must grant the managed identity the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for the storage account private endpoint.
 
-For more information, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
+For more information, see [Use Azure Machine Learning studio in an Azure Virtual Network](../how-to-enable-studio-virtual-network.md).
 
 See the following sections for information on limitations when using Azure Storage Account with your workspace in a VNet.
 
 ### Secure communication with Azure Storage Account 
 
-To secure communication between Azure Machine Learning and Azure Storage Accounts, configure storage to [Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
+To secure communication between Azure Machine Learning and Azure Storage Accounts, configure storage to [Grant access to trusted Azure services](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
 
 ### Azure Storage firewall
 
@@ -98,15 +98,15 @@ When the workspace uses a private endpoint and the storage account is also in th
 
 ## Azure Data Lake Storage Gen1
 
-When using Azure Data Lake Storage Gen1 as a datastore, you can only use POSIX-style access control lists. You can assign the workspace's managed identity access to resources just like any other security principal. For more information, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+When using Azure Data Lake Storage Gen1 as a datastore, you can only use POSIX-style access control lists. You can assign the workspace's managed identity access to resources just like any other security principal. For more information, see [Access control in Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-access-control.md).
 
 ## Azure Data Lake Storage Gen2
 
 When using Azure Data Lake Storage Gen2 as a datastore, you can use both Azure RBAC and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
 
-**To use Azure RBAC**, follow the steps in the [Datastore: Azure Storage Account](how-to-enable-studio-virtual-network.md#datastore-azure-storage-account) section of the 'Use Azure Machine Learning studio in an Azure Virtual Network' article. Data Lake Storage Gen2 is based on Azure Storage, so the same steps apply when using Azure RBAC.
+**To use Azure RBAC**, follow the steps in the [Datastore: Azure Storage Account](../how-to-enable-studio-virtual-network.md#datastore-azure-storage-account) section of the 'Use Azure Machine Learning studio in an Azure Virtual Network' article. Data Lake Storage Gen2 is based on Azure Storage, so the same steps apply when using Azure RBAC.
 
-**To use ACLs**, the managed identity of the workspace can be assigned access just like any other security principal. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+**To use ACLs**, the managed identity of the workspace can be assigned access just like any other security principal. For more information, see [Access control lists on files and directories](../../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
 ## Azure SQL Database
 
@@ -136,4 +136,4 @@ To secure communication between Azure Machine Learning and Azure SQL Database, t
 
 ## Next steps
 
-For information on enabling studio in a network, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
+For information on enabling studio in a network, see [Use Azure Machine Learning studio in an Azure Virtual Network](../how-to-enable-studio-virtual-network.md).
