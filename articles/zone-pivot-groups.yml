@@ -255,6 +255,19 @@ groups:
     title: Python
   - id: programming-language-embedded-c
     title: Embedded C
+- id: programming-languages-set-twenty-eight
+# Owner: aahi
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features

@@ -6,7 +6,7 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 08/18/2022
-zone_pivot_groups: programming-languages-text-analytics
+zone_pivot_groups: programming-languages-set-twenty-eight
 ---
 
 # Develop Azure Cognitive Services applications with Key Vault and .NET
@@ -15,11 +15,44 @@ Use this article to learn how to develop Cognitive Services applications securel
 
 ## Prerequisites
 
-* A valid Azure subscription - Create one for free.
-* [Azure CLI](/cli/azure/install-azure-cli)
-    * Required for: Python, Java and JavaScript
+::: zone pivot="programming-language-csharp"
+
+* A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
+* [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
 * An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
-* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">A Language resource </a>.  After it deploys, click **Go to resource**.
+* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="A Language service resource"  target="_blank">A Language resource </a>.
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+* A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
+* [Python 3.x](https://www.python.org/)
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="A Language service resource"  target="_blank">A Language resource </a>.
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+* A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
+* [Java Development Kit (JDK) version 8 or above](/azure/developer/java/fundamentals/)
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="A Language service resource"  target="_blank">A Language resource </a>.
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+* A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
+* [Current Node.js LTS](https://nodejs.org/)
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="A Language service resource"  target="_blank">A Language resource </a>.
+
+::: zone-end
     
 > [!NOTE]
 > The code example in this article uses a Language service resource, and sends an example [Named Entity Recognition](./language-service/named-entity-recognition/overview.md) API call. You can use the steps and update the code sample to use any [available Cognitive Services](./what-are-cognitive-services.md) features, with the appropriate Azure resource.
@@ -429,7 +462,7 @@ npm init -y
     npm install @azure/identity
     ```
 
-1. Install the Azure Cognitive Service for Language library, [@azure/ai-text-analytics](https://www.npmjs.com/package/@azure/ai-text-analytics/) to send API requests to the [Language service](./language-service/).
+1. Install the Azure Cognitive Service for Language library, [@azure/ai-text-analytics](https://www.npmjs.com/package/@azure/ai-text-analytics/) to send API requests to the [Language service](./language-service/overview.md).
 
     ```terminal
     npm install @azure/ai-text-analytics@5.1.0
@@ -495,3 +528,9 @@ node index.js
 ```
 
 ::: zone-end
+
+# Next steps
+
+* [Best practices for using Azure Key Vault](/key-vault/general/best-practices)
+* [Cognitive Services security](cognitive-services-security.md)
+* [Azure security baseline for Cognitive Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/cognitive-services/TOC.json)

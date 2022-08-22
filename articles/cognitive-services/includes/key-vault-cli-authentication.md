@@ -21,7 +21,7 @@ For systems without a default web browser, the `az login` command will use the d
 
 ### Azure PowerShell
 
-You can also use [Azure PowerShell][/powershell/azure] to authenticate. Applications using the `DefaultAzureCredential` or the `AzurePowerShellCredential` can then use this account to authenticate calls in their application when running locally.
+You can also use [Azure PowerShell](/powershell/azure) to authenticate. Applications using the `DefaultAzureCredential` or the `AzurePowerShellCredential` can then use this account to authenticate calls in their application when running locally.
 
 To authenticate with Azure PowerShell, run the `Connect-AzAccount` command. If you're running on a system with a default web browser and azure PowerShell `v5.0.0` or later, it will launch the browser to authenticate the user.
 
