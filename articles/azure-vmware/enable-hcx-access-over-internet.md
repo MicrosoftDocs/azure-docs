@@ -101,8 +101,6 @@ Before you create a Public IP segment, get your credentials for NSX-T Manager fr
 1. Under IP pools, enter the **IP Ranges** for HCX uplink, **Prefix Length**, and **Gateway** of public IP segment.
 1. Scroll down and select the **HCX Uplink** checkbox under **HCX Traffic Type** as this profile will be used for HCX uplink.
 1. Select **Create** to create the network profile.  
-   You will see network profile using a public segment. See sample diagram below. 
-   :::image type="content" source="media/hcx-over-internet/hcx-sample-network-profile-route.png" alt-text="Diagram showing a sample network profile using public segment." border="false" lightbox="media/hcx-over-internet/hcx-sample-network-profile-route.png":::  
 
 ## Create service mesh
 Service Mesh will deploy HCX WAN Optimizer, HCX Network Extension and HCX-IX appliances.
