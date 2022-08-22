@@ -12,32 +12,35 @@ ms.reviewer: Xema Pathak
 
 # Monitor virtual machines with Azure Monitor: Alerts
 
-This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It provides guidance on creating alert rules for your virtual machines and their guest operating systems. [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data collected by VM insights. 
+This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It provides guidance on creating alert rules for your virtual machines and their guest operating systems. [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data collected by VM insights.
 
 > [!NOTE]
-> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md), [Tutorial: Create a metric alert for an Azure resource](../alerts/tutorial-metric-alert.md), or [Tutorial: Create alert when Azure virtual machine is unavailable](tutorial-monitor-vm-alert.md). 
+> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md), [Tutorial: Create a metric alert for an Azure resource](../alerts/tutorial-metric-alert.md), or [Tutorial: Create alert when Azure virtual machine is unavailable](tutorial-monitor-vm-alert.md).
 
 > [!IMPORTANT]
 > Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Before you create any alert rules, refer to **Alert rules** in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Choose the alert type
-The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log query alerts](../alerts/alerts-log-query.md). 
+
+The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log query alerts](../alerts/alerts-log-query.md).
 The type of alert rule that you create for a particular scenario depends on where the data is located that you're alerting on. You might have cases where data for a particular alerting scenario is available in both Metrics and Logs, and you'll need to determine which rule type to use. You might also have flexibility in how you collect certain data and let your decision of alert rule type drive your decision for data collection method.
 
 Typically, the best strategy is to use metric alerts instead of log alerts when possible because they're more responsive and stateful. To use metric alerts, the data you're alerting on must be available in Metrics. VM insights currently sends all of its data to Logs, so you must install the Azure Monitor agent to use metric alerts with data from the guest operating system. Use Log query alerts with metric data when it's unavailable in Metrics or if you require logic beyond the relatively simple logic for a metric alert rule.
 
 ### Metric alerts
+
 [Metric alert rules](../alerts/alerts-metric.md) are useful for alerting when a particular metric exceeds a threshold. An example is when the CPU of a machine is running high. The target of a metric alert rule can be a specific machine, a resource group, or a subscription. In this instance, you can create a single rule that applies to a group of machines.
 
 Metric rules for virtual machines can use the following data:
 
-- Host metrics for Azure virtual machines, which are collected automatically. 
-- Metrics that are collected by the Azure Monitor agent from the guest operating system. 
+- Host metrics for Azure virtual machines, which are collected automatically.
+- Metrics that are collected by the Azure Monitor agent from the guest operating system.
 
 > [!NOTE]
 > When VM insights supports the Azure Monitor agent, which is currently in public preview, it sends performance data from the guest operating system to Metrics so that you can use metric alerts.
 
 ### Log alerts
+
 [Log alerts](../alerts/alerts-unified-log.md) can measure two different things which can be used to monitor virtual machines in different scenarios:
 
 - [Result count](../alerts/alerts-unified-log.md#result-count): Counts the number of rows returned by the query, and can be used to work with events such as Windows event logs, syslog, application exceptions.
@@ -45,7 +48,7 @@ Metric rules for virtual machines can use the following data:
 
 ### Targeting resources and dimensions
 
-You can monitor multiple instances’ values with one rule using dimensions. You would use dimensions if, for example, you want to monitor CPU usage on multiple instances running your web site or app for CPU usage over 80%. 
+You can monitor multiple instances’ values with one rule using dimensions. You would use dimensions if, for example, you want to monitor CPU usage on multiple instances running your web site or app for CPU usage over 80%.
 
 To create resource-centric alerts at scale for a subscription or resource group, you can **Split by dimensions**.  When you want to monitor the same condition on multiple Azure resources, splitting by dimensions splits the alerts into separate alerts by grouping unique combinations using numerical or string columns. Splitting on Azure resource ID column makes the specified resource into the alert target.
 
@@ -66,16 +69,20 @@ alertsmanagementresources
 | summarize count() by Alert=name, tostring(AlertStatus), tostring(Computer)
 | project Alert, AlertStatus, Computer
 ```
+
 ## Common alert rules
+
 The following section lists common alert rules for virtual machines in Azure Monitor. Details for metric alerts and log metric measurement alerts are provided for each. For guidance on which type of alert to use, see [Choose the alert type](#choose-the-alert-type).
 
 If you're unfamiliar with the process for creating alert rules in Azure Monitor, see the [instructions to create a new alert rule](../alerts/alerts-create-new-alert-rule.md).
 
 ### Machine unavailable
-The most basic requirement is to send an alert when a machine is unavailable. It could be stopped, the guest operating system could be unresponsive, or the agent could be unresponsive. There are various ways to configure this alerting, but the most common is to use the heartbeat sent from the Log Analytics agent. 
+
+The most basic requirement is to send an alert when a machine is unavailable. It could be stopped, the guest operating system could be unresponsive, or the agent could be unresponsive. There are various ways to configure this alerting, but the most common is to use the heartbeat sent from the Log Analytics agent.
 
 #### Log query alert rules
-Log query alerts use the [Heartbeat table](/azure/azure-monitor/reference/tables/heartbeat), which should have a heartbeat record every minute from each machine. 
+
+Log query alerts use the [Heartbeat table](/azure/azure-monitor/reference/tables/heartbeat), which should have a heartbeat record every minute from each machine.
 
 Use a rule with the following query.
 
@@ -85,10 +92,13 @@ Heartbeat
 | extend Duration = datetime_diff('minute',now(),TimeGenerated)
 | summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,5m), _ResourceId
 ```
+
 #### Metric alert rules
+
 A metric called *Heartbeat* is included in each Log Analytics workspace. Each virtual machine connected to that workspace sends a heartbeat metric value each minute. Because the computer is a dimension on the metric, you can fire an alert when any computer fails to send a heartbeat. Set the **Aggregation type** to **Count** and the **Threshold** value to match the **Evaluation granularity**.
 
 ### CPU alerts
+
 #### Metric alert rules
 
 | Target | Metric |

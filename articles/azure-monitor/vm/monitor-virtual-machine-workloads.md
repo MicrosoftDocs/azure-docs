@@ -21,9 +21,6 @@ VM insights collects only performance data from the guest operating system of en
 
 For a list of the data sources available and details on how to configure them, see [Agent data sources in Azure Monitor](../agents/agent-data-sources.md).
 
-> [!NOTE]
-> You can't selectively configure data collection for different machines. All machines connected to the workspace use the configuration for that workspace.
-
 > [!IMPORTANT]
 > Be careful to collect only the data that you require. Costs are associated with any data collected in your workspace. The data that you collect should only support particular analysis and alerting scenarios.
 
