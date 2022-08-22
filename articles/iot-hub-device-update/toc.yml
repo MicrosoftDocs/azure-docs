@@ -86,6 +86,8 @@ items:
     displayName: Azure CLI, az iot, az iot device-update
   - name: Use delta updates
     href: delta-updates.md
+  - name: Use Related Files
+    href: related-files.md
   - name: Configure private endpoints
     href: configure-private-endpoints.md
     displayName: Azure CLI, az iot, az iot device-update
