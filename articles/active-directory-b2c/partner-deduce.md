@@ -128,9 +128,7 @@ To customize the user interface, you specify a URL in the `ContentDefinition` el
 
 1. Open the `TrustFrameworksExtension.xml` and define a new **ContentDefinition** to customize the [self-asserted technical profile](https://docs.microsoft.com/azure/active-directory-b2c/self-asserted-technical-profile).
 
-1. Find the `BuildingBlocks` element.
-
-1. Add the `api.selfassertedDeduce` ContentDefinition:
+1. Find the `BuildingBlocks` element and add the `**api.selfassertedDeduce**` ContentDefinition:
 
    ```xml
     <BuildingBlocks>
