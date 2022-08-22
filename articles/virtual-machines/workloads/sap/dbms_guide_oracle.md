@@ -22,8 +22,7 @@ ms.custom: H1Hack27Feb2017
 
 This document covers several different areas to consider when deploying Oracle Database for SAP workload in Azure IaaS. Before you read this document, we recommend you read [Considerations for Azure Virtual
 Machines DBMS deployment for SAP workload](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general).
-We also recommend that you read other guides in the 
-[SAP workload on Azure documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/get-started).
+We also recommend that you read other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/get-started).
 
 You can find information about Oracle versions and corresponding OS versions that are supported for running SAP on Oracle on Azure in SAP Note [2039619](https://launchpad.support.sap.com/#/notes/2039619).
 
@@ -32,21 +31,13 @@ General information about running SAP Business Suite on Oracle can be found at 
 **SAP Notes relevant for Oracle, SAP, and Azure**
 
 [1738053 - SAPinst for Oracle ASM installation - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0001738053)
-
 [2896926 - ASM disk group compatibility - NetWeaver - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0002896926)
-
 [1550133 - Using Oracle Automatic Storage Management (ASM) with SAP NetWeaver based Products - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0001550133)
-
 [888626 - Redo log layout for high-end systems - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0000888626)
-
 [105047 - Support for Oracle functions in the SAP environment - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0000105047)
-
 [2799920 - Patches for 19c: Database - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0002799920)
-
 [974876 - Oracle Transparent Data Encryption (TDE) - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0000974876)
-
 [2936683 - Oracle Linux 8: SAP Installation and Upgrade - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2936683)
-
 [1672954 - Oracle 11g, 12c, 18c and 19c: Usage of hugepages on Linux](https://launchpad.support.sap.com/#/notes/1672954)
 
 **Specifics for Oracle Database on Oracle Linux**
