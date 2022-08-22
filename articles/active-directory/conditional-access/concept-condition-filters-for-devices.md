@@ -48,7 +48,7 @@ Policy 1: All users with the directory role of Global administrator, accessing t
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**.
+1. Under **Assignments**, select **Users or workload identities**..
    1. Under **Include**, select **Directory roles** and choose **Global administrator**.
    
       > [!WARNING]
@@ -65,7 +65,7 @@ Policy 2: All users with the directory role of Global administrator, accessing t
 
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**.
+1. Under **Assignments**, select **Users or workload identities**..
    1. Under **Include**, select **Directory roles** and choose **Global administrator**.
    
       > [!WARNING]
