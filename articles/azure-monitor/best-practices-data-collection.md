@@ -121,7 +121,7 @@ To enable monitoring for an application, you must decide whether you'll use code
 
 ### Configure availability testing
 
-Availability tests in Application Insights are recurring tests that monitor the availability and responsiveness of your application at regular intervals from points around the world. You can create a simple ping test for free, You can also create a sequence of web requests to simulate user transactions, which have associated costs.
+Availability tests in Application Insights are recurring tests that monitor the availability and responsiveness of your application at regular intervals from points around the world. You can create a simple ping test for free. You can also create a sequence of web requests to simulate user transactions, which have associated costs.
 
 See [Monitor the availability of any website](app/monitor-web-app-availability.md) for a summary of the different kinds of tests and information on creating them.
 
