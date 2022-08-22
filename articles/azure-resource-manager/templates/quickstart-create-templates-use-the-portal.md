@@ -28,7 +28,7 @@ Rather than manually building an entire ARM template, let's start by retrieving 
 
     :::image type="content" source="./media/quickstart-create-templates-use-the-portal/search-custom-template.png" alt-text="Search for Custom Template":::
 
-1. For **Template** source, notice that **Quickstart template** is selected by default. You can keep this selection. In the drop down, search for *quickstarts/microsoft.storage/storage-account-create* and select it. After finding the quickstart template, select **Select template.**
+1. For **Template** source, notice that **Quickstart template** is selected by default. You can keep this selection. In the drop-down, search for *quickstarts/microsoft.storage/storage-account-create* and select it. After finding the quickstart template, select **Select template.**
 
     :::image type="content" source="./media/quickstart-create-templates-use-the-portal/select-custom-template.png" alt-text="Select Quickstart Template":::
 
@@ -58,7 +58,7 @@ In this section, let's suppose you have an ARM template that you want to deploy 
 
 1. Again, select **Deploy a custom template** in the portal.
 
-1. This time select **Build your own template in the editor**.
+1. This time, select **Build your own template in the editor**.
 
    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/build-own-template.png" alt-text="Build your own template":::  
 
@@ -157,7 +157,7 @@ Sometimes the easiest way to work with an ARM template is to have the portal gen
  
    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/export-template.png" alt-text="Export Template":::
 
-1. The portal generates a template for you based on the current state of the resource group. Notice that this template is not the same as either template you deployed earlier. It contains definitions for both the storage account and virtual network, along with other resources like a blob service that was automatically created for your storage account.
+1. The portal generates a template for you based on the current state of the resource group. Notice that this template isn't the same as either template you deployed earlier. It contains definitions for both the storage account and virtual network, along with other resources like a blob service that was automatically created for your storage account.
 
 1. To save this template for later use, select **Download**.
 
