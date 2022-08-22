@@ -263,10 +263,10 @@ echo "Press [ENTER] to continue ..."
 In this quickstart, you learned how to:
 
 > [!div class="checklist"]
-> - Generate a basic Spring project
-> - Provision a service instance
-> - Build and deploy an app with a public endpoint
-> - Clean up the resources
+> - Generate a basic Spring project.
+> - Provision a service instance.
+> - Build and deploy an app with a public endpoint.
+> - Clean up the resources.
 
 To learn how to use more Azure Spring capabilities, advance to the quickstart series that deploys a sample application to Azure Spring Apps:
 
