@@ -208,6 +208,8 @@ Before you can link your integration account to a Standard logic app resource, y
 
 1. In the Azure portal search box, find and select your integration account. To browse existing accounts, enter **integration accounts**, and then select **Integration accounts**.
 
+1. From the **Integration accounts** list, select your integration account.
+
 1. On your selected integration account's navigation menu, under **Settings**, select **Callback URL**.
 
 1. Find the **Generated Callback URL** property value, copy the value, and save the URL to use later for linking.
@@ -315,6 +317,8 @@ To make this change, use the [Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 ## Unlink from logic app
 
+### [Consumption](#tab/consumption)
+
 If you want to link your logic app to another integration account, or no longer use an integration account with your logic app, delete the link by using Azure Resource Explorer.
 
 1. Open your browser window, and go to [Azure Resource Explorer (https://resources.azure.com)](https://resources.azure.com). Sign in with the same Azure account credentials.
@@ -342,7 +346,8 @@ If you want to link your logic app to another integration account, or no longer 
          "name": "<integration-account-name>",
          "id": "<integration-account-resource-ID>",
          "type": "Microsoft.Logic/integrationAccounts"  
-   },
+      },
+   }
    ```
 
    For example:
@@ -356,6 +361,20 @@ If you want to link your logic app to another integration account, or no longer 
 1. In the Azure portal, open your logic app. On your logic app menu, under **Workflow settings**, check that the **Integration account** property now appears empty.
 
    ![Screenshot that shows the Azure portal with the logic app menu and "Workflow settings" selected.](./media/logic-apps-enterprise-integration-create-integration-account/unlinked-account.png)
+
+### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On your logic app's navigation menu, under **Settings**, select **Configuration**.
+
+1. On the **Configuration** pane, find the app setting named **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL**.
+
+1. In the **Delete** column, select **Delete** (trash can icon).
+
+1. On the **Configuration** pane toolbar, select **Save**.
+
+---
 
 ## Move integration account
 
