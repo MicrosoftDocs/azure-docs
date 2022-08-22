@@ -202,7 +202,7 @@ The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can
    
 ## Deploy using Azure ML CLI/SDK (v2)
 
-You can use Azure ML CLI v2 to deploy models trained and logged with MLflow to [managed endpoints (Online/batch)](concept-endpoints.md). When you deploy your MLflow model using the Azure ML CLI v2, it's a no-code-deployment so you don't have to provide a scoring script or an environment, but you can if needed.
+You can use Azure ML CLI/SDK v2 to deploy models trained and logged with MLflow to [managed endpoints (Online/batch)](concept-endpoints.md). Deployment of MLflow models support no-code-deployment, so you don't have to provide a scoring script or an environment, but you can if needed.
 
 ### Prerequisites
 
