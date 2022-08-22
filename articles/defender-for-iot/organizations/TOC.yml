@@ -127,7 +127,11 @@
     - name: Splunk
       href: tutorial-splunk.md
     - name: ServiceNow
-      href: tutorial-servicenow.md
+      items:
+      - name: ServiceNow integrations
+        href: tutorial-servicenow.md
+      - name: Legacy integration
+        href: integrations/service-now-legacy.md
   - name: System deployment
     items:
     - name: Manage plans on Azure subscriptions

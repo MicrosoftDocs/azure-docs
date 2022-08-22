@@ -13,7 +13,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Filter for devices
 
-When creating Conditional Access policies, administrators have asked for the ability to target or exclude specific devices in their environment. The condition filter for devices give administrators this capability. Now you can target specific devices using [supported operators and properties for device filters](#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies.
+When creating Conditional Access policies, administrators have asked for the ability to target or exclude specific devices in their environment. The condition filter for devices gives administrators this capability. Now you can target specific devices using [supported operators and properties for device filters](#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies.
 
 :::image type="content" source="media/concept-condition-filters-for-devices/create-filter-for-devices-condition.png" alt-text="Creating a filter for device in Conditional Access policy conditions":::
 
@@ -48,7 +48,7 @@ Policy 1: All users with the directory role of Global administrator, accessing t
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**.
+1. Under **Assignments**, select **Users or workload identities**..
    1. Under **Include**, select **Directory roles** and choose **Global administrator**.
    
       > [!WARNING]
@@ -65,7 +65,7 @@ Policy 2: All users with the directory role of Global administrator, accessing t
 
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**.
+1. Under **Assignments**, select **Users or workload identities**..
    1. Under **Include**, select **Directory roles** and choose **Global administrator**.
    
       > [!WARNING]
