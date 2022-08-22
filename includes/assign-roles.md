@@ -9,6 +9,9 @@ In this scenario, you'll assign permissions to your user account at the resource
 
 The following example will assign the `Storage Blob Data Contributor` role to your user account, which provides both read and write access to blob data in your storage account.
 
+> [!IMPORTANT]
+> In most cases it will take a minute or two for the role assignment to propagate in Azure, but in rare cases it may take up to eight minutes. If you receive authentication errors when you first run your code, wait a few moments and try again.
+
 ### [Azure portal](#tab/roles-azure-portal)
 
 1. In the Azure portal, locate your storage account using the main search bar or left navigation.
@@ -62,6 +65,3 @@ New-AzRoleAssignment -SignInName <yourUserName> `
 ```
 
 --- 
-
-> [!IMPORTANT]
-> It may take a few minutes for your assigned roles to become active on the resource. If you receive authentication errors when you first run your code, wait a few moments and try again.

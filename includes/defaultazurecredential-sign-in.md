@@ -30,14 +30,15 @@ Sign-in using the Azure AD account you assigned a role to previously.
 
 ### [Visual Studio Code](#tab/sign-in-visual-studio-code)
 
-Make sure you have the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension installed.
+You will need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio code.
 
-:::image type="content" source="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/azure-extension.png" alt-text="A screenshot showing the Azure extension.":::
+On the main menu of Visual Studio Code, navigate to **Terminal > New Terminal**.
 
-Use the **CTRL + Shift + P** shortcut to open the command palette. Search for the **Azure: Sign In** command and follow the prompts to authenticate. Make sure to use the Azure AD account you assigned a role to previously from your Blob Storage account.
+Sign-in to Azure through the Azure CLI using the following command:
 
-:::image type="content" source="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/azure-command.png" alt-text="A screenshot showing the Azure sign-in command.":::
-
+```azurecli
+az login
+```
 
 ### [PowerShell](#tab/sign-in-powershell)
 
