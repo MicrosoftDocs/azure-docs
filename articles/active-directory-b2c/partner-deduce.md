@@ -125,7 +125,8 @@ In order to collect the user_agent from client-side create your own ContentDefin
    d. Select **Save**.
 
 
-## Step 4: Configure ContentDefinition
+## Step 4: Configure Content Definition
+
 
 To customize the user interface, you specify a URL in the ContentDefinition element with customized HTML content. In the self-asserted technical profile or orchestration step, you point to that ContentDefinition identifier.
 
