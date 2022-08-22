@@ -255,9 +255,6 @@ When you don't specify a version, you get an error with a list of the newest sup
 - 2021-03-01
 - 2021-05-01
 - 2021-10-01
-- 2021-11-01
-- 2021-11-15
-- 2021-12-13
 
 ### Swagger
 
@@ -343,13 +340,13 @@ Schema breakdown:
 | Data | Description | Version introduced |
 |------|-------------|--------------------|
 | `azEnvironment` | Azure Environment where the VM is running in | 2018-10-01
-| `additionalCapabilities.hibernationEnabled` | Identifies if hibernation is enabled on the VM | 2021-11-01
+| `additionalCapabilities.hibernationEnabled` | Identifies if hibernation is enabled on the VM | 2021-11-01*
 | `customData` | This feature is deprecated and disabled [in IMDS](#frequently-asked-questions). It has been superseded by `userData` | 2019-02-01
 | `evictionPolicy` | Sets how a [Spot VM](../articles/virtual-machines/spot-vms.md) will be evicted. | 2020-12-01
 | `extendedLocation.type` | Type of the extended location of the VM. | 2021-03-01
 | `extendedLocation.name` | Name of the extended location of the VM | 2021-03-01
-| `host.id` | Name of the host of the VM. Note that a VM will either have a host or a hostGroup but not both. | 2021-11-15
-| `hostGroup.id` | Name of the hostGroup of the VM. Note that a VM will either have a host or a hostGroup but not both. | 2021-11-15
+| `host.id` | Name of the host of the VM. Note that a VM will either have a host or a hostGroup but not both. | 2021-11-15*
+| `hostGroup.id` | Name of the hostGroup of the VM. Note that a VM will either have a host or a hostGroup but not both. | 2021-11-15*
 | `isHostCompatibilityLayerVm` | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
 | `licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs | 2020-09-01
 | `location` | Azure Region the VM is running in | 2017-04-02
@@ -373,8 +370,8 @@ Schema breakdown:
 | `sku` | Specific SKU for the VM image | 2017-04-02
 | `securityProfile.secureBootEnabled` | Identifies if UEFI secure boot is enabled on the VM | 2020-06-01
 | `securityProfile.virtualTpmEnabled` | Identifies if the virtual Trusted Platform Module (TPM) is enabled on the VM | 2020-06-01
-| `securityProfile.encryptionAtHost` | Identifies if [Encryption at Host](../articles/virtual-machines/disks-enable-host-based-encryption-portal.md) is enabled on the VM | 2021-11-01
-| `securityProfile.securityType` | Identifies if the VM is a [Trusted VM](../articles/virtual-machines/trusted-launch.md) or a [Confidential VM](../articles/confidential-computing/confidential-vm-overview.md) | 2021-12-13
+| `securityProfile.encryptionAtHost` | Identifies if [Encryption at Host](../articles/virtual-machines/disks-enable-host-based-encryption-portal.md) is enabled on the VM | 2021-11-01*
+| `securityProfile.securityType` | Identifies if the VM is a [Trusted VM](../articles/virtual-machines/trusted-launch.md) or a [Confidential VM](../articles/confidential-computing/confidential-vm-overview.md) | 2021-12-13*
 | `storageProfile` | See Storage Profile below | 2019-06-01
 | `subscriptionId` | Azure subscription for the Virtual Machine | 2017-08-01
 | `tags` | [Tags](../articles/azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
@@ -386,6 +383,8 @@ Schema breakdown:
 | `vmScaleSetName` | [Virtual machine scale set Name](../articles/virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
 | `vmSize` | [VM size](../articles/virtual-machines/sizes.md) | 2017-04-02
 | `zone` | [Availability Zone](../articles/availability-zones/az-overview.md) of your virtual machine | 2017-12-01
+
+\* This version is not fully available yet and may not be supported in all regions.
 
 **Storage profile**
 
@@ -437,16 +436,18 @@ Data | Description | Version introduced |
 | `vhd` | Virtual hard disk | 2019-06-01
 | `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk | 2019-06-01
 
+\* These fields are only populated for Ultra Disks; they will be empty strings from non-Ultra Disks.
+
 The encryption settings blob contains data about how the disk is encrypted (if it is encrypted):
 
 Data | Description | Version introduced |
 |------|-----------|--------------------|
-| `diskEncryptionKey.sourceVault.id` | The location of the disk encryption key | 2021-11-01
-| `diskEncryptionKey.secretUrl` | The location of the secret | 2021-11-01
-| `keyEncryptionKey.sourceVault.id` | The location of the key encryption key | 2021-11-01
-| `keyEncryptionKey.keyUrl` | The location of the key | 2021-11-01
+| `diskEncryptionKey.sourceVault.id` | The location of the disk encryption key | 2021-11-01*
+| `diskEncryptionKey.secretUrl` | The location of the secret | 2021-11-01*
+| `keyEncryptionKey.sourceVault.id` | The location of the key encryption key | 2021-11-01*
+| `keyEncryptionKey.keyUrl` | The location of the key | 2021-11-01*
 
-\* These fields are only populated for Ultra Disks; they will be empty strings from non-Ultra Disks.
+\* This version is not fully available yet and may not be supported in all regions.
 
 The resource disk object contains the size of the [Local Temp Disk](../articles/virtual-machines/managed-disks-overview.md#temporary-disk) attached to the VM, if it has one, in kilobytes.
 If there is [no local temp disk for the VM](../articles/virtual-machines/azure-vms-no-temp-disk.yml), this value is 0. 
