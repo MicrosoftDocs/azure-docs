@@ -8,7 +8,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 3/22/2022
+ms.date: 8/22/2022
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C
@@ -64,19 +64,18 @@ To create a Deduce account, contact [Deduce support](mailto:support@deduce.com).
 
 The following sections describe the integration process.
 
-## Step 1: Configure the Azure AD B2C policy
+### Step 1: Configure the Azure AD B2C policy
 
 Follow the instructions in [Get the starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#get-the-starter-pack) to learn how to set up your Azure AD B2C tenant and configure policies. This samples article is based on the Local Accounts starter pack.
 
 
-## Step 2: Customize the Azure AD B2C user interface
+### Step 2: Customize the Azure AD B2C user interface
 
-In order to collect the user_agent from client-side create your own ContentDefinition with an arbitrary ID to include the related JavaScript. Determine the end-user browser's user_agent string and store it as a claim in Azure AD B2C.
+In order to collect the user_agent from client-side, create your own `ContentDefinition` with an arbitrary ID to include the related JavaScript. Determine the end-user browser's user_agent string and store it as a claim in Azure AD B2C.
 
 1. Download the api.selfasserted, [selfAsserted.cshtml](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/selfAsserted.cshtml), locally.
 
-
-2. Edit the selfAsserted.cshtml to include the following JavaScript before the closure of `</head>` defines an additional Style element to hide the panel-default.
+1. Edit the selfAsserted.cshtml to include the following JavaScript before the closure of `</head>` defines an additional Style element to hide the panel-default.
 
    ``` html
    <style>
@@ -97,7 +96,7 @@ In order to collect the user_agent from client-side create your own ContentDefin
    </style>
    ```
 
-3. Add the following JavaScript code before the closure of the `</body>`. This code reads the user_agent from the user's browser and the ContentDefinition is used in combination with the self-asserted technical profile to return user_agent as an output claim to the next orchestration step.
+1. Add the following JavaScript code before the closure of the `</body>`. This code reads the user_agent from the user's browser and the ContentDefinition is used in combination with the self-asserted technical profile to return user_agent as an output claim to the next orchestration step.
 
    ``` html
    <script>
@@ -110,11 +109,9 @@ In order to collect the user_agent from client-side create your own ContentDefin
    </script>
    ```
 
-## Step 3: Configure your storage location
+### Step 3: Configure your storage location
 
-1. Set up a [blob storage container in your storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
-
-1. Upload the previously edited `selfAsserted.cshtml` file to your blob container.
+1. Set up a [blob storage container in your storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and upload the previously edited `selfAsserted.cshtml` file to your blob container.
 
 1. Allow CORS access to storage container you created by following these instructions:
 
@@ -125,17 +122,16 @@ In order to collect the user_agent from client-side create your own ContentDefin
    d. Select **Save**.
 
 
-## Step 4: Configure Content Definition
-
+### Step 4: Configure Content Definition
 
 To customize the user interface, you specify a URL in the `ContentDefinition` element with customized HTML content. In the self-asserted technical profile or orchestration step, you point to that ContentDefinition identifier.
 
 
 1. Open the `TrustFrameworksExtension.xml` and define a new **ContentDefinition** to customize the [self-asserted technical profile](https://docs.microsoft.com/azure/active-directory-b2c/self-asserted-technical-profile).
 
-2. Find the `BuildingBlocks` element.
+1. Find the `BuildingBlocks` element.
 
-3. Add the `api.selfassertedDeduce` ContentDefinition:
+1. Add the `api.selfassertedDeduce` ContentDefinition:
 
    ```xml
     <BuildingBlocks>
@@ -156,13 +152,13 @@ To customize the user interface, you specify a URL in the `ContentDefinition` el
 
 Replace LoadUri with the url pointing to the `selfAsserted.cshtml` file created in [step 1](#step-1-configure-the-azure-ad-b2c-policy).
 
-## Step 5: Add Deduce additional ClaimType
+### Step 5: Add Deduce additional ClaimType
 
 The ClaimsSchema element defines the claim types that can be referenced as part of the policy. There are additional claims that Deduce supports and can be added.
 
 1. Open the `TrustFrameworksExtension.xml`
 
-2. Find the `BuildingBlocks` element. This element is where additional identity claims that Deduce supports can be added.
+1. Find the `**BuildingBlocks**` element. This element is where additional identity claims that Deduce supports can be added.
 
    ```xml
      <BuildingBlocks>
@@ -436,7 +432,7 @@ The ClaimsSchema element defines the claim types that can be referenced as part 
 
    ```
 
-## Step 6: Add Deduce ClaimsProvider
+### Step 6: Add Deduce ClaimsProvider
 
 A claims provider is an interface to communicate with different types of parties via its [technical profiles](https://docs.microsoft.com/azure/active-directory-b2c/technicalprofiles).
 
@@ -448,9 +444,9 @@ You can define Deduce as a claims provider by adding it to the **ClaimsProvider*
 
 1. Open the `TrustFrameworkExtensions.xml`.
 
-2. Find the **ClaimsProviders** element. If it doesn't exist, add it under the root element.
+1. Find the **ClaimsProviders** element. If it doesn't exist, add it under the root element.
 
-3. Add a new **ClaimsProvider** as follows:
+1. Add a new **ClaimsProvider** as follows:
 
    ```xml
     <ClaimsProvider>
@@ -538,33 +534,29 @@ You can define Deduce as a claims provider by adding it to the **ClaimsProvider*
 
 Replace `apikey` and `site` with the information provided by Deduce.
 
-## Step 7: Add a user journey
+### Step 7: Add a user journey
 
 At this point, the Deduce RESTfull API has been set up, but it's not yet available in any of the sign-up or sign-in pages. If you don't have your own custom user journey, create a duplicate of an existing template user journey, otherwise continue to the next step.
 
 1. Open the `TrustFrameworkBase.xml` file from the starter pack.
 
-2. Find and copy the entire contents of the **UserJourneys** element that includes 'Id=SignUpOrSignIn`.
+1. Find and copy the entire contents of the **UserJourneys** element that includes 'Id=SignUpOrSignIn`.
 
+1. Open the `TrustFrameworkExtensions.xml` and find the **UserJourneys** element. If the element doesn't exist, add one.
 
-3. Open the `TrustFrameworkExtensions.xml` and find the **UserJourneys** element. If the element doesn't exist, add one.
+1. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
 
-4. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
+1. Rename the `Id` of the user journey. For example,  `Id=CustomSignUpSignIn`
 
-5. Rename the `Id` of the user journey. For example,  `Id=CustomSignUpSignIn`
-
-
-## Step 8: Add Deduce API to a user journey
+### Step 8: Add Deduce API to a user journey
 
 Now that you've a user journey, add the orchestrations steps to call Deduce.
 
-
 1. Find the orchestration step element that includes `Type=CombinedSignInAndSignUp`, or `Type=ClaimsProviderSelection` in the user journey. It's usually the first orchestration step.
 
+1. Add a new orchestration step to invoke  `SelfAsserted-UserAgent` technical profile.
 
-2. Add a new orchestration step to invoke  `SelfAsserted-UserAgent` technical profile.
-
-3. Add a new orchestration step to invoke `deduce_insight_api` technical profile.
+1. Add a new orchestration step to invoke `**deduce_insight_api**` technical profile.
 
    The below example of UserJourney is based on local accounts starter pack:
 
@@ -617,7 +609,7 @@ Now that you've a user journey, add the orchestrations steps to call Deduce.
    </UserJourneys>
    ```
 
-## Step 9: Configure the relying party policy
+### Step 9: Configure the relying party policy
 
 The relying party policy specifies the user journey which Azure AD B2C will execute. You can also control what claims are passed to your application by adjusting the **OutputClaims** element of the **SignUpOrSignIn_WithDeduce** TechnicalProfile element. In this sample, the application will receive information back from the middle layer API:
 
@@ -685,32 +677,31 @@ The relying party policy specifies the user journey which Azure AD B2C will exec
     </RelyingParty>
 ```
 
-## Step 10: Upload the custom policy
+### Step 10: Upload the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
 
-2. Make sure you're using the directory that contains your Azure AD B2C tenant:
+1. Make sure you're using the directory that contains your Azure AD B2C tenant:
 
    a. Select the **Directories + subscriptions** icon in the portal toolbar.
 
    b. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch** button next to it.
 
+1. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
 
-3. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
+1. Under Policies, select **Identity Experience Framework**.
 
-4. Under Policies, select **Identity Experience Framework**.
+1. Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkBase.xml`, then the relying party policy, such as `SignUp.xml`.
 
-5. Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkBase.xml`, then the relying party policy, such as `SignUp.xml`.
-
-## Step 11: Test your custom policy
+### Step 11: Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup`.
 
-2. For **Application**, select a web application that you [previously registered](./tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](./tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 
-3. Select the **Run now** button.
+1. Select the **Run now** button.
 
-4. The sign-up policy should invoke Deduce immediately.  If sign-in is used, then select Deduce to sign in with Deduce.
+1. The sign-up policy should invoke Deduce immediately.  If sign-in is used, then select Deduce to sign in with Deduce.
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
