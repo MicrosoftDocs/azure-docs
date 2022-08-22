@@ -594,7 +594,7 @@ Several possible status code values can be returned.
 
 The responses for this API do not contain any content.
 
-## Resume instance
+## Resume instance (preview)
 
 Resumes a suspended orchestration instance.
 
