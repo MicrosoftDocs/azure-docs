@@ -2,7 +2,7 @@
 title: Azure Chaos Studio service limits
 description: Understand the throttling and usage limits for Azure Chaos Studio
 author: johnkemnetz
-ms.author: azchaosstudiopm
+ms.author: johnkem
 ms.service: chaos-studio
 ms.date: 11/01/2021
 ms.topic: reference

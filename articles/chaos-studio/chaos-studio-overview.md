@@ -5,7 +5,7 @@ services: chaos-studio
 author: johnkemnetz
 ms.topic: overview
 ms.date: 05/27/2022
-ms.author: azchaosstudiopm
+ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-overview,ignite-fall-2021, kr2b-contr-experiment
 ---

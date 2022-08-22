@@ -4,7 +4,7 @@ description: Create an experiment that uses an AKS Chaos Mesh fault with the Azu
 author: johnkemnetz
 ms.topic: how-to
 ms.date: 04/21/2022
-ms.author: azchaosstudiopm
+ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021
 ---

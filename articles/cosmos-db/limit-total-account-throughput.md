@@ -1,11 +1,11 @@
 ---
 title: Limit the total throughput provisioned on your Azure Cosmos DB account
 description: Learn how to limit the total throughput provisioned on your Azure Cosmos DB account
-author: rothja
+author: seesharprun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/31/2022
-ms.author: jroth
+ms.author: sidandrews
 ms.custom: ignite-fall-2021
 ---
 

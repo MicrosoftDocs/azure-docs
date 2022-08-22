@@ -5,7 +5,7 @@ services: chaos-studio
 author: johnkemnetz
 ms.topic: sample
 ms.date: 11/11/2021
-ms.author: azchaosstudiopm
+ms.author: johnkem
 ms.service: chaos-studio
 ---
 

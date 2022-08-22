@@ -2,7 +2,7 @@
 title: Create an experiment that uses a service-direct fault using Azure Chaos Studio with the Azure CLI
 description: Create an experiment that uses a service-direct fault with the Azure CLI
 author: johnkemnetz
-ms.author: azchaosstudiopm
+ms.author: johnkem
 ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 11/10/2021

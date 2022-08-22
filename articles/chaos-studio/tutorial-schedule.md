@@ -5,7 +5,7 @@ services: chaos-studio
 author: johnkemnetz
 ms.topic: tutorial
 ms.date: 11/12/2021
-ms.author: azchaosstudiopm
+ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-tutorial
 ---
