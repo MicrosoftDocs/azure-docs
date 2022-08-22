@@ -5,19 +5,19 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/06/2022
+ms.date: 08/22/2022
 ms.author: mikaelw
 ---
 # Running a reindex job
 
-There are scenarios where you may have search or sort parameters in the FHIR service in Azure Health Data Services (hereby called FHIR service) that haven't yet been indexed. This scenario is relevant when you define your own search parameters. Until the search parameter is indexed, it can't be used in search. This article covers an overview of how to run a reindex job to index any search or sort parameters that haven't yet been indexed in your database.
+There are scenarios where you may have search parameters in the FHIR service in Azure Health Data Services that haven't yet been indexed. This scenario is relevant when you define your own search parameters. Until the search parameter is indexed, it can't be used in live production. This article covers an overview of how to run a reindex job to index any search parameters that haven't yet been indexed in your database.
 
 > [!Warning]
 > It's important that you read this entire article before getting started. A reindex job can be very performance intensive. This article includes options for how to throttle and control the reindex job.
 
 ## How to run a reindex job 
 
-To start a reindex job, use the following code example:
+To start a reindex job for a specific search parameter, use the following code example:
 
 ```json
 POST {{FHIR URL}}/$reindex 
@@ -30,6 +30,8 @@ POST {{FHIR URL}}/$reindex
 
 }
  ```
+
+Note that the parameter name (e.g., `USCoreRace`) 
 
 If the request is successful, a status of **201 Created** gets returned. The result of this message will look like:
 
