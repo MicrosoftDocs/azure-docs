@@ -33,6 +33,8 @@ To get started, you'll need:
 
 - An [Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
+- [Register an application](./tutorial-register-applications.md)
+
 - [Contact Deduce](mailto:support@deduce.com) to configure a test or production environment.
 
 - Ability to use Azure AD B2C custom policies. If you can't, complete the steps in [Get started with custom policies in Azure AD B2C](custom-policy-overview.md) to learn how to use custom policies.
