@@ -1335,6 +1335,8 @@
         href: lanschool-air-tutorial.md
       - name: LaunchDarkly
         href: launchdarkly-tutorial.md
+      - name: Lattice
+        href: lattice-tutorial.md
       - name: LawVu
         href: lawvu-tutorial.md  
       - name: LCVista
