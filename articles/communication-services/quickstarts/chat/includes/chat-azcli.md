@@ -54,7 +54,7 @@ az communication chat thread create --topic "<chatTopic>" --endpoint "<endpoint>
 ### Update the topic of a chat thread
 
 ```azurecli-interactive
-az communication chat thread update-topic --thread <chatThreadId> --topic "<chatTopic>" --endpoint "<endpoint>" --access-token "<token>"
+az communication chat thread update-topic --thread "<chatThreadId>" --topic "<chatTopic>" --endpoint "<endpoint>" --access-token "<token>"
 ```
 
 - Replace `<chatThreadId>` with your chat thread ID.
