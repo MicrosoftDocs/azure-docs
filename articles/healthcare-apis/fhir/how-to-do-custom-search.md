@@ -5,19 +5,19 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/06/2022
+ms.date: 08/22/2022
 ms.author: mikaelw
 ---
 # Defining custom search parameters
 
-The FHIR specification defines a set of search parameters for all resources and search parameters that are specific to a resource(s). However, there are scenarios where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own [search parameters](https://www.hl7.org/fhir/searchparameter.html) to be used in the FHIR service in Azure Health Data Services (hereby called FHIR service).
+The FHIR specification defines a set of search parameters that apply to all resources and other search parameters that are specific to certain resources. However, there are scenarios where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own [search parameters](https://www.hl7.org/fhir/searchparameter.html) to be used in the FHIR service in Azure Health Data Services.
 
 > [!NOTE]
 > Each time you create, update, or delete a search parameter you’ll need to run a [reindex job](how-to-run-a-reindex.md) to enable the search parameter to be used in production. Below we will outline how you can test search parameters before reindexing the entire FHIR service.
 
 ## Create new search parameter
 
-To create a new search parameter, you `POST` the `SearchParameter` resource to the database. The code example below shows how to add the [US Core Race SearchParameter](http://hl7.org/fhir/us/core/STU3.1.1/SearchParameter-us-core-race.html) to the `Patient` resource.
+To create a new search parameter, you `POST` a `SearchParameter` resource to the database. The code example below shows how to add the [US Core Race search parameter](http://hl7.org/fhir/us/core/STU3.1.1/SearchParameter-us-core-race.html) to the `Patient` resource.
 
 ```rest
 POST {{FHIR_URL}}/SearchParameter
@@ -64,17 +64,17 @@ POST {{FHIR_URL}}/SearchParameter
 ``` 
 
 > [!NOTE]
-> The new search parameter will appear in the capability statement of the FHIR service after you POST the search parameter to the database **and** reindex your database. Viewing the `SearchParameter` in the capability statement is the only way tell if a search parameter is supported in your FHIR service. If you can find the search parameter by searching for the search parameter but cannot see it in the capability statement, you still need to index the search parameter. You can POST multiple search parameters before triggering a reindex operation.
+> The new search parameter will appear in the capability statement of the FHIR service after you POST the search parameter to the database **and** reindex your database. Viewing the `SearchParameter` in the capability statement is the only way to tell if a search parameter is supported in your FHIR service. If you cannot find the `SearchParameter` in the capability statement, then you still need to reindex your database to activate the search parameter. You can POST multiple search parameters before triggering a reindex operation.
 
 Important elements of a `SearchParameter`:
 
-* **url**: A unique key to describe the search parameter. Many organizations, such as HL7, use a standard URL format for the search parameters that they define, as shown above in the US Core race search parameter.
+* **url**: A unique key to describe the search parameter. Organizations such as HL7 use a standard URL format for the search parameters that they define, as shown above in the US Core Race search parameter.
 
-* **code**: The value stored in **code** is what you’ll use when searching. For the example above, you would search with `GET {FHIR_URL}/Patient?race=<code>` to get all patients of a specific race. The code must be unique for the resource(s) the search parameter applies to.
+* **code**: The value stored in **code** is what you’ll use when searching. For the example above, you would search with `GET {{FHIR_URL}}/Patient?race=<code>` to retrieve all patients of a specific race. The coding system must be unique for the resource type(s) that the search parameter applies to.
 
-* **base**: Describes which resource(s) the search parameter applies to. If the search parameter applies to all resources, you can use `Resource`; otherwise, you can list all the relevant resources.
+* **base**: Describes which resource type(s) the search parameter applies to. If the search parameter applies to all resources, you can use `Resource`; otherwise, you can list all the relevant resource types.
  
-* **type**: Describes the data type for the search parameter. Type is limited by the support for the FHIR service. This means that you can’t define a search parameter of type Special or define a [composite search parameter](overview-of-search.md) unless it's a supported combination.
+* **type**: Describes the data type for the search parameter. Type is limited by the support for data types in the FHIR service. This means that you can’t define a search parameter of type Special or define a [composite search parameter](overview-of-search.md) unless it's a supported combination.
 
 * **expression**: Describes how to calculate the value for the search. When describing a search parameter, you must include the expression, even though it isn't required by the specification. This is because you need either the expression or the xpath syntax and the FHIR service ignores the xpath syntax.
 
