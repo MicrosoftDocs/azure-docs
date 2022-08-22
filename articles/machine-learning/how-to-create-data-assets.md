@@ -20,14 +20,14 @@ ms.date: 05/24/2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](./v1/how-to-create-register-datasets.md)
-> * [v2 (current version)](how-to-create-register-data-assets.md)
+> * [v2 (current version)](how-to-create-data-assets.md)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 [!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
-In this article, you learn how to create a Data asset in Azure Machine Learning. By creating a Data asset, you create a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. You can create Data from Datastores, Azure Storage, public URLs, and local files.
+In this article, you learn how to create a data asset in Azure Machine Learning. By creating a data asset, you create a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. You can create Data from datastores, Azure Storage, public URLs, and local files.
 
-The benefits of creating Data assets are:
+The benefits of creating data assets are:
 
 * You can **share and reuse data** with other members of the team such that they do not need to remember file locations.
 
@@ -38,7 +38,7 @@ The benefits of creating Data assets are:
 
 ## Prerequisites
 
-To create and work with Data assets, you need:
+To create and work with data assets, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
