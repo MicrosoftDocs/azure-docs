@@ -15,7 +15,6 @@ ms.date: 11/19/2021
 
 # Network data access with Azure Machine Learning studio
 
-
 Data access is complex and it's important to recognize that there are many pieces to it. For example, accessing data from Azure Machine Learning studio is different than using the SDK. When using the SDK on your local development environment, you're directly accessing data in the cloud. When using studio, you aren't always directly accessing the data store from your client. Studio relies on the workspace to access data on your behalf.
 
 > [!IMPORTANT]
