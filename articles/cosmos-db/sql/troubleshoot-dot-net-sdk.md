@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues when using .NET SDK.
 author: seesharprun
 ms.service: cosmos-db
-ms.date: 03/05/2021
+ms.date: 08/19/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.subservice: cosmosdb-sql
@@ -63,9 +63,8 @@ If your app is deployed on [Azure Virtual Machines without a public IP address](
 * Assign a [public IP to your Azure VM](../../load-balancer/troubleshoot-outbound-connection.md#configure-an-individual-public-ip-on-vm).
 
 ### <a name="high-network-latency"></a>High network latency
-High network latency can be identified by using the [diagnostics string](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) in the V2 SDK or [diagnostics](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) in V3 SDK.
 
-If no [timeouts](troubleshoot-dot-net-sdk-request-timeout.md) are present and the diagnostics show single requests where the high latency is evident.
+High network latency can be identified by using the diagnostics.
 
 # [V3 SDK](#tab/diagnostics-v3)
 
@@ -76,20 +75,6 @@ ItemResponse<MyItem> response = await container.CreateItemAsync<MyItem>(item);
 Console.WriteLine(response.Diagnostics.ToString());
 ```
 
-Network interactions in the diagnostics will be for example:
-
-```json
-{
-    "name": "Microsoft.Azure.Documents.ServerStoreModel Transport Request",
-    "id": "0e026cca-15d3-4cf6-bb07-48be02e1e82e",
-    "component": "Transport",
-    "start time": "12: 58: 20: 032",
-    "duration in milliseconds": 1638.5957
-}
-```
-
-Where the `duration in milliseconds` would show the latency.
-
 # [V2 SDK](#tab/diagnostics-v2)
 
 The diagnostics are available when the client is configured in [direct mode](sql-sdk-connection-modes.md), through the `RequestDiagnosticsString` property:
@@ -98,33 +83,13 @@ The diagnostics are available when the client is configured in [direct mode](sql
 ResourceResponse<Document> response = await client.ReadDocumentAsync(documentLink, new RequestOptions() { PartitionKey = new PartitionKey(partitionKey) });
 Console.WriteLine(response.RequestDiagnosticsString);
 ```
-
-And the latency would be on the difference between `ResponseTime` and `RequestStartTime`:
-
-```bash
-RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1
-ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: rntbd://..., ...
-```
 --- 
 
-This latency can have multiple causes:
-
-* Your application is not running in the same region as your Azure Cosmos DB account.
-* Your [PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) or [ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) configuration is incorrect and is trying to connect to a different region to where your application is currently running on.
-* There might be a bottleneck on the Network interface because of high traffic. If the application is running on Azure Virtual Machines, there are possible workarounds:
-    * Consider using a [Virtual Machine with Accelerated Networking enabled](../../virtual-network/create-vm-accelerated-networking-powershell.md).
-    * Enable [Accelerated Networking on an existing Virtual Machine](../../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
-    * Consider using a [higher end Virtual Machine](../../virtual-machines/sizes.md).
+Please see our [latency troubleshooting guide](troubleshoot-dot-net-sdk-slow-request.md) once you have obtained diagnostics for the affected operations.
 
 ### Common query issues
 
-The [query metrics](sql-api-query-metrics.md) will help determine where the query is spending most of the time. From the query metrics, you can see how much of it is being spent on the back-end vs the client. Learn more about [troubleshooting query performance](troubleshoot-query-performance.md).
-
-* If the back-end query returns quickly, and spends a large time on the client check the load on the machine. It's likely that there are not enough resource and the SDK is waiting for resources to be available to handle the response.
-* If the back-end query is slow, try [optimizing the query](troubleshoot-query-performance.md) and looking at the current [indexing policy](../index-overview.md)
-
-    > [!NOTE]
-    > For improved performance, we recommend Windows 64-bit host processing. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally. ServiceInterop.dll is supported only on the Windows x64 platform. For Linux and other unsupported platforms where ServiceInterop.dll isn't available, an additional network call will be made to the gateway to get the optimized query.
+The [query metrics](sql-api-query-metrics.md) will help determine where the query is spending most of the time. From the query metrics, you can see how much of it is being spent on the back-end vs the client. Learn more on the [query performance guide](performance-tips-query-sdk.md?pivots=programming-language-csharp).
 
 If you encounter the following error: `Unable to load DLL 'Microsoft.Azure.Cosmos.ServiceInterop.dll' or one of its dependencies:` and are using Windows, you should upgrade to the latest Windows version.
 
