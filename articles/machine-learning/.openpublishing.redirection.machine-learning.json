@@ -3405,6 +3405,11 @@
         "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/add-columns.md",
         "redirect_url": "/azure/machine-learning/component-reference/add-columns",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/concept-differential-privacy.md",
+        "redirect_url": "/azure/machine-learning/concept-responsible-ml#privacy-and-security",
+        "redirect_document_id": true
     }
 ]
 }
