@@ -75,7 +75,6 @@
       - name: Create databases and users
         href: single-server/how-to-create-users.md
         displayName: users
- 
   - name: Concepts
     items:
     - name: Server Management
@@ -128,6 +127,8 @@
       items:
       - name: Backup & Restore concepts
         href: flexible-server/concepts-backup-restore.md
+      - name: Trigger On-Demand Backup using Azure portal
+        href: flexible-server/how-to-trigger-on-demand-backup.md
   - name: Integrations
     items:
     - name: Azure advisor

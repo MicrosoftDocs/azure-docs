@@ -68,7 +68,7 @@ There are two different sets of credentials stored on the Arc resource bridge. B
 - **Account for Arc resource bridge**. This account is used for deploying the Arc resource bridge VM and will be used for upgrade.
 - **Account for VMware cluster extension**. This account is used to discover inventory and perform all VM operations through Azure Arc-enabled VMware vSphere
 
-To update the credentials of the account for Arc resource bridge, use the Azure CLI command [`az arcappliance update-infracredentials vmware`](/cli/azure/arcappliance/update-infracredential#az-arcappliance-update-infracredentials-vmware). Run the command from a workstation that can access cluster configuration IP address of the Arc resource bridge locally:
+To update the credentials of the account for Arc resource bridge, use the Azure CLI command [`az arcappliance update-infracredentials vmware`](/cli/azure/arcappliance/update-infracredentials#az-arcappliance-update-infracredentials-vmware). Run the command from a workstation that can access cluster configuration IP address of the Arc resource bridge locally:
 
 ```azurecli
 az arcappliance update-infracredentials vmware --kubeconfig <kubeconfig>
