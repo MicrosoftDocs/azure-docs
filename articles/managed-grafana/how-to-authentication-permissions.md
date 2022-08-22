@@ -10,7 +10,7 @@ ms.date: 08/22/2022
 
 # Set up Azure Managed Grafana authentication and permissions
 
-To process data, Azure Managed Grafana needs permission to access data sources. In this guide, learn how to set up authentication during the creation of the Azure Managed Grafana instance, so that your instance can access data sources using a system-assigned managed identity or a service principal. This guide also introduces the option to add a Monitoring Reader role assignment on the target subscription.
+To process data, Azure Managed Grafana needs permission to access data sources. In this guide, learn how to set up authentication during the creation of the Azure Managed Grafana instance, so that Grafana can access data sources using a system-assigned managed identity or a service principal. This guide also introduces the option to add a Monitoring Reader role assignment on the target subscription.
 
 ## Prerequisite
 
@@ -36,11 +36,13 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 ---
 
-## Create a workspace: basic and advanced settings
+## Create a workspace
 
 Create a workspace with the Azure portal or the CLI.
 
 ### [Portal](#tab/azure-portal)
+
+#### Create a workspace: basic and advanced settings
 
 1. In the upper-left corner of the home page, select **Create a resource**. In the **Search resources, services, and docs (G+/)** box, enter *Azure Managed Grafana* and select **Azure Managed Grafana**.
 
@@ -89,7 +91,7 @@ System-assigned managed identity is the default authentication method provided t
 
 1. **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is disabled.
 
-1. Under **Grafana administrator role**, if you have the Owner or User Access Administrator role for the subscription, the box **Include myself** is checked by default . Optionally select **Add** to grant the Grafana administrator role to more members. If you don't have the necessary role, you will not be able to manage Grafana access rights yourself.
+1. Under **Grafana administrator role**, if you have the Owner or User Access Administrator role for the subscription, the box **Include myself** is checked by default. Optionally select **Add** to grant the Grafana administrator role to more members. If you don't have the necessary role, you won't be able to manage Grafana access rights yourself.
 
 > [!CAUTION]
 > Turning off system-assigned managed identity, disables the Azure Monitoring data source plugin for your Azure Managed Grafana instance.
@@ -104,7 +106,7 @@ System-assigned managed identity is the default authentication method provided t
 
  ### [Azure CLI](#tab/azure-cli)
 
-Run the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command below to create a resource group to organize the Azure resources needed. Skip this step if you already have a resource group you want to use.
+Run the [az group create](/cli/azure/group#az-group-create) command below to create a resource group to organize the Azure resources needed. Skip this step if you already have a resource group you want to use.
 
 | Parameter  | Description                                                                                                                                                                                           | Example      |
 |------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
@@ -120,7 +122,7 @@ az group create --location <location> --name <resource-group-name>
 
 #### With managed identity enabled
 
-System-assigned managed identity is the default authentication method for Azure Managed Grafana. Run the [az grafana create](/cli/azure/grafana?view=azure-cli-latest#az-grafana-create) command below to create an Azure Managed Grafana instance with system-assigned managed identity.
+System-assigned managed identity is the default authentication method for Azure Managed Grafana. Run the [az grafana create](/cli/azure/grafana#az-grafana-create) command below to create an Azure Managed Grafana instance with system-assigned managed identity.
 
 1. If you have the owner or administrator role on this subscription:
 
@@ -167,8 +169,6 @@ az grafana create --name <managed-grafana-resource-name> --resource-group <resou
 > Turning off system-assigned managed identity, disables the Azure Monitoring data source plugin for your Azure Managed Grafana instance.
 
 Once the deployment is complete, you'll see a note in the output of the command line stating that the instance was successfully created, alongside with additional information about the deployment.
-
-## Create a workspace: basic and advanced settings
 
 ---
 
