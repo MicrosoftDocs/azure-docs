@@ -83,7 +83,7 @@ The following steps provide example EFLOW PowerShell commands to share one or mo
                     "hostFolderPath": "Read-Write-Access", 
                     "readOnly": false, 
                     "targetFolderOnGuest": "/tmp/host-read-write-access" 
-                },
+                }
             ]
         }
     ]
