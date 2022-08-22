@@ -19,7 +19,6 @@ landingContent:
         links:
           - text: What is Azure Managed Grafana?
             url: overview.md
-            
   - title: Create an instance
     linkLists:
       - linkListType: get-started
@@ -40,6 +39,8 @@ landingContent:
             url: how-to-enable-zone-redundancy.md
           - text: Create and manage API keys
             url: how-to-create-api-keys.md
+          - text: Set up authentication and permissions
+            url: how-to-authentication-permissions.md
   - title: Manage Azure Managed Grafana
     linkLists:
       - linkListType: how-to-guide

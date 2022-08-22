@@ -14,7 +14,7 @@ By default, when a Grafana instance is created, Azure Managed Grafana grants it 
 
 This means that the new Grafana instance can access and search all monitoring data in the subscription, including viewing the Azure Monitor metrics and logs from all resources, and any logs stored in Log Analytics workspaces in the subscription.
 
-In this article, you'll learn how to manually edit permissions for a specific resource.
+In this article, you'll learn how to manually grant permission for Azure Managed Grafana to access an Azure resource using a managed identity.
 
 ## Prerequisites
 
