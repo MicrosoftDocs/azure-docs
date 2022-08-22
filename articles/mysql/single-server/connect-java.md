@@ -302,7 +302,7 @@ Using your favorite IDE, create a new Java project, and add a `pom.xml` file in 
         <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-identity-providers-jdbc-mysql</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>
