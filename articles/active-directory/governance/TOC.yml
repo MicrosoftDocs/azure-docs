@@ -198,7 +198,7 @@
         href: ../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
   - name: Lifecycle Workflows (Preview)
     items:
-      - name: Lifecycle Workflows Deployment (Preview)
+      - name: Deployment (Preview)
         href: lifecycle-workflows-deployment.md   
       - name: Create
         items: 
