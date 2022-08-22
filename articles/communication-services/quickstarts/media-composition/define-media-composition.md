@@ -438,4 +438,6 @@ In this section you learned how to:
 
 You may also want to:
  - Learn about [media composition concept](../../concepts/voice-video-calling/media-comp.md)
+ - Get started on [media composition](./get-started-media-composition.md)
+
 <!--  -->

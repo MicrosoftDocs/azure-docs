@@ -142,6 +142,6 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 * [Connect to Azure storage](how-to-access-data.md)
 * [Get data from a datastore](how-to-create-register-datasets.md)
-* [Connect to data](how-to-connect-data-ui.md)
-* [Train with datasets](how-to-train-with-datasets.md)
+* [Connect to data](v1/how-to-connect-data-ui.md)
+* [Train with datasets](v1/how-to-train-with-datasets.md)
 * [Customer-managed keys](concept-customer-managed-keys.md).
