@@ -93,7 +93,7 @@ To change the redundancy option for your storage account in the Azure portal, fo
 1. Update the **Redundancy** setting.
 1. **Save**.
 
-    :::image type="content" source="media/migration-guides/storage-change-replication-option.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="media/redundancy-migration/change-replication-option.png":::
+    :::image type="content" source="media/migration-guides/storage-change-replication-option.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="media/migration-guides/storage-change-replication-option.png":::
 
 #### Request a live migration by creating a support request
 
