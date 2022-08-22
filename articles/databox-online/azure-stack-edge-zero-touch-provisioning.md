@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/12/2022
+ms.date: 08/22/2022
 ms.author: alkohli
 ---
 # Use Zero Touch Provisioning to configure Azure Stack Edge
@@ -20,7 +20,7 @@ Use Zero Touch Provisioning as an alternative to the local web user interface se
 ## Zero Touch Provisioning considerations
 
 - You can apply updates to a device until it's activated. To update devices after activation or to manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
-- You can't update device authentication using Zero Touch Provisioning. To update device authentication settings, see [Change device password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password).
+- You can't update device authentication using Zero Touch Provisioning. To update the device authentication settings, see [Change device password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password).
 - You can only provision single-node devices using Zero Touch Provisioning. Two-node cluster configuration isn't supported.
 - You can apply individual configuration updates to a device using PowerShell cmdlets, or you can apply bulk configuration updates using a JSON file.
 
@@ -50,7 +50,7 @@ The following PowerShell cmdlets are supported to configure Azure Stack Edge dev
 |Get-DeviceConfigurationStatus|Fetch the status of in-flight configuration changes being applied to the device to determine whether the update succeeded, failed, or is still in progress.|
 |Get-DeviceDiagnostic|Fetch diagnostic status of the device.|
 |Start-DeviceDiagnostic|Start a new diagnostic run to verify updated status after a device setup configuration package is applied.|
-|To-json|Fetch the entire device configuration.|
+|To-json|A utility command that formats cmdlet response in a JSON file.|
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ Use the following steps to sign into a device, change the password, and fetch th
    For any subsequent sign into the device, use:
 
    ```azurepowershell
-   Set-Login “https://<SerialNumber>.local” “<Password>”
+   Set-Login “https://<SerialNumber>.local” “<CurrentPassword>”
    ```
 
 1. Fetch the device configuration.
@@ -104,11 +104,10 @@ Use the following steps to sign into a device, change the password, and fetch th
 
 ## Apply a partial configuration to a device
 
-Use the following steps to prepare a JSON package with the configuration to apply to devices. This sequence of cmdlets signs into the device, sets the time zone, modifies the ServerType property, creates a JSON package for those properties, and then applies the package to the device.
+Use the following steps to prepare a JSON package with the configuration to apply to devices.
 
-After applying the JSON package to the device, the sequence continues by running a status command to verify successful device update. Then it fetches the device configuration and saves the JSON configuration file to the local drive for reuse on one or more additional devices.
-
-Use a config.json file with properties that meets the needs of your organization. A [sample config.json file is available here](Need URL to file in repo).
+> [!NOTE]
+> Use a config.json file with properties that meets the needs of your organization. A [sample config.json file is available here](Need URL to file in repo).
 
 Run the following cmdlets in PowerShell:
 
@@ -159,6 +158,7 @@ Run the following cmdlets in PowerShell:
    ```azurepowershell
    Get-DeviceConfiguration | to-json | Out-File "C:\<Local path>\testconfig2.json"
    ```
+   Sample output:
 
 ## Apply a full configuration to a device, without device activation
 
@@ -174,7 +174,10 @@ Run the following cmdlets in PowerShell:
    Set-Login "https://<IP address>" "<Password>"
    ```
 
-1. Before you update the device with a new configuration, update the JSON file with the device node.id of the device to be updated. Each device has a unique node.id.
+1. Before you update the device with a new configuration, update the JSON file with the device node.id of the device to be updated. 
+
+   > [!NOTE]
+   > Each device has a unique node.id.
 
    Fetch the node.id from the device with the following command from PowerShell:
 
@@ -231,7 +234,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that a devi
 1. Create a package with the activation object and activation key.
 
    ```azurepowershell
-   $p. = New-Package -activation $activation
+   $p = New-Package -activation $activation
    ```
 
 1. Run the package.
@@ -283,6 +286,24 @@ Use the following steps to sign into the device, fetch the status of the webProx
    ```azurepowershell
    $p.device.webproxy
    ```
+
+## Run device diagnostics
+
+Use the following steps to sign into the device and run device diagnostics to verify updated status after a device setup configuration package is applied.
+
+1. Sign into the device.
+
+   ```azurepowershell
+   Set-Login "https://<IP address>" "Password"
+   ```
+
+1. Run device diagnostics.
+
+   ```azurepowershell
+   Start-DeviceDiagnostic
+   ```
+
+   Sample output:
 
 ## Troubleshooting
 
