@@ -14,8 +14,6 @@ ms.custom: references_regions
 
 This guide describes how to migrate Azure Storage accounts from non-availability zone support to availability zone support. We'll take you through the different options for migration.
 
-For details on how to switch from any Azure storage replication configuration to any other, see [Change how a storage account is replicated](../storage/common/redundancy-migration.md).
-
 Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the Service-Level Agreement (SLA) for Azure Storage even in the face of failures.
 
 Azure Storage offers the following types of replication:
@@ -27,7 +25,14 @@ Azure Storage offers the following types of replication:
 
 For an overview of each of these options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
-You can switch a storage account from one type of replication to any other type, but some switching scenarios are more straightforward than others. Changes between local and geo-redundant storage, or between non-read-access (RA) and read-access (RA) storage are simple changes that can be made quickly using the Azure portal, PowerShell or the Azure CLI. But changes between non-zone-redundant and zone-redundant replication types require migration of the data in the storage account and can take considerably longer. This article describes two basic options for migrating your storage account to availability zone support: live migration and manual migration.
+You can switch a storage account from one type of replication to any other type, but some switching scenarios are more straightforward than others. 
+
+> [!NOTE]
+> For details on how to switch from any Azure storage replication configuration to any other, see [Change how a storage account is replicated](../storage/common/redundancy-migration.md).
+
+Changes between local and geo-redundant storage, or between non-read-access (RA) and read-access (RA) storage are simple changes that can be made quickly using the Azure portal, PowerShell or the Azure CLI. But changes between non-zone-redundant and zone-redundant replication types require migration of the data in the storage account and can take considerably longer. 
+
+This article describes two basic options for migrating your storage account to availability zone support: live migration and manual migration.
 
 ## Prerequisites
 
@@ -37,7 +42,7 @@ You can switch a storage account from one type of replication to any other type,
 
 ## Downtime requirements
 
-If you choose manual migration, downtime is required but you have more control over when the migration occurs. If you choose live migration, there's no downtime requirement but the migration process could take up to 72 hours to complete.
+If you choose manual migration, downtime is required but you have more control over when the migration starts. If you choose live migration, there's no downtime requirement but the migration process could take up to 72 hours to begin.
 
 ## Migration option 1: Live migration
 
@@ -76,7 +81,19 @@ However, be aware of the following limitations:
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-(portal instructions here)
+The customer-initiated live migration preview replaces the previous requirement to create a support request to perform a live migration. Now an Azure customer can easily initiate the migration from within the Azure portal. Once initiated, the actual migration could still take up to 72 hours to actually begin, but delays related to opening and managing a support request are eliminated and the storage administrator has more control over when the process is started.
+
+> [!NOTE]
+> Customer-initiated live migration is only available from the Azure portal, not from PowerShell or the Azure CLI.
+
+To change the redundancy option for your storage account in the Azure portal, follow these steps:
+
+1. Navigate to your storage account in the Azure portal.
+1. Under **Data management** select **Redundancy**.
+1. Update the **Redundancy** setting.
+1. **Save**.
+
+    :::image type="content" source="media/migration-guides/storage-change-replication-option.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="media/redundancy-migration/change-replication-option.png":::
 
 #### Request a live migration by creating a support request
 
