@@ -16,7 +16,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
-| Offers | ISVs can now publish 1-year and 3-year prices for their Virtual Machine plans to let customers save money when they commit for a long-term agreement. To learn more, see [Plan a virtual machine offer](marketplace-virtual-machines.md#reservation-pricing-optional). | 2022-08-24 |
+| Offers | ISVs can now publish 1-year and 3-year prices for their Virtual Machine plans to let customers save money when they commit for a long-term agreement. To learn more, see [Plan a virtual machine offer](azure-vm-plan-pricing-and-availability.md#configure-reservation-pricing-optional). | 2022-08-24 |
 | Offers | Software as a service (SaaS) plans now support 2-year and 3-year billing term with upfront, monthly or annually payment options. To learn more, see [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#saas-billing-terms-and-payment-options). | 2022-08-01 |
 | Offers | ISVs can now offer custom prices, terms, conditions, and pricing for a specific customer through private offers. See [ISV to customer private offers](isv-customer.md) and the [FAQ](isv-customer-faq.yml). | 2022-04-06 |
 | Offers | Publishers can now [change transactable offer and plan pricing](price-changes.md) without having to discontinue an offer and recreate it with new pricing (also see [this FAQ](price-changes-faq.yml)). | 2022-03-30 |
