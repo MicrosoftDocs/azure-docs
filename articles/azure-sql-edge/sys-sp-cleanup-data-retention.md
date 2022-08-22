@@ -1,14 +1,15 @@
 ---
 title: sys.sp_cleanup_data_retention (Transact-SQL) - Azure SQL Edge
 description: Learn about using sys.sp_cleanup_data_retention (Transact-SQL) in Azure SQL Edge
-keywords: sys.sp_cleanup_data_retention (Transact-SQL), SQL Edge
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.date: 09/22/2020
 ms.service: sql-edge
 ms.topic: reference
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 09/22/2020
+keywords:
+  - sys.sp_cleanup_data_retention (Transact-SQL)
+  - SQL Edge
+services: sql-edge
 ---
 
 # sys.sp_cleanup_data_retention (Transact-SQL)
