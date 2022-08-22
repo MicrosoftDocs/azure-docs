@@ -2,7 +2,7 @@
 title: Deploy template - Azure portal
 description: Learn how to create your first Azure Resource Manager template (ARM template) using the Azure portal. You also learn how to deploy it.
 author: mumian
-ms.date: 06/27/2022
+ms.date: 08/22/2022
 ms.topic: quickstart
 ms.author: jgao
 ms.custom: contperf-fy21q3, mode-ui
@@ -11,33 +11,30 @@ ms.custom: contperf-fy21q3, mode-ui
 
 # Quickstart: Create and deploy ARM templates by using the Azure portal 
 
-In this quickstart, you deploy an Azure storage account. You can use the same process for deploying other Azure resources.
+In this quickstart, you learn how to create an Azure Resource Manager template (ARM template) in the Azure portal. You edit and deploy the template from the portal.
 
 ARM templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
 After completing the tutorial, you deploy an Azure Storage account. The same process can be used to deploy other Azure resources.
 
- :::image type="content" source="./media/quickstart-create-templates-use-the-portal/arm-custom-template-diagram.png" alt-text="Resource Manager template quickstart portal diagram":::
-
-
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Retrieve a custom template
 
-Rather than manually building an entire ARM template, let's start by retrieving a pre-built template that accomplishes our goal. The [Azure Quickstart Templates repo](https://github.com/Azure/azure-quickstart-templates) repo contains a large collection of templates that deploy common scenarios. The portal makes it easy for you find and use templates from this repo. You can save the template and reuse it later."
+Rather than manually building an entire ARM template, let's start by retrieving a pre-built template that accomplishes our goal. The [Azure Quickstart Templates repo](https://github.com/Azure/azure-quickstart-templates) repo contains a large collection of templates that deploy common scenarios. The portal makes it easy for you find and use templates from this repo. You can save the template and reuse it later.
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com) and sign in.
 1. From the Azure portal search bar, search for **deploy a custom template** and then select it from the available options.
 
     :::image type="content" source="./media/quickstart-create-templates-use-the-portal/search-custom-template.png" alt-text="Search for Custom Template":::
 
-1. For Template source, notice that **Quickstart template** is selected by default. You can keep this selection. In the drop down, search for **quickstarts/microsoft.storage/storage-account-create** and select it. After finding the quickstart template, select **Select template.**
+1. For **Template** source, notice that **Quickstart template** is selected by default. You can keep this selection. In the drop down, search for *quickstarts/microsoft.storage/storage-account-create* and select it. After finding the quickstart template, select **Select template.**
 
     :::image type="content" source="./media/quickstart-create-templates-use-the-portal/select-custom-template.png" alt-text="Select Quickstart Template":::
 
 1. In the next blade, you provide custom values to use for the deployment.
 
-    For Resource group, select **Create new** and provide *myResourceGroup* for the name. You can use the default values for the other fields. When you've finished providing values, select **Review + create**.
+    For **Resource group**, select **Create new** and provide *myResourceGroup* for the name. You can use the default values for the other fields. When you've finished providing values, select **Review + create**.
 
     :::image type="content" source="./media/quickstart-create-templates-use-the-portal/input-fields-template.png" alt-text="Input Fields for Template":::
  
@@ -144,7 +141,7 @@ In this section, let's suppose you have an ARM template that you want to deploy 
 
 1. After the portal validates the template, select **Create**.
 
-1. When the deployment completes, you see the status of the deployment. This time selects the name of the resource group.
+1. When the deployment completes, you see the status of the deployment. This time select the name of the resource group.
 
    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/view-second-deployment.png" alt-text="View second deployment":::
 
@@ -154,15 +151,19 @@ In this section, let's suppose you have an ARM template that you want to deploy 
 
 ## Export a custom template 
 
+Sometimes the easiest way to work with an ARM template is to have the portal generate it for you. The portal can create an ARM template based on the current state of your resource group.
+
 1. In your resource group, select **Export template**. 
  
- :::image type="content" source="./media/quickstart-create-templates-use-the-portal/export-template.png" alt-text="Export Template":::
+   :::image type="content" source="./media/quickstart-create-templates-use-the-portal/export-template.png" alt-text="Export Template":::
 
 1. The portal generates a template for you based on the current state of the resource group. Notice that this template is not the same as either template you deployed earlier. It contains definitions for both the storage account and virtual network, along with other resources like a blob service that was automatically created for your storage account.
 
 1. To save this template for later use, select **Download**.
 
- :::image type="content" source="./media/quickstart-create-templates-use-the-portal/download-template.png" alt-text="Download exported template"::: 
+   :::image type="content" source="./media/quickstart-create-templates-use-the-portal/download-template.png" alt-text="Download exported template"::: 
+
+You now have an ARM template that represents the current state of the resource group. This template is auto-generated. Before using the template for production deployments, you may want to revise it, such as adding parameters for template reuse.
 
 ## Clean up resources
 
