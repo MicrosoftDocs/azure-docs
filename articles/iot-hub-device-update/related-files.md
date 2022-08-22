@@ -10,6 +10,8 @@ ms.service: iot-hub-device-update
 
 # Using the Related Files feature in Device Update for IoT Hub
 
+Use the Related Files feature when you need to express relationships between different update files in a single update.
+
 ## What is the Related Files feature?
 
 When importing an update to Device Update for IoT Hub, an import manifest containing metadata about the update payload is required. The file-level metadata in the import manifest can be a flat list of update payload files in the simplest case. However, for more advanced scenarios, you can instead use the Related Files feature, which provides a way for files to have a relationship specified between them.
