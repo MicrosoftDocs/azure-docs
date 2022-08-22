@@ -36,7 +36,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 ---
 
-## Create a workspace
+## Create a workspace and set up authentication and permissions
 
 Create a workspace with the Azure portal or the CLI.
 
