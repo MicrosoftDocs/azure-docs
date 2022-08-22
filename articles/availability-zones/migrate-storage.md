@@ -4,15 +4,17 @@ description: Learn how to migrate your Azure storage accounts to availability zo
 author: anaharris-ms
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 08/22/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions
 ---
 
 # Migrate Azure Storage accounts to availability zone support
- 
-This guide describes how to migrate Azure Storage accounts from non-availability zone support to availability support. We'll take you through the different options for migration.
+
+This guide describes how to migrate Azure Storage accounts from non-availability zone support to availability zone support. We'll take you through the different options for migration.
+
+For details on how to switch from any Azure storage replication configuration to any other, see [Change how a storage account is replicated](../storage/common/redundancy-migration.md).
 
 Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the Service-Level Agreement (SLA) for Azure Storage even in the face of failures.
 
@@ -25,7 +27,7 @@ Azure Storage offers the following types of replication:
 
 For an overview of each of these options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
-You can switch a storage account from one type of replication to any other type, but some scenarios are more straightforward than others. This article describes two basic options for migration. The first is a manual migration and the second is a live migration that you must initiate by contacting Microsoft support.
+You can switch a storage account from one type of replication to any other type, but some switching scenarios are more straightforward than others. Changes between local and geo-redundant storage, or between non-read-access (RA) and read-access (RA) storage are simple changes that can be made quickly using the Azure portal, PowerShell or the Azure CLI. But changes between non-zone-redundant and zone-redundant replication types require migration of the data in the storage account and can take considerably longer. This article describes two basic options for migrating your storage account to availability zone support: live migration and manual migration.
 
 ## Prerequisites
 
@@ -35,43 +37,13 @@ You can switch a storage account from one type of replication to any other type,
 
 ## Downtime requirements
 
-If you choose manual migration, downtime is required. If you choose live migration, there's no downtime requirement.
+If you choose manual migration, downtime is required but you have more control over when the migration occurs. If you choose live migration, there's no downtime requirement but the migration process could take up to 72 hours to complete.
 
-## Migration option 1: Manual migration
+## Migration option 1: Live migration
 
-### When to use a manual migration
+### When to perform a live migration
 
-Use a manual migration if:
-
-- You need the migration to be completed by a certain date.
-
-- You want to migrate your data to a ZRS storage account that's in a different region than the source account.
-
-- You want to migrate data from ZRS to LRS, GRS or RA-GRS.
-
-- Your storage account is a premium page blob or block blob account.
-
-- Your storage account includes data that's in the archive tier.
-
-### How to manually migrate Azure Storage accounts
-
-To manually migration your Azure Storage accounts:
-
-1. Create a new storage account in the primary region with Zone Redundant Storage (ZRS) as the redundancy setting.
-
-1. Copy the data from your existing storage account to the new storage account. To perform a copy operation, use one of the following options:
-
-    -  **Option 1:** Copy data by using an existing tool such as [AzCopy](../storage/common/storage-use-azcopy-v10.md), [Azure Data factory](../data-factory/connector-azure-blob-storage.md?tabs=data-factory), one of the Azure Storage client libraries, or a reliable third-party tool.
-
-    - **Option 2:** If you're familiar with Hadoop or HDInsight, you can attach both the source storage account and destination storage account to your cluster. Then, parallelize the data copy process with a tool like [DistCp](https://hadoop.apache.org/docs/r1.2.1/distcp.html).
-
-1. Determine which type of replication you need and follow the directions in [Switch between types of replication](../storage/common/redundancy-migration.md#switch-between-types-of-replication).
-
-## Migration option 2: Request a live migration
-
-### When to request a live migration
-
-Request a live migration if:
+Perform a live migration if:
 
 - You want to migrate your storage account from LRS to ZRS in the primary region with no application downtime.
 
@@ -95,16 +67,62 @@ However, be aware of the following limitations:
 
 - For premium performance, live migration is supported for premium file share accounts, but not for premium block blob or premium page blob accounts.
 
-### How to request a live migration
+### How to perform a live migration
 
-[Request a live migration](../storage/common/redundancy-migration.md) by creating a new support request from Azure portal.
+#### Customer-initiated live migration
+
+> [!IMPORTANT]
+> Customer-initiated live migration is currently in preview.
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+(portal instructions here)
+
+#### Request a live migration by creating a support request
+
+[Request a live migration](../storage/common/redundancy-migration.md) by creating a new support request from the Azure portal.
+
+## Migration option 2: Manual migration
+
+### When to use a manual migration
+
+Use a manual migration if:
+
+- You need the migration to be completed by a certain date.
+
+- You want to migrate your data to a ZRS storage account that's in a different region than the source account.
+
+- You want to migrate data from ZRS to LRS, GRS or RA-GRS.
+
+- Your storage account is a premium page blob or block blob account.
+
+- Your storage account includes data that's in the archive tier.
+
+### How to manually migrate Azure Storage accounts
+
+To manually migration your Azure Storage accounts:
+
+1. Create a new storage account in the primary region with Zone Redundant Storage (ZRS) as the redundancy setting.
+
+1. Copy the data from your existing storage account to the new storage account. To perform a copy operation, use one of the following options:
+
+    - **Option 1:** Copy data by using an existing tool such as [AzCopy](../storage/common/storage-use-azcopy-v10.md), [Azure Data factory](../data-factory/connector-azure-blob-storage.md?tabs=data-factory), one of the Azure Storage client libraries, or a reliable third-party tool.
+
+    - **Option 2:** If you're familiar with Hadoop or HDInsight, you can attach both the source storage account and destination storage account to your cluster. Then, parallelize the data copy process with a tool like [DistCp](https://hadoop.apache.org/docs/r1.2.1/distcp.html).
+
+1. Determine which type of replication you need and follow the directions in [Change how a storage account is replicated](../storage/common/redundancy-migration.md).
 
 ## Next steps
+
+For detailed guidance on changing the replication configuration for an Azure Storage account from one type to any other type, see:
+
+> [!div class="nextstepaction"]
+> [Change how a storage account is replicated](../storage/common/redundancy-migration.md)
 
 For more guidance on moving an Azure Storage account to another region, see:
 
 > [!div class="nextstepaction"]
-> [Move an Azure Storage account to another region](../storage/common/storage-account-move.md).
+> [Move an Azure Storage account to another region](../storage/common/storage-account-move.md)
 
 Learn more about:
 
