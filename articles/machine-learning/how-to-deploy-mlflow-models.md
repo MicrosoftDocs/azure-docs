@@ -408,7 +408,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    ml_client.begin_create_or_update(endpoint)
    ```
    
-1. Once the deployment is completed, the service is ready to recieve requests. If you are not sure about how to submit requests to the service, see [Creating requests](#creating-requests).
+1. Once the deployment is completed, the service is ready to receive requests. If you are not sure about how to submit requests to the service, see [Creating requests](#creating-requests).
     
 ## Deploy using Azure Machine Learning studio
 
