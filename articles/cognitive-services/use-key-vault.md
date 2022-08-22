@@ -94,7 +94,7 @@ Repeat these steps for both the key and point your retrieved in the previous ste
 
 We recommend creating an environment variable for your Azure key vault's name. Your application will read this environment variable at runtime to retrieve your key and endpoint information.
 
-To set environment variables, use one the following commands - where `KEY_VAULT_NAME` is the name of the environment variable, and `value` is the name of your key vault, which will be stored in the environment variable.
+To set environment variables, use one the following commands. `KEY_VAULT_NAME` will the name of the environment variable, and replace `replace-this-value` with the name of your key vault, which will be stored in the environment variable.
 
 # [Command Line](#tab/command-line)
 
@@ -102,7 +102,7 @@ Create and assign persisted environment variable, given the value.
 
 ```CMD
 :: Assigns the env var to the value
-setx KEY_VAULT_NAME="value"
+setx KEY_VAULT_NAME="replace-this-value"
 ```
 
 In a new instance of the **Command Prompt**, read the environment variable.
@@ -114,11 +114,11 @@ echo %KEY_VAULT_NAME%
 
 # [PowerShell](#tab/powershell)
 
-Create and assign persisted environment variable, given the value.
+Create and assign a persisted environment variable. Replace `replace-this-value` with the name of your key vault.
 
 ```powershell
 # Assigns the env var to the value
-[System.Environment]::SetEnvironmentVariable('KEY_VAULT_NAME', 'value', 'User')
+[System.Environment]::SetEnvironmentVariable('KEY_VAULT_NAME', 'replace-this-value', 'User')
 ```
 
 In a new instance of the **Windows PowerShell**, read the environment variable.
@@ -130,11 +130,11 @@ In a new instance of the **Windows PowerShell**, read the environment variable.
 
 # [Bash](#tab/bash)
 
-Create and assign persisted environment variable, given the value.
+Create and assign a persisted environment variable. Replace `replace-this-value` with the name of your key vault.
 
 ```Bash
 # Assigns the env var to the value
-echo export KEY_VAULT_NAME="value" >> /etc/environment && source /etc/environment
+echo export KEY_VAULT_NAME="replace-this-value" >> /etc/environment && source /etc/environment
 ```
 
 In a new instance of the **Bash**, read the environment variable.
