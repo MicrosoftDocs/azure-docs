@@ -34,7 +34,7 @@ Follow these steps to trigger back up on demand:
 
 4. Take backup page is shown. Provide a custom name for the backup in the Backup name field.
 
-    :::image type="content" source="./media/how-to-trigger-on-demand-backup/trigger-ondemand-backup.png" alt-text="Trigger On-demand backup":::
+    :::image type="content" source="./media/how-to-trigger-on-demand-backup/trigger-ondemand-backup.png" alt-text="Screenshot showing how to trigger On-demand backup.":::
 
 5. Select **Trigger**
 
