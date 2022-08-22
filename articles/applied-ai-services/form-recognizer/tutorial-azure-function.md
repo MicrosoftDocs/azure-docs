@@ -97,7 +97,19 @@ In this tutorial, you learn how to:
 
     * **Select how your would like to open your project** → choose open the project in the current window from the dropdown window.
 
-1. Once you've completed these steps, VSCode will add a new Azure Function project with a *\_\_init\_\_.py* Python script. This script will be triggered when a file is uploaded to the **input** storage container.
+1. Once you've completed these steps, VSCode will add a new Azure Function project with a *\_\_init\_\_.py* Python script. This script will be triggered when a file is uploaded to the **input** storage container:
+
+ ```python
+ import logging
+ 
+ import azure.functions as func
+ 
+ 
+ def main(myblob: func.InputStream):
+     logging.info(f"Python blob trigger function processed blob \n"
+                  f"Name: {myblob.name}\n"
+                  f"Blob Size: {myblob.length} bytes")
+ ```
 
 ## Test the function
 
