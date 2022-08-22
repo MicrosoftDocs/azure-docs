@@ -11,7 +11,6 @@ ms.date: 06/21/2021
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 recommendations: false
-ms.custom: ignite-fall-2021, mode-api
 ---
 
 # Get started with Form Recognizer client library SDKs or REST API
