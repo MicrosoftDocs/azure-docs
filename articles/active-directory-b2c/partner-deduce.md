@@ -71,7 +71,7 @@ Follow the instructions in [Get the starter pack](tutorial-create-user-flows.md?
 
 ### Step 2: Customize the Azure AD B2C user interface
 
-In order to collect the user_agent from client-side, create your own `ContentDefinition` with an arbitrary ID to include the related JavaScript. Determine the end-user browser's user_agent string and store it as a claim in Azure AD B2C.
+In order to collect the user_agent from client-side, create your own `**ContentDefinition**` with an arbitrary ID to include the related JavaScript. Determine the end-user browser's user_agent string and store it as a claim in Azure AD B2C.
 
 1. Download the api.selfasserted, [selfAsserted.cshtml](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/selfAsserted.cshtml), locally.
 
@@ -111,7 +111,7 @@ In order to collect the user_agent from client-side, create your own `ContentDef
 
 ### Step 3: Configure your storage location
 
-1. Set up a [blob storage container in your storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and upload the previously edited `selfAsserted.cshtml` file to your blob container.
+1. Set up a [blob storage container in your storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and upload the previously edited `**selfAsserted.cshtml**` file to your blob container.
 
 1. Allow CORS access to storage container you created by following these instructions:
 
@@ -151,7 +151,7 @@ Replace LoadUri with the url pointing to the `selfAsserted.cshtml` file created 
 
 ### Step 5: Add Deduce additional ClaimType
 
-The ClaimsSchema element defines the claim types that can be referenced as part of the policy. There are additional claims that Deduce supports and can be added.
+The **ClaimsSchema** element defines the claim types that can be referenced as part of the policy. There are additional claims that Deduce supports and can be added.
 
 1. Open the `TrustFrameworksExtension.xml`
 
@@ -431,7 +431,7 @@ The ClaimsSchema element defines the claim types that can be referenced as part 
 
 ### Step 6: Add Deduce ClaimsProvider
 
-A claims provider is an interface to communicate with different types of parties via its [technical profiles](https://docs.microsoft.com/azure/active-directory-b2c/technicalprofiles).
+A **claims provider** is an interface to communicate with different types of parties via its [technical profiles](https://docs.microsoft.com/azure/active-directory-b2c/technicalprofiles).
 
 - `SelfAsserted-UserAgent` self-asserted technical profile is used to collect user_agent from client-side.
 
@@ -533,7 +533,7 @@ Replace `apikey` and `site` with the information provided by Deduce.
 
 ### Step 7: Add a user journey
 
-At this point, the Deduce RESTfull API has been set up, but it's not yet available in any of the sign-up or sign-in pages. If you don't have your own custom user journey, create a duplicate of an existing template user journey, otherwise continue to the next step.
+At this point, the **Deduce RESTfull API** has been set up, but it's not yet available in any of the sign-up or sign-in pages. If you don't have your own custom user journey, create a duplicate of an existing template user journey, otherwise continue to the next step.
 
 1. Open the `TrustFrameworkBase.xml` file from the starter pack.
 
