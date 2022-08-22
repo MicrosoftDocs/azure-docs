@@ -2043,7 +2043,7 @@
     {
       "source_path_from_root": "/articles/active-directory/conditional-access/conditional-access-for-exo-and-spo.md",
       "redirect_url": "/azure/active-directory/conditional-access/block-legacy-authentication",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/conditional-access/baseline-protection.md",
@@ -4258,7 +4258,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/conditional-access/concept-conditional-access-block-legacy-authentication.md",
-      "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-block-legacy-authentication",
+      "redirect_url": "/azure/active-directory/conditional-access/block-legacy-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/concept-fundamentals-block-legacy-authentication.md",
+      "redirect_url": "/azure/active-directory/conditional-access/block-legacy-authentication",
       "redirect_document_id": true
     },
     {
