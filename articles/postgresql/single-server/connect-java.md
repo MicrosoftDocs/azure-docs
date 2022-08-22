@@ -224,7 +224,7 @@ EOF
 Run the sql script to create the Azure AD non-admin user:
 
 ```bash
-psql "host=$AZ_DATABASE_NAME.postgres.database.azure.com user=$AZ_POSTGRESQL_AD_ADMIN_USERNAME@$AZ_DATABASE_NAME dbname=demo port=5432 password='$' sslmode=require" < create_ad_user.sql
+psql "host=$AZ_DATABASE_NAME.postgres.database.azure.com user=$AZ_POSTGRESQL_AD_ADMIN_USERNAME@$AZ_DATABASE_NAME dbname=demo port=5432 password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` sslmode=require" < create_ad_user.sql
 ```
 
 Remove the temporary sql script file:
@@ -331,17 +331,21 @@ Create a *src/main/resources/application.properties* file, and add:
 
 #### [Credential-free connection (Recommended)](#tab/credential-free)
 
-```properties
-url=jdbc:postgresql://$AZ_DATABASE_NAME.postgres.database.azure.com:5432/demo?ssl=true&sslmode=require
-user=$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME@$AZ_DATABASE_NAME
+```bash
+cat << EOF > src/main/resources/application.properties
+url=jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?ssl=true&sslmode=require
+user=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+EOF
 ```
 
 #### [Password](#tab/password)
 
-```properties
-url=jdbc:postgresql://$AZ_DATABASE_NAME.postgres.database.azure.com:5432/demo?ssl=true&sslmode=require
-user=$AZ_POSTGRESQL_NON_ADMIN_USERNAME@$AZ_DATABASE_NAME
-password=$AZ_POSTGRESQL_NON_ADMIN_PASSWORD
+```bash
+cat << EOF > src/main/resources/application.properties
+url=jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?ssl=true&sslmode=require
+user=${AZ_POSTGRESQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+password=${AZ_POSTGRESQL_NON_ADMIN_PASSWORD}
+EOF
 ```
 
 ---
@@ -354,9 +358,11 @@ password=$AZ_POSTGRESQL_NON_ADMIN_PASSWORD
 
 We will use a *src/main/resources/`schema.sql`* file in order to create a database schema. Create that file, with the following content:
 
-```sql
+```bash
+cat << EOF > src/main/resources/schema.sql
 DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
+EOF
 ```
 
 ## Code the application
