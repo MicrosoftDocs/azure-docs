@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 08/16/2022
+ms.date: 08/22/2022
 tags: connectors
 ---
 
@@ -898,7 +898,39 @@ If you're receiving this error message and experience intermittent failures call
 
 1. Check SAP settings in your on-premises data gateway service configuration file, `Microsoft.PowerBI.EnterpriseGateway.exe.config`.
 
-   The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` and the timespan format is `HH:mm:ss.ff`.
+   1. Add a `configSections` element under the `configuration` root node if it is not already present.
+   1. Add a `section` element with attributes `name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"` under the `configSections` node if it is not already present.
+
+      > [!IMPORTANT]
+      > Do not modify attributes of existing `section` elements if such elements already exist.
+
+   1. If no other section or section group is declared in the configuration, the `configSections` element will be a follows:
+
+      ```xml
+      <configSections>
+        <section name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"/>
+      </configSections>
+      ```
+
+   1. Add a `SapAdapterSection` element under the `configuration` root node if it is not already present.
+   1. Add a `Broker` element with attributes `WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2"` under the `SapAdapterSection` node if it is not already present.
+
+      > [!IMPORTANT]
+      > Modify attributes of existing `Broker` element if such element already exists.
+
+   1. If no other element or attribute is declared in the SAP adapter configuration, the `SapAdapterSection` element will be a follows:
+
+      ```xml
+      <SapAdapterSection>
+        <Broker WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2" />
+      </SapAdapterSection>
+      ```
+
+      The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` and the timespan format is `HH:mm:ss.ff`.
+
+   > [!NOTE]
+   > For more information about the configuration file,
+   > read [Configuration file schema for .NET Framework](/dotnet/framework/configure-apps/file-schema/).
 
 1. Save your changes. Restart your on-premises data gateway.
 
