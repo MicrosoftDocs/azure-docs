@@ -1,6 +1,6 @@
 ---
-title: Created an Azure NetApp Files volume using customer-manager keys | Microsoft Docs
-description: Describes how to configure customer-managed keys in Azure NetApp Files. 
+title: Create an Azure NetApp Files volume using customer-manager keys | Microsoft Docs
+description: Describes how to create a volume in Azure NetApp Files using customer-managed keys. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -16,7 +16,7 @@ ms.date: 08/22/2022
 ms.author: anfdocs
 ---
 
-# Created an Azure NetApp Files volume using customer-manager keys
+# Create an Azure NetApp Files volume using customer-manager keys
 
 1. From Azure NetApp Files, select **Volumes** and then **+ Add volume**.    
 1. Follow the instructions in [Configure network features for an Azure NetApp Files volume](azure-netapp-files/configure-network-features.md) to:  

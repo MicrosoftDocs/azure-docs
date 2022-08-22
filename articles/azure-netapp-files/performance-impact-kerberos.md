@@ -64,6 +64,10 @@ There are two areas of focus: light load and upper limit. The following lists de
 * Average throughput decreased by 77% 
 * Average latency increased by 1.6 ms
 
+## 
+
+[!INCLUDE [nconnect krb5 performance warning](includes/kerberos-nconnect-performance.md)]
+
 ## Next steps  
 
 * [Configure NFSv4.1 Kerberos encryption for Azure NetApp Files](configure-kerberos-encryption.md) 
