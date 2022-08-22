@@ -69,7 +69,7 @@ Overall, the metrics provide:
 
 #### Example Metrics Use Cases
 ##### Alerts via a Prometheus AlertManager
-See a [configuration for these alerts](#setup-alerts-for-alertmanager) below.
+See a [configuration for these alerts](#set-up-alerts-for-alertmanager) below.
 1. Alert when NPM has a failure with an OS call or when translating a Network Policy.
 2. Alert when the median time to apply changes for a create event was more than 100 milliseconds.
 

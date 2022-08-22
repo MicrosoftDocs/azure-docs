@@ -59,7 +59,7 @@ Microsoft provides technical support for the following examples:
   * Connectivity to other Azure services and applications
   * Ingress controllers and ingress or load balancer configurations
   * Network performance and latency
-  * [Network policies](use-network-policies.md#differences-between-azure-and-calico-policies-and-their-capabilities)
+  * [Network policies](use-network-policies.md#differences-between-azure-npm-and-calico-policies-and-their-capabilities)
 
 
 > [!NOTE]
