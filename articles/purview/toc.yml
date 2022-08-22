@@ -28,7 +28,7 @@ items:
     items:
     - name: Share and receive data
       href: quickstart-data-share.md
-    - name: .NET Data Sharing
+    - name: .NET data sharing
       href: quickstart-data-share-dotnet.md
 - name: Tutorials
   items:
