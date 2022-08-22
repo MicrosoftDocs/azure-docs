@@ -67,7 +67,7 @@ When installing or migrating existing SAP on Oracle systems to Azure, the follow
 
 7.  Azure NetApp Files deployments should use Oracle dNFS (Oracle’s own high performance Direct NFS solution)
 
-8.  Large databases benefit greatly from very large SGA sizes. Large customers should deploy on Azure M-series with 4TB or more RAM size.
+8.  Large databases benefit greatly from large SGA sizes. Large customers should deploy on Azure M-series with 4TB or more RAM size.
 
     1.  Set Linux Huge Pages to 75% of Physical RAM size
 
@@ -102,7 +102,7 @@ Checklist for Oracle Automatic Storage Management:
 1.  All SAP on Oracle on Azure systems are running **ASM** including Development, QAS and Production. Small, Medium and Large databases
 2.  [**ASMLib**](https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/about-oracle-asm-with-oracle-asmlib.html)
     is used and not UDEV. UDEV is required for multiple SANs, a scenario that does not exist on Azure
-3.  ASM should be configured for **External Redundancy**. Azure Premium SSD storage has built in triple redundancy. Azure Premium SSD and SSD v2 matches the reliability and integrity of any other storage solution. For additional optional safety customers can consider **Normal Redundancy** for the Log Disk Group
+3.  ASM should be configured for **External Redundancy**. Azure Premium SSD storage has built in triple redundancy. Azure Premium SSD and SSD v2 matches the reliability and integrity of any other storage solution. For optional safety customers can consider **Normal Redundancy** for the Log Disk Group
 4.  No Mirror Log is required for ASM [888626 - Redo log layout for high-end systems](https://launchpad.support.sap.com/#/notes/888626)
 5.  ASM Disk Groups configured as per Variant 1, 2 or 3 below
 6.  ASM Allocation Unit size = 4MB (default). VLDB OLAP systems such as BW may benefit from larger ASM Allocation Unit size. Change only after confirming with Oracle support
@@ -128,7 +128,7 @@ Review the ASM documentation in the relevant SAP Installation Guide for Oracle a
 
 **Variant 1** – small to medium data volumes up to \~**3TB**, restore time not critical
 
-Customer has small or medium sized databases where backup and/or restore + recovery of all databases can be accomplished by RMAN in a timely fashion. Example: If a complete Oracle ASM disk group with data files from one or more databases is broken and all data files from all databases need to be restored to a newly created Oracle ASM disk group using RMAN.
+Customer has small or medium sized databases where backup and/or restore + recovery of all databases can be accomplished by RMAN in a timely fashion. Example: When a complete Oracle ASM disk group with data files from one or more databases is broken and all data files from all databases need to be restored to a newly created Oracle ASM disk group using RMAN.
 
 Oracle ASM disk group recommendation:
 
@@ -153,7 +153,7 @@ Oracle ASM disk group recommendation:
 <p>- Control file (first copy)</p>
 <p>- Online redo logs (first copy)</p></td>
 <td><p>3-6 x P30 (1TB)</p>
-<p>To increase DB size add additional P30 disks</p></td>
+<p>To increase DB size add extra P30 disks</p></td>
 </tr>
 <tr class="even">
 <td>+ARCH</td>
@@ -185,7 +185,7 @@ Major differences to Variant 1 are:
 1.  Separate Oracle ASM Disk Group for each database
 2.  \<DBNAME\>+“\_” is used as a prefix for the name of the DATA disk group
 3.  The number of the DATA disk group is appended if the database spans over more than one DATA disk group
-4.  No online redo logs are located in the “data” disk groups. Instead an additional disk group is used for the first member of each online redo log group.
+4.  No online redo logs are located in the “data” disk groups. Instead an extra disk group is used for the first member of each online redo log group.
 
 <table>
 <colgroup>
@@ -207,7 +207,7 @@ Major differences to Variant 1 are:
 <p>- All temp files</p>
 <p>- Control file (first copy)</p></td>
 <td><p>3-12 x P30 (1TB)</p>
-<p>To increase DB size add additional P30 disks</p></td>
+<p>To increase DB size, add additional P30 disks</p></td>
 </tr>
 <tr class="even">
 <td>+OLOG</td>
