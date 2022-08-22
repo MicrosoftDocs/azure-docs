@@ -59,7 +59,7 @@ In order to provide globally unique names to some resources, a 5 character suffi
 
 ## Create an Application Insights resource
 
-1. In the [Azure Portal](https://portal.azure.com), locate and select the **application-insights-azure-cafe** resource group.
+1. In the [Azure portal](https://portal.azure.com), locate and select the **application-insights-azure-cafe** resource group.
 
 2. From the top toolbar menu, select **+ Create**.
 
@@ -187,7 +187,7 @@ The preceding steps are enough to help you start collecting server-side telemetr
 
 ## Enable monitoring of database queries
 
-When investigating causes for performance degredation, it is important to include insights into database calls. Enable monitoring through configuration of the [dependency module](./asp-net-dependencies.md). Dependency monitoring, including SQL is enabled by default. The following steps can be followed to capture the full SQL query text.
+When investigating causes for performance degradation, it is important to include insights into database calls. Enable monitoring through configuration of the [dependency module](./asp-net-dependencies.md). Dependency monitoring, including SQL is enabled by default. The following steps can be followed to capture the full SQL query text.
 
 > [!NOTE]
 > SQL text may contain sensitive data such as passwords and PII. Be careful when enabling this feature.
@@ -252,7 +252,7 @@ The sample application makes calls to multiple Azure resources, including Azure 
 
 Application Insights introspects incoming telemetry data and is able to generate a visual map of detected system integrations.
 
-1. Access and log into the [Azure Portal](https://portal.azure.com).
+1. Access and log into the [Azure portal](https://portal.azure.com).
 
 2. Open the sample application resource group `application-insights-azure-cafe`.
 
@@ -264,7 +264,7 @@ Application Insights introspects incoming telemetry data and is able to generate
 
 ### Viewing HTTP calls and database SQL command text
 
-1. In the Azure Portal, open the Application Insights resource.
+1. In the Azure portal, open the Application Insights resource.
 
 2. Beneath the **Investigate** header on the left menu, select **Performance**.
 
@@ -347,7 +347,7 @@ The ValuesController above is deployed with the sample application and is locate
 
     ![A browser window displays with /api/Values appended to the URL in the address bar.](media/tutorial-asp-net-core/values-api-url.png "Values API URL")
 
-2. Wait a few moments, then return to the **Application Insights** resource in the [Azure Portal](https://portal.azure.com).
+2. Wait a few moments, then return to the **Application Insights** resource in the [Azure portal](https://portal.azure.com).
 
     ![A resource group displays with the Application Insights resource highlighted.](./media/tutorial-asp-net-core/application-insights-resource-group.png "Resource Group")
 
