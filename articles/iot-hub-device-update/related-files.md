@@ -1,6 +1,6 @@
 ---
 title: Related Files for Device Update for Azure IoT Hub | Microsoft Docs
-description: Understand how Device Update for IoT Hub ensures devices are updated securely.
+description: Understand the Device Update for IoT Hub Related Files feature.
 author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 08/22/2022
@@ -31,58 +31,59 @@ When you use the Related Files feature, you need to specify how to process these
 ### Example import manifest using Related Files
 
 The following is an example of an import manifest which uses the Related Files feature to import a delta update. In this example, you can see that in the `"Files"` section, there is a `"Properties"` item with an associated `"RelatedFiles"` item below it. Within the `"RelatedFiles"` section, you can see an additional `"Properties"` section for the delta update file, and also a `"downloadHandler"` item with the appropriate id listed (`"microsoft/delta:1"`).
-
+```json
+    {
+      "UpdateId": {
+        // Provider, Name, Version
+      },
+      "Compatibility": [
         {
-          "UpdateId": {
-            // Provider, Name, Version
+          // DeviceManufacturer, DeviceModel, etc.
+        }
+      ],
+      "Instructions": {
+        "Steps": [
+          // Inline steps...
+        ]
+      },
+      "Files": [
+        {  
+          // standard file properties
+          "FileName": "full-image-file-name",
+          "SizeInBytes": 12345,
+          "Hashes": {
+            "SHA256": "full-image-file-hash"
           },
-          "Compatibility": [
+          "MimeType": "application/octet-stream",
+          // new properties
+          "Properties  ": {},
+          "RelatedFiles": [
             {
-              // DeviceManufacturer, DeviceModel, etc.
-            }
-          ],
-          "Instructions": {
-            "Steps": [
-              // Inline steps...
-            ]
-          },
-          "Files": [
-            {  
+              // delta from version 1.0.0.0
               // standard file properties
-              "FileName": "full-image-file-name",
-              "SizeInBytes": 12345,
+              "FileName": "delta-from-v1-file-name",
+              "SizeInBytes": 1234,
               "Hashes": {
-                "SHA256": "full-image-file-hash"
+                "SHA256": "delta-from-v1-file-hash"
               },
               "MimeType": "application/octet-stream",
               // new properties
-              "Properties  ": {},
-              "RelatedFiles": [
-                {
-                  // delta from version 1.0.0.0
-                  // standard file properties
-                  "FileName": "delta-from-v1-file-name",
-                  "SizeInBytes": 1234,
-                  "Hashes": {
-                    "SHA256": "delta-from-v1-file-hash"
-                  },
-                  "MimeType": "application/octet-stream",
-                  // new properties
-                  "Properties": {
-                    "microsoft.sourceFileHash": "delta-source-file-hash",
-                    "microsoft.sourceFileHashAlgorithm": "sha256"
-                  }
-                }  
-              ],
-              // handler to download/process our related files
-          "downloadHandler": {
-            "id": "microsoft/delta:1"
-          }
-        }
-      ],
-      "CreatedDateTime": "2021-12-01T01:12:21Z",
-      "ManifestVersion": "5.0"
+              "Properties": {
+                "microsoft.sourceFileHash": "delta-source-file-hash",
+                "microsoft.sourceFileHashAlgorithm": "sha256"
+              }
+            }  
+          ],
+          // handler to download/process our related files
+      "downloadHandler": {
+        "id": "microsoft/delta:1"
+      }
     }
+  ],
+  "CreatedDateTime": "2021-12-01T01:12:21Z",
+  "ManifestVersion": "5.0"
+    }
+```
 
 ## Next steps
 
