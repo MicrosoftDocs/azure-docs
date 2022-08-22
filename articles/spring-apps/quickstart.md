@@ -213,7 +213,7 @@ Use the following steps to import the project.
 
 1. In the **App name:** textbox under **App Basics**, enter *hellospring*, and then check the **More settings** check box.
 1. Select the **Enable** button next to **Public endpoint**. The button changes to *Disable \<to be enabled\>*.
-1. If you are using Java 11, select **Java 11** for the **Runtime** option.
+1. If you're using Java 11, select **Java 11** for the **Runtime** option.
 1. Select **OK**.
 
    :::image type="content" source="media/quickstart/intellij-create-new-app-2.png" alt-text="Screenshot of IntelliJ IDEA Create Azure Spring Apps dialog box with public endpoint Disable button highlighted.":::
