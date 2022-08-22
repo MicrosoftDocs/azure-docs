@@ -1,8 +1,8 @@
 ---
 title: Use customer-managed keys to encrypt your configuration data 
 description: Encrypt your configuration data using customer-managed keys
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration

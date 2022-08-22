@@ -97,7 +97,7 @@ After you set your payout hold status to **On**, all payouts will be on hold unt
 
 ## Multi-user account management
 
-Partner Center uses [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process. 
+Partner Center uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process. 
 
 ## Manage users
 
@@ -282,7 +282,7 @@ To create a brand new Azure AD tenant with your Partner Center account:
 1. Select **Create** to confirm the new domain and account info.
 1. Sign in with your new Azure AD global administrator username and password to begin [adding and managing users](#manage-users).
 
-For more information about creating new tenants inside your Azure portal, rather than via the Partner Center portal, see the article [Create a new tenant in Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+For more information about creating new tenants inside your Azure portal, rather than via the Partner Center portal, see the article [Create a new tenant in Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 ### Remove a tenant
 
