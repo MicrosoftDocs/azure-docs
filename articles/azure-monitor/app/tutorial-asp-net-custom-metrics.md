@@ -23,7 +23,7 @@ If you'd like to follow along with the guidance in this article, certain pre-req
 * Visual Studio Workloads: ASP.NET and web development, Data storage and processing, and Azure development
 * .NET 6.0
 * Azure subscription and user account (with the ability to create and delete resources)
-* Deploy the [completed sample application (`2 - Completed Application`)](./tutorial-asp-net-core.md) or an existing ASP.NET Core application with the [Application Insights for ASP.NET Core](./asp-net-core.md#install-the-application-insights-nuget-package) NuGet package installed and [configured to gather server-side telemetry](./asp-net-core.md#enable-application-insights-server-side-telemetry).
+* Deploy the [completed sample application (`2 - Completed Application`)](./tutorial-asp-net-core.md) or an existing ASP.NET Core application with the [Application Insights for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package installed and [configured to gather server-side telemetry](asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
 ### Custom metrics overview
 
@@ -165,7 +165,7 @@ When running the sample code, you'll see that no telemetry is being sent from th
 
 1. From the Visual Studio Solution Explorer, locate and open the **HomeController.cs** file.
 
-2. Locate the `CreateReview` method and the code added in the previous [TrackMetric example](./custom-metrics.md#trackmetric-example).
+2. Locate the `CreateReview` method and the code added in the previous [TrackMetric example](#trackmetric-example).
 
 3. Replace the previously added code in _Step 3_ with the following one.
 
@@ -239,7 +239,7 @@ Once you have made that change and send new multi-dimensional telemetry, you'll 
 
 1. From the Visual Studio Solution Explorer, locate and open the **HomeController.cs** file.
 
-2. Locate the `CreateReview` method and the code added in the previous [GetMetric example](./custom-metrics.md#getmetric-example).
+2. Locate the `CreateReview` method and the code added in the previous [GetMetric example](#getmetric-example).
 
 3. Replace the previously added code in _Step 3_ with the following one.
 
