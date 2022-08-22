@@ -1,29 +1,29 @@
 ---
 title: 'Custom skill example (Python)'
 titleSuffix: Azure Cognitive Search
-description: For Python developers, learn the tools and techniques for building a custom skill using Azure Functions and Visual Studio. Custom skills contain user-defined models or logic that you can add to an AI-enriched indexing pipeline in Azure Cognitive Search.
+description: For Python developers, learn the tools and techniques for building a custom skill using Azure Functions and Visual Studio Code. Custom skills contain user-defined models or logic that you can add to a skillset for AI-enriched indexing in Azure Cognitive Search.
 
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.custom: devx-track-python
+ms.date: 08/22/2022
+ms.custom: vscode-azure-extension-update-completed
 ---
 
 # Example: Create a custom skill using Python
 
 In this Azure Cognitive Search skillset example, you will learn how to create a web API custom skill using Python and Visual Studio Code. The example uses an [Azure Function](https://azure.microsoft.com/services/functions/) that implements the [custom skill interface](cognitive-search-custom-skill-interface.md).
 
-The custom skill is simple by design (it concatenates two strings) so that you can focus on the tools and technologies used for custom skill development in Python. Once you succeed with a simple skill, you can branch out with more complex scenarios.
+The custom skill is simple by design (it concatenates two strings) so that you can focus on the pattern. Once you succeed with a simple skill, you can branch out with more complex scenarios.
 
 ## Prerequisites
 
-+ Review the [custom skill interface](cognitive-search-custom-skill-interface.md) for an introduction into the input/output interface that a custom skill should implement.
++ Review the [custom skill interface](cognitive-search-custom-skill-interface.md) to review the inputs and outputs that a custom skill should implement.
 
-+ Set up your environment. We followed [this tutorial end-to-end](/azure/python/tutorial-vs-code-serverless-python-01) to set up serverless Azure Function using Visual Studio Code and Python extensions. The tutorial leads you through installation of the following tools and components: 
++ Set up your environment. We followed [Quickstart: Create a function in Azure with Python using Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01) to set up serverless Azure Function using Visual Studio Code and Python extensions. The quickstart leads you through installation of the following tools and components: 
 
-  + [Python 3.75](https://www.python.org/downloads/release/python-375/)
+  + [Python 3.75 or later](https://www.python.org/downloads/release/python-375/)
   + [Visual Studio Code](https://code.visualstudio.com/)
   + [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   + [Azure Functions Core Tools](../azure-functions/functions-run-local.md#v2)
@@ -83,7 +83,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ```
 
-Now let's modify that code to follow the [custom skill interface](cognitive-search-custom-skill-interface.md)). Modify the code with the following content:
+Now let's modify that code to follow the [custom skill interface](cognitive-search-custom-skill-interface.md)). Replace the default code with the following content:
 
 ```py
 import logging
@@ -163,7 +163,7 @@ def transform_value(value):
             })
 ```
 
-The **transform_value** method performs an operation on a single record. You may modify the method to meet your specific needs. Remember to do any necessary input validation and to return any errors and warnings produced if the operation could not be completed for the record.
+The **transform_value** method performs an operation on a single record. You can modify the method to meet your specific needs. Remember to do any necessary input validation and to return any errors and warnings if the operation can't be completed.
 
 ### Debug your code locally
 
