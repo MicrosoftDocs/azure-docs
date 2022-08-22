@@ -55,7 +55,19 @@
       - name: Securing a custom VNET
         href: firewall-integration.md
     - name: Observability
-      href: observability.md
+      items:
+      - name: Observability Overview
+        href: observability.md
+      - name: Log streaming
+        href: log-streaming.md
+      - name: Container console
+        href: container-console.md
+      - name: Metrics
+        href: metrics.md
+      - name: Log monitoring
+        href: log-monitoring.md
+      - name: Alerts
+        href: alerts.md
     - name: Authentication
       href: authentication.md
     - name: Dapr integration

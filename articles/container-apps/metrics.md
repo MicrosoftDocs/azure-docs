@@ -1,0 +1,68 @@
+---
+title: Monitor Azure Container Apps metrics
+description: Monitor your running apps metrics
+services: container-apps
+author: cebundy
+ms.service: container-apps
+ms.custom: event-tier1-build-2022
+ms.topic: how-to
+ms.date: 07/29/2022
+ms.author: v-bcatherine
+---
+
+# Monitor Azure Container Apps metrics
+
+Azure Monitor collects metric data from your container app at regular intervals. These metrics help you gain insights into the performance and health of your container app. You can use metrics explorer in the Azure portal to monitor and analyze the metric data. You can also retrieve metric data through the [Azure CLI](/cli/azure/monitor/metrics) and Azure [PowerShell cmdlets](/powershell/module/az.monitor/get-azmetric).
+
+## Available metrics for Container Apps
+
+Container Apps provides these metrics.
+
+|Title  | Description | Metric ID |Unit  |
+|---------|---------|---------|---------|
+|CPU usage nanocores | CPU usage in nanocores (1,000,000,000 nanocores = 1 core) | UsageNanoCores| nanocores|
+|Memory working set bytes |Working set memory used in bytes |WorkingSetBytes |bytes|
+|Network in bytes|Network received bytes|RxBytes|bytes|
+|Network out bytes|Network transmitted bytes|TxBytes|bytes|
+|Requests|Requests processed|Requests|n/a|
+|Replica count| Number of active replicas| Replicas | n/a |
+|Replica Restart Count| Number of replica restarts | RestartCount | n/a |
+
+The metrics namespace is `microsoft.app/containerapps`.
+
+## View a current snapshot of your app's metrics
+
+On your container app **Overview** page in the Azure portal, select the **Monitoring** tab to display charts showing your container app's current CPU, memory, and network utilization.
+
+:::image type="content" source="media/observability/metrics-in-overview-page.png" alt-text="Screenshot of the Monitoring section in the container app overview page.":::
+
+From this view, you can pin one or more charts to your dashboard or select a chart to open it in the metrics explorer.
+
+## View metrics with metrics explorer
+
+The Azure Monitor metrics explorer lets you create charts from metric data to help you analyze your container app's resource and network usage over time. You can pin charts to a dashboard or in a shared workbook.
+
+1. Open the metrics explorer in the Azure portal by selecting **Metrics** from the sidebar menu on your container app page.  To learn more about metrics explorer, go to [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).
+
+1. Create a chart by selecting **Metric**.  You can modify the chart by changing aggregation, adding more metrics, changing time ranges and intervals, adding filters, and applying splitting.
+:::image type="content" source="media/observability/metrics-main-page.png" alt-text="Screenshot of the metrics explorer from the container app resource page.":::
+
+Optionally, you can create filters based on revisions and replicas.  To create a filter:
+1. Select **Add filter**
+1. Select a revision or replica from the **Property** list.
+1. Select values from the **Value** list.
+:::image type="content" source="media/observability/metrics-add-filter.png" alt-text="Screenshot of the metrics explorer showing the chart filter options.":::
+1. You can choose to split the metric information in your chart by revision or replica (except for Replica count, which you can only split by revision). The requests metric can also be split by status code and status code category. To split by revision:
+    1. Select **Apply splitting** 
+    1. Select **Revision** from the **Values** drop-down list. 
+
+Splitting is only available when the chart contains a single metric.
+
+:::image type="content" source="media/observability/metrics-apply-splitting.png" alt-text="Screenshot of the metrics explorer that shows a chart with metrics split by revision.":::
+
+You can add more scopes to view metrics across multiple container apps.
+
+:::image type="content" source="media/observability/metrics-across-apps.png" alt-text="Screenshot of the metrics explorer that shows a chart with metrics for multiple container apps.":::
+
+> [!div class="nextstepaction"]
+> [Set up alerts in Azure Container Apps](alerts.md)
