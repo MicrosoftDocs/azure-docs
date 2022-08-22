@@ -68,7 +68,7 @@ The URL of upstream is not encryption at rest. If you have any sensitive informa
    ```
 
 > [!NOTE]
-> The secret content only rereads when you change the Upstream settings or change the managed identity. Make sure you have granted secret read permission to the managed identity before using the Key Vault secret reference.
+> The service rereads the secret content every 30 minutes or whenever the upstream settings or managed identity changes. Try updating the Upstream settings if you'd like an immediate update when the Key Vault content is changed.
 
 ### Rule settings
 
