@@ -31,6 +31,11 @@
     "redirect_document_id":  false
 },
 {
+    "source_path":  "articles/security/fundamentals/azure-disk-encryption-vms-vmss.md",
+    "redirect_url":  "/azure/virtual-machines/disk-encryption-overview",
+    "redirect_document_id":  false
+},
+{
     "source_path":  "articles/germany/germany-get-started-connect-with-vs.md",
     "redirect_url":  "/previous-versions/azure/germany/germany-get-started-connect-with-vs",
     "redirect_document_id":  false
@@ -4574,6 +4579,11 @@
     "redirect_document_id":  false
 },
 {
+  "source_path_from_root":  "/articles/azure-resource-manager/bicep/linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md",
+  "redirect_url":  "/azure/azure-resource-manager/bicep/linter-rule-protect-commandtoexecute-secrets",
+  "redirect_document_id":  false
+},
+{
     "source_path_from_root":  "/articles/azure-resource-manager/templates/view-resources.md",
     "redirect_url":  "/azure/azure-resource-manager/templates/export-template-portal",
     "redirect_document_id":  false
@@ -5781,6 +5791,11 @@
 {
     "source_path_from_root":  "/articles/automation/manage-runas-account.md",
     "redirect_url":  "/azure/automation/manage-run-as-account",
+    "redirect_document_id":  false
+},
+{
+    "source_path_from_root":  "/articles/automation/quickstarts/create-account-portal.md",
+    "redirect_url":  "/azure/automation/create-azure-automation-account-portal",
     "redirect_document_id":  false
 },
 {
@@ -12839,6 +12854,16 @@
     "redirect_document_id":  true
 },
 {
+    "source_path_from_root":  "/articles/virtual-machines/linux/overview.md",
+    "redirect_url":  "/azure/virtual-machines/overview",
+    "redirect_document_id":  true
+},
+{
+    "source_path_from_root":  "/articles/virtual-machines/windows/overview.md",
+    "redirect_url":  "/azure/virtual-machines/overview",
+    "redirect_document_id":  false
+},
+{
     "source_path_from_root":  "/articles/virtual-machines/linux/cloudfoundry-get-started.md",
     "redirect_url":  "/azure/cloudfoundry/cloudfoundry-get-started",
     "redirect_document_id":  true
@@ -18294,9 +18319,24 @@
     "redirect_document_id":  false
 },
 {
-    "source_path_from_root":  "/articles/connectors/connectors-create-api-bingsearch.md",
+    "source_path_from_root": "/articles/connectors/connectors-create-api-bingsearch.md",
     "redirect_url":  "/connectors/bingsearch",
-    "redirect_document_id":  false
+    "redirect_document_id": false
+},
+{
+    "source_path_from_root": "/articles/connectors/connectors-create-api-twilio.md",
+    "redirect_url": "/connectors/twilio",
+    "redirect_document_id": false
+},
+{
+    "source_path_from_root": "/articles/connectors/connectors-create-api-sendgrid.md",
+    "redirect_url": "/connectors/sendgrid",
+    "redirect_document_id": false
+},
+{
+  "source_path_from_root":  "/articles/connectors/connectors-schema-migration.md",
+  "redirect_url":  "/azure/logic-apps/update-consumption-workflow-schema",
+  "redirect_document_id":  false
 },
 {
     "source_path_from_root":  "/articles/logic-apps/logic-apps-scenario-error-and-exception-handling.md",
@@ -34182,6 +34222,11 @@
     "source_path_from_root":  "/articles/virtual-machines/windows/winrm.md",
     "redirect_url":  "/azure/virtual-machines/windows/connect-winrm",
     "redirect_document_id":  false
+},
+{
+  "source_path_from_root": "/articles/virtual-machines/linux/copy-files-to-linux-vm-using-scp.md",
+  "redirect_url": "/azure/virtual-machines/copy-files-to-vm-using-scp",
+  "redirect_document_id": false
 }
 	]
 }
