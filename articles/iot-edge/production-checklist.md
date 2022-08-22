@@ -164,9 +164,9 @@ In some cases, for example when dependencies exist between modules, it may be de
                 "systemModules": {
                     "edgeAgent": {
                         "env": {
-+                           "ModuleUpdateMode": {
-+                               "value": "WaitForAllPulls"
-+                           }
+                            "ModuleUpdateMode": {
+                                "value": "WaitForAllPulls"
+                            }
                         ...
 }
 ```
@@ -234,12 +234,12 @@ If the default settings need to be modified, all of the parameters noted in the 
 | `cleanup_time` | Best-effort execution time when the cleanup job runs. `cleanup_time` is the device local time and should follow 24-hour HH:MM format. <br><br>  **Required** <br><br> Default value: *00:00* |
 
 The following is an example config.toml for image garbage collection. 
-```json
+```toml
 [image_garbage_collection]
-enabled = “true”  
-cleanup_recurrence = “1d”  
-image_age_cleanup_threshold = “7d” 
-cleanup_time = “00:00”  
+enabled = "true"
+cleanup_recurrence = "1d"
+image_age_cleanup_threshold = "7d" 
+cleanup_time = "00:00"
 ```
 ::: moniker-end
 ## Networking
