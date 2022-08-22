@@ -51,6 +51,7 @@ For efficient everyday operation, you can disable logging except for errors and
 abnormally long-running queries:
 
 | setting | value | reason |
+|---------|-------|--------|
 | log_statement_stats | OFF | Avoid profiling overhead |
 | log_duration | OFF | Don't need to know the duration of normal queries |
 | log_statement | NONE | Don't log queries without a a more specific reason |
@@ -59,7 +60,7 @@ abnormally long-running queries:
 > [!NOTE]
 >
 > These log settings are the default in PostgreSQL, except
-> log_min_duration_statement which by default is disabled (-1).
+> log_min_duration_statement, which by default is disabled (-1).
 
 ## Scoping distributed queries
 
