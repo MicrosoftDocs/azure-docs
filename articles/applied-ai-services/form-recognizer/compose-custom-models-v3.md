@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 06/06/2022
+ms.date: 08/22/2022
 ms.author: lajanuar
 recommendations: false
 ---
 
-# Compose custom models v3.0 | Preview
+# Compose custom models v3.0
 
 > [!NOTE]
-> This how-to guide references Form Recognizer v3.0 (preview). To use Form Recognizer v2.1 (GA), see [Compose custom models v2.1](compose-custom-models.md).
+> This how-to guide references Form Recognizer v3.0 . To use Form Recognizer v2.1 , see [Compose custom models v2.1](compose-custom-models-v2-1.md).
 
 A composed model is created by taking a collection of custom models and assigning them to a single model ID. You can assign up to 100 trained custom models to a single composed model ID. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis. Composed models are useful when you've trained several models and want to group them to analyze similar form types. For example, your composed model might include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
@@ -74,7 +74,7 @@ If you want to use manually labeled data, you'll also have to upload the *.label
 
 When you [train your model](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
-Form Recognizer uses the [prebuilt-layout model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) API to learn the expected sizes and positions of typeface and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started with training a new model. Then, add more labeled data, as needed, to improve the model accuracy. Form Recognizer enables training a model to extract key-value pairs and tables using supervised learning capabilities.
+Form Recognizer uses the [prebuilt-layout model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) API to learn the expected sizes and positions of typeface and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started with training a new model. Then, add more labeled data, as needed, to improve the model accuracy. Form Recognizer enables training a model to extract key-value pairs and tables using supervised learning capabilities.
 
 ### [Form Recognizer Studio](#tab/studio)
 
@@ -114,10 +114,10 @@ Training with labels leads to better performance in some scenarios. To train wit
 
 |Language |Method|
 |--|--|
-|**C#**|[**StartBuildModel**](/dotnet/api/azure.ai.formrecognizer.documentanalysis.documentmodeladministrationclient.startbuildmodel?view=azure-dotnet-preview#azure-ai-formrecognizer-documentanalysis-documentmodeladministrationclient-startbuildmodel&preserve-view=true)|
+|**C#**|[**StartBuildModel**](/dotnet/api/azure.ai.formrecognizer.documentanalysis.documentmodeladministrationclient.startbuildmodel?view=azure-dotnet#azure-ai-formrecognizer-documentanalysis-documentmodeladministrationclient-startbuildmodel&preserve-view=true)|
 |**Java**| [**beginBuildModel**](/java/api/com.azure.ai.formrecognizer.administration.documentmodeladministrationclient.beginbuildmodel?view=azure-java-preview&preserve-view=true)|
-|**JavaScript** | [**beginBuildModel**](/javascript/api/@azure/ai-form-recognizer/documentmodeladministrationclient?view=azure-node-preview#@azure-ai-form-recognizer-documentmodeladministrationclient-beginbuildmodel&preserve-view=true)|
-| **Python** | [**begin_build_model**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.aio.documentmodeladministrationclient?view=azure-python-preview#azure-ai-formrecognizer-aio-documentmodeladministrationclient-begin-build-model&preserve-view=true)
+|**JavaScript** | [**beginBuildModel**](/javascript/api/@azure/ai-form-recognizer/documentmodeladministrationclient?view=azure-node-latest#@azure-ai-form-recognizer-documentmodeladministrationclient-beginbuildmodel&preserve-view=true)|
+| **Python** | [**begin_build_model**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.aio.documentmodeladministrationclient?view=azure-python#azure-ai-formrecognizer-aio-documentmodeladministrationclient-begin-build-model&preserve-view=true)
 
 ---
 
@@ -126,7 +126,7 @@ Training with labels leads to better performance in some scenarios. To train wit
 > [!NOTE]
 > **the `create compose model` operation is only available for custom models trained _with_ labels.** Attempting to compose unlabeled models will produce an error.
 
-With the [**create compose model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/ComposeDocumentModel) operation, you can assign up to 100 trained custom models to a single model ID. When analyze documents with a composed model, Form Recognizer first classifies the form you submitted, then chooses the best matching assigned model, and returns results for that model. This operation is useful when incoming forms may belong to one of several templates.
+With the [**create compose model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/ComposeDocumentModel) operation, you can assign up to 100 trained custom models to a single model ID. When analyze documents with a composed model, Form Recognizer first classifies the form you submitted, then chooses the best matching assigned model, and returns results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
 ### [Form Recognizer Studio](#tab/studio)
 
@@ -186,19 +186,19 @@ Once the training process has successfully completed, you can begin to build you
 
 #### Compose your custom models
 
-The [compose model API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/ComposeDocumentModel) accepts a list of model IDs to be composed.
+The [compose model API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/ComposeDocumentModel) accepts a list of model IDs to be composed.
 
 :::image type="content" source="media/compose-model-request-body.png" alt-text="Screenshot of compose model request.":::
 
 #### Analyze documents
 
-To make an [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) request, use a unique model name in the request parameters.
+To make an [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) request, use a unique model name in the request parameters.
 
 :::image type="content" source="media/custom-model-analyze-request.png" alt-text="Screenshot of a custom model request URL.":::
 
 #### Manage your composed models
 
-You can manage custom models throughout your development needs including [**copying**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/CopyDocumentModelTo), [**listing**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/GetModels), and [**deleting**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/DeleteModel) your models.
+You can manage custom models throughout your development needs including [**copying**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/CopyDocumentModelTo), [**listing**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModels), and [**deleting**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/DeleteModel) your models.
 
 ### [Client-libraries](#tab/sdks)
 
@@ -232,7 +232,7 @@ Once you've built your composed model, you can use it to analyze forms and docum
 
 ## Manage your composed models
 
-You can manage a custom models at each stage in its life cycles. You can view a list of all custom models under your subscription, retrieve information about a specific custom model, and delete custom models from your account.
+You can manage a custom model at each stage in its life cycles. You can view a list of all custom models under your subscription, retrieve information about a specific custom model, and delete custom models from your account.
 
 |Programming language| Code sample |
 |--|--|
@@ -251,16 +251,16 @@ Try one of our Form Recognizer quickstarts:
 > [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md)
 
 > [!div class="nextstepaction"]
-> [REST API](quickstarts/try-v3-rest-api.md)
+> [REST API](quickstarts/get-started-v3-sdk-rest-api.md)
 
 > [!div class="nextstepaction"]
-> [C#](quickstarts/try-v3-csharp-sdk.md)
+> [C#](quickstarts/get-started-v3-sdk-rest-api.md#prerequisites)
 
 > [!div class="nextstepaction"]
-> [Java](quickstarts/try-v3-java-sdk.md)
+> [Java](quickstarts/get-started-v3-sdk-rest-api.md)
 
 > [!div class="nextstepaction"]
-> [JavaScript](quickstarts/try-v3-javascript-sdk.md)
+> [JavaScript](quickstarts/get-started-v3-sdk-rest-api.md)
 
 > [!div class="nextstepaction"]
-> [Python](quickstarts/try-v3-python-sdk.md)
+> [Python](quickstarts/get-started-v3-sdk-rest-api.md)

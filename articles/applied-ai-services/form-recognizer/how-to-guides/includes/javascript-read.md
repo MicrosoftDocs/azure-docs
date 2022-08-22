@@ -11,7 +11,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-[Reference documentation](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.3/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/README.md)
+[Reference documentation](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-latest&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.3/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/README.md)
 
 ## Prerequisites
 
@@ -211,4 +211,4 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 Try the layout model, which can extract selection marks and table structures in addition to what the read model offers.
 
 > [!div class="nextstepaction"]
-> [Use the Layout Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+> [Use the Layout Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
