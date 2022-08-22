@@ -35,7 +35,8 @@ To get started, you'll need:
 
 - [Contact Deduce](mailto:support@deduce.com) to configure a test or production environment.
 
-- Ability to use Azure AD B2C custom policies. If you can't, complete the steps in [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview) to learn how to use custom policies.
+- Ability to use Azure AD B2C custom policies. If you can't, complete the steps in [Get started with custom policies in Azure AD B2C](custom-policy-overview.md) to learn how to use custom policies.
+
 
 ## Scenario description
 
