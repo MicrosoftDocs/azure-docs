@@ -1,5 +1,5 @@
 ---
-title: "Reference: Form Recognizer Errors (2021-09-30-preview)"
+title: "Reference: Form Recognizer Errors"
 titleSuffix: Azure Applied AI Services
 description: Learn how errors are represented in Form Recognizer and find a list of possible errors returned by the service.
 author: paulhsu
@@ -7,13 +7,11 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 09/30/2021
+ms.date: 08/22/2022
 ms.author: paulhsu
-ms.custom: cog-serv-seo-aug-2020
-keywords: document processing
 ---
 
-# Form Recognizer error guide v3.0 (preview)
+# Form Recognizer error guide v3.0
 
 Form Recognizer uses a unified design to represent all errors encountered in the REST APIs.  Whenever an API operation returns a 4xx or 5xx status code, additional information about the error is returned in the response JSON body as follows:
 
