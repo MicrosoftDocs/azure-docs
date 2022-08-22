@@ -10,6 +10,8 @@ ms.date: 08/20/2022
 
 # Create an integration service environment (ISE) by using the Logic Apps REST API
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 For scenarios where your logic apps and integration accounts need access to an [Azure virtual network](../virtual-network/virtual-networks-overview.md), you can create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) by using the Logic Apps REST API. To learn more about ISEs, see [Access to Azure Virtual Network resources from Azure Logic Apps](connect-virtual-network-vnet-isolated-environment-overview.md).
 
 This article shows you how to create an ISE by using the Logic Apps REST API in general. Optionally, you can also enable a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) on your ISE, but only by using the Logic Apps REST API at this time. This identity lets your ISE authenticate access to secured resources, such as virtual machines and other systems or services, that are in or connected to an Azure virtual network. That way, you don't have to sign in with your credentials.
