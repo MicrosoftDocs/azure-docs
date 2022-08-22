@@ -622,7 +622,7 @@ A terminated instance will eventually transition into the `Terminated` state. Ho
 > [!NOTE]
 > Instance termination doesn't currently propagate. Activity functions and sub-orchestrations run to completion, regardless of whether you've terminated the orchestration instance that called them.
 
-## Suspend and Resume instances
+## Suspend and Resume instances (preview)
 
 Suspending an orchestration allows you to stop a running orchestration. Unlike with termination, you have the option to resume a suspended orchestrator at a later point in time.
 
