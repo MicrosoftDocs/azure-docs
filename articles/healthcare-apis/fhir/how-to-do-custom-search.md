@@ -142,9 +142,7 @@ x-ms-use-partial-indices: true
 
 After you have tested your new search parameter and confirmed that it is working as expected, run or schedule your reindex job so the new search parameter(s) can be used in the FHIR service in live production.
 
-```rest
-POST {{FHIR_URL}}/$reindex
-```
+See [Running a reindex job](../fhir/how-to-run-a-reindex.md) for information on how to re-index your FHIR service.
 
 ## Update a search parameter
 
