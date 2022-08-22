@@ -85,7 +85,7 @@ To disable Data Use Management for a source, resource group, or subscription, a 
     - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are registered to different Microsoft Purview accounts. In that case, the *Data Use Management* toggle will only enable in the Microsoft Purview account that wins and registers a data source in that subscription first. The toggle will then be greyed out for the other data source.
 - If the *Data Use Management* toggle is greyed out and cannot be enabled, hover over it to know the name of the Microsoft Purview account that has registered the data resource first.
 
-![Diagram shows valid and invalid configurations when using multiple Microsoft Purview accounts to manage policies.](./media/access-policies-common/valid-and-invalid-configurations.png)
+![Diagram shows valid and invalid configurations when using multiple Microsoft Purview accounts to manage policies.](./media/how-to-policies-data-owner-authoring-generic/valid-and-invalid-configurations.png)
 
 ## Next steps
 

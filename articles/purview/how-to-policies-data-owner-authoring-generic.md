@@ -41,13 +41,13 @@ Ensure you have the *Policy Author* permission as described [here](#permissions-
 
 1. Select the **New Policy** button in the policy page.
 
-    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-1.png" alt-text="Data owner can access the Policy functionality in Microsoft Purview when it wants to create policies.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/policy-onboard-guide-1.png" alt-text="Data owner can access the Policy functionality in Microsoft Purview when it wants to create policies.":::
 
 1. The new policy page will appear. Enter the policy **Name** and **Description**.
 
 1. To add policy statements to the new policy, select the **New policy statement** button. This will bring up the policy statement builder.
 
-    :::image type="content" source="./media/access-policies-common/create-new-policy.png" alt-text="Data owner can create a new policy statement.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/create-new-policy.png" alt-text="Data owner can create a new policy statement.":::
 
 1. Select the **Effect** button and choose *Allow* from the drop-down list.
 
@@ -59,15 +59,15 @@ Ensure you have the *Policy Author* permission as described [here](#permissions-
     - To create a broad policy statement that covers an entire data source, resource group, or subscription that was previously registered, use the **Data sources** box and select its **Type**.
     - To create a fine-grained policy, use the **Assets** box instead. Enter the **Data Source Type** and the **Name** of a previously registered and scanned data source. See example in the image.
 
-    :::image type="content" source="./media/access-policies-common/select-data-source-type.png" alt-text="Data owner can select a Data Resource when editing a policy statement.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-data-source-type.png" alt-text="Data owner can select a Data Resource when editing a policy statement.":::
 
 1. Select the **Continue** button and transverse the hierarchy to select and underlying data-object (for example: folder, file, etc.).  Select **Recursive** to apply the policy from that point in the hierarchy down to any child data-objects. Then select the **Add** button. This will take you back to the policy editor.
 
-    :::image type="content" source="./media/access-policies-common/select-asset.png" alt-text="Data owner can select the asset when creating or editing a policy statement.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-asset.png" alt-text="Data owner can select the asset when creating or editing a policy statement.":::
 
 1. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Then select the **OK** button. This will take you back to the policy editor
 
-    :::image type="content" source="./media/access-policies-common/select-subject.png" alt-text="Data owner can select the subject when creating or editing a policy statement.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-subject.png" alt-text="Data owner can select the subject when creating or editing a policy statement.":::
 
 1. Repeat the steps #5 to #11 to enter any more policy statements.
 
@@ -86,15 +86,15 @@ The steps to publish a policy are as follows:
 
 1. Navigate to the **Data policy** feature using the left side panel. Then select **Data policies**.
 
-    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-2.png" alt-text="Data owner can access the Policy functionality in Microsoft Purview when it wants to update a policy by selecting 'Data policies'.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/policy-onboard-guide-2.png" alt-text="Data owner can access the Policy functionality in Microsoft Purview when it wants to update a policy by selecting 'Data policies'.":::
 
 1. The Policy portal will present the list of existing policies in Microsoft Purview. Locate the policy that needs to be published. Select the **Publish** button on the right top corner of the page.
 
-    :::image type="content" source="./media/access-policies-common/publish-policy.png" alt-text="Data owner can publish a policy.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/publish-policy.png" alt-text="Data owner can publish a policy.":::
 
 1. A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be published and then select the **Publish** button.
 
-    :::image type="content" source="./media/access-policies-common/select-data-sources-publish-policy.png" alt-text="Data owner can select the data source where the policy will be published.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-data-sources-publish-policy.png" alt-text="Data owner can select the data source where the policy will be published.":::
 
 >[!Note]
 > After making changes to a policy, there is no need to publish it again for it to take effect if the data source(s) continues to be the same.
@@ -108,13 +108,13 @@ Ensure you have the *Policy Author* permission as described [here](#permissions-
 
 1. Navigate to the **Data policy** feature using the left side panel. Then select **Data policies**.
 
-    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-2.png" alt-text="Data owner can access the Policy functionality in Microsoft Purview when it wants to update a policy.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/policy-onboard-guide-2.png" alt-text="Data owner can access the Policy functionality in Microsoft Purview when it wants to update a policy.":::
 
 1. The Policy portal will present the list of existing policies in Microsoft Purview. Select the policy that needs to be updated.
 
 1. The policy details page will appear, including Edit and Delete options. Select the **Edit** button, which brings up the policy statement builder. Now, any parts of the statements in this policy can be updated. To delete the policy, use the **Delete** button.
 
-    :::image type="content" source="./media/access-policies-common/edit-policy.png" alt-text="Data owner can edit or delete a policy statement.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/edit-policy.png" alt-text="Data owner can edit or delete a policy statement.":::
 
 ## Next steps
 
