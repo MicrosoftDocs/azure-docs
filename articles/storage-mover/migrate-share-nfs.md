@@ -9,6 +9,21 @@ ms.date: 08/10/2022
 ms.custom: template-quickstart
 ---
 
+<!-- 
+!########################################################
+STATUS: IN REVIEW
+
+CONTENT: critical content missing
+        - content still located in wrong file
+        - links need review and update
+        - resource recommendation table needs to be filled out
+
+REVIEW Stephen/Fabian: not reviewed
+REVIEW Engineering: not reviewed
+
+!########################################################
+-->
+
 # Quickstart: Migrate an NFS share to an Azure blob container using Azure Storage Mover
 
 Azure Storage Mover is a hybrid service which relies on both cloud as well as on-premises components.

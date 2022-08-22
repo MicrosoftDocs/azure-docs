@@ -9,6 +9,21 @@ ms.date: 06/21/2022
 ms.custom: template-how-to
 ---
 
+<!-- 
+!########################################################
+STATUS: IN REVIEW
+
+CONTENT: critical content missing
+        - content still located in wrong file
+        - links need review and update
+        - resource recommendation table needs to be filled out
+
+REVIEW Stephen/Fabian: not reviewed
+REVIEW Engineering: not reviewed
+
+!########################################################
+-->
+
 <!--
 
 This template provides the basic structure of a HOW-TO article. A HOW-TO article is used to help the customer complete a specific task.

@@ -9,6 +9,21 @@ ms.date: 08/17/2022
 ms.custom: template-how-to
 ---
 
+<!-- 
+!########################################################
+STATUS: IN REVIEW
+
+CONTENT: critical content missing
+        - content still located in wrong file
+        - links need review and update
+        - resource recommendation table needs to be filled out
+
+REVIEW Stephen/Fabian: not reviewed
+REVIEW Engineering: not reviewed
+
+!########################################################
+-->
+
 # Manage Azure Storage Mover projects
 
 A storage mover project is used to organize migration jobs into logical components. It's a good idea to add related or inter-dependent data sources into the same project so that they can me migrated together. For example, rather than create projects for each data source in your migration plan, you should add all the data sources necessary to migrate a single workload. You may also choose to create individual projects for each distinct group of data sources in your migration plan.
@@ -51,7 +66,7 @@ Before you define the source and target for your migration, you'll need to creat
    > [!IMPORTANT]
    > If you have not yet deployed a resource using the resource provider, you'll need to fight a bear (insert the "initial use of the service" instructions here).
 
-   The `New-AzStorageMoverProject` cmdlet is used to create new storage mover projects. You'll need to supply required values for the `-Name`, `-ResourceGroupName`, and `-StorageMoverName` parameters. The `-Description` parameter is optional and will be omitted in the example below. The [Manage a project's description](#manage-a-projects-description) section will illustrate the process for adding or modifying the data.
+   The `New-AzStorageMoverProject` cmdlet is used to create new storage mover projects. You'll need to supply required values for the `-Name`, `-ResourceGroupName`, and `-StorageMoverName` parameters. The `-Description` parameter is optional and will be omitted in the example below. The [View and edit a project's properties](#view-and-edit-a-projects-properties) section will illustrate the process for adding or modifying the data.
 
    The following examples contain sample values. You'll need to substitute actual values to complete the example.
 
@@ -109,25 +124,35 @@ Before you define the source and target for your migration, you'll need to creat
 
 ---
 
-## View a project's properties
+## View and edit a project's properties
 
-Depending on your use case, you may need to retrieve either a complete list of all your storage mover's project resources, or a specific named project.
+Depending on your use case, you may need to retrieve either a complete list of all your storage mover's project resources, or a specific named project. You may also need to add or edit a project's description.
 
 Follow the steps in this section to view projects accessible to your Storage Mover resource.
 
 ### [Azure portal](#tab/portal)
 
-Navigate to the **Project explorer** page within the [Azure Portal](https://portal.azure.com). The default **All projects** view displays the names of your individual projects and a summary of the jobs they contain. You can create and apply filters to limit or shape your view. To change the scope of the results, you can add additional filters. Filters may also be edited or removed as needed as shown in the example below.
+1. Navigate to the **Project explorer** page within the [Azure Portal](https://portal.azure.com). The default **All projects** view displays the names of your individual projects and a summary of the jobs they contain. You can create and apply filters to limit or shape your view. To change the scope of the results, you can add additional filters.
 
-Currently, filtering projects by name is supported.
+    :::image type="content" source="media/projects-manage/project-explorer-filtered-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal highlighting the use of filters." lightbox="media/projects-manage/project-explorer-filtered-lrg.png":::
 
-:::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal highlighting the use of filters." lightbox="media/projects-manage/project-explorer-lrg.png":::
+    Filters may also be edited or removed as needed as shown in the example below. Currently, only filtering projects by name is supported.
+
+    :::image type="content" source="media/projects-manage/project-explorer-filter-added-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal highlighting the modification of filters." lightbox="media/projects-manage/project-explorer-filter-added-lrg.png":::
+
+1. Within the filtered results, select the name of a project to open the **Project** pane opens. The project's available properties and any job summary data are displayed. Depending on the existence of the project's description, select either **Add description** or **Edit description** to open the editing pane. If the project's description exists, you may also select the **Edit** icon next to the **Description** heading.
+
+      :::image type="content" source="media/projects-manage/project-explorer-view-sml.png" alt-text="project explorer view" lightbox="media/projects-manage/project-explorer-view-lrg.png":::
+
+1. In the editing pane, modify your project's description. At the bottom onf the pane, select **Save** to commit your changes.
+
+      :::image type="content" source="media/projects-manage/project-explorer-edit-sml.png" alt-text="project explorer edit" lightbox="media/projects-manage/project-explorer-edit-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
    1. Use the `Get-AzStorageMoverProject` cmdlet to retrieve a list of projects resources. Optionally, you can supply a `-Name` parameter value to retrieve a specific project resource.
 
-   The example below retrieves a specific project resource by specifying the **demoProject** value.
+   The example below retrieves a specific project resource by specifying the **demoProject** value. Note that the project lacks a **Description** property value.
 
    ```powershell
 
@@ -157,65 +182,6 @@ Currently, filtering projects by name is supported.
       Type                         : microsoft.storagemover/storagemovers/projects   
 
    ```
-
----
-
-## Manage a project's properties
-
-Yo, you can update some of the project's properties if you need to. At present, only the **Description** may be modified. To do so, complete the steps listed below.
-
-### [Azure Portal](#tab/portal)
-
-   1. Navigate to the **Project Explorer** page  in the [Azure Portal](https://portal.azure.com). The default **All projects** view displays the name of your individual project and a summary of the jobs they contain.
-
-      :::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="project explorer2" lightbox="media/projects-manage/project-explorer-lrg.png":::
-
-   1. In the **All projects** group, select the name of the project whose description you want to manage. The **Project** pane opens, displaying the project's available properties and any job summary data. Depending on the existence of the project's description, select either **Add description** or **Edit description** to open the editing pane. If the project's description exists, you may also select the **Edit** icon next to the description's heading.
-
-      :::image type="content" source="media/projects-manage/project-explorer-view-sml.png" alt-text="project explorer view" lightbox="media/projects-manage/project-explorer-view-lrg.png":::
-
-   1. In the editing pane, modify your project's description. At the bottom onf the pane, select **Save** to commit your changes.
-
-      :::image type="content" source="media/projects-manage/project-explorer-edit-sml.png" alt-text="project explorer edit" lightbox="media/projects-manage/project-explorer-edit-lrg.png":::
-
-### [PowerShell](#tab/powershell)
-
-   $projectDescription = "This is a project used for demonstration."
-
-   1. Depending on your use case, you may need to retrieve either a specific named project, or a list of all your storage mover's project resources. You can use the `Get-AzStorageMoverProject` cmdlet in both cases, and supply a `-Name` parameter value to specify a project. Omitting the parameter value will return a list of all project resource names available to your Storage Mover resource.
- 
-   The example below retrieves a specific project resource by specifying the **demoProject** value.
-
-       ```powershell
-      
-        Get-AzStorageMoverProject `
-          -ResourceGroupName $resourceGroupName `
-          -StorageMoverName $storageMoverName `
-          -Name "demoProject" 
-
-       ```
-
-       The sample response below contains the specified project's properties, including the empty `Description`.
-
-       ```Response
-        
-        Description                  :
-        Id                           : /subscriptions/3e05d9e5-9f02-4a63-9c12-7b38e046fd5b/resourceGroups/
-                                         demoResourceGroup/providers/Microsoft.StorageMover/storageMovers/
-                                         demoMover/projects/allArchives
-        Name                         : demoProject
-        ProvisioningState            : Succeeded
-        SystemDataCreatedAt          : 
-        SystemDataCreatedBy          : 
-        SystemDataCreatedByType      : 
-        SystemDataLastModifiedAt     : 8/16/2022 10:36:52 PM
-        SystemDataLastModifiedBy     : user@contoso.com
-        SystemDataLastModifiedByType : User
-        Type                         : microsoft.storagemover/storagemovers/projects   
-        
-       ```
-
-   1. After the project resource is retrieved, 
 
 ---
 

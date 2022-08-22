@@ -11,6 +11,21 @@ ms.author: shaas
 ms.custom: template-overview
 ---
 
+<!-- 
+!########################################################
+STATUS: IN REVIEW
+
+CONTENT: critical content missing
+        - content still located in wrong file
+        - links need review and update
+        - resource recommendation table needs to be filled out
+
+REVIEW Stephen/Fabian: not reviewed
+REVIEW Engineering: not reviewed
+
+!########################################################
+-->
+
 <!-- 1. H1
 ##Docs Required##
  

@@ -9,6 +9,21 @@ ms.date: 08/11/2022
 ms.custom: template-how-to
 ---
 
+<!-- 
+!########################################################
+STATUS: IN REVIEW
+
+CONTENT: critical content missing
+        - content still located in wrong file
+        - links need review and update
+        - resource recommendation table needs to be filled out
+
+REVIEW Stephen/Fabian: not reviewed
+REVIEW Engineering: not reviewed
+
+!########################################################
+-->
+
 # How to install Azure Storage Mover modules for PowerShell
 
 Installing the Storage Mover PowerShell modules is the first step in evaluating the public preview. This article guides you through the installation of the Azure Storage Mover modules for PowerShell.

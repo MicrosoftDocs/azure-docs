@@ -57,13 +57,13 @@ Like every VM, the agent requires available compute, memory and storage space re
 
 ### Recommended compute and memory resources
 
-|Migration scale*     |Memory (RAM)                |Virtual processor count    |
-|---------------------|----------------------------|---------------------------|
-|<  1 million items   | <min-spec RAM> GiB         | <min-spec core count>     |
-|< 10 million items   | <RAM> GiB                  | <core count>              |
-|< 30 million items   | <RAM> GiB                  | <core count>              |
-|< 50 million items   | <RAM> GiB                  | <core count>              |
-|<100 million items   | <RAM> GiB                  | <core count>              |
+|Migration scale*        |Memory (RAM)                |Virtual processor count     |
+|------------------------|----------------------------|----------------------------|
+|&lt;  1 million items   | &lt;min-spec RAM&gt; GiB   | &lt;min-spec core count&gt;|
+|&lt; 10 million items   | &lt;RAM&gt; GiB            | &lt;core count&gt;         |
+|&lt; 30 million items   | &lt;RAM&gt; GiB            | &lt;core count&gt;         |
+|&lt; 50 million items   | &lt;RAM&gt; GiB            | &lt;core count&gt;         |
+|&lt;100 million items   | &lt;RAM&gt; GiB            | &lt;core count&gt;         |
 
 **Number of items refers to the total number of files and folders in the source share.*
 
