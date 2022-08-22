@@ -39,8 +39,8 @@ The Speech Service offers the following features:
 - [Real-time speech-to-text](./how-to-recognize-speech.md): Allow real-time recognition of audio from multiple inputs
     - [Continuous recognition](./how-to-recognize-speech.md#use-continuous-recognition): Mostly used with real-time Call Center scenarios (Virtual Agents, Agent Assist) allows you to continuously recognize audio input and control how to process results based on multiple events
 - [Batch speech-to-text](./batch-transcription.md): Enables you to transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in Post Call Analytics scenarios
-- [Text-to-speech](./index-text-to-speech.md): Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech
-- [Speaker identification](./speaker-recognition-overview#speaker-identification.md): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for Call Center customer verification scenarios or fraud detection
+- [Text-to-speech](./index-text-to-speech): Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech
+- [Speaker identification](./speaker-recognition-overview): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for Call Center customer verification scenarios or fraud detection
 - [Language Identification](./language-identification.md): Is used to identify languages spoken in audio and can be used in real-time and post call analysis to control the environment (e.g. output language of a Virtual Agent) or to gain additional insights
 
 And the Language Service offers the following:
@@ -71,7 +71,7 @@ You can find an overview of all Language Service features and customization opti
 
 ***Comment: Add correct links!***
 - [Check out Speech Portal](https://speech.microsoft.com)
-- [Check out the Post-Call Analytics Quickstart](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/call-center-quickstart?branch=pr-en-us-206946&pivots=programming-language-csharp)
+- [Check out the Post-Call Analytics Quickstart](/azure/cognitive-services/speech-service/call-center-quickstart?branch=pr-en-us-206946&pivots=programming-language-csharp)
 - [Explore Custom Speech ](./custom-speech-overview.md)
 - [Explore Custom Neural Voice](./custom-neural-voice.md)
 - [Explore Lanugage Service Features](/azure/cognitive-services/language-service/overview#available-features).
