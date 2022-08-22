@@ -36,14 +36,13 @@ A transaction consists of one or more discrete events.
 
 The easiest way to find entities is by using the search box above the different business areas that contain the tables. 
  
-![Database Template example](./media/quick-start-create-lake-database/model-example.png)
-
+:::image type="content" source="./media/quick-start-create-lake-database/model-example.png" alt-text="Screenshot of a Retail database template example in use." lightbox="./media/quick-start-create-lake-database/model-example.png":::
  
 ## Configure lake database
  
 After you have created the database, make sure the storage account and the filepath is set to a location where you wish to store the data. The path will default to the primary storage account within Azure Synapse Analytics but can be changed to your needs. 
-  
- ![Lake database example](./media/quick-start-create-lake-database/lake-database-example.png)
+   
+ :::image type="content" source="./media/quick-start-create-lake-database/lake-database-example.png" alt-text="Screenshot of an individual entity properties in the Retail database template." lightbox="./media/quick-start-create-lake-database/lake-database-example.png":::
  
 To save your layout and make it available within Azure Synapse, **Publish** all changes. This step completes the setup of the lake database and makes it available to all components within Azure Synapse Analytics and outside. 
 

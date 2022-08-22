@@ -40,10 +40,11 @@ IoT Edge does not support Node.js modules using Windows containers.
 
 Use the following table to understand your options for developing and deploying Node.js modules:
 
-| Node.js | Visual Studio Code | Visual Studio 2017/2019 |
+| Node.js | Visual Studio Code | Visual Studio 2022 |
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Use VS Code for Node.js modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Use VS Code for Node.js modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM64** | ![Use VS Code for Node.js modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |  |
 
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules using Linux containers](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place:
 

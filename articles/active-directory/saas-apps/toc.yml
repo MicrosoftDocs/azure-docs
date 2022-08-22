@@ -2898,8 +2898,10 @@
         href: linkedinelevate-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
+      - name: Lucid (All Products)
+        href: lucid-all-products-provisioning-tutorial.md
       - name: Lucidchart
-        href: lucidchart-provisioning-tutorial.md
+        href: lucidchart-provisioning-tutorial.md        
       - name: Leapsome
         href: leapsome-provisioning-tutorial.md
       - name: LogicGate
