@@ -1,10 +1,10 @@
 ---
-title: Enable Azure Application Insights for ASP.NET Core applications | Microsoft Docs
-description: Tutorial to monitor ASP.NET Core web applications for availability, performance, and usage.
+title: Application Insights SDK for ASP.NET Core applications | Microsoft Docs
+description: Application Insights SDK tutorial to monitor ASP.NET Core web applications for availability, performance, and usage.
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 08/03/2022
+ms.date: 08/22/2022
 ms.reviewer: casocha
 ---
 
@@ -151,7 +151,7 @@ The Application Insights for ASP.NET Core web applications NuGet package encapsu
     ![A code window displays with the preceding code snippet highlighted.](./media/tutorial-asp-net-core/enable-server-side-telemetry.png "Enable server-side telemetry")
 
     > [!TIP]
-    > Learn more about [configuration options in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-6.0).
+    > Learn more about [configuration options in ASP.NET Core](/aspnet/core/fundamentals/configuration).
 
 ## Enable client-side telemetry for web applications
 
@@ -183,7 +183,7 @@ The preceding steps are enough to help you start collecting server-side telemetr
     ```
 
 > [!NOTE]
-> JavaScript injection provides a default configuration experience. If you require [configuration](./javascript.md#configuration) beyond setting the connection string, you are required to remove auto-injection as described above and manually add the [JavaScript SDK](./javascript.md#adding-the-javascript-sdk).
+> JavaScript injection provides a default configuration experience. If you require [configuration](./javascript.md#configuration) beyond setting the connection string, you are required to remove auto-injection as described above and manually add the [JavaScript SDK](./javascript.md#add-the-javascript-sdk).
 
 ## Enable monitoring of database queries
 
@@ -337,7 +337,7 @@ public class ValuesController : ControllerBase
 }
 ```
 
-For more information, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0).
+For more information, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging).
 
 ## View logs in Application Insights
 
@@ -345,7 +345,7 @@ The ValuesController above is deployed with the sample application and is locate
 
 1. Using an internet browser, open the sample application. In the address bar, append `/api/Values` and press <kbd>Enter</kbd>.
 
-    ![A browser window displays with /api/Values appended to the URL in the address bar.](media/asp-net-core/values-api-url.png "Values API URL")
+    ![A browser window displays with /api/Values appended to the URL in the address bar.](media/tutorial-asp-net-core/values-api-url.png "Values API URL")
 
 2. Wait a few moments, then return to the **Application Insights** resource in the [Azure Portal](https://portal.azure.com).
 
@@ -369,7 +369,7 @@ The ValuesController above is deployed with the sample application and is locate
 
 ## Control the level of logs sent to Application Insights
 
-`ILogger` implementations have a built-in mechanism to apply [log filtering](/dotnet/core/extensions/logging#how-filtering-rules-are-applied). This filtering lets you control the logs that are sent to each registered provider, including the Application Insights provider. You can use the filtering either in configuration (using an *appsettings.json* file) or in code. For more information about log levels and guidance on appropriate use, see the [Log Level](/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0#log-level) documentation.
+`ILogger` implementations have a built-in mechanism to apply [log filtering](/dotnet/core/extensions/logging#how-filtering-rules-are-applied). This filtering lets you control the logs that are sent to each registered provider, including the Application Insights provider. You can use the filtering either in configuration (using an *appsettings.json* file) or in code. For more information about log levels and guidance on appropriate use, see the [Log Level](/aspnet/core/fundamentals/logging#log-level) documentation.
 
 The following examples show how to apply filter rules to the `ApplicationInsightsLoggerProvider` to control the level of logs sent to Application Insights.
 
