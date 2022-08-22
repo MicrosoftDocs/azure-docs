@@ -17,20 +17,21 @@ ms.author: justinha
 # Check fleet metrics of Azure Active Directory Domain Services
 
 Administrators can use Azure Monitor Metrics to configure a scope for Azure Active Directory Domain Services (Azure AD DS) and gain insights into how the service is performing. 
-
-:::image type="content" border="true" source="media/fleet-metrics/select.png" alt-text="Screenshot of how to select Azure AD DS for fleet metrics.":::
-
 You can access Azure AD DS metrics from two places:
 
-- In Azure Monitor Metrics, select the Azure AD DS instance as the **Scope**. The following screenshot shows how to select combined metrics for Total Processor Time and LDAP searches in Azure Monitor Metrics:
+- In Azure Monitor Metrics, click **New chart** > **Select a scope** and select the Azure AD DS instance:
+
+  :::image type="content" border="true" source="media/fleet-metrics/select.png" alt-text="Screenshot of how to select Azure AD DS for fleet metrics.":::
+
+- In Azure AD DS, under **Monitoring**, click **Metrics**:
 
   :::image type="content" border="true" source="media/fleet-metrics/metrics-scope.png" alt-text="Screenshot of how to select Azure AD DS as scope in Azure Monitor Metrics.":::
 
-  You can drill down to examine combined metrics over time:
+  The following screenshot shows how to select combined metrics for Total Processor Time and LDAP searches:
 
   :::image type="content" border="true" source="media/fleet-metrics/combined-metrics.png" alt-text="Screenshot of combined metrics in Azure Monitor Metrics.":::
 
-- In Azure AD DS, under **Monitoring**, click **Metrics**:
+  You can also view metrics for a fleet of Azure AD DS instances:
 
   :::image type="content" border="true" source="media/fleet-metrics/metrics-instance.png" alt-text="Screenshot of how to select an Azure AD DS instance as the scope for fleet metrics.":::
 
@@ -65,22 +66,15 @@ You can configure metric alerts for Azure AD DS to be notified of possible probl
 
 To view and manage Azure Monitor alert, a user needs to be assigned [Azure Monitor roles](/azure/azure-monitor/roles-permissions-security). 
  
-There are two ways to create a new alert: 
-
-- Click **Azure Monitor** > **Alert**: 
+In Azure Monitor or Azure AD DS Metrics, click **New alert** and configure an Azure AD DS instance as the scope. Then choose the metrics you want to measure from the list of available signals:
 
   :::image type="content" border="true" source="media/fleet-metrics/available-alerts.png" alt-text="Screenshot of available alerts.":::
-
-
-- In Azure AD DS Metrics, click **New alert**:
-
-  :::image type="content" border="true" source="media/fleet-metrics/new-alert.png" alt-text="Screenshot of how to create a new alert in Azure AD DS Metrics.":::
 
 The following screenshot shows how to define a metric alert with a threshold for **Total Processor Time**:
 
 :::image type="content" border="true" source="media/fleet-metrics/define.png" alt-text="Screenshot of defining a threshold.":::
 
-The following screenshot shows how to configure an alert notification, which can be email, SMS, or voice call:
+You can also configure an alert notification, which can be email, SMS, or voice call:
 
 :::image type="content" border="true" source="media/fleet-metrics/configure-alert.png" alt-text="Screenshot of how to configure an alert notification.":::
 
@@ -88,11 +82,11 @@ The following screenshot shows a metrics alert triggered for **Total Processor T
 
 :::image type="content" border="true" source="media/fleet-metrics/trigger.png" alt-text="Screenshot of alert trigger.":::
 
-The following screenshot shows an email notification after an alert activation:
+In this case, an email notification is sent after an alert activation:
 
 :::image type="content" border="true" source="media/fleet-metrics/trigger-details.png" alt-text="Screenshot of alert trigger details.":::
 
-The following screenshot shows an email notification after an alert deactivation:
+Another email notification is sent after deactivation of the alert:
 
 :::image type="content" border="true" source="media/fleet-metrics/resolution.png" alt-text="Screenshot of alert resolution.":::
 
