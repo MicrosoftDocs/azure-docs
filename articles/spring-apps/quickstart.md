@@ -100,8 +100,7 @@ az spring app create \
    cd gs-spring-boot/complete
    ```
 
-### Build the local app
-
+ 
 Use the following [Maven](https://maven.apache.org/what-is-maven.html) command to build the project.
 
 ```azurecli-interactive
@@ -113,7 +112,11 @@ mvn clean package -DskipTests
 Use the following command to deploy the *.jar* file for the app (*target/spring-boot-complete-0.0.1-SNAPSHOT.jar* on Windows).
 
 ```azurecli-interactive
-az spring app deploy -n hellospring -s <service instance name> -g <Name of Resource Group> --artifact-path target/spring-boot-complete-0.0.1-SNAPSHOT.jar
+az spring app deploy \
+    --resource-group <name-of-resource-group> \
+    --service <service-instance-name> \
+    --name hellospring \
+    --artifact-path target/spring-boot-complete-0.0.1-SNAPSHOT.jar
 ```
 
 Deploying the application can take a few minutes.
@@ -141,7 +144,7 @@ This example uses Java version 11.  To use a different Java version, change the 
 :::image type="content" source="media/quickstart/initializr-page.png" alt-text="Screenshot of Spring Initializr page." lightbox="media/quickstart/initializr-page.png":::
 
 1. When all dependencies are set, select **Generate**.
-1. Download and unpack the package, and then create a web controller for your web application by adding the file `src/main/java/com/example/hellospring/HelloController.java` with the following contents:
+1. Download and unpack the package, and then create a web controller for your web application by adding the file *src/main/java/com/example/hellospring/HelloController.java* with the following contents:
 
     ```java
     package com.example.hellospring;
@@ -192,7 +195,7 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 Use the following steps to import the project.
 
 1. Open IntelliJ IDEA, and then select **Open**.
-1. In the **Open File or Project** dialog box, select the `hellospring` folder.
+1. In the **Open File or Project** dialog box, select the *hellospring* folder.
 
    :::image type="content" source="media/quickstart/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA showing Open File or Project dialog box." lightbox="media/quickstart/intellij-new-project.png":::
 
