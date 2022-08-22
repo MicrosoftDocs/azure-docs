@@ -120,5 +120,5 @@ Ensure you have the *Policy Author* permission as described [here](#permissions-
 
 For specific guides on creating policies, you can follow these tutorials:
 
-- [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
-- [Enable Microsoft Purview data owner policies on an Azure Storage account](./how-to-data-owner-policies-storage.md)
+- [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
+- [Enable Microsoft Purview data owner policies on an Azure Storage account](./how-to-policies-data-owner-storage.md)
