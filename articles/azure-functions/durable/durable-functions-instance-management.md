@@ -626,7 +626,7 @@ A terminated instance will eventually transition into the `Terminated` state. Ho
 
 Suspending an orchestration allows you to stop a running orchestration. Unlike with termination, you have the option to resume a suspended orchestrator at a later point in time.
 
-The two parameters for the terminate API are an instance ID and a reason string, which are written to logs and to the instance status.
+The two parameters for the suspend API are an instance ID and a reason string, which are written to logs and to the instance status.
 
 # [C#](#tab/csharp)
 
