@@ -295,11 +295,6 @@ Using your favorite IDE, create a new Java project, and add a `pom.xml` file in 
 
     <dependencies>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.29</version>
-        </dependency>
-        <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-identity-providers-jdbc-mysql</artifactId>
             <version>1.0.0</version>
@@ -345,7 +340,7 @@ This file is an [Apache Maven](https://maven.apache.org/) that configures our pr
 
 ### Prepare a configuration file to connect to Azure Database for MySQL
 
-Create a *src/main/resources/application.properties* file, and add configuration:
+Run the following script in the project root directory, create a *src/main/resources/application.properties* file, and add configuration:
 
 #### [Credential-free connection (Recommended)](#tab/credential-free)
 
