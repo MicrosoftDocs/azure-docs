@@ -24,6 +24,13 @@ This article summarizes new releases and features in Azure Database for MySQL - 
  Server Logs will help customers to emit the server logs to server storage space in file format, which you can later download. Slow query logs are supported with server logs, which can help customers in performance troubleshooting and query tuning. Customers have ability to store logs up to a week or up-to 7 GB of logs size. You can configure or download them from [Azure portal](./how-to-server-logs-portal.md) or [Azure CLI](./how-to-server-logs-cli.md).[Learn more](./concepts-monitoring.md#server-logs)
 
 
+**Known Issues**
+
+Server parameter aad_auth_only was exposed in this month's deployment. Enabling server parameter aad_auth_only will block all non Azure Active Directory MySQL connections to your Azure Database for MySQL Flexible server. When you try to connect to the server, you will receive error "ERROR 9107 (HY000): Only Azure Active Directory accounts are allowed to connect to server".
+We are currently working on additional configurations required for AAD authentication to be fully functional, and the feature will be available in the upcoming deployments. Do not enable the aad_auth_only parameter until then.
+
+
+
 ## June 2022
 
 **Known Issues**
