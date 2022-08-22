@@ -40,7 +40,7 @@ The following properties are logged for each API request.
 | ClientProtocol | string | HTTP protocol version of the incoming request |
 | ClientTime | long | Number of milliseconds spent on overall client I/O (connecting, sending, and receiving bytes) |
 | ClientTlsVersion | string | TLS version used by client sending request |
-| Errors | dynamic | Collection of  error occured during request processing |
+| Errors | dynamic | Collection of error occurred during request processing |
 | IsRequestSuccess | bool | HTTP request completed with response status code within 2xx or 3xx range |
 | LastErrorElapsed | long | Number of milliseconds elapsed since gateway received request until the error occurred |
 | LastErrorMessage | string | Error message |
