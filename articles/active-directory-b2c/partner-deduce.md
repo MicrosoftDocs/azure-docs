@@ -73,7 +73,8 @@ Follow the instructions in [Get the starter pack](tutorial-create-user-flows.md?
 
 In order to collect the user_agent from client-side create your own ContentDefinition with an arbitrary ID to include the related JavaScript. Determine the end-user browser's user_agent string and store it as a claim in Azure AD B2C.
 
-1. Download the api.selfasserted [selfAsserted.cshtml](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/selfAsserted.cshtml) locally.
+1. Download the api.selfasserted, [selfAsserted.cshtml](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/selfAsserted.cshtml), locally.
+
 
 2. Edit the selfAsserted.cshtml to include the following JavaScript before the closure of `</head>` defines an additional Style element to hide the panel-default.
 
