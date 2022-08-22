@@ -89,7 +89,7 @@ Sending high volume of messages has a set of limitation on the number of email m
 |Attachment size - per messages|10 MB |
 
 ### Action to take
-This sandbox setup is to help developers to start building the application and gradually you can request to increase the sending volume as soon as the application is ready to go live. If you require sending an amount of messages that exceeds the rate-limits, please submit a support request to increase to your desired sending limit.
+This sandbox setup is to help developers to start building the application and gradually you can request to increase the sending volume as soon as the application is ready to go live. If you require sending a number of messages that exceeds the rate-limits, please submit a support request to increase to your desired sending limit.
 
 ## Chat
 
