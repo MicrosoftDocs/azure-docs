@@ -24,7 +24,7 @@ This article shows how to design an application that will continue to function, 
 
 ## Design considerations when reading from the secondary region
 
-You can design your application to handle transient faults or more significant problems by reading from the secondary region when there's and issue that interferes with reading from the primary region. When the primary region is available again, your application can return to reading from the primary region.
+You can design your application to handle transient faults or significant outages by reading from the secondary region when there's and issue that interferes with reading from the primary region. When the primary region is available again, your application can return to reading from the primary region.
 
 Keep in mind these key considerations when designing your application for resiliency using RA-GRS or RA-GZRS:
 
@@ -32,7 +32,7 @@ Keep in mind these key considerations when designing your application for resili
 
 - The read-only copy in the secondary region is [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency) with the data in the primary region.
 
-- You can use the Storage client library to read and write data in the primary region, or read data in the primary or secondary region. You can also automatically redirect read requests to the secondary region if a read request to the primary region times out.
+- You can use the Azure Storage client library to read and write data in the primary region, or read data from the primary or secondary region. You can also automatically redirect read requests to the secondary region if a read request to the primary region times out.
 
 - If the primary region becomes unavailable, you can initiate an account failover. When you fail over to the secondary region, the DNS entries pointing to the primary region are changed to point to the secondary region. After the failover is complete, write access is restored for GRS and RA-GRS accounts. For more information, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
@@ -54,7 +54,7 @@ Ultimately, this decision depends on the complexity of your application. You may
 
 ### Further considerations
 
-The rest of this article will discuss further considerations in greater detail:
+The rest of this article will discuss these further considerations in greater detail:
 
 - Read-only mode and handling updates
 - Retry handling for read and update requests
