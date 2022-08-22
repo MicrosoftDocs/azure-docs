@@ -140,13 +140,13 @@ You can verify the deployment by exploring the resource groups from the Azure po
 ## Clean up resources
 
 1. From the Azure portal, select **Resource groups** from the left menu.
-2. Select the hyperlinked resource group name next to the check box. If you complete this series, you have three resource groups to delete - **myResourceGroup**, **myResourceGroupDev**, and **myResourceGroupProd**.
-3. Select the **Delete resource group** icon from the top menu.
+1. Select the hyperlinked resource group name next to the check box. If you complete this series, you have three resource groups to delete - **myResourceGroup**, **myResourceGroupDev**, and **myResourceGroupProd**.
+1. Select the **Delete resource group** icon from the top menu.
  
-> [!NOTE]
-> Deleting a resource group is irreversible.
+   > [!NOTE]
+   > Deleting a resource group is irreversible.
 
-4. Type the resource group name in the pop-up window that displays and select **Delete**.
+1. Type the resource group name in the pop-up window that displays and select **Delete**.
 
 ## Next steps
 
