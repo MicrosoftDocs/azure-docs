@@ -208,6 +208,10 @@
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
       - name: Windows DFS-N - flexible SAPMNT for SMB based file share
         href: high-availability-guide-windows-dfs.md
+  - name: Cost Optimized
+    items:
+    - name: Install PAS and AAS with SAP NetWeaver HA cluster - RHEL
+      href: high-availability-guide-rhel-with-dialog-instance.md
 - name: Automation framework (Azure VMs)
   items:
   - name: About deployment automation framework
