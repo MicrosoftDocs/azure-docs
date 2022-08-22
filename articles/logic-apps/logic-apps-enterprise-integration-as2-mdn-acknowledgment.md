@@ -7,7 +7,7 @@ author: S-Jindal
 ms.author: shivamjindal
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 08/12/2021
+ms.date: 08/30/2022
 ---
 
 # MDN acknowledgments for AS2 messages in Azure Logic Apps
