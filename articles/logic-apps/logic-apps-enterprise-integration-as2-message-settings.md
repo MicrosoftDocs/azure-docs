@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 07/20/2021
+ms.date: 08/30/2022
 ---
 
 # Reference for AS2 message settings in agreements for Azure Logic Apps
