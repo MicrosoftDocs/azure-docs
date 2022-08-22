@@ -36,17 +36,10 @@
         - name: Train & deploy image classification
           displayName: MNIST
           href: tutorial-train-deploy-notebook.md
-        - name: Automated ML
-          items: 
-            - name: Regression (NYC Taxi data)
-              displayName: automl, automated, auto ml,
-              href: tutorial-auto-train-models.md
-            - name: Object detection with AutoML
-              displayName: automl, automated, auto ml, computer vision, images, image model
-              href: tutorial-auto-train-image-models.md
-        - name: Prep your code for production
-          displayName: mlops, mlopspython, production
-          href: tutorial-convert-ml-experiment-to-production.md
+        - name: Object detection with AutoML
+          displayName: automl, automated, auto ml, computer vision, images, image model
+          href: tutorial-auto-train-image-models.md
+
     - name: Studio
       items: 
         - name: Automated ML (UI)
@@ -56,7 +49,7 @@
               href: tutorial-first-experiment-automated-ml.md
             - name: Forecast demand (Bike share data)
               displayName: automl, automated, auto ml, portal, ui
-              href: tutorial-automated-ml-forecast.md
+              href: tutorial-automated-ml-forecast.md 
         - name: Designer (drag-n-drop)
           items: 
             - name: 1. Train a regression model
@@ -287,10 +280,10 @@
         - name: Compute cluster
           displayName: compute target, low priority, managed identity
           href: how-to-create-attach-compute-cluster.md
-        - name: Kubernetes cluster
-          displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
+        - name: AKS and Arc Enabled Kubernetes cluster
+          displayName: Azure Arc, Kubernetes, on-premises, multi-cloud, attach
           href: how-to-attach-kubernetes-anywhere.md
-        - name: Use studio
+        - name: Manage compute resources
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
     - name: Plan and manage costs
@@ -306,6 +299,9 @@
       href: how-to-integrate-azure-policy.md
 - name: How-to guides
   items: 
+    - name: Search for assets
+      displayName: find, filter
+      href: how-to-search-assets.md
     - name: Set up an environment
       items: 
         - name: Set up dev environments
@@ -358,7 +354,7 @@
           href: how-to-datastore.md
         - name: Create data assets
           displayName: Create data assets
-          href: how-to-create-register-data-assets.md
+          href: how-to-create-data-assets.md
         - name: Read & write data in jobs
           displayName: Read & write data in jobs
           href: how-to-read-write-data-v2.md
@@ -422,11 +418,13 @@
             - name: Monitor training jobs
               displayName: cancel, fail, status, child run
               href: how-to-track-monitor-analyze-runs.md
-            - name: Log & view metrics, parameters and files
+            - name: Log metrics, parameters and files
               displayName: troubleshoot, log, files, tracing, metrics
               href: how-to-log-view-metrics.md
             - name: Log MLflow models
               href: how-to-log-mlflow-models.md
+            - name: Query & compare experiments and runs
+              href: how-to-track-experiments-mlflow.md
             - name: Visualize runs with TensorBoard
               displayName: log, monitor, metrics
               href: how-to-monitor-tensorboard.md
@@ -446,10 +444,8 @@
             - name: Train experiments with MLflow Projects
               displayName: log, monitor, metrics, model registry, register
               href: how-to-train-mlflow-projects.md
-            - name: Manage experiments and runs with MLflow
+            - name: Query & compare experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
-            - name: Migrate from SDK v1 logging to MLflow
-              href: reference-migrate-sdk-v1-mlflow-tracking.md
         - name: Automated machine learning
           displayName: automl, auto ml
           items: 
@@ -585,6 +581,8 @@
             - name: Create event-driven workflows
               displayName: event grid
               href: how-to-use-event-grid.md
+            - name: Schedule a pipeline job
+              href: how-to-schedule-pipeline-job.md
         - name: Build & use ML pipelines
           displayName: pipelines
           items:
@@ -660,9 +658,11 @@
       href: how-to-troubleshoot-protobuf-descriptor-error.md
 - name: Reference
   items: 
-    - name: Python SDK
-      displayName: api, core, package, python, class
+    - name: Python SDK v1
       href: /python/api/overview/azure/ml/intro
+    - name: Python SDK v2 (preview)
+      displayName: api, core, package, python, class
+      href: https://aka.ms/sdk-v2-install
     - name: REST API
       href: /rest/api/azureml/
     - name: CLI (v2)
@@ -682,6 +682,8 @@
           href: reference-yaml-data.md
         - name: Model
           href: reference-yaml-model.md
+        - name: Schedule
+          href: reference-yaml-schedule.md 
         - name: Compute
           items: 
             - name: Compute cluster (AmlCompute)
@@ -767,6 +769,8 @@
       href: /legal/machine-learning/conda-licensing
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
+    - name: Enable preview features
+      href: how-to-enable-preview-features.md
     - name: Feature availability across regions
       href: reference-machine-learning-cloud-parity.md
     - name: User forum

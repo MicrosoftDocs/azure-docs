@@ -3,11 +3,9 @@ title: Schema updates June-1-2016
 description: Updated schema version 2016-06-01 for logic app definitions in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: kevinlam1
-ms.author: klam
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 07/25/2016
+ms.date: 08/20/2022
 ---
 
 # Schema updates for Azure Logic Apps - June 1, 2016

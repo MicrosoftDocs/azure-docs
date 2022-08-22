@@ -4,7 +4,7 @@ description: Tutorial showing how to use a Linux VM system-assigned managed iden
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi

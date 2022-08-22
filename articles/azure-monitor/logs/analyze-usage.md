@@ -111,7 +111,7 @@ find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer, 
 **Count of billable events by computer**
 
 ```kusto
-find where TimeGenerated > ago(24h) project _IsBillable, Computer
+find where TimeGenerated > ago(24h) project _IsBillable, Computer, Type
 | where _IsBillable == true and Type != "Usage"
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  
