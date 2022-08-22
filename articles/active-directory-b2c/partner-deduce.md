@@ -114,17 +114,16 @@ In order to collect the user_agent from client-side create your own ContentDefin
 
 1. Set up a [blob storage container in your storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 
-2. Upload the previously edited `selfAsserted.cshtml` file to your blob container.
+1. Upload the previously edited `selfAsserted.cshtml` file to your blob container.
 
-3. Allow CORS access to storage container you created by following these instructions:
+1. Allow CORS access to storage container you created by following these instructions:
 
-   a. Go to **Settings** >**Allowed Origin**, enter `https://{your_tenant_name}.b2clogin.com`.
+   1. Go to **Settings** >**Allowed Origin**, enter `https://your_tenant_name.b2clogin.com`. Replace `your-tenant- name` with the name of your Azure AD B2C tenant such as `fabrikam`. Use all lowercase letters when entering your tenant name.
 
-   b. Replace your-tenant-name with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. Use all lowercase letters when entering your tenant name.
-
-   c. For **Allowed Methods**, select `GET` and `PUT`.
+   1. For **Allowed Methods**, select `GET` and `PUT`.
 
    d. Select **Save**.
+
 
 ## Step 4: Configure ContentDefinition
 
