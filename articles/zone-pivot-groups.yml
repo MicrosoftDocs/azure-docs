@@ -395,7 +395,7 @@ groups:
     title: ASP.NET
   - id: devlang-aspnet-core
     title: ASP.NET Core
-## Mobile app ##  
+## Mobile app ##
 - id: mobile-app-quickstart
   title: desktop-app-quickstart
   prompt: Choose a language or framework
@@ -403,8 +403,8 @@ groups:
   - id: devlang-android
     title: Android
   - id: devlang-ios
-    title: iOS and macOS 
-## Desktop app##  
+    title: iOS and macOS
+## Desktop app##
 - id: desktop-app-quickstart
   title: desktop-app-quickstart
   prompt: Choose a language or framework
@@ -864,7 +864,7 @@ groups:
   - id: container-linux
     title: Linux container
   - id: container-windows
-    title: Windows container    
+    title: Windows container
 - id: app-service-containers-windows-linux-portal
   title: App Service with custom containers
   prompt: Choose a custom container platform and deployment environment
@@ -1715,7 +1715,7 @@ groups:
   - id: aro-arm
     title: Azure Resource Manager
   - id: aro-bicep
-    title: Bicep   
+    title: Bicep
 # Owner: cshoe
 - id: container-apps-image-build-type
   title: Container build method
@@ -1731,9 +1731,9 @@ groups:
   prompt: Choose an option
   pivots:
   - id: aro-azurecli
-    title: Azure CLI  
+    title: Azure CLI
   - id: aro-azureportal
-    title: Azure portal  
+    title: Azure portal
 # Owner: cshoe
 - id: devops-or-github
   title: Code host

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 08/20/2022
 ms.custom: ignite-fall-2021
 ---
 
