@@ -20,7 +20,7 @@ You need to have Visual Studio Code with the Resource Manager Tools extension an
 
 ## Review template
 
-Your previous template deployed a storage account, an App Service plan, and web app.
+Your previous template deployed a storage account, an App Service plan, and a web app.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
