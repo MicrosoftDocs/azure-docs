@@ -36,17 +36,10 @@
         - name: Train & deploy image classification
           displayName: MNIST
           href: tutorial-train-deploy-notebook.md
-        - name: Automated ML
-          items: 
-            - name: Regression (NYC Taxi data)
-              displayName: automl, automated, auto ml,
-              href: tutorial-auto-train-models.md
-            - name: Object detection with AutoML
-              displayName: automl, automated, auto ml, computer vision, images, image model
-              href: tutorial-auto-train-image-models.md
-        - name: Prep your code for production
-          displayName: mlops, mlopspython, production
-          href: tutorial-convert-ml-experiment-to-production.md
+        - name: Object detection with AutoML
+          displayName: automl, automated, auto ml, computer vision, images, image model
+          href: tutorial-auto-train-image-models.md
+
     - name: Studio
       items: 
         - name: Automated ML (UI)
@@ -56,7 +49,7 @@
               href: tutorial-first-experiment-automated-ml.md
             - name: Forecast demand (Bike share data)
               displayName: automl, automated, auto ml, portal, ui
-              href: tutorial-automated-ml-forecast.md
+              href: tutorial-automated-ml-forecast.md 
         - name: Designer (drag-n-drop)
           items: 
             - name: 1. Train a regression model
@@ -288,7 +281,7 @@
           displayName: compute target, low priority, managed identity
           href: how-to-create-attach-compute-cluster.md
         - name: AKS and Arc Enabled Kubernetes cluster
-          displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
+          displayName: Azure Arc, Kubernetes, on-premises, multi-cloud, attach
           href: how-to-attach-kubernetes-anywhere.md
         - name: Manage compute resources
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
@@ -361,7 +354,7 @@
           href: how-to-datastore.md
         - name: Create data assets
           displayName: Create data assets
-          href: how-to-create-register-data-assets.md
+          href: how-to-create-data-assets.md
         - name: Read & write data in jobs
           displayName: Read & write data in jobs
           href: how-to-read-write-data-v2.md
