@@ -61,4 +61,5 @@ Below are required roles for sharing data and receiving shares.
 | **Data Provider** |Owner OR Storage Blob Data Owner|Data Share Contributor|
 | **Data Consumer** |Contributor OR Owner OR Storage Blob Data Contributor OR Storage Blob Data Owner|Data Share Contributor|
 
-Note: If you created the Microsoft Purview account, you're automatically assigned all the roles to the root collection. Refer to [Microsoft Purview permissions](../catalog-permissions.md) to learn more about the Microsoft Purview collection and roles.
+> [!NOTE]
+> If you created the Microsoft Purview account, you're automatically assigned all the roles to the root collection. Refer to [Microsoft Purview permissions](../catalog-permissions.md) to learn more about the Microsoft Purview collection and roles.
