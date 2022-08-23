@@ -1,6 +1,6 @@
 ---
 title: ArmApiControl UI element
-description: Describes the Microsoft.Solutions.ArmApiControl UI element for Azure portal. Used for calling API operations.
+description: Describes the Microsoft.Solutions.ArmApiControl UI element for Azure portal that's used to call API operations.
 author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: conceptual
@@ -9,15 +9,15 @@ ms.date: 08/23/2022
 
 # Microsoft.Solutions.ArmApiControl UI element
 
-ArmApiControl lets you get results from an Azure Resource Manager API operation. Use the results to populate dynamic content in other controls.
+The `ArmApiControl` gets results from an Azure Resource Manager API operation using GET or POST. You can use the results to populate dynamic content in other controls.
 
 ## UI sample
 
-There's no UI for this control.
+There's no UI for `ArmApiControl`.
 
 ## Schema
 
-The following example shows the schema for this control:
+The following example shows the control's schema.
 
 ```json
 {
@@ -27,8 +27,8 @@ The following example shows the schema for this control:
     "method": "{HTTP-method}",
     "path": "{path-for-the-URL}",
     "body": {
-      "key1": "val1",
-      "key2": "val2"
+      "key1": "value1",
+      "key2": "value2"
     }
   }
 }
@@ -36,26 +36,28 @@ The following example shows the schema for this control:
 
 ## Sample output
 
-The control's output is not displayed to the user. Instead, the result of the operation is used in other controls.
+The control's output isn't displayed to the user. Instead, the operation's results are used in other controls.
 
 ## Remarks
 
-- The `request.method` property specifies the HTTP method. Only `GET` or `POST` are allowed.
-- The `request.path` property specifies a URL that must be a relative path to an ARM endpoint. It can be a static path or can be constructed dynamically by referring output values of the other controls.
+- The `request.method` property specifies the HTTP method. Only GET or POST are allowed.
+- The `request.path` property specifies a URL that must be a relative path to an Azure Resource Manager endpoint. It can be a static path or can be constructed dynamically by referring output values of the other controls.
 
-  For example, an ARM call into `Microsoft.Network/expressRouteCircuits` resource provider:
+  For example, an Azure Resource Manager call into `Microsoft.Network/expressRouteCircuits` resource provider:
 
   ```json
-  "path": "subscriptions/<subid>/resourceGroup/<resourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<routecircuitName>/?api-version=2020-05-01"
+  "path": "subscriptions/<subid>/resourceGroup/<resourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<routecircuitName>/?api-version=2022-01-01"
   ```
 
 - The `request.body` property is optional. Use it to specify a JSON body that is sent with the request. The body can be static content or constructed dynamically by referring to output values from other controls.
 
 ## Example
 
-In the following example, the `providersApi` element calls an API to get an array of provider objects.
+In the following example, the `providersApi` element uses the `ArmApiControl` and calls an API to get an array of provider objects. The array is used to create a list of provider names.
 
-The `allowedValues` property of the `providersDropDown` element is configured to get the names of the providers. It displays them in the dropdown list.
+The `providersDropDown` element's `allowedValues` property is configured to get the names of the providers. The provider names are displayed in the dropdown list.
+
+The `output` property `providerName` shows the provider name that was selected from the dropdown list. The output can be used to pass the value to a parameter in a managed application template.
 
 ```json
 {
@@ -92,9 +94,10 @@ The `allowedValues` property of the `providersDropDown` element is configured to
 }
 ```
 
-For an example of using the `ArmApiControl` to check the availability of a resource name, see [Microsoft.Common.TextBox](microsoft-common-textbox.md).
+For an example of the `ArmApiControl` that uses the `request.body` property, see the [Microsoft.Common.TextBox](microsoft-common-textbox.md) single-line example. That example checks the availability of a storage account name and returns a message if the name is unavailable.
 
 ## Next steps
 
-- For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
+- For an introduction to creating UI definitions, see [CreateUiDefinition.json for Azure managed application's create experience](create-uidefinition-overview.md).
 - For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).
+- To learn more about functions like `map`, `basics`, and `parse`, see [CreateUiDefinition functions](create-uidefinition-functions.md).
