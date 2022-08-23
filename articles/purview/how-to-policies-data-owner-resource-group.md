@@ -13,7 +13,7 @@ ms.custom: event-tier1-build-2022
 # Resource group and subscription access provisioning by data owner (Preview)
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Access policies](concept-data-owner-policies.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
+[Access policies](concept-policies-data-owner.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
 
 You can also [register an entire resource group or subscription](register-scan-azure-multiple-sources.md), and create a single policy that will manage access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards. This article describes how this is done. 
 
@@ -21,9 +21,9 @@ You can also [register an entire resource group or subscription](register-scan-a
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 
 **Only these data sources are enabled for access policies on resource group or subscription**. Follow the **Prerequisites** section that is specific to the data source(s) in these guides:
-* [Data owner policies on an Azure Storage account](./how-to-data-owner-policies-storage.md#prerequisites)
-* [Data owner policies on an Azure SQL Database](./how-to-data-owner-policies-azure-sql-db.md#prerequisites)*
-* [Data owner policies on an Arc-enabled SQL Server](./how-to-data-owner-policies-arc-sql-server.md#prerequisites)*
+* [Data owner policies on an Azure Storage account](./how-to-policies-data-owner-storage.md#prerequisites)
+* [Data owner policies on an Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#prerequisites)*
+* [Data owner policies on an Arc-enabled SQL Server](./how-to-policies-data-owner-arc-sql-server.md#prerequisites)*
 
 (*) Only the *SQL Performance monitoring* and *Security auditing* actions are fully supported for SQL-type data sources. The *Read* action needs a workaround described later in this guide. The *Modify* action is not currently supported for SQL-type data sources.
 
@@ -41,15 +41,15 @@ After you've registered your resources, you'll need to enable Data Use Managemen
 
 In the end, your resource will have the  **Data Use Management** toggle **Enabled**, as shown in the picture:
 
-![Screenshot shows how to register a resource group or subscription for policy by toggling the enable tab in the resource editor.](./media/how-to-data-owner-policies-resource-group/register-resource-group-for-policy.png)
+![Screenshot shows how to register a resource group or subscription for policy by toggling the enable tab in the resource editor.](./media/how-to-policies-data-owner-resource-group/register-resource-group-for-policy.png)
 
 >[!Important]
 > - If you want to create a policy on a resource group or subscription and have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently for *Data use management* to provide their App ID.
 
 ## Create and publish a data owner policy
-Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to the example shown in the image: a policy that provides security group *sg-Finance* *modify* access to resource group *finance-rg*. Use the Data source box in the Policy user experience.
+Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-policies-data-owner-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to the example shown in the image: a policy that provides security group *sg-Finance* *modify* access to resource group *finance-rg*. Use the Data source box in the Policy user experience.
 
-![Screenshot shows a sample data owner policy giving access to a resource group.](./media/how-to-data-owner-policies-resource-group/data-owner-policy-example-resource-group.png)
+![Screenshot shows a sample data owner policy giving access to a resource group.](./media/how-to-policies-data-owner-resource-group/data-owner-policy-example-resource-group.png)
 
 >[!Important]
 > - Publish is a background operation. For example, Azure Storage accounts can take up to **2 hours** to reflect the changes.
@@ -68,6 +68,6 @@ The limit for Microsoft Purview policies that can be enforced by Storage account
 ## Next steps
 Check blog, demo and related tutorials:
 
-* [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
+* [Concepts for Microsoft Purview data owner policies](./concept-policies-data-owner.md)
 * [Blog: resource group-level governance can significantly reduce effort](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-resource-group-level-governance-can/ba-p/3096314)
 * [Video: Demo of data owner access policies for Azure Storage](https://learn-video.azurefd.net/vod/player?id=caa25ad3-7927-4dcc-88dd-6b74bcae98a2)

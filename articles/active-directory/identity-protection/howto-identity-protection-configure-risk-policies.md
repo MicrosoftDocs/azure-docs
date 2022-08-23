@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 03/18/2022
+ms.date: 08/23/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -110,9 +110,6 @@ Before organizations enable remediation policies, they may want to [investigate]
 ## Next steps
 
 - [Enable Azure AD Multi-Factor Authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
-
 - [What is risk](concept-identity-protection-risks.md)
-
 - [Investigate risk detections](howto-identity-protection-investigate-risk.md)
-
 - [Simulate risk detections](howto-identity-protection-simulate-risk.md)
