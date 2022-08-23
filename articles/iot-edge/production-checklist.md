@@ -222,7 +222,7 @@ Next, be sure to update the image references in the deployment.template.json fil
 ### Configure image garbage collection
 Image garbage collection is a feature offered by IoT Edge v1.4 and later to automatically clean up docker images that are no longer used by IoT Edge modules. It only deletes Docker images that were pulled by the IoT Edge runtime as part of a deployment. Deleting these unused module images helps conserve disk space.
 
-By default, this feature is enabled to run once per day at midnight (device local time) and remove module images that are at least 7 days old. The parameters to disable the feature, modify the recurrence, or module image age cleanup threshold are set in the `config.toml`. If not specified, the default values are applied.
+By default, this feature is enabled to run once per day at midnight (device local time) and remove unused module images that are at least 7 days old. The parameters to disable the feature, modify the recurrence, or module image age cleanup threshold are set in the `config.toml`. If not specified, the default values are applied.
 
 The following is an example `config.toml` for image garbage collection. 
 ```toml
