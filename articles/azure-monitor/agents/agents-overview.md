@@ -201,7 +201,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Event Hub	|		|		|	X	|
 |	**Services and features supported**	|		|		|		|		|
 |		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|
-|		|	VM Insights	|		|	X (Public preview)	|		|
+|		|	VM Insights	|	X (Public preview)	|	X	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
 |		|	Change Tracking	|	|	X	|		|
@@ -225,7 +225,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Event Hub	|		|		|	X	|		|
 |	**Services and features supported**	|		|		|		|		|		|
 |		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|
-|		|	VM Insights	|		|	X (Public preview)	|		|
+|		|	VM Insights	|	X (Public preview)	|	X 	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
 |		|	Change Tracking	|	|	X	|		|
