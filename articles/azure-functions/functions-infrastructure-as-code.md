@@ -12,9 +12,17 @@ ms.custom: fasttrack-edit, devx-track-azurepowershell
 
 You can use a Bicep file or an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy other resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app.
 
-***jgao: use tabs here
+# [Bicep](#tab/bicep)
+
+```bicep
 For more information about creating Bicep files, see [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md).
+```
+
+# [JSON](#tab/json)
+
 For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
+
+---
 
 For sample templates, see:
 
@@ -26,14 +34,28 @@ For sample templates, see:
 
 An Azure Functions deployment typically consists of these resources:
 
-***jgao: use tabs here
+# [Bicep](#tab/bicep)
+
+```bicep
 
 | Resource                                                                           | Requirement | Syntax and properties reference                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| A function app                                                                     | Required    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
-| An [Azure Storage](../storage/index.yml) account                                   | Required    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |
-| A [hosting plan](./functions-scale.md)                                             | Optional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
+| A function app                                                                     | Required    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites?pivots=deployment-language-bicep)                             |
+| An [Azure Storage](../storage/index.yml) account                                   | Required    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep) |
+| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-bicep)         |
+| A [hosting plan](./functions-scale.md)                                             | Optional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-bicep)
+```
+
+# [JSON](#tab/json)
+
+| Resource                                                                           | Requirement | Syntax and properties reference                                                         |
+|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
+| A function app                                                                     | Required    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites?pivots=deployment-language-arm-template)                             |
+| An [Azure Storage](../storage/index.yml) account                                   | Required    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-arm-template) |
+| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-arm-template)         |
+| A [hosting plan](./functions-scale.md)                                             | Optional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-arm-template)                 |
+
+---
 
 <sup>1</sup>A hosting plan is only required when you choose to run your function app on a [Premium plan](./functions-premium-plan.md) or on an [App Service plan](../app-service/overview-hosting-plans.md).
 
@@ -188,6 +210,7 @@ resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
 
 ```json
 {
+  "type": "Microsoft.Insights/components",
   "apiVersion": "2020-02-02",
   "name": "[variables('applicationInsightsName')]",
   "location": "[parameters('appInsightsLocation')]",
@@ -223,7 +246,7 @@ appSettings: [
 "appSettings": [
   {
     "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-    "value": "[reference(resourceId('Microsoft.Insights/components', variables('appInsightsName'))).InstrumentationKey]"                    },
+    "value": "[reference(resourceId('Microsoft.Insights/components', variables('appInsightsName')), '2020-02-02').InstrumentationKey]"},
   {
 ]
 ```
@@ -287,8 +310,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
     "httpsOnly": true
   },
   "dependsOn": [
-    "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
   ]
 }
 ```
@@ -517,7 +540,7 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
       "appSettings": [
         {
           "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))).InstrumentationKey]"
+          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
         },
         {
           "name": "AzureWebJobsStorage",
@@ -627,7 +650,7 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
       "appSettings": [
         {
           "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))).InstrumentationKey]"
+          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2020-02-02).InstrumentationKey]"
         },
         {
           "name": "AzureWebJobsStorage",
@@ -778,7 +801,7 @@ resource functionAppName_resource 'Microsoft.Web/sites@2022-03-01' = {
       appSettings: [
         {
           name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: reference(applicationInsightsName.id, '2015-05-01').InstrumentationKey
+          value: reference(applicationInsightsName.id, '2020-02-02').InstrumentationKey
         }
         {
           name: 'AzureWebJobsStorage'
@@ -830,7 +853,7 @@ resource functionAppName_resource 'Microsoft.Web/sites@2022-03-01' = {
       "appSettings": [
         {
           "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2015-05-01').InstrumentationKey]"
+          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
         },
         {
           "name": "AzureWebJobsStorage",
@@ -886,7 +909,7 @@ resource site 'Microsoft.Web/sites@2021-02-01' = {
       appSettings: [
         {
           name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: reference(applicationInsight.id, '2015-05-01').InstrumentationKey
+          value: reference(applicationInsight.id, '2020-02-02').InstrumentationKey
         }
         {
           name: 'AzureWebJobsStorage'
@@ -936,7 +959,7 @@ resource site 'Microsoft.Web/sites@2021-02-01' = {
       "appSettings": [
         {
           "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2015-05-01').InstrumentationKey]"
+          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
         },
         {
           "name": "AzureWebJobsStorage",
