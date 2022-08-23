@@ -40,9 +40,11 @@ This template provides the basic structure of a HOW-TO article. A HOW-TO article
 
 -->
 
-Waffles rank highly on many Americans' list of favorite breakfast foods. Waffles are usually moist, occasionally slightly sweet, and most importantly, warm.
+A Storage Mover is a top-level resource and is deployed into an Azure resource group. It holds agent trust relationships for managing migration jobs and also allows for storing migration plans.
 
-However, Oma only made waffles as a cake-like dessert in her heart-shaped waffle iron. Her waffles were great fresh, but also delicious when dried out and dunked in coffee. Our Tante Elise would whip these up when unexpected guests dropped by for Kaffee und Kuchen in the afternoon. Her callers could devour the first batch while the remainder baked in the waffle iron because they were both quicker and easier than Butterkuchen or Bienenstich.
+Ideally, admins should deploy a single Storage Mover resource even when agents across regions are deployed. The agent never sends data through the Storage Mover service and therefore the proximity of agent and target storage account matter far more than the proximity to the Storage Mover resource. Only management signals are exchanged between Storage Mover and agent where higher latency connections have no impact.
+
+Only deploy multiple Storage Mover resources if you have distinct sets of admins that migrate with their own, distinct agents. An agent registered to a storage mover resource cannot be used in a different storage mover resource.
 
 This article guides you through the construction of Oma's waffles. After completing this how-to, you'll be able to experiment on your own to gain additional experience. You may also choose to continue providing simple waffles to friends and family.
 
