@@ -3,7 +3,7 @@ title: Oracle Azure Virtual Machines DBMS deployment for SAP workload | Microsof
 description: Oracle Azure Virtual Machines DBMS deployment for SAP workload
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
-author: raklahr, cgardin
+author: ralfklahrMS
 manager: msjuergent
 editor: ''
 tags: azure-resource-manager
@@ -21,8 +21,8 @@ ms.custom: H1Hack27Feb2017
 # Azure Virtual Machines Oracle DBMS deployment for SAP workload
 
 This document covers several different areas to consider when deploying Oracle Database for SAP workload in Azure IaaS. Before you read this document, we recommend you read [Considerations for Azure Virtual
-Machines DBMS deployment for SAP workload](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general).
-We also recommend that you read other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/get-started).
+Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general).
+We also recommend that you read other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
 
 You can find information about Oracle versions and corresponding OS versions that are supported for running SAP on Oracle on Azure in SAP Note [2039619](https://launchpad.support.sap.com/#/notes/2039619).
 
@@ -128,7 +128,7 @@ Review the ASM documentation in the relevant SAP Installation Guide for Oracle a
 
 **Variant 1** – small to medium data volumes up to \~**3TB**, restore time not critical
 
-Customer has small or medium sized databases where backup and/or restore + recovery of all databases can be accomplished by RMAN in a timely fashion. Example: When a complete Oracle ASM disk group with data files from one or more databases is broken and all data files from all databases need to be restored to a newly created Oracle ASM disk group using RMAN.
+Customer has small or medium sized databases where backup and/or restore + recovery of all databases can be accomplished by RMAN in a timely fashion. Example: When a complete Oracle ASM disk group, with data files, from one or more databases is broken and all data files from all databases need to be restored to a newly created Oracle ASM disk group using RMAN.
 
 Oracle ASM disk group recommendation:
 
@@ -153,7 +153,7 @@ Oracle ASM disk group recommendation:
 <p>- Control file (first copy)</p>
 <p>- Online redo logs (first copy)</p></td>
 <td><p>3-6 x P30 (1TB)</p>
-<p>To increase DB size add extra P30 disks</p></td>
+<p>To increase DB size, add extra P30 disks</p></td>
 </tr>
 <tr class="even">
 <td>+ARCH</td>
@@ -207,7 +207,7 @@ Major differences to Variant 1 are:
 <p>- All temp files</p>
 <p>- Control file (first copy)</p></td>
 <td><p>3-12 x P30 (1TB)</p>
-<p>To increase DB size, add additional P30 disks</p></td>
+<p>To increase DB size, add extra P30 disks</p></td>
 </tr>
 <tr class="even">
 <td>+OLOG</td>
@@ -234,7 +234,7 @@ Major differences to Variant 1 are:
 
 Customer has a huge database where backup and/or restore + recovery of a single databases cannot be accomplished in a timely fashion.
 
-Usually customers will use RMAN, Azure Backup for Oracle and/or disk snap techniques in combination. In this variant each relevant database file type is separated to different Oracle ASM disk groups.
+Usually customers will use RMAN, Azure Backup for Oracle and/or disk snap techniques in combination. In this variant, each relevant database file type is separated to different Oracle ASM disk groups.
 
 <table>
 <colgroup>
@@ -256,13 +256,13 @@ Usually customers will use RMAN, Azure Backup for Oracle and/or disk snap techni
 <p>- All temp files</p>
 <p>- Control file (first copy)</p></td>
 <td><p>5-30 or more x P30 (1TB) or P40 (2TB)</p>
-<p>To increase DB size <u>add</u> additional disks</p></td>
+<p>To increase DB size <u>add</u> extra disks</p></td>
 </tr>
 <tr class="even">
 <td>+OLOG</td>
 <td>- Online redo logs (first copy)</td>
 <td><p>3-8 x P20 (512GB) or P30 (1TB)</p>
-<p>For additional safety “Normal Redundancy” can be selected for this
+<p>For more safety “Normal Redundancy” can be selected for this
 ASM Disk Group</p></td>
 </tr>
 <tr class="odd">
@@ -281,12 +281,11 @@ ASM Disk Group</p></td>
 </tbody>
 </table>
 
-**Note:** Azure Host Disk Cache for the DATA ASM Disk Group can be set to either Read Only or None. All other ASM Disk Groups should be set to None. On BW or SCM a separate ASM Disk Group for TEMP can be considered for very large or busy systems.
+**Note:** Azure Host Disk Cache for the DATA ASM Disk Group can be set to either Read Only or None. All other ASM Disk Groups should be set to None. On BW or SCM a separate ASM Disk Group for TEMP can be considered for large or busy systems.
 
 **Adding Space to ASM + Azure Disks**
 
-Oracle ASM Disk Groups can either be extended by adding additional disks or by extending current disks. It is strongly recommended to add additional disks rather than extending existing disks. Review these MOS articles and links 
-MOS Notes 1684112.1 and 2176737.1
+Oracle ASM Disk Groups can either be extended by adding extra disks or by extending current disks. It is recommended to add extra disks rather than extending existing disks. Review these MOS articles and links MOS Notes 1684112.1 and 2176737.1
 
 > asmca -silent -addDisk -diskGroupName DATA -disk '/dev/sdd1'
 >
@@ -347,7 +346,7 @@ YouTube](https://www.youtube.com/watch?v=pRJgiuT-S2M)
 
 **Azure NetApp Files (ANF) with Oracle dNFS (Direct NFS)**
 
-The combination of Azure VM’s and ANF is a very robust and proven combination implemented by many customers on an exceptionally large scale.
+The combination of Azure VM’s and ANF is a robust and proven combination implemented by many customers on an exceptionally large scale.
 
 Databases of 100+TB are already running productive on this combination. To start we wrote a detailed blog on how to set up this combination:
 
@@ -361,16 +360,13 @@ More general information
 
 Mirror Log is required on dNFS ANF Production systems.
 
-Even though the ANF is highly redundant, Oracle still requires a mirrored redo-logfile volume. The recommendation is to create two
-separate volumes and configure origlogA together with mirrlogB and origlogB together with mirrlogA. In this case you make use of a
-distributed load balancing of the redo-logfiles.
+Even though the ANF is highly redundant, Oracle still requires a mirrored redo-logfile volume. The recommendation is to create two separate volumes and configure origlogA together with mirrlogB and origlogB together with mirrlogA. In this case, you make use of a distributed load balancing of the redo-logfiles.
 
 **ANF Backup**
 
-With ANF some key features are available like consistent snapshot-based backups, extremely low latency, and remarkably high performance. From version 6 of our AzAcSnap tool [Azure Application Consistent Snapshot tool for ANF](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-get-started) Oracle databases can be configured for consistent database snapshots.
-Also, the option of resizing the volumes on the fly is very valued by our customers.
+With ANF some key features are available like consistent snapshot-based backups, low latency, and remarkably high performance. From version 6 of our AzAcSnap tool [Azure Application Consistent Snapshot tool for ANF](https://docs.microsoft.com/azure/azure-netapp-files/azacsnap-get-started) Oracle databases can be configured for consistent database snapshots. Also, the option of resizing the volumes on the fly is valued by our customers.
 
-Those snapshots remain on the actual data volume and must be copied away using ANF CRR (Cross Region Replication) [Cross-region replication of ANF](https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-introduction)
+Those snapshots remain on the actual data volume and must be copied away using ANF CRR (Cross Region Replication) [Cross-region replication of ANF](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction)
 or other backup tools.
 
 **SAP on Oracle on Azure with LVM**
@@ -421,12 +417,12 @@ The disk selection for hosting Oracle's online redo logs should be driven by IOP
 **Oracle Automatic Storage Management (ASM)** can evaluate these storage technologies:
 
 1.  Azure Premium Storage – currently the default choice
-2.  Azure Premium Storage SSD v2 – improved throughput and latency [Azure Premium SSD v2 Disk Storage in preview \| Azure Blog and Updates \| Microsoft Azure](https://azure.microsoft.com/en-us/blog/azure-premium-ssd-v2-disk-storage-in-preview/)
-3.  Managed Disk Bursting - [Managed disk bursting - Azure Virtual Machines \| Microsoft  Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/disk-bursting)
+2.  Azure Premium Storage SSD v2 – improved throughput and latency [Azure Premium SSD v2 Disk Storage in preview \| Azure Blog and Updates \| Microsoft Azure](https://azure.microsoft.com/blog/azure-premium-ssd-v2-disk-storage-in-preview/)
+3.  Managed Disk Bursting - [Managed disk bursting - Azure Virtual Machines \| Microsoft  Docs](https://docs.microsoft.com/azure/virtual-machines/disk-bursting)
 4.  Azure Write Accelerator
 5.  Online disk extension for Azure Premium SSD storage is still in progress
 
-Log write times can be improved on Azure M-Series VMs by enabling Write Accelerator. Enable Azure Write Accelerator for the Azure Premium Storage disks used by the ASM Disk Group for <u>online redo log files</u>. For more information, see [<u>Write Accelerator</u>](https://docs.microsoft.com/en-us/azure/virtual-machines/how-to-enable-write-accelerator).
+Log write times can be improved on Azure M-Series VMs by enabling Write Accelerator. Enable Azure Write Accelerator for the Azure Premium Storage disks used by the ASM Disk Group for <u>online redo log files</u>. For more information, see [<u>Write Accelerator</u>](https://docs.microsoft.com/azure/virtual-machines/how-to-enable-write-accelerator).
 
 Using Write Accelerator is optional but can be enabled if the AWR report indicates higher than expected log write times.
 
@@ -451,44 +447,44 @@ The following recommendations should be followed when selecting a VM type:
 
 1.  Ensure the **Disk Throughput and IOPS** is sufficient for the workload and at least equal to the aggregate throughput of the disks
 2.  Consider enabling paid **bursting** especially for Redo Log disk(s)
-3.  For ANF the Network throughput is very important as all storage traffic is counted as “Network” rather than Disk throughput
+3.  For ANF the Network throughput is important as all storage traffic is counted as “Network” rather than Disk throughput
 4.  Review this blog for Network tuning for M-series [Optimizing Network Throughput on Azure M-series VMs HCMT (microsoft.com)](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/optimizing-network-throughput-on-azure-m-series-vms/ba-p/3581129)
 
 5.  Review this
-    [link](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-design)
+    [link](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-design)
     that describes how to use an AWR report to select the correct Azure
     VM
 
-Azure Intel Ev5 [Edv5 and Edsv5-series - Azure Virtual Machines \|Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/edv5-edsv5-series#edsv5-series)
+Azure Intel Ev5 [Edv5 and Edsv5-series - Azure Virtual Machines \|Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/edv5-edsv5-series#edsv5-series)
 
-Azure AMD Eadsv5 [Easv5 and Eadsv5-series - Azure Virtual Machines \|Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/easv5-eadsv5-series#eadsv5-series)
+Azure AMD Eadsv5 [Easv5 and Eadsv5-series - Azure Virtual Machines \|Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/easv5-eadsv5-series#eadsv5-series)
 
-Azure M-series/Msv2-series [M-series - Azure Virtual Machines \|Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/m-series)
-/ [Msv2/Mdsv2 Medium Memory Series - Azure Virtual Machines \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/msv2-mdsv2-series)
+Azure M-series/Msv2-series [M-series - Azure Virtual Machines \|Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/m-series)
+/ [Msv2/Mdsv2 Medium Memory Series - Azure Virtual Machines \| Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/msv2-mdsv2-series)
 
-Azure Mv2 [Mv2-series - Azure Virtual Machines \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/mv2-series)
+Azure Mv2 [Mv2-series - Azure Virtual Machines \| Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/mv2-series)
 
 **Backup/restore**
 
 For backup/restore functionality, the SAP BR\*Tools for Oracle are supported in the same way as they are on bare metal and Hyper-V. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restores from disk.
 
-For more information about how you can use Azure Backup and Recovery services for backing up and recovering Oracle databases, see [<u>Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine</u>](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-overview).
+For more information about how you can use Azure Backup and Recovery services for backing up and recovering Oracle databases, see [<u>Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine</u>](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-overview).
 
-[<u>Azure Backup service</u>](https://docs.microsoft.com/en-us/azure/backup/backup-overview) is also supporting Oracle backups as described in the article [<u>Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup</u>](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup).
+[<u>Azure Backup service</u>](https://docs.microsoft.com/azure/backup/backup-overview) is also supporting Oracle backups as described in the article [<u>Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup</u>](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup).
 
 **High availability**
 
-Oracle Data Guard is supported for high availability and disaster recovery purposes. To achieve automatic failover in Data Guard, you need to use Fast-Start Failover (FSFA). The Observer functionality (FSFA) triggers the failover. If you don't use FSFA, you can only use a manual failover configuration. For more information, see [<u>Implement Oracle Data Guard on an Azure Linux virtual machine</u>](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
+Oracle Data Guard is supported for high availability and disaster recovery purposes. To achieve automatic failover in Data Guard, you need to use Fast-Start Failover (FSFA). The Observer functionality (FSFA) triggers the failover. If you don't use FSFA, you can only use a manual failover configuration. For more information, see [<u>Implement Oracle Data Guard on an Azure Linux virtual machine</u>](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
 
-Disaster Recovery aspects for Oracle databases in Azure are presented in the article [<u>Disaster recovery for an Oracle Database 12c database in an Azure environment</u>](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
+Disaster Recovery aspects for Oracle databases in Azure are presented in the article [<u>Disaster recovery for an Oracle Database 12c database in an Azure environment</u>](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
 Another good Oracle whitepaper [Setting up Oracle 12c Data Guard for SAP Customers](https://www.sap.com/documents/2016/12/a67bac51-9a7c-0010-82c7-eda71af511fa.html)
 
 **Huge Pages & Large Oracle SGA Configurations**
 
-VLDB SAP on Oracle on Azure deployments leverage SGA sizes in excess of 3TB.  Modern versions of Oracle handle very large SGA sizes well and significantly reduce IO.  Review the AWR report and increase the SGA size to reduce read IO. 
+VLDB SAP on Oracle on Azure deployments leverage SGA sizes in excess of 3TB.  Modern versions of Oracle handle large SGA sizes well and significantly reduce IO.  Review the AWR report and increase the SGA size to reduce read IO. 
 
-As general guidance Linux Huge Pages should be configured to approximately 75% of the VM RAM size.  The SGA size can be set to 90% of the Huge Page size.  A very approximate example would be a m192ms VM with 4TB of RAM would have Huge Pages set proximately 3TB.  The SGA can be set to a value a little less such as 2.95TB.
+As general guidance Linux Huge Pages should be configured to approximately 75% of the VM RAM size.  The SGA size can be set to 90% of the Huge Page size.  A approximate example would be a m192ms VM with 4TB of RAM would have Huge Pages set proximately 3TB.  The SGA can be set to a value a little less such as 2.95TB.
 
 Large SAP customers running on High Memory Azure VMs greatly benefit from HugePages 
 
@@ -500,7 +496,7 @@ NUMA systems vm.min_free_kbytes should be set to 524288 \* \<# of NUMA nodes\>.�
 
 **Links & other Oracle Linux Utilities**
 
-Oracle Linux provides a very useful GUI management utility
+Oracle Linux provides a useful GUI management utility
 
 Oracle web console [Oracle Linux: Install Cockpit Web Console on Oracle Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/obe-cockpit-install/index.html#want-to-learn-more)
 
@@ -514,7 +510,7 @@ Oracle Linux has a new package management tool – DNF
 
 [Oracle® Linux 8 Managing Software on Oracle Linux - Chapter 1 Yum DNF](https://docs.oracle.com/en/operating-systems/oracle-linux/8/software-management/dnf.html)
 
-Memory and NUMA configurations can be tested and benchmarked with a very useful tool - Oracle Real Application Testing (RAT)
+Memory and NUMA configurations can be tested and benchmarked with a useful tool - Oracle Real Application Testing (RAT)
 
 [Oracle Real Application Testing: What Is It and How Do You Use It? (aemcorp.com)](https://www.aemcorp.com/managedservices/blog/oracle-real-application-testing-rat-what-is-it-and-how-do-you-use-it)
 
@@ -524,7 +520,7 @@ Information on UDEV Log Corruption issue [Oracle Redolog corruption on Azure \| 
 
 [Data corruption on Hyper-V or Azure when running Oracle ASM - Red Hat Customer Portal](https://access.redhat.com/solutions/3114361)
 
-[Set up Oracle ASM on an Azure Linux virtual machine - Azure Virtual Machines \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-oracle-asm)
+[Set up Oracle ASM on an Azure Linux virtual machine - Azure Virtual Machines \| Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-asm)
 
 ### Oracle Configuration guidelines for SAP installations in Azure VMs on Windows
 
