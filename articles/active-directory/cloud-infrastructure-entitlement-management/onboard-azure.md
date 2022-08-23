@@ -48,7 +48,7 @@ This option allows subscriptions to be automatically detected and monitored with
 1. Click ‘Create Configuration’ 
 1. For onboarding mode, select ‘Automatically Manage’ 
 
-The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. This can be performed manually in the Entra console, or programatically with Powershell or the Azure CLI.
+The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. This can be performed manually in the Entra console, or programatically with PowerShell or the Azure CLI.
 
 Lastly, Click ‘Verify Now & Save’ 
 
@@ -90,7 +90,7 @@ This option detects all subscriptions that are accessible by the Cloud Infrastru
 1. Click ‘Create Configuration’ 
 1. For onboarding mode, select ‘Automatically Manage’ 
 
-The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. You can do this manually in the Entra console, or programatically with Powershell or the Azure CLI.
+The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. You can do this manually in the Entra console, or programatically with PowerShell or the Azure CLI.
 
 Lastly, Click ‘Verify Now & Save’ 
 
