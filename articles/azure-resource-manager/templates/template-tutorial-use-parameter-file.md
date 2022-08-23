@@ -143,7 +143,7 @@ You can verify the deployment by exploring the resource groups from the Azure po
 1. Select the hyperlinked resource group name next to the check box. If you complete this series, you have three resource groups to delete - **myResourceGroup**, **myResourceGroupDev**, and **myResourceGroupProd**.
 1. Select the **Delete resource group** icon from the top menu.
  
-   > [!NOTE]
+   > [!CAUTION]
    > Deleting a resource group is irreversible.
 
 1. Type the resource group name in the pop-up window that displays and select **Delete**.
