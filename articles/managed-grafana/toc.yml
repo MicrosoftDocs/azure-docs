@@ -35,8 +35,6 @@ items:
     href: how-to-permissions.md
   - name: Share a Managed Grafana instance
     href: how-to-share-grafana-workspace.md
-  - name: Create and manage API keys
-    href: how-to-create-api-keys.md
   - name: Monitor a Managed Grafana instance
     href: how-to-monitor-managed-grafana-workspace.md
   - name: Troubleshoot common issues
