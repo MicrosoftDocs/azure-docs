@@ -1,8 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: External Identities
-    tocHref: /azure/active-directory/manage-apps/
-    topicHref: /azure/active-directory/external-identities/index
-  
