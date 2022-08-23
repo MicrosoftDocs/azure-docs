@@ -45,7 +45,7 @@ To assign a SIM policy to one or more SIMs:
 1. In the resource menu, select **SIMs**.
 1. You'll see a list of provisioned SIMs in the private mobile network. For each SIM policy you want to assign to one or more SIMs, do the following:
 
-    1. Tick the checkbox next to the name of each SIM to which you want to assign the SIM policy.
+    1. Select the checkbox next to the name of each SIM to which you want to assign the SIM policy.
     1. Select **Assign SIM policy**.
     1. In **Assign SIM policy** on the right, select your chosen SIM policy from the **SIM policy** drop-down menu.
     1. Select **Assign SIM policy**.
@@ -105,7 +105,7 @@ Deleting a SIM will remove it from your private mobile network.
 
 1. Search for and select the **Mobile Network** resource representing the private mobile network containing your SIMs.
 1. In the resource menu, select **SIMs**.
-1. Tick the checkbox next to each SIM you want to delete.
+1. Select the checkbox next to each SIM you want to delete.
 1. Select **Delete**.
 1. Select **Delete** to confirm you want to delete the SIM(s).
 
