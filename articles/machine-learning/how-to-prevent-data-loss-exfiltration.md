@@ -1,7 +1,7 @@
 ---
-title: Configure data loss prevention
+title: Configure data exfiltration prevention
 titleSuffix: Azure Machine Learning
-description: 'How to configure data loss prevention for your storage accounts.'
+description: 'How to configure data exfiltration prevention for your storage accounts.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/05/2022
+ms.date: 08/23/2022
 ---
 
-# Azure Machine Learning data loss prevention (Preview)
+# Azure Machine Learning data exfiltration prevention (Preview)
 
 Learn how to use a [Service Endpoint policy](/azure/virtual-network/virtual-network-service-endpoint-policies-overview) to prevent data exfiltration from storage accounts in your Azure Virtual Network that are used by Azure Machine Learning.
 
@@ -31,7 +31,7 @@ By using a Service Endpoint Policy, you can mitigate this vulnerability.
 
 ## Limitations
 
-* Data loss prevention isn't supported with an Azure Machine Learning compute cluster or compute instance configured for __no public IP__.
+* Data exfiltration prevention isn't supported with an Azure Machine Learning compute cluster or compute instance configured for __no public IP__.
 
 ## 1. Opt in to the preview
 
