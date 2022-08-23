@@ -8,8 +8,8 @@ ms.subservice: conditional-access
 ms.topic: how-to
 ms.date: 08/11/2022
 
-ms.author: mtillman
-author: mtillman
+ms.author: gasinh
+author: gargi-sinha
 manager: martinco
 ms.reviewer: joflore
 

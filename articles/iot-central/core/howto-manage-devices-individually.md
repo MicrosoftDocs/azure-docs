@@ -22,6 +22,8 @@ This article describes how you manage devices in your Azure IoT Central applicat
 
 To learn how to manage custom groups of devices, see [Tutorial: Use device groups to analyze device telemetry](tutorial-use-device-groups.md).
 
+To learn how to manage devices by using the IoT Central REST API, see [How to use the IoT Central REST API to manage devices.](../core/howto-manage-devices-with-rest-api.md)
+
 ## View your devices
 
 To view an individual device:
