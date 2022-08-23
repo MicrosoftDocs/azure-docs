@@ -119,9 +119,9 @@ In some organizations, guests might not be aware of their group memberships.
 
 4. After the reviewers give input, stop the access review. For more information, see [Complete an access review of groups or applications](complete-access-review.md).
 
-5. You can automatically delete the guest users Azure AD B2B accounts as part of the an access review when you are configuring an Access review for **Select Team + Groups**. This option is not available for **All Microsoft 365 groups with guest users**.
+5. You can automatically delete the guest users Azure AD B2B accounts as part of an access review when you are configuring an Access review for **Select Team + Groups**. This option is not available for **All Microsoft 365 groups with guest users**.
 
-![Screenshot showing page to create access review](media/manage-guest-access-with-access-reviews/new-access-review.png)
+![Screenshot showing page to create access review.](media/manage-guest-access-with-access-reviews/new-access-review.png)
 
 To do so, select **Auto apply results to resource** as this will automatically remove the user from the resource. **If reviewer don't respond** should be set to **Remove access** and **Action to apply on denied guest users** should also be set to **Block from signing in for 30 days then remove user from the tenant**.
 
