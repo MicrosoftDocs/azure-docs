@@ -51,7 +51,7 @@ Azure AD offers two versions of tenant restrictions policies:
 - Tenant restrictions V1, described in [Set up tenant restrictions V1 for B2B collaboration](../manage-apps/tenant-restrictions.md), lets you restrict access to external tenants by configuring a tenant allow list on your corporate proxy.
 - Tenant restrictions V2, described in this article, lets you apply policies directly to your users' Windows devices instead of through your corporate proxy, reducing overhead and providing more flexible, granular control.
 
-We recommend replacing your V1 tenant restrictions with V2 tenant restrictions for greater control over the use of your Windows devices. Both versions can be used simultaneously. For example, you can use tenant restrictions V2 to manage access for your Windows device users, and use tenant restrictions V1 to manage access for all other clients and apps that aren't supported by V2. The following table compares the features in each version.
+The following table compares the features in each version.
 
 |  |Tenant restrictions V1  |Tenant restrictions V2  |
 |----------------------|---------|---------|
@@ -64,6 +64,10 @@ We recommend replacing your V1 tenant restrictions with V2 tenant restrictions f
 |**Platform support**      |Supported on all platforms. Provides only authentication plane protection.        |     Supported on Windows operating systems and Edge by adding the tenant restrictions V2 header using Windows Group Policy. This configuration provides both authentication plane and data plane protection.<br></br>On other platforms, like MacOS, Chrome browser, and .NET applications, tenant restrictions V2 are supported when the tenant restrictions V2 header is added by the corporate proxy. This configuration provides only authentication plane protection.     |
 |**Portal support**        |No user interface in the Azure portal for configuring the policy.         |   User interface available in the Azure portal for setting up the cloud policy.      |
 |**Unsupported apps**      |     N/A    |   block unsupported app use with Microsoft endpoints by using Windows Defender Application Control (WDAC) or Windows Firewall  (for example, for Chrome, Firefox, and so on).      |
+
+### Migrating tenant restrictions V1 policies to V2
+
+Along with using tenant restrictions V2 to manage access for your Windows device users, we recommend configuring your corporate proxy to enforce tenant restrictions V2 to manage other devices and apps in your corporate network. Although configuring tenant restrictions on your corporate proxy won't provide data plane protection, it will provide authentication plane protection. For details, see [Step 5: Set up tenant restrictions V2 on your corporate proxy](#step-5-set-up-tenant-restrictions-v2-on-your-corporate-proxy).
 
 ### Tenant restrictions vs. inbound and outbound settings
 
@@ -92,7 +96,7 @@ For example, suppose Contoso uses Teams Federation Controls to block the Fabrika
 
 To enforce tenant restrictions for Teams, you'll need to configure tenant restrictions V2 in your Azure AD cross-tenant access settings, and also set up Federation Controls in the Teams Admin portal and restart Teams. Be aware that tenant restrictions implemented on the corporate proxy won't block anonymous access to Teams meetings, SharePoint files, and other resources that don't require authentication.
 
-## Configure tenant restrictions V2
+## Prerequisites
 
 To configure tenant restrictions, you'll need the following:
 
@@ -100,11 +104,11 @@ To configure tenant restrictions, you'll need the following:
 - Account with a role of Global administrator or Security administrator
 - Windows devices running Windows 10 or Windows 11 with the latest updates
 
-### Step 1: Create tenant restrictions V2
+## Step 1: Configure default tenant restrictions V2
 
 Settings for tenant restrictions V2 are located in the Azure portal under **Cross-tenant access settings**. First, configure the default tenant restrictions you want to apply to all users, groups, apps, and organizations. Then, if you need partner-specific configurations, you can add a partner's organization and customize any settings that differ from your defaults.
 
-#### To configure default tenant restrictions
+### To configure default tenant restrictions
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator, Security administrator, or Conditional Access administrator account. Then open the **Azure Active Directory** service.
 
@@ -126,27 +130,24 @@ Settings for tenant restrictions V2 are located in the Azure portal under **Cros
 
 1. The **Tenant restrictions** page displays both your **Tenant ID** and your tenant restrictions **Policy ID**. Use the copy icons to copy both of these values. You'll use them when you configure Windows clients to enable tenant restrictions.
 
-   ![Screenshot showing selecting the edit tenant restrictions tab.](media/tenant-restrictions-v2/tenant-policy-id.png)
+   ![Screenshot showing the tenant ID and policy ID for the tenant restrictions.](media/tenant-restrictions-v2/tenant-policy-id.png)
 
 1. Select the **External users and groups** tab. Under **Access status**, choose one of the following:
 
    - **Allow access**: Allows all users who are signed in with external accounts to access external apps (specified on the **External applications** tab).
    - **Block access**: Blocks all users who are signed in with external accounts from accessing external apps (specified on the **External applications** tab).
 
-   ![Screenshot showing selecting the edit tenant restrictions tab.](media/tenant-restrictions-v2/tenant-restrictions-default-external-users-block.png)
-
-
+   ![Screenshot showing settings for access status.](media/tenant-restrictions-v2/tenant-restrictions-default-external-users-block.png)
 
    > [!NOTE]
    > Default settings can't be scoped to individual accounts or groups, so **Applies to** always equals **All &lt;your tenant&gt; users and groups**. Be aware that if you block access for all users and groups, you also need to block access to all external applications (on the **External applications** tab).
-
 
 1. Select the **External applications** tab. Under **Access status**, choose one of the following:
 
    - **Allow access**: Allows all users who are signed in with external accounts to access the apps specified in the **Applies to** section.
    - **Block access**: Blocks all users who are signed in with external accounts from accessing the apps specified in the **Applies to** section.
 
-    ![Screenshot showing selecting the external applications tab.](media/tenant-restrictions-v2/tenant-restrictions-default-applications.png)
+    ![Screenshot showing access status on the external applications tab.](media/tenant-restrictions-v2/tenant-restrictions-default-applications.png)
 
 1. Under **Applies to**, select one of the following:
 
@@ -157,9 +158,11 @@ Settings for tenant restrictions V2 are located in the Azure portal under **Cros
 
 1. Select **Save**.
 
-#### To configure partner-specific tenant restrictions
+## Step 2: Configure tenant restrictions V2 for specific partners
 
 Suppose you use tenant restrictions to block access by default, but you want to allow users to access certain applications using their own external accounts. For example, say you want users to be able to access Microsoft Learning with their own Microsoft accounts (MSAs). The instructions in this section describe how to add organization-specific settings that take precedence over the default settings. 
+
+### Example: Configure tenant restrictions V2 to allow Microsoft Accounts
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator, Security administrator, or Conditional Access administrator account. Then open the **Azure Active Directory** service.
 1. Select **External Identities**, and then select **Cross-tenant access settings**.
@@ -169,7 +172,7 @@ Suppose you use tenant restrictions to block access by default, but you want to 
 
    **Example**: Search for the following Microsoft Accounts tenant ID:
 
-   ```http
+   ```
    9188040d-6c67-4c5b-b112-36a304b66dad
    ```
 
@@ -236,30 +239,41 @@ Suppose you use tenant restrictions to block access by default, but you want to 
 
    **Example**: Add the following Microsoft Learning application ID:
 
-   ```http
+   ```
    18fbca16-2224-45f6-85b0-f7bf2b39b3f3
    ```
 
    ![Screenshot showing selecting applications.](media/tenant-restrictions-v2/add-learning-app.png)
 
-1. The applications you selected will be listed on the **External applications** tab. Select **Save**. 
+1. The applications you selected will be listed on the **External applications** tab. Select **Save**.
  
    ![Screenshot showing the selected application.](media/tenant-restrictions-v2/add-app-save.png)
 
-### Step 2: Enable tenant restrictions on Windows managed devices
+## Step 3: Enable tenant restrictions on Windows managed devices
 
 After you create a tenant restrictions V2 policy, you can enforce the policy on each Windows 10 and Windows 11 device by adding your tenant ID and the policy ID to the device's **Tenant Restrictions** configuration. When tenant restrictions are enabled on a Windows device, corporate proxies aren't required for policy enforcement. Devices don't need to be Azure AD managed to enforce tenant restrictions V2; domain-joined devices that are managed with Group Policy are also supported.
 
-You can use Group Policy to deploy the tenant restrictions configuration to Windows devices (see [Administrative Templates for Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=104042) and [Group Policy Settings Reference Spreadsheet for Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=104043)).
+### Administrative Templates (.admx) for Windows 10 November 2021 Update (21H2) and Group policy settings
 
-If you want to test the policy on a device, follow these steps.
+You can use Group Policy to deploy the tenant restrictions configuration to Windows devices. Refer to these resources:
+
+- [Administrative Templates for Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=104042)
+- [Group Policy Settings Reference Spreadsheet for Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=104043)
+
+### Test the policies on a device
+
+To test the tenant restrictions V2 policy on a device, follow these steps.
 
 > [!NOTE]
 > - The device must be running Windows 10 or Windows 11 with the latest updates.
-> - You'll need the policy ID for the tenant restrictions policy, which can only be viewed on the **Tenant restrictions** page in the portal as described in [Step 1: Create tenant restrictions V2](#step-1-create-tenant-restrictions-v2). The policy ID isn't retrievable via the Microsoft Graph API.
+> - You'll need the policy ID for the tenant restrictions policy, which can only be viewed on the **Tenant restrictions** page in the portal as described in [Step 1: Configure default tenant restrictions V2](#step-1-configure-default-tenant-restrictions-v2). The policy ID isn't retrievable via the Microsoft Graph API.
+
 1. On the Windows computer, press the Windows key, type **gpedit**, and then select **Edit group policy (Control panel)**.
+
 1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Tenant Restrictions**.
+
 1. Right-click **Cloud Policy Details** in the right pane, and then select **Edit**.
+
 1. Enter the following settings (leave all other fields blank). To find these settings, go to the tenant restrictions settings page.
    - **Azure AD Directory ID**: Enter the directory ID for your tenant. To find your tenant ID in the [Azure portal](https://portal.azure.com), open the **Azure Active Directory** service, select **Properties**, and copy the **Tenant ID**.
    - **Policy GUID**: Enter the object ID of your cross-tenant access policy. To find your policy GUID, Get this by calling /crosstenantaccesspolicy/default and using the “id” field returned:
@@ -268,7 +282,7 @@ If you want to test the policy on a device, follow these steps.
 
 1. Select **OK**.
 
-### Step 3: Set up tenant restrictions on your corporate proxy
+## Step 5: Set up tenant restrictions V2 on your corporate proxy
 
 Tenant restrictions V2 policies can't be directly enforced on non-Windows 10 or Windows 11 devices, such as Mac computers, mobile devices, unsupported Windows applications, and Chrome browsers. To ensure sign-ins are restricted on all devices and apps in your corporate network, configure your corporate proxy to enforce tenant restrictions V2. Although configuring tenant restrictions on your corporate proxy won't provide data plane protection, it will provide authentication plane protection.
 
@@ -293,7 +307,7 @@ Tenant restrictions V2 policies can't be directly enforced on non-Windows 10 or 
 
    This header will enforce your tenant restrictions V2 policy on all sign-ins on your network. Be aware that this header won't block anonymous access to Teams meetings, SharePoint files, or other resources that don't require authentication.
 
-## Event Viewer for tenant restrictions
+### View tenant restrictions V2 events
 
 You can view events related to tenant restrictions in Event Viewer.
 
