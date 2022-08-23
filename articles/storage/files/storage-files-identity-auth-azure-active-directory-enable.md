@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 08/23/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -49,6 +49,8 @@ The Azure AD Kerberos functionality is only available on the following operating
 To learn how to create and configure a Windows VM and log in by using Azure AD-based authentication, see [Log in to a Windows virtual machine in Azure by using Azure AD](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
 User accounts created and managed solely in Azure AD are currently not supported. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and Azure AD Connect. You must create these accounts in Active Directory and sync them to Azure AD. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
+
+You must disable multi-factor authentication (MFA) on the Azure AD app representing the storage account.
 
 Azure AD Kerberos authentication only supports using AES-256 encryption.
 
@@ -97,6 +99,13 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 5. Select **API permissions** in the left pane.
 6. Select **Add permissions** at the bottom of the page.
 7. Select **Grant admin consent for "DirectoryName"**.
+
+## Disable multi-factor authentication on the storage account
+
+Azure AD Kerberos doesn't support using MFA to access Azure file shares configured with Azure AD Kerberos. You must exclude the Azure AD app representing your storage account from your MFA conditional access policies if they apply to all apps. The storage account app should have the same name as the storage account in the conditional access exclusion list.
+
+  > [!IMPORTANT]
+  > If you don't exclude MFA policies from the storage account app, you won't be able to access the file share. Trying to map the file share using *net use* will result in an error message that says "System error 1327: Account restrictions are preventing this user from signing in. For example: blank passwords aren't allowed, sign-in times are limited, or a policy restriction has been enforced."
 
 ## Assign share-level permissions
 
