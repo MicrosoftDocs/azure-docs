@@ -112,7 +112,7 @@ Now, let's trigger an event to see how Event Grid distributes the message to you
 You trigger an event for the Blob storage by uploading a file. The file doesn't need any specific content. The articles assumes you have a file named testfile.txt, but you can use any file.
 
 1. In the Azure portal, navigate to your Blob storage account, and select **Containers** on the let menu.
-1. Select **+ Container**. Give you container a name, and use any access level, and select **Create**. 
+1. Select **+ Container**. Give your container a name, and use any access level, and select **Create**. 
 
    ![Add container.](./media/blob-event-quickstart-portal/add-container.png)
 1. Select your new container.
