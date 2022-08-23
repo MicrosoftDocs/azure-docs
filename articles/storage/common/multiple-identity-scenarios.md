@@ -92,6 +92,8 @@ You can also enable access to Azure resources for local development by assigning
 
 ### 3) Implement the application code
 
+## [.NET](#tab/dotnet)
+
 Inside of your project, add a reference to the `Azure.Identity` NuGet package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.KeyVault.Keys` packages are added in order to connect to Blob Storage and Key Vault.
 
 ```dotnetcli
@@ -126,16 +128,34 @@ When the application is deployed to Azure, `DefaultAzureCredential` will automat
 
 This overall process ensures that your app can run securely locally and in Azure without the need for any code changes.
 
+## [Java](#tab/java)
+
+```java
+// Todo
+```
+
+## [Python](#tab/python)
+
+```python
+// Todo
+```
+
+---
+
 ## Connect multiple apps using multiple managed identities
 
 Although the apps in the previous example all shared the same service access requirements, real environments are often more nuanced. Consider a scenario where multiple apps share some of the same access goals, but also have individual or more granular requirements. Applications support multiple user-assigned managed identities to handle these requirements.
 
 :::image type="content" source="media/multiple-managed-identities.png" alt-text="A diagram showing multiple user-assigned managed identities.":::
 
-To configure this setup in your code, make sure your application registers separate services to connect to each storage account. Make sure to pull in the correct managed identity client ids when configuring `DefaultAzureCredential`. The following code example configures services that access two storage accounts for product receipts and sales contracts.
+To configure this setup in your code, make sure your application registers separate services to connect to each storage account. 
+
+## [.NET](#tab/dotnet)
+
+In the case of .NET, make sure to pull in the correct managed identity client ids when configuring `DefaultAzureCredential`. The following code example configures services that access two storage accounts for product receipts and sales contracts.
 
 ```csharp
-// First blob storage client that manages receipts
+// First blob storage client that using a managed identity
 var clientIDReceipts = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Receipts");
 var receiptCreds = new DefaultAzureCredentialOptions()
 {
@@ -146,7 +166,7 @@ BlobServiceClient blobServiceClient = new BlobServiceClient(
     new Uri("https://<receipt-storage-account>.blob.core.windows.net"),
     new DefaultAzureCredential(receiptCreds));
 
-// Second blob storage client that manages contracts
+// Second blob storage client that using a managed identity
 var clientIDContracts = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Contracts");
 var contractCreds = new DefaultAzureCredentialOptions()
 {
@@ -156,7 +176,30 @@ var contractCreds = new DefaultAzureCredentialOptions()
 BlobServiceClient blobServiceClient2 = new BlobServiceClient(
     new Uri("https://<contract-storage-account>.blob.core.windows.net"),
     new DefaultAzureCredential(contractCreds));
+
+// Open a connection to Azure SQL using a managed identity
+string ConnectionString1 = @"Server=<azure-sql-hostname>.database.windows.net; Authentication=Active Directory Default; Database=<database-name>";
+
+using (SqlConnection conn = new SqlConnection(ConnectionString1))
+{
+    conn.Open();
+}
+
 ```
+
+## [.NET](#tab/java)
+
+```java
+// todo
+```
+
+## [.NET](#tab/python)
+
+```python
+# todo
+```
+
+---
 
 You can also associate both with a user-assigned managed identity as well as a system-assigned managed identity to a resource. This can be useful in scenarios where all of the apps  require access to the same resources, but one of the apps has a very specific dependency on an additional service. Using a system-assigned identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
 
