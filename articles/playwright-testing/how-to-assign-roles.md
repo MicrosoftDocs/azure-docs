@@ -30,9 +30,9 @@ Microsoft Playwright Testing workspaces uses three Azure built-in roles. When yo
 
 | Role | Access level |
 | --- | --- |
-| **Reader** | Have read-only access to the Microsoft Playwright Testing workspace. Readers can view test results for the workspace. Readers can't create or delete workspace access keys. |
-| **Contributor** | Have full access to manage the Microsoft Playwright Testing workspace in the Azure portal but can't assign roles in Azure RBAC. Contributors can create workspace access keys and delete access keys they created. Contributors can't delete access keys created by others. |
-| **Owner** | Have full access to manage the Microsoft Playwright Testing workspace in the Azure portal, including assigning roles in Azure RBAC. Owners can create workspace access keys and delete all access keys in the workspace. |
+| **Reader** | Have read-only access to the Microsoft Playwright Testing workspace in the Microsoft Playwright Testing portal. Readers can view test results for the workspace. Readers can't [create or delete workspace access keys](./how-to-manage-access-keys.md). |
+| **Contributor** | Have full access to manage the Microsoft Playwright Testing workspace in the Azure portal but can't assign roles in Azure RBAC. Contributors have full access to the Microsoft Playwright Testing portal and can create workspace access keys and delete access keys they created. Contributors can't delete access keys created by others. |
+| **Owner** | Have full access to manage the Microsoft Playwright Testing workspace in the Azure portal, including assigning roles in Azure RBAC. Owners have full access to the Microsoft Playwright Testing portal and can create workspace access keys and delete all access keys in the workspace. |
 
 > [!IMPORTANT]
 > Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a resource may not have owner access to the resource group that contains the resource. For more information, see [How Azure RBAC works](/azure/role-based-access-control/overview#how-azure-rbac-works).
@@ -111,6 +111,7 @@ Here are a few things to be aware of while you use Azure role-based access contr
 
 ## Next steps
 
+- Learn more about [managing access keys in Microsoft Playwright Testing](./how-to-manage-access-keys.md).
 - Learn more about [identifying app issues with web UI tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
 - Learn more about [running existing tests with Microsoft Playwright Testing](./how-to-run-with-playwright-testing.md).
 - Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
