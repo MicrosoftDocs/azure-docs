@@ -14,9 +14,7 @@ You can use a Bicep file or an Azure Resource Manager template to deploy a funct
 
 # [Bicep](#tab/bicep)
 
-```bicep
 For more information about creating Bicep files, see [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md).
-```
 
 # [JSON](#tab/json)
 
@@ -36,22 +34,19 @@ An Azure Functions deployment typically consists of these resources:
 
 # [Bicep](#tab/bicep)
 
-```bicep
-
 | Resource                                                                           | Requirement | Syntax and properties reference                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
 | A function app                                                                     | Required    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites?pivots=deployment-language-bicep)                             |
-| An [Azure Storage](../storage/index.yml) account                                   | Required    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep) |
+| A [storage account](../storage/index.yml)                                         | Required    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep) |
 | An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-bicep)         |
 | A [hosting plan](./functions-scale.md)                                             | Optional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-bicep)
-```
 
 # [JSON](#tab/json)
 
 | Resource                                                                           | Requirement | Syntax and properties reference                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
 | A function app                                                                     | Required    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites?pivots=deployment-language-arm-template)                             |
-| An [Azure Storage](../storage/index.yml) account                                   | Required    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-arm-template) |
+| A [storage account](../storage/index.yml)                                          | Required    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-arm-template) |
 | An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-arm-template)         |
 | A [hosting plan](./functions-scale.md)                                             | Optional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-arm-template)                 |
 
@@ -65,15 +60,11 @@ An Azure Functions deployment typically consists of these resources:
 <a name="storage"></a>
 ### Storage account
 
-An Azure storage account is required for a function app. You need a general purpose account that supports blobs, tables, queues, and files. For more information, see [Azure Functions storage account requirements](storage-considerations.md#storage-account-requirements).
+A storage account is required for a function app. You need a general purpose account that supports blobs, tables, queues, and files. For more information, see [Azure Functions storage account requirements](storage-considerations.md#storage-account-requirements).
 
 # [Bicep](#tab/bicep)
 
 ```bicep
-param storageAccountType string = ''
-param location string = resourceGroup().location
-var storageAccountName = 'storage${uniqueString(resourceGroup().id)}'
-
 resource storageAccountName 'Microsoft.Storage/storageAccounts@2021-09-01' = {
   name: storageAccountName
   location: location
@@ -87,107 +78,85 @@ resource storageAccountName 'Microsoft.Storage/storageAccounts@2021-09-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": ""
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]"
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2021-09-01",
+    "name": "[parameters('storageAccountName')]",
+    "location": "[parameters('location')]",
+    "kind": "StorageV2",
+    "sku": {
+      "name": "[parameters('storageAccountType')]"
     }
-  },
-  "variables": {
-    "storageAccountName": "[format('storage{0}', uniqueString(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "kind": "StorageV2",
-      "sku": {
-        "name": "[parameters('storageAccountType')]"
-      }
-    }
-  ]
-}
+  }
+]
 ```
 
 ---
 
 You must also specify the `AzureWebJobsStorage` property as an app setting in the site configuration. If the function app doesn't use Application Insights for monitoring, it should also specify `AzureWebJobsDashboard` as an app setting.
 
-The Azure Functions runtime uses the `AzureWebJobsStorage` connection string to create internal queues.  When Application Insights is not enabled, the runtime uses the `AzureWebJobsDashboard` connection string to log to Azure Table storage and power the **Monitor** tab in the portal.
+The Azure Functions runtime uses the `AzureWebJobsStorage` connection string to create internal queues.  When Application Insights isn't enabled, the runtime uses the `AzureWebJobsDashboard` connection string to log to Azure Table storage and power the **Monitor** tab in the portal.
 
 These properties are specified in the `appSettings` collection in the `siteConfig` object:
 
 # [Bicep](#tab/bicep)
 
 ```bicep
-appSettings: [
-  {
-    name: 'AzureWebJobsDashboard'
-    value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${listKeys(storageAccountName.id, '2021-09-01').keys[0].value}'
+resource site 'Microsoft.Web/sites@2022-03-01' = {
+  ...
+  properties: {
+    ...
+    siteConfig: {
+      ...
+      appSettings: [
+        {
+          name: 'AzureWebJobsDashboard'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
+        }
+        {
+          name: 'AzureWebJobsStorage'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
+        }
+        ...
+      ]
+    }
   }
-  {
-    name: 'AzureWebJobsStorage'
-    value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${listKeys(storageAccountName.id, '2021-09-01').keys[0].value}'
-  }
-]
+}
 ```
 
 # [JSON](#tab/json)
 
 ```json
-"appSettings": [
+"resources": [
   {
-    "name": "AzureWebJobsDashboard",
-    "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-  },
-  {
-    "name": "AzureWebJobsStorage",
-    "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-  },
+    ...
+    "properties": {
+      ...
+      "siteConfig": {
+        ...
+        "appSettings": [
+          {
+            "name": "AzureWebJobsDashboard",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "AzureWebJobsStorage",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          ...
+       ]
+      }
+    }
+  }
 ]
 ```
 
 ---
 
-***jgao - shall we use the following instead?
-
-```bicep
-resource funcName_resource 'Microsoft.Web/sites@2022-03-01' = if (deployFunction) {
-  name: funcName
-  location: location
-  kind: 'functionapp'
-  properties: {
-    siteConfig: {
-      appSettings: [
-        {
-          name: 'AzureWebJobsDashboard'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${listKeys(storageAccountName_resource.id, '2021-09-01').keys[0].value}'
-        }
-        {
-          name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${listKeys(storageAccountName_resource.id, '2021-09-01').keys[0].value}'
-        }
-        ...
-      ]
-    }
-    clientAffinityEnabled: false
-    reserved: false
-  }
-}
-```
-
 ### Application Insights
 
-Application Insights is recommended for monitoring your function apps. The Application Insights resource is defined with the type **Microsoft.Insights/components** and the kind **web**:
+Application Insights is recommended for monitoring your function apps. The Application Insights resource is defined with the type `Microsoft.Insights/components` and the kind **web**:
 
 # [Bicep](#tab/bicep)
 
@@ -212,10 +181,10 @@ resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
 {
   "type": "Microsoft.Insights/components",
   "apiVersion": "2020-02-02",
-  "name": "[variables('applicationInsightsName')]",
+  "name": "[parameters('applicationInsightsName')]",
   "location": "[parameters('appInsightsLocation')]",
   "tags": {
-    "[format('hidden-link:{0}', resourceId('Microsoft.Web/sites', variables('applicationInsightsName')))]": "Resource"
+    "[format('hidden-link:{0}', resourceId('Microsoft.Web/sites', parameters('applicationInsightsName')))]": "Resource"
   },
   "kind": "web",
   "properties": {
@@ -232,22 +201,44 @@ In addition, the instrumentation key needs to be provided to the function app us
 # [Bicep](#tab/bicep)
 
 ```bicep
-appSettings: [
-  {
-    name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-    value: appInsights.properties.InstrumentationKey
+resource site 'Microsoft.Web/sites@2022-03-01' = {
+  ...
+  properties: {
+    ...
+    siteConfig: {
+      ...
+      appSettings: [
+        {
+          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
+          value: appInsights.properties.InstrumentationKey
+        }
+        ...
+      ]
+    }
   }
-]
+}
 ```
 
 # [JSON](#tab/json)
 
 ```json
-"appSettings": [
+"resources": [
   {
-    "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-    "value": "[reference(resourceId('Microsoft.Insights/components', variables('appInsightsName')), '2020-02-02').InstrumentationKey]"},
-  {
+    ...
+    "properties": {
+      ...
+      "siteConfig": {
+        ...
+        "appSettings": [
+          {
+            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          },
+          ...
+        ]
+      }
+    }
+  }
 ]
 ```
 
@@ -255,7 +246,7 @@ appSettings: [
 
 ### Hosting plan
 
-The definition of the hosting plan varies, and can be one of the following:
+The definition of the hosting plan varies, and can be one of the following plans:
 
 - [Consumption plan](#consumption) (default)
 - [Premium plan](#premium)
@@ -295,14 +286,14 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 {
   "type": "Microsoft.Web/sites",
   "apiVersion": "2022-03-01",
-  "name": "[variables('functionAppName')]",
+  "name": "[parameters('functionAppName')]",
   "location": "[parameters('location')]",
   "kind": "functionapp",
   "identity": {
     "type": "SystemAssigned"
   },
   "properties": {
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
     "clientAffinityEnabled": false,
     "siteConfig": {
       "alwaysOn": true
@@ -310,8 +301,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
     "httpsOnly": true
   },
   "dependsOn": [
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
-    "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
+    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]"
   ]
 }
 ```
@@ -319,7 +310,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ---
 
 > [!IMPORTANT]
-> If you are explicitly defining a hosting plan, an additional item would be needed in the dependsOn array: `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
+> If you're explicitly defining a hosting plan, an additional item would be needed in the dependsOn array: `"[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"`
 
 A function app must include these application settings:
 
@@ -332,37 +323,83 @@ A function app must include these application settings:
 
 These properties are specified in the `appSettings` collection in the `siteConfig` property:
 
-```json
-"properties": {
-  "siteConfig": {
-    "appSettings": [
-      {
-        "name": "AzureWebJobsStorage",
-        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2021-09-01').keys[0].value)]"
-      },
-      {
-        "name": "FUNCTIONS_WORKER_RUNTIME",
-        "value": "node"
-      },
-      {
-        "name": "WEBSITE_NODE_DEFAULT_VERSION",
-        "value": "~14"
-      },
-      {
-        "name": "FUNCTIONS_EXTENSION_VERSION",
-        "value": "~4"
-      }
-    ]
+# [Bicep](#tab/bicep)
+
+```bicep
+resource site 'Microsoft.Web/sites@2022-03-01' = {
+  ...
+  properties: {
+    ...
+    siteConfig: {
+      ...
+      appSettings: [
+        {
+          name: 'AzureWebJobsStorage'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${listKeys(storageAccountName, '2021-09-01').keys[0].value}'
+        }
+        {
+          name: 'FUNCTIONS_WORKER_RUNTIME'
+          value: 'node'
+        }
+        {
+          name: 'WEBSITE_NODE_DEFAULT_VERSION'
+          value: '~14'
+        }
+        {
+          name: 'FUNCTIONS_EXTENSION_VERSION'
+          value: '~4'
+        }
+        ...
+      ]
+    }
   }
 }
+
 ```
+
+# [JSON](#tab/json)
+
+```json
+"resources": [
+  {
+    ...
+    "properties": {
+      ...
+      "siteConfig": {
+        ...
+        "appSettings": [
+          {
+            "name": "AzureWebJobsStorage",
+                  "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "FUNCTIONS_WORKER_RUNTIME",
+            "value": "node"
+          },
+          {
+            "name": "WEBSITE_NODE_DEFAULT_VERSION",
+            "value": "~14"
+          },
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~4"
+          },
+          ...
+        ]
+      }
+    }
+  }
+]
+```
+
+---
 
 <a name="consumption"></a>
 ## Deploy on Consumption plan
 
-The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales in when code is not running. You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more, see [Azure Functions scale and hosting](consumption-plan.md).
+The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales in when code isn't running. You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more, see [Azure Functions scale and hosting](consumption-plan.md).
 
-For a sample Azure Resource Manager template, see [Function app on Consumption plan].
+For a sample Bicep file/Azure Resource Manager template, see [Function app on Consumption plan].
 
 ### Create a Consumption plan
 
@@ -397,7 +434,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 {
   "type": "Microsoft.Web/serverfarms",
   "apiVersion": "2022-03-01",
-  "name": "[variables('hostingPlanName')]",
+  "name": "[parameters('hostingPlanName')]",
   "location": "[parameters('location')]",
   "sku": {
     "name": "Y1",
@@ -444,7 +481,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 {
   "type": "Microsoft.Web/serverfarms",
   "apiVersion": "2022-03-01",
-  "name": "[variables('hostingPlanName')]",
+  "name": "[parameters('hostingPlanName')]",
   "location": "[parameters('location')]",
   "sku": {
     "name": "Y1",
@@ -472,7 +509,7 @@ The settings required by a function app running in Consumption plan differ betwe
 
 On Windows, a Consumption plan requires another two other settings in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare). This property configures the storage account where the function app code and configuration are stored.
 
-For a sample Azure Resource Manager template, see [Azure Function App Hosted on Windows Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-windows-consumption).
+For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Windows Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-windows-consumption).
 
 # [Bicep](#tab/bicep)
 
@@ -491,11 +528,11 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
         }
         {
           name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccountName.id, '2021-09-01').keys[0].value}'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
           name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccountName.id, '2021-09-01').keys[0].value}'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
           name: 'WEBSITE_CONTENTSHARE'
@@ -530,25 +567,25 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
   "location": "[parameters('location')]",
   "kind": "functionapp",
   "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
   ],
   "properties": {
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
     "siteConfig": {
       "appSettings": [
         {
           "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
         },
         {
           "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2021-09-01').keys[0].value)]"
+          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
         },
         {
           "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2021-09-01').keys[0].value)]"
+          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
         },
         {
           "name": "WEBSITE_CONTENTSHARE",
@@ -579,11 +616,11 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
 
 #### Linux
 
-The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you are just deploying code, the value for this is determined by your desired runtime stack in the format of runtime|runtimeVersion. For example: `python|3.7`, `node|14` and `dotnet|3.1`.
+The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of runtime|runtimeVersion. For example: `python|3.7`, `node|14` and `dotnet|3.1`.
 
 The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on Linux Consumption plan.
 
-For a sample Azure Resource Manager template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
+For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
 
 # [Bicep](#tab/bicep)
 
@@ -604,15 +641,7 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
         }
         {
           name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccountName.id, '2021-09-01').keys[0].value}'
-        }
-        {
-          name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccountName.id, '2021-09-01').keys[0].value}'
-        }
-        {
-          name: 'WEBSITE_CONTENTSHARE'
-          value: toLower(functionAppName)
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
@@ -638,31 +667,23 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
   "location": "[parameters('location')]",
   "kind": "functionapp,linux",
   "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
   ],
   "properties": {
     "reserved": true,
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
     "siteConfig": {
       "linuxFxVersion": "node|14",
       "appSettings": [
         {
           "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2020-02-02).InstrumentationKey]"
+          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02).InstrumentationKey]"
         },
         {
           "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2021-09-01').keys[0].value)]"
-        },
-        {
-          "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2021-09-01').keys[0].value)]"
-        },
-        {
-          "name": "WEBSITE_CONTENTSHARE",
-          "value": "[toLower(parameters('functionAppName'))]"
+          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
         },
         {
           "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -687,7 +708,7 @@ The Premium plan offers the same scaling as the Consumption plan but includes de
 
 ### Create a Premium plan
 
-A Premium plan is a special type of "serverfarm" resource. You can specify it by using either `EP1`, `EP2`, or `EP3` for the `Name` property value in the `sku` as following:
+A Premium plan is a special type of `serverfarm` resource. You can specify it by using either `EP1`, `EP2`, or `EP3` for the `Name` property value in the `sku` as shown in the following samples:
 
 #### Windows
 
@@ -715,7 +736,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 {
   "type": "Microsoft.Web/serverfarms",
   "apiVersion": "2022-03-01",
-  "name": "[variables('hostingPlanName')]",
+  "name": "[parameters('hostingPlanName')]",
   "location": "[parameters('location')]",
   "sku": {
     "name": "EP1",
@@ -760,7 +781,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 {
   "type": "Microsoft.Web/serverfarms",
   "apiVersion": "2022-03-01",
-  "name": "[variables('hostingPlanName')]",
+  "name": "[parameters('hostingPlanName')]",
   "location": "[parameters('location')]",
   "sku": {
     "name": "EP1",
@@ -778,11 +799,11 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 ---
 ### Create a function app
 
-For function app on a Premium plan, you will need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
+For function app on a Premium plan, you'll need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
 
 A Premium plan requires another settings in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare). This property configures the storage account where the function app code and configuration are stored, which are used for dynamic scale.
 
-For a sample Azure Resource Manager template, see [Azure Function App Hosted on Premium Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-premium-plan).
+For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Premium Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-premium-plan).
 
 The settings required by a function app running in Premium plan differ between Windows and Linux.
 
@@ -801,15 +822,15 @@ resource functionAppName_resource 'Microsoft.Web/sites@2022-03-01' = {
       appSettings: [
         {
           name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: reference(applicationInsightsName.id, '2020-02-02').InstrumentationKey
+          value: applicationInsightsName.properties.InstrumentationKey
         }
         {
           name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccount.id, '2021-09-01').keys[0].value}'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
           name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccount.id, '2021-09-01').keys[0].value}'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
           name: 'WEBSITE_CONTENTSHARE'
@@ -843,25 +864,25 @@ resource functionAppName_resource 'Microsoft.Web/sites@2022-03-01' = {
   "location": "[parameters('location')]",
   "kind": "functionapp",
   "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
   ],
   "properties": {
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
     "siteConfig": {
       "appSettings": [
         {
           "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
         },
         {
           "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2021-09-01').keys[0].value)]"
+          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
         },
         {
           "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2021-09-01').keys[0].value)]"
+          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
         },
         {
           "name": "WEBSITE_CONTENTSHARE",
@@ -892,7 +913,7 @@ resource functionAppName_resource 'Microsoft.Web/sites@2022-03-01' = {
 
 #### Linux
 
-The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you are just deploying code, the value for this is determined by your desired runtime stack in the format of runtime|runtimeVersion. For example: `python|3.7`, `node|14` and `dotnet|3.1`.
+The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of runtime|runtimeVersion. For example: `python|3.7`, `node|14` and `dotnet|3.1`.
 
 # [Bicep](#tab/bicep)
 
@@ -909,15 +930,15 @@ resource site 'Microsoft.Web/sites@2021-02-01' = {
       appSettings: [
         {
           name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: reference(applicationInsight.id, '2020-02-02').InstrumentationKey
+          value: applicationInsightsName.properties.InstrumentationKey
         }
         {
           name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccount.id, '2021-09-01').keys[0].value}'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
           name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccount.id, '2021-09-01').keys[0].value}'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
           name: 'WEBSITE_CONTENTSHARE'
@@ -947,27 +968,27 @@ resource site 'Microsoft.Web/sites@2021-02-01' = {
   "location": "[parameters('location')]",
   "kind": "functionapp,linux",
   "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
   ],
   "properties": {
     "reserved": true,
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
     "siteConfig": {
       "linuxFxVersion": "node|14",
       "appSettings": [
         {
           "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
         },
         {
           "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2021-09-01').keys[0].value)]"
+          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
         },
         {
           "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2021-09-01').keys[0].value)]"
+          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
         },
         {
           "name": "WEBSITE_CONTENTSHARE",
@@ -994,11 +1015,11 @@ resource site 'Microsoft.Web/sites@2021-02-01' = {
 
 In the App Service plan, your function app runs on dedicated VMs on Basic, Standard, and Premium SKUs, similar to web apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md).
 
-For a sample Azure Resource Manager template, see [Function app on Azure App Service plan].
+For a sample Bicep file/Azure Resource Manager template, see [Function app on Azure App Service plan].
 
 ### Create an App Service plan
 
-An App Service plan is defined by a "serverfarm" resource. You can specify the SKU as follows:
+An App Service plan is defined by a `serverfarm` resource. You can specify the SKU as follows:
 
 #### Windows
 
@@ -1006,7 +1027,7 @@ An App Service plan is defined by a "serverfarm" resource. You can specify the S
 
 ```bicep
 resource hostingPlanName 'Microsoft.Web/serverfarms@2022-03-01' = {
-  name: hostingPlanName_var
+  name: hostingPlanName
   location: location
   sku: {
     tier: 'Standard'
@@ -1024,7 +1045,7 @@ resource hostingPlanName 'Microsoft.Web/serverfarms@2022-03-01' = {
 {
   "type": "Microsoft.Web/serverfarms",
   "apiVersion": "2022-03-01",
-  "name": "[variables('hostingPlanName_var')]",
+  "name": "[parameters('hostingPlanName')]",
   "location": "[parameters('location')]",
   "sku": {
     "tier": "Standard",
@@ -1067,7 +1088,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 {
   "type": "Microsoft.Web/serverfarms",
   "apiVersion": "2022-03-01",
-  "name": "[variables('hostingPlanName')]",
+  "name": "[parameters('hostingPlanName')]",
   "location": "[parameters('location')]",
   "sku": {
     "tier": "Standard",
@@ -1092,7 +1113,7 @@ On App Service plan, you should enable the `"alwaysOn": true` setting under site
 
 The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on Dedicated plan.
 
-For a sample Azure Resource Manager template, see [Azure Function App Hosted on Dedicated Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-dedicated-plan).
+For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Dedicated Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-dedicated-plan).
 
 The settings required by a function app running in Dedicated plan differ between Windows and Linux.
 
@@ -1112,11 +1133,11 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
       appSettings: [
         {
           name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: reference(applicationInsight.id, '2020-02-02').InstrumentationKey
+          value: applicationInsightsName.properties.InstrumentationKey
         }
         {
           name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccount.id, '2021-09-01').keys[0].value}'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
@@ -1146,22 +1167,22 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
   "location": "[parameters('location')]",
   "kind": "functionapp",
   "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
   ],
   "properties": {
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
     "siteConfig": {
       "alwaysOn": true,
       "appSettings": [
         {
           "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
         },
         {
           "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2021-09-01').keys[0].value)]"
+          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
         },
         {
           "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -1185,7 +1206,7 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
 
 #### Linux
 
-The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you are just deploying code, the value for this is determined by your desired runtime stack in the format of runtime|runtimeVersion. Examples of `linuxFxVersion` property include:  `python|3.7`, `node|14` and `dotnet|3.1`.
+The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of runtime|runtimeVersion. Examples of `linuxFxVersion` property include:  `python|3.7`, `node|14` and `dotnet|3.1`.
 
 # [Bicep](#tab/bicep)
 
@@ -1203,11 +1224,11 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
       appSettings: [
         {
           name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: reference(applicationInsight.id, '2020-02-02').InstrumentationKey
+          value: applicationInsightsName.properties.InstrumentationKey
         }
         {
           name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccount.id, '2021-09-01').keys[0].value}'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
@@ -1233,24 +1254,24 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
   "location": "[parameters('location')]",
   "kind": "functionapp,linux",
   "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
   ],
   "properties": {
     "reserved": true,
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
     "siteConfig": {
       "alwaysOn": true,
       "linuxFxVersion": "node|14",
       "appSettings": [
         {
           "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
         },
         {
           "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2021-09-01').keys[0].value)]"
+          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
         },
         {
           "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -1270,7 +1291,7 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
 
 ### Custom Container Image
 
-If you are [deploying a custom container image](./functions-create-function-linux-custom-image.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](../app-service/index.yml). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
+If you're [deploying a custom container image](./functions-create-function-linux-custom-image.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](../app-service/index.yml). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
 
 # [Bicep](#tab/bicep)
 
@@ -1285,7 +1306,7 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
       appSettings: [
         {
           name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${listKeys(storageAccountName, '2021-09-01').keys[0].value}'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
           name: 'FUNCTIONS_WORKER_RUNTIME'
@@ -1335,16 +1356,16 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
   "location": "[parameters('location')]",
   "kind": "functionapp",
   "dependsOn": [
-    "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
   ],
   "properties": {
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
     "siteConfig": {
       "appSettings": [
         {
           "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]"
+          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
         },
         {
           "name": "FUNCTIONS_WORKER_RUNTIME",
@@ -1387,7 +1408,7 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
 
 Azure Functions can be deployed to [Azure Arc-enabled Kubernetes](../app-service/overview-arc-integration.md). This process largely follows [deploying to an App Service plan](#deploy-on-app-service-plan), with a few differences to note.
 
-To create the app and plan resources, you must have already [created an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. These examples assume you have the resource ID of the custom location and App Service Kubernetes environment that you are deploying to. For most templates, you can supply these as parameters.
+To create the app and plan resources, you must have already [created an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. These examples assume you have the resource ID of the custom location and App Service Kubernetes environment that you're deploying to. For most templates, you can supply these values as parameters.
 
 # [Bicep](#tab/bicep)
 
@@ -1418,8 +1439,10 @@ Both sites and plans must reference the custom location through an `extendedLoca
 # [Bicep](#tab/bicep)
 
 ```bicep
-extendedLocation: {
-  name: customLocationId
+{
+  extendedLocation: {
+    name: customLocationId
+  }
 }
 ```
 
@@ -1437,7 +1460,7 @@ extendedLocation: {
 
 ***jgao: remove extendedLocation.type because it is readonly.
 
-The plan resource should use the Kubernetes (K1) SKU, and its `kind` field should be "linux,kubernetes". Within `properties`, `reserved` should be "true", and `kubeEnvironmentProfile.id` should be set to the App Service Kubernetes environment resource ID. An example plan might look like the following:
+The plan resource should use the Kubernetes (K1) SKU, and its `kind` field should be "linux,kubernetes". Within `properties`, `reserved` should be "true", and `kubeEnvironmentProfile.id` should be set to the App Service Kubernetes environment resource ID. An example plan might look like:
 
 # [Bicep](#tab/bicep)
 
@@ -1468,7 +1491,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 {
   "type": "Microsoft.Web/serverfarms",
   "apiVersion": "2022-03-01",
-  "name": "[variables('hostingPlanName')]",
+  "name": "[parameters('hostingPlanName')]",
   "location": "[parameters('location')]",
   "kind": "linux,kubernetes",
   "sku": {
@@ -1491,7 +1514,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 ***jgao: removed some of the properties.  See azureArc.bicep.
 
-The function app resource should have its `kind` field set to "functionapp,linux,kubernetes" or "functionapp,linux,kubernetes,container" depending on if you intend to deploy via code or container. An example function app might look like the following:
+The function app resource should have its `kind` field set to **functionapp,linux,kubernetes** or **functionapp,linux,kubernetes,container** depending on if you intend to deploy via code or container. An example function app might look like:
 
 # [Bicep](#tab/bicep)
 
@@ -1514,11 +1537,11 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
         }
         {
           name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${listKeys(storageAccountName, '2021-09-01').key1}'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
           name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: reference(applicationInsight.id, '2020-02-02').InstrumentationKey
+          value: applicationInsightsName.properties.InstrumentationKey
         }
       ]
       alwaysOn: true
@@ -1544,12 +1567,12 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
     "name": "[parameters('customLocationId')]"
   },
   "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
   ],
   "properties": {
-    "serverFarmId": "[variables('hostingPlanName')]",
+    "serverFarmId": "[parameters('hostingPlanName')]",
     "siteConfig": {
       "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice-quickstart",
       "appSettings": [
@@ -1559,11 +1582,11 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
         },
         {
           "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').key1)]"
+          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
         },
         {
           "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', variables('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
         }
       ],
       "alwaysOn": true
@@ -1579,7 +1602,7 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
 A function app has many child resources that you can use in your deployment, including app settings and source control options. You also might choose to remove the **sourcecontrols** child resource, and use a different [deployment option](functions-continuous-deployment.md) instead.
 
 > [!IMPORTANT]
-> To successfully deploy your application by using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In the following example, top-level configurations are applied by using **siteConfig**. It's important to set these configurations at a top level, because they convey information to the Functions runtime and deployment engine. Top-level information is required before the child **sourcecontrols/web** resource is applied. Although it's possible to configure these settings in the child-level **config/appSettings** resource, in some cases your function app must be deployed *before* **config/appSettings** is applied. For example, when you are using functions with [Logic Apps](../logic-apps/index.yml), your functions are a dependency of another resource.
+> To successfully deploy your application by using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In the following example, top-level configurations are applied by using `siteConfig`. It's important to set these configurations at a top level, because they convey information to the Functions runtime and deployment engine. Top-level information is required before the child **sourcecontrols/web** resource is applied. Although it's possible to configure these settings in the child-level **config/appSettings** resource, in some cases your function app must be deployed *before* **config/appSettings** is applied. For example, when you're using functions with [Logic Apps](../logic-apps/index.yml), your functions are a dependency of another resource.
 
 # [Bicep](#tab/bicep)
 
@@ -1613,8 +1636,8 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
 resource config 'Microsoft.Web/sites/config@2022-03-01' = {
   name: '${functionAppName}/appsettings'
   properties: {
-    AzureWebJobsStorage: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${listKeys(storageAccountName, '2021-09-01').keys[0].value}'
-    AzureWebJobsDashboard: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${listKeys(storageAccountName, '2021-09-01').keys[0].value}'
+    AzureWebJobsStorage: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
+    AzureWebJobsDashboard: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
     FUNCTIONS_EXTENSION_VERSION: '~3'
     FUNCTIONS_WORKER_RUNTIME: 'dotnet'
     Project: 'src'
@@ -1646,7 +1669,7 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
   "kind": "functionapp",
   "location": "[parameters('location')]",
   "properties": {
-    "serverFarmId": "[variables('hostingPlanName')]",
+    "serverFarmId": "[parameters('hostingPlanName')]",
     "siteConfig": {
       "alwaysOn": true,
       "appSettings": [
@@ -1662,8 +1685,8 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
     }
   },
   "dependsOn": [
-    "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
   ]
 },
 {
@@ -1671,15 +1694,15 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
   "apiVersion": "2022-03-01",
   "name": "[format('{0}/appsettings', parameters('functionAppName'))]",
   "properties": {
-    "AzureWebJobsStorage": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
-    "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
+    "AzureWebJobsStorage": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]",
+    "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]",
     "FUNCTIONS_EXTENSION_VERSION": "~3",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
     "Project": "src"
   },
   "dependsOn": [
     "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
   ]
 },
 {
@@ -1687,8 +1710,8 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
   "apiVersion": "2022-03-01",
   "name": "[format('{0}/{1}', parameters('functionAppName'), 'web')]",
   "properties": {
-    "repoUrl": "[variables('repoUrl')]",
-    "branch": "[variables('branch')]",
+    "repoUrl": "[parameters('repoUrl')]",
+    "branch": "[parameters('branch')]",
     "isManualIntegration": true
   },
   "dependsOn": [
@@ -1700,7 +1723,7 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
 ---
 
 > [!TIP]
-> This template uses the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) app settings value, which sets the base directory in which the Functions deployment engine (Kudu) looks for deployable code. In our repository, our functions are in a subfolder of the **src** folder. So, in the preceding example, we set the app settings value to `src`. If your functions are in the root of your repository, or if you are not deploying from source control, you can remove this app settings value.
+> This template uses the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) app settings value, which sets the base directory in which the Functions deployment engine (Kudu) looks for deployable code. In our repository, our functions are in a subfolder of the **src** folder. So, in the preceding example, we set the app settings value to `src`. If your functions are in the root of your repository, or if you're not deploying from source control, you can remove this app settings value.
 
 ## Deploy your template
 
@@ -1715,13 +1738,13 @@ You can use any of the following ways to deploy your template:
 
 Replace ```<url-encoded-path-to-azuredeploy-json>``` with a [URL-encoded](https://www.bing.com/search?q=url+encode) version of the raw path of your `azuredeploy.json` file in GitHub.
 
-Here is an example that uses markdown:
+Here's an example that uses markdown:
 
 ```markdown
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
 ```
 
-Here is an example that uses HTML:
+Here's an example that uses HTML:
 
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"></a>
