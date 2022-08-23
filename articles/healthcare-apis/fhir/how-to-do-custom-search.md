@@ -117,7 +117,7 @@ The result will look like this:
       "name": "race",
       "valueString": "2028-9"
     },
-...
+...}
 ```
 Once you see that your search parameter is displaying as expected, you can reindex a single resource to test searching with your new search parameter. To reindex a single resource:
 
