@@ -34,20 +34,6 @@ Authentication strengths are an evolution for strong authentication. They provid
 - Require stronger authentication methods when the user is in high risk
 - Enforce use of Microsoft Authenticator when users access specific SaaS apps.
 
-## Known issues
-We are actively working on problems and will post updates when they are fixed.
-<!---
-- We recommend NOT applying authentication strengths to **All applications** in Conditional Access. When an authentication strength applies to all applications and the user is not registered for any of its methods, the user will get stuck in a loop if they access any application.
-- The Sign-in logs show incomplete information for Authentication Strengths
-- A)[Grant Control] section in [Conditional Access Policy Details] will always show “Satisfied”, even if the Authentication Strength requirement wasn’t satisfiedNOTE: Authentication Details do show the expected status (Succeeded = false)B)[Authentication requirement] field on the Basic info tab always shows “Single-factor authentication” when Authentication Strength requirements were satisfiedC)Authentication Strengths are not evaluated if the conditional access policy is in “Report-only” mode. You must enable the policy to see information in the sign-in logsThe audit logs are missing details for creation of and updates to authentication strengthsCertain scenarios are not restricted by the Authentication Strengths UX, and may result in a generic error message. To see the error, you will need to open up the edge network inspector(Control + Shift + J), reproduce the error, and then click on the $batch request and expand the response:Known errors that can result in this error message:A)Authentication Strength names cannot be longer than 30 charactersB)Authentication Strengths cannot be deleted while they are in use --->
-
-## Limitations of Conditional Access policies
-Conditional access policies are only evaluated after the initial authentication. This means that authentication strengths will not restrict the authentication method used for the user’s first factor. For example, if you are using the phishing-resistant built-in strength, this will not prevent a user from typing in their password, but they will be required to use a FIDO2 key before they can continue.
-
-## Prerequisites
-
-Your tenant needs to have Azure AD Premium P1 license to use Conditional Access. If needed, you can enable free trial. 
-
 ## Types of authentication strengths
 
 You can choose from built-in authentication strengths or create custom authentication strengths. 
@@ -80,6 +66,20 @@ The following API call can be used to list definitions of all the built-in Authe
 
 ### Custom Authentication Strengths
 In addition to the three built-in authentication strengths, admins can create their own custom authentication strengths to exactly suit their requirements. Custom strengths can contain any of the combinations in the preceding table. You can create custom authentication strengths in the Azure Portal or by using Microsoft Graph API. You can add custom authentication strengths to any CA policy. 
+
+## Known issues
+We are actively working on problems and will post updates when they are fixed.
+<!---
+- We recommend NOT applying authentication strengths to **All applications** in Conditional Access. When an authentication strength applies to all applications and the user is not registered for any of its methods, the user will get stuck in a loop if they access any application.
+- The Sign-in logs show incomplete information for Authentication Strengths
+- A)[Grant Control] section in [Conditional Access Policy Details] will always show “Satisfied”, even if the Authentication Strength requirement wasn’t satisfiedNOTE: Authentication Details do show the expected status (Succeeded = false)B)[Authentication requirement] field on the Basic info tab always shows “Single-factor authentication” when Authentication Strength requirements were satisfiedC)Authentication Strengths are not evaluated if the conditional access policy is in “Report-only” mode. You must enable the policy to see information in the sign-in logsThe audit logs are missing details for creation of and updates to authentication strengthsCertain scenarios are not restricted by the Authentication Strengths UX, and may result in a generic error message. To see the error, you will need to open up the edge network inspector(Control + Shift + J), reproduce the error, and then click on the $batch request and expand the response:Known errors that can result in this error message:A)Authentication Strength names cannot be longer than 30 charactersB)Authentication Strengths cannot be deleted while they are in use --->
+
+## Limitations of Conditional Access policies
+Conditional access policies are only evaluated after the initial authentication. This means that authentication strengths will not restrict the authentication method used for the user’s first factor. For example, if you are using the phishing-resistant built-in strength, this will not prevent a user from typing in their password, but they will be required to use a FIDO2 key before they can continue.
+
+## Prerequisites
+
+Your tenant needs to have Azure AD Premium P1 license to use Conditional Access. If needed, you can enable free trial. 
 
 ## Next steps
 
