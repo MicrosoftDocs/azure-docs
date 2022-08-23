@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 08/22/2022
+ms.date: 08/23/2022
 ms.author: lajanuar
 ms.custom: vscode-azure-extension-update-completed
 ---
@@ -17,8 +17,7 @@ ms.custom: vscode-azure-extension-update-completed
 
 You can use Form Recognizer as part of an automated data processing pipeline built with Azure Functions. This guide shows you how to use Azure Functions to process documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents using the Form Recognizer Layout service and saves the table data in a .csv file in Azure. You can then display the data using Microsoft Power BI (not covered here).
 
-> [!div class="mx-imgBorder"]
-> ![azure service workflow diagram](./media/tutorial-azure-function/workflow-diagram.png)
+:::image type="content" source="media/tutorial-azure-function/workflow-diagram.png" alt-text="Screenshot of Azure Service workflow diagram":::
 
 In this tutorial, you learn how to:
 
