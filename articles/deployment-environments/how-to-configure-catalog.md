@@ -69,10 +69,9 @@ To get the clone URL of your Azure DevOps Services Git repo:
 #### Store the personal access token as a Key Vault secret
 
 To store the personal access token(PAT) that you generated as a [Key Vault secret](../key-vault/secrets/about-secrets.md) and copy the secret identifier:
-
-    1. [Create a vault](../key-vault/general/quick-create-portal#create-a-vault)
-    1. [Add]((../key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault) the personal access token (PAT) as a secret to the Key Vault.
-    1. [Open](../key-vault/secrets/quick-create-portal#retrieve-a-secret-from-key-vault) the secret and copy the secret identifier.
+1. [Create a vault](../key-vault/general/quick-create-portal#create-a-vault)
+1. [Add]((../key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault) the personal access token (PAT) as a secret to the Key Vault.
+1. [Open](../key-vault/secrets/quick-create-portal#retrieve-a-secret-from-key-vault) the secret and copy the secret identifier.
 
 ### Connect your repository as a catalog
 
@@ -100,7 +99,7 @@ If you update the ARM template contents or definition in the attached repository
 To sync to the updated catalog:
 
 1. Select **Catalogs** from the left pane.
-2. Select the specific catalog and select **Sync**. The service scans through the repository and makes the latest list of catalog items available to all the associated projects in the dev center.
+1. Select the specific catalog and select **Sync**. The service scans through the repository and makes the latest list of catalog items available to all the associated projects in the dev center.
 
 ## Delete a catalog
 
@@ -109,11 +108,8 @@ You can delete a catalog to remove it from the dev center. Any templates contain
 To delete a catalog:
 
 1. Select **Catalogs** from the left pane.
-2. Select the specific catalog and select **Delete**.
-
-![image](https://user-images.githubusercontent.com/68404454/124791397-a3c58100-df11-11eb-9cf4-a2163449583e.png)
-
-3. Confirm to delete the catalog.
+1. Select the specific catalog and select **Delete**.
+1. Confirm to delete the catalog.
 
 ## Catalog sync errors
 
@@ -134,7 +130,7 @@ Invalid catalog items can be caused due to a variety of reasons. Potential issue
     - Ensure that the manifest's engine type is correctly configured as "ARM".
     - Ensure that the catalog item name is between 3 and 63 characters.
     - Ensure that the catalog item name includes only URL-valid characters. This includes alphanumeric characters as well as these symbols: *~!,.';:=-\_+)(\*&$@*
-    - 
+  
   - **Reference errors**
     - Ensure that the template path referenced by the manifest is a valid relative path to a file within the repository.
 
