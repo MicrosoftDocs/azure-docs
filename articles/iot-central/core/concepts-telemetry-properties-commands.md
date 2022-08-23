@@ -1062,7 +1062,7 @@ When the device has finished processing the request, it should send a property t
 
 In the IoT Central web UI, you can select the **Queue if offline** option for a command. Offline commands are one-way notifications to the device from your solution that are delivered as soon as a device connects. Offline commands can have a request parameter but don't return a response.
 
-The **Queue if offline** setting isn't included if you export a model or interface from the device template. You can't tell by looking at an exported model or interface JSON that a command is an offline command.
+Offline commands are marked as `durable` if you export the model as DTDL.
 
 Offline commands use [IoT Hub cloud-to-device messages](../../iot-hub/iot-hub-devguide-messages-c2d.md) to send the command and payload to the device.
 

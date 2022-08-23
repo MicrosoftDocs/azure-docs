@@ -4,8 +4,8 @@ description: Create a Dynamics 365 Business Central offer on Microsoft AppSource
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: JasonWHowell
-ms.author: jasonh
+author: trkeya
+ms.author: trkeya
 ms.date: 07/20/2022
 ---
 

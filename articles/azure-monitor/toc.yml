@@ -35,6 +35,10 @@ items:
       href: vm/tutorial-monitor-vm-guest.md
   - name: Application Insights
     items:
+    - name: Application Insights SDK for ASP.NET Core applications
+      href: app/tutorial-asp-net-core.md
+    - name: Custom metrics with .NET and .NET Core
+      href: app/tutorial-asp-net-custom-metrics.md
     - name: Find application run-time exceptions
       href: app/tutorial-runtime-exceptions.md
     - name: Find application performance issues
@@ -661,12 +665,6 @@ items:
         href: alerts/alerts-log-webhook.md
       - name: Log analytics alerts legacy API
         href: alerts/api-alerts.md
-    - name:  Activity log alert rules
-      items:
-      - name: Migrate management events to activity log alerts
-        href: ./alerts/activity-log-alerts.md
-      - name: Webhook schema
-        href: alerts/activity-log-alerts-webhook.md
     - name: Service health alerts
       items:
       - name: View notifications
@@ -692,6 +690,8 @@ items:
         href: alerts/alerts-common-schema-definitions.md
       - name: Common alert schema definition for Test action group
         href: alerts/alerts-common-schema-test-action-definitions.md
+      - name: Configure the schema to get activity log alerts
+        href: alerts/activity-log-alerts-webhook.md        
       - name: Non-common alert schema definition
         href: alerts/alerts-non-common-schema-definitions.md
       - name: Integrate the common alert schema with Logic Apps
