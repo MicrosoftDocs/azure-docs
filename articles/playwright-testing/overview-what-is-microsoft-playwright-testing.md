@@ -6,7 +6,7 @@ ms.service: playwright-testing
 ms.topic: overview
 ms.author: nicktrog
 author: ntrogh
-ms.date: 07/06/2022
+ms.date: 08/23/2022
 ---
 
 # What is Microsoft Playwright Testing Preview?
