@@ -47,7 +47,7 @@ And then defining these elements for the resulting alert actions using:
     |Metrics|Platform   |For metric signals, the monitor service is the metric namespace. ‘Platform’ means the metrics are provided by the resource provider, namely 'Azure'.|
     |       |Azure.ApplicationInsights|Customer-reported metrics, sent by the Application Insights SDK. |
     |       |Azure.VM.Windows.GuestMetrics   |VM guest metrics, collected by an extension running on the VM. Can include built-in operating system perf counters, and custom perf counters.        |
-    |       |  /<custom metric namespace>/   |A custom metric namespace, containing custom metrics sent with the Azure Monitor Metrics API.         |
+    |       |/<your namespace>/|A custom metric namespace, containing custom metrics sent with the Azure Monitor Metrics API.         |
     |Log    |Log Analytics|The service that provides the ‘Custom log search’ and ‘Log (saved query)’ signals.         |
     |Activity log|Activity Log – Administrative|The service that provides the ‘Administrative’ activity log events.         |
     |       |Activity Log – Policy|The service that provides the 'Policy' activity log events.         |
