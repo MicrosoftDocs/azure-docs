@@ -16,6 +16,7 @@ ms.custom: aaddev, identityplatformtop40, mode-api
 
 # Quickstart: Acquire a token and call the Microsoft Graph API from a Windows desktop app
 
+
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
@@ -24,7 +25,7 @@ ms.custom: aaddev, identityplatformtop40, mode-api
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
-> # Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app
+# Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app
 
 > In this quickstart, you download and run a code sample that demonstrates how a Windows Presentation Foundation (WPF) application can sign in users and get an access token to call the Microsoft Graph API. 
 > 
