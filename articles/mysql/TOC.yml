@@ -127,7 +127,7 @@
       items:
       - name: Backup & Restore concepts
         href: flexible-server/concepts-backup-restore.md
-    - name: Integrations
+  - name: Integrations
     items:
     - name: Azure advisor
       href: ../postgresql/single-server/concepts-azure-advisor-recommendations.md
