@@ -11,7 +11,7 @@ ms.author: mikaelw
 
 # FHIR search examples
 
-Below are some examples of Fast Healthcare Interoperability Resources (FHIR&#174;) search API calls featuring various search parameters, modifiers, chain and reverse chain searches, composite searches, `POST` search requests, and more. For a general introduction to FHIR search concepts, see [Overview of FHIR Search](overview-of-search.md).
+Below are some examples of Fast Healthcare Interoperability Resources (FHIR&#174;) search API calls featuring various search parameters, modifiers, chained and reverse chained searches, composite searches, `POST` search requests, and more. For a general introduction to FHIR search concepts, see [Overview of FHIR Search](overview-of-search.md).
    
 ## Search result parameters
 
@@ -99,7 +99,7 @@ To perform a series of search operations that cover multiple reference parameter
 
 This request would return all the `DiagnosticReport` resources with a patient subject named "Sarah". The `.` after `Patient` performs the chained search on the `subject` reference parameter.
 
-Another common use of FHIR search is finding all encounters for a specific patient. `Patient` resources will often be referenced by one or more `Encounter` resources. To do a regular (non-chain) search for all `Encounter` resources that reference a `Patient` with the provided `id`:
+Another common use of FHIR search is finding all encounters for a specific patient. `Patient` resources will often be referenced by one or more `Encounter` resources. To do a regular (non-chained) search for all `Encounter` resources that reference a `Patient` with the provided `id`:
 
 ```rest
 GET {{FHIR_URL}}/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e6619399f
@@ -126,7 +126,7 @@ This would return all `Patient` resources that have a reference to "Sarah" as a 
 
 For scenarios in which the search has to be an AND operation that satisfies all conditions for a pair of elements, refer to the **composite search** example below.
 
-## Reverse chain search
+## Reverse chained search
 
 Using reverse chain search in FHIR allows you to search for target resource instances referred to by other resources. In other words, you can search for resources based on the properties of resources that refer to them. This is accomplished with the `_has` parameter. For example, the `Observation` resource has a search parameter `patient` that refers to a `Patient` resource. To find all `Patient` resources that are referenced by an `Observation` with a specific `code`:
 
@@ -137,7 +137,7 @@ GET {{FHIR_URL}}/Patient?_has:Observation:patient:code=527
 
 This request returns `Patient` resources that are referred to by `Observation` resources with the code `527`. 
 
-In addition, reverse chain search can have a recursive structure. For example, if you want to search for all patients referenced by an `Observation` where the observation is referenced by an `AuditEvent` from a specific practitioner named `janedoe`:
+In addition, reverse chained search can have a recursive structure. For example, if you want to search for all patients referenced by an `Observation` where the observation is referenced by an `AuditEvent` from a specific practitioner named `janedoe`:
 
 ```rest
 GET {{FHIR_URL}}/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:Practitioner.name=janedoe
