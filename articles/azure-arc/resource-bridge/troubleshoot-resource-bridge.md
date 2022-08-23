@@ -168,7 +168,7 @@ There are only two certificates that should be relevant when deploying the Arc r
 Azure Arc resource bridge is a Kubernetes management cluster that is deployed in an appliance VM directly on the on-premises infrastructure. While trying to deploy Azure Arc resource bridge, a "KVA timeout error" may appear if there is a networking problem that doesn't allow communication of the Arc Resource Bridge appliance VM to the host, DNS, network or internet. This error is typically displayed for the following reasons:
 
 - The appliance VM IP address doesn't have DNS resolution.
-- The appliance VM IP doesn't have internet access to download the required image.
+- The appliance VM IP address doesn't have internet access to download the required image.
 - The host doesn't have routability to the appliance VM IP address.
 
 To resolve this error, ensure that all IP addresses assigned to the Arc Resource Bridge appliance VM can be resolved by DNS and have access to the internet, and that the host can successfully route to the IP addresses.
