@@ -357,9 +357,9 @@ az ts create \
   --tags Dept=Finance Environment=Production
 ```
 
-The next example shows how to apply tags when updating an existing template spec:
-
 ---
+
+The next example shows how to apply tags when updating an existing template spec:
 
 # [PowerShell](#tab/azure-powershell)
 
