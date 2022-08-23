@@ -31,7 +31,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * **Custom models**. The Studio now includes the ability to reorder labels in custom model projects to improve labeling efficiency.
 
-* **Copy Models** Custom models can be copied across Form Recognizer services from within the Studio. This enables the promotion of a trained model to other environments and regions.
+* **Copy Models** Custom models can be copied across Form Recognizer services from within the Studio. The operation enables the promotion of a trained model to other environments and regions.
 
 * **Delete documents**. The Studio now supports deleting documents from labeled dataset within custom projects.
 
@@ -39,11 +39,11 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields will now resolve to the existing fields TotalTax and Line/Tax respectively.
 
-* [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards as well as passport visa information.
+* [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards. Support for passport visa information.
 
 * [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
 
-* [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract sub-fields for address components like address, city, state, country, and zip code.
+* [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract subfields for address components like address, city, state, country, and zip code.
 
 * **AI quality improvements**
 

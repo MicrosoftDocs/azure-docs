@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 08/23/2022
 ms.author: lajanuar
-ms.custom: vscode-azure-extension-update-completed
+ms.custom: VS Code-azure-extension-update-completed
 ---
 
 # Tutorial: Use Azure Functions and Python to process stored documents
 
-You can use Form Recognizer as part of an automated data processing pipeline built with Azure Functions. This guide shows you how to use Azure Functions to process documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents using the Form Recognizer Layout service and saves the table data in a .csv file in Azure. You can then display the data using Microsoft Power BI (not covered here).
+Form Recognizer can be used as part of an automated data processing pipeline built with Azure Functions. This guide will show you how to use Azure Functions to process documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents using the Form Recognizer layout model and saves the table data in a .csv file in Azure. You can then display the data using Microsoft Power BI (not covered here).
 
 :::image type="content" source="media/tutorial-azure-function/workflow-diagram.png" alt-text="Screenshot of Azure Service workflow diagram":::
 
@@ -23,70 +23,71 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Create an Azure Storage account
-> * Create an Azure Functions project
-> * Extract layout data from uploaded forms
-> * Upload layout data to Azure Storage
+> * Create an Azure Storage account.
+> * Create an Azure Functions project.
+> * Extract layout data from uploaded forms.
+> * Upload extracted layout data to Azure Storage.
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* **Azure subscription** - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
-* A Form Recognizer resource. Once you have your Azure subscription, create a [Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* **A Form Recognizer resource**. Once you have your Azure subscription, create a [Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+  * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
-  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+      :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-* [Python 3.6.x, 3.7.x, 3.8.x or 3.9.x](https://www.python.org/downloads/) installed (Python 3.10.x is not supported for this project).
+* [**Python 3.6.x, 3.7.x, 3.8.x or 3.9.x**](https://www.python.org/downloads/) (Python 3.10.x isn't supported for this project).
 
-* The latest version of [Visual Studio Code](https://code.visualstudio.com/) with the following extensions installed:
+* The latest version of [**Visual Studio Code**](https://code.visualstudio.com/) with the following extensions installed:
 
-  * [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
+  * [**Azure Functions extension**](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.VS Code-azurefunctions). Once it's installed, you should see the Azure logo in the left-navigation pane.
 
-  * [Azure Functions Core Tools](/azure/azure-functions/functions-run-local?tabs=v3%2Cwindows%2Ccsharp%2Cportal%2Cbash) version 3.x (Version 4.x is not supported for this project).
+  * [**Azure Functions Core Tools**](/azure/azure-functions/functions-run-local?tabs=v3%2Cwindows%2Ccsharp%2Cportal%2Cbash) version 3.x (Version 4.x isn't supported for this project).
 
-  * The [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio code. For more information, *see* [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial)
+  * [**Python Extension**](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio code. For more information, *see* [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial)
 
-* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) installed.
+* [**Azure Storage Explorer**](https://azure.microsoft.com/features/storage-explorer/) installed.
 
-* A local PDF document to analyze. You can use our [sample pdf document](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout.pdf) for this project.
+* **A local PDF document to analyze**. You can use our [sample pdf document](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout.pdf) for this project.
 
 ## Create an Azure Storage account
 
-* [Create an Azure Storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the Azure portal. Select **StorageV2** as the Account kind.
+1. [Create a general-purpose v2 Azure Storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the Azure portal. If you don't know how to create an Azure storage account with a storage container, follow these quickstarts:
 
-* On the left pane, select the **CORS** tab, and remove the existing CORS policy if any exists.
+    * [Create a storage account](../../storage/common/storage-account-create.md). When you create your storage account, select **Standard** performance in the **Instance details** > **Performance** field.
+    * [Create a container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When you create your container, set **Public access level** to **Container** (anonymous read access for containers and files) in the **New Container** window.
 
-* Once that has deployed, create two empty blob storage containers, named **input** and **output**.
+1. On the left pane, select the **Resource sharing (CORS)** tab, and remove the existing CORS policy if any exists.
+
+1. Once your storage account has deployed, create two empty blob storage containers, named **input** and **output**.
 
 ## Create an Azure Functions project
 
-1. Create a new folder named **form-recognizer-function-app** to contain the project and choose **Select**.
+1. Create a new folder named **functions-app** to contain the project and choose **Select**.
 
-1. Open Visual Studio Code.
+1. Open Visual Studio Code and open the Command Palette (Ctrl+Shift+P). Search for and choose **Python:Select Interpreter** → choose **Use Python from \`python.defaultInterpreterPath` setting**. This selection will set the default Python interpreter path.
 
-1. Open the Command Palette (Ctrl+Shift+P) and search for and choose **Python:Select Interpreter** → choose **Use Python from \`python.defaultInterpreterPath` setting. This will set the default Python interpreter path.
+1. Select the  Azure logo from the left-navigation pane.
 
-1. If you've successfully installed the Azure Functions extension, you should see an Azure logo on the left navigation pane. Select it.
-
-    * You'll see all your existing resources in the Resources view.
+    * You'll see your existing Azure resources in the Resources view.
 
     * Select the Azure subscription that you're using for this project and below you should see the Azure Function App.
 
-      :::image type="content" source="media/tutorial-azure-function/azure-extensions-vsc.png" alt-text="Screenshot of a list showing your Azure resoures in a single, unified view.":::
+      :::image type="content" source="media/tutorial-azure-function/azure-extensions-vsc.png" alt-text="Screenshot of a list showing your Azure resources in a single, unified view.":::
 
-1. Select the Workspace (Local) section located below your listed resources, select the plus symbol and choose the **Create Function** button.
+1. Select the Workspace (Local) section located below your listed resources. Select the plus symbol and choose the **Create Function** button.
 
     :::image type="content" source="media/tutorial-azure-function/workspace-create-function.png" alt-text="Screenshot showing where to begin creating an Azure function.":::
 
-1. When prompted, choose **Create new project**. Navigate to the **form-recognizer-function-app** directory and choose **Select**.
+1. When prompted, choose **Create new project** and navigate to the **function-app** directory. Choose **Select**.
 
-1. You'll be prompted to configure a number of settings:
+1. You'll be prompted to configure several settings:
 
     * **Select a language** → choose Python.
 
-    * **Select a Python interpreter to create a virtual environment** → select the interpreter you set as a default earlier.
+    * **Select a Python interpreter to create a virtual environment** → select the interpreter you set as the default earlier.
 
     * **Select a template** → choose **Azure Blob Storage trigger** and give the trigger a name or accept the default name. Press **Enter** to confirm.
 
@@ -94,9 +95,9 @@ In this tutorial, you learn how to:
 
     * **Select subscription** → choose your Azure subscription with the storage account you created → select your storage account → then select the name of the storage input container (in this case, `input/{name}`). Press **Enter** to confirm.
 
-    * **Select how your would like to open your project** → choose open the project in the current window from the dropdown window.
+    * **Select how your would like to open your project** → choose **Open the project in the current window** from the dropdown window.
 
-1. Once you've completed these steps, VSCode will add a new Azure Function project with a *\_\_init\_\_.py* Python script. This script will be triggered when a file is uploaded to the **input** storage container:
+1. Once you've completed these steps, VS Code will add a new Azure Function project with a *\_\_init\_\_.py* Python script. This script will be triggered when a file is uploaded to the **input** storage container:
 
  ```python
  import logging
@@ -112,23 +113,23 @@ In this tutorial, you learn how to:
 
 ## Test the function
 
-* Press F5 to run the basic function. VSCode will prompt you to select a storage account to interface with.
+* Press F5 to run the basic function. VS Code will prompt you to select a storage account to interface with.
 
 * Select the storage account you created and continue.
 
-* Open Azure Storage Explorer and upload a sample PDF document to the **input** container. Then check the VSCode terminal.
+* Open Azure Storage Explorer and upload the sample PDF document to the **input** container. Then check the VS Code terminal.
 
 * The script should log that it was triggered by the PDF upload.
 
-:::image type="content" source="media/tutorial-azure-function/vs-code-terminal-test.png" alt-text="Screenshot of the VSCode terminal after uploading a new document.":::
+    :::image type="content" source="media/tutorial-azure-function/vs-code-terminal-test.png" alt-text="Screenshot of the VS Code terminal after uploading a new document.":::
 
-Stop the script before continuing.
+* Stop the script before continuing.
 
 ## Add document processing code
 
-Next, you'll add your own code to the Python script to call the Form Recognizer service and parse the uploaded documents using the Form Recognizer [Layout API](concept-layout.md).
+Next, you'll add your own code to the Python script to call the Form Recognizer service and parse the uploaded documents using the Form Recognizer [layout model](concept-layout.md).
 
-1. In VSCode, navigate to the function's *requirements.txt* file. This defines the dependencies for your script. Add the following Python packages to the file:
+1. In VS Code, navigate to the function's *requirements.txt* file. This file defines the dependencies for your script. Add the following Python packages to the file:
 
     ```txt
     cryptography
@@ -171,7 +172,7 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
     # This is the call to the Form Recognizer endpoint
         endpoint = r"Your Form Recognizer Endpoint"
         apim_key = "Your Form Recognizer Key"
-        post_url = endpoint + "/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2022-08-31"
+        post_url = endpoint + "/formrecognizer/v2.1/layout/analyze"
         source = myblob.read()
 
         headers = {
@@ -210,7 +211,7 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
 
 
         if status == "succeeded":
-            print("Layout Analysis succeeded:\n%s")
+            print("POST Layout Analysis succeeded:\n%s")
             results=resp_json
         else:
             print("GET Layout results failed:\n%s")
@@ -219,7 +220,7 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
         results=resp_json
     ```
 
-1. Then add the following code to connect to the Azure Storage **output** container. Fill in your own values for the storage account name and key. You can get the key on the **Access keys** tab of your storage resource in the Azure portal.
+1. Add the following code to connect to the Azure Storage **output** container. Fill in your own values for the storage account name and key. You can get the key on the **Access keys** tab of your storage resource in the Azure portal.
 
     ```Python
     # This is the connection to the blob storage, with the Azure Python SDK
@@ -298,4 +299,4 @@ In this tutorial, you learned how to use an Azure Function written in Python to 
 > [Microsoft Power BI](https://powerbi.microsoft.com/integrations/azure-table-storage/)
 
 * [What is Form Recognizer?](overview.md)
-* Learn more about the [Layout API](concept-layout.md)
+* Learn more about the [layout model](concept-layout.md)
