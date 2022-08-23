@@ -204,6 +204,9 @@
           href: ./security-controls-policy.md
         - name: Data encryption
           href: concept-data-encryption.md
+        - name: Data exfiltration prevention
+          displayName: loss
+          href: how-to-prevent-data-loss-exfiltration.md
         - name: Customer-managed keys
           href: concept-customer-managed-keys.md
         - name: Vulnerability management
