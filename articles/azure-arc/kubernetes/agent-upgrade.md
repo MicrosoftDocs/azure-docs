@@ -65,7 +65,7 @@ az connectedk8s upgrade -g AzureArcTest1 -n AzureArcTest --agent-version 1.1.0
 
 ## Version support policy
 
-When you [create support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request) for Azure Arc-enabled Kubernetes, the following version support policy applies:
+When you [create support requests](../../azure-portal/supportability/how-to-create-azure-support-request.md) for Azure Arc-enabled Kubernetes, the following version support policy applies:
 
 * Azure Arc-enabled Kubernetes agents have a support window of "N-2", where 'N' is the latest minor release of agents.
   * For example, if Azure Arc-enabled Kubernetes introduces 0.28.a today, versions 0.28.a, 0.28.b, 0.27.c, 0.27.d, 0.26.e, and 0.26.f are supported.
