@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/18/2022
-ms.author: kesheth
+ms.author: mikaelw
 ---
 # Overview of FHIR search
 
