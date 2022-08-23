@@ -12,6 +12,21 @@ ms.date: 06/21/2022
 ms.custom: template-concept
 ---
 
+<!-- 
+!########################################################
+STATUS: IN REVIEW
+
+CONTENT: critical content missing
+        - content still located in wrong file
+        - links need review and update
+        - resource recommendation table needs to be filled out
+
+REVIEW Stephen/Fabian: not reviewed
+REVIEW Engineering: not reviewed
+
+!########################################################
+-->
+
 # Plan a successful Azure Storage Mover deployment
 
 Lead with a light intro that describes what the article covers. Answer the fundamental "why would I want to know this information?" question. Keep it short.

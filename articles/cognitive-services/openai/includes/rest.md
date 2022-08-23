@@ -15,8 +15,8 @@ keywords:
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 - Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here:<a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>
-- <a href="https://www.python.org/" target="_blank">Python 3.x</a>
-- The following python libraries: os, requests, json
+- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
+- The following Python libraries: os, requests, json
 - An Azure OpenAI Service resource with a model deployed. If you don't have a resource/model the process is documented in our [resource deployment guide](../how-to/create-resource.md)
 
 ## Retrieve key and endpoint
@@ -35,7 +35,7 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 ## Create a new Python application
 
-Create a new python file called quickstart.py. Then open it up in your preferred editor or IDE.
+Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
 1. Replace the contents of quickstart.py with the following code.
 

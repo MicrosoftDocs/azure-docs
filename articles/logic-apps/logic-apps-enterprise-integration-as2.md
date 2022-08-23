@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 08/30/2022
 ---
 
 # Exchange AS2 messages using workflows in Azure Logic Apps

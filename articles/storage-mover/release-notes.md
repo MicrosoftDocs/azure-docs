@@ -10,6 +10,21 @@ ms.date: 06/21/2022
 ms.author: shaas
 ---
 
+<!-- 
+!########################################################
+STATUS: IN REVIEW
+
+CONTENT: critical content missing
+        - content still located in wrong file
+        - links need review and update
+        - resource recommendation table needs to be filled out
+
+REVIEW Stephen/Fabian: not reviewed
+REVIEW Engineering: not reviewed
+
+!########################################################
+-->
+
 # Release notes for the Azure Storage Mover service
 
 Quick notes we need to write out:
