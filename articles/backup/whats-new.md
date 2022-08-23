@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 08/29/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -16,6 +16,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- August 2022
+  - [Immutable vault for Azure Backup (in preview)](#immutable-vault-for-azure-backup-in-preview)
 - June 2022
   - [Multi-user authorization using Resource Guard is now generally available](#multi-user-authorization-using-resource-guard-is-now-generally-available)
 - May 2022
@@ -41,6 +43,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Immutable vault for Azure Backup (in preview)
+
+
+
+For more information, see [About Immutable vault for Azure Backup (preview)](backup-azure-immutable-vault-overview.md).
 
 ## Multi-user authorization using Resource Guard is now generally available
  

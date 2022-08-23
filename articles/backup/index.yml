@@ -59,6 +59,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Immutable vault (preview)
+            url: backup-azure-immutable-vault-overview.md
           - text: Azure Blobs backup
             url: blob-backup-overview.md
           - text: Azure Disk Backup
