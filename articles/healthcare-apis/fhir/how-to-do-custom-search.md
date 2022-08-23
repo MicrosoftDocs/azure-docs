@@ -17,7 +17,7 @@ The FHIR specification defines a set of search parameters that apply to all reso
 
 ## Create new search parameter
 
-To create a new search parameter, you `POST` a `SearchParameter` resource to the database. The code example below shows how to add the [US Core Race search parameter](http://hl7.org/fhir/us/core/STU3.1.1/SearchParameter-us-core-race.html) to the `Patient` resource.
+To create a new search parameter, you `POST` a `SearchParameter` resource to the FHIR service database. The code example below shows how to add the [US Core Race search parameter](http://hl7.org/fhir/us/core/STU3.1.1/SearchParameter-us-core-race.html) to the `Patient` resource type in your FHIR service database.
 
 ```rest
 POST {{FHIR_URL}}/SearchParameter
