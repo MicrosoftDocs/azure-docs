@@ -57,7 +57,7 @@ Change Analysis alerts you to live site issues, outages, component failures, or 
 
 Change Analysis builds on [Azure Resource Graph](../governance/resource-graph/overview.md) to provide a historical record of how your Azure resources have changed over time. It detects managed identities, platform operating system upgrades, and hostname changes. Change Analysis securely queries IP configuration rules, TLS settings, and extension versions to provide more detailed change data.
 
-[Enable Change Analysis for observability in your own application](https://aka.ms/cahome).
+Read more about Change Analysis at [Use Change Analysis in Azure Monitor](./change/change-analysis.md). [Try Change Analysis for observability into your Azure subscriptions](https://aka.ms/cahome).
 
 ## Next steps
 
