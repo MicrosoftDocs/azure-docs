@@ -56,6 +56,8 @@ For example, a single *Critical* rule match is enough for the WAF to block a req
 
 When your WAF uses older version of the default rule set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visiblity into the complete set of rules that a specific request matched.
 
+The version of the DRS that you use also determines which content types are supported for request body inspection. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ.
+
 ### DRS 2.0
 
 DRS 2.0 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
