@@ -1,5 +1,5 @@
 ---
-title: Azure AD Authentication Strengths overview
+title: Azure AD authentication strengths overview
 description: Learn how admins can use Azure AD Conditional Access to distinguish which authentication methods can be used based on relevant security factors.
 
 services: multi-factor-authentication
@@ -15,9 +15,9 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Authentication Strengths overview 
+# Azure AD authentication strengths overview 
 
-Authentication Strengths are a set of authentication method combinations that can be used to authenticate users for scenarios that require multifactor authentication (MFA). Admins can use Conditional Access (CA) to choose from a set of predefined combinations, or create a custom set of combinations. Authentication Strengths let admins distinguish which authentication methods can be used based on factors such as:
+Authentication strengths are a set of Azure Active Directory (Azure AD) authentication method combinations that can be used to authenticate users for scenarios that require multifactor authentication (MFA). Admins can use Conditional Access (CA) to choose from a set of predefined combinations, or create a custom set of combinations. Authentication strengths let admins distinguish which authentication methods can be used based on factors such as:
 
 - The app the user is accessing
 - The user’s risk 
@@ -26,9 +26,7 @@ Authentication Strengths are a set of authentication method combinations that ca
 
 next evolution of strong authentication 
 
-an uthn strength that is a 
-
-## Scenarios for Authentication Strengths
+## Scenarios for authentication strengths
 
 - As anITadmin,Ineedtocomplywithregulatedauthenticationrequirementsformysensitiveapps•AsanITadmin,IneedtorequireaspecificMFAmethodwhenauseristakingasensitiveactionwithinanapplication•AsanITadmin,IneedmyuserstouseaspecificMFAmethodwhenaccessingsensitiveappsoutsideofthecorporatenetwork•As an IT Admin, I support single factor and multi-factor cert-based authentication; for sensitive applications, I want to only allow multi-factor cert-based authentication•As an IT admin, I would like to require stronger authentication methods when the user is in high risk•As an IT admin, I want enforce Authenticator App for accessing specific SaaS app (e.g. Salesforce)
 
