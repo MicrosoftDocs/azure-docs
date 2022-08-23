@@ -207,7 +207,7 @@ POST {{FHIR_URL}}/Patient/_search?_id=45
 
 This request would return the `Patient` resource instance with the `id` value of 45. Just as with GET requests, the server determines which resource instances satisfy the condition(s) and returns a bundle in the HTTP response.
 
-Another example of searching using POST where the query parameters are submitted as a form body is:
+Another feature of searching with POST is that it lets you submit the query parameters as a form body:
 
 ```rest
 POST {{FHIR_URL}}/Patient/_search
