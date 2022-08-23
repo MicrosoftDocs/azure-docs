@@ -27,7 +27,7 @@ You can also build queries to help you proactively hunt for vulnerabilities in y
 
 Attack path analysis allows you to see the details of each node within your environment to locate any node that has vulnerabilities or misconfigurations. You can then remediate each recommendation in order to harden your environment.
 
-**To view recommendations by node**:
+**To investigate and remediate attack path**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -37,9 +37,11 @@ Attack path analysis allows you to see the details of each node within your envi
 
     :::image type="content" source="media/how-to-manage-cloud-map/attack-path.png" alt-text="Screenshot that shows the a sample of attack paths." lightbox="media/how-to-manage-cloud-map/attack-path.png":::
 
-1. Select a node to view the associated recommendations.
+1. Select a node.
 
     :::image type="content" source="media/how-to-manage-cloud-map/node-select.png" alt-text="Screenshot of the attack path screen that shows you where the nodes are located for selection." lightbox="media/how-to-manage-cloud-map/node-select.png":::
+
+1. Select insight to view the associated insights for that node.
 
 1. Select **Recommendations**.
 
@@ -48,6 +50,8 @@ Attack path analysis allows you to see the details of each node within your envi
 1. Select a recommendation.
 
 1. Follow the remediation steps to remediate the recommendation.
+
+1. Select other nodes as necessary and view their insights and recommendations as necessary.
 
 After resolving an attack path, it can take up to 24 hours for an attack path to be removed from the list.
 
