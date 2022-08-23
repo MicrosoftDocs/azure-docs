@@ -114,7 +114,7 @@ Here are a few things to be aware of while you use Azure role-based access contr
 
 ## Next steps
 
-- Learn more about [managing access keys in Microsoft Playwright Testing](./how-to-manage-access-keys.md).
+- Learn more about [authenticating requests to Microsoft Playwright Testing](./how-to-manage-access-keys.md).
 - Learn more about [identifying app issues with web UI tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
 - Learn more about [running existing tests with Microsoft Playwright Testing](./how-to-run-with-playwright-testing.md).
 - Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).

@@ -1,7 +1,7 @@
 ---
 title: Create & manage access keys
 titleSuffix: Microsoft Playwright Testing
-description: Learn how to create & manage access keys for accessing the Microsoft Playwright Testing API and running tests.
+description: Learn how to create & manage access keys to authenticate requests to Microsoft Playwright Testing. Access keys provide secure access to the Microsoft Playwright Testing API and to run tests in your workspace.
 services: playwright-testing
 ms.service: playwright-testing
 ms.topic: how-to
@@ -10,9 +10,9 @@ author: ntrogh
 ms.date: 08/12/2022
 ---
 
-# Create and manage access keys for running tests with Microsoft Playwright Testing Preview
+# Authenticate requests to Microsoft Playwright Testing Preview
 
-In this article, you'll learn how to create and manage access keys using the Microsoft Playwright Testing Preview portal. Access keys provide secure access to the Microsoft Playwright Testing API and to run tests in your workspace.
+In this article, you'll learn how to manage access keys to authenticate requests to Microsoft Playwright Testing Preview. Access keys provide secure access to the Microsoft Playwright Testing API and to run tests in your workspace.
 
 To run existing Playwright tests with Microsoft Playwright Testing, you specify the workspace access key in the Playwright configuration file. Learn how to [use your access key to grant access](#use-your-access-key-to-grant-access).
 
