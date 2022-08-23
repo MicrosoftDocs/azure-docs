@@ -89,19 +89,25 @@ To set the translation target language, with few exceptions you only specify the
 
 [!INCLUDE [Language support include](includes/language-support/speech-translation.md)]
 
+# [Language identification](#tab/language-identification)
+
+With language identification, the Speech service compares speech at the language level, such as English and German. If you include multiple locales of the same language, for example, `en-IN` and `en-US`, we'll only compare English (`en`) with the other candidate languages. The supported languages and locales are listed in the following table.
+
+[!INCLUDE [Language support include](includes/language-support/language-identification.md)]
+
 # [Speaker recognition](#tab/speaker-recognition)
 
 Speaker recognition is mostly language agnostic. We built a universal model for text-independent speaker recognition by combining various data sources from multiple languages. We've tuned and evaluated the model on the languages and locales that appear in the following table. For more information on speaker recognition, see the [overview](speaker-recognition-overview.md).
 
 [!INCLUDE [Language support include](includes/language-support/speaker-recognition.md)]
 
-# [Custom keyword and keyword verification](#tab/custom-keyword)
+# [Custom keyword](#tab/custom-keyword)
 
 The following table outlines supported languages for custom keyword and keyword verification.
 
 [!INCLUDE [Language support include](includes/language-support/custom-keyword.md)]
 
-# [Intent Recognition Pattern Matcher](#tab/intent-recognizer-pattern-matcher)
+# [Intent Recognition](#tab/intent-recognizer-pattern-matcher)
 
 The Intent Recognizer Pattern Matcher supports the following locales:
 

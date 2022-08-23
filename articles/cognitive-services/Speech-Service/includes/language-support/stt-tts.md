@@ -162,7 +162,7 @@ ms.author: eur
 
 <sup>2</sup> The neural voice supports speaking styles to express emotions such as cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. For a list of styles that are supported per neural voice, see the [Voice styles and roles](../../language-support.md#voice-styles-and-roles) table. To learn how you can configure and adjust neural voice styles, see [Speech Synthesis Markup Language](../../speech-synthesis-markup.md#adjust-speaking-styles).
 
-<sup>3</sup> The neural voice supports role play. With roles, the same voice can act as a different age and gender. For a list of roles that are supported per neural voice, see the [Voice styles and roles](../../language-support.md#voice-styles-and-roles) table. To learn how you can configure and adjust neural voice roles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
+<sup>3</sup> The neural voice supports role play. With roles, the same voice can act as a different age and gender. For a list of roles that are supported per neural voice, see the [Voice styles and roles](../../language-support.md#voice-styles-and-roles) table. To learn how you can configure and adjust neural voice roles, see [Speech Synthesis Markup Language](../../speech-synthesis-markup.md#adjust-speaking-styles).
 
 <sup>4</sup> The neural voice is available in public preview. Voices and styles in public preview are only available in three service [regions](../../regions.md): East US, West Europe, and Southeast Asia. 
 
