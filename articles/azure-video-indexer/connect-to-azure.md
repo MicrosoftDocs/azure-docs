@@ -166,7 +166,7 @@ To create a paid account in Azure Government, follow the instructions in [Create
 
 ### Limitations of Azure Video Indexer on Azure Government
 
-* Only paid accounts are available on Azure Government; the trial accounts are not supported.
+* Only paid accounts (ARM or classic) are available on Azure Government. 
 * No manual content moderation available in Government cloud.
 
     In the public cloud when content is deemed offensive based on a content moderation, the customer can ask for a human to look at that content and potentially revert that decision.
