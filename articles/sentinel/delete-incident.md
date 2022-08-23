@@ -1,17 +1,17 @@
 ---
-title: Create your own incidents manually in Microsoft Sentinel
-description: Manually create incidents in Microsoft Sentinel based on data or information received by the SOC through alternate means or channels.
+title: Delete incidents in Microsoft Sentinel
+description: Delete incidents in Microsoft Sentinel from the portal, through the API, or using a Logic App.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 08/22/2022
 ---
 
-# Create your own incidents manually in Microsoft Sentinel
+# Delete incidents in Microsoft Sentinel
 
 > [!IMPORTANT]
 >
-> Manual incident creation is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Incident deletion is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 With Microsoft Sentinel as your SIEM, your SOC’s threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents are generated automatically by detection mechanisms that operate on the logs that Sentinel ingests from its connected data sources.
 
@@ -33,9 +33,7 @@ Create incidents based on events from systems whose logs are not ingested into M
 
 Create incidents based on the observed results of hunting activities. For example, in the course of your threat hunting activities in relation to a particular investigation (or independently), you might come across evidence of a completely unrelated threat that warrants its own separate investigation.
 
-## Manually create an incident using the Azure portal
-
-1. Select **Microsoft Sentinel** and choose your workspace.
+## Manually create an incident
 
 1. From the Microsoft Sentinel navigation menu, select **Incidents**.
 
@@ -80,15 +78,7 @@ Create incidents based on the observed results of hunting activities. For exampl
 
     Select the incident in the queue to see its full details, add bookmarks, change its owner and status, and more.
 
-## Manually create an incident using the Microsoft Sentinel API
-
-
-
-## Manually create an incident using Azure Logic Apps
-
-
-
-## Notes
+### Notes
 
 - Incidents created manually do not contain any entities or alerts. Therefore, the **Alerts** tab in the incident page will remain empty until you [relate existing alerts to your incident](relate-alerts-to-incidents.md).
 
