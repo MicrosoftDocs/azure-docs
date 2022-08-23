@@ -36,6 +36,12 @@
       href: concept-authentication-phone-options.md
     - name: Security questions
       href: concept-authentication-security-questions.md
+  - name: Authentication strengths
+    items:
+    - name: Overview
+      href: concept-authentication-strengths.md
+    - name: Troubleshoot
+      href: troubleshoot-authentication-strengths.md
   - name: Self-service password reset
     items:
     - name: How password reset works
