@@ -116,6 +116,8 @@ The result will look like this:
     {
       "name": "race",
       "valueString": "2028-9"
+    }
+    ]
     },
 ...}
 ```
