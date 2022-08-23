@@ -40,7 +40,7 @@ To store your FSLogix profiles on an Azure Files share:
 
 To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you must configure the session hosts. To configure session hosts:
 
-1. Enable the Azure AD Kerberos functionality using one of the following methods.
+1. Enable the Azure AD Kerberos functionality using one of the following methods:
 
     - Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the session host: [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled)
     - Configure this Group policy on the session host: `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
