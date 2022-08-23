@@ -36,13 +36,28 @@ And then defining these elements for the resulting alert actions using:
 1. Select **Include all future resources** to include any future resources added to the selected scope.
 1. Select **Done**.
 1. Select **Next: Condition>** at the bottom of the page.
-1. In the **Select a signal** pane, filter the list of signals. The fields are pre-populated with the appropriate values for your selected scope.
-    
-    
-    |Field  |Description  |
-    |---------|---------|
-    |Signal type     |Filter by the [type of alert rule](alerts-overview.md#types-of-alerts) you're creating. |
-    |Monitor service    |Filter by the monitor service. This list includes platform data and any custom metrics that you have configured.         |
+1. In the **Select a signal** pane, filter the list of signals using the **Signal type** and **Monitor service**.
+    - **Signal Type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
+    - **Monitor service**: The service sending the signal. This list is pre-populated based on the type of alert rule you selected.
+
+    This table describes the services available for each type of alert rule:
+
+    |Signal type  |Monitor service  |Description  |
+    |---------|---------|---------|
+    |Metrics|Platform|For metric signals, the monitor service is the metric namespace. ‘Platform’ means the metrics are provided by the resource provider, namely 'Azure'.|
+    |       |Azure.ApplicationInsights|Customer-reported metrics, sent by the Application Insights SDK. |
+    |       |Azure.VM.Windows.GuestMetrics|VM guest metrics, collected by an extension running on the VM. Can include built-in operating system perf counters, as well as custom perf counters.        |
+    |       |\<custom metric namespace>\|A custom metric namespace, containing custom metrics sent with the Azure Monitor Metrics API.         |
+    |Log    |Log Analytics|The service that provides the ‘Custom log search’ and ‘Log (saved query)’ signals.         |
+    |Activity log|Activity Log – Administrative|The service that provides the ‘Administrative’ activity log events.         |
+    |       |Activity Log – Policy|The service that provides the 'Policy' activity log events.         |
+    |       |Activity Log – Autoscale|The service that provides the ‘Autoscale’ activity log events.         |
+    |       |Activity Log – Security|The service that provides the ‘Security’ activity log events.         |
+    |Resource health|Resource Health|The service that provides the resource-level health status. |
+    |Service health|Service health|The service that provides the subscription-level health status.         |
+
+
+
 
  
 1. Select the **Signal name**, and follow the steps in the tab below that corresponds to the the type of alert you're creating.
@@ -187,13 +202,11 @@ And then defining these elements for the resulting alert actions using:
 1. In the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
     - Select the **Resource group**.
-    - (Optional) If your target resource is in any of these regions:
+    - (Optional) If your target resource is in any of these regions, and you are creating a metric alert rule that monitors a custom metric, you can select a **Region** to ensure that the relevant data processing occurs within that region.
         - North Europe
         - West Europe
         - Sweden Central
-        - Germany West Central
-
-      and you are creating a metric alert rule that monitors a custom metric, you can select a **Region** to ensure that the relevant data processing occurs within that region.  
+        - Germany West Central 
  
 1. Define the **Alert rule details**.
 
