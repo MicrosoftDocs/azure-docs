@@ -17,7 +17,7 @@ ms.date: 08/09/2022
 This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.  You can also refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for more specific scenarios and to estimate your future costs to use the service.
 
 > [!NOTE]
-> The prices used in these examples below are hypothetical and are not intended to imply actual pricing.
+> The prices used in these examples below are hypothetical and are not intended to imply actual pricing.  Read/write and monitoring costs are not shown since they are typically negligible and will not impact overall costs significantly.  Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
 
 ## Copy data from AWS S3 to Azure Blob storage hourly
 
@@ -35,22 +35,12 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 | **Operations** | **Types and Units** |
 | --- | --- |
-| Create Linked Service | 2 Read/Write entity  |
-| Create Datasets | 4 Read/Write entities (2 for dataset creation, 2 for linked service references) |
-| Create Pipeline | 3 Read/Write entities (1 for pipeline creation, 2 for dataset references) |
-| Get Pipeline | 1 Read/Write entity |
-| Run Pipeline | 2 Activity runs (1 for trigger run, 1 for activity runs) |
-| Copy Data Assumption: execution time = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
-| Monitor Pipeline Assumption: Only 1 run occurred | 2 Monitoring run records retrieved (1 for pipeline run, 1 for activity run) |
+| Run Pipeline | 2 Activity runs per execution (1 for trigger run, 1 for activity runs) |
+| Copy Data Assumption: execution time per run = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 
-**Total Scenario pricing: $0.16811**
+**Total Scenario pricing for 30 days: $122.00**
 
-- Data Factory Operations = **$0.0001**
-  - Read/Write = 10\*0.00001 = $0.0001 [1 R/W = $0.50/50000 = 0.00001]
-  - Monitoring  = 2\*0.000005 = $0.00001 [1 Monitoring = $0.25/50000 = 0.000005]
-- Pipeline Orchestration &amp; Execution = **$0.168**
-  - Activity Runs = 0.001\*2 = $0.002 [1 run = $1/1000 = 0.001]
-  - Data Movement Activities = $0.166 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
+:::image type="content" source="media/pricing-concepts/scenario-1-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for the above scenario.":::
 
 ## Copy data and transform with Azure Databricks hourly
 
@@ -66,24 +56,13 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 | **Operations** | **Types and Units** |
 | --- | --- |
-| Create Linked Service | 3 Read/Write entity  |
-| Create Datasets | 4 Read/Write entities (2 for dataset creation, 2 for linked service references) |
-| Create Pipeline | 3 Read/Write entities (1 for pipeline creation, 2 for dataset references) |
-| Get Pipeline | 1 Read/Write entity |
-| Run Pipeline | 3 Activity runs (1 for trigger run, 2 for activity runs) |
-| Copy Data Assumption: execution time = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
-| Monitor Pipeline Assumption: Only 1 run occurred | 3 Monitoring run records retrieved (1 for pipeline run, 2 for activity run) |
-| Execute Databricks activity Assumption: execution time = 10 min | 10 min External Pipeline Activity Execution |
+| Run Pipeline | 3 Activity runs per execution (1 for trigger run, 2 for activity runs) |
+| Copy Data Assumption: execution time per run = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
+| Execute Databricks activity Assumption: execution time per run = 10 min | 10 min External Pipeline Activity Execution |
 
-**Total Scenario pricing: $0.16916**
+**Total Scenario pricing for 30 days: $122.03**
 
-- Data Factory Operations = **$0.00012**
-  - Read/Write = 11\*0.00001 = $0.00011 [1 R/W = $0.50/50000 = 0.00001]
-  - Monitoring  = 3\*0.000005 = $0.00001 [1 Monitoring = $0.25/50000 = 0.000005]
-- Pipeline Orchestration &amp; Execution = **$0.16904**
-  - Activity Runs = 0.001\*3 = $0.003 [1 run = $1/1000 = 0.001]
-  - Data Movement Activities = $0.166 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
-  - External Pipeline Activity = $0.000041 (Prorated for 10 minutes of execution time. $0.00025/hour on Azure Integration Runtime)
+:::image type="content" source="media/pricing-concepts/scenario-2-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for the above scenario.":::
 
 ## Copy data and transform with dynamic parameters hourly
 
@@ -100,26 +79,14 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 | **Operations** | **Types and Units** |
 | --- | --- |
-| Create Linked Service | 3 Read/Write entity  |
-| Create Datasets | 4 Read/Write entities (2 for dataset creation, 2 for linked service references) |
-| Create Pipeline | 3 Read/Write entities (1 for pipeline creation, 2 for dataset references) |
-| Get Pipeline | 1 Read/Write entity |
-| Run Pipeline | 4 Activity runs (1 for trigger run, 3 for activity runs) |
-| Copy Data Assumption: execution time = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
-| Monitor Pipeline Assumption: Only 1 run occurred | 4 Monitoring run records retrieved (1 for pipeline run, 3 for activity run) |
-| Execute Lookup activity Assumption: execution time = 1 min | 1 min Pipeline Activity execution |
-| Execute Databricks activity Assumption: execution time = 10 min | 10 min External Pipeline Activity execution |
+| Run Pipeline | 4 Activity runs per execution (1 for trigger run, 3 for activity runs) |
+| Copy Data Assumption: execution time per run = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
+| Execute Lookup activity Assumption: execution time per run = 1 min | 1 min Pipeline Activity execution |
+| Execute Databricks activity Assumption: execution time per run = 10 min | 10 min External Pipeline Activity execution |
 
-**Total Scenario pricing: $0.17020**
+**Total Scenario pricing for 30 days: $122.09**
 
-- Data Factory Operations = **$0.00013**
-  - Read/Write = 11\*0.00001 = $0.00011 [1 R/W = $0.50/50000 = 0.00001]
-  - Monitoring  = 4\*0.000005 = $0.00002 [1 Monitoring = $0.25/50000 = 0.000005]
-- Pipeline Orchestration &amp; Execution = **$0.17007**
-  - Activity Runs = 0.001\*4 = $0.004 [1 run = $1/1000 = 0.001]
-  - Data Movement Activities = $0.166 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
-  - Pipeline Activity = $0.00003 (Prorated for 1 minute of execution time. $0.005/hour on Azure Integration Runtime)
-  - External Pipeline Activity = $0.000041 (Prorated for 10 minutes of execution time. $0.00025/hour on Azure Integration Runtime)
+:::image type="content" source="media/pricing-concepts/scenario-3-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for the above scenario.":::
 
 ## Run SSIS packages on Azure-SSIS integration runtime
 
@@ -143,7 +110,7 @@ At the same time, Chris, another Data Engineer, also logs into the ADF browser U
 
 ## Transform data in blob store with mapping data flows
 
-In this scenario, you want to transform data in Blob Store visually in ADF mapping data flows on an hourly schedule.
+In this scenario, you want to transform data in Blob Store visually in ADF mapping data flows on an hourly schedule for 30 days.
 
 To accomplish the scenario, you need to create a pipeline with the following items:
 
@@ -157,26 +124,16 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 | **Operations** | **Types and Units** |
 | --- | --- |
-| Create Linked Service | 2 Read/Write entity  |
-| Create Datasets | 4 Read/Write entities (2 for dataset creation, 2 for linked service references) |
-| Create Pipeline | 3 Read/Write entities (1 for pipeline creation, 2 for dataset references) |
-| Get Pipeline | 1 Read/Write entity |
-| Run Pipeline | 2 Activity runs (1 for trigger run, 1 for activity runs) |
-| Data Flow Assumptions: execution time = 10 min + 10 min TTL | 10 \* 16 cores of General Compute with TTL of 10 |
-| Monitor Pipeline Assumption: Only 1 run occurred | 2 Monitoring run records retrieved (1 for pipeline run, 1 for activity run) |
+| Run Pipeline | 2 Activity runs per execution (1 for trigger run, 1 for activity runs) |
+| Data Flow Assumptions: execution time per run = 10 min + 10 min TTL | 10 \* 16 cores of General Compute with TTL of 10 |
 
-**Total Scenario pricing: $1.4631**
+**Total Scenario pricing for 30 days: $1051.28**
 
-- Data Factory Operations = **$0.0001**
-  - Read/Write = 10\*0.00001 = $0.0001 [1 R/W = $0.50/50000 = 0.00001]
-  - Monitoring  = 2\*0.000005 = $0.00001 [1 Monitoring = $0.25/50000 = 0.000005]
-- Pipeline Orchestration &amp; Execution = **$1.463**
-  - Activity Runs = 0.001\*2 = $0.002 [1 run = $1/1000 = 0.001]
-  - Data Flow Activities = $1.461 prorated for 20 minutes (10 mins execution time + 10 mins TTL). $0.274/hour on Azure Integration Runtime with 16 cores general compute
+:::image type="content" source="media/pricing-concepts/scenario-4-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for the above scenario.":::
 
 ## Data integration in Azure Data Factory Managed VNET
-In this scenario, you want to delete original files on Azure Blob Storage and copy data from Azure SQL Database to Azure Blob Storage. You will do this execution twice on different pipelines. The execution time of these two pipelines is overlapping.
-:::image type="content" source="media/pricing-concepts/scenario-4.png" alt-text="Scenario4":::
+In this scenario, you want to delete original files on Azure Blob Storage and copy data from Azure SQL Database to Azure Blob Storage on an hourly schedule for 30 days. You will do this execution twice on different pipelines for each run. The execution time of these two pipelines is overlapping.
+:::image type="content" source="media/pricing-concepts/scenario-4.png" alt-text="Diagram showing overlapping pipeline activity.":::
 To accomplish the scenario, you need to create two pipelines with the following items:
   - A pipeline activity – Delete Activity.
   - A copy activity with an input dataset for the data to be copied from Azure Blob storage.
@@ -186,25 +143,14 @@ To accomplish the scenario, you need to create two pipelines with the following 
 
 | **Operations** | **Types and Units** |
 | --- | --- |
-| Create Linked Service | 4 Read/Write entity |
-| Create Datasets | 8 Read/Write entities (4 for dataset creation, 4 for linked service references) |
-| Create Pipeline | 6 Read/Write entities (2 for pipeline creation, 4 for dataset references) |
-| Get Pipeline | 2 Read/Write entity |
-| Run Pipeline | 6 Activity runs (2 for trigger run, 4 for activity runs) |
-| Execute Delete Activity: each execution time = 5 min. The Delete Activity execution in first pipeline is from 10:00 AM UTC to 10:05 AM UTC. The Delete Activity execution in second pipeline is from 10:02 AM UTC to 10:07 AM UTC.|Total 7 min pipeline activity execution in Managed VNET. Pipeline activity supports up to 50 concurrency in Managed VNET. There is a 60 minutes Time To Live (TTL) for pipeline activity|
-| Copy Data Assumption: each execution time = 10 min. The Copy execution in first pipeline is from 10:06 AM UTC to 10:15 AM UTC. The Copy Activity execution in second pipeline is from 10:08 AM UTC to 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
-| Monitor Pipeline Assumption: Only 2 runs occurred | 6 Monitoring run records retrieved (2 for pipeline run, 4 for activity run) |
+| Run Pipeline | 6 Activity runs per execution (2 for trigger run, 4 for activity runs) |
+| Execute Delete Activity: each execution time = 5 min. If the Delete Activity execution in first pipeline is from 10:00 AM UTC to 10:05 AM UTC and the Delete Activity execution in second pipeline is from 10:02 AM UTC to 10:07 AM UTC.|Total 7 min pipeline activity execution in Managed VNET. Pipeline activity supports up to 50 concurrency in Managed VNET. There is a 60 minutes Time To Live (TTL) for pipeline activity|
+| Copy Data Assumption: each execution time = 10 min if the Copy execution in first pipeline is from 10:06 AM UTC to 10:15 AM UTC and the Copy Activity execution in second pipeline is from 10:08 AM UTC to 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 
 
-**Total Scenario pricing: $1.45523**
+**Total Scenario pricing for 30 days: $129.02**
 
-- Data Factory Operations = $0.00023
-  - Read/Write = 20*0.00001 = $0.0002 [1 R/W = $0.50/50000 = 0.00001]
-  - Monitoring = 6*0.000005 = $0.00003 [1 Monitoring = $0.25/50000 = 0.000005]
-- Pipeline Orchestration & Execution = $1.455
-  - Activity Runs = 0.001*6 = $0.006 [1 run = $1/1000 = 0.001]
-  - Data Movement Activities = $0.333 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
-  - Pipeline Activity = $1.116 (Prorated for 7 minutes of execution time plus 60 minutes TTL. $1/hour on Azure Integration Runtime)
+:::image type="content" source="media/pricing-concepts/scenario-5-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for the above scenario.":::
 
 > [!NOTE] 
 > These prices are for example purposes only.
