@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Migrate Azure Storage accounts to availability zone support
 
-This guide describes how to migrate Azure Storage accounts from non-availability zone support to availability zone support. We'll take you through the different options for migration.
+This guide describes how to migrate Azure Storage accounts to add availability zone support. We'll take you through the different options for migration.
 
 Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the Service-Level Agreement (SLA) for Azure Storage even in the face of failures.
 
@@ -25,9 +25,7 @@ Azure Storage offers the following types of replication:
 
 For an overview of each of these options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
-You can switch a storage account from any type of replication to any other type, but some switching scenarios are more straightforward than others.
-
-If you want to add or remove geo-replication or read access to the secondary region, you can use the Azure portal, PowerShell, or Azure CLI to update the replication setting. But to add or remove zone-redundancy requires migration of the data in the storage account within the primary region and can take considerably longer.
+You can switch a storage account from any type of replication to any other type. Adding or removing zone-redundancy is the only scenario that requires migrating the storage account within the primary region.
 
 This article describes two basic options for migrating your storage account to availability zone support:
 
