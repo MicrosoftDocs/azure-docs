@@ -13,8 +13,7 @@ ms.author: owenrichards
 ms.custom: aaddev, identityplatformtop40, mode-api
 #Customer intent: As an application developer, I want to learn how my Windows Presentation Foundation (WPF) application can get an access token and call an API that's protected by the Microsoft identity platform.
 ---
-
-# Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop application
+# Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app
 
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
