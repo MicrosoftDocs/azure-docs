@@ -17,7 +17,7 @@ There are scenarios where you may have search parameters in the FHIR service in 
 
 ## How to run a reindex job 
 
-To start a reindex job for a specific search parameter, use the following code example:
+To reindex the entire FHIR service database and incorporate a custom search parameter, use the following code example:
 
 ```json
 POST {{FHIR URL}}/$reindex 
@@ -30,8 +30,6 @@ POST {{FHIR URL}}/$reindex
 
 }
  ```
-
-Note that the parameter name (e.g., `USCoreRace`) 
 
 If the request is successful, a status of **201 Created** gets returned. The result of this message will look like:
 
