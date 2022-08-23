@@ -11,6 +11,8 @@ tags: connectors
 
 # Create and manage blobs in Azure Blob Storage by using Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
 From your workflow in Azure Logic Apps, you can access and manage files stored as blobs in your Azure storage account by using the [Azure Blob Storage connector](/connectors/azureblobconnector/). This connector provides triggers and actions that your workflow can use for blob operations. You can then automate tasks to manage files in your storage account. For example, [connector actions](/connectors/azureblobconnector/#actions) include checking, deleting, reading, and uploading blobs. The [available trigger](/connectors/azureblobconnector/#triggers) fires when a blob is added or modified.
 
 You can connect to Blob Storage from both **Logic App (Consumption)** and **Logic App (Standard)** resource types. You can use the connector with logic app workflows in multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, and the integration service environment (ISE). With **Logic App (Standard)**, you can use either the *built-in* **Azure Blob** operations or the **Azure Blob Storage** managed connector operations.
