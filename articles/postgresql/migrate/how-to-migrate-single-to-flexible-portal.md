@@ -167,7 +167,7 @@ You can use the refresh button to refresh the status of the migrations.
 
 You can also select the migration name in the grid to see the details of that migration.
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png" alt-text="Screenshot of the the migration grid containing all migrations." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png" alt-text="Screenshot of the migration grid containing all migrations." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png":::
 
 As soon as the migration is created, the migration moves to the **InProgress** state and **PerformingPreRequisiteSteps** substate. It takes up to 10 minutes for the migration workflow to move out of this substate. The reason is that it takes time to create and deploy Database Migration Service, add the IP address on the firewall list of source and target servers, and perform maintenance tasks.
 
