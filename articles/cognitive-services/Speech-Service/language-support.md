@@ -81,7 +81,7 @@ Speech Translation supports different languages for speech-to-speech and speech-
 
 #### Translate from language
 
-To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech-to-text language table](&tabs=stt-tts#supported-languages). The default language is `en-US` if you don't specify a language.
+To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech-to-text language table](?tabs=stt-tts#supported-languages). The default language is `en-US` if you don't specify a language.
 
 #### Translate to text language
 
