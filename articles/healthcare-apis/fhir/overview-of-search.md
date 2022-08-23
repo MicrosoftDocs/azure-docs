@@ -24,7 +24,7 @@ You can also search using `POST`. To search using `POST`, the search parameters 
 
 With either `POST` or `GET`, if the search request is successful, you'll receive a FHIR `searchset` bundle containing the resource instance(s) returned from the search. If the search fails, you’ll find the error details in an `OperationOutcome` response.
 
-In the following sections, we'll cover the various aspects of querying resources in FHIR. Once you’ve reviewed these details, refer to the [FHIR search samples page](search-samples.md), which features examples of different FHIR search methods.
+In the following sections, we'll cover the various aspects of querying resources in FHIR. Once you’ve reviewed these topics, refer to the [FHIR search samples page](search-samples.md), which features examples of different FHIR search methods.
 
 ## Search parameters
 
