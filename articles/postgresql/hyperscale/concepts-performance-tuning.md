@@ -64,6 +64,44 @@ abnormally long-running queries:
 
 ## Scoping distributed queries
 
+When updating a distributed table, try to filter queries on the distribution
+column. For instance, in our [multi-tenant
+tutorial](tutorial-design-database-multi-tenant.md#use-psql-utility-to-create-a-schema)
+we have an `ads` table distributed by `company_id`. The naive way to update an ad is
+to single it out like this:
+
+```sql
+-- slow
+
+UPDATE ads
+   SET impressions_count = impressions_count+1
+ WHERE id = 42;
+    -- ^---- no filter on distribution column!
+```
+
+Although the query uniquely identifies a row and updates it, Hyperscale (Citus)
+doesn't know at execution time which shard the query will update. Citus takes a
+ShareUpdateExclusiveLock on all shards to be safe, which blocks other queries
+trying to update the table.
+
+Even though the `id` was sufficient to identify a row, we can include a redundant
+additional filter to make the query faster:
+
+```sql
+-- fast
+
+UPDATE ads
+   SET impressions_count = impressions_count+1
+ WHERE id = 42
+   AND company_id = 1;
+    -- ⇑ include distribution column
+```
+
+The Hyperscale (Citus) query planner sees a direct filter on the distribution
+column and knows exactly which single shard to lock. In our tests, adding
+filters for the distribution column increased parallel update performance by
+**100x**.
+
 ## Lock contention
 
 ## Table bloat
