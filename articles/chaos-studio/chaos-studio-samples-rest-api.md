@@ -90,7 +90,7 @@ az rest --method delete --url "https://management.azure.com/{experimentId}?api-v
 #### Start an experiment
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/{experimentId}/start?api-version={apiVersion}" --resource "https://management.azure.com"
+az rest --method post --url "https://management.azure.com/{experimentId}/start?api-version={apiVersion}"
 ```
 
 #### Get statuses (History) of an experiment

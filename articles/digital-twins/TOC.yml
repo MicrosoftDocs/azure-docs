@@ -176,7 +176,7 @@
         - name: .NET (C#) SDK
           href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
         - name: Java SDK
-          href: /java/api/overview/azure/digitaltwins
+          href: /java/api/overview/azure/digital-twins
         - name: JavaScript SDK
           href: /javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true
         - name: Python SDK
@@ -323,10 +323,12 @@
       href: /samples/azure-samples/dtdl-validator/dtdl-validator/
     - name: DTMI spec
       href: https://github.com/Azure/digital-twin-model-identifier
-  - name: 'Microsoft Learn: Extend IoT solutions by using Azure Digital Twins'
-    href: /learn/paths/extend-iot-solutions-by-using-azure-digital-twins/
-  - name: 'Microsoft Learn: Set up a mixed reality project for Azure Digital Twins in Unity'
-    href: /learn/modules/set-up-mixed-reality-azure-digital-twins-unity/
+  - name: Learning paths
+    items:  
+    - name: 'Extend IoT solutions by using Azure Digital Twins'
+      href: /learn/paths/extend-iot-solutions-by-using-azure-digital-twins/
+    - name: 'Set up a mixed reality project for Azure Digital Twins in Unity'
+      href: /learn/modules/set-up-mixed-reality-azure-digital-twins-unity/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Azure tools

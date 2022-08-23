@@ -138,4 +138,4 @@ Beyond Application Insights Snapshot Debugger:
  
 * [Set snappoints in your code](/visualstudio/debugger/debug-live-azure-applications) to get snapshots without waiting for an exception.
 * [Diagnose exceptions in your web apps](../app/asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights.
-* [Smart Detection](../app/proactive-diagnostics.md) automatically discovers performance anomalies.
+* [Smart Detection](../alerts/proactive-diagnostics.md) automatically discovers performance anomalies.

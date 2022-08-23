@@ -1,17 +1,17 @@
 ---
-title: 'Configure Azure AD tenant for P2S VPN connections: Azure AD authentication-OpenVPN'
+title: 'Configure Azure AD tenant and settings for P2S VPN connections: Azure AD authentication: OpenVPN'
 titleSuffix: Azure VPN Gateway
 description: Learn how to set up an Azure AD tenant for P2S Azure AD authentication - OpenVPN protocol.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/14/2022
+ms.date: 07/29/2022
 ms.author: cherylmc
 
 ---
-# Configure an Azure AD tenant for P2S OpenVPN protocol connections
+# Configure an Azure AD tenant and P2S configuration for VPN Gateway P2S connections
 
-When you connect to your VNet using the Azure VPN Gateway point-to-site VPN, you have a choice of which protocol to use. The protocol you use determines the authentication options that are available to you. If you're using the OpenVPN protocol, Azure Active Directory authentication is one of the authentication options available for you to use. This article helps you configure your AD tenant and P2S VPN gateway for Azure AD authentication. For more information about point-to-site protocols and authentication, see [About point-to-site VPN](point-to-site-about.md).
+This article helps you configure your AD tenant and P2S settings for Azure AD authentication. For more information about point-to-site protocols and authentication, see [About VPN Gateway point-to-site VPN](point-to-site-about.md). To authenticate using the Azure AD authentication type, you must include the OpenVPN tunnel type in your point-to-site configuration.
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
@@ -38,7 +38,7 @@ Verify that you have an Azure AD tenant. If you don't have an Azure AD tenant, y
 
 [!INCLUDE [Steps to enable the tenant](../../includes/vpn-gateway-vwan-azure-ad-tenant.md)]
 
-### Configure P2S gateway settings
+### Configure point-to-site settings
 
 1. Locate the tenant ID of the directory that you want to use for authentication. It's listed in the properties section of the Active Directory page. For help with finding your tenant ID, see [How to find your Azure Active Directory tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
 
@@ -47,7 +47,7 @@ Verify that you have an Azure AD tenant. If you don't have an Azure AD tenant, y
     > [!IMPORTANT]
     > The Basic SKU is not supported for OpenVPN.
 
-1. Enable Azure AD authentication on the VPN gateway by navigating to **Point-to-site configuration** and picking **OpenVPN (SSL)** as the **Tunnel type**. Select **Azure Active Directory** as the **Authentication type**, then fill in the information under the **Azure Active Directory** section. Replace {AzureAD TenantID} with your tenant ID.
+1. Enable Azure AD authentication on the VPN gateway by going to **Point-to-site configuration** and picking **OpenVPN (SSL)** as the **Tunnel type**. Select **Azure Active Directory** as the **Authentication type**, then fill in the information under the **Azure Active Directory** section. Replace {AzureAD TenantID} with your tenant ID.
 
    * **Tenant:** TenantID for the Azure AD tenant
 
@@ -75,14 +75,16 @@ Verify that you have an Azure AD tenant. If you don't have an Azure AD tenant, y
 
 1. Save your changes.
 
-1. Create and download the profile by clicking on the **Download VPN client** link.
+1. At the top of the page, click **Download VPN client**. It takes a few minutes for the client configuration package to generate.
+
+1. Your browser indicates that a client configuration zip file is available. It's named the same name as your gateway.
 
 1. Extract the downloaded zip file.
 
 1. Browse to the unzipped “AzureVPN” folder.
 
-1. Make a note of the location of the “azurevpnconfig.xml” file. The azurevpnconfig.xml contains the setting for the VPN connection and can be imported directly into the Azure VPN Client application. You can also distribute this file to all the users that need to connect via e-mail or other means. The user will need valid Azure AD credentials to connect successfully.
+1. Make a note of the location of the “azurevpnconfig.xml” file. The azurevpnconfig.xml contains the setting for the VPN connection. You can also distribute this file to all the users that need to connect via e-mail or other means. The user will need valid Azure AD credentials to connect successfully. For more information, see [Azure VPN client profile config files for Azure AD authentication](about-vpn-profile-download.md).
 
 ## Next steps
 
-Create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
+* [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).

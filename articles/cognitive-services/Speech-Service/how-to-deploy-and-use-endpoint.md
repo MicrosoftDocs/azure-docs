@@ -8,7 +8,7 @@ manager: qiliao123
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/18/2022
+ms.date: 08/01/2022
 ms.author: caoling
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-set-nineteen
@@ -51,7 +51,7 @@ The custom endpoint is functionally identical to the standard endpoint that's us
 You can copy your voice model to another project for the same region or another region. For example, you can copy a neural voice model that was trained in one region, to a project for another region.
 
 > [!NOTE]
-> Custom neural voice training is only available in the these regions: East US, Southeast Asia, and UK South. But you can copy a neural voice model from those regions to other regions. For more information, see the [regions for custom neural voice](regions.md#text-to-speech).
+> Custom neural voice training is only available in the these regions: East US, Southeast Asia, and UK South. But you can copy a neural voice model from those regions to other regions. For more information, see the [regions for custom neural voice](regions.md#speech-service).
 
 To copy your custom neural voice model to another project:
 

@@ -26,19 +26,24 @@ landingContent:
             url: intro-kubernetes.md
       - linkListType: whats-new
         links:
+          - text: Use CVM (Preview)
+            url: use-cvm.md
+          - text: AKS GitHub Actions
+            url: kubernetes-action.md
+          - text: FIPS support for Windows Server node pools
+            url: enable-fips-nodes.md#create-a-fips-enabled-windows-node-pool
           - text: Automatically upgrade an AKS cluster
             url: auto-upgrade-cluster.md
           - text: Start/stop node pools
             url: start-stop-nodepools.md
           - text: Default OS disk sizing
             url: cluster-configuration.md#default-os-disk-sizing
-          - text: Bring your own CNI plugin (GA)
-            url: use-byo-cni.md
           - text: Calico for Windows Server containers (GA)
             url: use-network-policies.md#create-an-aks-cluster-for-calico-network-policies
           - text: API Server VNet integration (preview)
             url: api-server-vnet-integration.md
-            
+          - text: GitHub Actions for AKS
+            url: integrations.md#github-actions
       - linkListType: concept
         links:
           - text: Kubernetes core concepts for AKS
@@ -181,3 +186,5 @@ landingContent:
             url: dapr.md
           - text: Cluster extensions
             url: cluster-extensions.md
+          - text: GitHub Actions for AKS
+            url: integrations.md#github-actions

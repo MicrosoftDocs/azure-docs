@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 07/25/2022
+ms.date: 07/28/2022
 ms.author: banders
 ---
 
@@ -19,7 +19,7 @@ Azure portal supports the following type of billing accounts:
 
 - **Microsoft Online Services Program**: A billing account for a Microsoft Online Services Program is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-- **Enterprise Agreement**: A billing account for an Enterprise Agreement (EA) is created when your organization signs an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) to use Azure. An EA enrollment can contain an unlimited number of EA accounts. However, an EA account has a subscription limit of 5000. If you need more subscriptions than the limit, create more EA accounts. Generally speaking, a subscription is a billing container. We recommend that you avoid creating multiple subscriptions to implement access boundaries. To separate resources with an access boundary, consider using a resource group. For more information about resource groups, see [Manage Azure resource groups by using the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md).
+- **Enterprise Agreement**: A billing account for an Enterprise Agreement (EA) is created when your organization signs an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) to use Azure. An EA enrollment can contain an unlimited number of EA accounts. However, an EA account has a subscription limit of 5000. *Regardless of a subscription's state, its included in the limit. So, deleted and disabled subscriptions are included in the limit*. If you need more subscriptions than the limit, create more EA accounts. Generally speaking, a subscription is a billing container. We recommend that you avoid creating multiple subscriptions to implement access boundaries. To separate resources with an access boundary, consider using a resource group. For more information about resource groups, see [Manage Azure resource groups by using the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 - **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) may have a billing account for a Microsoft Customer Agreement as well. You can have a maximum of 20 subscriptions in a Microsoft Customer Agreement for an individual. A Microsoft Customer Agreement for an enterprise can have up to 5000 subscriptions under it.
 

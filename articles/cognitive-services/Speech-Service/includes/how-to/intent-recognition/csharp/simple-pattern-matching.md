@@ -47,7 +47,7 @@ Before you can initialize an `IntentRecognizer` object, you need to create a con
 * Replace `"YOUR_SUBSCRIPTION_KEY"` with your Cognitive Services prediction key.
 * Replace `"YOUR_SUBSCRIPTION_REGION"` with your Cognitive Services resource region.
 
-This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/cpp/cognitive-services/speech/speechconfig).
+This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig).
 
 ## Initialize an IntentRecognizer
 

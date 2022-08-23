@@ -156,7 +156,7 @@ items:
         - name: Understand Synapse RBAC roles
           href: ./security/synapse-workspace-understand-what-role-you-need.md  
         - name: System and user-assigned managed identity 
-          href: ../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context
+          href: ./synapse-service-identity.md?context=/azure/synapse-analytics/context/context
         - name: Credentials for user-assigned managed identity
           href: ../data-factory/credentials.md?context=/azure/synapse-analytics/context/context
   - name: How-to guides
@@ -471,7 +471,7 @@ items:
         displayName: workload, management
   - name: How-to guides
     items:
-    - name: Backup and restore
+    - name: Back up and restore
       items:
       - name: Create restore points
         href: ./backuprestore/sqlpool-create-restore-point.md
@@ -702,6 +702,8 @@ items:
       href: ./spark/apache-spark-gpu-concept.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
+    - name: Optimize Apache Spark writes on Delta Lake
+      href: ./spark/optimize-write-for-apache-spark.md
     - name: Apache Spark autoscale behavior
       href: ./spark/apache-spark-autoscale.md
     - name: Intelligent Cache
@@ -775,9 +777,9 @@ items:
       - name: Navigate the Apache Spark pool history server
         href: ./spark/apache-spark-history-server.md
       - name: Monitor Spark applications
-        href: monitoring/apache-spark-applications.md
+        href: ./monitoring/apache-spark-applications.md
       - name: Monitor Apache Spark pools
-        href: monitoring/how-to-monitor-spark-pools.md
+        href: ./monitoring/how-to-monitor-spark-pools.md
       - name: Collect Apache Spark applications metrics using APIs
         href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
       - name: Monitor Apache Spark Applications metrics with Prometheus and Grafana
@@ -789,7 +791,9 @@ items:
       - name: Collect Apache Spark applications logs and metrics with Azure Event Hubs
         href: ./spark/azure-synapse-diagnostic-emitters-azure-eventhub.md
       - name: Manage Apache Spark configuration
-        href: ./spark/apache-spark-azure-create-spark-configuration.md          
+        href: ./spark/apache-spark-azure-create-spark-configuration.md
+      - name: Apache Spark Advisor
+        href: ./monitoring/apache-spark-advisor.md          
     - name: Data sources
       items:
         - name: Azure Cosmos DB Spark 3
@@ -1381,6 +1385,8 @@ items:
           href: ../data-factory/connector-troubleshoot-azure-blob-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Azure Cosmos DB (including SQL API)
           href: ../data-factory/connector-troubleshoot-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure Data Explorer
+          href: ../data-factory/connector-troubleshoot-azure-data-explorer.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Azure Data Lake (Gen1 and Gen2)
           href: ../data-factory/connector-troubleshoot-azure-data-lake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Azure database for PostgreSQL
@@ -1610,6 +1616,22 @@ items:
         href: migration-guides/netezza/6-microsoft-third-party-migration-tools.md
       - name: 7 Implementing modern data warehouses
         href: migration-guides/netezza/7-beyond-data-warehouse-migration.md
+    - name: From Oracle
+      items:
+      - name: 1 Design performance for Oracle migration
+        href: migration-guides/oracle/1-design-performance-migration.md
+      - name: 2 ETL and load migration considerations
+        href: migration-guides/oracle/2-etl-load-migration-considerations.md
+      - name: 3 Security access operations
+        href: migration-guides/oracle/3-security-access-operations.md
+      - name: 4 Visualization and reporting
+        href: migration-guides/oracle/4-visualization-reporting.md
+      - name: 5 Minimizing SQL issues
+        href: migration-guides/oracle/5-minimize-sql-issues.md
+      - name: 6 Microsoft and third-party tools
+        href: migration-guides/oracle/6-microsoft-third-party-migration-tools.md
+      - name: 7 Implementing modern data warehouses
+        href: migration-guides/oracle/7-beyond-data-warehouse-migration.md
   - name: Security white paper
     items:
     - name: Introduction

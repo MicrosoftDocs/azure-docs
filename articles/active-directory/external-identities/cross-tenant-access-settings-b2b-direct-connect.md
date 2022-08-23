@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/30/2022
+ms.date: 08/05/2022
 
 ms.author: mimart
 author: msmimart
@@ -118,7 +118,7 @@ With inbound settings, you select which external users and groups will be able t
 1. Under **Applies to**, select one of the following:
 
    - **All external users and groups**: Applies the action you chose under **Access status** to all users and groups from external Azure AD organizations.
-   - **Select external users and groups** (requires an Azure AD premium subscription): Lets you apply the action you chose under **Access status** to specific users and groups within the external organization.
+   - **Select external users and groups**: Lets you apply the action you chose under **Access status** to specific users and groups within the external organization. An Azure AD Premium P1 license is required on the tenant that you configure.
 
    ![Screenshot showing selecting the target users for b2b direct connect](media/cross-tenant-access-settings-b2b-direct-connect/generic-inbound-external-users-groups-target.png)
 
@@ -229,7 +229,7 @@ With outbound settings, you select which of your users and groups will be able t
    - When you're done selecting users and groups, choose **Select**.
 
    > [!NOTE]
-   > When targeting your users and groups, you won't be able to select users who have configured [SMS-based authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-sms-signin). This is because users who have a "federated credential" on their user object are blocked to prevent external users from being added to outbound access settings. As a workaround, you can use the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-1.0) to add the user's object ID directly or target a group the user belongs to.
+   > When targeting your users and groups, you won't be able to select users who have configured [SMS-based authentication](../authentication/howto-authentication-sms-signin.md). This is because users who have a "federated credential" on their user object are blocked to prevent external users from being added to outbound access settings. As a workaround, you can use the [Microsoft Graph API](/graph/api/resources/crosstenantaccesspolicy-overview) to add the user's object ID directly or target a group the user belongs to.
 
 1. Select **Save**.
 1. Select the **External applications** tab.
