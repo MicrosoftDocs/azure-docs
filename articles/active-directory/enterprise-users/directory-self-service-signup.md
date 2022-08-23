@@ -4,7 +4,7 @@ description: Use self-service sign-up in an Azure Active Directory (Azure AD) or
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory

@@ -32,7 +32,7 @@ The following table provides a list of high-level features and capabilities comp
 | Underlying O/S | Windows | Linux  |
 | AZ selection for application colocation | No | Yes |
 | Built-in connection pooler | No | Yes (PgBouncer)|
-| Uptime SLA | [SLA](https://azure.microsoft.com/support/legal/sla/postgresql/v1_1/)| [SLA](https://azure.microsoft.com/support/legal/sla/postgresql/v1_2/) |
+| Uptime SLA | [99.99% SLA](https://azure.microsoft.com/support/legal/sla/postgresql)| [Up to 99.99% SLA](https://azure.microsoft.com/support/legal/sla/postgresql) |
 | **Connectivity** | | |
 | Username in connection string | `<user_name>@server_name`. For example, `pgadmusr@mypgServer` | Just username. For example, `pgadmusr` | 
 | lc_collate  | English_United States.1252 | en_US.utf8 |
@@ -57,6 +57,7 @@ The following table provides a list of high-level features and capabilities comp
 | Supported networking | Virtual network, private link, public access | Private access (VNET injection in a delegated subnet), public access) |
 | Public access control | Firewall | Firewall |
 | Private link support | Yes |No|
+| Private VNET injection support | No | Yes |
 | Private DNS Zone support | No | Yes |
 | Ability to move between private and public access | No | No |
 | TLS support | TLS 1.2 | TLS 1.2, 1.3 enforced|

@@ -20,7 +20,7 @@ The newly added clothing detection feature is available when indexing your file 
  
 :::image type="content" source="./media/detected-clothing/index-video.png" alt-text="This screenshot represents an indexing video option":::  
 
-When you choose to see **Insights** of your video on the [Azure Video Indexer](https://www.videoindexer.ai/) (former Video Indexer) website, the People's detected clothing could be viewed from the **Observed People** tracing insight. When choosing a thumbnail of a person the detected clothing became available.
+When you choose to see **Insights** of your video on the [Azure Video Indexer](https://www.videoindexer.ai/) website, the People's detected clothing could be viewed from the **Observed People** tracing insight. When choosing a thumbnail of a person the detected clothing became available.
 
 :::image type="content" source="./media/detected-clothing/observed-people.png" alt-text="Observed people screenshot":::  
  

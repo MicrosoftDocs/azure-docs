@@ -2,7 +2,7 @@
 
 Thank you for taking the time to contribute to the Microsoft Azure documentation.
 
-This guide covers some general topics related to contribution and refers to the [contributor guide](https://docs.microsoft.com/contribute) for more detailed explanations when required.
+This guide covers some general topics related to contribution and refers to our [contributor guide](https://docs.microsoft.com/contribute) for more detailed explanations when required.
 
 ## Code of Conduct
 

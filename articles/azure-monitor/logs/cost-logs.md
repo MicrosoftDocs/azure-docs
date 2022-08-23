@@ -52,6 +52,8 @@ In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers**, 
  
 Billing for the commitment tiers is done per workspace on a daily basis. If the workspace is part of a [dedicated cluster](#dedicated-clusters), the billing is done for the cluster (see below). See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for a detailed listing of the commitment tiers and their prices. 
 
+Azure Commitment Discounts such as those received from [Microsoft Enterprise Agreements](https://www.microsoft.com/licensing/licensing-programs/enterprise) are applied to Azure Monitor Logs Commitment Tier pricing just as they are to Pay-As-You-Go pricing (whether the usage is being billed per workspace or per dedicated cluster). 
+
 > [!TIP]
 > The **Usage and estimated costs** menu item for each Log Analytics workspace hows an estimate of your monthly charges at each commitment level. You should periodically review this information to determine if you can reduce your charges by moving to another tier. See [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs) for information on this view.
 
@@ -62,7 +64,7 @@ The cluster commitment tier has a 31-day commitment period after the commitment 
 
 There are two modes of billing for a cluster that you specify when you create the cluster.  
 
-- **Cluster (default)**: Billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. Per-node allocations from [Microsoft Defender for Cloud](../../security-center/index.yml) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. 
+- **Cluster (default)**: Billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. Per-node allocations from [Microsoft Defender for Cloud](../../security-center/index.yml) are applied at the workspace level prior to this aggregation of data across all workspaces in the cluster. 
 
 - **Workspaces**: Commitment tier costs for your cluster are attributed proportionately to the workspaces in the cluster, by each workspace's data ingestion volume (after accounting for per-node allocations from [Microsoft Defender for Cloud](../../security-center/index.yml) for each workspace.)<br><br>If the total data volume ingested into a cluster for a day is less than the commitment tier, each workspace is billed for its ingested data at the effective per-GB commitment tier rate by billing them a fraction of the commitment tier. The unused part of the commitment tier is then billed to the cluster resource.<br><br>If the total data volume ingested into a cluster for a day is more than the commitment tier, each workspace is billed for a fraction of the commitment tier, based on its fraction of the ingested data that day and each workspace for a fraction of the ingested data above the commitment tier. If the total data volume ingested into a workspace for a day is above the commitment tier, nothing is billed to the cluster resource.
 

@@ -128,7 +128,7 @@ This project has two primary initiatives. The first is to plan and implement a V
 
 For more information, see:
 
-* [Deploy Azure AD joined VMs in Azure Virtual Desktop - Azure](/azure/virtual-desktop/deploy-azure-ad-joined-vm)
+* [Deploy Azure AD joined VMs in Azure Virtual Desktop - Azure](../../virtual-desktop/deploy-azure-ad-joined-vm.md)
 
 * [Windows 365 planning guide](/windows-365/enterprise/planning-guide)
 
@@ -221,8 +221,7 @@ Use the following table to determine what Azure-based tools you use to replace t
 
 More tools and notes:
 
-* [Azure Arc](https://azure.microsoft.com/services/azure-arc/) enables above Azure features to non-Azure VMs. For example, Windows Server when used on-premises
-*  or on AWS.
+* [Azure Arc](https://azure.microsoft.com/services/azure-arc/) enables above Azure features to non-Azure VMs. For example, Windows Server when used on-premises or on AWS.
 
 * [Manage and secure your Azure VM environment](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/).
 

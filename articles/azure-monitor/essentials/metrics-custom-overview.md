@@ -237,6 +237,15 @@ If you have 100 regions, 200 departments, and 2,000 customers, that gives you 10
 
 Again, this limit isn't for an individual metric. It's for the sum of all such metrics across a subscription and region.
 
+Follow the steps below to see your current total active time series metrics, and more information to assist with troubleshooting.
+
+1. Navigate to the Monitor section of the Azure portal.
+1. Select **Metrics** on the left hand side.
+1. Under **Select a scope**, check the applicable subscription and resource groups.
+1. Under **Refine scope**, choose **Custom Metric Usage** and the desired location.
+1. Select the **Apply** button.
+1. Choose either **Active Time Series**, **Active Time Series Limit**, or **Throttled Time Series**.
+
 ## Design limitations and considerations
 
 **Using Application Insights for the purpose of auditing.** The Application Insights telemetry pipeline is optimized for minimizing the performance impact and limiting the network traffic from monitoring your application. As such, it throttles or samples (takes only a percentage of your telemetry and ignores the rest) if the initial dataset becomes too large. Because of this behavior, you can't use it for auditing purposes because some records are likely to be dropped.

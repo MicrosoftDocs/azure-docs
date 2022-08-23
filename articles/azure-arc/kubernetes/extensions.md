@@ -4,7 +4,7 @@ services: azure-arc
 ms.service: azure-arc
 ms.custom: event-tier1-build-2022
 ms.date: 07/12/2022
-ms.topic: article
+ms.topic: how-to
 description: "Deploy and manage lifecycle of extensions on Azure Arc-enabled Kubernetes"
 ---
 

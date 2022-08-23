@@ -284,6 +284,14 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Delet
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/read | Reads a Hybrid Runbook Worker.
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/delete | Deletes a Hybrid Runbook Worker.
 
+
+## Check version of Hybrid Worker
+
+To check version of agent-based Windows Hybrid Runbook Worker, go to the following path:
+
+`C:\ProgramFiles\Microsoft Monitoring Agent\Agent\AzureAutomation\`
+
+The *AzureAutomation* folder has a sub-folder with the version number as the name of the sub-folder.
   
 ## Next steps
 
