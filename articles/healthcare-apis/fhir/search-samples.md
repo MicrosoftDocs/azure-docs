@@ -114,7 +114,7 @@ GET {{FHIR_URL}}/Encounter?subject:Patient.birthdate=1987-02-20
 
 This would search not just `Encounter` resources for a single patient but across all patients that have the specified `birthdate` value. 
 
-In addition, chained search can occur more than once in a single request by using the symbol `&`, which allows searching for multiple conditions in one request. In such cases with `&`, chained search "independently" searches for each element value:
+In addition, chained search can occur more than once in a single request by using the `&` operator, which allows searching for multiple conditions in one request. In such cases with `&`, chained search "independently" searches for each element value:
 
 ```rest
 GET {{FHIR_URL}}/Patient?general-practitioner:Practitioner.name=Sarah&general-practitioner:Practitioner.address-state=WA
