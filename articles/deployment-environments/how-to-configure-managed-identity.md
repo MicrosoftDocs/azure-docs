@@ -26,7 +26,8 @@ In Azure Deployment Environments, you can use two types of managed identities:
 * A **system-assigned identity** is tied to your dev center and is deleted when your dev center is deleted. A dev center can only have one system-assigned identity.
 * A **user-assigned identity** is a standalone Azure resource that can be assigned to your dev center.
 
->[!NOTE] If you add both a system-assigned identity and a user-assigned identity, only the user-assigned identity will be used by the service.
+> [!NOTE]
+> If you add both a system-assigned identity and a user-assigned identity, only the user-assigned identity will be used by the service.
 
 ### Configure a system-assigned managed identity
 
@@ -60,11 +61,12 @@ An identity attached to a dev center will be used to deploy environments. You'll
 
 ## Assign the managed identity access to the Key Vault secret
 
->[!NOTE] Providing the identity with access to the Key Vault secret, which contains the repo's personal access token (PAT), is a pre-requisite to adding the repo as a catalog.
+>[!NOTE] 
+> Providing the identity with access to the Key Vault secret, which contains the repo's personal access token (PAT), is a pre-requisite to adding the repo as a catalog.
 
 To grant the identity access to the secret:
 
-A Key Vault can be configured to use either the [Vault access policy'](../key-vault/general/assign-access-policy) or the [Azure role-based access control](../key-vault/general/rbac-guide) permission model.
+A Key Vault can be configured to use either the [Vault access policy'](../key-vault/general/assign-access-policy.md) or the [Azure role-based access control](../key-vault/general/rbac-guide.md) permission model.
 
 1. If the Key Vault is configured to use the **Vault access policy** permission model, 
     1. Access the [Azure Portal](https://portal.azure.com/) and search for the specific Key Vault that contains the PAT secret.

@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Configure a catalog to provide curated infra-as-code templates
 
-Learn how to configure a dev center [catalog](./concept-environments-key-concepts.md#catalog) to provide your development teams with a curated set of 'infra-as-code' templates called [catalog items](./concept-environments-key-concepts.md#catalog-items). To learn about configuring catalog items, see [How to configure a catalog item](./configure-catalog-item.md). 
+Learn how to configure a dev center [catalog](./concept-environments-key-concepts.md#catalogs) to provide your development teams with a curated set of 'infra-as-code' templates called [catalog items](./concept-environments-key-concepts.md#catalog-items). To learn about configuring catalog items, see [How to configure a catalog item](./configure-catalog-item.md). 
 
 The catalog could be a repository hosted in [GitHub](https://github.com) or in [Azure DevOps Services](https://dev.azure.com/).
 
@@ -68,17 +68,17 @@ To get the clone URL of your Azure DevOps Services Git repo:
 
 #### Store the personal access token as a Key Vault secret
 
-To store the personal access token(PAT) that you generated as a [Key Vault secret](../key-vault/secrets/about-secrets) and copy the secret identifier:
+To store the personal access token(PAT) that you generated as a [Key Vault secret](../key-vault/secrets/about-secrets.md) and copy the secret identifier:
 
-    - [Create a vault](../key-vault/general/quick-create-portal#create-a-vault)
-    - [Add]((../key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault) the personal access token (PAT) as a secret to the Key Vault.
-    - [Open](../key-vault/secrets/quick-create-portal#retrieve-a-secret-from-key-vault) the secret and copy the secret identifier.
+    1. [Create a vault](../key-vault/general/quick-create-portal#create-a-vault)
+    1. [Add]((../key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault) the personal access token (PAT) as a secret to the Key Vault.
+    1. [Open](../key-vault/secrets/quick-create-portal#retrieve-a-secret-from-key-vault) the secret and copy the secret identifier.
 
 ### Connect your repository as a catalog
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Go to your dev center.
-1. Ensure that the [identity](./how-to-configure-managed-identity.md) attached to the dev center has [access to the Key Vault's secret](./how-to-configure-managed-identity.md#assigning-key-vault-secret-access) where the PAT is stored.
+1. Ensure that the [identity](./how-to-configure-managed-identity.md) attached to the dev center has [access to the Key Vault's secret](./how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) where the PAT is stored.
 1. Select **Catalogs** from the left pane.
 1. Select **+ Add** from the command bar.
 1. On the **Add catalog** form, enter the following details, and then select **Add**.
