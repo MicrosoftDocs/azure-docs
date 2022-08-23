@@ -75,7 +75,7 @@ Within the user summary you are able to find the following information:
 User summaries allow you to filter based on:
 
 - **Date**: You can filter a specific range from as short as 24 hours up to 30 days of when workflow ran.
-- **Status**: You can filter a specific status of the user processed.
+- **Status**: You can filter a specific status of the user processed. The supported statuses are: **Completed**, **In Progress**, **Queued**, **Canceled**, **Completed with errors**, and **Failed**. 
 - **Workflow execution type**: You can filter on workflow execution type such as **Scheduled** or **on-demand**
 - **Completed date**: You can filter a specific range from as short as 24 hours up to 30 days of when the user was processed in a workflow.
 
@@ -101,8 +101,8 @@ Within the runs summary you are able to find the following information:
 Runs summaries allow you to filter based on:
 
 - **Date**: You can filter a specific range from as short as 24 hours up to 30 days of when workflow ran.
-- **Status**: You can filter a specific status of the workflow run.
-- **Workflow execution type**: You can filter on workflow execution type such as **Scheduled** or **on-demand**.
+- **Status**: You can filter a specific status of the workflow run. The supported statuses are: **Completed**, **In Progress**, **Queued**, **Canceled**, **Completed with errors**, and **Failed**. 
+- **Workflow execution type**: You can filter on workflow execution type such as **Scheduled** or **On-demand**.
 - **Completed date**: You can filter a specific range from as short as 24 hours up to 30 days of when the workflow ran.
 
 For a complete guide on getting runs information, see: [Run workflow history using the Azure Portal](check-status-workflow.md#run-workflow-history-using-the-azure-portal)
@@ -127,7 +127,7 @@ Within the tasks summary you are able to find the following information:
 Task summaries allow you to filter based on:
 
 - **Date**: You can filter a specific range from as short as 24 hours up to 30 days of when workflow ran.
-- **Status**: You can filter a specific status of the workflow run.
+- **Status**: You can filter a specific status of the workflow run. The supported statuses are: **Completed**, **In Progress**, **Queued**, **Canceled**, **Completed with errors**, and **Failed**. 
 - **Completed date**: You can filter a specific range from as short as 24 hours up to 30 days of when the workflow ran.
 - **Tasks**: You can filter based on specific task names.
 
