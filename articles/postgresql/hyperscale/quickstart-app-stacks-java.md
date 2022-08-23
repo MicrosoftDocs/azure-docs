@@ -193,7 +193,7 @@ public class DButil {
             datasource.setPassword(properties.getProperty(DB_PASSWORD));
             datasource.setMinimumIdle(100);
             datasource.setMaximumPoolSize(1000000000);
-            datasource.setAutoCommit(false);
+            datasource.setAutoCommit(true);
             datasource.setLoginTimeout(3);
         } catch (IOException | SQLException  e) {
             e.printStackTrace();
