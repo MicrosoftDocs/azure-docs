@@ -2,7 +2,7 @@
 title: Resource governance with application groups
 description: This article describes how to enable resource governance using application groups.
 ms.topic: article
-ms.date: 05/24/2022
+ms.date: 08/23/2022
 ms.custom: build-2022, event-tier1-build-2022
 ---
 
@@ -56,7 +56,7 @@ When policies for application groups are applied, the client application workloa
 ### Disabling application groups  
 Application group is enabled by default and that means all the client applications can access Event Hubs namespace for publishing and consuming events by adhering to the application group policies. 
 
-When an application group is disabled, client applications of that application group won't be able to connect to the Event Hubs namespace and all the existing connections that are already established from client applications are terminated. 
+When an application group is disabled, the client will still be able to connect to the event hub, but the authorization will fail and then the client connection gets closed. Therefore, you'll see lots of successful open and close connections, with same number of authorization failures in diagnostic logs.
 
 ## Next steps
 For instructions on how to create and manage application groups, see [Resource governance for client applications using Azure portal](resource-governance-with-app-groups.md)
