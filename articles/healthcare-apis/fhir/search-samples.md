@@ -54,7 +54,6 @@ In the above request, you'll get back a bundle of patients, but each resource in
 
 ```rest
 GET {{FHIR_URL}}/Patient?gender:not=female
-
 ```
 
 In return, you would get all `Patient` resources whose `gender` element value is not `female`, including any patients with no gender value specified. This is different from searching for `Patient` resources with the `male` gender value, since that search wouldn't return any patients that don't have a specified gender.
@@ -79,7 +78,7 @@ GET {{FHIR_URL}}/Patient?name:exact=Jon
 This request returns `Patient` resources that have the `given` or `family` name of `Jon`. If there were patients with names such as `Jonathan` or `JON`, the search would ignore those resources as their names do not match the specified value exactly.
 
 ### `:contains`
-`:contains` is used to query for `string` type elements and allows for matches with the specified value anywhere within the field being searched. `contains` is case insensitive and recognizes matching strings concatenated with other characters. For example:
+`:contains` is used to query for `string` type elements and allows for matches with the specified value anywhere within the field. `contains` is case insensitive and recognizes matching strings concatenated with other characters. For example:
 
 ```rest
 GET {{FHIR_URL}}/Patient?address:contains=Meadow
