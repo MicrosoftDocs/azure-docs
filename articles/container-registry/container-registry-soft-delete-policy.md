@@ -18,7 +18,7 @@ If a user, a purge policy, or an indirect user event deletes the artifact, the s
 ## Prerequisites   
 
 * Install [Azure CLI](/cli/azure/install-azure-cli)
-* The user will require following permissions (at subscription level) to perform soft-delete operations:
+* The user will require following permissions (at registry level) to perform soft-delete operations:
 
   | Permission | Description |
   |---|---|
@@ -122,10 +122,10 @@ If you're restoring soft-deleted [ORAS artifacts](container-registry-oras-artifa
 > Importing a soft-delete image both at source and target is blocked.
 ## Auto purge
 
-The auto-purge always considers the current value of `retentionDays` to purge soft-deleted artifacts. For example, if after say five days, the policy gets changed by a user from seven to 14 days. All artifacts will be auto purged after 14 days from the time the artifact is soft-deleted.
+The auto-purge always considers the current value of `retentionDays` to purge soft-deleted artifacts. For example, if after say five days, the policy gets changed by a user from seven to 14 days. All artifacts will be auto purged after 14 days from the time the artifact is soft-deleted. The auto-purge runs every 24 hours.
 
 ## Preview limitations
 
-* You can't manually purge soft-deleted artifacts.
+* ACR currently don't support manually purging soft-deleted artifacts. 
 * The soft-delete policy doesn't support a geo-replicated registry.
 * The retention policy will be ineffective, if the soft-delete policy is enabled. See [retention policy for untagged manifests.](container-registry-retention-policy.md)
