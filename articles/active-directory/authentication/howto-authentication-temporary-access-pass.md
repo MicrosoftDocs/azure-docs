@@ -10,7 +10,7 @@ ms.date: 08/08/2022
 
 ms.author: justinha
 author: tilarso 
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
