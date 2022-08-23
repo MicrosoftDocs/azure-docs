@@ -25,13 +25,13 @@ You are able to retrieve run information of a workflow using Lifecycle Workflows
 
 1. Select **Azure Active Directory** and then select **Identity Governance**.
 
-1. In the left menu, select **Lifecycle Workflows (Preview)**.
+1. On the left menu, select **Lifecycle Workflows (Preview)**.
 
-1. Select **Workflows (Preview)**.
+1. On the Lifecycle Workflows overview page, select **Workflows (Preview)**.
 
 1. Select the workflow you want to run history of. 
 
-1. On the workflow overview screen, select **Workflow history (Preview)**.
+1. On the workflow overview screen, select **Audit logs**.
 
 1. On the history page, select the **Runs** button.  
 
