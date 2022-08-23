@@ -34,6 +34,8 @@ landingContent:
             url: tutorial-php-database-app.md
           - text: Deploy Spring Boot app on AKS with flexible server
             url: tutorial-deploy-springboot-on-aks-vnet.md
+          - text: Deploy WordPress on App Service with flexible server
+            url: tutorial-wordpress-app-service.md
       - linkListType: whats-new
         links:
           - text: What's new in Flexible Server?

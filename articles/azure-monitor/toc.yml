@@ -172,10 +172,7 @@ items:
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
-  - name: IP addresses
-    href: app/ip-addresses.md
-    displayName: firewall, firewall exceptions, whitelist
-  - name: Self-Monitoring
+  - name: Self-monitoring
     href: monitor-azure-monitor.md 
 - name: How-to guides
   items:
@@ -1507,11 +1504,14 @@ items:
   items:
   - name: Service limits
     href: service-limits.md
+  - name: IP addresses
+    href: app/ip-addresses.md
+    displayName: firewall, firewall exceptions, whitelist   
   - name: Terminology changes
     href: terminology.md
-  - name: Data reference
+  - name: Logs Tables reference
     href: /azure/azure-monitor/reference/
-  - name: Monitoring data reference
+  - name: Self-monitoring data reference
     href: azure-monitor-monitoring-reference.md 
   - name: Supported metrics
     items:

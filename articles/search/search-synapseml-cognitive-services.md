@@ -15,7 +15,7 @@ ms.date: 08/09/2022
 
 In this Azure Cognitive Search article, learn how to add data exploration and full text search to a SynapseML solution.
 
-[SynapseML](/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/) is an open source library that supports massively parallel machine learning over big data. One of the ways in which machine learning is exposed is through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities, but in this article, we'll focus on just those that call Cognitive Services and Cognitive Search.
+[SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/) is an open source library that supports massively parallel machine learning over big data. In SynapseML, one of the ways in which machine learning is exposed is through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities. In this article, we'll focus on just those that call Cognitive Services and Cognitive Search.
 
 In this walkthrough, you'll set up a workbook that does the following:
 
@@ -26,22 +26,22 @@ In this walkthrough, you'll set up a workbook that does the following:
 > + Write the output to a search index in Azure Cognitive Search
 > + Explore and search over the content you created
 
-Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this walkthrough shows you how to access AI capabilities outside of Cognitive Search. By using SynapseML instead of indexers or skills, you're not subject to data limits or any other constraint associated with those objects.
+Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this walkthrough shows you how to access AI capabilities outside of Cognitive Search. By using SynapseML instead of indexers or skills, you're not subject to data limits or other constraints associated with those objects.
 
 > [!TIP]
-> Watch a demo at [https://www.youtube.com/watch?v=iXnBLwp7f88](https://www.youtube.com/watch?v=iXnBLwp7f88). The demo expands on this walkthrough with more steps and visuals.
+> Watch a short video of this demo at [https://www.youtube.com/watch?v=iXnBLwp7f88](https://www.youtube.com/watch?v=iXnBLwp7f88). The video expands on this walkthrough with more steps and visuals.
 
 ## Prerequisites
 
 You'll need the `synapseml` library and several Azure resources. If possible, use the same subscription and region for your Azure resources and put everything into one resource group for simple cleanup later. The following links are for portal installs. The sample data is imported from a public site.
 
 + [Azure Cognitive Search](search-create-service-portal.md) (any tier) <sup>1</sup> 
-+ [Azure Cognitive Services](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#create-a-new-azure-cognitive-services-resource) (any tier) <sup>2</sup> 
++ [Azure Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#create-a-new-azure-cognitive-services-resource) (any tier) <sup>2</sup> 
 + [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>3</sup>
 
 <sup>1</sup> You can use the free tier for this walkthrough but [choose a higher tier](search-sku-tier.md) if data volumes are large. You'll need the [API key](search-security-api-keys.md#find-existing-keys) for this resource.
 
-<sup>2</sup> This walkthrough uses Azure Forms Recognizer and Azure Translator. In the instructions below, you'll provide a [Cognitive Services multi-service key](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#get-the-keys-for-your-resource) and the region, and it'll work for both services.
+<sup>2</sup> This walkthrough uses Azure Forms Recognizer and Azure Translator. In the instructions below, you'll provide a [Cognitive Services multi-service key](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#get-the-keys-for-your-resource) and the region, and it'll work for both services.
 
 <sup>3</sup> In this walkthrough, Azure Databricks provides the computing platform. You could also use Azure Synapse Analytics or any other computing platform supported by `synapseml`. The Azure Databricks article listed in the prerequisites includes multiple steps. For this walkthrough, follow only the instructions in "Create a workspace".
 
@@ -134,7 +134,7 @@ display(df2)
 
 Paste the following code into the third cell. No modifications are required, so run the code when you're ready.
 
-This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices. It calls the pre-built [invoice model](/azure/applied-ai-services/form-recognizer/concept-invoice) of Azure Forms Analyzer.
+This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices. It calls the pre-built [invoice model](../applied-ai-services/form-recognizer/concept-invoice.md) of Azure Forms Analyzer.
 
 ```python
 from synapse.ml.cognitive import AnalyzeInvoices
@@ -156,7 +156,7 @@ display(analyzed_df)
 
 Paste the following code into the fourth cell and run it. No modifications are required.
 
-This code loads [FormOntologyLearner](https://mmlspark.blob.windows.net/docs/0.10.0/pyspark/synapse.ml.cognitive.html?highlight=formontologylearner#module-synapse.ml.cognitive.FormOntologyLearner), a transformer that analyzes the output of Form Recognizer transformers and infers a tabular data structure. The output of AnalyzeInvoices is dynamic and varies based on the features detected in your content. Furthermore, the AnalyzeInvoices transformer consolidates output into a single column. Because the output is dynamic and consolidated, it's difficult to use in downstream transformations that require more structure.
+This code loads [FormOntologyLearner](https://mmlspark.blob.core.windows.net/docs/0.10.0/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.FormOntologyTransformer), a transformer that analyzes the output of Form Recognizer transformers and infers a tabular data structure. The output of AnalyzeInvoices is dynamic and varies based on the features detected in your content. Furthermore, the AnalyzeInvoices transformer consolidates output into a single column. Because the output is dynamic and consolidated, it's difficult to use in downstream transformations that require more structure.
 
 FormOntologyLearner extends the utility of the AnalyzeInvoices transformer by looking for patterns that can be used to create a tabular data structure. Organizing the output into multiple columns and rows makes the content consumable in other transformers, like AzureSearchWriter.
 
@@ -254,4 +254,4 @@ In this walkthrough, you learned about the [AzureSearchWriter](https://microsoft
 As a next step, review the other SynapseML tutorials that produce transformed content you might want to explore through Azure Cognitive Search:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Text Analytics with Cognitive Service](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
+> [Tutorial: Text Analytics with Cognitive Services](../synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark.md)

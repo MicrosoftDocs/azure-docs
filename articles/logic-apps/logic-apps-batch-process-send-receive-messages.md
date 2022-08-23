@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/31/2020
+ms.date: 08/20/2022
 ---
 
 # Send, receive, and batch process messages in Azure Logic Apps

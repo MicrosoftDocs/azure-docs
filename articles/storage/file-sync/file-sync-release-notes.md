@@ -106,7 +106,7 @@ For more information on how to install and configure the Azure File Sync agent w
 
 ### Sync limitations
 The following items don't sync, but the rest of the system continues to operate normally:
-- Files with unsupported characters. See [Troubleshooting guide](file-sync-troubleshoot.md#handling-unsupported-characters) for list of unsupported characters.
+- Files with unsupported characters. See [Troubleshooting guide](file-sync-troubleshoot-sync-errors.md#handling-unsupported-characters) for list of unsupported characters.
 - Files or directories that end with a period.
 - Paths that are longer than 2,048 characters.
 - The system access control list (SACL) portion of a security descriptor that's used for auditing.
@@ -129,7 +129,7 @@ The following items don't sync, but the rest of the system continues to operate 
 
 ### Cloud endpoint
 - Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share. In addition, changes made to an Azure file share over the REST protocol will not update the SMB last modified time and will not be seen as a change by sync.
-- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](file-sync-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
+- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](file-sync-troubleshoot-sync-errors.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.
@@ -187,7 +187,7 @@ For more information on how to install and configure the Azure File Sync agent w
 
 ### Sync limitations
 The following items don't sync, but the rest of the system continues to operate normally:
-- Files with unsupported characters. See [Troubleshooting guide](file-sync-troubleshoot.md#handling-unsupported-characters) for list of unsupported characters.
+- Files with unsupported characters. See [Troubleshooting guide](file-sync-troubleshoot-sync-errors.md#handling-unsupported-characters) for list of unsupported characters.
 - Files or directories that end with a period.
 - Paths that are longer than 2,048 characters.
 - The system access control list (SACL) portion of a security descriptor that's used for auditing.
@@ -210,7 +210,7 @@ The following items don't sync, but the rest of the system continues to operate 
 
 ### Cloud endpoint
 - Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share. In addition, changes made to an Azure file share over the REST protocol will not update the SMB last modified time and will not be seen as a change by sync.
-- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](file-sync-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
+- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](file-sync-troubleshoot-sync-errors.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.

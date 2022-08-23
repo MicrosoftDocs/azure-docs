@@ -232,7 +232,7 @@ For more information on how to work with your data:
 - [Secure data access in Azure Machine Learning](concept-data.md)
 - [Data ingestion options for Azure Machine Learning workflows](concept-data-ingestion.md)
 - [Optimize data processing with Azure Machine Learning](concept-optimize-data-processing.md)
-- [Use differential privacy in Azure Machine Learning](how-to-differential-privacy.md)
+- [Use differential privacy with Azure Machine Learning SDK](v1/how-to-differential-privacy.md)
 
 Follow these how-to guides to work with your data after you've collected it:
 

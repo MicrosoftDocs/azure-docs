@@ -50,8 +50,7 @@ In this tutorial, you learn how to,
 
 ## Prerequisites
 
-* No specific pre-requisites required to deploy this app
-* Recommended to have Azure subscription, but you can even try without it
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create digital distribution center application template
 

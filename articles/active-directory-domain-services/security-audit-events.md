@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 08/07/2022
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 

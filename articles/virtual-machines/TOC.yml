@@ -1,11 +1,7 @@
 - name: Virtual Machines Documentation
   href: index.yml
 - name: Overview
-  items:
-  - name: About Linux Virtual Machines
-    href: ./linux/overview.md
-  - name: About Windows Virtual Machines
-    href: ./windows/overview.md
+  href: overview.md
 - name: Quickstarts
   items:
   - name: Create a Linux VM
@@ -1384,8 +1380,8 @@
       href: ./windows/azure-to-guest-disk-mapping.md
     - name: File storage
       items:
-      - name: Copy files to a Linux VM
-        href: ./linux/copy-files-to-linux-vm-using-scp.md
+      - name: Copy files to a VM
+        href: ./copy-files-to-vm-using-scp.md
     - name: Find unattached disks
       items:
       - name: CLI

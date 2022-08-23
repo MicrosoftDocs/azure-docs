@@ -260,5 +260,5 @@ can require two-factor authentication, or allow sign in only from managed device
 ## Next steps
 
 * [How to use secrets in training](../how-to-use-secrets-in-runs.md).
-* [How to configure authentication for models deployed as a web service](../how-to-authenticate-web-service.md).
-* [Consume an Azure Machine Learning model deployed as a web service](../how-to-consume-web-service.md).
+* [How to configure authentication for models deployed as a web service](how-to-authenticate-web-service.md).
+* [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).

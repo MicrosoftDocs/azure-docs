@@ -13,6 +13,8 @@ ms.custom: ignite-fall-2021
 
 Use this quickstart to create a Text Analytics for health application with the client library for Python. In the following example, you will create a Python application that can identify medical [entities](../../concepts/health-entity-categories.md), [relations](../../concepts/relation-extraction.md), and [assertions](../../concepts/assertion-detection.md) that appear in text.
 
+[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
+
 
 ## Prerequisites
 

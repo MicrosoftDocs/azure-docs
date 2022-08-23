@@ -68,6 +68,21 @@ Select the request to take action.
 
 1. Select the correct status, add any comments, and select **Confirm**.
 
+### Re-assign requests
+
+You can re-assign requests both approvals and tasks which are assigned to you to a different user.
+
+1. To re-assign, select request or task you are assigned and click on **Reassign** in the following window.
+
+    :::image type="content" source="./media/how-to-workflow-manage-requests-approval/reassign-button.png" alt-text="Screenshot showing the task selected and the Respond page is open, with details, a status, and a place for comments and re-assign button.":::
+
+1. You will be not presented with a list of all the users who are assigned to the request. Click on **Assignee**  where your user name or the group you are part of will be displayed and change it from your user name to the new user name. Click **Save** to complete the re-assignment. 
+
+    :::image type="content" source="./media/how-to-workflow-manage-requests-approval/reassign-user.png" alt-text="Screenshot showing the request selected and the re-assign user.":::
+
+    > [!NOTE]
+    > You can only re-assign your user id or group you are part of to another user or group. The other assignees will be greyed out and will not available for re-assignment.
+
 ## Pending requests
 
 In this tab you can view all the approval requests and tasks that you've submitted. 
@@ -75,6 +90,16 @@ In this tab you can view all the approval requests and tasks that you've submitt
 Select the request to see the status and the outcomes for each approver/task owner.
 
 :::image type="content" source="./media/how-to-workflow-manage-requests-approval/my-pending-requests.png" alt-text="Screenshot with the requests and approvals page shown on the 'My pending requests' tab, with a list of requests from the user that are waiting approver response.":::
+
+### Cancel workflows
+
+You can cancel a submitted request and it's underlying workflow by clicking on **Cancel request and it's underlying workflow run**.
+
+:::image type="content" source="./media/how-to-workflow-manage-requests-approval/cancel-workflow-request.png" alt-text="Screenshot with the requests and approvals page shown on the 'My pending requests' tab, with cancel request.":::
+
+   > [!NOTE]
+   > You can only cancel workflows which are in progress. When you cancel a request from requests and approvals section, it will cancel underlying workflow run.
+
 
 ## History
 
