@@ -148,5 +148,5 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI, 
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
-[container-registry-skus]: container-registry/container-registry-skus.md
+[container-registry-skus]: container-registry-skus.md
 [container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md

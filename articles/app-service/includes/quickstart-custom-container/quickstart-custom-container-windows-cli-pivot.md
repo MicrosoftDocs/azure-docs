@@ -174,5 +174,4 @@ The App Service app pulls from the container registry every time it starts. If y
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
-[container-registry-skus]: container-registry-skus.md
-[container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md
+[container-registry-skus]: /container-registry/container-registry-skus.md
