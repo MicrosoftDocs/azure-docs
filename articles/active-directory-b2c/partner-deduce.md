@@ -531,7 +531,7 @@ You can define Deduce as a claims provider by adding it to the **ClaimsProvider*
 
    ```
 
-Replace `apikey` and `site` with the information provided by Deduce.
+Replace `apikey` and `site` with the information provided by Deduce at the time of initial onboarding. 
 
 ### Step 7: Add a user journey
 
@@ -690,7 +690,7 @@ The relying party policy specifies the user journey which Azure AD B2C will exec
 
 1. Under Policies, select **Identity Experience Framework**.
 
-1. Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkBase.xml`, then the relying party policy, such as `SignUp.xml`.
+1. Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkBase.xml`, then the relying party policy, such as `B2C_1A_signup`.
 
 ### Step 11: Test your custom policy
 
