@@ -18,28 +18,28 @@ ms.author: anfdocs
 
 # Configure customer-managed keys for Azure NetApp Files
 
-Customer-managed keys in Azure NetApp Files enables you to use your own keys rather than a Microsoft-managed key when creating a new volume. 
+Customer-managed keys in Azure NetApp Files enable you to use your own keys rather than a Microsoft-managed key when creating a new volume. 
 
 ## Considerations
 
 > [!IMPORTANT]
 > The customer-manged keys feature is currently in preview. The program is controlled via Azure Feature Exposure Control (AFEC). To access this preview program, contact your account team.
 
-* Support for Azure NetApp Files customer-managed keys is only for new volumes. There is currently no support for migrating existing volumes to customer-managed key encryption. 
+* Support for Azure NetApp Files customer-managed keys is only for new volumes. There's currently no support for migrating existing volumes to customer-managed key encryption. 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. Customer-managed key volumes are not supported for the basic network features. Follow instructions in [Configure network features for a volume to](configure-network-features.md):  
     * [Register for the standard network features](configure-network-features.md#register-the-feature)
     * [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page   
 * Rekey operation is currently not supported.
 * Switching from user-assigned identity to the system-assigned identity is currently not supported.
 * MSI Automatic certificate renewal is not currently supported.  
-* If the certificate is more than 46 days old, you can call proxy ARM operation via REST API to renew the certificate. For example: 
+* If the certificate is more than 46 days old, you can call proxy Azure Resource Manager (ARM) operation via REST API to renew the certificate. For example: 
     ```rest
      /{accountResourceId}/renewCredentials?api-version=2022-01 – example /subscriptions/<16 digit subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-01  
     ```  
 * If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. Refer to the the [Error messages and troubleshooting](#error-messages-and-troubleshooting) section for more information. 
 
 ## Requirements
-Before creating your first customer-managed key volume, you must have set up the following: 
+Before creating your first customer-managed key volume, you must have set up: 
 * An [Azure Key Vault](../key-vault/general/overview.md), containing at least one key. 
     * The key vault must have soft delete and purge protection enabled. 
     * The key must be of type RSA. 
@@ -47,10 +47,10 @@ Before creating your first customer-managed key volume, you must have set up the
     * The private endpoint must reside in a different subnet than the one delegated to Azure NetApp Files. The subnet must be in the same VNet as the one delegated to Azure NetApp.  
 
 For more information about Azure Key Vault and Azure Private Endpoint, refer to:
-* [Quickstart: Create a key vault ](../key-vault/general/quick-create-portal.md)
+* [Quickstart: Create a key vault ](../key-vault/general/quick-create-portal.md) 
 * [Create or import a key into the vault](../key-vault/keys/quick-create-portal.md)
-* [Create a private endpoint](../private-link/create-private-endpoint-portal?tabs=dynamic-ip.md)
-* [More about keys and supported key types](../key-vault/keys/about-keys)
+* [Create a private endpoint](../private-link/create-private-endpoint-portal.md)
+* [More about keys and supported key types](../key-vault/keys/about-keys.md)
 
 ## Configure a NetApp account to use customer-managed keys
 
@@ -71,11 +71,11 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 
 ## Configure a NetApp account to use customer-managed keys with user-assigned identity 
 
-The **Encryption** page does not currently support choosing an identity type (either system-assigned or user-assigned). To configure encryption with the user-assigned identity, you need to use the REST API to do so. A good tool to use Azure REST API is [projectkudu/ARMClient: A simple command line tool to invoke the Azure Resource Manager API (github.com)](https://github.com/projectkudu/ARMClient). 
+The **Encryption** page doesn't currently support choosing an identity type (either system-assigned or user-assigned). To configure encryption with the user-assigned identity, you need to use the REST API to do so. A good tool to use Azure REST API is [projectkudu/ARMClient: A simple command line tool to invoke the Azure Resource Manager API (github.com)](https://github.com/projectkudu/ARMClient). 
 
 1. Create a user-assigned identity in the same region as your NetApp account. Alternately, you can use an existing identity. 
     For more information, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp.md).
-1. Configure access to the key vault. You can use RBAC or access policies. 
+1. Configure access to the key vault. You can use role-based access control (RBAC) or access policies. 
     1. For RBAC, configure the key vault to use RBAC authorization.
     <!-- insert image get eng update -->
     Create a custom role with permissions **read**, **encrypt**, and **decrypt**. 
@@ -114,28 +114,28 @@ The **Encryption** page does not currently support choosing an identity type (ei
     ```
     **Examples** 
     
-    User assigned identity resource ID: `/subscriptions/ccdce6ae-b7b3-4a53-b9c5-48e2caa01800/resourcegroups/snaebjor-rotterdam-westcentralus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/snaebjor-wcu-identity` 
+    User assigned identity resource ID: `/subscriptions/<subscription-id>/resourcegroups/contoso--westcentralus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-wcu-identity` 
     
-    Key vault URI: https://snaebjor-wcu2.vault.azure.net 
+    Key vault URI: `https://contoso-wcu2.vault.azure.net `
     
-    Key name: `/subscriptions/ccdce6ae-b7b3-4a53-b9c5-48e2caa01800/resourceGroups/snaebjor-rotterdam-westcentralus/providers/Microsoft.KeyVault/vaults/snaebjor-wcu2`
+    Key name: `/subscriptions/<subscription-id>/resourceGroups/contoso-westcentralus/providers/Microsoft.KeyVault/vaults/contoso-wcu2`
 
-## Use ARM REST API with ARMClient 
+## Use ARM processor REST API with ARMClient 
 
-ARMClient is an open-source tool that makes on-demand requests to ARM REST API convenient. Follow the readme document to install and sign into the tool: [projectkudu/ARMClient: A simple command line tool to invoke the Azure Resource Manager API (github.com)](https://github.com/projectkudu/ARMClient).
+ARMClient is an open-source tool that makes on-demand requests to ARM processor REST API convenient. Follow the readme document to install and sign into the tool: [projectkudu/ARMClient: A simple command line tool to invoke the Azure Resource Manager API (github.com)](https://github.com/projectkudu/ARMClient).
 
-If you are using ARMClient, save the request body in a JSON file for reference. Be sure to use the `–verbose` flag. 
+If you're using ARMClient, save the request body in a JSON file for reference. Be sure to use the `–verbose` flag. 
 
-Example:  `armclient patch <netapp account resource id>?api-version=2022-03-01 ./<path to json file> -verbose` 
+Example: `armclient patch <netapp account resource id>?api-version=2022-03-01 ./<path to json file> -verbose` 
 
-Copy the `Azure-AsyncOperation` header from the response and poll the URI with ARMClient get <Azure-AsyncOperation value>. 
+Copy the `Azure-AsyncOperation` header from the response and poll the URI using `armclient get <Azure-AsyncOperation value>`. 
 
 <!-- insert image get eng update -->
 
 ## Create an Azure NetApp Files volume using customer-manager keys
 
 1. From Azure NetApp Files, select **Volumes** and then **+ Add volume**.    
-1. Follow the instructions in [Configure network features for an Azure NetApp Files volume](azure-netapp-files/configure-network-features.md) to:  
+1. Follow the instructions in [Configure network features for an Azure NetApp Files volume](configure-network-features.md) to:  
     * [Register for the Standard network features](configure-network-features.md#register-the-feature)
     * [Set the Network Features option in volume creation page](configure-network-features.md#set-the-network-features-option)
 1. For a NetApp account configured to use a customer-managed key, the Create Volume page includes an option Encryption Key Source.  
@@ -172,9 +172,8 @@ This section lists error messages and possible resolutions when Azure NetApp Fil
 | ----------- | ----------- |
 | `Volume cannot be encrypted with Microsoft.KeyVault, NetAppAccount has not been configured with KeyVault encryption` | Your NetApp account does not have customer-managed key encryption enabled. Configure the NetApp account to use customer-managed key. |
 | `EncryptionKeySource cannot be changed` | No resolution. The `EncryptionKeySource` property of a volume cannot be changed. |
-| `Unable to use the configured encryption key, please check if key is active` | Check the following: <ol><li>Are all access policies correct on the key vault: Get, Encrypt, Decrypt?</li><li>Does a private endpoint for the key vault exist?</li><li>Is there a Virtual Network NAT in the VNet, with the delegated Azure NetApp Files subnet enabled?</li></ol> |
+| `Unable to use the configured encryption key, please check if key is active` | Check that: <ol><li>Are all access policies correct on the key vault: Get, Encrypt, Decrypt?</li><li>Does a private endpoint for the key vault exist?</li><li>Is there a Virtual Network NAT in the VNet, with the delegated Azure NetApp Files subnet enabled?</li></ol> |
 
 ## Next steps
 
 * [Azure NetApp Files API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-11-01)
-* 
