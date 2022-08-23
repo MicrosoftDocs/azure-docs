@@ -45,7 +45,7 @@ Permissions for cloud sync are configured by default. If permissions need to be 
 
 ### Enable password writeback in Azure AD Connect cloud sync
 
-For public preview, you need to enable password writeback in Azure AD Connect cloud sync by using the Set-AADCloudSyncPasswordWritebackConfiguration cmdlet on any server with the provisioning agent. You will need global administrator credentials: 
+For public preview, you need to enable password writeback in Azure AD Connect cloud sync by running `Set-AADCloudSyncPasswordWritebackConfiguration` on any server with the provisioning agent. You will need global administrator credentials: 
 
 ```powershell
 Import-Module 'C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll' 
