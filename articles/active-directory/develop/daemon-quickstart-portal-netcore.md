@@ -18,7 +18,6 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 
 # Quickstart: Get a token and call the Microsoft Graph API by using a console app's identity
 
-
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 > 
@@ -26,30 +25,33 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> [!div renderon="portal" class="sxs-lookup"]
+> [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
+> # Quickstart: Get a token and call the Microsoft Graph API by using a console app's identity
+> 
 > In this quickstart, you download and run a code sample that demonstrates how a .NET Core console application can get an access token to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. The code sample also demonstrates how a job or a Windows service can run with an application identity, instead of a user's identity. The sample console application in this quickstart is also a daemon application, so it's a confidential client application.
 > 
 > ## Prerequisites
 > 
-> This quickstart requires [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) but will also work with .NET 5.0 SDK.
+> This quickstart requires [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) but will also work with .NET 6.0 SDK.
 > 
 > > [!div class="sxs-lookup"]
 > ### Download and configure your quickstart app
 > 
 > #### Step 1: Configure your application in the Azure portal
 > For the code sample in this quickstart to work, create a client secret and add the Graph API's **User.Read.All** application permission.
-> > [!div class="nextstepaction"]
-> > [Make these changes for me]()
+>
+> <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
-> > [!div class="alert alert-info"]
+> > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-netcore-daemon/green-check.png) Your application is configured with these attributes.
 > 
 > #### Step 2: Download your Visual Studio project
 > 
 > > [!div class="sxs-lookup"]
 > > Run the project by using Visual Studio 2019.
-> > [!div class="sxs-lookup" id="autoupdate" class="nextstepaction"]
-> > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+>
+> > [!div class="nextstepaction"]
+> > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
 > [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 > 
@@ -147,7 +149,7 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > 
 > |Element| Description |
 > |---------|---------|
-> | `scopes` | Contains the requested scopes. For confidential clients, this value should use a format similar to `{Application ID URI}/.default`. This format indicates that the requested scopes are the ones that are statically defined in the app object set in the Azure portal. For Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`. For custom web APIs, `{Application ID URI}` is defined in the Azure portal, under **Application Registration (Preview)** > **Expose an API**. |
+> | `scopes` | Contains the requested scopes. For confidential clients, this value should use a format similar to `{Application ID URI}/.default`. This format indicates that the requested scopes are the ones that are statically defined in the app object set in the Azure portal. For Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`. For custom web APIs, `{Application ID URI}` is defined in the Azure portal, under **Application Registration ** > **Expose an API**. |
 > 
 > For more information, see the [reference documentation for `AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient).
 > 

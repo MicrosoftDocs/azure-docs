@@ -2,7 +2,7 @@
 title: "Quickstart: Call Microsoft Graph from a Node.js desktop app"
 description: In this quickstart, you learn how a Node.js Electron desktop application can sign-in users and get an access token to call an API protected by a Microsoft identity platform endpoint
 services: active-directory
-author: Owen-Richards
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -23,7 +23,9 @@ ms.custom: mode-api
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> [!div renderon="portal" class="sxs-lookup"]
+> [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
+# Quickstart: Acquire an access token and call the Microsoft Graph API from an Electron desktop app
+
 > In this quickstart, you download and run a code sample that demonstrates how an Electron desktop application can sign in users and acquire access tokens to call the Microsoft Graph API.
 > 
 > This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) with the [authorization code flow with PKCE](v2-oauth2-auth-code-flow.md).
@@ -38,13 +40,13 @@ ms.custom: mode-api
 > > [!div class="nextstepaction"]
 > > [Make this change for me]()
 > 
-> > [!div class="alert alert-info"]
+> > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
 > 
 > #### Step 2: Download the Electron sample project
 > 
 > > [!div  class="nextstepaction"]
-> > [Download the code sample](https://github.com/azure-samples/ms-identity-javascript-nodejs-desktop/archive/main.zip)
+> > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
 > > [!div class="sxs-lookup"]
 > > > [!NOTE]

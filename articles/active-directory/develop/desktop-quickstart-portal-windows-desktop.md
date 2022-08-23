@@ -2,7 +2,7 @@
 title: "Quickstart: Sign in users and call Microsoft Graph in a Windows desktop app"
 description: In this quickstart, learn how a Windows Presentation Foundation (WPF) application can get an access token and call an API protected by the Microsoft identity platform.
 services: active-directory
-author: Owen-Richards
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -23,7 +23,9 @@ ms.custom: aaddev, identityplatformtop40, mode-api
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> [!div renderon="portal" class="sxs-lookup"]
+> [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
+> # Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app
+>
 > In this quickstart, you download and run a code sample that demonstrates how a Windows Presentation Foundation (WPF) application can sign in users and get an access token to call the Microsoft Graph API. 
 > 
 > See [How the sample works](#how-the-sample-works) for an illustration.
@@ -31,17 +33,18 @@ ms.custom: aaddev, identityplatformtop40, mode-api
 > 
 > #### Step 1: Configure your application in Azure portal
 > For the code sample in this quickstart to work, add a **Redirect URI** of `https://login.microsoftonline.com/common/oauth2/nativeclient` and `ms-appx-web://microsoft.aad.brokerplugin/{client_id}`.
-> > [!div class="nextstepaction"]
-> > [Make this change for me]()
+>
+> <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
-> > [!div class="alert alert-info"]
+> > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
 > 
 > #### Step 2: Download your Visual Studio project
 > 
-> Run the project using Visual Studio 2019.
+> Run the project using Visual Studio.
+>
 > > [!div class="nextstepaction"]
-> > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+> > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
 > [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 > 

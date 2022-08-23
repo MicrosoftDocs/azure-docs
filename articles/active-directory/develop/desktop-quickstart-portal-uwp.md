@@ -2,7 +2,7 @@
 title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform app"
 description: In this quickstart, learn how a Universal Windows Platform (UWP) application can get an access token and call an API protected by Microsoft identity platform.
 services: active-directory
-author: Owen-Richards
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -25,7 +25,9 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> [!div renderon="portal" class="sxs-lookup"]
+> [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
+# Quickstart: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
+
 > In this quickstart, you download and run a code sample that demonstrates how a Universal Windows Platform (UWP) application can sign in users and get an access token to call the Microsoft Graph API. 
 > 
 > See [How the sample works](#how-the-sample-works) for an illustration.
@@ -38,17 +40,18 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > 
 > #### Step 1: Configure the application
 > For the code sample in this quickstart to work, add a **Redirect URI** of `https://login.microsoftonline.com/common/oauth2/nativeclient`.
-> > [!div class="nextstepaction"]
-> > [Make this change for me]()
+>
+> <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button
 > 
-> > [!div class="alert alert-info"]
+> > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-uwp/green-check.png) Your application is configured with these attributes.
 > 
 > #### Step 2: Download the Visual Studio project
 > 
 > Run the project using Visual Studio 2019.
+
 > > [!div  class="nextstepaction"]
-> > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+> > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
 > [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 > 

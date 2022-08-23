@@ -24,7 +24,9 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> [!div renderon="portal" class="sxs-lookup"]
+> [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
+> # Quickstart: Acquire a token and call Microsoft Graph API from a Java console app using app's identity
+>
 > In this quickstart, you download and run a code sample that demonstrates how a Java application can get an access token using the app's identity to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. The code sample demonstrates how an unattended job or Windows service can run with an application identity, instead of a user's identity.
 > 
 > ## Prerequisites
@@ -39,17 +41,17 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 > 
 > #### Step 1: Configure the application in Azure portal
 > For the code sample for this quickstart to work, you need to create a client secret, and add Graph API's **User.Read.All** application permission.
-> > [!div class="nextstepaction"]
-> > [Make these changes for me]()
 > 
-> > [!div class="alert alert-info"]
+> <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
+>
+> > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-netcore-daemon/green-check.png) Your application is configured with these attributes.
 > 
 > #### Step 2: Download the Java project
 > 
-> > [!div class="sxs-lookup nextstepaction"]
-> > [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-daemon/archive/master.zip)
-> 
+> > [!div class="nextstepaction"]
+> > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
+>
 > > [!div class="sxs-lookup"]
 > > > [!NOTE]
 > > > `Enter_the_Supported_Account_Info_Here`
