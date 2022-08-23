@@ -29,7 +29,9 @@ For Azure Front Door pricing information, see [Azure Front Door pricing](https:/
 
 Each Front Door profile incurs an hourly fee. You're billed for each hour, or partial hour, that your profile is deployed. The rate you're charged depends on the Front Door SKU that you deploy.
 
-You don't pay extra fees to use features like [traffic acceleration](front-door-traffic-acceleration.md), [response caching](front-door-caching.md), [response compression](front-door-caching.md#file-compression), the [rules engine](front-door-rules-engine.md), and [custom web application firewall (WAF) rules](web-application-firewall.md#custom-rules). If you use Front Door Premium, you also don't pay extra fees to use [managed WAF rule sets](web-application-firewall.md#managed-rules) or [Private Link origins](private-link.md).
+A single Front Door profile can contain multiple [endpoints](endpoint.md). You're not billed extra for each endpoint.
+
+You don't pay extra fees to use features like [traffic acceleration](front-door-traffic-acceleration.md), [response caching](front-door-caching.md), [response compression](front-door-caching.md#file-compression), the [rules engine](front-door-rules-engine.md), [Front Door's DDoS protection](front-door-ddos.md), and [custom web application firewall (WAF) rules](web-application-firewall.md#custom-rules). If you use Front Door Premium, you also don't pay extra fees to use [managed WAF rule sets](web-application-firewall.md#managed-rules) or [Private Link origins](private-link.md).
 
 ## Request processing and traffic fees
 
