@@ -87,8 +87,6 @@
       href: allow-deny-list.md
   - name: Enforce tenant restrictions
     items:
-    - name: Tenant restrictions V1
-      href: ../manage-apps/tenant-restrictions.md
     - name: Tenant restrictions V2
       href: tenant-restrictions-v2.md
   - name: Configure B2B direct connect 
