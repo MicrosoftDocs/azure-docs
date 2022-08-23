@@ -202,8 +202,9 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Services and features supported**	|		|		|		|		|
 |		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|
 |		|	VM Insights	|		|	X (Public preview)	|		|
-|		|	Azure Automation	|		|	X	|		|
-|		|	Microsoft Defender for Cloud	|		|	X	|		|
+|		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
+|		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
+|		|	Change Tracking	|	|	X	|		|
 
 ### Linux agents
 
@@ -223,11 +224,11 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Azure Storage	|		|		|	X	|		|
 |		|	Event Hub	|		|		|	X	|		|
 |	**Services and features supported**	|		|		|		|		|		|
-|		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|		|
-|		|	VM Insights	|	X (Public preview)	|	X	|		|		|
-|		|	Container Insights	|	X (Public preview)	|	X	|		|		|
-|		|	Azure Automation	|		|	X	|		|		|
-|		|	Microsoft Defender for Cloud	|		|	X	|		|		|
+|		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|
+|		|	VM Insights	|		|	X (Public preview)	|		|
+|		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
+|		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
+|		|	Change Tracking	|	|	X	|		|
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
 
