@@ -31,6 +31,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/facebook-work-accounts-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/meta-work-accounts-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/netmotion-mobility-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
@@ -10844,6 +10849,11 @@
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/recover-deleted-apps-faq.md",
       "redirect_url": "/azure/active-directory/manage-apps/delete-recover-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-percept/voice-control-your-inventory-then-visualize-with-power-bi-dashboard.md",
+      "redirect_url": "/azure-docs/articles/azure-percept/index.yml",
       "redirect_document_id": false
     }
 
