@@ -1,5 +1,5 @@
 ---
-title: Create & manage access keys
+title: Authenticate requests
 titleSuffix: Microsoft Playwright Testing
 description: Learn how to create & manage access keys to authenticate requests to Microsoft Playwright Testing. Access keys provide secure access to the Microsoft Playwright Testing API and to run tests in your workspace.
 services: playwright-testing
@@ -7,7 +7,7 @@ ms.service: playwright-testing
 ms.topic: how-to
 ms.author: nicktrog
 author: ntrogh
-ms.date: 08/12/2022
+ms.date: 08/23/2022
 ---
 
 # Authenticate requests to Microsoft Playwright Testing Preview
