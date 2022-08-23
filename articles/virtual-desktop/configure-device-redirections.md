@@ -9,11 +9,11 @@ manager: femila
 ---
 # Configure device redirection
 
-Configuring device redirection for your Azure Virtual Desktop environment allows you to use printers, USB devices, microphones and other peripheral devices in the remote session. Some device redirections require changes to both Remote Desktop Protocol (RDP) properties and Group Policy settings.
+Configuring device redirection for your Azure Virtual Desktop environment allows you to use printers, USB devices, microphones, and other peripheral devices in the remote session. Some device redirections require changes to both Remote Desktop Protocol (RDP) properties and Group Policy settings.
 
 ## Supported device redirection
 
-Each client supports different device redirection. Check out [Compare the clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) for the full list of supported device redirection for each client.
+Each client supports different kinds of device redirections. Check out [Compare the clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) for the full list of supported device redirections for each client.
 
 >[!IMPORTANT]
 >You can only enable redirections with binary settings that apply to both to and from the remote machine. The service doesn't currently support one-way blocking of redirections from only one side of the connection.
@@ -133,4 +133,4 @@ Set the following RDP property to configure WebAuthn redirection:
 - `redirectwebauthn:i:1` enables WebAuthn redirection.
 - `redirectwebauthn:i:0` disables WebAuthn redirection.
 
-When enabled, WebAuthn requests from the session are sent to the local PC to be completed using the local Windows Hello for Business or security devices like FIDO keys. Learn more about [in-session passwordless authentication](authentication.md#in-session-passwordless-authentication).
+When enabled, WebAuthn requests from the session are sent to the local PC to be completed using the local Windows Hello for Business or security devices like FIDO keys. For more information, see [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication-preview).
