@@ -137,7 +137,14 @@ Use the following .NET classes to interact with these resources:
 
 ## Code examples
 
-The sample code snippets in the following sections show you how to perform basic data operations with the Azure Blob Storage client library for .NET.
+The sample code snippets in the following sections demonstrate how to perform basic data operations with the Azure Blob Storage client library for .NET.
+
+> [!IMPORTANT]
+> Essential information required for user success
+Make sure you have installed the correct NuGet packages and added the necessary using statements in order for the code samples to work.
+
+* **Azure.Identity** (if you are using the Credential-Free approach)
+* **Azure.Storage.Blobs**
 
 ### Create a container
 
@@ -151,10 +158,6 @@ You can call the [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blob
 Add this code to the end of the `Program.cs` class:
 
 ```csharp
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
-using Azure.Identity;
-
 // TODO: Replace <storage-account-name> with your actual storage account name
 var blobServiceClient = new BlobServiceClient(
         new Uri("https://<storage-account-name>.blob.core.windows.net"),
@@ -329,7 +332,6 @@ Console.WriteLine("Done");
 ```csharp
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
-using Azure.Identity;
 
 // TODO: Replace <storage-account-name> with your actual storage account name
 var blobServiceClient = new BlobServiceClient("<storage-account-connection-string>");

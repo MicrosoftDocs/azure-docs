@@ -41,7 +41,7 @@ For example, when working locally, `DefaultAzureCredential` will generally authe
 
 ## Connect an Azure hosted app to multiple Azure services
 
-You have been tasked with connecting existing app to multiple Azure services and databases using credential-free connections. The application is an ASP.NET Core Web API hosted on Azure App Service, though the steps below apply to other Azure hosting environments as well, such as Azure Spring Apps, Virtual Machines, Container Apps and AKS.
+You have been tasked with connecting an existing app to multiple Azure services and databases using credential-free connections. The application is an ASP.NET Core Web API hosted on Azure App Service, though the steps below apply to other Azure hosting environments as well, such as Azure Spring Apps, Virtual Machines, Container Apps and AKS.
 
 This tutorial applies to the following architectures, though it can be adapted to many other scenarios as well through minimal configuration changes.
 
