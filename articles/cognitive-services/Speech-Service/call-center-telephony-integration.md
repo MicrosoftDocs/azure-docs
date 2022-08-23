@@ -31,6 +31,5 @@ To build this integration we recommend using the [Speech SDK](./speech-sdk.md).
 
 ## Next steps
 
-[!div class="nextstepaction"]
-- [Learn about Speech SDK](./speech-sdk.md)
-- [How to lower speech synthesis latency](/azure/cognitive-services/speech-service/how-to-lower-speech-synthesis-latency)
+* [Learn about Speech SDK](./speech-sdk.md)
+* [How to lower speech synthesis latency](/azure/cognitive-services/speech-service/how-to-lower-speech-synthesis-latency)
