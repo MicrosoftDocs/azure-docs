@@ -100,6 +100,9 @@ If cloud role name is not set, the Application Insights resource's name will be 
 You can also set the cloud role name using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`
 (which will then take precedence over cloud role name specified in the json configuration).
 
+Or you can set the cloud role name using the Java system property `applicationinsights.role.name`
+(which will also take precedence over cloud role name specified in the json configuration).
+
 If you have multiple applications deployed in the same JVM and want them to send telemetry to different cloud role
 names, see [Cloud role name overrides (preview)](#cloud-role-name-overrides-preview).
 
@@ -120,6 +123,9 @@ If you want to set the cloud role instance to something different rather than th
 
 You can also set the cloud role instance using the environment variable `APPLICATIONINSIGHTS_ROLE_INSTANCE`
 (which will then take precedence over cloud role instance specified in the json configuration).
+
+Or you can set the cloud role instance using the Java system property `applicationinsights.role.instance`
+(which will also take precedence over cloud role instance specified in the json configuration).
 
 ## Sampling
 
@@ -259,11 +265,11 @@ Cloud role name overrides allow you to override the [default cloud role name](#c
     "roleNameOverrides": [
       {
         "httpPathPrefix": "/myapp1",
-        "roleName": "12345678-0000-0000-0000-0FEEDDADBEEF"
+        "roleName": "Role A"
       },
       {
         "httpPathPrefix": "/myapp2",
-        "roleName": "87654321-0000-0000-0000-0FEEDDADBEEF"
+        "roleName": "Role B"
       }
     ]
   }

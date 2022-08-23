@@ -44,6 +44,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 1. Pools without public IP addresses must use Virtual Machine Configuration and not Cloud Services Configuration.
 1. [Custom endpoint configuration](pool-endpoint-configuration.md) to Batch compute nodes doesn't work with pools without public IP addresses.
 1. Because there are no public IP addresses, you can't [use your own specified public IP addresses](create-pool-public-ip.md) with this type of pool.
+1. [Basic VM size](../virtual-machines/sizes-previous-gen.md#basic-a) doesn't work with pools without public IP addresses.
 
 ## Create a pool without public IP addresses in the Azure portal
 

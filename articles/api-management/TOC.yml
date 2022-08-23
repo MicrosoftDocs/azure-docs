@@ -64,6 +64,8 @@
         href: api-management-terminology.md
       - name: API Management policies
         href: api-management-howto-policies.md
+      - name: API gateway
+        href: api-management-gateways-overview.md
       - name: Self-hosted gateway
         href: self-hosted-gateway-overview.md
       - name: Networking
@@ -112,6 +114,7 @@
             - name: Compute platform
               href: compute-infrastructure.md
             - name: Set up DR using backup/restore
+              displayName: disaster, recovery
               href: api-management-howto-disaster-recovery-backup-restore.md
             - name: Use role-based access control
               href: api-management-role-based-access-control.md
@@ -367,9 +370,9 @@
           - name: .NET
             href: /dotnet/api/overview/azure/apimanagement
           - name: JavaScript
-            href: /javascript/api/overview/azure/apimanagement
+            href: /javascript/api/overview/azure/api-management
           - name: Java
-            href: /java/api/overview/azure/apimanagement
+            href: /java/api/overview/azure/api-management
           - name: Python
             href: https://pypi.org/project/azure-mgmt-apimanagement
           - name: Go

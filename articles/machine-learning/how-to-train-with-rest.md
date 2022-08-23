@@ -157,4 +157,4 @@ To create a sweep job with the same LightGBM example, use the following commands
 
 ## Next steps
 
-Now that you have a trained model, learn [how to deploy your model](how-to-deploy-and-where.md).
+Now that you have a trained model, learn [how to deploy your model](how-to-deploy-managed-online-endpoints.md).

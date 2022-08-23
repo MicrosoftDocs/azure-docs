@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 8/10/2020
+ms.date: 08/02/2022
 ---
 
 # Distribute and modify tables
@@ -452,3 +452,68 @@ method is useful for adding new indexes in a production environment.
 
 CREATE INDEX CONCURRENTLY clicked_at_idx ON clicks USING BRIN (clicked_at);
 ```
+### Types and Functions
+
+Creating custom SQL types and user-defined functions propogates to worker
+nodes. However, creating such database objects in a transaction with
+distributed operations involves tradeoffs.
+
+Hyperscale (Citus) parallelizes operations such as `create_distributed_table()`
+across shards using multiple connections per worker. Whereas, when creating a
+database object, Citus propagates it to worker nodes using a single connection
+per worker. Combining the two operations in a single transaction may cause
+issues, because the parallel connections will not be able to see the object
+that was created over a single connection but not yet committed.
+
+Consider a transaction block that creates a type, a table, loads data, and
+distributes the table:
+
+```postgresql
+BEGIN;
+
+-- type creation over a single connection:
+CREATE TYPE coordinates AS (x int, y int);
+CREATE TABLE positions (object_id text primary key, position coordinates);
+
+-- data loading thus goes over a single connection:
+SELECT create_distributed_table(‘positions’, ‘object_id’);
+\COPY positions FROM ‘positions.csv’
+
+COMMIT;
+```
+
+Prior to Citus 11.0, Citus would defer creating the type on the worker nodes,
+and commit it separately when creating the distributed table. This enabled the
+data copying in `create_distributed_table()` to happen in parallel. However, it
+also meant that the type was not always present on the Citus worker nodes – or
+if the transaction rolled back, the type would remain on the worker nodes.
+
+With Citus 11.0, the default behaviour changes to prioritize schema consistency
+between coordinator and worker nodes. The new behavior has a downside: if
+object propagation happens after a parallel command in the same transaction,
+then the transaction can no longer be completed, as highlighted by the ERROR in
+the code block below:
+
+```postgresql
+BEGIN;
+CREATE TABLE items (key text, value text);
+-- parallel data loading:
+SELECT create_distributed_table(‘items’, ‘key’);
+\COPY items FROM ‘items.csv’
+CREATE TYPE coordinates AS (x int, y int);
+
+ERROR:  cannot run type command because there was a parallel operation on a distributed table in the transaction
+```
+
+If you run into this issue, there are two simple workarounds:
+
+1. Use set `citus.create_object_propagation` to `automatic` to defer creation
+   of the type in this situation, in which case there may be some inconsistency
+   between which database objects exist on different nodes.
+1. Use set `citus.multi_shard_modify_mode` to `sequential` to disable per-node
+   parallelism. Data load in the same transaction might be slower.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Useful diagnostic queries](howto-useful-diagnostic-queries.md)

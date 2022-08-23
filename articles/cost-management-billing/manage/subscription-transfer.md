@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 08/01/2022
 ms.author: banders
 ---
 
@@ -42,7 +42,8 @@ As you begin to plan your product transfer, consider the information needed to a
   - Previous Azure offer in CSP
   - New Azure offer in CSP, also referred to as Azure Plan with a Microsoft Partner Agreement (MPA)
   - Enterprise Agreement (EA)
-  - Microsoft Customer Agreement (MCA) in the Enterprise motion when you buy Azure services through a Microsoft representative and individual MCA when you buy Azure services through Azure.com
+  - Microsoft Customer Agreement (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA enterprise agreement.
+  - Microsoft Customer Agreement (MCA) that you bought through the Azure website. Also called an MCA individual agreement.
   - Others like MSDN, BizSpark, EOPEN, Azure Pass, and Free Trial
 - Do you have the required permissions on the product to accomplish a transfer? Specific permission needed for each transfer type is listed in the following product transfer support table.
   - Only the billing administrator of an account can transfer subscription ownership.

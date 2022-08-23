@@ -85,7 +85,7 @@ No, Azure Route Server doesn't support configuring a UDR on the RouteServerSubne
 
 No, Azure Route Server doesn't support NSG association to the RouteServerSubnet.
 
-### When the same route is learned over ExpressRoute, VPN or SDWAN, which network is preferred.
+### When the same route is learned over ExpressRoute, VPN or SDWAN, which network is preferred?
 
 ExpressRoute is preferred over VPN or SDWAN.
 

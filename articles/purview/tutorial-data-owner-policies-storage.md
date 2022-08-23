@@ -13,7 +13,7 @@ ms.date: 04/08/2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Policies](concept-data-owner-policies.md) in Microsoft Purview allow you to enable access to data sources that have been registered to a collection. This tutorial describes how a data owner can use Microsoft Purview to enable access to datasets in Azure Storage through Microsoft Purview.
+[Policies](concept-policies-data-owner.md) in Microsoft Purview allow you to enable access to data sources that have been registered to a collection. This tutorial describes how a data owner can use Microsoft Purview to enable access to datasets in Azure Storage through Microsoft Purview.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -187,5 +187,5 @@ Check our demo and related tutorials:
 
 > [!div class="nextstepaction"]
 > [Demo of access policy for Azure Storage](https://learn-video.azurefd.net/vod/player?id=caa25ad3-7927-4dcc-88dd-6b74bcae98a2)
-> [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
-> [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
+> [Concepts for Microsoft Purview data owner policies](./concept-policies-data-owner.md)
+> [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)

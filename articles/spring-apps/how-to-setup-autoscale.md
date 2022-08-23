@@ -3,7 +3,7 @@ title: "Set up autoscale for applications"
 description: This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
 author: karlerickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/03/2021
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022

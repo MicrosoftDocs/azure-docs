@@ -3,7 +3,7 @@ title: Create an Azure SQL managed instance on Azure Arc
 description: Create an Azure SQL managed instance on Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray

@@ -52,13 +52,14 @@ The table below contains the parameters that define the environment settings.
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                | Description                                              | Type       | Notes                                                                                       |
-> | ----------------------- | -------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-> | `environment`           | Identifier for the workload zone (max 5 chars)           | Mandatory  | For example, `PROD` for a production environment and `NP` for a non-production environment. |
-> | `location`              | The Azure region in which to deploy.                     | Required   |                                                                                             |
-> | `custom_prefix`         | Specifies the custom prefix used in the resource naming  | Optional   |                                                                                             |
-> | `use_prefix`            | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
-> | 'name_override_file'    | Name override file                                       | Optional   | see [Custom naming](automation-naming-module.md)                                            |
+> | Variable                 | Description                                              | Type       | Notes                                                                                       |
+> | ------------------------ | -------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+> | `environment`            | Identifier for the workload zone (max 5 chars)           | Mandatory  | For example, `PROD` for a production environment and `NP` for a non-production environment. |
+> | `location`               | The Azure region in which to deploy.                     | Required   |                                                                                             |
+> | `custom_prefix`          | Specifies the custom prefix used in the resource naming  | Optional   |                                                                                             |
+> | `use_prefix`             | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
+> | 'name_override_file'     | Name override file                                       | Optional   | see [Custom naming](automation-naming-module.md)                                            |
+> | 'save_naming_information | Create a sample naming json file                         | Optional   | see [Custom naming](automation-naming-module.md)                                            |
 
 ## Resource group parameters
 

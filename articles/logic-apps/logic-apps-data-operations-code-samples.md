@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 08/20/2022
 ---
 
 # Data operation code samples for Azure Logic Apps

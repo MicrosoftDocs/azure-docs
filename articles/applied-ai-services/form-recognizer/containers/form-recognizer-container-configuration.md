@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 06/06/2022
+ms.date: 08/22/2022
 ms.author: lajanuar
 ---
 # Configure Form Recognizer containers
