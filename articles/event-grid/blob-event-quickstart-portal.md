@@ -68,9 +68,12 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
     
     ![Navigate to web site.](./media/blob-event-quickstart-portal/web-site.png)
 
-6. Confirm that you see the site but no events have been posted to it yet.
+6. Confirm that you see the site but no events have been posted to it yet. 
 
    ![View new site.](./media/blob-event-quickstart-portal/view-site.png)
+
+    > [!IMPORTANT]
+    > Keep the Azure Event Grid Viewer window open so that you can see events as soon as they are posted. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
