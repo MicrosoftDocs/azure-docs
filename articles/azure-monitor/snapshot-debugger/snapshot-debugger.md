@@ -12,9 +12,9 @@ ms.date: 08/18/2022
 
 # Debug snapshots on exceptions in .NET apps
 
-When an exception occurs, you can automatically collect a debug snapshot from your live web application. The snapshot shows the state of source code and variables at the moment the exception was thrown. The Snapshot Debugger in [Azure Application Insights](../app/app-insights-overview.md):
+When an exception occurs, you can automatically collect a debug snapshot from your live web application. The debug snapshot shows the state of source code and variables at the moment the exception was thrown. The Snapshot Debugger in [Azure Application Insights](../app/app-insights-overview.md):
 
-* Monitors exception telemetry from your web app.
+* Monitors system-generated logs from your web app.
 * Collects snapshots on your top-throwing exceptions.
 * Provides information you need to diagnose issues in production.
 
@@ -22,7 +22,7 @@ Simply include the [Snapshot collector NuGet package](https://www.nuget.org/pack
 
 Snapshots appear on [**Exceptions**](../app/asp-net-exceptions.md) in the Application Insights blade of the Azure portal.
 
-You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2019 Enterprise. In Visual Studio, you can also [set SnapPoints to interactively take snapshots](/visualstudio/debugger/debug-live-azure-applications) without waiting for an exception.
+You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio Enterprise. You can also [set SnapPoints to interactively take snapshots](/visualstudio/debugger/debug-live-azure-applications) without waiting for an exception.
 
 ## Enable Application Insights Snapshot Debugger for your application
 
@@ -44,7 +44,7 @@ The following environments are supported:
 * [On-premises virtual or physical machines](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running Windows Server 2012 R2 or later or Windows 8.1 or later
 
 > [!NOTE]
-> Client applications (for example, WPF, Windows Forms or UWP) are not supported.
+> Client applications (for example, WPF, Windows Forms or UWP) aren't supported.
 
 If you've enabled Snapshot Debugger but aren't seeing snapshots, check our [Troubleshooting guide](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
 
@@ -53,7 +53,7 @@ If you've enabled Snapshot Debugger but aren't seeing snapshots, check our [Trou
 Access to snapshots is protected by Azure role-based access control (Azure RBAC). To inspect a snapshot, you must first be added to the necessary role by a subscription owner.
 
 > [!NOTE]
-> Owners and contributors do not automatically have this role. If they want to view snapshots, they must add themselves to the role.
+> Owners and contributors don't automatically have this role. If they want to view snapshots, they must add themselves to the role.
 
 Subscription owners should assign the [Application Insights Snapshot Debugger](../../role-based-access-control/role-assignments-portal.md) role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
 
@@ -97,14 +97,14 @@ The downloaded snapshot includes any symbol files that were found on your web ap
 
 ## How snapshots work
 
-The Snapshot Collector is implemented as an [Application Insights Telemetry Processor](../app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). When your application runs, the Snapshot Collector Telemetry Processor is added to your application's telemetry pipeline.
+The Snapshot Collector is implemented as an [Application Insights Telemetry Processor](../app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). When your application runs, the Snapshot Collector Telemetry Processor is added to your application's system-generated logs pipeline.
 Each time your application calls [TrackException](../app/asp-net-exceptions.md#exceptions), the Snapshot Collector computes a Problem ID from the type of exception being thrown and the throwing method.
-Each time your application calls TrackException, a counter is incremented for the appropriate Problem ID. When the counter reaches the `ThresholdForSnapshotting` value, the Problem ID is added to a Collection Plan.
+Each time your application calls `TrackException`, a counter is incremented for the appropriate Problem ID. When the counter reaches the `ThresholdForSnapshotting` value, the Problem ID is added to a Collection Plan.
 
 The Snapshot Collector also monitors exceptions as they're thrown by subscribing to the [AppDomain.CurrentDomain.FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception) event. When that event fires, the Problem ID of the exception is computed and compared against the Problem IDs in the Collection Plan.
-If there's a match, then a snapshot of the running process is created. The snapshot is assigned a unique identifier and the exception is stamped with that identifier. After the FirstChanceException handler returns, the thrown exception is processed as normal. Eventually, the exception reaches the TrackException method again where it, along with the snapshot identifier, is reported to Application Insights.
+If there's a match, then a snapshot of the running process is created. The snapshot is assigned a unique identifier and the exception is stamped with that identifier. After the `FirstChanceException` handler returns, the thrown exception is processed as normal. Eventually, the exception reaches the `TrackException` method again where it, along with the snapshot identifier, is reported to Application Insights.
 
-The main process continues to run and serve traffic to users with little interruption. Meanwhile, the snapshot is handed off to the Snapshot Uploader process. The Snapshot Uploader creates a minidump and uploads it to Application Insights along with any relevant symbol (.pdb) files.
+The main process continues to run and serve traffic to users with little interruption. Meanwhile, the snapshot is handed off to the Snapshot Uploader process. The Snapshot Uploader creates a minidump and uploads it to Application Insights along with any relevant symbol (*.pdb*) files.
 
 > [!TIP]
 
@@ -119,7 +119,7 @@ The main process continues to run and serve traffic to users with little interru
 
 ### Data retention
 
-Debug snapshots are stored for 15 days. The default data retention retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal. For each Application Insights instance, a maximum number of 50 snapshots are allowed per day.
+Debug snapshots are stored for 15 days. The default data retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal. For each Application Insights instance, a maximum number of 50 snapshots are allowed per day.
 
 ### Publish symbols
 
@@ -133,7 +133,7 @@ Version 15.2 (or above) of Visual Studio 2017 publishes symbols for release buil
 For Azure Compute and other types, make sure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
 
 > [!NOTE]
-> For more information on the different symbol options that are available, see the [Visual Studio documentation](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019&preserve-view=true#output). For best results, we recommend using "Full", "Portable" or "Embedded".
+> For more information on the different symbol options that are available, see the [Visual Studio documentation](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp). For best results, we recommend that you use "Full", "Portable" or "Embedded".
 
 ### Optimized builds
 

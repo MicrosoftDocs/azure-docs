@@ -14,7 +14,7 @@ ms.custom: devdivchpfy22
 
 Snapshot Debugger currently works for ASP.NET and ASP.NET Core apps that are running on Azure Functions on Windows Service Plans.
 
-We recommend you run your application on the Basic service tier or higher when using Snapshot Debugger.
+We recommend that you run your application on the Basic service tier or higher when using Snapshot Debugger.
 
 For most applications, the Free and Shared service tiers don't have enough memory or disk space to save snapshots.
 
@@ -43,7 +43,7 @@ Snapshot Debugger is pre-installed as part of the Azure Functions runtime and is
 
 In the simple .NET Core Function app example below, `.csproj`, `{Your}Function.cs`, and `host.json` has Snapshot Debugger enabled:
 
-***Project.`csproj`***
+***`Project.csproj`***
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -160,11 +160,11 @@ To disable Snapshot Debugger in your Function app, update your `host.json` file 
 }
 ```
 
-We recommend you have Snapshot Debugger enabled on all your apps to ease diagnostics of application exceptions.
+We recommend that you have Snapshot Debugger enabled on all your apps to ease diagnostics of application exceptions.
 
 ## Next steps
 
 * Generate traffic to your application that can trigger an exception. Then, wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.
 * [View snapshots](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in the Azure portal.
-* Customize Snapshot Debugger configuration based on your use-case on your Function app. For more info, see [snapshot configuration in host.json](../../azure-functions/functions-host-json.md#applicationinsightssnapshotconfiguration).
+* Customize Snapshot Debugger configuration based on your use-case on your Function app. For more information, see [snapshot configuration in host.json](../../azure-functions/functions-host-json.md#applicationinsightssnapshotconfiguration).
 * For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).

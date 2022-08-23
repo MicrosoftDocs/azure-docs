@@ -18,11 +18,11 @@ There can be many different reasons why snapshots aren't generated. You can star
 
 ## Not Supported Scenarios
 
-Below you can find scenarios where Snapshot Collector is not supported:
+Below you can find scenarios where Snapshot Collector isn't supported:
 
 |Scenario    | Side Effects | Recommendation |
 |------------|--------------|----------------|
-|When using the Snapshot Collector SDK in your application directly (.csproj) and you have enabled the advance option "Interop".| The local Application Insights SDK (including Snapshot Collector telemetry) will be lost, therefore, no Snapshots will be available. <br/> Your application could crash at startup with `System.ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.` <br/> For more information about the Application Insights feature "Interop", see the [documentation.](../app/azure-web-apps-net-core.md#troubleshooting) | If you are using the advance option "Interop", use the codeless Snapshot Collector injection (enabled thru the Azure Portal UX) |
+|When using the Snapshot Collector SDK in your application directly (*.csproj*) and you have enabled the advance option "Interop".| The local Application Insights SDK (including Snapshot Collector telemetry) will be lost, therefore, no Snapshots will be available. <br/> Your application could crash at startup with `System.ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor` <br/> For more information about the Application Insights feature "Interop", see the [documentation.](../app/azure-web-apps-net-core.md#troubleshooting) | If you're using the advance option "Interop", use the codeless Snapshot Collector injection (enabled thru the Azure Portal UX) |
 
 ## Make sure you're using the appropriate Snapshot Debugger Endpoint
 
@@ -78,21 +78,21 @@ If that doesn't solve the problem, then refer to the following manual troublesho
 
 ## Verify the instrumentation key
 
-Make sure you're using the correct instrumentation key in your published application. Usually, the instrumentation key is read from the ApplicationInsights.config file. Verify the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
+Make sure you're using the correct instrumentation key in your published application. Usually, the instrumentation key is read from the *ApplicationInsights.config* file. Verify the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## <a id="SSL"></a>Check TLS/SSL client settings (ASP.NET)
 
-If you have an ASP.NET application that it is hosted in Azure App Service or in IIS on a virtual machine, your application could fail to connect to the Snapshot Debugger service due to a missing SSL security protocol.
+If you have an ASP.NET application that's hosted in Azure App Service or in IIS on a virtual machine, your application could fail to connect to the Snapshot Debugger service due to a missing SSL security protocol.
 
-[The Snapshot Debugger endpoint requires TLS version 1.2](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). The set of SSL security protocols is one of the quirks enabled by the httpRuntime targetFramework value in the system.web section of web.config.
-If the httpRuntime targetFramework is 4.5.2 or lower, then TLS 1.2 isn't included by default.
+[The Snapshot Debugger endpoint requires TLS version 1.2](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). The set of SSL security protocols is one of the quirks enabled by the `httpRuntime targetFramework` value in the `system.web` section of `web.config`.
+If the `httpRuntime targetFramework` is 4.5.2 or lower, then TLS 1.2 isn't included by default.
 
 > [!NOTE]
-> The httpRuntime targetFramework value is independent of the target framework used when building your application.
+> The `httpRuntime targetFramework` value is independent of the target framework used when building your application.
 
-To check the setting, open your web.config file and find the system.web section. Ensure that the `targetFramework` for `httpRuntime` is set to 4.6 or above.
+To check the setting, open your *web.config* file and find the system.web section. Ensure that the `targetFramework` for `httpRuntime` is set to 4.6 or above.
 
    ```xml
    <system.web>
@@ -103,10 +103,10 @@ To check the setting, open your web.config file and find the system.web section.
    ```
 
 > [!NOTE]
-> Modifying the httpRuntime targetFramework value changes the runtime quirks applied to your application and can cause other, subtle behavior changes. Be sure to test your application thoroughly after making this change. For a full list of compatibility changes, see [Retargeting changes](/dotnet/framework/migration-guide/application-compatibility#retargeting-changes).
+> Modifying the `httpRuntime targetFramework` value changes the runtime quirks applied to your application and can cause other, subtle behavior changes. Be sure to test your application thoroughly after making this change. For a full list of compatibility changes, see [Re-targeting changes](/dotnet/framework/migration-guide/application-compatibility#retargeting-changes).
 
 > [!NOTE]
-> If the targetFramework is 4.7 or above then Windows determines the available protocols. In Azure App Service, TLS 1.2 is available. However, if you are using your own virtual machine, you may need to enable TLS 1.2 in the OS.
+> If the `targetFramework` is 4.7 or above then Windows determines the available protocols. In Azure App Service, TLS 1.2 is available. However, if you're using your own virtual machine, you may need to enable TLS 1.2 in the OS.
 
 ## Preview Versions of .NET Core
 
@@ -143,18 +143,18 @@ Based on how Snapshot Debugger was enabled, see the following options:
 
 * If Snapshot Debugger was enabled through the [Application Insights pane in the portal](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json), then your application should already be running the latest NuGet package.
 
-* If Snapshot Debugger was enabled by including the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package, use Visual Studio's NuGet Package Manager to make sure you're using the latest version of Microsoft.ApplicationInsights.SnapshotCollector.
+* If Snapshot Debugger was enabled by including the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package, use Visual Studio's NuGet Package Manager to make sure you're using the latest version of `Microsoft.ApplicationInsights.SnapshotCollector`.
 
 For the latest updates and bug fixes [consult the release notes](./snapshot-collector-release-notes.md).
 
 ## Check the uploader logs
 
-After a snapshot is created, a minidump file (.dmp) is created on disk. A separate uploader process creates that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. After the minidump has uploaded successfully, it's deleted from disk. The log files for the uploader process are kept on disk. In an App Service environment, you can find these logs in `D:\Home\LogFiles`. Use the Kudu management site for App Service to find these log files.
+After a snapshot is created, a minidump file (*.dmp*) is created on disk. A separate uploader process creates that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. After the minidump has uploaded successfully, it's deleted from disk. The log files for the uploader process are kept on disk. In an App Service environment, you can find these logs in `D:\Home\LogFiles`. Use the Kudu management site for App Service to find these log files.
 
 1. Open your App Service application in the Azure portal.
 1. Select **Advanced Tools**, or search for **Kudu**.
 1. Select **Go**.
-1. In the **Debug console** drop-down list box, select **CMD**.
+1. In the **Debug console** drop-down list, select **CMD**.
 1. Select **LogFiles**.
 
 You should see at least one file with a name that begins with `Uploader_` or `SnapshotUploader_` and a `.log` extension. Select the appropriate icon to download any log files or open them in a browser.
@@ -186,7 +186,7 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 ```
 
 > [!NOTE]
-> The example above is from version 1.2.0 of the Microsoft.ApplicationInsights.SnapshotCollector NuGet package. In earlier versions, the uploader process is called `MinidumpUploader.exe` and the log is less detailed.
+> The example above is from version 1.2.0 of the `Microsoft.ApplicationInsights.SnapshotCollector` NuGet package. In earlier versions, the uploader process is called `MinidumpUploader.exe` and the log is less detailed.
 
 In the previous example, the instrumentation key is `c12a605e73c44346a984e00000000000`. This value should match the instrumentation key for your application.
 The minidump is associated with a snapshot with the ID `139e411a23934dc0b9ea08a626db16c5`. You can use this ID later to locate the associated exception record in Application Insights Analytics.
@@ -204,7 +204,7 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
     DateTime=2018-03-09T01:47:19.4614027Z
 ```
 
-For applications that _aren't_ hosted in App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
+For applications that *aren't* hosted in App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
 
 ## Troubleshooting Cloud Services
 
@@ -255,7 +255,7 @@ Follow these steps to configure your Cloud Service role with a dedicated local r
    }
    ```
 
-1. Update your role's ApplicationInsights.config file to override the temporary folder location used by `SnapshotCollector`
+1. Update your role's *ApplicationInsights.config* file to override the temporary folder location used by `SnapshotCollector`
 
    ```xml
    <TelemetryProcessors>
@@ -278,15 +278,15 @@ The Snapshot Collector checks a few well-known locations, making sure it has per
 * APPDATA
 * TEMP
 
-If a suitable folder can't be found, Snapshot Collector reports an error saying _"Couldn't find a suitable shadow copy folder."_
+If a suitable folder can't be found, Snapshot Collector reports an error saying *"Couldn't find a suitable shadow copy folder."*
 
 If the copy fails, Snapshot Collector reports a `ShadowCopyFailed` error.
 
 If the uploader can't be launched, Snapshot Collector reports an `UploaderCannotStartFromShadowCopy` error. The body of the message often contains `System.UnauthorizedAccessException`. This error usually occurs because the application is running under an account with reduced permissions. The account has permission to write to the shadow copy folder, but it doesn't have permission to execute code.
 
-Since these errors usually happen during startup, they'll usually be followed by an `ExceptionDuringConnect` error saying _"Uploader failed to start."_
+Since these errors usually happen during startup, they'll usually be followed by an `ExceptionDuringConnect` error saying *Uploader failed to start*."
 
-To work around these errors, you can specify the shadow copy folder manually via the `ShadowCopyFolder` configuration option. For example, using ApplicationInsights.config:
+To work around these errors, you can specify the shadow copy folder manually via the `ShadowCopyFolder` configuration option. For example, using *ApplicationInsights.config*:
 
    ```xml
    <TelemetryProcessors>
@@ -298,7 +298,7 @@ To work around these errors, you can specify the shadow copy folder manually via
    </TelemetryProcessors>
    ```
 
-Or, if you're using appsettings.json with a .NET Core application:
+Or, if you're using *appsettings.json* with a .NET Core application:
 
    ```json
    {

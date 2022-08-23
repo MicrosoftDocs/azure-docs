@@ -73,19 +73,19 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
 1. Include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
 1. Modify your application's `Startup` class to add and configure the Snapshot Collector's telemetry processor.
-    1. If [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.3.5 or above is used, then add the following using statements to `Startup.cs`.
+    1. If [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.3.5 or above is used, then add the following using statements to *Startup.cs*:
 
        ```csharp
             using Microsoft.ApplicationInsights.SnapshotCollector;
        ```
 
-       Add the following at the end of the ConfigureServices method in the `Startup` class in `Startup.cs`.
+       Add the following at the end of the ConfigureServices method in the `Startup` class in *Startup.cs*:
 
        ```csharp
             services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
        ```
 
-    1. If [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.3.4 or below is used, then add the following using statements to `Startup.cs`.
+    1. If [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.3.4 or below is used, then add the following using statements to *Startup.cs*.
 
        ```csharp
        using Microsoft.ApplicationInsights.SnapshotCollector;
@@ -94,7 +94,7 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
        using Microsoft.ApplicationInsights.Extensibility;
        ```
 
-       Add the following `SnapshotCollectorTelemetryProcessorFactory` class to `Startup` class.
+       Add the following `SnapshotCollectorTelemetryProcessorFactory` class to `Startup` class:
 
        ```csharp
        class Startup

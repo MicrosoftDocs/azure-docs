@@ -30,11 +30,11 @@ This article discusses both upgrade paths.
 If you enabled the Snapshot debugger using the site extension, you can upgrade using the following procedure:
 
 1. Sign in to the Azure portal.
-1. Navigate to your resource that has Application Insights and Snapshot debugger enabled. For example, for a Web App, navigate to the App Service resource:
+1. Go to to your resource that has Application Insights and Snapshot debugger enabled. For example, for a Web App, go to to the App Service resource:
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/app-service-resource.png" alt-text="Screenshot of individual App Service resource named DiagService01.":::
 
-1. Once you've navigated to your resource, click on the **Extensions** blade and wait for the list of extensions to populate:
+1. After you've navigated to your resource, click on the **Extensions** blade and wait for the list of extensions to populate:
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/application-insights-site-extension-to-be-deleted.png" alt-text="Screenshot of App Service Extensions showing Application Insights extension for Azure App Service installed.":::
 
@@ -56,7 +56,7 @@ If you enabled the Snapshot debugger using the site extension, you can upgrade u
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/view-application-insights-data.png" alt-text="Screenshot of Application Insights App Service Configuration page with Apply button highlighted in red.":::
 
-1. Once you click **Apply**, you'll be asked to confirm the changes.
+1. After you click **Apply**, you'll be asked to confirm the changes.
 
     > [!NOTE]
     > The site will be restarted as part of the upgrade process.

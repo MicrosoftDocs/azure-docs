@@ -14,13 +14,13 @@ ms.custom: devdivchpfy22
 
 Snapshot Debugger currently supports ASP.NET and ASP.NET Core apps that are running on Azure App Service on Windows service plans.
 
-We recommend you run your application on the Basic service tier, or higher, when using Snapshot Debugger.
+We recommend that you run your application on the Basic service tier, or higher, when using Snapshot Debugger.
 
 For most applications, the Free and Shared service tiers don't have enough memory or disk space to save snapshots.
 
 ## <a id="installation"></a> Enable Snapshot Debugger
 
-Snapshot Debugger is pre-installed as part of the App Services runtime, but you need to turn it on to get snapshots for your App Service app. To enable Snapshot Debugger for an app, follow the instructions below.
+Snapshot Debugger is pre-installed as part of the App Services runtime, but you need to turn it on to get snapshots for your App Service app. To enable Snapshot Debugger for an app, follow the instructions below:
 
 > [!NOTE]
 > If you're using a preview version of .NET Core, or your application references Application Insights SDK (directly or indirectly via a dependent assembly), follow the instructions for [Enable Snapshot Debugger for other environments](snapshot-debugger-vm.md) to include the [`Microsoft.ApplicationInsights.SnapshotCollector`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package with the application.
@@ -29,9 +29,9 @@ Snapshot Debugger is pre-installed as part of the App Services runtime, but you 
 > Codeless installation of Application Insights Snapshot Debugger follows the .NET Core support policy.
 > For more information about supported runtimes, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
-Once you've deployed your .NET app:
+After you've deployed your .NET app:
 
-1. Navigate to the Azure control panel for your App Service.
+1. Go to to the Azure control panel for your App Service.
 1. Go to the **Settings** > **Application Insights** page.
 
    :::image type="content" source="./media/snapshot-debugger/application-insights-app-services.png" alt-text="Screenshot showing the Enable App Insights on App Services portal.":::
@@ -69,15 +69,15 @@ Application Insights Snapshot Debugger supports Azure AD authentication for snap
 
 As of today, Snapshot Debugger only supports Azure AD authentication when you reference and configure Azure AD using the Application Insights SDK in your application.
 
-To enable Azure AD for snapshot ingestion:
+To turn-on Azure AD for snapshot ingestion:
 
 1. Create and add the managed identity you want to use to authenticate against your Application Insights resource to your App Service.
 
-    1. For System-Assigned Managed identity, see the following [documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-system-assigned-identity)
+    1. For System-Assigned Managed identity, see the following [documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-system-assigned-identity).
 
-    1. For User-Assigned Managed identity, see the following [documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-user-assigned-identity)
+    1. For User-Assigned Managed identity, see the following [documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-user-assigned-identity).
 
-1. Configure and enable Azure AD in your Application Insights resource. For more information, see the following [documentation](../app/azure-ad-authentication.md?tabs=net#configuring-and-enabling-azure-ad-based-authentication)
+1. Configure and turn on Azure AD in your Application Insights resource. For more information, see the following [documentation](../app/azure-ad-authentication.md?tabs=net#configuring-and-enabling-azure-ad-based-authentication)
 1. Add the following application setting, used to let Snapshot Debugger agent know which managed identity to use:
 
 For System-Assigned Identity:
@@ -94,7 +94,7 @@ For User-Assigned Identity:
 
 ## Disable Snapshot Debugger
 
-To disable Snapshot Debugger, repeat the [steps for enabling](#installation), but switch the Snapshot Debugger toggles to **Off**.
+To disable Snapshot Debugger, repeat the [steps for enabling](#installation). However, switch the Snapshot Debugger toggles to **Off**.
 
 ## Azure Resource Manager template
 
@@ -140,11 +140,11 @@ For an Azure App Service, you can set app settings within the Azure Resource Man
 
 ## Not Supported Scenarios
 
-Below you can find scenarios where Snapshot Collector is not supported:
+Below you can find scenarios where Snapshot Collector isn't supported:
 
 |Scenario    | Side Effects | Recommendation |
 |------------|--------------|----------------|
-|You're using the Snapshot Collector SDK in your application directly (.csproj) and have enabled the advanced option "Interop".| The local Application Insights SDK (including Snapshot Collector telemetry) will be lost and no Snapshots will be available. <br/> Your application could crash at startup with `System.ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.` <br/> [Learn more about the Application Insights feature "Interop".](../app/azure-web-apps-net-core.md#troubleshooting) | If you are using the advanced option "Interop", use the codeless Snapshot Collector injection (enabled through the Azure portal). |
+|You're using the Snapshot Collector SDK in your application directly (*.csproj*) and have enabled the advanced option "Interop".| The local Application Insights SDK (including Snapshot Collector telemetry) will be lost and no Snapshots will be available. <br/> Your application could crash at startup with `System.ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.` <br/> [Learn more about the Application Insights feature "Interop".](../app/azure-web-apps-net-core.md#troubleshooting) | If you're using the advanced option "Interop", use the codeless Snapshot Collector injection (enabled through the Azure portal). |
 
 ## Next steps
 
