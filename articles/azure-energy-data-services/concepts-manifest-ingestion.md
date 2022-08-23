@@ -1,5 +1,5 @@
 ---
-title: Manifest ingestion concepts #Required; page title is displayed in search results. Include the brand.
+title: Microsoft Energy Data Services manifest ingestion concepts #Required; page title is displayed in search results. Include the brand.
 description: This article describes manifest ingestion concepts #Required; article description that is displayed in search results. 
 author: bharathim #Required; your GitHub user alias, with correct capitalization.
 ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
@@ -27,7 +27,7 @@ The manifest schema has containers for the following entities
 
 ## Manifest-based file ingestion workflow steps
 
-1. A manifest is submitted to the Workflow Service using the manifest ingestion workflow name (for example, “Osdu_ingest”)
+1. A manifest is submitted to the Workflow Service using the manifest ingestion workflow name (for example, "Osdu_ingest")
 2. Once the request is validated and the user authorization is complete, the workflow service will load and initiate the manifest ingestion workflow.
 3. The first step is to check the syntax of the manifest.  
     1. Retrieve the **kind** property of the manifest
@@ -60,12 +60,12 @@ The manifest schema has containers for the following entities
 * **Storage Service** is used to save the manifest records into the data platform.
 * **Airflow engine** is the workflow engine that executes DAGs (Directed Acyclic Graphs).
 * **Schema Service** stores schemas used in the data platform. Schemas are being referenced during the Manifest-based file ingestion.
-* **Entitlements Service** manages access groups. This service is used during the ingestion for verification of ingestion permissions. This service is also used during the metadata record retrieval for validation of “read” writes.  
+* **Entitlements Service** manages access groups. This service is used during the ingestion for verification of ingestion permissions. This service is also used during the metadata record retrieval for validation of "read" writes.  
 * **Search Service** is used to perform referential integrity check during the manifest ingestion process.
 
 ## Manifest ingestion workflow sequence
 
-:::image type="content" source="media/concepts-manifest-ingestion/concept-manifest-ingestion-sequence.png" alt-text="Manifest ingestion sequence":::
+:::image type="content" source="media/concepts-manifest-ingestion/concept-manifest-ingestion-sequence.png" alt-text="Screenshot of the manifest ingestion sequence.":::
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
