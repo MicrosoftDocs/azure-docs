@@ -11,12 +11,9 @@ ms.custom: template-how-to
 
 <!-- 
 !########################################################
-STATUS: IN REVIEW
+STATUS: PLACEHOLDER
 
-CONTENT: critical content missing
-        - content still located in wrong file
-        - links need review and update
-        - resource recommendation table needs to be filled out
+CONTENT: devoid of content
 
 REVIEW Stephen/Fabian: not reviewed
 REVIEW Engineering: not reviewed
