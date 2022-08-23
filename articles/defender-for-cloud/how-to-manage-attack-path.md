@@ -2,7 +2,7 @@
 title: Manage your attack path analysis
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
-ms.date: 08/18/2022
+ms.date: 08/23/2022
 ---
 
 # Manage your attack path analysis
@@ -41,7 +41,9 @@ Attack path analysis allows you to see the details of each node within your envi
 
     :::image type="content" source="media/how-to-manage-cloud-map/node-select.png" alt-text="Screenshot of the attack path screen that shows you where the nodes are located for selection." lightbox="media/how-to-manage-cloud-map/node-select.png":::
 
-1. Select insight to view the associated insights for that node.
+1. Select **Insight** to view the associated insights for that node.
+
+    :::image type="content" source="media/how-to-manage-cloud-map/insights.png" alt-text="Screenshot of the insights tab for a specific node.":::
 
 1. Select **Recommendations**.
 
