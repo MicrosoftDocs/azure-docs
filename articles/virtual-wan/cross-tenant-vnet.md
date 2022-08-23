@@ -57,7 +57,7 @@ Make sure that the virtual network address space in the remote tenant does not o
    Connect-AzAccount -SubscriptionId "[subscription ID]" -TenantId "[tenant ID]"
    ```
 
-1. Verify that the role assignment is successful by signing in to Azure PowerShell by using the parent credentials and running the following command:
+1. Verify that the role assignment is successful. Sign in to Azure PowerShell by using the parent credentials and run the following command:
 
    ```azurepowershell-interactive
    Get-AzSubscription
@@ -95,12 +95,16 @@ In the following steps, you'll use commands to switch between the context of the
 
 You can view the new connection in either PowerShell or the Azure portal:
 
-* In PowerShell, the metadata from the newly formed connection will appear in the PowerShell console if the connection was successfully formed.
+* In the PowerShell console, the metadata from the newly formed connection will appear if the connection was successfully formed.
 * In the Azure portal, go to the virtual hub and select **Connectivity** > **Virtual Network Connections**. You can then view the pointer to the connection. To see the actual resource, you'll need the proper permissions.
 
 ## Scenario: Add static routes to a virtual network hub connection
 
 In the following steps, you'll use commands to add a static route to the virtual hub's default route table and a virtual network connection to point to a next-hop IP address (that is, an NVA appliance). Replace the example values to reflect your own environment.
+
+>[!NOTE]
+>- Before you run the commands, make sure you have access and are authorized to the remote subscription.
+>- The destination prefix can be one CIDR or multiple ones. For a single CIDR, use this format: `@("10.19.2.0/24")`. For multiple CIDRs, use this format: `@("10.19.2.0/24", "10.40.0.0/16")`.
 
 1. Make sure you're in the context of your parent account: 
 
@@ -109,10 +113,6 @@ In the following steps, you'll use commands to add a static route to the virtual
     ```
 
 2. Add a route in the virtual hub's default route table without a specific IP address.
-
-    >[!NOTE]
-    >- Before you run the commands, make sure you have access and are authorized to the remote subscription.
-    >- The destination prefix can be one CIDR or multiple ones. For a single CIDR, use this format: `@("10.19.2.0/24")`. For multiple CIDRs, use this format: `@("10.19.2.0/24", "10.40.0.0/16")`.
 
     1. Get the connection details:
 
