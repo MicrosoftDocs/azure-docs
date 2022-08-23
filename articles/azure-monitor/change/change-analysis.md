@@ -104,7 +104,7 @@ Changes to resource dependencies can also cause issues in a resource. For exampl
 
 As another example, if port 22 was closed in a virtual machine's Network Security Group, it will cause connectivity errors.
 
-#### Web App diagnose and solve problems navigator
+#### Web App diagnose and solve problems navigator (preview)
 
 To detect changes in dependencies, Change Analysis checks the web app's DNS record. In this way, it identifies changes in all app components that could cause issues.
 
