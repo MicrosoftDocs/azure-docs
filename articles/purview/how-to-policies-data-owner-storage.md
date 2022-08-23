@@ -14,7 +14,7 @@ ms.date: 8/11/2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Access policies](concept-data-owner-policies.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
+[Access policies](concept-policies-data-owner.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
 
 This article describes how a data owner can delegate in Microsoft Purview management of access to Azure Storage datasets. Currently, these two Azure Storage sources are supported:
 
@@ -42,12 +42,12 @@ After you've registered your resources, you'll need to enable Data Use Managemen
 
 Once your data source has the  **Data Use Management** toggle **Enabled**, it will look like this picture:
 
-:::image type="content" source="./media/how-to-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Screenshot that shows how to register a data source for policy by toggling the enable tab in the resource editor.":::
+:::image type="content" source="./media/how-to-policies-data-owner-storage/register-data-source-for-policy-storage.png" alt-text="Screenshot that shows how to register a data source for policy by toggling the enable tab in the resource editor.":::
 
 ## Create and publish a data owner policy
-Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to the example shown in the image: a policy that provides group *Contoso Team* *read* access to Storage account *marketinglake1*:
+Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-policies-data-owner-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to the example shown in the image: a policy that provides group *Contoso Team* *read* access to Storage account *marketinglake1*:
 
-:::image type="content" source="./media/how-to-data-owner-policies-storage/data-owner-policy-example-storage.png" alt-text="Screenshot that shows a sample data owner policy giving access to an Azure Storage account.":::
+:::image type="content" source="./media/how-to-policies-data-owner-storage/data-owner-policy-example-storage.png" alt-text="Screenshot that shows a sample data owner policy giving access to an Azure Storage account.":::
 
 >[!Important]
 > - Publish is a background operation. Azure Storage accounts can take up to **2 hours** to reflect the changes.
@@ -96,8 +96,8 @@ This section contains a reference of how actions in Microsoft Purview data polic
 Check blog, demo and related tutorials:
 
 * [Demo of access policy for Azure Storage](https://learn-video.azurefd.net/vod/player?id=caa25ad3-7927-4dcc-88dd-6b74bcae98a2)
-* [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
-* [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
+* [Concepts for Microsoft Purview data owner policies](./concept-policies-data-owner.md)
+* [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
 * [Blog: What's New in Microsoft Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
 * [Blog: Accessing data when folder level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-folder-level-permission/ba-p/3109583)
 * [Blog: Accessing data when file level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-file-level-permission/ba-p/3102166)
