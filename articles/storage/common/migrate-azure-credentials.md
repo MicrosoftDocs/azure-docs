@@ -188,14 +188,6 @@ The Service Connector will automatically create a system-assigned managed identi
 
     :::image type="content" source="media/migration-create-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-create-identity.png":::
 
-### [Container Apps](#tab/container-apps)
-
-1. On the main overview page of your Azure Container App, select **Identity** from the left navigation. 
-
-1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and ids of the identity are never exposed in your code.
-
-    :::image type="content" source="media/storage-migrate-credentials/container-apps-identity.png" alt-text="A screenshot showing how to enable managed identity for container apps.":::    
-
 ### [Spring Apps](#tab/spring-apps)
 
 1. On the main overview page of your Azure Spring App, select **Identity** from the left navigation. 
@@ -203,6 +195,14 @@ The Service Connector will automatically create a system-assigned managed identi
 1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and ids of the identity are never exposed in your code.
 
     :::image type="content" source="media/storage-migrate-credentials/spring-apps-identity.png" alt-text="A screenshot showing how to enable managed identity for spring apps.":::    
+
+### [Container Apps](#tab/container-apps)
+
+1. On the main overview page of your Azure Container App, select **Identity** from the left navigation. 
+
+1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and ids of the identity are never exposed in your code.
+
+    :::image type="content" source="media/storage-migrate-credentials/container-apps-identity.png" alt-text="A screenshot showing how to enable managed identity for container apps.":::    
 
 ### [Virtual Machines](#tab/virtual-machines)
 
@@ -246,20 +246,20 @@ You can assign a managed identity to an Azure App Service with the [az webapp id
 az webapp identity assign --resource-group <resource-group-name> --name <app-service-name>
 ```
 
-### [Container Apps](#tab/container-apps-identity)
-
-You can assign a managed identity to an Azure Container App with the [az containerapp identity assign](/cli/azure/containerapp/identity) command.
-
-```azurecli
-az containerapp identity assign --resource-group <resource-group-name> --name <app-service-name>
-```
-
 ### [Spring Apps](#tab/spring-apps-identity)
 
 You can assign a managed identity to an Azure Spring App with the [az spring app identity assign](/cli/azure/spring/app/identity) command.
 
 ```azurecli
 az spring app identity assign --resource-group <resource-group-name> --name <app-service-name> --service <service-name>
+```
+
+### [Container Apps](#tab/container-apps-identity)
+
+You can assign a managed identity to an Azure Container App with the [az containerapp identity assign](/cli/azure/containerapp/identity) command.
+
+```azurecli
+az containerapp identity assign --resource-group <resource-group-name> --name <app-service-name>
 ```
 
 ### [Virtual Machines](#tab/virtual-machines-identity)
@@ -284,7 +284,7 @@ az vm identity assign --resource-group <resource-group-name> --name <app-service
 
 Next, you need to grant permissions to the managed identity you created to access your storage account. You can do this by assigning a role to the managed identity, just like you did with your local development user. 
 
-### [Service Connector](#tab/assign-role-azure-portal)
+### [Service Connector](#tab/assign-role-service-connector)
 
 If you connected your services using the Service Connector you do not need to complete this step. The necessary configurations were handled for you: 
 
