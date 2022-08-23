@@ -395,6 +395,8 @@ Below example shows how to implement retry logic in your app. The sample code sn
 
 ```bash
 const { Pool } = require('pg');
+const { sleep } = require('sleep');
+
 const pool = new Pool({
   host: '<host>',
   port: 5432,
@@ -408,26 +410,26 @@ const pool = new Pool({
   max: 20,
 });
 
+(async function() {
+  res = await executeRetry('select nonexistent_thing;',5);
+  console.log(res);
+  process.exit(res ? 0 : 1);
+})();
 
-try {
-  executeRetry('select 1')
-}
-catch(e){
-  console.log(e.message)
-}
+async function executeRetry(sql,retryCount)
+{
+  for (let i = 0; i < retryCount; i++) {
+    try {
+      result = await pool.query(sql)
+      return result;
+    } catch (err) {
+      console.log(err.message);
+      sleep(60);
+    }
+  }
 
-
-function executeRetry(sql) { 
-      pool.query(sql, (err, res) => {
-          if (err&&count<=5) {
-             console.log(err.message)
-             return  setTimeout(executeretry, 60000);
-          }
-          else{
-               console.log('user:', res.rows[0])
-           }
-          })
-
+  // didn't succeed after all the tries
+  return null;
 }
 ```
 
