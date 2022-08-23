@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 08/18/2022 
+ms.date: 08/23/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 
@@ -85,15 +85,31 @@ In addition to the settings set via Azure Resource Manager, you can set configur
 - TLS settings
 - Extension versions
 
-These setting changes are not captured by Azure Resource Graph. Change Analysis fills this gap by capturing snapshots of changes in those main configuration properties. Snapshots are taken of configuration changes and change details every 6 hours. [See known limitations.](#limitations)
+These setting changes are not captured by Azure Resource Graph. Change Analysis fills this gap by capturing snapshots of changes in those main configuration properties, like changes to the connection string, etc. Snapshots are taken of configuration changes and change details every up to 6 hours. [See known limitations.](#limitations)
 
-### Changes in web app configuration (in-guest changes)
+### Changes in Azure Functions and web app configuration (in-guest changes)
 
 Every 30 minutes, Change Analysis captures the configuration state of a web application. For example, it can detect changes in the application environment variables. The tool computes the differences and presents the changes. 
 
 :::image type="content" source="./media/change-analysis/scan-changes.png" alt-text="Screenshot of the Scan changes now button":::   
 
 If you don't see changes within 30 minutes, refer to [our troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app). 
+
+Currently, all text-based files under site root **wwwroot** with the following extensions are supported:
+
+- *.json
+- *.xml
+- *.ini
+- *.yml
+- *.config
+- *.properties
+- *.html
+- *.cshtml
+- *.js
+- requirements.txt
+- Gemfile
+- Gemfile.lock
+- config.gemspec
 
 ### Dependency changes
 
@@ -113,8 +129,10 @@ Currently the following dependencies are supported in **Web App Diagnose and sol
 
 ## Limitations
 
+- **OS environment**: Change Analysis currently only works with Windows environments, not Linux.
 - **Web app deployment changes**: Code deployment change information might not be available immediately in the Change Analysis tool. To view the latest changes in Change Analysis, select **Refresh**.
-- **Snapshot timestamps**: Due to the snapshot approach to configuration changes, timestamps of configuration changes could show as up to 6 hours from when the change actually happened.
+- **File changes**: File changes take up to 30 minutes to display.
+- **Configuration changes**: Due to the snapshot approach to configuration changes, timestamps of configuration changes could show as up to 6 hours from when the change actually happened.
 
 ## Next steps
 
