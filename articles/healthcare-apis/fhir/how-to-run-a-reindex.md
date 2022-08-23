@@ -152,7 +152,7 @@ The status of the reindex job result is shown below:
       "valueString": 
       "{LIST OF IMPACTED RESOURCES}"
     },
-    {
+}
 ```
 
 The following information is shown in the reindex job result:
