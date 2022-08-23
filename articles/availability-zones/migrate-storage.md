@@ -28,9 +28,9 @@ For an overview of each of these options, see [Azure Storage redundancy](../stor
 You can switch a storage account from one type of replication to any other type, but some switching scenarios are more straightforward than others. 
 
 > [!NOTE]
-> For details on how to switch from any Azure storage replication configuration to any other, see [Change how a storage account is replicated](../storage/common/redundancy-migration.md).
+> For details on how to switch from ***any** Azure storage replication configuration to **any** other, see [Change how a storage account is replicated](../storage/common/redundancy-migration.md).
 
-Changes between local and geo-redundant storage, or between non-read-access (RA) and read-access (RA) storage are simple changes that can be made quickly using the Azure portal, PowerShell or the Azure CLI. But changes between non-zone-redundant and zone-redundant replication types require migration of the data in the storage account and can take considerably longer. 
+Changes between local and geo-redundant storage, or between non-read-access (RA) and read-access (RA) storage are simple changes that can be made quickly using the Azure portal, PowerShell or the Azure CLI. But changes between zone-redundant and non-zone-redundant replication types require migration of the data in the storage account within the primary zone and can take considerably longer.
 
 This article describes two basic options for migrating your storage account to availability zone support:
 
@@ -84,7 +84,7 @@ However, be aware of the following limitations:
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The customer-initiated live migration preview replaces the previous requirement to create a support request to perform a live migration. Now an Azure customer can easily initiate the migration from within the Azure portal. Once initiated, the actual migration could still take up to 72 hours to actually begin, but delays related to opening and managing a support request are eliminated and the storage administrator has more control over when the process is started.
+Customer-initiated live migration replaces the previous requirement to create a support request to perform a live migration. Now an Azure customer can easily initiate the migration from within the Azure portal. Once initiated, the migration could still take up to 72 hours to begin, but delays related to opening and managing a support request are eliminated.
 
 > [!NOTE]
 > Customer-initiated live migration is only available from the Azure portal, not from PowerShell or the Azure CLI.
@@ -100,6 +100,8 @@ To change the redundancy option for your storage account in the Azure portal, fo
 
 #### Request a live migration by creating a support request
 
+If you need to migrate a production workload and don't want to use the customer-initiated migration preview, you can still open a support ticket to request Microsoft to do the live migration for you.
+
 [Request a live migration](../storage/common/redundancy-migration.md) by creating a new support request from the Azure portal.
 
 ## Migration option 2: Manual migration
@@ -112,7 +114,7 @@ Use a manual migration if:
 
 - You want to migrate your data to a ZRS storage account that's in a different region than the source account.
 
-- You want to migrate data from ZRS to LRS, GRS or RA-GRS.
+- You want to migrate data from ZRS to LRS, GRS or RA-GRS and you don't want to use the customer-initiated migration preview feature.
 
 - Your storage account is a premium page blob or block blob account.
 
@@ -134,7 +136,7 @@ To manually migration your Azure Storage accounts:
 
 ## Next steps
 
-For detailed guidance on changing the replication configuration for an Azure Storage account from one type to any other type, see:
+For detailed guidance on changing the replication configuration for an Azure Storage account from any type to any other type, see:
 
 > [!div class="nextstepaction"]
 > [Change how a storage account is replicated](../storage/common/redundancy-migration.md)
