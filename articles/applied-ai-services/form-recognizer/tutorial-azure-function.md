@@ -45,7 +45,7 @@ In this tutorial, you learn how to:
 
   * [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 
-  * [Azure Functions Core Tools](https://review.docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v3%2Cwindows%2Ccsharp%2Cportal%2Cbash&branch=main#install-the-azure-functions-core-tools) version 3.x (Version 4.x is not supported for this project).
+  * [Azure Functions Core Tools](/azure/azure-functions/functions-run-local?tabs=v3%2Cwindows%2Ccsharp%2Cportal%2Cbash) version 3.x (Version 4.x is not supported for this project).
 
   * The [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio code. For more information, *see* [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial)
 
