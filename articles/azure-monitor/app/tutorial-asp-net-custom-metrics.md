@@ -141,7 +141,7 @@ To send metrics to Application Insights, you can use the `TrackMetric(..)` API. 
 
 1. Go to the **Application Insights** resource in the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png" alt-text="Screenshot of a resource group with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png":::
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png" alt-text="First screenshot of a resource group with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png":::
 
 2. From the left menu of the Application Insights resource, select **Logs** from beneath the **Monitoring** section. In the **Tables** pane, double-click on the **customMetrics** table, located under the **Application Insights** tree. Modify the query to retrieve metrics for the **ReviewPerformed** custom named metric as follows, then select **Run** to filter the results.
 
@@ -206,7 +206,7 @@ When running the sample code, you'll see that no telemetry is being sent from th
 
 1. Go to the **Application Insights** resource in the [Azure portal](https://portal.azure.com).
 
-    ![Screenshot of a resource group with the Application Insights resource highlighted.](./media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png "Resource Group")
+    ![Second screenshot of a resource group with the Application Insights resource highlighted.](./media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png "Resource Group")
 
 2. From the left menu of the Application Insights resource, select **Logs** from beneath the **Monitoring** section. In the **Tables** pane, double-click on the **customMetrics** table, located under the **Application Insights** tree. Modify the query to retrieve metrics for the **ReviewPerformed** custom named metric as follows, then select **Run** to filter the results.
 
@@ -306,7 +306,7 @@ Once you have made that change and send new multi-dimensional telemetry, you'll 
 
 1. Go to the **Application Insights** resource in the [Azure portal](https://portal.azure.com).
 
-    ![Screenshot of a resource group with the Application Insights resource highlighted.](./media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png "Resource Group")
+    ![Third screenshot of a resource group with the Application Insights resource highlighted.](./media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png "Resource Group")
 
 2. From the left menu of the Application Insights resource, select **Logs** from beneath the **Monitoring** section. In the **Tables** pane, double-click on the **customMetrics** table, located under the **Application Insights** tree. Modify the query to retrieve metrics for the **ReviewPerformed** custom named metric as follows, then select **Run** to filter the results.
 
@@ -337,7 +337,7 @@ Once you have made that change and send new multi-dimensional telemetry, you'll 
 
 1. Go to the **Application Insights** resource in the [Azure portal](https://portal.azure.com).
 
-    ![Screenshot of a resource group with the Application Insights resource highlighted.](./media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png "Resource Group")
+    ![Fourth screenshot of a resource group with the Application Insights resource highlighted.](./media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png "Resource Group")
 
 2. From the left menu of the Application Insights resource, select **Metrics** from beneath the **Monitoring** section.
 
