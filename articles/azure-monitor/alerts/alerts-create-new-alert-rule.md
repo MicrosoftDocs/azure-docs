@@ -29,7 +29,7 @@ And then defining these elements for the resulting alert actions using:
 
 1. In the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, **resource location**, or do a search.
 
-    You can see the **Available signal types** for your selected resource(s) at the bottom right of the pane. The available signal types change based on the selected resource.
+    The **Available signal types** for your selected resource(s) are at the bottom right of the pane.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot showing the select resource pane for creating new alert rule.":::
 
@@ -47,7 +47,7 @@ And then defining these elements for the resulting alert actions using:
     |Metrics|Platform|For metric signals, the monitor service is the metric namespace. ‘Platform’ means the metrics are provided by the resource provider, namely 'Azure'.|
     |       |Azure.ApplicationInsights|Customer-reported metrics, sent by the Application Insights SDK. |
     |       |Azure.VM.Windows.GuestMetrics|VM guest metrics, collected by an extension running on the VM. Can include built-in operating system perf counters, as well as custom perf counters.        |
-    |       |\<custom metric namespace>\|A custom metric namespace, containing custom metrics sent with the Azure Monitor Metrics API.         |
+    |       |<custom metric namespace>|A custom metric namespace, containing custom metrics sent with the Azure Monitor Metrics API.         |
     |Log    |Log Analytics|The service that provides the ‘Custom log search’ and ‘Log (saved query)’ signals.         |
     |Activity log|Activity Log – Administrative|The service that provides the ‘Administrative’ activity log events.         |
     |       |Activity Log – Policy|The service that provides the 'Policy' activity log events.         |
