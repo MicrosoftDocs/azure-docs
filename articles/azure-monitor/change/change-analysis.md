@@ -79,7 +79,7 @@ Every 30 minutes, Change Analysis captures the deployment and configuration stat
 
 Unlike Azure Resource Manager changes, code deployment change information might not be available immediately in the Change Analysis tool. To view the latest changes in Change Analysis, select **Refresh**.
 
-:::image type="content" source="./media/change-analysis/scan-changes.png" alt-text="Screenshot of the Scan changes now button":::   
+:::image type="content" source="./media/change-analysis/scan-changes.png" alt-text="Screenshot of the selecting the Refresh button to view latest changes.":::   
 
 If you don't see changes within 30 minutes, refer to [our troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app). 
 

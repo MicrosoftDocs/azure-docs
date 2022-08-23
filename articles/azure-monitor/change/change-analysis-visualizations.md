@@ -57,9 +57,7 @@ You can view change data via the **Web App Down** and **Application Crashes** de
 - The change types over time.
 - Details on those changes. 
 
-By default, the graph displays changes from within the past 24 hours help with immediate problems.
-
-:::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the change diff view.":::   
+By default, the graph displays changes from within the past 24 hours help with immediate problems.   
 
 ### Diagnose and solve problems tool for Virtual Machines
 
