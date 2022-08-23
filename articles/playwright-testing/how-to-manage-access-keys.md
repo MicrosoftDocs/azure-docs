@@ -1,18 +1,18 @@
 ---
-title: Create & manage access keys
+title: Authenticate requests
 titleSuffix: Microsoft Playwright Testing
-description: Learn how to create & manage access keys for accessing the Microsoft Playwright Testing API and running tests.
+description: Learn how to create & manage access keys to authenticate requests to Microsoft Playwright Testing. Access keys provide secure access to the Microsoft Playwright Testing API and to run tests in your workspace.
 services: playwright-testing
 ms.service: playwright-testing
 ms.topic: how-to
 ms.author: nicktrog
 author: ntrogh
-ms.date: 08/12/2022
+ms.date: 08/23/2022
 ---
 
-# Create and manage access keys for running tests with Microsoft Playwright Testing Preview
+# Authenticate requests to Microsoft Playwright Testing Preview
 
-In this article, you'll learn how to create and manage access keys using the Microsoft Playwright Testing Preview portal. Access keys provide secure access to the Microsoft Playwright Testing API and to run tests in your workspace.
+In this article, you'll learn how to manage access keys to authenticate requests to Microsoft Playwright Testing Preview. Access keys provide secure access to the Microsoft Playwright Testing API and to run tests in your workspace.
 
 To run existing Playwright tests with Microsoft Playwright Testing, you specify the workspace access key in the Playwright configuration file. Learn how to [use your access key to grant access](#use-your-access-key-to-grant-access).
 
@@ -25,7 +25,7 @@ Access keys have a fixed duration expiration period that ranges from seven days 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Microsoft Playwright Testing workspace. To create a workspace, see [Quickstart: Run web UI tests at scale](./quickstart-run-end-to-end-tests.md).
-- To create or delete access keys, your Azure account needs to have the **Contributor** or **Owner** role at the Microsoft Playwright Testing workspace level.
+- To create or delete access keys, your Azure account needs to have the Contributor or Owner role at the workspace level. Learn more about [managing access to a workspace](./how-to-assign-roles.md).
 
 <!-- TODO: use link to manage workspaces instead -->
 
@@ -110,6 +110,7 @@ To delete an existing workspace access key:
 
 ## Next steps
 
+- Learn more about [managing access to a workspace](./how-to-assign-roles.md).
 - Learn more about [identifying app issues with web UI tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
 - Learn more about [running existing tests with Microsoft Playwright Testing](./how-to-run-with-playwright-testing.md).
 - Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
