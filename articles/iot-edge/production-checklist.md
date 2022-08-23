@@ -232,7 +232,7 @@ cleanup_recurrence = "1d"
 image_age_cleanup_threshold = "7d" 
 cleanup_time = "00:00"
 ```
-The table below contains the parameters used by image garbage collection and their description. These parameters are **optional** and can be used if the default settings need to be modified.
+The table below contains the parameters used by image garbage collection and their description. All of these parameters are **optional** and can be set individually if the default settings need to be modified.
 
 | Parameter | Description |
 |-|-|
