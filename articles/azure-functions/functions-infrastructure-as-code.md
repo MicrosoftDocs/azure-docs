@@ -10,19 +10,9 @@ ms.custom: fasttrack-edit, devx-track-azurepowershell
 
 # Automate resource deployment for your function app in Azure Functions
 
-You can use a Bicep file or an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy other resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app.
+You can use a Bicep file or an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy other resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app. For more information about creating Bicep files, see [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md). For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
-# [Bicep](#tab/bicep)
-
-For more information about creating Bicep files, see [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md).
-
-# [JSON](#tab/json)
-
-For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
-
----
-
-For sample templates, see:
+For sample Bicep files and ARM templates, see:
 
 - [ARM templates for function app deployment](https://github.com/Azure-Samples/function-app-arm-templates)
 - [Function app on Consumption plan]
@@ -103,7 +93,7 @@ These properties are specified in the `appSettings` collection in the `siteConfi
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource site 'Microsoft.Web/sites@2022-03-01' = {
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   ...
   properties: {
     ...
@@ -201,7 +191,7 @@ In addition, the instrumentation key needs to be provided to the function app us
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource site 'Microsoft.Web/sites@2022-03-01' = {
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   ...
   properties: {
     ...
@@ -326,7 +316,7 @@ These properties are specified in the `appSettings` collection in the `siteConfi
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource site 'Microsoft.Web/sites@2022-03-01' = {
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   ...
   properties: {
     ...
@@ -514,7 +504,7 @@ For a sample Bicep file/Azure Resource Manager template, see [Azure Function App
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource site 'Microsoft.Web/sites@2022-03-01' = {
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   name: functionAppName
   location: location
   kind: 'functionapp'
@@ -625,7 +615,7 @@ For a sample Bicep file/Azure Resource Manager template, see [Azure Function App
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource site 'Microsoft.Web/sites@2022-03-01' = {
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   name: functionAppName
   location: location
   kind: 'functionapp,linux'
@@ -918,7 +908,7 @@ The function app must have set `"kind": "functionapp,linux"`, and it must have s
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource site 'Microsoft.Web/sites@2021-02-01' = {
+resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
   name: functionAppName
   location: location
   kind: 'functionapp,linux'
@@ -1122,7 +1112,7 @@ The settings required by a function app running in Dedicated plan differ between
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource site 'Microsoft.Web/sites@2022-03-01' = {
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   name: functionAppName
   location: location
   kind: 'functionapp'
@@ -1211,7 +1201,7 @@ The function app must have set `"kind": "functionapp,linux"`, and it must have s
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource site 'Microsoft.Web/sites@2022-03-01' = {
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   name: functionAppName
   location: location
   kind: 'functionapp,linux'
@@ -1296,7 +1286,7 @@ If you're [deploying a custom container image](./functions-create-function-linux
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource site 'Microsoft.Web/sites@2022-03-01' = {
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   name: functionAppName
   location: location
   kind: 'functionapp'
@@ -1408,7 +1398,7 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
 
 Azure Functions can be deployed to [Azure Arc-enabled Kubernetes](../app-service/overview-arc-integration.md). This process largely follows [deploying to an App Service plan](#deploy-on-app-service-plan), with a few differences to note.
 
-To create the app and plan resources, you must have already [created an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. These examples assume you have the resource ID of the custom location and App Service Kubernetes environment that you're deploying to. For most templates, you can supply these values as parameters.
+To create the app and plan resources, you must have already [created an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. These examples assume you have the resource ID of the custom location and App Service Kubernetes environment that you're deploying to. For most Bicep files/ARM templates, you can supply these values as parameters.
 
 # [Bicep](#tab/bicep)
 
@@ -1519,7 +1509,7 @@ The function app resource should have its `kind` field set to **functionapp,linu
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource site 'Microsoft.Web/sites@2022-03-01' = {
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   name: functionAppName
   kind: 'kubernetes,functionapp,linux,container'
   location: location
@@ -1607,12 +1597,12 @@ A function app has many child resources that you can use in your deployment, inc
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource site 'Microsoft.Web/sites@2022-03-01' = {
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   name: functionAppName
-  kind: 'functionapp'
   location: location
+  kind: 'functionapp'
   properties: {
-    serverFarmId: hostingPlanName
+    serverFarmId: hostingPlan.id
     siteConfig: {
       alwaysOn: true
       appSettings: [
@@ -1629,12 +1619,12 @@ resource site 'Microsoft.Web/sites@2022-03-01' = {
   }
   dependsOn: [
     storageAccount
-    hostingPlan
   ]
 }
 
 resource config 'Microsoft.Web/sites/config@2022-03-01' = {
-  name: '${functionAppName}/appsettings'
+  parent: functionApp
+  name: 'appsettings'
   properties: {
     AzureWebJobsStorage: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
     AzureWebJobsDashboard: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
@@ -1643,13 +1633,13 @@ resource config 'Microsoft.Web/sites/config@2022-03-01' = {
     Project: 'src'
   }
   dependsOn: [
-    site
+    sourcecontrol
     storageAccount
   ]
 }
 
 resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
-  parent: site
+  parent: functionApp
   name: 'web'
   properties: {
     repoUrl: repoUrl
@@ -1665,11 +1655,11 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
 {
   "type": "Microsoft.Web/sites",
   "apiVersion": "2022-03-01",
-  "name": "[parameters('functionAppName')]",
-  "kind": "functionapp",
+  "name": "[variables('functionAppName')]",
   "location": "[parameters('location')]",
+  "kind": "functionapp",
   "properties": {
-    "serverFarmId": "[parameters('hostingPlanName')]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
     "siteConfig": {
       "alwaysOn": true,
       "appSettings": [
@@ -1685,37 +1675,38 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
     }
   },
   "dependsOn": [
-    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
   ]
 },
 {
   "type": "Microsoft.Web/sites/config",
   "apiVersion": "2022-03-01",
-  "name": "[format('{0}/appsettings', parameters('functionAppName'))]",
+  "name": "[format('{0}/{1}', variables('functionAppName'), 'appsettings')]",
   "properties": {
-    "AzureWebJobsStorage": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]",
-    "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]",
+    "AzureWebJobsStorage": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
+    "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
     "FUNCTIONS_EXTENSION_VERSION": "~3",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
     "Project": "src"
   },
   "dependsOn": [
-    "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
+    "[resourceId('Microsoft.Web/sites/sourcecontrols', variables('functionAppName'), 'web')]",
+    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
   ]
 },
 {
   "type": "Microsoft.Web/sites/sourcecontrols",
   "apiVersion": "2022-03-01",
-  "name": "[format('{0}/{1}', parameters('functionAppName'), 'web')]",
+  "name": "[format('{0}/{1}', variables('functionAppName'), 'web')]",
   "properties": {
-    "repoUrl": "[parameters('repoUrl')]",
+    "repoUrl": "[parameters('repoURL')]",
     "branch": "[parameters('branch')]",
     "isManualIntegration": true
   },
   "dependsOn": [
-    "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
+    "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
   ]
 }
 ```
@@ -1723,18 +1714,29 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
 ---
 
 > [!TIP]
-> This template uses the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) app settings value, which sets the base directory in which the Functions deployment engine (Kudu) looks for deployable code. In our repository, our functions are in a subfolder of the **src** folder. So, in the preceding example, we set the app settings value to `src`. If your functions are in the root of your repository, or if you're not deploying from source control, you can remove this app settings value.
+> This Bicep/ARM template uses the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) app settings value, which sets the base directory in which the Functions deployment engine (Kudu) looks for deployable code. In our repository, our functions are in a subfolder of the **src** folder. So, in the preceding example, we set the app settings value to `src`. If your functions are in the root of your repository, or if you're not deploying from source control, you can remove this app settings value.
 
 ## Deploy your template
 
-You can use any of the following ways to deploy your template:
+You can use any of the following ways to deploy your Bicep file and template:
 
-- [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-- [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+# [Bicep](#tab/bicep)
+
+- [Azure CLI](../azure-resource-manager/bicep/deploy-cli.md)
+- [PowerShell](../azure-resource-manager/bicep/deploy-powershell.md)
+
+# [JSON](#tab/json)
+
 - [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
-- [REST API](../azure-resource-manager/templates/deploy-rest.md)
+- [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+- [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+
+---
 
 ### Deploy to Azure button
+
+> [!NOTE]
+> This method doesn't support deploying Bicep files currently.
 
 Replace ```<url-encoded-path-to-azuredeploy-json>``` with a [URL-encoded](https://www.bing.com/search?q=url+encode) version of the raw path of your `azuredeploy.json` file in GitHub.
 
@@ -1752,7 +1754,9 @@ Here's an example that uses HTML:
 
 ### Deploy using PowerShell
 
-The following PowerShell commands create a resource group and deploy a template that creates a function app with its required resources. To run locally, you must have [Azure PowerShell](/powershell/azure/install-az-ps) installed. Run [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) to sign in.
+The following PowerShell commands create a resource group and deploy a Bicep file/ARM template that creates a function app with its required resources. To run locally, you must have [Azure PowerShell](/powershell/azure/install-az-ps) installed. Run [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) to sign in.
+
+# [Bicep](#tab/bicep)
 
 ```powershell
 # Register Resource Providers if they're not already registered
@@ -1762,14 +1766,27 @@ Register-AzResourceProvider -ProviderNamespace "microsoft.storage"
 # Create a resource group for the function app
 New-AzResourceGroup -Name "MyResourceGroup" -Location 'West Europe'
 
-# Create the parameters for the file, which for this template is the function app name.
-$TemplateParams = @{"appName" = "<function-app-name>"}
-
 # Deploy the template
-New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
+New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile main.bicep  -Verbose
 ```
 
-To test out this deployment, you can use a [template like this one](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json) that creates a function app on Windows in a Consumption plan. Replace `<function-app-name>` with a unique name for your function app.
+# [JSON](#tab/json)
+
+```powershell
+# Register Resource Providers if they're not already registered
+Register-AzResourceProvider -ProviderNamespace "microsoft.web"
+Register-AzResourceProvider -ProviderNamespace "microsoft.storage"
+
+# Create a resource group for the function app
+New-AzResourceGroup -Name "MyResourceGroup" -Location 'West Europe'
+
+# Deploy the template
+New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile azuredeploy.json  -Verbose
+```
+
+---
+
+To test out this deployment, you can use a [template like this one](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-create-dynamic) that creates a function app on Windows in a Consumption plan. 
 
 ## Next steps
 
