@@ -64,7 +64,7 @@ From the Azure portal, follow these steps:
 
 1. Select **Apply** to proceed with the import.
 
-You've imported key-values from a JSON file, have assigned them the label "prod" and the prefix "TestApp". The separator ":" is used and imported keys have the JSON content type.
+You've imported key-values from a JSON file, have assigned them the label "prod" and the prefix "TestApp". The separator ":" is used and all keys that you have imported have content type set as "JSON".
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -98,7 +98,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
     :::image type="content" source="./media/import-export/continue-import-file-prompt.png" alt-text="Screenshot of the CLI. Import from file confirmation prompt.":::
 
-You've imported key-values from a JSON file, have assigned them the label "prod" and the prefix "TestApp". The separator ":" is used and imported keys have the JSON content type.
+You've imported key-values from a JSON file, have assigned them the label "prod" and the prefix "TestApp". The separator ":" is used and all keys that you have imported have content type set as "JSON".
 
 For more optional parameters and examples, go to [az appconfig kv import](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-import&preserve-view=true).
 
@@ -143,11 +143,11 @@ From the Azure portal, follow these steps:
     | From label                              | Select at least one label to import values with the corresponding labels. **Select all** will import keys with any label, and **(No label)** will restrict the import to keys with no label.                                                                            | *prod*                    |
     | At a specific time                      | Optional. Fill out to import key-values from a specific point in time. This is the point in time of the resource you selected in the previous step. Format: "YYYY-MM-DDThh:mm:ssZ".                                                                                     | *07/28/2022 12:00:00 AM*  |
     | Override default key-value labels       | Optional. By default, imported items use their current label. Check the box and enter a label to override these defaults with a custom label.                                                                                                                           | *new*                     |
-    | Override default key-value content type | Optional. By default, imported items use their current content type. Check the box and select **Key Vault Reference** or **JSON (application/json)** under **Content type** to state that the imported content consists of a Key Vault reference or a JSON application. | *JSON (application/json)* |
+    | Override default key-value content type | Optional. By default, imported items use their current content type. Check the box and select **Key Vault Reference** or **JSON (application/json)** under **Content type** to state that the imported content consists of a Key Vault reference or a JSON application. Content type can only be overridden for imported key-values. Default content type for feature flags is "application/vnd.microsoft.appconfig.ff+json;charset=utf-8' by default and isn't updated by this parameter.| *JSON (application/json)* |
 
 1. Select **Apply** to proceed with the import.
 
-You've imported keys with the "prod" label from an App Configuration store on January 28, 2021 at 12 AM, and have assigned them the label "new". Imported keys have the JSON content type.
+You've imported keys with the "prod" label from an App Configuration store on January 28, 2021 at 12 AM, and have assigned them the label "new". All keys that you have imported have content type set as "JSON".
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -167,7 +167,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     | Parameter        | Description                                                                                                                                               | Example                      |
     |------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
     | `--label`        | Optional. Enter a label that will be assigned to your imported key-values.                                                                                | `new`                        |
-    | `--content-type` | Optional. Enter `appconfig/kvset` or `application/json` to state that the imported content consists of a Key Vault reference or a JSON application.       | `application/json`           |
+    | `--content-type` | Optional. Enter `appconfig/kvset` or `application/json` to state that the imported content consists of a Key Vault reference or a JSON application. Content type can only be overridden for imported key-values. Default content type for feature flags is "application/vnd.microsoft.appconfig.ff+json;charset=utf-8' by default and isn't updated by this parameter.       | `application/json`           |
 
     Example: import keys-values and feature flags with the label "prod" from another App Configuration on January 28, 2021 at 1PM, and assign them the label "new". Add the "application/json" content type.
 
@@ -179,7 +179,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
     :::image type="content" source="./media/import-export/continue-import-app-configuration-prompt.png" alt-text="Screenshot of the CLI. Import from App Configuration confirmation prompt.":::
 
-You've imported keys with the label "prod" from an App Configuration store and have assigned them the label "new". Imported keys have the JSON content type.
+You've imported keys with the label "prod" from an App Configuration store and have assigned them the label "new". All keys that you have imported have content type set as "JSON".
 
 For more optional parameters and examples, go to [az appconfig kv import](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-import&preserve-view=true).
 
@@ -217,15 +217,15 @@ From the Azure portal:
 
 1. Fill out the next part of the form:
 
-    | Parameter    | Description                                                                                                                                                                                                                                          | Example                   |
-    |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | Prefix       | Optional. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of keys in a configuration store. This prefix will be appended to the front of imported keys.                                                           | *TestApp*                 |
-    | Label        | Optional. Select an existing label or enter a new label that will be assigned to your imported key-values.                                                                                                                                           | *prod*                    |
-    | Content type | Optional. Indicate if the file you're importing is a Key Vault reference or a JSON application. For more information about Key Vault references, go to [Use Key Vault references in an ASP.NET Core app](./use-key-vault-references-dotnet-core.md). | *JSON (application/json)* |
+| Parameter    | Description                                                                                                                                                                                                                                          | Example                   |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| Prefix       | Optional. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of keys in a configuration store. This prefix will be appended to the front of imported keys.                                                           | *TestApp*                 |
+| Label        | Optional. Select an existing label or enter a new label that will be assigned to your imported key-values.                                                                                                                                           | *prod*                    |
+| Content type | Optional. Indicate if the file you're importing is a Key Vault reference or a JSON application. For more information about Key Vault references, go to [Use Key Vault references in an ASP.NET Core app](./use-key-vault-references-dotnet-core.md).  | *JSON (application/json)* |
 
 1. Select **Apply** to proceed with the import.
 
-You've imported all application settings from an App Service as key-values and assigned them the label "prod" and the prefix "TestApp". Imported keys have the JSON content type.
+You've imported all application settings from an App Service as key-values and assigned them the label "prod" and the prefix "TestApp". All keys that you have imported have content type set as "JSON". Imported feature flags have 
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -259,7 +259,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
     :::image type="content" source="./media/import-export/continue-import-app-service-prompt.png" alt-text="Screenshot of the CLI. Import from App Service confirmation prompt.":::
 
-You've imported all application settings from your App Service as key-values and assigned them the label "prod". Imported keys have the JSON content type.
+You've imported all application settings from your App Service as key-values and assigned them the label "prod". All keys that you have imported have content type set as "JSON".
 
 For more optional parameters and examples, go to [az appconfig kv import](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-import&preserve-view=true).
 
@@ -280,7 +280,7 @@ This guide shows how to export App Configuration data:
 Follow the steps below to export key-values and feature flags to a JSON or YAML file.
 
 > [!NOTE]
-> Exporting feature flags to a properties file is currently not supported.
+> Exporting feature flags from an App Configuration store to a configuration file is only supported in the CLI.
 
 ### [Portal](#tab/azure-portal)
 
@@ -296,7 +296,7 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
 
     | Parameter          | Description                                                                                                                                                                                                                       | Example                  |
     |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-    | Prefix             | Optional. This prefix will be trimmed from the keys. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of keys in a configuration store. Prefix will be ignored for feature flags.               | *TestApp*                |
+    | Prefix             | Optional. This prefix will be trimmed from the keys. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of keys in a configuration store.                                                         | *TestApp*                |
     | From label         | Select an existing label to restrict your export to key-values with a specific label. If you don't select a label, by default only key-values with the "No Label" label will be exported. See note below.                         | *prod*                   |
     | At a specific time | Optional. Fill out to import key-values from a specific point in time. This is the point in time of the resource you selected in the previous step. Format: "YYYY-MM-DDThh:mm:ssZ".                                               | *07/28/2022 12:00:00 AM* |
     | File type          | Select the type of file you're exporting between YAML, properties or JSON.                                                                                                                                                        | *JSON*                   |
@@ -307,7 +307,7 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. Select **Export** to finish the export.
 
-You've exported key-values that have the "prod" label from a configuration file, at their state from 07/28/2021 12:00:00 AM, and have trimmed the prefix "TestApp". The separator ";" is used in the file and exported keys have the JSON content type.
+You've exported key-values that have the "prod" label from a configuration file, at their state from 07/28/2021 12:00:00 AM, and have trimmed the prefix "TestApp". The separator ";" is used in the file and all keys that you have exported have content type set as "JSON".
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -341,7 +341,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
     :::image type="content" source="./media/import-export/continue-export-file-prompt.png" alt-text="Screenshot of the CLI. Export to a file confirmation prompt.":::
 
-You've exported key-values and feature flags that have the "prod" label from a configuration file, and have trimmed the prefix "TestApp". The separator ";" is used in the file and exported keys have the JSON content type.
+You've exported key-values and feature flags that have the "prod" label from a configuration file, and have trimmed the prefix "TestApp". The separator ";" is used in the file and all keys that you have exported have content type set as "JSON".
 
 For more optional parameters and examples, go to [az appconfig kv export](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export&preserve-view=true).
 
@@ -387,7 +387,7 @@ From the Azure portal, follow these steps:
 
 1. Select **Apply** to proceed with the export.
 
-You've exported key-values and feature flags that have the label "prod" from an App Configuration store, at their state from 07/28/2022 12:00:00 AM, and have assigned them the label "new". Exported keys have the JSON content type.
+You've exported key-values and feature flags that have the label "prod" from an App Configuration store, at their state from 07/28/2022 12:00:00 AM, and have assigned them the label "new". All keys that you have exported have content type set as "JSON".
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -419,7 +419,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
    :::image type="content" source="./media/import-export/continue-export-app-configuration-prompt.png" alt-text="Screenshot of the CLI. Export to App Configuration confirmation prompt.":::
 
-You've exported key-values and feature flags that have the label "prod" from an App Configuration store and have assigned them the label "new". Exported keys have the JSON content type.
+You've exported key-values and feature flags that have the label "prod" from an App Configuration store and have assigned them the label "new". All keys that you have exported have content type set as "JSON".
 
 For more optional parameters and examples, go to [az appconfig kv import](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-import&preserve-view=true).
 
