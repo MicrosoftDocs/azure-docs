@@ -68,16 +68,16 @@ A user that should only be validating and reviewing the Language apps, typically
         * Test
     :::column-end:::
     :::column span="":::
-      * All GET APIs under: 
-         * [Language conversational language understanding APIs](/rest/api/language/conversational-analysis-authoring)
-         * [Language text analysis APIs](/rest/api/language/text-analysis-authoring)
-         * [Question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
-      * Only `TriggerExportProjectJob` POST operation under: 
-         * [Language conversational language understanding export API](/rest/api/language/conversational-analysis-authoring/export?tabs=HTTP)
-         * [Language text analysis export API](/rest/api/language/text-analysis-authoring/export?tabs=HTTP)
-      * Only Export POST operation under: 
+      All GET APIs under: 
+        * [Language authoring conversational language understanding APIs](/rest/api/language/conversational-analysis-authoring)
+        * [Language authoring text analysis APIs](/rest/api/language/text-analysis-authoring)
+        * [Question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+      Only `TriggerExportProjectJob` POST operation under: 
+         * [Language authoring conversational language understanding export API](/rest/api/language/conversational-analysis-authoring/export?tabs=HTTP)
+         * [Language authoring text analysis export API](/rest/api/language/text-analysis-authoring/export?tabs=HTTP)
+      Only Export POST operation under: 
          * [Question Answering Projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects/export)
-      * All the Batch Testing Web APIs
+      All the Batch Testing Web APIs
          *[Language Runtime CLU APIs](/rest/api/language/conversation-analysis-runtime)
          *[Language Runtime Text Analysis APIs](/rest/api/language/text-analysis-runtime)
     :::column-end:::
@@ -139,9 +139,9 @@ These users are the gatekeepers for the Language applications in production envi
       * Delete
     :::column-end:::
     :::column span="":::
-      * All APIs available under:
-        * [Language conversational language understanding APIs](/rest/api/language/conversational-analysis-authoring)
-        * [Language text analysis APIs](/rest/api/language/text-analysis-authoring)
+      All APIs available under:
+        * [Language authoring conversational language understanding APIs](/rest/api/language/conversational-analysis-authoring)
+        * [Language authoring text analysis APIs](/rest/api/language/text-analysis-authoring)
         * [question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
          
     :::column-end:::
