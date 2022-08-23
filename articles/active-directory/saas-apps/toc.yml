@@ -16,6 +16,8 @@
         href: 23video-tutorial.md
       - name: 360 Online
         href: 360online-tutorial.md
+      - name: 4DX
+        href: 4dx-tutorial.md
       - name: 4me
         href: 4me-tutorial.md
       - name: 8x8
@@ -76,6 +78,8 @@
         href: adp-emea-french-hr-portal-tutorial.md  
       - name: ADP Globalview (Deprecated)
         href: adglobalview-tutorial.md
+      - name: Adra by Trintech
+        href: adra-by-trintech-tutorial.md
       - name: Agile Provisioning
         href: agile-provisioning-tutorial.md
       - name: Agiloft Contract Management Suite
@@ -1335,6 +1339,8 @@
         href: lanschool-air-tutorial.md
       - name: LaunchDarkly
         href: launchdarkly-tutorial.md
+      - name: Lattice
+        href: lattice-tutorial.md
       - name: LawVu
         href: lawvu-tutorial.md  
       - name: LCVista
@@ -2095,6 +2101,8 @@
         href: siteintel-tutorial.md
       - name: Skedda
         href: skedda-tutorial.md
+      - name: Sketch
+        href: sketch-tutorial.md
       - name: Skillcast
         href: skillcast-tutorial.md
       - name: Skilljar
@@ -2109,6 +2117,8 @@
         href: skills-workflow-tutorial.md
       - name: Skopenow
         href: skopenow-tutorial.md
+      - name: Skybreathe® Analytics
+        href: skybreathe-analytics-tutorial.md
       - name: SkyDesk Email
         href: skydeskemail-tutorial.md
       - name: SKYSITE
@@ -2315,6 +2325,8 @@
         href: tidemark-tutorial.md
       - name: TigerConnect Secure Messenger
         href: tigertext-tutorial.md
+      - name: TigerGraph
+        href: tigergraph-tutorial.md
       - name: Timeclock 365 SAML
         href: timeclock-365-saml-tutorial.md
       - name: TimeLive
@@ -2539,6 +2551,8 @@
         href: workfront-tutorial.md
       - name: Workgrid
         href: workgrid-tutorial.md
+      - name: workhub
+        href: workhub-tutorial.md
       - name: Workpath
         href: workpath-tutorial.md
       - name: Workplace by Meta
