@@ -2,11 +2,9 @@
 title: ArmApiControl UI element
 description: Describes the Microsoft.Solutions.ArmApiControl UI element for Azure portal. Used for calling API operations.
 author: davidsmatlak
-
-ms.topic: conceptual
-ms.date: 07/14/2020
 ms.author: davidsmatlak
-
+ms.topic: conceptual
+ms.date: 08/23/2022
 ---
 
 # Microsoft.Solutions.ArmApiControl UI element
@@ -23,16 +21,16 @@ The following example shows the schema for this control:
 
 ```json
 {
-    "name": "testApi",
-    "type": "Microsoft.Solutions.ArmApiControl",
-    "request": {
-        "method": "{HTTP-method}",
-        "path": "{path-for-the-URL}",
-        "body": {
-            "key1": "val1",
-            "key2": "val2"
-        }
+  "name": "testApi",
+  "type": "Microsoft.Solutions.ArmApiControl",
+  "request": {
+    "method": "{HTTP-method}",
+    "path": "{path-for-the-URL}",
+    "body": {
+      "key1": "val1",
+      "key2": "val2"
     }
+  }
 }
 ```
 
@@ -61,27 +59,40 @@ The `allowedValues` property of the `providersDropDown` element is configured to
 
 ```json
 {
-    "name": "providersApi",
-    "type": "Microsoft.Solutions.ArmApiControl",
-    "request": {
-        "method": "GET",
-        "path": "[concat(subscription().id, '/providers/Microsoft.Network/expressRouteServiceProviders?api-version=2019-02-01')]"
+  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+  "handler": "Microsoft.Azure.CreateUIDef",
+  "version": "0.1.2-preview",
+  "parameters": {
+    "basics": [
+      {
+        "name": "providersApi",
+        "type": "Microsoft.Solutions.ArmApiControl",
+        "request": {
+          "method": "GET",
+          "path": "[concat(subscription().id, '/providers/Microsoft.Network/expressRouteServiceProviders?api-version=2022-01-01')]"
+        }
+      },
+      {
+        "name": "providerDropDown",
+        "type": "Microsoft.Common.DropDown",
+        "label": "Provider",
+        "toolTip": "The provider that offers the express route connection.",
+        "constraints": {
+          "allowedValues": "[map(basics('providersApi').value, (item) => parse(concat('{\"label\":\"', item.name, '\",\"value\":\"', item.name, '\"}')))]",
+          "required": true
+        },
+        "visible": true
+      }
+    ],
+    "steps": [],
+    "outputs": {
+      "providerName": "[basics('providerDropDown')]"
     }
-},
-{
-    "name": "providerDropDown",
-    "type": "Microsoft.Common.DropDown",
-    "label": "Provider",
-    "toolTip": "The provider that offers the express route connection.",
-    "constraints": {
-        "allowedValues": "[map(steps('settings').providersApi.value, (item) => parse(concat('{\"label\":\"', item.name, '\",\"value\":\"', item.name, '\"}')))]",
-        "required": true
-    },
-    "visible": true
+  }
 }
 ```
 
-For an example of using the ArmApiControl to check the availability of a resource name, see [Microsoft.Common.TextBox](microsoft-common-textbox.md).
+For an example of using the `ArmApiControl` to check the availability of a resource name, see [Microsoft.Common.TextBox](microsoft-common-textbox.md).
 
 ## Next steps
 
