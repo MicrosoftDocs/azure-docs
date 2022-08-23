@@ -7,7 +7,7 @@ author: abeomor
 ms.author: osomorog
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 04/15/2022
+ms.date: 08/15/2022
 ms.topic: conceptual
 ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022
 ---
@@ -83,9 +83,9 @@ The following table shows which operations are supported by each of the tools av
 | Track and log metrics, parameters and models | **&check;** | | |
 | Retrieve metrics, parameters and models | **&check;**<sup>1</sup> | <sup>2</sup> | **&check;** |
 | Submit training jobs with MLflow projects | **&check;** |  |  |
-| Submit training jobs with inputs and outputs |  | **&check;** | |
-| Submit training pipelines | | **&check;** | |
-| Manage experiments runs | **&check;**<sup>1</sup> | **&check;** | **&check;** |
+| Submit training jobs with inputs and outputs |  | **&check;** | **&check;** |
+| Submit training jobs using ML pipelines | | **&check;** | |
+| Manage experiments and runs | **&check;**<sup>1</sup> | **&check;** | **&check;** |
 | Manage MLflow models | **&check;**<sup>3</sup> | **&check;** | **&check;** |
 | Manage non-MLflow models | | **&check;** | **&check;** |
 | Deploy MLflow models to Azure Machine Learning | **&check;**<sup>4</sup> | **&check;** | **&check;** |
