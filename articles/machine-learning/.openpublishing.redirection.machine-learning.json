@@ -27,6 +27,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/concept-network-data-access.md",
+        "redirect_url": "/azure/machine-learning/how-to-administrate-data-authentication",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/concept-optimize-data-processing.md",
         "redirect_url": "/azure/machine-learning/concept-data",
         "redirect_document_id": false
@@ -3405,6 +3410,16 @@
         "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/add-columns.md",
         "redirect_url": "/azure/machine-learning/component-reference/add-columns",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/concept-differential-privacy.md",
+        "redirect_url": "/azure/machine-learning/concept-responsible-ml#privacy-and-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v1/how-to-differential-privacy.md",
+        "redirect_url": "/azure/machine-learning/concept-responsible-ml#privacy-and-security",
+        "redirect_document_id": false
     }
 ]
 }
