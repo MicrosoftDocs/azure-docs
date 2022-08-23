@@ -17,7 +17,7 @@ This article shows you how to use the [Azure IoT Tools for Visual Studio Code](h
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To complete this article, you need the following:
+## Prerequisites
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -26,9 +26,9 @@ To complete this article, you need the following:
 
 ## Create an IoT hub and device in an IoT Project
 
-The following steps show how you can create an IoT Hub and register a device to the hub within an IoT Project in Visual Studio (VS) Code.
+The following steps show how to create an IoT Hub and register a device to the hub within an existing IoT Project in Visual Studio (VS) Code.
 
-Instead of provisioning an Azure IoT Hub and device from the Azure portal. You can do it in VS Code without leaving the development environment. The steps in this section show how to do this.
+Instead of provisioning an Azure IoT Hub and device from the Azure portal, provision in VS Code without leaving the development environment.
 
 1. In the new opened project window, click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Provision Azure Services...**. Follow the step-by-step guide to finish provisioning your Azure IoT Hub and creating the IoT Hub device.
 
