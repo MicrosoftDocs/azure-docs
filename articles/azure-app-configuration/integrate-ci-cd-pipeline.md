@@ -74,15 +74,15 @@ To do a cloud build, with Azure DevOps for example, ensure that the [Azure CLI](
 
 ## [Windows](#tab/windows)
 
-    ```powershell
+```powershell
      $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-    ```
+```
 
 ## [macOS/Linux](#tab/macos)
 
-    ```console
+```console
      export ConnectionString='connection-string-of-your-app-configuration-store'
-    ```
+```
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
