@@ -92,8 +92,7 @@ additional filter to make the query faster:
 UPDATE ads
    SET impressions_count = impressions_count+1
  WHERE id = 42
-   AND company_id = 1;
-    -- ⇑ include distribution column
+   AND company_id = 1; -- the distribution column
 ```
 
 The Hyperscale (Citus) query planner sees a direct filter on the distribution
