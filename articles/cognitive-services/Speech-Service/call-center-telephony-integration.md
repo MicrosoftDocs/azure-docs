@@ -14,13 +14,13 @@ ms.custom: template-concept
 
 # Telephony Integration
 
-To support real-time scenarios like Virtual Agent and Agent Assist in Call Centers an integration with the Call Centers telephony system is required.
+To support real-time scenarios, like Virtual Agent and Agent Assist in Call Centers, an integration with the Call Centers telephony system is required.
 
-Typically, the integration with Microsoft Speech Services is handled by a telephony client connected to the customers SIP/RTP processor, e.g. to a Session Border Controller (SBC).
+Typically, the integration with Microsoft Speech Services is handled by a telephony client connected to the customers SIP/RTP processor, for example, to a Session Border Controller (SBC).
 
-Usually the telephony client handles the incoming audio stream from the SIP/RTP processor, the conversion to PCM and connects the streams using continuous recognition. It also triages the processing of the results, e.g. analysis of speech transcripts for Agent Assist or connect with a dialog processing engine (e.g. Azure Botframework or Power Virtual Agent) for Virtual Agent.
+Usually the telephony client handles the incoming audio stream from the SIP/RTP processor, the conversion to PCM and connects the streams using continuous recognition. It also triages the processing of the results, for example, analysis of speech transcripts for Agent Assist or connect with a dialog processing engine (for example, Azure Botframework or Power Virtual Agent) for Virtual Agent.
 
-For easier integration Speech Service also supports “ALAW in WAV container” and “MULAW in WAV container” for audio streaming.
+For easier integration the Speech Service also supports “ALAW in WAV container” and “MULAW in WAV container” for audio streaming.
 
 To build this integration we recommend using the [Speech SDK](./speech-sdk.md).
 
