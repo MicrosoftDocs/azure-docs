@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/14/2022
+ms.date: 08/23/2022
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
@@ -28,9 +28,23 @@ For an overview of each of these options, see [Azure Storage redundancy](storage
 
 ## Switch between types of replication
 
-You can switch a storage account from one type of replication to any other type, but some scenarios are more straightforward than others. If you want to add or remove geo-replication or read access to the secondary region, you can use the Azure portal, PowerShell, or Azure CLI to update the replication setting in some scenarios; other scenarios require a manual or live migration. If you want to change how data is replicated in the primary region, by moving from LRS to ZRS or vice versa, then you must either perform a manual migration or request a live migration. And if you want to move from ZRS to GZRS or RA-GZRS, then you must perform a live migration, unless you are performing a failback operation after failover.
+You can switch a storage account from any type of replication to any other type, but some switching scenarios are more straightforward than others. There are 3 factors that determine the options available for switching from one to another:
 
-The following table provides an overview of how to switch from each type of replication to another:
+- Local or geo-redundancy
+- Zone redundancy
+- Read access (RA) to the secondary region when geo-redundancy is used
+
+If you want to add or remove geo-replication or read access to the secondary region, you can use the Azure portal, PowerShell, or Azure CLI to update the replication setting. But to add or remove zone-redundancy requires migration of the data in the storage account within the primary region, and can take considerably longer.
+
+There are two options for migrating your storage account:
+
+- [Live migration](#perform-a-live-migration)
+- [Manual migration](#perform-a-manual-migration)
+
+> [!NOTE]
+> If you want to move from ZRS to GZRS or RA-GZRS, then you must perform a live migration, unless you are performing a failback operation after failover.
+
+The following table provides an overview the options for switching from each type of replication to another:
 
 | Switching | …to LRS | …to GRS/RA-GRS | …to ZRS | …to GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
@@ -50,7 +64,7 @@ The following table provides an overview of how to switch from each type of repl
 
 To change the redundancy configuration for a storage account that contains blobs in the Archive tier, you must first rehydrate all archived blobs to the Hot or Cool tier. Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs if at all possible, because rehydration operations can be costly and time-consuming.
 
-## Change the replication setting
+## Change the replication setting using the portal, PowerShell, or the CLI
 
 You can use the Azure portal, PowerShell, or Azure CLI to change the replication setting for a storage account, as long as you are not changing how data is replicated in the primary region. If you are migrating from LRS in the primary region to ZRS in the primary region or vice versa, then you must perform either a manual migration or a live migration.
 
@@ -89,7 +103,7 @@ az storage account update \
 
 ---
 
-## Perform a manual migration to ZRS, GZRS, or RA-GZRS
+## Perform a manual migration
 
 If you want to change how data in your storage account is replicated in the primary region, by moving from LRS to ZRS or vice versa, then you may opt to perform a manual migration. A manual migration provides more flexibility than a live migration. You control the timing of a manual migration, so use this option if you need the migration to complete by a certain date.
 
@@ -104,7 +118,7 @@ With a manual migration, you copy the data from your existing storage account to
 - Copy data by using an existing tool such as AzCopy, one of the Azure Storage client libraries, or a reliable third-party tool.
 - If you're familiar with Hadoop or HDInsight, you can attach both the source storage account and destination storage account account to your cluster. Then, parallelize the data copy process with a tool like DistCp.
 
-## Request a live migration to ZRS, GZRS, or RA-GZRS
+## Perform a live migration
 
 If you need to migrate your storage account from LRS to ZRS in the primary region with no application downtime, you can request a live migration from Microsoft. To migrate from LRS to GZRS or RA-GZRS, first switch to GRS or RA-GRS and then request a live migration. Similarly, you can request a live migration from ZRS, GRS, or RA-GRS to GZRS or RA-GZRS. To migrate from GRS or RA-GRS to ZRS, first switch to LRS, then request a live migration.
 
