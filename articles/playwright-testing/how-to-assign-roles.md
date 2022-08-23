@@ -12,8 +12,11 @@ ms.date: 08/17/2022
 
 # Manage access to a Microsoft Playwright Testing Preview workspace
 
-In this article, you learn how to manage access to a Microsoft Playwright Testing workspace. You use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to assign specific roles to users in your Azure Active Directory (Azure AD) and grant permissions in Microsoft Playwright Testing.
+In this article, you learn how to manage access to a Microsoft Playwright Testing workspace. Azure Active Directory (AAD) authorizes access rights to secured resources through [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC). Microsoft Playwright Testing uses a set of Azure built-in roles that encompass common sets of permissions used to access a workspace.
 
+When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. An Azure AD security principal may be a user, a group, an application service principal, or a managed identity for Azure resources.
+
+With role role-based access control, you can grant permissions to view test results and [to manage access keys](./how-to-manage-access-keys.md) for the workspace in the Microsoft Playwright Testing portal.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
