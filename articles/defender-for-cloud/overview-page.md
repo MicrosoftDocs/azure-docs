@@ -7,7 +7,7 @@ ms.topic: overview
 
 # Microsoft Defender for Cloud's overview page
 
-The Microsoft Defender for Cloud's overview page is an interactive dashboard that provides a unified view into the security posture of your hybrid cloud workloads. Additionally, it shows security alerts, coverage information, and more.  
+Microsoft Defender for Cloud's overview page is an interactive dashboard that provides a unified view into the security posture of your hybrid cloud workloads. Additionally, it shows security alerts, coverage information, and more.  
 
 You can select any element on the page to get more detailed information.
 

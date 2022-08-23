@@ -84,7 +84,7 @@ For more information about User VPN client profile files, see [Working with User
 
 1. In the window, navigate to the **azurevpnconfig.xml** file, select it, then click **Open**.
 
-1. From the **Certificate Information** dropdown, select the name of the child certificate (the client certificate). For example, **P2SChildCert**. For certain configurations, you may want to configure the client with multiple server certificates. For more information, see [Specify multiple certificates](global-hub-profile.md#global-profile-best-practices).
+1. From the **Certificate Information** dropdown, select the name of the child certificate (the client certificate). For example, **P2SChildCert**.
 
    :::image type="content" source="./media/vpn-client-certificate-windows/configure-certificate.png" alt-text="Screenshot showing Azure VPN Client profile configuration page." lightbox="./media/vpn-client-certificate-windows/configure-certificate.png":::
 

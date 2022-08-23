@@ -103,7 +103,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     
 1. Select **Review + create** and then select **Create** after validation has passed. The deployment of a virtual network gateway can take about 30 minutes. You can move on to the next section while waiting for this deployment to complete.
 
-## Create a network group
+## Create a dynamic network group
 
 1. Go to your Azure Virtual Network Manager instance. This tutorial assumes you've created one using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
@@ -126,24 +126,26 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-page.png" alt-text="Screenshot of the network groups page.":::
 
-1. On the **Get started** tab, select **Add** under *Define dynamic membership*.
+1. On the **Overview** page, select **Create Azure Policy** under *Create policy to dynamically add members*.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/define-dynamic-membership.png" alt-text="Screenshot of the define dynamic membership button.":::
 
-1. On the **Define dynamic membership** page, select or enter the following information:
+1. On the **Create Azure Policy** page, select or enter the following information:
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-conditional.png" alt-text="Screenshot of create a network group conditional statements tab.":::
 
     | Setting | Value |
     | ------- | ----- |
+    | Policy name | Enter **VNetAZPolicy** in the text box. |
+    | Scope | Select **Select Scopes** and choose your current subscription. |
+    | Criteria |  |
     | Parameter | Select **Name** from the drop-down.|
     | Operator | Select **Contains** from the drop-down.| 
-    | Condition | Enter **VNet-** to add the three previously created virtual networks into this network group. |
+    | Condition | Enter **VNet-** to dynamically add the three previously created virtual networks into this network group. |
 
-1. Select **Preview resources** to verify the virtual networks selected by the conditional statement, and select **Close**. Then select **Save** to deploy the group membership.
-
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/evaluate-vnet.png" alt-text="Screenshot of effective virtual networks page.":::
-
+1. Select **Save** to deploy the group membership.
+1. Under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy.
+:::image type="content" source="media/tutorial-create-secured-hub-and-spoke/group-members-dynamic-thumb.png" alt-text="Screenshot of dynamic group membership under Group Membership blade." lightbox="media/tutorial-create-secured-hub-and-spoke/group-members-dynamic.png":::
 ## Create a hub and spoke connectivity configuration
 
 1. Select **Configuration** under *Settings*, then select **+ Add a configuration**. Select **Connectivity** from the drop-down menu.

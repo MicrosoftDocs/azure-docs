@@ -49,7 +49,7 @@ This article is a step-by-step guide that will detail how to submit your app to 
     - **Will your app be listed in the Apple Store?**
     If so, update your Apple Developer ID in Account Settings in Partner Center before publishing the app. You'll see a warning or a note to remind you to enter this information on screen. If you don’t enter this information, your app will not be available for acquisition on iOS mobile devices, but the app will appear to be available to use on iOS devices after you acquire the app on another type of device.
         > [!NOTE]
-        > Only users with Developer Account Owner or Developer Account Manager roles can update Apple ID in [Account Settings](/azure/marketplace/manage-account).
+        > Only users with Developer Account Owner or Developer Account Manager roles can update Apple ID in [Account Settings](./manage-account.md).
     - **Does your app use Azure Active Directory or SSO (Azure AD/SSO)?**
     If so, select the box that asks about this.
     - **Does your app require additional purchases?**
@@ -165,4 +165,4 @@ Once you have answered those questions for yourself, select the submit button on
 Expect a response within three to four business days from our reviewers if there are any issues related to your submission.
 
 > [!TIP]
-> After publishing an offer, the [owner](/azure/marketplace/user-roles) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).
+> After publishing an offer, the [owner](./user-roles.md) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).

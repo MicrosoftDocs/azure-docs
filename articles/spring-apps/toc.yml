@@ -210,6 +210,8 @@ items:
       href: expose-apps-gateway-tls-termination.md
     - name: Expose applications to the internet with end-to-end TLS/SSL
       href: expose-apps-gateway-end-to-end-tls.md
+    - name: Expose applications to the internet from a public network
+      href: how-to-access-app-from-internet-virtual-network.md
     - name: Configure Palo Alto
       href: how-to-configure-palo-alto.md
     - name: Customer responsibilities running Azure Spring Apps in VNET
@@ -218,6 +220,8 @@ items:
       href: troubleshooting-vnet.md
   - name: Secure
     items:
+    - name: Secure communications end-to-end in Zero Trust
+      href: secure-communications-end-to-end.md
     - name: Use managed identities for applications in Azure Spring Apps
       href: how-to-use-managed-identities.md
     - name: Enable system-assigned managed identity

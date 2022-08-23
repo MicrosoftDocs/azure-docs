@@ -326,7 +326,7 @@ The following recommended playbooks, and other similar playbooks are available t
 - **Create, update, or close playbooks** can create, update, or close incidents in Microsoft Sentinel, Microsoft 365 security services, or other ticketing systems:
 
     - [Change an incident's severity](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Change-Incident-Severity)
-    - [Create a ServiceNow incident](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Create-SNOW-record)
+    - [Create a ServiceNow incident](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Servicenow/Playbooks/Create-SNOW-record)
 
 
 ## Next steps
