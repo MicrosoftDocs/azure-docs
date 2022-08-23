@@ -66,17 +66,17 @@ POST {{FHIR_URL}}/SearchParameter
 > [!NOTE]
 > The new search parameter will appear in the capability statement of the FHIR service after you POST the search parameter to the database **and** reindex your database. Viewing the `SearchParameter` in the capability statement is the only way to tell if a search parameter is supported in your FHIR service. If you cannot find the `SearchParameter` in the capability statement, then you still need to reindex your database to activate the search parameter. You can POST multiple search parameters before triggering a reindex operation.
 
-Important elements of a `SearchParameter`:
+Important elements of a `SearchParameter` resource:
 
-* **url**: A unique key to describe the search parameter. Organizations such as HL7 use a standard URL format for the search parameters that they define, as shown above in the US Core Race search parameter.
+* `url`: A unique key to describe the search parameter. Organizations such as HL7 use a standard URL format for the search parameters that they define, as shown above in the US Core Race search parameter.
 
-* **code**: The value stored in **code** is what you’ll use when searching. For the example above, you would search with `GET {{FHIR_URL}}/Patient?race=<code>` to retrieve all patients of a specific race. The coding system must be unique for the resource type(s) that the search parameter applies to.
+* `code`: The value stored in **code** is what you’ll use when searching. For the example above, you would search with `GET {{FHIR_URL}}/Patient?race=<code>` to retrieve all patients of a specific race. The coding system must be unique for the resource type(s) that the search parameter applies to.
 
-* **base**: Describes which resource type(s) the search parameter applies to. If the search parameter applies to all resources, you can use `Resource`; otherwise, you can list all the relevant resource types.
+* `base`: Describes which resource type(s) the search parameter applies to. If the search parameter applies to all resources, you can use `Resource`; otherwise, you can list all the relevant resource types.
  
-* **type**: Describes the data type for the search parameter. Type is limited by the support for data types in the FHIR service. This means that you can’t define a search parameter of type Special or define a [composite search parameter](overview-of-search.md) unless it's a supported combination.
+* `type`: Describes the data type for the search parameter. Type is limited by the support for data types in the FHIR service. This means that you can’t define a search parameter of type Special or define a [composite search parameter](overview-of-search.md) unless it's a supported combination.
 
-* **expression**: Describes how to calculate the value for the search. When describing a search parameter, you must include the expression, even though it isn't required by the specification. This is because you need either the expression or the xpath syntax and the FHIR service ignores the xpath syntax.
+* `expression`: Describes how to calculate the value for the search. When describing a search parameter, you must include the expression, even though it isn't required by the specification. This is because you need either the expression or the xpath syntax and the FHIR service ignores the xpath syntax.
 
 ## Test search parameters
 
