@@ -78,9 +78,9 @@ Important elements of a `SearchParameter` resource:
 
 * `expression`: Describes how to calculate the value for the search. When describing a search parameter, you must include the expression, even though it isn't required by the specification. This is because you need either the expression or the xpath syntax and the FHIR service ignores the xpath syntax.
 
-## Test search parameters
+## Test new search parameters
 
-While you can’t use the search parameters in production until you run a reindex job, there are a few ways to test your search parameters before reindexing the entire database. 
+While you can’t use the new search parameters in production until you run a reindex job, there are a few ways to test your custom search parameters before reindexing the entire database. 
 
 First, you can test your new search parameter to see what values will be returned. By running the command below against a specific resource instance (by supplying the resource ID), you'll get back a list of value pairs with the search parameter name and the value stored. This will include all of the search parameters for the resource. You can scroll through to find the search parameter you created. Running this command won't change any behavior in your FHIR service. 
 
