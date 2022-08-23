@@ -123,7 +123,7 @@ For more information, see [Azure Policy guest configuration](../concepts/guest-c
 |---|---|---|---|
 |Prevent users from modifying settings<br /><sub>(AZ-WIN-202209)</sub> |<br />**Key Path**: SOFTWARE\Policies\Microsoft\Windows Defender Security Center\App and Browser protection\DisallowExploitProtectionOverride<br />**OS**: WS2012, WS2012R2, WS2016, WS2019, WS2022<br />**Server Type**: Domain Controller, Domain Member |\= 1<br /><sub>(Registry)</sub> |Warning |
 
-## Administrative Tenplate - Window Defender
+## Administrative Template - Windows Defender
 
 |Name<br /><sub>(ID)</sub> |Details |Expected value<br /><sub>(Type)</sub> |Severity |
 |---|---|---|---|
