@@ -66,7 +66,7 @@ These roles already exist on every database and do not need to be created.
 ### read
 Has the following privileges: changeStream, collStats, find, killCursors, listIndexes, listCollections
 
-### readwrite
+### readWrite
 Has the following privileges: collStats, createCollection, dropCollection, createIndex, dropIndex, find, insert, killCursors, listIndexes, listCollections, remove, update
 
 ### dbAdmin

@@ -1,19 +1,14 @@
 ---
-title: Prerequisites for deploying Threat Monitoring for SAP in Microsoft Sentinel | Microsoft Docs
-description: This article lists the prerequisites required for deployment of the Microsoft Sentinel Threat Monitoring solution for SAP.
+title: Prerequisites for deploying Microsoft Sentinel Solution for SAP
+description: This article lists the prerequisites required for deployment of the Microsoft Sentinel Solution for SAP.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: how-to
 ms.date: 04/07/2022
 ---
-# Prerequisites for deploying Threat Monitoring for SAP in Microsoft Sentinel
+# Prerequisites for deploying Microsoft Sentinel Solution for SAP
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
-This article lists the prerequisites required for deployment of the Microsoft Sentinel Threat Monitoring solution for SAP.
-
-> [!IMPORTANT]
-> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+This article lists the prerequisites required for deployment of the Microsoft Sentinel Solution for SAP.
 
 ## Deployment milestones
 
@@ -29,15 +24,15 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deploy SAP security content](deploy-sap-security-content.md)
 
-1. [Configure Threat Monitoring for SAP solution](deployment-solution-configuration.md)
+1. [Configure Microsoft Sentinel Solution for SAP](deployment-solution-configuration.md)
 
 1. Optional deployment steps
    - [Configure auditing](configure-audit.md)
-   - [Configure SAP data connector to use SNC](configure-snc.md)
+   - [Configure data connector to use SNC](configure-snc.md)
 
 ## Table of prerequisites
 
-To successfully deploy the Threat Monitoring for SAP solution, you must meet the following prerequisites:
+To successfully deploy the Microsoft Sentinel Solution for SAP, you must meet the following prerequisites:
 
 ### Azure prerequisites
 

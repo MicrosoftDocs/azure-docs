@@ -159,5 +159,5 @@ Here's an example ipv4-addr indicator using the JSON template.
 
 This article has shown you how to manually bolster your threat intelligence by importing indicators gathered in flat files. Check out these links to learn how indicators power other analytics in Microsoft Sentinel.
 - [Work with threat indicators in Microsoft Sentinel](work-with-threat-indicators.md)
-- [Threat indicators for cyber threat intelligence in Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence.md)
+- [Threat indicators for cyber threat intelligence in Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 - [Detect threats quickly with near-real-time (NRT) analytics rules in Microsoft Sentinel](near-real-time-rules.md)

@@ -10,6 +10,8 @@ ms.author: juliako
 
 # Customize a Person model with the Azure Video Indexer website
 
+[!INCLUDE [Gate notice](./includes/face-limited-access.md)]
+
 Azure Video Indexer supports celebrity recognition for video content. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. For a detailed overview, see [Customize a Person model in Azure Video Indexer](customize-person-model-overview.md).
 
 You can use the Azure Video Indexer website to edit faces that were detected in a video, as described in this article. You can also use the API, as described in [Customize a Person model using APIs](customize-person-model-with-api.md).

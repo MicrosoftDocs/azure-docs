@@ -3,7 +3,7 @@ title: Deploying policies for governing access to applications integrated with A
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can use entitlement management and other identity governance features to enforce the policies for access.
 services: active-directory
 documentationcenter: ''
-author: ajburnle
+author: amsliu
 manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 6/28/2022
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---

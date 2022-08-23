@@ -3,8 +3,9 @@ title: Cost management guide for Azure Lab Services
 description: Understand the different ways to view costs for Lab Services.
 author: rbest
 ms.author: rbest
-ms.date: 02/03/2022
+ms.date: 07/04/2022
 ms.topic: how-to
+ms.custom: devdivchpfy22
 ---
 
 # Cost management for Azure Lab Services
@@ -41,7 +42,7 @@ The cost analysis is for reviewing the previous month's usage to help you determ
 
 The Cost analysis dashboard allows in-depth cost analysis, including the ability to export to different file types on a schedule. For more information, see [Cost Management + Billing overview](../cost-management-billing/cost-management-billing-overview.md).
 
-You can filter by service or resource type. To see only costs associated with Azure Lab Services, set the **service name** filter equal to **azure lab services**.  If filtering on **resource type**, include `Microsoft.Labservices/labaccounts` resource type.  If using the [April 2022 Update (preview)](lab-services-whats-new.md), also include the `Microsoft.LabServices/labs` resource type.
+You can filter by service or resource type. To see only costs associated with Azure Lab Services, set the **service name** filter equal to **azure lab services**.  If filtering on **resource type**, include `Microsoft.Labservices/labaccounts` resource type.  If using the [August 2022 Update](lab-services-whats-new.md), also include the `Microsoft.LabServices/labs` resource type.
 
 ### Understand the entries
 
@@ -51,7 +52,7 @@ In this example, adding the first and second rows (both start with "aaalab / doc
 
 :::image type="content" source="./media/cost-management-guide/cost-analysis.png" alt-text="Screenshot that shows an example cost analysis for a subscription for Azure Lab Services associated costs." lightbox="./media/cost-management-guide/cost-analysis.png":::
 
-If you're using the [April 2022 Update (preview)](lab-services-whats-new.md), the entries in are formatted differently.  The **Resource** column will show entries in the form `{lab name}/{number}` for Azure Lab Services. Some tags are added automatically to each entry when using the April 2022 Update.
+If you're using the [August 2022 Update](lab-services-whats-new.md), the entries in are formatted differently.  The **Resource** column will show entries in the form `{lab name}/{number}` for Azure Lab Services. Some tags are added automatically to each entry when using the August 2022 Update.
 
 | Tag name | Value |
 | -------- | ----- |
@@ -59,7 +60,7 @@ If you're using the [April 2022 Update (preview)](lab-services-whats-new.md), th
 | ms-labname | Name of the lab. |
 | ms-labplanid | Full resource ID of the lab plan used when creating the lab. |
 
-:::image type="content" source="./media/cost-management-guide/cost-analysis-2.png" alt-text="Screenshot that shows an example cost analysis for a subscription using April 2022 Update for Azure Lab Services associated costs." lightbox="./media/cost-management-guide/cost-analysis-2.png":::
+:::image type="content" source="./media/cost-management-guide/cost-analysis-2.png" alt-text="Screenshot that shows an example cost analysis for a subscription using August 2022 Update for Azure Lab Services associated costs." lightbox="./media/cost-management-guide/cost-analysis-2.png":::
 
 To get the cost for the entire lab, don't forget to include external resources.  Azure Compute Gallery related charges are under the `Microsoft.Compute` namespace.  The advanced networking charges are under the `Microsoft.Network` namespace.
 
@@ -72,7 +73,7 @@ Since cost entries are tied to the lab account, some schools use the lab account
 
 In the cost analysis pane, add a filter based on the resource group name for the class. Then, only the costs for that class will be visible. Grouping by resource group allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-export-acm-data.md) feature of the cost analysis to download the costs of each class in separate files.
 
-In the [April 2022 Update (preview)](lab-services-whats-new.md):
+In the [August 2022 Update](lab-services-whats-new.md):
 
 - Cost entries are tied to a lab VM, *not* the lab plan.  
 - Cost entries get tagged with the name of the lab the VM is tied to. You can filter by the lab name tag to view total cost across VM in that lab.

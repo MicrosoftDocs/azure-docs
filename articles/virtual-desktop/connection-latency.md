@@ -15,9 +15,6 @@ There are currently two ways you can analyze connection quality in your Azure Vi
 
 ## Monitor connection quality with Azure Log Analytics
 
->[!NOTE]
-> Azure Log Analytics currently only supports Azure Virtual Desktop connection network data in commercial clouds.
-
 If you're already using [Azure Log Analytics](diagnostics-log-analytics.md), you can monitor network data with the Azure Virtual Desktop connection network data diagnostics. The connection network data Log Analytics collects can help you discover areas that impact your end-user's graphical experience. The service collects data for reports regularly throughout the session. Azure Virtual Desktop connection network data reports have the following advantages over RemoteFX network performance counters:
 
 - Each record is connection-specific and includes the correlation ID of the connection that can be tied back to the user.

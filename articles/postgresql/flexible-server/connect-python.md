@@ -31,7 +31,7 @@ This article assumes that you're familiar with developing using Python, but you'
 - If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for PostgreSQL - Flexible Server firewall rules using the Azure CLI](./how-to-manage-firewall-cli.md).
 
 ## Install the Python libraries for PostgreSQL
-The [psycopg2](https://pypi.python.org/pypi/psycopg2/) module enables connecting to and querying a PostgreSQL database, and is available as a Linux, macOS, or Windows [wheel](https://pythonwheels.com/) package. Install the binary version of the module, including all the dependencies. For more information about `psycopg2` installation and requirements, see [Installation](http://initd.org/psycopg/docs/install.html). 
+The [psycopg2](https://pypi.python.org/pypi/psycopg2/) module enables connecting to and querying a PostgreSQL database, and is available as a Linux, macOS, or Windows [wheel](https://pythonwheels.com/) package. Install the binary version of the module, including all the dependencies.
 
 To install `psycopg2`, open a terminal or command prompt and run the command `pip install psycopg2`.
 
@@ -61,7 +61,7 @@ For each code example in this article:
 1. To run the file, change to your project folder in a command-line interface, and type `python` followed by the filename, for example `python postgres-insert.py`.
 
 ## Create a table and insert data
-The following code example connects to your Azure Database for PostgreSQL - Flexible Server database using the [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) function, and loads data with a SQL **INSERT** statement. The [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function executes the SQL query against the database. 
+The following code example connects to your Azure Database for PostgreSQL - Flexible Server database using the psycopg2.connect function, and loads data with a SQL **INSERT** statement. The cursor.execute function executes the SQL query against the database. 
 
 ```Python
 import psycopg2
@@ -110,7 +110,7 @@ When the code runs successfully, it produces the following output:
 ![Command-line output](media/connect-python/2-example-python-output.png)
 
 ## Read data
-The following code example connects to your Azure Database for PostgreSQL - Flexible Server database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **SELECT** statement to read data. This function accepts a query and returns a result set to iterate over by using [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 
+The following code example connects to your Azure Database for PostgreSQL - Flexible Server database and uses cursor.execute with the SQL **SELECT** statement to read data. This function accepts a query and returns a result set to iterate over by using cursor.fetchall()
 
 ```Python
 import psycopg2
@@ -148,7 +148,7 @@ conn.close()
 ```
 
 ## Update data
-The following code example connects to your Azure Database for PostgreSQL - Flexible Server database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **UPDATE** statement to update data. 
+The following code example connects to your Azure Database for PostgreSQL - Flexible Server database and uses cursor.execute with the SQL **UPDATE** statement to update data. 
 
 ```Python
 import psycopg2
@@ -181,7 +181,7 @@ conn.close()
 ```
 
 ## Delete data
-The following code example connects to your Azure Database for PostgreSQL - Flexible Server database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **DELETE** statement to delete an inventory item that you previously inserted. 
+The following code example connects to your Azure Database for PostgreSQL - Flexible Server database and uses cursor.execute with the SQL **DELETE** statement to delete an inventory item that you previously inserted. 
 
 ```Python
 import psycopg2
