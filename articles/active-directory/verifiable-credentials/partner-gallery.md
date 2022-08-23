@@ -36,4 +36,4 @@ To be considered into this documentation, submit your application [request](http
 
 ## Next steps
 
-Select a partner in the tables mentioned to learn how to integrate their solution with Azure AD B2C.
+Select a partner in the tables mentioned to learn how to integrate their solution with your application.
