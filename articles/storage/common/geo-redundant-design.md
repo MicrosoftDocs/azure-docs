@@ -18,21 +18,21 @@ ms.custom: devx-track-csharp
 
 Cloud-based infrastructures like Azure Storage provide a highly available and durable platform for hosting data and applications. Developers of cloud-based applications must consider carefully how to leverage this platform to maximize those advantages for their users. Azure Storage offers geo-redundancy options to ensure high availability even during a regional outage. Storage accounts configured for geo-redundant replication are synchronously replicated in the primary region, and asynchronously replicated to a secondary region that is hundreds of miles away.
 
-Azure Storage offers two options for geo-redundant replication: [Geo-redundant storage (GRS)](storage-redundancy.md#geo-redundant-storage) and [Geo-zone-redundant storage (GZRS)](storage-redundancy.md#geo-zone-redundant-storage). To make use of the Azure Storage geo-redundancy options, be sure that your storage account is configured for read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If it's not, you can learn more about how to [change your storage account replication type](redundancy-migration.md).
+Azure Storage offers two options for geo-redundant replication: [Geo-redundant storage (GRS)](storage-redundancy.md#geo-redundant-storage) and [Geo-zone-redundant storage (GZRS)](storage-redundancy.md#geo-zone-redundant-storage). To make use of the Azure Storage geo-redundancy options, make sure that your storage account is configured for read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If it's not, you can learn more about how to [change your storage account replication type](redundancy-migration.md).
 
 This article shows how to design an application that will continue to function, albeit in a limited capacity, even when there's a significant outage in the primary region. If the primary region becomes unavailable, your application can switch seamlessly to perform read operations against the secondary region until the primary region is responsive again.
 
-## Design considerations when reading from the secondary region
+## Application design considerations
 
-You can design your application to handle transient faults or significant outages by reading from the secondary region when there's and issue that interferes with reading from the primary region. When the primary region is available again, your application can return to reading from the primary region.
+You can design your application to handle transient faults or significant outages by reading from the secondary region when there's an issue that interferes with reading from the primary region. When the primary region is available again, your application can return to reading from the primary region.
 
-Keep in mind these key considerations when designing your application for resiliency using RA-GRS or RA-GZRS:
+Keep in mind these key considerations when designing your application for availability and resiliency using RA-GRS or RA-GZRS:
 
-- A read-only copy of the data you store in the primary region is asynchronously replicated in a secondary region. As noted above, the storage service determines the location of the secondary region.
+- A read-only copy of the data you store in the primary region is asynchronously replicated in a secondary region. As noted earlier, the storage service determines the location of the secondary region.
 
 - The read-only copy in the secondary region is [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency) with the data in the primary region.
 
-- You can use the Azure Storage client library to read and write data in the primary region, or read data from the primary or secondary region. You can also automatically redirect read requests to the secondary region if a read request to the primary region times out.
+- You can use the Azure Storage client library to read data from the primary or secondary region, and to write data to the primary region. You can also automatically redirect read requests to the secondary region if a read request to the primary region times out.
 
 - If the primary region becomes unavailable, you can initiate an account failover. When you fail over to the secondary region, the DNS entries pointing to the primary region are changed to point to the secondary region. After the failover is complete, write access is restored for GRS and RA-GRS accounts. For more information, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
@@ -56,10 +56,10 @@ Ultimately, this decision depends on the complexity of your application. You may
 
 The rest of this article will discuss these further considerations in greater detail:
 
-- Read-only mode and handling updates
+- Read-only mode and handling update requests
 - Retry handling for read and update requests
 - Example of handling eventually consistent data using **Last Sync Time**
-- Testing
+- Testing strategies
 
 ## Running your application in read-only mode
 
