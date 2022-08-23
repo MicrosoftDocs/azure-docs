@@ -1,27 +1,43 @@
 ---
-title: "Migrate from Azure Database for PostgreSQL Single Server to Flexible Server - Concepts"
+title: "Migration tool - Azure Database for PostgreSQL Single Server to Flexible Server - Concepts"
 titleSuffix: Azure Database for PostgreSQL Flexible Server
 description: Concepts about migrating your Single server to Azure database for PostgreSQL Flexible server.
 author: shriram-muthukrishnan
 ms.author: shriramm
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/11/2022
+ms.date: 08/17/2022
 ms.custom: "mvc, references_regions"
 ---
 
-# Migrate from Azure Database for PostgreSQL Single Server to Flexible Server (preview)
+# Migration tool - Azure Database for PostgreSQL Single Server to Flexible Server (preview)
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
 Azure Database for PostgreSQL Flexible Server provides zone-redundant high availability, control over price, and control over maintenance windows. You can use the available migration tool to move your databases from Single Server to Flexible Server. To understand the differences between the two deployment options, see [this comparison chart](../flexible-server/concepts-compare-single-server-flexible-server.md). 
 
-By using the migration tool, you can initiate migrations for multiple servers and databases in a repeatable way. The tool automates most of the migration steps to make the migration journey across Azure platforms as seamless as possible. The tool is free for customers.
+Single to Flexible server migration tool is designed to help you with your migration from Single to flexible server task. The tool allows you to initiate migrations for multiple servers and databases in a repeatable way. The tool automates most of the migration steps to make the migration journey across Azure platforms as seamless as possible. The tool is offered **free of cost**.
 
 >[!NOTE]
-> The migration tool is in public preview.
->
-> Migration from Single Server to Flexible Server is enabled in preview in these regions: Central US, West US, South Central US, North Central US, East Asia, Switzerland North, Australia South East, UAE North, UK West and Canada East.
+> The migration tool is in public preview. Feature, functionality, and user interfaces are subject to change.
+
+## Recommended migration path
+
+The migration tool is agnostic of source and target PostgreSQL versions. Here are some guidelines. 
+
+| Source Postgres version (Single Server) | Suggested Target Postgres version (Flexible server) | Remarks |
+|:---------------|:-------------|:-----------------|
+| Postgres 9.5 (Retired) | Postgres 13 | You can even directly migrate to Postgres 14. Verify your application compatibility. |
+| Postgres 9.6 (Retired) | Postgres 13 | You can even directly migrate to Postgres 14. Verify your application compatibility. |
+| Postgres 10 (Retiring Nov'22) | Postgres 14 |  Verify your application compatibility. |
+| Postgres 11  | Postgres 14 | Verify your application compatibility. |
+| Postgres 11  | Postgres 11 | You can choose to migrate to the same version in Flexible Server. You can then upgrade to a higher version in Flexible Server |
+
+>[!NOTE]
+> Migration initiation from Single Server is enabled in preview in these regions: Central US, West US, South Central US, North Central US, East Asia, Switzerland North, Australia South East, UAE North, UK West and Canada East. However, you can use the migration wizard from the Flexible Server side in all regions.
+
+>[!IMPORTANT]
+> We continue to add support for more regions with Flexible Server. If Flexible Server is not available in your preferred region, you can either choose an alternative region or you can wait until the Flexible server is enabled in that region.
 
 ## Overview
 
@@ -157,7 +173,7 @@ After you finish the prerequisites, migrate the data and schemas by using one of
 
 ### Size
 
-- You can migrate databases of sizes up to 1 TB by using this tool. To migrate larger databases or heavy write workloads, contact your account team or [contact us](mailto:AskAzureDBforPGS2F@microsoft.com).
+- You can migrate databases of sizes **up to 1 TB** by using this tool. To migrate larger databases or heavy write workloads, contact your account team to reach out to us or file a support ticket.
 
 - In one migration attempt, you can migrate up to eight user databases from Single Server to Flexible Server. If you have more databases to migrate, you can create multiple migrations between the same Single Server and Flexible Server.
 
@@ -209,6 +225,11 @@ After you finish the prerequisites, migrate the data and schemas by using one of
 
 - Cut over all dependent applications to access the new primary database, and open the applications for production usage.
 - After the application starts running on the Flexible Server target, monitor the database performance closely to see if performance tuning is required.
+
+## Other migration methods
+
+The intent of the tool is to provide a seamless migration experience for most workloads. However, you may also choose other options to migrate using [dump/restore](../single-server/how-to-upgrade-using-dump-and-restore.md) or using [Azure Database Migration Service (DMS)](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) or using any 3rd party tools.
+
 
 ## Next steps
 

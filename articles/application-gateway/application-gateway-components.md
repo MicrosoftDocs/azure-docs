@@ -136,7 +136,7 @@ Application Gateway backend pool members aren't tied to an availability set. An 
 
 If you use internal IPs as backend pool members, you must use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) or a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Virtual network peering is supported and beneficial for load-balancing traffic in other virtual networks.
 
-An application gateway can also communicate with to on-premises servers when they're connected by Azure ExpressRoute or VPN tunnels if traffic is allowed.
+An application gateway can also communicate with on-premises servers when they're connected by Azure ExpressRoute or VPN tunnels if traffic is allowed.
 
 You can create different backend pools for different types of requests. For example, create one backend pool for general requests, and then another backend pool for requests to the microservices for your application.
 

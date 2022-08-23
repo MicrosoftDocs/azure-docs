@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 08/15/2022
 ---
 
 # Use the "simple" search syntax in Azure Cognitive Search

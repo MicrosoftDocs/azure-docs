@@ -3,7 +3,7 @@ title:  "Customer responsibilities running Azure Spring Apps in vnet"
 description: This article describes customer responsibilities running Azure Spring Apps in vnet.
 author: karlerickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: devx-track-java, event-tier1-build-2022

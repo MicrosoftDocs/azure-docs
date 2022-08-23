@@ -197,7 +197,7 @@ You can also configure group claims in the [optional claims](../../active-direct
 
    By default, group `ObjectID` attributes will be emitted in the group claim value. To modify the claim value to contain on-premises group attributes, or to change the claim type to a role, use the `optionalClaims` configuration described in the next step.
 
-3. Set optional clams for group name configuration.
+3. Set optional claims for group name configuration.
 
    If you want the groups in the token to contain the on-premises Active Directory group attributes, specify which token-type optional claim should be applied in the `optionalClaims` section. You can list multiple token types:
 

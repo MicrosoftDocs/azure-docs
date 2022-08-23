@@ -163,7 +163,7 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
 
 ---
 
-**An Arc-enabled server running as a Hybrid Runbook Worker** already has a built-in System Managed Identity assigned to it which can be used for authentication.
+**An Arc-enabled server or Arc-enabled VMware vSphere VM** running as a Hybrid Runbook Worker already has a built-in System Managed Identity assigned to it which can be used for authentication.
 
 1. You can grant this Managed Identity access to resources in your subscription in the Access control (IAM) blade for the resource by adding the appropriate role assignment.
 

@@ -3,7 +3,7 @@ title:  "Tutorial: Managed identity to connect an Azure Database for MySQL to ap
 description: Set up managed identity to connect an Azure Database for MySQL to apps in Azure Spring Apps
 author: karlerickson
 ms.author: xiading
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: tutorial
 ms.date: 03/30/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022

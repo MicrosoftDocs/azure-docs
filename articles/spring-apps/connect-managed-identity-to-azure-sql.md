@@ -3,7 +3,7 @@ title:  Use Managed identity to connect Azure SQL to Azure Spring Apps app
 description: Set up managed identity to connect Azure SQL to an Azure Spring Apps app.
 author: karlerickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 03/25/2021
 ms.custom: devx-track-java, event-tier1-build-2022

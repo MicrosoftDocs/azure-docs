@@ -401,6 +401,8 @@
       href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (Service)
       href: /java/api/com.microsoft.azure.sdk.iot.service
+    - name: Java (Management)
+      href: /java/api/overview/azure/resourcemanager-iothub-readme
     - name: Node.js (Device)
       href: /javascript/api/azure-iot-device/
     - name: Node.js (Service)

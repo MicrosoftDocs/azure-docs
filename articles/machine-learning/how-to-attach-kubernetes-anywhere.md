@@ -41,9 +41,10 @@ In this article, you can learn about steps to configure an existing Kubernetes c
 
 ## Limitations
 
-- [Using a service principal with AKS](../aks/kubernetes-service-principal.md) is **not supported** by Azure Machine Learning. The AKS cluster must use a managed identity instead.
+- [Using a service principal with AKS](../aks/kubernetes-service-principal.md) is **not supported** by Azure Machine Learning. The AKS cluster must use a **system-assigned managed identity** instead.
 - [Disabling local accounts](../aks/managed-aad.md#disable-local-accounts) for AKS is **not supported**  by Azure Machine Learning. When deploying an AKS Cluster, local accounts are enabled by default.
 - If your AKS cluster has an [Authorized IP range enabled to access the API server](../aks/api-server-authorized-ip-ranges.md), enable the AzureML control plane IP ranges for the AKS cluster. The AzureML control plane is deployed across paired regions. Without access to the API server, the machine learning pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../availability-zones/cross-region-replication-azure.md) when enabling the IP ranges in an AKS cluster.
+- If you have previously followed the steps from [AzureML AKS v1 document](./v1/how-to-create-attach-kubernetes.md) to create or attach your AKS as inference cluster, please use the following link to [clean up the legacy azureml-fe related resources](./v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources) before you continue the next step. 
 
 ## Deploy AzureML extension to Kubernetes cluster
 
@@ -186,7 +187,7 @@ Otherwise, if a user-assigned managed identity is specified in Azure Machine Lea
 |Azure resource name |Role to be assigned|Description|
 |--|--|--|
 |Azure Relay|Azure Relay Owner|Only applicable for Arc-enabled Kubernetes cluster. Azure Relay isn't created for AKS cluster without Arc connected.|
-|Azure Arc-enabled Kubernetes|Reader|Applicable for both Arc-enabled Kubernetes cluster and AKS cluster.|
+|Azure Arc-enabled Kubernetes or AKS|Reader|Applicable for both Arc-enabled Kubernetes cluster and AKS cluster.|
 
 Azure Relay resource is created during the extension deployment under the same Resource Group as the Arc-enabled Kubernetes cluster.
 
@@ -213,7 +214,8 @@ Set the `--type` argument to `Kubernetes`. Use the `identity_type` argument to e
 
 > [!IMPORTANT]
 > `--user-assigned-identities` is only required for `UserAssigned` managed identities. Although you can provide a list of comma-separated user managed identities, only the first one is used when you attach your cluster.
-
+>
+> Compute attach won't create the Kubernetes namespace automatically or validate whether the kubernetes namespace existed. You need to verify that the specified namespace exists in your cluster, otherwise, any AzureML workloads submitted to this compute will fail.  
 ### [Python](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
@@ -253,7 +255,7 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
 1. Enter a compute name and select your Kubernetes cluster from the dropdown.
 
-    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified Kubernetes namespace in the cluster.
+    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified Kubernetes namespace in the cluster. Compute attach won't create the Kubernetes namespace automatically or validate whether the kubernetes namespace exists. You need to verify that the specified namespace exists in your cluster, otherwise, any AzureML workloads submitted to this compute will fail.  
 
     * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. For more information, see [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) .
 
