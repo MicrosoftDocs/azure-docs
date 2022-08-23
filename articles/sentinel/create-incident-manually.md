@@ -90,30 +90,51 @@ There are three ways to create an incident manually:
 
 ### Create an incident using the Microsoft Sentinel API
 
-You're not limited to the portal to use this feature. It's also accessible through the Microsoft Sentinel API, through the [Incident relations](/rest/api/securityinsights/preview/incident-relations) operation group. It allows you to get, create, update, and delete relationships between alerts and incidents.
+The [Incidents](/rest/api/securityinsights/preview/incidents) operation group allows you not only to create, but also to update (edit), get (retrieve), list, and delete incidents.
 
-
-You add an alert to an incident by creating a relationship between them. Use the following endpoint to add an alert to an existing incident. After this request is made, the alert joins the incident and will be visible in the list of alerts in the incident in the portal.
+You create an incident using the following endpoint. After this request is made, the incident will be visible in the incident queue in the portal.
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations/{relationName}?api-version=2022-07-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}?api-version=2022-07-01-preview
 ```
 
-The request body looks like this:
+Here's an example of what a request body might look like:
 
 ```json
-{ 
-    "properties": { 
-        "relatedResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/entities/{systemAlertId}" 
-    } 
-} 
+{
+  "etag": "\"0300bf09-0000-0000-0000-5c37296e0000\"",
+  "properties": {
+    "lastActivityTimeUtc": "2019-01-01T13:05:30Z",
+    "firstActivityTimeUtc": "2019-01-01T13:00:30Z",
+    "description": "This is a demo incident",
+    "title": "My incident",
+    "owner": {
+      "objectId": "2046feea-040d-4a46-9e2b-91c2941bfa70"
+    },
+    "severity": "High",
+    "classification": "FalsePositive",
+    "classificationComment": "Not a malicious activity",
+    "classificationReason": "IncorrectAlertLogic",
+    "status": "Closed"
+  }
+}
 ```
-
-
 
 ### Create an incident using Azure Logic Apps
 
+Creating an incident is also available as a Logic Apps action in the Microsoft Sentinel connector, and therefore in Microsoft Sentinel [playbooks](tutorial-respond-threats-playbook.md).
 
+You can find the **Create incident (preview)** action in the playbook schema for the incident trigger.
+
+:::image type="content" source="media/create-incident-manually/create-incident-logicapp-action.png" alt-text="Screenshot of create incident logic app action in Microsoft Sentinel connector.":::
+
+You need to supply parameters as described below:
+
+- Select your **Subscription**, **Resource group**, and **Workspace name** from their respective drop-downs.
+
+- For the remaining fields, see the explanations above (under [Create an incident using the Azure portal](#create-an-incident-using-the-azure-portal)).
+
+    :::image type="content" source="media/create-incident-manually/create-incident-logicapp-parameters.png" alt-text="Screenshot of create incident action parameters in Microsoft Sentinel connector.":::
 
 ## Notes
 
