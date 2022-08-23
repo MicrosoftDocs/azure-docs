@@ -812,6 +812,7 @@ The following neural voices are in public preview.
 | Chinese (Mandarin, Simplified) | `zh-CN-sichuan` | Male | `zh-CN-sichuan-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
 | English (United States) | `en-US` | Female | `en-US-JaneNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Female | `en-US-NancyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Male | `en-US-AIGenerate1Neural` <sup>New</sup>  | General|
 | English (United States) | `en-US` | Male | `en-US-DavisNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-JasonNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-RogerNeural` <sup>New</sup> | General|

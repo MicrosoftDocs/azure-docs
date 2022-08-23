@@ -573,9 +573,9 @@
         href: cognitive-search-skill-custom-entity-lookup.md 
       - name: Document Extraction
         href: cognitive-search-skill-document-extraction.md
-      - name: Entity Linking (V3)
+      - name: Entity Linking (v3)
         href: cognitive-search-skill-entity-linking-v3.md
-      - name: Entity Recognition (V3)
+      - name: Entity Recognition (v3)
         href: cognitive-search-skill-entity-recognition-v3.md
       - name: Image Analysis
         href: cognitive-search-skill-image-analysis.md
@@ -587,7 +587,7 @@
         href: cognitive-search-skill-ocr.md
       - name: PII Detection
         href: cognitive-search-skill-pii-detection.md  
-      - name: Sentiment (V3)
+      - name: Sentiment (v3)
         href: cognitive-search-skill-sentiment-v3.md
       - name: Shaper
         href: cognitive-search-skill-shaper.md
@@ -606,11 +606,11 @@
     - name: Deprecated skills
       href: cognitive-search-skill-deprecated.md
       items:
-      - name: Named Entity Recognition
+      - name: Named Entity Recognition (v2)
         href: cognitive-search-skill-named-entity-recognition.md
-      - name: Entity Recognition
+      - name: Entity Recognition (v2)
         href: cognitive-search-skill-entity-recognition.md
-      - name: Sentiment
+      - name: Sentiment (v2)
         href: cognitive-search-skill-sentiment.md
 - name: Resources
   items:

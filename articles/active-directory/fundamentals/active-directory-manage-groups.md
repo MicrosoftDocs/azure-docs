@@ -3,13 +3,13 @@ title: Manage app & resource access using groups - Azure AD
 description: Learn about how to manage access to your organization's cloud-based apps, on-premises apps, and resources using Azure Active Directory groups.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/08/2020
+ms.date: 08/17/2022
 ms.author: barclayn
 ms.reviewer: piotrci
 ms.custom: "it-pro, seodec18"
@@ -48,7 +48,7 @@ There are four ways to assign resource access rights to your users:
 ## Can users join groups without being assigned?
 The group owner can let users find their own groups to join, instead of assigning them. The owner can also set up the group to automatically accept all users that join or to require approval.
 
-After a user requests to join a group, the request is forwarded to the group owner. If it's required, the owner can approve the request and the user is notified of the group membership. However, if you have multiple owners and one of them disapproves, the user is notified, but isn't added to the group. For more information and instructions about how to let your users request to join groups, see [Set up Azure AD so users can request to join groups](../enterprise-users/groups-self-service-management.md)
+After a user requests to join a group, the request is forwarded to the group owner. If it's required, the owner can approve the request, and the user is notified of the group membership. However, if you have multiple owners and one of them disapproves, the user is notified, but isn't added to the group. For more information and instructions about how to let your users request to join groups, see [Set up Azure AD so users can request to join groups](../enterprise-users/groups-self-service-management.md)
 
 ## Next steps
 Now that you have a bit of an introduction to access management using groups, you start to manage your resources and apps.

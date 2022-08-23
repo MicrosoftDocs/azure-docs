@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/27/2022
+ms.date: 08/20/2022
 ---
 
 # Schedules for recurring triggers in Azure Logic Apps workflows
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Azure Logic Apps helps you create and run automated recurring workflows on a schedule. By creating a logic app workflow that starts with a built-in Recurrence trigger or Sliding Window trigger, which are Schedule-type triggers, you can run tasks immediately, at a later time, or on a recurring interval. You can call services inside and outside Azure, such as HTTP or HTTPS endpoints, post messages to Azure services such as Azure Storage and Azure Service Bus, or get files uploaded to a file share. With the Recurrence trigger, you can also set up complex schedules and advanced recurrences for running tasks. To learn more about the built-in Schedule triggers and actions, see [Schedule triggers](#schedule-triggers) and [Schedule actions](#schedule-actions). 
 

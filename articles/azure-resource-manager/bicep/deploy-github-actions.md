@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to deploy Bicep files by using Gi
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 08/22/2022
 ms.custom: github-actions-azure
 ---
 
@@ -205,6 +205,9 @@ To create a workflow, take the following steps:
     ```yml
     on: [push]
     name: Azure ARM
+    permissions:
+      id-token: write
+      contents: read
     jobs:
       build-and-deploy:
         runs-on: ubuntu-latest
