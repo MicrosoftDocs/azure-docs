@@ -11,6 +11,8 @@ ms.custom: ignite-fall-2021
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in Visual Studio Code
 
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+
 This article shows how to create an example automated integration workflow that runs in the *single-tenant* Azure Logic Apps environment by using Visual Studio Code with the **Azure Logic Apps (Standard)** extension. The logic app that you create with this extension is based on the **Logic App (Standard)** resource type, which provides the following capabilities:
 
 * You can locally run and test logic app workflows in the Visual Studio Code development environment.
