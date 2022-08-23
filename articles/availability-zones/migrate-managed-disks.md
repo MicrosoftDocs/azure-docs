@@ -88,6 +88,9 @@ To migrate a non-zonal managed disk to zone-redundant:
 
 1. Attach the ZRS managed disk to the Azure VM. For guidance on how to attach a managed disk, see [Attach a data disk to a Windows VM with Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md) or [Attach a data disk to a Windows VM with PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
+1. Swap the OS disk to the new one created from the copy, using either [CLI](../virtual-machines/linux/os-disk-swap.md) or [PowerShell](../virtual-machines/windows/os-disk-swap.md).
+
+
 
 
 
