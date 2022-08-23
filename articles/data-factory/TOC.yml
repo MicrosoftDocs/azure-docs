@@ -1112,6 +1112,9 @@ items:
       - name: Azure Cosmos DB (including SQL API)
         href: connector-troubleshoot-azure-cosmos-db.md
         displayName: troubleshooting
+      - name: Azure Data Explorer
+        href: connector-troubleshoot-azure-data-explorer.md      
+        displayName: troubleshooting                
       - name: Azure Data Lake (Gen1 and Gen2)
         href: connector-troubleshoot-azure-data-lake.md
         displayName: troubleshooting
@@ -1254,6 +1257,7 @@ items:
     items:
     - name: 1 - Introduction and architecture
       href: sap-change-data-capture-introduction-architecture.md
+      displayName: SAP, change data capture, CDC
     - name: 2 - Prerequisites and configuration
       href: sap-change-data-capture-prerequisites-configuration.md
     - name: 3 - Self-hosted integration runtime preparation

@@ -13,6 +13,8 @@ ms.custom: devx-track-js, ignite-fall-2021
 
 Use this quickstart to create a key phrase extraction application with the client library for Node.js. In the following example, you will create a JavaScript application that can identify key words and phrases found in text.
 
+[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)

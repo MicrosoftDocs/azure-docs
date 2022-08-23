@@ -25,7 +25,7 @@ For more information, see [Understand sensor health (Public preview)](how-to-man
 
 |Title  |Message  |Description  |Recommendation  |
 |---------|---------|---------|---------|
-|**Package upload failed** |There was an error uploading the file to the sensor |Upload error |"Verify the sensor’s ability to communicate with download.microsoft.com and retry. <br><br>If the problem persists,  open a support ticket.|
+|**Package upload failed** |There was an error uploading the file to the sensor |Upload error |Verify the sensor’s ability to communicate with download.microsoft.com and retry. <br><br>If the problem persists,  open a support ticket.|
 |**Sensor update failed** | There was an error installing the update.| Installation error |Open a support ticket. |
 | **Unstable traffic to Azure**|Sensor’s connection to Azure is unstable |Unstable traffic to Azure | We recommend that you check the sensor WAN connection, the BW limit settings, and validate network equipment that might be on the route between the sensor and the cloud.|
 | **Outdated**|Outdated software may result in a non-optimal experience |Sensor version is outdated |Upgrade your sensor software to the latest version to use the most recently available Defender for IoT features.|
