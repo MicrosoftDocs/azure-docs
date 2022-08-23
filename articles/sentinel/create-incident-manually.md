@@ -151,5 +151,6 @@ You need to supply parameters as described below:
 
 For more information, see:
 - [Relate alerts to incidents in Microsoft Sentinel](relate-alerts-to-incidents.md)
+- [Delete incidents in Microsoft Sentinel](delete-incident.md)
 - [Investigate incidents with Microsoft Sentinel](investigate-cases.md)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
