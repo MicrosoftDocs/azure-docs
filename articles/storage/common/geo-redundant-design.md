@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2022
+ms.date: 08/23/2022
 ms.author: pauljewell
 ms.reviewer: artek
 ms.subservice: common
@@ -123,7 +123,7 @@ BlobClientOptions blobClientOptions = new BlobClientOptions()
 BlobServiceClient blobServiceClient = new BlobServiceClient(primaryAccountUri, new DefaultAzureCredential(), blobClientOptions);
 ```
 
-If you determine that the primary region is likely to be unavailable for a long period of time, you can configure all read requests to point at the secondary region. This is a **secondary only** approach. As discussed earlier, you'll need a strategy to handle update requests during this time, and a way to inform users that only read requests are being processed. In this example, we create a new instance of `BlobServiceClient` which uses the secondary region endpoint.
+If you determine that the primary region is likely to be unavailable for a long period of time, you can configure all read requests to point at the secondary region. This configuration is a **secondary only** approach. As discussed earlier, you'll need a strategy to handle update requests during this time, and a way to inform users that only read requests are being processed. In this example, we create a new instance of `BlobServiceClient` which uses the secondary region endpoint.
 
 ```csharp
 string accountName = "<YOURSTORAGEACCOUNTNAME>";
@@ -148,7 +148,7 @@ The Circuit Breaker pattern can also be applied to update requests. To handle up
 
 Handling failures that may take a variable amount of time to recover from is part of an architectural design pattern called the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker). Proper implementation of this pattern can prevent an application from repeatedly trying to execute an operation that's likely to fail, thereby improving application stability and resiliency.
 
-One aspect of the Circuit Breaker pattern is identifying when there is an ongoing problem with a primary endpoint. To make this determination, you can monitor how frequently the client encounters retryable errors. Because each scenario is different, you need to determine an appropriate threshold to use for the decision to switch to the secondary endpoint and run the application in read-only mode. 
+One aspect of the Circuit Breaker pattern is identifying when there's an ongoing problem with a primary endpoint. To make this determination, you can monitor how frequently the client encounters retryable errors. Because each scenario is different, you need to determine an appropriate threshold to use for the decision to switch to the secondary endpoint and run the application in read-only mode. 
 
 For example, you could decide to perform the switch if there are 10 consecutive failures in the primary region. You can track this by keeping a count of the failures in the code. If there's a success before reaching the threshold, set the count back to zero. If the count reaches the threshold, then switch the application to use the secondary region for read requests.
 
@@ -174,7 +174,7 @@ The following table shows an example of what might happen when you update the de
 | *T5*     | Read entities <br>from secondary                           |                                  | T1                 | You get the stale value for employee <br> entity because transaction B hasn't <br> replicated yet. You get the new value for<br> administrator role entity because C has<br> replicated. Last Sync Time still hasn't<br> been updated because transaction B<br> hasn't replicated. You can tell the<br>administrator role entity is inconsistent <br>because the entity date/time is after <br>the Last Sync Time. |
 | *T6*     |                                                      | Transaction B<br> replicated to<br> secondary | T6                 | *T6* – All transactions through C have <br>been replicated, Last Sync Time<br> is updated. |
 
-In this example, assume the client switches to reading from the secondary region at T5. It can successfully read the **administrator role** entity at this time, but the entity contains a value for the count of administrators that isn't consistent with the number of **employee** entities that are marked as administrators in the secondary region at this time. Your client could display this value, with the risk that it is inconsistent information. Alternatively, the client could attempt to determine that the **administrator role** is in a potentially inconsistent state because the updates have happened out of order, and then inform the user of this fact.
+In this example, assume the client switches to reading from the secondary region at T5. It can successfully read the **administrator role** entity at this time, but the entity contains a value for the count of administrators that isn't consistent with the number of **employee** entities that are marked as administrators in the secondary region at this time. Your client could display this value, with the risk that the information is inconsistent. Alternatively, the client could attempt to determine that the **administrator role** is in a potentially inconsistent state because the updates have happened out of order, and then inform the user of this fact.
 
 To recognize that it has potentially inconsistent data, the client can use the value of the **Last Sync Time** property, which you can get at any time by querying a storage service. **Last Sync Time** tells you the time when the data in the secondary region was last consistent and when the service had applied all the transactions prior to that point in time. In the example shown above, after the service inserts the **employee** entity in the secondary region, the last sync time is set to *T1*. It remains at *T1* until the service updates the **employee** entity in the secondary region when it's set to *T6*. If the client retrieves the last sync time when it reads the entity at *T5*, it can compare it with the timestamp on the entity. If the timestamp on the entity is later than the last sync time, then the entity is in a potentially inconsistent state, and you can take the appropriate action. Using this field requires that you know when the last update to the primary was completed.
 
