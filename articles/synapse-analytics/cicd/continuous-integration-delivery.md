@@ -4,8 +4,7 @@ description: Learn how to use continuous integration and continuous delivery (CI
 author: liudan66
 ms.service: synapse-analytics
 ms.subservice: cicd
-ms.search.form: home
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: liud 
 ms.reviewer: pimorano
@@ -156,6 +155,9 @@ Use the [Synapse workspace deployment](https://marketplace.visualstudio.com/item
 #### Configure the deployment task 
 
 The deployment task supports 3 types of operations,  validate only, deploy and validate and deploy.
+
+   > [!NOTE]
+   > This workspace deployment extension in is not backward compatible. Please make sure that the latest version is installed and used. You can read the release note in [overview] (https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy&ssr=false#overview) in Azure DevOps and the [latest version](https://github.com/marketplace/actions/synapse-workspace-deployment) in GitHub action. 
 
 **Validate** is to validate the Synapse artifacts in non-publish branch with the task and generate the workspace template and parameter template file. The validation operation only works in the YAML pipeline. The sample YAML file is as below: 
 

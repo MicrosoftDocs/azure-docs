@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Microsoft Purview - Profisee MDM Integration
 
-Master data management (MDM) is a key pillar of any unified data governance solution. Microsoft Purview supports master data management with our partner [Profisee](https://profisee.com/profisee-advantage/). This tutorial compiles reference and integration deployment materials in one place; firstly to put Microsoft Purview Unified Data Governance and MDM in the context of an Azure data estate; and more importantly, to get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
+Master data management (MDM) is a key pillar of any unified data governance solution. Microsoft Purview supports master data management with our partner [Profisee](https://profisee.com/solutions/microsoft-enterprise/azure/). This tutorial compiles reference and integration deployment materials in one place; firstly to put Microsoft Purview Unified Data Governance and MDM in the context of an Azure data estate; and more importantly, to get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
 
 ## Why Data Governance and Master Data Management (MDM) are essential to the modern Data Estate?
 
@@ -42,6 +42,9 @@ Microsoft Purview and Profisee MDM are often discussed as being a ‘Better Toge
   - Inherently multi-domain – Profisee offers a multi-domain approach to MDM where there are no limitations to the number of specificity of master data domains.  This design aligns well with customers looking to modernize their data estate who may start with a limited number of domains, but ultimately will benefit from maximizing domain coverage (matched to their data governance coverage) across their whole data estate.  
   - Engineered for Azure – Profisee has been engineered to be cloud-native with options for both SaaS and managed IaaS/CaaS deployments on Azure (see next section) 
 
+    >[!TIP] 
+    > **Leverage Profisee’s [MDS Migration Utility](https://profisee.com/solutions/microsoft-enterprise/master-data-services/) to upgrade from Microsoft MDS (Master Data Services) in a single click**
+
 ## Profisee MDM: Deployment Flexibility – Turnkey SaaS Experience or IaaS/CaaS Flexibility
 Profisee MDM has been engineered for a cloud-native experience and may be deployed on Azure in two ways – SaaS and Azure IaaS/CaaS/Kubernetes Cluster.
 
@@ -57,7 +60,7 @@ Complete deployment flexibility and control, using the most efficient and low-ma
 - **Complete Flexibility & Autonomy** - Available in Azure, AWS, Google Cloud or on-premises.  
 - **Fast to Deploy, Easy to Maintain** - 100% containerized configuration streamlines patches and upgrades.  
 
-More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/), [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
+More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/), [Profisee MDM on Azure](https://profisee.com/solutions/microsoft-enterprise/azure/), and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) deployments!
 
 ## Microsoft Purview - Profisee Reference Architecture
 
@@ -72,7 +75,7 @@ The reference architecture shows how both Microsoft Purview and Profisee MDM wor
 3.	Enrich master data model with governance details – Governance Data Stewards can enrich master data entity definitions with data dictionary and glossary information as well as ownership and sensitive data classifications, etc. in Microsoft Purview
 4.	Apply enriched governance data for data stewardship – any definitions and metadata available in Microsoft Purview are visible in real-time in Profisee as guidance for the MDM Data Stewards
 5.	Load source data from business applications – Azure Data Factory extracts data from source systems with 100+ pre-built connectors and/or REST gateway
-	Transactional and unstructured data is loaded to downstream analytics solution – All ‘raw’ source data can be loaded to analytics database such as Synapse (Synapse is generally the preferred analytic database but others such as Snowflake are also common).  Analysis on this raw information without proper master (‘golden’) data will be subject to inaccuracy as data overlaps, mismatches and conflicts won't yet have been resolved. 
+6.	Transactional and unstructured data is loaded to downstream analytics solution – All ‘raw’ source data can be loaded to analytics database such as Synapse (Synapse is generally the preferred analytic database but others such as Snowflake are also common).  Analysis on this raw information without proper master (‘golden’) data will be subject to inaccuracy as data overlaps, mismatches and conflicts won't yet have been resolved. 
 7.	Master data from source systems is loaded to Profisee MDM application – Multiple streams of ‘master’ data is loaded to Profisee MDM.  Master data is the data that defines a domain entity such as customer, product, asset, location, vendor, patient, household, menu item, ingredient, and so on.  This data is typically present in multiple systems and resolving differing definitions and matching and merging this data across systems is critical to the ability to use any cross-system data in a meaningful way. 
 8.	Master data is standardized, matched, merged, enriched and validated according to governance rules – Although data quality and governance rules may be defined in other systems (such as Microsoft Purview), Profisee MDM is where they're enforced.  Source records are matched and merged both within and across source systems to create the most complete and correct record possible.  Data quality rules check each record for compliance with business and technical requirements.   
 9.	Extra data stewardship to review and confirm matches, data quality, and data validation issues, as required – Any record failing validation or matching with only a low probability score is subject to remediation. To remediate failed validations, a workflow process assigns records requiring review to Data Stewards who are experts in their business data domain.  Once records have been verified or corrected, they're ready to use as a ‘golden record’ master.  

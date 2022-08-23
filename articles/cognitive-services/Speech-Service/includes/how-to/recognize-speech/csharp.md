@@ -288,3 +288,43 @@ var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourSer
 speechConfig.EndpointId = "YourEndpointId";
 var speechRecognizer = new SpeechRecognizer(speechConfig);
 ```
+
+## Change how silence is handled
+
+If a user is expected to speak faster or slower than usual, the default behaviors for non-speech silence in input audio may not result in what you expect. Common problems with silence handling include:
+
+- Fast speech chaining many sentences together into a single recognition result instead of breaking sentences into individual results
+- Slow speech separating parts of a single sentence into multiple results
+- A single-shot recognition ending too quickly while waiting for speech to begin
+
+These problems can be addressed by setting one of two *timeout properties* on the `SpeechConfig` used to create a `SpeechRecognizer`:
+
+- **Segmentation silence timeout** adjusts how much non-speech audio is allowed within a phrase that's currently being spoken before that phrase is considered "done."
+  - *Higher* values generally make results longer and allow longer pauses from the speaker within a phrase, but will make results take longer to arrive can also make separate phrases combine together into a single result when set too high
+  - *Lower* values generally make results shorter and ensure more prompt and frequent breaks between phrases, but can also cause single phrases to separate into multiple results when set too low
+  - This timeout can be set to integer values between 100 and 5000, in milliseconds, with 500 a typical default
+- **Initial silence timeout** adjusts how much non-speech audio is allowed *before* a phrase before the recognition attempt ends in a "no match" result.
+  - *Higher* values give speakers more time to react and start speaking, but can also result in slow responsiveness when nothing is spoken 
+  - *Lower* values ensure a prompt "no match" for faster user experience and more controlled audio handling, but may cut a speaker off too quickly when set too low
+  - Because continuous recognition generates many results, this value determines how often "no match" results will arrive but doesn't otherwise affect the content of recognition results
+  - This timeout can be set to any non-negative integer value, in milliseconds, or set to 0 to disable it entirely; 5000 is a typical default for single-shot recognition while 15000 is a typical default for continuous recognition 
+
+As there are tradeoffs when modifying these timeouts, it's only recommended to change the settings when a problem related to silence handling is observed. Default values optimally handle the majority of spoken audio and only uncommon scenarios should encounter problems.
+
+**Example:** users speaking a serial number like "ABC-123-4567" pause between character groups long enough for the serial number to be broken into multiple results. In this case, setting the segmentation silence timeout to a higher value like 2000ms could help:
+
+```csharp
+speechConfig.SetProperty(PropertyId.Speech_SegmentationSilenceTimeoutMs, "2000");
+```
+
+**Example:** a recorded presenter's speech is fast enough that several sentences in a row get combined, with big recognition results only arriving once or twice per minute. In this case, setting the segmentation silence timeout to a lower value like 300ms could help:
+
+```csharp
+speechConfig.setProperty(PropertyId.Speech_SegmentationSilenceTimeoutMs, "300");
+```
+
+**Example:** a single-shot recognition asking a speaker to find and read a serial number ends too quickly while the number is being found. In this case, a longer initial silence timeout like 10000ms could help:
+
+```csharp
+speechConfig.setProperty(PropertyId.SpeechServiceConnection_InitialSilenceTimeoutMs, "10000");
+```
