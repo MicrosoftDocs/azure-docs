@@ -57,7 +57,7 @@ GET {{FHIR_URL}}/Patient?gender:not=female
 
 ```
 
-In return, you would get all `Patient` resources whose `gender` element value is not `female`, including any patients with no gender value specified. This is different from searching for `Patient` resources that have the `male` gender value, since that search wouldn't return any patients that don't have a specified gender.
+In return, you would get all `Patient` resources whose `gender` element value is not `female`, including any patients with no gender value specified. This is different from searching for `Patient` resources with the `male` gender value, since that search wouldn't return any patients that don't have a specified gender.
 
 ### `:missing`
 
