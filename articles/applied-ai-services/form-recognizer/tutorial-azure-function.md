@@ -75,11 +75,11 @@ In this tutorial, you learn how to:
 
     * Select the Azure subscription that you're using for this project and below you should see the Azure Function App.
 
-      :::image type="content" source="media/tutorial-azure-function/azure-extensions-vsc.png" alt-text="{alt-text}":::
+      :::image type="content" source="media/tutorial-azure-function/azure-extensions-vsc.png" alt-text="Screenshot of a list showing your Azure resoures in a single, unified view.":::
 
 1. Select the Workspace (Local) section located below your listed resources, select the plus symbol and choose the **Create Function** button.
 
-    :::image type="content" source="media/tutorial-azure-function/workspace-create-function.png" alt-text="{alt-text}":::
+    :::image type="content" source="media/tutorial-azure-function/workspace-create-function.png" alt-text="Screenshot showing where to begin creating an Azure function.":::
 
 1. When prompted, choose **Create new project**. Navigate to the **form-recognizer-function-app** directory and choose **Select**.
 
@@ -101,10 +101,10 @@ In this tutorial, you learn how to:
 
  ```python
  import logging
- 
+
  import azure.functions as func
- 
- 
+
+
  def main(myblob: func.InputStream):
      logging.info(f"Python blob trigger function processed blob \n"
                   f"Name: {myblob.name}\n"
@@ -113,11 +113,15 @@ In this tutorial, you learn how to:
 
 ## Test the function
 
-Press F5 to run the basic function. VSCode will prompt you to select a storage account to interface with. Select the storage account you created and continue.
+* Press F5 to run the basic function. VSCode will prompt you to select a storage account to interface with.
 
-Open Azure Storage Explorer and upload a sample PDF document to the **input** container. Then check the VSCode terminal. The script should log that it was triggered by the PDF upload.
+* Select the storage account you created and continue.
 
-![VSCode terminal test](./media/tutorial-azure-function/vs-code-terminal-test.png)
+* Open Azure Storage Explorer and upload a sample PDF document to the **input** container. Then check the VSCode terminal.
+
+* The script should log that it was triggered by the PDF upload.
+
+:::image type="content" source="media/tutorial-azure-function/vs-code-terminal-test.png" alt-text="Screenshot of the VSCode terminal after uploading a new document.":::
 
 Stop the script before continuing.
 
@@ -125,170 +129,165 @@ Stop the script before continuing.
 
 Next, you'll add your own code to the Python script to call the Form Recognizer service and parse the uploaded documents using the Form Recognizer [Layout API](concept-layout.md).
 
-In VSCode, navigate to the function's *requirements.txt* file. This defines the dependencies for your script. Add the following Python packages to the file:
+1. In VSCode, navigate to the function's *requirements.txt* file. This defines the dependencies for your script. Add the following Python packages to the file:
 
-```
+    ```txt
+    cryptography
+    azure-functions
+    azure-storage-blob
+    azure-identity
+    requests
+    pandas
+    numpy
+    ```
 
-cryptography
-azure-functions
-azure-storage-blob
-azure-identity
-requests
-pandas
-numpy
-```
+1. Then, open the *\_\_init\_\_.py* script. Add the following `import` statements:
 
-Then, open the *\_\_init\_\_.py* script. Add the following `import` statements:
+    ```Python
+    import logging
+    from azure.storage.blob import BlobServiceClient
+    import azure.functions as func
+    import json
+    import time
+    from requests import get, post
+    import os
+    from collections import OrderedDict
+    import numpy as np
+    import pandas as pd
+    ```
 
-```Python
-import logging
-from azure.storage.blob import BlobServiceClient
-import azure.functions as func
-import json
-import time
-from requests import get, post
-import os
-from collections import OrderedDict
-import numpy as np
-import pandas as pd
-```
+1. You can leave the generated `main` function as-is. You'll add your custom code inside this function.
 
-You can leave the generated `main` function as-is. You'll add your custom code inside this function.
+      ```python
+      # This part is automatically generated
+      def main(myblob: func.InputStream):
+          logging.info(f"Python blob trigger function processed blob \n"
+          f"Name: {myblob.name}\n"
+          f"Blob Size: {myblob.length} bytes")
+      ```
 
-```python
-# This part is automatically generated
-def main(myblob: func.InputStream):
-    logging.info(f"Python blob trigger function processed blob \n"
-    f"Name: {myblob.name}\n"
-    f"Blob Size: {myblob.length} bytes")
-```
+1. The following code block calls the Form Recognizer [Analyze Layout](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) API on the uploaded document. Fill in your endpoint and key values.
 
-The following code block calls the Form Recognizer [Analyze Layout](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) API on the uploaded document. Fill in your endpoint and key values.
+    ```Python
+    # This is the call to the Form Recognizer endpoint
+        endpoint = r"Your Form Recognizer Endpoint"
+        apim_key = "Your Form Recognizer Key"
+        post_url = endpoint + "/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2022-08-31"
+        source = myblob.read()
 
-```Python
-# This is the call to the Form Recognizer endpoint
-    endpoint = r"Your Form Recognizer Endpoint"
-    apim_key = "Your Form Recognizer Key"
-    post_url = endpoint + "/formrecognizer/v2.1/Layout/analyze"
-    source = myblob.read()
+        headers = {
+        # Request headers
+        'Content-Type': 'application/pdf',
+        'Ocp-Apim-Subscription-Key': apim_key,
+            }
 
-    headers = {
-    # Request headers
-    'Content-Type': 'application/pdf',
-    'Ocp-Apim-Subscription-Key': apim_key,
-        }
+        text1=os.path.basename(myblob.name)
+    ```
 
-    text1=os.path.basename(myblob.name)
-```
+    > [!IMPORTANT]
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../cognitive-services/cognitive-services-security.md).
 
----
+1. Next, add code to query the service and get the returned data.
 
-> [!IMPORTANT]
-> Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
->
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, see the [Cognitive Services security](../../cognitive-services/cognitive-services-security.md) article.
+    ```Python
+    resp = requests.post(url = post_url, data = source, headers = headers)
+        if resp.status_code != 202:
+            print("POST analyze failed:\n%s" % resp.text)
+            quit()
+        print("POST analyze succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["operation-location"]
 
-Next, add code to query the service and get the returned data.
+        wait_sec = 25
 
+        time.sleep(wait_sec)
+        # The layout API is async therefore the wait statement
 
-```Python
-resp = requests.post(url = post_url, data = source, headers = headers)
-    if resp.status_code != 202:
-        print("POST analyze failed:\n%s" % resp.text)
-        quit()
-    print("POST analyze succeeded:\n%s" % resp.headers)
-    get_url = resp.headers["operation-location"]
+        resp =requests.get(url = get_url, headers = {"Ocp-Apim-Subscription-Key": apim_key})
 
-    wait_sec = 25
-
-    time.sleep(wait_sec)
-    # The layout API is async therefore the wait statement
-
-    resp =requests.get(url = get_url, headers = {"Ocp-Apim-Subscription-Key": apim_key})
-
-    resp_json = json.loads(resp.text)
+        resp_json = json.loads(resp.text)
 
 
-    status = resp_json["status"]
+        status = resp_json["status"]
 
 
-    if status == "succeeded":
-        print("Layout Analysis succeeded:\n%s")
+        if status == "succeeded":
+            print("Layout Analysis succeeded:\n%s")
+            results=resp_json
+        else:
+            print("GET Layout results failed:\n%s")
+            quit()
+
         results=resp_json
-    else:
-        print("GET Layout results failed:\n%s")
-        quit()
+    ```
 
-    results=resp_json
-```
+1. Then add the following code to connect to the Azure Storage **output** container. Fill in your own values for the storage account name and key. You can get the key on the **Access keys** tab of your storage resource in the Azure portal.
 
-Then add the following code to connect to the Azure Storage **output** container. Fill in your own values for the storage account name and key. You can get the key on the **Access keys** tab of your storage resource in the Azure portal.
+    ```Python
+    # This is the connection to the blob storage, with the Azure Python SDK
+        blob_service_client = BlobServiceClient.from_connection_string("DefaultEndpointsProtocol=https;AccountName="Storage Account Name";AccountKey="storage account key";EndpointSuffix=core.windows.net")
+        container_client=blob_service_client.get_container_client("output")
+    ```
 
-```Python
-# This is the connection to the blob storage, with the Azure Python SDK
-    blob_service_client = BlobServiceClient.from_connection_string("DefaultEndpointsProtocol=https;AccountName="Storage Account Name";AccountKey="storage account key";EndpointSuffix=core.windows.net")
-    container_client=blob_service_client.get_container_client("output")
-```
+    The following code parses the returned Form Recognizer response, constructs a .csv file, and uploads it to the **output** container.
 
-The following code parses the returned Form Recognizer response, constructs a .csv file, and uploads it to the **output** container.
+    > [!IMPORTANT]
+    > You will likely need to edit this code to match the structure of your own form documents.
 
+    ```python
+        # The code below extracts the json format into tabular data.
+        # Please note that you need to adjust the code below to your form structure.
+        # It probably won't work out-of-the-box for your specific form.
+        pages = results["analyzeResult"]["pageResults"]
 
-> [!IMPORTANT]
-> You will likely need to edit this code to match the structure of your own form documents.
+        def make_page(p):
+            res=[]
+            res_table=[]
+            y=0
+            page = pages[p]
+            for tab in page["tables"]:
+                for cell in tab["cells"]:
+                    res.append(cell)
+                    res_table.append(y)
+                y=y+1
 
-```python
-    # The code below extracts the json format into tabular data.
-    # Please note that you need to adjust the code below to your form structure.
-    # It probably won't work out-of-the-box for your specific form.
-    pages = results["analyzeResult"]["pageResults"]
+            res_table=pd.DataFrame(res_table)
+            res=pd.DataFrame(res)
+            res["table_num"]=res_table[0]
+            h=res.drop(columns=["boundingBox","elements"])
+            h.loc[:,"rownum"]=range(0,len(h))
+            num_table=max(h["table_num"])
+            return h, num_table, p
 
-    def make_page(p):
-        res=[]
-        res_table=[]
-        y=0
-        page = pages[p]
-        for tab in page["tables"]:
-            for cell in tab["cells"]:
-                res.append(cell)
-                res_table.append(y)
-            y=y+1
+        h, num_table, p= make_page(0)
 
-        res_table=pd.DataFrame(res_table)
-        res=pd.DataFrame(res)
-        res["table_num"]=res_table[0]
-        h=res.drop(columns=["boundingBox","elements"])
-        h.loc[:,"rownum"]=range(0,len(h))
-        num_table=max(h["table_num"])
-        return h, num_table, p
+        for k in range(num_table+1):
+            new_table=h[h.table_num==k]
+            new_table.loc[:,"rownum"]=range(0,len(new_table))
+            row_table=pages[p]["tables"][k]["rows"]
+            col_table=pages[p]["tables"][k]["columns"]
+            b=np.zeros((row_table,col_table))
+            b=pd.DataFrame(b)
+            s=0
+            for i,j in zip(new_table["rowIndex"],new_table["columnIndex"]):
+                b.loc[i,j]=new_table.loc[new_table.loc[s,"rownum"],"text"]
+                s=s+1
 
-    h, num_table, p= make_page(0)
+    ```
 
-    for k in range(num_table+1):
-        new_table=h[h.table_num==k]
-        new_table.loc[:,"rownum"]=range(0,len(new_table))
-        row_table=pages[p]["tables"][k]["rows"]
-        col_table=pages[p]["tables"][k]["columns"]
-        b=np.zeros((row_table,col_table))
-        b=pd.DataFrame(b)
-        s=0
-        for i,j in zip(new_table["rowIndex"],new_table["columnIndex"]):
-            b.loc[i,j]=new_table.loc[new_table.loc[s,"rownum"],"text"]
-            s=s+1
+1. Finally, the last block of code uploads the extracted table and text data to your blob storage element.
 
-```
-
-Finally, the last block of code uploads the extracted table and text data to your blob storage element.
-
-```Python
-    # Here is the upload to the blob storage
-    tab1_csv=b.to_csv(header=False,index=False,mode='w')
-    name1=(os.path.splitext(text1)[0]) +'.csv'
-    container_client.upload_blob(name=name1,data=tab1_csv)
-```
+    ```Python
+        # Here is the upload to the blob storage
+        tab1_csv=b.to_csv(header=False,index=False,mode='w')
+        name1=(os.path.splitext(text1)[0]) +'.csv'
+        container_client.upload_blob(name=name1,data=tab1_csv)
+    ```
 
 ## Run the function
 
-Press F5 to run the function again. Use Azure Storage Explorer to upload a sample PDF form to the **input** storage container. This action should trigger the script to run, and you should then see the resulting .csv file (displayed as a table) in the **output** container.
+* Press F5 to run the function again.
+
+* Use Azure Storage Explorer to upload a sample PDF form to the **input** storage container. This action should trigger the script to run, and you should then see the resulting .csv file (displayed as a table) in the **output** container.
 
 You can connect this container to Power BI to create rich visualizations of the data it contains.
 
