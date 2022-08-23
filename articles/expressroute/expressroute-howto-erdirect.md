@@ -370,10 +370,10 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
         CircuitResourceUri     :on  
     ```
 
-1. Redeem the authorization to create the ExpressRoute Direct circuit with the following command:
+1. Redeem the authorization to create the ExpressRoute Direct circuit in different subscription or Azure Active Directory tenant with the following command:
 
     ```powershell
-    New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -ExpressRoutePort $ERDirect -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -Authorization $ERDirect.Authorization
+    New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -Authorization $ERDirect.AuthorizationKey
     ```
 ## Next steps
 
