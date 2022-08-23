@@ -71,7 +71,7 @@ The following table compares the features in each version.
 
 ### Migrating tenant restrictions V1 policies to V2
 
-Along with using tenant restrictions V2 to manage access for your Windows device users, we recommend configuring your corporate proxy to enforce tenant restrictions V2 to manage other devices and apps in your corporate network. Although configuring tenant restrictions on your corporate proxy won't provide data plane protection, it will provide authentication plane protection. For details, see [Step 5: Set up tenant restrictions V2 on your corporate proxy](#step-5-set-up-tenant-restrictions-v2-on-your-corporate-proxy).
+Along with using tenant restrictions V2 to manage access for your Windows device users, we recommend configuring your corporate proxy to enforce tenant restrictions V2 to manage other devices and apps in your corporate network. Although configuring tenant restrictions on your corporate proxy won't provide data plane protection, it will provide authentication plane protection. For details, see [Step 4: Set up tenant restrictions V2 on your corporate proxy](#step-4-set-up-tenant-restrictions-v2-on-your-corporate-proxy).
 
 ### Tenant restrictions vs. inbound and outbound settings
 
@@ -286,7 +286,7 @@ To test the tenant restrictions V2 policy on a device, follow these steps.
 
 1. Select **OK**.
 
-## Step 5: Set up tenant restrictions V2 on your corporate proxy
+## Step 4: Set up tenant restrictions V2 on your corporate proxy
 
 Tenant restrictions V2 policies can't be directly enforced on non-Windows 10 or Windows 11 devices, such as Mac computers, mobile devices, unsupported Windows applications, and Chrome browsers. To ensure sign-ins are restricted on all devices and apps in your corporate network, configure your corporate proxy to enforce tenant restrictions V2. Although configuring tenant restrictions on your corporate proxy won't provide data plane protection, it will provide authentication plane protection.
 
