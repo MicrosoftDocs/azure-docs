@@ -4,7 +4,7 @@
 
 1. In the resulting window, search for *Azure.Identity*. Select the appropriate result, and select **Install**.
 
-    :::image type="content" source="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/visual-studio-add-package.png" alt-text="A screenshot showing how to add the identity package.":::
+    :::image type="content" source="../articles/storage/common/media/visual-studio-identity-package.png" alt-text="A screenshot showing how to add the identity package.":::    
 
 ### [.NET CLI](#tab/net-cli)
 
