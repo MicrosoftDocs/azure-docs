@@ -136,13 +136,13 @@ az network vnet subnet create \
 az network vnet subnet create \
     --name "default" \
     --resource-group "myAVNMResourceGroup" \
-    --vnet-name "VNetD-test" \
+    --vnet-name "VNetD" \
     --address-prefix "10.3.0.0/24"
 
 az network vnet subnet create \
     --name "default" \
     --resource-group "myAVNMResourceGroup" \
-    --vnet-name "VNetE-test" \
+    --vnet-name "VNetE" \
     --address-prefix "10.4.0.0/24"
 ```
 ## Define membership for a mesh configuration
