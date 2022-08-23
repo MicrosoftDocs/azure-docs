@@ -40,21 +40,7 @@ You can authorize access to data in your storage account using the following ste
 
 2. To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
 
-### [Visual Studio 2022](#tab/visual-studio)
-
-1. In **Solution Explorer**, right-click the **Dependencies** node of your project. Select **Manage NuGet Packages**.
-
-1. In the resulting window, search for *Azure.Identity*. Select the appropriate result, and select **Install**.
-
-    :::image type="content" source="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/visual-studio-add-package.png" alt-text="A screenshot showing how to add the identity package.":::
-
-### [.NET CLI](#tab/net-cli)
-
-```dotnetcli
-dotnet add package Azure.Identity
-```
-
----
+    [!INCLUDE [visual-studio-add-identity](visual-studio-add-identity.md)]
 
 3. Update your *Program.cs* code to match the following example. When the code is run on your local workstation during development, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
 
