@@ -5,7 +5,7 @@ When developing locally, make sure that the user account that is accessing blob 
 * Subscription
 * Management group
 
-In this scenario, you'll assign permissions to your user account at the resource level to follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access). This practice gives users only the minimum permissions needed and creates more secure production environments.
+In this scenario, you'll assign permissions to your user account, scoped to the storage account, to follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access). This practice gives users only the minimum permissions needed and creates more secure production environments.
 
 The following example will assign the `Storage Blob Data Contributor` role to your user account, which provides both read and write access to blob data in your storage account.
 
@@ -56,7 +56,7 @@ To assign a role at the resource level using Azure PowerShell, you first must re
 Get-AzResource -ResourceGroupName "<yourResourceGroupname>" -Name "<yourStorageAccountName>"
 ```
 
-Copy the `Id` value from the preceding command output. You can then assign roles using the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command of the Azure CLI.
+Copy the `Id` value from the preceding command output. You can then assign roles using the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command in PowerShell.
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <yourUserName> `

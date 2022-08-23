@@ -33,9 +33,9 @@ The guidance in this tutorial focuses on applying a user-assigned managed identi
 
 ## Explore DefaultAzureCredential
 
-Managed identities are generally implemented in your application code through a class called `DefaultAzureCredential` from the `Azure.Identity` client library. `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code. Note that managed identities only exist in the context of Azure hosted services, so `DefaultAzureCrednetial` provides other options that work during local development. 
+Managed identities are generally implemented in your application code through a class called `DefaultAzureCredential` from the `Azure.Identity` client library. `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code. Note that managed identities only exist in the context of Azure hosted services, so `DefaultAzureCredential` provides other options that work during local development. 
 
-The order and locations in which DefaultAzureCredential searches for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential). 
+The order and locations in which `DefaultAzureCredential` searches for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential). 
 
 For example, when working locally, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio, the Azure CLI, or other tools. When the app is deployed to Azure, `DefaultAzureCredential` will automatically discover and use an available managed identity that was assigned to the app environment. No code changes are required for this transition. 
 
@@ -158,7 +158,7 @@ BlobServiceClient blobServiceClient2 = new BlobServiceClient(
     new DefaultAzureCredential(contractCreds));
 ```
 
-You can also associate both a user-assigned managed identity as well as a system-assigned managed identity to a resource. This can be useful in scenarios where all of the apps  require access to the same resources, but one of the apps has a very specific dependency on an additional service. Using a system-assigned identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
+You can also associate both with a user-assigned managed identity as well as a system-assigned managed identity to a resource. This can be useful in scenarios where all of the apps  require access to the same resources, but one of the apps has a very specific dependency on an additional service. Using a system-assigned identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
 
 :::image type="content" source="media/user-and-system-assigned-identities.png" alt-text="A diagram showing user-assigned and system-assigned managed identities.":::
 
