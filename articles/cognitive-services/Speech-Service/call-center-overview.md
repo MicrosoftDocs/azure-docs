@@ -72,4 +72,3 @@ You can find an overview of all Language Service features and customization opti
 - [Explore Custom Speech](/azure/cognitive-services/speech-service/custom-speech-overview)
 - [Explore Custom Neural Voice](/azure/cognitive-services/speech-service/custom-neural-voice)
 - [Explore Language Service Features](/azure/cognitive-services/language-service/overview#available-features).
-
