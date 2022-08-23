@@ -27,6 +27,9 @@ With this capability, you have the following features:
 - DDoS Security protection against network traffic in and out of the Internet. 
 - HCX Migration support over the Public Internet.
 
+>[!IMPORTANT]
+>You can configure up to 64 total Public IP addresses across these network blocks. If you want to configure more than 64 Public IP addresses, please submit a support ticket stating how many.
+
 ## Prerequisites
 - Azure VMware Solution private cloud
 - DNS Server configured on the NSX-T Datacenter
@@ -100,18 +103,18 @@ A No NAT rule can be used to exclude certain matches from performing Network Add
 ### Inbound Internet Access for VMs
 A Destination Network Translation Service (DNAT) is used to expose a VM on a specific Public IP address and/or a specific port. This service provides inbound internet access to your workload VMs.
 
-**Log in VMware NSX-T**
+**Log in to VMware NSX-T**
 1.	From your Azure VMware Solution private cloud, select **VMware credentials**.
 2.	Locate your NSX-T URL and credentials.
 3.	Log in to **VMware NSX-T**.
 
 **Configure the DNAT rule**
-  1. Name the rule.
-   1. Select **DNAT** as the action.
-   1. Enter the reserved Public IP in the destination match. This IP is from the range of Public IPs reserved from the Azure VMware Solution Portal.
-   1. Enter the VM Private IP in the translated IP.
-   1. Select **SAVE**. 
-   1. Optionally, configure the Translated Port or source IP for more specific matches.
+1. Name the rule.
+1. Select **DNAT** as the action.
+1. Enter the reserved Public IP in the destination match. This IP is from the range of Public IPs reserved from the Azure VMware Solution Portal.
+1. Enter the VM Private IP in the translated IP.
+1. Select **SAVE**. 
+1. Optionally, configure the Translated Port or source IP for more specific matches.
     
 The VM is now exposed to the internet on the specific Public IP and/or specific ports.
 
