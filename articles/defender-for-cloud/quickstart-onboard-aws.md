@@ -6,7 +6,7 @@ ms.date: 06/29/2022
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other
 ---
-#  Connect your AWS accounts to Microsoft Defender for Cloud
+# Quickstart: Connect your AWS accounts to Microsoft Defender for Cloud
 
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
@@ -69,7 +69,7 @@ The native cloud connector requires:
     - Additional extensions should be enabled on the Arc-connected machines.
     - Log Analytics (LA) agent on Arc machines, and ensure the selected workspace has security solution installed. The LA agent is currently configured in the subscription level. All of your multicloud AWS accounts and GCP projects under the same subscription will inherit the subscription settings.
         
-        Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
+        Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#quickstart-configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
 
 - **To enable the Defender for Servers plan**, you'll need:
     
@@ -95,7 +95,7 @@ The native cloud connector requires:
         
             The LA agent is currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regards to the LA agent.
 
-        Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
+        Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#quickstart-configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
 
         > [!NOTE]
         > Defender for Servers assigns tags to your AWS resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage your resources:
@@ -133,11 +133,11 @@ The native cloud connector requires:
     > [!IMPORTANT]
     > To present the current status of your recommendations, the CSPM plan queries the AWS resource APIs several times a day. These read-only API calls incur no charges, but they *are* registered in CloudTrail if you've enabled a trail for read events. As explained in [the AWS documentation](https://aws.amazon.com/cloudtrail/pricing/), there are no additional charges for keeping one trail. If you're exporting the data out of AWS (for example, to an external SIEM), this increased volume of calls might also increase ingestion costs. In such cases, We recommend filtering out the read-only calls from the Defender for Cloud user or role ARN: `arn:aws:iam::[accountId]:role/CspmMonitorAws` (this is the default role name, confirm the role name configured on your account).
 
-1. By default the **Servers** plan is set to **On**. This is necessary to extend Defender for server's coverage to your AWS EC2.
+1. By default the **Servers** plan is set to **On**. This is necessary to extend Defender for server's coverage to your AWS EC2. Ensure you've fulfilled the [network requirements for Azure Arc](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud).
     
     - (Optional) Select **Configure**, to edit the configuration as required. 
 
-1. By default the **Containers** plan is set to **On**. This is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure you've fulfilled the  [network requirements](./defender-for-containers-enable.md?pivots=defender-for-container-eks&source=docs&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#network-requirements) for the Defender for Containers plan.
+1. By default the **Containers** plan is set to **On**. This is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure you've fulfilled the [network requirements](./defender-for-containers-enable.md?pivots=defender-for-container-eks&source=docs&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#network-requirements) for the Defender for Containers plan.
 
     > [!Note] 
     > Azure Arc-enabled Kubernetes, the Defender Arc extension, and the Azure Policy Arc extension should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Arc, if necessary) as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).
@@ -187,7 +187,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#plan-2-formerly-defender-for-servers)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans)|
 |Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
@@ -400,7 +400,8 @@ You can check out the following blogs:
 
 ## Next steps
 
-Connecting your AWS account is part of the multicloud experience available in Microsoft Defender for Cloud. For related information, see the following page:
+Connecting your AWS account is part of the multicloud experience available in Microsoft Defender for Cloud. For related information, see the following pages:
 
 - [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 - [Connect your GCP projects to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
+- [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector)

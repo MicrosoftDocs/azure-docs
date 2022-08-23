@@ -102,12 +102,12 @@ Defender for Cloud's MFA recommendations refer to [Azure RBAC](../role-based-acc
 Defender for Cloud's MFA recommendations currently don't support PIM accounts. You can add these accounts to a CA Policy in the Users/Group section.
 
 ### Can I exempt or dismiss some of the accounts?
-The capability to exempt some accounts that don’t use MFA isn't currently supported.  
+The capability to exempt some accounts that don’t use MFA isn't currently supported. There are plans to add this capability, and the information can be viewed in our [Important upcoming changes](/azure/defender-for-cloud/upcoming-changes#multiple-changes-to-identity-recommendations) page.
 
 ### Are there any limitations to Defender for Cloud's identity and access protections?
 There are some limitations to Defender for Cloud's identity and access protections:
 
-- Identity recommendations aren't available for subscriptions with more than 600 accounts. In such cases, these recommendations will be listed under "unavailable assessments".
+- Identity recommendations aren't available for subscriptions with more than 6,000 accounts. In these cases, these types of subscriptions will be listed under Not applicable tab.
 - Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
 - Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
 

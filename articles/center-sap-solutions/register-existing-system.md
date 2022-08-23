@@ -25,6 +25,7 @@ In this how-to guide, you'll learn how to register an existing SAP system with *
 
 - Check that you're trying to register a [supported SAP system configuration](#supported-systems)
 - Check that your Azure account has **Contributor** role access on the subscription or resource groups where you have the SAP system resources.
+- Register the **Microsoft.Workloads** Resource Provider in the subscription where you have the SAP system.
 - Make sure each virtual machine (VM) in the SAP system is currently running on Azure. These VMs include:
     - The ABAP SAP Central Services (ASCS) Server instance
     - The Application Server instance or instances
@@ -45,12 +46,11 @@ In this how-to guide, you'll learn how to register an existing SAP system with *
 You can register SAP systems with ACSS that run on the following configurations:
 
 - SAP NetWeaver or ABAP stacks
-- SUSE and RHEL Linux operating systems
+- Windows, SUSE and RHEL Linux operating systems
 - HANA, DB2, SQL Server, Oracle, Max DB, and SAP ASE databases
 
 The following SAP system configurations aren't supported in ACSS:
 
-- Windows operating system
 - HANA Large Instance (HLI)
 - Systems with HANA Scale-out configuration
 - Java stack

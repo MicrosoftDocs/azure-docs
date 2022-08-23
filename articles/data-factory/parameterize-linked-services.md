@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/29/2022
+ms.date: 08/09/2022
 author: chez-charlie
 ms.author: chez
 ---
@@ -58,15 +58,20 @@ All the linked service types are supported for parameterization.
 - Generic HTTP
 - Generic REST
 - Google AdWords
+- Informix
+- Microsoft Access
 - MySQL
 - OData 
+- ODBC
 - Oracle
 - Oracle Cloud Storage
 - PostgreSQL
 - Salesforce
 - Salesforce Service Cloud
+- SAP ODP
 - SFTP
 - SharePoint Online List
+- Snowflake
 - SQL Server
 
 **Advanced authoring:** For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:

@@ -10,6 +10,8 @@ ms.service: microsoft-sentinel
 
 # Connect data from Microsoft 365 Defender to Microsoft Sentinel
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 Microsoft Sentinel's [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) connector with incident integration allows you to stream all Microsoft 365 Defender incidents and alerts into Microsoft Sentinel, and keeps the incidents synchronized between both portals. Microsoft 365 Defender incidents include all their alerts, entities, and other relevant information, and they group together, and are enriched by, alerts from Microsoft 365 Defender's component services **Microsoft Defender for Endpoint**, **Microsoft Defender for Identity**, **Microsoft Defender for Office 365**, and **Microsoft Defender for Cloud Apps**, as well as alerts from other services such as **Microsoft Purview Data Loss Prevention (DLP)**.
 
 The connector also lets you stream **advanced hunting** events from *all* of the above components into Microsoft Sentinel, allowing you to copy those Defender components' advanced hunting queries into Microsoft Sentinel, enrich Sentinel alerts with the Defender components' raw event data to provide additional insights, and store the logs with increased retention in Log Analytics.
@@ -28,22 +30,57 @@ For more information about incident integration and advanced hunting event colle
 
 - Your user must have read and write permissions on your Microsoft Sentinel workspace.
 
+### Prerequisites for Active Directory sync via MDI
+
+- Your tenant must be onboarded to Microsoft Defender for Identity.
+
+- You must have the MDI sensor installed.
+
 ## Connect to Microsoft 365 Defender
 
-1. In Microsoft Sentinel, select **Data connectors**, select **Microsoft 365 Defender (Preview)** from the gallery and select **Open connector page**.
+In Microsoft Sentinel, select **Data connectors**, select **Microsoft 365 Defender (Preview)** from the gallery and select **Open connector page**.
 
-1. Under **Configuration** in the **Connect incidents & alerts** section, select the **Connect incidents & alerts** button.
+The  **Configuration** section has three parts:
 
-1. To avoid duplication of incidents, it is recommended to mark the check box labeled **Turn off all Microsoft incident creation rules for these products.**
+1. [**Connect incidents and alerts**](#connect-incidents-and-alerts) enables the basic integration between Microsoft 365 Defender and Microsoft Sentinel, synchronizing incidents and their alerts between the two platforms.
 
-    > [!NOTE]
-    > When you enable the Microsoft 365 Defender connector, all of the Microsoft 365 Defender components’ connectors (the ones mentioned at the beginning of this article) are automatically connected in the background. In order to disconnect one of the components’ connectors, you must first disconnect the Microsoft 365 Defender connector.
+1. [**Connect entities**](#connect-entities) enables the integration of on-premises Active Directory user identities into Microsoft Sentinel through Microsoft Defender for Identity.
 
-1. To query Microsoft 365 Defender incident data, use the following statement in the query window:
-    ```kusto
-    SecurityIncident
-    | where ProviderName == "Microsoft 365 Defender"
-    ```
+1. [**Connect events**](#connect-events) enables the collection of raw advanced hunting events from Defender components.
+
+These are explained in greater detail below. See [Microsoft 365 Defender integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md) for more information.
+
+### Connect incidents and alerts
+
+Select the **Connect incidents & alerts** button to connect Microsoft 365 Defender incidents to your Microsoft Sentinel incidents queue.
+
+If you see a check box labeled **Turn off all Microsoft incident creation rules for these products. Recommended**, mark it to avoid duplication of incidents.
+
+> [!NOTE]
+> When you enable the Microsoft 365 Defender connector, all of the Microsoft 365 Defender components’ connectors (the ones mentioned at the beginning of this article) are automatically connected in the background. In order to disconnect one of the components’ connectors, you must first disconnect the Microsoft 365 Defender connector.
+
+To query Microsoft 365 Defender incident data, use the following statement in the query window:
+
+```kusto
+SecurityIncident
+| where ProviderName == "Microsoft 365 Defender"
+```
+
+### Connect entities
+
+Use Microsoft Defender for Identity to sync user entities from your on-premises Active Directory to Microsoft Sentinel.
+
+Verify that you've satisfied the [prerequisites](#prerequisites-for-active-directory-sync-via-mdi) for syncing on-premises Active Directory users through Microsoft Defender for Identity (MDI).
+
+1. Select the **Go the UEBA configuration page** link.
+
+1. In the **Entity behavior configuration** page, if you haven't yet enabled UEBA, then at the top of the page, move the toggle to **On**.
+
+1. Mark the **Active Directory (Preview)** check box and select **Apply**.
+
+    :::image type="content" source="media/connect-microsoft-365-defender/ueba-configuration-page.png" alt-text="Screenshot of UEBA configuration page for connecting user entities to Sentinel.":::
+
+### Connect events
 
 1. If you want to collect advanced hunting events from Microsoft Defender for Endpoint or Microsoft Defender for Office 365, the following types of events can be collected from their corresponding advanced hunting tables.
 

@@ -184,7 +184,7 @@ Perform the update in the following order. Make sure each step is complete befor
 
     1. Find the domain associated with the primary appliance and copy it to your clipboard.
 
-    1. Remove the primary <!--original text said secondary, I think it's a mistake--> domain from the list of trusted hosts. Run:
+    1. Remove the primary domain from the list of trusted hosts. Run:
     
         ```bash
         sudo cyberx-management-trusted-hosts-remove -d [Primary domain]

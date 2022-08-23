@@ -16,49 +16,40 @@ ms.custom: mqtt, devx-track-js, devx-track-azurecli
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-Azure IoT Hub is a fully managed service that enables a back-end app to create and track jobs that schedule and update millions of devices.  Jobs can be used for the following actions:
+Use Azure IoT Hub to schedule and track jobs that update millions of devices. Use jobs to:
 
 * Update desired properties
 * Update tags
 * Invoke direct methods
 
-Conceptually, a job wraps one of these actions and tracks the progress of execution against a set of devices, which is defined by a device twin query.  For example, a back-end app can use a job to invoke a reboot method on 10,000 devices, specified by a device twin query and scheduled at a future time. That application can then track progress as each of those devices receive and execute the reboot method.
+Conceptually, a job wraps one of these actions and tracks the progress of execution against a set of devices, which is defined by a device twin query.  For example, a back-end app can use a job to invoke a reboot method on 10,000 devices, specified by a device twin query and scheduled at a future time. That application can then track progress as each of those devices receives and executes the reboot method.
 
 Learn more about each of these capabilities in these articles:
 
-* Device twin and properties: [Get started with device twins](iot-hub-node-node-twin-getstarted.md) and [Tutorial: How to use device twin properties](tutorial-device-twins.md)
+* Device twin and properties: [Get started with device twins](iot-hub-node-node-twin-getstarted.md) and [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
 
 * Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: direct methods](./quickstart-control-device.md?pivots=programming-language-nodejs)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial shows you how to:
+This article shows you how to create two Node.js apps:
 
-* Create a Node.js simulated device app that has a direct method, which enables **lockDoor**, which can be called by the solution back end.
+* A Node.js simulated device app, **simDevice.js**, that implements a direct method called **lockDoor**, which can be called by the back-end app.
 
-* Create a Node.js console app that calls the **lockDoor** direct method in the simulated device app using a job and updates the desired properties using a device job.
+* A Node.js console app, **scheduleJobService.js**, that creates two jobs. One job calls the **lockDoor** direct method and another job sends desired property updates to multiple devices.
 
-At the end of this tutorial, you have two Node.js apps:
-
-* **simDevice.js**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
-
-* **scheduleJobService.js**, which calls a direct method in the simulated device app and updates the device twin's desired properties using a job.
+> [!NOTE]
+> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
 
 ## Prerequisites
 
-* Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
+* Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md) describes how to install Node.js for this article on either Windows or Linux.
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-## Register a new device in the IoT hub
-
-[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create a simulated device app
 
@@ -128,10 +119,9 @@ In this section, you create a Node.js console app that responds to a direct meth
 8. Save and close the **simDevice.js** file.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
->
+> To keep things simple, this article does not implement a retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
-## Get the IoT hub connection string
+## Get the IoT Hub connection string
 
 [!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
 
@@ -291,8 +281,6 @@ You are now ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.
+In this article, you scheduled jobs to run a direct method and update the device twin's properties.
 
-To continue getting started with IoT Hub and device management patterns such as end-to-end image-based update in  [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).
-
-To continue getting started with IoT Hub, see [Getting started with Azure IoT Edge](../iot-edge/quickstart-linux.md).
+To continue exploring IoT Hub and device management patterns, update an image in [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).

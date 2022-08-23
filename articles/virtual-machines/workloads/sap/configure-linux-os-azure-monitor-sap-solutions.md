@@ -1,21 +1,29 @@
 ---
-title: Configure Linux provider for Azure Monitor for SAP solutions(preview)
+title: Configure Linux provider for Azure Monitor for SAP solutions (preview)
 description: This article explains how to configure a Linux OS provider for Azure Monitor for SAP solutions (AMS).
 author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
-ms.topic: article
-ms.date: 07/06/2022
+ms.topic: how-to
+ms.date: 07/28/2022
 ms.author: sujaj
-
+#Customer intent: As a developer, I want to configure a Linux provider so that I can use Azure Monitor for SAP solutions for monitoring.
 ---
-# Configure Linux provider for Azure Monitor for SAP solutions
+# Configure Linux provider for Azure Monitor for SAP solutions (preview)
 
-This article explains how you can create a Linux OS provider for Azure Monitor for SAP solutions (AMS) resources. This content applies to both versions of the service, AMS and AMS (classic).
+[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
+In this how-to guide, you'll learn to create a Linux OS provider for *Azure Monitor for SAP solutions (AMS)* resources. 
 
+This content applies to both versions of the service, *AMS* and *AMS (classic)*.
 
-Before you begin, install [node exporter version 1.3.0](https://prometheus.io/download/#node_exporter) in each SAP host (BareMetal or virtual machine) that you want to monitor. For more information, see [the node exporter GitHub repository](https://github.com/prometheus/node_exporter).    
+## Prerequisites
+
+- An Azure subscription. 
+- An existing AMS resource. To create an AMS resource, see the [quickstart for the Azure portal](azure-monitor-sap-quickstart.md) or the [quickstart for PowerShell](azure-monitor-sap-quickstart-powershell.md).
+- Install [node exporter version 1.3.0](https://prometheus.io/download/#node_exporter) in each SAP host that you want to monitor, either BareMetal or Azure virtual machine (Azure VM). For more information, see [the node exporter GitHub repository](https://github.com/prometheus/node_exporter).    
+
+## Create Linux provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to the AMS or AMS (classic) service.
@@ -34,3 +42,8 @@ Before you begin, install [node exporter version 1.3.0](https://prometheus.io/do
 1. Continue to add more providers as needed.
 1. Select **Review + create** to review the settings.
 1. Select **Create** to finish creating the resource.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn about AMS provider types](azure-monitor-providers.md)

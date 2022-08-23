@@ -59,7 +59,7 @@ First, you'll use the AdtSampleApp solution from the sample project to build the
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Diagram of an excerpt from the full building scenario diagram highlighting the Azure Digital Twins instance section.":::
 
-Open a local **console window** and navigate into the *digital-twins-samples-main\AdtE2ESample\SampleClientApp* folder. Run the *SampleClientApp* project with this dotnet command:
+Open a local **console window** and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleClientApp* folder. Run the *SampleClientApp* project with this dotnet command:
 
 ```cmd/sh
 dotnet run
@@ -96,7 +96,7 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 
 In this section, you'll publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (Azure AD) identity.
 
-The function app is part of the sample project you downloaded, located in the *digital-twins-samples-main\AdtE2ESample\SampleFunctionsApp* folder.
+The function app is part of the sample project you downloaded, located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder.
 
 ### Publish the app
 
@@ -116,7 +116,7 @@ To publish the function app to Azure, you'll need to create a storage account, t
 
 1. Next, you'll zip up the functions and publish them to your new Azure function app.
 
-    1. Open a console window on your machine, and navigate into the *digital-twins-samples-main\AdtE2ESample\SampleFunctionsApp* folder inside your downloaded sample project.
+    1. Open a console window on your machine, and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder inside your downloaded sample project.
     
     1. In the console, run the following command to publish the project locally:
 

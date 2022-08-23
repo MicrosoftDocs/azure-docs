@@ -163,6 +163,8 @@
           items:
             - name: GitHub deployment
               href: ./scripts/functions-cli-create-function-app-github-continuous.md
+    - name: Azure PowerShell
+      href: create-resources-azure-powershell.md
 - name: Concepts
   items:
     - name: Best practices

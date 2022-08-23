@@ -42,7 +42,7 @@ After a consumer initiates a connection, the service provider can accept or reje
  
 ### Delete your service
 
-If the Private Link service is no longer in use, you can delete it. However, before your delete the service, ensure that there are no private endpoint connections associated with it. You can reject all connections and delete the service.
+If the Private Link service is no longer in use, you can delete it. However, before you delete the service, ensure that there are no private endpoint connections associated with it. You can reject all connections and delete the service.
 
 ## Properties
 

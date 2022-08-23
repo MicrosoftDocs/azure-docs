@@ -80,12 +80,12 @@ az acr import \
   --image hello-world:latest
 ```
 
-You can verify that multiple manifests are associated with this image by running the `az acr repository show-manifests` command:
+You can verify that multiple manifests are associated with this image by running the [az acr manifest list-metadata](/cli/azure/acr/manifest#az-acr-manifest-list-metadata) command:
 
 ```azurecli
-az acr repository show-manifests \
-  --name myregistry \
-  --repository hello-world
+az acr manifest list-metadata \
+  --name hello-world \
+  --registry myregistry
 ```
 
 To import an artifact by digest without adding a tag:

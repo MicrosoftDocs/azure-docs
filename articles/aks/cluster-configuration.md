@@ -3,7 +3,7 @@ title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 02/09/2020
+ms.date: 08/05/2022
 ms.author: jpalma
 author: palma21
 ---
@@ -18,7 +18,7 @@ AKS supports Ubuntu 18.04 as the default node operating system (OS) in general a
 
 ## Container runtime configuration
 
-A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used for node pools using Kubernetes version 1.19 and greater. For Windows Server 2019 node pools, `containerd` is generally available and is used by default in Kubernetes 1.23 and greater. Docker is no longer supported as of September 2022. For more information about this deprecation, see the [AKS release notes][aks-release-notes].
+A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used for node pools using Kubernetes version 1.19 and greater. For Windows Server 2019 node pools, `containerd` is generally available and will be the only container runtime option in Kubernetes 1.21 and greater. Docker is no longer supported as of September 2022. For more information about this deprecation, see the [AKS release notes][aks-release-notes].
 
 [`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. It was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby (upstream Docker) version that AKS uses already leverages and is built on top of `containerd`, as shown above.
 
@@ -31,9 +31,9 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 `Containerd` works on every GA version of Kubernetes in AKS, and in every upstream kubernetes version above v1.19, and supports all Kubernetes and AKS features.
 
 > [!IMPORTANT]
-> Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`. You can still use Docker node pools and clusters on versions below 1.23, but Docker is no longer supported as of September 2022.
+> Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`. 
 > 
-> Using `containerd` with Windows Server 2019 node pools is generally available, and is used by default in Kubernetes 1.23 and greater. For more details, see [Add a Windows Server node pool with `containerd`][/learn/aks-add-np-containerd].
+> Using `containerd` with Windows Server 2019 node pools is generally available, and will be the only container runtime option in Kubernetes 1.21 and greater. You can still use Docker node pools and clusters on versions below 1.23, but Docker is no longer supported as of September 2022. For more details, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
 > 
 > It is highly recommended to test your workloads on AKS node pools with `containerd` prior to using clusters with a Kubernetes version that supports `containerd` for your node pools.
 
@@ -146,6 +146,10 @@ This enables an OIDC Issuer URL of the provider which allows the API server to d
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
+### Limitations
+
+OIDC issuer is only supported in Azure Public regions now.
+
 > [!WARNING]
 > Enable/disable OIDC Issuer will change the current service account token issuer to a new value, which causes some down time and make API server restart. If the application pods based on service account token keep in failed status after enable/disable OIDC Issuer, it's recommended to restart the pods manually.
 
@@ -232,4 +236,4 @@ az aks show -n aks -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -ots
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd
+[aks-add-np-containerd]: ./learn/quick-windows-container-deploy-cli.md#add-a-windows-server-node-pool-with-containerd

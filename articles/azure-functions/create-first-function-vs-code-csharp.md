@@ -4,7 +4,7 @@ description: "Learn how to create a C# function, then publish the local project 
 ms.topic: quickstart
 ms.date: 06/11/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-ui
+ms.custom: devx-track-csharp, mode-ui, vscode-azure-extension-update-complete
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B

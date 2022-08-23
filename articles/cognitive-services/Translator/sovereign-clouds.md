@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/24/2022
+ms.date: 08/17/2022
 ms.author: lajanuar
 ---
 
@@ -30,6 +30,8 @@ The following table lists the base URLs for Azure sovereign cloud endpoints:
 | Azure portal for US Government          | `https://portal.azure.us`  |
 | Azure portal China operated by 21 Vianet | `https://portal.azure.cn`  |
 
+<!-- markdownlint-disable MD033 -->
+
 ## Translator: sovereign clouds
 
 ### [Azure US Government](#tab/us)
@@ -41,7 +43,7 @@ The following table lists the base URLs for Azure sovereign cloud endpoints:
 |Azure portal | <ul><li>[Azure Government Portal](https://portal.azure.us/)</li></ul>|
 | Available regions</br></br>The region-identifier is a required header when using Translator for the government cloud. | <ul><li>`usgovarizona` </li><li> `usgovvirginia`</li></ul>|
 |Available pricing tiers|<ul><li>Free (F0) and Standard (S0). See [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)</li></ul>|
-|Supported Features | <ul><li>Text Translation</li><li>Document Translation</li><li>Custom Translation</li></ul>|
+|Supported Features | <ul><li>[Text Translation](https://docs.azure.cn/cognitive-services/translator/reference/v3-0-reference)</li><li>[Document Translation](document-translation/overview.md)</li><li>[Custom Translator](custom-translator/overview.md)</li></ul>|
 |Supported Languages| <ul><li>[Translator language support](language-support.md)</li></ul>|
 
 <!-- markdownlint-disable MD036 -->
@@ -77,10 +79,8 @@ https://api.cognitive.microsofttranslator.us/
 
 #### Document Translation custom endpoint
 
-Replace the `<your-custom-domain>` parameter with your [custom domain endpoint](document-translation/get-started-with-document-translation.md#what-is-the-custom-domain-endpoint).
-
 ```http
-https://<your-custom-domain>.cognitiveservices.azure.us/
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.us/translator/text/batch/v1.0
 ```
 
 #### Custom Translator portal
@@ -122,7 +122,7 @@ The Azure China cloud is a physical and logical network-isolated instance of clo
 |---|---|
 |Azure portal |<ul><li>[Azure China 21 Vianet Portal](https://portal.azure.cn/)</li></ul>|
 |Regions <br></br>The region-identifier is a required header when using a multi-service resource. | <ul><li>`chinanorth` </li><li> `chinaeast2`</li></ul>|
-|Supported Feature|<ul><li>[Text Translation](https://docs.azure.cn/cognitive-services/translator/reference/v3-0-reference)</li></ul>|
+|Supported Feature|<ul><li>[Text Translation](https://docs.azure.cn/cognitive-services/translator/reference/v3-0-reference)</li><li>[Document Translation](document-translation/overview.md)</li></ul>|
 |Supported Languages|<ul><li>[Translator language support.](https://docs.azure.cn/cognitive-services/translator/language-support)</li></ul>|
 
 <!-- markdownlint-disable MD036 -->
@@ -152,7 +152,7 @@ https://<region-identifier>.api.cognitive.azure.cn/sts/v1.0/issueToken
 https://api.translator.azure.cn/translate
 ```
 
-### Example API translation request
+### Example text translation request
 
 Translate a single sentence from English to Simplified Chinese.
 
@@ -174,12 +174,35 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&
 ]
 ```
 
-> [!div class="nextstepaction"]
-> [Azure China: Translator Text reference](https://docs.azure.cn/cognitive-services/translator/reference/v3-0-reference)
+#### Document Translation custom endpoint
+
+```http
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.cn/translator/text/batch/v1.0
+```
+
+### Example batch translation request
+
+```json
+{
+    "inputs": [
+        {
+            "source": {
+                "sourceUrl": "https://<storage_acount>.blob.core.chinacloudapi.cn/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
+            },
+            "targets": [
+                {
+                    "targetUrl": "https://<storage_acount>.blob.core.chinacloudapi.cn/target-zh-Hans?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
+                    "language": "zh-Hans"
+                }
+            ]
+        }
+    ]
+}
+```
 
 ---
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Learn more about Translator](index.yml)

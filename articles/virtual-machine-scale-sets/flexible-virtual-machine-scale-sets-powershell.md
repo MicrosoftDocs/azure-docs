@@ -30,7 +30,7 @@ New-AzResourceGroup -Name 'myVMSSResourceGroup' -Location 'EastUS'
 ```
 
 ## Create a virtual machine scale set
-Now create a virtual machine scale set with [New-AzVmss](/powershell/module/azcompute/new-azvmss). The following example creates a scale set with an instance count of *2* running Windows Server 2019 Datacenter edition. 
+Now create a virtual machine scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). The following example creates a scale set with an instance count of *2* running Windows Server 2019 Datacenter edition. 
 
 ```azurepowershell-interactive
 New-AzVmss `

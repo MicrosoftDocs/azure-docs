@@ -15,7 +15,7 @@ ms.date: 09/22/2021
 
 # What is an Azure Machine Learning compute instance?
 
-An Azure Machine Learning compute instance is a managed cloud-based workstation for data scientists.
+An Azure Machine Learning compute instance is a managed cloud-based workstation for data scientists.  Each compute instance has only one owner, although you can share files between multiple compute instances. 
 
 Compute instances make it easy to get started with Azure Machine Learning development as well as provide management and enterprise readiness capabilities for IT administrators.
 
@@ -40,7 +40,7 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 |Fully customizable|Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. You can also use setup scripts to automate customization |
 
 * Secure your compute instance with **[No public IP (preview)](./how-to-secure-training-vnet.md#no-public-ip)**
-* The compute instance is also a secure training compute target similar to compute clusters, but it is single node.
+* The compute instance is also a secure training compute target similar to [compute clusters](how-to-create-attach-compute-cluster.md), but it is single node. 
 * You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview)**.
 * You can also **[use a setup script (preview)](how-to-customize-compute-instance.md)**  for an automated way to customize and configure the compute instance as per your needs.
 * To save on costs, **[create  a schedule (preview)](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop-preview)** to automatically start and stop the compute instance.
@@ -123,7 +123,7 @@ Compute instance comes with P10 OS disk. Temp disk type depends on the VM size c
 
 ## Compute target
 
-Compute instances can be used as a [training compute target](concept-compute-target.md#train) similar to Azure Machine Learning compute training clusters.
+Compute instances can be used as a [training compute target](concept-compute-target.md#train) similar to Azure Machine Learning [compute training clusters](how-to-create-attach-compute-cluster.md).  But a compute instance has only a single node, while a compute cluster can have more nodes.
 
 A compute instance:
 

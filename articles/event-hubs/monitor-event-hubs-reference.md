@@ -15,7 +15,7 @@ See [Monitoring Azure Event Hubs](monitor-event-hubs.md) for details on collecti
 
 
 ## Metrics
-This section lists all the automatically collected platform metrics collected for Azure Event Hubs. The resource provider for these metrics is **Microsoft.EventHub/clusters** or **Microsoft.EventHub/clusters**.
+This section lists all the automatically collected platform metrics collected for Azure Event Hubs. The resource provider for these metrics is **Microsoft.EventHub/clusters** or **Microsoft.EventHub/namespaces**.
 
 ### Request metrics
 Counts the number of data and management operations requests.
