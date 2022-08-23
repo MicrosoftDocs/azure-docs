@@ -19,8 +19,6 @@ This article shows you how to use the [Azure IoT Tools for Visual Studio Code](h
 
 To complete this article, you need the following:
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 - [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) installed for Visual Studio Code.
