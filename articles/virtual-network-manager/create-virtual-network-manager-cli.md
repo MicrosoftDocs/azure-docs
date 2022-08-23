@@ -259,12 +259,9 @@ az network manager list-effective-connectivity-config \
     --resource-group "myAVNMResourceGroup" \
     --virtual-network-name "VNetD"
 ```
-For the virtual networks that are part of the connectivity configuration, you'll see an response similar to this:
+For the virtual networks that are part of the connectivity configuration, you'll see an output similar to this:
 
 ```json
-az network manager list-effective-connectivity-config \
-    --resource-group "myAVNMResourceGroup" \
-    --virtual-network-name "VNetC"
 {
   "skipToken": "",
   "value": [
@@ -297,7 +294,7 @@ az network manager list-effective-connectivity-config \
   ]
 }
 ```
-For virtual networks not part of the network group like **VNetD**, you'll see a response similar to this:
+For virtual networks not part of the network group like **VNetD**, you'll see an output similar to this:
 
 ```json
 az network manager list-effective-connectivity-config     --resource-group "myAVNMResourceGroup"     --virtual-network-name "VNetD-test"
