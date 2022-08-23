@@ -18,7 +18,7 @@ Azure Cognitive Services for Language and Speech can help you realize partial or
 The main business scenarios for the application of Azure Cognitive Services in call and contact centers are:
 - Virtual agents: Conversational AI-based telephony-integrated voicebots and voice-enabled chatbots
 - Agent-assist: Real-time transcription and analysis of a call to improve the customer experience by providing insights and suggest actions to agents
-- Post-call analytics: Post-call analysis to create insights into customer conversations to improve understanding and support continuous improvement of call handling, optimization of quality assurance and compliance control as well as other insights driven optimizations
+- Post-call analytics: Post-call analysis to create insights into customer conversations to improve understanding and support continuous improvement of call handling, optimization of quality assurance and compliance control as well as other insight driven optimizations
 
 ## Cognitive Services for the Call Center
 
