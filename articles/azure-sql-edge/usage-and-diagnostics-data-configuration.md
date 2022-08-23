@@ -3,6 +3,7 @@ title: Azure SQL Edge usage and diagnostics data configuration
 description: Learn how to configure usage and diagnostics data in Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
+ms.reviewer: randolphwest
 ms.date: 08/04/2020
 ms.service: sql-edge
 ms.topic: conceptual

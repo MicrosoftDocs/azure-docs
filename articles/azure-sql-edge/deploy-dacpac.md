@@ -3,6 +3,7 @@ title: Using SQL Database DACPAC and BACPAC packages - Azure SQL Edge
 description: Learn about using dacpacs and bacpacs in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
+ms.reviewer: randolphwest
 ms.date: 09/03/2020
 ms.service: sql-edge
 ms.topic: conceptual

@@ -3,6 +3,7 @@ title: Performance best practices and configuration guidelines - Azure SQL Edge
 description: Learn about performance best practices and configuration guidelines in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
+ms.reviewer: randolphwest
 ms.date: 09/22/2020
 ms.service: sql-edge
 ms.topic: conceptual

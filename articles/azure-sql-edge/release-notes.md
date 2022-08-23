@@ -3,6 +3,7 @@ title: Release notes for Azure SQL Edge
 description: Release notes detailing what's new or what has changed in the Azure SQL Edge images.
 author: kendalvandyke
 ms.author: kendalv
+ms.reviewer: randolphwest
 ms.date: 6/21/2022
 ms.service: sql-edge
 ms.topic: conceptual

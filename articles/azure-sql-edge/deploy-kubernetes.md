@@ -3,6 +3,7 @@ title: Deploy an Azure SQL Edge container in Kubernetes - Azure SQL Edge
 description: Learn about deploying an Azure SQL Edge container in Kubernetes
 author: rwestMSFT
 ms.author: randolphwest
+ms.reviewer: randolphwest
 ms.date: 09/22/2020
 ms.service: sql-edge
 ms.topic: tutorial

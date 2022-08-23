@@ -3,6 +3,7 @@ title: Set up IoT Edge modules in Azure SQL Edge
 description: In part two of this three-part Azure SQL Edge tutorial for predicting iron ore impurities, you'll set up IoT Edge modules and connections.
 author: kendalvandyke
 ms.author: kendalv
+ms.reviewer: randolphwest
 ms.date: 09/22/2020
 ms.service: sql-edge
 ms.topic: tutorial

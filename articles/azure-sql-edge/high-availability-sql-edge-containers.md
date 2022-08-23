@@ -3,6 +3,7 @@ title: High availability for Azure SQL Edge containers - Azure SQL Edge
 description: Learn about high availability for Azure SQL Edge containers
 author: rwestMSFT
 ms.author: randolphwest
+ms.reviewer: randolphwest
 ms.date: 09/22/2020
 ms.service: sql-edge
 ms.topic: conceptual

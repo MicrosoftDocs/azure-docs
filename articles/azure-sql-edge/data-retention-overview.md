@@ -3,6 +3,7 @@ title: Data retention policy overview - Azure SQL Edge
 description: Learn about the data retention policy in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
+ms.reviewer: randolphwest
 ms.date: 09/04/2020
 ms.service: sql-edge
 ms.topic: conceptual

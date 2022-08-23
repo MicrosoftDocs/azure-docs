@@ -3,6 +3,7 @@ title: Deploy Azure SQL Edge using the Azure portal
 description: Learn how to deploy Azure SQL Edge using the Azure portal
 author: rwestMSFT
 ms.author: randolphwest
+ms.reviewer: randolphwest
 ms.date: 09/22/2020
 ms.service: sql-edge
 ms.topic: conceptual

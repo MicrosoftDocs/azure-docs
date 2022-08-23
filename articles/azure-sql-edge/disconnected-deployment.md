@@ -3,6 +3,7 @@ title: Deploy Azure SQL Edge with Docker - Azure SQL Edge
 description: Learn about deploying Azure SQL Edge with Docker
 author: rwestMSFT
 ms.author: randolphwest
+ms.reviewer: randolphwest
 ms.date: 09/22/2020
 ms.service: sql-edge
 ms.topic: quickstart
