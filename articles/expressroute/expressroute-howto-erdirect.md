@@ -339,7 +339,6 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
 
     ```powershell
     Add-AzExpressRoutePortAuthorization -Name $Name -ExpressRoutePort $ERPort
-    Set-AzExpressRoutePort -ExpressRoutePort $ERPort
     ```
    
    Sample output:

@@ -37,8 +37,8 @@ Four Azure resources are defined in the template.
 
 - [**Microsoft.MobileNetwork/mobileNetworks/sites**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/sites): a resource representing your site as a whole.
 - [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks): a resource providing configuration for the packet core instance's connection to a data network.
-- [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes): a resource providing configuration for the user plane Network Functions of the packet core instance, including IP configuration for the user plane interface on the access network.
-- [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes): a resource providing configuration for the control plane Network Functions of the packet core instance, including IP configuration for the control plane interface on the access network.
+- [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes): a resource providing configuration for the user plane network functions of the packet core instance, including IP configuration for the user plane interface on the access network.
+- [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes): a resource providing configuration for the control plane network functions of the packet core instance, including IP configuration for the control plane interface on the access network.
 
 ## Deploy the template
 
@@ -72,6 +72,7 @@ Four Azure resources are defined in the template.
     |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
     | **Core Network Technology** | Enter *5GC* for 5G, or *EPC* for 4G. |
     | **Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network. |
+    | **Dns Addresses** | Enter the DNS server addresses. You can omit this if you don't want to configure a DNS server for the UEs in this data network. |
     | **Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. |
 
 1. Select **Review + create**.

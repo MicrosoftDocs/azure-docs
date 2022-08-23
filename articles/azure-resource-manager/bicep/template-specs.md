@@ -25,9 +25,9 @@ When designing your deployment, always consider the lifecycle of the resources a
 > - Content in the Bicep module registry can only be deployed from another Bicep file. Template specs can be deployed directly from the API, Azure PowerShell, Azure CLI, and the Azure portal. You can even use [`UiFormDefinition`](../templates/template-specs-create-portal-forms.md) to customize the portal deployment experience.
 > - Bicep has some limited capabilities for embedding other project artifacts (including non-Bicep and non-ARM-template files. For example, PowerShell scripts, CLI scripts and other binaries) by using the [`loadTextContent`](./bicep-functions-files.md#loadtextcontent) and [`loadFileAsBase64`](./bicep-functions-files.md#loadfileasbase64) functions. Template specs can't package these artifacts.
 
-### Microsoft Learn
+### Training resources
 
-To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/learn/modules/arm-template-specs) on **Microsoft Learn**.
+To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/learn/modules/arm-template-specs).
 
 ## Why use template specs?
 
@@ -397,4 +397,4 @@ After creating a template spec, you can link to that template spec in a Bicep mo
 
 ## Next steps
 
-To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/learn/modules/arm-template-specs) on **Microsoft Learn**.
+To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/learn/modules/arm-template-specs).

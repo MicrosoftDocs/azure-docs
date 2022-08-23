@@ -3,7 +3,7 @@ title: Tutorial for using Azure App Configuration Key Vault references in an ASP
 description: In this tutorial, you learn how to use Azure App Configuration's Key Vault references from an ASP.NET Core app
 services: azure-app-configuration
 documentationcenter: ''
-author: AlexandraKemperMS
+author: maud-lv
 editor: ''
 
 ms.assetid: 
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.author: alkemper
+ms.author: malev
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to update my ASP.NET Core application to reference values stored in Key Vault through App Configuration.

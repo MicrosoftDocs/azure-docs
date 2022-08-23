@@ -1,7 +1,7 @@
 ---
 title: Overview of VM Applications in the Azure Compute Gallery
 description: Learn more about VM application packages in an Azure Compute Gallery.
-author: ericd-mst-github
+author: nikhilpatel909
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
@@ -118,7 +118,7 @@ When the application file gets downloaded to the VM, the file name is the same a
 
 For example, if I name my VM application `myApp` when I create it in the Gallery, but it's stored as `myApplication.exe` in the storage account, when it gets downloaded to the VM the file name will be `myApp`. My install string should start by renaming the file to be whatever it needs to be to run on the VM (like myApp.exe).
 
-The install, update, and remove commands must be written with file naming in mind. The `configFileName` is assigned to the config file for the VM and `packageFileName` is the name assigned downloaded package on the VM. For more information regarding these additional VM settings, refer to [UserArtifactSettings](https://docs.microsoft.com/rest/api/compute/gallery-application-versions/create-or-update?tabs=HTTP#userartifactsettings) in our API docs.
+The install, update, and remove commands must be written with file naming in mind. The `configFileName` is assigned to the config file for the VM and `packageFileName` is the name assigned downloaded package on the VM. For more information regarding these additional VM settings, refer to [UserArtifactSettings](/rest/api/compute/gallery-application-versions/create-or-update?tabs=HTTP#userartifactsettings) in our API docs.
  
 ## Command interpreter  
 

@@ -2,7 +2,7 @@
 title: Review your access to resources in access reviews - Azure AD
 description: Learn how to review your own access to resources in Azure Active Directory access reviews.
 services: active-directory
-author: ajburnle
+author: amsliu
 manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 08/27/2021
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
