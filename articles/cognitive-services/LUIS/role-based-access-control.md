@@ -45,7 +45,7 @@ These custom roles only apply to authoring (Language Understanding Authoring) an
 > [!NOTE]
 > * *Owner* and *Contributor* roles take priority over the custom LUIS roles.
 > * Azure Active Directory (Azure AAD) is only used with custom LUIS roles.
-> * If you are assigned as a *Contributor* on Azure, you role will be shown as *Owner* in LUIS portal.
+> * If you are assigned as a *Contributor* on Azure, your role will be shown as *Owner* in LUIS portal.
 
 
 ### Cognitive Services LUIS reader
