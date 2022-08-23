@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/22/2022
+ms.date: 08/23/2022
 ms.author: alkohli
 ---
 # Use Zero Touch Provisioning to configure Azure Stack Edge
@@ -19,10 +19,10 @@ Use Zero Touch Provisioning as an alternative to the local web user interface se
 
 ## Zero Touch Provisioning considerations
 
-- You can apply updates to a device until it's activated. To update devices after activation or to manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
+- You can apply configuration changes to a device until it's activated. To update devices after activation or to manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
 - You can't update device authentication using Zero Touch Provisioning. To update the device authentication settings, see [Change device password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password).
 - You can only provision single-node devices using Zero Touch Provisioning. Two-node cluster configuration isn't supported.
-- You can apply individual configuration updates to a device using PowerShell cmdlets, or you can apply bulk configuration updates using a JSON file.
+- You can apply individual configuration changes to a device using PowerShell cmdlets, or you can apply bulk configuration changes using a JSON file.
 
 ## About device setup and configuration
 
@@ -43,7 +43,7 @@ The following PowerShell cmdlets are supported to configure Azure Stack Edge dev
 
 |Cmdlet|Description|
 |---------|---------|
-|Set-login|First-time sign in, set or update sign in credentials to access the device.|
+|Set-login|First-time sign in, set or change sign in credentials to access the device.|
 |Get-DeviceConfiguration|Fetch the current device configuration.|
 |Set-DeviceConfiguration|Update the device configuration.|
 |New-Package|Prepare a device setup configuration package to apply to one or more devices.|
@@ -84,7 +84,7 @@ Use the following steps to import the PowerShell module and sign into the device
 
 Use the following steps to sign into a device, change the password, and fetch the device configuration:
 
-1. Sign into the device and update the device password.
+1. Sign into the device and change the device password.
 
    ```azurepowershell
    Set-Login “https://<IP address>” “<Password1>” “<NewPassword>”
@@ -161,7 +161,7 @@ Run the following cmdlets in PowerShell:
 
 ## Apply a full configuration to a device, without device activation
 
-Once a config.json file has been created, as in the previous example, with the desired configuration, use the JSON file to update configuration settings on one or more devices.
+Once a config.json file has been created, as in the previous example, with the desired configuration, use the JSON file to change configuration settings on one or more devices.
 
 This sequence of PowerShell cmdlets signs into the device, applies the device setup configuration package with device configuration settings from a JSON file, verifies completion of the device update, and then fetches the updated device configuration.
 
