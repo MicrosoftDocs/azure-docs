@@ -44,11 +44,11 @@ Custom branding appears after users sign in. Users that start the sign-in proces
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
-2. Select **Azure Active Directory** > **Company branding** > **Configure**.
+2. Go to **Azure Active Directory** > **Company branding** > **Configure**.
 
 3. On the **Configure company branding** page, provide any or all of the following information.
 
-    ![Configure company branding page, with general settings completed](media/customize-branding/configure-company-branding-general-settings.png)
+    ![Configure company branding page, with general settings completed](media/customize-branding/legacy-customize-branding-configure-basics.png)
 
     - **Language** The language for your first customized branding configuration is based on your default locale can't be changed. Once a default sign-in experience is created, you can add language-specific customized branding.
         
@@ -79,7 +79,7 @@ Custom branding appears after users sign in. Users that start the sign-in proces
 
 - **Advanced settings**
             
-    ![Configure company branding page, with advanced settings completed](media/customize-branding/configure-company-branding-advanced-settings.png)   
+    ![Configure company branding page, with advanced settings completed](media/customize-branding/legacy-customize-branding-configure-advanced.png)   
 
     - **Sign-in page background color** Specify the hexadecimal color (#FFFFFF) that will appear in place of your background image in low-bandwidth connection situations. We recommend using the primary color of your banner logo or your organization color.
 
@@ -113,32 +113,19 @@ The process for customizing the experience is the same as the [Default sign-in e
 
 We recommend adding **Sign-in page text** in the selected language.
 
-## Add custom branding to pages
-Add your custom branding to other pages that use Azure AD as the identity provider by modifying the end of the URL with the text with `?whr=yourdomainname`. This specific modification works on different types of pages, including the Multi-Factor Authentication (MFA) setup page, the Self-service Password Reset (SSPR) setup page, and the sign-in page.
-
-Whether an application supports customized URLs for branding or not depends on the specific application, and should be checked before attempting to add a custom branding to a page.
-
-**Examples:**
-
-**Original URL:** https://aka.ms/MFASetup<br>
-**Custom URL:** `https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com`
-
-**Original URL:** https://aka.ms/SSPR<br>
-**Custom URL:** `https://passwordreset.microsoftonline.com/?whr=contoso.com`
-
 ## Edit custom branding
 
 If custom branding has been added to your tenant, you can edit the details already provided. Refer to the details and descriptions of each setting in the [Add custom branding](#customize-the-default-sign-in-experience) section of this article.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
-2. Select **Azure Active Directory** > **Company branding** > **Configure**.
+1. Go to **Azure Active Directory** > **Company branding**.
 
-    ![Contoso - Company branding page, with default configuration shown](media/customize-branding/company-branding-default-config.png)
+1. Select a custom branding item from the list.
 
-3. On the **Configure company branding** page, edit any necessary details.
+1. On the **Edit company branding** page, edit any necessary details.
 
-4. Select **Save**.
+1. Select **Save**.
 
    It can take up to an hour for any changes you made to the sign-in page branding to appear.
 
@@ -148,7 +135,7 @@ The **Stay signed in?** prompt appears after a user successfully signs in. This 
 
 The following diagram shows the user sign-in flow for a managed tenant and federated tenant using the KMSI in prompt. This flow contains smart logic so that the **Stay signed in?** option won't be displayed if the machine learning system detects a high-risk sign-in or a sign-in from a shared device.
 
-KMSI is only available on the default custom branding. It can't be added to language-specific branding. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
+Go KMSI is only available on the default custom branding. It can't be added to language-specific branding. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
 
 ![Diagram showing the user sign-in flow for a managed vs. federated tenant](media/keep-me-signed-in/kmsi-workflow.png)
 

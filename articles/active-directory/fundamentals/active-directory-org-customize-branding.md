@@ -44,9 +44,13 @@ Custom branding appears after users sign in. Users that start the sign-in proces
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
-2. Select **Azure Active Directory** > **Company branding** > **Customize**.
+2. Go to **Azure Active Directory** > **Company branding** > **Customize**.
+
+    ![Custom branding landing page with 'Company branding' highlighted in the side menu and 'Configure' button highlighted in the center of the page](media/active-directory-org-customize-branding/customize-branding-getting-started.png)
 
 The sign-in experience process is grouped into sections. At the end of each section, select the **Review + create** button to review what you have selected and submit your changes or the **Next** button to move to the next section.
+
+!['Review + create' and 'Next: Layout' buttons from the bottom of the configure custom branding page](media/active-directory-org-customize-branding/customize-branding-buttons.png)
 
 ## Basics
 
@@ -58,7 +62,9 @@ The sign-in experience process is grouped into sections. At the end of each sect
 
 ## Layout
 
-- **Visual Templates**: Customize the layout of your sign-in page using templates or custom CSS. Choose one of two **Templates**: Full-screen or partial-screen background. The full-screen background could obscure your background image, so choose the partial-screen background if your background image is important. The details of the **Header** and **Footer** options are set on the next two sections of the process.
+- **Visual Templates**: Customize the layout of your sign-in page using templates or custom CSS.
+
+    Choose one of two **Templates**: Full-screen or partial-screen background. The full-screen background could obscure your background image, so choose the partial-screen background if your background image is important. The details of the **Header** and **Footer** options are set on the next two sections of the process.
 
 - **Custom CSS**: Upload custom CSS to replace the Microsoft default style of the page. For a CSS template and more information on using your own CSS, view the [HELPFUL LINK HERE]().
 
@@ -70,12 +76,18 @@ If you haven't enabled the header, go to the **Layout** section and select **Sho
 
 If you haven't enabled the footer, go to the **Layout** section and select **Show footer**. Select a PNG or JPG to display in the header of the sign-in page.
 
-- **Show 'Privacy & Cookies'**: This option is selected by default and displays the [Microsoft 'Privacy & Cookies'](https://privacy.microsoft.com/privacystatement) link. Uncheck this option to hide the default Microsoft link. Optionally provide your own **Display text** and **URL**. The text and links do not have to be related to privacy and cookies.
+- **Show 'Privacy & Cookies'**: This option is selected by default and displays the [Microsoft 'Privacy & Cookies'](https://privacy.microsoft.com/privacystatement) link.
+    
+    Uncheck this option to hide the default Microsoft link. Optionally provide your own **Display text** and **URL**. The text and links do not have to be related to privacy and cookies.
 
-- **Show 'Terms of Use'**: This option is also elected by default and displays the [Microsoft 'Terms of Use'](https://www.microsoft.com/servicesagreement/) link. Uncheck this option to hide the default Microsoft link. Optionally provide your own **Display text** and **URL**. The text and links do not have to be your terms of use.
+- **Show 'Terms of Use'**: This option is also elected by default and displays the [Microsoft 'Terms of Use'](https://www.microsoft.com/servicesagreement/) link.
+
+    Uncheck this option to hide the default Microsoft link. Optionally provide your own **Display text** and **URL**. The text and links do not have to be related to your terms of use.
 
     >[!IMPORTANT]
     >The default Microsoft 'Terms of Use' link is not the same as the Conditional Access Terms of Use. Seeing the terms here doesn't mean you've accepted those terms and conditions. 
+
+    ![Customize branding on the Footer section](media/active-directory-org-customize-branding/customize-branding-footer.png)
 
 ## Sign-in form
 
@@ -105,14 +117,14 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
 - **Self-service password reset**:
     - Show self-service password reset (SSPR): Select the checkbox to turn on SSPR. 
     - Common URL: Enter the destination URL for where your users will reset their passwords. This URL appears on the username and password collection screens.
-    - Username collection display text: 
-    - Password collection display text:
+    - Username collection display text: Replace the default text with your own custom username collection text.
+    - Password collection display text: Replace the default text with your own customer password collection text.
 
 ## Review
 
-All of the available options appear in one list so you can review everything you've customized or left at the default setting. When you're done, click the **Create** button. 
+All of the available options appear in one list so you can review everything you've customized or left at the default setting. When you're done, select the **Create** button. 
 
-Once your default sign-in experience is created, you will start at the **Default sign-in** section instead of **Getting started.** Click the **Edit** button to make any changes. You can't delete a default sign-in experience after it is created.
+Once your default sign-in experience is created, you will start at the **Default sign-in** section instead of **Getting started.** Select the **Edit** button to make any changes. You can't delete a default sign-in experience after it is created, but you can remove all custom settings.
 
 ## Customize the sign-in experience by browser language
 
@@ -120,7 +132,7 @@ To create an inclusive experience for all of your users, you can customize the s
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
-2. Select **Azure Active Directory** > **Company branding** > **Add browser language**.
+2. Go to **Azure Active Directory** > **Company branding** > **Add browser language**.
 
 The process for customizing the experience is the same as the [default sign-in experience](#basics) process, except you must select a language from the dropdown list in the **Basics** section. We recommend adding custom text in the same areas as your default sign-in experience. The available languages are pulled from the list of all available Azure languages. 
 
