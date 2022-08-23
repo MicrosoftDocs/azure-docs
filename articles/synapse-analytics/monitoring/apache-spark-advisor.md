@@ -19,14 +19,14 @@ Spark Advisor is a system that automatically analyzes commands and queries, and 
 ## Advice provided
 
 ### May return inconsistent results when using 'randomSplit'
-Spark Advisor may return inconsistent or inaccurate results when you work with the results of the 'randomSplit' method. Use Apache Spark (RDD) caching before using the 'randomSplit' method.
+Spark Advisor may return inconsistent or inaccurate results when you work with the results of the 'randomSplit' method. Use Apache Spark resilient distributed dataset caching before using the 'randomSplit' method.
 
-The randomSplit method is equivalent to performing a sample on your dataframe multiple times, with each sample refetching, partitioning, and sorting your dataframe within partitions. The data distribution across partitions and sorting order is important for both randomSplit and sample. If either changes upon data refetch, there may be duplicates, or missing values across splits, and the same sample using the same seed may produce different results.
+The randomSplit method is equivalent to performing a sample on your dataframe multiple times, with each sample re-fetching, partitioning, and sorting your dataframe within partitions. The data distribution across partitions and sorting order is important for both randomSplit and sample. If either changes upon data re-fetch, there may be duplicates, or missing values across splits, and the same sample using the same seed may produce different results.
 
-These inconsistencies may not happen on every run. To eliminate them completely, cache your data frame, repartition on a column(s), or apply aggregate functions such as groupBy.
+These inconsistencies may not happen on every run. To eliminate them completely, cache your dataframe, repartition on a column(s), or apply aggregate functions such as groupBy.
 
 ### The table/view name is already in use
-A view already exists with the same name as the created table, or a table already exists with the same name as the created view.When you use this name in queries or applications, Spark Advisor returns only the view, regardless which one was created first. To avoid conflicts, rename either the table or the view.
+A view already exists with the same name as the created table, or a table already exists with the same name as the created view.When you use this name in queries or applications, Spark Advisor returns only the view, regardless of which one was created first. To avoid conflicts, rename either the table or the view.
 
 ## Hints related to advice
 ### Unable to recognize a hint
