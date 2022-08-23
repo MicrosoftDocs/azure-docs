@@ -167,7 +167,7 @@ For more information, see [Enable network isolation for managed online endpoints
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
-In this section, you learn the options available for securing an inferencing environment. When doing a v1 deployment, we recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
+In this section, you learn the options available for securing an inferencing environment when using the Azure CLI extension for ML v1 or the Azure ML Python SDK v1. When doing a v1 deployment, we recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
 
 You have two options for AKS clusters in a virtual network:
 

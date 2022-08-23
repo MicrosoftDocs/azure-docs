@@ -8,7 +8,7 @@ manager: dongli
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/08/2022
+ms.date: 08/11/2022
 ms.author: heikora
 zone_pivot_groups: speech-studio-cli-rest
 ---
@@ -22,6 +22,9 @@ Here are some key terms related to the model lifecycle:
 * **Training**: Taking a base model and customizing it to your domain/scenario by using text data and/or audio data. In some contexts such as the REST API properties, training is also referred to as **adaptation**.
 * **Transcription**: Using a model and performing speech recognition (decoding audio into text).
 * **Endpoint**: A specific deployment of either a base model or a custom model that only you can access. 
+
+> [!NOTE]
+> Endpoints used by `F0` Speech resources are deleted after seven days.
 
 ## Expiration timeline
 
