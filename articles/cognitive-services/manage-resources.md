@@ -42,14 +42,12 @@ To recover a deleted cognitive service resource, use the following commands. Whe
 
 If you need to recover a deleted resource, navigate to the hub of the cognitive services API type and select "Manage deleted resources" from the menu. For example, if you would like to recover an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the option under the "Services" section to land on the "Anomaly detector" hub that will list deleted resources.
 
-
-:::image type="content" source="recovery-of-deleted-resources.png" alt-text="How to recover a deleted resource step 1":::
-
+:::image type="content" source="media/recovery-deleted-resource.png" alt-text="How to recover a deleted resource step 1":::
 
 Select the subscription in the dropdown list to locate the deleted resource you would like to recover.
 Select one or more of the deleted resources and click "Recover". 
 
-:::image type="content" source="managing-deleted-resources.png" alt-text="How to recover a deleted resource step 2":::
+:::image type="content" source="media/managing-deleted-resource.png" alt-text="How to recover a deleted resource step 2":::
 
 Please note that it can take a couple of minutes for your deleted resource(s) to recover and show up in the list of the resources. Click on the "Refresh" button in the menu to update the list of resources.
 
@@ -117,13 +115,13 @@ Navigate to the hub of the cognitive services API type of your deleted resource.
 
 Select "Manage deleted resources" from the menu. 
 
-:::image type="content" source="recovery-of-deleted-resources.png" alt-text="How to purge a deleted resource step 1":::
+:::image type="content" source="media/recovery-deleted-resource.png" alt-text="How to purge a deleted resource step 1":::
 
 Select the subscription in the dropdown list to locate the deleted resource you would like to purge.
 Select one or more deleted resources and click "Purge".
 Purging will permanently delete a Cognitive Services resource. 
 
-:::image type="content" source="managing-deleted-resources.png" alt-text="How to purge a deleted resource step 2":::
+:::image type="content" source="media/managing-deleted-resource.png" alt-text="How to purge a deleted resource step 2":::
 
 
 # [Rest API](#tab/rest-api)
