@@ -163,9 +163,6 @@
              href: concept-data-analysis.md
            - name: Counterfactual analysis and what-if
              href: concept-counterfactual-analysis.md
-           - name: Differential Privacy
-             displayName: differential,privacy
-             href: concept-differential-privacy.md
     - name: Workspace & compute resources
       items: 
         - name: Workspace
@@ -281,7 +278,7 @@
           displayName: compute target, low priority, managed identity
           href: how-to-create-attach-compute-cluster.md
         - name: AKS and Arc Enabled Kubernetes cluster
-          displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
+          displayName: Azure Arc, Kubernetes, on-premises, multi-cloud, attach
           href: how-to-attach-kubernetes-anywhere.md
         - name: Manage compute resources
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
@@ -354,7 +351,7 @@
           href: how-to-datastore.md
         - name: Create data assets
           displayName: Create data assets
-          href: how-to-create-register-data-assets.md
+          href: how-to-create-data-assets.md
         - name: Read & write data in jobs
           displayName: Read & write data in jobs
           href: how-to-read-write-data-v2.md

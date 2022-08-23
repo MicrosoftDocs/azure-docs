@@ -49,7 +49,7 @@ Unless specified otherwise, a model is generally available.
 * **Celebrity identification**: Identifies over 1 million celebrities—like world leaders, actors, artists, athletes, researchers, business, and tech leaders across the globe. The data about these celebrities can also be found on various websites (IMDB, Wikipedia, and so on).
 * **Account-based face identification**: Trains a model for a specific account. It then recognizes faces in the video based on the trained model. For more information, see [Customize a Person model from the Azure Video Indexer website](customize-person-model-with-website.md) and [Customize a Person model with the Azure Video Indexer API](customize-person-model-with-api.md).
 * **Thumbnail extraction for faces**: Identifies the best captured face in each group of faces (based on quality, size, and frontal position) and extracts it as an image asset.
-* **On-screen text recognition (OCR)**: Extracts and groups text that appears on video as overlay, slides, or in the background.
+* **Optical character recognition (OCR)**: Extracts text from images like pictures, street signs and products in media files to create insights.
 * **Visual content moderation**: Detects adult and/or racy visuals.
 * **Labels identification**: Identifies visual objects and actions displayed.
 * **Scene segmentation**: Determines when a scene changes in video based on visual cues. A scene depicts a single event and it's composed by a series of consecutive shots, which are semantically related.

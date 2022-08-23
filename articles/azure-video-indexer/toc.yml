@@ -107,6 +107,8 @@
     href: connect-classic-account-to-arm.md
   - name: Add contributor role to Media Services
     href: add-contributor-role-on-the-media-service.md    
+  - name: Import content from the trial account
+    href: import-content-from-trial.md
   - name: Upload and index videos
     href: upload-index-videos.md   
   - name: Index a video from OneDrive

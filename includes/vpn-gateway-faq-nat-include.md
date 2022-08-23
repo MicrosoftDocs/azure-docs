@@ -73,7 +73,7 @@ Yes, this is typically used when the connections are for the same on-premises ne
 
 ### Do I need both Ingress and Egress rules on a NAT connection?
 
-You need both Ingress and Egress rules on the same connection when the on-premise network address space overlaps with the VNet address space. If the VNet address space is unique among all connected networks, you don't need the EgressSNAT rule on those connections. You can use the Ingress rules to avoid address overlap among the on-premises networks.
+You need both Ingress and Egress rules on the same connection when the on-premises network address space overlaps with the VNet address space. If the VNet address space is unique among all connected networks, you don't need the EgressSNAT rule on those connections. You can use the Ingress rules to avoid address overlap among the on-premises networks.
 
 ### What do I choose as "IP configuration ID" ?
 
