@@ -5,7 +5,7 @@ ms.service: logic-apps
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 05/25/2021
+ms.date: 08/20/2022
 
 # Note for Azure service writer: Links to Cost Management articles are full URLS with the ?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn campaign suffix. Leave those URLs intact. They're used to measure traffic to Cost Management articles. 
 ---

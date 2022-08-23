@@ -40,7 +40,7 @@ To use this feature, you need:
 1. Select **Azure Active Directory** > **Audit logs**. 
 
 1. Select **Export Data Settings**.  
-    
+
 1. In the **Diagnostics settings** pane, do either of the following:
     * To change existing settings, select **Edit setting**.
     * To add new settings, select **Add diagnostics setting**.  
@@ -48,9 +48,9 @@ To use this feature, you need:
 
 1. Select the **Stream to an event hub** check box, and then select **Event Hub/Configure**.
 
-   [ ![Export settings](./media/tutorial-azure-monitor-stream-logs-to-event-hub/diagnostic-setting-stream-to-event-hub.png) ](./media/tutorial-azure-monitor-stream-logs-to-event-hub/diagnostic-setting-stream-to-event-hub.png)
-   
-   1. Select the Azure subscription and Event Hubs namespace that you want to route the logs to.  
+   [ ![Export settings](./media/tutorial-azure-monitor-stream-logs-to-event-hub/diagnostic-setting-stream-to-event-hub.png) ](./media/tutorial-azure-monitor-stream-logs-to-event-hub/diagnostic-setting-stream-to-event-hub.png#lightbox)
+
+   1. Select the Azure subscription and Event Hubs namespace that you want to route the logs to.
     The subscription and Event Hubs namespace must both be associated with the Azure AD tenant that the logs stream from. You can also specify an event hub within the Event Hubs namespace to which logs should be sent. If no event hub is specified, an event hub is created in the namespace with the default name **insights-logs-audit**.
 
    1. Select any combination of the following items:
@@ -71,7 +71,7 @@ To use this feature, you need:
 
 1. After about 15 minutes, verify that events are displayed in your event hub. To do so, go to the event hub from the portal and verify that the **incoming messages** count is greater than zero. 
 
-    [ ![Audit logs](./media/tutorial-azure-monitor-stream-logs-to-event-hub/azure-monitor-event-hub-instance.png)](./media/tutorial-azure-monitor-stream-logs-to-event-hub/azure-monitor-event-hub-instance.png)
+    [ ![Audit logs](./media/tutorial-azure-monitor-stream-logs-to-event-hub/azure-monitor-event-hub-instance.png)](./media/tutorial-azure-monitor-stream-logs-to-event-hub/azure-monitor-event-hub-instance.png#lightbox)
 
 ## Access data from your event hub
 

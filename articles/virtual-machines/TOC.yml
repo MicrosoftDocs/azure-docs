@@ -454,7 +454,7 @@
         href: ./linux/provisioning.md
       - name: Endorsed Linux distributions
         href: ./linux/endorsed-distros.md
-      - name: Linux distribution specific requirements
+      - name: Distribution specific requirements
         items:
         - name: Generic steps
           displayName: Linux distribution specific requirements, generic
@@ -469,7 +469,7 @@
           displayName: Linux distribution specific requirements, Flatcar, Container
           href: ./linux/flatcar-create-upload-vhd.md
         - name: FreeBSD
-          displayName: Linux distribution specific requirements, FreeBSD
+          displayName: distribution, FreeBSD, nix
           href: ./linux/freebsd-intro-on-azure.md
         - name: Oracle Linux
           displayName: Linux distribution specific requirements, Oracle
