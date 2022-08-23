@@ -80,10 +80,10 @@ In order to be able to resolve DID documents, DIDs are typically recorded on an 
 Enables real people to use decentralized identities and Verifiable Credentials. Authenticator creates DIDs, facilitates issuance and presentation requests for verifiable credentials and manages the backup of your DID's seed through an encrypted wallet file.
 
 **4. Microsoft Resolver**.
-An API that connects to our ION node to look up and resolve DIDs using the ```did:ion``` method and return the DID Document Object (DDO). The DDO includes DPKI metadata associated with the DID such as public keys and service endpoints. 
+An API that look up and resolve DIDs using the ```did:web``` or the ```did:ion``` methods and return the DID Document Object (DDO). The DDO includes DPKI metadata associated with the DID such as public keys and service endpoints. 
 
-**5. Azure Active Directory Verified Credentials Service**.
-An issuance and verification service in Azure and a REST API for [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) that are signed with the ```did:ion``` method. They enable identity owners to generate, present, and verify claims. This forms the basis of trust between users of the systems.
+**5. Entra Verified ID Service**.
+An issuance and verification service in Azure and a REST API for [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) that are signed with the ```did:web``` or the ```did:ion``` method. They enable identity owners to generate, present, and verify claims. This forms the basis of trust between users of the systems.
 
 ## A sample scenario
 

@@ -1,8 +1,8 @@
 ---
 title: Understand feature management using Azure App Configuration
 description: Turn features on and off using Azure App Configuration 
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: devx-track-dotnet
 ms.topic: conceptual

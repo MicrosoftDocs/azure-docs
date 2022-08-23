@@ -25,7 +25,7 @@ In this tutorial, you will:
 ## Pre-requisites
 
 - Install [.NET 5.0 or above](https://dotnet.microsoft.com/download). 
-- Install [the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+- Install [the Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Set up the test application
 
@@ -123,4 +123,4 @@ Now that you've discovered the web app in-guest change and understand next steps
 
 ## Next steps
 
-Learn more about [Change Analysis](./change-analysis.md). 
+Learn more about [Change Analysis](./change-analysis.md).

@@ -5,7 +5,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm
-ms.date: 08/16/2022
+ms.date: 08/22/2022
 ---
 
 # Quickstart: Create and publish an Azure Managed Application definition
@@ -29,7 +29,7 @@ To publish a managed application to your service catalog, do the following tasks
 
 To complete this quickstart, you need the following items:
 
-- If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure account with an active subscription. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
 - Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -468,7 +468,7 @@ Add the following JSON and save the file.
 }
 ```
 
-For more information about the ARM template's properties, see [Microsoft.Solutions](/azure/templates/microsoft.solutions/applicationdefinitions).
+For more information about the ARM template's properties, see [Microsoft.Solutions/applicationDefinitions](/azure/templates/microsoft.solutions/applicationdefinitions?pivots=deployment-language-arm-template). Managed applications only use ARM template JSON.
 
 ### Deploy the definition
 

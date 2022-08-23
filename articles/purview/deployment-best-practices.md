@@ -295,7 +295,7 @@ More hardening steps can be taken:
 * Fine-tune scope scan to improve scan performance
 * [Use REST APIs](tutorial-atlas-2-2-apis.md) to export critical metadata and properties for backup and recovery
 * [Use workflow](how-to-workflow-business-terms-approval.md) to automate ticketing and eventing to avoid human errors
-* [Use policies](concept-data-owner-policies.md) to manage access to data assets through the Microsoft Purview governance portal.
+* [Use policies](concept-policies-data-owner.md) to manage access to data assets through the Microsoft Purview governance portal.
 
 ## Lifecycle considerations
 

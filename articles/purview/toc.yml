@@ -24,8 +24,12 @@ items:
       href: quickstart-ARM-create-azure-purview.md
   - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
-  - name: Share and receive data
-    href: quickstart-data-share.md
+  - name: Data sharing
+    items:
+    - name: Share and receive data
+      href: quickstart-data-share.md
+    - name: .NET data sharing
+      href: quickstart-data-share-dotnet.md
 - name: Tutorials
   items:
   - name: Deployment checklist
@@ -119,7 +123,7 @@ items:
   - name: Data policies
     items:
     - name: Data owner policies
-      href: concept-data-owner-policies.md
+      href: concept-policies-data-owner.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
   - name: Data Estate Insights
@@ -348,15 +352,15 @@ items:
     - name: Register data sources for Data Use Management
       href: how-to-enable-data-use-management.md
     - name: Author and publish data owner access policies
-      href: how-to-data-owner-policy-authoring-generic.md
+      href: how-to-policies-data-owner-authoring-generic.md
     - name: Data owner policies - Azure Storage
-      href: how-to-data-owner-policies-storage.md
+      href: how-to-policies-data-owner-storage.md
     - name: Data owner policies - Azure SQL DB
-      href: how-to-data-owner-policies-azure-sql-db.md
+      href: how-to-policies-data-owner-azure-sql-db.md
     - name: Data owner policies - Azure Arc enabled SQL Servers
-      href: how-to-data-owner-policies-arc-sql-server.md
+      href: how-to-policies-data-owner-arc-sql-server.md
     - name: Data owner policies - resource groups or subscriptions
-      href: how-to-data-owner-policies-resource-group.md
+      href: how-to-policies-data-owner-resource-group.md
     - name: View self-service data access policy
       href: how-to-view-self-service-data-access-policy.md
     - name: Delete self-service data access policy

@@ -1,5 +1,5 @@
 ---
-title: Machine Learning CLI (v1)
+title: Machine Learning SDK & CLI (v1)
 titleSuffix: Azure Machine Learning
 description: Learn about the machine learning extension for the Azure CLI (v1).
 services: machine-learning

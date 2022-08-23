@@ -52,7 +52,7 @@ For pricing information, please see Managed HSM Pools section on [Azure Key Vaul
 
 ### Import keys from your on-premises HSMs
 
-- Generate HSM-protected keys in your on-premise HSM and import them securely into Managed HSM.
+- Generate HSM-protected keys in your on-premises HSM and import them securely into Managed HSM.
 
 ## Next steps
 - See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to create and activate a managed HSM

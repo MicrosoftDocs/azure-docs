@@ -4,8 +4,8 @@ description: Plan Dynamics 365 offers for Microsoft AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: JasonWHowell
-ms.author: jasonh
+author: trkeya
+ms.author: trkeya
 ms.date: 06/29/2022
 ---
 
