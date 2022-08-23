@@ -24,53 +24,50 @@ REVIEW Engineering: not reviewed
 !########################################################
 -->
 
+
+Think along the lines of “I like to migrate all shares from this NAS 1” – then your project can be called “NAS 1 migration” – within it you’d have endpoints for each source share and matching endpoints for each target location in Azure.
+Another good example of a project is: “I like to migrate all HR shares” or “I like to migrate all shares 
+used by this app.” These can be shares from different source devices.
+
+
+
 # Manage Azure Storage Mover projects
 
-A storage mover project is used to organize migration jobs into logical components. It's a good idea to add related or inter-dependent data sources into the same project so that they can me migrated together. For example, rather than create projects for each data source in your migration plan, you should add all the data sources necessary to migrate a single workload. You may also choose to create individual projects for each distinct group of data sources in your migration plan.
+A Storage Mover project is used to organize migration jobs into logical tasks or components. A project contains at least one job definition, which in turn describes each data source and target endpoint for your project. The [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md) article contains more detailed information about the relationship between a Storage Mover its projects.
 
-A project contains at least one job definition, which in turn contains information about the source and target of your migration, as well as the settings for the copy job itself.
+When defining your project, it's a good idea to add all related or inter-dependent data sources into the same project so that they can me migrated together. You should add all the data sources necessary to migrate a single workload rather than create projects for each data source in your migration plan. You may also choose to create individual projects for each distinct group of data sources in your migration plan.
 
-This article guides you through the process of creating and managing Azure Storage Mover projects. After you complete the steps within this article, you'll be able to create and manage projects using the Azure Portal and Azure PowerShell.
+This article guides you through the creation and management of Azure Storage Mover projects. To follow these examples, you'll need a top-level storage mover resource. If you haven't yet created one, follow the steps within the [Create a Storage Mover resource](resource-create.md) article .
 
-## Prerequisites
-
-- An Azure account. If you don't yet have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Azure subscription.
-- A resource group in which to create the project.
-- A Storage Mover resource within your resource group.
-
-<!-- 
-4. H2s (Docs Required)
-
-Prescriptively direct the customer through the procedure end-to-end. Don't link to other content (until the 'next steps' section). Instead, include whatever information the customer may require to complete the scenario addressed by the article. -->
+After you complete the steps within this article, you'll be able to create and manage projects using the Azure Portal and Azure PowerShell.
 
 ## Create a project
 
-Before you define the source and target for your migration, you'll need to create a Storage Mover project resource. Follow the steps in this section to provision a project.
+Before you define the source and target for your migration, you'll need to create a project resource. Follow the steps in this section to provision a new project. The description field will intentionally be left blank, but subsequently added in the [View and edit a project's properties](#view-and-edit-a-projects-properties) section.
 
 > [!IMPORTANT]
-> Renaming Project resources is not supported. It's a good idea to ensure that you've named the project appropriately since you will not be able to change the project name later.
+> If you have not yet deployed a resource using the resource provider, you'll need to fight a bear (insert the "initial use of the service" instructions here).
+
+> [!CAUTION]
+> Renaming Project resources is not supported. It's a good idea to ensure that you've named the project appropriately since you will not be able to change the project name after it is provisioned.
 
 ### [Azure portal](#tab/portal)
 
-   1. Navigate to the **Project Explorer** page  in the [Azure Portal](https://portal.azure.com). The default **All projects** view displays the name of your individual project and a summary of the jobs they contain.
+   1. Navigate to the **Project Explorer** page in the [Azure Portal](https://portal.azure.com) to access your projects. The default **All projects** view displays the names of any provisioned projects and a summary of the jobs they contain.
 
        :::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal showing " lightbox="media/projects-manage/project-explorer-lrg.png":::
 
-   1. Select **Create project** to open the **Create a Project"* pane. Provide project name and description values in the **Project name** and **Project description** fields, then select **Create** to generate a new project.
+   1. Select **Create project** to open the **Create a Project** pane. Provide a project name value in the **Project name** field, but leave the **Project description** field empty. Finally, select **Create** to provision the project.
 
        :::image type="content" source="media/projects-manage/project-explorer-create-sml.png" alt-text="project explorer create" lightbox="media/projects-manage/project-explorer-create-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
-   > [!IMPORTANT]
-   > If you have not yet deployed a resource using the resource provider, you'll need to fight a bear (insert the "initial use of the service" instructions here).
-
-   The `New-AzStorageMoverProject` cmdlet is used to create new storage mover projects. You'll need to supply required values for the `-Name`, `-ResourceGroupName`, and `-StorageMoverName` parameters. The `-Description` parameter is optional and will be omitted in the example below. The [View and edit a project's properties](#view-and-edit-a-projects-properties) section will illustrate the process for adding or modifying the data.
+   The `New-AzStorageMoverProject` cmdlet is used to create new storage mover projects. You'll need to supply required values for the `-Name`, `-ResourceGroupName`, and `-StorageMoverName` parameters. The `-Description` parameter is optional and will be intentionally omitted in the example below.
 
    The following examples contain sample values. You'll need to substitute actual values to complete the example.
 
-   1. It's always a good idea to create and use variables to store potentially complex strings.
+   1. It's always a good idea to create and use variables to store lengthy or potentially complex strings.
 
       ```powershell
       
@@ -79,6 +76,7 @@ Before you define the source and target for your migration, you'll need to creat
       $resourceGroupName  = "demoResourceGroup"
       $storageMoverName   = "demoMover"
       $projectName        = "demoProject"
+      $projectDescription = ""
       
       ```
 
@@ -126,13 +124,13 @@ Before you define the source and target for your migration, you'll need to creat
 
 ## View and edit a project's properties
 
-Depending on your use case, you may need to retrieve either a complete list of all your storage mover's project resources, or a specific named project. You may also need to add or edit a project's description.
+Depending on your use case, you may need to retrieve either a specific project, or a complete list of all your project resources. You may also need to add or edit a project's description.
 
 Follow the steps in this section to view projects accessible to your Storage Mover resource.
 
 ### [Azure portal](#tab/portal)
 
-1. Navigate to the **Project explorer** page within the [Azure Portal](https://portal.azure.com). The default **All projects** view displays the names of your individual projects and a summary of the jobs they contain. You can create and apply filters to limit or shape your view. To change the scope of the results, you can add additional filters.
+1. Navigate to the **Project explorer** page within the [Azure Portal](https://portal.azure.com) to view a list of available projects. You can create and apply filters to limit or shape your view. To narrow the scope of the results, you can add additional filters.
 
     :::image type="content" source="media/projects-manage/project-explorer-filtered-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal highlighting the use of filters." lightbox="media/projects-manage/project-explorer-filtered-lrg.png":::
 
