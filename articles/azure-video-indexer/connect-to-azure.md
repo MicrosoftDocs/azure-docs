@@ -70,10 +70,6 @@ If your storage account is behind a firewall, see [storage account that is behin
 
     :::image type="content" alt-text="Screenshot that shows how to use the classic API." source="./media/create-account/enable-classic-api.png":::
 
-    When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant** (GRS) for replication fields.
-
-    :::image type="content" alt-text="Screenshot that shows how to specify a storage account." source="./media/create-account/create-new-ams-account.png":::
-
     > [!NOTE]
     > Make sure to write down the Media Services resource and account names. 
 1. Before you can play your videos in the Azure Video Indexer web app, you must start the default **Streaming Endpoint** of the new Media Services account.
@@ -170,10 +166,10 @@ To create a paid account in Azure Government, follow the instructions in [Create
 
 ### Limitations of Azure Video Indexer on Azure Government
 
-*	No manual content moderation available in Government cloud.
+* Only paid accounts are available on Azure Government; the trial accounts are not supported.
+* No manual content moderation available in Government cloud.
 
     In the public cloud when content is deemed offensive based on a content moderation, the customer can ask for a human to look at that content and potentially revert that decision.
-*	No trial accounts.
 * Bing description - in Gov cloud we won't present a description of celebrities and named entities identified. This is a UI capability only.
 
 ## Clean up resources
