@@ -23,18 +23,66 @@ Authentication strengths are a set of Azure Active Directory (Azure AD) authenti
 - The user’s risk 
 - Other contexts offered in CA policies
 
-
-next evolution of strong authentication 
+Authentication strengths are an evolution for strong authentication. They provide an explicit way to perform MFA by using stronger methods. Rather than simply choosing to require MFA for example, you can choose which authentication methods need to be used based on your own policies. 
 
 ## Scenarios for authentication strengths
 
-- As anITadmin,Ineedtocomplywithregulatedauthenticationrequirementsformysensitiveapps•AsanITadmin,IneedtorequireaspecificMFAmethodwhenauseristakingasensitiveactionwithinanapplication•AsanITadmin,IneedmyuserstouseaspecificMFAmethodwhenaccessingsensitiveappsoutsideofthecorporatenetwork•As an IT Admin, I support single factor and multi-factor cert-based authentication; for sensitive applications, I want to only allow multi-factor cert-based authentication•As an IT admin, I would like to require stronger authentication methods when the user is in high risk•As an IT admin, I want enforce Authenticator App for accessing specific SaaS app (e.g. Salesforce)
+- Comply with regulated authentication requirements for sensitive apps
+- Require a specific MFA method when a user is taking a sensitive action within an application
+- Require users to use a specific MFA method when they access sensitive apps outside of the corporate network
+- Support single-factor and multifactor certificate-based authentication (CBA) and allow only multifactor CBA for sensitive applications
+- Require stronger authentication methods when the user is in high risk
+- Enforce use of Microsoft Authenticator when users access specific SaaS apps.
 
-What is supported by this feature?
+## Known issues
+We are actively working on problems and will post updates when they are fixed.
+<!---
+- We recommend NOT applying authentication strengths to **All applications** in Conditional Access. When an authentication strength applies to all applications and the user is not registered for any of its methods, the user will get stuck in a loop if they access any application.
+- The Sign-in logs show incomplete information for Authentication Strengths
+- A)[Grant Control] section in [Conditional Access Policy Details] will always show “Satisfied”, even if the Authentication Strength requirement wasn’t satisfiedNOTE: Authentication Details do show the expected status (Succeeded = false)B)[Authentication requirement] field on the Basic info tab always shows “Single-factor authentication” when Authentication Strength requirements were satisfiedC)Authentication Strengths are not evaluated if the conditional access policy is in “Report-only” mode. You must enable the policy to see information in the sign-in logsThe audit logs are missing details for creation of and updates to authentication strengthsCertain scenarios are not restricted by the Authentication Strengths UX, and may result in a generic error message. To see the error, you will need to open up the edge network inspector(Control + Shift + J), reproduce the error, and then click on the $batch request and expand the response:Known errors that can result in this error message:A)Authentication Strength names cannot be longer than 30 charactersB)Authentication Strengths cannot be deleted while they are in use --->
 
-Functionality currently available in private previewScenarioAzure PortalMS Graph APICreate Conditional Access Policy with Built-in Authentication StrengthSupportedSupportedCreate Custom Authentication StrengthSupportedSupportedCreate Conditional Access Policy with Custom Authentication StrengthSupportedSupportedEnforce Authentication Strengthsacross tenantsWorking on separate Private PreviewWorking on separate Private PreviewAuthentication methods currently available in private previewUnfortunately, there are some modes of authentication which are not yet supported in authentication strengths. We are actively working on these, and will post updates when they are supported.Warning: The unsupported methods have issues throughout the various authentication systems, please do not worry ifyou see or fail to see them unexpectedly.Authentication Method ModeStatusWindows Hello for BusinessComing in CY22Q3FIDO2 security keySupportedx509 Certificate (single or multi-factor)Supportedx509 Certificate (single or multi-factor)as second factorComing in CY22Q3Passwordless sign-in with the Microsoft Authenticator AppComing in CY22Q3Temporary Access Pass (single or multi-use)Coming in CY22Q3SMS as second factorSupportedVoiceSupportedMicrosoft Authenticator push notificationSupportedSoftware OATH tokenSupportedHardware OATH tokenComing in CY22Q3SMS as first factorSupportedPasswordSupportedFederated authentication (single or multi-factor)Coming in CY22Q3Email One-time pass (Guest)Coming in CY22Q3Known bugsWe are actively working on these and will post updates when they are fixed.We recommend NOT applying auth strengths to “All applications”in Conditional Access. When an authentication strength applies to all applications and the user is not registered for any of its methods, the user will get stuck in a loop if they access any application.
-You may encounter various typographical mistakes, or spelling inconsistencies. Please feel free to point these outand we’ll fixthem as we have time.The Sign-in logs show incomplete information for Authentication StrengthsA)[Grant Control] section in [Conditional Access Policy Details] will always show “Satisfied”, even if the Authentication Strength requirement wasn’t satisfiedNOTE: Authentication Details do show the expected status (Succeeded = false)B)[Authentication requirement] field on the Basic info tab always shows “Single-factor authentication” when Authentication Strength requirements were satisfiedC)Authentication Strengths are not evaluated if the conditional access policy is in “Report-only” mode. You must enable the policy to see information in the sign-in logsThe audit logs are missing details for creation of and updates to authentication strengthsCertain scenarios are not restricted by the Authentication Strengths UX, and may result in a generic error message. To see the error, you will need to open up the edge network inspector(Control + Shift + J), reproduce the error, and then click on the $batch request and expand the response:Known errors that can result in this error message:A)Authentication Strength names cannot be longer than 30 charactersB)Authentication Strengths cannot be deleted while they are in useLimitations of Conditional Access policiesConditional access policies are only evaluated after the initial authentication. This means that authentication strengths will not restrict the authentication method used for the user’s first factor. For example, if you are using the phishing-resistant built-in strength, this will not prevent a user from typing in their password, but they will be required to use a FIDO2 key before they can continue.Private Preview prerequisites•Test this private preview only in your test tenant (not in production tenant)
-•The test tenant needsto have Azure AD Premium P1 license to use Conditional Access(You can enable Trial license from Azure Portalif you haven’t before)Types of Authentication Strengths1.Built-in StrengthsMicrosoft has already defined some combinations of authentication methods. These combinations are always available and cannot be modified. This chart shows which methods/combinations are included in each built-in Authentication Strength. End users will need to satisfy one of these methods when the strength enforced by a CA policy.Authentication MethodCombinationMulti-factor authenticationstrengthPasswordless authentication strengthPhishingresistantauthentication strengthWindows Hello for Business✔✔✔FIDO2 security key✔✔✔x509 Certificate (multi-factor)✔✔✔Passwordless sign-in with the Microsoft Authenticator App✔✔Temporary Access Pass (single or multi-use)✔Password + Something you have note✔Federated multi-factor authentication✔Federated single-factor authentication+ Something you have note✔x509 Certificate (single-factor)SMS sign-inPasswordFederated single-factor authenticationEmail One-time pass (Guest)Note: “Something you have” refers to one of the following methods:SMS, Voice, Push notification, Softwareor Hardware-based OATH tokenThe following API callcan be used to listdefinitionsof all the built-in Authentication Strength by callingthis API endpoint:
-https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationStrengths/policies?$filter=policyType eq 'builtIn'2.Custom Authentication StrengthsIn addition to the three built-in authentication strengths, admins can create their own custom authentication strengthsto exactly suit their requirements. Custom strengths can contain any of the combinations in the above table. Youcancreate custom authentication strengthsin the Azure Portal or via the MS Graph API,and can add custom authentication strengthsto anyCA policy.How to configure Access Control with Authentication StrengthUsing Azure Portal1.Viewbuilt-in authentication strengths1.Sign-into Azure AD Portalusing the following URLhttps://portal.azure.com/?Microsoft_AAD_IAM_ca.showrequireauthstrength=true&Microsoft_AAD_IAM_showFido2AdvancedOptions=true2.Navigate to [Security] –[Authentication methods] –[Authentication strengths (Preview)]3.You can click on any built-in authentication strengthto see itsallowed combinations2.Create a customauthentication strength1.Sign-into Azure AD Portal using the following URLhttps://portal.azure.com/?Microsoft_AAD_IAM_ca.showrequireauthstrength=true&Microsoft_AAD_IAM_showFido2AdvancedOptions=true2.Navigate to [Security] –[Authentication methods] –[Authentication strengths (Preview)]3.Click on “+ New Authentication strength”, fill out the name, select some number of combinations, and then click “Add”
+## Limitations of Conditional Access policies
+Conditional access policies are only evaluated after the initial authentication. This means that authentication strengths will not restrict the authentication method used for the user’s first factor. For example, if you are using the phishing-resistant built-in strength, this will not prevent a user from typing in their password, but they will be required to use a FIDO2 key before they can continue.
 
+## Prerequisites
+
+Your tenant needs to have Azure AD Premium P1 license to use Conditional Access. If needed, you can enable free trial. 
+
+## Types of authentication strengths
+
+You can choose from built-in authentication strengths or create custom authentication strengths. 
+
+### Built-in authentication strengths
+Microsoft predefined some combinations of authentication methods, called _built-in authentication strengths_. Built-in authentication strengths are always available and can't be modified. 
+
+The following table lists the combinations of authentication methods included in each built-in authentication strength. End users will need to satisfy one of these methods when the strength enforced by a CA policy.
+
+|Authentication method combination |MFA strength | Passwordless authentication strength| Phishing resistant authentication strength|
+|----------------------------------|-------------|-------------------------------------|-------------------------------------------|
+|Windows Hello for Business| &#x2705; | &#x2705; | &#x2705; | 
+|FIDO2 security key| &#x2705; | &#x2705; | &#x2705; |
+|x509 Certificate (multifactor) | &#x2705; | &#x2705; | &#x2705; |
+|Passwordless sign-in with the Microsoft Authenticator App| &#x2705; | &#x2705; | |
+|Temporary Access Pass (single or multiuse)| &#x2705; | | |
+|Password + Something you have*| &#x2705; | | |
+|Federated multi-factor authentication| &#x2705; | | |
+|Federated single-factor authentication + Something you have*| &#x2705; | | |
+|x509 Certificate (single-factor)| | | |
+|SMS sign-in | | | |
+|Password | | | |
+|Federated single-factor authentication| | | |
+|Email One-time pass (Guest)| | | |
+
+*Something you have refers to one of the following methods: SMS, Voice, Push notification, Software or Hardware-based OATH token. 
+
+The following API call can be used to list definitions of all the built-in Authentication Strength by calling this API endpoint:
+`https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationStrengths/policies?$filter=policyType eq 'builtIn'`
+
+### Custom Authentication Strengths
+In addition to the three built-in authentication strengths, admins can create their own custom authentication strengths to exactly suit their requirements. Custom strengths can contain any of the combinations in the preceding table. You can create custom authentication strengths in the Azure Portal or by using Microsoft Graph API. You can add custom authentication strengths to any CA policy. 
+
+## Next steps
+
+- How to configure access control by using authentication strengths
+- [Troubleshoot authentication strengths](troubleshoot-authentication-strengths.md) 
 
