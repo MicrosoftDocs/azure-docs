@@ -14,30 +14,22 @@ ms.custom: devx-track-csharp
 
 # Configure credential-free connections between multiple Azure apps and services
 
-Applications often require secure connections between multiple Azure services simultaneously. For example, an enterprise Azure App Service instance might connect to several different blob storage accounts, an Azure SQL database instance, a Key Vault service, and more. 
+Applications often require secure connections between multiple Azure services simultaneously. For example, an enterprise Azure App Service instance might connect to several different blob storage accounts, an Azure SQL database instance, a service bus, and more. 
 
-Managed identities are the recommended authentication option for secure, credential-free connections between Azure resources. A managed identity can connect to any resource that supports Azure Active Directory authentication. Developers do not have to manually track and manage many different secrets for managed identities, since most of these tasks are handled internally by Azure. This approach is recommended over other solutions, such as connection strings. You can read more about managed identities in the [overview of managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
-
-The Azure Identity client library allows you to configure credential-free service connections between multiple Azure resources using managed identities. The library also enables this scenario to work while developing locally. This tutorial explores how to manage connections between multiple services using managed identities and the Azure Identity client library.
+[Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) are the recommended authentication option for secure, credential-free connections between Azure resources. Developers do not have to manually track and manage many different secrets for managed identities, since most of these tasks are handled internally by Azure. This tutorial explores how to manage connections between multiple services using managed identities and the Azure Identity client library.
 
 ## Compare the types of managed identities
 
-Azure provides two types of managed identities, which include the following:
+Azure provides the following types of managed identities:
 
-* **System-assigned managed identities** are directly tied to a single Azure resource. When you enable a system-assigned managed identity on a service, Azure will create a linked identity and handle administrative tasks for that identity internally. When the Azure resource is deleted, the identity is also deleted. System-assigned identities are a great option for simple connections where the identity should be tied to the application life cycle of a single service instance.
-* **User-assigned managed identities** are created by an administrator and can be associated with one or more Azure resources. The lifecycle of the identity is independent of those resources. If multiple services require the same level of access control, you can associate the same user-assigned managed identity with each of them, and then grant a specific role to that identity.
+* **System-assigned managed identities** are directly tied to a single Azure resource. When you enable a system-assigned managed identity on a service, Azure will create a linked identity and handle administrative tasks for that identity internally. When the Azure resource is deleted, the identity is also deleted. 
+* **User-assigned managed identities** are independent identities that are created by an administrator and can be associated with one or more Azure resources. The lifecycle of the identity is independent of those resources. 
 
 You can read more about best practices and when to use system-assigned identities versus user-assigned identities in the [identities best practice recommendations](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
-The guidance in this tutorial focuses on applying a user-assigned managed identity to connect multiple Azure services together. A user-assigned identity can be shared across multiple services and lives independently of other resource life cycles.
-
 ## Explore DefaultAzureCredential
 
-Managed identities are generally implemented in your application code through a class called `DefaultAzureCredential` from the `Azure.Identity` client library. `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code. Note that managed identities only exist in the context of Azure hosted services, so `DefaultAzureCredential` provides other options that work during local development. 
-
-The order and locations in which `DefaultAzureCredential` searches for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential). 
-
-For example, when working locally, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio, the Azure CLI, or other tools. When the app is deployed to Azure, `DefaultAzureCredential` will automatically discover and use an available managed identity that was assigned to the app environment. No code changes are required for this transition. 
+Managed identities are generally implemented in your application code through a class called `DefaultAzureCredential` from the `Azure.Identity` client library. `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. You can read more about this approach in the [DefaultAzureCredential overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential). 
 
 ## Connect an Azure hosted app to multiple Azure services
 
@@ -79,6 +71,8 @@ The following steps demonstrate how to configure an app to use a system-assigned
 
 8) Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
+9) Repeat this process for the other services you would like to connect to.
+
 #### Local development considerations
 
 You can also enable access to Azure resources for local development by assigning roles to a user account the same way you assigned roles to your managed identity. 
@@ -110,16 +104,15 @@ using Azure.Storage.Blobs;
 using Azure.Security.KeyVault.Keys;
 ```
 
-In the `Program.cs` file of your project code, create instances of the necessary services your app will connect to. The following examples connect to blob storage and key vault using the corresponding SDK classes.
+In the `Program.cs` file of your project code, create instances of the necessary services your app will connect to. The following examples connect to blob storage and service bus using the corresponding SDK classes.
 
 ```csharp
 var blobServiceClient = new BlobServiceClient(
     new Uri("https://<your-storage-account>.blob.core.windows.net"),
     new DefaultAzureCredential(credOptions));
 
-var keyVaultClient = new KeyClient(
-    new Uri("https://<your-keyvault-name>.vault.azure.net"),
-    new DefaultAzureCredential(credOptions));
+var serviceBusClient = new ServiceBusClient("<your-namespace>", new DefaultAzureCredential());
+var sender = serviceBusClient.CreateSender("producttracking");
 ```
 
 When this application code runs locally, `DefaultAzureCredential` will search down a credential chain for the first available credentials. If the `Managed_Identity_Client_ID` is null locally, it will automatically use the credentials from your local Azure CLI or Visual Studio sign-in. You can read more about this process in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
@@ -178,7 +171,7 @@ BlobServiceClient blobServiceClient2 = new BlobServiceClient(
     new DefaultAzureCredential(contractCreds));
 
 // Open a connection to Azure SQL using a managed identity
-string ConnectionString1 = @"Server=<azure-sql-hostname>.database.windows.net; Authentication=Active Directory Default; Database=<database-name>";
+string ConnectionString1 = @"Server=<azure-sql-hostname>.database.windows.net; User Id=ObjectIdOfManagedIdentity; Authentication=Active Directory Default; Database=<database-name>";
 
 using (SqlConnection conn = new SqlConnection(ConnectionString1))
 {
@@ -187,13 +180,13 @@ using (SqlConnection conn = new SqlConnection(ConnectionString1))
 
 ```
 
-## [.NET](#tab/java)
+## [Java](#tab/java)
 
 ```java
 // todo
 ```
 
-## [.NET](#tab/python)
+## [Python](#tab/python)
 
 ```python
 # todo
