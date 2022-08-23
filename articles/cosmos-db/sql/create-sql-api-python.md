@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Build a Python app using Azure Cosmos DB SQL API account'
 description: Presents a Python code sample you can use to connect to and query the Azure Cosmos DB SQL API
-author: Rodrigossz
+author: Abhinav
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/26/2021
-ms.author: rosouz
+ms.author: abtripathi
 ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-api
 ---
 
@@ -37,7 +37,7 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account fro
     * Without an Azure active subscription:
         * [Try Azure Cosmos DB for free](../try-free.md), a tests environment that lasts for 30 days.
         * [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) 
-- [Python 2.7 or 3.6+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
+- [Python 3.6+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - The [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads). 
@@ -117,15 +117,20 @@ This step is optional. Learn about the database resources created in code, or sk
 
 The following snippets are all taken from the [cosmos_get_started.py](https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started/blob/main/cosmos_get_started.py) file.
 
-* The CosmosClient is initialized. Make sure to update the "endpoint" and "key" values as described in the [Update your connection string](#update-your-connection-string) section. 
+* We are using Cosmos DB Python SDK async capability in this Quickstart. A `main` function is defined to call the `run_samples` function from which we call other demo functions to demonstrate create, read, and query functionality.
+
+   [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=python_main)]
+   [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=run_samples)]
+
+* The CosmosClient is initialized inside the `run_sample` function. Make sure to update the "endpoint" and "key" values as described in the [Update your connection string](#update-your-connection-string) section. 
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_cosmos_client)]
 
-* A new database is created.
+* `get_or_create_db` function creates a new database or returns the existing one.
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_database_if_not_exists)]
 
-* A new container is created, with 400 RU/s of [provisioned throughput](../request-units.md). We choose `lastName` as the [partition key](../partitioning-overview.md#choose-partitionkey), which allows us to do efficient queries that filter on this property. 
+* `get_or_create_container` function creates a new container with 400 RU/s of [provisioned throughput](../request-units.md) or returns the specified one. We choose `lastName` as the [partition key](../partitioning-overview.md#choose-partitionkey), which allows us to do efficient queries that filter on this property. 
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_container_if_not_exists)]
 
