@@ -86,19 +86,19 @@ To do a cloud build, with Azure DevOps for example, ensure that the [Azure CLI](
 
 ---
 
-1. To build the app by using the .NET Core CLI, run the following command in the command shell:
+2. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
     ```console
      dotnet build
     ```
 
-1. After the build completes successfully, run the following command to run the web app locally:
+3. After the build completes successfully, run the following command to run the web app locally:
 
     ```console
      dotnet run
     ```
 
-1. Open a browser window and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
+4. Open a browser window and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
 
     :::image type="content" source="./media/quickstarts/aspnet-core-app-launch-local.png" alt-text="Screenshot that shows Quickstart app launch local page.":::
 
