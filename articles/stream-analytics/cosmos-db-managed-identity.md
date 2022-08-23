@@ -43,23 +43,13 @@ For the Stream Analytics job to access your Cosmos DB using managed identity, th
 |---------|
 |Cosmos DB Built-in Data Contributor|
 
-1. Select **Access control (IAM)**.
+Today, CosmosDB does not support adding RBAC roles through Azure Portal, so Azure Powershell is required to be able to assign the correct permissions to authenticate your ASA job with your CosmosDB account. Azure Powershell can be accessed through Azure portal. 
 
-2. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+The following command can be used to authenticate your ASA job with CosmosDB. The `$accountName` and `$resourceGroupName` are for your CosmosDB account, and the `$principalId` is the value obtained in the previous step, in the Identity tab of your ASA job. You need to have "Contributor" access to your CosmosDB account for this command to work as intended. 
 
-3. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+`New-AzCosmosDBSqlRoleAssignment -AccountName $accountName -ResourceGroupName $resourceGroupName -RoleDefinitionId '00000000-0000-0000-0000-000000000002' -Scope "/" -PrincipalId $principalId`
 
-    | Setting | Value |
-    | --- | --- |
-    | Role | Cosmos DB Built-in Data Contributor |
-    | Assign access to | User, group, or service principal |
-    | Members | \<Name of your Stream Analytics job> |
-
-    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
-
-> [!NOTE]
-> Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 8 minutes.
-
+Once the above command is run successfully, your ASA job should have the required RBAC permissions to interact with your CosmosDB account.
 
 ### Add the Cosmos DB as an output
 
