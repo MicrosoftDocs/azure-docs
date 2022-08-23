@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure storage accounts to availability zo
 author: anaharris-ms
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 08/23/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions
@@ -25,10 +25,7 @@ Azure Storage offers the following types of replication:
 
 For an overview of each of these options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
-You can switch a storage account from one type of replication to any other type, but some switching scenarios are more straightforward than others. 
-
-> [!NOTE]
-> For details on how to switch from ***any** Azure storage replication configuration to **any** other, see [Change how a storage account is replicated](../storage/common/redundancy-migration.md).
+You can switch a storage account from one type of replication to any other type, but some switching scenarios are more straightforward than others.
 
 Changes between local and geo-redundant storage, or between non-read-access (RA) and read-access (RA) storage are simple changes that can be made quickly using the Azure portal, PowerShell or the Azure CLI. But changes between zone-redundant and non-zone-redundant replication types require migration of the data in the storage account within the primary zone and can take considerably longer.
 
@@ -36,6 +33,9 @@ This article describes two basic options for migrating your storage account to a
 
 - [Live migration](#migration-option-1-live-migration)
 - [Manual migration](#migration-option-2-manual-migration)
+
+> [!NOTE]
+> For details on how to switch from **any** Azure storage replication configuration to **any** other, see [Change how a storage account is replicated](../storage/common/redundancy-migration.md).
 
 ## Prerequisites
 
@@ -100,7 +100,7 @@ To change the redundancy option for your storage account in the Azure portal, fo
 
 #### Request a live migration by creating a support request
 
-If you need to migrate a production workload and don't want to use the customer-initiated migration preview, you can still open a support ticket to request Microsoft to do the live migration for you.
+If you need to migrate a production workload and don't want to use the customer-initiated migration preview, you can still open a support ticket to request Microsoft to do the live migration for you:
 
 [Request a live migration](../storage/common/redundancy-migration.md) by creating a new support request from the Azure portal.
 
@@ -114,7 +114,7 @@ Use a manual migration if:
 
 - You want to migrate your data to a ZRS storage account that's in a different region than the source account.
 
-- You want to migrate data from ZRS to LRS, GRS or RA-GRS and you don't want to use the customer-initiated migration preview feature.
+- You want to migrate data from ZRS to LRS, GRS or RA-GRS and you don't want to use the customer-initiated migration feature in preview.
 
 - Your storage account is a premium page blob or block blob account.
 
