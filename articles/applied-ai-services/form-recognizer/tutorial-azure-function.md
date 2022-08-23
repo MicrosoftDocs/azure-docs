@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
   :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-* [Python 3.6.x, 3.7.x, 3.8.x or 3.9.x](https://www.python.org/downloads/) installed (Azure Functions doesn't currently support Python 3.10.x).
+* [Python 3.6.x, 3.7.x, 3.8.x or 3.9.x](https://www.python.org/downloads/) installed (Python 3.10.x is not supported for this project).
 
 * The latest version of [Visual Studio Code](https://code.visualstudio.com/) with the following extensions installed:
 
