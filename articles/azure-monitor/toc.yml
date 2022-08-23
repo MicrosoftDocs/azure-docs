@@ -663,12 +663,6 @@ items:
         href: alerts/alerts-log-webhook.md
       - name: Log analytics alerts legacy API
         href: alerts/api-alerts.md
-    - name:  Activity log alert rules
-      items:
-      - name: Migrate management events to activity log alerts
-        href: ./alerts/activity-log-alerts.md
-      - name: Webhook schema
-        href: alerts/activity-log-alerts-webhook.md
     - name: Service health alerts
       items:
       - name: View notifications
@@ -684,6 +678,8 @@ items:
         href: alerts/action-groups.md
       - name: Create action groups with Resource Manager
         href: alerts/action-groups-create-resource-manager-template.md
+      - name: Create webhook schema for activity log alerts
+        href: alerts/activity-log-alerts-webhook.md
       - name: Notification rate limiting
         href: alerts/alerts-rate-limiting.md
       - name: SMS alert behavior
