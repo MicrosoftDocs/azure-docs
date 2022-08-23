@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/04/2022
+ms.date: 08/23/2022
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
