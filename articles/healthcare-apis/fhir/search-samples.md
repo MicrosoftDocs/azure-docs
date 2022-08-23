@@ -114,14 +114,14 @@ GET {{FHIR_URL}}/Encounter?subject:Patient.birthdate=1987-02-20
 
 This would search not just `Encounter` resources for a single patient but across all patients that have the specified `birthdate` value. 
 
-In addition, chained search can occur more than once in a single request by using the `&` operator, which allows searching for multiple conditions in one request. In such cases with `&`, chained search "independently" searches for each element value:
+In addition, a single request can initiate multiple chained searches by using the `&` operator, which allows searching for multiple conditions in one request. In such cases with `&`, chained search "independently" searches for each element value:
 
 ```rest
 GET {{FHIR_URL}}/Patient?general-practitioner:Practitioner.name=Sarah&general-practitioner:Practitioner.address-state=WA
 
 ```
 
-This would return all `Patient` resources that have a reference to "Sarah" as a `generalPractitioner` plus a reference to a `generalPractitioner` that has an address in the state of Washington. In other words, if a patient had a `generalPractitioner` named Sarah from New York state and another `generalPractitioner` named Bill from Washington state, they would together return a positive match.
+This would return all `Patient` resources that have a reference to "Sarah" as a `generalPractitioner` plus a reference to a `generalPractitioner` that has an address in the state of Washington. In other words, if a patient had a `generalPractitioner` named Sarah from New York state and another `generalPractitioner` named Bill from Washington state, this would return a positive match.
 
 For scenarios in which the search has to be a logical AND operation that strictly checks for paired element values (e.g., a general practitioner named Sarah who lives in Washington state), refer to the **composite search** example below.
 
