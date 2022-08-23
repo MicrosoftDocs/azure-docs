@@ -24,13 +24,6 @@ REVIEW Engineering: not reviewed
 !########################################################
 -->
 
-
-Think along the lines of “I like to migrate all shares from this NAS 1” – then your project can be called “NAS 1 migration” – within it you’d have endpoints for each source share and matching endpoints for each target location in Azure.
-Another good example of a project is: “I like to migrate all HR shares” or “I like to migrate all shares 
-used by this app.” These can be shares from different source devices.
-
-
-
 # Manage Azure Storage Mover projects
 
 A Storage Mover project is used to organize migration jobs into logical tasks or components. A project contains at least one job definition, which in turn describes each data source and target endpoint for your project. The [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md) article contains more detailed information about the relationship between a Storage Mover its projects.
