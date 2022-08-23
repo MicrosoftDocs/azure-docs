@@ -10,14 +10,14 @@ ms.author: mikaelw
 ---
 # Running a reindex job
 
-There are scenarios where you may have search parameters in the FHIR service in Azure Health Data Services that haven't yet been indexed. This scenario is relevant when you define your own search parameters. Until the search parameter is indexed, it can't be used in live production. This article covers an overview of how to run a reindex job to index any search parameters that haven't yet been indexed in your database.
+There are scenarios where you may have search parameters in the FHIR service in Azure Health Data Services that haven't yet been indexed. This is the likely scenario when you define your own search parameters. Until the search parameter is indexed, it can't be used in live production. This article covers how to run a reindex job to index any custom search parameters that haven't yet been indexed in your FHIR service database.
 
 > [!Warning]
 > It's important that you read this entire article before getting started. A reindex job can be very performance intensive. This article includes options for how to throttle and control the reindex job.
 
 ## How to run a reindex job 
 
-To reindex the entire FHIR service database and incorporate a custom search parameter, use the following code example:
+To reindex the entire FHIR service database and make your custom search parameter operational, use the following POST call with JSON in the request body:
 
 ```json
 POST {{FHIR URL}}/$reindex 
@@ -31,7 +31,7 @@ POST {{FHIR URL}}/$reindex
 }
  ```
 
-If the request is successful, a status of **201 Created** gets returned. The result of this message will look like:
+If the request is successful, you will receive a **201 Created** status code. The FHIR service will also return a `Parameters` resource:
 
 ```json
 HTTP/1.1 201 Created 
@@ -85,7 +85,7 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 ```
 
 > [!NOTE]
-> To check the status of or to cancel a reindex job, you'll need the reindex ID. This is the ID of the resulting Parameters resource. In the example above, the ID for the reindex job would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
+> To check the status of or to cancel a reindex job, you'll need the reindex ID. This is the `"id"` carried in the `"parameter"` value returned in the response. In the example above, the ID for the reindex job would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
 
  ## How to check the status of a reindex job
 
@@ -157,21 +157,21 @@ The status of the reindex job result is shown below:
 
 The following information is shown in the reindex job result:
 
-* **totalResourcesToReindex**: Includes the total number of resources that are being reindexed as part of the job.
+* `totalResourcesToReindex`: Includes the total number of resources that are being reindexed in this job.
 
-* **resourcesSuccessfullyReindexed**: The total that have already been successfully reindexed.
+* `resourcesSuccessfullyReindexed`: The total that have already been successfully reindexed.
 
-* **progress**: Reindex job percent complete. Equals resourcesSuccessfullyReindexed/totalResourcesToReindex x 100.
+* `progress`: Reindex job percent complete. Equals `resourcesSuccessfullyReindexed/totalResourcesToReindex` x 100.
 
-* **status**: States if the reindex job is queued, running, complete, failed, or canceled.
+* `status`: States if the reindex job is queued, running, complete, failed, or canceled.
 
-* **resources**: Lists all the resource types impacted by the reindex job.
+* `resources`: Lists all the resource types impacted by the reindex job.
 
 ## Delete a reindex job
 
-If you need to cancel a reindex job, use a delete call and specify the reindex job ID:
+If you need to cancel a reindex job, use a DELETE call and specify the reindex job ID:
 
-`Delete {{FHIR URL}}/_operations/reindex/{{reindexJobId}`
+`DELETE {{FHIR URL}}/_operations/reindex/{{reindexJobId}`
 
 ## Performance considerations
 
@@ -180,17 +180,20 @@ A reindex job can be quite performance intensive. We’ve implemented some throt
 > [!NOTE]
 > It is not uncommon on large datasets for a reindex job to run for days.
 
-Below is a table outlining the available parameters, defaults, and recommended ranges. You can use these parameters to either speedup the process (use more compute) or slow down the process (use less compute). 
+Below is a table outlining the available parameters, defaults, and recommended ranges. You can use these parameters to either speed up the process (use more compute) or slow down the process (use less compute). 
 
 | **Parameter**                     | **Description**              | **Default**        | **Available Range**            |
 | --------------------------------- | ---------------------------- | ------------------ | ------------------------------- |
-| QueryDelayIntervalInMilliseconds  | The delay between each batch of resources being kicked off during the reindex job. A smaller number will speed up the job while a higher number will slow it down. | 500 MS (.5 seconds) | 50 to 500000 |
-| MaximumResourcesPerQuery  | The maximum number of resources included in the batch of resources to be reindexed.  | 100 | 1-5000 |
-| MaximumConcurrency  | The number of batches done at a time.  | 1 | 1-10 |
+| `QueryDelayIntervalInMilliseconds`  | The delay between each batch of resources being kicked off during the reindex job. A smaller number will speed up the job while a higher number will slow it down. | 500 MS (.5 seconds) | 50 to 500000 |
+| `MaximumResourcesPerQuery`  | The maximum number of resources included in the batch of resources to be reindexed.  | 100 | 1-5000 |
+| `MaximumConcurrency`  | The number of batches done at a time.  | 1 | 1-10 |
 
-If you want to use any of the parameters above, you can pass them into the Parameters resource when you start the reindex job.
+If you want to use any of the parameters above, you can pass them into the Parameters resource when you start the reindex job with a POST request.
 
 ```json
+
+POST {{FHIR URL}}/$reindex 
+
 {
   "resourceType": "Parameters",
   "parameter": [
@@ -212,7 +215,7 @@ If you want to use any of the parameters above, you can pass them into the Param
 
 ## Next steps
 
-In this article, you've learned how to start a reindex job. To learn how to define new search parameters that require the reindex job, see 
+In this article, you've learned how to perform a reindex job in your FHIR service. To learn how to define custom search parameters, see 
 
 >[!div class="nextstepaction"]
 >[Defining custom search parameters](how-to-do-custom-search.md)
