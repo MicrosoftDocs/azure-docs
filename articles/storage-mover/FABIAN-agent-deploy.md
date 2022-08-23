@@ -82,23 +82,23 @@ At a minimum, the agent image needs 20GiB of local storage but can have a need f
 
 Providing sufficient resources like RAM and compute cores to your agent is important.
 
-1. Create a new VM to host the agent. Open **Hyper-V Manager**. In the **Actions** pane, select **New** and **Virtual Machine...** to launch the **New Virtual Machine Wizard**.
+1. Create a new VM to host the agent. Open **Hyper-V Manager**. In the **Actions** pane, select **New** and **Virtual Machine...** to launch the **New Virtual Machine Wizard**. </br>
   :::image type="content" source="media/agent-deploy/agent-vm-create-sml.png" alt-text="Image showing how to launch the New Virtual Machine Wizard from within the Hyper-V Manager." lightbox="media/agent-deploy/agent-vm-create-lrg.png":::
-1. Within the **Specify Name and Location** pane, specify values for the agent VM's **Name** and **Location** fields. The location should match the folder where the VHD is stored, if possible. Select **Next**.
+1. Within the **Specify Name and Location** pane, specify values for the agent VM's **Name** and **Location** fields. The location should match the folder where the VHD is stored, if possible. Select **Next**. </br>
   :::image type="content" source="media/agent-deploy/agent-name-select-sml.png" alt-text="Image showing the location of the Name and Location fields within the New Virtual Machine Wizard." lightbox="media/agent-deploy/agent-name-select-lrg.png":::
-1. Within the **Specify Generation** pane, select the **Generation 1** option. 
+1. Within the **Specify Generation** pane, select the **Generation 1** option. </br>
 :::image type="content" source="media/agent-deploy/agent-vm-generation-select-sml.png" lightbox="media/agent-deploy/agent-vm-generation-select-lrg.png"  alt-text="Image showing the location of the VM Generation options within the New Virtual Machine Wizard.":::
     > [!IMPORTANT]
     > Only *Generation 1* VMs are supported. This Linux image won't boot as a *Generation 2* VM.
-1. If you haven't already, [determine the amount of memory you'll need for your VM](#determine-required-resources-for-the-vm). Enter this amount in the **Assign Memory** pane. Note that you need to enter the value in MiB. 1GiB = 1024MiB. Using the **Dynamic Memory** feature is fine.
+1. If you haven't already, [determine the amount of memory you'll need for your VM](#determine-required-resources-for-the-vm). Enter this amount in the **Assign Memory** pane. Note that you need to enter the value in MiB. 1GiB = 1024MiB. Using the **Dynamic Memory** feature is fine. </br>
   :::image type="content" source="media/agent-deploy/agent-memory-allocate-sml.png" lightbox="media/agent-deploy/agent-memory-allocate-lrg.png"  alt-text="Image showing the location of the Startup Memory field within the New Virtual Machine Wizard.":::
-1. Within the **Configure Networking** pane, select the **Connection** drop-down and choose the virtual switch which will provide the agent with internet connectivity. Select **Next**. Refer to the [HyperV virtual networking documentation](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-overview-windows-server) for more details.
+1. Within the **Configure Networking** pane, select the **Connection** drop-down and choose the virtual switch which will provide the agent with internet connectivity. Select **Next**. Refer to the [HyperV virtual networking documentation](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-overview-windows-server) for more details. </br>
   :::image type="content" source="media/agent-deploy/agent-networking-configure-sml.png" lightbox="media/agent-deploy/agent-networking-configure-lrg.png"  alt-text="Image showing the location of the network Connection field within the New Virtual Machine Wizard.":::
-1. Within the **Connect Virtual Hard Disk** pane, select the **Use an existing Virtual Hard Disk** option. In the **Location** field, select **Browse** and navigate to the VHD file that was extracted in the previous steps. Select **Next**.
+1. Within the **Connect Virtual Hard Disk** pane, select the **Use an existing Virtual Hard Disk** option. In the **Location** field, select **Browse** and navigate to the VHD file that was extracted in the previous steps. Select **Next**. </br>
   :::image type="content" source="media/agent-deploy/agent-disk-connect-sml.png" lightbox="media/agent-deploy/agent-disk-connect-lrg.png"  alt-text="Image showing the location of the Virtual Hard Disk Connection fields within the New Virtual Machine Wizard.":::
-1. Within the **Summary** pane, select **Finish** to create the agent VM.
+1. Within the **Summary** pane, select **Finish** to create the agent VM. </br>
   :::image type="content" source="media/agent-deploy/agent-configuration-details-sml.png"  lightbox="media/agent-deploy/agent-configuration-details-lrg.png" alt-text="Image showing the user-assigned values in the Summary pane of the New Virtual Machine Wizard.":::
-1. After the new agent is successfully created, it will appear in the **Virtual Machines** pane within the **Hyper-V Manager**.
+1. After the new agent is successfully created, it will appear in the **Virtual Machines** pane within the **Hyper-V Manager**. </br>
      :::image type="content" source="media/agent-deploy/agent-created-sml.png" lightbox="media/agent-deploy/agent-created-lrg.png" alt-text="Image showing the agent VM deployed within the New Virtual Machine Wizard.":::
 
 ## Change the default password
@@ -123,7 +123,7 @@ You can unregister an agent using the administrative shell of the agent VM. The 
 
 [!INCLUDE [agent-shell-connect](includes/agent-shell-connect.md)]
 
-```Storage Mover agent - administrative shell
+```StorageMoverAgent-AdministrativeShell
 1) System configuration
 2) Network configuration
 3) Service and job status
