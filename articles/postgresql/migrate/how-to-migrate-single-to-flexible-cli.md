@@ -18,7 +18,7 @@ This article shows you how to use the migration tool in the Azure CLI to migrate
 >[!NOTE]
 > The migration tool is in public preview.
 
-## Getting Started
+## Getting started
 
 1. If you're new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate the offerings.
 

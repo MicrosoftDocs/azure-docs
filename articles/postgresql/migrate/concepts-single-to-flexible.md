@@ -111,12 +111,12 @@ The time for completing an online migration depends on the incoming writes to th
 
 To begin the migration in either Online or Offline mode, you can get started with the Prerequisites below.
 
-## Migration Prerequisites
+## Migration prerequisites
 
 >[!NOTE]
 > It is very important to complete the prerequisite steps in this section before you initiate a migration using this tool.
 
-#### Register your subscription for Azure Database Migration Service:
+#### Register your subscription for Azure Database Migration Service
 
    1. On the Azure portal, go to the subscription of your Target server.
 
@@ -126,7 +126,7 @@ To begin the migration in either Online or Offline mode, you can get started wit
 
       :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-register-data-migration.png" alt-text="Screenshot of the Register button for Azure Data Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-register-data-migration.png":::
 
-#### Enable Logical Replication
+#### Enable logical replication
 
    [Enable logical replication](../single-server/concepts-logical.md) on the source server.
 
