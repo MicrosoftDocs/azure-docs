@@ -9,7 +9,7 @@ ms.date: 08/18/2022
 zone_pivot_groups: programming-languages-set-twenty-eight
 ---
 
-# Develop Azure Cognitive Services applications with Key Vault and .NET
+# Develop Azure Cognitive Services applications with Key Vault
 
 Use this article to learn how to develop Cognitive Services applications securely by using Key Vault.
 
