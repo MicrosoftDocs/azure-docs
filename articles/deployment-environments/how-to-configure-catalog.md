@@ -69,9 +69,9 @@ To get the clone URL of your Azure DevOps Services Git repo:
 #### Store the personal access token as a Key Vault secret
 
 To store the personal access token(PAT) that you generated as a [Key Vault secret](../key-vault/secrets/about-secrets.md) and copy the secret identifier:
-1. [Create a vault](../key-vault/general/quick-create-portal#create-a-vault)
-1. [Add]((../key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault) the personal access token (PAT) as a secret to the Key Vault.
-1. [Open](../key-vault/secrets/quick-create-portal#retrieve-a-secret-from-key-vault) the secret and copy the secret identifier.
+1. [Create a vault](../key-vault/general/quick-create-portal.md#create-a-vault)
+1. [Add](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) the personal access token (PAT) as a secret to the Key Vault.
+1. [Open](../key-vault/secrets/quick-create-portal.md#retrieve-a-secret-from-key-vault) the secret and copy the secret identifier.
 
 ### Connect your repository as a catalog
 
