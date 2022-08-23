@@ -8,28 +8,41 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an instance from the portal
+  - name: Create an instance - Portal
     href: quickstart-managed-grafana-portal.md
-  - name: Create an instance from the CLI
+  - name: Create an instance - Azure CLI
     href: quickstart-managed-grafana-cli.md
+- name: Tutorial
+  expanded: true
+  items:
+  - name: Call Grafana APIs programmatically
+    href: how-to-api-calls.md
 - name: Concepts
+  expanded: true
   items:
-  - name: High availability
+  - name: Service reliability
     href: high-availability.md
+  - name: Encryption
+    href: encryption.md
 - name: How-to guides
+  expanded: true
   items:
-  - name: Configure data source plugins
+  - name: Set up authentication and permissions
+    href: how-to-authentication-permissions.md
+  - name: Configure data sources
     href: how-to-data-source-plugins-managed-identity.md
   - name: Modify access permissions to Azure Monitor
     href: how-to-permissions.md
   - name: Share a Managed Grafana instance
     href: how-to-share-grafana-workspace.md
-  - name: Call Grafana APIs programmatically
-    href: how-to-api-calls.md
+  - name: Create and manage API keys
+    href: how-to-create-api-keys.md
   - name: Monitor a Managed Grafana instance
     href: how-to-monitor-managed-grafana-workspace.md
   - name: Troubleshoot common issues
     href: troubleshoot-managed-grafana.md
+  - name: Enable zone redundancy
+    href: how-to-enable-zone-redundancy.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -40,7 +53,5 @@ items:
     href: /rest/api/managed-grafana
   - name: Data Plane
     href: https://aka.ms/managed-grafana-dataplane
-  - name: Grafana Enterprise
-    href: https://grafana.com/docs/grafana/latest/enterprise
   - name: Grafana UI
     href: grafana-app-ui.md
