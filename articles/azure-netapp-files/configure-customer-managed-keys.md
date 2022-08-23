@@ -36,7 +36,7 @@ Customer-managed keys in Azure NetApp Files enable you to use your own keys rath
     ```rest
      /{accountResourceId}/renewCredentials?api-version=2022-01 – example /subscriptions/<16 digit subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-01  
     ```  
-* If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. Refer to the the [Error messages and troubleshooting](#error-messages-and-troubleshooting) section for more information. 
+* If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. Refer to the [Error messages and troubleshooting](#error-messages-and-troubleshooting) section for more information. 
 
 ## Requirements
 Before creating your first customer-managed key volume, you must have set up: 
@@ -75,8 +75,8 @@ The **Encryption** page doesn't currently support choosing an identity type (eit
 
 1. Create a user-assigned identity in the same region as your NetApp account. Alternately, you can use an existing identity. 
     For more information, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp.md).
-1. Configure access to the key vault. You can use role-based access control (RBAC) or access policies. 
-    1. For RBAC, configure the key vault to use RBAC authorization.
+1. Configure access to the key vault. You can use role-based access control or access policies. 
+    1. For role-based access control, configure the key vault to use role-based access control authorization.
     <!-- insert image get eng update -->
     Create a custom role with permissions **read**, **encrypt**, and **decrypt**. 
     <!-- insert image get eng update -->
