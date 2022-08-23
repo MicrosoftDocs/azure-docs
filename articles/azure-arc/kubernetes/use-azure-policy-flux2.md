@@ -1,7 +1,6 @@
 ---
 title: "Apply Flux v2 configurations at-scale using Azure Policy"
 services: azure-arc, container-service
-ms.service: azure-arc, container-service
 ms.date: 8/23/2022
 ms.topic: how-to
 description: "Apply Flux v2 configurations at-scale using Azure Policy"
