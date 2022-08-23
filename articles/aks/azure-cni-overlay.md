@@ -8,7 +8,7 @@ ms.date: 08/23/2022
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
 
-The traditional [Azure CNI](https://docs.microsoft.com/en-us/azure/aks/configure-azure-cni) assigns a VNet IP address to every Pod either from a pre-reserved set of IPs on every node or from a separate subnet reserved for Pods. This approach requires IP address planning and could lead to address exhaustion and difficulties in scaling your clusters as your application demands grow.
+The traditional [Azure CNI](https://docs.microsoft.com/azure/aks/configure-azure-cni) assigns a VNet IP address to every Pod either from a pre-reserved set of IPs on every node or from a separate subnet reserved for Pods. This approach requires IP address planning and could lead to address exhaustion and difficulties in scaling your clusters as your application demands grow.
 
 With Azure CNI Overlay the cluster nodes are deployed into an Azure Virtual Network subnet whereas Pods are assigned IP addresses from a logically different private CIDR from the VNet hosting the Pods. Pod and node traffic within the cluster uses an overlay network and Network Address Translation (via node's IP address) is used to reach resources outside the cluster. The solution provides huge saving of VNet IP addresses and enables you to seamlessly scale your cluster to very large sizes. An added advantage is that the private CIDR can be reused in different AKS clusters, truly extending the IP space available for containerized applications in AKS.
 
@@ -22,7 +22,7 @@ A separate routing domain is created in the Azure Networking stack for the Pod p
 
 Communication with endpoints outside the cluster, such as on-premises and peered VNets, happens using the node IP through Network Address Translation. Azure CNI translates the source IP (overlay IP of the Pod) of the traffic to the primary IP address of VM which enables the Azure Networking stack to route the traffic to the destination. Endpoints outside the cluster cannot connect to a Pod directly. You will have to publish the Pod application as a Kubernetes Load Balancer service to make it reachable on the VNet.
 
-Outbound (egress) connectivity to the internet for overlay Pods can be provided using a [Standard SKU Load Balancer](https://docs.microsoft.com/en-us/azure/aks/egress-outboundtype#outbound-type-of-loadbalancer) or [Managed NAT Gateway](https://docs.microsoft.com/en-us/azure/aks/nat-gateway). You can also control egress traffic by directing it to a Firewall using [UDRs on the cluster subnet](https://docs.microsoft.com/en-us/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting).
+Outbound (egress) connectivity to the internet for overlay Pods can be provided using a [Standard SKU Load Balancer](https://docs.microsoft.com/azure/aks/egress-outboundtype#outbound-type-of-loadbalancer) or [Managed NAT Gateway](https://docs.microsoft.com/azure/aks/nat-gateway). You can also control egress traffic by directing it to a Firewall using [UDRs on the cluster subnet](https://docs.microsoft.com/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting).
 
 Ingress connectivity to the cluster can be achieved using an Ingress Controller such as NGINX or HTTP application routing.
 
