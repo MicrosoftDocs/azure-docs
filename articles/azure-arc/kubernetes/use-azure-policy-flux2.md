@@ -1,7 +1,7 @@
 ---
 title: "Apply Flux v2 configurations at-scale using Azure Policy"
-services: azure-arc, AKS
-ms.service: azure-arc, AKS
+services: azure-arc, container-service
+ms.service: azure-arc, container-service
 ms.date: 8/23/2022
 ms.topic: how-to
 description: "Apply Flux v2 configurations at-scale using Azure Policy"
@@ -41,7 +41,7 @@ Verify you have `Microsoft.Authorization/policyAssignments/write` permissions on
 1. In the Azure portal, navigate to **Policy**.
 1. In the **Authoring** section of the sidebar, select **Definitions**.
 1. In the "Kubernetes" category, choose the "Configure Kubernetes clusters with specified GitOps configuration using no secrets" built-in policy definition. 
-1. Click on **Assign**.
+1. Select **Assign**.
 1. Set the **Scope** to the management group, subscription, or resource group to which the policy assignment will apply.
     * If you want to exclude any resources from the policy assignment scope, set **Exclusions**.
 1. Give the policy assignment an easily identifiable **Name** and **Description**.
