@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ---
 
-# Create Webhooks for activity log alerts
+# Webhooks for activity log alerts
 As part of the definition of an action group, you can configure webhook endpoints to receive activity log alert notifications. With webhooks, you can route these notifications to other systems for post-processing or custom actions. This article shows what the payload for the HTTP POST to a webhook looks like.
 
 For more information on activity log alerts, see how to [create Azure activity log alerts](./activity-log-alerts.md).
