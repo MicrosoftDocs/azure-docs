@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: mijos, rarayudu, azla
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 08/20/2022
 ---
 
 # Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps

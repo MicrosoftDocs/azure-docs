@@ -63,7 +63,7 @@ Policy definitions and assignment can be created through with API/PS/CLI or [Azu
 ## Required permissions
 
 To use Azure Policy with network groups, users need the following permissions:
-- `Microsoft.ApiManagement/service/apis/operations/policy/write` is needed at the scope you're assigning.
+- `Microsoft.Authorization/policyassignments/Write` and `Microsoft.Authorization/policydefinitions/Write` are needed at the scope you're assigning.
 - `Microsoft.Network/networkManagers/networkGroups/join/action` action is needed on the target network group referenced in the **Add to network group** section. This permission allows for the adding and removing of objects from the target network group.
 - When using set definitions to assign multiple policies at the same time, concurrent `networkGroup/join/action` permissions are needed on all definitions being assigned at the time of assignment.
 
