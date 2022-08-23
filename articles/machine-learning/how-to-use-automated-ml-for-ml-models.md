@@ -47,7 +47,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
 1. Select **+ New automated ML job** and populate the form.
 
-1. Select a data asset from your storage container, or create a new data asset. Data asset can be created from local files, web urls, datastores, or Azure open datasets. Learn more about [data asset creation](how-to-create-register-data-assets.md).  
+1. Select a data asset from your storage container, or create a new data asset. Data asset can be created from local files, web urls, datastores, or Azure open datasets. Learn more about [data asset creation](how-to-create-data-assets.md).  
 
     >[!Important]
     > Requirements for training data:
@@ -80,7 +80,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
             
         Select **Next.**
 
-    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling](how-to-connect-data-ui.md#profile).
+    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling](v1/how-to-connect-data-ui.md#profile).
 
         Select **Next**.
 1. Select your newly created dataset once it appears. You are also able to view a preview of the dataset and sample statistics. 
@@ -107,7 +107,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     Select **Create**. Creation of a new compute can take a few minutes.
 
     >[!NOTE]
-    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](how-to-connect-data-ui.md#profile) for more details).
+    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](v1/how-to-connect-data-ui.md#profile) for more details).
 
     Select **Next**.
 
@@ -333,6 +333,6 @@ Now you have an operational web service to generate predictions! You can test th
 
 ## Next steps
 
-* [Learn how to consume a web service](how-to-consume-web-service.md).
+* [Learn how to consume a web service](v1/how-to-consume-web-service.md).
 * [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.

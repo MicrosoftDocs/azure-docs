@@ -3,14 +3,14 @@ title: Enable Azure DS Domain Services using PowerShell | Microsoft Docs
 description: Learn how to configure and enable Azure Active Directory Domain Services using Azure AD PowerShell and Azure PowerShell.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 06/17/2022
+ms.date: 08/17/2022
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
 
