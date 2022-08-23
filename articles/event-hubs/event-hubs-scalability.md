@@ -13,7 +13,7 @@ There are two factors which influence scaling with Event Hubs.
 
 ## Throughput units
 
-The throughput capacity of Event Hubs is controlled by *throughput units*. Throughput units are pre-purchased units of capacity. A single throughput lets you:
+The throughput capacity of Event Hubs is controlled by *throughput units*. Throughput units are pre-purchased units of capacity. A single throughput unit lets you:
 
 * Ingress: Up to 1 MB per second or 1000 events per second (whichever comes first).
 * Egress: Up to 2 MB per second or 4096 events per second.
