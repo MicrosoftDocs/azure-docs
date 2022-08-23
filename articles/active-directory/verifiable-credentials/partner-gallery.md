@@ -6,7 +6,7 @@ ms.subservice: verifiable-credentials
 author: barclayn
 manager: amycolannino
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 08/23/2022
 ms.author: barclayn
 ---
 
@@ -21,15 +21,15 @@ To be considered into this documentation, submit your application [request](http
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
-| ![Screenshot of au10tix logo](/media/partner-gallery/au10tix.png) | [AU10TIX](https://www.au10tix.com/solutions/microsoft-azure-active-directory-verifiable-credentials-program) improves Verifiability While Protecting Privacy For Businesses, Employees, Contractors, Vendors, And Customers. Configure Verified ID by AU10TIX as your Identity Verification Partner. |
-| ![Screenshot of a LexisNexis logo.](/media/partner-gallery/lexisnexis.png) | [LexisNexis](https://solutions.risk.lexisnexis.com/did-microsoft) risk solutions identity verification tools enable Azure Active Directory customers to create trusted verifiable credentials. Configure Verified ID by LexisNexis Risk Solutions as your Identity Verification Partner. |
-| ![Screenshot of an Onfido logo.](/media/partner-gallery/idology-logo.png) | Start issuing and accepting verifiable credentials in minutes. With Azure AD verifiable credentials and [Onfido](https://onfido.com/landing/onfido-microsoft-idv-service/) you can verify a person’s identity while respecting privacy. Digitally validate information on a person’s ID or their biometrics.|
+|![Screenshot of au10tix logo](media/partner-gallery/au10tix.png) | [AU10TIX](https://www.au10tix.com/solutions/microsoft-azure-active-directory-verifiable-credentials-program) improves Verifiability While Protecting Privacy For Businesses, Employees, Contractors, Vendors, And Customers. Configure Verified ID by AU10TIX as your Identity Verification Partner. |
+| ![Screenshot of a LexisNexis logo.](media/partner-gallery/lexisnexis.png) | [LexisNexis](https://solutions.risk.lexisnexis.com/did-microsoft) risk solutions identity verification tools enable Azure Active Directory customers to create trusted verifiable credentials. Configure Verified ID by LexisNexis Risk Solutions as your Identity Verification Partner. |
+| ![Screenshot of an Onfido logo](media/partner-gallery/onfido.jpeg) | Start issuing and accepting verifiable credentials in minutes. With Azure AD verifiable credentials and [Onfido](https://onfido.com/landing/onfido-microsoft-idv-service/) you can verify a person’s identity while respecting privacy. Digitally validate information on a person’s ID or their biometrics.|
 
 ## Data exfiltration
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
-| ![Screenshot of a Squadra logo.](/media/partner-gallery/squadra.png) | Decentralized identity for removable [storage authorization](https://squadratechnologies.wordpress.com/2022/01/31/usb-securitydecentralized-identity-for-removable-storage-authorization/) |
+| ![Screenshot of a Squadra logo.](media/partner-gallery/squadra.png) | Decentralized identity for removable [storage authorization](https://squadratechnologies.wordpress.com/2022/01/31/usb-securitydecentralized-identity-for-removable-storage-authorization/) |
 
 
 ## Next steps
