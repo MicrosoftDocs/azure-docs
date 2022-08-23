@@ -237,7 +237,7 @@ The table below contains the parameters used by image garbage collection and the
 | Parameter | Description |
 |-|-|
 | `enabled` | Option to control whether image garbage collection should run or not. Users may choose to disable the feature by changing this setting to `false`.   <br><br>  **Optional** <br><br> Default value: *true* |
-| `cleanup_recurrence` | Option to change the frequency with which the cleanup job runs for image garbage collection. The value for `cleanup_recurrence` must be specified as a multiple of days and cannot be less than 1 day. <br><br> For example: 1d, 3d, 48hr, 1w, etc.   <br><br>  **Optional** <br><br> Default value: *1d* |
+| `cleanup_recurrence` | Option to change the frequency with which the cleanup job runs for image garbage collection. The value for `cleanup_recurrence` must be specified as a multiple of days and cannot be less than 1 day. <br><br> For example: 1d, 3d, 48h, 1w, etc.   <br><br>  **Optional** <br><br> Default value: *1d* |
 | `image_age_cleanup_threshold` | Option to define the minimum age threshold of unused images to consider for cleanup after which the images will be deleted automatically. Images are considered unused *after* they have been removed from the deployment. <br><br>  **Optional** <br><br> Default value: *7d* |
 | `cleanup_time` | Time of day when the cleanup job runs. `cleanup_time` is the device local time and should follow 24-hour HH:MM format. <br><br>  **Optional** <br><br> Default value: *00:00* |
 
