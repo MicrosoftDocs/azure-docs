@@ -212,7 +212,7 @@ Cloud-to-device messages:
 - Require the device to implement a message handler to process the cloud-to-device message.
 
 > [!NOTE]
-> This option is only available in the IoT Central web UI. This setting isn't included if you export a model or component from the device template.
+> Offline commands are marked as `durable` if you export the model as DTDL.
 
 ## Cloud properties
 

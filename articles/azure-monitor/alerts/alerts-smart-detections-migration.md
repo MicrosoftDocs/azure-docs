@@ -38,6 +38,9 @@ A new set of alert rules is created when migrating an Application Insights resou
 <sup>(2)</sup> Name of new alert rule after migration  
 <sup>(3)</sup> These smart detection capabilities aren't converted to alerts, because of low usage and reassessment of detection effectiveness. These detectors will no longer be supported for this resource once its migration is completed. 
 
+ > [!NOTE]
+ > The **Failure Anomalies** smart detector is already created as an alert rule and therefore does not require migration, it is not covered in this document.
+ 
 The migration doesn't change the algorithmic design and behavior of smart detection. The same detection performance is expected before and after the change.
 
 You need to apply the migration to each Application Insights resource separately. For resources that aren't explicitly migrated, smart detection will continue to work as before.
