@@ -101,6 +101,7 @@ These example code snippets show you how to do the following tasks with the Azur
 - [Upload blobs to a container](#upload-blobs-to-a-container)
 - [List the blobs in a container](#list-the-blobs-in-a-container)
 - [Download blobs](#download-blobs)
+- [Delete a blob in a container](#delete-a-blob-in-a-container)
 - [Delete a container](#delete-a-container)
 
 ### Get the connection string
@@ -152,6 +153,20 @@ Download the previously created blob by calling the [download_blob](/python/api/
 Add this code to the end of the `try` block:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_DownloadBlobs":::
+
+### Delete a blob in a container
+
+Delete a previously created blob by calling the [delete_blob](/python/api/azure-storage-blob/azure.storage.blob.containerclient?view=azure-python#azure-storage-blob-containerclient-delete-blob) method. You can use the blob name of your container client.
+
+Add this code to the end of the `try` block:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_DeleteBlob":::
+
+You can also delete multiple blobs by calling the [delete_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient?view=azure-python#azure-storage-blob-containerclient-delete-blobs) method using a list of blobs as a parameter.
+
+Add this code to the end of the `try` block:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_DeleteBlobs":::
 
 ### Delete a container
 
