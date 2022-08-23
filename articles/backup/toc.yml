@@ -148,11 +148,11 @@
       items:
       - name: Overview
         href: backup-vault-overview.md
-    - name: Immutable vaults
+    - name: Immutable vault
       items:
       - name: Overview
         href: backup-azure-immutable-vault-overview.md
-      - name: Manage Immutable vault
+      - name: Manage
         href: backup-azure-immutable-vault-manage.md
   - name: Backup center
     items:
