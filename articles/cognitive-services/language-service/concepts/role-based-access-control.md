@@ -1,32 +1,31 @@
 ---
-title: Language RBAC
+title: Role-based access control for the Language service
 titleSuffix: Azure Cognitive Services
-description: Langauge RBAC
+description: Learn how to use Azure RBAC for managing individual access to Azure resources.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 08/23/2022
 ms.author: aahi
 ---
 
 
 # Language role-based access control
 
-Azure Cognative Service for Language supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your projects authoring resources. See the [Azure RBAC documentation](/azure/role-based-access-control/) for more information.
+Azure Cognitive Service for Language supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your projects authoring resources. See the [Azure RBAC documentation](/azure/role-based-access-control/) for more information.
 
 ## Enable Azure Active Directory authentication 
 
-To use Azure RBAC, you must enable Azure Active Directory authentication. You can [create a new resource with a custom subdomain](../authentication.md#create-a-resource-with-a-custom-subdomain) or [create a custom subdomain for your existing resource](../cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources).
+To use Azure RBAC, you must enable Azure Active Directory authentication. You can [create a new resource with a custom subdomain](../../authentication.md#create-a-resource-with-a-custom-subdomain) or [create a custom subdomain for your existing resource](../../cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources).
 
-## Add role assignment to Language Authoring resource
+## Add role assignment to Language resource
 
-Azure RBAC can be assigned to a Language Authoring resource. To grant access to an Azure resource, you add a role assignment.
+Azure RBAC can be assigned to a Language resource. To grant access to an Azure resource, you add a role assignment.
 1. In the [Azure portal](https://ms.portal.azure.com/), select **All services**. 
-2. Select **Cognitive Services**, and navigate to your specific Language Authoring resource.
-1. 
+1. Select **Cognitive Services**, and navigate to your specific Language resource. 
    > [!NOTE]
    > You can also set up Azure RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item. For example, selecting **Resource groups** and then navigating to a specific resource group.
 
@@ -42,12 +41,12 @@ Within a few minutes, the target will be assigned the selected role at the selec
 
 Use the following table to determine access needs for your Language projects.
 
-These custom roles only apply to Language authoring resources. 
+These custom roles only apply to Language resources. 
 > [!NOTE]
 > * All prebuilt capabilities are accessible to all roles
-> * 'Owner' and 'Contibutor' roles take priority over the custom language roles
+> * *Owner* and *Contributor* roles take priority over the custom language roles
 > * AAD is only used in case of custom Language roles
-> * If you are assigned as a *Contributor* on Azure, you role will be shown as *Owner* in Language studio portal.
+> * If you are assigned as a *Contributor* on Azure, your role will be shown as *Owner* in Language studio portal.
 
 
 ### Cognitive Services Language reader
@@ -70,17 +69,17 @@ A user that should only be validating and reviewing the Language apps, typically
     :::column-end:::
     :::column span="":::
       * All GET APIs under: 
-         * [Language Authoring CLU APIs](https://docs.microsoft.com/en-us/rest/api/language/conversational-analysis-authoring)
-         * [Language Authoring Text Analysis APIs](https://docs.microsoft.com/en-us/rest/api/language/text-analysis-authoring)
-         * [Question Answering Projects](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/questionanswering/question-answering-projects)
-      * Only TriggerExportProjectJob POST operation under: 
-         * [Language Authoring CLU export API](https://docs.microsoft.com/en-us/rest/api/language/conversational-analysis-authoring/export?tabs=HTTP)
-         * [Language Authoring Text Analysis export API](https://docs.microsoft.com/en-us/rest/api/language/text-analysis-authoring/export?tabs=HTTP)
+         * [Language conversational language understanding APIs](/rest/api/language/conversational-analysis-authoring)
+         * [Language text analysis APIs](/rest/api/language/text-analysis-authoring)
+         * [Question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+      * Only `TriggerExportProjectJob` POST operation under: 
+         * [Language conversational language understanding export API](/rest/api/language/conversational-analysis-authoring/export?tabs=HTTP)
+         * [Language text analysis export API](/rest/api/language/text-analysis-authoring/export?tabs=HTTP)
       * Only Export POST operation under: 
-         * [Question Answering Projects](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/questionanswering/question-answering-projects/export)
+         * [Question Answering Projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects/export)
       * All the Batch Testing Web APIs
-         *[Language Runtime CLU APIs](https://docs.microsoft.com/en-us/rest/api/language/conversation-analysis-runtime)
-         *[Language Runtime Text Analysis APIs](https://docs.microsoft.com/en-us/rest/api/language/text-analysis-runtime)
+         *[Language Runtime CLU APIs](/rest/api/language/conversation-analysis-runtime)
+         *[Language Runtime Text Analysis APIs](/rest/api/language/text-analysis-runtime)
     :::column-end:::
 :::row-end:::
 
@@ -98,7 +97,7 @@ A user that is responsible for building and modifying an application, as a colla
 :::row-end:::
 :::row:::
     :::column span="":::
-      * All functionalties under Cognitive Services Language Reader.
+      * All functionalities under Cognitive Services Language Reader.
       * Ability to: 
           * Train
           * Write
@@ -106,9 +105,9 @@ A user that is responsible for building and modifying an application, as a colla
     :::column span="":::
       * All APIs under Language reader
       * All POST, PUT and PATCH APIs under:
-         * [Language Authoring CLU APIs](https://docs.microsoft.com/en-us/rest/api/language/conversational-analysis-authoring)
-         * [Language Authoring Text Analysis APIs](https://docs.microsoft.com/en-us/rest/api/language/text-analysis-authoring)
-         * [Question Answering Projects](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+         * [Language conversational language understanding APIs](/rest/api/language/conversational-analysis-authoring)
+         * [Language text analysis APIs](/rest/api/language/text-analysis-authoring)
+         * [question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
           Except for
           * Delete deployment
           * Delete trained model
@@ -135,15 +134,15 @@ These users are the gatekeepers for the Language applications in production envi
 :::row-end:::
 :::row:::
     :::column span="":::
-      * All functionalties under Cognitive Services Language Writer
+      * All functionalities under Cognitive Services Language Writer
       * Deploy
       * Delete
     :::column-end:::
     :::column span="":::
       * All APIs available under:
-        * [Language Authoring CLU APIs](https://docs.microsoft.com/en-us/rest/api/language/conversational-analysis-authoring)
-        * [Language Authoring Text Analysis APIs](https://docs.microsoft.com/en-us/rest/api/language/text-analysis-authoring)
-        * [Question Answering Projects](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+        * [Language conversational language understanding APIs](/rest/api/language/conversational-analysis-authoring)
+        * [Language text analysis APIs](/rest/api/language/text-analysis-authoring)
+        * [question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
          
     :::column-end:::
 :::row-end:::

@@ -7,7 +7,7 @@ ms.author: aahi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 08/02/2022
+ms.date: 08/23/2022
 ms.topic: conceptual
 ---
 
@@ -44,7 +44,7 @@ These custom roles only apply to authoring (Language Understanding Authoring) an
 
 > [!NOTE]
 > * *Owner* and *Contributor* roles take priority over the custom LUIS roles.
-> * Azure Active Directory (Azure AD) is only used with custom LUIS roles.
+> * Azure Active Directory (Azure AAD) is only used with custom LUIS roles.
 > * If you are assigned as a *Contributor* on Azure, you role will be shown as *Owner* in LUIS portal.
 
 
