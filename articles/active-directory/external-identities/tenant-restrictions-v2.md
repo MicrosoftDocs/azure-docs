@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 08/24/2022
 
 ms.author: mimart
 author: msmimart
@@ -28,18 +28,13 @@ For example, let's say a user in your organization has created a separate accoun
 
 |  |  |
 |---------|---------|
-|**1**     | Contoso configures tenant restrictions to block all users from using their Windows devices to sign in to external applications with external accounts. Contoso enforces the policy on each Windows device by updating the local computer configuration with Contoso's tenant ID and the tenant restrictions policy ID.       |
-|**2**     |  A user has a Windows device that is managed by Contoso. The user attempts to sign in to an external app using an account from an unknown tenant. In the authentication request, the Windows device adds an HTTP header that contains Contoso's tenant ID and the tenant restrictions policy ID.        |
-|**3**     | *Authentication plane protection:* Azure AD uses the header to find the tenant restrictions policy and applies the policy. Because Contoso's policy blocks external accounts from accessing external tenants, the request is blocked at the authentication level.        |
-|**4**     | *Data plane protection:* The user could try to access the external application by obtaining an authentication token outside of Contoso's network, and then copying and pasting it into the Windows device. However, Azure AD checks the claim in the authentication response token against the HTTP header added by the Windows device. If they don't match, Azure AD blocks the session and the user is unable to access the application.        |
+|**1**     | Contoso configures **Tenant restrictions** in their cross-tenant access settings to block all external accounts and external apps. Contoso enforces the policy on each Windows device by updating the local computer configuration with Contoso's tenant ID and the tenant restrictions policy ID.       |
+|**2**     |  A user with a Windows device that is managed by Contoso tries to sign in to an external app using an account from an unknown tenant. The Windows device adds an HTTP header to the authentication request. The header contains Contoso's tenant ID and the tenant restrictions policy ID.        |
+|**3**     | *Authentication plane protection:* Azure AD uses the header in the authentication request to look up the tenant restrictions policy in the Azure AD cloud. Because Contoso's policy blocks external accounts from accessing external tenants, the request is blocked at the authentication level.        |
+|**4**     | *Data plane protection:* The user tries to access the external application by copying  an authentication response token they obtained outside of Contoso's network and pasting it into the Windows device. However, Azure AD compares the claim in the token to the HTTP header added by the Windows device. Because they don't match, Azure AD blocks the session so the user can't access the application.        |
 |||
 
-Tenant restrictions can be scoped to specific users, groups, organizations, or external apps. Apps built on the Windows operating system networking stack are protected, including the following:
 
-- Office apps (all versions/release channels)
-- Universal Windows Platform (UWP) .NET applications
-- Edge and all websites in Edge
-- Teams (with Federation Controls configured)
 
 This article describes how to configure tenant restrictions V2 using the Azure portal. You can also use the [Microsoft Graph cross-tenant access API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-beta&preserve-view=true) to create these same tenant restrictions policies.
 
@@ -48,8 +43,17 @@ This article describes how to configure tenant restrictions V2 using the Azure p
 
 Azure AD offers two versions of tenant restrictions policies:
 
-- Tenant restrictions V1, described in [Set up tenant restrictions V1 for B2B collaboration](../manage-apps/tenant-restrictions.md), lets you restrict access to external tenants by configuring a tenant allow list on your corporate proxy.
-- Tenant restrictions V2, described in this article, lets you apply policies directly to your users' Windows devices instead of through your corporate proxy, reducing overhead and providing more flexible, granular control.
+- Tenant restrictions V1, described in [Set up tenant restrictions V1 for B2B collaboration](../manage-apps/tenant-restrictions.md), let you restrict access to external tenants by configuring a tenant allow list on your corporate proxy.
+- Tenant restrictions V2, described in this article, let you apply policies directly to your users' Windows devices instead of through your corporate proxy, reducing overhead and providing more flexible, granular control.
+
+Tenant restrictions V2 can be scoped to specific users, groups, organizations, or external apps. Apps built on the Windows operating system networking stack are protected, including the following:
+
+- Office apps (all versions/release channels)
+- Universal Windows Platform (UWP) .NET applications
+- Edge and all websites in Edge
+- Teams (with Federation Controls configured)
+
+### Comparing Tenant restrictions V1 and V2
 
 The following table compares the features in each version.
 
