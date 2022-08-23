@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, divswa, azla
 ms.topic: how-to
-ms.date: 07/16/2021
+ms.date: 08/20/2022
 ---
 
 # Exchange X12 messages for B2B enterprise integration using Azure Logic Apps and Enterprise Integration Pack
