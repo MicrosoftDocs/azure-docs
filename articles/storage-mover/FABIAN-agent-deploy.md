@@ -74,9 +74,7 @@ The article on [Performance targets](performance-targets.md) shares test results
 
 ### Local storage capacity
 
-At a minimum, the agent image needs 20GiB of local storage but can have a need for more if there are particularly large files to be cached during a migration. 
-
-<???? HOW DOES FILE CACHING IMPACT DISK SIZE REQUIREMENTS ????>
+At a minimum, the agent image needs 20GiB of local storage but can have a need for more if there are a particularly high number of small files to be cached during a migration.
 
 ## Create the agent VM
 
@@ -110,7 +108,7 @@ The agent is delivered with a default user account and password. Immediately aft
 ## Decommissioning an agent
 
 When you no longer need a specific storage mover agent, you can decommission it. 
-During public review, decommisioning is a two-step process:
+During public review, decommissioning is a two-step process:
 
 1. The agent needs to be unregistered from the storage mover resource.
 1. Stop and delete the agent VM on your virtualization host.

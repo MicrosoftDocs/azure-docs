@@ -12,12 +12,9 @@ ms.author: shaas
 
 <!-- 
 !########################################################
-STATUS: IN REVIEW
+STATUS: DRAFT
 
-CONTENT: critical content missing
-        - content still located in wrong file
-        - links need review and update
-        - resource recommendation table needs to be filled out
+CONTENT: 
 
 REVIEW Stephen/Fabian: not reviewed
 REVIEW Engineering: not reviewed
