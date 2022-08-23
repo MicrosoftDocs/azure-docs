@@ -101,9 +101,6 @@ The following Azure Media Services related considerations apply:
 * If you plan to connect to an existing Media Services account, make sure the Media Services account was created with the classic APIs.
 
     ![Media Services classic API](./media/create-account/enable-classic-api.png)
-* If you connect to an existing Media Services account, Azure Video Indexer doesn't change the existing media **Reserved Units** configuration.
-
-   You might need to adjust the type and number of Media Reserved Units according to your planned load. Keep in mind that if your load is high and you don't have enough units or speed, videos processing can result in timeout failures.
 * If you connect to a new Media Services account, Azure Video Indexer automatically starts the default **Streaming Endpoint** in it:
 
     ![Media Services streaming endpoint](./media/create-account/ams-streaming-endpoint.png)
