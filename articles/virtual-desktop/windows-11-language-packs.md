@@ -23,10 +23,10 @@ The second option is more efficient in terms of resources and cost, but requires
 Before you can add languages to a Windows 11 Enterprise VM, you'll need to have the following things ready:
 
 - An Azure VM with Windows 11 Enterprise installed
-- A Language and Optional Features (LoF) ISO and Inbox Apps ISO of the OS version the image uses. You can download them here:
-  - Language and Optional Features (LoF) ISO:
-    - [Windows 11, version 21H2 Language and Optional Features LoF ISO](https://software-download.microsoft.com/download/sg/22000.1.210604-1628.co_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
-    - [Windows 11, version 22H2 Language and Optional Features LoF ISO](https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
+- A Language and Optional Features ISO and Inbox Apps ISO of the OS version the image uses. You can download them here:
+  - Language and Optional Features ISO:
+    - [Windows 11, version 21H2 Language and Optional Features ISO](https://software-download.microsoft.com/download/sg/22000.1.210604-1628.co_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
+    - [Windows 11, version 22H2 Language and Optional Features ISO](https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
   - Inbox Apps ISO:
     - [Windows 11, version 22H2 Inbox Apps ISO](https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_InboxApps.iso)
 - An Azure Files share or a file share on a Windows File Server VM
