@@ -260,7 +260,7 @@ rm create_user.sql
 
 ### Create a new Java project
 
-Using your favorite IDE, create a new Java project, and add a `pom.xml` file in its root directory:
+Using your favorite IDE, create a new Java project using Java 8 or above, and add a `pom.xml` file in its root directory:
 
 #### [Credential-free connection (Recommended)](#tab/credential-free)
 
@@ -312,7 +312,7 @@ Using your favorite IDE, create a new Java project, and add a `pom.xml` file in 
       <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.2.12</version>
+        <version>42.3.6</version>
       </dependency>
     </dependencies>
 </project>
@@ -381,6 +381,7 @@ package com.example.demo;
 import java.sql.*;
 import java.util.*;
 import java.util.logging.Logger;
+import com.azure.identity.providers.postgresql.AzureIdentityPostgresqlAuthenticationPlugin;
 
 public class DemoApplication {
 
@@ -397,7 +398,7 @@ public class DemoApplication {
         properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
 
         log.info("Connecting to the database");
-        //TODO?
+        properties.put("authenticationPluginClassName", AzureIdentityPostgresqlAuthenticationPlugin.class.getName());
         Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
         log.info("Database connection test: " + connection.getCatalog());
 
@@ -408,7 +409,7 @@ public class DemoApplication {
             statement.execute(scanner.nextLine());
         }
 
-		/*
+		/* Prepare for data processing in the PostgreSQL server.
 		Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
         insertData(todo, connection);
         todo = readData(connection);
@@ -457,7 +458,7 @@ public class DemoApplication {
             statement.execute(scanner.nextLine());
         }
 
-		/*
+		/* Prepare for data processing in the PostgreSQL server.
 		Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
         insertData(todo, connection);
         todo = readData(connection);
