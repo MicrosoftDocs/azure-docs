@@ -83,7 +83,7 @@ For **Data Lineage - Synapse Pipeline**, you may see one of below status:
     - You don't have permission to check role assignments on the Microsoft Purview account. You can contact the Microsoft Purview account admin to check the role assignments for you. Learn about the needed Microsoft Purview role from [Set up authentication](#set-up-authentication) section.
 
 >[!Note]
-> Disconnected status doesn't impact you to use catalog search feature within synapse, it continues to work if data readers role is granted at purview collection 
+> Disconnected status doesn't impact you to use catalog search feature within Azure Synapse, it continues to work if the data readers role is granted at the Microsoft purview collection 
 > level.
 
 ## Report lineage to Microsoft Purview
