@@ -20,7 +20,7 @@ FHIR searches can be against a specific resource type, a specified [compartment]
 GET {{FHIR_URL}}/Patient
 ```
 
-You can also search using `POST`. To search using `POST`, the search parameters are delivered in JSON format in the body of the request. This makes it easier to send queries with longer, more complex series of parameters.
+You can also search using `POST`. To search using `POST`, the search parameters are delivered in the body of the request. This makes it easier to send queries with longer, more complex series of parameters.
 
 If the search request is successful, you'll receive a FHIR `searchset` bundle containing the resource instance(s) returned from the search. If the search fails, you’ll find the error details in an `OperationOutcome` response.
 
