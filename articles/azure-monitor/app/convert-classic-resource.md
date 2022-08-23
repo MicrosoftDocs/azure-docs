@@ -2,7 +2,7 @@
 title: Migrate an Application Insights classic resource to a workspace-based resource - Azure Monitor | Microsoft Docs
 description: Learn about the steps required to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 08/23/2022
 ms.custom: devx-track-azurepowershell
 ms.reviewer: cawa
 ---
@@ -228,6 +228,51 @@ The `Update-AzApplicationInsights` PowerShell command doesn't currently support 
 Once a workspace-based Application Insights resource has been created, you can modify the associated Log Analytics Workspace.
 
 From within the Application Insights resource pane, select **Properties** > **Change Workspace** > **Log Analytics Workspaces**.
+
+## Frequently asked questions
+
+### Is there any implication on the cost from migration?
+
+There is usually no difference, with a couple of exceptions.
+
+ - Migrated Application Insights resources can leverage [Log Analytics Commitment Tiers](../logs/cost-logs.md#commitment-tiers) to reduce cost if the data volumes in the workspace are high enough.
+ - Very old Application Insights resources that get 1GB per month free (a grandfathering from the original Application Insights pricing model) will lose this when they are migrated.
+
+### How will telemetry capping work?
+
+Set a [daily cap on the Log Analytics workspace](../logs/daily-cap.md#application-insights).
+
+There is no strict (billing-wise) capping available.
+
+### How will ingestion-based sampling work?
+
+There are no changes to ingestion-based sampling.
+
+### Will there be any gap in data collected during migration?
+
+No. We merge data during query time.
+
+### Will my old logs queries continue to work?
+
+Yes, they will continue to work.
+
+### Will my dashboards that have pinned metric and log charts continue to work after migration?
+
+Yes, they will continue to work.
+
+### Will migration impact AppInsights API accessing data?
+
+No, migration will not impact existing API access to data. After migration you will be able to access data directly from a workspace using a [slightly different schema](#workspace-based-resource-changes).
+
+### Will there be any impact on Live Metrics or other monitoring experiences?
+
+No, there is no impact to [Live Metrics](live-stream.md#live-metrics-monitor--diagnose-with-1-second-latency) or other monitoring experiences.
+
+### What happens with Continuous export after migration?
+
+Continuous export does not support workspace-based resources.
+
+You will need to switch to [Diagnostic Settings](../essentials/diagnostic-settings.md#diagnostic-settings-in-azure-monitor).
 
 ## Troubleshooting
 
