@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 08/23/2022
 ms.author: anfdocs
 ---
 # Restore a backup to a new volume
@@ -30,6 +30,8 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 * The new volume created by the restore operation cannot be mounted until the restore completes. 
 
 * You should trigger the restore operation when there are no baseline backups. Otherwise, the restore might increase the load on the Azure Blob account where your data is backed up. 
+
+* For large volumes (greater than 10 TB), it can take multiple hours to transfer all the data from the backup media.
 
 See [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md) for additional considerations about using Azure NetApp Files backup.
 
