@@ -57,20 +57,24 @@ At the end of this quickstart, you'll have a working spring app running on Azure
 1. Use the following command to choose and link to your subscription.
 
    ```azurecli-interactive
-   az account set --subscription <ID of a subscription from last step>
+   az account set --subscription <subscription-id>
    ```
 
 1. Use the following command to create a Resource Group.
 
    ```azurecli-interactive
-   az group create --name <Name of Resource Group> --location eastus
+   az group create \
+       --resource-group <name-of-resource-group> \
+       --location eastus
    ```
 
 1. Use the following command to create an Azure Spring Apps service instance.
 
    ```azurecli-interactive
-   az spring create -n <Name of service instance> -g <Name of Resource Group>
-   ``
+   az spring create \
+       --resource-group <name-of-resource-group> \
+       --service <service-instance-name>
+   ```
 
 1. Choose **Y** to install the Azure Spring Apps extension and run it.
 
@@ -100,7 +104,6 @@ az spring app create \
    cd gs-spring-boot/complete
    ```
 
- 
 Use the following [Maven](https://maven.apache.org/what-is-maven.html) command to build the project.
 
 ```azurecli-interactive
