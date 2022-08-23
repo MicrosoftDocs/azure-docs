@@ -21,7 +21,7 @@ The experience provides a canvas that allows you to connect to input sources to 
 
 You can:
 
-- Modify input schema.
+- Modify input schemas.
 - Perform data preparation operations like joins and filters.
 - Approach advanced scenarios like time-window aggregations (tumbling, hopping, and session windows) for group-by operations.
 
@@ -50,11 +50,11 @@ The following screenshot shows a finished Stream Analytics job. It highlights al
 1. **Ribbon**: On the ribbon, sections follow the order of a classic analytics process: an event hub as input (also known as a data source), transformations (streaming ETL operations), outputs, a button to save your progress, and a button to start the job.
 2. **Diagram view**: A graphical representation of your Stream Analytics job, from input to operations to outputs.
 3. **Side pane**: Depending on which component you selected in the diagram view, you'll have settings to modify input, transformation, or output.
-4. **Tabs for data preview, authoring errors, and runtime errors**: For each tile shown, the data preview will show you results for that step (live for inputs; on demand for transformations and outputs). This section also summarizes any authoring errors or warnings that you might have in your job when it's being developed. Selecting each error or warning will select that transform.
+4. **Tabs for data preview, authoring errors, and runtime errors**: For each tile, the data preview will show you results for that step (live for inputs; on demand for transformations and outputs). This section also summarizes any authoring errors or warnings that you might have in your job when it's being developed. Selecting each error or warning will select that transform.
 
 ## Event hub as the streaming input
 
-Azure Event Hubs is a big-data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored through any real-time analytics provider or batching/storage adapters.
+Azure Event Hubs is a big-data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored through any real-time analytics provider or batching/storage adapter.
 
 To configure an event hub as an input for your job, select the **Event Hub** icon. A tile appears in the diagram view, including a side pane for its configuration and connection.
 
@@ -124,7 +124,7 @@ The **Manage fields** transformation allows you to add, remove, or rename fields
 :::image type="content" source="./media/no-code-stream-processing/manage-field-transformation.png" alt-text="Screenshot that shows selections for managing fields." lightbox="./media/no-code-stream-processing/manage-field-transformation.png" :::
 
 > [!TIP]
-> After you configure a tile, the diagram view gives you a glimpse of the settings within the tile itself. For example, in the **Manage fields** area of the preceding image, you can see the first three fields being managed and the new names assigned to them. Each tile has information that's relevant to it.
+> After you configure a tile, the diagram view gives you a glimpse of the settings within the tile. For example, in the **Manage fields** area of the preceding image, you can see the first three fields being managed and the new names assigned to them. Each tile has information that's relevant to it.
 
 ### Aggregate
 
@@ -211,7 +211,7 @@ Managed identities eliminate the limitations of user-based authentication method
 
 ### Azure Synapse Analytics
 
-Azure Stream Analytics jobs can output to a dedicated SQL pool table in Azure Synapse Analytics and can process throughput rates up to 200 MB per second. Stream Analytics supports the most demanding real-time analytics and hot-path data processing needs for workloads like reporting and dashboarding.
+Azure Stream Analytics jobs can send output to a dedicated SQL pool table in Azure Synapse Analytics and can process throughput rates up to 200 MB per second. Stream Analytics supports the most demanding real-time analytics and hot-path data processing needs for workloads like reporting and dashboarding.
 
 > [!IMPORTANT]
 > The dedicated SQL pool table must exist before you can add it as output to your Stream Analytics job. The table's schema must match the fields and their types in your job's output.
@@ -258,7 +258,7 @@ After you do, the Stream Analytics job evaluates all transformations and outputs
 
 :::image type="content" source="./media/no-code-stream-processing/refresh-static-preview.png" alt-text="Screenshot that shows the Data Preview tab, where you can refresh the static preview." lightbox="./media/no-code-stream-processing/refresh-static-preview.png" :::
 
-You can refresh the preview by selecting **Refresh static preview** (1). When you refresh the preview, the Stream Analytics job takes new data from the input and evaluates all transformations. Then it outputs again with any updates that you might have performed. The **Show/Hide details** option is also available (2).
+You can refresh the preview by selecting **Refresh static preview** (1). When you refresh the preview, the Stream Analytics job takes new data from the input and evaluates all transformations. Then it sends output again with any updates that you might have performed. The **Show/Hide details** option is also available (2).
 
 ### Authoring errors
 
@@ -287,7 +287,7 @@ You can select more metrics from the list. To understand all the metrics in deta
 You can save the job anytime while creating it. After you configure the event hub, transformations, and streaming outputs for the job, you can start the job.
 
 > [!NOTE]
-> While the no-code editor is in preview, the Azure Stream Analytics service is generally available.
+> Although the no-code editor is in preview, the Azure Stream Analytics service is generally available.
 
 :::image type="content" source="./media/no-code-stream-processing/no-code-save-start.png" alt-text="Screenshot that shows the Save and Start buttons." lightbox="./media/no-code-stream-processing/no-code-save-start.png" :::
 
