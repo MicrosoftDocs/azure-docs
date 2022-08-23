@@ -24,7 +24,7 @@ Windows Server 2019 and Windows Server 2022 cannot co-exist on the same node poo
 - Take note of the new image name or tag. This will be used below to replace the 2019 version of the image on the YAML file to be deployed to AKS.
 
 > [!NOTE]
-> Check out [Dockerfile on Windows](virtualization/windowscontainers/manage-docker/manage-windows-dockerfile) and [Optimize Windows Dockerfiles](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile) to learn more about how to build a dockerfile for Windows workloads.
+> Check out [Dockerfile on Windows](/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile) and [Optimize Windows Dockerfiles](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile) to learn more about how to build a dockerfile for Windows workloads.
 
 ## Add a Windows Server 2022 node pool to the existing cluster
 
