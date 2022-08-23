@@ -20,6 +20,10 @@ Lifecycle Workflows allows you to automate the lifecycle management process for 
 
 Lifecycle Workflows currently have six built-in templates you can use or customize:
 
+:::image type="content" source="media/lifecycle-workflow-templates/lcw-templates-list.png" alt-text="list of lcw templates":::
+
+The list of templates are as follows:
+
 - [Onboard pre-hire employee](lifecycle-workflow-templates.md#onboard-pre-hire-employee)
 - [Onboard new hire employee](lifecycle-workflow-templates.md#onboard-new-hire-employee)
 - [Real-time employee termination](lifecycle-workflow-templates.md#real-time-employee-termination)  
@@ -33,6 +37,7 @@ For a complete guide on creating a new workflow from a template, see: [Tutorial:
 
  The **Onboard pre-hire employee** template is designed to configure tasks that must be completed before an employee's start date.
 
+:::image type="content" source="media/lifecycle-workflow-templates/lcw-onboard-prehire-template.png" alt-text="lcw onboard prehire template":::
 
 The default specific parameters and properties for the **Onboard pre-hire employee** template are as follows:
 
@@ -50,18 +55,11 @@ The default specific parameters and properties for the **Onboard pre-hire employ
 |Tasks     | **Generate TAP And Send Email**     |  ✔️       |
 
 
-
-
-
-The default task for the **Onboard pre-hire employee** template:
-
-- **Generate TAP And Send Email**
-
-
 ### Onboard new hire employee
 
 The **Onboard new-hire employee** template is designed to configure tasks that will be completed on an employee's start date.
 
+:::image type="content" source="media/lifecycle-workflow-templates/lcw-onboard-newhire-template.png" alt-text="lcw onboard new hire template":::
 
 The default specific parameters for the **Onboard new hire employee** template are as follows:
 
@@ -71,7 +69,7 @@ The default specific parameters for the **Onboard new hire employee** template a
 |Category     |  Joiner       |  ❌       |
 |Trigger Type     | Trigger and Scope Based        |  ❌       |
 |Days from event     | 0        | ✔️        |
-|Event timing     | Before        |  ❌       |
+|Event timing     | On        |  ❌       |
 |Event User attribute     | EmployeeHireDate        |   ❌      |
 |Scope type     | Rule based        | ❌        |
 |Execution conditions     | (department eq 'Marketing')        |  ✔️       |
@@ -83,6 +81,7 @@ The default specific parameters for the **Onboard new hire employee** template a
 
 The **Real-time employee termination** template is designed to configure tasks that will be completed immediately when an employee is terminated.
 
+:::image type="content" source="media/lifecycle-workflow-templates/lcw-ondemand-termination-template.png" alt-text="lcw real time employee termination template":::
 
 The default specific parameters for the **Real-time employee termination** template are as follows:
 
@@ -102,7 +101,7 @@ The default specific parameters for the **Real-time employee termination** templ
 
 The **Pre-Offboarding of an employee** template is designed to configure tasks that will be completed before an employee's last day of work.
 
-
+:::image type="content" source="media/lifecycle-workflow-templates/lcw-offboard-pre-employee-template.png" alt-text="pre offboarding employee template":::
 
 The default specific parameters for the **Pre-Offboarding of an employee** template are as follows:
 
@@ -113,7 +112,7 @@ The default specific parameters for the **Pre-Offboarding of an employee** templ
 |Trigger Type     | Trigger and Scope Based        |  ❌       |
 |Days from event     | 7        | ✔️        |
 |Event timing     | Before        |  ❌       |
-|Event User attribute     | EmployeeHireDate        |   ❌      |
+|Event User attribute     | employeeLeaveDateTime        |   ❌      |
 |Scope type     | Rule based        | ❌        |
 |Execution condition     | None       |  ✔️       |
 |Tasks     | **Remove user from selected groups**, **Remove user from selected Teams**     |  ✔️       |
@@ -125,6 +124,7 @@ The default specific parameters for the **Pre-Offboarding of an employee** templ
 
 The **Offboard an employee** template is designed to configure tasks that will be completed on an employee's last day of work.
 
+:::image type="content" source="media/lifecycle-workflow-templates/lcw-offboard-employee-template.png" alt-text="offboard employee template lcw":::
 
 The default specific parameters for the **Offboard an employee** template are as follows:
 
@@ -145,6 +145,7 @@ The default specific parameters for the **Offboard an employee** template are as
 
 The **Post-Offboarding of an employee** template is designed to configure tasks that will be completed after an employee's last day of work.
 
+:::image type="content" source="media/lifecycle-workflow-templates/lcw-offboard-post-employee-template.png" alt-text="offboarding an employee after last day template":::
 
 The default specific parameters for the **Post-Offboarding of an employee** template are as follows:
 
