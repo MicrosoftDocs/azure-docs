@@ -64,7 +64,7 @@ Both thresholds are a percentage.
 
 #### Profile now
 
-Within the profiler user interface, (see [profiler settings](../profiler/profiler-settings.md)) there is a Profile now button. Selecting this button will immediately request a profile in all agents that are attached to the Application Insights instance.
+Within the profiler user interface (see [profiler settings](../profiler/profiler-settings.md)) there's a Profile now button. Selecting this button will immediately request a profile in all agents that are attached to the Application Insights instance.
 
 #### CPU
 
