@@ -18,17 +18,18 @@ Spark Advisor is a system that automatically analyzes commands and queries, and 
 
 ## Advice provided
 
-### May return inconsistent results when using 'randomSplit'
-Spark Advisor may return inconsistent or inaccurate results when you work with the results of the 'randomSplit' method. Use Apache Spark resilient distributed dataset caching before using the 'randomSplit' method.
+### Might return inconsistent results when you use 'randomSplit'
+Spark Advisor might return inconsistent or inaccurate results when you work with the results of the 'randomSplit' method. Use Apache Spark resilient distributed dataset caching before you use the 'randomSplit' method.
 
-The randomSplit method is equivalent to performing a sample on your dataframe multiple times, with each sample re-fetching, partitioning, and sorting your dataframe within partitions. The data distribution across partitions and sorting order is important for both randomSplit and sample. If either changes upon data re-fetch, there may be duplicates, or missing values across splits, and the same sample using the same seed may produce different results.
+The randomSplit method is equivalent to performing a sample on your dataframe multiple times, with each sample re-fetching, partitioning, and sorting your dataframe within partitions. The data distribution across partitions and sorting order is important for both randomSplit and sample methods. If either changes upon data re-fetch, there might be duplicates, or missing values across splits, and the same sample that uses the same seed might produce different results.
 
-These inconsistencies may not happen on every run. To eliminate them completely, cache your dataframe, repartition on a column(s), or apply aggregate functions such as groupBy.
+These inconsistencies might not happen on every run. To eliminate them completely, cache your dataframe, repartition on a column(s), or apply aggregate functions such as groupBy.
 
 ### The table/view name is already in use
-A view already exists with the same name as the created table, or a table already exists with the same name as the created view.When you use this name in queries or applications, Spark Advisor returns only the view, regardless of which one was created first. To avoid conflicts, rename either the table or the view.
+A view already exists with the same name as the created table, or a table already exists with the same name as the created view. When you use this name in queries or applications, Spark Advisor returns only the view, regardless of which one was created first. To avoid conflicts, rename either the table or the view.
 
 ## Hints related to advice
+
 ### Unable to recognize a hint
 The selected query contains a hint that isn't recognized. Verify that the hint is spelled correctly.
 
@@ -37,7 +38,7 @@ spark.sql("SELECT /*+ unknownHint */ * FROM t1")
 ```
 
 ### Unable to find a specified relation name(s)
-Unable to find the relation(s) specified in the hint. Verify that the relation(s) are spelled correctly and accessible within the scope of the hint.
+Unable to find the relation(s) specified in the hint. Verify that the relation(s) are spelled correctly and are accessible within the scope of the hint.
 
 ```scala
 spark.sql("SELECT /*+ BROADCAST(unknownTable) */ * FROM t1 INNER JOIN t2 ON t1.str = t2.str")
@@ -51,15 +52,14 @@ spark.sql("SELECT /*+ BROADCAST(t1), MERGE(t1, t2) */ * FROM t1 INNER JOIN t2 ON
 ```
 
 ## Enable 'spark.advise.divisionExprConvertRule.enable' to reduce rounding error propagation
-This query contains the expression with Double type. We recommend that you enable the configuration 'spark.advise.divisionExprConvertRule.enable', which can help reduce the division expressions, and to reduce the rounding error propagation.
+This query contains the expression with double type. We recommend that you enable the configuration 'spark.advise.divisionExprConvertRule.enable', which can help reduce the division expressions and the rounding error propagation.
 
 ```text
 "t.a/t.b/t.c" convert into "t.a/(t.b * t.c)"
 ```
 
 ## Enable 'spark.advise.nonEqJoinConvertRule.enable' to improve query performance
-This query contains time consuming join due to "Or" condition within query. We recommend that you enable the configuration 'spark.advise.nonEqJoinConvertRule.enable', which can help to convert the join triggered by "Or" condition to SMJ or BHJ to accelerate this query.
+This query contains a time-consuming join due to an "Or" condition within the query. We recommend that you enable the configuration 'spark.advise.nonEqJoinConvertRule.enable', which can help to convert the join triggered by the "Or" condition to SMJ or BHJ to accelerate this query.
 
 ## Next steps
-
 For more information on monitoring pipeline runs, see the [Monitor pipeline runs using Synapse Studio](how-to-monitor-pipeline-runs.md) article.
