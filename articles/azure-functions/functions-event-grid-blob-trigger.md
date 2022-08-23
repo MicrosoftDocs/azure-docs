@@ -24,19 +24,19 @@ Earlier versions of the Blob Storage trigger for Azure Functions polled the cont
 ## Prerequisites
 
 ::: zone pivot="programming-language-csharp"  
-[!INCLUDE [functions-requirements-vs-code-csharp](../../includes/functions-requirements-vs-code-csharp.md)]
+[!INCLUDE [functions-requirements-visual-studio-code-csharp](../../includes/functions-requirements-visual-studio-code-csharp.md)]
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-[!INCLUDE [functions-requirements-vs-code-node](../../includes/functions-requirements-vs-code-node.md)]
+[!INCLUDE [functions-requirements-visual-studio-code-node](../../includes/functions-requirements-visual-studio-code-node.md)]
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-[!INCLUDE [functions-requirements-vs-code-powershell](../../includes/functions-requirements-vs-code-powershell.md)]
+[!INCLUDE [functions-requirements-visual-studio-code-powershell](../../includes/functions-requirements-visual-studio-code-powershell.md)]
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-[!INCLUDE [functions-requirements-vs-code-python](../../includes/functions-requirements-vs-code-python.md)]
+[!INCLUDE [functions-requirements-visual-studio-code-python](../../includes/functions-requirements-visual-studio-code-python.md)]
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-[!INCLUDE [functions-requirements-vs-code-java](../../includes/functions-requirements-vs-code-java.md)]
+[!INCLUDE [functions-requirements-visual-studio-code-java](../../includes/functions-requirements-visual-studio-code-java.md)]
 ::: zone-end  
 + The [ngrok](https://ngrok.com/) utility, which provides a way for Azure to call into your locally running function.
 

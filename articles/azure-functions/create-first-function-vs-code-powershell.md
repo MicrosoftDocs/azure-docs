@@ -21,7 +21,7 @@ There's also a [CLI-based version](create-first-function-cli-powershell.md) of t
 
 Before you get started, make sure you have the following requirements in place:
 
-[!INCLUDE [functions-requirements-vs-code-powershell](../../includes/functions-requirements-vs-code-powershell.md)]
+[!INCLUDE [functions-requirements-visual-studio-code-powershell](../../includes/functions-requirements-visual-studio-code-powershell.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 

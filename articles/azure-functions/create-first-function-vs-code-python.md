@@ -25,7 +25,7 @@ There's also a [CLI-based version](create-first-function-cli-python.md) of this 
 
 Before you begin, make sure that you have the following requirements in place:
 
-[!INCLUDE [functions-requirements-vs-code-python](../../includes/functions-requirements-vs-code-python.md)]
+[!INCLUDE [functions-requirements-visual-studio-code-python](../../includes/functions-requirements-visual-studio-code-python.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 

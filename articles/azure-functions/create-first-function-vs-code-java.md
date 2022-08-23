@@ -28,7 +28,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 Before you get started, make sure you have the following requirements in place:
 
-[!INCLUDE [functions-requirements-vs-code-java](../../includes/functions-requirements-vs-code-java.md)]
+[!INCLUDE [functions-requirements-visual-studio-code-java](../../includes/functions-requirements-visual-studio-code-java.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 

@@ -25,7 +25,7 @@ There's also a [CLI-based version](create-first-function-cli-node.md) of this ar
 
 Before you get started, make sure you have the following requirements in place:
 
-[!INCLUDE [functions-requirements-vs-code-node](../../includes/functions-requirements-vs-code-node.md)]
+[!INCLUDE [functions-requirements-visual-studio-code-node](../../includes/functions-requirements-visual-studio-code-node.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 

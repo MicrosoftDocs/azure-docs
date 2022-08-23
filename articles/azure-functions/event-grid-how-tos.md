@@ -88,11 +88,11 @@ You can create an event subscription either from the [Azure portal](https://port
 
 For functions that you develop in the Azure portal with the Event Grid trigger, select **Integration** then choose the **Event Grid Trigger** and select **Create Event Grid subscription**.
 
-:::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Connect a new event subscription to trigger in the portal.":::
+:::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Screenshot of connecting to a new event subscription to trigger in the portal.":::
 
 When you select this link, the portal opens the **Create Event Subscription** page with the current trigger endpoint already defined.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Create event subscription with function endpoint already defined" :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Screenshot of creating an event subscription with the function endpoint already defined." :::
 
 For more information about how to create subscriptions by using the Azure portal, see [Create custom event - Azure portal](../event-grid/custom-event-quickstart-portal.md) in the Event Grid documentation.
 
@@ -126,7 +126,7 @@ To test an Event Grid trigger locally, you have to get Event Grid HTTP requests 
 
 When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [`az eventgrid event-subscription update`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) Azure CLI command.
 
-You can also use the *ngrok* utility to forward remote requests to your locally running functions. For more information, see see [this tutorial](./functions-event-grid-blob-trigger.md#start-local-debugging).
+You can also use the *ngrok* utility to forward remote requests to your locally running functions. For more information, see [this tutorial](./functions-event-grid-blob-trigger.md#start-local-debugging).
 
 ### Create a viewer web app
 
