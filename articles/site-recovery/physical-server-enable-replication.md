@@ -116,3 +116,4 @@ Use the policy to protect the chosen source machines.
 11. Choose the replication policy and select **Next**. Review the Source and Target properties and select **Enable Replication** to initiate the operation.
  
 A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
+
