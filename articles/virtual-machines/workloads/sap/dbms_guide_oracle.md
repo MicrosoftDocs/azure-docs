@@ -256,7 +256,7 @@ Usually customers will use RMAN, Azure Backup for Oracle and/or disk snap techni
 <p>- All temp files</p>
 <p>- Control file (first copy)</p></td>
 <td><p>5-30 or more x P30 (1TB) or P40 (2TB)</p>
-<p>To increase DB size <u>add</u> extra disks</p></td>
+<p>To increase DB size, <u>add</u> extra disks</p></td>
 </tr>
 <tr class="even">
 <td>+OLOG</td>
@@ -348,7 +348,7 @@ YouTube](https://www.youtube.com/watch?v=pRJgiuT-S2M)
 
 The combination of Azure VM’s and ANF is a robust and proven combination implemented by many customers on an exceptionally large scale.
 
-Databases of 100+TB are already running productive on this combination. To start we wrote a detailed blog on how to set up this combination:
+Databases of 100+TB are already running productive on this combination. To start, we wrote a detailed blog on how to set up this combination:
 
 [Deploy SAP AnyDB (Oracle 19c) with Azure NetApp Files - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
 
@@ -364,7 +364,7 @@ Even though the ANF is highly redundant, Oracle still requires a mirrored redo-l
 
 **ANF Backup**
 
-With ANF some key features are available like consistent snapshot-based backups, low latency, and remarkably high performance. From version 6 of our AzAcSnap tool [Azure Application Consistent Snapshot tool for ANF](https://docs.microsoft.com/azure/azure-netapp-files/azacsnap-get-started) Oracle databases can be configured for consistent database snapshots. Also, the option of resizing the volumes on the fly is valued by our customers.
+With ANF, some key features are available like consistent snapshot-based backups, low latency, and remarkably high performance. From version 6 of our AzAcSnap tool [Azure Application Consistent Snapshot tool for ANF](https://docs.microsoft.com/azure/azure-netapp-files/azacsnap-get-started) Oracle databases can be configured for consistent database snapshots. Also, the option of resizing the volumes on the fly is valued by our customers.
 
 Those snapshots remain on the actual data volume and must be copied away using ANF CRR (Cross Region Replication) [Cross-region replication of ANF](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction)
 or other backup tools.
@@ -447,7 +447,7 @@ The following recommendations should be followed when selecting a VM type:
 
 1.  Ensure the **Disk Throughput and IOPS** is sufficient for the workload and at least equal to the aggregate throughput of the disks
 2.  Consider enabling paid **bursting** especially for Redo Log disk(s)
-3.  For ANF the Network throughput is important as all storage traffic is counted as “Network” rather than Disk throughput
+3.  For ANF, the Network throughput is important as all storage traffic is counted as “Network” rather than Disk throughput
 4.  Review this blog for Network tuning for M-series [Optimizing Network Throughput on Azure M-series VMs HCMT (microsoft.com)](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/optimizing-network-throughput-on-azure-m-series-vms/ba-p/3581129)
 
 5.  Review this
@@ -468,7 +468,7 @@ Azure Mv2 [Mv2-series - Azure Virtual Machines \| Microsoft Docs](https://docs.m
 
 For backup/restore functionality, the SAP BR\*Tools for Oracle are supported in the same way as they are on bare metal and Hyper-V. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restores from disk.
 
-For more information about how you can use Azure Backup and Recovery services for backing up and recovering Oracle databases, see [<u>Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine</u>](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-overview).
+For more information about how you can use Azure Backup and Recovery services for Oracle databases, see [<u>Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine</u>](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-overview).
 
 [<u>Azure Backup service</u>](https://docs.microsoft.com/azure/backup/backup-overview) is also supporting Oracle backups as described in the article [<u>Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup</u>](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup).
 
@@ -482,7 +482,7 @@ Another good Oracle whitepaper [Setting up Oracle 12c Data Guard for SAP Custome
 
 **Huge Pages & Large Oracle SGA Configurations**
 
-VLDB SAP on Oracle on Azure deployments leverage SGA sizes in excess of 3TB.  Modern versions of Oracle handle large SGA sizes well and significantly reduce IO.  Review the AWR report and increase the SGA size to reduce read IO. 
+VLDB SAP on Oracle on Azure deployments apply SGA sizes in excess of 3TB.  Modern versions of Oracle handle large SGA sizes well and significantly reduce IO.  Review the AWR report and increase the SGA size to reduce read IO. 
 
 As general guidance Linux Huge Pages should be configured to approximately 75% of the VM RAM size.  The SGA size can be set to 90% of the Huge Page size.  A approximate example would be a m192ms VM with 4TB of RAM would have Huge Pages set proximately 3TB.  The SGA can be set to a value a little less such as 2.95TB.
 
@@ -534,7 +534,7 @@ SAP on Oracle on Azure also supports Windows. The recommendations for Windows de
 4.  All disks must be formatted NTFS
 5.  Follow the Windows Tuning guide from Oracle and enable large pages, lock pages in memory and other Windows specific settings
 
-At the time of writing ASM for Windows customers on Azure is not supported. SWPM for Windows does not support ASM currently. VLDB SAP on Oracle migrations to Azure have required ASM and have therefore selected Oracle Linux.
+At the time, of writing ASM for Windows customers on Azure is not supported. SWPM for Windows does not support ASM currently. VLDB SAP on Oracle migrations to Azure have required ASM and have therefore selected Oracle Linux.
 
 **Storage Configurations for SAP on Oracle on Windows**
 
