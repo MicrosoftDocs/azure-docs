@@ -20,30 +20,13 @@ The main business scenarios for the application of Azure Cognitive Services in c
 - Agent-assist: Real-time transcription and analysis of a call to improve the customer experience by providing insights and suggest actions to agents
 - Post-call analytics: Post-call analysis to create insights into customer conversations to improve understanding and support continuous improvement of call handling, optimization of quality assurance and compliance control as well as other insight driven optimizations
 
-## Cognitive Services for the Call Center
+## Implementation with Cognitive Services
 
 A holistic call center implementation typically incorporates technologies from the Language and Speech services. 
 
 Telephony data typically used in call centers generated through landlines, mobile phones, and radios is ordinarily of low quality. This data is often narrowband, in the range of 8 KHz, which can create challenges when you're converting speech to text. The Speech service recognition models are trained to ensure that you can get high-quality transcriptions, however you choose to capture the audio.
 
 Once you've transcribed your audio with the Speech service, you can use the Language service to perform post-transcription analytics on your call center data such as: sentiment analysis, summarizing the reason for customer calls, how they were resolved, extracting and redacting PII, and more.
-
-### Language service
-
-The Language service offers the following features that can be used for call center use cases:
-
-- [Personally Identifiable Information (PII) extraction and redaction](/azure/cognitive-services/language-service/personally-identifiable-information/overview): Identify, categorize, and redact sensitive information in unstructured text.
-- [Conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization): Summarize in abstract text what each conversation participant said about the issues and resolutions. For example, a call center can group product issues that have a high volume.
-- [Sentiment analysis and opinion mining](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview): Analyze transcriptions and associate positive, neutral, or negative sentiment at the utterance and conversation-level.
-
-The Language service works well with prebuilt models. However you might want to further customize and tune models to extract more information from your data. Typical examples for Language customization include:
-
-| Language customization | Description |
-| -------------- | ----- | ----------- |
-| [Custom NER (named entity recognition)](/azure/cognitive-services/language-service/custom-named-entity-recognition/overview) | Improve the detection and extraction of entities in transcriptions. |
-| [Custom text classification](/azure/cognitive-services/language-service/custom-text-classification/overview) | Classify and label transcribed utterances with either single or multiple classifications. |
-
-You can find an overview of all Language service features and customization options [here](/azure/cognitive-services/language-service/overview#available-features).
 
 ### Speech service
 
@@ -61,6 +44,23 @@ The Speech service works well with prebuilt models. However, you might want to f
 | -------------- | ----- | ----------- |
 | [Custom Speech](/azure/cognitive-services/speech-service/custom-speech-overview) | A speech-to-text feature used evaluate and improve the speech recognition accuracy of use-case specific entities (such as alpha-numeric customer, case, and contract IDs, license plates, and names). You can also train a custom model with your own product names and industry terminology. |
 | [Custom Neural Voice](/azure/cognitive-services/speech-service/custom-neural-voice) | A text-to-speech feature that lets you create a one-of-a-kind, customized, synthetic voice for your applications. |
+
+### Language service
+
+The Language service offers the following features that can be used for call center use cases:
+
+- [Personally Identifiable Information (PII) extraction and redaction](/azure/cognitive-services/language-service/personally-identifiable-information/overview): Identify, categorize, and redact sensitive information in unstructured text.
+- [Conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization): Summarize in abstract text what each conversation participant said about the issues and resolutions. For example, a call center can group product issues that have a high volume.
+- [Sentiment analysis and opinion mining](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview): Analyze transcriptions and associate positive, neutral, or negative sentiment at the utterance and conversation-level.
+
+The Language service works well with prebuilt models. However you might want to further customize and tune models to extract more information from your data. Typical examples for Language customization include:
+
+| Language customization | Description |
+| -------------- | ----- | ----------- |
+| [Custom NER (named entity recognition)](/azure/cognitive-services/language-service/custom-named-entity-recognition/overview) | Improve the detection and extraction of entities in transcriptions. |
+| [Custom text classification](/azure/cognitive-services/language-service/custom-text-classification/overview) | Classify and label transcribed utterances with either single or multiple classifications. |
+
+You can find an overview of all Language service features and customization options [here](/azure/cognitive-services/language-service/overview#available-features).
 
 ## Next steps
 
