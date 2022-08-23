@@ -143,6 +143,7 @@ URLS:
 URLs used by other Arc agents:
 
 |Agent resource | Description |
+|---------|---------|
 |`https://management.azure.com` |Azure Resource Manager|
 |`https://login.microsoftonline.com` |Azure Active Directory|
 
