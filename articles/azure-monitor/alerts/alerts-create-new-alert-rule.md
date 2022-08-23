@@ -4,7 +4,7 @@ description: Learn how to create a new alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 08/23/2022
 ms.reviewer: harelbr
 ---
 # Create a new alert rule
@@ -44,10 +44,10 @@ And then defining these elements for the resulting alert actions using:
 
     |Signal type  |Monitor service  |Description  |
     |---------|---------|---------|
-    |Metrics|Platform|For metric signals, the monitor service is the metric namespace. ‘Platform’ means the metrics are provided by the resource provider, namely 'Azure'.|
+    |Metrics|Platform   |For metric signals, the monitor service is the metric namespace. ‘Platform’ means the metrics are provided by the resource provider, namely 'Azure'.|
     |       |Azure.ApplicationInsights|Customer-reported metrics, sent by the Application Insights SDK. |
-    |       |Azure.VM.Windows.GuestMetrics|VM guest metrics, collected by an extension running on the VM. Can include built-in operating system perf counters, as well as custom perf counters.        |
-    |       |<custom metric namespace>|A custom metric namespace, containing custom metrics sent with the Azure Monitor Metrics API.         |
+    |       |Azure.VM.Windows.GuestMetrics   |VM guest metrics, collected by an extension running on the VM. Can include built-in operating system perf counters, and custom perf counters.        |
+    |       |  /<custom metric namespace>/   |A custom metric namespace, containing custom metrics sent with the Azure Monitor Metrics API.         |
     |Log    |Log Analytics|The service that provides the ‘Custom log search’ and ‘Log (saved query)’ signals.         |
     |Activity log|Activity Log – Administrative|The service that provides the ‘Administrative’ activity log events.         |
     |       |Activity Log – Policy|The service that provides the 'Policy' activity log events.         |
@@ -60,7 +60,7 @@ And then defining these elements for the resulting alert actions using:
 
 
  
-1. Select the **Signal name**, and follow the steps in the tab below that corresponds to the the type of alert you're creating.
+1. Select the **Signal name**, and follow the steps in the tab below that corresponds to the type of alert you're creating.
     ### [Metric alert](#tab/metric)
 
     1. In the **Configure signal logic** pane, you can preview the results of the selected metric signal. Select values for the following fields.
@@ -202,7 +202,7 @@ And then defining these elements for the resulting alert actions using:
 1. In the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
     - Select the **Resource group**.
-    - (Optional) If your target resource is in any of these regions, and you are creating a metric alert rule that monitors a custom metric, you can select a **Region** to ensure that the relevant data processing occurs within that region.
+    - (Optional) If your target resource is in any of these regions, and you're creating a metric alert rule that monitors a custom metric, you can select a **Region** to ensure that the relevant data processing occurs within that region.
         - North Europe
         - West Europe
         - Sweden Central
@@ -449,7 +449,7 @@ The *sampleActivityLogAlert.parameters.json* file contains the values provided f
 
 ## Changes to log alert rule creation experience
 
-If you're creating a new log alert rule, note that current alert rule wizard is a little different from the earlier experience:
+If you're creating a new log alert rule, please note that current alert rule wizard is a little different from the earlier experience:
 
 - Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action:
     - We recommend using [Dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
