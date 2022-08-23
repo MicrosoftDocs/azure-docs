@@ -11,7 +11,7 @@ keywords: "Kubernetes, K8s, Arc, AKS, Azure, containers, GitOps, Flux v2"
 
 You can use Azure Policy to apply Flux v2 configurations (`Microsoft.KubernetesConfiguration/fluxConfigurations` resource type) at scale on Azure Arc-enabled Kubernetes (`Microsoft.Kubernetes/connectedClusters`) or AKS (`Microsoft.ContainerService/managedClusters`) clusters.
 
-To use Azure Policy, select a built-in policy definition and create a policy assignment. You can search for **flux**"** to find all of the Flux v2 policy definitions. When creating the policy assignment:
+To use Azure Policy, select a built-in policy definition and create a policy assignment. You can search for **flux** to find all of the Flux v2 policy definitions. When creating the policy assignment:
 1. Set the scope for the assignment.
     * The scope will be all resource groups in a subscription or management group or specific resource groups.
 2. Set the parameters for the Flux v2 configuration that will be created. 
