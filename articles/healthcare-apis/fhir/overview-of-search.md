@@ -152,7 +152,7 @@ Similarly, you can do a reverse chained search. This allows you to retrieve reso
 
 ## Pagination
 
-As mentioned above, the results from a FHIR search will be available in paginated form at a link provided in the `searchset` bundle. By default, the FHIR service will display 10 search results per page, but this can be increased (or decreased) by setting the `_count` parameter. If there are more matches than fit on one page, the bundle will include a `next` link. Repeatedly clicking on the `next` link will yield the subsequent pages of results. Note that the `_count` parameter value cannot exceed 1000. 
+As mentioned above, the results from a FHIR search will be available in paginated form at a link provided in the `searchset` bundle. By default, the FHIR service will display 10 search results per page, but this can be increased (or decreased) by setting the `_count` parameter. If there are more matches than fit on one page, the bundle will include a `next` link. Repeatedly fetching the `next` link will yield the subsequent pages of results. Note that the `_count` parameter value cannot exceed 1000. 
 
 Currently, the FHIR service in Azure Health Data Services only supports the `next` link and doesn’t support `first`, `last`, or `previous` links in bundles returned from a search.
 
