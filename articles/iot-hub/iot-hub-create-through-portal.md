@@ -36,7 +36,7 @@ You can also view or modify the list of shared access policies by clicking **Sha
 
 Click **Add shared access policy** to open the **Add shared access policy** blade.  You can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following figure:
 
-:::image type="content" source="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png" alt-text="Screenshot showing adding a shared access policy." lightbox="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png":::
+:::image type="content" source="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png" alt-text="Screenshot that shows how to add a shared access policy." lightbox="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png":::
 
 * The **Registry Read** and **Registry Write** policies grant read and write access rights to the identity registry. These permissions are used by back-end cloud services to manage device identities. Choosing the write option automatically chooses the read option.
 
@@ -62,13 +62,13 @@ Click **Message Routing** under **Messaging** to see the Message Routing pane, w
 
 Routes is the first tab on the Message Routing pane. To add a new route, click +**Add**. You see the following screen.
 
-![Screenshot showing adding a new route](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
+![Screenshot that shows how to add a new route](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
 Name your route. The route name must be unique within the list of routes for that hub.
 
 For **Endpoint**, you can select one from the dropdown list, or add a new one. In this example, a storage account and container are already available. To add them as an endpoint, click +**Add** next to the Endpoint dropdown and select **Blob Storage**. The following screen shows where the storage account and container are specified.
 
-![Screenshot showing adding a storage endpoint for the routing rule](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
+![Screenshot that shows how to add a storage endpoint for the routing rule](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
 
 Click **Pick a container** to select the storage account and container. When you have selected those fields, it returns to the Endpoint pane. Use the defaults for the rest of the fields and **Create** to create the endpoint for the storage account and add it to the routing rules.
 
@@ -76,7 +76,7 @@ For **Data source**, select Device Telemetry Messages.
 
 Next, add a routing query. In this example, the messages that have an application property called `level` with a value equal to `critical` are routed to the storage account.
 
-![Screenshot showing saving a new routing rule](./media/iot-hub-create-through-portal/iot-hub-add-route.png)
+![Screenshot that shows how to save a new routing rule](./media/iot-hub-create-through-portal/iot-hub-add-route.png)
 
 Click **Save** to save the routing rule. You return to the Message Routing pane, and your new routing rule is displayed.
 
