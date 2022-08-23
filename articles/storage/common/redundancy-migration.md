@@ -69,9 +69,9 @@ To change the redundancy configuration for a storage account that contains blobs
 
 ## Prerequisites
 
-- Make sure your storage account(s) are in a region that supports ZRS. To determine whether or not the region supports ZRS, see [Zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage).
+- Make sure your storage account(s) are in a region that supports ZRS. To determine whether or not the region supports ZRS, see [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage).
 
-- Confirm that your storage account(s) is a general-purpose v2 account. If your storage account is v1, you'll need to upgrade it to v2. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](../storage/common/storage-account-upgrade.md).
+- Confirm that your storage account(s) is a general-purpose v2 account. If your storage account is v1, you'll need to upgrade it to v2. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).
 
 ## Downtime requirements
 
