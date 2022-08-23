@@ -4961,6 +4961,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/Speech/call-center-transcription.md",
+            "redirect_url": "/azure/cognitive-services/speech-service/call-center-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/concepts/data-limits.md",
             "redirect_url": "/azure/cognitive-services/language-service/overview",
             "redirect_document_id": false

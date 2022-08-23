@@ -14,16 +14,12 @@ ms.custom: template-concept
 
 # Call Center Overview
 
-
 Azure Cognitive Services enables customers to realize partial and full automation of telephony-based customer interactions as well as provide additional accessibility capabilities on all channels. Further they support the analysis of calls in real-time and post-call using Language services. You can extract and redact Personally Identifying Information (PII), summarize the transcription and detect the sentiment as well.
 
 The main business scenarios for the application of Microsoft Speech Services in AI-driven Call and Contact Centers are:
 - Virtual Agents: Conversational AI based telephony-integrated VoiceBots and voice-enabled ChatBots
 - Agent-Assist: Real-Time transcription and analysis of a call to improve the customer experience by providing additional insights and suggest actions to Agents
 - Post-Call Analytics: Post-Call analysis to create insights into customer conversations to improve understanding and support continuous improvement of call handling, optimization of quality assurance and compliance control as well as other insights driven optimizations
-
-> [!TIP]
-> Check-Out the [Post-Call Analytics quickstart]() ***COMMENT: LINK TO BE ADDED*** to learn how to quickly build and deploy a solution.
 
 ## Speech and Language technologies for the Call Center
 
@@ -36,12 +32,12 @@ Once you have transcribed your audio, you can use the Language Service to perfor
 A holistic implementation typically incorporates technologies from the Speech and Language Cognitive Services. 
 
 The Speech Service offers the following features:
-- [Real-time speech-to-text](./how-to-recognize-speech.md): Allow real-time recognition of audio from multiple inputs
-    - [Continuous recognition](./how-to-recognize-speech.md#use-continuous-recognition): Mostly used with real-time Call Center scenarios (Virtual Agents, Agent Assist) allows you to continuously recognize audio input and control how to process results based on multiple events
-- [Batch speech-to-text](./batch-transcription.md): Enables you to transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in Post Call Analytics scenarios
-- [Text-to-speech](./index-text-to-speech): Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech
-- [Speaker identification](./speaker-recognition-overview): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for Call Center customer verification scenarios or fraud detection
-- [Language Identification](./language-identification.md): Is used to identify languages spoken in audio and can be used in real-time and post call analysis to control the environment (e.g. output language of a Virtual Agent) or to gain additional insights
+- [Real-time speech-to-text](/azure/cognitive-services/speech-service/how-to-recognize-speech): Allow real-time recognition of audio from multiple inputs
+- [Continuous recognition](/azure/cognitive-services/speech-service/how-to-recognize-speech#use-continuous-recognition): Mostly used with real-time Call Center scenarios (Virtual Agents, Agent Assist) allows you to continuously recognize audio input and control how to process results based on multiple events
+- [Batch speech-to-text](/azure/cognitive-services/speech-service/batch-transcription): Enables you to transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in Post Call Analytics scenarios
+- [Text-to-speech](/azure/cognitive-services/speech-service/text-to-speech): Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech
+- [Speaker identification](/azure/cognitive-services/speech-service/speaker-recognition-overview): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for Call Center customer verification scenarios or fraud detection
+- [Language Identification](/azure/cognitive-services/speech-service/language-identification): Is used to identify languages spoken in audio and can be used in real-time and post call analysis to control the environment (e.g. output language of a Virtual Agent) or to gain additional insights
 
 And the Language Service offers the following:
 - [Personally Identifiable Information (PII) extraction](/azure/cognitive-services/language-service/personally-identifiable-information/overview): Identify, categorize, and redact sensitive information in unstructured text.
@@ -59,8 +55,8 @@ Typical examples for customization are:
 
 | Speech feature | Model | Description |
 | -------------- | ----- | ----------- |
-| Speech-to-text | [Custom Speech overview](./custom-speech-overview.md) | With Custom Speech, you can evaluate and improve the Microsoft speech-to-text accuracy for your applications and products. |
-| Text-to-speech | [Custom Neural Voice overview](./custom-neural-voice.md) | Custom Neural Voice is a text-to-speech feature that lets you create a one-of-a-kind, customized, synthetic voice for your applications. |
+| Speech-to-text | [Custom Speech overview](/azure/cognitive-services/speech-service/custom-speech-overview) | With Custom Speech, you can evaluate and improve the Microsoft speech-to-text accuracy for your applications and products. |
+| Text-to-speech | [Custom Neural Voice overview](/azure/cognitive-services/speech-service/custom-neural-voice) | Custom Neural Voice is a text-to-speech feature that lets you create a one-of-a-kind, customized, synthetic voice for your applications. |
 
 ### Language Customization
 The Language service works well with built-in models. However you might want to further customize and tune models to extract more information from your data.
@@ -69,14 +65,8 @@ You can find an overview of all Language Service features and customization opti
 
 ## Next steps
 
-***Comment: Add correct links!***
 - [Check out Speech Portal](https://speech.microsoft.com)
-- [Check out the Post-Call Analytics Quickstart](/azure/cognitive-services/speech-service/call-center-quickstart?branch=pr-en-us-206946&pivots=programming-language-csharp)
-- [Explore Custom Speech ](./custom-speech-overview.md)
-- [Explore Custom Neural Voice](./custom-neural-voice.md)
-- [Explore Lanugage Service Features](/azure/cognitive-services/language-service/overview#available-features).
+- [Explore Custom Speech](/azure/cognitive-services/speech-service/custom-speech-overview)
+- [Explore Custom Neural Voice](/azure/cognitive-services/speech-service/custom-neural-voice)
+- [Explore Language Service Features](/azure/cognitive-services/language-service/overview#available-features).
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
