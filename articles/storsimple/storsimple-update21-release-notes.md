@@ -43,6 +43,7 @@ The following key improvements have been made in Update 2.2.
 * **Update reliability improvements** – This release has bug fixes that result in an improved Update reliability.
 
 ## Issues fixed in Update 2.2
+
 The following table provides a summary of issues that were fixed in Updates 2.2 and 2.1.    
 
 | No | Feature | Issue | Applies to physical device | Applies to virtual device |
