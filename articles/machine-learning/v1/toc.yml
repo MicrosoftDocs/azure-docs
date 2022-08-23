@@ -136,9 +136,6 @@
         href: how-to-designer-import-data.md
     - name: Compliance
       items: 
-      - name: Preserve data privacy
-        displayName: data,privacy,differential privacy
-        href: how-to-differential-privacy.md
       - name: Export and delete data
         displayName: GDPR
         href: how-to-export-delete-data.md
