@@ -56,7 +56,7 @@ In order to profile a Java application, it's required that:
 ### Triggers
 
 For more detailed description of the various triggers available,
-see [sampling overrides](../profiler/profiler-overview.md).
+see [profiler overview](../profiler/profiler-overview.md).
 
 The ApplicationInsights Java Agent
 monitors CPU and memory consumption and if it breaches a configured threshold a profile is triggered.
@@ -77,7 +77,7 @@ performed. For instance, a profile would be triggered in the following scenario:
 - The maximum possible size of the Tenured memory region is 1024 mb.
 - Your threshold was set to 75%.
 - A full garbage collection is executed.
-- After the collection is finished, the Tenured regions occupancy is above 7668 mb.
+- After the collection is finished, the Tenured regions occupancy is above 768 mb.
 
 The maximum size of the tenured region is the size it would be if the JVMs' heap grew to its maximum size.
 
@@ -102,8 +102,12 @@ configuring resource limits that will trigger a profile if breached.
 2. Restart your process with the updated configuration.
 3. Configure the resource thresholds that will cause a profile to be collected:
     1. Browse to the Performance -> Profiler section of the Application Insights instance.
+       :::image type="content" source="../profiler/media/profiler-settings/performance-blade-inline.png" alt-text="Screenshot of the link to open performance blade." lightbox="media/profiler-settings/performance-blade.png":::
+       :::image type="content" source="../profiler/media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/profiler-settings/profiler-button.png":::
     2. Select "Triggers"
     3. Configure the required CPU and Memory thresholds. And select Apply.
+       :::image type="content" source="../profiler/media/profiler-settings/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for C P U and Memory triggers.":::
+
 
 > [!WARNING]
 > Currently the Java profiler does not support the "Sampling" trigger, configuring this will have no effect.
@@ -114,6 +118,9 @@ viewable from the
 Application Insights instance within the Performance -> Profiler section. From that screen the
 profile can be downloaded, once download the JFR recording file can be opened and analyzed within a
 tool of your choosing.
+
+:::image type="content" source="../profiler/media/profiler-settings/configure-blade-inline.png" alt-text="Screenshot of profiler page features and settings." lightbox="media/profiler-settings/configure-blade.png":::
+
 
 ### Configuration
 
