@@ -64,7 +64,7 @@ az network manager create \
     --scope-accesses "Connectivity" "SecurityAdmin" \
     --network-manager-scopes subscriptions="/subscriptions/<subscription_id>"
 ```
-## Create a Network Group
+## Create a network group
 
 Virtual Network Manager applies configurations to groups of VNets by placing them in **Network Groups.** Create a network group with [az network manager group create](/cli/azure/network/manager/group#az-network-manager-group-create).
 
@@ -75,9 +75,9 @@ az network manager group create \
     --resource-group "myAVNMResourceGroup" \
     --description "Network Group for Production virtual networks"
 ```
-## Create three virtual networks
+## Create virtual networks
 
-Create three virtual networks with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates virtual networks named **VNetA**, **VNetB**,**VNetC** and **VNetD** in the **West US** location. Each virtual network will have a tag of **networkType** used for dynamic membership. If you already have virtual networks you want create a mesh network with, you can skip to the next section.
+Create five virtual networks with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates virtual networks named **VNetA**, **VNetB**,**VNetC** and **VNetD** in the **West US** location. Each virtual network will have a tag of **networkType** used for dynamic membership. If you already have virtual networks you want create a mesh network with, you can skip to the next section.
 
 ```azurecli
 az network vnet create \
