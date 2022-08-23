@@ -48,14 +48,17 @@ To use the programmatic configuration and attach the Application Insights agent 
 
 And invoke the `attach()` method of the `com.microsoft.applicationinsights.attach.ApplicationInsights` class.
 
-> [!TIP]
-> ⚠ JRE is not supported.
+> [!WARNING]
+> 
+> JRE is not supported.
 
-> [!TIP]
-> ⚠ Read-only file system is not supported.
+> [!WARNING]
+>
+> Read-only file system is not supported.
 
-> [!TIP]
-> ⚠ The invocation must be requested at the beginning of the `main` method.
+> [!WARNING]
+> 
+> The invocation must be requested at the beginning of the `main` method.
 
 Example:
 
@@ -72,7 +75,7 @@ public class SpringBootApp {
 
 If you want to use a JSON configuration: 
 * The `applicationinsights.json` file has to be in the classpath
-* Or you can use an environmental variable or a system property, more in the _Configuration file path_ part on [this page](../app/java-standalone-config.md).
+* Or you can use an environmental variable or a system property, more in the _Configuration file path_ part on [this page](../app/java-standalone-config.md). Spring properties defined in a Spring _.properties_ file are not supported.
 
 
 > [!TIP]

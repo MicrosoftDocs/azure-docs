@@ -12,13 +12,6 @@ ms.subservice: teams-interop
 
 # Teams interoperability
 
-> [!IMPORTANT]
-> Teams external users interoperability for Teams meetings is now generally available to all Communication Services applications and Teams organizations.
->
-> Support for Teams users in Azure Communication Services SDK is in public preview and available to Web-based applications.
->
-> Preview APIs and SDKs are provided without a service-level agreement and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Azure Communication Services can be used to build custom applications and experiences that enable interaction with Microsoft Teams users over voice, video, chat, and screen sharing. The [Communication Services UI Library](ui-library/ui-library-overview.md) provides customizable, production-ready UI components that can be easily added to these applications. The following video demonstrates some of the capabilities of Teams interoperability:
 
 <br>

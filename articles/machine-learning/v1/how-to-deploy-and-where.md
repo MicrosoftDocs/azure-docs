@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: ssambare
-author: shivanissambare
+author: dem108
+ms.author: sehan
 ms.date: 07/28/2022
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4, mktng-kw-nov2021, cliv1, sdkv1, event-tier1-build-2022
@@ -469,7 +469,7 @@ When you deploy remotely, you may have key authentication enabled. The example b
 
 
 
-See the article on [client applications to consume web services](../how-to-consume-web-service.md) for more example clients in other languages.
+See the article on [client applications to consume web services](how-to-consume-web-service.md) for more example clients in other languages.
 
   [!INCLUDE [Email Notification Include](../../../includes/machine-learning-email-notifications.md)]
 
@@ -532,7 +532,7 @@ For more information, see the documentation for [WebService.delete()](/python/ap
 
 ## Next steps
 
-* [Troubleshoot a failed deployment](../how-to-troubleshoot-deployment.md)
+* [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
 * [Update web service](../how-to-deploy-update-web-service.md)
 * [One click deployment for automated ML runs in the Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md#deploy-your-model)
 * [Use TLS to secure a web service through Azure Machine Learning](../how-to-secure-web-service.md)

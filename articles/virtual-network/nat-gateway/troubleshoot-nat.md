@@ -37,7 +37,7 @@ This article provides guidance on how to configure your NAT gateway to ensure ou
 Check the following configurations to ensure that NAT gateway can be used to direct traffic outbound:
 1. At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity. 
 2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway cannot span beyond a single virtual network. 
-3. No [NSG rules](../network-security-groups-overview.md#outbound) or [UDRs](#virtual-appliance-udrs-and-vpn-expressroute-override-nat-gateway-for-routing-outbound-traffic) are blocking NAT gateway from directing traffic outbound to the internet.
+3. No [NSG rules](../network-security-groups-overview.md#outbound) or [UDRs](#virtual-appliance-udrs-and-expressroute-override-nat-gateway-for-routing-outbound-traffic) are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### How to validate connectivity
 
@@ -161,13 +161,13 @@ Test and resolve issues with VMs holding on to old SNAT IP addresses by:
 
 If you are still having trouble, open a support case for further troubleshooting. 
 
-### Virtual appliance UDRs and VPN ExpressRoute override NAT gateway for routing outbound traffic
+### Virtual appliance UDRs and ExpressRoute override NAT gateway for routing outbound traffic
 
 When forced tunneling with a custom UDR is enabled to direct traffic to a virtual appliance or VPN through ExpressRoute, the UDR or ExpressRoute takes precedence over NAT gateway for directing internet bound traffic. To learn more, see [custom UDRs](../virtual-networks-udr-overview.md#custom-routes). 
 
 The order of precedence for internet routing configurations is as follows: 
 
-Virtual appliance UDR / VPN ExpressRoute >> NAT gateway >> default system 
+Virtual appliance UDR / ExpressRoute >> NAT gateway >> instance level public IP addresses >> outbound rules on Load balancer >> default system 
 
 Test and resolve issues with a virtual appliance UDR or VPN ExpressRoute overriding your NAT gateway by: 
 1. [Testing that the NAT gateway public IP](./quickstart-create-nat-gateway-portal.md#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a custom UDR, follow the remaining steps on how to check for and remove custom UDRs.

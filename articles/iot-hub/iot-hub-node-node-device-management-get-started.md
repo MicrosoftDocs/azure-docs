@@ -15,17 +15,11 @@ ms.custom: mqtt, devx-track-js, devx-track-azurecli
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
-This article shows you how to:
+This article shows you how to create:
 
-* Create a simulated device app that contains a direct method that reboots that device. Direct methods are invoked from the cloud.
+* **dmpatterns_getstarted_device.js**: a simulated device app with a direct method that reboots the device and reports the last reboot time. Direct methods are invoked from the cloud.
 
-* Create a Node.js console app that calls the reboot direct method in the simulated device app through your IoT hub.
-
-At the end of this article, you have two Node.js console apps:
-
-* **dmpatterns_getstarted_device.js**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
-
-* **dmpatterns_getstarted_service.js**, which calls a direct method in the simulated device app, displays the response, and displays the updated reported properties.
+* **dmpatterns_getstarted_service.js**: a .NET console app that calls the direct method in the simulated device app through your IoT hub. It displays the response and updated reported properties.
 
 ## Prerequisites
 
@@ -35,11 +29,9 @@ At the end of this article, you have two Node.js console apps:
 
 * Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md) describes how to install Node.js for this article on either Windows or Linux.
 
-* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
-
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## Create a simulated device app
+## Create a device app with a direct method
 
 In this section, you:
 
@@ -137,7 +129,7 @@ In this section, you:
 8. Save and close the **dmpatterns_getstarted_device.js** file.
 
 > [!NOTE]
-> To keep things simple, this article does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
+> To keep things simple, this article does not implement a retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
 ## Get the IoT hub connection string
 
@@ -145,7 +137,7 @@ In this section, you:
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## Trigger a remote reboot on the device using a direct method
+## Create a service app to trigger a reboot
 
 In this section, you create a Node.js console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
 
