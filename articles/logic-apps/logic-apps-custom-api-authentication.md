@@ -127,7 +127,7 @@ If your web app or API app is already deployed, you can turn on authentication a
 
    1. For **App registration type**, select **Create new app registration**.
 
-   1. For **Name***, provide a name for your application identity.
+   1. For **Name**, provide a name for your application identity.
 
    1. For **Supported account types**, select the account types appropriate for your scenario.
 
@@ -220,7 +220,6 @@ The previous template already has this authorization section set up, but if you 
 | `clientId` | Yes | The GUID for the client requesting access, which is the client ID from the application identity for your logic app |
 | `secret` | Yes | The secret or password from the application identity for the client that's requesting the access token |
 | `type` | Yes | The authentication type. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`. |
-||||
 
 For example:
 
@@ -269,7 +268,6 @@ In the **Authorization** section, include the following properties:
 | `type` | Yes | The authentication type. For TLS/SSL client certificates, the value must be `ClientCertificate`. |
 | `password` | No | The password for accessing the client certificate (PFX file) |
 | `pfx` | Yes | The base64-encoded contents of the client certificate (PFX file) |
-||||
 
 <a name="basic"></a>
 
@@ -292,7 +290,6 @@ In the **Authorization** section, include the following properties:
 | `type` | Yes | The authentication type that you want to use. For basic authentication, the value must be `Basic`. |
 | `username` | Yes | The username that you want to use for authentication |
 | `password` | Yes | The password that you want to use for authentication |
-||||
 
 <a name="azure-ad-code"></a>
 
