@@ -112,7 +112,7 @@ You're not limited to the portal to use this feature. It's also accessible throu
 You add an alert to an incident by creating a relationship between them. Use the following endpoint to add an alert to an existing incident. After this request is made, the alert joins the incident and will be visible in the list of alerts in the incident in the portal.
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations/{relationName}?api-version=2021-10-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations/{relationName}?api-version=2022-07-01-preview
 ```
 
 The request body looks like this:
@@ -130,7 +130,7 @@ The request body looks like this:
 You remove an alert from an incident by deleting the relationship between them. Use the following endpoint to remove an alert from an existing incident. After this request is made, the alert will no longer be connected to or appear in the incident.
 
 ```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations/{relationName}?api-version=2021-10-01-preview
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations/{relationName}?api-version=2022-07-01-preview
 ```
 
 ### List alert relationships
@@ -138,7 +138,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 You can also list all the alerts that are related to a particular incident, with this endpoint and request:
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations?api-version=2021-10-01-preview
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations?api-version=2022-07-01-preview
 ```
 
 ### Specific error codes

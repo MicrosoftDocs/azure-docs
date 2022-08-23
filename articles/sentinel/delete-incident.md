@@ -13,31 +13,15 @@ ms.date: 08/22/2022
 >
 > Incident deletion is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-With Microsoft Sentinel as your SIEM, your SOC’s threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents are generated automatically by detection mechanisms that operate on the logs that Sentinel ingests from its connected data sources.
+The ability to create incidents from scratch in Microsoft Sentinel opens the possibility that you'll create an incident that you later decide you shouldn't have. For example, you may have created an incident based on an employee report, before having received any evidence (such as alerts), and soon afterward you receive alerts that automatically generate the incident in question. But now, you have a duplicate incident. In this scenario, you can delete your duplicate incident right from the incident queue in the portal.
 
-There can, however, be data from other sources – *besides those ingested into Microsoft Sentinel* – that justify creating an incident to be investigated. For example, an employee might witness an unrecognized person engaging in suspicious activity related to the organization’s information assets, and this employee might call or email the SOC to report the activity.
-
-For this reason, Microsoft Sentinel allows security analysts to manually create incidents from the user interface, for any type of event, regardless of its source or associated data.
-
-## Common use cases
-
-### Create an incident for a reported event
-
-This is the scenario described in the introduction above.
-
-### Create incidents out of events from external systems
-
-Create incidents based on events from systems whose logs are not ingested into Microsoft Sentinel. For example, a physical security system such as a gated entry might catch an unauthorized person or a person entering or leaving at an unusual or unauthorized time.
-
-### Create incidents based on hunting results
-
-Create incidents based on the observed results of hunting activities. For example, in the course of your threat hunting activities in relation to a particular investigation (or independently), you might come across evidence of a completely unrelated threat that warrants its own separate investigation.
-
-## Manually create an incident
+## Delete an incident using the Azure portal
 
 1. From the Microsoft Sentinel navigation menu, select **Incidents**.
 
-1. On the **Incidents** page, select **+ Create incident (Preview)** from the button bar.  
+1. On the **Incidents** page, select the incident or incidents you want to delete by marking the checkboxes next to them in the queue. 
+
+1. Select **Delete** from the button bar.  
 
     :::image type="content" source="media/create-incident-manually/create-incident-main-page.png" alt-text="Screenshot of main incident screen, locating the button to create a new incident manually."  lightbox="media/create-incident-manually/create-incident-main-page.png":::
 

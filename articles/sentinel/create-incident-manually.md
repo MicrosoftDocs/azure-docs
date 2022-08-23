@@ -33,7 +33,15 @@ Create incidents based on events from systems whose logs are not ingested into M
 
 Create incidents based on the observed results of hunting activities. For example, in the course of your threat hunting activities in relation to a particular investigation (or independently), you might come across evidence of a completely unrelated threat that warrants its own separate investigation.
 
-## Manually create an incident using the Azure portal
+## Manually create an incident
+
+There are three ways to create an incident manually:
+
+- [Create an incident using the Azure portal](#create-an-incident-using-the-azure-portal)
+- [Create an incident using the Microsoft Sentinel API](#create-an-incident-using-the-microsoft-sentinel-api), through the [Incidents](/rest/api/securityinsights/preview/incidents) operation group. It allows you to get, create, update, and delete incidents.
+- [Create an incident using Azure Logic Apps](#create-an-incident-using-azure-logic-apps), using the Microsoft Sentinel Incident trigger.
+
+### Create an incident using the Azure portal
 
 1. Select **Microsoft Sentinel** and choose your workspace.
 
@@ -80,11 +88,30 @@ Create incidents based on the observed results of hunting activities. For exampl
 
     Select the incident in the queue to see its full details, add bookmarks, change its owner and status, and more.
 
-## Manually create an incident using the Microsoft Sentinel API
+### Create an incident using the Microsoft Sentinel API
+
+You're not limited to the portal to use this feature. It's also accessible through the Microsoft Sentinel API, through the [Incident relations](/rest/api/securityinsights/preview/incident-relations) operation group. It allows you to get, create, update, and delete relationships between alerts and incidents.
+
+
+You add an alert to an incident by creating a relationship between them. Use the following endpoint to add an alert to an existing incident. After this request is made, the alert joins the incident and will be visible in the list of alerts in the incident in the portal.
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations/{relationName}?api-version=2022-07-01-preview
+```
+
+The request body looks like this:
+
+```json
+{ 
+    "properties": { 
+        "relatedResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/entities/{systemAlertId}" 
+    } 
+} 
+```
 
 
 
-## Manually create an incident using Azure Logic Apps
+### Create an incident using Azure Logic Apps
 
 
 
