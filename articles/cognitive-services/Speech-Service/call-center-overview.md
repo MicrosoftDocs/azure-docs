@@ -21,7 +21,10 @@ The main business scenarios for the application of Microsoft Speech Services in 
 - Agent-Assist: Real-Time transcription and analysis of a call to improve the customer experience by providing additional insights and suggest actions to Agents
 - Post-Call Analytics: Post-Call analysis to create insights into customer conversations to improve understanding and support continuous improvement of call handling, optimization of quality assurance and compliance control as well as other insights driven optimizations
 
-## Speech and Language technologies for the Call Center
+> [!TIP]
+> Check-Out the **[Post-Call Analytics quickstart](./call-center-quickstart)** to learn how to quickly build and deploy a solution.
+
+## Cognitive Services technologies for the Call Center
 
 Telephony data typically used in Call Centers is generated through landlines, mobile phones, and radios is ordinarily of low quality. This data is often narrowband, in the range of 8 KHz, which can create challenges when you're converting speech to text. Our speech to text models are trained to ensure customers can get high-quality transcriptions whatever systems they use to capture audio.
 
