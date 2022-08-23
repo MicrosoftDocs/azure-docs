@@ -80,6 +80,7 @@
         href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
       - name: Attach Azure NetApp Files to Azure VMware Solution VMs
         href: netapp-files-with-azure-vmware-solution.md
+    - name: Backup with Azure Backup Server
       items:
       - name: Set up Backup Server
         href: set-up-backup-server-for-azure-vmware-solution.md
