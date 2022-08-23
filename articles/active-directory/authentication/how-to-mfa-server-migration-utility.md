@@ -51,7 +51,7 @@ Admins can use the MFA Server Migration Utility to target single users or groups
 
 An MFA Server migration generally includes the steps in the following process:
 
-:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/migration-phases.png" alt-text="MFA Server migration phases.":::
+:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/migration-phases.png" alt-text="Diagram of MFA Server migration phases.":::
 
 A few important points:
 
