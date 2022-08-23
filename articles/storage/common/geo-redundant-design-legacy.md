@@ -1,20 +1,20 @@
 ---
-title: Use geo-redundancy to design highly available applications
+title: Use geo-redundancy to design highly available applications (.NET v11 SDK)
 titleSuffix: Azure Storage
-description: Learn how to use geo-redundant storage to design a highly available application that is flexible enough to handle outages.
+description: Learn how to use geo-redundant storage to design a highly available application using the .NET v11 SDK that is flexible enough to handle outages.
 services: storage
 author: pauljewellmsft
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2022
+ms.date: 08/23/2022
 ms.author: pauljewell
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
 ---
 
-# Use geo-redundancy to design highly available applications
+# Use geo-redundancy to design highly available applications (.NET v11 SDK)
 
 A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available and durable platform for hosting data and applications. Developers of cloud-based applications must consider carefully how to leverage this platform to maximize those advantages for their users. Azure Storage offers geo-redundant storage to ensure high availability even in the event of a regional outage. Storage accounts configured for geo-redundant replication are synchronously replicated in the primary region, and then asynchronously replicated to a secondary region that is hundreds of miles away.
 
@@ -144,12 +144,6 @@ You have three main options for monitoring the frequency of retries in the prima
 
 - Add a handler for the [**Retrying**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) event on the [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) object you pass to your storage requests – this is the method displayed in this article and used in the accompanying sample. These events fire whenever the client retries a request, enabling you to track how often the client encounters retryable errors on a primary endpoint.
 
-    # [.NET v12 SDK](#tab/current)
-
-    We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
-
-    # [.NET v11 SDK](#tab/legacy)
-
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
@@ -162,12 +156,6 @@ You have three main options for monitoring the frequency of retries in the prima
     ---
 
 - In the [**Evaluate**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) method in a custom retry policy, you can run custom code whenever a retry takes place. In addition to recording when a retry happens, this also gives you the opportunity to modify your retry behavior.
-
-    # [.NET v12 SDK](#tab/current)
-
-    We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
-
-    # [.NET v11 SDK](#tab/legacy)
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -231,13 +219,7 @@ It's important to test that your application behaves as expected when it encount
 
 You can use [Fiddler](https://www.telerik.com/fiddler) to intercept and modify HTTP responses in a script. This script can identify responses that come from your primary endpoint and change the HTTP status code to one that the Storage Client Library recognizes as a retryable error. This code snippet shows a simple example of a Fiddler script that intercepts responses to read requests against the **employeedata** table to return a 502 status:
 
-# [Java v12 SDK](#tab/current)
-
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
-
-# [Java v11 SDK](#tab/legacy)
-
-```java
+```
 static function OnBeforeResponse(oSession: Session) {
     ...
     if ((oSession.hostname == "\[yourstorageaccount\].table.core.windows.net")

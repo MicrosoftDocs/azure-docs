@@ -28,7 +28,7 @@ You can design your application to handle transient faults or significant outage
 
 Keep in mind these key considerations when designing your application for availability and resiliency using RA-GRS or RA-GZRS:
 
-- A read-only copy of the data you store in the primary region is asynchronously replicated in a secondary region. As noted earlier, the storage service determines the location of the secondary region.
+- A read-only copy of the data you store in the primary region is asynchronously replicated in a secondary region. The storage service determines the location of the secondary region.
 
 - The read-only copy in the secondary region is [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency) with the data in the primary region.
 
