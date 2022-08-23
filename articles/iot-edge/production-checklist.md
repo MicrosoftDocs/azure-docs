@@ -224,7 +224,7 @@ Module image garbage collection is a feature offered by IoT Edge v1.4 and later 
 
 By default, this feature is enabled to run once per day at midnight (device local time) and remove module images that are at least 7 days old. The parameters to disable the feature, modifying the recurrence, or module image age cleanup threshold are set in the `config.toml`. If not specified, the default values are applied.
 
-The following is an example config.toml for image garbage collection. 
+The following is an example `config.toml` for image garbage collection. 
 ```toml
 [image_garbage_collection]
 enabled = "true"
