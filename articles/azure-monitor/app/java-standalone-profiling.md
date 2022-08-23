@@ -62,6 +62,10 @@ The ApplicationInsights Java Agent
 monitors CPU and memory consumption and if it breaches a configured threshold a profile is triggered.
 Both thresholds are a percentage.
 
+#### Profile now
+
+Within the profiler user interface, (see [profiler settings](../profiler/profiler-settings.md)) there is a Profile now button. Selecting this button will immediately request a profile in all agents that are attached to the Application Insights instance.
+
 #### CPU
 
 For CPU, the threshold is a percentage of the usage of all available
@@ -154,7 +158,8 @@ Example configuration:
     "profiler": {
       "enabled": true,
       "cpuTriggeredSettings": "profile-without-env-data",
-      "memoryTriggeredSettings": "profile-without-env-data"
+      "memoryTriggeredSettings": "profile-without-env-data",
+      "manualTriggeredSettings": "profile-without-env-data"
     }
   }
 }
@@ -170,6 +175,14 @@ requested. This value can be one of:
 - A path to a custom jfc configuration file on the file system, i.e `/tmp/myconfig.jfc`.
 
 `cpuTriggeredSettings` This configuration will be used if a cpu profile is requested.
+This value can be one of:
+
+- `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see
+  Warning section above for details.
+- `profile`. Uses the `profile.jfc` jfc configuration that ships with JFR.
+- A path to a custom jfc configuration file on the file system, i.e `/tmp/myconfig.jfc`.
+
+`manualTriggeredSettings` This configuration will be used if a manual profile is requested.
 This value can be one of:
 
 - `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see
