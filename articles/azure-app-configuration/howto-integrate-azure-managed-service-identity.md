@@ -7,7 +7,7 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps, devdivchpfy22
 ms.topic: conceptual
-ms.date: 08/17/2022
+ms.date: 08/23/2022
 zone_pivot_groups: appconfig-provider
 ---
 # Use managed identities to access App Configuration
@@ -84,13 +84,13 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. Select **Add** > **Add role assignment**.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows the Access control (IAM) page with Add role assignment menu open.":::
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu.png" alt-text="Screenshot that shows the Access control (IAM) page with Add role assignment menu open.":::
 
    If you don't have permission to assign roles, then the **Add role assignment** option will be disabled. For more information, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
 1. On the **Role** tab, select the **App Configuration Data Reader** role and then select **Next**.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/select-role-assignment.png" alt-text="Screenshot that shows the Add role assignment page with Role tab selected.":::
+    :::image type="content" source="../../includes/role-based-access-control/media/select-role-assignment-generic.png" alt-text="Screenshot that shows the Add role assignment page with Role tab selected.":::
 
 1. On the **Members** tab, select **Managed identity** and then select **Select members**.
 
