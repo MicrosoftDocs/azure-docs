@@ -13,7 +13,7 @@ ms.custom: devdivchpfy22
 
 1. Select **App Configuration** from the search results, and then select **Create**.
 
-    :::image type="content" source="media/azure-app-configuration-create/azure-portal-app-configuration-create.png" alt-text="Screenshot that shows the Create page.":::
+    :::image type="content" source="media/azure-app-configuration-create/azure-portal-app-configuration-create-page.png" alt-text="Screenshot that shows the Create page.":::
 
 1. On the **Create App Configuration** pane, enter the following settings:
 

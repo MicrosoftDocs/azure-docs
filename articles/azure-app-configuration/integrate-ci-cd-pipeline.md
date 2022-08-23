@@ -72,17 +72,17 @@ To do a cloud build, with Azure DevOps for example, ensure that the [Azure CLI](
      setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
-## [Windows](#tab/windows)
-
-```powershell
-     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-```
-
-## [macOS/Linux](#tab/macos)
-
-```console
-     export ConnectionString='connection-string-of-your-app-configuration-store'
-```
+    ## [Windows](#tab/windows)
+    
+    ```powershell
+         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
+    
+    ## [macOS/Linux](#tab/macos)
+    
+    ```console
+         export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 ---
 

@@ -131,7 +131,7 @@ Create a JSON file called `Import.json` with the following content and import as
 az appconfig kv import -s file --format json --path "~/Import.json" --content-type "application/json" --separator : --depth 2
 ```
 
-> [!Note]
+> [!NOTE]
 > The `--depth` argument is used for flattening hierarchical data from a file into key-value pairs. In this tutorial, depth is specified for demonstrating that you can also store JSON objects as values in App Configuration. If depth isn't specified, JSON objects will be flattened to the deepest level by default.
 
 The JSON key-values you created should look like this in App Configuration:
