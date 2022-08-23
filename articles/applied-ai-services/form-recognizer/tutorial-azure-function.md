@@ -34,15 +34,15 @@ In this tutorial, you learn how to:
 
 * **A Form Recognizer resource**. Once you have your Azure subscription, create a [Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-  * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+  * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the tutorial:
 
       :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 * [**Python 3.6.x, 3.7.x, 3.8.x or 3.9.x**](https://www.python.org/downloads/) (Python 3.10.x isn't supported for this project).
 
-* The latest version of [**Visual Studio Code**](https://code.visualstudio.com/) with the following extensions installed:
+* The latest version of [**Visual Studio Code**](https://code.visualstudio.com/) (VS Code) with the following extensions installed:
 
-  * [**Azure Functions extension**](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.VS Code-azurefunctions). Once it's installed, you should see the Azure logo in the left-navigation pane.
+  * [**Azure Functions extension**](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). Once it's installed, you should see the Azure logo in the left-navigation pane.
 
   * [**Azure Functions Core Tools**](/azure/azure-functions/functions-run-local?tabs=v3%2Cwindows%2Ccsharp%2Cportal%2Cbash) version 3.x (Version 4.x isn't supported for this project).
 
@@ -67,7 +67,7 @@ In this tutorial, you learn how to:
 
 1. Create a new folder named **functions-app** to contain the project and choose **Select**.
 
-1. Open Visual Studio Code and open the Command Palette (Ctrl+Shift+P). Search for and choose **Python:Select Interpreter** → choose **Use Python from \`python.defaultInterpreterPath` setting**. This selection will set the default Python interpreter path.
+1. Open Visual Studio Code and open the Command Palette (Ctrl+Shift+P). Search for and choose **Python:Select Interpreter** → choose an installed Python interpreter that is version 3.6.x, 3.7.x, 3.8.x or 3.9.x. This selection will add the Python interpreter path you selected to your project.
 
 1. Select the  Azure logo from the left-navigation pane.
 
@@ -113,17 +113,15 @@ In this tutorial, you learn how to:
 
 ## Test the function
 
-* Press F5 to run the basic function. VS Code will prompt you to select a storage account to interface with.
+1. Press F5 to run the basic function. VS Code will prompt you to select a storage account to interface with.
 
-* Select the storage account you created and continue.
+1. Select the storage account you created and continue.
 
-* Open Azure Storage Explorer and upload the sample PDF document to the **input** container. Then check the VS Code terminal.
-
-* The script should log that it was triggered by the PDF upload.
+1. Open Azure Storage Explorer and upload the sample PDF document to the **input** container. Then check the VS Code terminal.The script should log that it was triggered by the PDF upload.
 
     :::image type="content" source="media/tutorial-azure-function/vs-code-terminal-test.png" alt-text="Screenshot of the VS Code terminal after uploading a new document.":::
 
-* Stop the script before continuing.
+1. Stop the script before continuing.
 
 ## Add document processing code
 
@@ -285,9 +283,9 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
 
 ## Run the function
 
-* Press F5 to run the function again.
+1. Press F5 to run the function again.
 
-* Use Azure Storage Explorer to upload a sample PDF form to the **input** storage container. This action should trigger the script to run, and you should then see the resulting .csv file (displayed as a table) in the **output** container.
+1. Use Azure Storage Explorer to upload a sample PDF form to the **input** storage container. This action should trigger the script to run, and you should then see the resulting .csv file (displayed as a table) in the **output** container.
 
 You can connect this container to Power BI to create rich visualizations of the data it contains.
 
