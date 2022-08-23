@@ -147,7 +147,7 @@ Copy the `Azure-AsyncOperation` header from the response and poll the URI using 
     <!-- IMAGE -->
 1. Continue to complete the volume creation process. See: 
     * [Create an NFS volume](azure-netapp-files-create-volumes.md)
-    * [Create an SMB volume](zure-netapp-files-create-volumes-smb.md)
+    * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
     * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 
 ## Error messages and troubleshooting
