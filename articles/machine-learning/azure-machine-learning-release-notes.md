@@ -9,7 +9,7 @@ ms.custom: event-tier1-build-2022
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 08/03/2022
+ms.date: 08/29/2022
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -18,6 +18,32 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## 2022-08-29
+
+### Azure Machine Learning SDK for Python v1.45.0 
+  + **azureml-automl-core**
+    + Added rolling_forecast() public method to the forecasting pipeline wrappers for all supported forecasting models. This method replaces the deprecated rolling_evalution() method.
+  + **azureml-automl-runtime**
+    + Fixed a bug where the sample_weight column was not properly validated.
+    + Added rolling_forecast() public method to the forecasting pipeline wrappers for all supported forecasting models. This method replaces the deprecated rolling_evalution() method.
+    + Fixed an issue where AutoML Regression tasks may fall back to train-valid split for model evaluation, when CV would have been a more appropriate choice.
+  + **azureml-contrib-aisc**
+    + Only used by 1P for now
+  + **azureml-contrib-automl-dnn-forecasting**
+    + Added rolling_forecast() public method to the forecasting pipeline wrappers for all supported forecasting models. This method replaces the deprecated rolling_evalution() method.
+  + **azureml-core**
+    + New cloud configuration suffix added, "aml_discovery_endpoint".
+  + **azureml-mlflow**
+    + New cloud configuration suffix added, "aml_discovery_endpoint".
+  + **azureml-responsibleai**
+    + update azureml-responsibleai package and curated images to raiwidgets and responsibleai 0.21.0
+    + updated azureml-responsibleai and images to raiwidgets and responsibleai 0.20.0
+  + **azureml-sdk**
+    + The azureml-sdk package now allow Python 3.9.
+  + **azureml-training-tabular**
+    + Added rolling_forecast() public method to the forecasting pipeline wrappers for all supported forecasting models. This method replaces the deprecated rolling_evalution() method.
+
 
 ## 2022-08-01
 
