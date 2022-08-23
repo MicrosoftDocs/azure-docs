@@ -75,12 +75,11 @@ to single it out like this:
 
 UPDATE ads
    SET impressions_count = impressions_count+1
- WHERE id = 42;
-    -- ^---- no filter on distribution column!
+ WHERE id = 42; -- missing filter on distribution column
 ```
 
 Although the query uniquely identifies a row and updates it, Hyperscale (Citus)
-doesn't know at execution time which shard the query will update. Citus takes a
+doesn't know at planning time which shard the query will update. Citus takes a
 ShareUpdateExclusiveLock on all shards to be safe, which blocks other queries
 trying to update the table.
 
@@ -102,9 +101,9 @@ column and knows exactly which single shard to lock. In our tests, adding
 filters for the distribution column increased parallel update performance by
 **100x**.
 
-## Lock contention
-
 ## Table bloat
+
+## Lock contention
 
 ### Detecting locks
 
@@ -112,11 +111,27 @@ filters for the distribution column increased parallel update performance by
 
 #### DDL commands
 
+DDL Commands like `truncate`, `drop`, and `create index` all take write locks,
+and block writes on the entire table. Minimizing such operations reduces
+locking issues. Try to consolidate them into maintenance windows, or use them
+less often.
+
 #### Idle connections
+
+Idle (uncommitted) transactions can unnecessary block other queries.
 
 #### Locking hierarchy
 
+Avoid deadlocks with a locking hierarchy.
+
 ## I/O during ingestion
+
+## Summary of results
+
+| Technique | Query speedup |
+| Scoping queries | 100x |
+| Connection pooling | 24x |
+| Efficient logging | 10x |
 
 ## Next steps
 
