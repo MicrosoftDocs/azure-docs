@@ -42,7 +42,8 @@ ms.custom: template-how-to
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-basics-tab.png" alt-text="Screenshot of the Azure portal. It shows the basics tab for a SIM policy. The Add a network scope button is highlighted.":::
 
-1. Under **Add a network scope** on the right, fill out each of the fields using the information you collected from [Collect information for the network scope](collect-required-information-for-sim-policy.md#collect-information-for-the-network-scope).
+1. Under **Add a network scope** on the right, fill out each of the fields using the information you collected from [Collect information for the network scope](collect-required-information-for-sim-policy.md#collect-information-for-the-network-scope).  
+Any services that are children of a SIM policy will inherit the Quality of Service (QoS) settings properties of the parent SIM policy unless a QoS is defined for the service.
 1. Select **Add**.
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/add-a-network-scope.png" alt-text="Screenshot of the Azure portal. It shows the Add a network scope screen. The Add button is highlighted.":::
