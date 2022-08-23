@@ -43,21 +43,21 @@ The control's output isn't displayed to the user. Instead, the operation's resul
 - The `request.method` property specifies the HTTP method. Only GET or POST are allowed.
 - The `request.path` property specifies a URL that must be a relative path to an Azure Resource Manager endpoint. It can be a static path or can be constructed dynamically by referring output values of the other controls.
 
-  For example, an Azure Resource Manager call into `Microsoft.Network/expressRouteCircuits` resource provider:
+  For example, an Azure Resource Manager call into the `Microsoft.Network/expressRouteCircuits` resource provider.
 
   ```json
-  "path": "subscriptions/<subid>/resourceGroup/<resourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<routecircuitName>/?api-version=2022-01-01"
+  "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}?api-version=2022-01-01"
   ```
 
 - The `request.body` property is optional. Use it to specify a JSON body that is sent with the request. The body can be static content or constructed dynamically by referring to output values from other controls.
 
 ## Example
 
-In the following example, the `providersApi` element uses the `ArmApiControl` and calls an API to get an array of provider objects. The array is used to create a list of provider names.
+In the following example, the `providersApi` element uses the `ArmApiControl` and calls an API to get an array of provider objects.
 
-The `providersDropDown` element's `allowedValues` property is configured to get the names of the providers. The provider names are displayed in the dropdown list.
+The `providersDropDown` element's `allowedValues` property is configured to use the array and get the provider names. The provider names are displayed in the dropdown list.
 
-The `output` property `providerName` shows the provider name that was selected from the dropdown list. The output can be used to pass the value to a parameter in a managed application template.
+The `output` property `providerName` shows the provider name that was selected from the dropdown list. The output can be used to pass the value to a parameter in an Azure Resource Manager template.
 
 ```json
 {
@@ -94,7 +94,7 @@ The `output` property `providerName` shows the provider name that was selected f
 }
 ```
 
-For an example of the `ArmApiControl` that uses the `request.body` property, see the [Microsoft.Common.TextBox](microsoft-common-textbox.md) single-line example. That example checks the availability of a storage account name and returns a message if the name is unavailable.
+For an example of the `ArmApiControl` that uses the `request.body` property, see the [Microsoft.Common.TextBox](microsoft-common-textbox.md#single-line) single-line example. That example checks the availability of a storage account name and returns a message if the name is unavailable.
 
 ## Next steps
 
