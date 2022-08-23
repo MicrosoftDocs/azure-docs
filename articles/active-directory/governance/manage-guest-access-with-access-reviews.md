@@ -38,7 +38,7 @@ For more information, [License requirements](access-reviews-overview.md#license-
 First, you must be assigned one of the following roles:
 - global administrator
 - User administrator
-- (Preview) M365 or AAD Security Group owner of the group to be reviewed
+- (Preview) Microsoft 365 or Azure AD Security Group owner of the group to be reviewed
 
 Then, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization.
 
