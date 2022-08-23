@@ -443,9 +443,7 @@ You can define Deduce as a claims provider by adding it to the **ClaimsProvider*
 
 1. Open the `TrustFrameworkExtensions.xml`.
 
-1. Find the **ClaimsProviders** element. If it doesn't exist, add it under the root element.
-
-1. Add a new **ClaimsProvider** as follows:
+1. Find the **ClaimsProvider** element. If it doesn't exist, add a new **ClaimsProvider** as follows:
 
    ```xml
     <ClaimsProvider>
