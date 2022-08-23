@@ -1,5 +1,5 @@
 ---
-title: Create a webhook schema for activity log alerts
+title: Configure the webhook to get activity log alerts
 description: Learn about the schema of the JSON that is posted to a webhook URL when an activity log alert activates.
 ms.topic: conceptual
 ms.date: 03/31/2017
