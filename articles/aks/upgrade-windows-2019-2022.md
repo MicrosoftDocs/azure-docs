@@ -1,5 +1,5 @@
 ---
-title: Upgrade container apps from Windows Server 2019 to 2022
+title: Upgrade Kubernetes workloads from Windows Server 2019 to 2022
 description: Learn how to upgrade the OS version for Windows workloads on AKS
 services: container-service
 ms.topic: article
@@ -8,7 +8,7 @@ ms.author: viniap
 
 ---
 
-# Upgrade container apps from Windows Server 2019 to 2022
+# Upgrade Kubernetes workloads from Windows Server 2019 to 2022
 
 Upgrading the OS version of a running Windows workload on Azure Kubernetes Service (AKS) requires you to deploy a new node pool as Windows versions must match on each node pool. This article describes the steps to upgrade the OS version for Windows workloads as well as other important aspects.
 
@@ -18,22 +18,22 @@ Windows Server 2019 and Windows Server 2022 cannot co-exist on the same node poo
 
 ## Before you begin
 
-- Update the FROM statement on your docker file to the new OS version. 
+- Update the FROM statement on your dockerfile to the new OS version. 
 - Check your application and verify that the container app works on the new OS version.
 - Deploy the verified container app on AKS to a development or testing environment.
 - Take note of the new image name or tag. This will be used below to replace the 2019 version of the image on the YAML file to be deployed to AKS.
 
 > [!NOTE]
-> Check out the documentation on how to [write](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile) and [optimize](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile) a docker file for Windows workloads.
+> Check out [Dockerfile on Windows](virtualization/windowscontainers/manage-docker/manage-windows-dockerfile) and [Optimize Windows Dockerfiles](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile) to learn more about how to build a dockerfile for Windows workloads.
 
 ## Add a Windows Server 2022 node pool to the existing cluster
 
 Windows Server 2019 and 2022 cannot co-exist on the same node pool on AKS. To upgrade your application, you need a separate node pool for Windows Server 2022.
-Check out the [documentation](https://docs.microsoft.com/azure/aks/learn/quick-windows-container-deploy-cli#add-a-windows-server-2022-node-pool-preview) on how to add a new Windows Server 2022 node pool to an existing AKS cluster.
+For more information on how to add a new Windows Server 2022 node pool to an existing AKS cluster, see [Add a Windows Server 2022 node pool](/learn/quick-windows-container-deploy-cli.md).
 
 ## Update your YAML file
 
-Currently, there are a few options to deploy Windows applications on AKS and ensure the Windows pods will run on the Windows nodes, such as Node Selector and Taints and Tolerations. Node Selector is the most common option as it enforces the placement of Windows pods on Windows nodes. However, currently the recommendation to enforce that placement is made with the following annotation to YAML files:
+Node Selector is the most common and recommended option for placement of Windows pods on Windows nodes. To use Node Selector, make the following annotation to your YAML files:
 
 ```yaml
       nodeSelector:
@@ -47,7 +47,7 @@ The above annotation will find *any* Windows node available and place the pod on
         "kubernetes.azure.com/os-sku": Windows2022
 ```
 
-Once you update the nodeSelector on the YAML file, you should also update the container image to be used. You can get this information from the previous step on which you created a new version of the containerized application by changing the FROM statement on your docker file.
+Once you update the nodeSelector on the YAML file, you should also update the container image to be used. You can get this information from the previous step on which you created a new version of the containerized application by changing the FROM statement on your dockerfile.
 
 > [!NOTE]
 > You should leverage the same YAML file you used to deploy the application in the first place - this will ensure no other configuration is changed, only the nodeSelector and the image to be used.
@@ -59,7 +59,7 @@ If you have an application deployed already, ensure you follow the steps recomme
 ```console
 kubectl get nodes -o wide
 ```
-The command above will show all nodes on your AKS clusterm with additional details on the output:
+The command above will show all nodes on your AKS cluster with additional details on the output:
 
 ```output
 NAME                                STATUS   ROLES   AGE     VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION     CONTAINER-RUNTIME
@@ -100,6 +100,6 @@ sample-7794bfcc4c-sh78c   1/1     Running   0          2m49s   10.240.0.228   ak
 
 ## Active Directory, gMSA and Managed Identity implications
 
-If you are leveraging Group Managed Service Accounts (gMSA) you will need to update the Managed Identity configuration for the new node pool. gMSA uses a secret (user account and password) so the node on which the Windows pod is running can authenticate the container against AD. To access that secret on Azure Key Vault, the node uses a Managed Identity that allows the node to access the resource. Since Managed Identities are configured per node pool, and the pod now resides on a new node pool, you need to update that configuration. Check out the documentation on [gMSA on AKS](https://docs.microsoft.com/azure/aks/use-group-managed-service-accounts) for more information.
+If you are leveraging Group Managed Service Accounts (gMSA) you will need to update the Managed Identity configuration for the new node pool. gMSA uses a secret (user account and password) so the node on which the Windows pod is running can authenticate the container against Active Directory. To access that secret on Azure Key Vault, the node uses a Managed Identity that allows the node to access the resource. Since Managed Identities are configured per node pool, and the pod now resides on a new node pool, you need to update that configuration. Check out [Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster](/use-group-managed-service-accounts.md) for more information.
 
-The same principal applies to Managed Identities used for any other pod/node pool when accessing other Azure resources. Any access provided via Managed Identity needs to be updated to reflect the new node pool. You can use the [documentation](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-view-managed-identity-activity) on how to view update and sign-in activities for Managed Identities.
+The same principle applies to Managed Identities used for any other pod/node pool when accessing other Azure resources. Any access provided via Managed Identity needs to be updated to reflect the new node pool. To view update and sign-in activities, see [How to view Managed Identity activity](/azure/active-directory/managed-identities-azure-resources/how-to-view-managed-identity-activity).
