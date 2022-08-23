@@ -141,7 +141,7 @@ To send metrics to Application Insights, you can use the `TrackMetric(..)` API. 
 
 1. Go to the **Application Insights** resource in the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png" alt-text="A resource group displays with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png":::
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png" alt-text="Screenshot of a resource group with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png":::
 
 2. From the left menu of the Application Insights resource, select **Logs** from beneath the **Monitoring** section. In the **Tables** pane, double-click on the **customMetrics** table, located under the **Application Insights** tree. Modify the query to retrieve metrics for the **ReviewPerformed** custom named metric as follows, then select **Run** to filter the results.
 
