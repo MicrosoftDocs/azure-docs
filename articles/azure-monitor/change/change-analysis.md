@@ -67,7 +67,7 @@ Azure Monitor Change Analysis service supports resource property level changes i
 Azure Monitor's Change Analysis queries for:
 - [Azure Resource Manager resource properties.](#azure-resource-manager-resource-properties-changes)
 - [Configuration changes.](#configuration-changes)
-- [Web app in-guest changes.](#changes-in-web-app-configuration-in-guest-changes) 
+- [Web app in-guest changes.](#changes-in-azure-functions-and-web-app-configuration-in-guest-changes) 
 
 Change Analysis also tracks [resource dependency changes](#dependency-changes) to diagnose and monitor an application end-to-end.
 
