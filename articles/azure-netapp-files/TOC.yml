@@ -219,11 +219,13 @@
         href: configure-unix-permissions-change-ownership-mode.md
       - name: Configure network features for a volume
         href: configure-network-features.md
+      - name: Configure customer-managed keys 
+        href: configure-customer-managed-keys.md
     - name: Mount volumes
       items:
       - name: Mount an NFS volume for Windows or Linux VMs
         href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
-      - name: Mount an SMB volume for Windows of Linux VMs
+      - name: Mount an SMB volume for Windows VMs
         href: mount-volumes-vms-smb.md
     - name: Manage volume capacity and performance 
       items:

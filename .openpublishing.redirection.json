@@ -18319,14 +18319,19 @@
     "redirect_document_id":  false
 },
 {
-    "source_path_from_root":  "/articles/connectors/connectors-create-api-bingsearch.md",
+    "source_path_from_root": "/articles/connectors/connectors-create-api-bingsearch.md",
     "redirect_url":  "/connectors/bingsearch",
-    "redirect_document_id":  false
+    "redirect_document_id": false
 },
 {
-  "source_path_from_root": "/articles/connectors/connectors-create-api-twilio.md",
-  "redirect_url": "/connectors/twilio",
-  "redirect_document_id": false
+    "source_path_from_root": "/articles/connectors/connectors-create-api-twilio.md",
+    "redirect_url": "/connectors/twilio",
+    "redirect_document_id": false
+},
+{
+    "source_path_from_root": "/articles/connectors/connectors-create-api-sendgrid.md",
+    "redirect_url": "/connectors/sendgrid",
+    "redirect_document_id": false
 },
 {
   "source_path_from_root":  "/articles/connectors/connectors-schema-migration.md",

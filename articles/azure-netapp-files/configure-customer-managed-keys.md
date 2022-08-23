@@ -12,21 +12,21 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 08/23/2022
 ms.author: anfdocs
 ---
 
 # Configure customer-managed keys for Azure NetApp Files
 
-Customer-managed keys (CMK) in Azure NetApp Files enables you to use your own keys rather than a Microsoft-managed key when creating a new volume. 
+Customer-managed keys in Azure NetApp Files enables you to use your own keys rather than a Microsoft-managed key when creating a new volume. 
 
 ## Considerations
 
 > [!IMPORTANT]
 > The customer-manged keys feature is currently in preview. The program is controlled via Azure Feature Exposure Control (AFEC). To access this preview program, contact your account team.
 
-* Support for Azure NetApp Files customer-managed keys (CMK) is only for new volumes. There is currently no support for migrating existing volumes to CMK encryption. 
-* To create a volume using CMK, you must select the *Standard* network features. CMK volumes are not supported for the basic network features. Follow instructions in [Configure network features for a volume to](configure-network-features.md):  
+* Support for Azure NetApp Files customer-managed keys is only for new volumes. There is currently no support for migrating existing volumes to customer-managed key encryption. 
+* To create a volume using customer-managed keys, you must select the *Standard* network features. Customer-managed key volumes are not supported for the basic network features. Follow instructions in [Configure network features for a volume to](configure-network-features.md):  
     * [Register for the standard network features](configure-network-features.md#register-the-feature)
     * [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page   
 * Rekey operation is currently not supported.
@@ -36,10 +36,10 @@ Customer-managed keys (CMK) in Azure NetApp Files enables you to use your own ke
     ```rest
      /{accountResourceId}/renewCredentials?api-version=2022-01 – example /subscriptions/<16 digit subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-01  
     ```  
-* If Azure NetApp Files fails to create a CMK volume, error messages are displayed. See the [Error messages and troubleshooting](#) for details. <!-- insert link -->
+* If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. Refer to the the [Error messages and troubleshooting](#error-messages-and-troubleshooting) section for more information. 
 
 ## Requirements
-Before creating your first CMK volume, you must have set up the following: 
+Before creating your first customer-managed key volume, you must have set up the following: 
 * An [Azure Key Vault](../key-vault/general/overview.md), containing at least one key. 
     * The key vault must have soft delete and purge protection enabled. 
     * The key must be of type RSA. 
@@ -111,14 +111,14 @@ The **Encryption** page does not currently support choosing an identity type (ei
         } 
       } 
     } 
-    Examples 
+    ```
+    **Examples** 
     
-    User assigned identity resource id: `/subscriptions/ccdce6ae-b7b3-4a53-b9c5-48e2caa01800/resourcegroups/snaebjor-rotterdam-westcentralus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/snaebjor-wcu-identity` 
+    User assigned identity resource ID: `/subscriptions/ccdce6ae-b7b3-4a53-b9c5-48e2caa01800/resourcegroups/snaebjor-rotterdam-westcentralus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/snaebjor-wcu-identity` 
     
     Key vault URI: https://snaebjor-wcu2.vault.azure.net 
     
     Key name: `/subscriptions/ccdce6ae-b7b3-4a53-b9c5-48e2caa01800/resourceGroups/snaebjor-rotterdam-westcentralus/providers/Microsoft.KeyVault/vaults/snaebjor-wcu2`
-    ```
 
 ## Use ARM REST API with ARMClient 
 
@@ -126,11 +126,53 @@ ARMClient is an open-source tool that makes on-demand requests to ARM REST API c
 
 If you are using ARMClient, save the request body in a JSON file for reference. Be sure to use the `–verbose` flag. 
 
-Example:  armclient patch <netapp account resource id>?api-version=2022-03-01 ./<path to json file> -verbose 
+Example:  `armclient patch <netapp account resource id>?api-version=2022-03-01 ./<path to json file> -verbose` 
 
-Copy the Azure-AsyncOperation header from the response and poll the URI with armclient get <Azure-AsyncOperation value>. 
+Copy the `Azure-AsyncOperation` header from the response and poll the URI with ARMClient get <Azure-AsyncOperation value>. 
 
 <!-- insert image get eng update -->
+
+## Create an Azure NetApp Files volume using customer-manager keys
+
+1. From Azure NetApp Files, select **Volumes** and then **+ Add volume**.    
+1. Follow the instructions in [Configure network features for an Azure NetApp Files volume](azure-netapp-files/configure-network-features.md) to:  
+    * [Register for the Standard network features](configure-network-features.md#register-the-feature)
+    * [Set the Network Features option in volume creation page](configure-network-features.md#set-the-network-features-option)
+1. For a NetApp account configured to use a customer-managed key, the Create Volume page includes an option Encryption Key Source.  
+ 
+    To encrypt the volume with your key, select **Customer-Managed Key** in the **Encryption Key Source** dropdown menu.  
+     
+    When you create a volume using a customer-managed key, you must also select **Standard** for the **Network features** option. Basic network features are not supported. 
+
+    <!-- IMAGE -->
+1. Continue to complete the volume creation process. See: 
+    * [Create an NFS volume](azure-netapp-files-create-volumes.md)
+    * [Create an SMB volume](zure-netapp-files-create-volumes-smb.md)
+    * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
+
+## Error messages and troubleshooting
+
+This section lists error messages and possible resolutions when Azure NetApp Files fails to configure customer-managed key encryption or create a volume using a customer-managed key. 
+
+### Errors configuring customer-managed key encryption on a NetApp account 
+
+| Error Condition | Resolution |
+| ----------- | ----------- |
+| `The operation failed because the specified key vault key was not found` | When entering key URI manually, ensure that the URI is correct. |
+| `Azure Key Vault key is not a valid RSA key` | Ensure that the selected key is of type RSA. |
+| `Azure Key Vault key is not enabled` | Ensure that the selected key is enabled. |
+| `Azure Key Vault key is expired` | Ensure that the selected key is not expired. |
+| `Azure Key Vault key has not been activated` | Ensure that the selected key is active. |
+| `Key Vault URI is invalid` | When entering key URI manually, ensure that the URI is correct. | 
+| `Azure Key Vault is not recoverable. Make sure that Soft-delete and Purge protection are both enabled on the Azure Key Vault` | Update the key vault recovery level to: <br> `“Recoverable/Recoverable+ProtectedSubscription/CustomizedRecoverable/CustomizedRecoverable+ProtectedSubscription”` |
+
+### Errors creating a volume encrypted with customer-managed keys  
+
+| Error Condition | Resolution |
+| ----------- | ----------- |
+| `Volume cannot be encrypted with Microsoft.KeyVault, NetAppAccount has not been configured with KeyVault encryption` | Your NetApp account does not have customer-managed key encryption enabled. Configure the NetApp account to use customer-managed key. |
+| `EncryptionKeySource cannot be changed` | No resolution. The `EncryptionKeySource` property of a volume cannot be changed. |
+| `Unable to use the configured encryption key, please check if key is active` | Check the following: <ol><li>Are all access policies correct on the key vault: Get, Encrypt, Decrypt?</li><li>Does a private endpoint for the key vault exist?</li><li>Is there a Virtual Network NAT in the VNet, with the delegated Azure NetApp Files subnet enabled?</li></ol> |
 
 ## Next steps
 
