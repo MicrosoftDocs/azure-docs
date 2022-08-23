@@ -25,7 +25,7 @@ Azure Storage offers the following types of replication:
 
 For an overview of each of these options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
-You can switch a storage account from one type of replication to any other type, but some switching scenarios are more straightforward than others.
+You can switch a storage account from any type of replication to any other type, but some switching scenarios are more straightforward than others.
 
 Changes between local and geo-redundant storage, or between non-read-access (RA) and read-access (RA) storage are simple changes that can be made easily using the Azure portal, PowerShell or the Azure CLI. But changes between zone-redundant and non-zone-redundant replication types require migration of the data in the storage account within the primary region and can take considerably longer.
 
