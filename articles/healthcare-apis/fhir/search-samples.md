@@ -89,16 +89,16 @@ This request would return all `Patient` resources with `address` element fields 
 
 ## Chained search 
 
-To perform a series of search operations that cover parameters nested within a referenced resource, you can "chain" the series of parameters together one by one with `.`. For example, if you want to view all `DiagnosticReport` resources with a `subject` reference to a patient with a particular `name`:  
+To perform search operations that cover elements contained within a referenced resource, you can "chain" a series of parameters together with `.`. For example, if you want to view all `DiagnosticReport` resources with a `subject` reference to a patient with a particular `name`:  
 
 ```rest
  GET {{FHIR_URL}}/DiagnosticReport?subject:Patient.name=Sarah
 
 ```
 
-This request would return all the `DiagnosticReport` resources with a patient subject named "Sarah". The `.` performs the chained search within the referenced `Patient` resource.
+This request would return all the `DiagnosticReport` resources with a patient subject named "Sarah". The `.` points the chained search to the `name` element within the referenced `Patient` resource.
 
-Another common use of FHIR search is finding all encounters for a specific patient. `Patient` resources will often be referenced by `Encounter` resources. To do a regular (non-chained) search for all `Encounter` resources that reference a `Patient` with the provided `id`:
+Another common use of FHIR search is finding all encounters for a specific patient. `Patient` resources are often referenced by `Encounter` resources. To do a regular (non-chained) search for `Encounter` resources that reference a `Patient` with a provided `id`:
 
 ```rest
 GET {{FHIR_URL}}/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e6619399f
