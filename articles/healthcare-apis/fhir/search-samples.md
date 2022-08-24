@@ -186,7 +186,7 @@ The maximum number of resources that can be returned at once from a search query
 
 ```
 
-You would make a GET request for the provided URL:
+You would make a `GET` request for the provided URL:
 
 ```rest
 GET {{FHIR_URL}}/Patient?_sort=_lastUpdated&ct=WzUxMDAxNzc1NzgzODc5MjAwODBd
@@ -195,7 +195,7 @@ GET {{FHIR_URL}}/Patient?_sort=_lastUpdated&ct=WzUxMDAxNzc1NzgzODc5MjAwODBd
 
 This would return the next set of entries for your search results. The `searchset` bundle is the complete set of search result entries, and the continuation token `url` is the link provided by the FHIR service to retrieve the entries that don't fit in the first subset (because of the restriction on the maximum number of entries returned for one page).
 
-## Search using POST
+## Search using `POST`
 
 All of the search examples mentioned above use `GET` requests. However, you can also make FHIR search API calls using `POST` with the `_search` parameter:
 
@@ -204,9 +204,9 @@ POST {{FHIR_URL}}/Patient/_search?_id=45
 
 ```
 
-This request would return the `Patient` resource instance with the `id` value of 45. Just as with GET requests, the server determines which resource instances satisfy the condition(s) and returns a bundle in the HTTP response.
+This request would return the `Patient` resource instance with the given `id` value. Just as with `GET` requests, the server determines which resource instances satisfy the condition(s) and returns a bundle in the HTTP response.
 
-Another feature of searching with POST is that it lets you submit the query parameters as a form body:
+Another feature of searching with `POST` is that it lets you submit the query parameters as a form body:
 
 ```rest
 POST {{FHIR_URL}}/Patient/_search
@@ -218,7 +218,7 @@ name=John
 
 ## Next steps
 
-In this article, you learned about how to search using different search parameters, modifiers, and other search methods for FHIR. For more information about FHIR search, see
+In this article, you learned about searching in FHIR using search parameters, modifiers, and other methods. For more information about FHIR search, see
 
 >[!div class="nextstepaction"]
 >[Overview of FHIR Search](overview-of-search.md)
