@@ -82,13 +82,13 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 
 1. Select **Review + create** and then select **Create** once validation has passed to deploy the virtual network.
 
-1. Repeat steps 2-5 to create additional virtual networks with the following information:
+1. Repeat steps 2-5 to create more virtual networks with the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | Subscription | Select the same subscription you selected in step 3. |
     | Resource group | Select the **myAVNMResourceGroup**. |
-    | Name | Enter **VNetB**, **VNetC**, and **VNetD** for each of the three additional virtual networks. |
+    | Name | Enter **VNetB**, **VNetC**, and **VNetD** for each of the three extra virtual networks. |
     | Region | Region will be selected for you when you select the resource group. |
     | VNetB IP addresses | IPv4 address space: 10.1.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.1.0.0/24|
     | VNetC IP addresses | IPv4 address space: 10.2.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.2.0.0/24|
@@ -129,7 +129,7 @@ Using static membership, you'll manually add three VNets for your Mesh configura
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-virtual-networks.png" alt-text="Screenshot of add virtual networks to network group page.":::
 
 1. On the *Network Group* page under **Settings**, select **Group Members** to view the membership of the group you manually selected.
-    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership blade." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
+    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
 
 ### Dynamic membership with Azure Policy
 Using Azure Policy, you'll define a condition to dynamically add three VNets for your Mesh configuration to your Network Group using the steps below.
@@ -157,10 +157,14 @@ Using Azure Policy, you'll define a condition to dynamically add three VNets for
 
 1. Select **Advanced (JSON) editor** to modify the JSON code.
 1. On line 5, replace **exists** with **equals** and set the value to **"Prod"** from **true**.
-:::image type="content" source="./media/create-virtual-network-manager-portal/json-advanced-editor.png" alt-text="Screenshot of Advanced (JSON) editor.":::
+1. 
+    :::image type="content" source="./media/create-virtual-network-manager-portal/json-advanced-editor.png" alt-text="Screenshot of Advanced (JSON) editor.":::
+
 1. Select **Save** to deploy the group membership.
+
 1. On the *Network Group* page under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy.
-    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership blade." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
+
+    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
 
 ## Create  a connectivity configuration
 
@@ -183,6 +187,7 @@ Using Azure Policy, you'll define a condition to dynamically add three VNets for
 
 
 1. On the *Topology* tab, select the *Mesh* topology if not selected, and leave the **Enable mesh connectivity across regions** unchecked.  Cross-region connectivity isn't required for this set up since all the virtual networks are in the same region. 
+
      :::image type="content" source="./media/create-virtual-network-manager-portal/topology-configuration.png" alt-text="Screenshot of topology selection for network group connectivity configuration.":::
 
 1. Select **+ Add** and then select the network group you created in the last section. Select **Select** to add the network group to the configuration.
@@ -193,7 +198,7 @@ Using Azure Policy, you'll define a condition to dynamically add three VNets for
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/create-connectivity-configuration.png" alt-text="Screenshot of create a connectivity configuration.":::
 
-1. Once the deployment completes, select **Refresh** and you'll see the new connectivity configuration added to the *Configurations* page.
+1. Once the deployment completes, select **Refresh**, and you'll see the new connectivity configuration added to the *Configurations* page.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration-list.png" alt-text="Screenshot of connectivity configuration list.":::
 
@@ -286,11 +291,12 @@ If you no longer need Azure Virtual Network Manager, you'll need to make sure al
     | Delete option | Select **Force delete the resource and all dependent resources**. |
     | Confirm deletion | Enter the name of the network manager. In this example, it's **myAVNM**. |
 
-1. To delete the resource group, locate the resource group and select the **Delete resource group**. Confirm that you want to delete by entering the name of the resource group, then select **Delete**
+1. To delete the resource group and virtual networks, locate the resource group and select the **Delete resource group**. Confirm that you want to delete by entering the name of the resource group, then select **Delete**
 
 ## Next steps
 
 After you've created the Azure Virtual Network Manager, continue on to learn how to block network traffic by using a security admin configuration:
 
 > [!div class="nextstepaction"]
-> [Block network traffic with security admin rules](how-to-block-network-traffic-portal.md)
+
+[Block network traffic with security admin rules](how-to-block-network-traffic-portal.md)
