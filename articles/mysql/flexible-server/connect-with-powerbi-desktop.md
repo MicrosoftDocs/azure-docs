@@ -18,14 +18,14 @@ If you have business data stored in Azure database for MySQL Flexible Server the
 
 ## Prerequisites
 
-- Install [Power BI desktop](https://aka.ms/pbidesktopstore).
-- If you are trying to connect with MySQL database for the first time in Power BI, you need to install the Oracle [MySQL Connector/NET](https://dev.mysql.com/downloads/connector/net/) package.
-- Skip the steps below if MySQL server has SSL disabled. If SSL is enabled then follow the steps below to install the certificate. 
+1. Install [Power BI desktop](https://aka.ms/pbidesktopstore).
+2. If you are trying to connect with MySQL database for the first time in Power BI, you need to install the Oracle [MySQL Connector/NET](https://dev.mysql.com/downloads/connector/net/) package.
+3. Skip the steps below if MySQL server has SSL disabled. If SSL is enabled then follow the steps below to install the certificate. 
    - Dowload the [SSL public certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). 
    - Install the SSL certificate in Trusted Root certification authorities store by following these steps: 
-      1. Start "certmgr.msc" Management Console on your Windows system.
-      2. Right-click Trusted Root Certification Authorities and select Import. 
-      3. Follow the prompts in the wizard to import the root certificate (for example, DigiCertGlobalRootCA.crt.pem) and click OK.
+      - Start "certmgr.msc" Management Console on your Windows system.
+      - Right-click Trusted Root Certification Authorities and select Import. 
+      - Follow the prompts in the wizard to import the root certificate (for example, DigiCertGlobalRootCA.crt.pem) and click OK.
     
 ## Get MySQL server information
 
@@ -35,7 +35,6 @@ Get the connection information needed to connect to the Azure Database for MySQL
 2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Select the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- <!---:::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL Flexible Server name":::--->
 5. Go to **Databases** page to find the database you want to connect to. Power BI desktop supports addind a connection to a single database and hence providing a database name is rquired for importing data. 
 
 ## Connect to MySQL database from Power Query Desktop
@@ -43,23 +42,23 @@ Get the connection information needed to connect to the Azure Database for MySQL
 To make the connection, take the following steps:
  
 1. Select the **MySQL database** option in the connector selection.
- 
-2. In the **MySQL database** dialog, provide the name of the server and database. 
 
-  
+:::image type="content" source="./media/connect-with-powerbi-desktop/add-mysql-connection.png" alt-text="add-mysql-connection.png":::
 
-3. Select the **Database** authentication type and input your MySQL credentials in the **User name** and **Password** boxes.
+3. In the **MySQL database** dialog, provide the name of the server and database. 
 
+  :::image type="content" source="./media/connect-with-powerbi-desktop/sign-in.png" alt-text="sign-in.png":::
+
+3. Select the **Database** authentication type and input your MySQL credentials in the **User name** and **Password** boxes. Make sure to select the level to apply your credentials to.
+
+  :::image type="content" source="./media/connect-with-powerbi-desktop/enter-credentials.png" alt-text="enter-credentials.png"::: 
+
+4. Once you're done, select **OK**.
+
+5. In **Navigator**, select the data you require, then either load or transform the data.
+
+   :::image type="content" source="./media/connect-with-powerbi-desktop/navigator.png" alt-text="navigator.png"::: 
    
-
-4. Select the level to apply your credentials to.
-
-5. Once you're done, select **OK**.
-
-6. In **Navigator**, select the data you require, then either load or transform the data.
-
-   ![Load or transform the data.](./media/mysql-database/navigator.png)
-
 ## Connect to MySQL database from Power Query Online
 
 To make the connection, take the following steps:
@@ -68,7 +67,7 @@ To make the connection, take the following steps:
  
 2. In the **MySQL database** dialog, provide the name of the server and database.  
 
-   ![On premises MySQL database connection.](./media/mysql-database/service-signin.png)
+    :::image type="content" source="./media/connect-with-powerbi-desktop/mysql-advanced-options.png" alt-text="mysql-advanced-options.png"::: 
 
 3. If necessary, include the name of your on-premises data gateway.
 
