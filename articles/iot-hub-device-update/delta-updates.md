@@ -72,7 +72,7 @@ The following table provides a list of the content needed, where to retrieve the
 | Binary Name       | Where to acquire      | How to install        |
 |-------------------------------|----------------------------------------------------------------------------|------------------------------------|
 | DiffGen           | You'll find all the DiffGen code in the file you previously downloaded: **Delta_generation.zip**  | Download all content and place into a known directory.
-| .NET (Runtime)    |Via Terminal / Package Managers    | Since running a pre-built version of the tool, only the Runtime is required. [Microsoft Doc Link](https://docs.microsoft.com/dotnet/core/install/linux-ubuntu).
+| .NET (Runtime)    |Via Terminal / Package Managers    | Since running a pre-built version of the tool, only the Runtime is required. [Microsoft Doc Link](/dotnet/core/install/linux-ubuntu.md).
 
 **Dependencies**
 
