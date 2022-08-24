@@ -103,7 +103,7 @@ If setting multiple approvers, approval completes as soon as one of them approve
     ![Select a user or group pane to select approvers](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. Select at least one user and then click **Select**. Select at least one approver. If no specific approvers are selected, Privileged Role Administrators and Global Administrators become the default approvers.
-NOTE: An approver does not have to have an administrative role themselves. They can be a regular user, such as an IT executive.
+NOTE: An approver does not have to have an Azure AD administrative role themselves. They can be a regular user, such as an IT executive.
 
 1. Select **Update** to save your changes.
 
