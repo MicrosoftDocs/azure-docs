@@ -43,10 +43,10 @@ Start by making a list of all the shares your workload depends on. Refer to your
 If you require to migrate the storage for multiple workloads at roughly the same time, still split them into individual migration projects.
 
 > [!IMPORTANT]
-> *Workload A*, *Workload B*, etc. should have their individual migration projects, rather than "All 58 shares of on the sales NAS.". This will significantly simply migration management and workload fail-over at the end.
+> *Workload A*, *Workload B*, etc. should have their individual migration projects, rather than "All 58 shares from the sales NAS.". This will significantly simply migration management and workload fail-over at the end.
 
 The result of the discovery phase is a list of file shares that you need to migrate to Azure. You should have distinct lists per workload.
-Azure Storage Mover offers [migration projects](resource-hierarchy.md#migration-project) that you can create and store each individual list. A common use is to name the migration project after the workload you are migrating. It will later contain source/target mappings and allow you to easily retain oversight of your upcoming planning steps and migration progress.
+Azure Storage Mover offers [migration projects](resource-hierarchy.md#migration-project) that you can create and store each individual list. A common practice is to name the migration project after the workload you are migrating. This practice simplifies oversight of your planning steps and your migration progress.
 
 ## Phase 2: Assessment
 
@@ -153,7 +153,7 @@ There are two copy modes:
 
 ## Phase 6: Post-migration tasks
 
-Once your migration is complete, it's time to fail-over your workload. to utilize the new Azure cloud storage locations. It's time to think about additional configurations and services that enable you to fail-over your workload and to safeguard your data.
+In this phase of the migration you need to think about additional configurations and services that enable you to fail-over your workload and to safeguard your data.
 
 For instance, failing-over your workload requires a network path to safely access Azure storage. The public endpoint of an Azure storage account is currently required for migration, but now that your migration is complete, you may think about configuring [private endpoints for your storage account](../storage/common/storage-private-endpoints.md) and [enable firewall rules to disable data requests over the public endpoint](../storage/common/storage-network-security.md).
 
