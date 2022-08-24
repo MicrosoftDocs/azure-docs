@@ -223,6 +223,10 @@ sections:
           ### How do I gracefully handle null values in an activity output?
           
           You can use the `@coalesce` construct in the expressions to handle null values gracefully.
+
+          ### How many pipeline activities can be executed simultaneously?
+          
+          A maximum of 50 concurrent pipeline activities is allowed. The 51st pipeline activity will be queued until a free slot is opened up. A maximum of 800 concurrent external activities will be allowed, after which they will be queued in the same way.
           
       - question: |
           Mapping data flows
