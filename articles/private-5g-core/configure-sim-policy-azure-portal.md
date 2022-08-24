@@ -43,7 +43,7 @@ ms.custom: template-how-to
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-basics-tab.png" alt-text="Screenshot of the Azure portal. It shows the basics tab for a SIM policy. The Add a network scope button is highlighted.":::
 
 1. Under **Add a network scope** on the right, fill out each of the fields using the information you collected from [Collect information for the network scope](collect-required-information-for-sim-policy.md#collect-information-for-the-network-scope).  
-SIM policies also define the default QoS settings for any services that use the policy. You can override the default SIM policy QoS settings on a per-service basis - see [Configure basic settings for the service](configure-service-azure-portal.md#Configure-basic-settings-for-the-service).
+SIM policies also define the default QoS settings for any services that use the policy. You can override the default SIM policy QoS settings on a per-service basis - see [Configure basic settings for the service](configure-service-azure-portal.md#configure-basic-settings-for-the-service).
 1. Select **Add**.
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/add-a-network-scope.png" alt-text="Screenshot of the Azure portal. It shows the Add a network scope screen. The Add button is highlighted.":::
