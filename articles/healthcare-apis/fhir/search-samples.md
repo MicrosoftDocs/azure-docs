@@ -44,7 +44,7 @@ GET {{FHIR_URL}}/Patient?_elements=identifier,active
 
 ```
 
-In the above request, you'll get back a bundle of patients, but each resource instance will only include the identifier(s) and the patient's active status. Resources in the response will contain a `meta.tag` value of `SUBSETTED` to indicate that not all elements defined for the resource are included.
+In the above request, you'll receive a bundle of patients, but each entry will only include the identifier(s) and the patient's active status. The entries in the response will contain a `meta.tag` value of `SUBSETTED` to indicate that not all elements defined for the resource are included.
 
 ## Search modifiers
 
