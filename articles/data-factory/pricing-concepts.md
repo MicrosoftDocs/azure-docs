@@ -40,7 +40,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 **Total Scenario pricing for 30 days: $122.00**
 
-:::image type="content" source="media/pricing-concepts/scenario-1-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for the above scenario.":::
+:::image type="content" source="media/pricing-concepts/scenario-1-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for an hourly pipeline run.":::
 
 ## Copy data and transform with Azure Databricks hourly
 
@@ -62,7 +62,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 **Total Scenario pricing for 30 days: $122.03**
 
-:::image type="content" source="media/pricing-concepts/scenario-2-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for the above scenario.":::
+:::image type="content" source="media/pricing-concepts/scenario-2-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for a copy data and transform with Azure Databricks scenario.":::
 
 ## Copy data and transform with dynamic parameters hourly
 
@@ -86,7 +86,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 **Total Scenario pricing for 30 days: $122.09**
 
-:::image type="content" source="media/pricing-concepts/scenario-3-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for the above scenario.":::
+:::image type="content" source="media/pricing-concepts/scenario-3-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for a copy data and transform with dynamic parameters scenario.":::
 
 ## Run SSIS packages on Azure-SSIS integration runtime
 
@@ -129,9 +129,9 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 **Total Scenario pricing for 30 days: $1051.28**
 
-:::image type="content" source="media/pricing-concepts/scenario-4a-pricing-calculator.png" alt-text="Screenshot of the orchestration section of the pricing calculator configured for the above scenario.":::
+:::image type="content" source="media/pricing-concepts/scenario-4a-pricing-calculator.png" alt-text="Screenshot of the orchestration section of the pricing calculator configured to transform data in a blob store with mapping data flows.":::
 
-:::image type="content" source="media/pricing-concepts/scenario-4-pricing-calculator.png" alt-text="Screenshot of the data flow section of the pricing calculator configured for the above scenario.":::
+:::image type="content" source="media/pricing-concepts/scenario-4-pricing-calculator.png" alt-text="Screenshot of the data flow section of the pricing calculator configured to transform data in a blob store with mapping data flows.":::
 
 ## Data integration in Azure Data Factory Managed VNET
 In this scenario, you want to delete original files on Azure Blob Storage and copy data from Azure SQL Database to Azure Blob Storage on an hourly schedule for 30 days. You will do this execution twice on different pipelines for each run. The execution time of these two pipelines is overlapping.
@@ -152,7 +152,7 @@ To accomplish the scenario, you need to create two pipelines with the following 
 
 **Total Scenario pricing for 30 days: $129.02**
 
-:::image type="content" source="media/pricing-concepts/scenario-5-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for the above scenario.":::
+:::image type="content" source="media/pricing-concepts/scenario-5-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for data integration with Managed VNET.":::
 
 > [!NOTE] 
 > These prices are for example purposes only.
