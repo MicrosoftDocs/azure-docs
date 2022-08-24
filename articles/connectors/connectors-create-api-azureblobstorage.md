@@ -1,27 +1,25 @@
 ---
-title: Connect to Azure Blob Storage
-description: Create workflows that manage blobs in Azure storage accounts using Azure Logic Apps.
+title: Connect to Azure Blob Storage from workflows
+description: Connect to Azure Blob Storage from workflows to manage blobs in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/19/2022
+ms.date: 08/23/2022
 tags: connectors
 ---
 
-# Create and manage blobs in Azure Blob Storage by using Azure Logic Apps
+# Connect to Azure Blob Storage from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This article shows how to access your Blob storage container from a workflow in Azure Logic Apps with the Azure Blob Storage connector. This connector provides triggers and actions that your workflow can use for blob operations. You can then create automated workflows that run when triggered by events in your SQL database or in other systems, and run actions to work with data and resources in your storage container. 
+This article shows how to access your Azure Blob Storage account and container from a workflow in Azure Logic Apps with the Azure Blob Storage connector. This connector provides triggers and actions that your workflow can use for blob operations. You can then create automated workflows that run when triggered by events in your SQL database or in other systems, and run actions to work with data and resources in your storage container. 
 
 For example, you can access and manage files stored as blobs in your Azure storage account.
 
 ## Connector technical reference
 
-For more technical details about this connector, such as triggers, actions, and limits, review the [connector's reference page](/connectors/azureblobconnector/).
-
-You can connect to Blob Storage from both **Logic App (Consumption)** and **Logic App (Standard)** resource types. You can use the connector with logic app workflows in multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, and the integration service environment (ISE). With **Logic App (Standard)**, you can use either the *built-in* **Azure Blob** operations or the **Azure Blob Storage** managed connector operations.
+You can connect to Azure Blob Storage from a workflow in **Logic App (Consumption)** and **Logic App (Standard)** resource types. You can use the connector with logic app workflows in multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, and the integration service environment (ISE). With **Logic App (Standard)**, you can use either the **Azure Blob** *built-in* connector operations or the **Azure Blob Storage** managed connector operations.
 
 The Azure Blob Storage connector has different versions, based on [logic app type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
@@ -97,7 +95,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 This section shows the steps for the following Azure Blob Storage triggers:
 
-* [*Built-in* trigger named **When a blob is Added or Modified in Azure Storage**]()
+* [*Built-in* trigger named **When a blob is Added or Modified in Azure Storage**](#built-in-connector-operations)
 
 * [*Managed* trigger named **When a blob is added or modified (properties only)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)-(v2))
 
@@ -387,6 +385,24 @@ To create an Azure Blob Storage connection from a logic app workflow in single-t
 If you have problems connecting to your storage account, review [how to access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls).
 
 ---
+
+## Built-in connector operations
+
+### Triggers
+
+When a blob is Added or Modified in Azure Storage
+
+### Actions
+
+Checks if Blob exists in Azure Storage
+Deletes a Blob from Azure Storage
+Get blob metadata for given path of Azure Blob Storage
+Get container metadata for given path of Azure Blob Storage
+Get SAS UI for given path of Azure Blob Storage
+List all blobs present in given path of Azure Blob Storage
+List all containers present in given path or root path of Azure Blob Storage
+Reads Blob Content from Azure Storage
+Uploads a Blob to Azure Storage
 
 ## Access storage accounts behind firewalls
 
