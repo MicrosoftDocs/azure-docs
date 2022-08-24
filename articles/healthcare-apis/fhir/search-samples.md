@@ -98,21 +98,21 @@ To perform search operations that cover elements contained within a referenced r
 
 This request would return all `DiagnosticReport` resources with a patient subject named "Sarah". The `.` points the chained search to the `name` element within the referenced `Patient` resource.
 
-Another common use of FHIR search is finding all encounters for a specific patient. `Patient` resources are often referenced by `Encounter` resources. To do a regular (non-chained) search for `Encounter` resources that reference a `Patient` with a provided `id`:
+Another common use of FHIR search is finding all encounters for a specific patient. To do a regular (non-chained) search for `Encounter` resources that reference a `Patient` with a given `id`:
 
 ```rest
 GET {{FHIR_URL}}/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e6619399f
 
 ```
 
-Using chained search, you can find all `Encounter` resources that reference a patient with a particular attribute. The example below demonstrates how to search for encounters referencing patients with a specific `birthdate`:
+Using chained search, you can find all `Encounter` resources that reference a patient identified by any search parameter. The example below demonstrates how to search for encounters referencing patients with a specific `birthdate`:
 
 ```rest
 GET {{FHIR_URL}}/Encounter?subject:Patient.birthdate=1987-02-20
 
 ```
 
-This would search not just `Encounter` resources for a single patient but across all patients that have the specified `birthdate` value. 
+This would return not just `Encounter` resources that reference a single patient but encounters for all patients that have the specified `birthdate` value. 
 
 In addition, a single request can initiate multiple chained searches by using the `&` operator, which allows searching for multiple conditions in one request. In such cases with `&`, chained search "independently" searches for each element value:
 
