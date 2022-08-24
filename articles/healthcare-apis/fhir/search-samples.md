@@ -186,14 +186,14 @@ The maximum number of resources that can be returned at once from a search query
 
 ```
 
-To retrieve the next set of entries, you would make a GET request for the provided URL:
+You would make a GET request for the provided URL:
 
 ```rest
 GET {{FHIR_URL}}/Patient?_sort=_lastUpdated&ct=WzUxMDAxNzc1NzgzODc5MjAwODBd
 
 ```
 
-This would return the next set of entries for your search results. The `searchset` bundle is the complete set of search result entries, and the continuation token `url` is the link provided by the FHIR service to retrieve the entries that don't fit in the first subset because of the restriction on the maximum number of entries returned for one page.
+This would return the next set of entries for your search results. The `searchset` bundle is the complete set of search result entries, and the continuation token `url` is the link provided by the FHIR service to retrieve the entries that don't fit in the first subset (because of the restriction on the maximum number of entries returned for one page).
 
 ## Search using POST
 
