@@ -2,15 +2,15 @@
 title: Manage groups - Azure Active Directory | Microsoft Docs
 description: Instructions about how to manage Azure AD groups and group membership.
 services: active-directory
-author: barclayn
-manager: rkarlin
+author: shlipsey3
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/29/2018
-ms.author: barclayn
+ms.date: 08/24/2022
+ms.author: sarahlipsey
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"                      
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ Azure Active Directory (Azure AD) groups are used to manage users that all need 
 
 This article covers basic group scenarios where a single group is added to a single resource and users are added as members to that group. For more complex scenarios like dynamic memberships and rule creation, see the [Azure Active Directory user management documentation](../enterprise-users/index.yml).
 
-Before adding groups and members, review the [group and membership types article](../fundamentals/) to help you decide which options to use when you create a group.
+Before adding groups and members, review the [group and membership types article]() to help you decide which options to use when you create a group.
 
 ## Create a basic group and add members
 You can create a basic group and add your members at the same time using the Azure Active Directory (Azure AD) portal. To create a basic group and add members:
@@ -30,7 +30,7 @@ You can create a basic group and add your members at the same time using the Azu
 
 1. Go to **Azure Active Directory** > **Groups** > **New group**.
 
-    ![Azure AD page, with Groups showing](media/active-directory-groups-create-azure-portal/groups-new-group.png)
+    ![Azure AD Groups page with 'New group' option highlighted](media/how-to-manage-groups/new-group.png)
 
 1. Select a **Group type**. For more information on group types, see [Group and membership types](#group-types).
 
@@ -52,7 +52,7 @@ You can create a basic group and add your members at the same time using the Azu
     1. Select the link under **Owners** or **Members** to populate a list of every user in your directory.
     1. Choose users from the list and then select the **Select** button at the bottom of the window.
 
-    ![Selecting members for your group during the group creation process](media/active-directory-groups-create-azure-portal/groups-add-members.png)
+    ![Selecting members for your group during the group creation process](media/how-to-manage-groups/add-members.png)
 
 1. Select **Create**. Your group is created and ready for you to manage other settings.
 
@@ -102,13 +102,13 @@ To edit your group settings:
 
 1. Scroll through the list or enter a group name in the search box. Select the group you need to manage.
 
-4. Select **Properties** from the side menu.
+1. Select **Properties** from the side menu.
 
-    ![Group overview page with Properties menu option highlighted](media/active-directory-groups-create-azure-portal/groups-overview.png)
+    ![Group overview page with Properties menu option highlighted](media/how-to-manage-groups/groups-overview.png)
 
-5. Update the **General settings** information as needed, including:
+1. Update the **General settings** information as needed, including:
 
-    ![Properties settings for a group](media/active-directory-groups-create-azure-portal/groups-properties.png)
+    ![Properties settings for a group](media/how-to-manage-groups/groups-properties.png)
 
     - **Group name.** Edit the existing group name.
     
@@ -165,7 +165,7 @@ You can add an existing Security group to another Security group (also known as 
 
     For this exercise, we're adding "MDM policy - West" to the "MDM policy - All org" group, so "MDM - policy - West" inherits all the properties and configurations of the "MDM policy - All org" group.
 
-    ![Create a group membership by adding group to another group](media/active-directory-groups-create-azure-portal/groups-nested-groups-selected.png)
+    ![Example of making a group the member of another group with 'Group membership' from the side menu and 'Add membership' option highlighted](media/how-to-manage-groups/nested-groups-selected.png)
 
 Now you can review the "MDM policy - West - Group memberships" page to see the group and member relationship.
 
@@ -184,7 +184,7 @@ You can remove an existing Security group from another Security group; however, 
 
     For this exercise we're now going to remove "MDM policy - West" from the "MDM policy - All org" group.
 
-    ![Group membership page showing both the member and the group details](media/active-directory-groups-create-azure-portal/groups-remove-nested-group.png)
+    ![Group membership page showing both the member and the group details with 'Remove membership' option highlighted](media/how-to-manage-groups/remove-nested-group.png)
 
 ## Next steps
 
