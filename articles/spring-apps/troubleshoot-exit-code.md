@@ -42,7 +42,7 @@ The exit code indicates the reason the application terminated. The following lis
 
 - **137** - The application exited because of an out of memory error. The application requested resources that the hosting platform failed to provide. Update your application's Java Virtual Machine (JVM) parameters to restrict resource usage, or scale up application resources.
   
-  If the application is a Java application, check the JVM parameters. They may exceed the memory limitation of your application.
+  If the application is a Java application, check the JVM parameters. They may exceed the memory limit of your application.
 
   For example, you configured 10 GB for the *Xmx* JVM parameter, but the application is using up to 5 GB of memory. Decrease the *Xmx* value or increase the application memory to make sure that the value of the *Xmx* parameter is lower or equal to the memory limit of the application.
   
