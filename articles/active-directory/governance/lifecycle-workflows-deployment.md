@@ -43,9 +43,12 @@ For more information on deployment plans, see [Azure AD deployment plans](../fun
 ### Licenses
 
 
-
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
+>[!Note]
+>Be aware that if your license expires, any workflows that you have created will stop working.
+>
+>Workflows that are in progress when a license expires will continue to exectue, but no new ones will be processed.
 
 ## Plan the Lifecycle Workflow deployment project
 
@@ -108,13 +111,32 @@ The following is important information about your organization and the technolog
 |Inbound Provisioning|You have a process to create user accounts for employees in Azure AD such as HR inbound, SuccessFactors, or MIM.</br></br>  Alternatively you have a process to create user accounts in Active Directory and those accounts are provisioned to Azure AD.|[Workday to Active Directory](../saas-apps/workday-inbound-tutorial.md)</br></br>[Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md)</br></br>[SuccessFactors to Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)</br></br>[SuccessFactors to Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)</br></br>[Azure AD Connect](../hybrid/whatis-azure-ad-connect-v2.md)</br></br>[Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md)|
 |Attribute synchronization|The accounts in Azure AD have the employeeHireDate and employeeLeaveDateTime attributes populated.  The values may be populated when the accounts are created from an HR system or synchronized from AD using Azure AD Connect or cloud sync.</br></br>You have additional attributes, that will be used to determine the scope, such as department, populated or the ability to populate, with data.|[How to synchronize attributes for Lifecycle Workflows](how-to-lcw-synch-attributes.md)
 
-
 ## Understanding parts of a workflow.
 Before you begin planning a Lifecycle Workflow deployment, you should become familiar with the parts of workflow and the terminology around Lifecycle Workflows.
 
 The [Understanding Lifecycle Workflows](understanding-lifecycle-workflows.md) document, uses the portal to explain the parts of a workflow. The [Developer API reference Lifecycle Workflows](lifecycle-workflows-dev-reference.md) document, uses a GRAPH example to explain the parts of a workflow. 
 
 You can use this document to become familiar with the parts of workflow prior to deploying them.
+
+## Limitations and constraints
+The following table provides information that you need to be aware of as you create and deploy Lifecycle workflows.
+
+|Item|Description|
+|-----|-----|
+|Workflows|50 workflow limit per tenant|
+|Number of custom tasks|limit of 25 per workflow|
+|Value range for offsetInDays|Between -60 and 60 days|
+|Workflow execution schedule|Default every 3 hours - can be set to run anywhere from 1 to 24 hours|
+|Custom task extensions|Limit of 100|
+|On-demand user limit|You can run an on-demand workflow against a maximum of 10 users|
+|Extensibility callback timeout limit|Min 3 minutes - Maximum 5 hours|
+
+The following is additional information you should be aware of.
+
+ -    You cannot enable the schedule for the Real-Time Leaver scenario.  This is by design.
+
+
+
 
 ## Lifecycle workflow creation checklist
 The following table provides a quick checklist of steps you can use when designing and planning your workflows.
@@ -242,6 +264,11 @@ Once you've created a workflow, you should test it by running the workflow [on-d
 Using the on-demand feature will allow you to test and evaluate whether the Lifecycle Workflow is working as intended.
 
 Once you have completed testing, you can either rework the Lifecycle Workflow or get ready for a broader distribution.
+
+### Audit logs
+You can also get more information from the audit logs.  These logs can be accessed in the portal under Azure Active Directory/monitoring.  For more information see [Audit logs in Azure AD](../reports-monitoring/concept-audit-logs.md) and [Lifecycle workflow history.](lifecycle-workflow-history.md)
+
+
 
 #### Example Lifecycle Workflow plan
 
