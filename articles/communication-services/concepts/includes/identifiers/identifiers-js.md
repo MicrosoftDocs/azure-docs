@@ -31,11 +31,11 @@ const sameUser = { communicationUserId: newUserId };
 
 #### API reference
 
-[CommunicationUserIdentifier](https://docs.microsoft.com/javascript/api/@azure/communication-common/communicationuseridentifier?view=azure-node-latest)
+[CommunicationUserIdentifier](/javascript/api/@azure/communication-common/communicationuseridentifier?view=azure-node-latest)
 
 ### Microsoft Teams User identifier
 
-The `MicrosoftTeamsUserIdentifier` interface represents a Teams user. You need to know the Teams user's Id that you can retrieve via the [Microsoft Graph REST API /users](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http) endpoint.
+The `MicrosoftTeamsUserIdentifier` interface represents a Teams user. You need to know the Teams user's Id that you can retrieve via the [Microsoft Graph REST API /users](/graph/api/user-get?view=graph-rest-1.0&tabs=http) endpoint.
 
 #### Basic usage
 
@@ -52,7 +52,7 @@ var gcchTeamsUser = { microsoftTeamsUserId: userId, cloud: "gcch" };
 
 #### API reference
 
-[MicrosoftTeamsUserIdentifier](https://docs.microsoft.com/javascript/api/@azure/communication-common/microsoftteamsuseridentifier?view=azure-node-latest)
+[MicrosoftTeamsUserIdentifier](/javascript/api/@azure/communication-common/microsoftteamsuseridentifier?view=azure-node-latest)
 
 ### Phone Number identifier
 
@@ -67,7 +67,7 @@ var phoneNumber = { phoneNumber: "+112345556789" };
 
 #### API reference
 
-[PhoneNumberIdentifier](https://docs.microsoft.com/javascript/api/@azure/communication-common/phonenumberidentifier?view=azure-node-latest)
+[PhoneNumberIdentifier](/javascript/api/@azure/communication-common/phonenumberidentifier?view=azure-node-latest)
 
 ### Unknown identifier
 
@@ -82,7 +82,7 @@ var unknown = { id: "a raw id that originated in the service" };
 
 #### API reference
 
-[UnknownIdentifier](https://docs.microsoft.com/javascript/api/@azure/communication-common/unknownidentifier?view=azure-node-latest)
+[UnknownIdentifier](/javascript/api/@azure/communication-common/unknownidentifier?view=azure-node-latest)
 
 ### How to handle the `CommunicationIdentifier` base class
 

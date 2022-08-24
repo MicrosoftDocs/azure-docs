@@ -31,11 +31,11 @@ var sameUser = new CommunicationUserIdentifier(newUserId);
 
 #### API reference
 
-[CommunicationUserIdentifier](https://docs.microsoft.com/java/api/com.azure.communication.common.communicationuseridentifier?view=azure-java-stable)
+[CommunicationUserIdentifier](/java/api/com.azure.communication.common.communicationuseridentifier?view=azure-java-stable)
 
 ### Microsoft Teams User identifier
 
-The `MicrosoftTeamsUserIdentifier` represents a Teams user. You need to know the Teams user's Id that you can retrieve via the [Microsoft Graph REST API /users](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http) endpoint.
+The `MicrosoftTeamsUserIdentifier` represents a Teams user. You need to know the Teams user's Id that you can retrieve via the [Microsoft Graph REST API /users](/graph/api/user-get?view=graph-rest-1.0&tabs=http) endpoint.
 
 #### Basic usage
 
@@ -52,7 +52,7 @@ var gcchTeamsUser = new MicrosoftTeamsUserIdentifier(userId).setCloudEnvironment
 
 #### API reference
 
-[MicrosoftTeamsUserIdentifier](https://docs.microsoft.com/java/api/com.azure.communication.common.microsoftteamsuseridentifier?view=azure-java-stable)
+[MicrosoftTeamsUserIdentifier](/java/api/com.azure.communication.common.microsoftteamsuseridentifier?view=azure-java-stable)
 
 ### Phone Number identifier
 
@@ -67,7 +67,7 @@ var phoneNumber = new PhoneNumberIdentifier("+112345556789");
 
 #### API reference
 
-[PhoneNumberIdentifier](https://docs.microsoft.com/java/api/com.azure.communication.common.phonenumberidentifier?view=azure-java-stable)
+[PhoneNumberIdentifier](/java/api/com.azure.communication.common.phonenumberidentifier?view=azure-java-stable)
 
 ### Unknown identifier
 
@@ -82,7 +82,7 @@ var unknown = new UnknownIdentifier("a raw id that originated in the service");
 
 #### API reference
 
-[UnknownIdentifier](https://docs.microsoft.com/java/api/com.azure.communication.common.unknownidentifier?view=azure-java-stable)
+[UnknownIdentifier](/java/api/com.azure.communication.common.unknownidentifier?view=azure-java-stable)
 
 ### How to handle the `CommunicationIdentifier` base class
 

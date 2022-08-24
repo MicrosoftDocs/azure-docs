@@ -31,11 +31,11 @@ var sameUser = new CommunicationUserIdentifier(newUserId);
 
 #### API reference
 
-[CommunicationUserIdentifier](https://docs.microsoft.com/dotnet/api/azure.communication.communicationuseridentifier?view=azure-dotnet)
+[CommunicationUserIdentifier](/dotnet/api/azure.communication.communicationuseridentifier?view=azure-dotnet)
 
 ### Microsoft Teams User identifier
 
-The `MicrosoftTeamsUserIdentifier` represents a Teams user. You need to know the Teams user's Id that you can retrieve via the [Microsoft Graph REST API /users](https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http) endpoint.
+The `MicrosoftTeamsUserIdentifier` represents a Teams user. You need to know the Teams user's Id that you can retrieve via the [Microsoft Graph REST API /users](/graph/api/user-get?view=graph-rest-1.0&tabs=http) endpoint.
 
 #### Basic usage
 
@@ -52,7 +52,7 @@ var gcchTeamsUser = new MicrosoftTeamsUserIdentifier(userId: userId, cloud: Comm
 
 #### API reference
 
-[MicrosoftTeamsUserIdentifier](https://docs.microsoft.com/dotnet/api/azure.communication.microsoftteamsuseridentifier?view=azure-dotnet)
+[MicrosoftTeamsUserIdentifier](/dotnet/api/azure.communication.microsoftteamsuseridentifier?view=azure-dotnet)
 
 ### Phone Number identifier
 
@@ -67,7 +67,7 @@ var phoneNumber = new PhoneNumberIdentifier("+112345556789");
 
 #### API reference
 
-[PhoneNumberIdentifier](https://docs.microsoft.com/dotnet/api/azure.communication.phonenumberidentifier?view=azure-dotnet)
+[PhoneNumberIdentifier](/dotnet/api/azure.communication.phonenumberidentifier?view=azure-dotnet)
 
 ### Unknown identifier
 
@@ -82,7 +82,7 @@ var unknown = new UnknownIdentifier("a raw id that originated in the service");
 
 #### API reference
 
-[UnknownIdentifier](https://docs.microsoft.com/dotnet/api/azure.communication.unknownidentifier?view=azure-dotnet)
+[UnknownIdentifier](/dotnet/api/azure.communication.unknownidentifier?view=azure-dotnet)
 
 ### How to handle the `CommunicationIdentifier` base class
 
