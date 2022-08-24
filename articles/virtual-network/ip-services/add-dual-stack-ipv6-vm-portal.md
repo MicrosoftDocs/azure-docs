@@ -57,7 +57,7 @@ In this section, you'll add an IPv6 address space and subnet to your existing vi
 
 In this section, you'll create a IPv6 public IP address for the virtual machine.
 
-1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses in the search results.
+1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
 
 2. Select **+ Create**.
 
