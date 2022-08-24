@@ -105,7 +105,7 @@ Alternatively, you can review the ‘Job status’ for the operation to check if
 
 ### What happens if I don’t stop replication after migration?
 
-When you stop replication, the Azure Migrate: Server Migration tool cleans up the managed disks in the subscription that were created for replication. If you don't stop replication after a migration, you will continue to incur charges for these disks. Stop replication won't affect the disks attached to machines that have already been migrated.
+When you stop replication, the Azure Migrate: Server Migration tool cleans up the managed disks in the subscription that was created for replication. 
 
 ### What happens if I don’t complete migration after migration?
 
