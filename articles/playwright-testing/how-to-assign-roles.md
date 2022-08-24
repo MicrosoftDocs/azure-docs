@@ -23,9 +23,14 @@ With role role-based access control, you can grant permissions to view test resu
 
 ## Prerequisites
 
-To assign Azure roles, you must have:
+To assign Azure roles in the Azure portal, you must have:
 
-* `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+* `Microsoft.Authorization/roleAssignments/write` permission assigned in Azure Active Directory, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner). To verify your permissions in the Azure portal:
+
+    1. In the [Azure portal](https://portal.azure.com), go to your Microsoft Playwright Testing workspace.
+    1. On the left pane, select **Access Control (IAM)**, and then select **View my access**.
+    1. Verify that [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) are in the list of role assignments.
+    1. Request the permissions from your Azure subscription administrator, or have them configure the workspace access.
 
 ## Default roles
 
@@ -38,7 +43,7 @@ Microsoft Playwright Testing workspaces uses three Azure built-in roles. When yo
 | **Owner** | Have full access to manage the workspace in the Azure portal, including assigning roles in Azure RBAC. Owners have full access to the workspace in the Microsoft Playwright Testing portal and can create and delete all access keys in the workspace. |
 
 > [!IMPORTANT]
-> Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a resource may not have owner access to the resource group that contains the resource. For more information, see [How Azure RBAC works](/azure/role-based-access-control/overview#how-azure-rbac-works).
+> Before you assign an Azure RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them. For more information about scope for Azure RBAC role assignments, see [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
 
 ## Assign a role to an existing user
 
@@ -91,7 +96,7 @@ To remove a role from an existing user by using the Azure portal:
 
 ## Use Azure AD security groups to manage workspace access
 
-You can use Azure AD security groups to manage access to workspaces. This approach has following benefits:
+You can use Azure AD security groups to manage access to workspaces. This approach has the following benefits:
 
 - Team or project leaders can manage user access to a workspace as security group owners, without needing **Owner** role on the workspace resource directly.
 - You can organize, manage and revoke users' permissions on a workspace and other resources as a group, without having to manage permissions on a user-by-user basis.
@@ -115,6 +120,6 @@ Here are a few things to be aware of while you use Azure role-based access contr
 ## Next steps
 
 - Learn more about [authenticating requests to Microsoft Playwright Testing](./how-to-manage-access-keys.md).
-- Learn more about [identifying app issues with web UI tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
+- Learn more about [identifying app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
 - Learn more about [running existing tests with Microsoft Playwright Testing](./how-to-run-with-playwright-testing.md).
 - Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
