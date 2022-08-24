@@ -77,13 +77,17 @@ In this section, you enable Azure AD SSO in the Azure portal.
     a. In the **Identifier** text box, type the URL:
     `https://www.onetrust.com/saml2`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<subdomain>.onetrust.com/auth/consumerservice`
+    b. In the **Reply URL** text box, type a URL using the following patterns:
+    ```
+    https://<subdomain>.onetrust.com/auth/consumerservice
+    https://<subdomain>.onetrust.com/access/v1/saml/SSO
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
      In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<subdomain>.onetrust.com/auth/login`
+    `https://<subdomain>.onetrust.com/auth/login
+    
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [OneTrust Privacy Management Software Client support team](mailto:support@onetrust.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
