@@ -5,7 +5,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm
-ms.date: 08/16/2022
+ms.date: 08/22/2022
 ---
 
 # Quickstart: Create and publish an Azure Managed Application definition
@@ -468,7 +468,7 @@ Add the following JSON and save the file.
 }
 ```
 
-For more information about the ARM template's properties, see [Microsoft.Solutions](/azure/templates/microsoft.solutions/applicationdefinitions).
+For more information about the ARM template's properties, see [Microsoft.Solutions/applicationDefinitions](/azure/templates/microsoft.solutions/applicationdefinitions?pivots=deployment-language-arm-template). Managed applications only use ARM template JSON.
 
 ### Deploy the definition
 

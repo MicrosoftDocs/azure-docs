@@ -32,8 +32,8 @@ Once you've created an Azure account and a Speech service subscription, you'll n
 1. Select your subscription and create a speech project.
 1. If you want to switch to another Speech subscription, select the **cog** icon at the top.
 
-> [!IMPORTANT]
-> Custom Neural Voice training is currently only available in East US, Southeast Asia, UK South, with the S0 tier. Make sure you select the right Speech resource if you would like to create a neural voice.
+> [!NOTE]
+> Custom Neural Voice training is currently only available in some regions. But you can easily copy a neural voice model from those regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#speech-service).
 
 ## Create a project
 
