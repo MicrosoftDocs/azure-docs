@@ -96,7 +96,7 @@ To perform search operations that cover elements contained within a referenced r
 
 ```
 
-This request would return all the `DiagnosticReport` resources with a patient subject named "Sarah". The `.` points the chained search to the `name` element within the referenced `Patient` resource.
+This request would return all `DiagnosticReport` resources with a patient subject named "Sarah". The `.` points the chained search to the `name` element within the referenced `Patient` resource.
 
 Another common use of FHIR search is finding all encounters for a specific patient. `Patient` resources are often referenced by `Encounter` resources. To do a regular (non-chained) search for `Encounter` resources that reference a `Patient` with a provided `id`:
 
