@@ -25,6 +25,7 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Create Virtual Network Manager
+Deploy a network manager instance with the defined scope and access you need.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -47,6 +48,7 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 1. Select **Review + create** and then select **Create** once validation has passed.
 
 ## Create virtual networks
+Create five virtual networks using the portal. This example creates virtual networks named VNetA, VNetB, VNetC and VNetD in the West US location. Each virtual network will have a tag of networkType used for dynamic membership. If you already have virtual networks you want create a mesh network with, you'll need to add tags listed below to your virtual networks and then you can skip to the next section.
 
 1. From the **Home** screen, select **+ Create a resource** and search for **Virtual network**. Then select **Create** to begin configuring the virtual network.
 
@@ -120,7 +122,7 @@ Azure Virtual Network manager allows you two methods for adding membership to a 
 ### Static membership option
 Using static membership, you'll manually add three VNets for your Mesh configuration to your Network Group using the steps below:
 
-1. From the list of network groups, select **myNetworkGroup** and select **Add** under **Static membership** on the *myNetworkGroup* page.
+1. From the list of network groups, select **myNetworkGroup** and select **Add** under *Static membership* on the *myNetworkGroup* page.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-static-member.png" alt-text="Screenshot of add a virtual network f.":::
 
@@ -128,11 +130,11 @@ Using static membership, you'll manually add three VNets for your Mesh configura
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-virtual-networks.png" alt-text="Screenshot of add virtual networks to network group page.":::
 
-1. On the *Network Group* page under **Settings**, select **Group Members** to view the membership of the group you manually selected.
+1. On the **Network Group** page under *Settings*, select **Group Members** to view the membership of the group you manually selected.
     :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
 
 ### Dynamic membership with Azure Policy
-Using Azure Policy, you'll define a condition to dynamically add three VNets for your Mesh configuration to your Network Group using the steps below.
+Using [Azure Policy](concept-azure-policy-integration.md), you'll define a condition to dynamically add three VNets for your Mesh configuration to your Network Group using the steps below.
 
 1. From the list of network groups, select **myNetworkGroup**.
 
@@ -166,7 +168,8 @@ Using Azure Policy, you'll define a condition to dynamically add three VNets for
 
     :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
 
-## Create  a connectivity configuration
+## Create  a configuration
+Now that the Network Group is created, and has the correct VNets, create a mesh network topology configuration. Replace <subscription_id> with your subscription and follow the steps below:
 
 1. Select **Configurations** under *Settings*, then select **+ Create**.
 
@@ -228,7 +231,8 @@ To have your configurations applied to your environment, you'll need to commit t
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-in-progress.png" alt-text="Screenshot of configuration deployment in progress status.":::
 
-## Confirm configuration deployment
+## Verify configuration deployment
+Use the **Network Manager** section for each virtual machine to verify whether configuration was deployed in the steps below:
 
 1. Select **Refresh** on the *Deployments* page to see the updated status of the configuration that you committed.
 
@@ -238,7 +242,7 @@ To have your configurations applied to your environment, you'll need to commit t
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/vnet-configuration-association.png" alt-text="Screenshot of connectivity configuration associated with VNetA virtual network.":::
 
-1. You can also confirm the same for **VNetB** and **VNetC**.
+1. You can also confirm the same for **VNetB**,**VNetC**, and **VNetD**.
 
 ## Clean up resources
 
@@ -300,3 +304,4 @@ After you've created the Azure Virtual Network Manager, continue on to learn how
 > [!div class="nextstepaction"]
 
 [Block network traffic with security admin rules](how-to-block-network-traffic-portal.md)
+[Create a secured hub and spoke network](tutorial-create-secured-hub-and-spoke.md)
