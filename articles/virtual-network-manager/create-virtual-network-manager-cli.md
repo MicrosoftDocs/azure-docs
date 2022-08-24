@@ -185,7 +185,7 @@ az network manager group static-member create \
 ```
 ### Dynamic membership option
 
-Using [Azure Policy](https://docs.microsoft.com/en-us/azure/virtual-network-manager/concept-azure-policy-integration), you'll dynamically add the three VNets with a tag **networkType** value of *Prod* to the Network Group. These are the three virtual networks to become part of the mesh configuration.
+Using [Azure Policy](concept-azure-policy-integration.md), you'll dynamically add the three VNets with a tag **networkType** value of *Prod* to the Network Group. These are the three virtual networks to become part of the mesh configuration.
 
 > [!NOTE] 
 > Policies can be applied to a subscription or management group, and must always be defined *at or above* the level they're created. Only virtual networks within a policy scope are added to a Network Group.
