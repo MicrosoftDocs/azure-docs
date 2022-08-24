@@ -137,7 +137,7 @@
       href: concept-geo-replication.md
     - name: Reliability
       items:
-        - name: Migrate to availability zone support
+        - name: Availability zone support
           href: ../availability-zones/migrate-app-configuration.md
         - name: Resiliency and disaster recovery
           href: concept-disaster-recovery.md

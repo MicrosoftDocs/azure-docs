@@ -35,14 +35,14 @@ None
 
 #### Process
 
-If you created an App Configuration store in a region where App Configuration didn't have availability zone support, and Azure App Configuration starts supporting availability zones in that region, you don't need to do anything to start benefiting from the availability zone support. Your store will benefit from the availability zone support that has become available for App Configuration stores in the region.
+If you created a store in a region where App Configuration didn't have availability zone support, and Azure App Configuration starts supporting availability zones in that region, you don't need to do anything to start benefiting from the availability zone support. Your store will benefit from the availability zone support that has become available for App Configuration stores in the region.
 
 ### If App Configuration doesn’t support availability zones in your region
 
 #### Prerequisites
 
 - An Azure subscription with the Owner or Contributor role to create a new App Configuration store
-- An Owner, Contributor, or App Configuration Data Owner permissions on an App Configuration store to be migrated.
+- An Owner, Contributor, or App Configuration Data Owner permissions on the App Configuration store to be migrated.
 
 #### Downtime requirements
 
@@ -50,16 +50,15 @@ None
 
 #### Process
 
-If App Configuration doesn't support availability zones in your region, you will need to move your App Configuration store to a region with App Configuration availability zone support.
+If App Configuration doesn't support availability zones in your region, you'll need to move your App Configuration data from this store to another store in a region where App Configuration has availability zone support.
 
-App Configuration stores are region-specific and can't be migrated across regions. To migrate a store to an Azure region where App Configuration has enabled availability zone support, you must create a new App Configuration store in the target region, then move your App Configuration data from the source store to the new target store.
+App Configuration stores are region-specific and can't be migrated across regions. To migrate a store to a region where App Configuration has availability zone support, you must create a new App Configuration store in the target region, then move your App Configuration data from the source store to the new target store.
+
 The following steps walk you through the process of creating a new target store and importing the configuration data from your current store, to the newly created store.
 
-1. Create a target configuration store in a [region where App Configuration has enabled availability zone support](#availability-zone-support-in-azure-app-configuration)
-1. Transfer your configuration key-values using the [import](../azure-app-configuration/howto-import-export-data.md) option in your target configuration store.
+1. Create a target configuration store in a [region where App Configuration has availability zone support](#availability-zone-support-in-azure-app-configuration)
+1. Transfer your configuration key-values using the [import function](../azure-app-configuration/howto-import-export-data.md) in your target configuration store.
 1. Optionally, delete your source configuration store if you have no use for it.
-
-For detailed instructions, go to [Move an App Configuration store to another region](../azure-app-configuration/howto-move-resource-between-regions.md).
 
 ## Next steps
 
