@@ -60,7 +60,7 @@ In return, you would get all `Patient` resources whose `gender` element value is
 
 ### `:missing`
 
-`:missing` returns all resources that don't have a value for the specified element when `:missing=true` and returns all resources that contain the specified element when `:missing=false`. For simple data type elements, `:missing=true` will match on all resources where an element is present but has an empty value. For example, if you want to find all `Patient` resources that are missing information on `birthdate`, you can call:
+`:missing` returns all resources that don't have a value for the specified element when `:missing=true`. Additionally, `:missing` returns all resources that contain the specified element when `:missing=false`. For simple data type elements, `:missing=true` will match on all resources where an element is present but has an empty value. For example, if you want to find all `Patient` resources that are missing information on `birthdate`, you can call:
 
 ```rest
 GET {{FHIR_URL}}/Patient?birthdate:missing=true
