@@ -106,5 +106,7 @@ In the [Microsoft Playwright Portal](https://dashboard.playwright-ppe.io/playwri
 
 ## Next steps
 
+- Learn more about [running existing tests with Microsoft Playwright Testing](./how-to-run-with-playwright-testing.md).
 - Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
+- Learn more about [testing privately hosted application endpoints](./how-to-test-private-endpoints.md).
 - Learn more about [managing workspaces in the Azure portal](./how-to-manage-workspace-in-azure-portal.md).

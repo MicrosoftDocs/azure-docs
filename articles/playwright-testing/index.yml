@@ -34,9 +34,9 @@ landingContent:
             url: quickstart-run-end-to-end-tests.md
       - linkListType: tutorial
         links:
-          - text: Identify issues with end-to-end web tests
+          - text: Identify app issues with web UI tests
             url: tutorial-identify-issues-with-end-to-end-web-tests.md
-          - text: Automate end-to-end testing with GitHub Actions
+          - text: Set up continuous testing with GitHub Actions
             url: tutorial-automate-end-to-end-testing-with-github-actions.md
 
   - title: Run tests

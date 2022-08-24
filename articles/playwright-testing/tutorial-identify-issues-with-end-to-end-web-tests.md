@@ -1,204 +1,47 @@
 ---
 title: 'Tutorial: Identify app issues with end-to-end tests'
 titleSuffix: Microsoft Playwright Testing
-description: In this tutorial, you learn how to identify issues in your web app with cross-platform, cross-browser end-to-end tests in Microsoft Playwright Testing. Troubleshoot problems by using rich traces, screenshots, and test result artifacts.
+description: In this tutorial, you learn how to identify issues in your web app with cross-platform, cross-browser web UI tests in Microsoft Playwright Testing. Troubleshoot problems by using rich traces, screenshots, and test result artifacts.
 services: playwright-testing
 ms.service: playwright-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 06/21/2022
+ms.date: 08/16/2022
 ms.topic: tutorial
 ---
 
-# Tutorial: Identify app issues with end-to-end tests in Microsoft Playwright Testing Preview
+# Tutorial: Identify app issues with web UI tests in Microsoft Playwright Testing Preview
 
-In this tutorial, learn how to identify application issues by running end-to-end tests at scale with Microsoft Playwright Testing Preview. You'll use the Playwright Visual Studio Code extension to run your tests.
+Learn how to identify app issues by running web UI tests and using the Microsoft Playwright Testing Preview dashboard to diagnose failing tests. Lower the overall time to complete the tests by scaling out across multiple parallel workers.
 
-You'll run a series of Playwright end-to-end tests in the cloud to validate the correctness of your application across multiple browsers and devices. Use the Microsoft Playwright Testing dashboard to diagnose failing tests using traces and other test artifacts. Finally, speed up the test execution by scaling out the number of workers.
+Playwright is an open-source framework for end-to-end web UI tests to validate your app across multiple browsers and devices. With Microsoft Playwright Testing you can run Playwrights tests at scale. Use the dashboard to view trends across multiple test runs and use the detailed traces and other artifacts to analyze test results.
 
-In this tutorial, you'll learn how to:
+In this tutorial, you'll use the sample repository of Playwrights tests. You'll learn how to do the following tasks:
 
 > [!div class="checklist"]
-> * Create a workspace access key.
-> * Connect tests to Microsoft Playwright Testing.
-> * Run cross-browser & cross-device tests.
-> * Diagnose test failures in the portal.
-> * Speed up tests by scaling out.
+> * Run the sample Playwright tests in the cloud.
+> * Explore test results in the Microsoft Playwright Testing portal.
+> * Diagnose test failures using test artifacts.
+> * Speed up tests by scaling across multiple workers.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
+- Complete [Quickstart: Run end-to-end web UI tests at scale with Microsoft Playwright Testing](./quickstart-run-end-to-end-tests.md) to create a workspace, download the sample repository, and configure the workspace to use in this tutorial series.
 - Visual Studio Code. If you don't have it, [download and install it](https://code.visualstudio.com/Download).
-- Git. If you don't have it, [download and install it](https://git-scm.com/download).
-- [Node](https://nodejs.org/en/download)
-- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-
-## Download the sample repository
-
-In this tutorial, you'll use a sample Playwright end-to-end test suite that is configured to connect to Microsoft Playwright Testing. The test suite validates a sample React web application.
-
-Clone the sample repository to your workstation:
-
-1. Open your favorite terminal.
-1. Navigate to the directory in which you'd like to download the sample repository.
-1. Clone the sample repository:
-
-    ```bash
-    git clone https://github.com/microsoft/playwright-service-preview
-    ```
-
-1. Navigate to the sample directory:
-
-    ```bash
-    cd playwright-service-preview/samples/PlaywrightTestRunner
-    ```
-
-## Authenticate with private npm repository
-
-To run tests with Microsoft Playwright Testing, you use the `@microsoft/playwright-service` npm package. This package resides in a private package registry.
-
-To authenticate your GitHub user account with the private repository, follow these steps:
-
-1. Create a [GitHub personal access token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for your account.
-
-    The token should have the `read:packages` permission.
-
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/access-token-permissions.png" alt-text="Screenshot that shows the access token permissions.":::
-
-    > [!IMPORTANT]
-    > After generating the token, make sure to copy the token value, as you won't see it again.
-
-1. If your organization requires SAML SSO for GitHub, authorize your personal access token to use SSO.
-
-    1. Go to your [Personal access tokens](https://github.com/settings/tokens) page.
-    1. Select **[Configure SSO](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)** to the right of the token.
-    1. Select your organization from the list to authorize SSO.
-
-1. Authenticate with the private npm registry to enable you to download the latest `@microsoft/playwright-service` package when you run `npm install`:
-
-   ```bash
-   npm login --scope=@microsoft --registry=https://npm.pkg.github.com
-   ```
-
-   Provide your GitHub username, password and email address. For the password, paste the value of the token you created in the earlier step.
-
-You can now install all the package dependencies in your local directory:
-
-  ```bash
-  npm install
-  ```
-
-> [!NOTE]
-> If you get an **E403 Forbidden** error, this means that the token is not authorized or has expired.
-> Verify that your [personal access token](https://github.com/settings/tokens) has not expired. Validate also that you have authorized SSO, as described earlier.
-
-## Authenticate with Microsoft Playwright Testing
-
-To run Playwright tests with Microsoft Playwright Testing, you need a workspace access key.
-
-1. In the Microsoft Playwright Testing portal, create an access key for your workspace. Follow these steps to [create an access key](./how-to-manage-access-keys.md#create-an-access-key).
-
-1. After you've created the access key, select **Copy** to copy the generated access key value.
-
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/copy-access-key-value.png" alt-text="Screenshot that shows how to copy the access key functionality in the Playwright portal.":::
-
-## Configure Playwright for Microsoft Playwright Testing
-
-To run your existing Playwright tests with Microsoft Playwright Testing, you have to install the `@microsoft/playwright-service` npm package and update the `playwright.config.ts` Playwright configuration file. You don't have to make changes to your test specifications. The Playwright tests in the sample repository are already preconfigured to use Microsoft Playwright Testing.
-
-You'll now create an environment variable to store the workspace access key you created earlier. The Playwright configuration file uses this environment variable to authorize Playwright with your workspace.
-
-Optionally, you can also set a dashboard name to group your test runs in the Microsoft Playwright Testing portal. By default, all test runs are grouped in the `Default Group` dashboard.
-
-If you run your tests from the command-line, create environment variables on your machine to set the access key and dashboard name.
-
-* Bash:
-
-    ```bash
-    export ACCESS_KEY='<my-key-value>'
-    export DASHBOARD='<my-dashboard-name>'
-    ```
-
-* PowerShell:
-
-    ```Powershell
-    $env:ACCESS_KEY = '<my-key-value>'
-    $env:DASHBOARD = '<my-dashboard-name>'
-    ```
-
-Alternately, you can set the value of the `accessKey` and `dashboard` properties directly in `playwright.config.ts`:
-
-```typescript
-var playwrightServiceConfig = new PlaywrightService({
-  accessKey: "<my-key-value>"
-  dashboard: "<my-dashboard-name>"
-});
-```
-
-## Run tests across multiple browsers
-
-In the Playwright configuration file, you can specify the different [browser configurations](https://playwright.dev/docs/test-configuration#multiple-browsers) and operating systems to run your tests for. Microsoft Playwright Testing enables you to run your tests across multiple browsers, device configurations, and operating systems.
-
-Optionally, add or remove browser configurations by updating the `projects` node in the Playwright configuration file.
-
-The following code snippet shows the browser configurations in the sample repository.
-
-```typescript
-// playwright.config.ts
-
-const config: PlaywrightTestConfig = {
-  ...
-
-  projects: [
-    {
-      name: 'chromium-on-ubuntu',
-      use: {
-        ...devices['Desktop Chrome'],
-      },
-    },
-
-    {
-      name: 'firefox-on-ubuntu',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
-
-    {
-      name: 'webkit-on-ubuntu',
-      use: {
-        ...devices['Desktop Safari'],
-      },
-    },
-    {
-      name: "iPhone 13 Pro Max landscape",
-      use: {
-        ...devices['iPhone 13 Pro Max landscape'],
-        browserName: "chromium",
-      },
-    },
-    {
-      name: "Galaxy S9+",
-      use: {
-        ...devices["Galaxy S9+"],
-      },
-    },
-  ],
-};
-```
 
 ## Run tests
 
-Now that you've configured your Playwright tests to connect to Microsoft Playwright Testing, you can run the tests. Microsoft Playwright Testing enables you to use your existing tools and commands for running and debugging tests. Learn more about [running Playwright tests](https://playwright.dev/docs/intro).
+This tutorial will use the Playwright tests from the sample repository, that you configured to run in your Microsoft Playwright Testing workspace. You can use the existing tools and commands to run and debug Playwright tests.
 
-When your start the Playwright tests, the output appears on your local machine, however they'll run in the cloud, with Microsoft Playwright Testing.
-
-You can start the tests in either of two ways:
+You can run the tests in either of two ways:
 
 - Use Visual Studio Code and the Playwright Test extension.
 - Use the Playwright command-line interface (CLI).
+
+Learn more about [running Playwright tests](https://playwright.dev/docs/intro).
 
 ### Run tests in Visual Studio Code
 
@@ -216,7 +59,7 @@ To use Visual Studio Code for running Playwright tests in an interactive way:
     :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/refresh-playwright-tests.png" alt-text="Screenshot that shows how to refresh Playwright tests using the command palette in Visual Studio Code.":::
 
     > [!NOTE]
-    > If the tests are not showing up, verify that you have set the `accessKey` property in the `playwright.config.ts` file. For more information, see [Configure playwright for Microsoft Playwright Testing](#configure-playwright-for-microsoft-playwright-testing).
+    > If the tests are not showing up, verify that you have set the `accessKey` property in the `playwright.config.ts` file. For more information, see [Configure playwright for Microsoft Playwright Testing](./quickstart-run-end-to-end-tests.md#configure-playwright-for-microsoft-playwright-testing).
 
 1. Open the **Testing** view from the side bar, and then select **Run Tests** to run all tests.
 
@@ -242,7 +85,7 @@ To use Visual Studio Code for running Playwright tests in an interactive way:
       [Galaxy S9+] › todo-persistence.spec.ts:16:3 › Persistence › should persist its data ===========
   
       145 passed (2m)
-    Test report: https://dashboard.playwright-ppe.io/playwright-service/Default%20Group/987351621824417792    
+    Test report: https://dashboard.playwright-ppe.io/playwright-service/Default/987351621824417792    
     ```
 
 ### Run tests in the CLI
@@ -272,16 +115,16 @@ To run your tests from the command-line with [Playwright Test](https://playwrigh
     ...
 
       145 passed (2m)
-    Test report: https://dashboard.playwright-ppe.io/playwright-service/Default%20Group/987351621824417792
+    Test report: https://dashboard.playwright-ppe.io/playwright-service/Default/987351621824417792
     ```
 
-## Analyze test results and diagnose failures
+## Explore test results in the portal
 
-After the tests finish, you can analyze the test results in the Microsoft Playwright Testing dashboard. The dashboard enables you to view the historical results of your test runs. For each test run, you have the results for each test and project combination. For tests that failed, diagnose the root cause by using the trace viewer, screenshots, and test recording videos.
+After the tests finish, explore the test results in the Microsoft Playwright Testing dashboard. The dashboard shows the historical results of your test runs, and displays the detailed results for each browser-project combination.
 
-You can find a direct link to the test run results in the output log of the test run in Visual Studio Code or the command-line. Alternately, you can navigate to the dashboard home page and select your test run.
+You can find a direct link to the test run results in the output log of the test run in Visual Studio Code or the command-line.
 
-1. Open the Microsoft Playwright Testing dashboard link in the test output.
+1. Open the link to the Microsoft Playwright Testing dashboard in the test output.
 
 1. Sign in with your GitHub credentials.
 
@@ -291,13 +134,14 @@ You can find a direct link to the test run results in the output log of the test
 
     The dashboard shows the results for each test, for each browser configuration, grouped by the test specification file. 
 
-1. Optionally, filter the test list by using the search field.
+    > [!TIP]
+    > You can quickly filter tests based on their test description or the browser configuration. For example, to show only tests that ran on Firefox, enter *Firefox* in the search field.
 
-    You can quickly filter tests based on their test description or the browser configuration. For example, to show only tests that ran on Firefox, enter *Firefox* in the search field.
+Notice that not all tests have completed successfully. You'll now use the detailed diagnostics information in the portal to diagnose the failed tests.
 
-### Diagnose failed tests
+## Diagnose failed tests
 
-You notice that some tests failed. Microsoft Playwright Testing provides rich information as part of the test results.
+Microsoft Playwright Testing provides rich diagnostics information as part of the test results.
 
 | Artifact | Description |
 | -------- | ----------- |
@@ -313,24 +157,31 @@ To diagnose the failing tests in the Microsoft Playwright Testing dashboard, per
 
     :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-filter-failed-tests.png" alt-text="Screenshot that shows how to filter the test list to only show failed tests in the Microsoft Playwright Testing dashboard.":::
 
-1. Select one of the failed tests in `todo-persistence.spec.ts` to view the test details.
+    There's one failing test, which fails across all browser configurations: `should persist its data`.
+
+1. Select one of the failed tests in `todo-persistence.spec.ts` to view the test details and analyze what caused the failure.
 
     :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-failed-test-details.png" alt-text="Screenshot that shows the details of a failed test in the Microsoft Playwright Testing dashboard.":::
 
     In the example, you notice that there was an unexpected `something` value when running line 32.
 
-1. Select the trace file image in the **Traces** section, to open the web-based Trace Viewer. 
+1. Select the trace file image in the **Traces** section, to open the web-based Trace Viewer.
 
     :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-view-traces.png" alt-text="Screenshot that shows test run details in the Microsoft Playwright Testing dashboard, highlighting the traces image.":::
 
-    > [!NOTE]
-    > Optionally, select the download link to download the trace file, and then use the [Playwright Test Viewer](https://playwright.dev/docs/trace-viewer) application on your local machine.
+    Optionally, you can select the **trace** link to download the trace file, and then use the [Playwright Test Viewer](https://playwright.dev/docs/trace-viewer) application on your local machine.
 
-    The trace viewer uses the test traces to enable you to step through the test run timeline. Hover over the timeline at the top to evaluate the application state over time.
+1. Hover over the timeline at the top to evaluate the application state over time.
+
+    The trace viewer uses the Playwright trace log to enable you to interactively step through the test run timeline and view how the application state changes over time.
 
     :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-web-trace-viewer.png" alt-text="Screenshot that shows the web-based Playwright Trace Viewer in the Microsoft Playwright Testing dashboard.":::
 
-    In the **Calls** pane on the right, you can see the details of why the test failed. The test expected a value of *Something* as the second item in the todo list after the page reload. However, the application contains *feed the cat*, as you can see from the application visualization in the center of the screen.
+    In the **Calls** pane on the right, you can see the details of why the test failed. The test expected a value of `Something` in the second list item after the page reload. However, the application contains `feed the cat`, as you can see from the application visualization in the center of the screen.
+
+## Fix the test specification and rerun tests
+
+You've identified the root cause of the failing test, namely a bug in the `todo.persistence.spec.ts` Playwright test specification.
 
 1. Open the `todo.persistence.spec.ts` file in your editor to fix the failing test specification.
 
@@ -341,13 +192,11 @@ To diagnose the failing tests in the Microsoft Playwright Testing dashboard, per
     await expect(todoItems).toHaveClass(['completed', '']);
     ```
 
-    The test now correctly validates that the values in the todo list before and after the page reload match.
+1. Rerun the Playwright tests and notice that all tests now complete successfully.
 
 ## Scale out your tests
 
-Microsoft Playwright Testing abstracts the infrastructure to scale out your tests. Previously, you ran your tests across different browsers and devices. You'll now speed up your test run by using the scale of the cloud.
-
-Playwright enables you to run your tests in parallel. In Playwright, the number of workers determines the maximum number of tests that can run in parallel.
+The sample test repository contains 30 tests, which run across five different browser and device configurations. You can speed up your test by running more tests in parallel. In Playwright, the number of workers determines the maximum number of tests that can run in parallel. Microsoft Playwright Testing abstracts the infrastructure to scale out your tests.
 
 1. Increase the number of workers to speed up your test in Microsoft Playwright Testing using either of two ways:
 
@@ -371,15 +220,11 @@ Playwright enables you to run your tests in parallel. In Playwright, the number 
 
 1. After the test finishes, open the Microsoft Playwright Testing dashboard link in the test output.
 
-1. To view all your tests, select your dashboard name, or **Default Group** if you didn't override the name, from the breadcrumb.
-
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-breadcrumb.png" alt-text="Screenshot that shows breadcrumb navigation in the Microsoft Playwright Testing dashboard.":::
-
-1. View the full history of tests.
+1. To view all previous test runs, select the dashboard name from the breadcrumb.
 
     :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-test-result-list.png" alt-text="Screenshot that shows the list of test results in the Microsoft Playwright Testing dashboard.":::
 
-    You notice that the test run completes much faster in Microsoft Playwright Testing, because of the increased parallelism and number of workers.
+    You notice that the test run completes much faster because of the increased number of parallel workers.
 
 <!-- ## Clean up resources
 
@@ -387,9 +232,9 @@ Playwright enables you to run your tests in parallel. In Playwright, the number 
 
 ## Next steps
 
-You've now created a Microsoft Playwright Testing account and configured your Playwright tests to run at high scale. You used the dashboard to view test runs over time and analyze individual results by using the rich test artifacts.
+You've successfully ran Playwright tests with Microsoft Playwright Testing at high scale. You used the dashboard to view how test results evolve over time, and analyzed the detailed test run diagnostics information to diagnose application issues.
 
-Advance to the next tutorial to learn how to set up automated end-to-end testing.
+Advance to the next tutorial to learn how to set up continuous end-to-end testing.
 
 > [!div class="nextstepaction"]
-> [Automate tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md)
+> [Set up continuous end-to-end testing with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md)
