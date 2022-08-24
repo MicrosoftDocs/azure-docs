@@ -154,14 +154,11 @@ To accomplish the scenario, you need to create two pipelines with the following 
 
 :::image type="content" source="media/pricing-concepts/scenario-5-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for data integration with Managed VNET.":::
 
-> [!NOTE] 
-> These prices are for example purposes only.
-
 **FAQ**
 
 Q: If I would like to run more than 50 pipeline activities, can these activities be executed simultaneously?
 
-A: Max 50 concurrent pipeline activities will be allowed.  The 51th pipeline activity will be queued until a “free slot” is opened up. 
+A: Max 50 concurrent pipeline activities will be allowed.  The 51st pipeline activity will be queued until a “free slot” is opened up. 
 Same for external activity. Max 800 concurrent external activities will be allowed.
 
 ## Next steps
