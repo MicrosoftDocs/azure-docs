@@ -4,8 +4,6 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: Identity fundamentals (TBD)
-    href: 
   - name: What is Azure Active Directory?
     href: active-directory-whatis.md
 - name: First steps
@@ -86,17 +84,17 @@ items:
     href: active-directory-deployment-checklist-p2.md
   - name: Security defaults
     href: concept-fundamentals-security-defaults.md
-  - name: Block legacy authentication
-    href: concept-fundamentals-block-legacy-authentication.md
-- name: Support
+  - name: Block less secure authentications
+    href: ../conditional-access/block-legacy-authentication.md?toc=/azure/active-directory/fundamentals/toc.json
+- name: Support and help
   expanded: false
   items:
-  - name: How to find tenant ID
+  - name: Support and help options for Azure AD
+    href: support-help-options.md
+  - name: Find your tenant ID
     href: active-directory-how-to-find-tenant.md
   - name: Get support for Azure Active Directory
     href: active-directory-troubleshooting-support-howto.md
-  - name: Support and help options for Azure AD
-    href: support-help-options.md
 - name: Reference
   expanded: false
   items:
@@ -109,8 +107,6 @@ items:
       href: whats-new-archive.md
   - name: Frequently asked questions
     href: active-directory-faq.yml
-  - name: Glossary (TBD)
-    href: 
   - name: Compliance
     expanded: false
     items:
@@ -247,7 +243,7 @@ items:
         - name: Daemon applications
           href: resilience-daemon-app.md
         - name: OpenID Connect metadata refresh
-          href: ../develop/howto-build-services-resilient-to-metadata-refresh.md
+          href: ../develop/howto-build-services-resilient-to-metadata-refresh.md?toc=/azure/active-directory/fundamentals/toc.json
       - name: Monitor application health for resilience
         href: monitor-sign-in-health-for-resilience.md
     - name: Certificate authorities used in Azure
