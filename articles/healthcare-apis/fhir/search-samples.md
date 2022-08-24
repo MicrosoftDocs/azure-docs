@@ -68,7 +68,7 @@ GET {{FHIR_URL}}/Patient?birthdate:missing=true
 ```
 
 ### `:exact`
-`:exact` is used to search for elements with `string` data types and returns positive if the parameter value precisely matches the case and distinct character sequence of the element value.
+`:exact` is used to search for elements with `string` data types and returns positive if the parameter value precisely matches the case and full character sequence of the element value.
 
 ```rest
 GET {{FHIR_URL}}/Patient?name:exact=Jon
