@@ -23,7 +23,7 @@ Enabling monitoring on your ASP.NET based web applications running on [Azure App
 ## Enable auto-instrumentation monitoring
 
 > [!NOTE]
-> The combination of APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported. For more info see the explanation in the [troubleshooting section](#appinsights_javascript_enabled-and-urlcompression-is-not-supported).
+> The combination of APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported. For more info see the explanation in the [troubleshooting section](#appinsights_javascript_enabled-and-urlcompression-isnt-supported).
 
 1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 
