@@ -4,13 +4,17 @@ description: Learn how to use the Trusted Access feature to enable Azure resourc
 author: schaffererin
 services: container-service
 ms.topic: article
-ms.date: 08/19/2022
+ms.date: 08/24/2022
 ms.author: schaffererin
 ---
 
-# Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access
+# Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access (PREVIEW)
 
-Many first-party partners depend on clusterAdmin kubeconfig and the kube-apiserver endpoint for authentication and access between their Microsoft Azure services and their customers' AKS clusters. This approach has many disadvantages, including:
+Many first-party partners depend on clusterAdmin kubeconfig and the kube-apiserver endpoint for authentication and access between their Microsoft Azure services and their customers' AKS clusters.
+
+The AKS Trusted Access feature enables you to bypass the private endpoint restriction. Instead of relying on an overpowered first-party [Microsoft Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) application, this feature can use your system-assigned MSI to authenticate with the managed services and applications you want to use on top of AKS.
+
+Trusted Access eliminates the following concerns:
 
 * First-party services may not have stable access to customer api-servers.
 
@@ -26,8 +30,6 @@ Many first-party partners depend on clusterAdmin kubeconfig and the kube-apiserv
 
   * First-party services may have to implement high-privileged service-to-service permissions.
 
-The AKS Trusted Access feature enables you to bypass the private endpoint restriction. Instead of relying on an overpowered first-party [Microsoft Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) application, this feature can use your system-assigned MSI to authenticate with the managed services and applications you want to use on top of AKS.
-
 This article shows you how to use the AKS Trusted Access feature to enable your Azure resources to access your AKS clusters.
 
 ## Trusted Access feature overview
@@ -36,8 +38,7 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
 
 ![Azure Kubernetes Trusted Access feature workflow](media/trusted-access-feature/aks_trusted_access_workflow.png)
 
-> [!NOTE]
-> At this time, the Trusted Access feature isn't available in any sovereign clouds.
+> [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
@@ -59,7 +60,15 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
     ```azurecli
     az extension update --name aks-preview
     ```
-  
+
+* You must register the appropriate feature flags.
+
+    | Name | Version | Region availability |
+    |---|---|---|
+    | Control plane Role | 2022-05-02-preview | All regions |
+    | Control plane Role Binding | 2022-05-02-preview | All regions |
+    | Data plane | v1 | Ready in eastus2euap, centraluseuap |
+
 ## Create an AKS cluster
 
 [Create an AKS cluster](tutorial-kubernetes-deploy-cluster.md) in the same subscription as the Azure resource you want to allow to access the cluster.
