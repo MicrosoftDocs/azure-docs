@@ -61,5 +61,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage access keys
+          - text: Authenticate requests
             url: how-to-manage-access-keys.md
+          - text: Manage users and roles
+            url: how-to-assign-roles.md

@@ -43,7 +43,7 @@ The following diagram illustrates that you can generate the code for automated M
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
-* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
+* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-image-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
 * Automated ML code generation is only available for experiments run on remote Azure ML compute targets. Code generation isn't supported for local runs.
 
@@ -484,5 +484,5 @@ However, in order to load that model in a notebook in your custom local Conda en
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+* Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 * See how to [enable interpretability features](how-to-machine-learning-interpretability-automl.md) specifically within automated ML experiments.

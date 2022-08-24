@@ -27,7 +27,11 @@ With this capability, you have the following features:
 - DDoS Security protection against network traffic in and out of the Internet. 
 - HCX Migration support over the Public Internet.
 
-## Reference   architecture    
+## Prerequisites
+- Azure VMware Solution private cloud
+- DNS Server configured on the NSX-T Datacenter
+
+## Reference architecture    
 The architecture shows Internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX Edge.
 :::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows architecture of Internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-expanded.png":::
 

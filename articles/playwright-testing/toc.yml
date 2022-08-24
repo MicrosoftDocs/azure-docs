@@ -30,5 +30,7 @@ items:
       href: how-to-cross-platform-tests.md
     - name: Test private endpoints
       href: how-to-test-private-endpoints.md
-    - name: Manage access keys
+    - name: Authenticate requests
       href: how-to-manage-access-keys.md
+    - name: Manage users and roles
+      href: how-to-assign-roles.md
