@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 08/24/2022
 ---
 
 # Hyperscale (Citus) performance tuning
@@ -128,6 +128,7 @@ Avoid deadlocks with a locking hierarchy.
 ## Summary of results
 
 | Technique | Query speedup |
+|-----------|---------------|
 | Scoping queries | 100x |
 | Connection pooling | 24x |
 | Efficient logging | 10x |
