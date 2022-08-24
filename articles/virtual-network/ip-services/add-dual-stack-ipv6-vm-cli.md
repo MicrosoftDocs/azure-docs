@@ -49,7 +49,7 @@ Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vn
 
 ```azurecli-interactive
 az network vnet subnet update \
-    --address-prefixes 10.1.0.0/24 2404:f800:8000:122::/64 \
+    --address-prefixes 10.0.0.0/24 2404:f800:8000:122::/64 \
     --name myBackendSubnet \
     --resource-group myResourceGroup \
     --vnet-name myVNet
