@@ -17,7 +17,7 @@ In this Azure Cognitive Search article, learn how to add data exploration and fu
 
 [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/) is an open source library that supports massively parallel machine learning over big data. In SynapseML, one of the ways in which machine learning is exposed is through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities. In this article, we'll focus on just those that call Cognitive Services and Cognitive Search.
 
-In this walkthrough, you'll set up a workbook that includes the follow actions:
+In this walkthrough, you'll set up a workbook that includes the following actions:
 
 > [!div class="checklist"]
 > + Load various forms (invoices) into a data frame in an Apache Spark session
