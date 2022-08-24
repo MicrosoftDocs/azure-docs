@@ -145,14 +145,14 @@ GET {{FHIR_URL}}/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:P
 
 ## Composite search
 
-To search for resources that contain elements grouped together as logically connected pairs, FHIR defines composite search, which joins single parameter values together with the `$` symbol. In a composite search, a positive match occurs when the intersection of element values satisfies all of the conditions specified by the joined search parameters. For example, if you want to find all `DiagnosticReport` resources that contain a potassium value less than `9.2`:
+To search for resources that contain elements grouped together as logically connected pairs, FHIR defines composite search, which joins single parameter values together with the `$` symbol. In a composite search, a positive match occurs when the intersection of element values satisfies all of the conditions set in the joined search parameters. For example, if you want to find all `DiagnosticReport` resources that contain a potassium value less than `9.2`:
 
 ```rest
 GET {{FHIR_URL}}/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2
 
 ``` 
 
-The paired elements in this case would be the `code` element from an `Observation` resource (referenced as the `result`) and the `value` element connected with the `code` (both contained in the referenced `Observation` resource). Following the code with the `$` symbol sets the `value` condition as `lt` (for "less than") `9.2` (for the potassium mmol/L value). 
+The paired elements in this case would be the `code` element from an `Observation` resource (referenced as the `result`) and the `value` element connected with the `code` (both contained in the referenced `Observation` resource). Following the code with the `$` operator sets the `value` condition as `lt` (for "less than") `9.2` (for the potassium mmol/L value). 
 
 Composite search parameters can also be used to filter multiple component code value quantities with a logical OR. For example, to query for observations with diastolic blood pressure greater than 90 OR systolic blood pressure greater than 140:
 
