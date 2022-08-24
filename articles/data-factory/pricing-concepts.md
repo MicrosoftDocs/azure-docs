@@ -129,7 +129,9 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 **Total Scenario pricing for 30 days: $1051.28**
 
-:::image type="content" source="media/pricing-concepts/scenario-4-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for the above scenario.":::
+:::image type="content" source="media/pricing-concepts/scenario-4a-pricing-calculator.png" alt-text="Screenshot of the orchestration section of the pricing calculator configured for the above scenario.":::
+
+:::image type="content" source="media/pricing-concepts/scenario-4-pricing-calculator.png" alt-text="Screenshot of the data flow section of the pricing calculator configured for the above scenario.":::
 
 ## Data integration in Azure Data Factory Managed VNET
 In this scenario, you want to delete original files on Azure Blob Storage and copy data from Azure SQL Database to Azure Blob Storage on an hourly schedule for 30 days. You will do this execution twice on different pipelines for each run. The execution time of these two pipelines is overlapping.
