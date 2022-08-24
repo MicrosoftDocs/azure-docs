@@ -12,7 +12,7 @@ ms.custom: template-how-to
 ms.devlang:
 ---
 
-# Add a dual-stack network to an existing virtual machine using the Azure PowerShell
+# Add a dual-stack network to an existing virtual machine using Azure PowerShell
 
 In this article, you'll add IPv6 support to an existing virtual network. You'll configure an existing virtual machine with both IPv4 and IPv6 addresses. When completed, the existing virtual network will support private IPv6 addresses. The existing virtual machine network configuration will contain a public and private IPv4 and IPv6 address. 
 
