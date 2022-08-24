@@ -89,7 +89,7 @@ This request would return all `Patient` resources with `address` element fields 
 
 ## Chained search 
 
-To perform search operations that cover elements contained within a referenced resource, you can "chain" a series of parameters together with `.`. For example, if you want to view all `DiagnosticReport` resources with a `subject` reference to a patient with a particular `name`:  
+To perform search operations that cover elements contained within a referenced resource, you can "chain" a series of parameters together with `.`. For example, if you want to view all `DiagnosticReport` resources with a `subject` reference to a patient specified by `name`:  
 
 ```rest
  GET {{FHIR_URL}}/DiagnosticReport?subject:Patient.name=Sarah
