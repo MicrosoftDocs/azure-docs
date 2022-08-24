@@ -207,7 +207,7 @@ The result will be an updated `SearchParameter` and the version will increment.
 If you need to delete a search parameter, use the following:
 
 ```rest
-Delete {{FHIR_URL}}/SearchParameter/{SearchParameter ID}
+DELETE {{FHIR_URL}}/SearchParameter/{SearchParameter ID}
 ```
 
 > [!Warning]
