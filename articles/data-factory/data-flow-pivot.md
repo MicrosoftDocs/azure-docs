@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 08/04/2022
 ---
 
 # Pivot transformation in mapping data flow
@@ -27,7 +27,7 @@ The pivot transformation requires three different inputs: group by columns, the 
 
 ### Group by
 
-:::image type="content" source="media/data-flow/pivot2.png" alt-text="Group by options":::
+:::image type="content" source="media/data-flow/pivot-2.png" alt-text="Group by options":::
 
 Select which columns to aggregate the pivoted columns over. The output data will group all rows with the same group by values into one row. The aggregation done in the pivoted column will occur over each group.
 

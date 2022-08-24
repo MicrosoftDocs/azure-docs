@@ -3,7 +3,7 @@ title: Tutorial - Create a forest trust in Azure AD Domain Services | Microsoft 
 description: Learn how to create a one-way outbound forest to an on-premises AD DS domain in the Azure portal for Azure AD Domain Services
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services

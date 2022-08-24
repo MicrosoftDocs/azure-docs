@@ -141,7 +141,7 @@
       href: cache-how-to-geo-replication.md
     - name: Set up Enterprise active geo-replication
       href: cache-how-to-active-geo-replication.md
-    - name: Save with reserved capacity
+    - name: Save with reservations
       href: cache-reserved-pricing.md
     - name: Migrate to Azure Cache for Redis
       href: cache-migration-guide.md

@@ -26,7 +26,7 @@ Use queries to find documents in a collection.
 
 To find documents, use a query filter on the collection to define how the documents are found. 
 
-* [MongoClient.Database.Collection.Find](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_IMongoCollectionExtensions_Find__1_3.htme)
+* [MongoClient.Database.Collection.Find](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/)
 * [FilterDefinition](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/T_MongoDB_Driver_FilterDefinition_1.htm)
 * [FilterDefinitionBuilder](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/T_MongoDB_Driver_FilterDefinitionBuilder_1.htm)
 

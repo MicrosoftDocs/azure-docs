@@ -22,30 +22,24 @@ Use Azure IoT Hub to schedule and track jobs that update millions of devices. Us
 * Update tags
 * Invoke direct methods
 
-A job wraps one of these actions and tracks the execution against a set of devices. A device twin query defines the set of devices the job executes against. For example, a back-end app can use a job to invoke a direct method on 10,000 devices that reboots the devices. You specify the set of devices with a device twin query and schedule the job to run at a future time. The job tracks progress as each of the devices receive and execute the reboot direct method.
+A job wraps one of these actions and tracks the execution against a set of devices. A device twin query defines the set of devices the job executes against. For example, a back-end app can use a job to invoke a direct method on 10,000 devices that reboots the devices. You specify the set of devices with a device twin query and schedule the job to run at a future time. The job tracks progress as each of the devices receives and executes the reboot direct method.
 
 To learn more about each of these capabilities, see:
 
-* Device twin and properties: [Get started with device twins](iot-hub-java-java-twin-getstarted.md)
+* Device twin and properties: [Get started with device twins](iot-hub-java-java-twin-getstarted.md) and [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
 
 * Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: Use direct methods](./quickstart-control-device.md?pivots=programming-language-java)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This article shows you how to:
+This article shows you how to create two Java apps:
 
-* Create a device app that implements a direct method called **lockDoor**. The device app also receives desired property changes from the back-end app.
+* A device app, **simulated-device**, that implements a direct method called **lockDoor**, which can be called by the back-end app.
 
-* Create a back-end app that creates a job to call the **lockDoor** direct method on multiple devices. Another job sends desired property updates to multiple devices.
-
-At the end of this article, you have a Java console device app and a Java console back-end app:
-
-**simulated-device** that connects to your IoT hub, implements the **lockDoor** direct method, and handles desired property changes.
-
-**schedule-jobs** that use jobs to call the **lockDoor** direct method and update the device twin desired properties on multiple devices.
+* A back-end app, **schedule-jobs**, that creates two jobs. One job calls the **lockDoor** direct method and another job sends desired property updates to multiple devices.
 
 > [!NOTE]
-> The article [Azure IoT SDKs](iot-hub-devguide-sdks.md) provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
+> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
 
 ## Prerequisites
 
@@ -57,11 +51,12 @@ At the end of this article, you have a Java console device app and a Java consol
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
-* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
-
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## Get the IoT hub connection string
+> [!NOTE]
+> To keep things simple, this article does not implement a retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
+
+## Get the IoT Hub connection string
 
 [!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
 
@@ -505,10 +500,6 @@ You are now ready to run the console apps.
 
 ## Next steps
 
-In this article, you used a job to schedule a direct method to a device and the update of the device twin's properties.
+In this article, you scheduled jobs to run a direct method and update the device twin's properties.
 
-Use the following resources to learn how to:
-
-* Send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) article.
-
-* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-java) quickstart.
+To continue exploring IoT Hub and device management patterns, update an image in [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).
