@@ -6,8 +6,8 @@ documentationcenter: na
 author: terrylanfear
 manager: barbkess
 ms.assetid: 
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
