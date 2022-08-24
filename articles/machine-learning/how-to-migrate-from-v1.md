@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, devplatv2
 
 # How to migrate from v1 to v2
 
-Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK (preview) introduce consistency and a set of new features to accelerate the production machine learning lifecycle. In this article, we'll overview migrating from v1 to v2 with recommendations to help you decide on v1, v2, or both.
+Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK (preview) introduce consistency and a set of new features to accelerate the production machine learning lifecycle. This article provides an overview of migrating from v1 to v2 with recommendations to help you decide on v1, v2, or both.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ In v2 interfaces via REST API, CLI, and Python SDK (preview) are available. The 
 
 |API|Notes|
 |-|-|
-|REST|Fewest dependencies and overhead. Use for building applications on Azure ML as a platform, directly in programming languages without a SDK provided, or per personal preference.|
+|REST|Fewest dependencies and overhead. Use for building applications on Azure ML as a platform, directly in programming languages without an SDK provided, or per personal preference.|
 |CLI|Recommended for automation with CI/CD or per personal preference. Allows quick iteration with YAML files and straightforward separation between Azure ML and ML model code.|
 |Python SDK|Recommended for complicated scripting (for example, programmatically generating large pipeline jobs) or per personal preference. Allows quick iteration with YAML files or development solely in Python.|
 
@@ -110,9 +110,9 @@ You can continue using your existing v1 model deployments. For new model deploym
 |-|-|-|
 |Local|ACI|Quick test of model deployment locally; not for production.|
 |Managed online endpoint|ACI, AKS|Enterprise-grade managed model deployment infrastructure with near real-time responses and massive scaling for production.|
-|Managed batch endpoint|ParallelRunStep in a pipeline for batch scoring|Enterprise-grade managed model deployment infrastructure with massively-parallel batch processing for production.|
+|Managed batch endpoint|ParallelRunStep in a pipeline for batch scoring|Enterprise-grade managed model deployment infrastructure with massively parallel batch processing for production.|
 |Azure Kubernetes Service (AKS)|ACI, AKS|Manage your own AKS cluster(s) for model deployment, giving flexibility and granular control at the cost of IT overhead.|
-|Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-prem, giving flexibility and granular control at the cost of IT overhead.|
+|Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-premises, giving flexibility and granular control at the cost of IT overhead.|
 
 ### Jobs (experiments, runs, pipelines in v1)
 
@@ -134,7 +134,7 @@ Data assets in v2 (or File Datasets in v1) are *references* to files in object s
 
 For details on data in v2, see the [data concept article](concept-data.md).
 
-We recommend migrating the code for [creating data assets](how-to-create-register-data-assets.md) to v2.
+We recommend migrating the code for [creating data assets](how-to-create-data-assets.md) to v2.
 
 ### Model
 

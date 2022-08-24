@@ -78,7 +78,7 @@ public static async Task RestoreSnapshots(BlobContainerClient container, BlobCli
     {
         Snapshot = blobItems
                     .OrderByDescending(snapshot => snapshot.Snapshot)
-                    .ElementAtOrDefault(1)?.Snapshot
+                    .ElementAtOrDefault(0)?.Snapshot
     };
 
     // Restore the most recent snapshot by copying it to the blob.
@@ -106,7 +106,7 @@ public static void RestoreBlobsWithVersioning(BlobContainerClient container, Blo
     {
         VersionId = blobItems
                     .OrderByDescending(version => version.VersionId)
-                    .ElementAtOrDefault(1)?.VersionId
+                    .ElementAtOrDefault(0)?.VersionId
     };
 
     // Restore the most recently generated version by copying it to the base blob.

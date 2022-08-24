@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 06/08/2022
+ms.date: 08/15/2022
 ---
 
 # Automated publishing for continuous integration and delivery
@@ -87,8 +87,17 @@ npm run build export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxx
 - `FactoryId` is a mandatory field that represents the Data Factory resource ID in the format `/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>`.
 - `OutputFolder` is an optional parameter that specifies the relative path to save the generated ARM template.
 
+If you would like to stop/ start only the updated triggers, instead use the below command (currently this capability is in preview and the functionality will be transparently merged into the above command during GA): 
+```dos
+npm run build-preview export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
+```
+- `RootFolder` is a mandatory field that represents where the Data Factory resources are located.
+- `FactoryId` is a mandatory field that represents the Data Factory resource ID in the format `/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>`.
+- `OutputFolder` is an optional parameter that specifies the relative path to save the generated ARM template.
 > [!NOTE]
 > The ARM template generated isn't published to the live version of the factory. Deployment should be done by using a CI/CD pipeline.
+
+
 
 ### Validate
 
@@ -116,10 +125,11 @@ Follow these steps to get started:
    ```json
    {
        "scripts":{
-           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
+           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index",
+           "build-preview":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index --preview"
        },
        "dependencies":{
-           "@microsoft/azure-data-factory-utilities":"^0.1.5"
+           "@microsoft/azure-data-factory-utilities":"^1.0.0"
        }
    } 
    ```
@@ -172,6 +182,8 @@ Follow these steps to get started:
        command: 'custom'
        workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
        customCommand: 'run build export $(Build.Repository.LocalPath)/<Root-folder-from-Git-configuration-settings-in-ADF> /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<Your-ResourceGroup-Name>/providers/Microsoft.DataFactory/factories/<Your-Factory-Name> "ArmTemplate"'
+   #For using preview that allows you to only stop/ start triggers that are modified, please comment out the above line and uncomment the below line. Make sure the package.json contains the build-preview command. 
+   	#customCommand: 'run build-preview export $(Build.Repository.LocalPath) /subscriptions/222f1459-6ebd-4896-82ab-652d5f6883cf/resourceGroups/GartnerMQ2021/providers/Microsoft.DataFactory/factories/Dev-GartnerMQ2021-DataFactory "ArmTemplate"'
      displayName: 'Validate and Generate ARM template'
    
    # Publish the artifact to be used as a source for a release pipeline.

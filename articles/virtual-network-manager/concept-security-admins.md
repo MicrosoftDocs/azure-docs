@@ -64,7 +64,6 @@ Based on the industry study and suggestions from Microsoft, below is what we rec
 | 5900| TCP | VNC Remote Frame Buffer over HTTP | 
 | 11211	 | UDP	 | Memcached |
 
-Learn how to block 
 ## Security admin rules vs. NSGs
 
 Security admin rules are similar to NSG rules in structure and the parameters they intake, but as we’ve explored so far, they’re not the exact same construct. The first difference is intended audience – admin rules are intended to be used by network admins of a central governance team, thereby delegating NSG rules to individual application or service teams to further specify security as needed. With these intentions, admin rules were designed to have a higher priority than NSGs and therefore be evaluated before NSG rules. Admin rules also include another action type of “Always Allow”, which allows the specified traffic through to its intended destination and terminates further (and possibly conflicting) evaluation by NSGs rules. Admin rules are also applied not only to a network group’s existing VNets but also to newly provisioned resources, as described in the previous section. Admin rules are currently applied at the VNet level, whereas NSGs can be associated at the subnet and NIC level. The table below shows these differences and similarities:
