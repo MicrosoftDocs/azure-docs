@@ -41,9 +41,9 @@ Azure Cognitive Search requires an encrypted channel for all indexer requests ov
 
    Although SQL Server Configuration Manager is often used for this task, you can't use it for this scenario. It won't find the imported certificate because the FQDN of the VM on Azure doesn't match the FQDN as determined by the VM (it identifies the domain as either the local computer or the network domain to which it's joined). When names don't match, use regedit to specify the certificate.
 
-   1. In regedit, browse to this registry key: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`.
+   1. In regedit, browse to this registry key: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`. 
 
-     The `[MSSQL13.MSSQLSERVER]` part varies based on version and instance name. 
+      The `[MSSQL13.MSSQLSERVER]` part varies based on version and instance name. 
 
    1. Set the value of the **Certificate** key to the **thumbprint** (without spaces) of the TLS/SSL certificate you imported to the VM.
 
@@ -51,7 +51,7 @@ Azure Cognitive Search requires an encrypted channel for all indexer requests ov
 
 1. Grant permissions to the service account. 
 
-    Make sure the SQL Server service account is granted appropriate permission on the private key of the TLS/SSL certificate. If you overlook this step, SQL Server won't start. You can use the **Certificates** snap-in or **CertUtils** for this task.
+   Make sure the SQL Server service account is granted appropriate permission on the private key of the TLS/SSL certificate. If you overlook this step, SQL Server won't start. You can use the **Certificates** snap-in or **CertUtils** for this task.
 
 1. Restart the SQL Server service.
 
@@ -71,9 +71,9 @@ The links below provide instructions on NSG configuration for VM deployments. Us
 
 1. Add the search IP address to the IP filter list of the security group. Either one of following articles explains the steps:
 
-   + [Tutorial: Filter network traffic with a network security group using the Azure portal](/azure/virtual-network/tutorial-filter-network-traffic)
+  + [Tutorial: Filter network traffic with a network security group using the Azure portal](/azure/virtual-network/tutorial-filter-network-traffic)
 
-   + [Create, change, or delete a network security group](/azure/virtual-network/manage-network-security-group)
+  + [Create, change, or delete a network security group](/azure/virtual-network/manage-network-security-group)
 
 IP addressing can pose a few challenges that are easily overcome if you're aware of the issue and potential workarounds. The remaining sections provide recommendations for handling issues related to IP addresses in the ACL.
 
