@@ -83,7 +83,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure IoT Hub | Microsoft.Devices/IotHubs | iotHub |
 | Azure IoT Central | Microsoft.IoTCentral/IoTApps | IoTApps |
-| Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | digitaltwinsinstance |
+| Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | API |
 | Azure Event Grid | Microsoft.EventGrid/domains | domain |
 | Azure Event Grid | Microsoft.EventGrid/topics  | topic |
 | Azure Event Hub | Microsoft.EventHub/namespaces | namespace |

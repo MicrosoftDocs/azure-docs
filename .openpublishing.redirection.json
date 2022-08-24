@@ -6814,6 +6814,11 @@
     "redirect_document_id":  false
 },
 {
+    "source_path_from_root":  "/articles/azure-functions/functions-debug-event-grid-trigger-local.md",
+    "redirect_url":  "/azure/azure-functions/functions-event-grid-blob-trigger",
+    "redirect_document_id":  false
+},
+{
     "source_path_from_root":  "/articles/azure-government/documentation-government-k8.md",
     "redirect_url":  "/azure/azure-government",
     "redirect_document_id":  false
