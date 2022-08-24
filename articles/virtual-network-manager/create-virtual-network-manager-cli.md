@@ -39,9 +39,13 @@ Select the subscription where network manager will be deployed.
 
 ```azurecli
 az account set \
-    --subscription "<subscription ID>"
+    --subscription "<subscription_id>"
 ```
-      
+Update the Azure Virtual Network Manager extension for Azure CLI.
+
+```azurecli
+az extension update --name virtual-network-manager
+```
 ## Create a resource group 
 
 Before you can deploy Azure Virtual Network Manager, you have to create a resource group to host a network manager with [az group create](/cli/azure/group#az-group-create). This example creates a resource group named **myAVNMResourceGroup** in the **westus** location:
