@@ -434,4 +434,5 @@ See information about [upgrading the mobility services](upgrade-mobility-service
 
 ## Next steps
 
-[Set up push installation for the Mobility service](vmware-azure-install-mobility-service.md).
+> [!div class="nextstepaction"]
+> [Set up push installation for the Mobility service](vmware-azure-install-mobility-service.md).
