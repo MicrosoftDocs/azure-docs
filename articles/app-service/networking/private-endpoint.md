@@ -47,7 +47,7 @@ You can also deploy the Private Endpoint in a different region than the Web App.
 From a security perspective:
 
 - By default, when you enable Private Endpoints to your Web App, you disable all public access.
-- You can enable multiple Private Endpoints in others VNets and Subnets, including virtual network in other regions.
+- You can enable multiple Private Endpoints in others virtual networks and Subnets, including virtual network in other regions.
 - The access restrictions configuration of a Web App isn't evaluated for traffic through the Private Endpoint.
 - You can eliminate the data exfiltration risk from the virtual network by removing all NSG rules where destination is tag Internet or Azure services. When you deploy a Private Endpoint for a Web App, you can only reach this specific Web App through the Private Endpoint. If you have another Web App, you must deploy another dedicated Private Endpoint for this other Web App.
 
