@@ -24,6 +24,7 @@ This article covers how to use the DataFrame API to connect to SQL databases usi
 In this example, we will use the Microsoft Spark utilities to facilitate acquiring secrets from a pre-configured Key Vault. To learn more about Microsoft Spark utilities, please visit [introduction to Microsoft Spark Utilities](../microsoft-spark-utilities.md).
 
 ```python
+# The servername is in the format "jdbc:sqlserver://<AzureSQLServerName>.database.windows.net:1433"
 servername = "<< server name >>"
 dbname = "<< database name >>"
 url = servername + ";" + "databaseName=" + dbname + ";"
