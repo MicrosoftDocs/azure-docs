@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # Logging in MSAL.NET
 
-[!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
+[!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction-dotnet.md)]
 
 ## Configure logging in MSAL.NET
 
