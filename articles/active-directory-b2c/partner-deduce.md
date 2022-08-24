@@ -49,7 +49,8 @@ The integration includes the following components:
 - **Custom rest API** – This API implements the integration between Azure AD B2C and the Deduce Insights API.
 
 The following architecture diagram shows the implementation:
-![image shows the architecture diagram](./media/partner-deduce/partner-deduce-architecture-diagram.png)
+![image shows the architecture diagram.](./media/partner-deduce/partner-deduce-architecture-diagram.png)
+
 
 | Steps | Description |
 |:-----------|:---------------|
