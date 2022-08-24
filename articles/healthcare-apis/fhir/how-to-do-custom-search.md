@@ -142,9 +142,9 @@ GET {{FHIR_URL}}/Patient?race=2028-9
 x-ms-use-partial-indices: true
 ```
 
-After you have tested your new search parameter and confirmed that it is working as expected, run or schedule your reindex job so the new search parameter(s) can be used in the FHIR service in live production.
+After you have tested your new search parameter and confirmed that it is working as expected, run or schedule your reindex job so the new search parameter(s) can be used in live production.
 
-See [Running a reindex job](../fhir/how-to-run-a-reindex.md) for information on how to re-index your FHIR service.
+See [Running a reindex job](../fhir/how-to-run-a-reindex.md) for information on how to re-index your FHIR service database.
 
 ## Update a search parameter
 
