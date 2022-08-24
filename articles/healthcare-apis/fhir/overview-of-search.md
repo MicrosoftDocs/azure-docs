@@ -150,7 +150,7 @@ A [chained search](https://www.hl7.org/fhir/search.html#chaining) allows you to 
 
 The `.` in the above request steers the path of the chained search to the target parameter (`name` in this case). 
 
-Similarly, you can do a reverse chained search with the `_has` parameter. This allows you to retrieve resource instances by specifying criteria on other resources that reference the resources sought in the query. For examples of chained and reverse chained search, refer to the [FHIR search examples](search-samples.md) page. 
+Similarly, you can do a reverse chained search with the `_has` parameter. This allows you to retrieve resource instances by specifying criteria on other resources that reference the resources of interest. For examples of chained and reverse chained search, refer to the [FHIR search examples](search-samples.md) page. 
 
 ## Pagination
 
