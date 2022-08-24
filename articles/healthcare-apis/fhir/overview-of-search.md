@@ -40,7 +40,7 @@ For each search parameter, the FHIR specification defines the [data type(s)](htt
 |  string                    | Yes                  | Yes                       |
 |  token                     | Yes                  | Yes                       |
 |  reference                 | Yes                  | Yes                       |
-|  composite                 | Partial              | Partial                   | The list of supported composite types is described later in this article |
+|  composite                 | Partial              | Partial                   | The list of supported composite types is described later in this article. |
 |  quantity                  | Yes                  | Yes                       |
 |  uri                       | Yes                  | Yes                       |
 |  special                   | No                   | No                        |
