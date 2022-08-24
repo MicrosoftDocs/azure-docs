@@ -333,7 +333,7 @@ Create a *src/main/resources/application.properties* file, and add:
 
 ```bash
 cat << EOF > src/main/resources/application.properties
-url=jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?ssl=true&sslmode=require
+url=jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?sslmode=require
 user=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
 EOF
 ```
@@ -342,7 +342,7 @@ EOF
 
 ```bash
 cat << EOF > src/main/resources/application.properties
-url=jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?ssl=true&sslmode=require
+url=jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?sslmode=require
 user=${AZ_POSTGRESQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
 password=${AZ_POSTGRESQL_NON_ADMIN_PASSWORD}
 EOF
@@ -351,7 +351,7 @@ EOF
 ---
 
 > [!NOTE]
-> We append `?ssl=true&sslmode=require` to the configuration property `url`, to tell the JDBC driver to use TLS ([Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security)) when connecting to the database. It is mandatory to use TLS with Azure Database for PostgreSQL, and it is a good security practice.
+> We append `?sslmode=require` to the configuration property `url`, to tell the JDBC driver to use TLS ([Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security)) when connecting to the database. It is mandatory to use TLS with Azure Database for PostgreSQL, and it is a good security practice.
 
 
 ### Create an SQL file to generate the database schema
