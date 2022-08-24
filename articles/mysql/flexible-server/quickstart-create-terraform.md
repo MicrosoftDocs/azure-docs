@@ -21,7 +21,9 @@ Article tested with the following Terraform and Terraform provider versions:
 
 [!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
 
-In this article, you learn how to deploy an Azure MySQL Flexible Server Database in a virtual network (VNet) using Terraform.
+This article shows how to use Terraform to deploy an Azure MySQL Flexible Server Database in a virtual network (VNet).
+
+In this article, you learn how to:
 
 > [!div class="checklist"]
 
