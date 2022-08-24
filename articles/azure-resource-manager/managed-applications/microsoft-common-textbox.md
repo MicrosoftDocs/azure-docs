@@ -9,7 +9,7 @@ ms.date: 08/23/2022
 
 # Microsoft.Common.TextBox UI element
 
-The `TextBox` user-interface (UI) element can be used to add unformatted text. The element is a single-line input field, but supports multi-line input with the `multiLine` property. You can also use a single-line text box as an input to the `ArmApiControl`.
+The `TextBox` user-interface (UI) element can be used to add unformatted text. The element is a single-line input field, but supports multi-line input with the `multiLine` property.
 
 ## UI sample
 
