@@ -1300,7 +1300,7 @@ items:
   - name: Insights
     items:
     - name: Activity logs
-      href: logs/activity-log-insights.md
+      href: essentials/activity-log-insights.md
     - name: Azure Cache for Redis
       href: ../azure-cache-for-redis/redis-cache-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Azure Cosmos DB
