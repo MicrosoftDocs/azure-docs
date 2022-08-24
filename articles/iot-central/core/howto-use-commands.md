@@ -99,7 +99,7 @@ The following snippet shows the JSON representation of the command in the device
 ```
 
 > [!TIP]
-> You can export a device model from the device template page.
+> You can export a device model or interface from the device template page.
 
 You can relate this command definition to the screenshot of the UI using the following fields:
 
