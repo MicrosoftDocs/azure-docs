@@ -77,14 +77,20 @@ percentage would be considered 12.5%.
 
 For memory, the percentage is the current Tenured memory region (OldGen) occupancy
 against the maximum possible size of the region, the occupancy is evaluated after a tenured collection has been
-performed. For instance, a profile would be triggered in the following scenario:
+performed. The maximum size of the tenured region is the size it would be if the JVMs' heap grew to its maximum size. 
 
-- The maximum possible size of the Tenured memory region is 1024 mb.
-- Your threshold was set to 75%.
+For instance, take the following scenario:
+
+- The Java heap could grow to a maximum of 1024 mb.
+- The Tenured Generation could grow to 90% of the heap.
+- Therefore the maximum possible size of tenured would be 922 mb.
+- Your threshold was set via the user interface to 75%, therefore your threshold would be 75% of 922 mb, 691 mb.
+
+In this scenario, a profile will occur in the following circumstances:
+
 - A full garbage collection is executed.
-- After the collection is finished, the Tenured regions occupancy is above 768 mb.
+- After the collection is finished, the Tenured regions occupancy is above 691 mb.
 
-The maximum size of the tenured region is the size it would be if the JVMs' heap grew to its maximum size.
 
 ### Installation
 
