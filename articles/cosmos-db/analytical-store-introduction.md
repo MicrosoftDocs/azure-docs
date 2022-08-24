@@ -141,7 +141,6 @@ The following constraints are applicable on the operational data in Azure Cosmos
   {"id": 2, "name": "john"}
   ```
 
-
 * The first document of the collection defines the initial analytical store schema.
   * Documents with more properties than the initial schema will generate new columns in analytical store.
   * Columns can't be removed.
@@ -298,9 +297,9 @@ salary: 1000000
 
 The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it's a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
 
-##### Data type to suffix map
+##### Data type to suffix map for full fidelity schema
 
-Here's a map of all the property data types and their suffix representations in the analytical store:
+Here's a map of all the property data types and their suffix representations in the analytical store in full fidelity schema representation:
 
 |Original data type  |Suffix  |Example  |
 |---------|---------|---------|
@@ -313,7 +312,6 @@ Here's a map of all the property data types and their suffix representations in 
 |NULL    | ".NULL"    | NULL|
 |String|     ".string" |    "ABC"|
 |Timestamp |    ".timestamp" |    Timestamp(0, 0)|
-|DateTime    |".date"    | ISODate("2020-08-21T07:43:07.375Z")|
 |ObjectId    |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
 |Document    |".object" |    {"a": "a"}|
 

@@ -131,12 +131,12 @@ conceptualContent:
         - url: ./containers/container-faq.yml
           itemType: reference
           text: Cognitive Services containers FAQ
-    - title: Cognitive Services for Big Data
-      summary: The Cognitive Services for Big Data allows developers to use cognitive services within databases to apply intelligent algorithms over large datasets
+    - title: Cognitive Services for big data
+      summary: The Cognitive Services for big data allows developers to use cognitive services within databases to apply intelligent algorithms over large datasets
       links:
         - url: ./big-data/cognitive-services-for-big-data.md
           itemType: overview
-          text: Cognitive Services for Big Data
+          text: Cognitive Services for big data
         - url: ./big-data/getting-started.md
           itemType: get-started
           text: Use Cognitive Services within Azure Databricks and Azure Synapse Analytics

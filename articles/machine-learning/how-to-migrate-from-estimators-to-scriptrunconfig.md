@@ -101,7 +101,7 @@ src.run_config.data_references = {data_ref.data_reference_name: data_ref.to_conf
 ```
 
 For more information on using data for training, see:
-* [Train with datasets in Azure ML](./how-to-train-with-datasets.md)
+* [Train with datasets in Azure ML](v1/how-to-train-with-datasets.md)
 
 ## Distributed training
 If you need to configure a distributed job for training, do so by specifying the `distributed_job_config` parameter in the ScriptRunConfig constructor. Pass in an [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration), or [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) for distributed jobs of the respective types.
