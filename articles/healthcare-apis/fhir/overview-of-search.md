@@ -102,7 +102,7 @@ For more information, see the HL7 [Composite Search Parameters](https://www.hl7.
 
  ### Modifiers & prefixes
 
-[Modifiers](https://www.hl7.org/fhir/search.html#modifiers) allow you to refine search parameters with additional qualifications. Below is a list of FHIR modifiers and their support in the FHIR service: 
+[Modifiers](https://www.hl7.org/fhir/search.html#modifiers) allow you to qualify search parameters with additional conditions. Below is a list of FHIR modifiers and their support in the FHIR service: 
 
 | **Modifiers** | **FHIR service in Azure Health Data Services** | **Azure API for FHIR** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
