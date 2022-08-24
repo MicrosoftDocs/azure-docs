@@ -1,5 +1,5 @@
 ---
-title: Create an Azure file share with Azure Active Directory (preview)
+title: Create a profile container with Azure Files and Azure Active Directory (preview)
 description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Azure Active Directory domain (preview).
 services: virtual-desktop
 author: Heidilohr
@@ -22,7 +22,7 @@ This feature is currently supported in the Azure Public, Azure Government, and A
 
 ## Configure your Azure storage account and file share
 
-To store your FSLogix profiles on an Azure Files share: 
+To store your FSLogix profiles on an Azure file share: 
 
 1. [Create an Azure Storage account](../storage/files/storage-how-to-create-file-share.md#create-a-storage-account) if you don't already have one.
 
@@ -33,14 +33,14 @@ To store your FSLogix profiles on an Azure Files share:
 
 3. [Enable Azure Active Directory Kerberos authentication on Azure Files](../storage/files/storage-files-identity-auth-azure-active-directory-enable.md) to enable access from Azure AD-joined VMs.
 
-    - When configuring the directory and file level permissions, review the recommended list of permissions for FSLogix profiles at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht).
-    - Without proper directory level permissions in place, a user can delete the user profile or access the personal information of a different user. It's important to make sure users have proper permissions to prevent accidental deletion from happening.
+    - When configuring the directory and file-level permissions, review the recommended list of permissions for FSLogix profiles at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht).
+    - Without proper directory-level permissions in place, a user can delete the user profile or access the personal information of a different user. It's important to make sure users have proper permissions to prevent accidental deletion from happening.
 
 ## Configure the session hosts
 
 To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you must configure the session hosts. To configure session hosts:
 
-1. Enable the Azure AD Kerberos functionality using one of the following methods:
+1. Enable the Azure AD Kerberos functionality using one of the following methods.
 
     - Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the session host: [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled)
     - Configure this Group policy on the session host: `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
