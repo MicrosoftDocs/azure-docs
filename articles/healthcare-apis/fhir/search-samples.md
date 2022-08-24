@@ -186,7 +186,7 @@ The maximum number of resources that can be returned at once from a search query
 
 ```
 
-And you would do a GET request for the provided URL:
+To retrieve the next set of entries, you would do a GET request for the provided URL:
 
 ```rest
 GET {{FHIR_URL}}/Patient?_sort=_lastUpdated&ct=WzUxMDAxNzc1NzgzODc5MjAwODBd
