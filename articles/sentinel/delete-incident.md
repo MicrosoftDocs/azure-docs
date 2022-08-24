@@ -47,7 +47,26 @@ Alternatively, you can follow the instructions for deleting multiple incidents (
 1. Answer **Yes** to the confirmation prompt that appears.
     :::image type="content" source="media/delete-incident/delete-multiple-incidents-confirm.png" alt-text="Screenshot of multiple incident deletion confirmation dialog.":::
 
-### Notes
+## Delete an incident using the Microsoft Sentinel API
+
+The [Incidents](/rest/api/securityinsights/preview/incidents) operation group allows you to delete incidents as well as to [create and update (edit)](/rest/api/securityinsights/preview/incidents/create-or-update), [get (retrieve)](/rest/api/securityinsights/preview/incidents/get), and [list](/rest/api/securityinsights/preview/incidents/list) them.
+
+You [delete an incident](/rest/api/securityinsights/preview/incidents/delete) using the following endpoint. After this request is made, the incident will be visible in the incident queue in the portal.
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}?api-version=2022-07-01-preview
+```
+
+## Notes
+
+- **Deleting an incident is not a substitute for closing an incident!** Deleting an incident should only be done when at least one of the following conditions are met:
+    - The incident was created manually by mistake.
+    - The incident exactly duplicates another incident.
+    - The incident is being merged with another incident.
+    - The incident contains no data - alerts, entities, bookmarks, and so on.
+
+    In all other cases, when an incident is no longer needed, it should be **closed**, not deleted. [Closing an incident](investigate-cases.md#closing-an-incident) requires you to specify the reason for closing it, and allows you to add additional comments for context and clarification. Closing old incidents in this way preserves the transparency and integrity of your SOC, and also allows for the possibility of reopening the incident if the problem resurfaces.
+
 
 - The incident delete operation is not reversible! After you delete an incident, the only reference to it will be the audit data in the *SecurityIncident* table in the Logs screen. (See the [table's schema documentation in Log Analytics](/azure/azure-monitor/reference/tables/securityincident)).
 
