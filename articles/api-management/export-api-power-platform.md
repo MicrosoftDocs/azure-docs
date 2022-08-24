@@ -53,7 +53,7 @@ You can manage your custom connector in your Power Apps or Power Platform enviro
 
 ## Update a custom connector
 
-From API Management, you can update a connector to target a different API or Power Apps environment, or to update authorization settngs.
+From API Management, you can update a connector to target a different API or Power Apps environment, or to update authorization settings.
 
 1. Navigate to your API Management service in the Azure portal.
 1. In the menu, under **APIs**, select **Power Platform**.
