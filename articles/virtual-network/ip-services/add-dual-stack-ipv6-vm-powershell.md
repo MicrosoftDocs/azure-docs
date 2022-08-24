@@ -147,7 +147,7 @@ $nic | Set-AzNetworkInterface
 
 ## Next steps
 
-In this article, you learned how to create an Azure Virtual machine with a dual-stack network.
+In this article, you learned how to add a dual-stack network to an existing virtual machine.
 
 For more information about IPv6 and IP addresses in Azure, see:
 
