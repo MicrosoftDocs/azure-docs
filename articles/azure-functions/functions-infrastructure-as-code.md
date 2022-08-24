@@ -120,6 +120,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ```json
 "resources": [
   {
+    "type": "Microsoft.Web/sites",
     ...
     "properties": {
       ...
@@ -168,23 +169,27 @@ resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Insights/components",
-  "apiVersion": "2020-02-02",
-  "name": "[parameters('applicationInsightsName')]",
-  "location": "[parameters('appInsightsLocation')]",
-  "tags": {
-    "[format('hidden-link:{0}', resourceId('Microsoft.Web/sites', parameters('applicationInsightsName')))]": "Resource"
-  },
-  "kind": "web",
-  "properties": {
-    "Application_Type": "web",
-    "Request_Source": "IbizaWebAppExtensionCreate"
+"resources": [
+  {
+    "type": "Microsoft.Insights/components",
+    "apiVersion": "2020-02-02",
+    "name": "[parameters('applicationInsightsName')]",
+    "location": "[parameters('appInsightsLocation')]",
+    "tags": {
+      "[format('hidden-link:{0}', resourceId('Microsoft.Web/sites', parameters('applicationInsightsName')))]": "Resource"
+    },
+    "kind": "web",
+    "properties": {
+      "Application_Type": "web",
+      "Request_Source": "IbizaWebAppExtensionCreate"
+    }
   }
-},
+]
 ```
 
 ---
+
+***jgao: do we need "tags" in the sample?
 
 In addition, the instrumentation key needs to be provided to the function app using the `APPINSIGHTS_INSTRUMENTATIONKEY` application setting. This property is specified in the `appSettings` collection in the `siteConfig` object:
 
@@ -214,6 +219,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ```json
 "resources": [
   {
+    "type": "Microsoft.Web/sites",
     ...
     "properties": {
       ...
@@ -273,31 +279,35 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/sites",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('functionAppName')]",
-  "location": "[parameters('location')]",
-  "kind": "functionapp",
-  "identity": {
-    "type": "SystemAssigned"
-  },
-  "properties": {
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "clientAffinityEnabled": false,
-    "siteConfig": {
-      "alwaysOn": true
+"resources:": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('functionAppName')]",
+    "location": "[parameters('location')]",
+    "kind": "functionapp",
+    "identity": {
+      "type": "SystemAssigned"
     },
-    "httpsOnly": true
-  },
-  "dependsOn": [
-    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]"
-  ]
-}
+    "properties": {
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "clientAffinityEnabled": false,
+      "siteConfig": {
+        "alwaysOn": true
+      },
+      "httpsOnly": true
+    },
+    "dependsOn": [
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]"
+    ]
+  }
+]
 ```
 
 ---
+
+***jgao: I add some additional properties per the best practices.
 
 > [!IMPORTANT]
 > If you're explicitly defining a hosting plan, an additional item would be needed in the dependsOn array: `"[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"`
@@ -352,6 +362,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ```json
 "resources": [
   {
+  "type": "Microsoft.Web/sites",
     ...
     "properties": {
       ...
@@ -421,22 +432,24 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('hostingPlanName')]",
-  "location": "[parameters('location')]",
-  "sku": {
-    "name": "Y1",
-    "tier": "Dynamic",
-    "size": "Y1",
-    "family": "Y",
-    "capacity": 0
-  },
-  "properties": {
-    "computeMode": "Dynamic"
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('hostingPlanName')]",
+    "location": "[parameters('location')]",
+    "sku": {
+      "name": "Y1",
+      "tier": "Dynamic",
+      "size": "Y1",
+      "family": "Y",
+      "capacity": 0
+    },
+    "properties": {
+      "computeMode": "Dynamic"
+    }
   }
-}
+]
 ```
 
 ---
@@ -468,23 +481,25 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('hostingPlanName')]",
-  "location": "[parameters('location')]",
-  "sku": {
-    "name": "Y1",
-    "tier": "Dynamic",
-    "size": "Y1",
-    "family": "Y",
-    "capacity":0
-  },
-  "properties": {
-    "computeMode": "Dynamic",
-    "reserved": true
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('hostingPlanName')]",
+    "location": "[parameters('location')]",
+    "sku": {
+      "name": "Y1",
+      "tier": "Dynamic",
+      "size": "Y1",
+      "family": "Y",
+      "capacity":0
+    },
+    "properties": {
+      "computeMode": "Dynamic",
+      "reserved": true
+    }
   }
-}
+]
 ```
 
 ---
@@ -540,7 +555,6 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
           name: 'WEBSITE_NODE_DEFAULT_VERSION'
           value: '~14'
         }
-
       ]
     }
   }
@@ -550,53 +564,55 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/sites",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('functionAppName')]",
-  "location": "[parameters('location')]",
-  "kind": "functionapp",
-  "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-  ],
-  "properties": {
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "siteConfig": {
-      "appSettings": [
-        {
-          "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
-        },
-        {
-          "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-        },
-        {
-          "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-        },
-        {
-          "name": "WEBSITE_CONTENTSHARE",
-          "value": "[toLower(parameters('functionAppName'))]"
-        },
-        {
-          "name": "FUNCTIONS_EXTENSION_VERSION",
-          "value": "~4"
-        },
-        {
-          "name": "FUNCTIONS_WORKER_RUNTIME",
-          "value": "node"
-        },
-        {
-          "name": "WEBSITE_NODE_DEFAULT_VERSION",
-          "value": "~14"
-        }
-      ]
+"resources": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('functionAppName')]",
+    "location": "[parameters('location')]",
+    "kind": "functionapp",
+    "dependsOn": [
+      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    ],
+    "properties": {
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "siteConfig": {
+        "appSettings": [
+          {
+            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          },
+          {
+            "name": "AzureWebJobsStorage",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "WEBSITE_CONTENTSHARE",
+            "value": "[toLower(parameters('functionAppName'))]"
+          },
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~4"
+          },
+          {
+            "name": "FUNCTIONS_WORKER_RUNTIME",
+            "value": "node"
+          },
+          {
+            "name": "WEBSITE_NODE_DEFAULT_VERSION",
+            "value": "~14"
+          }
+        ]
+      }
     }
   }
-}
+]
 ```
 
 ---
@@ -650,43 +666,45 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/sites",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('functionAppName')]",
-  "location": "[parameters('location')]",
-  "kind": "functionapp,linux",
-  "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-  ],
-  "properties": {
-    "reserved": true,
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "siteConfig": {
-      "linuxFxVersion": "node|14",
-      "appSettings": [
-        {
-          "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02).InstrumentationKey]"
-        },
-        {
-          "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-        },
-        {
-          "name": "FUNCTIONS_EXTENSION_VERSION",
-          "value": "~4"
-        },
-        {
-          "name": "FUNCTIONS_WORKER_RUNTIME",
-          "value": "node"
-        }
-      ]
+"resources": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('functionAppName')]",
+    "location": "[parameters('location')]",
+    "kind": "functionapp,linux",
+    "dependsOn": [
+      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    ],
+    "properties": {
+      "reserved": true,
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "siteConfig": {
+        "linuxFxVersion": "node|14",
+        "appSettings": [
+          {
+            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02).InstrumentationKey]"
+          },
+          {
+            "name": "AzureWebJobsStorage",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~4"
+          },
+          {
+            "name": "FUNCTIONS_WORKER_RUNTIME",
+            "value": "node"
+          }
+        ]
+      }
     }
   }
-}
+]
 ```
 
 ---
@@ -723,21 +741,23 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('hostingPlanName')]",
-  "location": "[parameters('location')]",
-  "sku": {
-    "name": "EP1",
-    "tier": "ElasticPremium",
-    "family": "EP"
-  },
-  "kind": "elastic",
-  "properties": {
-    "maximumElasticWorkerCount": 20
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('hostingPlanName')]",
+    "location": "[parameters('location')]",
+    "sku": {
+      "name": "EP1",
+      "tier": "ElasticPremium",
+      "family": "EP"
+    },
+    "kind": "elastic",
+    "properties": {
+      "maximumElasticWorkerCount": 20
+    }
   }
-}
+]
 ```
 
 ---
@@ -768,22 +788,24 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('hostingPlanName')]",
-  "location": "[parameters('location')]",
-  "sku": {
-    "name": "EP1",
-    "tier": "ElasticPremium",
-    "family": "EP",
-  },
-  "kind": "elastic",
-  "properties": {
-    "maximumElasticWorkerCount": 20,
-    "reserved": true
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('hostingPlanName')]",
+    "location": "[parameters('location')]",
+    "sku": {
+      "name": "EP1",
+      "tier": "ElasticPremium",
+      "family": "EP",
+    },
+    "kind": "elastic",
+    "properties": {
+      "maximumElasticWorkerCount": 20,
+      "reserved": true
+    }
   }
-}
+]
 ```
 
 ---
@@ -847,53 +869,55 @@ resource functionAppName_resource 'Microsoft.Web/sites@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/sites",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('functionAppName')]",
-  "location": "[parameters('location')]",
-  "kind": "functionapp",
-  "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-  ],
-  "properties": {
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "siteConfig": {
-      "appSettings": [
-        {
-          "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
-        },
-        {
-          "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-        },
-        {
-          "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-        },
-        {
-          "name": "WEBSITE_CONTENTSHARE",
-          "value": "[toLower(parameters('functionAppName'))]"
-        },
-        {
-          "name": "FUNCTIONS_EXTENSION_VERSION",
-          "value": "~4"
-        },
-        {
-          "name": "FUNCTIONS_WORKER_RUNTIME",
-          "value": "node"
-        },
-        {
-          "name": "WEBSITE_NODE_DEFAULT_VERSION",
-          "value": "~14"
-        }
-      ]
+"resources": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('functionAppName')]",
+    "location": "[parameters('location')]",
+    "kind": "functionapp",
+    "dependsOn": [
+      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    ],
+    "properties": {
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "siteConfig": {
+        "appSettings": [
+          {
+            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          },
+          {
+            "name": "AzureWebJobsStorage",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "WEBSITE_CONTENTSHARE",
+            "value": "[toLower(parameters('functionAppName'))]"
+          },
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~4"
+          },
+          {
+            "name": "FUNCTIONS_WORKER_RUNTIME",
+            "value": "node"
+          },
+          {
+            "name": "WEBSITE_NODE_DEFAULT_VERSION",
+            "value": "~14"
+          }
+        ]
+      }
     }
   }
-}
+]
 ```
 
 ---
@@ -951,51 +975,53 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/sites",
-  "apiVersion": "2021-02-01",
-  "name": "[parameters('functionAppName')]",
-  "location": "[parameters('location')]",
-  "kind": "functionapp,linux",
-  "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-  ],
-  "properties": {
-    "reserved": true,
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "siteConfig": {
-      "linuxFxVersion": "node|14",
-      "appSettings": [
-        {
-          "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
-        },
-        {
-          "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-        },
-        {
-          "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-        },
-        {
-          "name": "WEBSITE_CONTENTSHARE",
-          "value": "[toLower(parameters('functionAppName'))]"
-        },
-        {
-          "name": "FUNCTIONS_EXTENSION_VERSION",
-          "value": "~4"
-        },
-        {
-          "name": "FUNCTIONS_WORKER_RUNTIME",
-          "value": "node"
-        }
-      ]
+"resources": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2021-02-01",
+    "name": "[parameters('functionAppName')]",
+    "location": "[parameters('location')]",
+    "kind": "functionapp,linux",
+    "dependsOn": [
+      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    ],
+    "properties": {
+      "reserved": true,
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "siteConfig": {
+        "linuxFxVersion": "node|14",
+        "appSettings": [
+          {
+            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          },
+          {
+            "name": "AzureWebJobsStorage",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "WEBSITE_CONTENTSHARE",
+            "value": "[toLower(parameters('functionAppName'))]"
+          },
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~4"
+          },
+          {
+            "name": "FUNCTIONS_WORKER_RUNTIME",
+            "value": "node"
+          }
+        ]
+      }
     }
   }
-}
+]
 ```
 
 ---
@@ -1032,19 +1058,21 @@ resource hostingPlanName 'Microsoft.Web/serverfarms@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('hostingPlanName')]",
-  "location": "[parameters('location')]",
-  "sku": {
-    "tier": "Standard",
-    "name": "S1",
-    "size": "S1",
-    "family": "S",
-    "capacity": 1
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('hostingPlanName')]",
+    "location": "[parameters('location')]",
+    "sku": {
+      "tier": "Standard",
+      "name": "S1",
+      "size": "S1",
+      "family": "S",
+      "capacity": 1
+    }
   }
-}
+]
 ```
 
 ---
@@ -1075,22 +1103,24 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('hostingPlanName')]",
-  "location": "[parameters('location')]",
-  "sku": {
-    "tier": "Standard",
-    "name": "S1",
-    "size": "S1",
-    "family": "S",
-    "capacity": 1
-  },
-  "properties": {
-    "reserved": true
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('hostingPlanName')]",
+    "location": "[parameters('location')]",
+    "sku": {
+      "tier": "Standard",
+      "name": "S1",
+      "size": "S1",
+      "family": "S",
+      "capacity": 1
+    },
+    "properties": {
+      "reserved": true
+    }
   }
-}
+]
 ```
 
 ---
@@ -1150,46 +1180,48 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/sites",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('functionAppName')]",
-  "location": "[parameters('location')]",
-  "kind": "functionapp",
-  "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-  ],
-  "properties": {
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "siteConfig": {
-      "alwaysOn": true,
-      "appSettings": [
-        {
-          "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
-        },
-        {
-          "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-        },
-        {
-          "name": "FUNCTIONS_EXTENSION_VERSION",
-          "value": "~4"
-        },
-        {
-          "name": "FUNCTIONS_WORKER_RUNTIME",
-          "value": "node"
-        },
-        {
-          "name": "WEBSITE_NODE_DEFAULT_VERSION",
-          "value": "~14"
-        }
-      ]
+"resources": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('functionAppName')]",
+    "location": "[parameters('location')]",
+    "kind": "functionapp",
+    "dependsOn": [
+      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    ],
+    "properties": {
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "siteConfig": {
+        "alwaysOn": true,
+        "appSettings": [
+          {
+            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          },
+          {
+            "name": "AzureWebJobsStorage",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~4"
+          },
+          {
+            "name": "FUNCTIONS_WORKER_RUNTIME",
+            "value": "node"
+          },
+          {
+            "name": "WEBSITE_NODE_DEFAULT_VERSION",
+            "value": "~14"
+          }
+        ]
+      }
     }
   }
-}
+]
 ```
 
 ---
@@ -1237,44 +1269,46 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/sites",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('functionAppName')]",
-  "location": "[parameters('location')]",
-  "kind": "functionapp,linux",
-  "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-  ],
-  "properties": {
-    "reserved": true,
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "siteConfig": {
-      "alwaysOn": true,
-      "linuxFxVersion": "node|14",
-      "appSettings": [
-        {
-          "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
-        },
-        {
-          "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-        },
-        {
-          "name": "FUNCTIONS_EXTENSION_VERSION",
-          "value": "~4"
-        },
-        {
-          "name": "FUNCTIONS_WORKER_RUNTIME",
-          "value": "node"
-        }
-      ]
+"resources": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('functionAppName')]",
+    "location": "[parameters('location')]",
+    "kind": "functionapp,linux",
+    "dependsOn": [
+      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    ],
+    "properties": {
+      "reserved": true,
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "siteConfig": {
+        "alwaysOn": true,
+        "linuxFxVersion": "node|14",
+        "appSettings": [
+          {
+            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          },
+          {
+            "name": "AzureWebJobsStorage",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~4"
+          },
+          {
+            "name": "FUNCTIONS_WORKER_RUNTIME",
+            "value": "node"
+          }
+        ]
+      }
     }
   }
-}
+]
 ```
 
 ---
@@ -1339,57 +1373,59 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/sites",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('functionAppName')]",
-  "location": "[parameters('location')]",
-  "kind": "functionapp",
-  "dependsOn": [
-    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-  ],
-  "properties": {
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "siteConfig": {
-      "appSettings": [
-        {
-          "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-        },
-        {
-          "name": "FUNCTIONS_WORKER_RUNTIME",
-          "value": "node"
-        },
-        {
-          "name": "WEBSITE_NODE_DEFAULT_VERSION",
-          "value": "~14"
-        },
-        {
-          "name": "FUNCTIONS_EXTENSION_VERSION",
-          "value": "~3"
-        },
-        {
-          "name": "DOCKER_REGISTRY_SERVER_URL",
-          "value": "[parameters('dockerRegistryUrl')]"
-        },
-        {
-          "name": "DOCKER_REGISTRY_SERVER_USERNAME",
-          "value": "[parameters('dockerRegistryUsername')]"
-        },
-        {
-          "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
-          "value": "[parameters('dockerRegistryPassword')]"
-        },
-        {
-          "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
-          "value": "false"
-        }
-      ],
-      "linuxFxVersion": "DOCKER|myacr.azurecr.io/myimage:mytag"
+"resources": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('functionAppName')]",
+    "location": "[parameters('location')]",
+    "kind": "functionapp",
+    "dependsOn": [
+      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    ],
+    "properties": {
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "siteConfig": {
+        "appSettings": [
+          {
+            "name": "AzureWebJobsStorage",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "FUNCTIONS_WORKER_RUNTIME",
+            "value": "node"
+          },
+          {
+            "name": "WEBSITE_NODE_DEFAULT_VERSION",
+            "value": "~14"
+          },
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~3"
+          },
+          {
+            "name": "DOCKER_REGISTRY_SERVER_URL",
+            "value": "[parameters('dockerRegistryUrl')]"
+          },
+          {
+            "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+            "value": "[parameters('dockerRegistryUsername')]"
+          },
+          {
+            "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+            "value": "[parameters('dockerRegistryPassword')]"
+          },
+          {
+            "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+            "value": "false"
+          }
+        ],
+        "linuxFxVersion": "DOCKER|myacr.azurecr.io/myimage:mytag"
+      }
     }
   }
-}
+]
 ```
 
 ---
@@ -1410,14 +1446,12 @@ param customLocationId string
 # [JSON](#tab/json)
 
 ```json
-{
-  "parameters": {
-    "kubeEnvironmentId" : {
-      "type": "string"
-    },
-    "customLocationId" : {
-      "type": "string"
-    }
+"parameters": {
+  "kubeEnvironmentId" : {
+    "type": "string"
+  },
+  "customLocationId" : {
+    "type": "string"
   }
 }
 ```
@@ -1478,26 +1512,28 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('hostingPlanName')]",
-  "location": "[parameters('location')]",
-  "kind": "linux,kubernetes",
-  "sku": {
-    "name": "K1",
-    "tier": "Kubernetes"
-  },
-  "extendedLocation": {
-    "name": "[parameters('customLocationId')]"
-  },
-  "properties": {
-    "kubeEnvironmentProfile": {
-      "id": "[parameters('kubeEnvironmentId')]"
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('hostingPlanName')]",
+    "location": "[parameters('location')]",
+    "kind": "linux,kubernetes",
+    "sku": {
+      "name": "K1",
+      "tier": "Kubernetes"
     },
-    "reserved": true
+    "extendedLocation": {
+      "name": "[parameters('customLocationId')]"
+    },
+    "properties": {
+      "kubeEnvironmentProfile": {
+        "id": "[parameters('kubeEnvironmentId')]"
+      },
+      "reserved": true
+    }
   }
-}
+]
 ```
 
 ---
@@ -1547,42 +1583,44 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/sites",
-  "apiVersion": "2022-03-01",
-  "name": "[parameters('functionAppName')]",
-  "kind": "kubernetes,functionapp,linux,container",
-  "location": "[parameters('location')]",
-  "extendedLocation": {
-    "name": "[parameters('customLocationId')]"
-  },
-  "dependsOn": [
-    "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-  ],
-  "properties": {
-    "serverFarmId": "[parameters('hostingPlanName')]",
-    "siteConfig": {
-      "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice-quickstart",
-      "appSettings": [
-        {
-          "name": "FUNCTIONS_EXTENSION_VERSION",
-          "value": "~3"
-        },
-        {
-          "name": "AzureWebJobsStorage",
-          "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-        },
-        {
-          "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
-        }
-      ],
-      "alwaysOn": true
+"resources": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('functionAppName')]",
+    "kind": "kubernetes,functionapp,linux,container",
+    "location": "[parameters('location')]",
+    "extendedLocation": {
+      "name": "[parameters('customLocationId')]"
+    },
+    "dependsOn": [
+      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    ],
+    "properties": {
+      "serverFarmId": "[parameters('hostingPlanName')]",
+      "siteConfig": {
+        "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice-quickstart",
+        "appSettings": [
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~3"
+          },
+          {
+            "name": "AzureWebJobsStorage",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          }
+        ],
+        "alwaysOn": true
+      }
     }
   }
-}
+]
 ```
 
 ---
@@ -1652,63 +1690,65 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
 # [JSON](#tab/json)
 
 ```json
-{
-  "type": "Microsoft.Web/sites",
-  "apiVersion": "2022-03-01",
-  "name": "[variables('functionAppName')]",
-  "location": "[parameters('location')]",
-  "kind": "functionapp",
-  "properties": {
-    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-    "siteConfig": {
-      "alwaysOn": true,
-      "appSettings": [
-        {
-          "name": "FUNCTIONS_EXTENSION_VERSION",
-          "value": "~3"
-        },
-        {
-          "name": "Project",
-          "value": "src"
-        }
-      ]
-    }
+"resources": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2022-03-01",
+    "name": "[variables('functionAppName')]",
+    "location": "[parameters('location')]",
+    "kind": "functionapp",
+    "properties": {
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+      "siteConfig": {
+        "alwaysOn": true,
+        "appSettings": [
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~3"
+          },
+          {
+            "name": "Project",
+            "value": "src"
+          }
+        ]
+      }
+    },
+    "dependsOn": [
+      "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ]
   },
-  "dependsOn": [
-    "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-  ]
-},
-{
-  "type": "Microsoft.Web/sites/config",
-  "apiVersion": "2022-03-01",
-  "name": "[format('{0}/{1}', variables('functionAppName'), 'appsettings')]",
-  "properties": {
-    "AzureWebJobsStorage": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
-    "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
-    "FUNCTIONS_EXTENSION_VERSION": "~3",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-    "Project": "src"
+  {
+    "type": "Microsoft.Web/sites/config",
+    "apiVersion": "2022-03-01",
+    "name": "[format('{0}/{1}', variables('functionAppName'), 'appsettings')]",
+    "properties": {
+      "AzureWebJobsStorage": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
+      "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
+      "FUNCTIONS_EXTENSION_VERSION": "~3",
+      "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+      "Project": "src"
+    },
+    "dependsOn": [
+      "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
+      "[resourceId('Microsoft.Web/sites/sourcecontrols', variables('functionAppName'), 'web')]",
+      "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ]
   },
-  "dependsOn": [
-    "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
-    "[resourceId('Microsoft.Web/sites/sourcecontrols', variables('functionAppName'), 'web')]",
-    "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-  ]
-},
-{
-  "type": "Microsoft.Web/sites/sourcecontrols",
-  "apiVersion": "2022-03-01",
-  "name": "[format('{0}/{1}', variables('functionAppName'), 'web')]",
-  "properties": {
-    "repoUrl": "[parameters('repoURL')]",
-    "branch": "[parameters('branch')]",
-    "isManualIntegration": true
-  },
-  "dependsOn": [
-    "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
-  ]
-}
+  {
+    "type": "Microsoft.Web/sites/sourcecontrols",
+    "apiVersion": "2022-03-01",
+    "name": "[format('{0}/{1}', variables('functionAppName'), 'web')]",
+    "properties": {
+      "repoUrl": "[parameters('repoURL')]",
+      "branch": "[parameters('branch')]",
+      "isManualIntegration": true
+    },
+    "dependsOn": [
+      "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
+    ]
+  }
+]
 ```
 
 ---
@@ -1786,7 +1826,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile
 
 ---
 
-To test out this deployment, you can use a [template like this one](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-create-dynamic) that creates a function app on Windows in a Consumption plan. 
+To test out this deployment, you can use a [template like this one](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-create-dynamic) that creates a function app on Windows in a Consumption plan.
 
 ## Next steps
 
