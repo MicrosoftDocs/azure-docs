@@ -119,7 +119,7 @@ In this tutorial, you learn how to:
 
 1. Open Azure Storage Explorer and upload the sample PDF document to the **input** container. Then check the VS Code terminal. The script should log that it was triggered by the PDF upload.
 
-    :::image type="content" source="media/tutorial-azure-function/vs-code-terminal-test.png" alt-text="Screenshot of the VS Code terminal after uploading a new document.":::
+    :::image type="content" source="media/tutorial-azure-function/visual-studio-code-terminal-test.png" alt-text="Screenshot of the VS Code terminal after uploading a new document.":::
 
 1. Stop the script before continuing.
 
