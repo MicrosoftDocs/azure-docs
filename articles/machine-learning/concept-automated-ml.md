@@ -18,13 +18,12 @@ Automated machine learning, also referred to as automated ML or AutoML, is the p
 
 Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. With automated machine learning, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
-<a name="parity"></a>
 
 ## Ways to use AutoML in Azure Machine Learning
 
-Azure Machine Learning offers the following two experiences for working with automated ML. See the following sections to understand [feature availability in each experience](#parity).
+Azure Machine Learning offers the following two experiences for working with automated ML. See the following sections to understand feature availability in each experience.
 
-* For code-experienced customers, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  Get started with [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md).
+* For code-experienced customers, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  Get started with [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md)
 
 * For limited/no-code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with these tutorials:
     * [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
@@ -97,7 +96,7 @@ See examples of classification and automated machine learning in these Python no
 
 Similar to classification, regression tasks are also a common supervised learning task. Azure Machine Learning offers [featurizations specifically for these tasks](how-to-configure-auto-features.md#featurization).
 
-Different from classification where predicted output values are categorical, regression models predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others. For example, automobile price based on features like, gas mileage, safety rating, etc. Learn more and see an example of [regression with automated machine learning](tutorial-auto-train-models.md).
+Different from classification where predicted output values are categorical, regression models predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others. For example, automobile price based on features like, gas mileage, safety rating, etc. Learn more and see an example of [regression with automated machine learning](v1/how-to-auto-train-models-v1.md).
 
 See examples of regression and automated machine learning for predictions in these Python notebooks: [CPU Performance Prediction](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/regression-explanation-featurization), 
 
@@ -176,7 +175,7 @@ Using **Azure Machine Learning**, you can design and run your automated ML train
 1. **Identify the ML problem** to be solved: classification, forecasting, regression or computer vision (preview).
 
 1. **Choose whether you want to use the Python SDK or the studio web experience**:
-   Learn about the parity between the [Python SDK and studio web experience](#parity).
+   Learn about the parity between the [Python SDK and studio web experience](#ways-to-use-automl-in-azure-machine-learning).
 
    * For limited or no code experience, try the Azure Machine Learning studio web experience at [https://ml.azure.com](https://ml.azure.com/)  
    * For Python developers, check out the [Azure Machine Learning Python SDK](how-to-configure-auto-train.md) 
@@ -308,7 +307,8 @@ There are multiple resources to get you up and running with AutoML.
 
 ### Tutorials/ how-tos
 Tutorials are end-to-end introductory examples of AutoML scenarios.
-+ **For a code first experience**, follow the [Tutorial: Train a regression model with AutoML and Python](tutorial-auto-train-models.md).
+
++ **For a code first experience**, follow the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md)
 
 + **For a low or no-code experience**, see the [Tutorial: Train a classification model with no-code AutoML in Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
 

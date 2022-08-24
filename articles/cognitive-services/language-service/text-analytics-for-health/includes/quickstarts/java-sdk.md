@@ -13,6 +13,8 @@ ms.author: aahi
 
 Use this quickstart to create a Text Analytics for health application with the client library for Java. In the following example, you will create a Java application that can identify medical [entities](../../concepts/health-entity-categories.md), [relations](../../concepts/relation-extraction.md), and [assertions](../../concepts/assertion-detection.md) that appear in text.
 
+[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)

@@ -46,7 +46,7 @@ Metric alert rules include these features:
 - You can configure if metric alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). Metric alerts are stateful by default.
 
 The target of the metric alert rule can be:
-- A single resource, such as a VM. See this article for supported resource types.
+- A single resource, such as a VM. See [this article](alerts-metric-near-real-time.md) for supported resource types.
 - [Multiple resources](#monitor-multiple-resources) of the same type in the same Azure region, such as a resource group.
 
 ### Multiple conditions

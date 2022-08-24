@@ -159,6 +159,9 @@ Delete all sensors that are associated with the subscription prior to removing t
 > [!NOTE]
 > To remove Enterprise IoT only from your plan, cancel your plan from Microsoft Defender for Endpoint. For more information, see the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration#cancel-your-defender-for-iot-plan).
 
+> [!IMPORTANT]
+> If you are a Microsoft Defender for IoT customer and also have a subscription to Microsoft Defender for Endpoint, the data collected by Microsoft Defender for IoT will automatically populate in your Microsoft Defender for Endpoint instance as well. Customers who want to delete their data from Defender for IoT must also delete their data from Defender for Endpoint.
+
 ## Move existing sensors to a different subscription
 
 Business considerations may require that you apply your existing IoT sensors to a different subscription than the one you’re currently using. To do this, you'll need to onboard a new plan and register the sensors under the new subscription, and then remove them from the old subscription. This process may include some downtime, and historic data isn't migrated.

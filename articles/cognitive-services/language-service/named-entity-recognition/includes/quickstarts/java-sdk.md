@@ -13,6 +13,8 @@ ms.author: aahi
 
 Use this quickstart to create a Named Entity Recognition (NER) application with the client library for Java. In the following example, you will create a Java application that can identify [recognized entities](../../concepts/named-entity-categories.md) in text.
 
+[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)

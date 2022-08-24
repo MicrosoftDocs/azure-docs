@@ -329,6 +329,8 @@
           href: tutorial-blazor-server.md
         - name: Node.js
           href: tutorial-v2-nodejs-webapp-msal.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Secure web app accesses storage and Microsoft Graph
           items:
             - name: Overview

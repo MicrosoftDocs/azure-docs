@@ -74,7 +74,7 @@ Follow these steps to manually assign each role:
 
 1. On the Members tab, select **+ Select Members**.
 
-1. In Select members, search for and select **Cloud PC**, and then select **Select**. 
+1. In Select members, search for *Windows 365*, select **Windows 365** from the list, and then select **Select**. 
 
 1. On the Members tab, select **Next**.
 
