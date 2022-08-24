@@ -118,6 +118,8 @@ items:
         items:
         - name: Portal
           href: add-dual-stack-ipv6-vm-portal.md
+        - name: CLI
+          href: add-dual-stack-ipv6-vm-cli.md
       - name: Create VM - dual-stack network
         items:
         - name: Portal
