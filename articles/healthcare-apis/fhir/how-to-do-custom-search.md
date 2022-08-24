@@ -151,7 +151,7 @@ See [Running a reindex job](../fhir/how-to-run-a-reindex.md) for information on 
 To update a search parameter, use `PUT` to create a new version of the search parameter. You must include the `SearchParameter` ID in the `id` field in the body of the `PUT` request as well as the `PUT` request string.
 
 > [!NOTE]
-> If you don't know the ID for your search parameter, you can search for it using `GET {{FHIR_URL}}/SearchParameter`. This will return all custom search parameters, and you can scroll through the search parameter list to find the search parameter you need. You could also limit the search by name. With the example below, you could search for name using `USCoreRace`: `GET {{FHIR_URL}}/SearchParameter?name=USCoreRace`.
+> If you don't know the ID for your search parameter, you can search for it using `GET {{FHIR_URL}}/SearchParameter`. This will return all custom search parameters, and you can scroll through the search parameter list to find the search parameter you need. You could also limit the search by name. With the example below, you could search by name using `USCoreRace`: `GET {{FHIR_URL}}/SearchParameter?name=USCoreRace`.
 
 ```rest
 PUT {{FHIR_URL}}/SearchParameter/{{SearchParameter_ID}}
