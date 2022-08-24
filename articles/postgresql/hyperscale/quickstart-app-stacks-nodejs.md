@@ -391,7 +391,7 @@ async function importInMemoryDatabase() {
 
 [!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
 
-```bash
+```javascript
 const { Pool } = require('pg');
 const { sleep } = require('sleep');
 
