@@ -182,19 +182,19 @@ Each event is stored in the PT1H.json file with the following format. This forma
 
 ## Legacy collection methods
 
-If you're collecting activity logs using the legacy collection method, migrate to the [export method]() and disable the legacy collection using the [Data Sources - Delete API](https://docs.microsoft.com/en-us/rest/api/loganalytics/data-sources/delete?tabs=HTTP) as follows:
+If you're collecting activity logs using the legacy collection method, we recommend you [export activity logs to your Log Analytics workspace](#send-to-log-analytics-workspace) and disable the legacy collection using the [Data Sources - Delete API](/rest/api/loganalytics/data-sources/delete?tabs=HTTP) as follows:
 
-1. List all data sources connected to the workspace using the [Data Sources - List By Workspace API](https://docs.microsoft.com/en-us/rest/api/loganalytics/data-sources/list-by-workspace?tabs=HTTP#code-try-0) and filter for activity logs.
+1. List all data sources connected to the workspace using the [Data Sources - List By Workspace API](/rest/api/loganalytics/data-sources/list-by-workspace?tabs=HTTP#code-try-0) and filter for activity logs.
 
-    :::image type="content" source="media/activity-log/data-sources-list-by-workspace-api.png" alt-text="Screenshot showing the configuration of the Data Sources - List By Workspace API.":::    
+    :::image type="content" source="media/activity-log/data-sources-list-by-workspace-api.png" alt-text="Screenshot showing the configuration of the Data Sources - List By Workspace API." lightbox="media/activity-log/data-sources-list-by-workspace-api.png":::    
 
 1. Find the connection you want to disable.
 
-    :::image type="content" source="media/activity-log/data-sources-list-by-workspace-api-connection.png" alt-text="Screenshot showing the connection information you need to copy from the output of the Data Sources - List By Workspace API.":::    
+    :::image type="content" source="media/activity-log/data-sources-list-by-workspace-api-connection.png" alt-text="Screenshot showing the connection information you need to copy from the output of the Data Sources - List By Workspace API." lightbox="media/activity-log/data-sources-list-by-workspace-api-connection.png":::    
  
-1. Use the [Data Sources - Delete API](https://docs.microsoft.com/en-us/rest/api/loganalytics/data-sources/delete?tabs=HTTP) to stop collecting activity logs for the specific resource.
+1. Use the [Data Sources - Delete API](/rest/api/loganalytics/data-sources/delete?tabs=HTTP) to stop collecting activity logs for the specific resource.
 
-    :::image type="content" source="media/activity-log/data-sources-delete-api.png" alt-text="Screenshot of the configuration of the Data Sources - Delete API.":::
+    :::image type="content" source="media/activity-log/data-sources-delete-api.png" alt-text="Screenshot of the configuration of the Data Sources - Delete API." lightbox="media/activity-log/data-sources-delete-api.png":::
 ### Managing legacy log profiles
 
 Log profiles are the legacy method for sending the activity log to storage or event hubs. If you're using this method, consider transitioning to diagnostic settings, which provide better functionality and consistency with resource logs.
