@@ -185,7 +185,7 @@ Below is a table outlining the available parameters, defaults, and recommended r
 
 | **Parameter**                     | **Description**              | **Default**        | **Available Range**            |
 | --------------------------------- | ---------------------------- | ------------------ | ------------------------------- |
-| `QueryDelayIntervalInMilliseconds`  | The delay between each batch of resources being kicked off during the reindex job. A smaller number will speed up the job while a higher number will slow it down. | 500 MS (.5 seconds) | 50 to 500000 |
+| `QueryDelayIntervalInMilliseconds`  | The delay between each batch of resources being kicked off during the reindex job. A smaller number will speed up the job while a bigger number will slow it down. | 500 MS (.5 seconds) | 50 to 500000 |
 | `MaximumResourcesPerQuery`  | The maximum number of resources included in the batch of resources to be reindexed.  | 100 | 1-5000 |
 | `MaximumConcurrency`  | The number of batches done at a time.  | 1 | 1-10 |
 
