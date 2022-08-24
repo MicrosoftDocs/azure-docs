@@ -14,7 +14,7 @@ You can save money on backup storage costs for the vault-standard tier using Azu
 
 Azure Backup Storage reserved capacity can significantly reduce your capacity costs for Azure Backup data. The cost savings achieved depend on the duration of your reservation, the total capacity you choose to reserve, and the vault tier, and type of redundancy you've chosen for your vault. Reserved capacity provides a billing discount and doesn't affect the state of your Azure Backup Storage resources.
 
-For information about Azure Backup pricing, see [Azure Backup pricing page](https://azure.microsoft.com/en-in/pricing/details/backup/).
+For information about Azure Backup pricing, see [Azure Backup pricing page](https://azure.microsoft.com/pricing/details/backup/).
 
 ## Reservation terms for Azure Storage
 
@@ -34,13 +34,13 @@ Azure Backup Storage reserved capacity is available for a single subscription, m
 
 When you purchase Azure Backup Storage reserved capacity, you can use your reservation for backup data stored in the vault-standard tier only. A reservation is applied to your usage within the purchased scope and can’t be limited to a specific storage account, container, or object within the subscription.
 
-An Azure Backup Storage reservation covers only the amount of data that’s stored in a subscription or shared resource group. Early deletion, operations, bandwidth, and data transfer charges aren’t included in the reservation. As soon as you purchase a reservation, you’re charged for the capacity charges that match the reservation attributes at the discount rates, instead of pay-as-you-go rates. For more information on Azure reservations, see [What are Azure Reservations?](./cost-management-billing/reservations/save-compute-costs-reservations.md).
+An Azure Backup Storage reservation covers only the amount of data that’s stored in a subscription or shared resource group. Early deletion, operations, bandwidth, and data transfer charges aren’t included in the reservation. As soon as you purchase a reservation, you’re charged for the capacity charges that match the reservation attributes at the discount rates, instead of pay-as-you-go rates. For more information on Azure reservations, see [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
 #### Supported account types, tiers, and redundancy options
 
 Azure Backup Storage reserved capacity is available for backup data stored in the vault-standard tier.
 
-LRS, GRS, and RA-GRS redundancies are supported for reservations. For more information about redundancy options, see [Azure Storage redundancy](-/storage/common/storage-redundancy.md).
+LRS, GRS, and RA-GRS redundancies are supported for reservations. For more information about redundancy options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
 >[!Note]
 >Azure Backup Storage reserved capacity isn't applicable for Protected Instance cost. It's also not applicable to vault-archive tier.
@@ -61,9 +61,9 @@ Reservations are currently available for 100 TiB or 1 PiB blocks, with higher di
 
 ## Purchase Azure Backup Storage reserved capacity
 
-You can purchase Azure Backup Storage reserved capacity through the [Azure portal](https://portal.azure.com/). Pay for the reservation up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase Azure reservations with up front or monthly payments](./cost-management-billing/reservations/prepare-buy-reservation.md).
+You can purchase Azure Backup Storage reserved capacity through the [Azure portal](https://portal.azure.com/). Pay for the reservation up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase Azure reservations with up front or monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md).
 
-For help with identifying the reservation terms that are right for your scenario, see [Understand how reservation discounts are applied to Azure Backup storage](./backup/backup-azure-reserved-pricing-overview.md).
+For help with identifying the reservation terms that are right for your scenario, see [Understand how reservation discounts are applied to Azure Backup storage](backup-azure-reserved-pricing-overview.md).
 
 To purchase reserved capacity, follow these steps:
 
@@ -81,7 +81,7 @@ To purchase reserved capacity, follow these steps:
    | Subscription | The subscription that's used to pay for the Azure Backup Storage reservation. The payment method on the selected subscription is used in charging the costs. The subscription must be one of the following types:  <br><br> - **Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P)**: For an Enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. <br><br> - **Individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P)**: For an individual subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription. <br><br> - Microsoft Customer Agreement subscriptions <br><br> - CSP subscriptions. |
    | Region | The region where the reservation is in effect. |
    | Vault tier | The vault tier for which the reservation is in effect. Currently, only reservations for vault-standard tier are supported. |
-   | Redundancy | The redundancy option for the reservation. Options include LRS,  GRS,  and RA-GRS. For more information about redundancy options, see [Azure Storage redundancy](./storage/common/storage-redundancy.md). |
+   | Redundancy | The redundancy option for the reservation. Options include LRS,  GRS,  and RA-GRS. For more information about redundancy options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md). |
    | Billing frequency | Indicates how often the account is billed for the reservation. Options include Monthly or Upfront. |
    | Size | The amount of capacity to reserve. |
    | Term | One year or three years. |
@@ -106,7 +106,7 @@ To exchange or refund a reservation, follow these steps:
 
 1. Select **Exchange or Refund**, and follow the instructions to submit a support request.
 
-You'll receive an email confirmation when the request is processed. For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](./cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+You'll receive an email confirmation when the request is processed. For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## Exchange a reservation
 
@@ -131,6 +131,6 @@ You'll receive an email notification 30 days prior to the expiration of the rese
 
 ## Next steps
 
-- [What are Azure Reservations?](./cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Understand how reservation discounts are applied to Azure Backup storage](./backup/backup-azure-reserved-pricing-overview.md).
+- [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Understand how reservation discounts are applied to Azure Backup storage](backup-azure-reserved-pricing-overview.md).
 

@@ -18,7 +18,7 @@
     - name: App Service
       href: reservation-discount-app-service.md
     - name: Azure Backup
-      href: backup-azure-reserved-pricing-overview.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../backup/backup-azure-reserved-pricing-overview.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cache for Redis
       href: understand-azure-cache-for-redis-reservation-charges.md
     - name: Azure Data Factory
