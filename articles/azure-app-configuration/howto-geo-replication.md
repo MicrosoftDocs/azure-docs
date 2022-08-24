@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli
 
 # Enable geo-replication (Preview)
 
-This article covers replication of Azure App Configuration stores. You'll learn about how to create and delete a replica in your configuration store.
+This article covers replication of Azure App Configuration stores. You'll learn about how to create, use and delete a replica in your configuration store.
 
 To learn more about the concept of geo-replication, see [Geo-replication in Azure App Configuration](./concept-soft-delete.md).
 
@@ -83,6 +83,39 @@ To delete a replica in the portal, follow the steps below.
     ```
 
 --- -->
+
+## Use replicas
+
+Each replica you create has its dedicated endpoint. If your application resides in multiple geolocations, you can update each deployment of your application in a location to connect to the replica closer to that location, which helps minimize the network latency between your application and App Configuration. Since each replica has its separate request quota, this setup also helps the scalability of your application while it grows to a multi-region distributed service.
+
+When geo-replication is enabled, and if one replica is not accessible, you can let your application failover to another replica for improved resiliency. App Configuration provider libraries have built-in failover support. The provider library accepts multiple endpoints. You can provide a list of your replica endpoints in the order of how you prefer your application to connect, from the most to the least. When one endpoint is not accessible, the provider library will failover to a less preferred endpoint, but it will try to connect to the more preferred endpoints from time to time. When a more preferred endpoint becomes available, it will switch to it for future requests. You can update your application to take advantage of this failover support.
+
+<!-- ### [.NET](#tab/dotnet) -->
+
+```csharp
+configurationBuilder.AddAzureAppConfiguration(options =>
+{
+    // Provide an ordered list of replica endpoints and use AAD authentication
+    options.Connect(new Uri[] {
+                    new Uri("https://<first-replica-endpoint>.azconfig.io"),
+                    new Uri("https://<second-replica-endpoint>.azconfig.io") },
+                new DefaultAzureCredential());
+
+    // Other changes to options
+});
+```
+
+> [!NOTE]
+> The failover support is availble in package `Microsoft.Extensions.Configuration.AzureAppConfiguration` version **5.3.0-preview** or later.
+
+<!-- ### [Java Spring](#tab/spring)
+Placeholder for Java Spring instructions
+--- -->
+
+The failover in the App Configuration provider occurs in the following conditions. It will not happen for client errors like authentication failures.
+- Service unavailable responses (HTTP status code 500 or above)
+- Network connectivity issues
+- Throttled requests (HTTP status code 429)
 
 ## Next steps
 
