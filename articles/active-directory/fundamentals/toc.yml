@@ -251,7 +251,7 @@ items:
     - name: Security defaults
       href: concept-fundamentals-security-defaults.md
     - name: Block legacy authentication
-      href: concept-fundamentals-block-legacy-authentication.md
+      href: ../conditional-access/block-legacy-authentication.md
     - name: Identity secure score
       href: identity-secure-score.md
     - name: Secure remote workers

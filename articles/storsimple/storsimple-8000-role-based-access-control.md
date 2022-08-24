@@ -12,12 +12,14 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2017
+ms.date: 08/18/2022
 ms.author: alkohli 
 ms.custom: devx-track-azurepowershell
 
 ---
 # Azure role-based access control for StorSimple
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 This article provides a brief description of how Azure role-based access control (Azure RBAC) can be used for your StorSimple device. Azure RBAC offers fine-grained access management for Azure. Use Azure RBAC to grant just the right amount of access to the StorSimple users to do their jobs instead of giving everyone unrestricted access. For more information on the basics of access management in Azure, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 

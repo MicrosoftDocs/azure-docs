@@ -11,7 +11,7 @@ This article provides a list of frequently asked questions and answers about Ent
 
 ## What is the difference between OT and Enterprise IoT? 
 
-### OT
+### Operational Technology (OT)
 
 OT network sensors use agentless, patented technology to discover, learn, and continuously monitor network devices for a deep visibility into Operational Technology (OT) / Industrial Control System (ICS) risks. Sensors carry out data collection, analysis, and alerting on-site, making them ideal for locations with low bandwidth or high latency.
 
@@ -86,7 +86,7 @@ If you haven't changed your plan from a trial to a monthly commitment by the tim
 
 To change your plan from a trial to a monthly commitment before the end of the trial, you'll need to cancel your trial plan and onboard a new plan in Defender for Endpoint. For more information, see [Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
-## How is the Defender for IoT pricing affected now that support for Enterprise IoT networks is in General Availability?
+## How is the Defender for IoT pricing affected now that support for Enterprise IoT networks is in general availability?
 
 For more information, see the [Microsoft Defender for IoT pricing](https://azure.microsoft.com/pricing/details/iot-defender/) page.
 

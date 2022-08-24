@@ -114,6 +114,7 @@
             - name: Compute platform
               href: compute-infrastructure.md
             - name: Set up DR using backup/restore
+              displayName: disaster, recovery
               href: api-management-howto-disaster-recovery-backup-restore.md
             - name: Use role-based access control
               href: api-management-role-based-access-control.md
@@ -371,7 +372,7 @@
           - name: JavaScript
             href: /javascript/api/overview/azure/api-management
           - name: Java
-            href: /java/api/overview/azure/apimanagement
+            href: /java/api/overview/azure/api-management
           - name: Python
             href: https://pypi.org/project/azure-mgmt-apimanagement
           - name: Go
