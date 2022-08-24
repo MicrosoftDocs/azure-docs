@@ -144,11 +144,13 @@ By default, the FHIR service in Azure Health Data Services is set to lenient han
 
  ## Chained & reverse chained searching
 
-A [chained search](https://www.hl7.org/fhir/search.html#chaining) allows you to query for resources that have a reference to another resource. For example, if you want to find encounters where the patient’s name is Jane, use:
+A [chained search](https://www.hl7.org/fhir/search.html#chaining) allows you to perform fine-targeted queries for resources that have a reference to another resource. For example, if you want to find encounters where the patient’s name is Jane, use:
 
 `GET {{FHIR_URL}}/Encounter?subject:Patient.name=Jane`
 
-Similarly, you can do a reverse chained search. This allows you to retrieve resource instances by specifying criteria on other resources that reference the target resource instances. For examples of chained and reverse chained search, refer to the [FHIR search examples](search-samples.md) page. 
+The `.` in the above request steers the path of the chained search to the target parameter (`name` in this case). 
+
+Similarly, you can do a reverse chained search with the `_has` parameter. This allows you to retrieve resource instances by specifying criteria on other resources that reference the target resource instances. For examples of chained and reverse chained search, refer to the [FHIR search examples](search-samples.md) page. 
 
 ## Pagination
 
