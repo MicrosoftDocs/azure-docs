@@ -3,7 +3,7 @@ author: erhopf
 ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/11/2020
+ms.date: 08/24/2022
 ---
 
 ## Authenticate with Azure Active Directory
@@ -11,7 +11,7 @@ ms.date: 05/11/2020
 > [!IMPORTANT]
 > AAD authentication always needs to be used together with custom subdomain name of your Azure resource. [Regional endpoints](../articles/cognitive-services/cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do not support AAD authentication.
 
-In the previous sections, we showed you how to authenticate against Azure Cognitive Services using a single-service or multi-service subscription key. While these keys provide a quick and easy path to start development, they fall short in more complex scenarios that require Azure role-based access control (Azure RBAC). Let's take a look at what's required to authenticate using Azure Active Directory (AAD).
+In the previous sections, we showed you how to authenticate against Azure Cognitive Services using a single-service or multi-service subscription key. While these keys provide a quick and easy path to start development, they fall short in more complex scenarios that require Azure [role-based access control (Azure RBAC)](../articles/role-based-access-control/overview.md). Let's take a look at what's required to authenticate using Azure Active Directory (AAD).
 
 In the following sections, you'll use either the Azure Cloud Shell environment or the Azure CLI to create a subdomain, assign roles, and obtain a bearer token to call the Azure Cognitive Services. If you get stuck, links are provided in each section with all available options for each command in Azure Cloud Shell/Azure CLI.
 
