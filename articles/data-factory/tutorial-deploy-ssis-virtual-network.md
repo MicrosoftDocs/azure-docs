@@ -77,9 +77,7 @@ After you've configured a virtual network, you can join your Azure-SSIS IR to th
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png" alt-text="Stop the IR":::
 
-1. In the **Integration Runtimes** list, in the **Actions** column, select the **Edit** button for your Azure-SSIS IR.
-
-   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png" alt-text="Edit the integration runtime":::
+1. In the **Integration Runtimes** list, in the **Actions** column, select your Azure-SSIS IR to edit it.
 
 1. On the **Integration runtime setup** pane, advance through the **General settings** and **Deployment settings** pages by selecting the **Next** button.
 

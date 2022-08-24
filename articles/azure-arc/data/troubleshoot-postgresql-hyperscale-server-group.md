@@ -3,7 +3,7 @@ title: Troubleshoot PostgreSQL Hyperscale server groups
 description: Troubleshoot PostgreSQL Hyperscale server groups with a Jupyter Notebook
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray

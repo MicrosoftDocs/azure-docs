@@ -77,6 +77,14 @@ If you want all the latest features and updates, check this page and install wha
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
 
+## 2.1.16.0
+
+### Release status
+8/2/2022: Released for download and auto-upgrade.
+
+### Bug fixes
+ - We fixed a bug where auto-upgrade fails when the service account is in "UPN" format.
+
 ## 2.1.15.0
 
 ### Release status
@@ -91,7 +99,7 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
  - We added CerificateUserIds attribute to AAD Connector static schema.
  - The AAD Connect wizard will now abort if write event logs permission is missing.
  - We updated the AADConnect health endpoints to support the US government clouds.
- - We added new cmdlets “Get-ADSyncToolsDuplicateUsersSourceAnchor and Set-ADSyncToolsDuplicateUsersSourceAnchor“ to fix bulk "source anchor has changed" errors. When a new forest is added to AADConnect with duplicate user objects, the objects are running into bulk "source anchor has changed" errors. This is happening due to the mismatch between msDsConsistencyGuid & ImmutableId. More information about this module and the new cmdlets can be found in [this article](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adsynctools).
+ - We added new cmdlets “Get-ADSyncToolsDuplicateUsersSourceAnchor and Set-ADSyncToolsDuplicateUsersSourceAnchor“ to fix bulk "source anchor has changed" errors. When a new forest is added to AADConnect with duplicate user objects, the objects are running into bulk "source anchor has changed" errors. This is happening due to the mismatch between msDsConsistencyGuid & ImmutableId. More information about this module and the new cmdlets can be found in [this article](./reference-connect-adsynctools.md).
 
 ### Bug fixes
  - We fixed a bug that prevented localDB upgrades in some Locales.

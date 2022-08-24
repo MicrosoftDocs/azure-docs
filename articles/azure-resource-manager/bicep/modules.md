@@ -20,9 +20,9 @@ To share modules with other people in your organization, create a [template spec
 
 Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template).
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about modules through step-by-step guidance, see [Create composable Bicep files by using modules](/learn/modules/create-composable-bicep-files-using-modules/) on **Microsoft Learn**.
+If you would rather learn about modules through step-by-step guidance, see [Create composable Bicep files by using modules](/learn/modules/create-composable-bicep-files-using-modules/).
 
 ## Definition syntax
 

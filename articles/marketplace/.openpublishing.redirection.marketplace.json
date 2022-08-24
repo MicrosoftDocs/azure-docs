@@ -2015,6 +2015,11 @@
             "source_path_from_root": "/articles/marketplace/toc_old.md",
             "redirect_url": "/azure/marketplace",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/office-store-index.yml",
+            "redirect_url": "/azure/marketplace/why-publish",
+            "redirect_document_id": true
         }
     ]
 }

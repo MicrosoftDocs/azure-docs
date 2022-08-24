@@ -1,11 +1,11 @@
 ---
 title: Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight
 description: Learn how to integrate Apache Spark and Apache Hive with the Hive Warehouse Connector on Azure HDInsight.
-author: nis-goel
-ms.author: nisgoel
+author: reachnijel
+ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 04/01/2022
+ms.date: 07/18/2022
 ---
 
 # Integrate Apache Spark and Apache Hive with Hive Warehouse Connector in Azure HDInsight
@@ -51,6 +51,13 @@ It is important to note that you can view the WLM resource plans from both the c
 
 Hive Warehouse Connector needs separate clusters for Spark and Interactive Query workloads. Follow these steps to set up these clusters in Azure HDInsight.
 
+### Supported Cluster types & versions
+
+| HWC Version | Spark Version | InteractiveQuery Version |
+|:---:|:---:|---|
+| v1 | Spark 2.4 \| HDI 4.0 | Interactive Query 3.1 \| HDI 4.0 |
+| v2 | Spark 3.1 \| HDI 5.0 | Interactive Query 3.1 \| HDI 5.0 |
+
 ### Create clusters
 
 1. Create an HDInsight Spark **4.0** cluster with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
@@ -84,7 +91,7 @@ value. The value may be similar to: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.
 
     | Configuration | Value |
     |----|----|
-    |`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. <br> Set to a suitable HDFS-compatible staging directory. If you have two different clusters, the staging directory should be a folder in the staging directory of the LLAP cluster's storage account so that HiveServer2 has access to it.  Replace `STORAGE_ACCOUNT_NAME` with the name of the storage account being used by the cluster, and `STORAGE_CONTAINER_NAME` with the name of the storage container. |
+    |`spark.datasource.hive.warehouse.load.staging.dir`| If you are using ADLS Gen2 Storage Account, use `abfss://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.dfs.core.windows.net/tmp`<br>If you are using Azure Blob Storage Account, use `wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. <br> Set to a suitable HDFS-compatible staging directory. If you have two different clusters, the staging directory should be a folder in the staging directory of the LLAP cluster's storage account so that HiveServer2 has access to it.  Replace `STORAGE_ACCOUNT_NAME` with the name of the storage account being used by the cluster, and `STORAGE_CONTAINER_NAME` with the name of the storage container. |
     |`spark.sql.hive.hiveserver2.jdbc.url`| The value you obtained earlier from **HiveServer2 Interactive JDBC URL** |
     |`spark.datasource.hive.warehouse.metastoreUri`| The value you obtained earlier from **hive.metastore.uris**. |
     |`spark.security.credentials.hiveserver2.enabled`|`true` for YARN cluster mode and `false` for YARN client mode. |
@@ -248,3 +255,5 @@ kinit USERNAME
 * [HWC integration with Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
 * [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit, and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)
 * [Submitting Spark Applications via Spark-submit utility](https://spark.apache.org/docs/2.4.0/submitting-applications.html)
+* [HWC 1.0 supported APIs](./hive-warehouse-connector-apis.md)
+* [HWC 2.0 supported APIs](./hive-warehouse-connector-v2-apis.md)

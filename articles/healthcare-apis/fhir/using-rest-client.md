@@ -53,7 +53,7 @@ The line starting with `@name` contains a variable that captures the HTTP respon
 
 ```
 ### Get access token 
-@name getAADToken 
+# @name getAADToken 
 POST https://login.microsoftonline.com/{{tenantid}}/oauth2/token
 Content-Type: application/x-www-form-urlencoded
 

@@ -29,7 +29,7 @@ The following tables provide the settings for the default service and its associ
 
 |Setting  |Value  |
 |---------|---------|
-|The service name.      |*Allow-all-traffic*         |
+|The service name.      |*Allow_all_traffic*         |
 |A precedence value that the packet core instance must use to decide between services when identifying the QoS values to offer.|*253*         |
 
 ### Data flow policy rule settings

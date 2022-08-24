@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 06/25/2022
+ms.date: 08/10/2022
 ms.custom: subject-rbac-steps
 ---
 
@@ -37,16 +37,9 @@ First, you create a managed identity for your Azure Stream Analytics job. 
 
 ## Grant the Stream Analytics job permissions to access Azure Service Bus
 
-For the Stream Analytics job to access your Service Bus using managed identity, the service principal you created must have special permissions to your Azure Service Bus resource. In this step, you can assign a role to your stream analytics job's system-assigned managed identity. Azure provides the below Azure built-in roles for authorizing access to a Service Bus namespace. For Azure Stream Analytics you would need these:
+For the Stream Analytics job to access your Service Bus using managed identity, the service principal you created must have special permissions to your Azure Service Bus resource. In this step, you can assign a role to your stream analytics job's system-assigned managed identity. Azure provides the below Azure built-in roles for authorizing access to a Service Bus namespace. For Azure Stream Analytics you would need this role:
 
-- [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Enables data access to Service Bus namespace and its entities (queues, topics, subscriptions, and filters)
 - [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Use this role to give send access to Service Bus namespace and its entities.
-- [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): Use this role to give receiving access to Service Bus namespace and its entities. 
-
-Please note that Stream Analytics Jobs do not need nor do they use [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver). 
-
-> [!TIP] 
-> When you assign roles, assign only the needed access. For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
 
 1. Select **Access control (IAM)**.
 
@@ -56,7 +49,7 @@ Please note that Stream Analytics Jobs do not need nor do they use [Azure Servic
 
     | Setting | Value |
     | --- | --- |
-    | Role | Azure Service Bus Data Owner or Azure Service Bus Data Sender |
+    | Role | Azure Service Bus Data Sender |
     | Assign access to | User, group, or service principal |
     | Members | \<Name of your Stream Analytics job> |
 
@@ -75,6 +68,9 @@ Now that your managed identity is configured, you're ready to add the Service 
 1. Select **Add > Service Bus queue or Service Bus topic**. In the output properties window, search and select your Service Bus account and select **Managed Identity: System assigned** from the *Authentication mode* drop-down menu.
 
 1. Fill out the rest of the properties and select **Save**.
+
+### Limitation
+Test connection on the azure portal is not expected to work when authentication mode for Service Bus is set to user-assigned or system-assigned managed identity.
 
 ## Next steps
 

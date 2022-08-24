@@ -66,6 +66,8 @@
       href: ./ag/bot-protection-overview.md
     - name: WAF engine
       href: ./ag/waf-engine.md
+    - name: Best practices
+      href: ./ag/best-practices.md
     - name: FAQ
       href: ./ag/application-gateway-waf-faq.yml
   - name: Front Door
@@ -82,6 +84,8 @@
       href: ./afds/waf-front-door-policy-settings.md
     - name: Geo-filtering
       href: ./afds/waf-front-door-geo-filtering.md
+    - name: Best practices
+      href: ./afds/waf-front-door-best-practices.md
     - name: FAQ
       href: ./afds/waf-faq.yml
   - name: Security

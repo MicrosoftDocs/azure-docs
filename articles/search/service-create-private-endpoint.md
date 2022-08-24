@@ -19,7 +19,7 @@ Private endpoints are provided by [Azure Private Link](../private-link/private-l
 You can create a private endpoint in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
 > [!NOTE]
-> When the service endpoint is private, some portal features are disabled. You can view and manage service level information, but index, indexer, and skillset information is hidden for security reasons. As an alternative to the portal, you can use the [VS Code Extension](https://aka.ms/vscode-search) to interact with the various components in the service. Additionally, ARM templates don't currently have support for updating existing Private Endpoints that are connected to a search service. 
+> To access a search service using a private endpoint through the portal, [use the portal inside the virtual network](#portal-access-private-search-service)
 
 ## Why use a Private Endpoint for secure access?
 
@@ -51,7 +51,7 @@ In this section, you will create a virtual network and subnet to host the VM tha
 
 ## Create a search service with a private endpoint
 
-In this section, you will create a new Azure Cognitive Search service with a Private Endpoint. 
+In this section, you will create a new Azure Cognitive Search service with a Private Endpoint.
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Web** > **Azure Cognitive Search**.
 
@@ -104,6 +104,8 @@ In this section, you will create a new Azure Cognitive Search service with a Pri
 1. Select **Keys** from the left content menu.
 
 1. Copy the **Primary admin key** for later, when connecting to the service.
+
+<a id="create-virtual-machine-private-endpoint"></a>
 
 ## Create a virtual machine
 
@@ -212,6 +214,15 @@ When the search service endpoint is private, some portal features are disabled. 
 1. Close the remote desktop connection to *myVM*. 
 
 1. To verify that your service is not accessible on a public endpoint, open Postman on your local workstation and attempt the first several tasks in the quickstart. If you receive an error that the remote server does not exist, you have successfully configured a private endpoint for your search service.
+
+<a id="portal-access-private-search-service"></a>
+
+## Use the Azure portal to access a private search service
+
+When the search service endpoint is private, some portal features are disabled. You can view and manage service level information, but index, indexer, and skillset information is hidden for security reasons. To work around this restriction, connect to Azure portal from a browser on a virtual machine inside the virtual network. The portal uses the private endpoint on the connection and gives you visibility into content and operations.
+
+1. Follow the [steps to provision a VM that can access the search service through a private endpoint](#create-virtual-machine-private-endpoint).
+1. On a virtual machine in your virtual network, open a browser and sign into the Azure portal. The portal will use the private endpoint attached to the virtual machine to connect to your search service.
 
 ## Clean up resources 
 When you're done using the Private Endpoint, search service, and the VM, delete the resource group and all of the resources it contains:

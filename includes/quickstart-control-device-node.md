@@ -78,7 +78,7 @@ You also need your IoT hub's _service connection string_ to enable the back-end 
 
 ```azurecli-interactive
 az iot hub connection-string show \
-  --policy-name service --name {YourIoTHubName} --output table
+  --policy-name service --hub-name {YourIoTHubName} --output table
 ```
 
 Make a note of the service connection string, which looks like:

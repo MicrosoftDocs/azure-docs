@@ -91,7 +91,7 @@ The following table shows additional limits in the platform. Please reach out to
 | Job lifetime on a low-priority node | 7 days<sup>2</sup> |
 | Parameter servers per node | 1 |
 
-<sup>1</sup> Maximum lifetime is the duration between when a run starts and when it finishes. Completed runs persist indefinitely. Data for runs not completed within the maximum lifetime is not accessible.
+<sup>1</sup> Maximum lifetime is the duration between when a job starts and when it finishes. Completed jobs persist indefinitely. Data for jobs not completed within the maximum lifetime is not accessible.
 
 <sup>2</sup> Jobs on a low-priority node can be preempted whenever there's a capacity constraint. We recommend that you implement checkpoints in your job.
 
@@ -119,7 +119,7 @@ Azure Machine Learning managed online endpoints have limits described in the fol
 
 <sup>3</sup> If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include these limit increases in the same request.
 
-To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#view-metrics). 
+To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#metrics). 
 
 To request an exception from the Azure Machine Learning product team, use the steps in the [Request quota increases](#request-quota-increases) section and provide the following information:
 

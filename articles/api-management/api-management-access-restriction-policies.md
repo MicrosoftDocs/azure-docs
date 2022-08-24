@@ -235,7 +235,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 <rate-limit calls="number" renewal-period="seconds">
     <api name="API name" id="API id" calls="number" renewal-period="seconds">
         <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
-        retry-after-header-name="header name" 
+        retry-after-header-name="custom header name, replaces default 'Retry-After'" 
         retry-after-variable-name="policy expression variable name"
         remaining-calls-header-name="header name"  
         remaining-calls-variable-name="policy expression variable name"
@@ -275,7 +275,7 @@ In the following example, the per subscription rate limit is 20 calls per 90 sec
 | name           | The name of the API for which to apply the rate limit.                                                | Yes      | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. | Yes      | N/A     |
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds.                                            | Yes      | N/A     |
-| retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
+| retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
 | remaining-calls-variable-name    | The name of a policy expression variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -312,8 +312,10 @@ For more information and examples of this policy, see [Advanced request throttli
                    increment-condition="condition"
                    increment-count="number"
                    counter-key="key value" 
-                   retry-after-header-name="header name" retry-after-variable-name="policy expression variable name"
-                   remaining-calls-header-name="header name"  remaining-calls-variable-name="policy expression variable name"
+                   retry-after-header-name="custom header name, replaces default 'Retry-After'" 
+                   retry-after-variable-name="policy expression variable name"
+                   remaining-calls-header-name="header name"  
+                   remaining-calls-variable-name="policy expression variable name"
                    total-calls-header-name="header name"/> 
 
 ```
@@ -353,7 +355,7 @@ In the following example, the rate limit of 10 calls per 60 seconds is keyed by 
 | increment-condition | The boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
 | increment-count | The number by which the counter is increased per request.        | No       | 1     |
 | renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Policy expression is allowed. Maximum allowed value: 300 seconds.                 | Yes      | N/A     |
-| retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
+| retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
 | remaining-calls-variable-name    | The name of a policy expression variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -420,7 +422,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="SetUsageQuota"></a> Set usage quota by subscription
 
-The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
+The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.  When the quota is exceeded, the caller receives a `403 Forbidden` response status code, and the response includes a `Retry-After` header whose value is the recommended retry interval in seconds.
 
 To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
@@ -471,7 +473,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | name           | The name of the API or operation for which the quota applies.                                             | Yes                                                              | N/A     |
 | bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| renewal-period | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.| Yes                                                              | N/A     |
+| renewal-period | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to the start time of the subscription. When `renewal-period` is set to `0`, the period is set to infinite.| Yes                                                              | N/A     |
 
 ### Usage
 
@@ -485,7 +487,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 > [!IMPORTANT]
 > This feature is unavailable in the **Consumption** tier of API Management.
 
-The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it is incremented only once per request. When the call rate is exceeded, the caller receives a `403 Forbidden` response status code.
+The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it is incremented only once per request. When the quota is exceeded, the caller receives a `403 Forbidden` response status code, and the response includes a `Retry-After` header whose value is the recommended retry interval in seconds.
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
@@ -540,7 +542,7 @@ In the following example, the quota is keyed by the caller IP address.
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | counter-key         | The key to use for the quota policy. For each key value, a single counter is used for all scopes at which the policy is configured.              | Yes                                                              | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`)             | No                                                               | N/A     |
-| renewal-period      | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.                                                   | Yes                                                              | N/A     |
+| renewal-period      | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to `first-perdiod-start`. When `renewal-period` is set to `0`, the period is set to infinite.                                                   | Yes                                                              | N/A     |
 | first-period-start      | The starting date and time for quota renewal periods, in the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.   | No                                                              | `0001-01-01T00:00:00Z`     |
 
 > [!NOTE]

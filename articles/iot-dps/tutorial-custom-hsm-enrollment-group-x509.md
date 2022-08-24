@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Provision X.509 devices to Azure IoT Hub using a custom Hardware Security Module (HSM)
-description: This tutorial uses enrollment groups. In this tutorial, you learn how to provision X.509 devices using a custom Hardware Security Module (HSM) and the C device SDK for Azure IoT Hub Device Provisioning Service (DPS).
+title: Tutorial - Provision X.509 devices to Azure IoT Hub using a custom Hardware Security Module (HSM) and a DPS enrollment group
+description: This tutorial shows how to use X.509 certificates to provision multiple devices through an enrollment group in your Azure IoT Hub Device Provisioning Service (DPS) instance. The devices are simulated using the C device SDK and a custom Hardware Security Module (HSM).
 author: kgremban
 ms.author: kgremban
 ms.date: 07/12/2022
@@ -51,7 +51,7 @@ The following prerequisites are for a Windows development environment used to si
 * Install the latest [CMake build system](https://cmake.org/download/). Make sure you check the option that adds the CMake executable to your path.
 
     >[!IMPORTANT]
-    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
+    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this tutorial. Make sure to use the latest version of CMake.
 
 * Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
@@ -396,7 +396,7 @@ In this section, you'll create the Openssl configuration files, directory struct
     extendedKeyUsage = critical, OCSPSigning
     ```
 
-1. Create the directory structure, the database file (index.txt), and the serial number file (serial) used by OpenSSL commands in this article:
+1. Create the directory structure, the database file (index.txt), and the serial number file (serial) used by OpenSSL commands in this tutorial:
 
     ```bash
     mkdir certs csr newcerts private
@@ -748,7 +748,7 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 The specifics of interacting with actual secure hardware-based storage vary depending on the device hardware. The certificate chains used by the simulated devices in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods used in this sample would then be implemented to read the secrets from that hardware-based storage.
 
-While HSM hardware isn't required, it is recommended to protect sensitive information like the certificate's private key. If an actual HSM was being called by the sample, the private key wouldn't be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This is only done in this article to assist with learning.
+While HSM hardware isn't required, it is recommended to protect sensitive information like the certificate's private key. If an actual HSM was being called by the sample, the private key wouldn't be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This is only done in this tutorial to assist with learning.
 
 To update the custom HSM stub code to simulate the identity of the device with ID `device-01`, perform the following steps:
 

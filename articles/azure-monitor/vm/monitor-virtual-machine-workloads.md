@@ -322,7 +322,7 @@ A synthetic transaction connects to an application or service running on a machi
 
 ## SQL Server
 
-Use [SQL Insights (preview)](../insights/sql-insights-overview.md) to monitor SQL Server running on your virtual machines.
+Use [SQL Insights (preview)](/azure/azure-sql/database/sql-insights-overview) to monitor SQL Server running on your virtual machines.
 
 ## Next steps
 
