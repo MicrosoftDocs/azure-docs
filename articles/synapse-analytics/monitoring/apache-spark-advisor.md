@@ -21,7 +21,7 @@ Spark Advisor is a system that automatically analyzes commands and queries, and 
 ### Might return inconsistent results when you use 'randomSplit'
 Spark Advisor might return inconsistent or inaccurate results when you work with the results of the 'randomSplit' method. Use Apache Spark resilient distributed dataset caching before you use the 'randomSplit' method.
 
-The randomSplit method is equivalent to performing a sample on your dataframe multiple times, with each sample re-fetching, partitioning, and sorting your dataframe within partitions. The data distribution across partitions and sorting order is important for both randomSplit and sample methods. If either changes upon data re-fetch, there might be duplicates, or missing values across splits, and the same sample that uses the same seed might produce different results.
+The randomSplit method is equivalent to performing a sample on your dataframe multiple times, with each sample refetching, partitioning, and sorting your dataframe within partitions. The data distribution across partitions and sorting order is important for both randomSplit and sample methods. If either changes upon data refetch, there might be duplicates, or missing values across splits, and the same sample that uses the same seed might produce different results.
 
 These inconsistencies might not happen on every run. To eliminate them completely, cache your dataframe, repartition on a column(s), or apply aggregate functions such as groupBy.
 
