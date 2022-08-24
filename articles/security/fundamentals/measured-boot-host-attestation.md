@@ -4,6 +4,7 @@ description: Technical overview of Azure firmware measured boot and host attesta
 author: yosharm
 ms.service: information-protection
 ms.subservice: aiplabels
+ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 06/24/2021
