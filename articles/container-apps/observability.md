@@ -21,7 +21,7 @@ These features include:
 |[Log streaming](log-streaming.md) | View streaming logs from a container in near real-time. |
 |[Container console](container-console.md) | Connect to the Linux console in your containers to observe, test and debug your application from inside the container. |
 |[Azure Monitor metrics](metrics.md)| View and analyze compute and network usage metrics to improve the performance of your app. |
-|[Azure Monitor Log Analytics](log-monitoring.md) | Run queries to view and analyze your app's system and application log. |
+|[Azure Monitor Log Analytics](log-monitoring.md) | Run queries to view and analyze your app's system and application logs. |
 |[Azure Monitor alerts](alerts.md)|Create and manage alerts to notify you of events and conditions based on metric and log data.|
 
 >[!NOTE]
@@ -37,8 +37,8 @@ With Container Apps observability features, you can monitor your app throughout 
 
 During the development and test phase, real-time access to your containers' application logs and console is critical for debugging issues.  Container Apps provides: 
 
-- [log streaming](log-streaming.md) for real-time monitoring
-- [container console](container-console.md) access to debug your application
+- [Log streaming](log-streaming.md): view real-time log streams from your containers.
+- [container console](container-console.md):  Access the container console to debug your application.
 
 ### Deployment
 
@@ -46,17 +46,17 @@ Once you deploy your container app, it's essential to monitor your app. Continuo
 
 Azure Monitor features give you the ability to track your app with the following features:
 
-- [Azure Monitor Metrics](metrics.md): monitor and analyze key metrics
-- [Azure Monitor Alerts](alerts.md): send alerts for critical conditions
-- [Azure Monitor Log Analytics](log-monitoring.md): view and analyze application logs
+- [Azure Monitor Metrics](metrics.md): Monitor and analyze key metrics.
+- [Azure Monitor Alerts](alerts.md): Send alerts for critical conditions.
+- [Azure Monitor Log Analytics](log-monitoring.md): View and analyze application logs.
 
 ### Maintenance
 
 Container Apps manages updates to your container app by creating [revisions](revisions.md).  You can run multiple revisions concurrently to perform A/B testing or for blue green deployments.  These observability features will help you monitor your app across revisions:
 
-- [Azure Monitor Metrics](metrics.md): monitor and compare key metrics for multiple revisions
-- [Azure Monitor Alerts](alerts.md): send alerts individual alerts per revision
-- [Azure Monitor Log Analytics](log-monitoring.md): view, analyze and compare log data for multiple revisions
+- [Azure Monitor Metrics](metrics.md): Monitor and compare key metrics for multiple revisions.
+- [Azure Monitor Alerts](alerts.md): Send alerts individual alerts per revision.
+- [Azure Monitor Log Analytics](log-monitoring.md): View, analyze and compare log data for multiple revisions.
 
 ## Next steps
 

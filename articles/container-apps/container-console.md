@@ -13,9 +13,9 @@ ms.author: v-bcatherine
 
 # Connect to a container console in Azure Container Apps
 
-Connecting to a container's console is useful when you want to troubleshoot and modify something inside a container.  Azure Container Apps lets you connect to a container's console using the Azure portal or the Azure CLI.
+Connecting to a container's console is useful when you want to troubleshoot your application inside a container.  Azure Container Apps lets you connect to a container's console using the Azure portal or the Azure CLI.
 
-## Connect to a container console via the Azure portal
+## Connect though the Azure portal
 
 Select **Console** in the **Monitoring** menu group from your container app page in the Azure portal. When your app has more than one container, choose a container from the drop-down list. When there are multiple revisions and replicas, first choose from the **Revision**, **Replica**, and then the **Container** drop-down lists.
 
@@ -23,7 +23,7 @@ You can choose to access your console via bash, sh, or a custom executable.  If 
 
 :::image type="content" source="media/observability/console-ss.png" alt-text="Screenshot of Azure Container Apps Console page.":::
 
-## Connect to a container console via the Azure CLI
+## Connect via the Azure CLI
 
 Use the `az containerapp exec` command to connect to a container console.  Select Ctrl-D to exit the console.
 

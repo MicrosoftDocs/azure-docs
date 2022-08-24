@@ -14,7 +14,7 @@ ms.author: v-bcatherine
 
 While developing and troubleshooting your container app, you often want to see a container's logs in real-time.  Container Apps lets you view a stream of your container's `stdout` and `stderr` log messages using the Azure portal or the Azure CLI.
 
-## From the Azure portal
+## Azure portal
 
 
 1. Navigate to your container app in the Azure portal.
@@ -27,7 +27,7 @@ After you select a container, you can view the log stream in the viewing pane. T
 
 :::image type="content" source="media/observability/log-stream.png" alt-text="Screenshot of Azure Container Apps Log stream page.":::
 
-## From the Azure CLI
+## Azure CLI
 
 You can view container's application logs from the Azure CLI with the `az containerapp logs show` command.  The show command has the following options:
 

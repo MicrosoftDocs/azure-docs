@@ -56,7 +56,7 @@
         href: firewall-integration.md
     - name: Observability
       items:
-      - name: Observability Overview
+      - name: Overview
         href: observability.md
       - name: Log streaming
         href: log-streaming.md

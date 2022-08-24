@@ -12,9 +12,9 @@ ms.author: v-bcatherine
 
 # Monitor Azure Container Apps metrics
 
-Azure Monitor collects metric data from your container app at regular intervals. These metrics help you gain insights into the performance and health of your container app. You can use metrics explorer in the Azure portal to monitor and analyze the metric data. You can also retrieve metric data through the [Azure CLI](/cli/azure/monitor/metrics) and Azure [PowerShell cmdlets](/powershell/module/az.monitor/get-azmetric).
+Azure Monitor collects metric data from your container app at regular intervals. These metrics help you gain insights into the performance and health of your container app. You can use the metrics explorer in the Azure portal to monitor and analyze the metric data. You can also retrieve metric data through the [Azure CLI](/cli/azure/monitor/metrics) and Azure [PowerShell cmdlets](/powershell/module/az.monitor/get-azmetric).
 
-## Available metrics for Container Apps
+## Available metrics
 
 Container Apps provides these metrics.
 
@@ -30,7 +30,7 @@ Container Apps provides these metrics.
 
 The metrics namespace is `microsoft.app/containerapps`.
 
-## View a current snapshot of your app's metrics
+## Metrics snapshots
 
 On your container app **Overview** page in the Azure portal, select the **Monitoring** tab to display charts showing your container app's current CPU, memory, and network utilization.
 
@@ -38,7 +38,7 @@ On your container app **Overview** page in the Azure portal, select the **Monito
 
 From this view, you can pin one or more charts to your dashboard or select a chart to open it in the metrics explorer.
 
-## View metrics with metrics explorer
+## Using metrics explorer
 
 The Azure Monitor metrics explorer lets you create charts from metric data to help you analyze your container app's resource and network usage over time. You can pin charts to a dashboard or in a shared workbook.
 
