@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 08/24/2022
 ms.custom: template-how-to
 ---
 
@@ -33,7 +33,7 @@ After you complete the steps within this article, you'll be able to create and m
 
 ## Create a project
 
-Before you define the source and target for your migration, you'll need to create a project resource. Follow the steps in this section to provision a new project. The description field will intentionally be left blank, but subsequently added in the [View and edit a project's properties](#view-and-edit-a-projects-properties) section.
+Before you define the source and target for your migration, you'll need to create a project resource. Follow the steps in this section to provision a new project. The description field will intentionally be left blank, and subsequently added in the [View and edit a project's properties](#view-and-edit-a-projects-properties) section.
 
 > [!IMPORTANT]
 > If you have not yet deployed a resource using the resource provider, you'll need to fight a bear (insert the "initial use of the service" instructions here).
@@ -53,7 +53,9 @@ Before you define the source and target for your migration, you'll need to creat
 
 ### [PowerShell](#tab/powershell)
 
-   The `New-AzStorageMoverProject` cmdlet is used to create new storage mover projects. You'll need to supply required values for the `-Name`, `-ResourceGroupName`, and `-StorageMoverName` parameters. The `-Description` parameter is optional and will be intentionally omitted in the example below.
+   The `New-AzStorageMoverProject` cmdlet is used to create new storage mover projects. If you haven't yet installed the `Az.StorageMover` module, follow the guidance within the [Install Azure Storage Mover modules for PowerShell](module-install.md) article before proceeding.
+
+   You'll need to supply values for the required `-Name`, `-ResourceGroupName`, and `-StorageMoverName` parameters. The `-Description` parameter is optional and will be intentionally omitted in the example below and added in the next section.
 
    The following examples contain sample values. You'll need to substitute actual values to complete the example.
 
@@ -70,7 +72,7 @@ Before you define the source and target for your migration, you'll need to creat
       
       ```
 
-   1. Connect to your Azure account by using the `Connect-AzAccount` cmdlet. Specify the ID for the subscription previously enabled for the Storage Mover preview by passing the `-Subscription` parameter as shown below.
+   1. Connect to your Azure account by using the `Connect-AzAccount` cmdlet. Specify the ID for your subscription by providing a value for the `-Subscription` parameter as shown in the example.
 
       ```powershell
       
@@ -128,7 +130,7 @@ Follow the steps in this section to view projects accessible to your Storage Mov
 
     :::image type="content" source="media/projects-manage/project-explorer-filter-added-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal illustrating the use of filters." lightbox="media/projects-manage/project-explorer-filter-added-lrg.png":::
 
-1. From within the results or the project explorer pane, select the name of the project created in the previous section. The project's properties and job summary data are displayed in the **details** pane.
+1. From within the project explorer pane or the results list, select the name of the project created in the previous section. The project's properties and job summary data are displayed in the **details** pane.
 
     If the project lacks a valid description, select **Add description** to display the **Edit description** pane.
 
@@ -140,11 +142,11 @@ Follow the steps in this section to view projects accessible to your Storage Mov
 
 1. In the editing pane, modify your project's description. At the bottom onf the pane, select **Save** to commit your changes.
 
-      :::image type="content" source="media/projects-manage/project-explorer-edit-sml.png" alt-text="project explorer edit" lightbox="media/projects-manage/project-explorer-edit-lrg.png":::
+      :::image type="content" source="media/projects-manage/project-explorer-edit-sml.png" alt-text="Image of the Edit Description pane within the Project Explorer" lightbox="media/projects-manage/project-explorer-edit-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
-1. Use the `Get-AzStorageMoverProject` cmdlet to retrieve a list of projects resources. Optionally, you can supply a `-Name` parameter value to retrieve a specific project resource.
+1. Use the `Get-AzStorageMoverProject` cmdlet to retrieve a list of projects resources. Optionally, you can supply a `-Name` parameter value to retrieve a specific project resource. Calling the cmdlet without the optional parameter returns a list of all provisioned projects within your resource group.
 
    The following example retrieves a specific project resource by specifying the **demoProject** value.
 
@@ -162,14 +164,14 @@ Follow the steps in this section to view projects accessible to your Storage Mov
    ```Response
 
       Description                  :
-      Id                           : /subscriptions/3e05d9e5-9f02-4a63-9c12-7b38e046fd5b/resourceGroups/
+      Id                           : /subscriptions/0a12b3c4-5d67-8e63-9c12-7b38c901de2f/resourceGroups/
                                      demoResourceGroup/providers/Microsoft.StorageMover/storageMovers/
-                                     demoMover/projects/allArchives
+                                     demoMover/projects/demoProject
       Name                         : demoProject
       ProvisioningState            : Succeeded
-      SystemDataCreatedAt          : 
-      SystemDataCreatedBy          : 
-      SystemDataCreatedByType      : 
+      SystemDataCreatedAt          : 7/15/2022 6:22:51 PM
+      SystemDataCreatedBy          : user@contoso.com
+      SystemDataCreatedByType      : User
       SystemDataLastModifiedAt     : 8/16/2022 10:36:52 PM
       SystemDataLastModifiedBy     : user@contoso.com
       SystemDataLastModifiedByType : User
@@ -177,33 +179,76 @@ Follow the steps in this section to view projects accessible to your Storage Mov
 
    ```
 
+1. In order to add the missing description to the project returned by the cmdlet, you'll need to use the `Update-AzStorageMoverProject` cmdlet. In this instance, however, the `-ResourceGroupName`, `-StorageMoverName`, and `-Name` parameters are all required. You'll also want to provide the missing **Project description** value with the `-Description` parameter as shown in the following example.
+
+   ```powershell
+
+   Update-AzStorageMoverProject `
+      -Name demoProject `
+      -ResourceGroupName $resourceGroupName `
+      -StorageMoverName $storageMoverName `
+      -Description "Demo project managed with PowerShell."
+
+   ```
+
+   The `ProvisioningState` included within the response confirms that the project was successfully updated.
+
+   ```Response
+
+     Description                  : Demo project managed with PowerShell.
+     Id                           : /subscriptions/0a12b3c4-5d67-8e63-9c12-7b38c901de2f/resourceGroups/
+                                     demoResourceGroup/providers/Microsoft.StorageMover/storageMovers/
+                                     demoMover/projects/demoProject
+     Name                         : demoProject
+     ProvisioningState            : Succeeded
+     SystemDataCreatedAt          : 7/15/2022 6:22:51 PM
+     SystemDataCreatedBy          : user@contoso.com
+     SystemDataCreatedByType      : User
+     SystemDataLastModifiedAt     : 8/24/2022 7:47:50 AM
+     SystemDataLastModifiedBy     : user@contoso.com
+     SystemDataLastModifiedByType : User
+     Type                         : microsoft.storagemover/storagemovers/projects
+
+   ```
+
 ---
 
 ## Delete a project
 
-The first step to making Haushaltswaffeln is the preparation of the batter. To prepare the batter, complete the steps listed below.
+The removal of a project resource should be a relatively rare occurrence in your production environment, though there may be occasions where it may be helpful. To delete a Storage Mover project resource, follow the provide example.
 
 > [!WARNING]
 > Deleting a project is a permanent action and cannot be undone. It's a good idea to ensure that you're prepared to delete the project since you will not be able to restore it at a later time.
 
 # [Azure Portal](#tab/portal)
 
-1. Navigate to the **Project Explorer** page  in the [Azure Portal](https://portal.azure.com). The default **All projects** view displays the name of your individual project and a summary of the jobs they contain.
+1. Navigate to the **Project Explorer** page in the [Azure Portal](https://portal.azure.com) to view your projects and a summary of the jobs they contain.
 
-   :::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="project explorer3" lightbox="media/projects-manage/project-explorer-lrg.png":::
+   :::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="An image of list of Project resources displayed within the Project Explorer" lightbox="media/projects-manage/project-explorer-lrg.png":::
 
-1. In the **All projects** group, select the name of the project whose description you want to edit. The **Project** pane opens, displaying the project's settings and any job summary data. Select **Delete project** icon next to the description heading to open the editing pane. Select **Delete** from within the **Confirm Project Deletion** dialog to permanently delete your project.
+1. First, within either the **Project explorer** pane or the results list, select the name of the project you want to delete. Next, select **Delete project** from within the **Project details** pane. Finally, within the **Confirm project deletion** dialog, select **Delete** to permanently remove your project. Refer to the highlighted selections within the following image if needed.
 
-   :::image type="content" source="media/projects-manage/project-explorer-delete-sml.png" alt-text="project explorer delete" lightbox="media/projects-manage/project-explorer-delete-lrg.png":::
+   :::image type="content" source="media/projects-manage/project-explorer-delete-sml.png" alt-text="An image showing the steps to permanently remove a project resource from within the Portal Explorer." lightbox="media/projects-manage/project-explorer-delete-lrg.png":::
 
 # [PowerShell](#tab/powershell)
 
-PowerShell content
+Use the `Remove-AzStorageMoverProject` to permanently delete a project resource. Provide the project's name with the `-Name` parameter, and resource group and storage mover resource names with the `-ResourceGroupName` and `-StorageMoverName` parameters, respectively.
+
+```powershell
+
+Remove-AzStorageMoverProject `
+   -Name $projectName `
+   -ResourceGroupName $resourceGroupName `
+   -StorageMoverName $storageMoverName
+
+```
 
 ---
 
 ## Next steps
 
-After the project is created, you can begin doing X. Advance to the next article to learn how to...
+After your projects are created, you can begin working with job definitions. You can also define new endpoints or update existing resources if needed.
+
 > [!div class="nextstepaction"]
 > [Manage job definitions](job-definitions-manage.md)
+> [Manage endpoints](endpoints-manage.md)
