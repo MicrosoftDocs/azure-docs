@@ -1,20 +1,20 @@
 ---
-title: Create an Azure virtual machine with a dual-stack network - Azure CLI
+title: Add a dual-stack network to an existing virtual machine - Azure CLI
 titleSuffix: Azure Virtual Network
-description: In this article, learn how to use the Azure CLI to create a virtual machine with a dual-stack virtual network in Azure.
+description: Learn how to add a dual stack network to an existing virtual machine using the Azure CLI.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 08/24/2022
 ms.custom: template-how-to, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
-# Create an Azure Virtual Machine with a dual-stack network using the Azure CLI
+# Add a dual stack network to an existing virtual machine using the Azure portal
 
-In this article, you'll create a virtual machine in Azure with the Azure CLI. The virtual machine is created along with the dual-stack network as part of the procedures.  When completed, the virtual machine supports IPv4 and IPv6 communication.  
+In this article, you'll add IPv6 support to an existing virtual network. You'll configure an existing virtual machine with both IPv4 and IPv6 addresses. When completed, the existing virtual network will support private IPv6 addresses. The existing virtual machine network configuration will contain a public and private IPv4 and IPv6 address. 
 
 ## Prerequisites
 
@@ -24,201 +24,64 @@ In this article, you'll create a virtual machine in Azure with the Azure CLI. Th
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-## Create a resource group
+- An existing virtual network, public IP address and virtual machine in your subscription that is configured for IPv4 support only. For more information about creating a virtual network, public IP address and a virtual machine, see [Quickstart: Create a Linux virtual machine with the Azure CLI](/azure/virtual-machines/linux/quick-create-cli).
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed.
+    - The example virtual network used in this article is named **myVNet**. Replace this value with the name of your virtual network.
+    
+    - The example virtual machine used in this article is named **myVM**. Replace this value with the name of your virtual machine.
+    
+    - The example public IP address used in this article is named **myPublicIP**. Replace this value with the name of your public IP address.
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create) named **myResourceGroup** in the **eastus2** location.
+## Add IPv6 to virtual network
 
-```azurecli-interactive
-  az group create \
-    --name myResourceGroup \
-    --location eastus2
-```
+In this section, you'll add an IPv6 address space and subnet to your existing virtual network.
 
-## Create a virtual network
-
-In this section, you'll create a dual-stack virtual network for the virtual machine.
-
-Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create a virtual network.
+Use [az network vnet update](/cli/azure/network/vnet#az-network-vnet-update) to update the virtual network.
 
 ```azurecli-interactive
-  az network vnet create \
-    --resource-group myResourceGroup \
-    --location eastus2 \
-    --name myVNet \
+az network vnet update \
     --address-prefixes 10.0.0.0/16 2404:f800:8000:122::/63 \
-    --subnet-name myBackendSubnet \
-    --subnet-prefixes 10.0.0.0/24 2404:f800:8000:122::/64
+    --resource-group myResourceGroup \
+    --name myVNet
 ```
 
-## Create public IP addresses
-
-You'll create two public IP addresses in this section, IPv4 and IPv6. 
-
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create the public IP addresses.
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to create the subnet.
 
 ```azurecli-interactive
-  az network public-ip create \
+az network vnet subnet update \
+    --address-prefixes 10.1.0.0/24 2404:f800:8000:122::/64 \
+    --name myBackendSubnet \
     --resource-group myResourceGroup \
-    --name myPublicIP-Ipv4 \
-    --sku Standard \
-    --version IPv4 \
-    --zone 1 2 3
+    --vnet-name myVNet
+```
 
+## Create IPv6 public IP address
+
+In this section, you'll create a IPv6 public IP address for the virtual machine.
+
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create the public IP address.
+
+```azurecli-interactive
   az network public-ip create \
     --resource-group myResourceGroup \
     --name myPublicIP-Ipv6 \
     --sku Standard \
     --version IPv6 \
     --zone 1 2 3
-
 ```
-## Create a network security group
+## Add IPv6 configuration to virtual machine
 
-In this section, you'll create a network security group for the virtual machine and virtual network.
-
-Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create the network security group.
-
-```azurecli-interactive
-  az network nsg create \
-    --resource-group myResourceGroup \
-    --name myNSG
-```
-
-### Create network security group rules
-
-You'll create a rule to allow connections to the virtual machine on port 22 for SSH. An extra rule is created to allow all ports for outbound connections.
-
-Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create the network security group rules.
-
-```azurecli-interactive
-  az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNSG \
-    --name myNSGRuleSSH \
-    --protocol '*' \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 22 \
-    --access allow \
-    --priority 200
-
-  az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNSG \
-    --name myNSGRuleAllOUT \
-    --protocol '*' \
-    --direction outbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range '*' \
-    --access allow \
-    --priority 200
-```
-
-## Create virtual machine
-
-In this section, you'll create the virtual machine and its supporting resources.
-
-### Create network interface
-
-You'll use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create the network interface for the virtual machine. The public IP addresses and the NSG created previously are associated with the NIC. The network interface is attached to the virtual network you created previously.
-
-```azurecli-interactive
-  az network nic create \
-    --resource-group myResourceGroup \
-    --name myNIC1 \
-    --vnet-name myVNet \
-    --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --public-ip-address myPublicIP-IPv4
-```
-
-### Create IPv6 IP configuration
-
-Use [az network nic ip-config create](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-create) to create the IPv6 configuration for the NIC.
+Use [az network nic ip-config create](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-create) to create the IPv6 configuration for the NIC. The **`--nic-name`** used in the example is **myvm569**. Replace this value with the name of the network interface in your virtual machine.
 
 ```azurecli-interactive
   az network nic ip-config create \
     --resource-group myResourceGroup \
-    --name myIPv6config \
-    --nic-name myNIC1 \
+    --name Ipv6config \
+    --nic-name myvm569 \
     --private-ip-address-version IPv6 \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
     --public-ip-address myPublicIP-IPv6
-```
-
-### Create virtual machine
-
-Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
-
-```azurecli-interactive
-  az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --nics myNIC1 \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --authentication-type ssh \
-    --generate-ssh-keys
-```
-
-## Test SSH connection
-
-Use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to display the IP addresses of the virtual machine.
-
-```azurecli-interactive
-  az network public-ip show \
-    --resource-group myResourceGroup \
-    --name myPublicIP-IPv4 \
-    --query ipAddress \
-    --output tsv
-```
-
-```bash
-user@Azure:~$ az network public-ip show \
->     --resource-group myResourceGroup \
->     --name myPublicIP-IPv4 \
->     --query ipAddress \
->     --output tsv
-20.119.201.208
-```
-
-```azurecli-interactive
-  az network public-ip show \
-    --resource-group myResourceGroup \
-    --name myPublicIP-IPv6 \
-    --query ipAddress \
-    --output tsv
-```
-
-```bash
-user@Azure:~$ az network public-ip show \
->     --resource-group myResourceGroup \
->     --name myPublicIP-IPv6 \
->     --query ipAddress \
->     --output tsv
-2603:1030:408:6::9d
-```
-
-Open an SSH connection to the virtual machine by using the following command. Replace the IP address with the IP address of your virtual machine.
-
-```bash
-  ssh azureuser@20.119.201.208
-```
-
-## Clean up resources
-
-When no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, virtual machine, and all related resources.
-
-```azurecli-interactive
-  az group delete \
-    --name myResourceGroup
 ```
 
 ## Next steps
