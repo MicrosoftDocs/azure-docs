@@ -53,6 +53,8 @@ To get the request URL and body, browse to the Azure portal of your FHIR service
 
 [ ![Screenshot of Get JSON View](media/bulk-import/fhir-json-view.png) ](media/bulk-import/fhir-json-view.png#lightbox)
 
+Select the API version to **2022-06-01** or later version. 
+
 Copy the URL as request URL and do following changes of the JSON as body:
 - Set enabled in importConfiguration to **true**
 - add or change the integrationDataStore with target storage account name 
