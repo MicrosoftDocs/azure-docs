@@ -2,7 +2,7 @@
 title: Create a classic Azure Video Indexer account connected to Azure
 description: Learn how to create a classic Azure Video Indexer account connected to Azure.
 ms.topic: tutorial
-ms.date: 05/03/2022
+ms.date: 08/24/2022
 ms.author: itnorman
 ms.custom: ignite-fall-2021
 ---
@@ -167,10 +167,10 @@ To create a paid account in Azure Government, follow the instructions in [Create
 ### Limitations of Azure Video Indexer on Azure Government
 
 * Only paid accounts (ARM or classic) are available on Azure Government. 
-* No manual content moderation available in Government cloud.
+* No manual content moderation available in Azure Government.
 
     In the public cloud when content is deemed offensive based on a content moderation, the customer can ask for a human to look at that content and potentially revert that decision.
-* Bing description - in Gov cloud we won't present a description of celebrities and named entities identified. This is a UI capability only.
+* Bing description - in Azure Government we won't present a description of celebrities and named entities identified. This is a UI capability only.
 
 ## Clean up resources
 
