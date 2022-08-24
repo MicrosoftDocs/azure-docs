@@ -145,7 +145,7 @@ GET {{FHIR_URL}}/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:P
 
 ## Composite search
 
-To search for resources that contain elements grouped together as logically inter-dependent pairs, FHIR defines composite search, which joins single parameter values together with the `$` symbol. In a composite search, a positive match occurs when the intersection of element values satisfies all of the conditions set in the joined search parameters. For example, if you want to find all `DiagnosticReport` resources that contain a potassium value less than `9.2`:
+To search for resources that contain elements grouped together as logically connected pairs, FHIR defines composite search, which joins single parameter values together with the `$` operator, making an interdependent pair of parameters. In a composite search, a positive match occurs when the intersection of element values satisfies all of the conditions set in the paired search parameters. For example, if you want to find all `DiagnosticReport` resources that contain a potassium value less than `9.2`:
 
 ```rest
 GET {{FHIR_URL}}/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2
