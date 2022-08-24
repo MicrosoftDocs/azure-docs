@@ -13,9 +13,11 @@ ms.reviewer: shseth
 
 This articles explains how to define network settings and enable network isolation for Azure Monitor Agent.
 
+## Virtual network service tags
+
 The Azure Monitor Agent supports Azure service tags. Both *AzureMonitor* and *AzureResourceManager* tags are required. It supports connecting via *direct proxies, Log Analytics gateway, and private links* as described in the following sections.
 
-### Firewall requirements
+## Firewall requirements
 
 | Cloud |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection|
 |------|------|------|---------|--------|--------|
@@ -28,7 +30,7 @@ The Azure Monitor Agent supports Azure service tags. Both *AzureMonitor* and *Az
 
 If you use private links on the agent, you must also add the [DCE endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).
 
-### Proxy configuration
+## Proxy configuration
 
 If the machine connects through a proxy server to communicate over the internet, review the following requirements to understand the network configuration required.
 
@@ -81,7 +83,7 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 
 ---
 
-### Log Analytics gateway configuration
+## Log Analytics gateway configuration
 
 1. Follow the preceding instructions to configure proxy settings on the agent and provide the IP address and port number that corresponds to the gateway server. If you've deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.
 1. Add the **configuration endpoint URL** to fetch data collection rules to the allowlist for the gateway
