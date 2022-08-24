@@ -82,7 +82,7 @@ Important elements of a `SearchParameter` resource:
 
 While you can’t use the new search parameters in production until you run a reindex job, there are a few ways to test your custom search parameters before reindexing the entire database. 
 
-First, you can test a new search parameter to see what values will be returned. By running the command below against a specific resource instance (by supplying the resource ID), you'll get back a list of value pairs with the search parameter name and the value stored. This will include all of the search parameters for the resource. You can scroll through to find the search parameter you created. Running this command won't change any behavior in your FHIR service. 
+First, you can test a new search parameter to see what values will be returned. By running the command below against a specific resource instance (by supplying the resource ID), you'll get back a list of value pairs with the search parameter name and the value stored in the corresponding element. This will include all of the search parameters for the resource. You can scroll through to find the search parameter you created. Running this command won't change any behavior in your FHIR service. 
 
 ```rest
 GET https://{{FHIR_URL}}/{{RESOURCE}}/{{RESOUCE_ID}}/$reindex
