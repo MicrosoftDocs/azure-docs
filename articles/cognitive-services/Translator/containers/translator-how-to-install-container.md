@@ -65,14 +65,17 @@ All Cognitive Services containers require three primary elements:
 
 ## Container requirements and recommendations
 
-The following table describes the minimum and recommended specifications for Translator containers. At least 2 gigabytes (GB) of memory are required and each CPU must be at least 2.6 gigahertz (GHz) or faster. and memory, in gigabytes (GB), to allocate for each Translator. The following table describes the minimum and recommended allocation of resources for each Translator container.
+The following table describes the minimum and recommended CPU cores and memory to allocate for the Translator container.
 
 | Container | Minimum |Recommended | Language Pair |
 |-----------|---------|---------------|----------------------|
 | Translator connected |2 core, 2-GB memory |4 core, 8-GB memory | 4 |
-|||
 
-For every language pair, it's recommended to have 2 GB of memory. By default, the Translator offline container has four language pairs. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+* Each core must be at least 2.6 gigahertz (GHz) or faster. 
+
+* For every language pair, it's recommended to have 2 GB of memory. By default, the Translator offline container has four language pairs. 
+
+* The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 > [!NOTE]
 >
