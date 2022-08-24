@@ -176,7 +176,7 @@ If you need to cancel a reindex job, use a `DELETE` call and specify the reindex
 
 ## Performance considerations
 
-A reindex job can be quite performance intensive. We’ve implemented some throttling controls to help you manage how a reindex job will run on your database.
+A reindex job can be quite performance intensive. The FHIR service offers some throttling controls to help you manage how a reindex job will run on your database.
 
 > [!NOTE]
 > It is not uncommon on large datasets for a reindex job to run for days.
