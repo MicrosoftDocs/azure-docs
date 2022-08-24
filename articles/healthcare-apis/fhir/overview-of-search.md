@@ -122,7 +122,7 @@ For more information, see the HL7 [Composite Search Parameters](https://www.hl7.
 For search parameters that have a specific order (numbers, dates, and quantities), you can use a [prefix](https://www.hl7.org/fhir/search.html#prefix) before the parameter value to refine the search criteria (e.g. `Patient?_lastUpdated=gt2022-08-01` where the prefix `gt` means "greater than"). The FHIR service in Azure Health Data Services supports all prefixes defined in the FHIR standard.
 
  ### Search result parameters
-FHIR specifies a set of search result parameters to help manage the information returned from a search. For details on how to use each of the search result parameters, refer to the [HL7](https://www.hl7.org/fhir/search.html#return) website. Below is a list of FHIR search result parameters and their support in the FHIR service.
+FHIR specifies a set of search result parameters to help manage the information returned from a search. For detailed information on how to use search result parameters in FHIR, refer to the [HL7](https://www.hl7.org/fhir/search.html#return) website. Below is a list of FHIR search result parameters and their support in the FHIR service.
 
 | **Search result parameters** | **FHIR service in Azure Health Data Services** | **Azure API for FHIR** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
