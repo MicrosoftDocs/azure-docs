@@ -45,7 +45,7 @@ Alternatively, on a non-Debian Linux you can install the shared object (libadudi
 
 ## Deploy a full image update to your device
 
-After a delta update has been downloaded to a device, in order to be re-created into a full image, it must be compared against a valid _source SWU file_ that has been previously cached on the device. For this preview, the simplest way to populate this cached image is to deploy a full image update to the device via the DU service (using the existing [import](import-update.md) and [deployment](deploy-update) processes). As long as the device has been configured with the Early Access DU Agent and Delta processor, the installed SWU file will be cached automatically by the DU Agent for future delta update use.
+After a delta update has been downloaded to a device, in order to be re-created into a full image, it must be compared against a valid _source SWU file_ that has been previously cached on the device. For this preview, the simplest way to populate this cached image is to deploy a full image update to the device via the DU service (using the existing [import](import-update.md) and [deployment](deploy-update.md) processes). As long as the device has been configured with the Early Access DU Agent and Delta processor, the installed SWU file will be cached automatically by the DU Agent for future delta update use.
 
 If you instead want to pre-populate the source image on your device, the path where the image is expected is: 
 
