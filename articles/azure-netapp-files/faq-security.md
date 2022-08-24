@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 04/08/2021
+ms.date: 08/22/2022
 ms.custom: references_regions
 ---
 # Security FAQs for Azure NetApp Files
@@ -26,6 +26,10 @@ All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. All 
 ## Is Azure NetApp Files cross-region replication traffic encrypted?
 
 Azure NetApp Files cross-region replication uses TLS 1.2 AES-256 GCM encryption to encrypt all data transferred between the source volume and destination volume. This encryption is in addition to the [Azure MACSec encryption](../security/fundamentals/encryption-overview.md) that is on by default for all Azure traffic, including Azure NetApp Files cross-region replication. 
+
+## What network authentication methods are supported Azure NetApp ANF SMB volumes?
+
+NTLMv2 and Kerberos network authentication methods are supported with Azure NetApp Files SMB volumes. NTLMv1 and LanManager are disabled and are not supported.
 
 ## How are encryption keys managed? 
 

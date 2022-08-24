@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 08/22/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -81,6 +81,9 @@ The following table describes what’s supported for each network features confi
 
 > [!IMPORTANT]
 > Upgrade from basic to standard network feature is not currently supported.
+
+> [!IMPORTANT]
+> Conversion between Basic and Standard networking types is not currently supported 
 
 ### Supported network topologies
 
