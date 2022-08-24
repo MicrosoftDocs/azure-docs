@@ -12,11 +12,16 @@ ms.author: jodowns
 
 # Understand Azure Front Door billing
 
-Azure Front Door's billing model includes several components. Front Door charges a base fee for each profile that you deploy. You're also charged for requests and data transfer based on your usage. *Billing meters* collect information about your Front Door usage. Your monthly Azure bill aggregates the billing information across the month and applies the pricing to determine the amount you need to pay.
+Azure Front Door provides a rich set of features for your internet-facing workloads. Front Door helps you to accelerate your application's performance, improves your security, and provides you with tools to inspect and modify your HTTP traffic.
+
+Front Door's billing model includes several components. Front Door charges a base fee for each profile that you deploy. You're also charged for requests and data transfer based on your usage. *Billing meters* collect information about your Front Door usage. Your monthly Azure bill aggregates the billing information across the month and applies the pricing to determine the amount you need to pay.
 
 This article explains how Front Door pricing works so that you can understand and predict your monthly Azure Front Door bill.
 
 For Azure Front Door pricing information, see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
+
+> [!TIP]
+> The Azure pricing calculator helps you to calculate a pricing estimate for your requirements. Use the [pre-created pricing calculator estimate](https://azure.com/e/bdc0d6531fbb4760bf5cdd520af1e4cc?azure-portal=true) as a starting point, and customize it for your own solution.
 
 > [!NOTE]
 > This article explains how billing works for Azure Front Door Standard and Premium SKUs. For information about Azure Front Door (classic), see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
@@ -31,7 +36,7 @@ Each Front Door profile incurs an hourly fee. You're billed for each hour, or pa
 
 A single Front Door profile can contain multiple [endpoints](endpoint.md). You're not billed extra for each endpoint.
 
-You don't pay extra fees to use features like [traffic acceleration](front-door-traffic-acceleration.md), [response caching](front-door-caching.md), [response compression](front-door-caching.md#file-compression), the [rules engine](front-door-rules-engine.md), [Front Door's DDoS protection](front-door-ddos.md), and [custom web application firewall (WAF) rules](web-application-firewall.md#custom-rules). If you use Front Door Premium, you also don't pay extra fees to use [managed WAF rule sets](web-application-firewall.md#managed-rules) or [Private Link origins](private-link.md).
+You don't pay extra fees to use features like [traffic acceleration](front-door-traffic-acceleration.md), [response caching](front-door-caching.md), [response compression](front-door-caching.md#file-compression), the [rules engine](front-door-rules-engine.md), [Front Door's inherent DDoS protection](front-door-ddos.md), and [custom web application firewall (WAF) rules](web-application-firewall.md#custom-rules). If you use Front Door Premium, you also don't pay extra fees to use [managed WAF rule sets](web-application-firewall.md#managed-rules) or [Private Link origins](private-link.md).
 
 ## Request processing and traffic fees
 
