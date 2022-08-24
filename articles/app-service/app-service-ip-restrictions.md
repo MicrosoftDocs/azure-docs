@@ -165,9 +165,7 @@ PowerShell example:
 
 ### Block a single IP address
 
-When you add your first access restriction rule, the service adds an explicit *Deny all* rule with a priority of 2147483647. In practice, the explicit *Deny all* rule is the final rule to be executed, and it blocks access to any IP address that's not explicitly allowed by an *Allow* rule.
-
-For a scenario where you want to explicitly block a single IP address or a block of IP addresses, but allow access to everything else, add an explicit *Allow All* rule.
+For a scenario where you want to explicitly block a single IP address or a block of IP addresses, but allow access to everything else, add a **Deny** rule for the specific IP address and configure the unmatched rule action to **Allow**.
 
 :::image type="content" source="media/app-service-ip-restrictions/block-single-address.png" alt-text="Screenshot of the 'Access Restrictions' page in the Azure portal, showing a single blocked IP address.":::
 
@@ -202,9 +200,6 @@ You can add access restrictions programmatically by doing either of the followin
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
-   > [!NOTE]
-   > Working with service tags, http headers or multi-source rules in Azure CLI requires at least version 2.23.0. You can verify the version of the installed module with: ```az version```
-
 * Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule). For example:
 
 
@@ -212,8 +207,6 @@ You can add access restrictions programmatically by doing either of the followin
   Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
-   > [!NOTE]
-   > Working with service tags, http headers or multi-source rules in Azure PowerShell requires at least version 5.7.0. You can verify the version of the installed module with: ```Get-InstalledModule -Name Az```
 
 You can also set values manually by doing either of the following:
 
