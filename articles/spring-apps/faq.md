@@ -160,7 +160,7 @@ You can delete the Azure Spring Apps diagnostic settings by using Azure CLI:
 
 ### Which versions of Java runtime are supported in Azure Spring Apps?
 
-Azure Spring Apps supports Java LTS versions with the most recent builds, currently Java 8, Java 11, and Java17 are supported. 
+Azure Spring Apps supports Java LTS versions with the most recent builds, currently Java 8, Java 11, and Java 17 are supported. 
 
 ### For how long will Java 8, Java 11, and Java 17 LTS versions be supported?
 
