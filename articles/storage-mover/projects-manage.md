@@ -126,13 +126,13 @@ Follow the steps in this section to view projects accessible to your Storage Mov
 
     Filters may also be edited or removed as needed as shown in the example below. Currently, only filtering projects by name is supported.
 
-    :::image type="content" source="media/projects-manage/project-explorer-filter-added-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal highlighting the modification of filters." lightbox="media/projects-manage/project-explorer-filter-added-lrg.png":::
+    :::image type="content" source="media/projects-manage/project-explorer-filter-added-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal illustrating the use of filters." lightbox="media/projects-manage/project-explorer-filter-added-lrg.png":::
 
 1. From within the results or the project explorer pane, select the name of the project created in the previous section. The project's properties and job summary data are displayed in the **details** pane.
 
     If the project lacks a valid description, select **Add description** to display the **Edit description** pane.
 
-    :::image type="content" source="media/projects-manage/project-explorer-description-new-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal highlighting the modification of filters." lightbox="media/projects-manage/project-explorer-description-new-lrg.png":::
+    :::image type="content" source="media/projects-manage/project-explorer-description-new-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal illustrating the modification of filters." lightbox="media/projects-manage/project-explorer-description-new-lrg.png":::
 
     If a description exists, it will be displayed below the **Description** heading. Select either the **Edit** icon next to the description or the **Edit description** icon to display the editing pane. The image below shows the location of the two icons.
 
