@@ -1,5 +1,5 @@
 ---
-title: Enable network isolation for the Azure Monitor agent
+title: Define Azure Monitor Agent network settings
 description: Use data collection endpoints to uniquely configure ingestion settings for your machines.
 ms.topic: conceptual
 author: shseth
@@ -9,7 +9,7 @@ ms.custom: references_region
 ms.reviewer: shseth
 
 ---
-## Set Azure Monitor Agent network configuration
+# Define Azure Monitor Agent network settings
 
 The Azure Monitor Agent supports Azure service tags. Both *AzureMonitor* and *AzureResourceManager* tags are required. It supports connecting via *direct proxies, Log Analytics gateway, and private links* as described in the following sections.
 
