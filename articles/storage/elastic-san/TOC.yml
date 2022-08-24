@@ -1,0 +1,20 @@
+items:
+- name: Azure Elastic SAN documentation
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: What is Azure Elastic SAN?
+    href: elastic-san-introduction.md
+    expanded: true
+- name: Concepts
+  items:
+  - name: Planning
+    href: elastic-san-planning.md
+  - name: Scale targets
+    href: elastic-san-scale-targets.md
+- name: How to
+  items:
+  - name: Deploy an Elastic SAN
+    href: elastic-san-create.md
+  - name: Delete an Elastic SAN
+    href: elastic-san-delete.md
