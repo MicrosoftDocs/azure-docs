@@ -134,7 +134,7 @@ GET {{FHIR_URL}}/Patient?_has:Observation:patient:code=527
 
 ```
 
-This request returns `Patient` resources that are referred to by `Observation` resources with the code `527`. 
+This request returns `Patient` resources that are referenced by `Observation` resources with the code `527`. 
 
 In addition, reverse chained search can have a recursive structure. For example, if you want to search for all patients referenced by an `Observation` where the observation is referenced by an `AuditEvent` from a specific practitioner named `janedoe`:
 
