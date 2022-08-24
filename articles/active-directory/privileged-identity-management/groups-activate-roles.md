@@ -4,15 +4,15 @@ description: Learn how to activate your privileged access group roles in Azure A
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/24/2022
+ms.date: 08/24/2022
 ms.author: amsliu
-ms.reviewer: shaunliu
+ms.reviewer: ilyal
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
