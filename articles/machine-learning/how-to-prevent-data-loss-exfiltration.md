@@ -9,18 +9,31 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/23/2022
+ms.date: 08/24/2022
 ---
 
 # Azure Machine Learning data exfiltration prevention (Preview)
 
-Learn how to use a [Service Endpoint policy](/azure/virtual-network/virtual-network-service-endpoint-policies-overview) to prevent data exfiltration from storage accounts in your Azure Virtual Network that are used by Azure Machine Learning.
+<!-- Learn how to use a [Service Endpoint policy](/azure/virtual-network/virtual-network-service-endpoint-policies-overview) to prevent data exfiltration from storage accounts in your Azure Virtual Network that are used by Azure Machine Learning. -->
 
-An Azure Machine Learning workspace requires outbound access to `storage.<region>/*.blob.core.windows.net` on the public internet, where `<region>` is the Azure region of the workspace. This outbound access is required by Azure Machine Learning compute cluster and compute instance. Both are based on Azure Batch, and need to access a storage account provided by Azure Batch on the public network.
+Azure Machine Learning has several inbound and outbound dependencies. Some of these dependencies can expose a data exfiltration risk by malicious agents within your organization. This document explains how to minimize data exfiltration risk by limiting inbound and outbound requirements.
 
-By using a Service Endpoint Policy, you can mitigate this vulnerability. 
+__Inbound__
+Azure Machine Learning compute instance and compute cluster have two inbound requirements: the `batchnodemanagement` (ports 29876-29877) and `azuremachinelearning` (port 44224) service tags. You can control this inbound traffic by using a network security group. It is difficult to disguise Azure service IPs, so there is low data exfiltration risk. You can also configure the compute to not use a public IP, which removes inbound requirements.
 
+__Outbound__
+If malicious agents do not have write access to outbound destination resources, they cannot use that outbound for data exfiltration. Azure Active Directory, Azure Resource Manager, Azure Machine Learning, and Microsoft Container Registry belong to this category. On the other hand, Storage, AzureFrontDoor.frontend, Azure Monitor can be leveraged for data exfiltration.
 
+__Storage Outbound__
+This requirement comes from compute instance and compute cluster. A malicious agent can leverage this outbound rule to exfiltrate data by provisioning and saving data in their own storage account. You can remove data exfiltration risk by using an Azure Service Endpoint Policy and Azure Batch's simplified node communication architecture.
+
+__AzureFrontDoor.frontend Outbound__
+Azure Front Door is required by the Azure Machine Learning Studio UI and AutoML. Malicious agents can leverage this outbound rule to exfiltrate data similar to the the storage outbound scenario - provisioning their own Azure Front Door and a storage account behind it. To prevent this scenario, please allowlist the following fully qualified domain names (FQDN) on your Firewall, instead of using network security group.
+- `ml.azure.com`
+- `automlresources-prod.azureedge.net`
+
+__Azure Monitor__
+This requirement comes from the lack of support for private link enabled Azure Monitor. Malicious agents can leverage this outbound rule to exfiltrate data by provisioning and saving data in their own Azure Monitor. To prevent this, block outbound traffic to Azure Monitor.
 
 ## Prerequisites
 
@@ -39,6 +52,9 @@ By using a Service Endpoint Policy, you can mitigate this vulnerability.
 > Before opting in to this preview, you must have created a workspace and a compute instance on the subscription you plan to use. You can delete the compute instance and/or workspace after creating them.
 
 Use the form at [https://forms.office.com/r/1TraBek7LV](https://forms.office.com/r/1TraBek7LV) to opt in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview.
+
+> [!TIP]
+> It may take one to two weeks to allowlist your subscription.
 
 ## 2. Allow inbound & outbound network traffic
 
