@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 08/24/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -36,7 +36,7 @@ For an overview of the feature, view this "Azure Active Directory: What is Stage
 -   You have decided to move one of the following options:
     - **Password hash synchronization (sync)**. For more information, see [What is password hash sync](whatis-phs.md) 
     - **Pass-through authentication**. For more information, see [What is pass-through authentication](how-to-connect-pta.md)  
-    - **Azure AD Certificate-based authentication (CBA) settings**. For more information, see [What is pass-through authentication](../authentication/concept-certificate-based-authentication.md) 
+    - **Azure AD Certificate-based authentication (CBA) settings**. For more information, see [Overview of Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md) 
     
     For both options, we recommend enabling single sign-on (SSO) to achieve a silent sign-in experience. 
     For Windows 7 or 8.1 domain-joined devices, we recommend using seamless SSO. For more information, see [What is seamless SSO](how-to-connect-sso.md). 
