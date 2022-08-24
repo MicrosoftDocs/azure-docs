@@ -16,7 +16,7 @@ This chapter guides you through the steps to create an account for the **Azure R
 
 The following steps are needed to create an account for the Azure Remote Rendering service:
 
-1. Go to the [Mixed Reality Preview page](https://aka.ms/MixedRealityPrivatePreview)
+1. Go to the Azure portal [portal.azure.com](https://ms.portal.azure.com/)
 1. Click the 'Create a resource' button
 1. In the search field ("Search the marketplace"), type in "Remote Rendering" and hit 'enter'.
 1. In the result list, click on the "Remote Rendering" tile
