@@ -132,7 +132,7 @@ Running this call sets the indices for any search parameters defined for the res
 Continuing with our example above, you could index one patient to enable the US Core Race `SearchParameter`:
 
 ```rest
-POST {{FHIR_URL}/Patient/{{PATIENT_ID}}/$reindex
+POST {{FHIR_URL}}/Patient/{{PATIENT_ID}}/$reindex
 ```
 
 And then do a test search for the patient by race:
