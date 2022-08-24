@@ -85,7 +85,7 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 ```
 
 > [!NOTE]
-> To check the status of or to cancel a reindex job, you'll need the reindex ID. This is the `"id"` carried in the `"parameter"` value returned in the response. In the example above, the ID for the reindex job would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
+> To check the status of a reindex job or to cancel the job, you'll need the reindex ID. This is the `"id"` carried in the `"parameter"` value returned in the response. In the example above, the ID for the reindex job would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
 
  ## How to check the status of a reindex job
 
