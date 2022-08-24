@@ -148,12 +148,6 @@
       items:
       - name: Overview
         href: backup-vault-overview.md
-    - name: Immutable vault
-      items:
-      - name: Overview
-        href: backup-azure-immutable-vault-overview.md
-      - name: Manage
-        href: backup-azure-immutable-vault-manage.md
   - name: Backup center
     items:
     - name: Overview
@@ -586,6 +580,12 @@
       href: backup-rbac-rs-vault.md
     - name: Multi-user authorization using Resource Guard
       href: multi-user-authorization.md
+    - name: Immutable vault
+      items:
+      - name: Overview
+        href: backup-azure-immutable-vault-overview.md
+      - name: Manage
+        href: backup-azure-immutable-vault-manage.md
     - name: Soft delete
       items:
       - name: Overview

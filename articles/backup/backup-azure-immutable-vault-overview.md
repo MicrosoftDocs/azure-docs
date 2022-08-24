@@ -12,14 +12,14 @@ ms.author: v-amallick
 
 Immutable vault can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to make it irreversible to prevent any malicious actors from disabling immutability and deleting backups.
 
->[!Important]
->
->- Immutable vault is currently in preview and is available in the following regions: a,b,c.
->- Immutable vault is currently supported for Recovery Services vaults only.
->- Enabling Immutable vault blocks you from performing specific operations on the vault and its protected items. See the [restricted operations](#restricted-operations).
->- Enabling immutability for the vault is a reversible operation. However, you can choose to make it irreversible to prevent any malicious actors from disabling it (after disabling it, they can perform destructive operations). Learn about [making Immutable vault irreversible](#making-immutability-irreversible).
->- Immutable vault applies to all the data in the vault. Therefore, all instances that are protected in the vault have immutability applied to them.
->- Immutability doesn't apply to operational backups, such as operational backup of blobs, files, and disks.
+## Before you start
+
+- Immutable vault is currently in preview and is available in the following regions: East US 2, West US, North Europe, Japan East.
+- Immutable vault is currently supported for Recovery Services vaults only.
+- Enabling Immutable vault blocks you from performing specific operations on the vault and its protected items. See the [restricted operations](#restricted-operations).
+- Enabling immutability for the vault is a reversible operation. However, you can choose to make it irreversible to prevent any malicious actors from disabling it (after disabling it, they can perform destructive operations). Learn about [making Immutable vault irreversible](#making-immutability-irreversible).
+- Immutable vault applies to all the data in the vault. Therefore, all instances that are protected in the vault have immutability applied to them.
+- Immutability doesn't apply to operational backups, such as operational backup of blobs, files, and disks.
 
 ## How does immutability work?
 
