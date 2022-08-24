@@ -18,11 +18,10 @@ The Open-source component versions associated with HDInsight 5.0 are listed in t
 
 | Component              | HDInsight 5.0 |
 |------------------------|---------------|
-|Apache Spark | 3.1 |
-|Apache Interactive Query |3.1 |
+|Apache Spark | 3.1.2 |
 |Apache Hive | 3.1.2 |
-|Apache Kafka | 2.4 |
-|Apache Hadoop and YARN |3.1.1 |
+|Apache Kafka | 2.4.1 |
+|Apache Hadoop |3.1.1 |
 |Apache Tez | 0.9.1 |
 |Apache Pig	| 0.16.0 |
 |Apache Ranger | 1.1.0 |
@@ -37,8 +36,6 @@ This table lists certain HDInsight 4.0 cluster types that have retired or will b
 
 | Cluster Type                    | Framework version | Support expiration date      | Retirement date |
 |---------------------------------|-------------------|------------------------------|-----------------|
-| HDInsight 4.0 Spark             | 2.3               | June 30, 2020                | June 30, 2020   |
-| HDInsight 4.0 Kafka             | 1.1               | Dec 31, 2020                 | Dec 31, 2020    |
 | HDInsight 4.0 Kafka             | 2.1.0             | Sep 30, 2022                 | Oct 1, 2022     |
 
 ## Spark
@@ -47,7 +44,8 @@ This table lists certain HDInsight 4.0 cluster types that have retired or will b
 
 > [!NOTE]
 > * If you are using Azure User Interface to create a Spark Cluster for HDInsight, you will see from the dropdown list an additional version Spark 3.1.(HDI 5.0) along with the older versions. This version is a renamed version of Spark 3.1.(HDI 4.0) and it is backward compatible.  
-> * This is only an UI level change, which doesn’t impact anything for the existing users and users who are already using the ARM template to build their clusters.  For backward compatibility, ARM supports creating spark 4.0 and 5.0 for 3.1 version which maps to same versions spark 3.1 (5.0)
+> * This is only an UI level change, which doesn’t impact anything for the existing users and users who are already using the ARM template to build their clusters.  > * For backward compatibility, ARM supports creating Spark 3.1 with HDI 4.0 and 5.0 versions which maps to same versions Sspark 3.1 (HDI 5.0)
+> * Spark 3.1 (HDI 5.0) cluster comes with HWC 2.0 which works well together with Interactive Query (HDI 5.0) cluster.
 
 ## Interactive Query
 
@@ -55,7 +53,8 @@ This table lists certain HDInsight 4.0 cluster types that have retired or will b
 
 > [!NOTE]
 > * If you are creating an Interactive Query Cluster, you will see from the dropdown list an other version as Interactive Query 3.1 (HDI 5.0).
-> * If you are going to use Spark 3.1 version along with Hive which require ACID support, you need to select this version Interactive Query 3.1 (HDI 5.0).
+> * If you are going to use Spark 3.1 version along with Hive which require ACID support via Hive Warehouse Connector (HWC). 
+you need to select this version Interactive Query 3.1 (HDI 5.0).
 
 ## Kafka 
 
@@ -64,6 +63,12 @@ This table lists certain HDInsight 4.0 cluster types that have retired or will b
 `HDI Version'5.0" is not supported for clusterType ''Kafka" and component Version ‘2.4'.,Cluster component version is not applicable for HDI version: 5.0 cluster type: KAFKA (Code: BadRequest)`
 
 We are working on this issue, and a fix will be rolled out shortly.
+
+### Upcoming version upgrades. 
+HDInsight  team is working on upgrading other open-source components.
+1. Spark 3.2.0
+1. Kafka 3.2.1
+1. HBase 2.4.9
 
 
 ## Next steps
