@@ -4,7 +4,7 @@ description: Learn how to implement a webhook on the SaaS service by using the f
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 08/16/2022
+ms.date: 08/24/2022
 author: arifgani
 ms.author: argani
 ---
@@ -232,7 +232,7 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
 
 *Webhook payload example of unsubscribe event:*
 
-This is a notify only event. There is no send to ACK this event.
+This is a notify only event. There is no send to ACK for this event.
 
 ```json
 {
