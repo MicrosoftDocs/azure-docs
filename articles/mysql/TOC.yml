@@ -130,8 +130,10 @@
         href: flexible-server/concepts-backup-restore.md
   - name: Integrations
     items:
+    - name: Power BI
+      href:  connect-with-powerbi-desktop
     - name: Azure advisor
-      href: ../postgresql/single-server/concepts-azure-advisor-recommendations.md
+      href: ../mysql/single-server/concepts-azure-advisor-recommendations.md
     - name: Azure Data factory
       href: ../data-factory/connector-azure-database-for-mysql.md
   - name: Tutorials
