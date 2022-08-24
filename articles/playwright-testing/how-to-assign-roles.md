@@ -30,6 +30,7 @@ To assign Azure roles in the Azure portal, you must have:
     1. In the [Azure portal](https://portal.azure.com), go to your Microsoft Playwright Testing workspace.
     1. On the left pane, select **Access Control (IAM)**, and then select **View my access**.
     1. Verify that [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) are in the list of role assignments.
+    1. Request the permissions from your Azure subscription administrator, or have them configure the workspace access.
 
 ## Default roles
 
