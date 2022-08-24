@@ -133,8 +133,6 @@ If the provider shows as *NotRegistered*, register the provider using the [az pr
 az provider register --namespace Microsoft.KubernetesConfiguration
 ```
 
-## Sign in to Azure
-
 ## Create the extension and install Dapr on your AKS or Arc-enabled Kubernetes cluster
 
 When installing the Dapr extension, use the flag value that corresponds to your cluster type:
