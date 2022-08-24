@@ -5,7 +5,7 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: normesta
 
 ms.author: normesta
-ms.date: 05/09/2022
+ms.date: 08/24/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -395,7 +395,7 @@ The updated policy takes up to 24 hours to go into effect. Once the policy is in
 
 If there's a lifecycle management policy in effect for the storage account, then rehydrating a blob by changing it's tier can result in a scenario where the lifecycle policy moves the blob back to the archive tier. This can happen if the last modified time, creation time, or last access time is beyond the threshold set for the policy. There's three ways to prevent this from happening:
 
-- Add the `daysAfterLastTierChangeGreaterThan` condition to the tierToArchive action of the policy. See [Use lifecycle management policies to archive blobs](archive-blob.md#use-lifecycle-management-policies-to-archive-blobs).
+- Add the `daysAfterLastTierChangeGreaterThan` condition to the tierToArchive action of the policy. This condition applies only to the last modified time. See [Use lifecycle management policies to archive blobs](archive-blob.md#use-lifecycle-management-policies-to-archive-blobs).
 
 - Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. 
 

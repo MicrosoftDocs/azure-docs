@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/21/2022
+ms.date: 08/24/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: blobs
@@ -320,6 +320,8 @@ To create a lifecycle management policy to archive blobs in the Azure portal, fo
 
 10. If you chose to limit the blobs affected by the rule with filters, you can specify a filter, either with a blob prefix or blob index match.
 
+    If you selected the **Last modified** rule condition, you can optionally exclude rehydrated blobs from being impacted by this rule. See the next step. Otherwise select the **Add** button to add the rule to the policy.
+
 #### Step 3: Ensure that the rule excludes rehydrated blobs
 
 If you rehydrate a blob by changing it's tier, this rule will move the blob back to the archive tier if the last modified time, creation time, or last access time is beyond the threshold set for the policy. 
@@ -328,6 +330,9 @@ To prevent this from happening, select **Skip blobs that have been rehydrated in
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot showing the skip blobs that have been rehydrated in the last setting](./media/archive-blob/lifecycle-policy-base-blobs-tab-portal-exclude-rehydrated-blobs.png)
+
+> [!NOTE]
+> This option appears only if you selected the **Last modified** rule condition.
 
 Select the **Add** button to add the rule to the policy.
 

@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 08/24/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
