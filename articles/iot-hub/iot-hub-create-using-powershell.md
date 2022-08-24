@@ -58,15 +58,15 @@ The name of the IoT hub must be globally unique.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-To list all the IoT hubs in your subscription, use the [Get-AzIotHub](/powershell/module/az.IotHub/Get-azIotHub) command:
+To list all the IoT hubs in your subscription, use the [Get-AzIotHub](/powershell/module/az.IotHub/Get-azIotHub) command.
+
+This example shows the S1 Standard IoT Hub you created in the previous step.
 
 ```azurepowershell-interactive
 Get-AzIotHub
 ```
 
-This example shows the S1 Standard IoT Hub you created in the previous step.
-
-To delete the IoT hub, use the [Remove-AzIotHub](/powershell/module/az.iothub/remove-aziothub) command:
+To delete the IoT hub, use the [Remove-AzIotHub](/powershell/module/az.iothub/remove-aziothub) command.
 
 ```azurepowershell-interactive
 Remove-AzIotHub `
