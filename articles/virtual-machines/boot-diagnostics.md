@@ -21,19 +21,16 @@ When you create a VM in Azure portal, boot diagnostics is enabled by default. Th
 > [!IMPORTANT]
 > The boot diagnostics data blobs (which comprise of logs and snapshot images) are stored in a managed storage account. Customers will be charged only on used GiBs by the blobs, not on the disk's provisioned size. The snapshot meters will be used for billing of the managed storage account. Because the managed accounts are created on either Standard LRS or Standard ZRS, customers will be charged at $0.05/GB per month for the size of their diagnostic data blobs only. For more information on this pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Customers will see this charge tied to their VM resource URI. 
 
-An alternative boot diagnostic experience is to use a custom storage account. A user can either create a new storage account or use an existing one. When the storage firewall is enabled on the custom storage account (not enable access from all networks), make sure that：
+An alternative boot diagnostic experience is to use a custom storage account. A user can either create a new storage account or use an existing one. When the storage firewall is enabled on the custom storage account (**Enabled from all networks** option isn't selected), you must:
 
-- The access through the storage firewall is allowed for the Azure platform to publish the screenshot and serial log. To do this, go to the custom boot diagnostics storage account in the Azure portal, and then select **Networking** from the **Security + networking** section. Check if the **Allow Azure services on the trusted services list to access this storage account** option is selected. This option is selected by default when you enable storage firewall.
+- Make sure that access through the storage firewall is allowed for the Azure platform to publish the screenshot and serial log. To do this, go to the custom boot diagnostics storage account in the Azure portal and then select **Networking** from the **Security + networking** section. Check if the **Allow Azure services on the trusted services list to access this storage account** checkbox is selected. 
 
--  The storage firewall access is allowed for users to view the boot screenshot or serial log. To do this, add your network or client/bowser's Internet IPs as firewall exclusions. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md). 
+- Allow storage firewall for users to view the boot screenshots or serial logs. To do this, add your network or the client/browser's Internet IPs as firewall exclusions. For more information, see [Configure Azure Storage firewalls and virtual networks](https://github.com/genlin/azure-docs-pr/blob/patch-5/articles/storage/common/storage-network-security.md).
 
 To configure the storage firewall for Azure Serial Console, see [Use Serial Console with custom boot diagnostics storage account firewall enabled](/troubleshoot/azure/virtual-machines/serial-console-windows#use-serial-console-with-custom-boot-diagnostics-storage-account-firewall-enabled).
 
-
 > [!NOTE]
 > The custom storage account associated with boot diagnostics requires the storage account and the associated virtual machines reside in the same region and subscription. 
-
-
 
 ## Boot diagnostics view
 Go to the virtual machine blade in the Azure portal, the boot diagnostics option is under the *Support and Troubleshooting* section in the Azure portal. Selecting boot diagnostics will display a screenshot and serial log information. The serial log contains kernel messaging and the screenshot is a snapshot of your VMs current state. Based on if the VM is running Windows or Linux determines what the expected screenshot would look like. For Windows, users will see a desktop background and for Linux, users will see a login prompt.
