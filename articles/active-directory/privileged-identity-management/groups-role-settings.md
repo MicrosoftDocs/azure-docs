@@ -29,6 +29,8 @@ Follow these steps to open the settings for an Azure privileged access group rol
 1. Open **Azure AD Privileged Identity Management**.
 
 1. Select **Privileged access (Preview)**.
+    >[!NOTE]
+    > Approver doesn't have to be member of the group, owner of the group or have Azure AD role assigned.
 
 1. Select the group that you want to manage.
 
