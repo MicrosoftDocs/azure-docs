@@ -215,7 +215,7 @@ DELETE {{FHIR_URL}}/SearchParameter/{{SearchParameter_ID}}
 
 ## Next steps
 
-In this article, you’ve learned how to create a custom search parameter. Next you can learn how to reindex your FHIR service. For more information, see
+In this article, you’ve learned how to create a custom search parameter. Next you can learn how to reindex your FHIR service database. For more information, see
 
 >[!div class="nextstepaction"]
 >[How to run a reindex job](how-to-run-a-reindex.md)
