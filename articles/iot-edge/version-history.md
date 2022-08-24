@@ -49,12 +49,12 @@ This table provides recent version history for IoT Edge package releases, and hi
 
 ### IoT Edge for Linux on Windows 
 
-| IoT Edge release | Available in EFLOW branch | Release date | Highlights |
-| ---------------- | ------------------------- | ---- | ---------- |
+| IoT Edge release | EFLOW releases available | Release date | Highlights |
+|------------------|--------------------------|--------------|------------|
 | 1.4 | Continuous release (CR) <br> Long-term support (LTS) <br> Stable | TBD |  |
 | 1.3 | Continuous release (CR) <br> Long-term support (LTS) <br> Stable | TBD |  |
 | 1.2 | [Continuous release (CR)](https://github.com/Azure/iotedge-eflow/releases/tag/1.2.7.07022) <br> Stable | January 2022 | **Public Preview** |
-| 1.1 | [1.1](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2106.0) | Long-term support (LTS) | June 2021 | [Long-term support plan and supported systems updates](support.md) |
+| 1.1 | [Long-term support (LTS)](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2106.0) | June 2021 | [Long-term support plan and supported systems updates](support.md) |
 
 ## Next steps
 
