@@ -1,5 +1,5 @@
 ---
-title: Add a dual stack network to an existing virtual machine - Azure portal
+title: Add a dual-stack network to an existing virtual machine - Azure portal
 titleSuffix: Azure Virtual Network
 description: Learn how to add a dual stack network to an existing virtual machine using the Azure portal.
 author: asudbring
@@ -11,7 +11,7 @@ ms.date: 08/19/2022
 ms.custom: template-how-to
 ---
 
-# Add a dual stack network to an existing virtual machine using the Azure portal
+# Add a dual-stack network to an existing virtual machine using the Azure portal
 
 In this article, you'll add IPv6 support to an existing virtual network. You'll configure an existing virtual machine with both IPv4 and IPv6 addresses. When completed, the existing virtual network will support private IPv6 addresses. The existing virtual machine network configuration will contain a public and private IPv4 and IPv6 address.
 
