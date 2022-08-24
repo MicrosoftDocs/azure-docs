@@ -2024,7 +2024,7 @@
         {
             "source_path_from_root": "/articles/marketplace/company-work-accounts.md",
             "redirect_url": "/partner-center/azure-active-directory-tenants-and-partner-center?context=/azure/marketplace/context/context",
-            "redirect_document_id": true
+            "redirect_document_id": false
         }
     ]
 }
