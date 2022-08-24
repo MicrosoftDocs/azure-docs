@@ -35,7 +35,7 @@ From now through 30 June 2023, you can continue to use existing Azure Cache for 
 
 | Date    | Description |
 |-------- |-------------|
-| November 1. 2022 | Beginning November 1, 2022, all the versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using Redis version 6 by default. If you need a specific Redis version for your cache instance, see [below](#redis-6-becomes-default-for-new-cache-instances). |
+| November 1. 2022 | Beginning November 1, 2022, all the versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using Redis version 6 by default. If you need a specific Redis version for your cache instance, see [Redis 6 becomes default for new cache instances](cache-whats-new.md#redis-6-becomes-default-for-new-cache-instances). |
 | March 1, 2023 | Beginning March 1, 2023, you won't be able to create new Azure Cache for Redis instances using Redis version 4. Also, you won’t be able to create new geo-replication links between cache instances using Redis version 4.|
 | June 30, 2023 | After June 30 2023, any remaining version 4 cache instances, which don't have geo-replication links, will be automatically upgraded to version 6.|
 | August 30, 2023 |After August 30, 2023, any remaining version 4 cache instances, which have geo-replication links, will be automatically upgraded to version 6. This upgrade operation will require unlinking and relinking the caches and customers could experience geo-replication link down time. |

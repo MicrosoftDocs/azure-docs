@@ -4,7 +4,7 @@ description: Recent updates for Azure Cache for Redis
 author: flang-msft
 ms.author: franlanglois
 ms.service: cache
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/02/2022
 
 ---
@@ -83,7 +83,7 @@ The default version of Redis that is used when creating a cache can change over 
 
 As of May 2022, Azure Cache for Redis rolls over to TLS certificates issued by DigiCert Global G2 CA Root. The current Baltimore CyberTrust Root expires in May 2025, requiring this change.
 
-We expect that most Azure Cache for Redis customers won't be affected. However, your application might be affected if you explicitly specify a list of acceptable certificate authorities (CAs), known as *certificate pinning*.
+We expect that most Azure Cache for Redis customers won't be affected. However, your application might be affected if you explicitly specify a list of acceptable certificate authorities (CAs), known as _certificate pinning_.
 
 For more information, read this blog that contains instructions on [how to check whether your client application is affected](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-cache-for-redis-tls-upcoming-migration-to-digicert-global/ba-p/3171086). We recommend taking the actions recommended in the blog to avoid cache connectivity loss.
 
@@ -91,7 +91,7 @@ For more information, read this blog that contains instructions on [how to check
 
 Active geo-replication for Azure Cache for Redis Enterprise is now generally available (GA).
 
-Active geo-replication is a powerful tool that enables Azure Cache for Redis clusters to be linked together for seamless active-active replication of data. Your applications can write to one Redis cluster and your data is automatically copied to the other linked clusters, and vice versa. For more information, see this [post](https://aka.ms/ActiveGeoGA) in the *Azure Developer Community Blog*.
+Active geo-replication is a powerful tool that enables Azure Cache for Redis clusters to be linked together for seamless active-active replication of data. Your applications can write to one Redis cluster and your data is automatically copied to the other linked clusters, and vice versa. For more information, see this [post](https://aka.ms/ActiveGeoGA) in the _Azure Developer Community Blog_.
 
 ## January 2022
 
