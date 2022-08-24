@@ -10,7 +10,7 @@ ms.author: mikaelw
 ---
 # Defining custom search parameters
 
-The FHIR specification defines a set of search parameters that apply to all resources. Additionally, FHIR defines search parameters that are specific to certain resources. There are scenarios, however, where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own custom [search parameters](https://www.hl7.org/fhir/searchparameter.html) for use in the FHIR service in Azure Health Data Services.
+The FHIR specification defines a set of search parameters that apply to all resources. Additionally, FHIR defines many search parameters that are specific to certain resources. There are scenarios, however, where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own custom [search parameters](https://www.hl7.org/fhir/searchparameter.html) for use in the FHIR service in Azure Health Data Services.
 
 > [!NOTE]
 > Each time you create, update, or delete a search parameter, you’ll need to run a [reindex job](how-to-run-a-reindex.md) to enable the search parameter for live production. Below we will outline how you can test search parameters before reindexing the entire FHIR service database.
