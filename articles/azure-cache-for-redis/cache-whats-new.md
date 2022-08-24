@@ -22,30 +22,7 @@ On June 30, 2023, we'll retire version 4 for Azure Cache for Redis instances. Be
 
 We recommend that you upgrade your caches on your own to accommodate your schedule and the needs of your users to make the upgrade as convenient as possible.
 
-The open-source Redis version 4 was released several years ago and is now retired. Version 4 no longer receives critical bug or security fixes from the community. Azure Cache for Redis offers open-source Redis as a managed service on Azure. To stay in sync with the open-source offering, we will also retire version 4.
-
-We’ll continue to backport security fixes from recent versions to version 4 until retirement. We encourage you to upgrade your cache to version 6 sooner to use the rich feature set that Redis version 6 has to offer. See the Redis 6 GA announcement for more details.
-
-To upgrade your version 4 Azure Cache for Redis instance, see our [upgrade to Version 6 documentation](cache-how-to-version.md#upgrade-an-existing-redis-4-cache-to-redis-6). If your cache instances have geo-replication enabled, you’re required to unlink the caches before upgrade.
-
-### Important upgrade timelines
-
-From now through 30 June 2023, you can continue to use existing Azure Cache for Redis version 4 instances. Retirement will occur in following stages, so you have the maximum amount of time to upgrade.
-
-| Date    | Description |
-|-------- |-------------|
-| November 1. 2022 | Beginning November 1, 2022, all the versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using Redis version 6 by default. If you need a specific Redis version for your cache instance, see [below](#redis-6-becomes-default-for-new-cache-instances). |
-| March 1, 2023 | Beginning March 1, 2023, you won't be able to create new Azure Cache for Redis instances using Redis version 4. Also, you won’t be able to create new geo-replication links between cache instances using Redis version 4.|
-| June 30, 2023 | After June 30 2023, any remaining version 4 cache instances, which don't have geo-replication links, will be automatically upgraded to version 6.|
-| August 30, 2023 |After August 30, 2023, any remaining version 4 cache instances, which have geo-replication links, will be automatically upgraded to version 6. This upgrade operation will require unlinking and relinking the caches and customers could experience geo-replication link down time. |
-
-### Version 4 caches on cloud services
-
-If your cache instance is affected by the Cloud Service retirement, you will be unable to upgrade to Redis 6 until after you migrate to a cache built on virtual machine scale set. In this case, please reach out toazurecachemigration@microsoft.com and we will help you with the migration.
-
-### How to check if my cache instance is running on version 4?
-
-You check the Redis version of your cache instance by selecting **Properties** from the resource menu in the Azure Cache for Redis portal.
+For more information, see [Retired functionality](cache-retired-features.md).
 
 ## August 2022
 
