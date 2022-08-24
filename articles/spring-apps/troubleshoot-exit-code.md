@@ -22,7 +22,7 @@ The exit code indicates the reason the application terminated. The following lis
 
 - **0** - The application exited because it ran to completion. Update your server application so that it runs continuously.
   
-  Deployed Azure apps in Azure Spring Apps should offer services continuously. A exit code of *0* indicates that the application isn't running continuously. Check your logs and source code.
+  Deployed Azure apps in Azure Spring Apps should offer services continuously. An exit code of *0* indicates that the application isn't running continuously. Check your logs and source code.
 
 - **1** - If the application exits with a non-zero exit code, debug the code and related services, and then deploy the application again.
   
