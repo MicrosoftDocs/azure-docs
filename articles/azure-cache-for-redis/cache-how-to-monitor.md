@@ -156,6 +156,22 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
 | Used Memory Percentage | The % of total memory that is being used during the specified reporting interval.  This value references the `used_memory` value from the Redis INFO command to calculate the percentage. |
 | Used Memory RSS |The amount of cache memory used in MB during the specified reporting interval, including fragmentation and metadata. This value maps to `used_memory_rss` from the Redis INFO command. This metric is not available in Enterprise or Enterprise Flash tier caches. |
 
+<!-- Example of list using unorder list  -->
+- Errors
+  - Specific failures and performance issues that the cache could be experiencing during a specified reporting interval. This metric has eight dimensions representing different error types, but could have more added in the future. The error types represented now are as follows:
+    - **Failover** – when a cache fails over (subordinate promotes to primary)
+    - **Dataloss** – when there's data loss on the cache
+    - **UnresponsiveClients** – when the clients aren't reading data from the server fast enough
+    - **AOF** – when there's an issue related to AOF persistence
+    - **RDB** – when there's an issue related to RDB persistence
+    - **Import** – when there's an issue related to Import RDB
+    - **Export** – when there's an issue related to Export RDB
+- Evicted Keys 
+  - The number of items evicted from the cache during the specified reporting interval because of the `maxmemory` limit. 
+  - This number maps to `evicted_keys` from the Redis INFO command. 
+- Expired Keys 
+  - The number of items expired from the cache during the specified reporting interval. This value maps to `expired_keys` from the Redis INFO command.
+
 ## Create alerts
 
 You can configure to receive alerts based on metrics and activity logs. Azure Monitor allows you to configure an alert to do the following when it triggers:
