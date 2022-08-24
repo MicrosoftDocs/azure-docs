@@ -13,7 +13,7 @@ ms.reviewer: orens
 
 # Monitor changes to resources and resource groups with Azure Monitor activity log insights
 
-Activity log insights provides you with a set of dashboards that monitor the changes to resources and resource groups in a subscription. The dashboards also present data about which users or services performed activities in the subscription and the activities' status. This article explains how to onboard and view activity log insights in the Azure portal.
+Activity log insights provide you with a set of dashboards that monitor the changes to resources and resource groups in a subscription. The dashboards also present data about which users or services performed activities in the subscription and the activities' status. This article explains how to onboard and view activity log insights in the Azure portal.
 
 Before you use activity log insights, you must [enable sending logs to your Log Analytics workspace](./diagnostic-settings.md).
 
