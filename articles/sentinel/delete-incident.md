@@ -59,7 +59,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ## Notes
 
-- **Deleting an incident is not a substitute for closing an incident!** Deleting an incident should only be done when at least one of the following conditions are met:
+- **Deleting an incident is not a substitute for closing an incident!** Deleting an incident should only be done when at least one of the following conditions is met:
     - The incident was created manually by mistake.
     - The incident exactly duplicates another incident.
     - The incident is being merged with another incident.
@@ -74,7 +74,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 - This operation is not available for [incidents imported from and synchronized with Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md).
 
-- If an alert [related to a deleted incident](relate-alerts-to-incidents.md) gets updated, or if a new alert is grouped under a deleted incidents, a new incident will be created to replace the deleted one.
+- If an alert [related to a deleted incident](relate-alerts-to-incidents.md) gets updated, or if a new alert is grouped under a deleted incident, a new incident will be created to replace the deleted one.
 
 ## Next steps
 
