@@ -1002,6 +1002,7 @@
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
     "articles/communication-services/.openpublishing.redirection.communication-services.json",
+    "articles/confidential-computing/.openpublishing.redirection.json",
     "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
     "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json",
     "articles/data-catalog/.openpublishing.redirection.data-catalog.json",
