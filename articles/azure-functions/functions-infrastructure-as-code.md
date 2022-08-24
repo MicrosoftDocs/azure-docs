@@ -454,6 +454,8 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 ---
 
+***jgao: properties/name is read-only value now.
+
 #### Linux
 
 To run your app on Linux, you must also set the property `"reserved": true` for the `serverfarms` resource:
@@ -1463,9 +1465,12 @@ Both sites and plans must reference the custom location through an `extendedLoca
 # [Bicep](#tab/bicep)
 
 ```bicep
-{
-  extendedLocation: {
-    name: customLocationId
+resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+  ...
+  {
+    extendedLocation: {
+      name: customLocationId
+    }
   }
 }
 ```
@@ -1474,9 +1479,13 @@ Both sites and plans must reference the custom location through an `extendedLoca
 
 ```json
 {
-  "extendedLocation": {
-    "name": "[parameters('customLocationId')]"
-  },
+  "type": "Microsoft.Web/serverfarms",
+  ...
+  {
+    "extendedLocation": {
+      "name": "[parameters('customLocationId')]"
+    },
+  }
 }
 ```
 
