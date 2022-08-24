@@ -1,63 +1,54 @@
 ---
-title: Index and search workflow concepts #Required; page title is displayed in search results. Include the brand.
+title: Microsoft Energy Data Services - index and search workflow concepts #Required; page title is displayed in search results. Include the brand.
 description: Learn how to use indexing and search workflows #Required; article description that is displayed in search results. 
 author: vivekkalra #Required; your GitHub user alias, with correct capitalization.
 ms.author: vivekkalra #Required; microsoft alias of author; optional team alias.
 ms.service: azure #Required; service per approved list. slug assigned by ACOM.
 ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 08/22/2022
+ms.date: 08/23/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 #Customer intent: As a developer, I want to understand indexing and search workflows so that I could search for ingested data in the platform.
 ---
-# Indexing and Search
+# Microsoft Energy Data Services indexing and search workflows
+
+All data and associated metadata ingested into the platform are indexed to enable search. The metadata is generally accessible to ensure awareness even when the data itself is generally not.
+
+## Indexer Service
+
+The `Indexer Service` provides a mechanism for indexing documents that contain structured and unstructured data. 
+
+> [!NOTE]
+> This service is not a public service and only meant to be called internally by other core platform services. 
+        
+### Indexing workflow    
+
+The below diagram illustrates the Indexing workflow:
+
+:::image type="content" source="media/concepts-index-and-search/concept-index-and-search-workflow.png" alt-text="Diagram that shows the indexing and search Workflow.":::
+
+When a customer loads data into the platform, the associated metadata is ingested using the `Storage service`. The `Storage service` provides a set of APIs to manage the entire metadata lifecycle such as ingestion (persistence), modification, deletion, versioning, retrieval, and data schema management. Each storage metadata record created by the `Storage service` contains a *kind* parameter that refers to an underlying *schema*. This schema determines the attributes that will be indexed by the `Indexer service`.
+    
+When the `Storage service` creates a metadata record, it raises a *recordChangedMessages* event that is collected in the Azure Service Bus (message queue). The `Indexer queue` service pulls the message from the Azure Service Bus, performs basic validation and sends it over to the `Indexer service`. If there are any failures in sending the messages to the `Indexer service`, the `Indexer queue` service retries sending the message up to a maximum allowed configurable retry count. If the retry attempts fail, a negative acknowledgement is sent to the Azure Service Bus, which then archives the message.
+
+When the *recordChangedMessages* event is received by the `Indexer Service`, it fetches the required schemas from the schema cache or through the `Schema service` APIs. The `Indexer Service` then creates a new index within Elasticsearch (if not already present), and then sends a bulk query to create or update the records as needed. If the response from Elasticsearch is a failure response of type *service unavailable* or *request timed out*, then the `Indexer Service` creates *recordChangedMessages* for these failed record IDs and puts the message in the Azure Service Bus. These messages will again be pulled by the `Indexer Queue` service and will follow the same flow as before.
+    
+:::image type="content" source="media/concepts-index-and-search/concept-indexer-sequence.png" alt-text="Diagram that shows Indexing sequence flow.":::
+
+For further information, please refer to [Indexer service OSDU documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md) provides information on indexer service
+
+## Search workflow
+    
+`Search service` provides a mechanism for discovering indexed metadata documents. The Search API supports full-text search on string fields, range queries on date, numeric, or string field, etc. along with geo-spatial searches.
+
+For a detailed tutorial on `Search service`, refer [Search service OSDU documentation](https://community.opengroup.org/osdu/platform/system/search-service/-/blob/release/0.15/docs/tutorial/SearchService.md)
     
 
-## Introduction
-    
- The Indexer service provides a mechanism for indexing structured and unstructured data.  Documents and indices are saved in a separate persistent store optimized for search operations (Elasticsearch). The Indexer API can index any number of documents.
-    
-## Required roles and headers to access Indexer APIs 
-    
-[Indexer API OSDU documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/aa1bf0b5dacb40191642d56842f7076c99e222c8/docs/tutorial/IndexerService.md)
-    
-## Get Indexing Status 
-    
-[Steps to get indexing status](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/aa1bf0b5dacb40191642d56842f7076c99e222c8/docs/tutorial/IndexerService.md#get-indexing-status)
-    
-## Indexing Flow    
-
-:::image type="content" source="media/concepts-index-and-search/concept-index-and-search-workflow.png" alt-text="Indexing and Search Workflow.":::
-    
-
-A storage record is created or updated by the user by calling the Storage service. This record contains data to be ingested, and should conform to the data types mentioned in the underlying schema that the record refers to. All the fields that are present in the schema will be indexed and be searchable by the user.
-    
-
-The Storage service creates an event, called 'recordChangedMessages', after consuming the record, and sends it to the message broker that is Azure Service Bus. The records reside in the Service Bus until they're pulled by the next microservice in line, called the Indexer Queue. The Indexer Queue is a worker service with no public APIs. This service pulls records from Service Bus, performs basic validation checks on those messages and sends them to the Indexer Service. If there's a failure in sending the messages to the Indexer Service, the Indexer Queue retries sending the recordChangedMessages with a configurable maximum retry count. If the retry attempt exceeds the maximum allowed retry count, then Indexer Queue sends a negative acknowledgment to the Service Bus, which archives the recordChangedMessages.
-    
-
-When the recordChangedMessages event is received by the Indexer Service, it fetches the required schemas from schema cache or schema service, fetches the updated records from storage service and creates an elastic mapping using this information. The Indexer Service then creates a new index within Elasticsearch if not already present, and then sends a bulk query to create or update the records as needed.
-If the response from Elasticsearch is a failure response of type "service unavailable" or "request timed out", then Indexer Service creates recordChangedMessages for these failed record IDs and puts the message in Service Bus. These messages will again be pulled by the Indexer Queue service and will follow the same flow as before, to get indexed in Elasticsearch.
-    
-
-:::image type="content" source="media/concepts-index-and-search/concept-indexer-sequence.png" alt-text="Indexing sequence flow.":::
-    
-
-## Search 
-    
-  Once the record is present within Elasticsearch, it can be fetched using various search queries.
-    For a detailed tutorial on Search service, refer [GitLab Documentation](https://community.opengroup.org/osdu/platform/system/search-service/-/tree/40ce4aea1d13de807eea646317c0f38b6b601bd6/docs/tutorial/SearchService.md)
-    
-
-## Re-index workflow 
-
-[Re-index OSDU documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/aa1bf0b5dacb40191642d56842f7076c99e222c8/docs/tutorial/IndexerService.md#reindex)
-    
-## References
-    
-  - [GitLab Documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/aa1bf0b5dacb40191642d56842f7076c99e222c8/docs/tutorial/IndexerService.md)
+## Reindex workflow 
+Reindex API allows users to re-index a kind without re-ingesting the records via storage API. For detailed information, refer to 
+[Reindex OSDU documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md#reindex)
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]
-> [Domain data management service concepts](/concepts-ddms.md)
+> [Domain data management service concepts](concepts-ddms.md)
