@@ -1,14 +1,14 @@
 ---
-title: Exit codes info for Azure Spring Apps | Microsoft Docs
-description: Troubleshooting guide with exit codes for Azure Spring Apps
+title: Troubleshoot common exit code issues in Azure Spring Apps
+description: Describes how to troubleshoot common exit codes in Azure Spring Apps
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: troubleshooting
-ms.date: 08/10/2022
+ms.date: 08/24/2022
 ms.author: kunsun
 ---
 
-# Troubleshoot common Azure Spring Apps issues
+# Troubleshoot common exit code issues in Azure Spring Apps
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -56,3 +56,7 @@ The exit codes indicate the termination reasons of the application. Some common 
     For solving this problem, you can refer this article(https://review.docs.microsoft.com/en-us/azure/spring-apps/how-to-fix-app-restart-issues-caused-by-out-of-memory?branch=pr-en-us-197651).
     
     For more info about the log, please check the application log (see https://aka.ms/azure-spring-cloud-doc-log).
+
+## Next steps
+
+- [Troubleshoot common Azure Spring Apps issues](./troubleshoot.md)

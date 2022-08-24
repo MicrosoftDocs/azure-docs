@@ -254,8 +254,10 @@ items:
       href: how-to-self-diagnose-solve.md
     - name: Self diagnose running in VNET
       href: how-to-self-diagnose-running-in-vnet.md
-    - name: Troubleshooting guide
+    - name: Troubleshoot common Azure Spring Apps issues
       href: troubleshoot.md
+    - name: Troubleshoot common exit code issues in Azure Spring Apps
+      href: troubleshoot-exit-code.md
     - name: Capture heap/thread dump and use JFR
       href: how-to-capture-dumps.md
     - name: Use JVM options for troubleshooting
