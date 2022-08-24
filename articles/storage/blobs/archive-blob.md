@@ -316,7 +316,7 @@ To create a lifecycle management policy to archive blobs in the Azure portal, fo
 9. Specify that the object is to be moved to the Archive tier after the interval has elapsed.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot showing how to configure a lifecycle management policy - Base blob tab](./media/archive-blob/lifecycle-policy-base-blobs-tab-portal.png)
+    > ![Screenshot showing how to configure a lifecycle management policy - Base blob tab.](./media/archive-blob/lifecycle-policy-base-blobs-tab-portal.png)
 
 10. If you chose to limit the blobs affected by the rule with filters, you can specify a filter, either with a blob prefix or blob index match.
    
@@ -327,7 +327,7 @@ If you rehydrate a blob by changing it's tier, this rule will move the blob back
 If you selected the **Last modified** rule condition, you can prevent this from happening by selecting **Skip blobs that have been rehydrated in the last**, and then entering the number of days you want a rehydrated blob to be excluded from this rule.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot showing the skip blobs that have been rehydrated in the last setting](./media/archive-blob/lifecycle-policy-base-blobs-tab-portal-exclude-rehydrated-blobs.png)
+> ![Screenshot showing the skip blobs that have been rehydrated in the last setting.](./media/archive-blob/lifecycle-policy-base-blobs-tab-portal-exclude-rehydrated-blobs.png)
 
 > [!NOTE]
 > This option appears only if you selected the **Last modified** rule condition.
