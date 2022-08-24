@@ -1,12 +1,12 @@
 ---
 title: Communication Identifier types
 titleSuffix: An Azure Communication Services concept
-description: Learn about the identities and access tokens
-author: domessin
-manager: rejooyan
+description: Understand identifier types and their usage
+author: DominikMe
+manager: RezaJooyandeh
 services: azure-communication-services
 
-ms.author: tchladek
+ms.author: DominikMe
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -16,23 +16,23 @@ zone_pivot_groups: acs-js-csharp-java-python-ios-android-rest
 
 # Understand Identifier types
 
-Throughout the Communication Services SDKs and REST APIs the *identifier* type is used to identify who is communicating with whom. For example, identifiers specify who to call, or who has sent a chat message.
+Communication Services SDKs and REST APIs use the *identifier* type to identify who is communicating with whom. For example, identifiers specify who to call, or who has sent a chat message.
 
 Depending on context identifiers get wrapped with extra properties, like inside the `ChatParticipant` in the Chat SDK or inside the `RemoteParticipant` in the Calling SDK.
 
-In this article you'll learn about the different types of identifiers that are supported, how they look in different programming languages and get tips on how to use them.
+In this article you'll learn about different types of identifiers and how they look in different programming languages. You'll also get tips on how to use them.
 
 
 ## The CommunicationIdentifier type
 
 There are user identities that you create yourself and external identities. Microsoft Teams users and phone numbers are external identities that come to play in interop scenarios. Each of these different identity types has a corresponding identifier that represents it. An identifier is a structured type that offers type-safety and works well with your editor's code completion.
 
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [Identifiers in the .NET SDK](./includes/identifiers/identifiers-net.md)]
-::: zone-end
-
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [Identifiers in the JavaScript SDK](./includes/identifiers/identifiers-js.md)]
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [Identifiers in the .NET SDK](./includes/identifiers/identifiers-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
@@ -47,7 +47,7 @@ There are user identities that you create yourself and external identities. Micr
 [!INCLUDE [Identifiers in the iOS SDK](./includes/identifiers/identifiers-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot="programming-language-android"
 [!INCLUDE [Identifiers in the Android SDK](./includes/identifiers/identifiers-android.md)]
 ::: zone-end
 
