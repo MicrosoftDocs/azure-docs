@@ -141,7 +141,7 @@ The basic process of importing an update to the Device Update service is unchang
 
 [How to prepare an update to be imported into Azure Device Update for IoT Hub](create-update.md)
 
-Importantly, however, there are specific aspects of delta support that aren't fully implemented yet for this preview. Therefore, we've created a script to simplify the process during Early Access, which you previously downloaded: **New-ImportManifest.ps1**. The script uses PowerShell, which can be [installed](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) on Linux, Windows, or macOS.
+Importantly, however, there are specific aspects of delta support that aren't fully implemented yet for this preview. Therefore, we've created a script to simplify the process during Early Access, which you previously downloaded: **New-ImportManifest.ps1**. The script uses PowerShell, which can be [installed](/powershell/scripting/install/installing-powershell.md) on Linux, Windows, or macOS.
 
 The first step in importing an update into the Device Update service is always to create an import manifest. You can learn about the import manifest concept [here](import-concepts.md#import-manifest), but note that delta updates require a new import manifest format that isn't yet ready for our public documentation. Therefore, use New-ImportManifest.ps1 instead to generate your import manifest.
 
