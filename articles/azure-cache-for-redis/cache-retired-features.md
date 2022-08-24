@@ -44,6 +44,6 @@ From now through 30 June 2023, you can continue to use existing Azure Cache for 
 
 If your cache instance is affected by the Cloud Service retirement, you're unable to upgrade to Redis 6 until after you migrate to a cache built on virtual machine scale set. In this case, send mail to azurecachemigration@microsoft.com, and we'll help you with the migration.
 
-### How to check if my cache instance is running on version 4?
+### How to check if a cache is running on version 4?
 
 You check the Redis version of your cache instance by selecting **Properties** from the resource menu in the Azure Cache for Redis portal.
