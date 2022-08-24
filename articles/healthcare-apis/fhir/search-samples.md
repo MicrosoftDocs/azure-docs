@@ -114,7 +114,7 @@ GET {{FHIR_URL}}/Encounter?subject:Patient.birthdate=1987-02-20
 
 This would return not just `Encounter` resources that reference a single patient but encounters for all patients that have the specified `birthdate` value. 
 
-In addition, a single request can initiate multiple chained searches by using the `&` operator, which allows searching for multiple conditions in one request. In such cases with `&`, chained search "independently" searches for each element value:
+In addition, you can initiate multiple chained searches by using the `&` operator, which allows searching for multiple conditions in one request. In such cases with `&`, chained search "independently" scans for each element value:
 
 ```rest
 GET {{FHIR_URL}}/Patient?general-practitioner:Practitioner.name=Sarah&general-practitioner:Practitioner.address-state=WA
