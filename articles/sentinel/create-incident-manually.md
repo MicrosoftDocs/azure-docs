@@ -11,7 +11,9 @@ ms.date: 08/17/2022
 
 > [!IMPORTANT]
 >
-> Manual incident creation is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Manual incident creation, using the portal or Logic Apps, is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> Manual incident creation is generally available using the API.
 
 With Microsoft Sentinel as your SIEM, your SOC’s threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents are generated automatically by detection mechanisms that operate on the logs that Sentinel ingests from its connected data sources.
 
@@ -27,7 +29,7 @@ This is the scenario described in the introduction above.
 
 ### Create incidents out of events from external systems
 
-Create incidents based on events from systems whose logs are not ingested into Microsoft Sentinel. For example, a physical security system such as a gated entry might catch an unauthorized person or a person entering or leaving at an unusual or unauthorized time.
+Create incidents based on events from systems whose logs are not ingested into Microsoft Sentinel. For example, an SMS-based phishing campaign might use your organization's corporate branding and themes to target employees' personal mobile devices. You may want to investigate such an attack, and creating an incident in Microsoft Sentinel gives you a platform to collect and log evidence and record your response and mitigating actions.
 
 ### Create incidents based on hunting results
 
@@ -86,13 +88,17 @@ There are three ways to create an incident manually:
 
 1. Select **Create** at the bottom of the panel. After a few seconds, the incident will be created and will appear in the incidents queue.
 
-    Select the incident in the queue to see its full details, add bookmarks, change its owner and status, and more.
+    If you assign an incident a status of "Closed," it will not appear in the queue until you change the **status** filter to show closed incidents as well. The filter is set by default to display only incidents with a status of "New" or "Active." 
+
+Select the incident in the queue to see its full details, add bookmarks, change its owner and status, and more.
+
+If for some reason you change your mind after the fact about creating the incident, you can [delete it](delete-incident.md) from the queue grid, or from within the incident itself.
 
 ### Create an incident using the Microsoft Sentinel API
 
-The [Incidents](/rest/api/securityinsights/preview/incidents) operation group allows you not only to create, but also to update (edit), get (retrieve), list, and delete incidents.
+The [Incidents](/rest/api/securityinsights/preview/incidents) operation group allows you not only to create, but also to [update (edit)](/rest/api/securityinsights/preview/incidents/create-or-update), [get (retrieve)](/rest/api/securityinsights/preview/incidents/get), [list](/rest/api/securityinsights/preview/incidents/list), and [delete](/rest/api/securityinsights/preview/incidents/delete) incidents.
 
-You create an incident using the following endpoint. After this request is made, the incident will be visible in the incident queue in the portal.
+You [create an incident](/rest/api/securityinsights/preview/incidents/create-or-update) using the following endpoint. After this request is made, the incident will be visible in the incident queue in the portal.
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}?api-version=2022-07-01-preview
@@ -135,6 +141,13 @@ You need to supply parameters as described below:
 - For the remaining fields, see the explanations above (under [Create an incident using the Azure portal](#create-an-incident-using-the-azure-portal)).
 
     :::image type="content" source="media/create-incident-manually/create-incident-logicapp-parameters.png" alt-text="Screenshot of create incident action parameters in Microsoft Sentinel connector.":::
+
+Microsoft Sentinel supplies sample playbook templates that shows you how to work with this capability:
+
+- **Create incident with Microsoft Form**
+- **Create incident from shared email inbox**
+
+You can find them in the playbook templates gallery on the Microsoft Sentinel **Automation** page.
 
 ## Notes
 
