@@ -38,7 +38,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | Run Pipeline | 2 Activity runs per execution (1 for trigger run, 1 for activity runs) |
 | Copy Data Assumption: execution time per run = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 
-**Total Scenario pricing for 30 days: $122.00**
+**Total scenario pricing for 30 days: $122.00**
 
 :::image type="content" source="media/pricing-concepts/scenario-1-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for an hourly pipeline run.":::
 
@@ -60,7 +60,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | Copy Data Assumption: execution time per run = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 | Execute Databricks activity Assumption: execution time per run = 10 min | 10 min External Pipeline Activity Execution |
 
-**Total Scenario pricing for 30 days: $122.03**
+**Total scenario pricing for 30 days: $122.03**
 
 :::image type="content" source="media/pricing-concepts/scenario-2-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for a copy data and transform with Azure Databricks scenario.":::
 
@@ -84,7 +84,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | Execute Lookup activity Assumption: execution time per run = 1 min | 1 min Pipeline Activity execution |
 | Execute Databricks activity Assumption: execution time per run = 10 min | 10 min External Pipeline Activity execution |
 
-**Total Scenario pricing for 30 days: $122.09**
+**Total scenario pricing for 30 days: $122.09**
 
 :::image type="content" source="media/pricing-concepts/scenario-3-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for a copy data and transform with dynamic parameters scenario.":::
 
@@ -127,7 +127,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | Run Pipeline | 2 Activity runs per execution (1 for trigger run, 1 for activity runs) |
 | Data Flow Assumptions: execution time per run = 10 min + 10 min TTL | 10 \* 16 cores of General Compute with TTL of 10 |
 
-**Total Scenario pricing for 30 days: $1051.28**
+**Total scenario pricing for 30 days: $1051.28**
 
 :::image type="content" source="media/pricing-concepts/scenario-4a-pricing-calculator.png" alt-text="Screenshot of the orchestration section of the pricing calculator configured to transform data in a blob store with mapping data flows.":::
 
@@ -150,7 +150,7 @@ To accomplish the scenario, you need to create two pipelines with the following 
 | Copy Data Assumption: each execution time = 10 min if the Copy execution in first pipeline is from 10:06 AM UTC to 10:15 AM UTC and the Copy Activity execution in second pipeline is from 10:08 AM UTC to 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 
 
-**Total Scenario pricing for 30 days: $129.02**
+**Total scenario pricing for 30 days: $129.02**
 
 :::image type="content" source="media/pricing-concepts/scenario-5-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for data integration with Managed VNET.":::
 
