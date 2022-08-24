@@ -66,8 +66,8 @@ You will need to create a container for the de-identified export in your ADLS Ge
 
 |Query parameter            | Example |Optionality| Description|
 |---------------------------|---------|-----------|------------|
-| `anonymizationConfig`   |`anonymizationConfig.json`|Required for de-identified export |Name of the configuration file. See the configuration file format [here](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format). This file should be kept inside a container named `anonymization` within the ADLS Gen2 account that is configured as the export location. |
-| `anonymizationConfigEtag`|"0x8D8494A069489EC"|Optional for de-identified export|This is the Etag of the configuration file. You can get the Etag using Azure Storage Explorer from the blob property.|
+| `anonymizationConfig`   |`anonymizationConfig.json`|Required for de-identified export |Name of the configuration file. See the configuration file format [here](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format). This file should be kept inside a container named `anonymization` within the configured ADLS Gen2 account. |
+| `anonymizationConfigEtag`|"0x8D8494A069489EC"|Optional for de-identified export|This is the Etag of the configuration file. You can get the Etag from the blob property using Azure Storage Explorer.|
 
 > [!IMPORTANT]
 > Both the raw export and de-identified export operations write to the same Azure storage account specified in the export configuration for the FHIR service. If you have need for multiple de-identification configurations, it is recommended that you create a different container for each configuration and manage user access at the container level.

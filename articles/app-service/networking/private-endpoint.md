@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/04/2022
+ms.date: 08/23/2022
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -49,7 +49,6 @@ From a security perspective:
 - By default, when you enable Private Endpoints to your Web App, you disable all public access.
 - You can enable multiple Private Endpoints in others VNets and Subnets, including VNets in other regions.
 - The IP address of the Private Endpoint NIC must be dynamic, but will remain the same until you delete the Private Endpoint.
-- The NIC of the Private Endpoint can't have an NSG associated.
 - The Subnet that hosts the Private Endpoint can have an NSG associated, but you must disable the network policies enforcement for the Private Endpoint: see [Disable network policies for private endpoints][disablesecuritype]. As a result, you can't filter by any NSG the access to your Private Endpoint.
 - By default, when you enable Private Endpoint to your Web App, the [access restrictions][accessrestrictions] configuration of the Web App isn't evaluated.
 - You can eliminate the data exfiltration risk from the VNet by removing all NSG rules where destination is tag Internet or Azure services. When you deploy a Private Endpoint for a Web App, you can only reach this specific Web App through the Private Endpoint. If you have another Web App, you must deploy another dedicated Private Endpoint for this other Web App.

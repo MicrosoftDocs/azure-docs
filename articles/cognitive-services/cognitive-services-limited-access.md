@@ -47,23 +47,23 @@ Submit a registration form for each Limited Access service you would like to use
 
 ### How long will the registration process take? 
 
-Review may take 5-10 business days. You'll receive an email as soon as your registration form is reviewed. 
+Review may take 5-10 business days. You will receive an email as soon as your application is reviewed. 
 
 ### Who is eligible to use Limited Access services? 
 
-Limited Access services are available only to customers managed by Microsoft. Additionally, Limited Access services are only available for certain use cases, and customers must select their intended use case in their registration.  
+Limited Access services are available only to customers managed by Microsoft. Additionally, Limited Access services are only available for certain use cases, and customers must select their intended use case in their registration form.  
 
-Use an email address affiliated with your organization in your registration. Registration submitted with personal email addresses will be denied. 
+Please use an email address affiliated with your organization in your registration form. Registration forms submitted with personal email addresses will be denied. 
 
-If you aren't a managed customer, we invite you to submit a registration using the same forms and we'll reach out to you about any opportunities to join an eligibility program. 
+If you're not a managed customer, we invite you to submit an application using the same forms and we will reach out to you about any opportunities to join an eligibility program. 
 
-### What is a managed customer? What if I don’t know whether I’m a managed customer? 
+### What is a managed customer? What if I don't know whether I'm a managed customer? 
 
-Managed customers work with Microsoft account teams. We invite you to submit a registration form for the features you’d like to use, and we’ll verify your eligibility for access. We are not able to accept requests to become a managed customer at this time.
+Managed customers work with Microsoft account teams. We invite you to submit a registration form for the features you'd like to use, and we'll verify your eligibility for access. We are not able to accept requests to become a managed customer at this time.
 
-### What happens if I’m an existing customer and I don’t register? 
+### What happens if I'm an existing customer and I don't register? 
 
-Existing customers have until June 30, 2023 to submit a registration form and be approved to continue using Limited Access services after June 30, 2023. We recommend allowing 10 business days for review. Without approved registration, you'll be denied access after June 30, 2023.  
+Existing customers have until June 30, 2023 to submit a registration form and be approved to continue using Limited Access services after June 30, 2023. We recommend allowing 10 business days for review. Without an approved application, you will be denied access after June 30, 2023.  
 
 The registration forms can be found here: 
 
@@ -73,11 +73,11 @@ The registration forms can be found here:
 - [Computer Vision](https://aka.ms/facerecognition): Celebrity Recognition feature 
 - [Azure Video Indexer](https://aka.ms/facerecognition): Celebrity Recognition and Face Identify features 
 
-### I’m an existing customer who applied for access to Custom Neural Voice or Speaker Recognition, do I have to register to keep using these services? 
+### I'm an existing customer who applied for access to Custom Neural Voice or Speaker Recognition, do I have to register to keep using these services? 
 
-We’re always looking for opportunities to improve our Responsible AI program, and Limited Access is an update to our service gating processes. If you've previously applied for and been granted access to Custom Neural Voice or Speaker Recognition, we request that you submit a new registration form to continue using these services beyond June 30, 2023. 
+We're always looking for opportunities to improve our Responsible AI program, and Limited Access is an update to our service gating processes. If you've previously applied for and been granted access to Custom Neural Voice or Speaker Recognition, we request that you submit a new registration form to continue using these services beyond June 30, 2023. 
 
-If you were an existing customer using Custom Neural Voice or Speaker Recognition on June 21, 2022, you have until June 30, 2023 to submit a registration form with your selected use case and receive approval to continue using these services after June 30, 2023. We recommend allowing 10 days for registration processing. Existing customers can continue using the service until June 30, 2023, after which they must be approved for access. The registration forms can be found here: 
+If you're an existing customer using Custom Neural Voice or Speaker Recognition on June 21, 2022, you have until June 30, 2023 to submit a registration form with your selected use case and receive approval to continue using these services after June 30, 2023. We recommend allowing 10 days for application processing. Existing customers can continue using the service until June 30, 2023, after which they must be approved for access. The registration forms can be found here: 
 
 - [Custom Neural Voice](https://aka.ms/customneural): Pro features 
 - [Speaker Recognition](https://aka.ms/azure-speaker-recognition): All features 
@@ -92,9 +92,9 @@ Search [here](https://azure.microsoft.com/global-infrastructure/services/) for a
 
 Detailed information about supported regions for Custom Neural Voice and Speaker Recognition operations can be found [here](./speech-service/regions.md). 
 
-### What happens to my data if my registration is denied? 
+### What happens to my data if my application is denied? 
 
-If you are an existing customer and your registration for access is denied, you will no longer be able to use Limited Access features after June 30, 2023. Your data is subject to Microsoft’s data retention [policies](https://www.microsoft.com/trust-center/privacy/data-management#:~:text=If%20you%20terminate%20a%20cloud,data%20or%20renew%20your%20subscription.). 
+If you're an existing customer and your application for access is denied, you will no longer be able to use Limited Access features after June 30, 2023. Your data is subject to Microsoft's data retention [policies](https://www.microsoft.com/trust-center/privacy/data-management#:~:text=If%20you%20terminate%20a%20cloud,data%20or%20renew%20your%20subscription.). 
 
 ## Help and support 
 
