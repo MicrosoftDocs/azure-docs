@@ -71,7 +71,7 @@ If the request can be served from the Front Door edge location's cache, Front Do
 
 When your origin server processes a request, it sends data back to Front Door so that it can be returned to the client. This traffic not billed by Front Door, even if the origin is in a diferent region to the Front Door edge location for the request.
 
-If your origin is within Azure, you should determine whether those Azure services might bill you to process your requests. For example, if you use an Azure Storage origin, then Azure Storage might bill you for the read operations that take place to serve the request.
+If your origin is within Azure, the data egress from the Azure origin to Front Door is not charged. However, you should determine whether those Azure services might bill you to process your requests.
 
 If your origin is outside of Azure, you might incur charges from other network providers.
 
