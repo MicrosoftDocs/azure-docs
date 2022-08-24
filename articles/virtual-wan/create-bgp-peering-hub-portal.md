@@ -1,9 +1,8 @@
 ---
-title: Configure BGP peering to an NVA: Azure portal
+title: 'Configure BGP peering to an NVA: Azure portal'
 titleSuffix: Azure Virtual WAN
 description: Learn how to create a BGP peering with Virtual WAN hub router.
 author: cherylmc
-
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/24/2022
