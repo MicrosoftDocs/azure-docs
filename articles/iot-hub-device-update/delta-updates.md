@@ -30,7 +30,7 @@ In order to use the Device Update delta update preview, you'll need some files. 
 
 **Device Update Agent**
 
-You'll need to add the Device Update Agent to a device and configure it for use. Use the latest Early Access version of the Agent and follow the instructions from our public documentation: [Provisioning Device Update for Azure IoT Hub Agent](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-agent-provisioning). You'll also need to include an SWUpdate [Update Handler](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-agent-overview#update-handlers) that integrates with the DU Agent to perform the actual update install. We recommend starting with the `microsoft/swupdate:2` Update Handler if you don't already have your own SWUpdate Update Handler that you want to modify. If you use your own Update Handler, the key takeaway is to be sure to enable ZSTD decompression in SWUpdate!
+You'll need to add the Device Update Agent to a device and configure it for use. Use the latest Early Access version of the Agent and follow the instructions from our public documentation: [Provisioning Device Update for Azure IoT Hub Agent](device-update-agent-provisioning.md). You'll also need to include an SWUpdate [Update Handler](device-update-agent-overview.md#update-handlers) that integrates with the DU Agent to perform the actual update install. We recommend starting with the `microsoft/swupdate:2` Update Handler if you don't already have your own SWUpdate Update Handler that you want to modify. If you use your own Update Handler, the key takeaway is to be sure to enable ZSTD decompression in SWUpdate!
 
 **Delta processor**
 
