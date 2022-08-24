@@ -127,7 +127,7 @@ Once you see that your search parameter is displaying as expected, you can reind
 POST https://{{FHIR_URL}/{{RESOURCE}}/{{RESOURCE_ID}}/$reindex
 ```
 
-Running this `POST` call sets the indices for any search parameters defined for the resource instance specified in the request. This call does make a change to the FHIR service database. Now you can search and set the `x-ms-use-partial-indices` header to `true`, which causes the FHIR service to return results where any of the resources has the search parameter indexed, even if not all resource instances of that type have it indexed. 
+Running this `POST` call sets the indices for any search parameters defined for the resource instance specified in the request. This call does make a change to the FHIR service database. Now you can search and set the `x-ms-use-partial-indices` header to `true`, which causes the FHIR service to return results for any of the resources that have the search parameter indexed, even if not all resource instances of that type have it indexed. 
 
 Continuing with our example above, you could index one patient to enable the US Core Race `SearchParameter`:
 
