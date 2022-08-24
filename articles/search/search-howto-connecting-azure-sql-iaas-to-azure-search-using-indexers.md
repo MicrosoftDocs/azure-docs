@@ -55,11 +55,11 @@ Azure Cognitive Search requires an encrypted channel for all indexer requests ov
 
 1. Restart the SQL Server service.
 
-## Configure SQL Server connectivity in the VM
+## Connect to SQL Server
 
-After you set up the encrypted connection required by Azure Cognitive Search, you'll connect to the instance through its public endpoint. The following article explains the requirements and syntax:
+After you set up the encrypted connection required by Azure Cognitive Search, you'll connect to the instance through its public endpoint. The following article explains the connection requirements and syntax:
 
-+ [Connect to SQL Server over the internet](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql?view=azuresql#connect-to-sql-server-over-the-internet)
++ [Connect to SQL Server over the internet](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-over-the-internet)
 
 ## Configure the network security group
 
