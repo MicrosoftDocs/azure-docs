@@ -111,17 +111,17 @@ Microsoft recommends you use the [Microsoft.Identity.Web](https://www.nuget.org/
 
 _Microsoft.Identity.Web_ provides the glue between ASP.NET Core, the authentication middleware, and the [Microsoft Authentication Library (MSAL)](msal-overview.md) for .NET. It allows for a clearer, more robust developer experience and leverages the power of the Microsoft identity platform and Azure AD B2C.
 
-#### Case of ASP.NET for .NET 6.0
 
-You create a new web API with .NET 6.0, either with .NET Core:
+**ASP.NET for .NET 6.0** - To create a new web API project that uses Microsoft.Identity.Web, use a project template in the .NET 6.0 CLI or Visual Studio.
 
-```Shell
+```dotnetcli
+# Create new web API that uses Microsoft.Identity.Web
 dotnet new webapi --auth SingleOrg
 ```
 
-or using the File new ASP.NET Core web API experience in Visual studio.
+**Visual Studio** - To create a web API project in Visual Studio, select **File** > **New** > **Project** > **ASP.NET Core Web API**.
 
-The initialization code will be in the Program.cs. You'll notice the usings, and the lines about the authentication
+Both the .NET CLI and Visual Studio project templates create a _Program.cs_ file that looks similar this code snippet. Notice the `Microsoft.Identity.Web` using directive and the lines containing authentication and authorization.
 
 ```csharp
 using Microsoft.AspNetCore.Authentication;
@@ -158,13 +158,12 @@ app.MapControllers();
 app.Run();
 ```
 
-#### Case of an ASP.NET Core 3.1 application
+#### ASP.NET Core 3.1
 
-##### Create a new web API using Microsoft.Identity.Web templates
 
-You can create a web API from scratch by using Microsoft.Identity.Web project templates. For details see [Microsoft.Identity.Web - Web API project template](https://aka.ms/ms-id-web/webapi-project-templates).
+To create a new web API project by using the Microsoft.Identity.Web-enabled project templates in ASP.NET Core 3.1, see [Microsoft.Identity.Web - Web API project template](https://aka.ms/ms-id-web/webapi-project-templates).
 
-##### Starting from an existing ASP.NET Core 3.1 application
+To add Microsoft.Identity.Web to an existing ASP.NET Core 3.1 web API project, add this using directive to your _Program.cs_ file:
 
 ASP.NET Core 3.1 uses the Microsoft.AspNetCore.Authentication.JwtBearer library. The middleware is initialized in the Startup.cs file.
 
