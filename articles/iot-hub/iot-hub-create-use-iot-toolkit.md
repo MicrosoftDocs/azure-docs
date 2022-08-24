@@ -35,7 +35,7 @@ The following steps show how to create an IoT Hub without an IoT Project in Visu
 
 3. Select **Create IoT Hub** from the list in the **Azure IoT Hub** section. 
 
-   :::image type="content" source="./media/iot-hub-create-use-iot-toolkit/create-iot-hub.png" alt-text="A screenshot that shows the location of the Azure IoT Hub section in VS Code." lightbox="./media/iot-hub-create-use-iot-toolkit/create-iot-hub.png":::
+   :::image type="content" source="./media/iot-hub-create-use-iot-toolkit/create-iot-hub.png" alt-text="A screenshot that shows the location of the Create IoT Hub list item in VS Code." lightbox="./media/iot-hub-create-use-iot-toolkit/create-iot-hub.png":::
 
 5. A pop-up will show in the bottom-right corner to let you sign in to Azure for the first time, if you are not signed in already.
 
