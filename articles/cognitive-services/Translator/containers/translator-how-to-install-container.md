@@ -40,12 +40,12 @@ You'll also need the following:
 | Familiarity with Docker | <ul><li>You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker`  [terminology and commands](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology).</li></ul> |
 | Docker Engine | <ul><li>You need the Docker Engine installed on a [host computer](#host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul> |
 | Translator resource | <ul><li>An Azure [Translator](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource with region other than 'global', associated API key and endpoint URI. Both values are required to start the container and can be found on the resource overview page.</li></ul>|
-|||
+
 
 |Optional|Purpose|
 |---------|----------|
 |Azure CLI (command-line interface) |<ul><li> The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It is available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell.</li></ul> |
-|||
+
 
 ## Required elements
 
