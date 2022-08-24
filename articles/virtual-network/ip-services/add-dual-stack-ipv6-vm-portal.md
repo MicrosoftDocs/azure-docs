@@ -71,8 +71,8 @@ In this section, you'll create a IPv6 public IP address for the virtual machine.
     | Name | Enter **myPublicIP-IPv6**. |
     | Idle timeout (minutes) | Leave the default of **4**. |
     | Subscription | Select your subscription. |
-    | Resource group | Select your resource group. In this example the resource group is named **myResourceGroup**. |
-    | Location | Select your location. In this example the location is **East US 2**. |
+    | Resource group | Select your resource group. In this example, the resource group is named **myResourceGroup**. |
+    | Location | Select your location. In this example, the location is **East US 2**. |
     | Availability zone | Select **Zone-redundant**. |
 
 4. Select **Create**.
@@ -89,7 +89,7 @@ The virtual machine must be stopped to add the IPv6 configuration to the existin
 
 4. Select **Networking** in **Settings**.
 
-5. Select your network interface name next to **Network Interface:**. In this example the network interface is named **myvm404**.
+5. Select your network interface name next to **Network Interface:**. In this example, the network interface is named **myvm404**.
 
 6. Select **IP configurations** in **Settings** of the network interface.
 
