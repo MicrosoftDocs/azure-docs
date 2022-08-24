@@ -31,7 +31,7 @@ Snapshot Debugger is pre-installed as part of the App Services runtime, but you 
 
 After you've deployed your .NET app:
 
-1. Go to to the Azure control panel for your App Service.
+1. Go to the Azure control panel for your App Service.
 1. Go to the **Settings** > **Application Insights** page.
 
    :::image type="content" source="./media/snapshot-debugger/application-insights-app-services.png" alt-text="Screenshot showing the Enable App Insights on App Services portal.":::
@@ -43,7 +43,7 @@ After you've deployed your .NET app:
   
 1. Snapshot Debugger is now enabled using an App Services App Setting.
 
-    :::image type="content" source="./media/snapshot-debugger/snapshot-debugger-app-setting.png" alt-text="Screenshot showing App Setting for Snapshot Debugger":::
+    :::image type="content" source="./media/snapshot-debugger/snapshot-debugger-app-setting.png" alt-text="Screenshot showing App Setting for Snapshot Debugger.":::
 
 If you're running a different type of Azure service, here are instructions for enabling Snapshot Debugger on other supported platforms:
 
@@ -84,13 +84,13 @@ For System-Assigned Identity:
 
 |App Setting    | Value    |
 |---------------|----------|
-|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AAD    |
+|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AD    |
 
 For User-Assigned Identity:
 
 |App Setting    | Value    |
 |---------------|----------|
-|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AAD;ClientId={Client id of the User-Assigned Identity}    |
+|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AD;ClientId={Client id of the User-Assigned Identity}    |
 
 ## Disable Snapshot Debugger
 

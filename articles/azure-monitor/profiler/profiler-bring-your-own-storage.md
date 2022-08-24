@@ -51,7 +51,7 @@ When you configure Bring Your Own Storage (BYOS), artifacts are uploaded into a 
 
     For example, if your Application Insights resource is in West US 2, your Storage Account must be also in West US 2.
 
-* Grant the `Storage Blob Data Contributor` role to the AAD application named `Diagnostic Services Trusted Storage Access` via the [Access Control (IAM)](/role-based-access-control/role-assignments-portal.md) page in your storage account.
+* Grant the `Storage Blob Data Contributor` role to the AD application named `Diagnostic Services Trusted Storage Access` via the [Access Control (IAM)](/role-based-access-control/role-assignments-portal.md) page in your storage account.
 * If Private Link is enabled, allow connection to our Trusted Microsoft Service from your virtual network.
 
 ## Enable BYOS
@@ -60,7 +60,7 @@ When you configure Bring Your Own Storage (BYOS), artifacts are uploaded into a 
 
 A BYOS storage account will be linked to an Application Insights resource. There may be only one storage account per Application Insights resource and both must be in the same location. You may use the same storage account with more than one Application Insights resource.
 
-First, the Application Insights Profiler, and Snapshot Debugger service needs to be granted access to the storage account. To grant access, add the role `Storage Blob Data Contributor` to the AAD application named `Diagnostic Services Trusted Storage Access` via the Access Control (IAM) page in your storage account as shown in Figure 1.0.
+First, the Application Insights Profiler, and Snapshot Debugger service needs to be granted access to the storage account. To grant access, add the role `Storage Blob Data Contributor` to the AD application named `Diagnostic Services Trusted Storage Access` via the Access Control (IAM) page in your storage account as shown in Figure 1.0.
 
 Steps:
 
