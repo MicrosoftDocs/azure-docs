@@ -131,19 +131,25 @@ Follow the steps in this section to view projects accessible to your Storage Mov
 
     :::image type="content" source="media/projects-manage/project-explorer-filter-added-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal highlighting the modification of filters." lightbox="media/projects-manage/project-explorer-filter-added-lrg.png":::
 
-1. Within the filtered results, select the name of a project to open the **Project** pane opens. The project's available properties and any job summary data are displayed. Depending on the existence of the project's description, select either **Add description** or **Edit description** to open the editing pane. If the project's description exists, you may also select the **Edit** icon next to the **Description** heading.
+1. From within the results or the project explorer pane, select the name of the project created in the previous section. The project's properties and job summary data are displayed in the **details** pane.
 
-      :::image type="content" source="media/projects-manage/project-explorer-view-sml.png" alt-text="project explorer view" lightbox="media/projects-manage/project-explorer-view-lrg.png":::
+    If the project lacks a valid description, select **Add description** to display the **Edit description** pane.
+
+    :::image type="content" source="media/projects-manage/project-explorer-description-new-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal highlighting the modification of filters." lightbox="media/projects-manage/project-explorer-description-new-lrg.png":::
+
+    If a description exists, it will be displayed below the **Description** heading. Select either the **Edit** icon next to the description or the **Edit description** icon to display the editing pane. The image below shows the location of the two icons.
+
+    :::image type="content" source="media/projects-manage/project-explorer-description-edit-sml.png" alt-text="project explorer view" lightbox="media/projects-manage/project-explorer-description-edit-lrg.png":::
 
 1. In the editing pane, modify your project's description. At the bottom onf the pane, select **Save** to commit your changes.
 
-      :::image type="content" source="media/projects-manage/project-explorer-edit-sml.png" alt-text="project explorer edit" lightbox="media/projects-manage/project-explorer-edit-lrg.png":::
+      :::image type="content" source="media/projects-manage/project-explorer-description-edit-sml.png" alt-text="project explorer edit" lightbox="media/projects-manage/project-explorer-description-edit-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
-   1. Use the `Get-AzStorageMoverProject` cmdlet to retrieve a list of projects resources. Optionally, you can supply a `-Name` parameter value to retrieve a specific project resource.
+1. Use the `Get-AzStorageMoverProject` cmdlet to retrieve a list of projects resources. Optionally, you can supply a `-Name` parameter value to retrieve a specific project resource.
 
-   The example below retrieves a specific project resource by specifying the **demoProject** value. Note that the project lacks a **Description** property value.
+   The following example retrieves a specific project resource by specifying the **demoProject** value.
 
    ```powershell
 
