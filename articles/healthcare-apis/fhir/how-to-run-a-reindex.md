@@ -181,7 +181,7 @@ A reindex job can be quite performance intensive. The FHIR service offers some t
 > [!NOTE]
 > It is not uncommon on large datasets for a reindex job to run for days.
 
-Below is a table outlining the available parameters, defaults, and recommended ranges. You can use these parameters to either speed up the process (use more compute) or slow down the process (use less compute). 
+Below is a table outlining the available parameters, defaults, and recommended ranges for controlling reindex job compute resources. You can use these parameters to either speed up the process (use more compute) or slow down the process (use less compute). 
 
 | **Parameter**                     | **Description**              | **Default**        | **Available Range**            |
 | --------------------------------- | ---------------------------- | ------------------ | ------------------------------- |
