@@ -152,7 +152,7 @@ GET {{FHIR_URL}}/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2
 
 ``` 
 
-The paired elements in this case would be the `code` element from an `Observation` resource (referenced as the `result`) and the `value` element connected with the `code` (both contained in the referenced `Observation` resource). Following the code with the `$` operator sets the `value` condition as `lt` (for "less than") `9.2` (for the potassium mmol/L value). 
+The paired elements in this case would be the `code` element (from an `Observation` resource referenced as the `result`) and the `value` element connected with the `code`. Following the code with the `$` operator sets the `value` condition as `lt` (for "less than") `9.2` (for the potassium mmol/L value). 
 
 Composite search parameters can also be used to filter multiple component code value quantities with a logical OR. For example, to query for observations with diastolic blood pressure greater than 90 OR systolic blood pressure greater than 140:
 
