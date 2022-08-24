@@ -59,7 +59,7 @@ For more information about creating SSH keys, see [Create and manage SSH keys fo
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/aks/).
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/aks/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.kubernetes/aks/main.bicep":::
 
@@ -334,7 +334,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 ---
 
 > [!NOTE]
-> In this quickstart, the AKS cluster was created with a system-assigned managed identity (the default identity option). This identity is managed by the platform and does not require removal..
+> In this quickstart, the AKS cluster was created with a system-assigned managed identity (the default identity option). This identity is managed by the platform and does not require removal.
 
 ## Next steps
 

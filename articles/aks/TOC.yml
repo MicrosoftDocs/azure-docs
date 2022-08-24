@@ -27,7 +27,7 @@
           href: learn/quick-kubernetes-deploy-portal.md
         - name: Use Bicep
           displayName: Resource Manager,arm,template
-          href: learn/quick-kubernetes-deploy-rm-bicep.md
+          href: learn/quick-kubernetes-deploy-bicep.md
         - name: Use ARM template
           displayName: Resource Manager
           href: learn/quick-kubernetes-deploy-rm-template.md
