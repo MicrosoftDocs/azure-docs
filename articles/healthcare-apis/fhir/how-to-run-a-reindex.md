@@ -162,7 +162,7 @@ The following information is shown in the reindex job result:
 
 * `resourcesSuccessfullyReindexed`: The total that have already been successfully reindexed.
 
-* `progress`: Reindex job percent complete. Equals `resourcesSuccessfullyReindexed/totalResourcesToReindex` x 100.
+* `progress`: Reindex job percent complete. Equals `resourcesSuccessfullyReindexed`/`totalResourcesToReindex` x 100.
 
 * `status`: States if the reindex job is queued, running, complete, failed, or canceled.
 
