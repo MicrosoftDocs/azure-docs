@@ -25,7 +25,7 @@ The Speech service implementation of SSML is based on the World Wide Web Consort
 
 ## Prebuilt neural voices and custom neural voices
 
-Use a humanlike neural voice or create your own custom neural voice unique to your product or brand. For a complete list of supported languages, locales, and voices, see [Language support](language-support.md?tabs=stt-tts?tabs=stt-tts). To learn more about using a prebuilt neural voice and a custom neural voice, see [Text-to-speech overview](text-to-speech.md).
+Use a humanlike neural voice or create your own custom neural voice unique to your product or brand. For a complete list of supported languages, locales, and voices, see [Language support](language-support.md?tabs=tts?tabs=tts). To learn more about using a prebuilt neural voice and a custom neural voice, see [Text-to-speech overview](text-to-speech.md).
 
 > [!NOTE]
 > You can hear voices in different styles and pitches reading example text by using this [text-to-speech website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
@@ -75,12 +75,12 @@ The `voice` element is required. It's used to specify the voice that's used for 
 
 | Attribute | Description                                                                                                                                               | Required or optional |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| `name`    | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md?tabs=stt-tts). | Required             |
+| `name`    | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md?tabs=tts). | Required             |
 
 **Example**
 
 > [!NOTE]
-> This example uses the `en-US-JennyNeural` voice. For a complete list of supported voices, see [Language support](language-support.md?tabs=stt-tts).
+> This example uses the `en-US-JennyNeural` voice. For a complete list of supported voices, see [Language support](language-support.md?tabs=tts).
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -98,7 +98,7 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
 
 | Attribute | Description                                                                                                                                               | Required or optional |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| `name`    | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md?tabs=stt-tts). | Required             |
+| `name`    | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md?tabs=tts). | Required             |
 
 **Example**
 
@@ -119,7 +119,7 @@ By default, text-to-speech synthesizes text by using a neutral speaking style fo
 
 Styles, style degree, and roles are supported for a subset of neural voices. If a style or role isn't supported, the service uses the default neutral speech. To determine what styles and roles are supported for each voice, use:
 
-- The [Voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles) table.
+- The [Voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles) table.
 - The [Voice List API](rest-text-to-speech.md#get-a-list-of-voices).
 - The code-free [Audio Content Creation](https://aka.ms/audiocontentcreation) portal.
 
@@ -133,7 +133,7 @@ Styles, style degree, and roles are supported for a subset of neural voices. If 
 
 You use the `mstts:express-as` element to express emotions like cheerfulness, empathy, and calm. You can also optimize the voice for different scenarios like customer service, newscast, and voice assistant.
 
-For a list of supported styles per neural voice, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
+For a list of supported styles per neural voice, see [supported voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles).
 
 **Syntax**
 
@@ -199,7 +199,7 @@ The following table has descriptions of each supported style.
 
 The intensity of speaking style can be adjusted to better fit your use case. You specify a stronger or softer style with the `styledegree` attribute to make the speech more expressive or subdued. 
 
-For a list of neural voices that support speaking style degree, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
+For a list of neural voices that support speaking style degree, see [supported voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles).
 
 **Syntax**
 
@@ -226,7 +226,7 @@ This SSML snippet illustrates how the `styledegree` attribute is used to change 
 
 Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice imitates a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. 
 
-For a list of supported roles per neural voice, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
+For a list of supported roles per neural voice, see [supported voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles).
 
 **Syntax**
 
@@ -1093,4 +1093,4 @@ This SSML snippet illustrates how to request blend shapes with your synthesized 
 
 ## Next steps
 
-[Language support: Voices, locales, languages](language-support.md?tabs=stt-tts)
+[Language support: Voices, locales, languages](language-support.md?tabs=tts)
