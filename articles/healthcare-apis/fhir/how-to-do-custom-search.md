@@ -70,7 +70,7 @@ Important elements of a `SearchParameter` resource:
 
 * `url`: A unique key to describe the search parameter. Organizations such as HL7 use a standard URL format for the search parameters that they define, as shown above in the US Core Race search parameter.
 
-* `code`: The value stored in **code** is what you’ll use when searching. For the example above, you would search with `GET {{FHIR_URL}}/Patient?race=<code>` to retrieve all patients of a specific race. The coding system must be unique for the resource type(s) that the search parameter applies to.
+* `code`: The value stored in **code** is what you’ll use when searching. For the example above, you would search with `GET {{FHIR_URL}}/Patient?race=<code>` to retrieve all patients of a certain race. The coding system must be unique for the resource type(s) that the search parameter applies to.
 
 * `base`: Describes which resource type(s) the search parameter applies to. If the search parameter applies to all resources, you can use `Resource`; otherwise, you can list all the relevant resource types.
  
