@@ -176,7 +176,7 @@ The following are examples of what changes you can apply to your cluster by modi
       ttlSecondsAfterFinished: 100
     ```
 
-After applying one or more of these changes to your ConfigMaps, see [Applying updated ConfigMap](container-insights-prometheus-integration.md#applying-updated-configmap) to apply it to your cluster.
+After applying one or more of these changes to your ConfigMaps, see [Apply updated ConfigMap](container-insights-prometheus-integration.md#apply-updated-configmap) to apply it to your cluster.
 
 ### Prometheus metrics scraping
 

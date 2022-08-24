@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 07/03/2021
+ms.date: 08/17/2022
 ms.author: barclayn
 ms.reviewer: kexia
 ms.custom: "it-pro, seodec18, fasttrack-edit"
@@ -18,11 +18,14 @@ ms.collection: M365-identity-device-management
 
 # Configure your company branding
 
+Use your organization's logo and custom color schemes to provide a consistent look-and-feel on your Azure Active Directory (Azure AD) sign-in pages. Your sign-in pages appear when users sign in to your organization's web-based apps, such as Microsoft 365, which uses Azure AD as your identity provider.
+
 Create a consistent experience when users sign into your organization's web-based apps that use Azure Active Directory (Azure AD) as your identity provider, such as Microsoft 365. The sign-in process can include your company logo and customized experiences based on browser language.
 
 ## License requirements
 
 Adding custom branding and configuring the 'keep me signed in' (KMSI) option requires one of the following licenses:
+
 
 - Azure AD Premium 1
 - Azure AD Premium 2
@@ -58,6 +61,7 @@ Custom branding appears after users sign in. Users that start the sign-in proces
 
     - **Banner logo** Select a PNG or JPG version of your logo to appear on the sign-in page after the user enters a username and on the **My Apps** portal page.
             
+
         We recommend using a transparent image because the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small. 
 
     - **Username hint** Type the hint text that appears to users if they forget their username. This text must be Unicode, without links or code, and can't exceed 64 characters. If guests sign in to your app, we suggest not adding this hint.

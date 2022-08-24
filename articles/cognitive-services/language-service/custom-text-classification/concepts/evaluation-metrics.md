@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/06/2022
+ms.date: 08/08/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -110,6 +110,20 @@ As another example, if your scenario involves categorizing email as  "*important
 
 If you want to optimize for general purpose scenarios or when precision and recall are both important, you can utilize the F1 score. Evaluation scores are subjective depending on your scenario and acceptance criteria. There is no absolute metric that works for every scenario. 
 
+## Guidance
+
+After you trained your model, you will see some guidance and recommendation on how to improve the model. It's recommended to have a model covering all points in the guidance section.
+
+* Training set has enough data: When a class type has fewer than 15 labeled instances in the training data, it can lead to lower accuracy due to the model not being adequately trained on these cases.
+
+* All class types are present in test set: When the testing data lacks labeled instances for a class type, the model’s test performance may become less comprehensive due to untested scenarios.
+
+* Class types are balanced within training and test sets: When sampling bias causes an inaccurate representation of a class type’s frequency, it can lead to lower accuracy due to the model expecting that class type to occur too often or too little.
+
+* Class types are evenly distributed between training and test sets: When the mix of class types doesn’t match between training and test sets, it can lead to lower testing accuracy due to the model being trained differently from how it’s being tested.
+
+* Class types in training set are clearly distinct: When the training data is similar for multiple class types, it can lead to lower accuracy because the class types may be frequently misclassified as each other.
+
 ## Confusion matrix
 
 > [!Important]
@@ -122,7 +136,7 @@ You can use the Confusion matrix to identify classes that are too close to each 
 
 All correct predictions are located in the diagonal of the table, so it is easy to visually inspect the table for prediction errors, as they will be represented by values outside the diagonal.
 
-:::image type="content" source="../media/confusion-matrix-multi.png" alt-text="A screenshot of an example confusion matrix." lightbox="../media/confusion-matrix-multi.png":::
+:::image type="content" source="../media/confusion.png" alt-text="A screenshot of an example confusion matrix." lightbox="../media/confusion.png":::
 
 You can calculate the class-level and model-level evaluation metrics from the confusion matrix:
 

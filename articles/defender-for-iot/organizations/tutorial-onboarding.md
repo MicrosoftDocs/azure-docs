@@ -65,6 +65,8 @@ You can either purchase pre-configured appliances or bring your own appliance an
 
 1. Save the downloaded software in a location that will be accessible from your VM.
 
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 ## Create a VM for your sensor
 
 This procedure describes how to create a VM for your sensor with VMware ESXi. 
@@ -232,6 +234,9 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
     |**Zone**     |  Define the zone where you want to deploy your sensor, or select **Create zone** to create a new one.       |
 
 1. Select **Register** to add your sensor to Defender for IoT. A success message is displayed and your activation file is automatically downloaded. The activation file is unique for your sensor and contains instructions about your sensor's management mode.
+
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 
 1. Save the downloaded activation file in a location that will be accessible to the user signing into the console for the first time.
 

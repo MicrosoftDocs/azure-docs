@@ -85,7 +85,7 @@ Key Vault, including Managed HSM, supports the following operations on key objec
 - **Get**: Allows a client to retrieve the public parts of a given key in a Key Vault.  
 - **Backup**: Exports a key in a protected form.  
 - **Restore**: Imports a previously backed up key.
-- **Release**: It securly releases a key to authorized code running within confidential compute. It requires release policy generated within hardware-based Trusted Execution Environment (TEE).
+- **Release**: It securely releases a key to authorized code running within a confidential compute environment. It requires an attestation that the Trusted Execution Environment (TEE) meets the requirements of the key’s release_policy.
 - **Rotate**: Rotate an existing key by generating new version of the key (Key Vault only).
 
 For more information, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault).  
@@ -169,7 +169,7 @@ The following permissions can be granted, on a per user / service principal basi
     
 - Permissions for privileged operations
   - *purge*: Purge (permanently delete) a deleted key
-  - *release*: Release a key to confidential compute workloads
+  - *release*: Release a key to a confidential compute environment which matches the release_policy of the key
 
 - Permissions for rotation policy operations
   - *rotate*: Rotate an existing key by generating new version of the key (Key Vault only) 
