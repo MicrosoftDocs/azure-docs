@@ -74,20 +74,20 @@ __Inbound__ traffic from the service tag `BatchNodeManagement.<region>` or equiv
 ### Outbound
 
 > [!IMPORTANT]
-> The following information is __in addition__ to the guidance provided in the [Secure training environment with virtual networks](how-to-secure-training-vnet.md) article.
+> The following information is __in addition__ to the guidance provided in the [Secure training environment with virtual networks](how-to-secure-training-vnet.md) and [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md) articles.
 
 Select the configuration that you're using:
 
 # [Network security group](#tab/nsg)
 
-__Allow__ outbound traffic over __TCP port 443__ to the following. Replace `<region>` with the Azure region that contains your compute cluster or instance:
+__Allow__ outbound traffic over __TCP port 443__ to the following service tags. Replace `<region>` with the Azure region that contains your compute cluster or instance:
 
 * `BatchNodeManagement.<region>`
 * `Storage.<region>` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
 
 # [Firewall](#tab/firewall)
 
-__Allow__ outbound traffic over __TCP port 443__ to the following hosts. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
+__Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
 
 * `<region>.batch.azure.com`
 * `<region>.service.batch.com`
@@ -124,7 +124,7 @@ __Allow__ outbound traffic over __TCP port 443__ to the following hosts. Replace
 1. Select __Review + Create__, and then select __Create__.
 
 
-## Curated environments
+## 5. Curated environments
 
 When using Azure ML curated environments, make sure to use the latest environment version. The container registry for the environment must also be `mcr.microsoft.com`. To check the container registry, use the following steps:
 
@@ -133,6 +133,24 @@ When using Azure ML curated environments, make sure to use the latest environmen
 
     > [!IMPORTANT]
     > If the container registry is `viennaglobal.azurecr.io` you cannot use the curated environment with the data exfiltration preview. Try upgrading to the latest version of the curated environment.
+
+1. When using `mcr.microsoft.com`, you must also allow outbound configuration to the following resources. Select the configuration option that you're using:
+
+    # [Network security group](#tab/nsg)
+
+    __Allow__ outbound traffic over __TCP port 443__ to the following service tags. Replace `<region>` with the Azure region that contains your compute cluster or instance.
+
+    * `MicrosoftContainerRegistry.<region>`
+    * `AzureFrontDoor.FirstParty`
+
+    # [Firewall](#tab/firewall)
+
+    __Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
+
+    * `mcr.microsoft.com`
+    * `*.data.mcr.microsoft.com`
+
+    ---
 
 ## Next steps
 
