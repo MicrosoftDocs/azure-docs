@@ -127,7 +127,7 @@ For scenarios in which the search criteria demands a logical AND condition that 
 
 ## Reverse chained search
 
-Using reverse chained search in FHIR allows you to search for target resource instances referred to by other resources. In other words, you can search for resources based on the properties of resources that refer to them. This is accomplished with the `_has` parameter. For example, the `Observation` resource has a search parameter `patient` that checks for a reference to a `Patient` resource. To find all `Patient` resources that are referenced by an `Observation` with a specific `code`:
+Using reverse chained search in FHIR allows you to search for target resource instances referenced by other resources. In other words, you can search for resources based on the properties of resources that refer to them. This is accomplished with the `_has` parameter. For example, the `Observation` resource has a search parameter `patient` that checks for a reference to a `Patient` resource. To find all `Patient` resources that are referenced by an `Observation` with a specific `code`:
 
 ```rest
 GET {{FHIR_URL}}/Patient?_has:Observation:patient:code=527
