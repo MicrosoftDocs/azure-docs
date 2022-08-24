@@ -164,7 +164,7 @@ Note how `,` functions as the logical OR operator between the two conditions.
 
 ## View the next entry set
 
-The maximum number of resources that can be returned from a single search query is 1000. However, you might have more than 1000 resource instances that match the search query and you might want to see the next set of results after the first 1000 entries. In such a case, you would use the continuation (i.e. `"next"`) token `url` value in the `searchset` bundle returned from the search:
+The maximum number of resources that can be returned at once from a search query is 1000. However, you might have more than 1000 resource instances that match the search query and you want to retrieve the next set of results after the first 1000 entries. In such a case, you would use the continuation (i.e. `"next"`) token `url` value in the `searchset` bundle returned from the search:
 
 ```json
     "resourceType": "Bundle",
