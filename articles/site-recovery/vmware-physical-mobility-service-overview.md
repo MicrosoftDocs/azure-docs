@@ -157,7 +157,7 @@ Agent configuration logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurat
 2. Install as follows (root account is not required, but root permissions are required):
 
    ```shell
-   sudo ./install -d <Install Location> -r Agent -v VmWare -q
+   sudo ./install -r MS -v VmWare -d <Install Location> -q
    ```
 
 3. After the installation is finished, the Mobility service must be registered to the configuration server. Run the following command to register the Mobility service with the configuration server.
@@ -170,7 +170,7 @@ Agent configuration logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurat
 
 Setting | Details
 --- | ---
-Syntax | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
+Syntax | `./install -r MS -v VmWare [-d <Install Location>] [-q]`
 `-r` | Mandatory installation parameter. Specifies whether the mobility service (MS) or master target (MT) should be installed.
 `-d` | Optional parameter. Specifies the Mobility service installation location: `/usr/local/ASR`.
 `-v` | Mandatory. Specifies the platform on which Mobility service is installed. <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.
@@ -180,9 +180,9 @@ Syntax | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 
 Setting | Details
 --- | ---
-Syntax | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
+Syntax | `cd /usr/local/ASR/Vx/bin`</br> `UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
 `-i` | Mandatory parameter. `<CSIP>` specifies the configuration server's IP address. Use any valid IP address.
-`-P` |  Mandatory. Full file path of the file in which the passphrase is saved. Use any valid folder.
+`-P` |  Mandatory. Full file path of the file in which the passphrase is saved. [Learn more](/azure/site-recovery/vmware-azure-manage-configuration-server#generate-configuration-server-passphrase).
 
 ## Azure Virtual Machine agent
 
@@ -413,8 +413,8 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 
   Setting | Details
   --- | ---
-    Syntax | `cd <InstallLocation>/Vx/bin UnifiedAgentConfigurator.sh -c CSPrime -S -q`  
-    `-s` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
+    Syntax | `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q`  
+    `-S` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
     `-c` |  Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).
     `-q` |  Optional. Specifies whether to run the installer in silent mode.
 

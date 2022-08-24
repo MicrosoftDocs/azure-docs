@@ -50,7 +50,7 @@ For more information on using Azure Service Health, see [Service Health overview
 
 The [Azure status](../service-health/azure-status-overview.md) page provides a global view of the health of Azure services and regions. While Azure Service Health and Azure Resource Health are personalized to your specific resource, Azure status has a larger scope and can be useful to understand incidents with wide-ranging impact.
 
-To check Azure status, navigate to the [Azure status](https://status.azure.com/status/) page. The page displays a table of Azure services along with health indicators per region. You can view Azure Digital Twins by searching for its table entry on the page.
+To check Azure status, navigate to the [Azure status](https://azure.status.microsoft/status/) page. The page displays a table of Azure services along with health indicators per region. You can view Azure Digital Twins by searching for its table entry on the page.
 
 For more information on using the Azure status page, see [Azure status overview](../service-health/azure-status-overview.md).
 

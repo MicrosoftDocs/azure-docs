@@ -103,7 +103,7 @@ For information on how confident question answering is that this is the correct 
 ```python
 print("Q: {}".format(question))
 print("A: {}".format(output.answers[0].answer))
-print("Confidence Score: {}".format(output.answers[0].confidence_score)) # add this line 
+print("Confidence Score: {}".format(output.answers[0].confidence)) # add this line 
 ```
 
 You will now receive a result with a confidence score:

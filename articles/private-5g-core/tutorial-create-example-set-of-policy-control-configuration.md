@@ -39,7 +39,7 @@ In this step, we'll create a service that filters packets based on their protoco
 
 To create the service:
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
+1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
 1. Search for and select the Mobile Network resource representing your private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
@@ -476,28 +476,24 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
 
-1. In the **Resource** menu, select **Add SIMs**.
+1. Select **View SIMs**.
 
-    :::image type="content" source="media/provision-sims-azure-portal/add-sims.png" alt-text="Screenshot of the Azure portal showing the Add SIMs button on a Mobile Network resource":::
+    :::image type="content" source="media/provision-sims-azure-portal/view-sims.png" alt-text="Screenshot of the Azure portal showing the View SIMs button on a Mobile Network resource.":::
 
 1. Select **Create** and then **Upload JSON from file**.
 
     :::image type="content" source="media/provision-sims-azure-portal/create-new-sim.png" alt-text="Screenshot of the Azure portal showing the Create button and its options - Upload J S O N from file and Add manually.":::
 
 1. Select **Browse** and then select the JSON file you created at the start of this step.
+1. Under **SIM group name**, select **Create new** and then enter **SIMGroup1** into the field that appears. 
 1. Select **Add**.
-1. The Azure portal will now begin deploying the SIMs. When the deployment is complete, select **Go to resource group**.
+1. The Azure portal will now begin deploying the SIM group and SIMs. When the deployment is complete, select **Go to resource group**.
 
-    :::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal showing a completed deployment of SIM resources through a J S O N file and the Go to resource button.":::
+    :::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal showing a completed deployment of SIM group and SIM resources through a J S O N file. The Go to resource button is highlighted.":::
 
-1. In the **Resource group** that appears, select the **Mobile Network** resource representing your private mobile network.
-1. In the **Resource** menu, select **SIMs**.
+1. In the **Resource group** that appears, select the **SIMGroup1** resource you've just created. You'll then see your new SIMs in the SIM group.
 
-    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sims-resource-menu-option.png" alt-text="Screenshot of the Azure portal. The SIMs option in the resource menu for a private mobile network is highlighted.":::
-
-1. Your new **SIM1** and **SIM2** SIM resources are shown in the list.
-
-    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sims-list.png" alt-text="Screenshot of the Azure portal. It shows the SIMs currently provisioned for the private mobile network." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sims-list.png":::
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sims-list.png" alt-text="Screenshot of the Azure portal. It shows a SIM group containing two SIMs." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sims-list.png":::
 
 1. Tick the checkbox next to **SIM1**.
 1. In the **Command** bar, select **Assign SIM policy**.
@@ -512,10 +508,9 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 1. Once the deployment is complete, select **Go to Resource**.
 1. Check the **SIM policy** field in the **Management** section to confirm **sim-policy-1** has been successfully assigned.
 
-    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sim-with-sim-policy.png" alt-text="Screenshot of the Azure portal showing a SIM resource. The SIM policy field is highlighted in the Management section." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sim-with-sim-policy.png":::
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sim-with-sim-policy.png" alt-text="Screenshot of the Azure portal showing a SIM resource. The SIM policy field is highlighted in the Management section." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sim-with-sim-policy-enlarged.png":::
 
-1. Search for and select the Mobile Network resource representing your private mobile network.
-1. In the **Resource** menu, select **SIMs**.
+1. In the **SIM group** field under **Essentials**, select **SIMGroup1** to return to the SIM group. 
 1. Tick the checkbox next to **SIM2**.
 1. In the **Command** bar, select **Assign SIM policy**.
 1. Under **Assign SIM policy** on the right, set the **SIM policy** field to **sim-policy-2**.
@@ -530,10 +525,14 @@ You have now provisioned two SIMs and assigned each of them a different SIM poli
 You can now delete each of the resources we've created during this tutorial.
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
-1. In the **Resource** menu, select **SIMs**.
-1. Tick the checkboxes next to **SIM1** and **SIM2**, and then select **Delete** from the **Command** bar. 
-1. Select **Delete** to confirm your choice.
-1. Once the SIMs have been deleted, select **SIM policies** from the **Resource** menu.
+1. In the **Resource** menu, select **SIM groups**.
+1. Select **SIMGroup1**.
+1. Tick the checkboxes next to **SIM1** and **SIM2**, and then select **Delete** from the **Command** bar.
+1. Select **Delete** to confirm your choice. 
+1. Once the SIMs have been deleted, select the name of your private mobile network from the breadcrumbs in the top left corner to return to the list of SIM groups.
+1. Tick the checkbox next to **SIMGroup1**, and then select **Delete** from the **Command** bar.
+1. Select **Delete** to confirm your choice. 
+1. Once the SIM group has been deleted, select **SIM policies** from the **Resource** menu.
 1. Tick the checkboxes next to **sim-policy-1** and **sim-policy-2**, and then select **Delete** from the **Command** bar.
 1. Select **Delete** to confirm your choice.
 1. Once the SIM policies have been deleted, select **Services** from the **Resource** menu.

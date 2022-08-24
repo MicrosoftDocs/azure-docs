@@ -40,7 +40,7 @@ You can select "additional metrics" (or the "Metrics" tab in the left-hand sideb
 
 Some services in Azure have a special focused pre-built monitoring dashboard in the Azure portal that provides a starting point for monitoring your service. These special dashboards are called "insights".
 
-Key Vault insights provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. For full details, see [Monitoring your key vault service with Key Vault insights](../../azure-monitor/insights/key-vault-insights-overview.md).
+Key Vault insights provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. For full details, see [Monitoring your key vault service with Key Vault insights](../key-vault-insights-overview.md).
 
 ## Monitoring data
 

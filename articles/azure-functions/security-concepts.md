@@ -131,7 +131,7 @@ For more information, see [How to use managed identities for App Service and Azu
 
 [Cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is a way to allow web apps running in another domain to make requests to your HTTP trigger endpoints. App Service provides built-in support for handing the required CORS headers in HTTP requests. CORS rules are defined on a function app level.  
 
-While it's tempting to use a wildcard that allows all sites to access your endpoint. But, this defeats the purpose of CORS, which is to help prevent cross-site scripting attacks. Instead, add a separate CORS entry for the domain of each web app that must access your endpoint. 
+While it's tempting to use a wildcard that allows all sites to access your endpoint, this defeats the purpose of CORS, which is to help prevent cross-site scripting attacks. Instead, add a separate CORS entry for the domain of each web app that must access your endpoint. 
 
 ### Managing secrets 
 

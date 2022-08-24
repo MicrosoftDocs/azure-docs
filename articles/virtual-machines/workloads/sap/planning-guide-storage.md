@@ -338,7 +338,7 @@ The Azure Standard HDD storage was the only storage type when Azure infrastructu
 
 
 ## Azure VM limits in storage traffic
-In opposite to on-premise scenarios, the individual VM type you are selecting, plays a vital role in the storage bandwidth you can achieve. For the different storage types, you need to consider:
+In opposite to on-premises scenarios, the individual VM type you are selecting, plays a vital role in the storage bandwidth you can achieve. For the different storage types, you need to consider:
 
 | Storage type| Linux | Windows | Comments |
 | --- | --- | --- | --- |

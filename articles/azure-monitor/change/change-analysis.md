@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 06/29/2022 
+ms.date: 07/29/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 
@@ -65,20 +65,20 @@ Azure Monitor Change Analysis service supports resource property level changes i
 ## Data sources
 
 Azure Monitor's Change Analysis queries for:
-- Azure Resource Manager tracked properties.
-- Proxied configurations.
+- Azure Resource Manager resource properties.
+- Configuration changes.
 - Web app in-guest changes. 
 
 Change Analysis also tracks resource dependency changes to diagnose and monitor an application end-to-end.
 
-### Azure Resource Manager tracked properties changes
+### Azure Resource Manager resource properties changes
 
 Using [Azure Resource Graph](../../governance/resource-graph/overview.md), Change Analysis provides a historical record of how the Azure resources that host your application have changed over time. The following tracked settings can be detected:
 - Managed identities
 - Platform OS upgrade
 - Hostnames
 
-### Azure Resource Manager proxied setting changes
+### Azure Resource Manager configuration changes
 
 Unlike Azure Resource Graph, Change Analysis securely queries and computes IP Configuration rules, TLS settings, and extension versions to provide more change details in the app.
 

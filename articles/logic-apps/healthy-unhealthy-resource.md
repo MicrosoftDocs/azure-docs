@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 08/20/2022
 ---
 
 # Set up logging to monitor logic apps in Microsoft Defender for Cloud
@@ -13,7 +13,7 @@ ms.date: 12/07/2020
 When you monitor your Azure Logic Apps resources in [Microsoft Azure Security Center](../security-center/security-center-introduction.md), you can [review whether your logic apps are following the default policies](#view-logic-apps-health-status). Azure shows the health status for an Azure Logic Apps resource after you enable logging and correctly set up the logs' destination. This article explains how to configure diagnostic logging and make sure that all your logic apps are healthy resources.
 
 > [!TIP]
-> To find the current status for the Azure Logic Apps service, review the [Azure status page](https://status.azure.com/), which lists the status for different products and services in each available region.
+> To find the current status for the Azure Logic Apps service, review the [Azure status page](https://azure.status.microsoft/), which lists the status for different products and services in each available region.
 
 ## Prerequisites
 

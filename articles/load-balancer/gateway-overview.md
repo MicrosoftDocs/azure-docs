@@ -1,5 +1,5 @@
 ---
-title: Gateway load balancer (Preview)
+title: Gateway load balancer
 titleSuffix: Azure Load Balancer
 description: Overview of gateway load balancer SKU for Azure Load Balancer.
 ms.service: load-balancer
