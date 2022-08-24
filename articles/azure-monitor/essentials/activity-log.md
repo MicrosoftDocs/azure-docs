@@ -1,12 +1,12 @@
 ---
 title: Azure activity log
 description: View the Azure Monitor activity log and send it to Azure Monitor Logs, Azure Event Hubs, and Azure Storage.
-author: bwren
+author: guywi-ms
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 07/01/2022
-ms.author: bwren
-ms.reviewer: lualderm
+ms.author: guywild
+ms.reviewer: orens
 ---
 
 # Azure Monitor activity log
