@@ -56,9 +56,6 @@ And then defining these elements for the resulting alert actions using:
     |Resource health|Resource Health|The service that provides the resource-level health status. |
     |Service health|Service health|The service that provides the subscription-level health status.         |
 
-
-
-
  
 1. Select the **Signal name**, and follow the steps in the tab below that corresponds to the type of alert you're creating.
     ### [Metric alert](#tab/metric)
@@ -191,18 +188,19 @@ And then defining these elements for the resulting alert actions using:
     From this point on, you can select the **Review + create** button at any time.
 
 1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
-    If your target resource is in either of these regions:
+1. (Optional) If you want to make sure that the data processing for the action group takes place within a specific region, you can select one of these regions in which to process the action group:
     - Sweden Central
     - Germany West Central
 
-    you can select a **Region** to ensure that the relevant data processing occurs within that region. 
+    > [!NOTE]
+    > We are continually adding more regions for regional data processing.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot of the actions tab when creating a new alert rule.":::
 
 1. In the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
     - Select the **Resource group**.
-    - (Optional) If your target resource is in any of these regions, and you're creating a metric alert rule that monitors a custom metric, you can select a **Region** to ensure that the relevant data processing occurs within that region.
+    - (Optional) If you want to make sure that the data processing for the alert rule takes place within a specific region, and you're creating a metric alert rule that monitors a custom metric, you can select one of these regions for the processing of the alert rule. 
         - North Europe
         - West Europe
         - Sweden Central
