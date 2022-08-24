@@ -132,8 +132,8 @@ In the following steps, you'll use commands to add a static route to the virtual
     
     1. Update the route in the virtual network connection to specify the next hop as an IP address.
 
-       > [!IMPORTANT]
-       > The route name should be the same as the one you used when you added a static route earlier. Otherwise, you'll create two routes in the routing table: one without an IP address one with an IP address.
+       > [!NOTE]
+       > The route name should be the same as the one you used when you added a static route earlier. Otherwise, you'll create two routes in the routing table: one without an IP address and one with an IP address.
 
        ```azurepowershell-interactive
        $newroute = New-AzStaticRoute -Name "[Route Name]"  -AddressPrefix "[@("Destination prefix")]" -NextHopIpAddress "[Destination NVA IP address]"
@@ -143,10 +143,10 @@ In the following steps, you'll use commands to add a static route to the virtual
        Update-AzVirtualHubVnetConnection -ResourceGroupName $rgname -VirtualHubName "[Hub Name]" -Name "[Virtual hub connection name]" -RoutingConfiguration $newroutingconfig
 
        ```
+       
+       This update command will remove the previous manual configuration route in your routing table.
+       
     1. Verify that the static route is established to a next-hop IP address.
-
-       > [!NOTE]
-       > This command will remove the previous manual configuration route in your routing table.
 
        ```azurepowershell-interactive
        Get-AzVirtualHubVnetConnection -ResourceGroupName "[Resource group]" -VirtualHubName "[virtual hub name]" -Name "[Virtual hub connection name]"
