@@ -4,7 +4,7 @@ description: A tutorial that walks you through the process of using a system-ass
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.subservice: msi

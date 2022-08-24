@@ -211,6 +211,8 @@
     - name: Apply Azure security baselines
       displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
       href: apply-security-baseline.md
+    - name: Deploy the Azure Monitor agent
+      href: auto-deploy-azure-monitoring-agent.md
     - name: Vulnerability assessments
       items:
       - name: Find vulnerabilities with threat and vulnerability management

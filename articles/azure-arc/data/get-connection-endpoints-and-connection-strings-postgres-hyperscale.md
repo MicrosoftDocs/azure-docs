@@ -4,7 +4,7 @@ titleSuffix: Azure Arc-enabled data services
 description: Get connection endpoints & create connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray

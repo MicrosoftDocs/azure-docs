@@ -299,7 +299,7 @@ sudo apt-get update
 Install the 1.0.9 release:
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
+sudo apt-get install iotedge=1.1* libiothsm-std=1.1*
 ```
 
 Next, register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).
@@ -461,7 +461,7 @@ sudo apt-get update
 Install the 1.0.9 release:
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
+sudo apt-get install iotedge=1.1* libiothsm-std=1.1*
 ```
 
 Next, register the VM as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).

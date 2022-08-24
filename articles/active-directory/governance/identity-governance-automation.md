@@ -3,7 +3,7 @@ title: Automate Azure AD Identity Governance tasks with Azure Automation
 description: Learn how to write PowerShell scripts in Azure Automation to interact with Azure Active Directory entitlement management and other features.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: amsliu
 manager: daveba
 editor: 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 1/20/2022
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell

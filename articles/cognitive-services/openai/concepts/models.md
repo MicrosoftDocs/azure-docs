@@ -25,7 +25,7 @@ The service provides access to many different models. Models describe a family o
 
 ## Naming convention
 
-Azure OpenAI's models follow a standard naming convention: `{task}-{model name}-{version #}`. For example, our most powerful natural language model is called `text-davinci-001` and a codex series model would look like `code-cushman-001`.
+Azure OpenAI's models follow a standard naming convention: `{task}-{model name}-{version #}`. For example, our most powerful natural language model is called `text-davinci-001` and a Codex series model would look like `code-cushman-001`.
 
 > Older versions of the GPT-3 models are available as `ada`, `babbage`, `curie`, `davinci` and do not follow these conventions. These models are primarily intended to be used for fine-tuning and search.
 
@@ -80,7 +80,7 @@ The Codex models are descendants of our base GPT-3 models that can understand an
 
 They’re most capable in Python and proficient in over a dozen languages including JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell.
 
-Currently we only offer one codex model: `code-cushman-001`.
+Currently we only offer one Codex model: `code-cushman-001`.
 
 ## Embeddings Models
 
