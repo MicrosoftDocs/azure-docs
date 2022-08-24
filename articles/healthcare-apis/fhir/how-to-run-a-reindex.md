@@ -189,7 +189,7 @@ Below is a table outlining the available parameters, defaults, and recommended r
 | `MaximumResourcesPerQuery`  | The maximum number of resources included in the batch of resources to be reindexed.  | 100 | 1-5000 |
 | `MaximumConcurrency`  | The number of batches done at a time.  | 1 | 1-10 |
 
-If you want to use any of the parameters above, you can pass them into the `Parameters` resource when you start the reindex job with a `POST` request.
+If you want to use any of the parameters above, you can pass them into the `Parameters` resource when you send a `POST` request to start a reindex job.
 
 ```json
 
