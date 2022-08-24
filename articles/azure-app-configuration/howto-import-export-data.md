@@ -521,4 +521,4 @@ You may encounter the following error messages when importing or exporting App C
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)
+> [Back up App Configuration stores automatically](./howto-backup-config-store.md)
