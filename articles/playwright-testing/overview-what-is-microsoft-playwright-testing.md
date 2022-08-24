@@ -1,63 +1,68 @@
 ---
 title: What is Microsoft Playwright Testing?
-description: 'Microsoft Playwright Testing is a fully managed web UI testing service. Run Playwright tests across multiple operating systems and browser configurations at scale in the cloud, regardless of where the application is hosted.'
+description: 'Microsoft Playwright Testing is a fully managed end-to-end testing service. Run Playwright tests across multiple operating systems and browser configurations at scale in the cloud, regardless of where the application is hosted.'
 services: playwright-testing
 ms.service: playwright-testing
 ms.topic: overview
 ms.author: nicktrog
 author: ntrogh
-ms.date: 07/06/2022
+ms.date: 08/23/2022
 ---
 
 # What is Microsoft Playwright Testing Preview?
 
-Microsoft Playwright Testing Preview is a fully managed web UI testing service. The service enables you to validate that your web application runs correctly
-across operating systems, device and browser configurations, regardless of where the application is hosted. Developers and testers can use it to optimize application quality by testing end-to-end user scenarios.
+Microsoft Playwright Testing Preview is a fully managed service for running Playwright tests at scale, regardless of where your application is hosted. [Playwright](https://playwright.dev) is an open-source framework for running end-to-end tests to validate your app runs correctly for multiple browser configurations. Developers and testers can use Microsoft Playwright Testing to:
 
-Quickly configure your existing [Playwright](https://playwright.dev) test suite to run your tests in the cloud, without any changes to your test specifications. Microsoft Playwright Testing abstracts the complexity and infrastructure to run tests at scale, across multiple operating systems. Run tests for cloud-hosted applications, on-premise applications, and even *localhost* development servers.
+- Run end-to-end tests to validate application user scenarios.
+- Speed up test completion by scaling across parallel workers.
+- Help diagnose failing tests by using rich test results.
+- Help identify flaky tests.
+- Help continuously improve app quality and stability.
+- Help identify app user interface regressions.
 
-Use the unified reporting dashboard to gain actionable insights and trends across multiple test runs. Apply the rich test results, such as logs, traces, and videos, to troubleshoot test failures quickly.
+Microsoft Playwright Testing:
 
-To continuously monitor application quality, you can automate your end-to-end tests as part of your continuous integration and continuous deployment (CI/CD) workflow.
+- Supports [running existing Playwright tests](./how-to-run-with-playwright-testing.md) without changes to the test specifications.
+- Supports [running tests across multiple operating systems](./how-to-cross-platform-tests.md) and browser configurations.
+- Works for apps hosted [on-premises, hybrid, or on any public cloud](./how-to-test-private-endpoints.md).
+- Integrates with CI/CD solutions for [continuous end-to-end testing](./tutorial-automate-end-to-end-testing-with-github-actions.md).
+- Integrates with the Playwright Test runner and the Playwright Visual Studio Code extension.
+- Uses Azure Active Directory and Azure role-based access for enterprise security.
 
-<!-- Key scenarios:
-
-- Speed up test execution with high parallelism across operating systems, device and browser configurations.
-- Gain actionable pass/fail insights from a unified reporting dashboard.
-- Troubleshoot test issues through easy access to rich metadata like logs, traces, and video recordings. -->
+Get started with [running end-to-end tests at scale with Microsoft Playwright Testing](./quickstart-run-end-to-end-tests.md).
 
 :::image type="content" source="./media/overview-what-is-microsoft-playwright-testing/microsoft-playwright-testing-architecture.png" alt-text="Diagram that shows the Microsoft Playwright Testing architecture.":::
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Run tests at scale across multiple platforms
+## Run end-to-end tests at scale across multiple platforms
 
-With web UI testing, you can verify the correctness of end-to-end user scenarios for your application. You can use [Playwright](https://playwright.dev) to create end-to-end tests across different browser configurations. Update the Playwright configuration to run your existing tests suites in the cloud with Microsoft Playwright Testing. You can then use the Playwright command-line interface (CLI) to initiate your tests, or use the [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright).
-
-You can use the cloud-based infrastructure to test both publicly and privately accessible applications without exposing inbound connections on your firewall. During the development phase, use Microsoft Playwright Testing to run tests on localhost.
-
-Microsoft Playwright Testing provides *workers* for different operating systems. Workers are responsible for running your tests for a specific browser and device configuration. Run platform-specific tests on multiple operating systems, or perform last-mile testing for an OS before deploying in production.
-
-You can integrate Microsoft Playwright Testing in your CI/CD pipeline to implement continuous end-to-end testing and get feedback with every application build. To reduce the time to complete your tests, scale out many parallel workers.
+With end-to-end testing, you can verify the correctness of end-to-end user scenarios for your application. You can use [Playwright](https://playwright.dev) to create tests across different browser configurations. Quickly configure your Playwright tests to run in the cloud, without any code changes, and then use the Playwright command-line interface (CLI) or use the [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) to initiate the tests.
 
 Get feedback early and often from your tests by scaling out across many parallel workers. Microsoft Playwright Testing abstracts the complexity to run Playwright tests at scale.
 
+You can use the cloud-based infrastructure to test both publicly and privately accessible applications without exposing inbound connections on your firewall. During the development phase, use Microsoft Playwright Testing to run tests on localhost.
+
+Microsoft Playwright Testing provides *workers* for multiple operating systems. Workers are responsible for running your tests for a specific browser and device configuration. Run platform-specific tests on multiple operating systems, or perform last-mile testing for an OS before deploying in production.
+
+You can integrate Microsoft Playwright Testing in your CI/CD pipeline to implement continuous end-to-end testing and get feedback with every application build. To reduce the time to complete your tests, scale out many parallel workers.
+
 ## Troubleshoot issues with rich test results
 
-After your test suite finishes, use the Microsoft Playwright dashboard to analyze the test results and identify application issues. The dashboard shows rich test results to help diagnose failing tests:
+After your tests finish, you can [use the unified Microsoft Playwright dashboard](./tutorial-identify-issues-with-end-to-end-web-tests.md) to explore the test results and troubleshoot issues. The dashboard shows rich test results to help diagnose failing tests:
 
-- Error logs that show where in the test an error occurred and what the expected and actual state was.
-- Application screenshots and video recordings that provide a visual representation of the application during the test run.
-- Test traces that enable you to use the interactive, web-based Trace Viewer to step through the timeline of the test and inspect the application state at any point.
+- Use error details to identify where in the test an error occurred, and what the expected and actual state was.
+- Use application screenshots and video recordings for a visual representation of the application during the test run.
+- Use test traces in the web-based Trace Viewer, to interactively step through the timeline of the test and inspect the application state at any point during the test.
 
 ## Gain actionable insights
 
-Microsoft Playwright Testing tracks the history of your test runs in the dashboard. You can use this history to analyze application quality and performance trends over time in the dashboard.
+Microsoft Playwright Testing tracks the history of your test runs in the dashboard. You can explore the test run history to analyze application quality and performance trends over time in the dashboard.
 
-Compare test runs over time and across different browser configurations. For example, is a specific user scenario performing worse for a given device-browser-OS combination?
+Compare test runs over time and across different browser configurations. For example, to analyze if a given user scenario is performing badly for a given device-browser-OS combination.
 
-Identify stability issues by quickly identifying *flaky tests*, which are tests that don't consistently fail or succeed upon rerunning.
+Identify test and application stability issues by quickly identifying *flaky tests*. Flaky tests fail on the first run, but pass when retried without any change to the test code.
 
 ## How does Microsoft Playwright Testing work?
 
@@ -77,6 +82,6 @@ To test applications that aren't publicly accessible, you can add a configuratio
 
 Start using Microsoft Playwright Testing.
 
-- [Quickstart: Run a web UI test at scale](./quickstart-run-end-to-end-tests.md).
+- [Quickstart: Run end-to-end tests at scale](./quickstart-run-end-to-end-tests.md).
 - [Tutorial: Identify issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
 - [Tutorial: Automate end-to-end testing with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
