@@ -10,7 +10,7 @@ ms.author: mikaelw
 ---
 # Running a reindex job
 
-There are scenarios where you may have search parameters in the FHIR service in Azure Health Data Services that haven't yet been indexed. This happens when you define your own custom search parameters. Until the search parameter is indexed, it can't be used in live production. This article covers how to run a reindex job to index any custom search parameters that haven't yet been indexed in your FHIR service database.
+There are scenarios where you may have search parameters in the FHIR service in Azure Health Data Services that haven't yet been indexed. This situation arises when you define your own custom search parameters. Until the search parameter is indexed, it can't be used in live production. This article covers how to run a reindex job to index any custom search parameters that haven't yet been indexed in your FHIR service database.
 
 > [!Warning]
 > It's important that you read this entire article before getting started. A reindex job can be very performance intensive. This article includes options for how to throttle and control the reindex job.
