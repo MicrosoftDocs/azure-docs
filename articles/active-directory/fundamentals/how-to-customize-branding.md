@@ -2,21 +2,21 @@
 title: Add branding to your organization's sign-in page (preview) - Azure AD
 description: Instructions about how to add your organization's branding to the sign-in experience.
 services: active-directory
-author: barclayn
-manager: rkarlin
+author: shlipsey3
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
 ms.date: 07/03/2021
-ms.author: barclayn
+ms.author: sarahlipsey
 ms.reviewer: kexia
 ms.custom: "it-pro, seodec18, fasttrack-edit"
 ms.collection: M365-identity-device-management
 ---
 
-# Configure your company branding
+# Configure your company branding (preview)
 
 Create a consistent experience when users sign into your organization's web-based apps that use Azure Active Directory (Azure AD) as your identity provider, such as Microsoft 365. The sign-in process can include your company logo and customized experiences based on browser language.
 

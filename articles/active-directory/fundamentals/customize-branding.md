@@ -3,7 +3,7 @@ title: Add branding to your organization's sign-in page - Azure AD
 description: Instructions about how to add your organization's branding to the Azure Active Directory sign-in page.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
@@ -137,7 +137,7 @@ The following diagram shows the user sign-in flow for a managed tenant and feder
 
 Go KMSI is only available on the default custom branding. It can't be added to language-specific branding. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
 
-![Diagram showing the user sign-in flow for a managed vs. federated tenant](media/keep-me-signed-in/kmsi-workflow.png)
+![Diagram showing the user sign-in flow for a managed vs. federated tenant](media/customize-branding/kmsi-workflow.png)
 
 See the [License requirements](#license-requirements) section for using the KMSI service.
 
@@ -145,14 +145,14 @@ See the [License requirements](#license-requirements) section for using the KMSI
 
 If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in attempt, a sign-in log entry appears in the Azure AD **Sign-ins** page.  The prompt the user sees is called an "interrupt." This scenario is illustrated in the following image.
 
-![Sample 'Stay signed in?' prompt](./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png)
+![Sample 'Stay signed in?' prompt](media/customize-branding/kmsi-stay-signed-in-prompt.png)
 
 Details about the sign-in error are as follows and highlighted in the example.
 
 * **Sign in error code**: 50140
 * **Failure reason**: This error occurred due to "Keep me signed in" interrupt when the user was signing in.
 
-![Example sign-in log entry with the KMSI interrupt](./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png)
+![Example sign-in log entry with the KMSI interrupt](media/customize-branding/kmsi-sign-ins-log-entry.png)
 
 You can stop users from seeing the interrupt by setting the **Show option to remain signed in** setting to **No** in the advanced branding settings. This setting disables the KMSI prompt for all users in your Azure AD directory.
 
