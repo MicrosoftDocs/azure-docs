@@ -127,7 +127,7 @@ FHIR specifies a set of search result parameters to help manage the information 
 | **Search result parameters** | **FHIR service in Azure Health Data Services** | **Azure API for FHIR** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
 | `_elements`                     | Yes                  | Yes                       |
-| `_count`                        | Yes                  | Yes                       | _count is limited to 1000 resources. If it's set higher than 1000, only 1000 will be returned and a warning will be returned in the bundle.                               |
+| `_count`                        | Yes                  | Yes                       | `_count` is limited to 1000 resources. If it's set higher than 1000, only 1000 will be returned and a warning will be returned in the bundle.                               |
 | `_include`                      | Yes                  | Yes                       | Included items are limited to 100. _include on PaaS and OSS on Cosmos DB don't include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).                               |
 | `_revinclude`                   | Yes                  | Yes                       |Included items are limited to 100. `_revinclude` on PaaS and OSS on Cosmos DB don't include `:iterate` support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137). There's also an incorrect status code for a bad request [#1319](https://github.com/microsoft/fhir-server/issues/1319).                            |
 | `_summary`                      | Yes             | Yes                   |
