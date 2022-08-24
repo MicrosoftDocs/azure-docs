@@ -172,7 +172,7 @@ The following information is shown in the reindex job result:
 
 If you need to cancel a reindex job, use a `DELETE` call and specify the reindex job ID:
 
-`DELETE {{FHIR URL}}/_operations/reindex/{{reindexJobId}`
+`DELETE {{FHIR URL}}/_operations/reindex/{{reindexJobId}}`
 
 ## Performance considerations
 
