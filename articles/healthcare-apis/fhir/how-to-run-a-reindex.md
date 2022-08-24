@@ -91,7 +91,7 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 
 Once you’ve started a reindex job, you can check the status of the job using the following call:
 
-`GET {{FHIR URL}}/_operations/reindex/{{reindexJobId}`
+`GET {{FHIR_URL}}/_operations/reindex/{{reindexJobId}}`
 
 The status of the reindex job result is shown below:
 
