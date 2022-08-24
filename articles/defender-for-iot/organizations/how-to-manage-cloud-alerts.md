@@ -7,6 +7,10 @@ ms.topic: how-to
 
 # View and manage alerts from the Azure portal
 
+> [!IMPORTANT]
+> The **Alerts** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+
 This article describes how to manage your alerts from Microsoft Defender for IoT on the Azure portal.
 
 If you're integrating with Microsoft Sentinel, the alert details and entity information are also sent to Microsoft Sentinel, where you can also view them from the **Alerts** page.
