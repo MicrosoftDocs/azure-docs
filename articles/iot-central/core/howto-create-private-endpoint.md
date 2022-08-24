@@ -1,5 +1,5 @@
 ---
-title: Create a private endpoint for IoT Central | Microsoft Docs
+title: Create a private endpoint for Azure IoT Central | Microsoft Docs
 description: Learn how to create and configure a private endpoint for your IoT Central application. A private endpoint lets you securely connect your devices to IoT Central over a private virtual network.
 author: dominicbetts
 ms.author: dobett
@@ -129,7 +129,7 @@ In some situations, you may not be able to integrate with the private DNS zone o
 
 1. In the Azure portal, navigate to your private endpoint, and select **DNS configuration**. On this page, you can find the required information for the IP address mapping to the DNS name.
 
-:::image type="content" source="media/howto-create-private-endpoint/private-dns-configuration.png" alt-text="Screenshot from the Azure portal that shows the private D N S configuration.":::
+:::image type="content" source="media/howto-create-private-endpoint/private-dns-configuration.png" alt-text="Screenshot from the Azure portal that shows the private DNS configuration.":::
 
 > [!WARNING]
 > This information lets you populate your custom DNS server with the necessary records. If at all possible, you should integrate with the private DNS Zones of the virtual network and not configure your own custom DNS server. Private endpoints for IoT Central applications differ from other Azure PaaS services. In some situations, such as IoT Central autoscaling, IoT Central scales out the number of IoT Hubs accessible through the private endpoint. If you choose to populate your own custom DNS server, it's your responsibility to update the DNS records whenever IoT Central autoscales, and later remove records when the number of IoT hubs scales in.
