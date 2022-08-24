@@ -35,7 +35,7 @@ For this article you need,
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
-* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
+* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
@@ -429,6 +429,6 @@ See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](./v1/how-to-deploy-and-where.md).
+* Learn more about [How to deploy an AutoML model to an online endpoint](how-to-deploy-automl-endpoint.md).
 * Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md). 
-* Follow the [Tutorial: Train regression models](tutorial-auto-train-models.md) for an end to end example for creating experiments with automated machine learning.
+
