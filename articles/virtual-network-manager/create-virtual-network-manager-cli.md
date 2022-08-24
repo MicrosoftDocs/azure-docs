@@ -185,7 +185,7 @@ az network manager group static-member create \
 ```
 ### Dynamic membership option
 
-Using Azure Policy, you'll dynamically add the three VNets with a tag **networkType** value of *Prod* to the Network Group. These are the three virtual networks to become part of the mesh configuration.
+Using [Azure Policy](https://docs.microsoft.com/en-us/azure/virtual-network-manager/concept-azure-policy-integration), you'll dynamically add the three VNets with a tag **networkType** value of *Prod* to the Network Group. These are the three virtual networks to become part of the mesh configuration.
 
 > [!NOTE] 
 > Policies can be applied to a subscription or management group, and must always be defined *at or above* the level they're created. Only virtual networks within a policy scope are added to a Network Group.
@@ -363,4 +363,5 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
 After you've created the Azure Virtual Network Manager, continue on to learn how to block network traffic by using the security admin configuration:
 
 > [!div class="nextstepaction"]
-> [Block network traffic with security admin rules](how-to-block-network-traffic-portal.md)
+[Block network traffic with security admin rules](how-to-block-network-traffic-portal.md)
+[Create a secured hub and spoke network](tutorial-create-secured-hub-and-spoke.md)
