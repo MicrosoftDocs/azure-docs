@@ -13,7 +13,7 @@ ms.author: junhan
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-This article shows you how to use the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) to create an Azure IoT hub. 
+This article shows you how to use the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) to create an Azure IoT hub. You can create one without an existing IoT project or create one from an existing IoT project.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -23,12 +23,39 @@ This article shows you how to use the [Azure IoT Tools for Visual Studio Code](h
 
 - [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) installed for Visual Studio Code.
 
+## Create an IoT hub without an IoT Project
 
-## Create an IoT hub and device in an IoT Project
+The following steps show how to create an IoT Hub without an IoT Project in Visual Studio Code (VS Code).
 
-The following steps show how to create an IoT Hub and register a device to the hub within an existing IoT Project in Visual Studio (VS) Code.
+1. In VS Code, open the **Explorer** view.
 
-Instead of provisioning an Azure IoT Hub and device from the Azure portal, provision in VS Code without leaving the development environment.
+2. At the bottom of the Explorer, expand the **Azure IoT Hub** section. 
+
+   :::image type="content" source="./media/iot-hub-create-use-iot-toolkit/azure-iot-hub-devices.png" alt-text="A screenshot that shows the location of the Azure IoT Hub section in VS Code." lightbox="./media/iot-hub-create-use-iot-toolkit/azure-iot-hub-devices.png":::
+
+3. Select **Create IoT Hub** from the list in the **Azure IoT Hub** section. 
+
+   :::image type="content" source="./media/iot-hub-create-use-iot-toolkit/create-iot-hub.png" alt-text="A screenshot that shows the location of the Azure IoT Hub section in VS Code." lightbox="./media/iot-hub-create-use-iot-toolkit/create-iot-hub.png":::
+
+5. A pop-up will show in the bottom-right corner to let you sign in to Azure for the first time, if you are not signed in already.
+
+6. From the command palette at the top of VS Code, select your Azure subscription. 
+
+7. Select your resource group.
+
+8. Select a location.
+
+9. Select a pricing tier.
+
+10. Enter a globally unique name for your IoT hub, then press **Enter**.
+
+11. Wait a few minutes until the IoT Hub is created. You'll see a confirmation in the output console.
+
+## Create an IoT hub and device in an existing IoT project
+
+The following steps show how to create an IoT Hub and register a device to the hub within an existing IoT project in Visual Studio (VS) Code.
+
+This method allows you to provision in VS Code without leaving your development environment.
 
 1. In the new opened project window, click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Provision Azure Services...**. Follow the step-by-step guide to finish provisioning your Azure IoT Hub and creating the IoT Hub device.
 
@@ -66,34 +93,6 @@ Instead of provisioning an Azure IoT Hub and device from the Azure portal, provi
 1. Now you have Azure IoT Hub provisioned and device created in it. Also the device connection string will be saved in VS Code.
 
    :::image type="content" source="media/iot-hub-create-use-iot-toolkit/provision-done.png" alt-text="A screenshot that shows IoT Hub details in the output window in VS Code." lightbox="media/iot-hub-create-use-iot-toolkit/provision-done.png":::
-
-## Create an IoT hub without an IoT Project
-
-The following steps show how you can create an IoT Hub without an IoT Project in Visual Studio Code.
-
-1. In Visual Studio Code, open the **Explorer** view.
-
-2. At the bottom of the Explorer, expand the **Azure IoT Hub** section. 
-
-   ![Expand Azure IoT Hub Devices](./media/iot-hub-create-use-iot-toolkit/azure-iot-hub-devices.png)
-
-3. Click on the **...** in the **Azure IoT Hub** section header. If you don't see the ellipsis, hover over the header. 
-
-4. Choose **Create IoT Hub**.
-
-5. A pop-up will show in the bottom-right corner to let you sign in to Azure for the first time.
-
-6. Select Azure subscription. 
-
-7. Select resource group.
-
-8. Select location.
-
-9. Select pricing tier.
-
-10. Enter a globally unique name for your IoT hub.
-
-11. Wait a few minutes until the IoT Hub is created.
 
 ## Next steps
 
