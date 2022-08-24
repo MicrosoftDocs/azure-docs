@@ -17,7 +17,7 @@ There are scenarios where you may have search parameters in the FHIR service in 
 
 ## How to run a reindex job 
 
-To reindex the entire FHIR service database and make your custom search parameter operational, use the following POST call with the JSON formatted `Parameters` resource in the request body:
+To reindex the entire FHIR service database and make your custom search parameter operational, use the following `POST` call with the JSON formatted `Parameters` resource in the request body:
 
 ```json
 POST {{FHIR_URL}}/$reindex 
