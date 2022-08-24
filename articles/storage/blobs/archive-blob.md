@@ -318,9 +318,9 @@ To create a lifecycle management policy to archive blobs in the Azure portal, fo
     > [!div class="mx-imgBorder"]
     > ![Screenshot showing how to configure a lifecycle management policy - Base blob tab](./media/archive-blob/lifecycle-policy-base-blobs-tab-portal.png)
 
-10. If you chose to limit the blobs affected by the rule with filters, you can specify a filter, either with a blob prefix or blob index match.
-
-    If you selected the **Last modified** rule condition, you can optionally exclude rehydrated blobs from being impacted by this rule. See the next step. Otherwise select the **Add** button to add the rule to the policy.
+   - If you chose to limit the blobs affected by the rule with filters, you can specify a filter, either with a blob prefix or blob index match.
+   
+   - If you selected the **Last modified** rule condition, you can optionally exclude rehydrated blobs from being impacted by this rule. See the next step. Otherwise, select the **Add** button to add the rule to the policy.
 
 #### Step 3: Ensure that the rule excludes rehydrated blobs
 
