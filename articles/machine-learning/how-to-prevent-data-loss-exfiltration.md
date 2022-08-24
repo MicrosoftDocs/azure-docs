@@ -19,21 +19,21 @@ ms.date: 08/24/2022
 Azure Machine Learning has several inbound and outbound dependencies. Some of these dependencies can expose a data exfiltration risk by malicious agents within your organization. This document explains how to minimize data exfiltration risk by limiting inbound and outbound requirements.
 
 __Inbound__
-Azure Machine Learning compute instance and compute cluster have two inbound requirements: the `batchnodemanagement` (ports 29876-29877) and `azuremachinelearning` (port 44224) service tags. You can control this inbound traffic by using a network security group. It is difficult to disguise Azure service IPs, so there is low data exfiltration risk. You can also configure the compute to not use a public IP, which removes inbound requirements.
+Azure Machine Learning compute instance and compute cluster have two inbound requirements: the `batchnodemanagement` (ports 29876-29877) and `azuremachinelearning` (port 44224) service tags. You can control this inbound traffic by using a network security group. It's difficult to disguise Azure service IPs, so there's low data exfiltration risk. You can also configure the compute to not use a public IP, which removes inbound requirements.
 
 __Outbound__
-If malicious agents do not have write access to outbound destination resources, they cannot use that outbound for data exfiltration. Azure Active Directory, Azure Resource Manager, Azure Machine Learning, and Microsoft Container Registry belong to this category. On the other hand, Storage, AzureFrontDoor.frontend, Azure Monitor can be leveraged for data exfiltration.
+If malicious agents don't have write access to outbound destination resources, they can't use that outbound for data exfiltration. Azure Active Directory, Azure Resource Manager, Azure Machine Learning, and Microsoft Container Registry belong to this category. On the other hand, Storage, AzureFrontDoor.frontend, Azure Monitor can be used for data exfiltration.
 
 __Storage Outbound__
-This requirement comes from compute instance and compute cluster. A malicious agent can leverage this outbound rule to exfiltrate data by provisioning and saving data in their own storage account. You can remove data exfiltration risk by using an Azure Service Endpoint Policy and Azure Batch's simplified node communication architecture.
+This requirement comes from compute instance and compute cluster. A malicious agent can use this outbound rule to exfiltrate data by provisioning and saving data in their own storage account. You can remove data exfiltration risk by using an Azure Service Endpoint Policy and Azure Batch's simplified node communication architecture.
 
 __AzureFrontDoor.frontend Outbound__
-Azure Front Door is required by the Azure Machine Learning Studio UI and AutoML. Malicious agents can leverage this outbound rule to exfiltrate data similar to the the storage outbound scenario - provisioning their own Azure Front Door and a storage account behind it. To prevent this scenario, please allowlist the following fully qualified domain names (FQDN) on your Firewall, instead of using network security group.
+Azure Front Door is required by the Azure Machine Learning studio UI and AutoML. Malicious agents can use this outbound rule to exfiltrate data similar to the storage outbound scenario - provisioning their own Azure Front Door and a storage account behind it. To prevent this scenario, allowlist the following fully qualified domain names (FQDN) on your Firewall, instead of using network security group.
 - `ml.azure.com`
 - `automlresources-prod.azureedge.net`
 
 __Azure Monitor__
-This requirement comes from the lack of support for private link enabled Azure Monitor. Malicious agents can leverage this outbound rule to exfiltrate data by provisioning and saving data in their own Azure Monitor. To prevent this, block outbound traffic to Azure Monitor.
+This requirement comes from the lack of support for private link enabled Azure Monitor. Malicious agents can use this outbound rule to exfiltrate data by provisioning and saving data in their own Azure Monitor. To prevent this scenario, block outbound traffic to Azure Monitor.
 
 ## Prerequisites
 
@@ -116,6 +116,7 @@ __Allow__ outbound traffic over __TCP port 443__ to the following hosts. Replace
         Select __Add__ to add the resource information.
     1. Select __+ Add an alias__, and then select `/services/Azure/MachineLearning` as the __Server Alias__ value. Select __Add__ to add thee alias.
 1. Select __Review + Create__, and then select __Create__.
+
 
 ## Curated environments
 
