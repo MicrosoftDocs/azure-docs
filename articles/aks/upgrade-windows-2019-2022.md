@@ -29,7 +29,7 @@ Windows Server 2019 and Windows Server 2022 cannot co-exist on the same node poo
 ## Add a Windows Server 2022 node pool to the existing cluster
 
 Windows Server 2019 and 2022 cannot co-exist on the same node pool on AKS. To upgrade your application, you need a separate node pool for Windows Server 2022.
-For more information on how to add a new Windows Server 2022 node pool to an existing AKS cluster, see [Add a Windows Server 2022 node pool](/learn/quick-windows-container-deploy-cli.md).
+For more information on how to add a new Windows Server 2022 node pool to an existing AKS cluster, see [Add a Windows Server 2022 node pool](./learn/quick-windows-container-deploy-cli.md).
 
 ## Update your YAML file
 
@@ -100,6 +100,6 @@ sample-7794bfcc4c-sh78c   1/1     Running   0          2m49s   10.240.0.228   ak
 
 ## Active Directory, gMSA and Managed Identity implications
 
-If you are leveraging Group Managed Service Accounts (gMSA) you will need to update the Managed Identity configuration for the new node pool. gMSA uses a secret (user account and password) so the node on which the Windows pod is running can authenticate the container against Active Directory. To access that secret on Azure Key Vault, the node uses a Managed Identity that allows the node to access the resource. Since Managed Identities are configured per node pool, and the pod now resides on a new node pool, you need to update that configuration. Check out [Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster](/use-group-managed-service-accounts.md) for more information.
+If you are leveraging Group Managed Service Accounts (gMSA) you will need to update the Managed Identity configuration for the new node pool. gMSA uses a secret (user account and password) so the node on which the Windows pod is running can authenticate the container against Active Directory. To access that secret on Azure Key Vault, the node uses a Managed Identity that allows the node to access the resource. Since Managed Identities are configured per node pool, and the pod now resides on a new node pool, you need to update that configuration. Check out [Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster](./use-group-managed-service-accounts.md) for more information.
 
 The same principle applies to Managed Identities used for any other pod/node pool when accessing other Azure resources. Any access provided via Managed Identity needs to be updated to reflect the new node pool. To view update and sign-in activities, see [How to view Managed Identity activity](/azure/active-directory/managed-identities-azure-resources/how-to-view-managed-identity-activity).
