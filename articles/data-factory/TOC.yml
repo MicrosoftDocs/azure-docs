@@ -1091,8 +1091,24 @@ items:
       href: plan-manage-costs.md 
       displayName: diu
     - name: Pricing examples     
-      href: pricing-concepts.md
-      displayName: diu  
+      items:
+      - name: Overview
+        href: pricing-concepts.md
+        displayName: diu 
+      - name: Copy data from AWS S3 to Azure Blob storage hourly for 30 days
+        href: pricing-examples-s3-to-blob.md
+      - name: Copy data and transform with Azure Databricks hourly for 30 days
+        href: pricing-examples-copy-transform-azure-databricks.md
+      - name: Copy data and transform with dynamic parameters hourly for 30 days
+        href: pricing-examples-copy-transform-dynamic-parameters.md
+      - name: Run SSIS packages on Azure-SSIS integration runtime
+        href: pricing-examples-ssis-on-azure-ssis-integration-runtime.md
+      - name: Using mapping data flow debug for a normal workday
+        href: pricing-examples-mapping-data-flow-debug-workday.md
+      - name: Transform data in blob store with mapping data flows
+        href: pricing-examples-transform-mapping-data-flows.md
+      - name: Data integration in Azure Data Factory Managed VNET
+        href: pricing-examples-data-integration-managed-vnet.md
   - name: Troubleshooting guides
     items:
     - name: Azure Data Factory Studio
