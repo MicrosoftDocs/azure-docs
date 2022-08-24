@@ -90,7 +90,15 @@ The maximum size of the tenured region is the size it would be if the JVMs' heap
 The following steps will guide you through enabling the profiling component on the agent and
 configuring resource limits that will trigger a profile if breached.
 
-1. Inside the `applicationinsights.json` configuration of your process, enable the profiler by
+
+1. Configure the resource thresholds that will cause a profile to be collected:
+    1. Browse to the Performance -> Profiler section of the Application Insights instance.
+       :::image type="content" source="./media/java-standalone-profiling/performance-blade-inline.png" alt-text="Screenshot of the link to open performance blade." lightbox="media/profiler-settings/performance-blade.png":::
+       :::image type="content" source="./media/java-standalone-profiling/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/profiler-settings/profiler-button.png":::
+    2. Select "Triggers"
+    3. Configure the required CPU and Memory thresholds. And select Apply.
+       :::image type="content" source="./media/java-standalone-profiling/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for C P U and Memory triggers.":::
+2. Inside the `applicationinsights.json` configuration of your process, enable the profiler by
    setting the `preview.profiler.enabled` setting:
    ```json
       {
@@ -103,14 +111,7 @@ configuring resource limits that will trigger a profile if breached.
       }
    ```
    Alternatively, set the `APPLICATIONINSIGHTS_PROFILER_ENABLED` environment variable to true.
-2. Restart your process with the updated configuration.
-3. Configure the resource thresholds that will cause a profile to be collected:
-    1. Browse to the Performance -> Profiler section of the Application Insights instance.
-       :::image type="content" source="./media/java-standalone-profiling/performance-blade-inline.png" alt-text="Screenshot of the link to open performance blade." lightbox="media/profiler-settings/performance-blade.png":::
-       :::image type="content" source="./media/java-standalone-profiling/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/profiler-settings/profiler-button.png":::
-    2. Select "Triggers"
-    3. Configure the required CPU and Memory thresholds. And select Apply.
-       :::image type="content" source="./media/java-standalone-profiling/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for C P U and Memory triggers.":::
+3. Restart your process with the updated configuration.
 
 
 > [!WARNING]
