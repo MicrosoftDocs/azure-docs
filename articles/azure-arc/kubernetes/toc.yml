@@ -82,7 +82,7 @@
       - name: GitOps (Flux v2)
         items:
         - name: At-scale deployment of Flux v2 configurations using Azure Policy
-          href: use-azure-policy-flux2.md
+          href: use-azure-policy-flux-2.md
       - name: GitOps (Flux v1)
         items:
         - name: Deploy Helm charts using GitOps (Flux v1)

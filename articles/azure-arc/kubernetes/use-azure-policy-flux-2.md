@@ -4,7 +4,7 @@ services: azure-arc, container-service
 ms.date: 8/23/2022
 ms.topic: how-to
 description: "Apply Flux v2 configurations at-scale using Azure Policy"
-keywords: "Kubernetes, K8s, Arc, AKS, Azure, containers, GitOps, Flux v2"
+keywords: "Kubernetes, K8s, Arc, AKS, Azure, containers, GitOps, Flux v2, policy"
 ---
 
 # Apply Flux v2 configurations at-scale using Azure Policy
