@@ -29,7 +29,7 @@ In addition to in-tree driver features, Azure Disks CSI driver supports the foll
 - Performance improvements during concurrent disk attach and detach
   - In-tree drivers attach or detach disks in serial, while CSI drivers attach or detach disks in batch. There's significant improvement when there are multiple disks attaching to one node.
 - Zone-redundant storage (ZRS) disk support
-  - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported, ZRS disk could be scheduled on the zone or non-zone node, without the restriction that disk volume should be co-located in the same zone as a given node, check more details about [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md)
+  - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported. ZRS disk could be scheduled on the zone or non-zone node, without the restriction that disk volume should be co-located in the same zone as a given node. For more information, including which regions are supported, see [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md).
 - [Snapshot](#volume-snapshots)
 - [Volume clone](#clone-volumes)
 - [Resize disk PV without downtime(Preview)](#resize-a-persistent-volume-without-downtime-preview)
@@ -284,12 +284,14 @@ test.txt
 ## Resize a persistent volume without downtime (Preview)
 
 > [!IMPORTANT]
-> Azure Disks CSI driver supports resizing PVCs without downtime.
+> Azure Disks CSI driver supports expanding PVCs without downtime (Preview).
 > Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
 > 
 > az feature register --namespace Microsoft.Compute --name LiveResize
-
-
+> 
+> az feature show --namespace Microsoft.Compute --name LiveResize
+>
+> Follow this [link][expand-pvc-with-downtime] to expand PVCs **with** downtime if you cannot try preview feature.
 
 You can request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
 
@@ -431,6 +433,7 @@ The output of the command resembles the following example:
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 [csi-driver-parameters]: https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md
 [create-burstable-storage-class]: https://github.com/Azure-Samples/burstable-managed-csi-premium
+[expand-pvc-with-downtime]: https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/known-issues/sizegrow.md
 
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md

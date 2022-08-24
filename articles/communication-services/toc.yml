@@ -130,6 +130,8 @@ items:
     href: quickstarts/telemetry-application-insights.md
   - name: Add file sharing to your application with UI Library
     href: tutorials/file-sharing-tutorial.md
+  - name: Enable Push Notifications in your chat app
+    href: tutorials/add-chat-push-notifications.md
 - name: Concepts
   expanded: false
   items:
@@ -217,6 +219,8 @@ items:
         href: concepts/detailed-call-flows.md
       - name: Known issues
         href: concepts/known-issues.md
+      - name: Media access
+        href: concepts/voice-video-calling/media-access.md
   - name: Rooms
     items:
       - name: Rooms overview
@@ -286,6 +290,8 @@ items:
             href: concepts/interop/custom-teams-endpoint-authentication-overview.md
           - name: Calling capabilities
             href: concepts/interop/teams-user-calling.md
+          - name: Teams client experience
+            href: concepts/interop/teams-user/teams-client-experience.md
           - name: Teams license requirements
             href: quickstarts/eligible-teams-licenses.md
           - name: Azure AD API permissions

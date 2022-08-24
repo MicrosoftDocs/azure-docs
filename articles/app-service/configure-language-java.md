@@ -436,7 +436,7 @@ To inject these secrets in your Spring or Tomcat configuration file, use environ
 
 ### Use the Java Key Store
 
-By default, any public or private certificates [uploaded to App Service Linux](configure-ssl-certificate.md) will be loaded into the respective Java Key Stores as the container starts. After uploading your certificate, you will need to restart your App Service for it to be loaded into the Java Key Store. Public certificates are loaded into the Key Store at `$JAVA_HOME/jre/lib/security/cacerts`, and private certificates are stored in `$JAVA_HOME/lib/security/client.jks`.
+By default, any public or private certificates [uploaded to App Service Linux](configure-ssl-certificate.md) will be loaded into the respective Java Key Stores as the container starts. After uploading your certificate, you will need to restart your App Service for it to be loaded into the Java Key Store. Public certificates are loaded into the Key Store at `$JRE_HOME/lib/security/cacerts`, and private certificates are stored in `$JRE_HOME/lib/security/client.jks`.
 
 More configuration may be necessary for encrypting your JDBC connection with certificates in the Java Key Store. Refer to the documentation for your chosen JDBC driver.
 
@@ -453,12 +453,12 @@ To initialize the `import java.security.KeyStore` object, load the keystore file
 ```java
 KeyStore keyStore = KeyStore.getInstance("jks");
 keyStore.load(
-    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/cacets"),
+    new FileInputStream(System.getenv("JRE_HOME")+"/lib/security/cacerts"),
     "changeit".toCharArray());
 
 KeyStore keyStore = KeyStore.getInstance("pkcs12");
 keyStore.load(
-    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/client.jks"),
+    new FileInputStream(System.getenv("JRE_HOME")+"/lib/security/client.jks"),
     "changeit".toCharArray());
 ```
 
