@@ -16,7 +16,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-js
 
 # Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page application (SPA)
 
-In this tutorial, you build a JavaScript single-page application (SPA) that signs in users and calls Microsoft Graph by using the implicit flow. The SPA you build uses the Microsoft Authentication Library (MSAL) for JavaScript v1.0.
+In this tutorial, you will build a JavaScript single-page application (SPA) that signs in users and calls Microsoft Graph by using the implicit flow. The SPA you build uses the Microsoft Authentication Library (MSAL) v1.x for JavaScript v1.0.
 
 In this tutorial:
 
@@ -27,8 +27,12 @@ In this tutorial:
 > * Add code to call Microsoft Graph API
 > * Test the app
 
->[!TIP]
-> This tutorial uses MSAL.js v1.x which is limited to using the implicit grant flow for single-page applications. We recommend all new applications instead use [MSAL.js 2.x and the authorization code flow with PKCE and CORS](tutorial-v2-javascript-auth-code.md) support.
+>[!NOTE]
+> We recommend all new applications to use [MSAL.js 2.x and the authorization code flow with PKCE and CORS](tutorial-v2-javascript-auth-code.md) support. This tutorial uses MSAL.js v1.x which is limited to using the implicit grant flow for single-page applications. 
+
+At the end of this tutorial, you will have created the folder structure below, during which you will create the `.js` and `.html` files by copying the code blocks in the upcoming sections.
+
+![a text depiction of the intended SPA folder structure](./media/tutorial-v2-javascript-spa/single-page-application-folder-structure.png)
 
 ## Prerequisites
 
@@ -95,9 +99,7 @@ Make sure you have [Node.js](https://nodejs.org/en/download/) installed, and the
    console.log('Listening on port ' + port + '...');
    ```
 
-You now have a simple server to serve your SPA. The intended folder structure at the end of this tutorial is as follows:
-
-![a text depiction of the intended SPA folder structure](./media/tutorial-v2-javascript-spa/single-page-application-folder-structure.png)
+You now have a simple server to serve your SPA. 
 
 ## Create the SPA UI
 
