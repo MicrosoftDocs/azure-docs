@@ -27,7 +27,7 @@ While Azure Backup stores data in isolation from production workloads, it allows
 
 ## Making immutability irreversible
 
-The immutability of a vault is a reversible setting that allows you to disable the immutability (which would allow deletion of backup data) if needed. However, we recommend you, after being satisfied with the impact of immutability, lock the vault to make the Immutable vault settings irreversible, so that any bad actors can’t disable it. Therefore, the Immutable vault settings accepts fpllowing three states.
+The immutability of a vault is a reversible setting that allows you to disable the immutability (which would allow deletion of backup data) if needed. However, we recommend you, after being satisfied with the impact of immutability, lock the vault to make the Immutable vault settings irreversible, so that any bad actors can’t disable it. Therefore, the Immutable vault settings accept following three states.
 
 | State of Immutable vault setting | Description |
 | --- | --- |
