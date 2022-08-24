@@ -40,7 +40,7 @@ The exit codes indicate the termination reasons of the application. Some common 
   
   * Insufficient authorities to third service
 
-    For example : You need to connect to azure key vault to import certificates in you application, but your app don't have the authority to access it.
+    For example : You need to connect to Azure key vault to import certificates in you application, but your app don't have the authority to access it.
 
   * 137 - The application exited because it requested resources that the hosting platform failed to provide, please update JVM parameters to restrict resource usage, or scale up application resources.
   
