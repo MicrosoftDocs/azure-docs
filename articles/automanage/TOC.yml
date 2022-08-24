@@ -5,6 +5,10 @@
   items:
   - name: Enable on VMs in the Azure portal
     href: quick-create-virtual-machines-portal.md
+  - name: SDKs
+    items: 
+    - name: Python
+      href: ./quickstarts/quick-python-sdk.md
 - name: Concepts
   expanded: true
   items:
