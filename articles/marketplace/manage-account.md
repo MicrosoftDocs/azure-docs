@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: sharath-satish-msft
 ms.author: shsatish
-ms.date: 1/20/2022
+ms.date: 7/27/2022
 ---
 
 # Manage a commercial marketplace account in Partner Center
@@ -197,6 +197,16 @@ The billing address is pre-populated from your legal entity, and you can update 
 ## Multi-user account management
 
 Partner Center uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process.
+
+## Delete a commercial marketplace account
+
+You may want to delete a commercial marketplace account if the account was created by mistake or is no longer needed. You can’t delete a commercial marketplace account yourself. To have an account deleted, create a support request. See [Get help and contact support](/partner-center/report-problems-with-partner-center).
+
+Before creating a support request, ensure that:
+
+- You’re the owner/manager of the account and you specifically provide your consent to delete the account.
+- There are no offers or applications (live or unpublished) associated with the account.
+- There are no pending payments associated with the account.
 
 ## Next steps
 

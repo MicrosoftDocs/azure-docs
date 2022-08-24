@@ -237,6 +237,6 @@ The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNot
 ## Next steps
 
 * [Deploy models with MLflow](how-to-deploy-mlflow-models.md).
-* Monitor your production models for [data drift](./how-to-enable-data-collection.md).
+* Monitor your production models for [data drift](v1/how-to-enable-data-collection.md).
 * [Track Azure Databricks runs with MLflow](how-to-use-mlflow-azure-databricks.md).
 * [Manage your models](concept-model-management-and-deployment.md).

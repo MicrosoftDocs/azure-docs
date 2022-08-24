@@ -55,7 +55,8 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 - Added support for vCenter 6.7.
 - Added support for Windows Server 2019 and Red Hat Enterprise Linux (RHEL) workstation.
 
-
+> [!Note]
+>- It is not recommended to run the deployment planner on the ESXi version 6.7.0 Update 2 Build 13006603, as it does not work as expected. 
 
 ## Version 2.3
 

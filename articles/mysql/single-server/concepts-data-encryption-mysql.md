@@ -50,7 +50,7 @@ For a MySQL server to use customer-managed keys stored in Key Vault for encrypti
 * **wrapKey**: To be able to encrypt the DEK. The encrypted DEK is stored in the Azure Database for MySQL.
 * **unwrapKey**: To be able to decrypt the DEK. Azure Database for MySQL needs the decrypted DEK to encrypt/decrypt the data
 
-The key vault administrator can also [enable logging of Key Vault audit events](../../azure-monitor/insights/key-vault-insights-overview.md), so they can be audited later.
+The key vault administrator can also [enable logging of Key Vault audit events](../../key-vault/key-vault-insights-overview.md), so they can be audited later.
 
 When the server is configured to use the customer-managed key stored in the key vault, the server sends the DEK to the key vault for encryptions. Key Vault returns the encrypted DEK, which is stored in the user database. Similarly, when needed, the server sends the protected DEK to the key vault for decryption. Auditors can use Azure Monitor to review Key Vault audit event logs, if logging is enabled.
 

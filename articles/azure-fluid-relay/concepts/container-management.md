@@ -11,9 +11,6 @@ ms.service: azure-fluid
 
 # Managing Fluid containers
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
 A Container is the atomic unit of storage in the Azure Fluid Relay service and represents the data stored from a Fluid session, including operations and snapshots. The Fluid runtime uses the container to rehydrate the state of a Fluid session when a user joins for the first time or rejoins after leaving.
 
 When building an application with the Fluid Framework, there are several things you need to account for regarding container creation and management, as summarized in this diagram.

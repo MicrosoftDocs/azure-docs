@@ -1,5 +1,5 @@
 ---
-title: Using data collection endpoints with Azure Monitor agent
+title: Enable network isolation for the Azure Monitor agent
 description: Use data collection endpoints to uniquely configure ingestion settings for your machines.
 ms.topic: conceptual
 author: shseth
@@ -10,7 +10,7 @@ ms.reviewer: shseth
 
 ---
 
-# Enable network isolation for the Azure Monitor Agent
+# Enable network isolation for the Azure Monitor agent
 By default, Azure Monitor agent will connect to a public endpoint to connect to your Azure Monitor environment. You can enable network isolation for your agents by creating [data collection endpoints](../essentials/data-collection-endpoint-overview.md)  and adding them to your [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-configure.md#connect-azure-monitor-resources).
 
 

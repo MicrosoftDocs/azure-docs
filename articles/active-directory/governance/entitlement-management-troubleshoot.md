@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: owinfreyatl
+ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 

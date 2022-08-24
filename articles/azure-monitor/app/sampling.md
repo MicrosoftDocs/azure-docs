@@ -503,6 +503,12 @@ To address the problems introduced by sampling pre-aggregated metrics are used i
 
 ## Frequently asked questions
 
+*Does sampling affect alerting accuracy?*
+* Yes. Alerts can only trigger upon sampled data. Aggressive filtering may result in alerts not firing as expected.
+
+> [!NOTE]
+> Sampling is not applied to Metrics, but Metrics can be derived from sampled data. In this way sampling may indirectly affect alerting accuracy.
+
 *What is the default sampling behavior in the ASP.NET and ASP.NET Core SDKs?*
 
 * If you are using one of the latest versions of the above SDK, Adaptive Sampling is enabled by default with five telemetry items per second.

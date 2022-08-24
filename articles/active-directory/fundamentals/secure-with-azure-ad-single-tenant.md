@@ -25,7 +25,7 @@ Many separation scenarios can be achieved within a single tenant. If possible, w
 
 If a set of resources require unique tenant-wide settings, or there is minimal risk tolerance for unauthorized access by tenant members, or critical impact could be caused by configuration changes, you must achieve isolation in multiple tenants.
 
-**Configuration separation** - In some cases, resources such as applications have dependencies on tenant-wide configurations like authentication methods or [named locations](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition#named-locations). You should consider these dependencies when isolating resources. Global administrators can configure the resource settings and tenant-wide settings that affect resources.
+**Configuration separation** - In some cases, resources such as applications have dependencies on tenant-wide configurations like authentication methods or [named locations](/azure/active-directory/conditional-access/location-condition#named-locations). You should consider these dependencies when isolating resources. Global administrators can configure the resource settings and tenant-wide settings that affect resources.
 
 If a set of resources require unique tenant-wide settings, or the tenant's settings must be administered by a different entity, you must achieve isolation with multiple tenants.
 
@@ -72,7 +72,7 @@ If you must ensure full isolation (including staging of organization-level confi
 Azure RBAC allows you to design an administration model with granular scopes and surface area. Consider the management hierarchy in the following example:
 
 >[!NOTE]
->There are multiple ways to define the management hierarchy based on an organization's individual requirements, constraints, and goals. For more information, consult the Cloud Adoption Framework guidance on how to [Organize Azure Resources](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources)).
+>There are multiple ways to define the management hierarchy based on an organization's individual requirements, constraints, and goals. For more information, consult the Cloud Adoption Framework guidance on how to [Organize Azure Resources](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources)).
 
 ![Diagram that shows resource isolation in a single tenant.](media/secure-with-azure-ad-single-tenant/azure-ad-resource-hierarchy.png)
 
@@ -86,7 +86,7 @@ Azure RBAC allows you to design an administration model with granular scopes and
 
 For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) and [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
-This is a hierarchical structure, so the higher up in the hierarchy, the more scope, visibility, and impact there is to lower levels. Top-level scopes affect all Azure resources in the Azure AD tenant boundary. This also means that permissions can be applied at multiple levels. The risk this introduces is that assigning roles higher up the hierarchy could provide more access lower down the scope than intended. [Microsoft Entra](/security/business/identity-access/microsoft-entra-permissions-management?rtc=1) (formally CloudKnox) is a Microsoft product that provides visibility and remediation to help reduce the risk. A few details are as follows:
+This is a hierarchical structure, so the higher up in the hierarchy, the more scope, visibility, and impact there is to lower levels. Top-level scopes affect all Azure resources in the Azure AD tenant boundary. This also means that permissions can be applied at multiple levels. The risk this introduces is that assigning roles higher up the hierarchy could provide more access lower down the scope than intended. [Microsoft Entra](https://www.microsoft.com/security/business/identity-access/microsoft-entra-permissions-management) (formally CloudKnox) is a Microsoft product that provides visibility and remediation to help reduce the risk. A few details are as follows:
 
 * The root management group defines Azure Policies and RBAC role assignments that will be applied to all subscriptions and resources.
 
@@ -94,7 +94,7 @@ This is a hierarchical structure, so the higher up in the hierarchy, the more sc
 
 Both top-level scopes should be strictly monitored. It is important to plan for other dimensions of resource isolation such as networking. For general guidance on Azure networking, see [Azure best practices for network security](../../security/fundamentals/network-best-practices.md). Infrastructure as a Service (IaaS) workloads have special scenarios where both identity and resource isolation need to be part of the overall design and strategy.
 
-Consider isolating sensitive or test resources according to [Azure landing zone conceptual architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/). For example, Identity subscription should be assigned to separated management group and all subscriptions for development purposes could be separated in "Sandbox" management group. More details can be found in the [Enterprise-Scale documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/faq). Separation for testing purposes within a single tenant is also considered in the [management group hierarchy of the reference architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/testing-approach).
+Consider isolating sensitive or test resources according to [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/). For example, Identity subscription should be assigned to separated management group and all subscriptions for development purposes could be separated in "Sandbox" management group. More details can be found in the [Enterprise-Scale documentation](/azure/cloud-adoption-framework/ready/enterprise-scale/faq). Separation for testing purposes within a single tenant is also considered in the [management group hierarchy of the reference architecture](/azure/cloud-adoption-framework/ready/enterprise-scale/testing-approach).
 
 ### Scoped management for Azure AD trusting applications
 

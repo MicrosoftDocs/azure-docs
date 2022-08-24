@@ -89,7 +89,7 @@ Store the received identity with mapping to your application's users (for exampl
 
 ## Issue access tokens
 
-Use the `get_token` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md). You can also construct a new instance of parameter `CommunicationUserIdentifier` based on a string representation of the Azure Communication Service identity.
+Use the `get_token` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of parameter `CommunicationUserIdentifier` based on a string representation of the Azure Communication Service identity.
 
 ```python
 # Issue an access token with the "voip" scope for an identity

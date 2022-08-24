@@ -30,6 +30,9 @@ Use the OCR client library to read printed and handwritten text from a remote im
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Vision&Product=OCR&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Read printed and handwritten text
 
 1. Create a new Gradle project.
@@ -95,7 +98,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
 1. Paste your key and endpoint into the above code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
    > [!IMPORTANT]
-   > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
+   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 1. Build the app with the following command:
 
@@ -108,6 +111,9 @@ Use the OCR client library to read printed and handwritten text from a remote im
    ```console
    gradle run
    ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Vision&Product=OCR&Page=quickstart&Section=Read-printed-and-handwritten-text" target="_target">I ran into an issue</a>
 
 ## Output
 
@@ -131,6 +137,9 @@ nt Daily Values are based on
 Vitamin A 50%
 calorie diet
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Vision&Product=OCR&Page=quickstart&Section=Output" target="_target">I ran into an issue</a>
 
 ## Clean up resources
 

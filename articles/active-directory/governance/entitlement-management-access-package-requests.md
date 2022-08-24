@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 9/20/2021
-ms.author: owinfreyatl
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -42,8 +42,8 @@ In Azure AD entitlement management, you can see who has requested access package
 
 If you have a set of users whose requests are in the "Partially Delivered" or "Failed" state, you can retry those requests by using the [reprocess functionality](entitlement-management-reprocess-access-package-requests.md).
 
-### View assignments with Microsoft Graph
-You can also retrieve requests for an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignmentRequests](/graph/api/entitlementmanagement-list-accesspackageassignmentrequests?view=graph-rest-beta&preserve-view=true). You can supply a filter to indicate a specific access package, such as: `$expand=accessPackage&$filter=accessPackage/id eq '9bbe5f7d-f1e7-4eb1-a586-38cdf6f8b1ea'`. An application that has the application permission `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can also use this API.
+### View requests with Microsoft Graph
+You can also retrieve requests for an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignmentRequests](/graph/api/entitlementmanagement-list-accesspackageassignmentrequests?view=graph-rest-beta&preserve-view=true). While an identity governance administrator can retrieve access package requests from multiple catalogs, if user or application service principal is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$expand=accessPackage&$filter=accessPackage/id eq '9bbe5f7d-f1e7-4eb1-a586-38cdf6f8b1ea'`. An application that has the application permission `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can also use this API to retrieve requests across all catalogs.
 
 ## Remove request (Preview)
 

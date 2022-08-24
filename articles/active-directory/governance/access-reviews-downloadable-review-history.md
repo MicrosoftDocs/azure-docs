@@ -3,7 +3,7 @@ title: Create and manage downloadable access review history report - Azure Activ
 description: Using Azure Active Directory access reviews, you can download a review history for access reviews in your organization.
 services: active-directory
 documentationcenter: ''
-author: ajburnle
+author: amsliu
 manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 02/18/2022
-ms.author: ajburnle
+ms.author: amsliu
 ---
 
 # Create and manage downloadable access review history report in Azure AD access reviews

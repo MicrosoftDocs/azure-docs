@@ -136,6 +136,8 @@
       href: reservation-amortization.md
     - name: Charge back reservation costs
       href: charge-back-usage.md
+    - name: Calculate EA cost savings
+      href: calculate-ea-reservations-savings.md
   - name: Exchange and refund
     items:
     - name: Exchange and refund reservations

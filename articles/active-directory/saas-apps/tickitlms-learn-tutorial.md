@@ -73,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
    In the **Sign-on URL** text box, type the URL:
-   `https:/learn.tickitlms.com/sso/login`
+   `https://learn.tickitlms.com/sso/login`
 
 1. Click **Save**.
 
