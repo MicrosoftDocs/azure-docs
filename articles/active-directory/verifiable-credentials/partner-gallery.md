@@ -12,7 +12,9 @@ ms.author: barclayn
 
 # Entra Verified ID ISV partners
 
-Our ISV partner network extends our solution capabilities to help you build seamless end-user experiences. With Microsoft Entra Verified ID, you can integrate with ISV partners to enable remote onboarding leveraging our identity verification and proofing ISV partners, education verification and proofing partners, employment verification and proofing partners.
+Our ISV partner network extends our solution capabilities to help you build seamless end-user experiences. With Microsoft Entra Verified ID, you can integrate with ISV partners to enable remote onboarding leveraging our identity verification and proofing ISV partners. We are currently
+working with partners for Education verification and proofing and Employment verification and proofing to enable additional remote onboarding 
+requirements. We will continue to consider ISV partners in other categories as well.   
 
 To be considered into this documentation, submit your application [request](https://aka.ms/isvconnectvc)
 
@@ -21,9 +23,9 @@ To be considered into this documentation, submit your application [request](http
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
-|![Screenshot of au10tix logo](media/partner-gallery/au10tix.png) | [AU10TIX](https://www.au10tix.com/solutions/microsoft-azure-active-directory-verifiable-credentials-program) improves Verifiability While Protecting Privacy For Businesses, Employees, Contractors, Vendors, And Customers. Configure Verified ID by AU10TIX as your Identity Verification Partner. |
-| ![Screenshot of a LexisNexis logo.](media/partner-gallery/lexisnexis.png) | [LexisNexis](https://solutions.risk.lexisnexis.com/did-microsoft) risk solutions identity verification tools enable Azure Active Directory customers to create trusted verifiable credentials. Configure Verified ID by LexisNexis Risk Solutions as your Identity Verification Partner. |
-| ![Screenshot of an Onfido logo](media/partner-gallery/onfido.jpeg) | Start issuing and accepting verifiable credentials in minutes. With Azure AD verifiable credentials and [Onfido](https://onfido.com/landing/onfido-microsoft-idv-service/) you can verify a person’s identity while respecting privacy. Digitally validate information on a person’s ID or their biometrics.|
+|![Screenshot of au10tix logo](media/partner-gallery/au10tix.png) | [AU10TIX](https://www.au10tix.com/solutions/microsoft-azure-active-directory-verifiable-credentials-program) improves Verifiability While Protecting Privacy For Businesses, Employees, Contractors, Vendors, And Customers. [Configure Verified ID by AU10TIX as your Identity Verification Partner](https://aka.ms/au10tixvc). |
+| ![Screenshot of a LexisNexis logo.](media/partner-gallery/lexisnexis.png) | [LexisNexis](https://solutions.risk.lexisnexis.com/did-microsoft) risk solutions identity verification tools enable Azure Active Directory customers to create trusted verifiable credentials. [Configure Verified ID by LexisNexis Risk Solutions as your Identity Verification Partner](https://aka.ms/lexisnexisvc). |
+
 
 ## Data exfiltration
 
@@ -34,4 +36,4 @@ To be considered into this documentation, submit your application [request](http
 
 ## Next steps
 
-Select a partner in the tables mentioned to learn how to integrate their solution with Azure AD B2C.
+Select a partner in the tables mentioned to learn how to integrate their solution with your application.
