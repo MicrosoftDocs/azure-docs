@@ -1,5 +1,5 @@
 ---
-title: SAP on Azure: What SAP software is supported on Azure
+title: 'SAP on Azure: What SAP software is supported on Azure'
 description: Explains what SAP software is supported to be deployed on Azure
 author: msjuergent
 manager: bburns
