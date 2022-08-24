@@ -75,7 +75,7 @@ In this tutorial, you learn how to:
 
     * Select the Azure subscription that you're using for this project and below you should see the Azure Function App.
 
-      :::image type="content" source="media/tutorial-azure-function/azure-extensions-vsc.png" alt-text="Screenshot of a list showing your Azure resources in a single, unified view.":::
+      :::image type="content" source="media/tutorial-azure-function/azure-extensions-visual-studio-code.png" alt-text="Screenshot of a list showing your Azure resources in a single, unified view.":::
 
 1. Select the Workspace (Local) section located below your listed resources. Select the plus symbol and choose the **Create Function** button.
 
@@ -117,7 +117,7 @@ In this tutorial, you learn how to:
 
 1. Select the storage account you created and continue.
 
-1. Open Azure Storage Explorer and upload the sample PDF document to the **input** container. Then check the VS Code terminal.The script should log that it was triggered by the PDF upload.
+1. Open Azure Storage Explorer and upload the sample PDF document to the **input** container. Then check the VS Code terminal. The script should log that it was triggered by the PDF upload.
 
     :::image type="content" source="media/tutorial-azure-function/vs-code-terminal-test.png" alt-text="Screenshot of the VS Code terminal after uploading a new document.":::
 

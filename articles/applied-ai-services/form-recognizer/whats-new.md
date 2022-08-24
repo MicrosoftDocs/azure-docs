@@ -23,7 +23,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 **Form Recognizer REST API v3.0 is now generally available and ready for use in production applications!**
 
-#### The August release introduces the following performance updates:
+#### The August release introduces the following new capabilities and updates:
 
 ##### Form Recognizer Studio updates
 
