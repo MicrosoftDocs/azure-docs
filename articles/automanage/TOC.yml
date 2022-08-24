@@ -7,6 +7,8 @@
     href: quick-create-virtual-machines-portal.md
   - name: SDKs
     items: 
+    - name: GO
+      href: ./quickstarts/quick-go-sdk.md
     - name: Python
       href: ./quickstarts/quick-python-sdk.md
 - name: Concepts
