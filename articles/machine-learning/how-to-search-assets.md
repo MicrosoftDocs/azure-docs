@@ -95,3 +95,8 @@ Use the menu to customize and create new views:
 |Clone     |   Clone the current view as a new view      |
 
 Since each tab displays different columns, you customize views separately for each tab.
+
+## Next steps
+
+* [What is an Azure Machine Learning workspace?](concept-workspace.md)
+* [Data in Azure Machine Learning](concept-data.md)
