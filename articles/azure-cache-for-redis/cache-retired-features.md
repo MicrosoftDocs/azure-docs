@@ -6,8 +6,8 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.service: cache
-ms.topic: reference
-ms.date: 08/01/2022
+ms.topic: conceptual
+ms.date: 08/31/2022
 
 ---
 
@@ -47,3 +47,8 @@ If your cache instance is affected by the Cloud Service retirement, you're unabl
 ### How to check if a cache is running on version 4?
 
 You check the Redis version of your cache instance by selecting **Properties** from the resource menu in the Azure Cache for Redis portal.
+
+## Next steps
+<!-- Add a context sentence for the following links -->
+- [What's new](cache-whats-new.md)
+- [Azure Cache for Redis FAQ](cache-faq.yml)
