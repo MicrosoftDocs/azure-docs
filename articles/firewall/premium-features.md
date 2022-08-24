@@ -140,6 +140,9 @@ You can identify what category a given FQDN or URL is by using the **Web Categor
 
 :::image type="content" source="media/premium-features/firewall-category-search.png" alt-text="Firewall category search dialog":::
 
+> [!IMPORTANT]
+> To use **Web Category Check** feature, user has to have an access of Microsoft.Network/azureWebCategories/getwebcategory/action for **subscription** level, not resource group level.
+
 ### Category change
 
 Under the **Web Categories** tab in **Firewall Policy Settings**, you can request a categorization change if you: 

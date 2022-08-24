@@ -5,11 +5,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 08/15/2022
+ms.date: 08/18/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
-
 
 # [Document summarization](#tab/document-summarization)
 
@@ -17,7 +16,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 # [Conversation summarization](#tab/conversation-summarization)
 
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178) 
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
 
 ---
 
@@ -26,8 +25,6 @@ Use this quickstart to send text summarization requests using the REST API. In t
 [!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
 ## Prerequisites
-
-[!INCLUDE [availability](../regional-availability.md)]
 
 * The current version of [cURL](https://curl.haxx.se/).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.

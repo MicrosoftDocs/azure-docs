@@ -29,7 +29,7 @@ In this article, learn how to set up your workspace to use these compute resourc
 * Apache Spark pools (powered by Azure Synapse Analytics)
 * Azure HDInsight
 * Azure Batch
-* Azure Databricks - used as a training compute target only in [machine learning pipelines](../how-to-create-machine-learning-pipelines.md)
+* Azure Databricks - used as a training compute target only in [machine learning pipelines](how-to-create-machine-learning-pipelines.md)
 * Azure Data Lake Analytics
 * Azure Container Instance
 * Azure Machine Learning Kubernetes
@@ -96,7 +96,7 @@ Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM 
    compute.wait_for_completion(show_output=True)
    ```
 
-   Or you can attach the DSVM to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#attached-compute).
+   Or you can attach the DSVM to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
 
     > [!WARNING]
     > Do not create multiple, simultaneous attachments to the same DSVM from your workspace. Each new attachment will break the previous existing attachment(s).
@@ -168,7 +168,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
    hdi_compute.wait_for_completion(show_output=True)
    ```
 
-   Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#attached-compute).
+   Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
 
     > [!WARNING]
     > Do not create multiple, simultaneous attachments to the same HDInsight from your workspace. Each new attachment will break the previous existing attachment(s).

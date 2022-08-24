@@ -98,7 +98,7 @@ This article shows you how to complete these tasks:
 
 1. In the Azure portal, follow these steps to [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. In the Logic App Designer, add the [Request trigger](../connectors/connectors-native-reqres.md#add-request) to your logic app.
+1. In the Logic App Designer, add the [Request trigger](../connectors/connectors-native-reqres.md#add-request-trigger) to your logic app.
 
 1. Under the trigger, choose **New step**. In the search box, enter `liquid` as your filter, and select this action: **Transform JSON to JSON - Liquid**
 

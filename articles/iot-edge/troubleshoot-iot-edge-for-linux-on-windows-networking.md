@@ -122,7 +122,7 @@ For more information about EFLOW VM firewall, see [IoT Edge for Linux on Windows
     sudo iptables -L
     ```
 
-To add a firewall rule to the EFLOW VM, you can use the [EFLOW Util - Firewall Rules](https://github.com/Azure/iotedge-eflow/tree/eflow-usbip/eflow-util/firewall-rules) sample PowerShell cmdlets. Also, you can achieve the same rules creation by following these steps:
+To add a firewall rule to the EFLOW VM, you can use the [EFLOW Util - Firewall Rules](https://github.com/Azure/iotedge-eflow/tree/main/eflow-util#get-eflowvmfirewallrules) sample PowerShell cmdlets. Also, you can achieve the same rules creation by following these steps:
 
 1. Start an elevated _PowerShell_ session using **Run as Administrator**.
 1. Connect to the EFLOW virtual machine
