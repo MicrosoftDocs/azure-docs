@@ -121,7 +121,7 @@ trigger a profile when the threshold is exceeded. Once a profile has been trigge
 viewable from the
 Application Insights instance within the Performance -> Profiler section. From that screen the
 profile can be downloaded, once download the JFR recording file can be opened and analyzed within a
-tool of your choosing.
+tool of your choosing, for example JDK Mission Control (JMC).
 
 :::image type="content" source="./media/java-standalone-profiling/configure-blade-inline.png" alt-text="Screenshot of profiler page features and settings." lightbox="media/profiler-settings/configure-blade.png":::
 
