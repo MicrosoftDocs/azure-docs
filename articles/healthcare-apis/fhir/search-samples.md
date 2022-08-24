@@ -105,16 +105,16 @@ GET {{FHIR_URL}}/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e6619399f
 
 ```
 
-Using chained search, you can find all `Encounter` resources that reference a patient identified by any search parameter. The example below demonstrates how to search for encounters referencing patients with a specific `birthdate`:
+Using chained search, you can find all `Encounter` resources that reference patients whose details match a search parameter. The example below demonstrates how to search for encounters referencing patients narrowed by `birthdate`:
 
 ```rest
 GET {{FHIR_URL}}/Encounter?subject:Patient.birthdate=1987-02-20
 
 ```
 
-This would return not just `Encounter` resources that reference a single patient but encounters for all patients that have the specified `birthdate` value. 
+This would return all `Encounter` instances that reference patients with the specified `birthdate` value. 
 
-In addition, you can initiate multiple chained searches by using the `&` operator, which allows searching for multiple conditions in one request. In such cases with `&`, chained search "independently" scans for each element value:
+In addition, you can initiate multiple chained searches by using the `&` operator, which allows searching against multiple references in one request. In such cases with `&`, chained search "independently" scans for each element value:
 
 ```rest
 GET {{FHIR_URL}}/Patient?general-practitioner:Practitioner.name=Sarah&general-practitioner:Practitioner.address-state=WA
