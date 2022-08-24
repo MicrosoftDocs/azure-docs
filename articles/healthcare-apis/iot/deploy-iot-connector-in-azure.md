@@ -1,13 +1,12 @@
 ---
 title: Deploy the MedTech service using the Azure portal - Azure Health Data Services
 description: In this article, you'll learn how to deploy the MedTech service in the Azure portal using either a quickstart template or manual steps.
-author: msjasteppe
+author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/02/2022
-ms.author: jasteppe
-ms.custom: mode-api
+ms.date: 08/23/2022
+ms.author: v-smcevoy
 ---
 
 # Deploy the MedTech service using the Azure portal
