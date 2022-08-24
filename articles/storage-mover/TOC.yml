@@ -34,6 +34,8 @@ items:
     items:
       - name: Register or unregister an agent
         href: agent-manage.md
+      - name: Manage endpoints
+        href: endpoints-manage.md
       - name: Manage projects
         href: projects-manage.md
       - name: Manage job definitions
