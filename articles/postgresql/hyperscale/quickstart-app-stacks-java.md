@@ -654,80 +654,77 @@ package test.crud;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.util.logging.Logger;
 import com.zaxxer.hikari.HikariDataSource;
 
-public class DemoApplication {
-    private static final Logger log;
+public class DemoApplication
+{
+	private static final Logger log;
 
-    static {
-        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
-        log =Logger.getLogger(DemoApplication.class.getName());
-    }
-   
-     private static final String DB_USERNAME = "citus";
-        private static final String DB_PASSWORD = <password>;
-        private static final String DB_URL = "jdbc:postgresql://<host>:5432/citus?sslmode=require";
-        private static final String DB_DRIVER_CLASS = "org.postgresql.Driver";
-        
-        private static HikariDataSource datasource;
-      
-    private static void executeRetry(String sql,int retryCount) throws InterruptedException {
-        
-         Connection con = null;
-            PreparedStatement pst = null;
-            ResultSet rs = null;
-            
-        for(int i=1;i<=retryCount;i++){
-        {
-            try 
-            {
-                datasource = new HikariDataSource();
-                datasource.setDriverClassName(DB_DRIVER_CLASS );
-                datasource.setJdbcUrl(DB_URL);
-                datasource.setUsername(DB_USERNAME);
-                datasource.setPassword(DB_PASSWORD);
-        
-                datasource.setMinimumIdle(10);
-                datasource.setMaximumPoolSize(1000);
-                datasource.setAutoCommit(false);
-                datasource.setLoginTimeout(3);
-                
-                 log.info("Connecting to the database");
-                 con = datasource.getConnection();
-                  log.info("Connection established");
-                  
-                  
-                
-                        log.info("Read data");
-                        pst = con.prepareStatement(sql);
-                        rs = pst.executeQuery();
-        
-                        while (rs.next()) {
-        
-                            System.out.format("%s",rs.getString(1));
-                        }
-        
-                     break;
-                 }
-            
-                catch(Exception e) 
-                     {
-                  Thread.sleep(60000);
-                       System.out.println(e.getMessage());
-    
-                     }
-         }
-        
-       }
-    }
-    
-    public static void main(String[] args)throws Exception 
-    {
-         
-          executeRetry("select 1",5);
-        
-     }
+	static
+	{
+		System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
+		log = Logger.getLogger(DemoApplication.class.getName());
+	}
+	private static final String DB_USERNAME = "citus";
+	private static final String DB_PASSWORD = "<Your Password>";
+	private static final String DB_URL = "jdbc:postgresql://<Server Name>:5432/citus?sslmode=require";
+	private static final String DB_DRIVER_CLASS = "org.postgresql.Driver";
+	private static HikariDataSource datasource;
+
+	private static String executeRetry(String sql, int retryCount) throws InterruptedException
+	{
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		for (int i = 1; i <= retryCount; i++)
+		{
+			try
+			{
+				datasource = new HikariDataSource();
+				datasource.setDriverClassName(DB_DRIVER_CLASS);
+				datasource.setJdbcUrl(DB_URL);
+				datasource.setUsername(DB_USERNAME);
+				datasource.setPassword(DB_PASSWORD);
+				datasource.setMinimumIdle(10);
+				datasource.setMaximumPoolSize(1000);
+				datasource.setAutoCommit(true);
+				datasource.setLoginTimeout(3);
+				log.info("Connecting to the database");
+				con = datasource.getConnection();
+				log.info("Connection established");
+				log.info("Read data");
+				pst = con.prepareStatement(sql);
+				rs = pst.executeQuery();
+				StringBuilder builder = new StringBuilder();
+				int columnCount = rs.getMetaData().getColumnCount();
+				while (rs.next())
+				{
+					for (int j = 0; j < columnCount;)
+					{
+						builder.append(rs.getString(j + 1));
+						if (++j < columnCount)
+							builder.append(",");
+					}
+					builder.append("\r\n");
+				}
+				return builder.toString();
+			}
+			catch (Exception e)
+			{
+				Thread.sleep(60000);
+				System.out.println(e.getMessage());
+			}
+		}
+		return null;
+	}
+
+	public static void main(String[] args) throws Exception
+	{
+		String result = executeRetry("select 1", 5);
+		System.out.print(result);
+	}
 }
 ```
 

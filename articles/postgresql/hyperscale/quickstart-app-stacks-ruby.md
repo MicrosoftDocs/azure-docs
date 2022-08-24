@@ -239,32 +239,34 @@ Below example shows how to implement retry logic in your app. The sample code sn
 ```ruby
 require 'pg'
 
-
 def executeretry(sql,retryCount)
-for a in 1..retryCount do
-    begin
-
-            # NOTE: Replace the host and password arguments in the connection string.
-            # (The connection string can be obtained from the Azure portal)
-            connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password}sslmode=require")
-            puts 'Successfully created connection to database'
-            resultSet = connection.exec(sql)
-            resultSet.each do |row|
-            puts 'Data row = (%s)' % [row]
-            end
-            break
-        rescue PG::Error => e
+  begin
+    for a in 1..retryCount do
+      begin
+        # NOTE: Replace the host and password arguments in the connection string.
+        # (The connection string can be obtained from the Azure portal)
+        connection = PG::Connection.new("host=<Server Name> port=5432 dbname=citus user=citus password={Your Password} sslmode=require")
+        resultSet = connection.exec(sql)
+        return resultSet.each
+      rescue PG::Error => e
         puts e.message
         sleep 60
-        ensure
-            connection.close if connection
-        end
+      ensure
+        connection.close if connection
+      end
     end
+  end
+  return nil
 end
 
-executeretry('select 1',5)
-```
+var = executeretry('select 1',5)
 
+if var !=nil then
+  var.each do |row|
+    puts 'Data row = (%s)' % [row]
+  end
+end
+```
 
 ## Next steps
 

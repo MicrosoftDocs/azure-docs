@@ -359,57 +359,66 @@ Below example shows how to implement retry logic in your app. The sample code sn
 
 ```csharp
 using System;
+using System.Data;
 using System.Runtime.InteropServices;
+using System.Text;
 using Npgsql;
+
 namespace Driver
 {
     public class Reconnect
-
-    { 
-        static void Main(string[] args)
+    {
+        static string connStr = new NpgsqlConnectionStringBuilder("Server = <host name>; Database = citus; Port = 5432; User Id = citus; Password = {Your Password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50;TrustServerCertificate = true").ToString();
+        static string executeRetry(string sql, int retryCount)
         {
-            executeRetry("select 1",5);
-            static void executeRetry(string sql,int retryCount)
+            for (int i = 0; i < retryCount; i++)
             {
-                for (int i = 0; i <= retryCount; i++)
+                try
                 {
-                    try
+                    using (var conn = new NpgsqlConnection(connStr))
                     {
-                        var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
-
-                        connStr.TrustServerCertificate = true;
-
-                        using (var conn = new NpgsqlConnection(connStr.ToString()))
+                        conn.Open();
+                        DataTable dt = new DataTable();
+                        using (var _cmd = new NpgsqlCommand(sql, conn))
                         {
-                            Console.Out.WriteLine("Opening connection");
-                            conn.Open();
-                            using (var command = new NpgsqlCommand(sql, conn))
+                            NpgsqlDataAdapter _dap = new NpgsqlDataAdapter(_cmd);
+                            _dap.Fill(dt);
+                            conn.Close();
+                            if (dt != null)
                             {
-                                var reader = command.ExecuteReader();
-                                while (reader.Read())
+                                if (dt.Rows.Count > 0)
                                 {
-                                    Console.WriteLine(
-                                        string.Format(
-                                            "Reading from table=({0})",
-                                            reader.GetInt32(0).ToString()
+                                    int J = dt.Rows.Count;
+                                    StringBuilder sb = new StringBuilder();
 
-                                            )
-                                        );
+                                    for (int k = 0; k < dt.Rows.Count; k++)
+                                    {
+                                        for (int j = 0; j < dt.Columns.Count; j++)
+                                        {
+                                            sb.Append(dt.Rows[k][j] + ",");
+                                        }
+                                        sb.Remove(sb.Length - 1, 1);
+                                        sb.Append("\n");
+                                    }
+                                    return sb.ToString();
                                 }
-                                reader.Close();
                             }
                         }
-
-                        break;
                     }
-                    catch (NpgsqlException e)
-                    {
-                        Thread.Sleep(60000);
-                        Console.WriteLine(e.Message);
-                    }
-
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    Thread.Sleep(60000);
+                    Console.WriteLine(e.Message);
                 }
             }
+            return null;
+        }
+        static void Main(string[] args)
+        {
+            string result = executeRetry("select 1",5);
+            Console.WriteLine(result);
         }
     }
 }
