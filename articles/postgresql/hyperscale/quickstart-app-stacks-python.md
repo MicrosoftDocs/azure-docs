@@ -207,34 +207,30 @@ from psycopg2 import pool
 host = "<host>"
 dbname = "citus"
 user = "citus"
-password = "<password>"
+password = "{your password}"
 sslmode = "require"
+
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(
+        host, user, dbname, password, sslmode)
+postgreSQL_pool = psycopg2.pool.SimpleConnectionPool(1, 20, conn_string)
 
 def executeRetry(query, retryCount):
     for x in range(retryCount):
         try:
-            conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password,
-                                                                                         sslmode)
-            postgreSQL_pool = psycopg2.pool.SimpleConnectionPool(1, 20, conn_string)
             if (postgreSQL_pool):
-                print("Connection pool created successfully")
                 # Use getconn() to Get Connection from connection pool
                 conn = postgreSQL_pool.getconn()
-                # Insert some data into the table
                 cursor = conn.cursor()
-                # Fetch all rows from table
                 cursor.execute(query)
-                rows = cursor.fetchall()
-                # Print all rows
-                for row in rows:
-                    print("Data row = (%s)" % (str(row[0])))
+                return cursor.fetchall()
             break
         except Exception as err:
-            time.sleep(60)
             print(err)
+            postgreSQL_pool.putconn(conn)
+            time.sleep(60)
+    return None
 
-
-executeRetry("select 1", 5)
+print(executeRetry("select 1", 5))
 ```
 
 ## Next steps
