@@ -11,6 +11,8 @@ ms.reviewer: shseth
 ---
 # Define Azure Monitor Agent network settings
 
+This articles explains how to define network settings and enable network isolation for Azure Monitor Agent.
+
 The Azure Monitor Agent supports Azure service tags. Both *AzureMonitor* and *AzureResourceManager* tags are required. It supports connecting via *direct proxies, Log Analytics gateway, and private links* as described in the following sections.
 
 ### Firewall requirements
@@ -92,22 +94,18 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
    `Stop-Service -Name <gateway-name>`
    `Start-Service -Name <gateway-name>`.
 
-### Private link configuration
-
-To configure the agent to use private links for network communications with Azure Monitor, follow instructions to [enable network isolation](./azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent) by using [data collection endpoints](azure-monitor-agent-data-collection-endpoint.md).
-
-# Enable network isolation for the Azure Monitor agent
+## Enable network isolation for the Azure Monitor agent
 By default, Azure Monitor agent will connect to a public endpoint to connect to your Azure Monitor environment. You can enable network isolation for your agents by creating [data collection endpoints](../essentials/data-collection-endpoint-overview.md)  and adding them to your [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-configure.md#connect-azure-monitor-resources).
 
 
-## Create data collection endpoint
+### Create data collection endpoint
 To use network isolation, you must create a data collection endpoint for each of your regions for agents to connect instead of the public endpoint. See [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint) for details on create a DCE. An agent can only connect to a DCE in the same region. If you have agents in multiple regions, then you must create a DCE in each one.
 
 
-## Create private link 
+### Create private link 
 With [Azure Private Link](../../private-link/private-link-overview.md), you can securely link Azure platform as a service (PaaS) resources to your virtual network by using private endpoints. An Azure Monitor Private Link connects a private endpoint to a set of Azure Monitor resources, defining the boundaries of your monitoring network. That set is called an Azure Monitor Private Link Scope (AMPLS). See [Configure your Private Link](../logs/private-link-configure.md) for details on creating and configuring your AMPLS.
 
-## Add DCE to AMPLS
+### Add DCE to AMPLS
 Add the data collection endpoints to a new or existing [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-configure.md#connect-azure-monitor-resources) resource. This adds the DCE endpoints to your private DNS zone (see [how to validate](../logs/private-link-configure.md#review-and-validate-your-private-link-setup)) and allows communication via private links. You can do this from either the AMPLS resource or from within an existing DCE resource's 'Network Isolation' tab.
 
 > [!NOTE]
@@ -119,13 +117,10 @@ For your data collection endpoint(s), ensure **Accept access from public network
 :::image type="content" source="media/azure-monitor-agent-dce/data-collection-endpoint-network-isolation.png" lightbox="media/azure-monitor-agent-dce/data-collection-endpoint-network-isolation.png" alt-text="Screenshot for configuring data collection endpoint network isolation.":::
 
 
-
  Associate the data collection endpoints to the target resources by editing the data collection rule in Azure portal. From the **Resources** tab, select **Enable Data Collection Endpoints** and select a DCE for each virtual machine. See [Configure data collection for the Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md).
 
 
 :::image type="content" source="media/azure-monitor-agent-dce/data-collection-rule-virtual-machines-with-endpoint.png" lightbox="media/azure-monitor-agent-dce/data-collection-rule-virtual-machines-with-endpoint.png" alt-text="Screenshot for configuring data collection endpoint for an agent.":::
-
-
 
 
 ## Next steps
