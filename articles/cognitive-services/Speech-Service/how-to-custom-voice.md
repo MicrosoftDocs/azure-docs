@@ -33,7 +33,7 @@ Once you've created an Azure account and a Speech service subscription, you'll n
 1. If you want to switch to another Speech subscription, select the **cog** icon at the top.
 
 > [!NOTE]
-> Custom Neural Voice training is currently only available in some regions. But you can easily copy a neural voice model from these regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#speech-service).
+> Custom Neural Voice training is currently only available in some regions. But you can easily copy a neural voice model from those regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#speech-service).
 
 ## Create a project
 
