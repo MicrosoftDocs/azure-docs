@@ -29,7 +29,7 @@ The following table summarizes locale and voice support for Speech-to-text. Addi
 
 [!INCLUDE [Language support include](includes/language-support/stt.md)]
 
-### Custom Speech
+## Custom Speech
 
 To improve accuracy, customization is available for some languages and base model versions by uploading audio + human-labeled transcripts, plain text, structured text, and pronunciation. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
 
