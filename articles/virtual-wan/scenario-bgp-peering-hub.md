@@ -43,13 +43,16 @@ The virtual hub router now also exposes the ability to peer with it, thereby exc
    * ASNs reserved by IANA: 23456, 64496-64511, 65535-65551
 * While the virtual hub router exchanges BGP routes with your NVA and propagates them to your virtual network, it directly facilitates propagating routes from on-premises via the virtual hub hosted gateways (VPN Gateway/ExpressRoute Gateway/Managed NVA gateways). 
 
-   The virtual hub router has the following limits:
+   Please consider the following platform limits when using the Virtual WAN BGP Peering feature:
 
    | Resource | Limit |
    |---|---|
-   |  Number of routes each BGP peer can advertise to the virtual hub.| The hub can only accept a maximum number of 10,000 routes (total) from its connected resources. For example, if a virtual hub has a total of 6000 routes from the connected virtual networks, branches, virtual hubs etc., then when a new BGP peering is configured with an NVA, the NVA can only advertise up to 4000 routes. |
+   |  Number of routes ALL BGP peers can advertise to the virtual hub| The hub can only program a maximum number of 10,000 unique effective routes (total) from its connected resources. For example, if a virtual hub has a total of 6000 unique routes from connected Virtual Networks and Branches, then when a new BGP peering is configured with an NVA, the NVA can only advertise up to 4000 additional unique prefixes. |
+   |  Number of routes each BGP peer can advertise to the virtual hub| Today, the Virtual Hub Router can only accept a maximum number of 1,000 routes each BGP peer. |
+   |  Number of routes Virtual WAN can advertise towards ExpressRoute Private Peering| Please be aware of the ExpressRoute Private Peering [limit](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#:~:text=for%20an%20ExpressRoute%20connection-,1%2C000,-Maximum%20number%20of%20IPv6) of 1000 routes per connection from an Azure Virtual WAN Hub towards an ExpressRoute circuit. I.e. The total number of routes from all Virtual Network Address Spaces (across your Global Azure Virtual WAN) + Virtual WAN transit routes (E.g. VPN or learnt via BGP peering) must not exceed 1000. |
+   
+   
 * Routes from NVA in a virtual network that are more specific than the virtual network address space, when advertised to the virtual hub through BGP are not propagated further to on-premises.
-* Currently we only support 1,000 routes from the NVA to the virtual hub.
 * Traffic destined for addresses in the virtual network directly connected to the virtual hub cannot be configured to route through the NVA using BGP peering between the hub and NVA. This is because the virtual hub automatically learns about system routes associated with addresses in the spoke virtual network when the spoke virtual network connection is created. These automatically learned system routes are preferred over routes learned by the hub through BGP.
 * This feature is not supported for setting up BGP peering between NVA in spoke VNET and Virtual hub with Azure Firewall.
 
