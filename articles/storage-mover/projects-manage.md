@@ -136,11 +136,11 @@ Follow the steps in this section to view projects accessible to your Storage Mov
 
     If a description exists, it will be displayed below the **Description** heading. Select either the **Edit** icon next to the description or the **Edit description** icon to display the editing pane. The image below shows the location of the two icons.
 
-    :::image type="content" source="media/projects-manage/project-explorer-description-edit-sml.png" alt-text="project explorer view" lightbox="media/projects-manage/project-explorer-description-edit-lrg.png":::
+    :::image type="content" source="media/projects-manage/project-explorer-description-edit-sml.png" alt-text="Image of the Project Explorer's Project properties tab within the Azure Portal illustrating the location of the edit controls." lightbox="media/projects-manage/project-explorer-description-edit-lrg.png":::
 
 1. In the editing pane, modify your project's description. At the bottom onf the pane, select **Save** to commit your changes.
 
-      :::image type="content" source="media/projects-manage/project-explorer-description-edit-sml.png" alt-text="project explorer edit" lightbox="media/projects-manage/project-explorer-description-edit-lrg.png":::
+      :::image type="content" source="media/projects-manage/project-explorer-edit-sml.png" alt-text="project explorer edit" lightbox="media/projects-manage/project-explorer-edit-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
