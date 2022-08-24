@@ -36,7 +36,7 @@ From here, select the **create new deployment** button in the banner at the top.
 
 ## Deployments
 
-Before you can generate text or inference, you need to deploy a model. This is done by clicking the **create new deployment** on the deployments page. From here you can select from one of our many available models. For getting started we recommend `text-davinci-002` for users in South Central and `text-davinci-001` for users in West Europe (text-davinci-002 isn't available in this region).
+Before you can generate text or inference, you need to deploy a model. This is done by clicking the **create new deployment** on the deployments page. From here you can select from one of our many available models. For getting started we recommend `text-davinci-002` for users in South Central and `text-davinci-001` for users in West Europe (`text-davinci-002` isn't available in this region).
 
 Once this is complete, select the 'Playground' button on the left nav to start experimenting.
 
@@ -52,7 +52,7 @@ The best way to start exploring completions is through our Playground. It's simp
 - Selecting the Generate button will send the entered text to the completions API and stream the results back to the text box.
 - Select the 'undo' button to undo the prior generation call
 - Select the 'regenerate' button to do an undo & generation call together.
-- View the code you could use to make the same call with our python SDK, curl or other REST API client
+- View the code you could use to make the same call with our Python SDK, curl or other REST API client
 - Configure the parameters of the completions call to improve the performance of your task. You can read more about each parameter in our [REST API](../reference.md).
 
 1. Now that you've familiarized yourself with the playground, get started generating text by loading the **Summarize Text** example.

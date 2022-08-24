@@ -70,7 +70,7 @@
         href: how-to-create-hub-and-spoke-powershell.md
   - name: View applied configurations
     href: how-to-view-applied-configurations.md
-  - name: Exclude elements from dynamic membership
+  - name: Define dynamic network group membership with Azure Policy
     href: how-to-exclude-elements.md
   - name: Common issues
     href: common-issues.md
