@@ -11,19 +11,21 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: identity
+zone_pivot_groups: acs-js-csharp-java-python-ios-android-rest
 ---
 
 # Understand Identifier types
 
-Communication Services has a uniform way to address who is communicating with whom: the *identifier*. The identifier type is used for specifying who to call, or to see who has sent a chat message, among many other places.
-Identifiers are shared types across all Communication Services APIs and SDKs and hold the information that is needed to uniquely identify a communication participant. Depending on context they can get wrapped with additional properties, for example inside a `ChatParticipant` in the Chat SDK or inside a `RemoteParticipant` in the Calling SDK.
+Throughout the Communication Services SDKs and REST APIs the *identifier* type is used to identify who is communicating with whom. For example, identifiers specify who to call, or who has sent a chat message.
 
-In this article you will learn about the different types of identifiers that Communication Services support, how they are represented in different languages, and further tips on how to use them.
+Depending on context identifiers get wrapped with extra properties, like inside the `ChatParticipant` in the Chat SDK or inside the `RemoteParticipant` in the Calling SDK.
+
+In this article you'll learn about the different types of identifiers that are supported, how they look in different programming languages and get tips on how to use them.
 
 
 ## The CommunicationIdentifier type
 
-Communication Services enables communication between communication user identities that you create yourself, as well as Microsoft Teams users, and PSTN phone numbers. Each of theses different identity types has a corresponding identifier that represents it. Identifiers are a structured types that offer type-safety and work well with your editor's auto-complete features.
+There are user identities that you create yourself and external identities. Microsoft Teams users and phone numbers are external identities that come to play in interop scenarios. Each of these different identity types has a corresponding identifier that represents it. An identifier is a structured type that offers type-safety and works well with your editor's code completion.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Identifiers in the .NET SDK](./includes/identifiers/identifiers-net.md)]
@@ -45,7 +47,7 @@ Communication Services enables communication between communication user identiti
 [!INCLUDE [Identifiers in the iOS SDK](./includes/identifiers/identifiers-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-android"
+::: zone pivot="programming-language-java-android"
 [!INCLUDE [Identifiers in the Android SDK](./includes/identifiers/identifiers-android.md)]
 ::: zone-end
 

@@ -15,7 +15,7 @@ ms.author: domessin
 
 ### Communication User identifier
 
-The `CommunicationUserIdentifier` represents a user identity that was created using the [Identity SDK or REST API](../quickstarts/access-tokens.md). This is the standard identifier in all cases where your application doesn't use Microsoft Teams interop or PSTN features.
+The `CommunicationUserIdentifier` represents a user identity that was created using the [Identity SDK or REST API](../quickstarts/access-tokens.md). It is the only identifier used if your  application doesn't use Microsoft Teams interop or PSTN features.
 
 
 #### Basic usage
@@ -35,7 +35,7 @@ var sameUser = new CommunicationUserIdentifier(newUserId);
 
 ### Microsoft Teams User identifier
 
-The `MicrosoftTeamsUserIdentifier` represents a Teams user. You need to know the Teams user's Id which you can retrieve via the [Microsoft Graph REST API /users](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http) endpoint.
+The `MicrosoftTeamsUserIdentifier` represents a Teams user. You need to know the Teams user's Id that you can retrieve via the [Microsoft Graph REST API /users](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http) endpoint.
 
 #### Basic usage
 

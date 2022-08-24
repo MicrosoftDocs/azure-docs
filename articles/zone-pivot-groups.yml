@@ -1188,6 +1188,24 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: acs-js-csharp-java-python-ios-android-rest
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-ios
+    title: iOS
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-rest
+    title: REST
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines

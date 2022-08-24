@@ -15,7 +15,7 @@ ms.author: domessin
 
 ### Communication User identifier
 
-The `CommunicationUserIdentifier` represents a user identity that was created using the [Identity SDK or REST API](../quickstarts/access-tokens.md). This is the standard identifier in all cases where your application does not take advantage of Microsoft Teams interop or PSTN features.
+The `CommunicationUserIdentifier` represents a user identity that was created using the [Identity SDK or REST API](../quickstarts/access-tokens.md). It is the only identifier used if your  application doesn't use Microsoft Teams interop or PSTN features.
 
 
 #### Basic usage
@@ -32,7 +32,7 @@ Console.WriteLine(sameUser.Id);
 
 #### API reference
 
-You can read a full reference here: [CommunicationUserIdentifier](https://docs.microsoft.com/en-us/dotnet/api/azure.communication.communicationuseridentifier?view=azure-dotnet)
+You can read the full reference documentation here: [CommunicationUserIdentifier](https://docs.microsoft.com/en-us/dotnet/api/azure.communication.communicationuseridentifier?view=azure-dotnet)
 
 https://docs.microsoft.com/en-us/dotnet/api/azure.communication.communicationuseridentifier?view=azure-dotnet
 https://docs.microsoft.com/en-us/javascript/api/@azure/communication-common/communicationuseridentifier?view=azure-node-latest
