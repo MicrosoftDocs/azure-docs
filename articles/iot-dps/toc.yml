@@ -90,6 +90,8 @@ items:
       href: quick-enroll-device-tpm.md
     - name: Communicate with your DPS using MQTT protocol
       href: iot-dps-mqtt-support.md
+    - name: Use HTTPS protocol with symmetric keys
+      href: iot-dps-https-sym-key-support.md
   - name: Manage
     items:
     - name: Manage enrollments - Portal
