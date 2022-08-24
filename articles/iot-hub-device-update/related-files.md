@@ -3,7 +3,7 @@ title: Related Files for Device Update for Azure IoT Hub | Microsoft Docs
 description: Understand the Device Update for IoT Hub Related Files feature.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 08/22/2022
+ms.date: 08/23/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -21,7 +21,7 @@ When creating an import manifest using the Related Files feature, you can add a 
 ## How to use Related Files
 
 >[!NOTE]
->if you want to use delta updates, you should follow the [delta update documentation](.\delta-updates.md). The documentation on this page is for customizing Related Files to other scenarios.
+>if you want to use delta updates, follow the [delta update documentation](.\delta-updates.md). The documentation on this page is for customizing Related Files to other scenarios.
 
 ### Related Files Properties
 
