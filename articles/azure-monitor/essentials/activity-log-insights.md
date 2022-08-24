@@ -25,7 +25,7 @@ Activity log insights are a curated [Log Analytics workbook](../visualize/workbo
 
 :::image type="content" source="media/activity-log/activity-logs-insights-main-screen.png" lightbox= "media/activity-log/activity-logs-insights-main-screen.png" alt-text="Screenshot that shows activity log insights dashboards.":::
 
-## View activity log insights: Resource group or subscription level
+## View resource group or subscription-level activity log insights 
 
 To view activity log insights at the resource group or subscription level:
 
@@ -40,7 +40,7 @@ To view activity log insights at the resource group or subscription level:
     1. Resources and resource groups from the **CurrentResource** dropdown.
     1. A time range for which to view data from the **TimeRange** dropdown.
 
-## View activity log insights on any Azure resource
+## View resource-level activity log insights
 
 >[!Note]
 > Activity log insights does not currently support Application Insights resources.
