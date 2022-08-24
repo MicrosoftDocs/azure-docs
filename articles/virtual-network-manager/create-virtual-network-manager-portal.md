@@ -250,7 +250,7 @@ If you no longer need Azure Virtual Network Manager, you'll need to make sure al
 
 1. To remove all configurations from a region, start in the virtual network manager and select **Deploy configurations**. Select the following settings:
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/none-configuration.png" alt-text="Screenshot of deploy a none connectivity configuration settings.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/none-configuration.png" alt-text="Screenshot of deploying a none connectivity configuration.":::
 
     | Setting | Value |
     | ------- | ----- |
