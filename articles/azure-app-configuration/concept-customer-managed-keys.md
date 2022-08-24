@@ -3,7 +3,7 @@ title: Use customer-managed keys to encrypt your configuration data
 description: Encrypt your configuration data using customer-managed keys
 author: AlexandraKemperMS
 ms.author: alkemper
-ms.date: 08/12/2022
+ms.date: 08/24/2022
 ms.custom: devdivchpfy22
 ms.topic: conceptual
 ms.service: azure-app-configuration
@@ -82,7 +82,7 @@ To begin, you'll need a properly configured Azure App Configuration instance. If
     az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
 
-    The output of this command includes the principal ID ("principalId") and tenant ID ("tenandId") of the system assigned identity.  These IDs will be used to grant the identity access to the managed key.
+    The output of this command includes the principal ID (`"principalId"`) and tenant ID (`"tenandId"`) of the system assigned identity.  These IDs will be used to grant the identity access to the managed key.
 
     ```json
     {

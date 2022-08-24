@@ -8,7 +8,7 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 08/24/2022
 ms.custom: devdivchpfy22
 ms.author: avgupta
 
@@ -16,23 +16,23 @@ ms.author: avgupta
 #Customer intent: I want to store JSON key-values in App Configuration store without losing the data type of each setting.
 ---
 
-# Use content-type to store JSON key-values in App Configuration
+# Use content type to store JSON key-values in App Configuration
 
-Data is stored in App Configuration as key-values, where values are treated as the string type by default. However, you can specify a custom type by using the content-type property associated with each key-value. This process preserves the original type of your data or makes your application behave differently based on content-type.
+Data is stored in App Configuration as key-values, where values are treated as the string type by default. However, you can specify a custom type by using the content type property associated with each key-value. This process preserves the original type of your data or makes your application behave differently based on content type.
 
 ## Overview
 
-In App Configuration, you can use the JSON media type as the content-type of your key-values to avail the following benefits:
+In App Configuration, you can use the JSON media type as the content type of your key-values to avail the following benefits:
 
 - **Simpler data management**: Managing key-values, like arrays, will become a lot easier in the Azure portal.
 - **Enhanced data export**: Primitive types, arrays, and JSON objects will be preserved during data export.
-- **Native support with App Configuration provider**: Key-values with JSON content-type will work fine when consumed by App Configuration provider libraries in your applications.
+- **Native support with App Configuration provider**: Key-values with JSON content type will work fine when consumed by App Configuration provider libraries in your applications.
 
-### Valid JSON content-type
+### Valid JSON content type
 
-Media types, as defined [here](https://www.iana.org/assignments/media-types/media-types.xhtml), can be assigned to the content-type associated with each key-value.
-A media type consists of a type and a subtype. If the type is `application` and the subtype (or suffix) is `json`, the media type will be considered a valid JSON content-type.
-Some examples of valid JSON content-types are:
+Media types, as defined [here](https://www.iana.org/assignments/media-types/media-types.xhtml), can be assigned to the content type associated with each key-value.
+A media type consists of a type and a subtype. If the type is `application` and the subtype (or suffix) is `json`, the media type will be considered a valid JSON content type.
+Some examples of valid JSON content types are:
 
 - `application/json`
 - `application/activity+json`
@@ -40,7 +40,7 @@ Some examples of valid JSON content-types are:
 
 ### Valid JSON values
 
-When a key-value has JSON content-type, its value must be in valid JSON format for clients to process it correctly. Otherwise, clients might fail or fall back and treat it as string format.
+When a key-value has JSON content type, its value must be in valid JSON format for clients to process it correctly. Otherwise, clients might fail or fall back and treat it as string format.
 Some examples of valid JSON values are:
 
 - `John Doe`
@@ -52,7 +52,7 @@ Some examples of valid JSON values are:
 - `{"ObjectSetting":{"Targeting":{"Default":true,"Level":"Information"}}}`
 
 > [!NOTE]
-> For the rest of this article, any key-value in App Configuration that has a valid JSON content-type and a valid JSON value will be referred to as **JSON key-value**.
+> For the rest of this article, any key-value in App Configuration that has a valid JSON content type and a valid JSON value will be referred to as **JSON key-value**.
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
@@ -140,9 +140,9 @@ The JSON key-values you created should look like this in App Configuration:
 
 ## Export JSON key-values to a file
 
-One of the major benefits of using JSON key-values is the ability to preserve the original data type of your values while exporting. If a key-value in App Configuration doesn't have JSON content-type, its value will be treated as string.
+One of the major benefits of using JSON key-values is the ability to preserve the original data type of your values while exporting. If a key-value in App Configuration doesn't have JSON content type, its value will be treated as string.
 
-Consider these key-values without JSON content-type:
+Consider these key-values without JSON content type:
 
 | Key | Value | Content Type |
 |---|---|---|
@@ -166,7 +166,7 @@ az appconfig kv export -d file --format json --path "~/Export.json" --separator 
 ```
 
 > [!NOTE]
-> If your App Configuration store has some key-values without JSON content-type, they will also be exported to the same file in string format.
+> If your App Configuration store has some key-values without JSON content type, they will also be exported to the same file in string format.
 
 ## Consuming JSON key-values in applications
 
@@ -190,7 +190,7 @@ You might access the new keys directly or you might choose to [bind configuratio
 > [!IMPORTANT]
 > Native support for JSON key-values is available in .NET configuration provider version 4.0.0 (or later). For more information, see [*Next steps*](#next-steps) section.
 
-If you're using the SDK or REST API to read key-values from App Configuration, based on the content-type, your application is responsible for parsing the value of a JSON key-value.
+If you're using the SDK or REST API to read key-values from App Configuration, based on the content type, your application is responsible for parsing the value of a JSON key-value.
 
 ## Clean up resources
 

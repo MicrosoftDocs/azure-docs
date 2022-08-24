@@ -5,7 +5,7 @@ services: azure-app-configuration,event-grid
 author: jimmyca
 ms.custom: devdivchpfy22
 ms.author: jimmyca
-ms.date: 08/12/2022
+ms.date: 08/24/2022
 ms.topic: article
 ms.service: azure-app-configuration
 
@@ -34,14 +34,14 @@ Event Grid uses [event subscriptions](../event-grid/concepts.md#event-subscripti
 
 ## Event schema
 
-Azure App Configuration events contain all the information you need to respond to changes in your data. You can identify an App Configuration event because the `eventType` property starts with "Microsoft.AppConfiguration". Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema](../event-grid/event-schema.md).  
+Azure App Configuration events contain all the information you need to respond to changes in your data. You can identify an App Configuration event because the `eventType` property starts with `Microsoft.AppConfiguration`. Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema](../event-grid/event-schema.md).  
 
 > |Property|Type|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |topic|string|Full Azure Resource Manager id of the App Configuration that emits the event.|
 > |subject|string|The URI of the key-value that's the subject of the event.|
 > |eventTime|string|The date/time that the event was generated, in ISO 8601 format.|
-> |eventType|string|"Microsoft.AppConfiguration.KeyValueModified" or "Microsoft.AppConfiguration.KeyValueDeleted".|
+> |eventType|string|`Microsoft.AppConfiguration.KeyValueModified` or `Microsoft.AppConfiguration.KeyValueDeleted`.|
 > |Id|string|A unique identifier of this event.|
 > |dataVersion|string|The schema version of the data object.|
 > |metadataVersion|string|The schema version of top-level properties.|
