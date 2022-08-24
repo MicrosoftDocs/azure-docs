@@ -38,13 +38,13 @@ The exit code indicates the reason the application terminated. The following lis
   
   - You don't have sufficient access to a third-party service.
 
-    For example, you need to connect to Azure key vault to import certificates in your application, but your app doesn't have the necessary permissions to access it.
+    For example, you need to connect to Azure Key Vault to import certificates in your application, but your application doesn't have the necessary permissions to access it.
 
 - **137** - The application exited because of an out of memory error. The application requested resources that the hosting platform failed to provide. Update your application's Java Virtual Machine (JVM) parameters to restrict resource usage, or scale up application resources.
   
   If the application is a Java application, check the JVM parameters. They may exceed the memory limitation of your application.
 
-  For example, you configured 10 GB for the *Xmx* JVM parameter, but the application is using up to 5 GB of memory. Decrease the *Xmx* value or increase the application memory to make sure that the value of the *Xmx* parameter is lower or equal to the memory limitation of the application.
+  For example, you configured 10 GB for the *Xmx* JVM parameter, but the application is using up to 5 GB of memory. Decrease the *Xmx* value or increase the application memory to make sure that the value of the *Xmx* parameter is lower or equal to the memory limit of the application.
   
 - **143** - The application exited because it failed to respond to a health check due to an out of memory error or some other error.
  
