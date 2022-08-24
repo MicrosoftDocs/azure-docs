@@ -17,7 +17,6 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 
 # Quickstart: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
 
-
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
@@ -26,12 +25,11 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
-# Quickstart: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
-
-> In this quickstart, you download and run a code sample that demonstrates how a Universal Windows Platform (UWP) application can sign in users and get an access token to call the Microsoft Graph API. 
+> # Quickstart: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
+>
+> In this quickstart, you download and run a code sample that > demonstrates how a Universal Windows Platform (UWP) application can sign in users and get an access token to call the Microsoft Graph API. 
 > 
 > See [How the sample works](#how-the-sample-works) for an illustration.
-> 
 > 
 > ## Prerequisites
 > 
@@ -49,7 +47,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > #### Step 2: Download the Visual Studio project
 > 
 > Run the project using Visual Studio 2019.
-
+>
 > > [!div  class="nextstepaction"]
 > > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 

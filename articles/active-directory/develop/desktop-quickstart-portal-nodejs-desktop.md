@@ -24,8 +24,8 @@ ms.custom: mode-api
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
-# Quickstart: Acquire an access token and call the Microsoft Graph API from an Electron desktop app
-
+> # Quickstart: Acquire an access token and call the Microsoft Graph API from an Electron desktop app
+>
 > In this quickstart, you download and run a code sample that demonstrates how an Electron desktop application can sign in users and acquire access tokens to call the Microsoft Graph API.
 > 
 > This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) with the [authorization code flow with PKCE](v2-oauth2-auth-code-flow.md).
