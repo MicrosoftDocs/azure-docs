@@ -1095,11 +1095,11 @@ items:
       - name: Overview
         href: pricing-concepts.md
         displayName: diu 
-      - name: Copy data from AWS S3 to Azure Blob storage hourly for 30 days
+      - name: Copy data from AWS S3 to Azure Blob storage
         href: pricing-examples-s3-to-blob.md
-      - name: Copy data and transform with Azure Databricks hourly for 30 days
+      - name: Copy data and transform with Azure Databricks
         href: pricing-examples-copy-transform-azure-databricks.md
-      - name: Copy data and transform with dynamic parameters hourly for 30 days
+      - name: Copy data and transform with dynamic parameters
         href: pricing-examples-copy-transform-dynamic-parameters.md
       - name: Run SSIS packages on Azure-SSIS integration runtime
         href: pricing-examples-ssis-on-azure-ssis-integration-runtime.md
