@@ -32,8 +32,8 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 The resources defined in the template include:
 
-- [**Microsoft.ServiceBus/namespaces**](/azure/templates/microsoft.servicebus/namespaces)
-- [**Microsoft.ServiceBus/namespaces/queues**](/azure/templates/microsoft.servicebus/namespaces/queues)
+- [**Microsoft.ServiceBus/namespaces**](/azure/templates/microsoft.servicebus/namespaces?pivots=deployment-language-arm-template)
+- [**Microsoft.ServiceBus/namespaces/queues**](/azure/templates/microsoft.servicebus/namespaces/queues?pivots=deployment-language-arm-template)
 
 > [!NOTE]
 > The following ARM templates are available for download and deployment.
@@ -57,19 +57,19 @@ To run the deployment automatically, click the following button: Create a new re
 
 ## Validate the deployment
 
-1. Select **Notifications** at the top to see the status of the deployment. Wait until the deployment succeeds. Then, select **Go to resource group** in the notification message to navigate to the page for the resource group that contains the Service Bus namespace. 
+1. Select **Notifications** at the top to see the status of the deployment. Wait until the deployment succeeds. Then, select **Go to resource group** in the notification message to navigate to the page for the resource group that contains the Service Bus namespace.
 
     ![Notification from deployment](./media/service-bus-resource-manager-namespace-queue/notification.png)
-2. Confirm that you see your Service Bus namespace in the list of resources. 
+2. Confirm that you see your Service Bus namespace in the list of resources.
 
     ![Resource group - namespace](./media/service-bus-resource-manager-namespace-queue/resource-group-namespace.png)
-3. Select the namespace from the list to see the **Service Bus Namespace** page. 
+3. Select the namespace from the list to see the **Service Bus Namespace** page.
 
 ## Clean up resources
 
 1. In the Azure portal, navigate to the **Resource group** page for your resource group.
-2. Select **Delete resource group** from the toolbar. 
-3. Type the name of the resource group, and select **Delete**. 
+2. Select **Delete resource group** from the toolbar.
+3. Type the name of the resource group, and select **Delete**.
 
     ![Resource group - delete](./media/service-bus-resource-manager-namespace-queue/resource-group-delete.png)
 

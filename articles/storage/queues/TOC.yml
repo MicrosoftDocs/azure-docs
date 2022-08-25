@@ -33,6 +33,8 @@
     href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Java
     href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+  - name: Spring
+    href: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/storage/spring-cloud-azure-starter-storage-queue/storage-queue-client
   - name: Python
     href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: JavaScript
@@ -247,6 +249,8 @@
     href: ../queues/reference.md
   - name: Monitoring Azure Queue storage reference
     href: monitor-queue-storage-reference.md
+  - name: Spring Integration with Azure Storage Queue
+    href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/queues/TOC.json#spring-integration-with-azure-storage-queue
   - name: Resource Manager template
     displayName: ARM
     href: /azure/templates/microsoft.storage/allversions
