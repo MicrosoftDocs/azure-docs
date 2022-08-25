@@ -78,7 +78,7 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 #### Store your access token in an environment variable
 
-To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourAccessToken>` with your actual access token.
+You can configure the `AZURE_COMMUNICATION_ACCESS_TOKEN` environment variable to use Azure CLI chat operations without having to use `--access-token` to pass in the access token. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourAccessToken>` with your actual access token.
 
 ##### [Windows](#tab/windows)
 
@@ -110,7 +110,7 @@ export AZURE_COMMUNICATION_ACCESS_TOKEN="<yourAccessToken>"
 
 After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
 
----
+ ---
 
 ## Operations
 
@@ -120,6 +120,12 @@ Use the `thread create` command to create a chat thread.
 
 ```azurecli-interactive
 az communication chat thread create --topic "<chatTopic>" --endpoint "<endpoint>" --access-token "<token>"
+```
+
+If you have stored the endpoint and the access token in environment variables as stated above, you won't need to pass them to the command.
+
+```azurecli-interactive
+az communication chat thread create --topic "<chatTopic>"
 ```
 
 - Use `<chatTopic>` to give the thread a topic. You can update the topic after the chat thread is created by using the `thread update-topic` command.
@@ -137,6 +143,7 @@ az communication chat thread update-topic --thread "<chatThreadId>" --topic "<ch
 - Replace `<chatTopic>` with the new chat topic you want to set.
 - Replace `<endpoint>` with your ACS endpoint.
 - Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
+
 
 ### List all chat threads
 
