@@ -32,9 +32,9 @@ In this article, you learn how to analyze the Azure AD activity logs in your Log
 
 To follow along, you need:
 
-* A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+* A [Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md) in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 * First, complete the steps to [route the Azure AD activity logs to your Log Analytics workspace](howto-integrate-activity-logs-with-log-analytics.md).
-*  [Access](../../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions) to the log analytics workspace
+*  [Access](../../azure-monitor/logs/manage-access.md#azure-rbac) to the log analytics workspace
 * The following roles in Azure Active Directory (if you are accessing Log Analytics through Azure Active Directory portal)
     - Security Admin
     - Security Reader

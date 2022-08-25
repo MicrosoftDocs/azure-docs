@@ -2,11 +2,11 @@
 title: Service limits for Azure Communication Services
 titleSuffix: An Azure Communication Services how-to document
 description: Learn how to
-author: manoskow
+author: GrantMeStrength
 manager: shahen
 services: azure-communication-services
 
-ms.author: manoskow
+ms.author: jken
 ms.date: 11/01/2021
 ms.topic: how-to
 ms.service: azure-communication-services
@@ -69,6 +69,28 @@ If you require sending an amount of messages that exceeds the rate-limits, pleas
 
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
+## Email
+Sending high volume of messages has a set of limitation on the number of email messages that you can send. If you hit these limits, your messages will not be queued to be sent. You can submit these requests again, once the Retry-After time expires.
+
+### Rate Limits 
+
+|Operation|Scope|Timeframe (minutes)| Limit (number of email) |
+|---------|-----|-------------|-------------------|
+|Send Email|Per Subscription|1|10|
+|Send Email|Per Subscription|60|25|
+|Get Email Status|Per Subscription|1|20|
+|Get Email Status|Per Subscription|60|50|
+
+### Size Limits
+
+| **Name**         | Limit  |
+|--|--|
+|Number of recipients in Email|50 |
+|Attachment size - per messages|10 MB |
+
+### Action to take
+This sandbox setup is to help developers to start building the application and gradually you can request to increase the sending volume as soon as the application is ready to go live. If you require sending a number of messages that exceeds the rate-limits, please submit a support request to increase to your desired sending limit.
+
 ## Chat
 
 ### Size Limits
@@ -78,6 +100,27 @@ For more information on the SMS SDK and service, see the [SMS SDK overview](./sm
 |Number of participants in thread|250 |
 |Batch of participants - CreateThread|200 |
 |Batch of participants - AddParticipant|200 |
+|Page size - ListMessages|200 |
+
+### Operation Limits
+
+| **Operation** | **Bucketed by** | **Limit per 10 seconds** | **Limit per minute** |
+|--|--|--|--|
+|Create chat thread|User|10|-|
+|Delete chat thread|User|10|-|
+|Update chat thread|Chat thread|5|-|
+|Add participants / remove participants|Chat thread|10|30|
+|Get chat thread / List chat threads|User|50|-|
+|Get chat message / List chat messages|User and chat thread|50|-|
+|Get chat message / List chat messages|Chat thread|250|-|
+|Get read receipts|User and chat thread|5|-|
+|Get read receipts|Chat thread|250|-|
+|List chat thread participants|User and chat thread|10|-|
+|List chat thread participants|Chat thread|250|-|
+|Send message / update message / delete message|Chat thread|10|30|
+|Send read receipt|User and chat thread|10|30|
+|Send typing indicator|User and chat thread|5|15|
+|Send typing indicator|Chat thread|10|30|
 
 ## Voice and video calling
 

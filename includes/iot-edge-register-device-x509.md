@@ -1,8 +1,8 @@
 ---
 ms.topic: include
 ms.date: 10/29/2021
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.service: iot-edge
 services: iot-edge
 ---
@@ -19,7 +19,7 @@ In your IoT hub in the Azure portal, IoT Edge devices are created and managed se
 
 1. In the left pane, select **IoT Edge** from the menu, then select **Add an IoT Edge device**.
 
-   ![Add an IoT Edge device from the Azure portal](./media/iot-edge-register-device-x509/portal-add-iot-edge-device.png)
+   :::image type="content" source="./media/iot-edge-register-device/portal-add-iot-edge-device.png" alt-text="Screenshot of how to add an I o T Edge device from the Azure portal.":::
 
 1. On the **Create a device** page, provide the following information:
 
@@ -62,7 +62,7 @@ Devices that use X.509 certificate authentication need their IoT hub name, their
 
 All the edge-enabled devices that connect to your IoT hub are listed on the **IoT Edge** page.
 
-![Use the Azure portal to view all IoT Edge devices in your IoT hub](./media/iot-edge-register-device-x509/portal-view-devices.png)
+:::image type="content" source="./media/iot-edge-register-device/portal-view-devices.png" alt-text="Screenshot of how to view all I o T Edge devices in your IoT hub.":::
 
 # [Visual Studio Code](#tab/visual-studio-code)
 

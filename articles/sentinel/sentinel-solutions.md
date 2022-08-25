@@ -1,20 +1,14 @@
 ---
 title: About Microsoft Sentinel content and solutions | Microsoft Docs
 description: This article describes Microsoft Sentinel content and solutions, which customers can use to find data analysis tools packaged together with data connectors.
-author: batamig
+author: cwatson-cat
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.author: bagol
+ms.date: 05/06/2022
+ms.author: cwatson
 ms.custom: ignite-fall-2021
 ---
 
 # About Microsoft Sentinel content and solutions
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
->
-> The Microsoft Sentinel **Content hub** and solutions are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Microsoft Sentinel *content* is Security Information and Event Management (SIEM) content that enables customers to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products, platforms, and services in Microsoft Sentinel.
 
@@ -31,16 +25,19 @@ Content in Microsoft Sentinel includes any of the following types:
 
 Microsoft Sentinel *solutions* are packages of Microsoft Sentinel content or Microsoft Sentinel API integrations, which fulfill an end-to-end product, domain, or industry vertical scenario in Microsoft Sentinel.
 
-> [!TIP]
-> You can either customize out-of-the-box content for your own needs, or you can create your own solution with content to share with others in the community. For more information, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solutions’ authoring and publishing.
+You can either customize out-of-the-box content for your own needs, or you can create your own solution with content to share with others in the community. For more information, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solutions’ authoring and publishing.
+
+> [!IMPORTANT]
 >
+> The Microsoft Sentinel **Content hub** and solutions are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Discover and manage Microsoft Sentinel content
 
 Use the Microsoft Sentinel **Content hub** to centrally discover and install out-of-the-box (built-in) content.
 
 The Microsoft Sentinel Content Hub provides in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical out-of-the-box solutions and content in Microsoft Sentinel.
 
-- In the **Content hub**, filter by [categories](#microsoft-sentinel-out-of-the-box-content-and-solution-categories) and other parameters, or use the powerful text search, to find the content that works best for your organization's needs. The **Content hub** also indicates the [support model](#microsoft-sentinel-out-of-the-box-content-and-solution-support-models) applied to each piece of content, as some content is maintained by Microsoft and others are maintained by partners or the community.
+- In the **Content hub**, filter by [categories](#categories-for-microsoft-sentinel-out-of-the-box-content-and-solutions) and other parameters, or use the powerful text search, to find the content that works best for your organization's needs. The **Content hub** also indicates the [support model](#support-models-for-microsoft-sentinel-out-of-the-box-content-and-solutions) applied to each piece of content, as some content is maintained by Microsoft and others are maintained by partners or the community.
 
     Manage [updates for out-of-the-box content](sentinel-solutions-deploy.md#install-or-update-a-solution) via the Microsoft Sentinel **Content hub**, and for custom content via the **Repositories** page.
 
@@ -67,7 +64,7 @@ For more information, see:
 - [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md)
 - [Microsoft Sentinel Content hub catalog](sentinel-solutions-catalog.md)
 
-## Microsoft Sentinel out-of-the-box content and solution categories
+## Categories for Microsoft Sentinel out-of-the-box content and solutions
 
 Microsoft Sentinel out-of-the-box content can be applied with one or more of the following categories. In the **Content hub**, select the categories you want to view to change the content displayed.
 
@@ -98,7 +95,7 @@ Microsoft Sentinel out-of-the-box content can be applied with one or more of the
 | **Storage**      | File stores and file sharing products and services                 |
 | **Training and Tutorials**  | Training, tutorials, and onboarding assets |
 | **User Behavior (UEBA)**    | User behavior analytics products and services|
-| | |
+
 
 ### Industry vertical categories
 
@@ -110,9 +107,9 @@ Microsoft Sentinel out-of-the-box content can be applied with one or more of the
 | **Healthcare**   | Products, services, and content specific for the healthcare industry  |
 | **Manufacturing** | Products, services, and content specific for the manufacturing industry |
 | **Retail**       | Products, services, and content specific for the retail industry       |
-| | |
 
-## Microsoft Sentinel out-of-the-box content and solution support models
+
+## Support models for Microsoft Sentinel out-of-the-box content and solutions
 
 Both Microsoft and other organizations author Microsoft Sentinel out-of-the-box content and solutions. Each piece of out-of-the-box content or solution has one of the following support types:
 
@@ -121,7 +118,17 @@ Both Microsoft and other organizations author Microsoft Sentinel out-of-the-box 
 | **Microsoft-supported**| Applies to: <br>- Content/solutions where Microsoft is the data provider, where relevant, and author. <br> - Some Microsoft-authored content/solutions for non-Microsoft data sources. <br><br>    Microsoft supports and maintains content/solutions in this support model in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview). <br>Partners or the Community support content/solutions that are authored by any party other than Microsoft.|
 |**Partner-supported** | Applies to content/solutions authored by parties other than Microsoft.  <br><br>   The partner company provides support or maintenance for these pieces of content/solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Microsoft Sentinel page for the selected content/solutions.<br><br>    For any issues with a partner-supported solution, contact the specified support contact.|
 |**Community-supported** |Applies to content/solutions authored by Microsoft or partner developers that don't have listed contacts for support and maintenance in Microsoft Sentinel.<br><br>    For questions or issues with these solutions, [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Microsoft Sentinel GitHub community](https://aka.ms/threathunters). |
-| | |
+
+## Content sources for Microsoft Sentinel out-of-the-box content and solutions
+
+Each piece of out-of-the-box content or solution has one of the following content sources:
+
+|Content source  |Description  |
+|---------|---------|
+|**Content hub**   |Content or solutions deployed by the content hub that support lifecycle management         |
+|**Custom**  | Content or solutions you've customized in your workspace         |
+|**Gallery content**     | Content or solutions from the gallery that don't support lifecycle management       |
+|**Repository**   | Content or solutions from a repository connected to your workspace      |
 
 ## Next steps
 

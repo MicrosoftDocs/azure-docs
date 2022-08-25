@@ -1,19 +1,19 @@
 ---
-author: v-jaswel
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/08/2022
-ms.author: v-jawe
+author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
 
-[!INCLUDE [Header](../common/csharp.md)]
+[!INCLUDE [Header](../../common/csharp.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ### Install the Speech SDK
 
@@ -40,6 +40,9 @@ using Microsoft.CognitiveServices.Speech.Audio;
 ## Create a speech configuration
 
 To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) instance. In this example, you create a `SpeechConfig` instance by using a subscription key and region. You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
 ```csharp
 public class Program 

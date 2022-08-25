@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 06/17/2022
 
 ms.author: justinha
 author: calui
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calui
 
 ---
@@ -27,7 +27,7 @@ Some organizations haven't moved to hybrid authentication for the following reas
 * Changing the Azure AD UPN creates a mismatch between on-premises and Azure AD environments that could cause problems with certain applications and services.
 * Due to business or compliance reasons, the organization doesn't want to use the on-premises UPN to sign in to Azure AD.
 
-To help with the move to hybrid authentication, you can configure Azure AD to let users sign in with their email as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `ana@contoso.com` UPN, email as an alternate login ID can be used. To access an application or service, users would sign in to Azure AD using their non-UPN email, such as `ana@fabrikam.com`.
+To move toward hybrid authentication, you can configure Azure AD to let users sign in with their email as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `ana@contoso.com` UPN, email as an alternate login ID can be used. To access an application or service, users would sign in to Azure AD using their non-UPN email, such as `ana@fabrikam.com`.
 
 ![Diagram of email as an alternate login ID.](media/howto-authentication-use-email-signin/email-alternate-login-id.png)
 
@@ -38,12 +38,13 @@ This article shows you how to enable and use email as an alternate login ID.
 Here's what you need to know about email as an alternate login ID:
 
 * The feature is available in Azure AD Free edition and higher.
-* The feature enables sign-in with *ProxyAddresses*, in addition to UPN, for cloud-authenticated Azure AD users. More on how this applies to Azure AD B2B scenarios in the [B2B](#b2b-guest-user-sign-in-with-an-email-address) section.
+* The feature enables sign-in with *ProxyAddresses*, in addition to UPN, for cloud-authenticated Azure AD users. More on how this applies to Azure AD business-to-business (B2B) collaboration in the [B2B](#b2b-guest-user-sign-in-with-an-email-address) section.
 * When a user signs in with a non-UPN email, the `unique_name` and `preferred_username` claims (if present) in the [ID token](../develop/id-tokens.md) will return the non-UPN email.
+    * If the non-UPN email in use becomes stale (no longer belongs to the user), these claims will return the UPN instead.
 * The feature supports managed authentication with Password Hash Sync (PHS) or Pass-Through Authentication (PTA).
 * There are two options for configuring the feature:
     * [Home Realm Discovery (HRD) policy](#enable-user-sign-in-with-an-email-address) - Use this option to enable the feature for the entire tenant. Global administrator privileges required.
-    * [Staged rollout policy](#enable-staged-rollout-to-test-user-sign-in-with-an-email-address) - Use this option to test the feature with specific Azure AD groups. Global administrator privileges required.
+    * [Staged rollout policy](#enable-staged-rollout-to-test-user-sign-in-with-an-email-address) - Use this option to test the feature with specific Azure AD groups. Global administrator privileges required. When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
 ## Preview limitations
 
@@ -55,22 +56,21 @@ In the current preview state, the following limitations apply to email as an alt
     * On some Microsoft sites and apps, such as Microsoft Office, the *Account Manager* control typically displayed in the upper right may display the user's UPN instead of the non-UPN email used to sign in.
 
 * **Unsupported flows** - Some flows are currently not compatible with non-UPN emails, such as the following:
-    * Identity Protection doesn't match non-UPN emails with *Leaked Credentials* risk detection. This risk detection uses the UPN to match credentials that have been leaked. For more information, see [Azure AD Identity Protection risk detection and remediation][identity-protection].
+    * Identity Protection doesn't match non-UPN emails with *Leaked Credentials* risk detection. This risk detection uses the UPN to match credentials that have been leaked. For more information, see [How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md).
     * When a user is signed-in with a non-UPN email, they cannot change their password. Azure AD self-service password reset (SSPR) should work as expected. During SSPR, the user may see their UPN if they verify their identity using a non-UPN email.
 
 * **Unsupported scenarios** - The following scenarios are not supported. Sign-in with non-UPN email for:
     * [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md)
     * [Azure AD joined devices](../devices/concept-azure-ad-join.md)
     * [Azure AD registered devices](../devices/concept-azure-ad-register.md)
-    * [Applications using Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
-    * Applications using legacy authentication such as POP3 and SMTP
+    * [Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
+    * Legacy authentication such as POP3 and SMTP
     * Skype for Business
-    * Microsoft Office on macOS
     * Microsoft 365 Admin Portal
 
 * **Unsupported apps** - Some third-party applications may not work as expected if they assume that the `unique_name` or `preferred_username` claims are immutable or will always match a specific user attribute, such as UPN.
 
-* **Logging** - Changes made to the feature's configuration in HRD policy are not explicitly shown in the audit logs. In addition, the *Sign-in identifier type* field in the sign-in logs may not be always accurate and should not be used to determine whether the feature has been used for sign-in.
+* **Logging** - Changes made to the feature's configuration in HRD policy are not explicitly shown in the audit logs.
 
 * **Staged rollout policy** - The following limitations apply only when the feature is enabled using staged rollout policy:
     * The feature does not work as expected for users that are included in other staged rollout policies.
@@ -113,18 +113,18 @@ To support this hybrid authentication approach, you synchronize your on-premises
 
 In both configuration options, the user submits their username and password to Azure AD, which validates the credentials and issues a ticket. When users sign in to Azure AD, it removes the need for your organization to host and manage an AD FS infrastructure.
 
-One of the user attributes that's automatically synchronized by Azure AD Connect is *ProxyAddresses*. If users have an email address defined in the on-prem AD DS environment as part of the *ProxyAddresses* attribute, it's automatically synchronized to Azure AD. This email address can then be used directly in the Azure AD sign-in process as an alternate login ID.
+One of the user attributes that's automatically synchronized by Azure AD Connect is *ProxyAddresses*. If users have an email address defined in the on-premesis AD DS environment as part of the *ProxyAddresses* attribute, it's automatically synchronized to Azure AD. This email address can then be used directly in the Azure AD sign-in process as an alternate login ID.
 
 > [!IMPORTANT]
-> Only emails in verified domains for the tenant are synchronized to Azure AD. Each Azure AD tenant has one or more verified domains, for which you have proven ownership, and are uniquely bound to you tenant.
+> Only emails in verified domains for the tenant are synchronized to Azure AD. Each Azure AD tenant has one or more verified domains, for which you have proven ownership, and are uniquely bound to your tenant.
 >
 > For more information, see [Add and verify a custom domain name in Azure AD][verify-domain].
 
 ## B2B guest user sign-in with an email address
 
-![Diagram of email as an alternate login ID for B2B guest user sign-in.](media/howto-authentication-use-email-signin/email-alternate-login-id-b2b.png)
+![Diagram of email as an alternate login ID for B 2 B guest user sign-in.](media/howto-authentication-use-email-signin/email-alternate-login-id-b2b.png)
 
-Email as an alternate login ID applies to [Azure AD business-to-business (B2B) collaboration](../external-identities/what-is-b2b.md) under a "bring your own sign-in identifiers" model. When email as an alternate login ID is enabled in the home tenant, Azure AD users can perform guest sign in with non-UPN email on the resource tenanted endpoint. No action is required from the resource tenant to enable this functionality.
+Email as an alternate login ID applies to [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) under a "bring your own sign-in identifiers" model. When email as an alternate login ID is enabled in the home tenant, Azure AD users can perform guest sign in with non-UPN email on the resource tenant endpoint. No action is required from the resource tenant to enable this functionality.
 
 ## Enable user sign-in with an email address
 
@@ -133,33 +133,57 @@ Email as an alternate login ID applies to [Azure AD business-to-business (B2B) c
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
-During preview, you can currently only enable the sign-in with email as an alternate login ID feature using PowerShell. You need *global administrator* permissions to complete the following steps:
+During preview, you currently need *global administrator* permissions to enable sign-in with email as an alternate login ID. You can use either Azure portal or PowerShell to set up the feature.
 
-1. Open a PowerShell session as an administrator, then install the *AzureADPreview* module using the [Install-Module][Install-Module] cmdlet:
+### Azure portal
+
+1. Sign in to the [Azure portal][azure-portal] as a *global administrator*.
+1. Search for and select **Azure Active Directory**.
+1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Azure AD Connect > Email as alternate login ID**.
+
+    ![Screenshot of email as alternate login ID option in the Azure portal.](media/howto-authentication-use-email-signin/azure-ad-connect-screen.png)
+
+1. Click the checkbox next to *Email as an alternate login ID*.
+1. Click **Save**.
+
+    ![Screenshot of email as alternate login ID blade in the Azure portal.](media/howto-authentication-use-email-signin/email-alternate-login-id-screen.png)
+
+With the policy applied, it can take up to 1 hour to propagate and for users to be able to sign in using their alternate login ID.
+
+### PowerShell
+
+> [!NOTE]
+> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0).
+
+Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign-in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
+
+During preview, you can currently only enable email as an alternate login ID using PowerShell or the Microsoft Graph API. You need *global administrator* privileges to complete the following steps:
+
+1. Open a PowerShell session as an administrator, then install the *Microsoft.Graph* module using the `Install-Module` cmdlet:
 
     ```powershell
-    Install-Module AzureADPreview
+    Install-Module Microsoft.Graph
     ```
 
-    If prompted, select **Y** to install NuGet or to install from an untrusted repository.
+    For more information on installation, see [Install the Microsoft Graph PowerShell SDK](/graph/powershell/installation).
 
-1. Sign in to your Azure AD tenant as a *global administrator* using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
+1. Sign-in to your Azure AD tenant using the `Connect-MgGraph` cmdlet:
 
     ```powershell
-    Connect-AzureAD
+    Connect-MgGraph -Scopes "Policy.ReadWrite.ApplicationConfiguration" -TenantId organizations
     ```
 
-    The command returns information about your account, environment, and tenant ID.
+    The command will ask you to authenticate using a web browser.
 
-1. Check if the *HomeRealmDiscoveryPolicy* already exists in your tenant using the [Get-AzureADPolicy][Get-AzureADPolicy] cmdlet as follows:
+1. Check if a *HomeRealmDiscoveryPolicy* already exists in your tenant using the `Get-MgPolicyHomeRealmDiscoveryPolicy` cmdlet as follows:
 
     ```powershell
-    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
+    Get-MgPolicyHomeRealmDiscoveryPolicy
     ```
 
 1. If there's no policy currently configured, the command returns nothing. If a policy is returned, skip this step and move on to the next step to update an existing policy.
 
-    To add the *HomeRealmDiscoveryPolicy* policy to the tenant, use the [New-AzureADPolicy][New-AzureADPolicy] cmdlet and set the *AlternateIdLogin* attribute to *"Enabled": true* as shown in the following example:
+    To add the *HomeRealmDiscoveryPolicy* to the tenant, use the `New-MgPolicyHomeRealmDiscoveryPolicy` cmdlet and set the *AlternateIdLogin* attribute to *"Enabled": true* as shown in the following example:
 
     ```powershell
     $AzureADPolicyDefinition = @(
@@ -171,42 +195,38 @@ During preview, you can currently only enable the sign-in with email as an alter
          }
       } | ConvertTo-JSON -Compress
     )
+
     $AzureADPolicyParameters = @{
       Definition            = $AzureADPolicyDefinition
       DisplayName           = "BasicAutoAccelerationPolicy"
-      IsOrganizationDefault = $true
-      Type                  = "HomeRealmDiscoveryPolicy"
+      AdditionalProperties  = @{ IsOrganizationDefault = $true }
     }
-    New-AzureADPolicy @AzureADPolicyParameters
+
+    New-MgPolicyHomeRealmDiscoveryPolicy @AzureADPolicyParameters
     ```
 
     When the policy has been successfully created, the command returns the policy ID, as shown in the following example output:
 
     ```powershell
-    Id                                   DisplayName                 Type                     IsOrganizationDefault
-    --                                   -----------                 ----                     ---------------------
-    5de3afbe-4b7a-4b33-86b0-7bbe308db7f7 BasicAutoAccelerationPolicy HomeRealmDiscoveryPolicy True
+    Definition                                                           DeletedDateTime Description DisplayName                 Id            IsOrganizationDefault
+    ----------                                                           --------------- ----------- -----------                 --            ---------------------
+    {{"HomeRealmDiscoveryPolicy":{"AlternateIdLogin":{"Enabled":true}}}}                             BasicAutoAccelerationPolicy HRD_POLICY_ID True
     ```
 
 1. If there's already a configured policy, check if the *AlternateIdLogin* attribute is enabled, as shown in the following example policy output:
 
     ```powershell
-    Id : 5de3afbe-4b7a-4b33-86b0-7bbe308db7f7
-    OdataType :
-    AlternativeIdentifier :
-    Definition : {{"HomeRealmDiscoveryPolicy" :{"AlternateIdLogin":{"Enabled": true}}}}
-    DisplayName : BasicAutoAccelerationPolicy
-    IsOrganizationDefault : True
-    KeyCredentials : {}
-    Type : HomeRealmDiscoveryPolicy
+    Definition                                                           DeletedDateTime Description DisplayName                 Id            IsOrganizationDefault
+    ----------                                                           --------------- ----------- -----------                 --            ---------------------
+    {{"HomeRealmDiscoveryPolicy":{"AlternateIdLogin":{"Enabled":true}}}}                             BasicAutoAccelerationPolicy HRD_POLICY_ID True
     ```
 
-    If the policy exists but the *AlternateIdLogin* attribute that isn't present or enabled, or if other attributes exist on the policy you wish to preserve, update the existing policy using the [Set-AzureADPolicy][Set-AzureADPolicy] cmdlet.
+    If the policy exists but the *AlternateIdLogin* attribute that isn't present or enabled, or if other attributes exist on the policy you wish to preserve, update the existing policy using the `Update-MgPolicyHomeRealmDiscoveryPolicy` cmdlet.
 
     > [!IMPORTANT]
     > When you update the policy, make sure you include any old settings and the new *AlternateIdLogin* attribute.
 
-    The following example adds the *AlternateIdLogin* attribute and preserves the *AllowCloudPasswordValidation* attribute that may have already been set:
+    The following example adds the *AlternateIdLogin* attribute and preserves the *AllowCloudPasswordValidation* attribute that was previously set:
 
     ```powershell
     $AzureADPolicyDefinition = @(
@@ -219,24 +239,33 @@ During preview, you can currently only enable the sign-in with email as an alter
          }
       } | ConvertTo-JSON -Compress
     )
+
     $AzureADPolicyParameters = @{
-      ID                    = "b581c39c-8fe3-4bb5-b53d-ea3de05abb4b"
-      Definition            = $AzureADPolicyDefinition
-      DisplayName           = "BasicAutoAccelerationPolicy"
-      IsOrganizationDefault = $true
-      Type                  = "HomeRealmDiscoveryPolicy"
+      HomeRealmDiscoveryPolicyId = "HRD_POLICY_ID"
+      Definition                 = $AzureADPolicyDefinition
+      DisplayName                = "BasicAutoAccelerationPolicy"
+      AdditionalProperties       = @{ "IsOrganizationDefault" = $true }
     }
-    
-    Set-AzureADPolicy @AzureADPolicyParameters
+
+    Update-MgPolicyHomeRealmDiscoveryPolicy @AzureADPolicyParameters
     ```
 
     Confirm that the updated policy shows your changes and that the *AlternateIdLogin* attribute is now enabled:
 
     ```powershell
-    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
+    Get-MgPolicyHomeRealmDiscoveryPolicy
     ```
 
-With the policy applied, it can take up to 1 hour to propagate and for users to be able to sign in using their alternate login ID.
+> [!NOTE]
+> With the policy applied, it can take up to an hour to propagate and for users to be able to sign-in using email as an alternate login ID.
+
+### Removing policies
+
+To remove an HRD policy, use the `Remove-MgPolicyHomeRealmDiscoveryPolicy` cmdlet:
+
+```powershell
+Remove-MgPolicyHomeRealmDiscoveryPolicy -HomeRealmDiscoveryPolicyId "HRD_POLICY_ID"
+```
 
 ## Enable staged rollout to test user sign-in with an email address  
 
@@ -333,6 +362,12 @@ If users have trouble signing in with their email address, review the following 
     ```
 1. Make sure the user account has their email address set in the *ProxyAddresses* attribute in Azure AD.
 
+### Sign-in logs
+
+:::image type="content" border="true" source="./media/howto-authentication-use-email-signin/email-alternate-login-id-logs.png" alt-text="Screenshot of Azure A D sign-in logs showing email as alternate login ID activity.":::
+
+You can review the [sign-in logs in Azure AD][sign-in-logs] for more information. Sign-ins with email as an alternate login ID will emit `proxyAddress` in the *Sign-in identifier type* field and the inputted username in the *Sign-in identifier* field. 
+
 ### Conflicting values between cloud-only and synced users
 
 Within a tenant, a cloud-only user's UPN may take on the same value as another user's proxy address synced from the on-premises directory. In this scenario, with the feature enabled, the cloud-only user will not be able to sign in with their UPN. Here are the steps for detecting instances of this issue.
@@ -413,9 +448,10 @@ For more information on hybrid identity operations, see [how password hash sync]
 [hybrid-overview]: ../hybrid/cloud-governed-management-for-on-premises.md
 [phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
 [pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
-[identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
+[sign-in-logs]: ../reports-monitoring/concept-sign-ins.md
 
 <!-- EXTERNAL LINKS -->
+[azure-portal]: https://portal.azure.com
 [Install-Module]: /powershell/module/powershellget/install-module
 [Connect-AzureAD]: /powershell/module/azuread/connect-azuread
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy

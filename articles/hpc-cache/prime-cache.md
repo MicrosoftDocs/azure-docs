@@ -1,19 +1,16 @@
 ---
-title: Pre-load files in Azure HPC Cache (Preview)
-description: Use the cache priming feature (preview) to populate or preload cache contents before files are requested 
-author: ronhogue
+title: Pre-load files in Azure HPC Cache
+description: Use the cache priming feature to populate or preload cache contents before files are requested 
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/26/2022
-ms.author: rohogue
+ms.date: 06/01/2022
+ms.author: v-erinkelly
 ---
 
-# Pre-load files in Azure HPC Cache (preview)
+# Pre-load files in Azure HPC Cache
 
-> [!IMPORTANT]
-> Cache priming is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Azure HPC Cache’s priming feature (preview) allows customers to pre-load files in the cache.
+Azure HPC Cache’s priming feature allows customers to pre-load files in the cache.
 
 You can use this feature to fetch your expected working set of files and populate the cache before work begins. This technique is sometimes called cache warming.
 
@@ -47,7 +44,9 @@ In the manifest, specify the namespace path to the directories or files that you
     "config": {
         "cache_mode": "0",
         "maxreadsize": "0",
-        "resolve_symlink": "0"
+        "resolve_symlink": "0",
+        "threads":"8",
+        "skip_estimation":"0"
     },
     
     "files": [
@@ -75,14 +74,17 @@ In the manifest, specify the namespace path to the directories or files that you
 
 There are three sections to the priming manifest file:
 
-* `config` - settings for the priming job
-* `files` - individual files that will be pre-loaded
-* `directories` - file paths that will be pre-loaded
-* `include` and `exclude` - regular expression strings that modify the directory priming task
+* Configuration (`config`) - settings for the priming job
+* File and directory statements:
+
+  * `files` - individual files that will be pre-loaded
+  * `directories` - file paths that will be pre-loaded
+
+* Global include and exclude statements (`include` and `exclude`) - regular expression strings that modify the directory priming task
 
 ### Configuration settings
 
-There are three settings in the `config` section of the manifest file:
+The `config` section of the manifest file sets these parameters:
 
 * Cache mode - Sets the behavior of the priming job. Options are:
 
@@ -92,7 +94,11 @@ There are three settings in the `config` section of the manifest file:
 
 * `maxreadsize` - Sets the maximum number of bytes that will be pre-loaded per file. Leave this set to 0 (the default) to always load the entire file regardless of size.
 
-* `resolve_symlink` - Set this to true (`1`) if you want to resolve symbolic links when priming. If `resolve_symlink` is enabled, symbolic link targets are pre-loaded entirely, regardless of include and exclude rules.
+* `resolve_symlink` - Set this to true (1) if you want to resolve symbolic links when priming. If `resolve_symlink` is enabled, symbolic link targets are pre-loaded entirely, regardless of include and exclude rules.
+
+* `threads` - The number of priming threads to use. Valid values are 1 to 128. The default value is 8, to balance between priming and servicing client requests.
+
+* `skip_estimation` - Before it starts copying files, the priming job runs an estimate of the amount of data to be primed. Set the `skip_estimation` flag to true (1) if you want to move directly to the file priming phase. If you skip the estimation phase, the progress report might be less accurate. The default value is 0, to include the estimation phase.
 
 ### File and directory paths
 
@@ -174,16 +180,15 @@ The cache accesses the manifest file once when the priming job starts. The SAS U
 
 Use the Azure portal to create a priming job. View your Azure HPC Cache in the portal and select the **Prime cache** page under the **Settings** heading.
 
-![screenshot of the Priming page in the portal, with several completed jobs.](media/priming-preview.png)
-<!-- to do: screenshot with 'preview' on GUI heading, screenshot with more diverse jobs and statuses -->
+![screenshot of the Priming page in the portal, with several jobs in various states.](media/prime-overview.png)
 
-Click the **Add priming job** text at the top of the table to define a new job.
+Click the **Start priming job** text at the top of the table to define a new job.
 
 In the **Job name** field, type a unique name for the priming job.
 
 Use the **Priming file** field to select your priming manifest file. Select the storage account, container, and file where your priming manifest is stored.
 
-![screenshot of the Add priming job page, with a job name and priming file path filled in. Below the Priming file field is a link labeled "Select from existing blob location".](media/create-priming-job.png)
+![screenshot of the Start priming job page, with a job name and priming file path filled in. Below the Priming file field is a link labeled "Select from existing blob location".](media/create-priming-job.png)
 
 To select the priming manifest file, click the link to select a storage target. Then select the container where your .json manifest file is stored.
 
@@ -193,27 +198,33 @@ If you can’t find the manifest file, your cache might not be able to access th
 
 Priming jobs are listed in the **Prime cache** page in the Azure portal.
 
-![screenshot of the priming jobs list in the portal, with jobs in various states (running, paused, and success). The cursor has clicked the ... symbol at the right side of one job's row, and a context menu shows options to pause or resume.](media/prime-cache-list.png)
+This page shows each job's name, its state, its current status, and summary statistics about the priming progress. The summary in the **Details** column updates periodically as the job progresses. The **Job status** field is populated when a priming job starts; this field also gives basic error information like **Invalid manifest** if a problem occurs.
 
-This page shows each job's name, its state, its current status, and summary statistics about the priming progress. The summary in the **Details** column updates periodically as the job progresses.
+While a job is running, the **Percentage complete** column shows an estimate of the progress.
 
-Click the **...** section at the right of the table to pause or resume a priming job.
+Before a priming job starts, it has the state **Queued**. Its **Job status**, **Percentage complete**, and **Details** fields are empty.
 
-To delete a priming job, select it in the list and use the delete control at the top of the table.
+![screenshot of the priming jobs list in the portal, with jobs in various states (running, paused, and success). The cursor has clicked the ... symbol at the right side of one job's row, and a context menu shows options to pause or resume.](media/prime-cache-context.png)
+
+Click the **...** section at the right of the table to pause or resume a priming job. (It might take a few minutes for the status to update.)
+
+To delete a priming job, select it in the list and use the **Stop** control at the top of the table. You can use the **Stop** control to delete a job in any state.
 
 ## Azure REST APIs
 
-You can use these REST API endpoints to create an HPC Cache priming job. These are part of the `2021-10-01-preview` version of the REST API, so make sure you use that string in the *api_version* term.
+You can use these REST API endpoints to create and manage HPC Cache priming jobs. These are part of the `2022-05-01` version of the REST API, so make sure you use that string in the *api_version* term.
 
-Read the [Azure REST API reference](/rest/api/azure/) to learn how to use this interface.
+Read the [Azure REST API reference](/rest/api/azure/) to learn how to use these tools.
 
-### Add a priming job
+### Add a new priming job
+
+The `startPrimingJob` interface creates and queues a priming job. The job starts automatically when resources are available.
 
 ```rest
 
 URL: POST
 
-     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME/addPrimingJob?api-version=2021-10-01-preview
+     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME/startPrimingJob?api-version=2022-05-01
 
      BODY:
      {
@@ -225,14 +236,20 @@ URL: POST
 
 For the `primingManifestUrl` value, pass the file’s SAS URL or other HTTPS URL that is accessible to the cache. Read [Upload the priming manifest file](#upload-the-priming-manifest-file) to learn more.
 
-### Remove a priming job
+### Stop a priming job
+
+The `stopPrimingJob` interface cancels a job (if it is running) and removes it from the job list. Use this interface to delete a priming job in any state.
 
 ```rest
 
 URL: POST 
-     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME/removePrimingJob/MY-JOB-ID-TO-REMOVE?api-version=2021-10-01-preview
+     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME/stopPrimingJob?api-version=2022-05-01
 
 BODY:
+     {
+         "primingJobId": "MY-JOB-ID-TO-REMOVE"
+     }
+
 ```
 
 ### Get priming jobs
@@ -244,9 +261,41 @@ Priming job names and IDs are returned, along with other information.
 ```rest
 
 URL: GET 
-     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME?api-version=2021-10-01-preview
+     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME?api-version=2022-05-01
 
 BODY:
+
+```
+
+### Pause a priming job
+
+The `pausePrimingJob` interface suspends a running job.
+
+```rest
+
+URL: POST 
+     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME/pausePrimingJob?api-version=2022-05-01
+
+BODY:
+     {
+         "primingJobId": "MY-JOB-ID-TO-PAUSE"
+     }
+
+```
+
+### Resume a priming job
+
+Use the `resumePrimingJob` interface to reactivate a suspended priming job.
+
+```rest
+
+URL: POST 
+     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME/resumePrimingJob?api-version=2022-05-01
+
+BODY:
+     {
+         "primingJobId": "MY-JOB-ID-TO-RESUME"
+     }
 
 ```
 
@@ -260,7 +309,7 @@ BODY:
 
 * How long does a failed or completed priming job stay in the list?
 
-  Priming jobs persist in the list until you delete them. On the portal **Prime cache** page, check the checkbox next to the job and select the **Delete** control at the top of the list.
+  Priming jobs persist in the list until you delete them. On the portal **Prime cache** page, check the checkbox next to the job and select the **Stop** control at the top of the list to delete the job.
 
 * What happens if the content I’m pre-loading is larger than my cache storage?
 
@@ -268,5 +317,5 @@ BODY:
 
 ## Next steps
 
-* For help with HPC Cache priming (preview) or to report a problem, use the standard Azure support process, described in [Get help with Azure HPC Cache](hpc-cache-support-ticket.md).
+* For more help with HPC Cache priming, follow the process in [Get help with Azure HPC Cache](hpc-cache-support-ticket.md).
 * Learn more about [Azure REST APIs](/rest/api/azure/)

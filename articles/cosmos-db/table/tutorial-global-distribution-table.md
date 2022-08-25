@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 01/30/2020
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 # Set up Azure Cosmos DB global distribution using the Table API
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]

@@ -1,8 +1,8 @@
 ---
 title: Nodes – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Learn about the types of nodes and tables in a server group in Azure Database for PostgreSQL.
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
@@ -10,6 +10,8 @@ ms.date: 07/28/2019
 ---
 
 # Nodes and tables in Azure Database for PostgreSQL – Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 ## Nodes
 
@@ -138,4 +140,4 @@ WHERE shardid = 102027;
 
 ## Next steps
 
-- [Determine your application's type](concepts-app-type.md) to prepare for data modeling
+- [Determine your application's type](howto-app-type.md) to prepare for data modeling

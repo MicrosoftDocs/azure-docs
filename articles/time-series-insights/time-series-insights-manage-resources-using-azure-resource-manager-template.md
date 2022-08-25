@@ -16,6 +16,8 @@ ms.custom: seodec18
 
 # Create Azure Time Series Insights Gen 1 resources using Azure Resource Manager templates
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 > [!CAUTION]
 > This is a Gen1 article.
 

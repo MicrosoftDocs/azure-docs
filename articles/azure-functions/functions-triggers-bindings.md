@@ -1,18 +1,17 @@
 ---
 title: Triggers and bindings in Azure Functions
 description: Learn to use triggers and bindings to connect your Azure Function to online events and cloud-based services.
-author: craigshoemaker
 
 ms.topic: conceptual
-ms.date: 02/18/2019
-ms.author: cshoe
+ms.date: 05/25/2022
+ms.custom: devdivchpfy22
 ---
 
 # Azure Functions triggers and bindings concepts
 
-In this article you learn the high-level concepts surrounding functions triggers and bindings.
+In this article, you learn the high-level concepts surrounding functions triggers and bindings.
 
-Triggers are what cause a function to run. A trigger defines how a function is invoked and a function must have exactly one trigger. Triggers have associated data, which is often provided as the payload of the function. 
+Triggers cause a function to run. A trigger defines how a function is invoked and a function must have exactly one trigger. Triggers have associated data, which is often provided as the payload of the function.
 
 Binding to a function is a way of declaratively connecting another resource to the function; bindings may be connected as *input bindings*, *output bindings*, or both. Data from bindings is provided to the function as parameters.
 
@@ -31,7 +30,7 @@ Consider the following examples of how you could implement different functions.
 
 <sup>\*</sup> Represents different queues
 
-These examples are not meant to be exhaustive, but are provided to illustrate how you can use triggers and bindings together.
+These examples aren't meant to be exhaustive, but are provided to illustrate how you can use triggers and bindings together.
 
 ###  Trigger and binding definitions
 

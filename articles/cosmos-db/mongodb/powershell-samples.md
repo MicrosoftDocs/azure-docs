@@ -1,12 +1,13 @@
 ---
 title: Azure PowerShell samples for Azure Cosmos DB API for MongoDB
 description:  Get the Azure PowerShell samples to perform common tasks in Azure Cosmos DB API for MongoDB
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 08/26/2021
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Azure PowerShell samples for Azure Cosmos DB API for MongoDB
@@ -32,7 +33,7 @@ The following table includes links to commonly used Azure PowerShell scripts for
 |[Create an account, database and collection](../scripts/powershell/mongodb/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account, database and collection. |
 |[Create an account, database and collection with autoscale](../scripts/powershell/mongodb/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account, database and collection with autoscale. |
 |[List or get databases or collections](../scripts/powershell/mongodb/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get database or collection. |
-|[Throughput operations](../scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Throughput operations for a database or collection including get, update and migrate between autoscale and standard throughput. |
+|[Perform throughput operations](../scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Perform throughput operations for a database or collection including get, update and migrate between autoscale and standard throughput. |
 |[Lock resources from deletion](../scripts/powershell/mongodb/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Prevent resources from being deleted with resource locks. |
 |||
 

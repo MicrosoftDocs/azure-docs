@@ -6,18 +6,21 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
+ms.custom: cliv2, event-tier1-build-2022
 
-author: tracychms
-ms.author: tracych
+author: blackmist
+ms.author: larryfr
 ms.date: 10/21/2021
 ms.reviewer: laobri
 ---
 
 # CLI (v2) batch endpoint YAML schema
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 

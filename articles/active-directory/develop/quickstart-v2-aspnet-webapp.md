@@ -1,6 +1,5 @@
 ---
 title: "Quickstart: ASP.NET web app that signs in users"
-titleSuffix: Microsoft identity platform
 description: Download and run a code sample that shows how an ASP.NET web app can sign in Azure AD users.
 services: active-directory
 author: jmprieur

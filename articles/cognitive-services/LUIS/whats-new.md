@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 11/08/2021
+ms.date: 02/24/2022
 ---
 
 # What's new in Language Understanding
@@ -12,6 +12,9 @@ ms.date: 11/08/2021
 Learn what's new in the service. These items include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up to date with the service.
 
 ## Release notes
+
+### February 2022
+* LUIS containers can be used in [disconnected environments](../containers/disconnected-containers.md?context=/azure/cognitive-services/luis/context/context).
 
 ### January 2022
 * [Updated text recognizer](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.8.2) to v1.8.2

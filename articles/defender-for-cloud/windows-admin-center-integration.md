@@ -6,8 +6,6 @@ ms.date: 11/09/2021
 ---
 # Protect Windows Admin Center resources with Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Windows Admin Center is a management tool for your Windows servers. It's a single location for system administrators to access the majority of the most commonly used admin tools. From within Windows Admin Center, you can directly onboard your on-premises servers into Microsoft Defender for Cloud. You can then view a summary of your security recommendations and alerts directly in the Windows Admin Center experience.
 
 > [!NOTE]
@@ -38,7 +36,7 @@ By combining these two tools, Defender for Cloud becomes your single pane of gla
     * An Azure Gateway is registered.
     * The server has a workspace to report to and an associated subscription.
     * Defender for Cloud's Log Analytics solution is enabled on the workspace. This solution provides Microsoft Defender for Cloud's features for *all* servers and virtual machines reporting to this workspace.
-    * Microsoft Defender for servers is enabled on the subscription.
+    * Microsoft Defender for Servers is enabled on the subscription.
     * The Log Analytics agent is installed on the server and configured to report to the selected workspace. If the server already reports to another workspace, it's configured to report to the newly selected workspace as well.
 
     > [!NOTE]

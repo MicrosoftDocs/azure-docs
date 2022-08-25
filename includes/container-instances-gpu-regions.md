@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: tomvcassidy
 ms.service: container-instances
 ms.topic: include
-ms.date: 10/17/2019
-ms.author: danlep
+ms.date: 06/14/2022
+ms.author: tomcassidy
 ---
 ### Region availability
 

@@ -9,6 +9,7 @@ ms.custom: ignite-fall-2021
 
 # Embed player widget in Power BI
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 Azure Video Analyzer enables you to [record](detect-motion-record-video-clips-cloud.md) video and associated inference metadata to your Video Analyzer cloud resource. Video Analyzer has a [Player Widget](player-widget.md) - an easy-to-embed widget allowing client apps to playback video and inference metadata.
 

@@ -1,18 +1,18 @@
 ---
-title: How to manage Synapse RBAC assignments in Synapse Studio
-description: This article describes how to assign and revoke Synapse RBAC roles to AAD security principals
+title: How to manage Azure Synapse RBAC assignments in Synapse Studio
+description: This article describes how to assign and revoke Azure Synapse RBAC roles to Azure AD security principals
 author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security
-ms.date: 12/1/2020
+ms.date: 3/7/2022
 ms.author: mesrivas
-ms.reviewer: sngun
+ms.reviewer: sngun, wiassaf
 ---
 
 # How to manage Synapse RBAC role assignments in Synapse Studio
 
-Synapse RBAC uses roles to assign permissions to users, groups, and other security principals to enable access and use of Synapse resources and code artifacts.  [Learn more](./synapse-workspace-synapse-rbac.md)
+Synapse RBAC uses roles to assign permissions to users, groups, and other security principals to enable access and use of Synapse resources and code artifacts. For more information, see [What is Synapse role-based access control (RBAC)?](./synapse-workspace-synapse-rbac.md)
 
 This article shows how to add and delete Synapse RBAC role assignments.
 

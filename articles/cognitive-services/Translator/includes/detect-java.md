@@ -85,10 +85,10 @@ public class Detect {
 }
 ```
 
-Add these lines to the `Detect` class. You'll notice the subscription key and endpoint are being read from environment variables:
+Add these lines to the `Detect` class. You'll notice the key and endpoint are being read from environment variables:
 
 ```java
-private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String key = System.getenv("TRANSLATOR_TEXT_KEY");
 private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
 String url = endpoint + "/detect?api-version=3.0";
 ```
@@ -114,7 +114,7 @@ public String Post() throws IOException {
             "[{\n\t\"Text\": \"Salve mondo!\"\n}]");
     Request request = new Request.Builder()
             .url(url).post(body)
-            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Ocp-Apim-Subscription-Key", key)
             .addHeader("Content-type", "application/json").build();
     Response response = client.newCall(request).execute();
     return response.body().string();

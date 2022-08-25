@@ -1,9 +1,9 @@
 ---
 title: Learn how modules run logic on your devices - Azure IoT Edge | Microsoft Docs 
 description: Azure IoT Edge modules are containerized units of logic that can be deployed and managed remotely so that you can run business logic on IoT Edge devices
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge

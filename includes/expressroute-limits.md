@@ -26,6 +26,10 @@
 | Maximum number of ExpressRoute circuits linked to the same virtual network in the same peering location |4 |
 | Maximum number of ExpressRoute circuits linked to the same virtual network in different peering locations |16 (For more information, see [Gateway SKU](../articles/expressroute/expressroute-about-virtual-network-gateways.md#aggthroughput).) |
 | Number of virtual network links allowed per ExpressRoute circuit |See the [Number of virtual networks per ExpressRoute circuit](#vnetpercircuit) table.  |
+| Maximum number of IPs for ExpressRoute provider circuit with Fastpath | 25,000 |
+| Maximum number of IPs for ExpressRoute Direct 10Gbps with Fastpath | 100,000 |
+| Maximum number of IPs for ExpressRoute Direct 100Gbps with Fastpath | 200,000 |
+
 
 #### <a name="vnetpercircuit"></a> Number of virtual networks per ExpressRoute circuit
 | **Circuit size** | **Number of virtual network links for Standard** | **Number of virtual network links with Premium add-on** |

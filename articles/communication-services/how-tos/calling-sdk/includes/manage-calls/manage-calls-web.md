@@ -34,7 +34,7 @@ When you call a PSTN number, specify your alternate caller ID. An alternate call
 For a 1:1 call to a PSTN number, use the following code:
 ```js
 const pstnCallee = { phoneNumber: '<ACS_USER_ID>' }
-const alternateCallerId = {alternateCallerId: '<ALTERNATE_CALLER_ID>'};
+const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
 const oneToOneCall = callAgent.startCall([pstnCallee], {alternateCallerId});
 ```
 
@@ -43,7 +43,7 @@ For a 1:n call to a user and a PSTN number, use the following code:
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
 const pstnCallee = { phoneNumber: '<PHONE_NUMBER>'};
-const alternateCallerId = {alternateCallerId: '<ALTERNATE_CALLER_ID>'};
+const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
 const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCallerId});
 ```
 
@@ -75,7 +75,7 @@ const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
 
     // Get information about this Call. This API is provided as a preview for developers
     // and may change based on feedback that we receive. Do not use this API in a production environment.
-    // To use this api please use 'beta' release of ACS Calling Web SDK
+    // To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
     var callInfo = incomingCall.info;
 
     // Get information about caller
@@ -107,12 +107,26 @@ When starting/joining/accepting a call with video on, if the specified video cam
 To mute or unmute the local endpoint, you can use the `mute` and `unmute` asynchronous APIs:
 
 ```js
-//mute local device
+//mute local device (microphone / sent audio)
 await call.mute();
 
-//unmute local device
+//unmute local device (microphone / sent audio)
 await call.unmute();
 ```
+
+## Mute and unmute incoming audio
+
+Mute incoming audio sets the call volume to 0. To mute or unmute the incoming audio, you can use the `muteIncomingAudio` and `unmuteIncomingAudio` asynchronous APIs:
+
+```js
+//mute local device (speaker)
+await call.muteIncomingAudio();
+
+//unmute local device (speaker)
+await call.unmuteIncomingAudio();
+```
+
+When incoming audio is muted, the participant will still receive the call audio (remote participant's audio). The call audio will not paly in the speaker and the participant will not be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
 
 ## Manage remote participants
 
@@ -160,7 +174,7 @@ Remote participants have a set of associated properties and collections:
 
 It can be one of the following `CommunicationIdentifier` types:
 
-- `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the ACS user.
+- `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the Azure Communication Services user.
 - `{ phoneNumber: '<E.164>' }`: Object representing the phone number in E.164 format.
 - `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
 - `{ id: string }`: object representing identifier that doesn't fit any of the other identifier types
@@ -222,7 +236,7 @@ const callId: string = call.id;
 ```
 Get information about the call:
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
 ```js
 const callInfo = call.info;
 ```
@@ -278,6 +292,12 @@ Check if the current microphone is muted. It returns `Boolean`.
 
 ```js
 const muted = call.isMuted;
+```
+
+Check if the current incoming audio (speaker) is muted. It returns `Boolean`.
+
+```js
+const incomingAudioMuted = call._isIncomingAudioMuted;
 ```
 
 Find out if the screen sharing stream is being sent from a given endpoint by checking the `isScreenSharingOn` property. It returns `Boolean`.

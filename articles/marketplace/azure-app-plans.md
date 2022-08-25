@@ -1,13 +1,12 @@
 ---
 title: Create plans for an Azure application offer
-description: Create plans for an Azure application offer in Partner Center (Azure Marketplace). 
+description: Create plans for an Azure application offer in Partner Center | Azure Marketplace. 
 author: macerru
 ms.author: macerr
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 03/17/2022
 ---
 
 # Create plans for an Azure application offer
@@ -18,7 +17,7 @@ Offers sold through the Microsoft commercial marketplace must have at least one 
 
 1. Near the top of the **Plan overview** tab, select **+ Create new plan**.
 1. In the dialog box that appears, in the **Plan ID** box, enter a unique plan ID. This ID will be visible to customers in the product URL. Use up to 50 lowercase alphanumeric characters, dashes, or underscores. You cannot modify the plan ID after you select **Create**.
-1. In the **Plan name** box, enter a unique name for this plan. Customers will see this name when deciding which plan to select within your offer. Use a maximum of 50 characters.
+1. In the **Plan name** box, enter a unique name for this plan. Customers will see this name when deciding which plan to select within your offer. Use a maximum of 2,000 characters.
 1. Select **Create**.
 
 ## Define the plan setup
@@ -68,9 +67,9 @@ Select **Save draft** before continuing to the next tab: Plan listing.
 
 The **Plan listing** tab is where you configure listing details of the plan. This tab displays specific information that shows the difference between plans in the same offer. You can define the plan name, summary, and description as you want them to appear in the commercial marketplace.
 
-1. In the **Plan name** box, the name you provided earlier for this plan appears here. You can change it at any time. This name will appear in the commercial marketplace as the title of your offer's software plan and is limited to 100 characters.
+1. In the **Plan name** box, the name you provided earlier for this plan appears here. You can change it at any time. This name will appear in the commercial marketplace as the title of your offer's software plan and is limited to 200 characters.
 1. In the **Plan summary** box, provide a short summary of your plan (not the offer). This summary is limited to 100 characters.
-1. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. Don't describe the offer, just the plan. This description may contain up to 2,000 characters.
+1. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. Don't describe the offer, just the plan. This description may contain up to 3,000 characters.
 1. Select **Save draft** before continuing.
 
 ## Next steps

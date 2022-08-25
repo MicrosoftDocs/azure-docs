@@ -3,7 +3,7 @@ title: 'Tutorial: Create an Apache Kafka REST proxy enabled cluster in HDInsight
 description: Learn how to perform Apache Kafka operations using a Kafka REST proxy on Azure HDInsight.
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 02/27/2020 
+ms.date: 05/13/2022
 ms.custom: devx-track-azurecli
 ---
 
@@ -50,13 +50,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     |storageAccount|Replace STORAGEACCOUNTNAME with a name for your new storage account.|
     |httpPassword|Replace PASSWORD with a password for the cluster login, **admin**.|
     |sshPassword|Replace PASSWORD with a password for the secure shell username, **sshuser**.|
-    |securityGroupName|Replace SECURITYGROUPNAME with the client AAD security group name for Kafka Rest Proxy. The variable will be passed to the `--kafka-client-group-name` parameter for `az-hdinsight-create`.|
-    |securityGroupID|Replace SECURITYGROUPID with the client AAD security group ID for Kafka Rest Proxy. The variable will be passed to the `--kafka-client-group-id` parameter for `az-hdinsight-create`.|
+    |securityGroupName|Replace SECURITYGROUPNAME with the client AAD security group name for Kafka REST Proxy. The variable will be passed to the `--kafka-client-group-name` parameter for `az-hdinsight-create`.|
+    |securityGroupID|Replace SECURITYGROUPID with the client AAD security group ID for Kafka REST Proxy. The variable will be passed to the `--kafka-client-group-id` parameter for `az-hdinsight-create`.|
     |storageContainer|Storage container the cluster will use, leave as-is for this tutorial. This variable will be set with the name of the cluster.|
     |workernodeCount|Number of worker nodes in the cluster, leave as-is for this tutorial. To guarantee high availability, Kafka requires a minimum of 3 worker nodes|
     |clusterType|Type of HDInsight cluster, leave as-is for this tutorial.|
-    |clusterVersion|HDInsight cluster version, leave as-is for this tutorial. Kafka Rest Proxy requires a minimum cluster version of 4.0.|
-    |componentVersion|Kafka version, leave as-is for this tutorial. Kafka Rest Proxy requires a minimum component version of 2.1.|
+    |clusterVersion|HDInsight cluster version, leave as-is for this tutorial. Kafka REST Proxy requires a minimum cluster version of 4.0.|
+    |componentVersion|Kafka version, leave as-is for this tutorial. Kafka REST Proxy requires a minimum component version of 2.1.|
 
     Update the variables with desired values. Then enter the CLI commands to set the environment variables.
 
@@ -77,7 +77,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     export componentVersion=kafka=2.1
     ```
 
-1. [Create the resource group](/cli/azure/group#az_group_create) by entering the command below:
+1. [Create the resource group](/cli/azure/group#az-group-create) by entering the command below:
 
     ```azurecli
      az group create \
@@ -85,7 +85,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         --name $resourceGroupName
     ```
 
-1. [Create an Azure Storage account](/cli/azure/storage/account#az_storage_account_create) by entering the command below:
+1. [Create an Azure Storage account](/cli/azure/storage/account#az-storage-account-create) by entering the command below:
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -98,7 +98,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         --sku Standard_LRS
     ```
 
-1. [Extract the primary key](/cli/azure/storage/account/keys#az_storage_account_keys_list) from the Azure Storage account and store it in a variable by entering the command below:
+1. [Extract the primary key](/cli/azure/storage/account/keys#az-storage-account-keys-list) from the Azure Storage account and store it in a variable by entering the command below:
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -107,7 +107,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         --query [0].value -o tsv)
     ```
 
-1. [Create an Azure Storage container](/cli/azure/storage/container#az_storage_container_create) by entering the command below:
+1. [Create an Azure Storage container](/cli/azure/storage/container#az-storage-container-create) by entering the command below:
 
     ```azurecli
     az storage container create \
@@ -116,7 +116,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         --account-name $storageAccount
     ```
 
-1. [Create the HDInsight cluster](/cli/azure/hdinsight#az_hdinsight_create). Before entering the command, note the following parameters:
+1. [Create the HDInsight cluster](/cli/azure/hdinsight#az-hdinsight-create). Before entering the command, note the following parameters:
 
     1. Required parameters for Kafka clusters:
 
@@ -130,8 +130,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         |Parameter | Description|
         |---|---|
         |--kafka-management-node-size|The size of the node. This tutorial uses the value **Standard_D4_v2**.|
-        |--kafka-client-group-id|The client AAD security group ID for Kafka Rest Proxy. The value is passed from the variable **$securityGroupID**.|
-        |--kafka-client-group-name|The client AAD security group name for Kafka Rest Proxy. The value is passed from the variable **$securityGroupName**.|
+        |--kafka-client-group-id|The client AAD security group ID for Kafka REST Proxy. The value is passed from the variable **$securityGroupID**.|
+        |--kafka-client-group-name|The client AAD security group name for Kafka REST Proxy. The value is passed from the variable **$securityGroupName**.|
         |--version|The HDInsight cluster version must be at least 4.0. The value is passed from the variable **$clusterVersion**.|
         |--component-version|The Kafka version must be at least 2.1. The value is passed from the variable **$componentVersion**.|
     

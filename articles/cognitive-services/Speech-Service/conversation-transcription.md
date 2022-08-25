@@ -1,5 +1,5 @@
 ---
-title: Conversation transcription (preview) - Speech service
+title: Conversation transcription overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: You use the conversation transcription feature for meetings. It combines recognition, speaker ID, and diarization to provide transcription of any conversation.
 services: cognitive-services
@@ -7,15 +7,18 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/23/2022
 ms.author: eur
-ms.custom: ignite-fall-2021
+ms.custom: cogserv-non-critical-speech, ignite-fall-2021
 ---
 
-# What is conversation transcription (preview)?
+# What is conversation transcription?
 
 Conversation transcription is a [speech-to-text](speech-to-text.md) solution that provides real-time or asynchronous transcription of any conversation. This feature, which is currently in preview, combines speech recognition, speaker identification, and sentence attribution to determine who said what, and when, in a conversation. 
+
+> [!NOTE]
+> Multi-device conversation access is a preview feature.
 
 ## Key features
 

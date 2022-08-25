@@ -3,15 +3,15 @@ title: Set up self-service group management - Azure Active Directory | Microsoft
 description: Create and manage security groups or Microsoft 365 groups in Azure Active Directory and request security group or Microsoft 365 group memberships
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/27/2021
-ms.author: curtand
+ms.date: 08/01/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
 
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 # Set up self-service group management in Azure Active Directory 
 
-You can enable users to create and manage their own security groups or Microsoft 365 groups in Azure Active Directory (Azure AD). The owner of the group can approve or deny membership requests, and can delegate control of group membership. Self-service group management features are not available for mail-enabled security groups or distribution lists.
+You can enable users to create and manage their own security groups or Microsoft 365 groups in Azure Active Directory (Azure AD), part of Microsoft Entra. The owner of the group can approve or deny membership requests, and can delegate control of group membership. Self-service group management features are not available for mail-enabled security groups or distribution lists.
 
 ## Self-service group membership defaults
 
@@ -40,7 +40,7 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
 
 ## Make a group available for user self-service
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that's been assigned the Global Administrator or Privileged Role Administrator role for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) with an account that's been assigned the Global Administrator or Groups Administrator role for the directory.
 
 1. Select **Groups**, and then select **General** settings.
 
@@ -71,9 +71,6 @@ The group settings enable to control who can create security and Microsoft 365 g
 
 ![Azure Active Directory security groups setting change.](./media/groups-self-service-management/security-groups-setting.png)
 
-> [!NOTE]
-> The behavior of these settings recently changed. Make sure these settings are configured for your organization. For more information, see [Why were the group settings changed?](#why-were-the-group-settings-changed).
-
  The following table helps you decide which values to choose.
 
 | Setting | Value | Effect on your tenant |
@@ -88,12 +85,6 @@ Here are some additional details about these group settings.
 - These setting can take up to 15 minutes to take effect.
 - If you want to enable some, but not all, of your users to create groups, you can assign those users a role that can create groups, such as [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
 - These settings are for users and don't impact service principals. For example, if you have a service principal with permissions to create groups, even if you set these settings to **No**, the service principal will still be able to create groups. 
-
-### Why were the group settings changed?
-
-The previous implementation of the group settings were named **Users can create security groups in Azure portals** and **Users can create Microsoft 365 groups in Azure portals**. The previous settings only controlled group creation in Azure portals and did not apply to API or PowerShell. The new settings control group creation in Azure portals, as well as, API and PowerShell. The new settings are more secure.
-
-The default values for the new settings have been set to your previous API or PowerShell values. There is a possibility that the default values for the new settings are different than your previous values that controlled only the Azure portal behavior. Starting in May 2021, there was a transition period of a few weeks where you could select your preferred default value before the new settings took effect. Now that the new settings have taken effect, you are required to verify the new settings are configured for your organization.
 
 ## Next steps
 

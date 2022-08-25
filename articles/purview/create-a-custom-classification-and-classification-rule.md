@@ -1,6 +1,6 @@
 ---
 title: Create a custom classification and classification rule
-description: Learn how to create custom classifications to define data types in your data estate that are unique to your organization in Azure Purview.
+description: Learn how to create custom classifications to define data types in your data estate that are unique to your organization in Microsoft Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -8,13 +8,13 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
 ---
-# Custom classifications in Azure Purview
+# Custom classifications in Microsoft Purview
 
 This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization. It also describes the creation of custom classification rules that let you find specified data throughout your data estate.
 
 ## Default system classifications
 
-The Azure Purview Data Catalog provides a large set of default system classifications that represent typical personal data types that you might have in your data estate. For the entire list of available system classifications, see [Supported classifications in Azure Purview](supported-classifications.md).
+The Microsoft Purview Data Catalog provides a large set of default system classifications that represent typical personal data types that you might have in your data estate. For the entire list of available system classifications, see [Supported classifications in Microsoft Purview](supported-classifications.md).
 
 :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification.png" alt-text="select classification" border="true":::
 
@@ -24,7 +24,7 @@ You also have the ability to create custom classifications, if any of the defaul
 > Our [data sampling rules](sources-and-scans.md#sampling-within-a-file) are applied to both system and custom classifications.  
 
 > [!NOTE]
-> Azure Purview custom classifications are applied only to structured data sources like SQL and CosmosDB, and to structured file types like CSV, JSON, and Parquet. Custom classification isn't applied to unstructured data file types like DOC, PDF, and XLSX.
+> Microsoft Purview custom classifications are applied only to structured data sources like SQL and CosmosDB, and to structured file types like CSV, JSON, and Parquet. Custom classification isn't applied to unstructured data file types like DOC, PDF, and XLSX.
 
 ## Steps to create a custom classification
 
@@ -54,7 +54,7 @@ the following logic:
 
 - All underscores (\_) are replaced with spaces.
 
-As an example, if you named your classification **CONTOSO.HR.EMPLOYEE\_ID**, the friendly name is stored
+As an example, if you named your classification **contoso.hr.employee\_ID**, the friendly name is stored
 in the system as **Hr.Employee ID**.
 
 :::image type="content" source="media/create-a-custom-classification-and-classification-rule/contoso-hr-employee-id.png" alt-text="Contoso.hr.employee_id" border="true":::

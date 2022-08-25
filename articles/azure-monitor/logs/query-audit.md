@@ -8,7 +8,7 @@ ms.date: 10/20/2021
 
 ---
 
-# Audit queries in Azure Monitor Logs (preview)
+# Audit queries in Azure Monitor Logs
 Log query audit logs provide telemetry about log queries run in Azure Monitor. This includes information such as when a query was run, who ran it, what tool was used, the query text, and performance statistics describing the query's execution.
 
 

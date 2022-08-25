@@ -2,12 +2,12 @@
 title: Azure networking services overview
 description: Learn about networking services in Azure, including connectivity, application protection, application delivery, and network monitoring services.
 services: networking
-author: KumudD
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2022
-ms.author: kumud
+ms.author: mbender
 
 ---
 
@@ -134,6 +134,8 @@ For more information about Traffic Manager, see [What is Azure Traffic Manager?]
 ### <a name="loadbalancer"></a>Load Balancer
 The Azure Load Balancer provides high-performance, low-latency Layer 4 load-balancing for all UDP and TCP protocols. It manages inbound and outbound connections. You can configure public and internal load-balanced endpoints. You can define rules to map inbound connections to back-end pool destinations by using TCP and HTTP health-probing options to manage service availability. To learn more about Load Balancer, read the [Load Balancer overview](../../load-balancer/load-balancer-overview.md) article.
 
+Azure Load Balancer is available in Standard, Regional, and Gateway SKUs.
+
 The following picture shows an Internet-facing multi-tier application that utilizes both external and internal load balancers:
 
 :::image type="content" source="./media/networking-overview/load-balancer.png" alt-text="Azure Load Balancer example":::
@@ -152,7 +154,7 @@ This section describes networking services in Azure that help monitor your netwo
 Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information, see [What is Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 ### Azure Monitor Network Insights
-Azure Monitor for Networks provides a comprehensive view of health and metrics for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [flow logging for network security groups](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). For more information, see [Azure Monitor Network Insights](../../azure-monitor/insights/network-insights-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Azure Monitor for Networks provides a comprehensive view of health and metrics for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [flow logging for network security groups](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). For more information, see [Azure Monitor Network Insights](../../network-watcher/network-insights-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 ### <a name="expressroutemonitor"></a>ExpressRoute Monitor
 To learn about how view ExpressRoute circuit metrics, resource logs and alerts, see [ExpressRoute monitoring, metrics, and alerts](../../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json).

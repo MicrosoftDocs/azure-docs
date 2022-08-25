@@ -1,12 +1,13 @@
 ---
 title: Resource Manager templates for Azure Cosmos DB Gremlin API
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB Gremlin API. 
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Manage Azure Cosmos DB Gremlin API resources using Azure Resource Manager templates
@@ -33,16 +34,6 @@ This template will create an Azure Cosmos account for Gremlin API with a databas
 [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-gremlin-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-gremlin-autoscale/azuredeploy.json":::
-
-<a id="create-manual"></a>
-
-## Azure Cosmos DB account for Gremlin with standard provisioned throughput
-
-This template will create an Azure Cosmos account for Gremlin API with a database and graph with standard (manual) throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
-
-[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-gremlin%2Fazuredeploy.json)
-
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-gremlin/azuredeploy.json":::
 
 ## Next steps
 

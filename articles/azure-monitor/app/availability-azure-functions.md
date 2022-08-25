@@ -12,6 +12,7 @@ This article will cover how to create an Azure Function with TrackAvailability()
 
 > [!NOTE]
 > This example is designed solely to show you the mechanics of how the TrackAvailability() API call works within an Azure Function. Not how to write the underlying HTTP Test code/business logic that would be required to turn this into a fully functional availability test. By default if you walk through this example you will be creating a basic availability HTTP GET test.
+> To follow these instructions, you must use the [dedicated plan](../../azure-functions/dedicated-plan.md) to allow editing code in App Service Editor.
 
 ## Create a timer trigger function
 

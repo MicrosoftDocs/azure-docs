@@ -1,8 +1,6 @@
 ---
 title: Integrate ClearPass with Microsoft Defender for IoT
 description: In this tutorial, you will learn how to integrate Microsoft Defender for IoT with ClearPass.
-author: ElazarK
-ms.author: v-ekrieg
 ms.topic: tutorial
 ms.date: 02/07/2022
 ms.custom: template-tutorial
@@ -52,7 +50,7 @@ CPPM runs on hardware appliances with pre-installed software or as a Virtual Mac
 
 - Defender for IoT version 2.5.1 or higher.
 
-- An Azure account. If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 ## Create a ClearPass API user
 
@@ -188,7 +186,7 @@ Once the sync has started, endpoint data is populated directly into the Policy M
 
     :::image type="content" source="media/tutorial-clearpass/last-sync.png" alt-text="Screenshot of the view the time and date of your last sync.":::
 
-If Sync is not working, or shows an error, then, it’s likely you’ve missed capturing some of the information. Recheck the data recorded, additionally you can view the API calls between Defender for IoT and ClearPass from **Guest** > **Administration** > **Support** > **Application Log**.
+If Sync is not working, or shows an error, then it’s likely you’ve missed capturing some of the information. Recheck the data recorded, additionally you can view the API calls between Defender for IoT and ClearPass from **Guest** > **Administration** > **Support** > **Application Log**.
 
 Below is an example of API logs between Defender for IoT and ClearPass.
 
@@ -200,7 +198,6 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the ClearPass integration. Continue on to learn about our CyberArk.
+In this article, you learned how to get started with the ClearPass integration. Continue on to learn about our [CyberArk integration](./tutorial-cyberark.md). 
 
-> [!div class="nextstepaction"]
-> [Next steps button](./tutorial-cyberark.md)
+

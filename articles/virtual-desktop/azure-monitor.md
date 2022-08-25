@@ -26,7 +26,7 @@ Before you start using Azure Monitor for Azure Virtual Desktop, you'll need to s
 
 Anyone monitoring Azure Monitor for Azure Virtual Desktop for your environment will also need the following read-access permissions:
 
-- Read-access to the Azure subscriptions that hold your Azure Virtual Desktop resources
+- Read-access to the Azure resource groups that hold your Azure Virtual Desktop resources
 - Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts
 - Read access to the Log Analytics workspace or workspaces
 
@@ -37,7 +37,7 @@ Anyone monitoring Azure Monitor for Azure Virtual Desktop for your environment w
 
 You can open Azure Monitor for Azure Virtual Desktop with one of the following methods:
 
-- Go to [aka.ms/azmonwvdi](https://aka.ms/azmonwvdi).
+- Go to [aka.ms/avdi](https://aka.ms/avdi).
 - Search for and select **Azure Virtual Desktop** from the Azure portal, then select **Insights**.
 - Search for and select **Azure Monitor** from the Azure portal. Select **Insights Hub** under **Insights**, then select **Azure Virtual Desktop**.
 Once you have the page open, enter the **Subscription**, **Resource group**, **Host pool**, and **Time range** of the environment you want to monitor.
@@ -56,7 +56,7 @@ To start using Azure Monitor for Azure Virtual Desktop, you'll need at least one
 
 If it's your first time opening Azure Monitor for Azure Virtual Desktop, you'll need set up Azure Monitor for your Azure Virtual Desktop environment. To configure your resources:
 
-1. Open Azure Monitor for Azure Virtual Desktop in the Azure portal at [aka.ms/azmonwvdi](https://aka.ms/azmonwvdi), then select **configuration workbook**.
+1. Open Azure Monitor for Azure Virtual Desktop in the Azure portal at [aka.ms/avdi](https://aka.ms/avdi), then select **configuration workbook**.
 2. Select an environment to configure under **Subscription**, **Resource Group**, and **Host Pool**.
 
 The configuration workbook sets up your monitoring environment and lets you check the configuration after you've finished the setup process. It's important to check your configuration if items in the dashboard aren't displaying correctly, or when the product group publishes updates that require new settings.
@@ -126,7 +126,7 @@ To set the Log Analytics workspace where you want to collect session host data:
 You'll need to install the Log Analytics agent on all session hosts in the host pool and send data from those hosts to your selected Log Analytics workspace. If Log Analytics isn't configured for all the session hosts in the host pool, you'll see a **Session hosts** section at the top of **Session host data settings** with the message "Some hosts in the host pool are not sending data to the selected Log Analytics workspace."
 
 >[!NOTE]
-> If you don't see the **Session hosts** section or error message, all session hosts are set up correctly. Skip ahead to set up instructions for [Workspace performance counters](#workspace-performance-counters).
+> If you don't see the **Session hosts** section or error message, all session hosts are set up correctly. Skip ahead to set up instructions for [Workspace performance counters](#workspace-performance-counters). Currently automated deployment is limited to 1000 session hosts or fewer.
 
 To set up your remaining session hosts using the configuration workbook:
 
@@ -134,7 +134,7 @@ To set up your remaining session hosts using the configuration workbook:
 2. Refresh the configuration workbook.
 
 >[!NOTE]
->The host machine needs to be running to install the Log Analytics extension. If automatic deployment doesn't work, you can install the extension on a host manually instead. To learn how to install the extension manually, see [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
+>For larger host pools (> 1000 session hosts), or if there are deployment issues, it is recommended to install the Log Analytics agent at [time of session host creation](../virtual-machines/extensions/oms-windows.md#extension-schema) through the use of an ARM template.
 
 #### Workspace performance counters
 

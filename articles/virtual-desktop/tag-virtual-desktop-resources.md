@@ -32,7 +32,7 @@ If you delete a tag, Azure Virtual Desktop will no longer report data associated
 
 ### View all existing tags
 
-You can view all existing tags for your Azure services by going to the Azure portal, then opening [the **Tags** tab](https://ms.portal.azure.com/#blade/HubsExtension/TagsBlade). The Tags tab will show you all tags in objects you have access to. You can also sort tags by their keys or values whenever you need to quickly update a large number of tags at the same time.
+You can view all existing tags for your Azure services by going to the Azure portal, then opening [the **Tags** tab](https://portal.azure.com/#blade/HubsExtension/TagsBlade). The Tags tab will show you all tags in objects you have access to. You can also sort tags by their keys or values whenever you need to quickly update a large number of tags at the same time.
 
 ### What tags can and can't do
 
@@ -75,6 +75,10 @@ Like with the [general suggestions](#suggested-tags-for-azure-virtual-desktop), 
 - It's unlikely you'll ever get a complete cost report of every supporting Azure service working with your host pools, since configuration options are both limitless and unique to each customer. It's up to you to decide how closely you want to track costs across any Azure services associated with your Azure Virtual Desktop deployment. The more thoroughly you track these costs by tagging, the more accurate your monthly Azure Virtual Desktop cost report will become.
 
 - If you build your tagging system around your host pools, make sure to use key-value pairs that make sense to add to other Azure services later.
+
+### Use the cm-resource-parent tag to automatically group costs by host pool
+
+You can group costs by host pool by using the cm-resource-parent tag. This tag won't impact billing but will let you review tagged costs in Microsoft Cost Management without having to use filters. The key for this tag is **cm-resource-parent** and its value is the resource ID of the Azure resource you want to group costs by. For example, you can group costs by host pool by entering the host pool resource ID as the value. To learn more about how to use this tag, see [Group related resources in the cost analysis (preview)](../cost-management-billing/costs/enable-preview-features-cost-management-labs.md#group-related-resources-in-the-cost-analysis-preview).
 
 ## Suggested tags for other Azure Virtual Desktop resources
 

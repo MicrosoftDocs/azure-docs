@@ -1,8 +1,8 @@
 ---
 title: Backup and restore – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Protecting data from accidental corruption or deletion
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
@@ -10,6 +10,8 @@ ms.date: 04/14/2021
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 Azure Database for PostgreSQL – Hyperscale (Citus) automatically creates
 backups of each node and stores them in locally redundant storage. Backups can

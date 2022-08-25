@@ -1,11 +1,14 @@
 ---
 title: Azure Service Fabric Central Secret Service 
 description: This article describes how to use Central Secret Service in Azure Service Fabric
-author: amenarde
-ms.topic: conceptual 
-ms.date: 04/06/2021
-ms.author: anmenard
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Central Secret Service in Azure Service Fabric 
 Central Secret Service (CSS), also known as Central Secret Store, is a Service Fabric system service meant to safeguard secrets within a cluster. CSS eases the management of secrets for SF applications, eliminating the need to rely on encrypted parameters.
 
@@ -61,7 +64,6 @@ Formalizing the model, the following are the rules implemented and enforced in t
 - Deleting a secret resource causes the deletion of all its versions  
 - The value of a secret version is immutable
 	
-The full set of REST management APIs for secret resources can be found [here](/rest/api/servicefabric/sfclient-index-meshsecrets), and for secret versions, [here](/rest/api/servicefabric/sfclient-index-meshsecretvalues).
 
 ### Declare a secret resource
 You can create a secret resource by using the REST API.

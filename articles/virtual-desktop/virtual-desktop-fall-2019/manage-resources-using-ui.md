@@ -18,7 +18,9 @@ The instructions in this article will tell you how to deploy the UI by using an 
 
 Since the app requires consent to interact with Azure Virtual Desktop, this tool doesn't support Business-to-Business (B2B) scenarios. Each Azure Active Directory (AAD) tenant's subscription will need its own separate deployment of the management tool.
 
-This management tool is a sample. Microsoft will provide important security and quality updates. The [source code is available in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Customers and partners are encouraged to customize the tool to fit their business needs.
+This management tool is a sample. Microsoft will provide important security and quality updates. The [source code is available in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Microsoft Support is not handling issues for the management tool. If you come across any issues, follow the directions in Azure Resource Manager templates for Remote Desktop Services to report them on [GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). 
+
+Customers and partners are encouraged to customize the tool to fit their business needs.
 
 To following browsers are compatible with the management tool:
 - Google Chrome 68 or later
@@ -48,7 +50,7 @@ Follow these instructions to deploy the Azure Resource Manager template:
     - If you're deploying in a Cloud Solution Provider subscription, follow these instructions to deploy to Azure:
         1. Scroll down and right-click **Deploy to Azure**, then select **Copy Link Location**.
         2. Open a text editor like Notepad and paste the link there.
-        3. Right after <https://portal.azure.com/> and before the hashtag (#), enter an at sign (@) followed by the tenant domain name. Here's an example of the format: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
+        3. Right after `https://portal.azure.com` and before the hashtag (`#`), enter an at sign (`@`) followed by the tenant domain name. For example: `https://portal.azure.com/@Contoso.onmicrosoft.com#create/`.
         4. Sign in to the Azure portal as a user with Admin/Contributor permissions to the Cloud Solution Provider subscription.
         5. Paste the link you copied to the text editor into the address bar.
 3. When entering the parameters, do the following:

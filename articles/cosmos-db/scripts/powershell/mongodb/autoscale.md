@@ -1,12 +1,13 @@
 ---
 title: PowerShell script to create Azure Cosmos MongoDB API database and collection with autoscale
 description: Azure PowerShell script - create Azure Cosmos MongoDB API database and collection with autoscale
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/30/2020
-ms.author: mjbrown 
+ms.author: sidandrews
+ms.reviewer: mjbrown 
 ms.custom: devx-track-azurepowershell
 ---
 

@@ -7,11 +7,11 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/19/2022
 ---
 # Utterances
 
-Utterances are inputs from users that your app needs to interpret. To train LUIS to extract intents and entities from these inputs, it's important to capture a variety of different example utterances for each intent. Active learning, or the process of continuing to train on new utterances, is essential to the machine-learning intelligence that LUIS provides.
+Utterances are inputs from users that your app needs to interpret. To train LUIS to extract intents and entities from these inputs, it's important to capture various different example utterances for each intent. Active learning, or the process of continuing to train on new utterances, is essential to the machine-learning intelligence that LUIS provides.
 
 Collect utterances that you think users will enter. Include utterances, which mean the same thing but are constructed in various ways:
 
@@ -22,7 +22,7 @@ Collect utterances that you think users will enter. Include utterances, which me
 * Pluralization
 * Stemming
 * Noun and verb choice
-* [Punctuation](/azure/cognitive-services/luis/luis-reference-application-settings#punctuation-normalization) - using both correct and incorrect grammar
+* [Punctuation](../luis-reference-application-settings.md#punctuation-normalization) - using both correct and incorrect grammar
 
 ## Choose varied utterances
 
@@ -30,7 +30,7 @@ When you start  [adding example utterances](/azure/cognitive-services/luis/luis-
 
 ## Utterances aren't always well formed
 
-Your app may need to process sentences, like "Book a ticket to Paris for me", or a fragment of a sentence, like "Booking" or "Paris flight" Users also often make spelling mistakes. When planning your app, consider whether or not you want to use [Bing Spell Check](/azure/cognitive-services/luis/luis-tutorial-bing-spellcheck) to correct user input before passing it to LUIS.
+Your app may need to process sentences, like "Book a ticket to Paris for me", or a fragment of a sentence, like "Booking" or "Paris flight" Users also often make spelling mistakes. When planning your app, consider whether or not you want to use [Bing Spell Check](../luis-tutorial-bing-spellcheck.md) to correct user input before passing it to LUIS.
 
 If you do not spell check user utterances, you should train LUIS on utterances that include typos and misspellings.
 
@@ -55,7 +55,7 @@ Each intent needs to have example utterances - at least 15. If you have an inten
 
 ## Add small groups of utterances
 
-Each time you [iterate on your model](https://microsoft-my.sharepoint.com/personal/v-babdullah_microsoft_com/Documents/Documents/work/LUIS%20Documentation/Application%20Design%20concepts.docx) to improve it, don't add large quantities of utterances. Consider adding utterances in quantities of 15. Then [Train](/azure/cognitive-services/luis/luis-how-to-train), [publish](/azure/cognitive-services/luis/luis-how-to-publish-app), and [test](/azure/cognitive-services/luis/luis-interactive-test) again.
+Each time you iterate on your model to improve it, don't add large quantities of utterances. Consider adding utterances in quantities of 15. Then [Train](/azure/cognitive-services/luis/luis-how-to-train), [publish](/azure/cognitive-services/luis/luis-how-to-publish-app), and [test](/azure/cognitive-services/luis/luis-interactive-test) again.
 
 LUIS builds effective models with utterances that are carefully selected by the LUIS model author. Adding too many utterances isn't valuable because it introduces confusion.
 
@@ -75,7 +75,7 @@ If you turn on a normalization setting, scores in the  **Test**  pane, batch tes
 
 When you clone a version in the LUIS portal, the version settings are kept in the new cloned version.
 
-Set your app's version settings using the LUIS portal by selecting **Manage**  from the top navigation menu, in the  **Application Settings**  page. You can also use the [Update Version Settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). See the  [Reference](/azure/cognitive-services/luis/luis-reference-application-settings) documentation for more information.
+Set your app's version settings using the LUIS portal by selecting **Manage**  from the top navigation menu, in the  **Application Settings**  page. You can also use the [Update Version Settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). See the  [Reference](../luis-reference-application-settings.md) documentation for more information.
 
 ## Word forms
 
@@ -101,7 +101,7 @@ If punctuation has no specific meaning in your client application, consider [ign
 
 ## Ignoring words and punctuation
 
-If you want to ignore specific words or punctuation in patterns, use a [pattern](/azure/cognitive-services/luis/luis-concept-patterns#pattern-syntax) with the _ignore_ syntax of square brackets, [].
+If you want to ignore specific words or punctuation in patterns, use a [pattern](/azure/cognitive-services/luis/luis-concept-patterns#pattern-syntax) with the _ignore_ syntax of square brackets, `[]`.
 
 ## Training with all utterances
 
@@ -109,11 +109,11 @@ Training is generally non-deterministic: utterance prediction can vary slightly 
 
 ## Testing utterances
 
-Developers should start testing their LUIS application with real data by sending utterances to the [prediction endpoint](/azure/cognitive-services/luis/luis-how-to-azure-subscription) URL. These utterances are used to improve the performance of the intents and entities with [Review utterances](/azure/cognitive-services/luis/luis-how-to-review-endpoint-utterances). Tests submitted using the testing pane in the LUIS portal are not sent through the endpoint, and don't contribute to active learning.
+Developers should start testing their LUIS application with real data by sending utterances to the [prediction endpoint](../luis-how-to-azure-subscription.md) URL. These utterances are used to improve the performance of the intents and entities with [Review utterances](/azure/cognitive-services/luis/luis-how-to-review-endpoint-utterances). Tests submitted using the testing pane in the LUIS portal are not sent through the endpoint, and don't contribute to active learning.
 
 ## Review utterances
 
-After your model is trained, published, and receiving [endpoint](/azure/cognitive-services/luis/luis-glossary#endpoint) queries, [review the utterances](/azure/cognitive-services/luis/luis-how-to-review-endpoint-utterances) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity.
+After your model is trained, published, and receiving [endpoint](../luis-glossary.md#endpoint) queries, [review the utterances](/azure/cognitive-services/luis/luis-how-to-review-endpoint-utterances) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity.
 
 ## Best practices
 

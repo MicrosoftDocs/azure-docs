@@ -1,14 +1,14 @@
 ---
 title: Automatically scale Apache Spark instances
 description: Use the Azure Synapse autoscale feature to automatically scale Apache Spark Instances
-author: jasonwhowell
-ms.author: jasonh
+author: juluczni
+ms.author: juluczni
 ms.reviewer: euang
 services: synapse-analytics 
 ms.service:  synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 03/31/2020
+ms.date: 02/15/2022
 ---
 
 # Automatically scale Azure Synapse Analytics Apache Spark pools
@@ -67,7 +67,7 @@ Apache Spark enables configuration of Dynamic Allocation of Executors through co
     {
         "conf" : {
             "spark.dynamicAllocation.maxExecutors" : "6",
-            "spark.dynamicAllocation.enable": "true",
+            "spark.dynamicAllocation.enabled": "true",
             "spark.dynamicAllocation.minExecutors": "2"
      }
     }

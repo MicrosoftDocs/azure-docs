@@ -1,14 +1,16 @@
 ---
 title: Set up a public outbound IP address for ISEs
-description: Learn how to set up a single public outbound IP address for integration service environments (ISEs) in Azure Logic Apps
+description: Learn how to set up a single public outbound IP address for integration service environments (ISEs) in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
-ms.topic: conceptual
-ms.date: 05/06/2020
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/20/2022
 ---
 
 # Set up a single IP address for one or more integration service environments in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 When you work with Azure Logic Apps, you can set up an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) for hosting logic apps that need access to resources in an [Azure virtual network](../virtual-network/virtual-networks-overview.md). When you have multiple ISE instances that need access to other endpoints that have IP restrictions, deploy an [Azure Firewall](../firewall/overview.md) or a [network virtual appliance](../virtual-network/virtual-networks-overview.md#filter-network-traffic) into your virtual network and route outbound traffic through that firewall or network virtual appliance. You can then have all the ISE instances in your virtual network use a single, public, static, and predictable IP address to communicate with the destination systems that you want. That way, you don't have to set up additional firewall openings at your destination systems for each ISE.
 
@@ -92,7 +94,7 @@ This topic shows how to route outbound traffic through an Azure Firewall, but yo
    * [Azure Firewall rule processing logic](../firewall/rule-processing.md#network-rules-and-applications-rules)
    * [Azure Firewall FAQ](../firewall/firewall-faq.yml)
    * [Azure PowerShell: New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
-   * [Azure CLI: az network firewall network-rule](/cli/azure/network/firewall/network-rule#az_network_firewall_network_rule_create)
+   * [Azure CLI: az network firewall network-rule](/cli/azure/network/firewall/network-rule#az-network-firewall-network-rule-create)
 
 ## Next steps
 

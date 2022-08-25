@@ -10,6 +10,8 @@ ms.custom: ignite-fall-2021
 
 A knowledge base must be published. Once published, the knowledge base is queried at the runtime prediction endpoint using the generateAnswer API. The query includes the question text, and other settings, to help QnA Maker select the best possible match to an answer.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## How QnA Maker processes a user query to select the best answer
 
 The trained and [published](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker knowledge base receives a user query, from a bot or other client application, at the [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md). The following diagram illustrates the process when the user query is received.

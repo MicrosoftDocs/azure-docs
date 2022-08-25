@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 12/06/2021
+ms.date: 03/15/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -79,7 +79,7 @@ Complete your test drive solution by continuing to the next **Test drive** tab i
 
 Provide additional details of your listing and resources for your customers.
 
-**Description** – Describe your test drive, what will be demonstrated, features to explore, objectives for the user to experiment with, and other relevant information to help them determine if your offer is right for them (up to 3,000 characters).
+**Description** – Describe your test drive, what will be demonstrated, features to explore, objectives for the user to experiment with, and other relevant information to help them determine if your offer is right for them (up to 5,000 characters).
 
 **Access information** – Walk through a scenario for exactly what the customer needs to know to access and use the features throughout the test drive (up to 10,000 characters).
 

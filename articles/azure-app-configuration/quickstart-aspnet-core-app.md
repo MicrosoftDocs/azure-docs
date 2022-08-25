@@ -2,13 +2,13 @@
 title: Quickstart for Azure App Configuration with ASP.NET Core | Microsoft Docs
 description: Create an ASP.NET Core app with Azure App Configuration to centralize storage and management of application settings for an ASP.NET Core application.
 services: azure-app-configuration
-author: AlexandraKemperMS
+author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, contperf-fy21q1, mode-other
 ms.topic: quickstart
 ms.date: 1/3/2022
-ms.author: alkemper
+ms.author: malev
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
 ---
 # Quickstart: Create an ASP.NET Core app with Azure App Configuration
@@ -179,7 +179,7 @@ dotnet new mvc --no-https --output TestAppConfig
         ```  
 ---
 
-This code will connect to your App Configuration store using a connection string and load all keys that have the *TestApp* prefix from a previous step. For more information on the configuration provider APIs, reference the [configuration provider for App Configuration docs](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). 
+This code will connect to your App Configuration store using a connection string and load all key-values. For more information on the configuration provider APIs, reference the [configuration provider for App Configuration docs](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). 
 
 ## Read from the App Configuration store
 

@@ -17,17 +17,16 @@ You can use this library in your app server side to manage the WebSocket client 
 ![The overflow diagram shows the overflow of using the service client library.](media/sdk-reference/service-client-overflow.png)
 
 Use this library to:
+
 - Send messages to hubs and groups. 
 - Send messages to particular users and connections.
 - Organize users and connections into groups.
 - Close connections
 - Grant, revoke, and check permissions for an existing connection
 
-Details about the terms used here are described in [Key concepts](#key-concepts) section.
- 
 [Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Azure.Messaging.WebPubSub/src) |
 [Package](https://www.nuget.org/packages/Azure.Messaging.WebPubSub) |
-[API reference documentation]() |
+[API reference documentation](/dotnet/api/overview/azure/messaging.webpubsub-readme) |
 [Product documentation](./index.yml) |
 [Samples][samples_ref]
 
@@ -53,28 +52,6 @@ In order to interact with the service, you'll need to create an instance of the 
 ```C# Snippet:WebPubSubAuthenticate
 var serviceClient = new WebPubSubServiceClient(new Uri(endpoint), "some_hub", new AzureKeyCredential(key));
 ```
-
-## Key concepts
-
-### Connection
-
-A connection, also known as a client or a client connection, represents an individual WebSocket connection connected to the Web PubSub service. When successfully connected, a unique connection ID is assigned to this connection by the Web PubSub service.
-
-### Hub
-
-A hub is a logical concept for a set of client connections. Usually you use one hub for one purpose, for example, a chat hub, or a notification hub. When a client connection is created, it connects to a hub, and during its lifetime, it belongs to that hub. Different applications can share one Azure Web PubSub service by using different hub names.
-
-### Group
-
-A group is a subset of connections to the hub. You can add a client connection to a group, or remove the client connection from the group, anytime you want. For example, when a client joins a chat room, or when a client leaves the chat room, this chat room can be considered to be a group. A client can join multiple groups, and a group can contain multiple clients.
-
-### User
-
-Connections to Web PubSub can belong to one user. A user might have multiple connections, for example when a single user is connected across multiple devices or multiple browser tabs.
-
-### Message
-
-When a client is connected, it can send messages to the upstream application, or receive messages from the upstream application, through the WebSocket connection.
 
 ## Examples
 
@@ -112,12 +89,12 @@ serviceClient.SendToAll(RequestContent.Create(stream), ContentType.ApplicationOc
 ## Troubleshooting
 
 ### Setting up console logging
-You can also easily [enable console logging](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#logging) if you want to dig deeper into the requests you're making against the service.
+
+You can also [enable console logging](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#logging) if you want to dig deeper into the requests you're making against the service.
 
 ## Next steps
 
 [!INCLUDE [next step](includes/include-next-step.md)]
-
 
 [azure_sub]: https://azure.microsoft.com/free/dotnet/
 [samples_ref]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Azure.Messaging.WebPubSub/tests/Samples/

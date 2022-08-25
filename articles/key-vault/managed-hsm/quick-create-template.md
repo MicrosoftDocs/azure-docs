@@ -51,13 +51,13 @@ The Azure resource defined in the template:
 
 More Azure Key Vault template samples can be found [here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
-The template requires the object ID associated with your account. To find it, use the Azure CLI [az ad user show](/cli/azure/ad/user#az_ad_user_show) command, passing your email address to the `--id` parameter. You can limit the output to the object ID only with the `--query` parameter.
+The template requires the object ID associated with your account. To find it, use the Azure CLI [az ad user show](/cli/azure/ad/user#az-ad-user-show) command, passing your email address to the `--id` parameter. You can limit the output to the object ID only with the `--query` parameter.
 
 ```azurecli-interactive
 az ad user show --id <your-email-address> --query "objectId"
 ```
 
-You may also need your tenant ID. To find it, use the Azure CLI [az ad user show](/cli/azure/account#az_account_show) command. You can limit the output to the tenant ID only with the `--query` parameter.
+You may also need your tenant ID. To find it, use the Azure CLI [az ad user show](/cli/azure/account#az-account-show) command. You can limit the output to the tenant ID only with the `--query` parameter.
 
  ```azurecli-interactive
  az account show --query "tenantId"
@@ -73,7 +73,7 @@ You may also need your tenant ID. To find it, use the Azure CLI [az ad user show
 
     - **Subscription**: Select an Azure subscription.
     - **Resource group**: Select **Create new**, enter a unique name for the resource group, and then select **OK**.
-    - **Location**: Select a location. For example, **West US 2**.
+    - **Location**: Select a location. For example, **West US 3**.
     - **managedHSMName**: Enter a name for your Managed HSM.
     - **Tenant ID**: The template function automatically retrieves your tenant ID; don't change the default value.  If there is no value, enter the Tenant ID that you retrieved in [Prerequisites](#prerequisites).
     * **initialAdminObjectIds**: Enter the Object ID that you retrieved in [Prerequisites](#prerequisites).

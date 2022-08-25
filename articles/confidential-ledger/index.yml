@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Confidential Ledger 
-summary: Learn how to use Azure Confidential Ledger 
+title: Azure confidential ledger 
+summary: Learn how to use Azure confidential ledger 
 metadata:
-  title: Azure Confidential Ledger documentation
-  description: Learn how to use Azure Confidential Ledger 
+  title: Azure confidential ledger documentation
+  description: Learn how to use Azure confidential ledger 
   services: confidential-ledger
   ms.service: confidential-ledger
   ms.topic: landing-page # Required
@@ -30,6 +30,10 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
+          - text: Azure portal quickstart
+            url: quickstart-portal.md
+          - text: CLI quickstart
+            url: quickstart-cli.md
           - text: Python quickstart
             url: quickstart-python.md
           - text: ARM template quickstart
@@ -42,7 +46,7 @@ landingContent:
         links:
           - text: Architecture
             url: architecture.md
-          - text: Authenticating Ledger nodes
+          - text: Authenticating ledger nodes
             url: authenticate-ledger-nodes.md
 
   # Card
@@ -50,12 +54,10 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Authenticating Ledger nodes
+          - text: Authenticating ledger nodes
             url: authenticate-ledger-nodes.md
           - text: Create a client certificate
             url: create-client-certificate.md
-          - text: Register a Ledger service principal
-            url: register-ledger-service-principal.md
           - text: Register the Azure confidential ledger resource provider
             url: register-ledger-resource-provider.md
   # Card
@@ -64,6 +66,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Frequently asked questions
-            url: faq.md  
+            url: faq.yml
 
 

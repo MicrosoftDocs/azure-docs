@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Atlassian Cloud | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Atlassian Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and Atlassian Cloud.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/29/2021
+ms.date: 02/07/2022
 ms.author: jeedes
 ---
 # Tutorial: Integrate Atlassian Cloud with Azure Active Directory
@@ -49,6 +49,8 @@ To configure the integration of Atlassian Cloud into Azure AD, you need to add A
 1. In the **Add from the gallery** section, type **Atlassian Cloud** in the search box.
 1. Select **Atlassian Cloud** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](https://docs.microsoft.com/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide).
+
 ## Configure and test Azure AD SSO
 
 Configure and test Azure AD SSO with Atlassian Cloud using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Atlassian Cloud.
@@ -77,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Before you start go to your Atlassian product instance and copy/save the Instance URL.
    > [!NOTE]
-   > URL should fit `https://<INSTANCE>.atlassian.com` pattern.
+   > URL should fit `https://<INSTANCE>.atlassian.net` pattern.
 
    ![Instance Name](./media/atlassian-cloud-tutorial/instance.png)
 

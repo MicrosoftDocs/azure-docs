@@ -237,6 +237,17 @@ If you can't retrieve your subscriptions after you successfully sign in, try the
 - Try removing and re-adding the account.
 - If there's a "More information" or "Error details" link, check which error messages are being reported for the tenants that are failing. If you aren't sure how to respond to the error messages, [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
+## Problem interacting with your OS credential store during an AzCopy transfer
+
+If you see this message on Windows, most likely the Windows Credential Manager is full. To make room in the Windows Credential Manager
+
+1. Close Storage Explorer
+1. On the **Start** menu, search for **Credential Manager** and open it.
+1. Go to **Windows Credentials**.
+1. Under **Generic Credentials**, look for entries associated with programs you no longer use and delete them. You can also look for entries like `azcopy/aadtoken/<some number>` and delete those.
+
+If the message continues to appear after completing the above steps, or if you encounter this message on platforms other than Windows, then please [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+
 ## Can't remove an attached storage account or resource
 
 If you can't remove an attached account or storage resource through the UI, you can manually delete all attached resources by deleting the following folders:
@@ -406,52 +417,26 @@ Storage Explorer as provided in the *.tar.gz* download is supported for the foll
 - Ubuntu 18.04 x64
 - Ubuntu 16.04 x64
 
-Storage Explorer requires .NET Core 3.1 to be installed on your system.
+Storage Explorer requires the .NET 6 runtime to be installed on your system. The ASP.NET runtime is **not** required.
 
 > [!NOTE]
-> Storage Explorer versions 1.8.0 through 1.20.1 require .NET Core 2.1. Storage Explorer version 1.7.0 and earlier require .NET Core 2.0.
+> Older versions of Storage Explorer may require a different version of .NET or .NET Core. Refer to release notes or in app error messages to help determine the required version.
+
+### [Ubuntu 22.04](#tab/2204)
+
+1. Download the Storage Explorer *.tar.gz* file.
+1. Install the [.NET 6 runtime](/dotnet/core/install/linux-ubuntu)
+
 
 ### [Ubuntu 20.04](#tab/2004)
 
 1. Download the Storage Explorer *.tar.gz* file.
-1. Install the [.NET Core Runtime](/dotnet/core/install/linux):
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     sudo dpkg -i packages-microsoft-prod.deb; \
-     sudo apt-get update; \
-     sudo apt-get install -y apt-transport-https && \
-     sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-3.1
-   ```
+1. Install the [.NET 6 runtime](/dotnet/core/install/linux-ubuntu)
 
 ### [Ubuntu 18.04](#tab/1804)
 
 1. Download the Storage Explorer *.tar.gz* file.
-1. Install the [.NET Core Runtime](/dotnet/core/install/linux):
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     sudo dpkg -i packages-microsoft-prod.deb; \
-     sudo apt-get update; \
-     sudo apt-get install -y apt-transport-https && \
-     sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-3.1
-   ```
-
-### [Ubuntu 16.04](#tab/1604)
-
-1. Download the Storage Explorer *.tar.gz* file.
-1. Install the [.NET Core Runtime](/dotnet/core/install/linux):
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     sudo dpkg -i packages-microsoft-prod.deb; \
-     sudo apt-get update; \
-     sudo apt-get install -y apt-transport-https && \
-     sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-3.1
-   ```
+1. Install the [.NET 6 runtime](/dotnet/core/install/linux-ubuntu)
 
 ---
 
@@ -460,7 +445,7 @@ Many libraries needed by Storage Explorer come preinstalled with Canonical's sta
 - iproute2
 - libasound2
 - libatm1
-- libgconf2-4
+- libgconf-2-4
 - libnspr4
 - libnss3
 - libpulse0
@@ -595,7 +580,7 @@ For some issues, you'll need to provide logs of the network calls made by Storag
 
 If none of these solutions work for you, you can:
 
-- Create a support ticket.
+- [Create a support ticket](https://aka.ms/storageexplorer/servicerequest).
 - [Open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues) by selecting the **Report issue to GitHub** button in the lower-left corner.
 
 ![Feedback](./media/storage-explorer-troubleshooting/feedback-button.PNG)

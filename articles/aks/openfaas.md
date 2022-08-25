@@ -87,7 +87,6 @@ alertmanager-config  1     20s
 NOTES:
 To verify that openfaas has started, run:
 
-```console
 kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 
@@ -105,7 +104,7 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-To test the OpenFaaS system, browse to the external IP address on port 8080, `http://52.186.64.52:8080` in this example. You will be prompted to log in. To fetch your password, enter `echo $PASSWORD`.
+To test the OpenFaaS system, browse to the external IP address on port 8080, `http://52.186.64.52:8080` in this example. You will be prompted to log in. The default user is `admin` and your password can be retrieved by using `echo $PASSWORD`.
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
@@ -243,7 +242,7 @@ You can also test the function within the OpenFaaS UI.
 
 ## Next Steps
 
-You can continue to learn with the OpenFaaS workshop through a set of hands-on labs that cover topics such as how to create your own GitHub bot, consuming secrets, viewing metrics, and auto-scaling.
+You can continue to learn with the [OpenFaaS workshop](https://github.com/openfaas/workshop) through a set of hands-on labs that cover topics such as how to create your own GitHub bot, consuming secrets, viewing metrics, and auto-scaling.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

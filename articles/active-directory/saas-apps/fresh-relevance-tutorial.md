@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Fresh Relevance | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Fresh Relevance'
 description: Learn how to configure single sign-on between Azure Active Directory and Fresh Relevance.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 05/23/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Fresh Relevance
+# Tutorial: Azure AD SSO integration with Fresh Relevance
 
 In this tutorial, you'll learn how to integrate Fresh Relevance with Azure Active Directory (Azure AD). When you integrate Fresh Relevance with Azure AD, you can:
 
@@ -119,7 +119,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Fresh Relevance SSO
 
-1. Log in to your Fresh Relevance company site as an administrator.
+1. To automate the configuration within Fresh Relevance, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Set up Fresh Relevance** will direct you to the Fresh Relevance application. From there, provide the admin credentials to sign into Fresh Relevance. The browser extension will automatically configure the application for you and automate steps 3-10.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup Fresh Relevance manually, in a different web browser window, sign in to your Fresh Relevance company site as an administrator.
 
 1. Go to **Settings** > **All Settings** > **Security and Privacy** and click **SAML/Azure AD Single Sign-On**.
 

@@ -6,7 +6,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/28/2021
+ms.date: 06/15/2022
 ms.topic: how-to
 
 ---
@@ -39,12 +39,6 @@ To create an Azure IoT Central application, select **Build** in the left menu. C
 
 ![Create Application Page for CSPs Billing Info](media/howto-create-and-manage-applications-csp/image4-2.png)
 
-## Pricing plan
-
-You can only create applications that use a standard pricing plan as a CSP. To showcase Azure IoT Central to your customer, you can create an application that uses the free pricing plan separately. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
-
-You can only create applications that use a standard pricing plan as a CSP. To showcase Azure IoT Central to your customer, you can create an application that uses the free pricing plan separately. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
-
 ## Application name
 
 The name of your application is displayed on the **Application Manager** page and within each Azure IoT Central application. You can choose any name for your Azure IoT Central application. Choose a name that makes sense to you and to others in your organization.
@@ -73,7 +67,7 @@ To learn more, see [Azure subscriptions](../../guides/developer/azure-developer-
 
 ## Location
 
-**Location** is where you'd like to create the application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Currently, you can create an IoT Central application in the **Australia East**, **Central US**, **East US**, **East US 2**, **Japan East**, **North Europe**, **Southeast Asia**, **UK South**, **West Europe** and **West US** regions. Once you choose a location, you can't later move your application to a different location.
+**Location** is where you'd like to create the application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Currently, you can create an IoT Central application in the **Australia East**, **Canada Central**, **Central US**, **East US**, **East US 2**, **Japan East**, **North Europe**, **South Central US**, **Southeast Asia**, **UK South**, **West Europe**, and **West US** regions. Once you choose a location, you can't later move your application to a different location.
 
 ## Application template
 

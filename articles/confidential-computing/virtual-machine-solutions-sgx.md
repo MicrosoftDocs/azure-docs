@@ -1,13 +1,13 @@
 ---
 title: Deploy Intel SGX virtual machines
 description: Learn about using Intel SGX virtual machines (VMs) in Azure confidential computing.
-author: stempesta
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 12/20/2021
-ms.author: stempesta
+ms.author: mamccrea
 ms.custom: ignite-fall-2021
 ---
 
@@ -63,10 +63,6 @@ To provide Intel SGX support on confidential compute instances, all deployments 
 **DCsv2-series** VMs support Standard SSD and Premium SSD, except for **DC8_v2**.
 
 **DCsv3** and **DCdsv3-series** VMs support Standard SSD, Premium SSD, and Ultra Disk.
-
-### Disk encryption 
-
-Confidential compute instances don't support disk encryption at this time. 
 
 ## High availability and disaster recovery considerations
 

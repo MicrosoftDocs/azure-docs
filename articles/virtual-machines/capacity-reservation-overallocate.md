@@ -1,5 +1,5 @@
 ---
-title: Overallocating Capacity Reservation in Azure (preview)
+title: Overallocating Capacity Reservation in Azure
 description: Learn how overallocation works when it comes to Capacity Reservation.
 author: bdeforeest
 ms.author: bidefore
@@ -10,19 +10,15 @@ ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
 ---
 
-# Overallocating Capacity Reservation (preview)
+# Overallocating Capacity Reservation
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale set :heavy_check_mark: Flexible scale sets
 
 Azure permits association of extra VMs beyond the reserved count of a Capacity Reservation to facilitate burst and other scale-out scenarios, without the overhead of managing around the limits of reserved capacity. The only difference is that the count of VMs beyond the quantity reserved does not receive the capacity availability SLA benefit. As long as Azure has available capacity that meets the virtual machine requirements, the extra allocations will succeed. 
 
 The Instance View of a Capacity Reservation group provides a snapshot of usage for each member Capacity Reservation. You can use the Instance View to see how overallocation works. 
 
 This article assumes you have created a Capacity Reservation group (`myCapacityReservationGroup`), a member Capacity Reservation (`myCapacityReservation`), and a virtual machine (*myVM1*) that is associated to the group. Go to [Create a Capacity Reservation](capacity-reservation-create.md) and [Associate a VM to a Capacity Reservation](capacity-reservation-associate-vm.md) for more details.
-
-> [!IMPORTANT]
-> Capacity Reservation is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-
 
 ## Instance View for Capacity Reservation group 
 
@@ -132,7 +128,7 @@ The Instance View for the Capacity Reservation group will now look like this:
 Notice that the length of `virtualMachinesAllocated` (2) is greater than `capacity` (1). This valid state is referred to as *overallocated*. 
 
 > [!IMPORTANT]
-> Azure will not stop allocations just because a Capacity Reservation is fully consumed. Auto-scale rules, temporary scale-out, and related requirements will work beyond the quantity of reserved capacity as long as Azure has available capacity.  
+> Azure will not stop allocations just because a Capacity Reservation is fully consumed. Auto-scale rules, temporary scale-out, and related requirements will work beyond the quantity of reserved capacity as long as Azure has available capacity and other constraints such as available quota are met.  
 
 
 ## States and considerations  

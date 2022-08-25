@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 To view existing scans, do the following:
 
-1. Go to the [Azure Purview Studio](https://web.purview.azure.com/resource/). Select the **Data Map** tab under the left pane.
+1. Go to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). Select the **Data Map** tab under the left pane.
 
 1. Select the desired data source. You will see a list of existing scans on that data source under **Recent scans**, or can view all scans under the **Scans** tab.
 
@@ -24,7 +24,7 @@ To view existing scans, do the following:
 
 To manage or delete a scan, do the following:
 
-1. Go to the [Azure Purview Studio](https://web.purview.azure.com/resource/). Select the **Data Map** tab under the left pane.
+1. Go to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). Select the **Data Map** tab under the left pane.
 
 1. Select the desired data source. You will see a list of existing scans on that data source under **Recent scans**, or can view all scans under the **Scans** tab.
 
@@ -36,4 +36,4 @@ To manage or delete a scan, do the following:
 
 > [!NOTE]
 > * Deleting your scan does not delete catalog assets created from previous scans.
-> * The asset will no longer be updated with schema changes if your source table has changed and you re-scan the source table after editing the description in the schema tab of Azure Purview.
+> * The asset will no longer be updated with schema changes if your source table has changed and you re-scan the source table after editing the description in the schema tab of Microsoft Purview.

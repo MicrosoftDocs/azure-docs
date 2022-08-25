@@ -1,15 +1,14 @@
 ---
 title: Create and use views in serverless SQL pool
 description: In this section, you'll learn how to create and use views to wrap serverless SQL pool queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with serverless SQL pool.
-services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: sngun
-ms.custom: ignite-fall-2021
+ms.reviewer: sngun, wiassaf
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Create and use views using serverless SQL pool in Azure Synapse Analytics
@@ -145,9 +144,9 @@ from openrowset(
 
 The `OPENJSON` function parses each line from the JSONL file containing one JSON document per line in textual format.
 
-## CosmosDB view
+## <a id="cosmosdb-view"></a> Cosmos DB views on containers
 
-The views can be created on top of the Azure CosmosDB containers if the CosmosDB analytical storage is enabled on the container. CosmosDB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
+The views can be created on top of the Azure Cosmos DB containers if the Cosmos DB analytical storage is enabled on the container. Cosmos DB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
@@ -163,7 +162,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-Find more details about [querying CosmosDB containers using Synapse Link here](query-cosmos-db-analytical-store.md).
+For more information, see [Query Azure Cosmos DB data with a serverless SQL pool in Azure Synapse Link](query-cosmos-db-analytical-store.md).
 
 ## Use a view
 

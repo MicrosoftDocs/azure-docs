@@ -22,22 +22,6 @@ You can use this feature instead of a time-delayed redo on the standby database.
  
 The Oracle Database keeps flashback logs in the fast recovery area (FRA). These logs are separate from the redo logs and require more space within the FRA. By default, 24 hours of flashback logs are kept, but you can change this setting per your requirements.
 
-## Oracle Real Application Clusters
-
-[Oracle Real Application Clusters (RAC)](https://docs.oracle.com/en/database/oracle/oracle-database/19/racad/introduction-to-oracle-rac.html#GUID-5A1B02A2-A327-42DD-A1AD-20610B2A9D92) allows multiple interconnected servers to appear as one database service to end users and applications. This feature removes many points of failure and is a recognized high availability active/active solution for Oracle databases.
-
-As shown in the following figure from Oracle's [High Availability Overview and Best Practices](https://docs.oracle.com/en/database/oracle/oracle-database/19/haovw/ha-features.html), a single RAC database is presented to the application layer. The applications connect to the SCAN listener, which directs traffic to a specific database instance. RAC controls access from multiple instances to maintain data consistency across separate compute nodes.
-
-![Diagram showing an overview of the architecture of Oracle RAC.](media/oracle-high-availability/oracle-real-application-clusters.png)
-
-If one instance fails, the service continues on all other remaining instances. Each database deployed on the solution will be in a RAC configuration of n+1, where n is the minimum processing power required to support the service.
-
-Oracle Database services are used to allow connections to fail over between nodes when an instance fails transparently. Such failures may be planned or unplanned. Working with Oracle RAC Fast Application Notification, when an instance is made unavailable, the service is moved to a surviving node. The service moves to a node specified in the service configuration as either preferred or available.
-
-Another key feature of Oracle Database services is only starting a service depending on its role. This feature is used when there's a Data Guard failover. All patterns deployed using Data Guard are required to link a database service to a Data Guard role.
-
-For example, two services could be created, MY\_DB\_APP and MY\_DB\_AS. The MY\_DB\_APP service is started only when the database instance is started with the Data Guard role of PRIMARY. MY\_DB\_AS is only started when the Data Guard role is PHYSICAL\_STANDBY. This configuration allows for applications to point to the \_APP service, while also reporting, which can be offloaded to Active Standby and pointed to the \_AS service.
-
 ## Oracle Data Guard
 
 With Data Guard, you can maintain a copy of a database on separate physical hardware. Ideally, that hardware should be geographically removed from the primary database. Data Guard places no limit on the distance, although distance has a bearing on modes of protection. Increased distance adds latency between sites, which can cause some options (such as synchronous replication) to become untenable.

@@ -1,15 +1,17 @@
 ---
 title: Modify distributed tables - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: SQL commands to create and modify distributed tables - Hyperscale (Citus) using the Azure portal
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 8/10/2020
+ms.date: 08/02/2022
 ---
 
 # Distribute and modify tables
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 ## Distributing tables
 
@@ -41,12 +43,10 @@ SELECT create_distributed_table('github_events', 'repo_id');
 ```
 
 The function call informs Hyperscale (Citus) that the github\_events table
-should be distributed on the repo\_id column (by hashing the column value). The
-function also creates shards on the worker nodes using the citus.shard\_count
-and citus.shard\_replication\_factor configuration values.
+should be distributed on the repo\_id column (by hashing the column value).
 
-It creates a total of citus.shard\_count number of shards, where each shard
-owns a portion of a hash space and gets replicated based on the default
+It creates a total of 32 shards by default, where each shard owns a portion of
+a hash space and gets replicated based on the default
 citus.shard\_replication\_factor configuration value. The shard replicas
 created on the worker have the same table schema, index, and constraint
 definitions as the table on the coordinator. Once the replicas are created, the
@@ -109,13 +109,6 @@ In addition to distributing a table as a single replicated shard, the
 commits ([2PC](https://en.wikipedia.org/wiki/Two-phase_commit_protocol)) for
 modifications to tables marked this way, which provides strong consistency
 guarantees.
-
-If you have a distributed table with a shard count of one, you can upgrade it
-to be a recognized reference table like this:
-
-```postgresql
-SELECT upgrade_to_reference_table('table_name');
-```
 
 For another example of using reference tables, see the [multi-tenant database
 tutorial](tutorial-design-database-multi-tenant.md).
@@ -245,8 +238,6 @@ Attempting to run DDL that is ineligible for automatic propagation will raise
 an error and leave tables on the coordinator node unchanged.
 
 Here is a reference of the categories of DDL statements that propagate.
-Automatic propagation can be enabled or disabled with a [configuration
-parameter](reference-parameters.md#citusenable_ddl_propagation-boolean)
 
 ### Adding/Modifying Columns
 
@@ -461,3 +452,68 @@ method is useful for adding new indexes in a production environment.
 
 CREATE INDEX CONCURRENTLY clicked_at_idx ON clicks USING BRIN (clicked_at);
 ```
+### Types and Functions
+
+Creating custom SQL types and user-defined functions propogates to worker
+nodes. However, creating such database objects in a transaction with
+distributed operations involves tradeoffs.
+
+Hyperscale (Citus) parallelizes operations such as `create_distributed_table()`
+across shards using multiple connections per worker. Whereas, when creating a
+database object, Citus propagates it to worker nodes using a single connection
+per worker. Combining the two operations in a single transaction may cause
+issues, because the parallel connections will not be able to see the object
+that was created over a single connection but not yet committed.
+
+Consider a transaction block that creates a type, a table, loads data, and
+distributes the table:
+
+```postgresql
+BEGIN;
+
+-- type creation over a single connection:
+CREATE TYPE coordinates AS (x int, y int);
+CREATE TABLE positions (object_id text primary key, position coordinates);
+
+-- data loading thus goes over a single connection:
+SELECT create_distributed_table(‘positions’, ‘object_id’);
+\COPY positions FROM ‘positions.csv’
+
+COMMIT;
+```
+
+Prior to Citus 11.0, Citus would defer creating the type on the worker nodes,
+and commit it separately when creating the distributed table. This enabled the
+data copying in `create_distributed_table()` to happen in parallel. However, it
+also meant that the type was not always present on the Citus worker nodes – or
+if the transaction rolled back, the type would remain on the worker nodes.
+
+With Citus 11.0, the default behaviour changes to prioritize schema consistency
+between coordinator and worker nodes. The new behavior has a downside: if
+object propagation happens after a parallel command in the same transaction,
+then the transaction can no longer be completed, as highlighted by the ERROR in
+the code block below:
+
+```postgresql
+BEGIN;
+CREATE TABLE items (key text, value text);
+-- parallel data loading:
+SELECT create_distributed_table(‘items’, ‘key’);
+\COPY items FROM ‘items.csv’
+CREATE TYPE coordinates AS (x int, y int);
+
+ERROR:  cannot run type command because there was a parallel operation on a distributed table in the transaction
+```
+
+If you run into this issue, there are two simple workarounds:
+
+1. Use set `citus.create_object_propagation` to `automatic` to defer creation
+   of the type in this situation, in which case there may be some inconsistency
+   between which database objects exist on different nodes.
+1. Use set `citus.multi_shard_modify_mode` to `sequential` to disable per-node
+   parallelism. Data load in the same transaction might be slower.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Useful diagnostic queries](howto-useful-diagnostic-queries.md)

@@ -1,12 +1,13 @@
 ---
 title: DateTimeDiff in Azure Cosmos DB query language
 description: Learn about SQL system function DateTimeDiff in Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.custom: query-reference
 ---
 # DateTimeDiff (Azure Cosmos DB)

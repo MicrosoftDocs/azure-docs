@@ -291,8 +291,6 @@ Name       : Default
 ObjectType : AzureRetentionRule
 ```
 
-## Trigger an on-demand backup
-
 To trigger an on-demand backup, use the [Backup-AzDataProtectionBackupInstanceAdhoc](/powershell/module/az.dataprotection/backup-azdataprotectionbackupinstanceadhoc?view=azps-5.7.0&preserve-view=true) command.
 
 ```azurepowershell-interactive

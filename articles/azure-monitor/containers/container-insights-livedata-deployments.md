@@ -4,6 +4,7 @@ description: This article describes the real-time view of Kubernetes Deployments
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
+ms.reviewer: aul
 ---
 
 # How to view Deployments (preview) in real-time

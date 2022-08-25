@@ -9,3 +9,6 @@
     - name: Arc-enabled servers
       tocHref: /azure/defender-for-cloud
       topicHref: /azure/azure-arc/servers
+  - name: Azure Arc
+    tocHref: /windows-server/manage/windows-admin-center/azure
+    topicHref: /azure/azure-arc/servers

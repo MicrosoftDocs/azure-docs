@@ -4,7 +4,7 @@ titleSufix: Azure Cosmos DB
 description: This article describes how to read data from Cassandra API tables in Azure Cosmos DB.
 author: TheovanKraay
 ms.author: thvankra
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
@@ -19,6 +19,37 @@ ms.custom: seodec18
  This article describes how to read data stored in Azure Cosmos DB Cassandra API from Spark.
 
 ## Cassandra API configuration
+Set below spark configuration in your notebook cluster. It's one time activity.
+```scala
+//Connection-related
+ spark.cassandra.connection.host  YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com  
+ spark.cassandra.connection.port  10350  
+ spark.cassandra.connection.ssl.enabled  true  
+ spark.cassandra.auth.username  YOUR_ACCOUNT_NAME  
+ spark.cassandra.auth.password  YOUR_ACCOUNT_KEY  
+// if using Spark 2.x
+// spark.cassandra.connection.factory  com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory  
+
+//Throughput-related...adjust as needed
+ spark.cassandra.output.batch.size.rows  1  
+// spark.cassandra.connection.connections_per_executor_max  10   // Spark 2.x
+ spark.cassandra.connection.remoteConnectionsPerExecutor  10   // Spark 3.x
+ spark.cassandra.output.concurrent.writes  1000  
+ spark.cassandra.concurrent.reads  512  
+ spark.cassandra.output.batch.grouping.buffer.size  1000  
+ spark.cassandra.connection.keep_alive_ms  600000000  
+```
+
+> [!NOTE]
+> If you are using Spark 3.x, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
+
+> [!WARNING]
+> The Spark 3 samples shown in this article have been tested with Spark **version 3.2.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.2.0**. Later versions of Spark and/or the Cassandra connector may not function as expected.
+
+## Dataframe API
+
+### Read table using session.read.format command
+
 ```scala
 import org.apache.spark.sql.cassandra._
 //Spark connector
@@ -28,33 +59,6 @@ import com.datastax.spark.connector.cql.CassandraConnector
 //if using Spark 2.x, CosmosDB library for multiple retry
 //import com.microsoft.azure.cosmosdb.cassandra
 
-//Connection-related
-spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
-spark.conf.set("spark.cassandra.connection.port","10350")
-spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
-spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
-spark.conf.set("spark.cassandra.auth.password","YOUR_ACCOUNT_KEY")
-// if using Spark 2.x
-// spark.conf.set("spark.cassandra.connection.factory", "com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory")
-
-//Throughput-related...adjust as needed
-spark.conf.set("spark.cassandra.output.batch.size.rows", "1")
-//spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10") // Spark 2.x
-spark.conf.set("spark.cassandra.connection.remoteConnectionsPerExecutor", "10") // Spark 3.x
-spark.conf.set("spark.cassandra.output.concurrent.writes", "1000")
-spark.conf.set("spark.cassandra.concurrent.reads", "512")
-spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
-spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
-```
-
-> [!NOTE]
-> If you are using Spark 3.0 or higher, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector(see above). You will see that connection related properties are defined within the notebook above. Using the syntax below, connection properties can be defined in this manner without needing to be defined at the cluster level (Spark context initialization).
-
-## Dataframe API
-
-### Read table using session.read.format command
-
-```scala
 val readBooksDF = sqlContext
   .read
   .format("org.apache.spark.sql.cassandra")

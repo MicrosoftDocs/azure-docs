@@ -87,4 +87,4 @@ landingContent:
           - text: Vision Services
             url: https://azure.microsoft.com/services/cognitive-services/directory/vision/
           - text: Speech Services
-            url: https://docs.microsoft.com/azure/cognitive-services/speech-service/
+            url: ../cognitive-services/speech-service/index.yml

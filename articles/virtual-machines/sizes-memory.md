@@ -3,17 +3,16 @@ title: Azure VM sizes - Memory | Microsoft Docs
 description: Lists the different memory optimized sizes available for virtual machines in Azure. Lists information about the number of vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines
 documentationcenter: ''
-author: brbell
+author: priyashan-19
+ms.author: priyashan
 tags: azure-resource-manager,azure-service-management
 keywords: VM isolation,isolated VM,isolation,isolated
-
 ms.assetid: 
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/20/2021
-ms.author: brbell
+ms.date: 04/04/2022
 
 ---
 
@@ -31,6 +30,8 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that is great for rel
     Dv2 and DSv2-series are ideal for applications that demand faster vCPUs, better temporary storage performance, or have higher memory demands. They offer a powerful combination for many enterprise-grade applications.
 
 - The [Eav4 and Easv4-series](eav4-easv4-series.md) utilize AMD's 2.35Ghz EPYC<sup>TM</sup> 7452 processor in a multi-threaded configuration with up to 256MB L3 cache, increasing options for running most memory optimized workloads. The Eav4-series and Easv4-series have the same memory and disk configurations as the Ev3 & Esv3-series.
+
+- The [Ebsv5 and Ebdsv5 series](ebdsv5-ebsv5-series.md) deliver higher remote storage performance in each VM size than the Ev4 series. The increased remote storage performance of the Ebsv5 and Ebdsv5 VMs is ideal for storage throughput-intensive workloads, such as relational databases and data analytics applications. 
 
 - The [Ev3 and Esv3-series](ev3-esv3-series.md) Intel&reg; Xeon&reg; 8171M 2.1 GHz (Skylake) or the Intel&reg; Xeon&reg; E5-2673 v4 2.3 GHz (Broadwell)  processor in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads, and bringing the Ev3 into alignment with the general purpose VMs of most other clouds. Memory has been expanded (from 7 GiB/vCPU to 8 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyper-threading. The Ev3 is the follow up to the high memory VM sizes of the D/Dv2 families.
 

@@ -73,6 +73,8 @@ landingContent:
             url: service-bus-dotnet-get-started-with-queues.md
           - text: Java
             url: service-bus-java-how-to-use-queues.md
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
           - text: Node.js
             url: service-bus-nodejs-how-to-use-queues.md
           - text: Python
@@ -88,6 +90,8 @@ landingContent:
             url: service-bus-dotnet-how-to-use-topics-subscriptions.md
           - text: Java
             url: service-bus-java-how-to-use-topics-subscriptions.md
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
           - text: Node.js
             url: service-bus-nodejs-how-to-use-topics-subscriptions.md
           - text: Python
@@ -138,3 +142,5 @@ landingContent:
             url: service-bus-managed-service-identity.md            
           - text: Authenticate an application with Azure Active Directory
             url: authenticate-application.md
+          - text: Enforce minimum required TLS version
+            url: transport-layer-security-enforce-minimum-version.md

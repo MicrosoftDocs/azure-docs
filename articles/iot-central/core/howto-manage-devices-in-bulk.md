@@ -5,13 +5,15 @@ ms.service: iot-central
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/22/2022
 ms.topic: how-to
 ---
 
 # Manage devices in bulk in your Azure IoT Central application
 
 You can use Azure IoT Central to manage your connected devices at scale through jobs. Jobs let you do bulk updates to device and cloud properties and run commands. You can also use CSV files to import and export devices in bulk. This article shows you how to get started with using jobs in your own application and how to use the import and export features.
+
+To learn how to manage jobs by using the IoT Central REST API, see [How to use the IoT Central REST API to manage devices.](../core/howto-manage-jobs-with-rest-api.md)
 
 ## Create and run a job
 
@@ -27,9 +29,9 @@ The following example shows you how to create and run a job to set the light thr
 
 1. Select the target device group that you want your job to apply to. If your application uses organizations, the selected organization determines the available device groups. You can see how many devices your job configuration applies to below your **Device group** selection.
 
-1. Choose **Cloud property**, **Property**, or **Command** as the **Job type**:
+1. Choose **Cloud property**, **Property**, **Command**, or **Change device template** as the **Job type**:
 
-    To configure a **Property** job, select a property and set its new value. To configure a **Command** job, choose the command to run. A property job can set multiple properties.
+    To configure a **Property** job, select a property and set its new value. A property job can set multiple properties. To configure a **Command** job, choose the command to run. To configure a **Change device template** job, select the device template to assign to the devices in the device group.
 
     :::image type="content" source="media/howto-manage-devices-in-bulk/configure-job.png" alt-text="Screenshot that shows selections for creating a property job called Set Light Threshold":::
 
@@ -166,7 +168,7 @@ Enter a job name and description, and then select **Rerun job**. A new job is su
 
 ## Import devices
 
-To connect large number of devices to your application, you can bulk import devices from a CSV file. You can find an example CSV file in the [Azure Samples repository](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/bulk-upload-devices). The CSV file should include the following column headers:
+To register a large number of devices to your application, you can bulk import devices from a CSV file. You can find an example CSV file in the [Azure Samples repository](https://github.com/Azure-Samples/iot-central-docs-samples/tree/main/bulk-upload-devices). The CSV file should include the following column headers:
 
 | Column | Description |
 | - | - |
@@ -197,6 +199,11 @@ To bulk-register devices in your application:
     :::image type="content" source="media/howto-manage-devices-in-bulk/bulk-import-2.png" alt-text="Screenshot showing import success.":::
 
 If the device import operation fails, you see an error message on the **Device Operations** panel. A log file capturing all the errors is generated that you can download.
+
+If your devices use SAS tokens to authenticate, [export a CSV file from your IoT Central application](#export-devices). The exported CSV file includes the device IDs and the SAS keys.
+
+If your devices use X.509 certificates to authenticate, generate X.509 leaf certificates for your devices using the root or intermediate certificate in your X.509 enrollment group. Use the device IDs you imported as the `CNAME` value in the leaf certificates.
+
 
 ## Export devices
 
@@ -229,7 +236,7 @@ To bulk export devices from your application:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-For more information about connecting real devices to your IoT Central application, see [Device connectivity in Azure IoT Central](concepts-get-connected.md).
+For more information about connecting real devices to your IoT Central application, see [How devices connect](overview-iot-central-developer.md#how-devices-connect).
 
 ## Next steps
 

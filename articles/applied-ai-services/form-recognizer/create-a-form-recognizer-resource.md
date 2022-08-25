@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 08/22/2022
 ms.author: bemabonsu
 recommendations: false
 #Customer intent: I want to learn how to use create a Form Recognizer service in the Azure portal.
@@ -15,7 +15,7 @@ recommendations: false
 
 # Create a Form Recognizer resource
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that uses machine-learning models to extract and analyze form fields, text, and tables from your documents. Here, you'll learn how to create a Form Recognizer resource in the Azure portal.
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Here, you'll learn how to create a Form Recognizer resource in the Azure portal.
 
 ## Visit the Azure portal
 
@@ -23,7 +23,7 @@ The Azure portal is a single platform you can use to create and manage Azure ser
 
 Let's get started:
 
-1. Navigate to the Azure portal home page: [Azure home page](https://ms.portal.azure.com/#home).
+1. Navigate to the Azure portal home page: [Azure home page](https://portal.azure.com/#home).
 
 1. Select **Create a resource** from the Azure home page.
 
@@ -55,13 +55,13 @@ Let's get started:
 
 :::image type="content" source="media/logic-apps-tutorial/form-recognizer-validation.gif" alt-text="GIF showing the Azure portal validation process.":::
 
-## Get Endpoint URL and API keys
+## Get Endpoint URL and keys
 
 1. Once you receive the *deployment is complete* message, select the **Go to resource** button.
 
 1. Copy the key and endpoint values from your Form Recognizer resource paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
 
-1. If your overview page does not have the keys and endpoint visible, you can select the **Keys and Endpoint** button on the left navigation bar and retrieve them there.
+1. If your overview page doesn't have the keys and endpoint visible, you can select the **Keys and Endpoint** button, on the left navigation bar, and retrieve them there.
 
     :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL":::
 
@@ -71,4 +71,9 @@ That's it! You're now ready to start automating data extraction using Azure Form
 
 * Try the [Form Recognizer Studio](concept-form-recognizer-studio.md), an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications.
 
-* Complete a Form Recognizer [C#](quickstarts/try-v3-csharp-sdk.md),[Python](quickstarts/try-v3-python-sdk.md), [Java](quickstarts/try-v3-java-sdk.md), or [JavaScript](quickstarts/try-v3-javascript-sdk.md) quickstart and get started creating a form processing app in the development language of your choice.
+* Complete a Form Recognizer quickstart and get started creating a document processing app in the development language of your choice:
+
+  * [C#](quickstarts/get-started-v3-sdk-rest-api.md)
+  * [Python](quickstarts/get-started-v3-sdk-rest-api.md)
+  * [Java](quickstarts/get-started-v3-sdk-rest-api.md)
+  * [JavaScript](quickstarts/get-started-v3-sdk-rest-api.md)

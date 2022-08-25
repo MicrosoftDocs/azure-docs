@@ -7,8 +7,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.reviewer: sngun
-
+ms.reviewer: mjbrown
+adobe-target: true
 ---
 
 # Understanding the differences between NoSQL and relational databases

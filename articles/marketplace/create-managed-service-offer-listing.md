@@ -1,13 +1,12 @@
 ---
 title: Configure Managed Service offer listing details in Microsoft Partner Center
 description: Configure Managed Service offer listing details on Azure Marketplace. 
-author:  Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: anbene
+author: TeoLupu
+ms.author: telupu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 03/15/2022
 ---
 
 # Configure Managed Service offer listing details
@@ -24,7 +23,7 @@ On the **Offer listing** page in Partner Center, provide the information describ
 1. The **Name** box is pre-filled with the name you entered earlier in the New offer dialog box, but you can change it at any time. This name will appear as the title of your offer listing on the online store.
 2. In the **Search results summary** box, describe the purpose or goal of your offer in 100 characters or less.
 3. In the **Short description** field, provide a short description of your offer (up to 256 characters). It’ll be displayed on your offer listing in the Azure portal.
-4. In the **Description** field, describe your Managed Service offer. You can enter up to 2,000 characters of text in this box, including HTML tags and spaces. For information about HTML formatting, see [HTML tags supported in the offer descriptions](./supported-html-tags.md).
+4. In the **Description** field, describe your Managed Service offer. You can enter up to 5,000 characters of text in this box, including HTML tags and spaces. For information about HTML formatting, see [HTML tags supported in the offer descriptions](./supported-html-tags.md).
 5. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy. You're responsible to ensure your offer complies with privacy laws and regulations, and for providing a valid privacy policy.
 
 ## Product information links
@@ -43,6 +42,9 @@ Enter the name, email address, and phone number of two people in your company (y
 If you have support websites for Azure Global Customers and/or Azure Government customers, enter their URL, starting with https.
 
 ## Marketplace media
+
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
 
 > [!NOTE]
 > If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.

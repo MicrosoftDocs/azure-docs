@@ -4,15 +4,21 @@ description: This article provides information on  exclusion lists configuration
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/10/2020
+ms.date: 08/03/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
 
 # Web Application Firewall (WAF) with Front Door Service exclusion lists 
 
-Sometimes Web Application Firewall (WAF) might block a request that you want to allow for your application. For example, Active Directory inserts tokens that are used for authentication. These tokens can contain special characters that may trigger a false positive from the WAF rules. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation.  An exclusion list can be configured using  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [Azure CLI](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion#az_network_front_door_waf_policy_managed_rules_exclusion_add), [Rest API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), or the Azure portal. The following example shows the Azure portal configuration. 
+Sometimes Web Application Firewall (WAF) might block a request that you want to allow for your application. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. The rest of the request is evaluated as normal.
+
+For example, Active Directory inserts tokens that are used for authentication. When used in a request header, these tokens can contain special characters that may trigger a false positive from the WAF rules. By adding the header to an exclusion list, you can configure WAF to ignore the header, but WAF still evaluates the rest of the request.
+
+An exclusion list can be configured using  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [Azure CLI](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion#az-network-front-door-waf-policy-managed-rules-exclusion-add), [REST API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), or the Azure portal. The following example shows the Azure portal configuration. 
+
 ## Configure exclusion lists using the Azure portal
+
 **Manage exclusions** is accessible from WAF portal under **Managed rules**
 
 ![Manage exclusion](../media/waf-front-door-exclusion/exclusion1.png)
@@ -29,6 +35,7 @@ The following attributes can be added to exclusion lists by name. The values of 
 * Request cookie name
 * Query string args name
 * Request body post args name
+* RequestBodyJSONArgNames
 
 You can specify an exact request header, body, cookie, or query string attribute match.  Or, you can optionally specify partial matches. The following operators are the supported match criteria:
 

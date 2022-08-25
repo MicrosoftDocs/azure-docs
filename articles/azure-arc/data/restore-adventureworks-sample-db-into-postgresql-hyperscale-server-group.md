@@ -2,7 +2,7 @@
 title: Import the AdventureWorks sample database to Azure Arc-enabled PostgreSQL Hyperscale
 description: Restore the AdventureWorks sample database to Azure Arc-enabled PostgreSQL Hyperscale
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
@@ -32,7 +32,7 @@ Run a command like this to download the files replace the value of the pod name 
 >  Your container will need to have Internet connectivity over 443 to download the file from GitHub.
 
 > [!NOTE]
->  Use the pod name of the Coordinator node of the Postgres Hyperscale server group. Its name is \<server group name\>c-0 (for example postgres01c-0, where c stands for Coordinator node).  If you are not sure of the pod name run the command `kubectl get pod`
+>  Use the pod name of the Coordinator node of the PostgreSQL Hyperscale server group. Its name is \<server group name\>c-0 (for example postgres01c-0, where c stands for Coordinator node).  If you are not sure of the pod name run the command `kubectl get pod`
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/cluster_api/capi_azure/arm_template/artifacts/AdventureWorks2019.sql"
@@ -69,8 +69,8 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
 ## Suggested next steps
 - Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from all the power of Azure Database for PostgreSQL Hyperscale. :
     * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
-    * [Determine application type](../../postgresql/hyperscale/concepts-app-type.md)
-    * [Choose a distribution column](../../postgresql/hyperscale/concepts-choose-distribution-column.md)
+    * [Determine application type](../../postgresql/hyperscale/howto-app-type.md)
+    * [Choose a distribution column](../../postgresql/hyperscale/howto-choose-distribution-column.md)
     * [Table colocation](../../postgresql/hyperscale/concepts-colocation.md)
     * [Distribute and modify tables](../../postgresql/hyperscale/howto-modify-distributed-tables.md)
     * [Design a multi-tenant database](../../postgresql/hyperscale/tutorial-design-database-multi-tenant.md)*

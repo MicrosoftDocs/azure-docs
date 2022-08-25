@@ -1,13 +1,12 @@
 ---
 title: Azure Synapse Runtime for Apache Spark 2.4
 description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 2.4.
-services: synapse-analytics
-author: midesa 
+author: DaniBunny 
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
-ms.date: 01/04/2021 
-ms.author: midesa 
+ms.date: 04/18/2022 
+ms.author: dacoelho 
 ms.custom: has-adal-ref
 ---
 
@@ -18,7 +17,7 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 ## Component versions
 |  Component   | Version   |  
 | ----- | ----- |
-| Apache Spark | 2.4|
+| Apache Spark | 2.4.8 |
 | Operating System | Ubuntu 16.04 |
 | Java | 1.8.0_272 |
 | Scala | 2.11  |
@@ -1231,5 +1230,5 @@ zipp=0.6.0
 ## Next steps
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Apache Spark Documentation](https://spark.apache.org/docs/2.4.4/)
+- [Apache Spark Documentation](https://spark.apache.org/docs/2.4.8/)
 - [Apache Spark Concepts](apache-spark-concepts.md)

@@ -38,7 +38,7 @@ This article takes you through the different management tasks that are currently
 
 ## Before you begin
 
-In this scenario, you call the Network Watcher Rest API to run IP Flow Verify. ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
+In this scenario, you call the Network Watcher REST API to run IP Flow Verify. ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
 

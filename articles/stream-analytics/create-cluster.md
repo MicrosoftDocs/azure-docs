@@ -5,8 +5,8 @@ ms.service: stream-analytics
 author: sidramadoss
 ms.author: sidram
 ms.topic: quickstart
-ms.custom: mvc, mode-ui
-ms.date: 04/09/2021
+ms.custom: mvc, mode-ui, event-tier1-build-2022
+ms.date: 05/10/2022
 ---
 
 # Quickstart: Create a dedicated Azure Stream Analytics cluster using Azure portal
@@ -36,7 +36,7 @@ In this section, you create a Stream Analytics cluster resource.
    |Resource Group|Resource group name|Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
    |Cluster Name|A unique name|Enter a name to identify your Stream Analytics cluster.|
    |Location|The region closest to your data sources and sinks|Select a geographic location to host your Stream Analytics cluster. Use the location that is closest to your data sources and sinks for low latency analytics.|
-   |Streaming Unit Capacity|36 through 216 |Determine the size of the cluster by estimating how many Stream Analytics job you plan to run and the total SUs the job will require. You can start with 36 SUs and later scale up or down as required.|
+   |Streaming Unit Capacity|36 through 396 |Determine the size of the cluster by estimating how many Stream Analytics job you plan to run and the total SUs the job will require. You can start with 36 SUs and later scale up or down as required.|
 
    ![Create cluster](./media/create-cluster/create-cluster.png)
 

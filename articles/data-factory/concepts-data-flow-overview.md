@@ -50,7 +50,7 @@ Each transformation contains at least four configuration tabs.
 
 The first tab in each transformation's configuration pane contains the settings specific to that transformation. For more information, see that transformation's documentation page.
 
-:::image type="content" source="media/data-flow/source1.png" alt-text="Source settings tab":::
+:::image type="content" source="media/data-flow/source-1.png" alt-text="Source settings tab":::
 
 #### Optimize
 
@@ -137,9 +137,9 @@ Mapping data flows are available in the following regions in ADF:
 | Germany Non-Regional (Sovereign) | |
 | Germany North (Public) | |
 | Germany Northeast (Sovereign) | |
-| Germany West Central (Public) |  |
+| Germany West Central (Public) | ✓ |
 | Japan East | ✓ |
-| Japan West |	|
+| Japan West | ✓	|
 | Korea Central	| ✓ |
 | Korea South | |
 | North Central US	| ✓ |
@@ -149,7 +149,7 @@ Mapping data flows are available in the following regions in ADF:
 | South Africa North	| ✓ |
 | South Africa West	|  |
 | South Central US	| |
-| South India | |
+| South India | ✓ |
 | Southeast Asia	| ✓ |
 | Switzerland North	| ✓ |
 | Switzerland West | |
@@ -165,9 +165,10 @@ Mapping data flows are available in the following regions in ADF:
 | US Gov Virginia | ✓ |
 | West Central US |		|
 | West Europe	| ✓ |
-| West India | |
+| West India | ✓ |
 | West US	| ✓ |
 | West US 2	| ✓ |
+| West US 3	| ✓ |
 
 ## Next steps
 

@@ -6,11 +6,11 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 08/16/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -24,13 +24,13 @@ The following Azure AD Multi-Factor Authentication settings are available in the
 
 | Feature | Description |
 | ------- | ----------- |
-| [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature applies only to users who enter a PIN to authenticate. (MFA Server) |
+| [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature applies only to users who enter a PIN to authenticate. (MFA Server only) |
 | [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure AD Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they're blocked or until they're manually unblocked. |
 | [Fraud alert](#fraud-alert) | Configure settings that allow users to report fraudulent verification requests. |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
 | [OATH tokens](concept-authentication-oath-tokens.md) | Used in cloud-based Azure AD Multi-Factor Authentication environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
-| Providers | This will show any existing authentication providers that you have associated with your account. Adding new providers is disabled as of September 1, 2018. |
+| Providers | This will show any existing authentication providers that you've associated with your account. Adding new providers is disabled as of September 1, 2018. |
 
 ![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -47,7 +47,7 @@ The following settings are available:
 To configure account lockout settings, complete these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-1. Go to **Azure Active Directory** > **Security** > **MFA** > **Account lockout**.
+1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Account lockout**.
 1. Enter the values for your environment, and then select **Save**.
 
     ![Screenshot that shows the account lockout settings in the Azure portal.](./media/howto-mfa-mfasettings/account-lockout-settings.png)
@@ -62,7 +62,7 @@ To block a user, complete the following steps.
 
 [Watch a short video that describes this process.](https://www.youtube.com/watch?v=WdeE1On4S1o&feature=youtu.be)
 
-1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
+1. Browse to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Block/unblock users**.
 1. Select **Add** to block a user.
 1. Enter the user name for the blocked user in the format `username@domain.com`, and then provide a comment in the **Reason** box.
 1. Select **OK** to block the user.
@@ -71,7 +71,7 @@ To block a user, complete the following steps.
 
 To unblock a user, complete the following steps:
 
-1. Go to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
+1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Block/unblock users**.
 1. In the **Action** column next to the user, select **Unblock**.
 1. Enter a comment in the **Reason for unblocking** box.
 1. Select **OK** to unblock the user.
@@ -83,14 +83,14 @@ The fraud alert feature lets users report fraudulent attempts to access their re
 The following fraud alert configuration options are available:
 
 * **Automatically block users who report fraud**. If a user reports fraud, the Azure AD Multi-Factor Authentication attempts for the user  account are blocked for 90 days or until an administrator unblocks the account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
-* **Code to report fraud during initial greeting**. When users receive a phone call to perform multi-factor authentication, they normally press **#** to confirm their sign-in. To report fraud, the user enters a code before pressing **#**. This code is **0** by default, but you can customize it.
+* **Code to report fraud during initial greeting**. When users receive a phone call to perform multi-factor authentication, they normally press **#** to confirm their sign-in. To report fraud, the user enters a code before pressing **#**. This code is **0** by default, but you can customize it. If automatic blocking is enabled, after the user presses **0#** to report fraud, they need to press **1** to confirm the account blocking.
 
    > [!NOTE]
    > The default voice greetings from Microsoft instruct users to press **0#** to submit a fraud alert. If you want to use a code other than **0**, record and upload your own custom voice greetings with appropriate instructions for your users.
 
 To enable and configure fraud alerts, complete the following steps:
 
-1. Go to **Azure Active Directory** > **Security** > **MFA** > **Fraud alert**.
+1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Fraud alert**.
 1. Set **Allow users to submit fraud alerts** to **On**.
 1. Configure the **Automatically block users who report fraud** or **Code to report fraud during initial greeting** setting as needed.
 1. Select **Save**.
@@ -138,7 +138,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > Be sure to include the header row in your CSV file.
 
-An administrator can sign in to the Azure portal, go to **Azure Active Directory > Security > MFA > OATH tokens**, and upload the CSV file.
+An administrator can sign in to the Azure portal, go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **OATH tokens**, and upload the CSV file.
 
 Depending on the size of the CSV file, it might take a few minutes to process. Select **Refresh** to get the status. If there are any errors in the file, you can download a CSV file that lists them. The field names in the downloaded CSV file are different from those in the uploaded version.
 
@@ -159,7 +159,7 @@ In the United States, if you haven't configured MFA caller ID, voice calls from 
 
 To configure your own caller ID number, complete the following steps:
 
-1. Go to **Azure Active Directory** > **Security** > **MFA** > **Phone call settings**.
+1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Phone call settings**.
 1. Set the **MFA caller ID number** to the number you want users to see on their phones. Only US-based numbers are allowed.
 1. Select **Save**.
 
@@ -217,7 +217,7 @@ You can use the following sample scripts to create your own custom messages. The
 
 To use your own custom messages, complete the following steps:
 
-1. Go to **Azure Active Directory** > **Security** > **MFA** > **Phone call settings**.
+1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Phone call settings**.
 1. Select **Add greeting**.
 1. Choose the **Type** of greeting, such as **Greeting (standard)** or  **Authentication successful**.
 1. Select the **Language**. See the previous section on [custom message language behavior](#custom-message-language-behavior).
@@ -228,7 +228,7 @@ To use your own custom messages, complete the following steps:
 
 Settings for app passwords, trusted IPs, verification options, and remembering multi-factor authentication on trusted devices are available in the service settings. This is a legacy portal. It isn't part of the regular Azure AD portal.
 
-You can access service settings from the Azure portal by going to **Azure Active Directory** > **Security** > **MFA** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**. A window or tab opens with additional service settings options.
+You can access service settings from the Azure portal by going to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**. A window or tab opens with additional service settings options.
 
 ### Trusted IPs
 
@@ -243,8 +243,8 @@ If your organization uses the NPS extension to provide MFA to on-premises applic
 
 | Azure AD tenant type | Trusted IP feature options |
 |:--- |:--- |
-| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multi-factor authentication for users who sign in from the company intranet. A maximum of 50 trusted IP ranges can be configured.|
-| Federated |**All Federated Users**: All federated users who sign in from inside the organization can bypass multi-factor authentication. Users bypass verification by using a claim that's issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multi-factor authentication for users who sign in from the company intranet. |
+| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multi-factor authentications for users who sign in from the company intranet. A maximum of 50 trusted IP ranges can be configured.|
+| Federated |**All Federated Users**: All federated users who sign in from inside the organization can bypass multi-factor authentications. Users bypass verifications by using a claim that's issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multi-factor authentication for users who sign in from the company intranet. |
 
 Trusted IP bypass works only from inside the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using multi-factor authentication. The process is the same even if the user presents an AD FS claim.
 
@@ -256,7 +256,7 @@ When trusted IPs are used, multi-factor authentication isn't required for browse
 
 #### User experience outside the corporate network
 
-Regardless of whether trusted IP are defined, multi-factor authentication is required for browser flows. App passwords are required for older rich-client applications.
+Regardless of whether trusted IPs are defined, multi-factor authentication is required for browser flows. App passwords are required for older rich-client applications.
 
 #### Enable named locations by using Conditional Access
 
@@ -277,14 +277,14 @@ To enable trusted IPs by using Conditional Access policies, complete the followi
 1. Select **Configure MFA trusted IPs**.
 1. On the **Service Settings** page, under **Trusted IPs**, choose one of these options:
 
-   * **For requests from federated users originating from my intranet**: To choose this option, select the checkbox. All federated users who sign in from the corporate network bypass multi-factor authentication by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
+   * **For requests from federated users originating from my intranet**: To choose this option, select the checkbox. All federated users who sign in from the corporate network bypass multi-factor authentications by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
 
-      `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
+      `c:[Type== "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **For requests from a specific range of public IPs**: To choose this option, enter the IP addresses in the text box, in CIDR notation.
       * For IP addresses that are in the range *xxx.xxx.xxx*.1 through *xxx.xxx.xxx*.254, use notation like ***xxx.xxx.xxx*.0/24**.
       * For a single IP address, use notation like ***xxx.xxx.xxx.xxx*/32**.
-      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass multi-factor authentication.
+      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass multi-factor authentications.
 
 1. Select **Save**.
 
@@ -299,12 +299,12 @@ If you don't want to use Conditional Access policies to enable trusted IPs, you 
 
    * **For requests from federated users on my intranet**: To choose this option, select the checkbox. All federated users who sign in from the corporate network bypass multi-factor authentication by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
 
-      `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
+      `c:[Type== "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);` 
 
    * **For requests from a specified range of IP address subnets**: To choose this option, enter the IP addresses in the text box, in CIDR notation.
       * For IP addresses that are in the range *xxx.xxx.xxx*.1 through *xxx.xxx.xxx*.254, use notation like ***xxx.xxx.xxx*.0/24**.
       * For a single IP address, use notation like ***xxx.xxx.xxx.xxx*/32**.
-      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass multi-factor authentication.
+      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass multi-factor authentications.
 
 1. Select **Save**.
 
@@ -366,7 +366,7 @@ To enable and configure the option to allow users to remember their MFA status a
 1. Select **Per-user MFA**.
 1. Under **multi-factor authentication** at the top of the page, select **service settings**.
 1. On the **service settings** page, under **remember multi-factor authentication**, select **Allow users to remember multi-factor authentication on devices they trust**.
-1. Set the number of days to allow trusted devices to bypass multi-factor authentication. For the optimal user experience, extend the duration to 90 or more days.
+1. Set the number of days to allow trusted devices to bypass multi-factor authentications. For the optimal user experience, extend the duration to 90 or more days.
 1. Select **Save**.
 
 #### Mark a device as trusted

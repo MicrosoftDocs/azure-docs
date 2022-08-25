@@ -4,7 +4,7 @@ description: Use this tutorial to help you use playbooks together with automatio
 author: yelevin
 ms.topic: tutorial
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 02/21/2022
 ms.author: yelevin
 ---
 
@@ -27,7 +27,7 @@ This tutorial shows you how to use playbooks together with automation rules to a
 
 ## What are automation rules and playbooks?
 
-Automation rules help you triage incidents in Microsoft Sentinel. You can use them to automatically assign incidents to the right personnel, close noisy incidents or known [false positives](false-positives.md), change their severity, and add tags. They are also the mechanism by which you can run playbooks in response to incidents.
+[Automation rules](automate-incident-handling-with-automation-rules.md) help you triage incidents in Microsoft Sentinel. You can use them to automatically assign incidents to the right personnel, close noisy incidents or known [false positives](false-positives.md), change their severity, and add tags. They are also the mechanism by which you can run playbooks in response to incidents.
 
 Playbooks are collections of procedures that can be run from Microsoft Sentinel in response to an alert or incident. A playbook can help automate and orchestrate your response, and can be set to run automatically when specific alerts or incidents are generated, by being attached to an analytics rule or an automation rule, respectively. It can also be run manually on-demand.
 
@@ -66,69 +66,162 @@ You can also choose to run a playbook manually on-demand, as a response to a sel
 
 Get a more complete and detailed introduction to automating threat response using [automation rules](automate-incident-handling-with-automation-rules.md) and [playbooks](automate-responses-with-playbooks.md) in Microsoft Sentinel.
 
-> [!IMPORTANT]
->
-> - **Automation rules**, and the use of the **incident trigger** for playbooks, are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Create a playbook
 
 Follow these steps to create a new playbook in Microsoft Sentinel:
 
-### Prepare the playbook and Logic App
+:::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="media/tutorial-respond-threats-playbook/add-new-playbook.png":::
 
 1. From the **Microsoft Sentinel** navigation menu, select **Automation**.
 
-1. On the top menu, select **Create** and **Add new playbook**.
+1. From the top menu, select **Create**.
 
-    :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Add a new playbook":::
+1. The drop-down menu that appears under **Create** gives you three choices for creating playbooks:
 
-    A new browser tab will open and take you to the **Create a logic app** wizard.
+    1. If you're creating a **Standard** playbook (the new kind - see [Two types of Logic Apps](automate-responses-with-playbooks.md#two-types-of-logic-apps)), select **Blank playbook** and then follow the steps in the **Logic Apps Standard** tab below.
 
-   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-playbook.png" alt-text="Create a logic app":::
+    1. If you're creating a **Consumption** playbook (the original, classic kind), then, depending on which trigger you want to use, select either **Playbook with incident trigger** or **Playbook with alert trigger**. Then, continue following the steps in the **Logic Apps Consumption** tab below.
 
-1. Enter your **Subscription** and **Resource group**, and give your playbook a name under **Logic app name**.
+        > [!NOTE]
+        > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](detect-threats-custom.md#set-automated-responses-and-create-the-rule). Both types can also be run manually.
+        > 
+        > For more about which trigger to use, see [**Use triggers and actions in Microsoft Sentinel playbooks**](playbook-triggers-actions.md)
 
-1. For **Region**, select the Azure region where your Logic App information is to be stored.
+# [Logic Apps Consumption](#tab/LAC)
+### Prepare the playbook and Logic App
 
-1. If you want to monitor this playbook's activity for diagnostic purposes, mark the **Enable log analytics** check box, and enter your **Log Analytics workspace** name.
+Regardless of which trigger you chose to create your playbook with in the previous step, the **Create playbook** wizard will appear.
 
-1. If you want to apply tags to your playbook, click **Next : Tags >** (not connected to tags applied by automation rules. [Learn more about tags](../azure-resource-manager/management/tag-resources.md)). Otherwise, click **Review + Create**. Confirm the details you provided, and click **Create**.
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-playbook-LAC.png" alt-text="Create a logic app":::
 
-1. While your playbook is being created and deployed (this will take a few minutes), you will be taken to a screen called **Microsoft.EmptyWorkflow**. When the "Your deployment is complete" message appears, click **Go to resource.**
+1. In the **Basics** tab:
 
-1. You will be taken to your new playbook's [Logic Apps Designer](../logic-apps/logic-apps-overview.md), where you can start designing the workflow. You'll see a screen with a short introductory video and some commonly used Logic App triggers and templates. [Learn more](../logic-apps/logic-apps-create-logic-apps-from-templates.md) about creating a playbook with Logic Apps.
+    1. Select the **Subscription**, **Resource group**, and **Region** of your choosing from their respective drop-down lists. The chosen region is where your Logic App information will be stored.
 
-1. Select the **Blank Logic App** template.
+    1. Enter a name for your playbook under **Playbook name**.
 
-   :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-playbook-template.png" alt-text="Logic Apps Designer template gallery":::
+    1. If you want to monitor this playbook's activity for diagnostic purposes, mark the **Enable diagnostics logs in Log Analytics** check box, and choose your **Log Analytics workspace** from the drop-down list.
 
-### Choose the trigger
+    1. If your playbooks need access to protected resources that are inside or connected to an Azure virtual network, [you may need to use an integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). If so, mark the **Associate with integration service environment** check box, and select the desired ISE from the drop-down list.
 
-Every playbook must start with a trigger. The trigger defines the action that will start the playbook and the schema that the playbook will expect to receive.
+    1. Select **Next : Connections >**.
 
-1. In the search bar, look for Microsoft Sentinel. Select **Microsoft Sentinel** when it appears in the results.
+1. In the **Connections** tab:
 
-1. In the resulting **Triggers** tab, you will see the two triggers offered by Microsoft Sentinel:
-    - When a response to a Microsoft Sentinel Alert is triggered
-    - When Microsoft Sentinel incident creation rule was triggered
+    Ideally you should leave this section as is, configuring Logic Apps to connect to Microsoft Sentinel with managed identity. [Learn about this and other authentication alternatives](authenticate-playbooks-to-sentinel.md).
 
-   Choose the trigger that matches the type of playbook you are creating.
+    Select **Next : Review and create >**.
+
+1. In the **Review and create** tab:
+
+    Review the configuration choices you have made, and select **Create and continue to designer**.
+
+1. Your playbook will take a few minutes to be created and deployed, after which you will see the message "Your deployment is complete" and you will be taken to your new playbook's [Logic App Designer](../logic-apps/logic-apps-overview.md). The trigger you chose at the beginning will have automatically been added as the first step, and you can continue designing the workflow from there.
+
+    :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-blank-LAC.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="media/tutorial-respond-threats-playbook/logic-app-blank-LAC.png":::
+
+# [Logic Apps Standard](#tab/LAS)
+
+### Prepare the Logic App and workflow
+
+There are three steps to getting started creating a Logic Apps Standard playbook:
+
+1. [Create a Logic App](#create-a-logic-app).
+1. [Create a workflow](#create-a-workflow-playbook) (this is the actual playbook).
+1. [Choose the trigger](#choose-the-trigger).
+
+#### Create a Logic App
+
+Since you selected **Blank playbook**, a new browser tab will open and take you to the **Create Logic App** wizard.
+
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-logic-app-basics.png" alt-text="Create a Standard logic app.":::
+
+1. In the **Basics** tab:
+
+    1. Select the **Subscription** and **Resource Group** of your choosing from their respective drop-down lists.
+
+    1. Enter a name for your Logic App. For **Publish**, choose **Workflow**. Select the **Region** where you wish to deploy the logic app.
+
+    1. For **Plan type**, choose **Standard**.
+
+    1. Select **Next : Hosting >**.
+
+1. In the **Hosting** tab:
+
+    1. For **Storage type**, choose **Azure Storage**, and choose or create a **Storage account**.
+
+    1. Choose a **Windows Plan**.
+
+1. Select **Next : Monitoring >**.
+
+1. In the **Monitoring** tab:
+
+    1. If you want to enable performance monitoring in Azure Monitor for this application, leave the toggle on Yes. Otherwise, toggle it to No.
+    
+        > [!NOTE]
+        > This monitoring is **not required for Microsoft Sentinel** and **will cost you extra**.
+
+    1. If you want you can select **Next : Tags >**  to apply tags to this Logic App for resource categorization and billing purposes. Otherwise, select **Review + create**.
+
+1. In the **Review + create** tab:
+
+    Review the configuration choices you have made, and select **Create**.
+
+1. Your playbook will take a few minutes to be created and deployed, during which you will see some deployment messages. At the end of the process you will be taken to the final deployment screen where you'll see the message "Your deployment is complete".
+
+    Select **Go to resource**. You will be taken to the main page of your new Logic App.
+
+    Unlike with classic Consumption playbooks, you're not done yet. Now you must create a workflow.
+
+#### Create a workflow (playbook)
+
+1. Select **Workflows** from the navigation menu of your Logic App page.
+
+1. Select **+ Add** from the button bar at the top (it might take a few seconds for the button to be active).
+
+1. The **New workflow** panel will appear. Enter a name for your workflow.
+
+1. Under **State type**, select **Stateful**.
 
     > [!NOTE]
-    > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](detect-threats-custom.md#set-automated-responses-and-create-the-rule) and can also be run manually.
+    > Microsoft Sentinel does not currently support the use of *Stateless* workflows as playbooks.
+
+1. Select **Create**. Your workflow will be saved and will appear in the list of workflows in your Logic App. Select the workflow to proceed.
+
+1. You'll enter your workflow's page. Here you can see all the information about your workflow, including a record of all the times it will have run. From the navigation menu, select **Designer**.
+
+1. The Designer screen will open and you will immediately be prompted to add a trigger and continue designing the workflow. 
+
+    :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-standard-designer.png" alt-text="Screenshot of Logic App Standard designer." lightbox="media/tutorial-respond-threats-playbook/logic-app-standard-designer.png":::
+
+#### Choose the trigger
+
+1. Select the **Azure** tab and enter "Sentinel" in the Search line.
+
+1. In the **Triggers** tab below, you will see the two triggers offered by Microsoft Sentinel:
+    - Microsoft Sentinel alert (preview)
+    - Microsoft Sentinel incident (preview)
+
+   Select the trigger that matches the type of playbook you are creating.
+
+    > [!NOTE]
+    > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](detect-threats-custom.md#set-automated-responses-and-create-the-rule). Both types can also be run manually.
     > 
     > For more about which trigger to use, see [**Use triggers and actions in Microsoft Sentinel playbooks**](playbook-triggers-actions.md)
 
-    :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-trigger.png" alt-text="Choose a trigger for your playbook":::
+    :::image type="content" source="./media/tutorial-respond-threats-playbook/sentinel-triggers.png" alt-text="Choose a trigger for your playbook":::
 
 > [!NOTE]
 > When you choose a trigger, or any subsequent action, you will be asked to authenticate to whichever resource provider you are interacting with. In this case, the provider is Microsoft Sentinel. There are a few different approaches you can take to authentication. For details and instructions, see [**Authenticate playbooks to Microsoft Sentinel**](authenticate-playbooks-to-sentinel.md).
+
+
+---
 
 ### Add actions
 
 Now you can define what happens when you call the playbook. You can add actions, logical conditions, loops, or switch case conditions, all by selecting **New step**. This selection opens a new frame in the designer, where you can choose a system or an application to interact with or a condition to set. Enter the name of the system or application in the search bar at the top of the frame, and then choose from the available results.
 
-In every one of these steps, clicking on any field displays a panel with two menus: **Dynamic content** and **Expression**. From the **Dynamic content** menu, you can add references to the attributes of the alert or incident that was passed to the playbook, including the values and attributes of all the entities involved. From the **Expression** menu, you can choose from a large library of functions to add additional logic to your steps.
+In every one of these steps, clicking on any field displays a panel with two menus: **Dynamic content** and **Expression**. From the **Dynamic content** menu, you can add references to the attributes of the alert or incident that was passed to the playbook, including the values and attributes of all the [mapped entities](map-data-fields-to-entities.md) and [custom details](surface-custom-details-in-alerts.md) contained in the alert or incident. From the **Expression** menu, you can choose from a large library of functions to add additional logic to your steps.
 
    :::image type="content" source="./media/tutorial-respond-threats-playbook/logic-app.png" alt-text="Logical app designer":::
 
@@ -160,15 +253,23 @@ To create an automation rule:
 
 1. If you add a **Run playbook** action, you will be prompted to choose from the drop-down list of available playbooks. Only playbooks that start with the **incident trigger** can be run from automation rules, so only they will appear in the list.<a name="permissions-to-run-playbooks"></a>
 
+    <a name="explicit-permissions"></a>
+
     > [!IMPORTANT]
-    > Microsoft Sentinel must be granted explicit permissions in order to run playbooks from automation rules. If a playbook appears "grayed out" in the drop-down list, it means Sentinel does not have permission to that playbook's resource group. Click the **Manage playbook permissions** link to assign permissions.
+    >
+    > **Microsoft Sentinel must be granted explicit permissions in order to run playbooks based on the incident trigger**, whether manually or from automation rules. If a playbook appears "grayed out" in the drop-down list, it means Sentinel does not have permission to that playbook's resource group. Click the **Manage playbook permissions** link to assign permissions.
+    >
     > In the **Manage permissions** panel that opens up, mark the check boxes of the resource groups containing the playbooks you want to run, and click **Apply**.
+    >  
     > :::image type="content" source="./media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Manage permissions":::
+    >
     > - You yourself must have **owner** permissions on any resource group to which you want to grant Microsoft Sentinel permissions, and you must have the **Logic App Contributor** role on any resource group containing playbooks you want to run.
+    >
     > - In a multi-tenant deployment, if the playbook you want to run is in a different tenant, you must grant Microsoft Sentinel permission to run the playbook in the playbook's tenant.
     >    1. From the Microsoft Sentinel navigation menu in the playbooks' tenant, select **Settings**.
     >    1. In the **Settings** blade, select the **Settings** tab, then the **Playbook permissions** expander.
     >    1. Click the **Configure permissions** button to open the **Manage permissions** panel mentioned above, and continue as described there.
+    >
     > - If, in an **MSSP** scenario, you want to [run a playbook in a customer tenant](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture) from an automation rule created while signed into the service provider tenant, you must grant Microsoft Sentinel permission to run the playbook in ***both tenants***. In the **customer** tenant, follow the instructions for the multi-tenant deployment in the preceding bullet point. In the **service provider** tenant, you must add the Azure Security Insights app in your Azure Lighthouse onboarding template:
     >    1. From the Azure Portal go to **Azure Active Directory**.
     >    1. Click on **Enterprise Applications**.
@@ -200,26 +301,47 @@ You use a playbook to respond to an **alert** by creating an **analytics rule**,
 
 1. From the **Analytics** blade in the Microsoft Sentinel navigation menu, select the analytics rule for which you want to automate the response, and click **Edit** in the details pane.
 
-1. In the **Analytics rule wizard - Edit existing rule** page, select the **Automated response** tab.
+1. In the **Analytics rule wizard - Edit existing scheduled rule** page, select the **Automated response** tab.
 
    :::image type="content" source="./media/tutorial-respond-threats-playbook/automated-response-tab.png" alt-text="Automated response tab":::
 
 1. Choose your playbook from the drop-down list. You can choose more than one playbook, but only playbooks using the **alert trigger** will be available.
 
-1. In the **Review and create** tab, select **Save**.
+1. In the **Review and update** tab, select **Save**.
 
 ## Run a playbook on demand
 
-You can also run a playbook on demand.
+You can also manually run a playbook on demand, on both incidents (in Preview) and alerts. This can be useful in situations where you want more human input into and control over orchestration and response processes.
 
- > [!NOTE]
- > Only playbooks using the **alert trigger** can be run on-demand.
+### Run a playbook manually on an alert
 
-To run a playbook on-demand:
+1. In the **Incidents** page, select an incident.
 
-1. In the **Incidents** page, select an incident and click on **View full details**.
+1. Select **View full details** at the bottom of the incident details pane.
 
-2. In the **Alerts** tab, click on the alert you want to run the playbook on, and scroll all the way to the right and click **View playbooks** and select a playbook to **run** from the list of available playbooks on the subscription.
+1. In the incident details page, select the **Alerts** tab, choose the alert you want to run the playbook on, and select the **View playbooks** link at the end of the line of that alert.
+
+1. The **Alert playbooks** pane will open. You'll see a list of all playbooks configured with the **Microsoft Sentinel Alert** Logic Apps trigger that you have access to.
+
+1. Select **Run** on the line of a specific playbook to run it immediately.
+
+You can see the run history for playbooks on an alert by selecting the **Runs** tab on the **Alert playbooks** pane. It might take a few seconds for any just-completed run to appear in the list. Selecting a specific run will open the full run log in Logic Apps.
+
+### Run a playbook manually on an incident
+
+1. In the **Incidents** page, select an incident. 
+
+1. From the incident details pane that appears on the right, select **Actions > Run playbook (Preview)**.  
+    (Selecting the three dots at the end of the incident's line on the grid or right-clicking the incident will display the same list as the **Action** button.)
+
+1. The **Run playbook on incident** panel opens on the right. You'll see a list of all playbooks configured with the **Microsoft Sentinel Incident** Logic Apps trigger that you have access to.
+
+   > [!NOTE]
+   > If you don't see the playbook you want to run in the list, it means Microsoft Sentinel doesn't have permissions to run playbooks in that resource group ([see the note above](#explicit-permissions)). To grant those permissions, select **Settings** from the main menu, choose the **Settings** tab, expand the **Playbook permissions** expander, and select **Configure permissions**. In the **Manage permissions** panel that opens up, mark the check boxes of the resource groups containing the playbooks you want to run, and select **Apply**.
+
+1. Select **Run** on the line of a specific playbook to run it immediately.
+
+You can see the run history for playbooks on an incident by selecting the **Runs** tab on the **Run playbook on incident** panel. It might take a few seconds for any just-completed run to appear in the list. Selecting a specific run will open the full run log in Logic Apps.
 
 ## Next steps
 

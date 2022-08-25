@@ -1,7 +1,6 @@
 ---
 
 title: Tutorial to migrate your applications from Okta to Azure Active Directory
-titleSuffix: Active Directory
 description: Learn how to migrate your applications from Okta to Azure Active Directory.
 services: active-directory
 author: gargi-sinha

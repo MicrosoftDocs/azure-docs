@@ -58,7 +58,7 @@ If the value of the **KeySource** property is `Microsoft.Storage`, then the acco
 
 # [Azure CLI](#tab/cli)
 
-To check the encryption model for the storage account by using Azure CLI, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, then check the **keySource** property for the account.
+To check the encryption model for the storage account by using Azure CLI, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command, then check the **keySource** property for the account.
 
 ```azurecli-interactive
 key_source=$(az storage account show \

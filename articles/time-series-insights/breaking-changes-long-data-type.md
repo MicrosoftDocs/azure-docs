@@ -14,6 +14,8 @@ ms.date: 12/07/2020
 
 # Adding support for long data type in Azure Time Series Insights Gen2
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 The addition of support for long data type affects how we store and index numeric data in Azure Time Series Insights Gen2 environments only. If you have a Gen1 environment, you can disregard these changes.
 
 Beginning June 29 or June 30, 2020, depending on your region, your data will be indexed as **Long** and **Double**.  If you have any questions or concerns about this change, submit a support ticket through the Azure portal and mention this communication.

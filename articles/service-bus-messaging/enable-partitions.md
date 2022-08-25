@@ -3,7 +3,8 @@ title: Enable partitioning in Azure Service Bus queues and topics
 description: This article explains how to enable partitioning in Azure Service Bus queues and topics by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
 ms.date: 04/19/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Enable partitioning for an Azure Service Bus queue or a topic
@@ -26,7 +27,7 @@ When creating a topic in the Azure portal, select **Enable partitioning** as sho
 :::image type="content" source="./media/enable-partitions/create-topic.png" alt-text="Enable partitioning at the time of the topic creation":::
 
 ## Using Azure CLI
-To **create a queue with partitioning enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-partitioning` set to `true`.
+To **create a queue with partitioning enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az-servicebus-queue-create) command with `--enable-partitioning` set to `true`.
 
 ```azurecli-interactive
 az servicebus queue create \
@@ -36,7 +37,7 @@ az servicebus queue create \
     --enable-partitioning true
 ```
 
-To **create a topic with partitioning enabled**, use the [`az servicebus topic create`](/cli/azure/servicebus/topic#az_servicebus_topic_create) command with `--enable-partitioning` set to `true`.
+To **create a topic with partitioning enabled**, use the [`az servicebus topic create`](/cli/azure/servicebus/topic#az-servicebus-topic-create) command with `--enable-partitioning` set to `true`.
 
 ```azurecli-interactive
 az servicebus topic create \

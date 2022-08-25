@@ -1,5 +1,5 @@
 ---
-title: Monitor an app in Azure Container Apps Preview
+title: Monitor an app in Azure Container Apps
 description: Learn how applications are monitored and logged in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -7,10 +7,10 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Monitor an app in Azure Container Apps Preview
+# Monitor an app in Azure Container Apps
 
 Azure Container Apps gathers a broad set of data about your container app and stores it using [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md). This article describes the available logs, and how to write and view logs.
 
@@ -48,7 +48,7 @@ Set the name of your resource group and Log Analytics workspace, and then retrie
 
 # [Bash](#tab/bash)
 
-```bash
+```azurecli
 RESOURCE_GROUP="my-containerapps"
 LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 
@@ -57,7 +57,7 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --que
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 $RESOURCE_GROUP="my-containerapps"
 $LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 
@@ -101,4 +101,4 @@ my-container-app      listening on port 80  PrimaryResult  2021-10-23T02:11:43.1
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Secure your container app](secure-app.md)
+> [Manage secrets](manage-secrets.md)

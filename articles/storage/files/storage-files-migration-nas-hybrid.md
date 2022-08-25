@@ -1,11 +1,11 @@
 ---
 title: On-premises NAS migration to Azure File Sync
 description: Learn how to migrate files from an on-premises Network Attached Storage (NAS) location to a hybrid cloud deployment with Azure File Sync and Azure file shares.
-author: fauhse
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/19/2020
-ms.author: fauhse
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -53,7 +53,7 @@ As mentioned in the Azure Files [migration overview article](storage-files-migra
 
 ## Phase 2: Provision a suitable Windows Server on-premises
 
-* Create a Windows Server 2019 - at a minimum 2012R2 - as a virtual machine or physical server. A Windows Server fail-over cluster is also supported.
+* Create a Windows Server 2022 or Windows Server 2019 virtual machine, or deploy a physical server. A Windows Server failover cluster is also supported.
 * Provision or add Direct Attached Storage (DAS as compared to NAS, which is not supported).
 
     The amount of storage you provision can be smaller than what you are currently using on your NAS appliance. This configuration choice requires that you also make use of Azure File Syncs [cloud tiering](../file-sync/file-sync-cloud-tiering-overview.md) feature.
@@ -61,7 +61,7 @@ As mentioned in the Azure Files [migration overview article](storage-files-migra
 
     1. Move a set of files that fits onto the disk
     2. let file sync and cloud tiering engage
-    3. when more free space is created on the volume, proceed with the next batch of files. Alternatively, review the RoboCopy command in the upcoming [RoboCopy section](#phase-7-robocopy) for use of the new `/LFSM` switch. Using `/LFSM` can significantly simplify your RoboCopy jobs, but it is not compatible with some other RoboCopy switches you might depend on.
+    3. when more free space is created on the volume, proceed with the next batch of files. Alternatively, review the RoboCopy command in the [RoboCopy section](#phase-7-robocopy) of this article for use of the new `/LFSM` switch. Using `/LFSM` can significantly simplify your RoboCopy jobs, but it is not compatible with some other RoboCopy switches you might depend on. Only use the `/LFSM` switch when the migration destination is local storage. It's not supported when the destination is a remote SMB share.
     
     You can avoid this batching approach by provisioning the equivalent space on the Windows Server that your files occupy on the NAS appliance. Consider deduplication on NAS / Windows. If you don't want to permanently commit this high amount of storage to your Windows Server, you can reduce the volume size after the migration and before you adjust the cloud tiering policies. That creates a smaller on-premises cache of your Azure file shares.
 

@@ -1,8 +1,7 @@
 ---
 title: Customize Azure AD tenant app claims (PowerShell)
-titleSuffix: Microsoft identity platform
 description: Learn how to customize claims emitted in tokens for an application in a specific Azure Active Directory tenant.
-author: rwike77
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -10,8 +9,8 @@ ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/16/2021
-ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin, jeedes, luleon
+ms.author: davidmu
+ms.reviewer: ludwignick
 ---
 
 # Customize claims emitted in tokens for a specific app in a tenant
@@ -33,7 +32,7 @@ In this article, we walk through a few common scenarios that can help you unders
 
 In the following examples, you create, update, link, and delete policies for service principals. Claims-mapping policies can only be assigned to service principal objects. If you are new to Azure AD, we recommend that you [learn about how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.
 
-When creating a claims-mapping policy, you can also emit a claim from a directory schema extension attribute in tokens. Use *ExtensionID* for the extension attribute instead of *ID* in the `ClaimsSchema` element.  For more info on extension attributes, see [Using directory schema extension attributes](active-directory-schema-extensions.md).
+When creating a claims-mapping policy, you can also emit a claim from a directory extension attribute in tokens. Use *ExtensionID* for the extension attribute instead of *ID* in the `ClaimsSchema` element.  For more info on extension attributes, see [Using directory extension attributes](active-directory-schema-extensions.md).
 
 > [!NOTE]
 > The [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview) is required to configure claims-mapping policies. The PowerShell module is in preview, while the claims mapping and token creation runtime in Azure is generally available. Updates to the preview PowerShell module could require you to update or change your configuration scripts. 
@@ -424,4 +423,4 @@ If you're not using a verified domain, Azure AD will return an `AADSTS501461` er
 
 - Read the [claims-mapping policy type](reference-claims-mapping-policy-type.md) reference article to learn more.
 - To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
-- To learn more about extension attributes, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
+- To learn more about extension attributes, see [Using directory extension attributes in claims](active-directory-schema-extensions.md).

@@ -1,9 +1,9 @@
 ---
 title: Deploy modules from the Azure CLI command line - Azure IoT Edge 
 description: Use the Azure CLI with the Azure IoT Extension to push an IoT Edge module from your IoT Hub to your IoT Edge device, as configured by a deployment manifest.
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge 

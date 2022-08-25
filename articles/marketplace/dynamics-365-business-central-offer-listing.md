@@ -4,9 +4,9 @@ description: Configure Dynamics 365 Business Central offer listing details on Mi
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
-ms.date: 11/24/2021
+author: trkeya
+ms.author: trkeya
+ms.date: 03/15/2022
 ---
 
 # Configure Dynamics 365 Business Central offer listing details
@@ -40,7 +40,7 @@ Here's an example of how offer information appears in Microsoft AppSource (any l
 The **Name** you enter here is shown to customers as the title of the offer. This field is pre-populated with the name you entered for **Offer alias** when you created the offer, but you can change it. The name:
 
 - Can include trademark and copyright symbols.
-- Must be 50 characters or less.
+- Must be 200 characters or less.
 - Can't include emojis.
 
 Provide a short description of your offer for the **Search results summary** (up to 100 characters). This description may be used in marketplace search results.
@@ -74,6 +74,9 @@ Provide at least one (and up to three) related PDF marketing documents here, suc
 ## Marketplace media
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
+
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
 
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.

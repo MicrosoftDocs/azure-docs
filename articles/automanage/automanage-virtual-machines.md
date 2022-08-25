@@ -5,7 +5,7 @@ author: mmccrory
 ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 5/12/2022
 ms.author: memccror
 ms.custom: references_regions
 ---
@@ -98,9 +98,9 @@ In the Machine selection pane in the portal, you will notice the **Eligibility**
 - Machine is not located in a supported [region](#supported-regions)
 - Machine's log analytics workspace is not located in a supported [region](#supported-regions)
 - User does not have permissions to the log analytics workspace's subscription. Check out the [required permissions](#required-rbac-permissions)
-- The Automanage resource provider is not registered on the subscription. Check out [how to register a Resource Provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1) with the Automanage resource provider: *Microsoft.Automanage*
-- Machine does not have necessary VM agents installed which the Automanage service requires. Check out the [Windows agent installation](/azure/virtual-machines/extensions/agent-windows) and the [Linux agent installation](/azure/virtual-machines/extensions/agent-linux)
-- Arc machine is not connected. Learn more about the [Arc agent status](/azure/azure-arc/servers/overview#agent-status) and [how to connect](/azure/azure-arc/servers/agent-overview#connected-machine-agent-technical-overview)
+- The Automanage resource provider is not registered on the subscription. Check out [how to register a Resource Provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1) with the Automanage resource provider: *Microsoft.Automanage*
+- Machine does not have necessary VM agents installed which the Automanage service requires. Check out the [Windows agent installation](../virtual-machines/extensions/agent-windows.md) and the [Linux agent installation](../virtual-machines/extensions/agent-linux.md)
+- Arc machine is not connected. Learn more about the [Arc agent status](../azure-arc/servers/overview.md#agent-status) and [how to connect](../azure-arc/servers/deployment-options.md#agent-installation-details)
 
 Once you have selected your eligible machines, Click **Enable**, and you're done.
 
@@ -109,7 +109,7 @@ The only time you might need to interact with this machine to manage these servi
 ## Enabling Automanage for VMs using Azure Policy
 You can also enable Automanage on VMs at scale using the built-in Azure Policy. The policy has a DeployIfNotExists effect, which means that all eligible VMs located within the scope of the policy will be automatically onboarded to Automanage VM Best Practices.
 
-A direct link to the policy is [here](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3).
+A direct link to the policy is [here](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff889cab7-da27-4c41-a3b0-de1f6f87c55).
 
 For more information, check out how to enable the [Automanage built-in policy](virtual-machines-policy-enable.md). 
 

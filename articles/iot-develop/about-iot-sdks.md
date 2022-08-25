@@ -6,6 +6,7 @@ ms.author: philmea
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
+ms.custom: contperf-fy22q2
 ---
 
 # Overview of Azure IoT Device SDKs
@@ -18,7 +19,7 @@ The advantages of using an Azure IoT Device SDK over building a custom connectio
 
 | | Custom connection layer | Azure IoT Device SDKs |
 | :-- | :-- | :-- |
-| **Support** | Need to support and document your solution | Access to Microsoft support (GitHub, Microsoft Q&A, Microsoft Docs, Customer Support teams) |
+| **Support** | Need to support and document your solution | Access to Microsoft support (GitHub, Microsoft Q&A, Microsoft technical documentation, Customer Support teams) |
 | **New Features** | Need to manually add new Azure features | Can immediately take advantage of new features added |
 | **Investment** | Invest hundreds of hours of embedded development to design, build, test, and maintain a custom version | Can take advantage of free, open-source tools. The only cost associated with the SDKs is the learning curve. |
 

@@ -3,13 +3,12 @@ metadata:
   title: Frequently asked questions about Azure Application Gateway
   description: Find answers to frequently asked questions about Azure Application Gateway.
   services: application-gateway
-  author: vhorne
+  author: greg-lindsay
   ms.service: application-gateway
-  ms.topic: article
-  ms.date: 02/07/2022
-  ms.author: victorh
+  ms.topic: faq
+  ms.date: 04/26/2022
+  ms.author: greglin
   ms.custom: references_regions
-    
 title: Frequently asked questions about Application Gateway
 summary: |
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -117,7 +116,7 @@ sections:
           
       - question: How does application gateway handle routine maintenance?
         answer: |
-          Updates initiated to Application Gateway are applied one [update domain](../../articles/virtual-machines/availability-set-overview.md#how-do-availability-sets-work) at a time, during off business hours for the region the gateway is deployed in. Active connections will gracefully be drained from the instance(s) being updated.  While the update is in progress, Application Gateway will temporarily run at reduced capacity, which is determined by the amount of instances configured. The update process will proceed to the next set of instances only if the current set of instances have been upgraded successfully.
+          Updates initiated to Application Gateway are applied one [update domain](../../articles/virtual-machines/availability-set-overview.md#how-do-availability-sets-work) at a time, during off business hours for the region the gateway is deployed in. As each update domain's instances are being updated, the remaining instances in other update domains will continue to serve traffic. Active connections are gracefully drained from the instance(s) being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway will temporarily run at reduced max capacity, which is determined by the amount of instances configured. The update process will proceed to the next set of instances only if the current set of instances have been upgraded successfully.
           
       - question: Can I use Exchange Server as a backend with Application Gateway?
         answer: Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3. HTTP/HTTPS services such as OWA, ActiveSync, and AutoDiscovery traffic may flow through Application Gateway, however WAF exclusions may be required if using WAF sku.
@@ -132,6 +131,9 @@ sections:
           
       - question: Does Application Gateway V2 support proxying requests with NTLM authentication?
         answer: No. Application Gateway V2 doesn't support proxying requests with NTLM authentication.
+        
+      - question: Why are some header values not present when requests are forwarded to my application?
+        answer: Request header names can contain alphanumeric characters and hyphens. Request header names containing other characters will be discarded when a request is sent to the backend target. Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27), with the exception of underscores (\_).
 
       - question: Does Application Gateway affinity cookie support SameSite attribute?
         answer: |
@@ -141,7 +143,7 @@ sections:
           
       - question: What is considered an active listener versus inactive listener?
         answer: |
-          An active listener is a listener that is associated to a rule **and** sending traffic to a backend pool. Any listener that **only** redirects traffic is not an active listener. Listeners associated with redirect rules are not considered active. If the redirect rules is a path-based rule, then all the paths in that redirect rule must be redirecting traffic, else the listener is considered active. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) for individual component limit details. 
+          An active listener is a listener that is associated to a rule **and** sending traffic to a backend pool. Any listener that **only** redirects traffic is not an active listener. Listeners associated with redirect rules are not considered active. If the redirect rule is a path-based rule, then all the paths in that redirect rule must be redirecting traffic, else the listener is considered active. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) for individual component limit details. 
       
   - name: Performance
     questions:
@@ -154,17 +156,20 @@ sections:
       - question: How do I achieve a DR scenario across datacenters by using Application Gateway?
         answer: Use Traffic Manager to distribute traffic across multiple application gateways in different datacenters.
 
+      - question: Does Application Gateway support connection draining?
+        answer: |
+          Yes. You can set up connection draining to change members within a backend pool without disruption. For more information, see [connection draining section of Application Gateway](features.md#connection-draining).
+          
       - question: Does Application Gateway support autoscaling?
         answer: |
           Yes, the Application Gateway v2 SKU supports autoscaling. For more information, see [Autoscaling and Zone-redundant Application Gateway](application-gateway-autoscaling-zone-redundant.md).
           
       - question: Does manual or automatic scale up or scale down cause downtime?
         answer: No. Instances are distributed across upgrade domains and fault domains.
+        
+      - question: Can I change from Standard to WAF sku without disruption?
+        answer: Yes.
 
-      - question: Does Application Gateway support connection draining?
-        answer: |
-          Yes. You can set up connection draining to change members within a backend pool without disruption. For more information, see [connection draining section of Application Gateway](features.md#connection-draining).
-          
       - question: Can I change instance size from medium to large without disruption?
         answer: Yes.
         

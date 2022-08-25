@@ -3,7 +3,7 @@ title: Create an Azure Arc-enabled PostgreSQL Hyperscale server group from the A
 description: You can create an Azure Arc-enabled PostgreSQL Hyperscale server group from the Azure portal.
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
@@ -26,7 +26,7 @@ You might want read the following important topics before you proceed. (If you'r
 - [Overview of Azure Arc-enabled data services](overview.md)
 - [Connectivity modes and requirements](connectivity.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
-- [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
+- [Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)
 
 If you prefer to try things out without provisioning a full environment yourself, get started quickly with [Azure Arc jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/). You can do this on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE), or in an Azure virtual machine (VM).
 
@@ -66,13 +66,13 @@ Next, you choose one the options in the following sections.
 
 ### Deploy from Azure Database for PostgreSQL deployment option page
 
-1. Go to the following URL: `https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer`.
+1. Go to the following URL: `https://portal.azure.com/#create/Microsoft.PostgreSQLServer`.
 1. Select **Azure Arc-enabled PostgreSQL Hyperscale (Preview)** in the lower right of the page.
 1. Fill in the form, like you deploy any other Azure resource.
 
 ### Deploy from the Azure Arc center
 
-1. Go to the following URL: `https://ms.portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/overview`.
+1. Go to the following URL: `https://portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/overview`.
 1. From the **Deploy Azure services** tile, select **Deploy**. Then, from the **PostgreSQL Hyperscale (Preview)** tile, select **Deploy**. Alternatively, from the left pane, in the **Services** section, select **PostgreSQL Hyperscale (Preview)**. Then select **+ Create** in the upper left of the pane.
 
 ### Important considerations
@@ -90,7 +90,11 @@ Be aware of the following considerations when you're deploying:
   |A simple instance of Azure Arc-enabled PostgreSQL Hyperscale that is ready to scale out when you need it.   |One instance of Azure Arc-enabled PostgreSQL Hyperscale. It isn't yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes, and distribute the data.   |*0*.   |The Citus extension that provides the Hyperscale capability is present on your deployment, but isn't yet loaded.   |
   |   |   |   |   |
 
-  Although you can indicate *1* worker, it's not a good idea to do so. This deployment doesn't provide you with much value. With it, you get two instances of Azure Arc-enabled PostgreSQL Hyperscale: one coordinator and one worker. You don't scale out the data because you deploy a single worker. As such, you don't see an increased level of performance and scalability.
+    This table is demonstrated in the following figure:
+
+    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts PostgreSQL Hyperscale worker node parameters and associated architecture." border="false":::  
+
+    Although you can indicate *1* worker, it's not a good idea to do so. This deployment doesn't provide you with much value. With it, you get two instances of Azure Arc-enabled PostgreSQL Hyperscale: one coordinator and one worker. You don't scale out the data because you deploy a single worker. As such, you don't see an increased level of performance and scalability.
 
 - **The storage classes you want your server group to use.** It's important to set the storage class right at the time you deploy a server group. You can't change this setting after you deploy. If you don't indicate storage classes, you get the storage classes of the data controller by default.    
     - To set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd`, followed by the name of the storage class.
@@ -105,4 +109,4 @@ Be aware of the following considerations when you're deploying:
 - [Scale out your Azure Arc-enabled for PostgreSQL Hyperscale server group](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Expanding persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
-- [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
+- [Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)

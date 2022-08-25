@@ -1,12 +1,14 @@
 ---
 title: Learn about Azure Service Fabric Support options 
 description: Azure Service Fabric cluster versions supported and links to file support tickets
-author: erikadoyle
 ms.topic: troubleshooting
-ms.date: 5/17/2021
-ms.author: edoyle
-ms.custom: support-help-page
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Azure Service Fabric support options
 
 We have created a number of support request options to serve the needs of managing your Service Fabric clusters and application workloads, depending on the urgency of support needed and the severity of the issue.
@@ -25,7 +27,7 @@ For a full list of self help troubleshooting content, see [Service Fabric troubl
     <img alt='Azure support' src='./media/logos/azure-logo.png'>
 </div>
 
-To report issues related to your Service Fabric cluster running on Azure, open a support ticket [on the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+To report issues related to your Service Fabric cluster running on Azure, open a support ticket [on the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 or [Microsoft support portal](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Learn more about:

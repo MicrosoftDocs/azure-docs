@@ -130,7 +130,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **New identity provider** section, perform the following steps:
 
-    ![Screenshot shows the Account Settings.](./media/alexishr-tutorial/account.png " Settings")
+    ![Screenshot shows the Account Settings.](./media/alexishr-tutorial/account.png "Settings")
 
     1. In the **Identity provider SSO URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 

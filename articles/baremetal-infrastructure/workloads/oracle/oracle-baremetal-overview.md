@@ -17,7 +17,6 @@ These instances are for running mission critical applications requiring an Oracl
 Other features of BareMetal Infrastructure for Oracle include:
 
 - Oracle certified UCS blades - UCSB200-M5, UCSB460-M4, UCSB480-M5
-- Oracle Real Application Clusters (RAC) node-to-node (multi-cast) communication using private virtual LAN (VLAN) -40 Gb.
 - Microsoft-managed hardware
   - Redundant storage, network, power, management
   - Monitoring for Infra, repairs, and replacement

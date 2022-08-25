@@ -7,11 +7,12 @@ metadata:
   title: Datadog with Azure documentation
   description: Datadog with Azure provides monitoring and analytics for large-scale applications.
   ms.service: partner-services
+  ms.subservice: datadog
   ms.topic: landing-page
   ms.collection: na
-  author: tfitzmac
-  ms.author: tomfitz
-  ms.date: 10/22/2021
+  author: flang-msft
+  ms.author: franlanglois
+  ms.date: 03/25/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -27,7 +28,7 @@ landingContent:
         links:
           - text: Manage the Datadog resource
             url: manage.md
-      
+
   # Card
   - title: Create Datadog resource
     linkLists:
@@ -51,5 +52,5 @@ landingContent:
         links:
           - text: Azure CLI
             url: /cli/azure/datadog
-
-          
+          - text: REST API
+            url: /rest/api/datadog

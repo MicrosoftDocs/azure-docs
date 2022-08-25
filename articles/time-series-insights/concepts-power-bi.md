@@ -1,5 +1,5 @@
 ---
-title: 'Power BI integration - Azure Time Series Insights Gen 2 | Microsoft Docs'
+title: 'Power BI integration - Azure Time Series Insights Gen 2'
 description: Learn about Power BI integration in Azure Time Series Insight.
 author: msrsrinivasan
 ms.author: radhsrin
@@ -12,6 +12,8 @@ ms.date: 09/28/2020
 ---
 
 # Connect Azure Time Series Insights Gen 2 to Power BI
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 Are you looking for a solution to help correlate your time-series data, create vivid visualizations, and share insights across your organization?
 

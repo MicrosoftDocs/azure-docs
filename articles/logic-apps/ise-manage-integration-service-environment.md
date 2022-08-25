@@ -1,11 +1,11 @@
 ---
 title: Manage integration service environments in Azure Logic Apps
-description: Check network health and manage logic apps, connections, custom connectors, and integration accounts in your integration service environment (ISE) for Azure Logic Apps
+description: Check network health and manage logic apps, connections, custom connectors, and integration accounts in your integration service environment (ISE) for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 10/25/2020
+ms.topic: how-to
+ms.date: 08/20/2022
 ---
 
 # Manage your integration service environment (ISE) in Azure Logic Apps

@@ -3,6 +3,7 @@ title: Scale the management of Azure role assignments by using conditions and cu
 description: Scale the management of Azure role assignments by using Azure attribute-based access control (Azure ABAC) conditions and Azure AD custom security attributes for principals.
 services: active-directory
 author: rolyon
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
@@ -25,7 +26,7 @@ This article describes a solution to scale the management of role assignments by
 
 ## Example scenario
 
-Consider a company named Contoso with thousands of customers that want to set up the following configuration:
+Consider a company named Contoso with thousands of customers that wants to set up the following configuration:
 
 - Distribute customer data across 128 storage accounts for security and performance reasons​.
 - Add 2,000 containers to each storage account where there is a container for each customer.

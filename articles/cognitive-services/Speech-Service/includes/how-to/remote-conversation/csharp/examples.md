@@ -1,15 +1,15 @@
 ---
-author: amitkumarshukla
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/09/2020
-ms.author: amishu
+ms.date: 07/26/2022
+ms.author: eur
 ms.custom: devx-track-csharp
 ---
 
 ## Upload the audio
 
-The first step for asynchronous transcription is to send the audio to the Conversation Transcription Service using the Speech SDK (version 1.13.0 or above).
+The first step for asynchronous transcription is to send the audio to the Conversation Transcription Service using the Speech SDK.
 
 This example code shows how to create a `ConversationTranscriber` for asynchronous-only mode. In order to stream audio to the transcriber, you add audio streaming code derived from [Transcribe conversations in real time with the Speech SDK](../../../../how-to-use-conversation-transcription.md). 
 
@@ -33,7 +33,11 @@ async Task CompleteContinuousRecognition(ConversationTranscriber recognizer, str
     };
 
     await recognizer.StartTranscribingAsync().ConfigureAwait(false);
-    await Task.WhenAny(finishedTaskCompletionSource.Task, Task.Delay(TimeSpan.FromSeconds(10)));
+    
+    // Waits for completion.
+    // Use Task.WaitAny to keep the task rooted.
+    Task.WaitAny(new[] { finishedTaskCompletionSource.Task });
+    
     await recognizer.StopTranscribingAsync().ConfigureAwait(false);
 }
 

@@ -5,19 +5,21 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
-ms.date: 05/18/2020 
+ms.date: 04/05/2022
 ms.custom: devx-track-azurepowershell
+ms.reviewer: robb
 ---
 # Resource Manager template samples for Azure Monitor
 
-You can deploy and configure Azure Monitor at scale by using [Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). This article lists sample templates for Azure Monitor features. You can modify these samples for your particular requirements and deploy them by using any standard method for deploying Resource Manager templates. 
+You can deploy and configure Azure Monitor at scale by using [Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). This article lists sample templates for Azure Monitor features. You can modify these samples for your particular requirements and deploy them by using any standard method for deploying Resource Manager templates.
 
-## Deploying the sample templates
-The basic steps to use the one of the template samples are:
+## Deploy the sample templates
+
+The basic steps to use one of the template samples are:
 
 1. Copy the template and save it as a JSON file.
-2. Modify the parameters for your environment and save the JSON file.
-3. Deploy the template by using [any deployment method for Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md). 
+1. Modify the parameters for your environment and save the JSON file.
+1. Deploy the template by using [any deployment method for Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 For example, use the following commands to deploy the template and parameter file to a resource group by using PowerShell or the Azure CLI:
 
@@ -52,4 +54,4 @@ az deployment group create \
 
 ## Next steps
 
-- Learn more about [Resource Manager templates](../azure-resource-manager/templates/overview.md).
+Learn more about [Resource Manager templates](../azure-resource-manager/templates/overview.md).

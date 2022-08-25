@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 08/23/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -26,7 +26,7 @@ Both policies work to automate the response to risk detections in your environme
 
 ## Choosing acceptable risk levels
 
-Organizations must decide the level of risk they are willing to accept balancing user experience and security posture. 
+Organizations must decide the level of risk they're willing to accept balancing user experience and security posture. 
 
 Microsoft's recommendation is to set the user risk policy threshold to **High** and the sign-in risk policy to **Medium and above** and allow self-remediation options. Choosing to block access rather than allowing self-remediation options, like password change and multi-factor authentication, will impact your users and administrators. Weigh this choice when configuring your policies.
 
@@ -41,7 +41,7 @@ Organizations can choose to block access when risk is detected. Blocking sometim
 - When a user risk policy triggers: 
    - Administrators can require a secure password reset, requiring Azure AD MFA be done before the user creates a new password with SSPR, resetting the user risk. 
 - When a sign-in risk policy triggers: 
-   - Azure AD MFA can be triggered, allowing to user to prove it is them by using one of their registered authentication methods, resetting the sign-in risk. 
+   - Azure AD MFA can be triggered, allowing to user to prove it's them by using one of their registered authentication methods, resetting the sign-in risk. 
 
 > [!WARNING]
 > Users must register for Azure AD MFA and SSPR before they face a situation requiring remediation. Users not registered are blocked and require administrator intervention.
@@ -50,20 +50,22 @@ Organizations can choose to block access when risk is detected. Blocking sometim
 
 ## Exclusions
 
-Policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../roles/security-emergency-access.md). Organizations may need to exclude other accounts from specific policies based on the way the accounts are used. Exclusions should be reviewed regularly to see if they are still applicable.
+Policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../roles/security-emergency-access.md). Organizations may need to exclude other accounts from specific policies based on the way the accounts are used. Exclusions should be reviewed regularly to see if they're still applicable.
 
 ## Enable policies
 
-There are two locations where these policies may be configured, Conditional Access and Identity Protection. Configuration using Conditional Access policies is the preferred method, providing more context including: 
+There are two locations where these policies may be configured, Conditional Access and Identity Protection. Configuration using Conditional Access policies is the preferred method, providing more context including:
 
    - Enhanced diagnostic data
    - Report-only mode integration
    - Graph API support
    - Use more Conditional Access attributes in policy
 
+Organizations can choose to deploy policies using the steps outlined below or using the [Conditional Access templates (Preview)](../conditional-access/concept-conditional-access-policy-common.md#conditional-access-templates-preview).
+
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-Before enabling remediation policies, organizations may want to [investigate](howto-identity-protection-investigate-risk.md) and [remediate](howto-identity-protection-remediate-unblock.md) any active risks.
+Before organizations enable remediation policies, they may want to [investigate](howto-identity-protection-investigate-risk.md) and [remediate](howto-identity-protection-remediate-unblock.md) any active risks.
 
 ### User risk with Conditional Access
 
@@ -71,7 +73,7 @@ Before enabling remediation policies, organizations may want to [investigate](ho
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**.
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
@@ -91,7 +93,7 @@ Before enabling remediation policies, organizations may want to [investigate](ho
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**.
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
@@ -108,9 +110,6 @@ Before enabling remediation policies, organizations may want to [investigate](ho
 ## Next steps
 
 - [Enable Azure AD Multi-Factor Authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
-
 - [What is risk](concept-identity-protection-risks.md)
-
 - [Investigate risk detections](howto-identity-protection-investigate-risk.md)
-
 - [Simulate risk detections](howto-identity-protection-simulate-risk.md)

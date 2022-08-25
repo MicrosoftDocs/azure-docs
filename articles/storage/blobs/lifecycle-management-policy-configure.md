@@ -2,15 +2,16 @@
 title: Configure a lifecycle management policy
 titleSuffix: Azure Storage
 description: Configure a lifecycle management policy to automatically move data between hot, cool, and archive tiers during the data lifecycle.
-author: tamram
+author: normesta
 
-ms.author: tamram
+ms.author: normesta
 ms.date: 08/18/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.custom: "devx-track-azurepowershell"
+ms.custom: "devx-track-azurepowershell, devx-track-azurecli" 
+ms.devlang: azurecli
 ---
 
 # Configure a lifecycle management policy
@@ -37,7 +38,8 @@ To enable last access time tracking with the Azure portal, follow these steps:
 1. Navigate to your storage account in the Azure portal.
 1. In the **Data management** section, select **Lifecycle management**.
 
-    :::image type="content" source="media/lifecycle-management-policy-configure/last-access-tracking-enable.png" alt-text="Screenshot showing how to enable last access tracking in Azure portal":::
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot showing how to enable last access tracking in Azure portal.](media/lifecycle-management-policy-configure/last-access-tracking-enable.png)
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -55,7 +57,7 @@ Enable-AzStorageBlobLastAccessTimeTracking  -ResourceGroupName $rgName `
 
 #### [Azure CLI](#tab/azure-cli)
 
-To enable last access time tracking with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command, as shown in the following example. Remember to replace placeholder values in angle brackets with your own values:
+To enable last access time tracking with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command, as shown in the following example. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az storage account blob-service-properties update \
@@ -191,7 +193,7 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgName `
 
 #### [Azure CLI](#tab/azure-cli)
 
-To add a lifecycle management policy with Azure CLI, write the policy to a JSON file, then call the [az storage account management-policy create](/cli/azure/storage/account/management-policy#az_storage_account_management_policy_create) command to create the policy.
+To add a lifecycle management policy with Azure CLI, write the policy to a JSON file, then call the [az storage account management-policy create](/cli/azure/storage/account/management-policy#az-storage-account-management-policy-create) command to create the policy.
 
 The following example shows how to use each of these commands to create a lifecycle policy. Remember to replace placeholder values in angle brackets with your own values:
 
@@ -209,6 +211,10 @@ To define a lifecycle management policy with an Azure Resource Manager template,
 ---
 
 A lifecycle management policy must be read or written in full. Partial updates are not supported.
+
+
+> [!NOTE]
+> Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
 
 > [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).

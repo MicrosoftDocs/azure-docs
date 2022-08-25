@@ -12,13 +12,13 @@ ms.service: storsimple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2021
+ms.date: 08/18/2022
 ms.author: alkohli
 ---
 
 # StorSimple Data Manager overview
 
-[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 
@@ -99,7 +99,7 @@ There are also limitations on what can be stored in Azure file shares. It's impo
   - Maximum supported file size for a blob is 4.7 TiB.
   - Most recent available backup set will be used.
   - File metadata is not uploaded with the file content.
-  - Uploaded blobs are of the Block Blob type. Thus, any uploaded VHD can't be used in Azure Virtual Machines.
+  - Uploaded blobs are of the Block Blob type. Thus, any uploaded VHD or VHDX can't be used in Azure Virtual Machines.
 
 ## Next steps
 

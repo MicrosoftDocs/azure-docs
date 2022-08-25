@@ -1,11 +1,11 @@
 ---
 title: Managed identities in Azure SignalR Service
 description: Learn how managed identities work in Azure SignalR Service, and how to use a managed identity in serverless scenarios.
-author: chenyl
+author: vicancy
 ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
-ms.author: chenyl
+ms.author: lianwei
 ---
 
 # Managed identities for Azure SignalR Service
@@ -67,7 +67,7 @@ Azure SignalR Service is a fully managed service, so you can't use a managed ide
 
 ### Validate access tokens
 
-The token in the `Authorization` header is a [Microsoft identity platform access token](../active-directory/develop/access-tokens.md#validating-tokens).
+The token in the `Authorization` header is a [Microsoft identity platform access token](../active-directory/develop/access-tokens.md).
 
 To validate access tokens, your app should also validate the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, see the [tenant-independent version of the document](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
@@ -95,7 +95,7 @@ Setting access token validation in Function App is easy and efficient without co
 After these settings, the Function App will reject requests without an access token in the header.
 
 > [!Important] 
-> To pass the authentication, the *Issuer Url* must match the *iss* claim in token. Currently, we only support v1 endpoint (see [v1.0 and v2.0](../active-directory/develop/access-tokens.md#v10-and-v20)), so the *Issuer Url* should look like `https://sts.windows.net/<tenant-id>/`. Check the *Issuer Url* configured in Azure Function. For **Authentication**, go to *Identity provider* -> *Edit* -> *Issuer Url* and for **Authentication (classic)**, go to *Azure Active Directory* -> *Advanced* -> *Issuer Url*
+> To pass the authentication, the *Issuer Url* must match the *iss* claim in token. Currently, we only support v1 endpoint (see [v1.0 and v2.0](../active-directory/develop/access-tokens.md)), so the *Issuer Url* should look like `https://sts.windows.net/<tenant-id>/`. Check the *Issuer Url* configured in Azure Function. For **Authentication**, go to *Identity provider* -> *Edit* -> *Issuer Url* and for **Authentication (classic)**, go to *Azure Active Directory* -> *Advanced* -> *Issuer Url*
 
 
 ## Use a managed identity for Key Vault reference

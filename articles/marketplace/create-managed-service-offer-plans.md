@@ -1,13 +1,12 @@
 ---
 title: Create plans for a Managed Service offer on Azure Marketplace
 description: Create plans for a Managed Service offer on Azure Marketplace.
-author: Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: brwrigh
+author: TeoLupu
+ms.author: telupu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 03/15/2022
 ---
 
 # Create plans for a Managed Service offer
@@ -18,7 +17,7 @@ Managed Service offers sold through the Microsoft commercial marketplace must ha
 
 1. On the **Plan overview** tab of your offer in Partner Center, select **+ Create new plan**.
 2. In the dialog box that appears, under **Plan ID**, enter a unique plan ID. Use up to 50 lowercase alphanumeric characters, dashes, or underscores. You cannot modify the plan ID after you select **Create**. This ID will be visible to your customers.
-3. In the **Plan name** box, enter a unique name for this plan. Use a maximum of 50 characters. This name will be visible to your customers.
+3. In the **Plan name** box, enter a unique name for this plan. Use a maximum of 200 characters. This name will be visible to your customers.
 4. Select **Create**.
 
 ## Define the plan listing
