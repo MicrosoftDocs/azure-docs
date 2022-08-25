@@ -96,5 +96,4 @@ A consistency level of LOCAL_ONE, ONE or Any will give you eventual consistency.
 
 Learn more about the consistency level in Azure Cosmos DB for Apache Cassandra, read the following articles:
 - [Consistency Level overview](../consistency-levels.md)
-- [Configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level)
-- [Override the default consistency level](how-to-manage-consistency.md#override-the-default-consistency-level)
+- [Apache Cassandra and Azure Cosmos DB consistency levels](apache-cassandra-consistency-mapping.md)
