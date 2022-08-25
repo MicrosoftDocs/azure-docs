@@ -3,9 +3,8 @@ author: laujan
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/27/2022
+ms.date: 08/25/2022
 ms.author: lajanuar
-ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD041 -->
 
@@ -13,13 +12,15 @@ ms.custom: ignite-fall-2021
 
 * Supported file formats: 
 
-    | Format | Read |Layout | General Document| Prebuilt |Custom |
-    |--------|:----:|:-----:|:---------------:|:--------:|:-----:|
-    |PDF     | ✔    | ✔    | ✔  | ✔  | ✔ |
-    |Image</br>(JPEG/JPG, PNG, BMP, TIFF)| ✔  | ✔ | ✔  | ✔ | ✔ |
-    |Microsoft Office File formats (Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML files)| Read API version`2022/06/30` only.| | |  | |
+    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, and TIFF | Microsoft Office: </br> Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML.|
+    |--------|:----:|:-----:|:---------------:
+    |Read            | ✔    | ✔    | &#x2731; **REST API version`2022/06/30-preview`**
+    |Layout          | ✔  | ✔ |   |
+    |General Document| ✔  | ✔ |   |
+    |Prebuilt        |  ✔  | ✔ |   |
+    |Custom          |  ✔  | ✔ |   |
 
-JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location. Additionally, only API version`2022/06/30` supports Microsoft Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML files in Read model.
+    &#x2731; Currently not supported for other models or versions.
 
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 
