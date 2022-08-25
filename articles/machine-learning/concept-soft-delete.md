@@ -56,6 +56,11 @@ Recently deleted workspaces can be recovered or permanently deleted during the s
 * A data retention period of 14 days is the default, and can be set to a value between 1-14 as a property on the workspace.
 * Optionally, you may choose to permanently delete a non-CMK workspace without going to soft delete state first. Permanently deleting a workspace allows recreation to accomodate for dev/test MLOps scenarios, or to immediately delete highly sensitive data if required.
 * Permanently deleting workspaces can only be done one workspace at at time, and not using a batch operation.
+* You cannot reuse the name of a workspace that has been soft-deleted until the retention period has passed.
+
+## Workspace recovery
+
+Upon deleting a workspace, the service keeps necessary data and metadata during the retention period for recovery. The service attempts recreation or re-attachment of selected hard-deleted resources including role assignment at the time of workspace recovery. Other hard-deleted resources including compute clusters, should be recreated by you.
 
 ## Billing implications
 
