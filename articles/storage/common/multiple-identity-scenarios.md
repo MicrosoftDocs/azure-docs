@@ -137,38 +137,49 @@ This overall process ensures that your app can run securely locally and in Azure
 
 ## Connect multiple apps using multiple managed identities
 
-Although the apps in the previous example all shared the same service access requirements, real environments are often more nuanced. Consider a scenario where multiple apps share some of the same access goals, but also have individual or more granular requirements. Applications support multiple user-assigned managed identities to handle these requirements.
+Although the apps in the previous example all shared the same service access requirements, real environments are often more nuanced. Consider a scenario where multiple apps all connect to the same storage accounts, but two of the apps also access different services or databases.
 
-:::image type="content" source="media/multiple-managed-identities.png" alt-text="A diagram showing multiple user-assigned managed identities.":::
+:::image type="content" source="media/multiple-managed-identities-small.png" lightbox="media/multiple-managed-identities.png" alt-text="A diagram showing multiple user-assigned managed identities.":::
 
-To configure this setup in your code, make sure your application registers separate services to connect to each storage account. 
+To configure this setup in your code, make sure your application registers separate services to connect to each storage account or database. 
 
 ## [.NET](#tab/dotnet)
 
-In the case of .NET, make sure to pull in the correct managed identity client ids when configuring `DefaultAzureCredential`. The following code example configures services that access two storage accounts for product receipts and sales contracts.
+In the case of .NET, make sure to pull in the correct managed identity client ids for each service when configuring `DefaultAzureCredential`. The following code example configures the following service connections:
+* Two connections to separate storage accounts using a shared user-assigned managed identity
+* A connection to Azure Cosmos DB and Azure SQL services using a second shared user-assigned managed identity
 
 ```csharp
-// First blob storage client that using a managed identity
-var clientIDReceipts = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Receipts");
-var receiptCreds = new DefaultAzureCredentialOptions()
-{
-    ManagedIdentityClientId = clientIDReceipts
-};
+// Get the first user-assigned managed identity ID to connect to shared storage
+var clientIDstorage = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Storage");
 
+// First blob storage client that using a managed identity
 BlobServiceClient blobServiceClient = new BlobServiceClient(
     new Uri("https://<receipt-storage-account>.blob.core.windows.net"),
-    new DefaultAzureCredential(receiptCreds));
+    new DefaultAzureCredential()
+    {
+        ManagedIdentityClientId = clientIDstorage
+    });
 
 // Second blob storage client that using a managed identity
-var clientIDContracts = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Contracts");
-var contractCreds = new DefaultAzureCredentialOptions()
-{
-    ManagedIdentityClientId = clientIDContracts
-};
-
 BlobServiceClient blobServiceClient2 = new BlobServiceClient(
     new Uri("https://<contract-storage-account>.blob.core.windows.net"),
-    new DefaultAzureCredential(contractCreds));
+    new DefaultAzureCredential()
+{
+        ManagedIdentityClientId = clientIDstorage
+    });
+
+
+// Get the second user-assigned managed identity ID to connect to shared databases
+var clientIDdatabases = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Databases");
+
+// Create a Cosmos DB client
+CosmosClient client = new CosmosClient(
+    accountEndpoint: Environment.GetEnvironmentVariable("COSMOS_ENDPOINT", EnvironmentVariableTarget.Process),
+    new DefaultAzureCredential()
+    {
+        ManagedIdentityClientId = clientIDdatabases
+    });
 
 // Open a connection to Azure SQL using a managed identity
 string ConnectionString1 = @"Server=<azure-sql-hostname>.database.windows.net; User Id=ObjectIdOfManagedIdentity; Authentication=Active Directory Default; Database=<database-name>";
@@ -196,7 +207,7 @@ using (SqlConnection conn = new SqlConnection(ConnectionString1))
 
 You can also associate a user-assigned managed identity as well as a system-assigned managed identity to a resource simultaneously. This can be useful in scenarios where all of the apps require access to the same shared services, but one of the apps also has a very specific dependency on an additional service. Using a system-assigned identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
 
-:::image type="content" source="media/user-and-system-assigned-identities.png" alt-text="A diagram showing user-assigned and system-assigned managed identities.":::
+:::image type="content" lightbox="media/user-and-system-assigned-identities-small.png" source="media/user-and-system-assigned-identities.png" alt-text="A diagram showing user-assigned and system-assigned managed identities.":::
 
 These types of scenarios are explored in more depth in the [identities best practice recommendations](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
