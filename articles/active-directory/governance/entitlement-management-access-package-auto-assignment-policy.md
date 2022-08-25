@@ -49,7 +49,7 @@ To create a policy for an access package, you need to start from the access pack
 1. Provide a dynamic membership rule, using the [membership rule builder](../enterprise-users/groups-dynamic-membership.md) or by clicking **Edit** on the rule syntax text box.
 
    > [!NOTE]
-   > The rule builder might not be able to display some rules constructed in the text box, and validating a rule currently requires the you to be in the Global administrator role. For more information, see [rule builder in the Azure portal](/enterprise-users/groups-create-rule.md#rule-builder-in-the-azure-portal).
+   > The rule builder might not be able to display some rules constructed in the text box, and validating a rule currently requires the you to be in the Global administrator role. For more information, see [rule builder in the Azure portal](../enterprise-users/groups-create-rule.md#rule-builder-in-the-azure-portal).
 
     ![Screenshot of an access package automatic assignment policy rule configuration.](./media/entitlement-management-access-package-auto-assignment-policy/auto-assignment-rule-configuration.png)
 
