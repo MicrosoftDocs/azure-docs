@@ -26,10 +26,6 @@ For Azure Front Door pricing information, see [Azure Front Door pricing](https:/
 > [!NOTE]
 > This article explains how billing works for Azure Front Door Standard and Premium SKUs. For information about Azure Front Door (classic), see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
 
-<!-- TODO -->
-> [!CAUTION]
-> **Note to reviewers:** The diagrams in this article are rough drafts for content review purposes only. After the article has been reviewed, I'll get the diagrams redrawn by the Azure illustration team.
-
 ## Base fees
 
 Each Front Door profile incurs an hourly fee. You're billed for each hour, or partial hour, that your profile is deployed. The rate you're charged depends on the Front Door SKU that you deploy.
