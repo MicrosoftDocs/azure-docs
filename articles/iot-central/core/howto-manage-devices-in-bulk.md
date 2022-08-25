@@ -41,7 +41,7 @@ The following example shows you how to create and run a job to set the light thr
 
     The cancellation threshold lets you automatically cancel a job if the number of errors exceeds your set limit. The threshold can apply to all the devices in the job, or to individual batches.
 
-1. Select **Next** to move to the **Schedule** page. The **Schedule** page lets you enable a schedule to run the job in the future:
+1. Select **Next** to move to the **Schedule** page. The **Schedule** page lets you enable a schedule to run the job in the future.
 
     Choose a recurrence option for the schedule. You can set up a job to run:
 
