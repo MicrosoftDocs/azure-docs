@@ -10,6 +10,7 @@ ms.author: kgremban
 ms.custom: devx-track-portal, devx-track-azurecli
 ---
 
+# How to manage devices using device twin tags in Azure IoT Hub
 This article demonstrates how to use tags to manage IoT devices using [device twin tags](iot-hub-devguide-device-twins#tags-and-properties-format)
 
 Device twin tags can be used as a powerful tool to help you organize your devices. This is especially important when you have multiple kinds of devices within your IoT solutions, you can use tags to set types, locations etc. For example:
