@@ -17,6 +17,7 @@ ms.author: mayssamm
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md?#access-your-connection-strings-and-service-endpoints-using-azure-cli).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
+- Note your Communication Services resource endpoint. You can get the endpoint from the Azure portal. Alternativaly, you can find the endpoint url in the connection string. It is the url that comes after `endpoint=` and starts with `https://`.
 - A [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
@@ -35,6 +36,81 @@ az extension add --name communication
 
 ### Sign in to Azure CLI
 You'll need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
+
+
+### (Optional) Use Azure CLI identity operations without passing in an endpoint or access token
+
+#### Store your endpoint in an environment variable
+
+You can configure the `AZURE_COMMUNICATION_ENDPOINT` environment variable to use Azure CLI chat operations without having to use `--endpoint` to pass in the endpoint. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourEndpoint>` with your actual endpoint.
+
+##### [Windows](#tab/windows)
+
+Open a console window and enter the following command:
+
+```console
+setx AZURE_COMMUNICATION_ENDPOINT "<yourEndpoint>"
+```
+
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
+
+##### [macOS](#tab/unix)
+
+Edit your **`.zshrc`**, and add the environment variable:
+
+```bash
+export AZURE_COMMUNICATION_ENDPOINT="<yourEndpoint>"
+```
+
+After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
+
+##### [Linux](#tab/linux)
+
+Edit your **`.bash_profile`**, and add the environment variable:
+
+```bash
+export AZURE_COMMUNICATION_ENDPOINT="<yourEndpoint>"
+```
+
+After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
+
+---
+
+#### Store your access token in an environment variable
+
+To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourAccessToken>` with your actual access token.
+
+##### [Windows](#tab/windows)
+
+Open a console window and enter the following command:
+
+```console
+setx AZURE_COMMUNICATION_ACCESS_TOKEN "<yourAccessToken>"
+```
+
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
+
+##### [macOS](#tab/unix)
+
+Edit your **`.zshrc`**, and add the environment variable:
+
+```bash
+export AZURE_COMMUNICATION_ACCESS_TOKEN="<yourAccessToken>"
+```
+
+After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
+
+##### [Linux](#tab/linux)
+
+Edit your **`.bash_profile`**, and add the environment variable:
+
+```bash
+export AZURE_COMMUNICATION_ACCESS_TOKEN="<yourAccessToken>"
+```
+
+After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
+
+---
 
 ## Operations
 
@@ -177,78 +253,3 @@ az communication chat participant remove --thread "<chatThreadId>" --user "<user
 - Replace `<userId>` with the userId you want to remove from the chat thread.
 - Replace `<endpoint>` with your ACS endpoint.
 - Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
-
-
-## (Optional) Use Azure CLI identity operations without passing in an endpoint or access token
-
-### Store your endpoint in an environment variable
-
-You can configure the `AZURE_COMMUNICATION_ENDPOINT` environment variable to use Azure CLI chat operations without having to use `--endpoint` to pass in the endpoint. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourEndpoint>` with your actual endpoint.
-
-#### [Windows](#tab/windows)
-
-Open a console window and enter the following command:
-
-```console
-setx AZURE_COMMUNICATION_ENDPOINT "<yourEndpoint>"
-```
-
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
-
-#### [macOS](#tab/unix)
-
-Edit your **`.zshrc`**, and add the environment variable:
-
-```bash
-export AZURE_COMMUNICATION_ENDPOINT="<yourEndpoint>"
-```
-
-After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
-
-#### [Linux](#tab/linux)
-
-Edit your **`.bash_profile`**, and add the environment variable:
-
-```bash
-export AZURE_COMMUNICATION_ENDPOINT="<yourEndpoint>"
-```
-
-After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
-
----
-
-### Store your access token in an environment variable
-
-To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourAccessToken>` with your actual access token.
-
-#### [Windows](#tab/windows)
-
-Open a console window and enter the following command:
-
-```console
-setx AZURE_COMMUNICATION_ACCESS_TOKEN "<yourAccessToken>"
-```
-
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
-
-#### [macOS](#tab/unix)
-
-Edit your **`.zshrc`**, and add the environment variable:
-
-```bash
-export AZURE_COMMUNICATION_ACCESS_TOKEN="<yourAccessToken>"
-```
-
-After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
-
-#### [Linux](#tab/linux)
-
-Edit your **`.bash_profile`**, and add the environment variable:
-
-```bash
-export AZURE_COMMUNICATION_ACCESS_TOKEN="<yourAccessToken>"
-```
-
-After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
-
----
