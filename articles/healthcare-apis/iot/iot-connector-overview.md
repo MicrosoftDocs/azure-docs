@@ -6,7 +6,7 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 08/17/2022
+ms.date: 08/24/2022
 ms.author: v-smcevoy
 ---
 
@@ -28,7 +28,7 @@ These elements are:
 
 ### Deployment
 
-In order to implement MedTech service, you need to set up a workspace and a namespace to deploy three Azure services: MedTech service, FHIR service, and Event Hubs service. This sets up the PaaS configuration required to receive and process data from Internet of Medical Things (IoMT) devices.
+In order to implement MedTech service, you need to have an Azure subscription and then set up a workspace and a namespace to deploy three Azure services: MedTech service, FHIR service, and Event Hubs service. This creates the PaaS configuration required to receive and process data from Internet of Medical Things (IoMT) devices.
 
 ### Devices
 
@@ -50,9 +50,9 @@ These are the five stages:
 
 3. **Group** - The normalized data is then grouped by using three different parameters to prepare it for the next stage of processing. The parameters are: device identity, measurement type, time period, and (optionally) correlation id.
 
-4. **Transform** - After the normalized data is grouped, it is transformed through FHIR destination mapping templates and is ready to become FHIR Observation resources.
+4. **Transform** - When the normalized data is grouped, it is transformed through FHIR destination mapping templates and is ready to become FHIR Observation resources.
 
-5. **Persist** - When the transformation is done, the new data is sent to FHIR service and persisted as an Observation resource.
+5. **Persist** - After the transformation is done, the new data is sent to FHIR service and persisted as an Observation resource.
 
 ### FHIR service
 
@@ -72,17 +72,17 @@ Your MedTech service can be customized and configured by using [Device](./how-to
 
 Useful options could include:
 
-- Observations that can be created or updated according to existing or new templates.
-
 - Linking Devices and health care consumers together for enhanced insights, trend capture, interoperability between systems, and proactive and remote monitoring.
 
-- Health data terms in a format that works best for your organization and that provide consistency in device data ingestion. For example, either "hr" or "heart rate" or "Heart Rate" could be used to define heart rate information.
+- Observations that can be created or updated according to existing or new templates.
 
-- The [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) open-source tool could be used for customization, editing, testing, and troubleshooting MedTech service Device and FHIR destination mappings.
+- Choosing Health data terms in a format that works best for your organization and that provide consistency in device data ingestion. For example, you could have either "hr" or "heart rate" or "Heart Rate" to define heart rate information.
+
+- The [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) open-source tool facilitates customization, editing, testing, and troubleshooting MedTech service Device and FHIR destination mappings.
 
 ### Scalable
 
-The MedTech service uses special autoscaling features that enable developers to easily modify and extend the capabilities to support new device mapping template types and FHIR resources.
+The MedTech service provides special autoscaling features that enable developers to easily modify and extend the capabilities to support new device mapping template types and FHIR resources.
 
 ### Extensible
 
@@ -94,7 +94,7 @@ The MedTech service may also be integrated into our [open-source projects](./iot
 
 - Google&#174;
 
-The following Microsoft solutions could also be used with MedTech service to provide additional functionality:
+The following Microsoft solutions can leverage MedTech service for additional functionality:
 
 - [**Microsoft Azure IoT Hub**](../../iot-hub/iot-concepts-and-iot-hub.md) - enhances workflow and ease of use.
 
@@ -115,6 +115,6 @@ In this article, you learned about the MedTech service. To learn more about the 
 >[Deploy the MedTech service using the Azure portal](./deploy-iot-connector-in-azure.md)
 
 >[!div class="nextstepaction"]
->[Frequently asked questions about the MedTech service](./iot-connector-faqs)
+>[Frequently asked questions about the MedTech service](./iot-connector-faqs.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
