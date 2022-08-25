@@ -11,9 +11,9 @@ services: iot-dps
 
 # Tutorial: Provision for geolatency
 
-This tutorial shows how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). Allocation policies that are defined by the provisioning service support a variety of allocation scenarios.
+This tutorial shows how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). IoT Hub Device Provisioning Service (DPS) supports a variety of allocation scenarios through its built-in allocation policies and its support for custom allocation policies.
 
-Provisioning for **Geolocation/ GeoLatency** is a common allocation scenario. As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub that's closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs.
+Provisioning for **Geolocation/ GeoLatency** is a common allocation scenario. As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub that's closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The built-in **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs.
 
 This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices across regions. You'll perform the following steps in this tutorial:
 
