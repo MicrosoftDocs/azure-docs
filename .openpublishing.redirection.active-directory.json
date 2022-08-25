@@ -10853,7 +10853,7 @@
     },
     {
       "source_path": "articles/azure-percept/hci/azure-percept-on-azure-stack-hci-overview.md",
-      "redirect_url": "/azure/azure-percept/index",
+      "redirect_url": "https://docs.microsoft.com/azure/azure-percept/",
       "redirect_document_id": false
     },
     {
