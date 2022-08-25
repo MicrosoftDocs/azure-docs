@@ -83,7 +83,7 @@ Microsoft.Identity.Web provides several ways to describe certificates, both by c
 
 ## Program.cs
 
-Your web API will need to acquire a token for the downstream API. You specify it by adding the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApi(Configuration)`. This line exposes the `ITokenAcquisition` service, that you can use in your controller/pages actions. However, as you'll see in the next two bullet points, you can do even simpler. You'll also need to choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Program.cs*:
+Your web API will need to acquire a token for the downstream API. You specify it by adding the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApi(Configuration)`. This line exposes the `ITokenAcquisition` service, that you can use in your controller/pages actions. However, as you'll see in the next two bullet points, you can do even simpler. You'll also need to choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Program.cs*. If you use ASP.NET Core 3.1 or 5.0 the code will be similar but in the *Startup.cs* file.
 
 ```csharp
 using Microsoft.Identity.Web;
