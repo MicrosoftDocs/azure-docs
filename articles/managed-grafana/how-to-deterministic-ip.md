@@ -10,7 +10,7 @@ ms.date: 08/24/2022
 
 # Use deterministic outbound IPs
 
-In this guide, learn how to activate deterministic outbound IP support used by Azure Managed Grafana to communicate with its data sources, and set up a firewall rule to allow inbound requests from your Grafana instance.
+In this guide, learn how to activate deterministic outbound IP support used by Azure Managed Grafana to communicate with its data sources, disable public access and set up a firewall rule to allow inbound requests from your Grafana instance.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ API keys are disabled by default in Azure Managed Grafana. There are two ways yo
 
     #### [Azure CLI](#tab/azcli)
 
-    Run the [az grafana update](/cli/azure/grafana?view=azure-cli-latest) command to update your Azure Managed Grafana instance and enable deterministic outbound IPs.
+    Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to update your Azure Managed Grafana instance and enable deterministic outbound IPs.
 
     ```azurecli-interactive
     az grafana update --name --deterministic-outbound-ip Enabled
@@ -46,8 +46,6 @@ On the **Configuration** page, Azure Managed Grafana lists two outbound static I
 ## Disable public access to a data source and allow Azure Managed Grafana IP addresses
 
 This example demonstrates how to disable public access to Azure Data Explorer and set up private endpoints. This process is similar for other Azure data sources.
-
-### [Portal](#tab/azure-portal)
 
 1. Open an Azure Data Explorer Cluster instance in the Azure portal, and under **Settings**, select **Networking**.
 1. In the **Public Access** tab, select **Disabled** to disable public access to the data source.
@@ -63,7 +61,7 @@ You have limited access to your data source by disabling public access, activati
 Check if your Azure Managed Grafana endpoint can still access your data source by going to your Grafana endpoint, then **Configuration > Data Source > Azure Data Explorer Datasource > Settings**. At the bottom of the page, select **Save & test**:
 
 - If the message "Success" is displayed, Azure Managed Grafana can access your data source.
-- If the following error messages are displayed: "Error updating Azure Data Explorer schema" and "Post "https://<Azure-Data-Explorer URI>/v1/rest/query": dial tcp 13.90.24.175:443: i/o timeout", Grafana cannot access the data source. Make sure that you have entered the IP addresses correctly in the data source firewall allowlist.
+- If the following error messages are displayed,  Azure Managed Grafana can't access the data source: "Error updating Azure Data Explorer schema" and "Post "https://\<Azure-Data-Explorer URI\>/v1/rest/query": dial tcp 13.90.24.175:443: i/o timeout". Make sure that you have entered the IP addresses correctly in the data source firewall allowlist.
 
 ## Next steps
 
