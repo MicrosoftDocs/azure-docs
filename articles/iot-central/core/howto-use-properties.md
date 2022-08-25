@@ -222,10 +222,6 @@ When the operator sets a writable property in the Azure IoT Central application,
 
 The following view shows the writable properties. When you enter the value and select **Save**, the initial status is **Pending**. When the device accepts the change, the status changes to **Accepted**.
 
-:::image type="content" source="media/howto-use-properties/status-pending.png" alt-text="Screenshot that shows Pending status for a property update.":::
-
-:::image type="content" source="media/howto-use-properties/accepted.png" alt-text="Screenshot that shows Accepted property for a completed update.":::
-
 ## Use properties on unassigned devices
 
 You can view and update writable properties on a device that isn't assigned to a device template.
