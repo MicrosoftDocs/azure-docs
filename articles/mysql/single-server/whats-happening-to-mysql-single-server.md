@@ -11,7 +11,7 @@ ms.custom: deprecation
 ms.date: 09/15/2022
 ---
 
-# What's happening to Azure Database for MySQL Single Server?
+# What's happening to Azure Database for MySQL - Single Server?
 
 Hello! We have news to share - **Azure Database for MySQL - Single Server is on the retirement path**.
 
@@ -36,7 +36,7 @@ Learn how to migrate to Azure Database for MySQL Flexible Server.
 
 ## Next steps
 
-We're no longer supporting MySQL - Single Server, so you must migrate to MySQL - Flexible Server in order to use your MySQL servers in Azure. We know migrating services can be a frustrating experience and we're sorry we're asking you to make this change. There are multiple ways to migrate to MySQL - Flexible Server, you can choose what works best for you and your environment.
+We know migrating services can be a frustrating experience and we're sorry we're asking you to make this change. There are multiple ways to migrate to MySQL - Flexible Server, you can choose what works best for you and your environment.
 
 - Migrate using the Azure portal
 - Migrate using CLI
