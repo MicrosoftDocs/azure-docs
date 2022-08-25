@@ -18,21 +18,24 @@ The following steps show how to set up password authentication for an AD applica
     Connect-AzAccount
     ```
 
-1. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. Use the following command to list the Azure subscriptions available for you to use:
+1. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. 
 
-    ```powershell
-    Get-AzSubscription
-    ```
+   List the Azure subscriptions available for you to use:
 
-    Use the following command to select subscription that you want to use to run the commands to manage your IoT hub. You can use either the subscription name or ID from the output of the previous command:
+   ```powershell
+   Get-AzSubscription
+   ```
 
-    ```powershell
-    Select-AzSubscription `
-        -SubscriptionName "{your subscription name}"
-    ```
+   Select the subscription you want to use. You can use either the subscription name or ID from the output of the previous command.
 
-2. Make a note of your **TenantId** and **SubscriptionId**. You need them later.
-3. Create a new Azure Active Directory application using the following command, replacing the place holders:
+   ```powershell
+   Select-AzSubscription `
+   -SubscriptionName "{your subscription name}"
+   ```
+
+1. Save your **TenantId** and **SubscriptionId**. You need them later.
+
+1. Create a new Azure Active Directory application using the following command, replacing the placeholders:
    
    * **{Display name}:** a display name for your application such as **MySampleApp**
    * **{Home page URL}:** the URL of the home page of your app such as **http:\//mysampleapp/home**. This URL does not need to point to a real application.
@@ -43,19 +46,23 @@ The following steps show how to set up password authentication for an AD applica
      $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
      New-AzADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
-4. Make a note of the **ApplicationId** of the application you created. You need this later.
-5. Create a new service principal using the following command, replacing **{MyApplicationId}** with the **ApplicationId** from the previous step:
+1. Save the **ApplicationId** of the application you created. You need this later.
+
+1. Create a new service principal using the following command, replacing **{MyApplicationId}** with the **ApplicationId** from the previous step:
    
     ```powershell
     New-AzADServicePrincipal -ApplicationId {MyApplicationId}
     ```
-6. Set up a role assignment using the following command, replacing **{MyApplicationId}** with your **ApplicationId**.
+
+1. Set up a role assignment using the following command, replacing **{MyApplicationId}** with your **ApplicationId**.
    
     ```powershell
     New-AzRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
 
-You have now finished creating the Azure AD application that enables you to authenticate from your custom C# application. You need the following values later in this tutorial:
+You finished creating the Azure AD application that enables you to authenticate from your custom C# application. 
+
+You need the following values later in this tutorial:
 
 * TenantId
 * SubscriptionId
