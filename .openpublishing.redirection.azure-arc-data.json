@@ -176,12 +176,12 @@
             "redirect_document_id": false
           },
           {
-            "source_path_from_root": "articles/azure-arc/data/postgresql-hyperscale-server-group-placement-on-kubernetes-cluster-nodes.md",
+            "source_path_from_root": "/articles/azure-arc/data/postgresql-hyperscale-server-group-placement-on-kubernetes-cluster-nodes.md",
             "redirect_url": "/azure/azure-arc/data/release-notes",
             "redirect_document_id": false
           },
           {
-            "source_path_from_root": "articles/azure-arc/data/scale-out-in-postgresql-hyperscale-server-group.md",
+            "source_path_from_root": "/articles/azure-arc/data/scale-out-in-postgresql-hyperscale-server-group.md",
             "redirect_url": "/azure/azure-arc/data/release-notes",
             "redirect_document_id": false
           }
