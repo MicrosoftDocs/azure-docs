@@ -19,7 +19,7 @@ This article describes how to plan to deploy Azure Arc-enabled data services.
 
 ## Deployment steps
 
-In order to experience Azure Arc-enabled data services, you will need to complete the following tasks.
+In order to experience Azure Arc-enabled data services, you'll need to complete the following tasks.
 
 1. Plan your deployment
 
@@ -99,11 +99,11 @@ When you're creating Azure Arc-enabled data services, regardless of the service 
 - **Password**: The password for the Kibana/Grafana administrator user.
 - **Name of your Kubernetes namespace**: The name of the Kubernetes namespace where you want to create the data controller.
 - **Connectivity mode**: Determines the degree of connectivity from your Azure Arc-enabled data services environment to Azure. Your choice of connectivity mode determines the options for deployment methods. For more information, see [Connectivity modes and requirements](./connectivity.md).
-- **Azure subscription ID**: The Azure subscription GUID for where you want to create the data controller resource in Azure. All Azure Arc-enabled SQL managed instances and Azure Database for PostgreSQL servers are also created in and billed to this subscription.
-- **Azure resource group name**: The name of the resource group where you want to create the data controller resource in Azure. All Azure Arc-enabled SQL managed instances and Azure Database for PostgreSQL servers are also created in this resource group.
+- **Azure subscription ID**: The Azure subscription GUID for where you want to create the data controller resource in Azure. All Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL servers are also created in and billed to this subscription.
+- **Azure resource group name**: The name of the resource group where you want to create the data controller resource in Azure. All Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL servers are also created in this resource group.
 - **Azure location**: The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc) page for Azure global infrastructure. The metadata and billing information about the Azure resources that are managed by your deployed data controller is stored only in the location in Azure that you specify as the location parameter. If you're deploying in direct connectivity mode, the location parameter for the data controller is the same as the location of your targeted custom location resource.
 - **Service principal information**: 
-   - If you're deploying in **indirect** connectivity mode, you will need service principal information to upload usage and metrics data. For more information, see the "Assign roles to the service principal" section of [Upload usage data, metrics, and logs to Azure](upload-metrics-and-logs-to-azure-monitor.md). 
+   - If you're deploying in **indirect** connectivity mode, you'll need service principal information to upload usage and metrics data. For more information, see the "Assign roles to the service principal" section of [Upload usage data, metrics, and logs to Azure](upload-metrics-and-logs-to-azure-monitor.md). 
 
 - **Infrastructure**: For billing purposes, you must indicate the infrastructure on which you're running Azure Arc-enabled data services. The options are:
 - `alibaba`
@@ -113,7 +113,7 @@ When you're creating Azure Arc-enabled data services, regardless of the service 
 - `onpremises`
 - `other`
 
-- **Container runtime**: Use `containerd` runtime for the container runtime. Azure Arc-enabled data services does not support Docker runtime.
+- **Container runtime**: Use `containerd` runtime for the container runtime. Azure Arc-enabled data services don't support Docker runtime.
 
 ## Additional concepts for direct connectivity mode
 
@@ -142,4 +142,4 @@ You have several additional options for creating the Azure Arc data controller:
 - [Create a data controller in indirect connectivity mode with CLI](create-data-controller-indirect-cli.md)
 - [Create a data controller in indirect connectivity mode with Azure Data Studio](create-data-controller-indirect-azure-data-studio.md)
 - [Create a data controller in indirect connectivity mode from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-indirect-azure-portal.md)
-- [Create a data controller in indirect connectivity mode with Kubernetes tools such as kubectl or oc](create-data-controller-using-kubernetes-native-tools.md)
+- [Create a data controller in indirect connectivity mode with Kubernetes tools](create-data-controller-using-kubernetes-native-tools.md)

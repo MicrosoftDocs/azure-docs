@@ -1,6 +1,6 @@
 ---
-title: Limitations of Azure Arc-enabled PostgreSQL server
-description: Limitations of Azure Arc-enabled PostgreSQL server
+title: Limitations of Azure Arc-enabled PostgreSQL
+description: Limitations of Azure Arc-enabled PostgreSQL
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -11,24 +11,26 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Limitations of Azure Arc-enabled PostgreSQL server
+# Limitations of Azure Arc-enabled PostgreSQL
 
-This article describes limitations of Azure Arc-enabled PostgreSQL server. 
+This article describes limitations of Azure Arc-enabled PostgreSQL. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Backup and restore
-Backup/restore capabilities have been temporarily removed as we finalize designs and experiences.
+## Back up and restore 
+
+Back up and restore have been temporarily removed as we finalize designs and experiences.
 
 ## High availability
-Configuring high availability and ensuring failover in case of failures of the infrastructure is not yet available.
+
+Configuring high availability to recover from infrastructure failures isn't yet available.
 
 ## Databases
-Hosting more than one database in a server group is not supported if you scaled out the deployment on several worker nodes.
+Hosting more than one database in a server group isn't supported if you scaled out the deployment on several worker nodes.
 
 ## Roles and responsibilities
 
-The roles and responsibilities between Microsoft and its customers differ between Azure managed services (Platform As A Service or PaaS) and Azure hybrid (like Azure Arc-enabled PostgreSQL server). 
+The roles and responsibilities between Microsoft and its customers differ between Azure managed services (Platform As A Service or PaaS) and Azure hybrid (like Azure Arc-enabled PostgreSQL). 
 
 ### Frequently asked questions
 The table below summarizes answers to frequently asked questions regarding support roles and responsibilities.
@@ -43,7 +45,7 @@ The table below summarizes answers to frequently asked questions regarding suppo
 
 \* Azure services
 
-__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because Microsoft does not own the infrastructure and does not operate it. Customers do.
+__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because with a hybrid service, you or your provider owns the infrastructure.
 
 ## Next steps
 

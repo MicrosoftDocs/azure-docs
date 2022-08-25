@@ -20,7 +20,7 @@ Azure Arc makes it possible to run Azure data services on-premises, at the edge,
 Currently, the following Azure Arc-enabled data services are available: 
 
 - SQL Managed Instance
-- PostgreSQL server (preview)
+- Azure Arc-enabled PostgreSQL (preview)
 
 For an introduction to how Azure Arc-enabled data services supports your hybrid work environment, see this introductory video:
 
