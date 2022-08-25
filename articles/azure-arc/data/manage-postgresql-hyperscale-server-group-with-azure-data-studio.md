@@ -66,9 +66,9 @@ That features several dashboards listed on the left side of that pane:
 - **Connection Strings:** 
     Displays various connection strings you may need to connect to your PostgreSQL instance like psql, Node.js, PHP, Ruby...
 - **Diagnose and solve problems:** 
-    Is the landing page where you will find various resources that will help you troubleshoot your instance as we expand the troubleshooting notebooks
+    Displays various resources that will help you troubleshoot your instance as we expand the troubleshooting notebooks
 - **New support request:** 
-    Is the landing page from which you will be able to request assistance from our support services starting Public Preview announcement.
+    Request assistance from our support services starting preview announcement.
 
 ## Work with your data and schema
 

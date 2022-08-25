@@ -66,7 +66,7 @@ az postgres arc-server show -n postgres01 --k8s-namespace arc --use-k8s
    kubectl describe postgresql postgres01 -n arc
 ```
 
-Both these commands returns the specs of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
+Both these commands return the specs of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
 
 :::row:::
     :::column:::
@@ -125,13 +125,7 @@ Both these commands returns the specs of the server group in which you would see
 :::row-end:::
 
 
-The default value is, refer to the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config.html).
-
-
-
-## Set custom values for engine settings
-
-### Set a single parameter
+For default values, refer to the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config.html).
 
 ## Special considerations
 

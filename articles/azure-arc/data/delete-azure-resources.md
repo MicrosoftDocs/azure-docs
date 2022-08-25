@@ -24,7 +24,7 @@ Before you delete a resource such as Azure Arc SQL managed instance or Azure Arc
 
 ## Direct connectivity mode
 
-When a cluster is connected to Azure with direct connectivity mode, use the Azure portal to manage the resources. Use the portal for all create, read, update, & delete (CRUD) operations for data controller, Managed Instance, and PostgreSQL groups.
+When a cluster is connected to Azure with direct connectivity mode, use the Azure portal to manage the resources. Use the portal for all create, read, update, & delete (CRUD) operations for data controller, managed instances, and PostgreSQL servers.
 
 From Azure portal:
 1. Browse to the resource group and delete the Azure Arc data controller

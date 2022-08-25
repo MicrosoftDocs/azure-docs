@@ -32,7 +32,7 @@ You can implement encryption at rest either by encrypting the disks on which you
 Implement system data encryption to secure any data that resides on the disks used by your Azure Arc-enabled Data Services setup. You can read more about this topic:
 
 - [Data encryption at rest](https://wiki.archlinux.org/index.php/Data-at-rest_encryption) on Linux in general 
-- Disk encryption with LUKS `cryptsetup` encrypt command (Linux)(https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) specifically Since Azure Arc-enabled Data Services runs on the physical infrastructure that you provide, you are in charge of securing the infrastructure.
+- Disk encryption with LUKS `cryptsetup` command (Linux)(https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) specifically. Since Azure Arc-enabled Data Services runs on the physical infrastructure that you provide, you are in charge of securing the infrastructure.
 
 ### Software: Use the PostgreSQL `pgcrypto` extension in your server group
 
@@ -163,7 +163,7 @@ This small example demonstrates that you can encrypt data at rest (store encrypt
 
 ### General perspectives
 
-To configure roles and users in your Azure Arc-enabled PostgreSQL server, use the standard Postgres way to manage roles and users. For more details, read [here](https://www.postgresql.org/docs/12/user-manag.html). The definition and configuration of the roles will be automatically be propagated to all the Postgres instances that constitute your Azure Arc-enabled PostgreSQL server.
+To configure roles and users in your Azure Arc-enabled PostgreSQL server, use the standard Postgres way to manage roles and users. For more details, read [here](https://www.postgresql.org/docs/12/user-manag.html). 
 
 ### Change the password of the _postgres_ administrative user
 
