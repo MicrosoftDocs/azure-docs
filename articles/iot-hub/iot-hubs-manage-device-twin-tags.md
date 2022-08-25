@@ -65,11 +65,11 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
 4. In the opened view, you can see the tags the devices already have. To add a new basic tag, provide a **name** and **value** for the tag. The format for key and value pair is found in [Tags and properties format](iot-hub-devguide-device-twins#tags-and-properties-format). Select **Save** to save the rule
    
-   :::image type="content" source="./media/iot-hub-device-add-basic-tag.png" alt-text="Assign Tags to devices screen":::
+   :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-add-basic-tag.png" alt-text="Assign Tags to devices screen":::
 
 4. After saving, you can view the tags that were added by clicking **Assign Tags** again. 
 
-   :::image type="content" source="./media/iot-hub-device-view-basic-tag.png" alt-text="View tags added to devices":::
+   :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-view-basic-tag.png" alt-text="View tags added to devices":::
 
 5. Alternatively, you can add a nested tag by clicking the advanced tab in the **Assign Tags**
 
@@ -115,6 +115,7 @@ The following section walk through several examples of tagging using Azure CLI. 
     az iot hub device-twin update -n {iothub_name} \
         -d {device_id} --tags '{"country": "USA"}'
     ```
+    :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-cli-error.png" alt-text="Assign Tags to devices":::
 
 4. You can add complex nested tags by importing a json file:
 
