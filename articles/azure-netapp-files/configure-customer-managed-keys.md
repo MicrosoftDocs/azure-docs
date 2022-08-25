@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 08/26/2022
 ms.author: anfdocs
 ---
 
@@ -58,16 +58,14 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 
     The **Encryption** page enables you to manage encryption settings for your NetApp account. It includes an option to let you set your NetApp account to use your own encryption key, which is stored in [Azure Key Vault](../key-vault/general/basic-concepts.md). This setting provides a system-assigned identity to the NetApp account, and it adds an access policy for the identity with the required key permissions.
 
-    :::image type="content" source="../media/azure-netapp-files/<TKTKTKTK>.png" alt-text="Diagram depicting Azure native environment setup with cross-region VNet peering." lightbox="../media/azure-netapp-files/<TKTKTK>.png":::
-    <!-- insert image -->
+    :::image type="content" source="../media/azure-netapp-files/encryption-menu.png" alt-text="Screenshot of the encryption menu." lightbox="../media/azure-netapp-files/encryption-menu.png":::
 
 1. When you set your NetApp account to use customer-managed key, you have two ways to specify the Key URI:  
     * The **Select from key vault** option allows you to select a key vault and a key. 
-    :::image type="content" source="../media/azure-netapp-files/<TKTKTKTK>.png" alt-text="Diagram depicting Azure native environment setup with cross-region VNet peering." lightbox="../media/azure-netapp-files/<TKTKTK>.png":::
-    <!-- insert image -->
+    :::image type="content" source="../media/azure-netapp-files/select-key.png" alt-text="Screenshot of the select a key interface." lightbox="../media/azure-netapp-files/select-key.png":::
+    
     * The **Enter key URI** option allows you to enter manually the key URI. 
-    :::image type="content" source="../media/azure-netapp-files/<TKTKTKTK>.png" alt-text="Diagram depicting Azure native environment setup with cross-region VNet peering." lightbox="../media/azure-netapp-files/<TKTKTK>.png":::
-    <!-- insert image -->
+    :::image type="content" source="../media/azure-netapp-files/key-enter-uri.png" alt-text="Screenshot of the encryption menu showing key URI field." lightbox="../media/azure-netapp-files/key-enter-uri.png":::
 
 ## Configure a NetApp account to use customer-managed keys with user-assigned identity 
 
@@ -77,16 +75,16 @@ The **Encryption** page doesn't currently support choosing an identity type (eit
     For more information, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp.md).
 1. Configure access to the key vault. You can use role-based access control or access policies. 
     1. For role-based access control, configure the key vault to use role-based access control authorization.
-    <!-- insert image get eng update -->
+    :::image type="content" source="../media/azure-netapp-files/azure-role-based-access.png" alt-text="Screenshot of the access policies menu." lightbox="../media/azure-netapp-files/azure-role-based-access.png":::
     Create a custom role with permissions **read**, **encrypt**, and **decrypt**. 
-    <!-- insert image get eng update -->
+    :::image type="content" source="../media/azure-netapp-files/netapp-account-json.png" alt-text="Screenshot of the access policies menu." lightbox="../media/azure-netapp-files/netapp-account-json.png":::
     Add an assignment for the user-assigned identity for the custom role on the key vault. Alternatively, you can use the built-in role `key vault crypto user`, but this role includes more permissions than are necessary.
     1. Add an access policy for the user-assigned identity on the key vault. 
-    <!-- insert image get eng update -->
+    :::image type="content" source="../media/azure-netapp-files/add-access-policy.png" alt-text="Screenshot of the access policies menu with the vault access permission model." lightbox="../media/azure-netapp-files/add-access-policy.png":::
     Select the permissions **Get**, **Encrypt**, and **Decrypt**. 
-    <!-- insert image get eng update -->
+    :::image type="content" source="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png" alt-text="Screenshot of a drop-down menu with get, encrypt, and decrypt options selected." lightbox="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png":::
     Select the user-assigned identity under **Select principal**. Leave **Authorized application** blank. 
-    <!-- insert image get eng update -->
+    :::image type="content" source="../media/azure-netapp-files/access-policy-confirm.png" alt-text="Screenshot of the add access policy menu. Authorized application field is blank." lightbox="../media/azure-netapp-files/access-policy-confirm.png":::
 1. Send a PATCH request via the REST API to the NetApp account `/{accountResourceId}?api-version=2022-03` with the following request body:
     Take note of the `Azure-AsyncOperation` header in the response. That URL can be polled to get the result of the asynchronous patch operation. 
     ```rest
