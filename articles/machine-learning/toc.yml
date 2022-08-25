@@ -375,7 +375,9 @@
           - name: Outsource labeling tasks
             href: how-to-outsource-data-labeling.md
     - name: Train models
-      items: 
+      items:
+        - name: Train a model
+          href: how-to-train-model.md
         - name: Train with the job creation UI
           href: how-to-train-with-ui.md
         - name: Train with the Python SDK
@@ -406,10 +408,6 @@
           - name: Use Key Vault when training
             displayName: secrets keyvault
             href: how-to-use-secrets-in-runs.md
-        - name: Train with the CLI v2
-          href: how-to-train-cli.md
-        - name: Train with the REST API
-          href: how-to-train-with-rest.md
         - name: Track & monitor training
           items:
             - name: Monitor training jobs
