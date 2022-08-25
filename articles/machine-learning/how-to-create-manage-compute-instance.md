@@ -10,7 +10,7 @@ ms.topic: how-to
 author: swatig007
 ms.author: swatig
 ms.reviewer: sgilley
-ms.date: 05/04/2022
+ms.date: 08/05/2022
 ---
 
 # Create and manage an Azure Machine Learning compute instance
@@ -142,17 +142,20 @@ Where the file *create-instance.yml* is:
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop-preview) below.
 
 
----
 
 You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 
-## Enable SSH access
+### Enable SSH access
 
 SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
 [!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
 
-Once the compute instance is created and running, see [Connect with SSH access](how-to-create-attach-compute-studio.md#ssh-access).
+### Connect with SSH
+
+[!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
+
+---
 
 ## Create on behalf of (preview)
 

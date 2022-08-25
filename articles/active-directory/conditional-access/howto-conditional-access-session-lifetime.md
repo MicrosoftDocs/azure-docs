@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/18/2022
+ms.date: 08/22/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -147,7 +147,7 @@ To make sure that your policy works as expected, the recommended best practice i
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**.
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's [emergency access or break-glass accounts](../roles/security-emergency-access.md). 
    1. Select **Done**.
