@@ -66,10 +66,6 @@ If your storage account is behind a firewall, see [storage account that is behin
 
 1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](/azure/media-services/previous/media-services-portal-create-account).
 
-     Make sure the Media Services account was created with the classic APIs.
-
-    :::image type="content" alt-text="Screenshot that shows how to use the classic API." source="./media/create-account/enable-classic-api.png":::
-
     > [!NOTE]
     > Make sure to write down the Media Services resource and account names. 
 1. Before you can play your videos in the Azure Video Indexer web app, you must start the default **Streaming Endpoint** of the new Media Services account.
