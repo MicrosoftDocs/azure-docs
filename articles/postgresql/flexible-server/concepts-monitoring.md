@@ -45,6 +45,7 @@ The following metrics are available for PostgreSQL flexible server:
 | txlogs_storage_used | Transaction Log Storage Used | Bytes | Amount of storage space used by the transaction logs. | 
 | write_throughput | Write Throughput | Bytes | Bytes written per second to disk. |
 | write_iops | Write IOPS | Count | Number of data disk I/O write operations per second. |
+| Write Throughput Bytes/Sec | Write Throughput | Bytes | Bytes write per second from disk. |
 
 ## Server logs
 Azure Database for PostgreSQL allows you to configure and access Postgres' standard logs. To learn more about logs, visit the [logging concepts doc](concepts-logging.md).
