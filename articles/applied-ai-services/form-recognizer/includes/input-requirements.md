@@ -12,11 +12,11 @@ ms.author: lajanuar
 
 * Supported file formats: 
 
-    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, and TIFF | Microsoft Office: </br> Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML.|
+    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, and TIFF | Microsoft Office: </br> Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML|
     |--------|:----:|:-----:|:---------------:
-    |Read            | ✔    | ✔    | &#x2731; **REST API version`2022/06/30-preview`**
+    |Read            | ✔    | ✔    | &#x2731; **REST API version**</br> **`2022/06/30-preview`**
     |Layout          | ✔  | ✔ |   |
-    |General Document| ✔  | ✔ |   |
+    |General&nbsp;Document| ✔  | ✔ |   |
     |Prebuilt        |  ✔  | ✔ |   |
     |Custom          |  ✔  | ✔ |   |
 
