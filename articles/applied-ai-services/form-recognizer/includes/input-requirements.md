@@ -20,7 +20,7 @@ ms.author: lajanuar
     |Prebuilt        |  ✔  | ✔ |   |
     |Custom          |  ✔  | ✔ |   |
 
-    &#x2731; Currently not supported for other models or versions.
+    &#x2731; Microsoft Office files are currently not supported for other models or versions.
 
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 
