@@ -17,20 +17,20 @@ Use this article to learn how to develop Cognitive Services applications securel
 
 ::: zone pivot="programming-language-csharp"
 
-* A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
+* A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
 * An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
-* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="A Language service resource"  target="_blank">A Language resource </a>.
+* [A Language resource or multi-service resource](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
-* [Python 3.x](https://www.python.org/)
+* [Python 3.7 or later](https://www.python.org/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
 * An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
-* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="A Language service resource"  target="_blank">A Language resource </a>.
+* [A Language resource or multi-service resource](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
 
@@ -47,7 +47,7 @@ Use this article to learn how to develop Cognitive Services applications securel
 ::: zone pivot="programming-language-javascript"
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
-* [Current Node.js LTS](https://nodejs.org/)
+* [Current Node.js v14 LTS or later](https://nodejs.org/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
 * An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
 * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="A Language service resource"  target="_blank">A Language resource </a>.
@@ -55,7 +55,7 @@ Use this article to learn how to develop Cognitive Services applications securel
 ::: zone-end
     
 > [!NOTE]
-> The code example in this article uses a Language service resource, and sends an example [Named Entity Recognition](./language-service/named-entity-recognition/overview.md) API call. You can use the steps and update the code sample to use any [available Cognitive Services](./what-are-cognitive-services.md) features, with the appropriate Azure resource.
+> The code example in this article sends an example [Named Entity Recognition](./language-service/named-entity-recognition/overview.md) API call. You can update the code sample in this article to use any [available Cognitive Services](./what-are-cognitive-services.md) features, with the appropriate Azure resource.
 
 ## Get your key and endpoint from your Cognitive Services resource
 
