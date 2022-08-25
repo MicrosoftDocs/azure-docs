@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/28/2022
+ms.date: 08/25/2022
 ms.author: alkohli
 ---
 
@@ -238,19 +238,32 @@ Deploying the IoT Edge runtime is part of VM creation, using the *cloud-init* sc
 
 Here are the high-level steps to deploy the VM and IoT Edge runtime:
 
-1. In the [Azure portal](https://portal.azure.com), go to Azure Marketplace. 
-    1. Connect to the Azure Cloud Shell or a client with Azure CLI installed. For detailed steps, see [Quickstart for Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
-    1. Use steps in [Search for Azure Marketplace images](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#search-for-azure-marketplace-images) to search the Azure Marketplace for the following Ubuntu 20.04 LTS image:
+1. Acquire the Ubuntu VM image from Azure Marketplace. For detailed steps, follow the instructions in [Use Azure Marketplace image to create VM image for your Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md).
+
+   1. In the [Azure portal](https://portal.azure.com), go to Azure Marketplace. 
+   1. Connect to the Azure Cloud Shell or a client with Azure CLI installed. For detailed steps, see [Quickstart for Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
+   
+      > [!NOTE]
+      > Closing the shell session will delete all variables created during the shell session. Reopening the session will require recreating the variables.
+
+   1. Run the following command to set the subscription.
+   
+   ```azurepowershell
+   az account set –subscripiton <subscription id>
+   ```
+   
+
+   d. Use steps in [Search for Azure Marketplace images](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#search-for-azure-marketplace-images) to search the Azure Marketplace for an Ubuntu 20.04 LTS image.
+   
+   Example of an Ubuntu 20.04 LTS image:
   
-       ```azurecli
-       $urn = Canonical:0001-com-ubuntu-server-focal:20_04-lts:20.04.202007160
-       ```
+   ```azurecli
+   $urn = Canonical:0001-com-ubuntu-server-focal:20_04-lts:20.04.202007160
+   ```
 
-    1. Create a new managed disk from the Marketplace image.
+   e. Create a new managed disk from the Marketplace image. For detailed steps, see [Use Azure Marketplace image to create VM image for your Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md).
     
-    1. Export a VHD from the managed disk to an Azure Storage account.
-
-    For detailed steps, follow the instructions in [Use Azure Marketplace image to create VM image for your Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md).
+   f. Export a VHD from the managed disk to an Azure Storage account. For detailed steps, see [Export a VHD from the managed disk to Azure Storage](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#export-a-vhd-from-the-managed-disk-to-azure-storage).
 
 1. Follow these steps to create an Ubuntu VM using the VM image.
    1. Specify the *cloud-init* script on the **Advanced** tab. To create a VM, see [Deploy GPU VM via Azure portal](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=portal) or [Deploy VM via Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
@@ -276,6 +289,10 @@ Use these steps to verify that your IoT Edge runtime is running.
 1. Verify that the IoT Edge runtime is running.
 
     ![Screenshot of the IoT Edge runtime status in the Azure portal.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-iot-edge-runtime-status.png)
+
+   To troubleshoot your IoT Edge device configuration, see [Troubleshoot your IoT Edge device](../iot-edge/troubleshoot.md?view=iotedge-2020-11&tabs=linux&preserve-view=true).
+
+   <!-- Cannot get the link to render properly for version at https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2020-11 -->
 
 ## Update the IoT Edge runtime
 
