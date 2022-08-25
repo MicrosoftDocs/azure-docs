@@ -71,7 +71,8 @@ See the [Activity log settings](#activity-log-settings) section.
 
 ## Destinations
 
-Platform logs and metrics can be sent to the destinations listed in the following table.
+Platform logs and metrics can be sent to the destinations listed in the following table.  
+  
 To ensure the security of data in transit, we strongly encourage you to configure Transport Layer Security (TLS). All destination endpoints support TLS 1.2.
 
 | Destination | Description |
