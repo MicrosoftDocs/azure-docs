@@ -84,7 +84,7 @@ Copy the `access token` value from the response. You'll need it to pass as one o
 ## 3. User management activities
 Get all groups that are either built in groups or have been made for your Oak instance or data partitions. Find the following two fields first. 
 
-You'll need `object-id` (OID) for your users as parameters in the calls to the Entitlements API of your Microsoft Energy Data Services Instance. `object-id`(OID) is the Azure Active Directory User Object ID. [Learn more](active-directory/fundamentals/active-directory-users-profile-azure-portal) 
+You'll need `object-id` (OID) for your users as parameters in the calls to the Entitlements API of your Microsoft Energy Data Services Instance. `object-id`(OID) is the Azure Active Directory User Object ID. [Learn more](active-directory/fundamentals/active-directory-users-profile-azure-portal.md) 
 
 :::image type="content" source="media/how-to-manage-users/aad-object-id.png" alt-text="Screenshot of finding the object-id from Azure Active Directory.":::
 
