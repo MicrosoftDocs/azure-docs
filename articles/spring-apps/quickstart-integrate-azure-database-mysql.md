@@ -56,15 +56,6 @@ export MYSQL_DATABASE_NAME=petclinic
        --version 5.7
    ```
 
-1. Allow access from Azure resources.
-
-   ```azcli
-   az mysql server firewall-rule create --name allAzureIPs \
-    --server ${MYSQL_SERVER_NAME} \
-    --resource-group ${RESOURCE_GROUP} \
-    --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
-   ```
-
 1. Allow access from your dev machine for testing.
 
    ```azcli
@@ -132,9 +123,38 @@ export MYSQL_DATABASE_NAME=petclinic
        --value "US/Pacific"
    ```
 
-## Update Apps to use MySQL database
+## Connect your application to the MySQL database
 
-To enable MySQL as database for the sample app, simply update the *customer-service* app with active profile MySQL and database credentials as environment variables.
+Use Service Connector to connect the app hosted in Azure Spring Apps to your MySQL database.
+
+### [Portal](#tab/azure-portal)
+
+1. In the Azure portal, type the name of your Azure Spring App instance in the search box at the top of the screen and select your instance.
+1. Under **Settings**, select **Apps** and select the application from the list.
+1. Select **Service Connector** from the left table of contents and select **Create**.
+
+1. Select or enter the following settings.
+
+| Setting             | Example              | Description                                                                                                                                                                         |
+|---------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Service type**    | *DB for MySQL single server     | Select the MySQL target service to connect the app to the MuSQL database.                                                                                                                            |
+| **Subscription**    | *my-subscription*    | The subscription that contains your target service (the service you want to connect to). The default value is the subscription that contains the app deployed to Azure Spring Apps. |
+| **Connection name** | *storageblob_17d38*  | The connection name that identifies the connection between your app and target service. Use the connection name provided by Service Connector or enter your own connection name.   |
+| **MySQL server** | *MySQL80* | Select the MySQL server you want to connect to.                                       |
+| **MySQL database** | *petclinic* | Select the database.                                       |
+| **Client type**     | *.NET*         | Select the application stack that works with the target service you selected.           |
+
+1. Select **Next: Authentication** to select the authentication type. Then select **Connection string** to use an access key to connect your storage account.
+
+1. Select **Next: Networking** to select the network configuration and select **Configure firewall rules to enable access to target service** so that your app can reach the database
+
+    :::image type="content" source="./media/azure-spring-apps-quickstart/networking.png" alt-text="Screenshot of the Azure portal, filling out the Networking tab.":::
+
+1. Select **Next: Review + Create** to review the provided information. Wait a few seconds for Service Connector to validate the information and select **Create** to create the service connection.
+
+    :::image type="content" source="./media/azure-spring-apps-quickstart/validation.png" alt-text="Screenshot of the Azure portal, validation tab.":::
+
+### [Azure CLI](#tab/azure-cli)
 
 ```azcli
 az spring app update \
@@ -176,6 +196,15 @@ az spring app update --name visits-service \
         MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
         MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
 ```
+## View service connection
+
+Azure Spring Apps connections are displayed under **Settings > Service Connector**.
+
+1. Select **>**  to expand the list and access the properties required by your application.
+
+1. Select **Validate** to check your connection status, and select **Learn more** to review the connection validation details.
+
+   :::image type="content" source="./media/azure-spring-apps-quickstart/validation-result.png" alt-text="Screenshot of the Azure portal, get connection validation result.":::
 
 ## Clean up resources
 
