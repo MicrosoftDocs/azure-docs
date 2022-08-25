@@ -64,15 +64,13 @@ To add your key and endpoint to your key vault, first you need to get them from 
 1. Navigate to your Azure resource using the [Azure portal](https://portal.azure.com/).
 1. From the menu on the left side, select **Keys and Endpoint**.
 
-    :::image type="content" source="language-service/custom-text-classification/media/get-endpoint-azure.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal" lightbox="language-service/custom-text-classification/media/get-endpoint-azure.png":::
+    :::image type="content" source="language-service/custom-text-classification/media/get-endpoint-azure.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal." lightbox="language-service/custom-text-classification/media/get-endpoint-azure.png":::
 
 You will add your key and endpoint to your key vault in the next step. 
 
 ## Add your resource key and endpoint to your key vault
 
 Before your application can retrieve and use your credentials to authenticate its API calls to Cognitive Services, you will need to add your key and endpoint to your [key vault secrets](/azure/key-vault/secrets/about-secrets). 
-
-Repeat these steps for both the key and point your retrieved in the previous step:
 
 1. Open a new browser tab or window. Navigate to your key vault using the [Azure portal](https://portal.azure.com/).
 1. On the Key Vault settings pages, select **Secrets**.
@@ -89,6 +87,10 @@ Repeat these steps for both the key and point your retrieved in the previous ste
 
     >[!TIP]
     > Make sure to remember which names you used for your key and endpoint, as you'll use them later.
+
+Repeat these steps for both the key and endpoint your retrieved in the previous step:
+
+:::image type="content" source="media/key-vault/store-secrets.png" alt-text="A screenshot showing the key vault key page in the Azure portal." lightbox="media/key-vault/store-secrets.png":::
 
 ## Create an environment variable for your key vault's name
 
