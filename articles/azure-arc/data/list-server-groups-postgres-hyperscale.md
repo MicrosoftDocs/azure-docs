@@ -1,6 +1,6 @@
 ---
-title: List the Azure Arc-enabled PostgreSQL Hyperscale server groups created in an Azure Arc Data Controller
-description: List the Azure Arc-enabled PostgreSQL Hyperscale server groups created in an Azure Arc Data Controller
+title: List the Azure Arc-enabled PostgreSQL servers created in an Azure Arc Data Controller
+description: List the Azure Arc-enabled PostgreSQL servers created in an Azure Arc Data Controller
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -11,7 +11,7 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# List the Azure Arc-enabled PostgreSQL Hyperscale server groups created in an Azure Arc Data Controller
+# List the Azure Arc-enabled PostgreSQL servers created in an Azure Arc Data Controller
 
 This article explains how you can retrieve the list of server groups created in your Arc Data Controller.
 
@@ -58,4 +58,4 @@ postgres01   Ready   5/5          12.345.67.890:5432   12d
 ## Next steps:
 
 * [Read the article about how to get the connection end points and form the connection strings to connect to your server group](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
-* [Read the article about showing the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group](show-configuration-postgresql-hyperscale-server-group.md)
+* [Read the article about showing the configuration of an Azure Arc-enabled PostgreSQL server](show-configuration-postgresql-hyperscale-server-group.md)

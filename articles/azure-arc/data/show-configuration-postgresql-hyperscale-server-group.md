@@ -1,7 +1,7 @@
 ---
-title: Show the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group
+title: Show the configuration of an Azure Arc-enabled PostgreSQL server
 titleSuffix: Azure Arc-enabled data services
-description: Show the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group
+description: Show the configuration of an Azure Arc-enabled PostgreSQL server
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -12,9 +12,9 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Show the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group
+# Show the configuration of an Azure Arc-enabled PostgreSQL server
 
-This article explains how to display the configuration of your server group(s). It does so by anticipating some questions you may be asking to yourself and it answers them. At times, there may be several valid answers. This article pitches the most common or useful ones. It groups those questions by theme:
+This article explains how to display the configuration of your server. It does so by anticipating some questions you may be asking to yourself and it answers them. At times, there may be several valid answers. This article pitches the most common or useful ones. It groups those questions by theme:
 
 - From a Kubernetes point of view
 - From an Azure Arc-enabled data services point of view
@@ -40,7 +40,7 @@ postgres01   Ready   5/5          20.101.12.221:5432   12d
 
 This example shows that one server group is created. It runs on five pods: one coordinator and four workers.
 
-### What pods are used by Azure Arc-enabled PostgreSQL Hyperscale server groups?
+### What pods are used by Azure Arc-enabled PostgreSQL servers?
 
 Run:
 
@@ -484,10 +484,8 @@ Returns the information in a format and content similar to the one returned by k
 
 ## Next steps
 
-- [Read about the concepts of Azure Arc-enabled PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md)
-- [Read about how to scale out (add worker nodes) a server group](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Read about how to scale up/down (increase or reduce memory and/or vCores) a server group](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)
 - [Read about storage configuration](storage-configuration.md)
 - [Read how to monitor a database instance](monitor-grafana-kibana.md)
-- [Use PostgreSQL extensions in your Azure Arc-enabled PostgreSQL Hyperscale server group](using-extensions-in-postgresql-hyperscale-server-group.md)
-- [Configure security for your Azure Arc-enabled PostgreSQL Hyperscale server group](configure-security-postgres-hyperscale.md)
+- [Use PostgreSQL extensions in your Azure Arc-enabled PostgreSQL server](using-extensions-in-postgresql-hyperscale-server-group.md)
+- [Configure security for your Azure Arc-enabled PostgreSQL server](configure-security-postgres-hyperscale.md)
