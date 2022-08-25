@@ -27,7 +27,7 @@ The following table shows the scheduling (trigger) relevant attributes and the m
 
 These attributes **are not** automatically populated using such synchronization methods such as Azure AD Connect or Azure AD Connect cloud sync.
 
-This document explains how to setup synchronization from on-premises Azure AD Connect cloud sync and Azure AD Connect for the required attributes.
+This document explains how to set up synchronization from on-premises Azure AD Connect cloud sync and Azure AD Connect for the required attributes.
 
 >[!NOTE]
 > There's no corresponding EmployeeHireDate or EmployeeLeaveDateTime attribute in Active Directory.  If you're importing from on-premises AD, you'll need to identify an attribute in AD that can be used.  This attribute must be a string.
@@ -45,7 +45,7 @@ The [EmployeeHireDate](https://docs.microsoft.com/graph/api/resources/user?view=
 |Workday to Azure AD User Provisioning|Can use a direct mapping.  No expression is needed but may be used to adjust the time portion of EmployeeHireDate and EmployeeLeaveDateTime|EmployeeHireDate and EmployeeLeaveDateTime||
 |-	SuccessFactors to Azure AD User Provisioning|Can use a direct mapping.  No expression is needed but may be used to adjust the time portion of EmployeeHireDate and EmployeeLeaveDateTime|EmployeeHireDate and EmployeeLeaveDateTime||
 
-For more information on expressions see [Reference for writing expressions for attribute mappings in Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md)
+For more information on expressions, see [Reference for writing expressions for attribute mappings in Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md)
 
 The expression examples above use endDate for SAP and StatusHireDate for Workday.  However, you may opt to use different attributes.
 
@@ -71,16 +71,16 @@ StatusOriginalHireDate|Workday|Joiner|EmployeeHireDate|
 |lastDateWorked|SAP SF|Leaver|EmployeeLeaveDateTime|
 |endDate|SAP SF|Leaver|EmployeeLeaveDateTime|
 
-For more attributes see the [Workday attribute reference](../app-provisioning/workday-attribute-reference.md) and [SAP SuccessFactors attribute reference](../app-provisioning/sap-successfactors-attribute-reference.md)
+For more attributes, see the [Workday attribute reference](../app-provisioning/workday-attribute-reference.md) and [SAP SuccessFactors attribute reference](../app-provisioning/sap-successfactors-attribute-reference.md)
 
 
 ## Importance of time
 To ensure timing accuracy of scheduled workflows it’s curial to consider:
 
 - The time portion of the attribute must be set accordingly, for example the `employeeHireDate` should have a time at the beginning of the day like 1AM or 5AM and the `employeeLeaveDateTime` should have time at the end of the day like 9PM or 11PM
-    - Workflow will not run earlier than the time specified in the attribute, however the [tenant schedule (default 3h)](customize-workflow-schedule.md) may delay the workflow run.  For instance, if you set the `employeeHireDate` to 8AM but the tenant schedule does not run until 9AM, the workflow will not be processed until then.  If an new hire is starting at 8AM, you would want to set the time to something like (start time - tenant schedule) to ensure it had run before the employee arrives.
-- It is recommended, that if you are using temporary access pass (TAP), that you set the maximum lifetime to 24 hours.  Doing this will help ensure that the TAP has not expired after being sent to an employee who may be in a different timezone.  For more information see [Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods.](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
-- When importing the data you should understand if and how the source provides time zone information for your users to potentially make adjustments to ensure timing accuracy.
+    - Workflow won't run earlier than the time specified in the attribute, however the [tenant schedule (default 3h)](customize-workflow-schedule.md) may delay the workflow run.  For instance, if you set the `employeeHireDate` to 8AM but the tenant schedule doesn't run until 9AM, the workflow won't be processed until then.  If a new hire is starting at 8AM, you would want to set the time to something like (start time - tenant schedule) to ensure it had run before the employee arrives.
+- It's recommended, that if you're using temporary access pass (TAP), that you set the maximum lifetime to 24 hours.  Doing this will help ensure that the TAP hasn't expired after being sent to an employee who may be in a different timezone.  For more information, see [Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods.](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
+- When importing the data, you should understand if and how the source provides time zone information for your users to potentially make adjustments to ensure timing accuracy.
 
 
 ## Create a custom synch rule in Azure AD Connect cloud sync for EmployeeHireDate
@@ -98,7 +98,7 @@ To ensure timing accuracy of scheduled workflows it’s curial to consider:
      - Target attribute: employeeHireDate
      - Apply this mapping: Always
      ![Screenshot that shows attribute mapping.](media/how-to-lcw-synch-attributes/cloud-synch-1.png)
- 8. Click **Apply**.
+ 8. Select **Apply**.
  9. Back on the **Attribute mappings** screen, you should see your new attribute mapping.  
  10. Select **Save schema**.
 
@@ -110,39 +110,39 @@ The following example will walk you through setting up a custom synchronization 
    1. Open a PowerShell window as administrator and run `Set-ADSyncScheduler -SyncCycleEnabled $false`.
    2. Go to Start\Azure AD Connect\ and open the Synchronization Rules Editor
    3. Ensure the direction at the top is set to **Inbound**.
-   4. Click **Add Rule.**
-   5. On the **Create Inbound synchronization rule** screen, enter the following information and click **Next**.
+   4. Select **Add Rule.**
+   5. On the **Create Inbound synchronization rule** screen, enter the following information and select **Next**.
       - Name:  In from AD - EmployeeHireDate
       - Connected System:  contoso.com
       - Connected System Object Type: user
       - Metaverse Object Type: person
       - Precedence: 200
      ![Screenshot that shows attribute mapping.](media/how-to-lcw-synch-attributes/aadc-4.png)
-   6. On the **Scoping filter** screen, click **Next.**
-   7. On the **Join rules** screen, click **Next**.
+   6. On the **Scoping filter** screen, select **Next.**
+   7. On the **Join rules** screen, select **Next**.
    8. On the **Transformations** screen, Under **Add transformations,** enter the following information.
       - FlowType:  Direct
       - Target Attribute: employeeHireDate
       - Source:  msDS-cloudExtensionAttribute1
      ![Screenshot that shows attribute mapping.](media/how-to-lcw-synch-attributes/aadc-5.png)
-   9.  Click **Add**.
+   9.  Select **Add**.
    10. In the Synchronization Rules Editor, ensure the direction at the top is set to **Outbound**.
-   11. Click **Add Rule.**  
-   12. On the **Create Outbound synchronization rule** screen, enter the following information and click **Next**.
+   11. Select **Add Rule.**  
+   12. On the **Create Outbound synchronization rule** screen, enter the following information and select **Next**.
        - Name:  Out to AAD - EmployeeHireDate
        - Connected System:  &lt;your tenant&gt;
        - Connected System Object Type: user
        - Metaverse Object Type: person
        - Precedence: 201
      ![Screenshot that shows attribute mapping.](media/how-to-lcw-synch-attributes/aadc-6.png)
-   13. On the **Scoping filter** screen, click **Next.**
-   14. On the **Join rules** screen, click **Next**.
+   13. On the **Scoping filter** screen, select **Next.**
+   14. On the **Join rules** screen, select **Next**.
    15. On the **Transformations** screen, Under **Add transformations,** enter the following information.
        - FlowType:  Direct
        - Target Attribute: employeeHireDate
        - Source:  employeeHireDate
      ![Screenshot that shows attribute mapping.](media/how-to-lcw-synch-attributes/aadc-7.png)
-   16.  Click **Add**.
+   16.  Select **Add**.
    17. Close the Synchronization Rules Editor
 
 
@@ -156,5 +156,5 @@ For more information, see [How to customize a synchronization rule](../hybrid/ho
 
 ## Next steps
 - [What are lifecycle workflows?](what-are-lifecycle-workflows.md)
-- [Create a custom workflow using the Azure Portal](tutorial-create-custom-workflow-portal.md)
+- [Create a custom workflow using the Azure portal](tutorial-create-custom-workflow-portal.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)
