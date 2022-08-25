@@ -63,7 +63,7 @@ If you are reviewing access to an application, then before creating the review, 
 
 8. Select **Next: Reviews**.
 
-After you have reached this step, you may follow the instructions outlined under **Next: Reviews** in the [Create an access review of groups or applications](create-access-review.md#Next:-Reviews) article to complete your access review.
+After you have reached this step, you may follow the instructions outlined under **Next: Reviews** in the [Create an access review of groups or applications](create-access-review.md#next-reviews) article to complete your access review.
 
 ## Next steps
 
