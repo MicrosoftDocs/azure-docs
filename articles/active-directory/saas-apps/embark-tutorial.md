@@ -73,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
 	a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<ENVIRONMENT>.ehr.com`
@@ -81,7 +81,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<ENVIRONMENT>.ehr.com`
 
-    c. In the **Sign on URL** text box, type a URL using the following pattern:
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+    In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<ENVIRONMENT>.ehr.com`
 
     > [!NOTE]
