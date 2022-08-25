@@ -1,14 +1,17 @@
 ---
-title: What is Azure SQL Edge? 
+title: What is Azure SQL Edge?
 description: Learn about Azure SQL Edge
-keywords: introduction to SQL Edge,what is SQL Edge, SQL Edge overview
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 05/19/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 05/19/2020
+keywords:
+  - introduction to SQL Edge
+  - what is SQL Edge
+  - SQL Edge overview
+services: sql-edge
 ---
 
 # What is Azure SQL Edge?

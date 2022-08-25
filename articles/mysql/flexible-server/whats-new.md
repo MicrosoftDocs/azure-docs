@@ -19,6 +19,9 @@ ms.date: 08/16/2022
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
+> [!NOTE]
+> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
 ## August 2022
 
 - **Server logs for Azure Database for MySQL - Flexible Server**
@@ -29,10 +32,28 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
     The on-Demand backup feature allows customers to trigger On-Demand backups of their production workload, in addition to the automated backups taken by Azure Database for MySQL Flexible service, and store it in alignment with the server’s backup retention policy. These backups can be used as the fastest restore point to perform a point-in-time restore for faster and more predictable restore times. [**Learn more**](how-to-trigger-on-demand-backup.md#trigger-on-demand-backup)
 
-**Known Issues**
+- **Business Critical tier now supports Ev5 compute series**
 
-Server parameter aad_auth_only was exposed in this month's deployment. Enabling server parameter aad_auth_only will block all non Azure Active Directory MySQL connections to your Azure Database for MySQL Flexible server. When you try to connect to the server, you will receive error "ERROR 9107 (HY000): Only Azure Active Directory accounts are allowed to connect to server".
-We are currently working on additional configurations required for AAD authentication to be fully functional, and the feature will be available in the upcoming deployments. Do not enable the aad_auth_only parameter until then.
+    Business Critical tier for Azure Database for MySQL – Flexible Server now supports the Ev5 compute series in more regions.
+Learn more about [Boost Azure MySQL Business Critical flexible server performance by 30% with the Ev5 compute series!](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/boost-azure-mysql-business-critical-flexible-server-performance/ba-p/3603698)
+
+- **Server paramaters that are now configurable**
+
+    List of dynamic server parameters that are now configurable
+    - [lc_time_names](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lc_time_names)
+    - [replicate_wild_ignore_table](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table)
+    - [slave_pending_jobs_size_max](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max)
+    - [slave_parallel_workers](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_workers)
+    - [log_output](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_log_output)
+    - [performance_schema_max_digest_length](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-system-variables.html#sysvar_performance_schema_max_digest_length)
+    - [performance_schema_max_sql_text_length](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-system-variables.html#sysvar_performance_schema_max_sql_text_length) 
+ 
+
+- **Known Issues**
+
+  - When you try to connect to the server, you will receive error "ERROR 9107 (HY000): Only Azure Active Directory accounts are allowed to connect to server".
+
+    Server parameter aad_auth_only was exposed in this month's deployment. Enabling server parameter aad_auth_only will block all non Azure Active Directory MySQL connections to your Azure Database for MySQL Flexible server. We are currently working on additional configurations required for AAD authentication to be fully functional, and the feature will be available in the upcoming deployments. Do not enable the aad_auth_only parameter until then.
 
 
 
@@ -40,7 +61,7 @@ We are currently working on additional configurations required for AAD authentic
 
 - **Known Issues**
 
-On a few servers where audit or slow logs are enabled, you may no longer see logs uploaded to data sinks configured under diagnostics settings. Verify whether your logs have the latest updated timestamp for the events based on the [data sink](./tutorial-query-performance-insights.md#set-up-diagnostics) you've configured. If your server is affected by this issue, open a [support ticket](https://azure.microsoft.com/support/create-ticket/) so that we can apply a quick fix on the server to resolve the issue.
+  On a few servers where audit or slow logs are enabled, you may no longer see logs uploaded to data sinks configured under diagnostics settings. Verify whether your logs have the latest updated timestamp for the events based on the [data sink](./tutorial-query-performance-insights.md#set-up-diagnostics) you've configured. If your server is affected by this issue, open a [support ticket](https://azure.microsoft.com/support/create-ticket/) so that we can apply a quick fix on the server to resolve the issue.
 
 ## May 2022
 
