@@ -204,6 +204,8 @@
         href: end-to-end-tls.md
       - name: Web Application Firewall
         href: web-application-firewall.md
+      - name: Geo-filtering
+        href: ../web-application-firewall/afds/waf-front-door-geo-filtering.md?toc=%2fazure%2ffrontdoor%2ftoc.json
     - name: Protocol
       items:
       - name: HTTP/2
