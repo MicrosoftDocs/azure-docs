@@ -132,10 +132,7 @@ Use an Azure Resource Manager template to enable Change feed on your existing st
 
 ## Consume the change feed
 
-The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account.
-
-> [!NOTE]
-> In the current release, the $blobchangefeed container is visible only in Azure portal but not visible in Azure Storage Explorer. You currently cannot see the $blobchangefeed container when you call ListContainers API but you are able to call the ListBlobs API directly on the container to see the blobs
+The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account. The **$blobchangefeed** container can be viewed either via the Azure portal or via Azure Storage Explorer.
 
 Your client applications can consume the change feed by using the blob change feed processor library that is provided with the change feed processor SDK.
 
