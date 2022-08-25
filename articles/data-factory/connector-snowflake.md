@@ -447,12 +447,13 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
                 "type": "<source type>",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand"
-	        }
+	            }
             },
             "sink": {
                 "type": "SnowflakeSink",
                 "importSettings": {
                     "type": "SnowflakeImportCopyCommand"
+                }
             },
             "enableStaging": true,
             "stagingSettings": {
