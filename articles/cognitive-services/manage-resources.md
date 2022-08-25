@@ -111,17 +111,17 @@ To purge a deleted cognitive service resource, use the following commands. Where
 
 If you need to purge a deleted resource, the steps are similar to recovering a deleted resource.
 
-Navigate to the hub of the cognitive services API type of your deleted resource. For example, if you would like to purge an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the option under the "Services" section to land on the "Anomaly detector" hub that will list deleted resources.
+Navigate to the hub of the cognitive services API type of your deleted resource. For example, if you would like to purge an "Anomaly detector" resource, search for "Anomaly detector" in the search bar. Select the service to get to the "Anomaly detector" hub which lists deleted resources.
 
-Select "Manage deleted resources" from the menu. 
+Select **Manage deleted resources** from the menu. 
 
-:::image type="content" source="media/recovery-deleted-resource.png" alt-text="How to purge a deleted resource step 1":::
+:::image type="content" source="media/recovery-deleted-resource.png" alt-text="A screenshot showing the Anomaly detector hub, which lets you purge deleted resources." lightbox="media/recovery-deleted-resource.png":::
 
 Select the subscription in the dropdown list to locate the deleted resource you would like to purge.
-Select one or more deleted resources and click "Purge".
+Select one or more deleted resources and click **Purge**.
 Purging will permanently delete a Cognitive Services resource. 
 
-:::image type="content" source="media/managing-deleted-resource.png" alt-text="How to purge a deleted resource step 2":::
+:::image type="content" source="media/managing-deleted-resource.png" alt-text="A screenshot showing a list of resources that can be purged." lightbox="media/managing-deleted-resource.png":::
 
 
 # [Rest API](#tab/rest-api)
