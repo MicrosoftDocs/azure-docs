@@ -152,7 +152,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 |`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
 
 > [!NOTE]
-> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET /urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the <location> placeholder.
+> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET /urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
 
 ## Create a resource group
 
