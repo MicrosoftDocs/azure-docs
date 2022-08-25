@@ -61,13 +61,13 @@ Front Door charges for the bytes that are sent from the Front Door edge location
 
 The price per gigabyte is lower when you have higher volumes of traffic.
 
-If the request can be served from the Front Door edge location's cache, Front Door doesn't send any request to the origin server and you aren't billed for this component.
+If the request can be served from the Front Door edge location's cache, Front Door doesn't send any request to the origin server, and you aren't billed for this component.
 
 ### Data transfer from origin to Front Door
 
-When your origin server processes a request, it sends data back to Front Door so that it can be returned to the client. This traffic not billed by Front Door, even if the origin is in a diferent region to the Front Door edge location for the request.
+When your origin server processes a request, it sends data back to Front Door so that it can be returned to the client. This traffic not billed by Front Door, even if the origin is in a different region to the Front Door edge location for the request.
 
-If your origin is within Azure, the data egress from the Azure origin to Front Door is not charged. However, you should determine whether those Azure services might bill you to process your requests.
+If your origin is within Azure, the data egress from the Azure origin to Front Door isn't charged. However, you should determine whether those Azure services might bill you to process your requests.
 
 If your origin is outside of Azure, you might incur charges from other network providers.
 
