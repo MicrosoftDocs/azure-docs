@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 08/25/2022
 ---
 
 # Tips for better performance in Azure Cognitive Search
@@ -15,18 +15,21 @@ ms.date: 10/04/2021
 This article is a collection of tips and best practices that are often recommended for boosting performance. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Some key factors include:
 
 + Index composition (schema and size)
-+ Query types
++ Query design
 + Service capacity (tier, and the number of replicas and partitions)
+
+> [!NOTE]
+> Looking for strategies on high volume indexing? See [Index large data sets in Azure Cognitive Search](search-howto-large-index.md).
 
 ## Index size and schema
 
-Queries run faster on smaller indexes. This is partly a function of having fewer fields to scan, but it's also due to how the system caches content for future queries. After the first query, some content remains in memory where it's searched more efficiently. Because index size tends to grow over time, one best practice is to periodically revisit index composition, both schema and documents, to look for content reduction opportunities. However, if the index is right-sized, the only other calibration you can make is to increase capacity: either by [adding replicas](search-capacity-planning.md#adjust-capacity) or upgrading the service tier. The section ["Tip: Upgrade to a Standard S2 tier"](#tip-upgrade-to-a-standard-s2-tier) shows you how to evaluate the scale up versus scale out decision.
+Queries run faster on smaller indexes. This is partly a function of having fewer fields to scan, but it's also due to how the system caches content for future queries. After the first query, some content remains in memory where it's searched more efficiently. Because index size tends to grow over time, one best practice is to periodically revisit index composition, both schema and documents, to look for content reduction opportunities. However, if the index is right-sized, the only other calibration you can make is to increase capacity: either by [adding replicas](search-capacity-planning.md#adjust-capacity) or upgrading the service tier. The section ["Tip: Upgrade to a Standard S2 tier"](#tip-upgrade-to-a-standard-s2-tier) discusses the scale up versus scale out decision.
 
 Schema complexity can also adversely effect indexing and query performance. Excessive field attribution builds in limitations and processing requirements. [Complex types](search-howto-complex-data-types.md) take longer to index and query. The next few sections explore each condition.
 
 ### Tip: Be selective in field attribution
 
-A common mistake that administrators and developer make when creating a search index is selecting all available properties for the fields, as opposed to only selecting just the properties that are needed. For example, if a field doesn't need to be full text searchable, skip that field when setting the searchable attribute.
+A common mistake that administrators and developers make when creating a search index is selecting all available properties for the fields, as opposed to only selecting just the properties that are needed. For example, if a field doesn't need to be full text searchable, skip that field when setting the searchable attribute.
 
 :::image type="content" source="media/search-performance/perf-selective-field-attributes.png" alt-text="Selective attribution" border="true":::
 
@@ -53,9 +56,9 @@ In some cases, you can avoid these tradeoffs by mapping a complex data structure
 
 :::image type="content" source="media/search-performance/perf-flattened-field-hierarchy.png" alt-text="flattened field structure" border="true":::
 
-## Types of queries
+## Query design
 
-The types of queries you send are one of the most important factors for performance, and query optimization can drastically improve performance. When designing queries, think about the following points:
+Query composition and complexity is one of the most important factors for performance, and query optimization can drastically improve performance. When designing queries, think about the following points:
 
 + **Number of searchable fields.** Each additional searchable field requires additional work by the search service. You can limit the fields being searched at query time using the "searchFields" parameter. It's best to specify only the fields that you care about to improve performance.
 
