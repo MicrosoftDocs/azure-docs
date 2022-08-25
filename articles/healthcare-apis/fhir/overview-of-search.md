@@ -160,7 +160,7 @@ Currently, the FHIR service in Azure Health Data Services only supports the `nex
 
 ## Next steps
 
-Now that you've learned about the basics of FHIR search, see the search samples page for details about how to search using different search parameters, modifiers, and FHIR search methods.  
+Now that you've learned about the basics of FHIR search, see the search samples page for details about how to search using search parameters, modifiers, and other FHIR search methods.  
 
 >[!div class="nextstepaction"]
 >[FHIR search examples](search-samples.md)
