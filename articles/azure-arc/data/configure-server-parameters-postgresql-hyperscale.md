@@ -1,7 +1,7 @@
 ---
-title: Configure Postgres engine server parameters for your PostgreSQL Hyperscale server group on Azure Arc
+title: Configure Postgres engine server parameters for your PostgreSQL server on Azure Arc
 titleSuffix: Azure Arc-enabled data services
-description: Configure Postgres engine server parameters for your PostgreSQL Hyperscale server group on Azure Arc
+description: Configure Postgres engine server parameters for your PostgreSQL server on Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -12,9 +12,9 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Set the database engine settings for Azure Arc-enabled PostgreSQL Hyperscale
+# Set the database engine settings for Azure Arc-enabled PostgreSQL server
 
-This document describes the steps to set the database engine settings of your PostgreSQL Hyperscale server group to custom (non-default) values. For details about what database engine parameters can be set and what their default value is, refer to the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config.html).
+This document describes the steps to set the database engine settings of your PostgreSQL server to custom (non-default) values. For details about what database engine parameters can be set and what their default value is, refer to the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config.html).
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -66,7 +66,7 @@ az postgres arc-server show -n postgres01 --k8s-namespace arc --use-k8s
    kubectl describe postgresql postgres01 -n arc
 ```
 
-Both these commands returns the specs of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
+Both these commands return the specs of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
 
 :::row:::
     :::column:::
@@ -125,163 +125,7 @@ Both these commands returns the specs of the server group in which you would see
 :::row-end:::
 
 
-The default value is, refer to the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config.html).
-
-
-
-## Set custom values for engine settings
-
-### Set a single parameter
-
-**On both coordinator and worker roles:**
-
-General syntax of the command:
-```azurecli
-az postgres arc-server edit -n <servergroup name> --engine-settings  '<ParameterName>=<CustomParameterValue>' --k8s-namespace <namespace> --use-k8s
-```
-
-For example:
-```azurecli
-az postgres arc-server edit -n postgres01 --engine-settings  'max_connections=51' --k8s-namespace arc --use-k8s
-```
-
-**On the worker role only:**
-
-General syntax of the command:
-```azurecli
-az postgres arc-server edit -n <servergroup name> --worker-settings '<ParameterName>=<CustomParameterValue>' --k8s-namespace <namespace> --use-k8s
-```
-
-For example:
-```azurecli
-az postgres arc-server edit -n postgres01 --worker-settings 'max_connections=52' --k8s-namespace arc --use-k8s
-```
-
-**On the coordinator role only:**
-
-General syntax of the command:
-```azurecli
-az postgres arc-server edit -n <servergroup name> --coordinator-settings '<ParameterName>=<CustomParameterValue>' --k8s-namespace <namespace> --use-k8s
-```
-
-For example:
-```azurecli
-az postgres arc-server edit -n postgres01 --coordinator-settings 'max_connections=53' --k8s-namespace arc --use-k8s
-```
-
-
-
-### Set multiple parameters with a single command
-
-**On both coordinator and worker roles:**  
- 
-General syntax of the command:
-```azurecli
-az postgres arc-server edit -n <servergroup name> --engine-settings  '<ParameterName1>=<CustomParameterValue1>, ..., <ParameterNameN>=<CustomParameterValueN>' --k8s-namespace <namespace> --use-k8s
-```
-
-For example:
-```azurecli
-az postgres arc-server edit -n postgres01 --engine-settings  'shared_buffers=8MB, max_connections=60' --k8s-namespace arc --use-k8s
-```
-
-**On the worker role only:**
-
-General syntax of the command:
-```azurecli
-az postgres arc-server edit -n <servergroup name> --worker-settings '<ParameterName1>=<CustomParameterValue1>, ..., <ParameterNameN>=<CustomParameterValueN>' --k8s-namespace <namespace> --use-k8s
-```
-
-For example:
-```azurecli
-az postgres arc-server edit -n postgres01 --worker-settings 'shared_buffers=8MB, max_connections=60' --k8s-namespace arc --use-k8s
-```
-
-**On the coordinator role only:**
-
-General syntax of the command:
-```azurecli
-az postgres arc-server edit -n <servergroup name> --coordinator-settings '<ParameterName1>=<CustomParameterValue1>, ..., <ParameterNameN>=<CustomParameterValueN>' --k8s-namespace <namespace> --use-k8s
-```
-
-For example:
-```azurecli
-az postgres arc-server edit -n postgres01 --coordinator-settings 'shared_buffers=8MB, max_connections=60' --k8s-namespace arc --use-k8s
-```
-
-### Reset one parameter to its default value
-
-**On both coordinator and worker roles:**
-
-General syntax of the command:
-```azurecli
-az postgres arc-server edit -n <servergroup name> --engine-settings '<ParameterName>='  --coordinator-settings '<ParameterName>=' --worker-settings '<ParameterName>=' --k8s-namespace <namespace> --use-k8s
-```
-For example:
-```azurecli
-az postgres arc-server edit -n postgres01 --engine-settings  'shared_buffers='  --coordinator-settings 'shared_buffers=' --worker-settings 'shared_buffers=' --k8s-namespace arc --use-k8s
-```
-
-**On the coordinator role only:**
-
-General syntax of the command:
-```azurecli
-az postgres arc-server edit -n <servergroup name> --coordinator-settings '<ParameterName>=' --k8s-namespace <namespace> --use-k8s
-```
-For example:
-```azurecli
-az postgres arc-server edit -n postgres01 --coordinator-settings 'shared_buffers=' --k8s-namespace arc --use-k8s
-```
-
-**On the worker role only:**
-
-General syntax of the command:
-```azurecli
-az postgres arc-server edit -n <servergroup name> --worker-settings '<ParameterName>=' --k8s-namespace <namespace> --use-k8s
-```
-For example:
-```azurecli
-az postgres arc-server edit -n postgres01 --worker-settings 'shared_buffers=' --k8s-namespace arc --use-k8s
-````
-
-### Reset all parameters to their default values
-
-**On both coordinator and worker roles:**
-
-General syntax of the command:
-```azurecli
-az postgres arc-server edit -n <servergroup name> --engine-settings  `'`' --worker-settings `'`' --coordinator-settings `'`' --replace-settings --k8s-namespace <namespace> --use-k8s
-```
-
-For example:
-```azurecli
-az postgres arc-server edit -n postgres01 --engine-settings  `'`' --worker-settings `'`' --coordinator-settings `'`'  --replace-settings --k8s-namespace arc --use-k8s
-```
-
-**On the coordinator role only:**
-
-General syntax of the command:
-```azurecli
-az postgres arc-server edit -n <servergroup name> --coordinator-settings `'`'  --replace-settings --k8s-namespace <namespace> --use-k8s
-
-```
-For example:
-```azurecli
-az postgres arc-server edit -n postgres01 --coordinator-settings `'`'  --replace-settings --k8s-namespace arc --use-k8s
-```
-
-**On the worker role only:**
-
-General syntax of the command:
-```azurecli
-az postgres arc-server edit -n <servergroup name> --worker-settings `'`'  --replace-settings --k8s-namespace <namespace> --use-k8s
-```
-For example:
-```azurecli
-az postgres arc-server edit -n postgres01 --worker-settings `'`'  --replace-settings --k8s-namespace arc --use-k8s
-```
-
-
+For default values, refer to the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config.html).
 
 ## Special considerations
 
@@ -308,5 +152,4 @@ az postgres arc-server edit -n postgres01 --engine-settings  'search_path = "$us
 ```
 
 ## Next steps
-- Read about [scaling out (adding worker nodes)](scale-out-in-postgresql-hyperscale-server-group.md) your server group
 - Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) your server group

@@ -1,6 +1,6 @@
 ---
-title: Supported versions Postgres with Azure Arc-enabled PostgreSQL Hyperscale
-description: Supported versions Postgres with Azure Arc-enabled PostgreSQL Hyperscale
+title: Supported versions PostgreSQL with Azure Arc-enabled PostgreSQL server
+description: Supported versions PostgreSQL with Azure Arc-enabled PostgreSQL server
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -11,25 +11,21 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Supported versions of Postgres with Azure Arc-enabled PostgreSQL Hyperscale
-The list of supported versions evolves over time as we progress on ensuring parity with Postgres managed services in Azure PaaS. Today, the major versions that are supported are:
-- Postgres 12 (default)
-- Postgres 11
-
+# Supported versions of PostgreSQL with Azure Arc-enabled PostgreSQL server
+The list of supported versions evolves over time as we progress on ensuring parity with Postgres managed services in Azure PaaS. Today, the major versions that is supported is PostgreSQL 14.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## How to chose between versions?
+## How to choose between versions?
 It is recommend you look at what versions your applications have been designed for and what are the capabilities of each of the versions. 
-To learn more, read about each version on the official Postgres site:
-- [Postgres 12 (default)](https://www.postgresql.org/docs/12/index.html)
-- [Postgres 11](https://www.postgresql.org/docs/11/index.html)
+To learn more, read about each version on the official PostgreSQL site:
+- [PostgreSQL 14 (default)](https://www.postgresql.org/docs/14/index.html)
 
-## How to create a particular version in Azure Arc-enabled PostgreSQL Hyperscale?
+## How to create a particular version in Azure Arc-enabled PostgreSQL server?
 At creation time, you have the possibility to indicate what version to create by passing the _--engine-version_ parameter. 
-If you do not indicate a version information, by default, a server group of Postgres version 12 will be created.
+If you do not indicate a version information, by default, a server group of PostgreSQL version 14 will be created.
 
-Note that there is only one Postgres Custom Resource Definition (CRD) in your Kubernetes cluster no matter what versions we support.
+Note that there is only one PostgreSQL Custom Resource Definition (CRD) in your Kubernetes cluster no matter what versions we support.
 For example, run the following command:
 ```console
 kubectl get crds
@@ -48,12 +44,12 @@ sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com   2021-10-12T23:5
 sqlmanagedinstances.sql.arcdata.microsoft.com                    2021-10-12T23:53:37Z
 ```
 
-In this example, this output indicates there are one CRD related to Postgres: postgresqls.arcdata.microsoft.com, shortname postgresqls. The CRD is not a Postgres instance or a Postgres server group. The presence of a CRD is not an indication that you have - or not - created a server group. The CRD is an indication of what kind of resources can be created in the Kubernetes cluster.
+In this example, this output indicates there are one CRD related to PostgreSQL: postgresqls.arcdata.microsoft.com, shortname postgresqls. The CRD is not a PostgreSQL server. The presence of a CRD is not an indication that you have - or not - created a server. The CRD is an indication of what kind of resources can be created in the Kubernetes cluster.
 
 ## How can I be notified when other versions are available?
 Come back and read this article. It will be updated as appropriate.
 
 
 ## Next steps:
-- [Read about creating Azure Arc-enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)
-- [Read about getting a list of the Azure Arc-enabled PostgreSQL Hyperscale server groups created in your Arc Data Controller](list-server-groups-postgres-hyperscale.md)
+- [Read about creating Azure Arc-enabled PostgreSQL server](create-postgresql-hyperscale-server-group.md)
+- [Read about getting a list of the Azure Arc-enabled PostgreSQL servers created in your Arc Data Controller](list-server-groups-postgres-hyperscale.md)

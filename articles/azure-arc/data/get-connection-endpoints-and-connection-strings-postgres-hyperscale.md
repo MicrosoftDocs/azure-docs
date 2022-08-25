@@ -1,7 +1,7 @@
 ---
-title: Get connection endpoints and create connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
+title: Get connection endpoints and create connection strings for your Azure Arc-enabled PostgreSQL server
 titleSuffix: Azure Arc-enabled data services
-description: Get connection endpoints & create connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
+description: Get connection endpoints & create connection strings for your Azure Arc-enabled PostgreSQL server
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -12,7 +12,7 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Get connection endpoints & create the connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
+# Get connection endpoints & create the connection strings for your Azure Arc-enabled PostgreSQL server
 
 This article explains how you can retrieve the connection endpoints for your server group and how you can form the connection strings, which can be used with your applications and/or tools.
 
@@ -149,5 +149,4 @@ host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} 
 ```
 
 ## Next steps
-- Read about [scaling out (adding worker nodes)](scale-out-in-postgresql-hyperscale-server-group.md) your server group
 - Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) your server group
