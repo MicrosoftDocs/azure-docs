@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/28/2022
+ms.date: 08/24/2022
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
@@ -185,7 +185,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | The type property of the Copy activity source must be set to **SnowflakeSource**. | Yes      |
 | query          | Specifies the SQL query to read data from Snowflake. If the names of the schema, table and columns contain lower case, quote the object identifier in query e.g. `select * from "schema"."myTable"`.<br>Executing stored procedure is not supported. | No       |
-| exportSettings | Advanced settings used to retrieve data from Snowflake. You can configure the ones supported by the COPY into command that the service will pass through when you invoke the statement. | No       |
+| exportSettings | Advanced settings used to retrieve data from Snowflake. You can configure the ones supported by the COPY into command that the service will pass through when you invoke the statement. | Yes       |
 | ***Under `exportSettings`:*** |  |  |
 | type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |
 | additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: MAX_FILE_SIZE, OVERWRITE. For more information, see [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
@@ -252,7 +252,10 @@ If your sink data store and format meet the criteria described in this section, 
                 }
             },
             "sink": {
-                "type": "<sink type>"
+                "type": "<sink type>",
+ 	            "importSettings": {
+                    "type": "SnowflakeExportCopyCommand"
+                }
             }
         }
     }
@@ -290,10 +293,16 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
         "typeProperties": {
             "source": {
                 "type": "SnowflakeSource",
+                "exportSettings": {
+                    "type": "SnowflakeExportCopyCommand"
+                },
                 "sqlReaderQuery": "SELECT * FROM MyTable"
             },
             "sink": {
-                "type": "<sink type>"
+                "type": "<sink type>",
+                "importSettings": {
+                    "type": "SnowflakeExportCopyCommand"
+	            }
             },
             "enableStaging": true,
             "stagingSettings": {
@@ -320,7 +329,7 @@ To copy data to Snowflake, the following properties are supported in the Copy ac
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | The type property of the Copy activity sink, set to **SnowflakeSink**. | Yes                                           |
 | preCopyScript     | Specify a SQL query for the Copy activity to run before writing data into Snowflake in each run. Use this property to clean up the preloaded data. | No                                            |
-| importSettings | Advanced settings used to write data into Snowflake. You can configure the ones supported by the COPY into command that the service will pass through when you invoke the statement. | No |
+| importSettings | Advanced settings used to write data into Snowflake. You can configure the ones supported by the COPY into command that the service will pass through when you invoke the statement. | Yes |
 | ***Under `importSettings`:*** |                                                              |  |
 | type | The type of import command, set to **SnowflakeImportCopyCommand**. | Yes |
 | additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. For more information, see [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
@@ -382,7 +391,10 @@ If your source data store and format meet the criteria described in this section
         ],
         "typeProperties": {
             "source": {
-                "type": "<source type>"
+                "type": "<source type>",
+ 	            "exportSettings": {
+                    "type": "SnowflakeImportCopyCommand"
+	            }
             },
             "sink": {
                 "type": "SnowflakeSink",
@@ -390,10 +402,10 @@ If your source data store and format meet the criteria described in this section
                     "type": "SnowflakeImportCopyCommand",
                     "copyOptions": {
                         "FORCE": "TRUE",
-                        "ON_ERROR": "SKIP_FILE",
+                        "ON_ERROR": "SKIP_FILE"
                     },
                     "fileFormatOptions": {
-                        "DATE_FORMAT": "YYYY-MM-DD",
+                        "DATE_FORMAT": "YYYY-MM-DD"
                     }
                 }
             }
@@ -432,10 +444,15 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
         ],
         "typeProperties": {
             "source": {
-                "type": "<source type>"
+                "type": "<source type>",
+                "exportSettings": {
+                    "type": "SnowflakeImportCopyCommand"
+	        }
             },
             "sink": {
-                "type": "SnowflakeSink"
+                "type": "SnowflakeSink",
+                "importSettings": {
+                    "type": "SnowflakeImportCopyCommand"
             },
             "enableStaging": true,
             "stagingSettings": {
