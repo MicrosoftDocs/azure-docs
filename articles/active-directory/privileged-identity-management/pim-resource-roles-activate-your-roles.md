@@ -4,15 +4,15 @@ description: Learn how to activate your Azure resource roles in Azure AD Privile
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/24/2022
+ms.date: 08/24/2022
 ms.author: amsliu
-ms.reviewer: shaunliu
+ms.reviewer: ilyal
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -49,8 +49,6 @@ When you need to take on an Azure resource role, you can request activation by u
 
 1. If your role requires multi-factor authentication, select **Verify your identity before proceeding**. You only have to authenticate once per session.
 
-    ![Verify my identity with MFA before role activation](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
-
 1. Select **Verify my identity** and follow the instructions to provide additional security verification.
 
     ![Screen to provide security verification such as a PIN code](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
@@ -65,13 +63,10 @@ When you need to take on an Azure resource role, you can request activation by u
 
 1. In the **Reason** box, enter the reason for the activation request.
 
-    ![Completed Activate pane with scope, start time, duration, and reason](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
-
 1. Select **Activate**.
 
-    If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
-
-    ![Activation request is pending approval notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+    >[!NOTE]
+    >If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
 ## Activate a role with ARM API
 
