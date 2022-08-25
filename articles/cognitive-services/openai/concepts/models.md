@@ -61,7 +61,7 @@ Curie is extremely powerful, yet very fast. While Davinci is stronger when it co
 
 ### Babbage
 
-Babbage can perform straightforward tasks like simple classification. It’s also quite capable when it comes to Semantic Search ranking how well documents match up with search queries.
+Babbage can perform straightforward tasks like simple classification. It’s also quite capable when it comes to semantic search ranking how well documents match up with search queries.
 
 **Use for**: Moderate classification, semantic search classification
 
@@ -112,7 +112,7 @@ These models help measure whether long documents are relevant to a short search 
 
 ### Code search embeddings
 
-Similarly to search embeddings, there are two types: one for embedding code snippets to be retrieved and one for embedding natural language search queries.
+Similar to text search embeddings, there are two types: one for embedding code snippets to be retrieved and one for embedding natural language search queries.
 
 | USE CASES | AVAILABLE MODELS |
 |---|---|
