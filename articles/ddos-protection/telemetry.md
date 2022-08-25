@@ -63,7 +63,8 @@ You can view DDoS telemetry for a protected public IP address through three diff
 1. Select **Public IP Address** for **Resource type** then select the specific public IP address you want to log metrics for, and then select **Apply**.
 1. Under **Metric** select your chosen metric then under **Aggregation** select type as **Max**.
 
-> [!NOTE] To filter IP Addresses select **Add filter**. Under **Property**, select **Protected IP Address**, and the operator should be set to **=**. Under **Values**, you will see a dropdown of public IP addresses, associated with the virtual network, that are protected by DDoS protection.
+>[!NOTE]
+>To filter IP Addresses select **Add filter**. Under **Property**, select **Protected IP Address**, and the operator should be set to **=**. Under **Values**, you will see a dropdown of public IP addresses, associated with the virtual network, that are protected by DDoS protection.
 
 :::image type="content" source="./media/ddos-attack-telemetry/vnet-ddos-metrics.png" alt-text="Screenshot DDoS diagnostic settings.":::
 
