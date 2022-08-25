@@ -111,7 +111,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 ```
 
 > [!NOTE]
-> The failover support is availble if you use version **5.3.0-preview** or later of any of the following packages.
+> The failover support is available if you use version **5.3.0-preview** or later of any of the following packages.
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
@@ -120,7 +120,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 Placeholder for Java Spring instructions
 --- -->
 
-The App Configuration provider fails over to a different endpoint when it observes the following conditions.
+The failover may occur if the App Configuration provider observes the following conditions.
 - Receives responses with service unavailable status (HTTP status code 500 or above).
 - Experiences with network connectivity issues.
 - Requests are throttled (HTTP status code 429).
