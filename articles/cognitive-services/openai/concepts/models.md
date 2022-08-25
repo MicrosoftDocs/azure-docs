@@ -118,7 +118,7 @@ Similar to text search embeddings, there are two types: one for embedding code s
 |---|---|
 | Code search and relevance | code-search-ada-code-001, <br> code-search-ada-text-001, <br> code-search-babbage-code-001, <br> code-search-babbage-text-001 |
 
-When using our embedding models, please keep in mind their limitations and risks.
+When using our embedding models, keep in mind their limitations and risks.
 
 ## Finding the right model
 
