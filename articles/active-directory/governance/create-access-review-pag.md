@@ -40,7 +40,7 @@ If you are reviewing access to an application, then before creating the review, 
 
     ![Screenshot that shows the Access reviews pane in Identity Governance.](./media/create-access-review/access-reviews.png)
 
-4. In the **Select what to review** box, select which resource you want to review.
+4. In the **Select what to review** box, select **Teams + Groups**.
 
     ![Screenshot that shows creating an access review.](./media/create-access-review/select-what-review.png)
 
@@ -59,11 +59,11 @@ If you are reviewing access to an application, then before creating the review, 
 7. If you are conducting group membership review, you can create access reviews for only the inactive users in the group. In the *Users scope* section, check the box next to **Inactive users (on tenant level)**. If you check the box, the scope of the review will focus on inactive users only, those who have not signed in either interactively or non-interactively to the tenant. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users in the group inactive for the specified number of days will be the only users in the review.
 
 > [!NOTE]
-> The inactivity time you configure will not affect recently created users. The Access Review will check if the user has been created in the time frame you configure and ignore users who haven’t existed for at least that amount of time. For example, if you set the inactivity time as 90 days and a guest user was created or invited less than 90 days ago, the guest user will not be in scope of the Access Review. This ensures that guests can sign in once before being removed.
+> Recently created users are not affected when configuring the inactivity time. The Access Review will check if a user has been created in the time frame configured and disregard users who haven’t existed for at least that amount of time. For example, if you set the inactivity time as 90 days and a guest user was created or invited less than 90 days ago, the guest user will not be in scope of the Access Review. This ensures that a user can sign in at least once before being removed.
 
 8. Select **Next: Reviews**.
 
-After you have reached this step, you may follow the instructions outlined under **Next: Reviews** in the [Create an access review of groups or applications](create-access-review.md) article to complete your access review.
+After you have reached this step, you may follow the instructions outlined under **Next: Reviews** in the [Create an access review of groups or applications](create-access-review.md#Next:-Reviews) article to complete your access review.
 
 ## Next steps
 
