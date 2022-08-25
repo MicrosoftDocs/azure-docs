@@ -160,26 +160,11 @@ You can delete the Azure Spring Apps diagnostic settings by using Azure CLI:
 
 ### Which versions of Java runtime are supported in Azure Spring Apps?
 
-Azure Spring Apps supports Java LTS versions with the most recent builds, currently Java 8, Java 11, and Java17 are supported. For more information, see [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install).
+Azure Spring Apps supports Java LTS versions with the most recent builds, currently Java 8, Java 11, and Java 17 are supported. 
 
-### Who built these Java runtimes?
-
-Azul Systems. The Azul Zulu for Azure - Enterprise Edition JDK builds are a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure and Azure Stack backed by Microsoft and Azul Systems. They contain all the components for building and running Java SE applications.
-
-### How often will Java runtimes get updated?
-
-LTS and MTS JDK releases have quarterly security updates, bug fixes, and critical out-of-band updates and patches as needed. This support includes backports to Java 7 and 8 of security updates and bug fixes reported in newer versions of Java, like Java 11.
-
-### How long will Java 8 and Java 11 LTS versions be supported?
+### For how long will Java 8, Java 11, and Java 17 LTS versions be supported?
 
 See [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
-
-* Java 8 LTS will be supported until December 2030.
-* Java 11 LTS will be supported until September 2027.
-
-### How can I download a supported Java runtime for local development?
-
-See [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install).
 
 ### What is the retire policy for older Java runtimes?
 
@@ -190,7 +175,7 @@ Public notice will be sent out at 12 months before any old runtime version is re
 
 ### How can I get support for issues at the Java runtime level?
 
-You can open a support ticket with Azure Support.  See [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+See [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 
 ### What is the operation system to run my apps?
 
