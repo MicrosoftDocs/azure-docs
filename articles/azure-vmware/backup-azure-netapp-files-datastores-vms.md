@@ -6,7 +6,7 @@ ms.service: azure-vmware
 ms.date: 08/12/2022
 ---
 
-# Back up Azure NetApp Files datastores and VMs using Cloud Backup for Virtual Machines
+# Back up Azure NetApp Files datastores and VMs using Cloud Backup for Virtual Machines (Preview)
 
 From the VMware vSphere client, you can back up datastores and Virtual Machines (VMs) to the cloud.
 
