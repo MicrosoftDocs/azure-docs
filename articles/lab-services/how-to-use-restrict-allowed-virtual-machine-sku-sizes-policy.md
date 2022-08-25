@@ -11,6 +11,8 @@ ms.date: 08/23/2022
 
 In this how to, you'll learn how to use the *Lab Services should restrict allowed virtual machine SKU sizes* Azure policy to control the SKUs available to educators when they're creating labs.  In this example, you'll see how a lab administrator can allow only non-GPU SKUs, so educators can create only non-GPU SKU labs.
 
+[!INCLUDE [lab plans only note](./includes/lab-services-new-update-focused-article.md)]
+
 ## Configure the policy
 
 1.	In the [Azure portal](https://portal.azure.com), go to your subscription.
@@ -77,13 +79,14 @@ You've created a policy assignment for *Lab Services should restrict allowed vir
 
 ## Exclude resources
 
-When applying a built-in policy, you can choose to exclude certain resources.  For example, if the scope of your policy assignment is a subscription, you can exclude resources in a specified resource group.  Exclusions are configured using the Exclusions property on the Basics tab when creating a policy definition.
+When applying a built-in policy, you can choose to exclude certain resources, with the exception of lab plans.  For example, if the scope of your policy assignment is a subscription, you can exclude resources in a specified resource group.  Exclusions are configured using the Exclusions property on the Basics tab when creating a policy definition.
 
 :::image type="content" source="./media/how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy/assign-policy-basics-exclusions.png" alt-text="Screenshot showing the Basics tab with Exclusions highlighted.":::
 
+
 ## Exclude a lab plan
 
-To exclude a lab plan from a policy assignment, you first need to get the lab plan resource ID.
+Lab plans cannot be excluded using the Exclusions property on the Basics tab. To exclude a lab plan from a policy assignment, you first need to get the lab plan resource ID, and then use it to specify the lab pan you want to exclude on the Parameters tab.
 
 ### Locate and copy lab plan resource ID
 Use the following steps to locate and copy the resource ID so that you can paste it into the exclusion configuration.   
@@ -95,8 +98,8 @@ Use the following steps to locate and copy the resource ID so that you can paste
 ### Enter the lab plan to exclude in the policy
 Now you have a lab plan resource ID, you can use it to exclude the lab plan as you assign the policy.
 1.	On the Parameters tab, clear **Only show parameters that need input or review**.
-
-1.	For Lab Plan ID to exclude, enter the lab plan resource ID you copied earlier. 
+1.	For **Lab Plan ID to exclude**, enter the lab plan resource ID you copied earlier. 
+    :::image type="content" source="./media/how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy/assign-policy-exclude-lab-plan-id.png" alt-text="Screenshot showing the Parameter tab with Lab Plan ID to exclude highlighted.":::
 
 
 ## Next steps
