@@ -74,11 +74,11 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
 5. Alternatively, you can add a nested tag by clicking the advanced tab in the **Assign Tags**
 
-![nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-advanced-nested-tag.png)
+   ![nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-advanced-nested-tag.png)
 
 ## Querying basic and nested tags
 Following the example above, you can filter devices using the query box
-![querying nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-query-tags-2.png)
+   ![querying nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-query-tags-2.png)
 
 ## Editting and deleting device twin tags using Azure Portal
 !!TODO 
