@@ -32,11 +32,13 @@ At the end of this quickstart, you'll have a working spring app running on Azure
 
 ## [Azure CLI](#tab/Azure-CLI)
 
-### Prerequisites
+## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-### Provision an instance of Azure Spring Apps
+## Provision an instance of Azure Spring Apps
+
+Use the following steps to provision a service instance.
 
 1. Select **Try It** and sign in to your Azure account in [Azure Cloud Shell](/azure/cloud-shell/overview).
 
@@ -73,12 +75,12 @@ At the end of this quickstart, you'll have a working spring app running on Azure
    ```azurecli-interactive
    az spring create \
        --resource-group <name-of-resource-group> \
-       --service <service-instance-name>
+       --name <service-instance-name>
    ```
 
 1. Choose **Y** to install the Azure Spring Apps extension and run it.
 
-### Create an app in your instance
+## Create an app in your instance
 
 Use the following command to specify the app name on Azure Spring Apps as *hellospring*.
 
@@ -90,7 +92,9 @@ az spring app create \
     --assign-endpoint true
 ```
 
-### Clone the Spring Boot sample project
+## Clone the Spring Boot sample project
+
+Use the following steps to clone the Spring Boot sample project.
 
 1. Use the following command to clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from GitHub.
 
@@ -110,7 +114,7 @@ Use the following [Maven](https://maven.apache.org/what-is-maven.html) command t
 mvn clean package -DskipTests
 ```
 
-### Deploy the local app on Azure Spring Apps
+## Deploy the local app on Azure Spring Apps
 
 Use the following command to deploy the *.jar* file for the app (*target/spring-boot-complete-0.0.1-SNAPSHOT.jar* on Windows).
 
@@ -126,13 +130,13 @@ Deploying the application can take a few minutes.
 
 ## [IntelliJ](#tab/IntelliJ)
 
-### Prerequisites
+## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 - [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
 
-### Generate a Spring project
+## Generate a Spring project
 
 Use the following steps to create the project:
 
@@ -168,7 +172,7 @@ This example uses Java version 11.  To use a different Java version, change the 
     }
     ```
 
-### <a name="provision-instance">Provision an instance of Azure Spring Apps</a>
+## Provision an instance of Azure Spring Apps
 
 Use the following steps to create an instance of Azure Spring Apps using the Azure portal.
 
@@ -195,7 +199,7 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 
 1. Select **Review and create**.
 
-### Import project
+## Import project
 
 Use the following steps to import the project.
 
@@ -204,10 +208,12 @@ Use the following steps to import the project.
 
    :::image type="content" source="media/quickstart/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA showing Open File or Project dialog box." lightbox="media/quickstart/intellij-new-project.png":::
 
-### Build and deploy your app
+## Build and deploy your app
 
 > [!NOTE]
 > To run the project locally, add `spring.config.import=optional:configserver:` to the project's *application.properties* file.
+
+Use the following steps to build and deploy your app.
 
 1. If you haven't already installed the Azure Toolkit for IntelliJ, follow the steps in [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
 
@@ -218,7 +224,7 @@ Use the following steps to import the project.
 1. Accept the name for the app in the **Name** field. **Name** refers to the configuration, not the app name. You don't usually need to change it.
 1. In the **Artifact** textbox, select **Maven:com.example:hellospring-0.0.1-SNAPSHOT**.
 1. In the **Subscription** textbox, verify that your subscription is correct.
-1. In the **Service** textbox, select the instance of Azure Spring Apps that you created in [Provision an instance of Azure Spring Apps](#provision-instance).
+1. In the **Service** textbox, select the instance of Azure Spring Apps that you created in [Provision an instance of Azure Spring Apps](#provision-an-instance-of-azure-spring-apps-1).
 1. In the **App** textbox, select the plus sign (**+**) to create a new app.
 
    :::image type="content" source="media/quickstart/intellij-create-new-app.png" alt-text="Screenshot of IntelliJ IDEA showing Deploy Azure Spring Apps dialog box.":::
@@ -242,15 +248,13 @@ Use the following steps to import the project.
 
 ## [Visual Studio Code](#tab/VS-Code)
 
-### Deploy a Spring Boot web app to Azure Spring Apps with Visual Studio Code
+## Deploy a Spring Boot web app to Azure Spring Apps with Visual Studio Code
 
 To deploy a Spring Boot web app to Azure Spring Apps, follow the steps in [Java on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps).
 
 ---
 
 Once deployment has completed, you can access the app at `https://<service instance name>-hellospring.azuremicroservices.io/`.
-
-You also have access to powerful logs, metrics, and distributed tracing capability from the Azure portal. For more information, see [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md).
 
 ## Clean up resources
 
@@ -265,13 +269,9 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-In this quickstart, you learned how to:
+In this quickstart, you learned how to generate a basic Spring project, provision a service instance, build and deploy an app with a public endpoint, and clean up the resources.
 
-> [!div class="checklist"]
-> - Generate a basic Spring project.
-> - Provision a service instance.
-> - Build and deploy an app with a public endpoint.
-> - Clean up the resources.
+You also have access to powerful logs, metrics, and distributed tracing capability from the Azure portal. For more information, see [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md).
 
 To learn how to use more Azure Spring capabilities, advance to the quickstart series that deploys a sample application to Azure Spring Apps:
 
