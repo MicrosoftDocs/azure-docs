@@ -74,10 +74,12 @@
       href: configure-alerts-for-azure-vmware-solution.md
     - name: Attach disk pools to Azure VMware Solution hosts
       href: attach-disk-pools-to-azure-vmware-solution-hosts.md
-    - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
-      href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
-    - name: Attach Azure NetApp Files to Azure VMware Solution VMs
-      href: netapp-files-with-azure-vmware-solution.md
+    - name: Manage and protect VMs on Azure NetApp Files
+      items: 
+      - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
+        href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
+      - name: Attach Azure NetApp Files to Azure VMware Solution VMs
+        href: netapp-files-with-azure-vmware-solution.md
     - name: Backup with Azure Backup Server
       items:
       - name: Set up Backup Server
@@ -206,6 +208,8 @@
       href: enable-hcx-access-over-internet.md
     - name: Enable SQL Azure hybrid benefit for Azure VMware Solution (Preview)
       href: enable-sql-azure-hybrid-benefit.md
+    - name: Enable VMware Cloud director service with Azure VMware solution (Preview)
+      href: enable-vmware-cds-with-azure.md
     - name: Upgrade the VMware HCX appliance
       href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
 - name: Resources

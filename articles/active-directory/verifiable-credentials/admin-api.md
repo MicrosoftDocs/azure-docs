@@ -4,7 +4,7 @@ titleSuffix: Microsoft Entra Verified ID
 description: Learn how to manage your verifiable credential deployment using Admin API.
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
@@ -827,12 +827,22 @@ The response contains the following properties
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`attestations`| [idTokenAttestation](#idtokenattestation-type) or [idTokenHintAttestation](#idtokenhintattestation-type) and/or [verifiablePresentationAttestation](#verifiablepresentationattestation-type) and/or [selfIssuedAttestation](#selfissuedattestation-type) and/or [accessTokenAttestation](#accesstokenattestation-type) (array) | describing supported inputs for the rules |
+|`attestations`| [attestions](#attestations-type)| describing supported inputs for the rules |
 |`validityInterval` | number | this value shows the lifespan of the credential |
 |`vc`| vcType array | types for this contract |
 |`customStatusEndpoint`| [customStatusEndpoint] (#customstatusendpoint-type) (optional) | status endpoint to include in the verifiable credential for this contract |
 
 If the property `customStatusEndpoint` property isn't specified then the `anonymous` status endpoint is used.
+
+#### attestations type
+
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|`idTokens`| [idTokenAttestation](#idtokenattestation-type) (array) (optional) | describes id token inputs|
+|`idTokenHints`| [idTokenHintAttestation](#idtokenhintattestation-type) (array) (optional) | describes id token hint inputs |
+|`presentations`| [verifiablePresentationAttestation](#verifiablepresentationattestation-type) (array) (optional) | describes verifiable presentations inputs |
+|`selfIssued`| [selfIssuedAttestation](#selfissuedattestation-type) (array) (optional) | describes self issued inputs |
+|`accessTokens`| [accessTokenAttestation](#accesstokenattestation-type) (array) (optional) | describes access token inputs |
 
 #### idTokenAttestation type
 
@@ -1038,9 +1048,9 @@ Don't supply a request body for this method.
 
 example message:
 
-```
+```json
 {
-    value:
+    "value":
     [
         {
             "id": "ZjViZjJmYzYtNzEzNS00ZDk0LWE2ZmUtYzI2ZTQ1NDNiYzVhPHNjcmlwdD5hbGVydCgneWF5IScpOzwvc2NyaXB0Pg",
@@ -1048,7 +1058,7 @@ example message:
             "authorityId": "ffea7eb3-0000-1111-2222-000000000000",
             "status": "Enabled",
             "issueNotificationEnabled": false,
-            "manifestUrl" : "https:/...",
+            "manifestUrl" : "https://...",
             "rules": "<rules JSON>",
             "displays": [{<display JSON}]
         },
@@ -1058,7 +1068,7 @@ example message:
             "authorityId": "cc55ba22-0000-1111-2222-000000000000",
             "status": "Enabled",
             "issueNotificationEnabled": false,
-            "manifestUrl" : "https:/...",
+            "manifestUrl" : "https://...",
             "rules": "<rules JSON>",
             "displays": [{<display JSON}]
         }

@@ -7,7 +7,7 @@ author: abeomor
 ms.author: osomorog
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 04/15/2022
+ms.date: 08/15/2022
 ms.topic: conceptual
 ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022
 ---
@@ -49,7 +49,7 @@ With MLflow Tracking you can connect Azure Machine Learning as the backend of yo
 * [Track Azure Synapse Analytics ML experiments](how-to-use-mlflow-azure-databricks.md) with MLflow in Azure Machine Learning.
 
 > [!IMPORTANT]
-> - MLflow in R support is limited to tracking experiment's metrics and parameters on Azure Machine Learning jobs. RStudio or Jupyter Notebooks with R kernels are not supported. Artifacts and models can't be tracked using the MLflow R SDK. As an alternative, you can save them locally using [`mlflow_save_model.crate`](https://mlflow.org/docs/latest/R-api.html#mlflow-save-model-crate) in the `outputs` folder. Then, use Azure ML CLI or Azure ML studio for model registration. View the following [R example about using the MLflow tracking client with Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r).
+> - MLflow in R support is limited to tracking experiment's metrics, parameters and models on Azure Machine Learning jobs. RStudio or Jupyter Notebooks with R kernels are not supported. Model registries are not supported using the MLflow R SDK. As an alternative, use Azure ML CLI or Azure ML studio for model registration and management. View the following [R example about using the MLflow tracking client with Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r).
 > - MLflow in Java support is limited to tracking experiment's metrics and parameters on Azure Machine Learning jobs. Artifacts and models can't be tracked using the MLflow Java SDK. View the following [Java example about using the MLflow tracking client with the Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/java/iris).
 
 To learn how to use MLflow to query experiments and runs in Azure Machine Learning, see [Manage experiments and runs with MLflow](how-to-track-experiments-mlflow.md)
@@ -83,9 +83,9 @@ The following table shows which operations are supported by each of the tools av
 | Track and log metrics, parameters and models | **&check;** | | |
 | Retrieve metrics, parameters and models | **&check;**<sup>1</sup> | <sup>2</sup> | **&check;** |
 | Submit training jobs with MLflow projects | **&check;** |  |  |
-| Submit training jobs with inputs and outputs |  | **&check;** | |
-| Submit training pipelines | | **&check;** | |
-| Manage experiments runs | **&check;**<sup>1</sup> | **&check;** | **&check;** |
+| Submit training jobs with inputs and outputs |  | **&check;** | **&check;** |
+| Submit training jobs using ML pipelines | | **&check;** | |
+| Manage experiments and runs | **&check;**<sup>1</sup> | **&check;** | **&check;** |
 | Manage MLflow models | **&check;**<sup>3</sup> | **&check;** | **&check;** |
 | Manage non-MLflow models | | **&check;** | **&check;** |
 | Deploy MLflow models to Azure Machine Learning | **&check;**<sup>4</sup> | **&check;** | **&check;** |

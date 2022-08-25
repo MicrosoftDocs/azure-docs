@@ -15,6 +15,8 @@ This article describes how to configure data export to send data to the  Blob St
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
 
+To learn how to manage data export by using the IoT Central REST API, see [How to use the IoT Central REST API to manage data exports.](../core/howto-manage-data-export-with-rest-api.md)
+
 ## Set up a Blob Storage export destination
 
 

@@ -11,7 +11,7 @@ This article is designed to help you choose the right OT appliances for your sen
 
 You can use both physical or virtual appliances.
 
-## C5600: IT/OT mixed environments
+## IT/OT mixed environments
 
 Use the following hardware profiles for high bandwidth corporate IT/OT mixed networks:
 
@@ -19,7 +19,7 @@ Use the following hardware profiles for high bandwidth corporate IT/OT mixed net
 |---------|---------|---------|---------|
 |C5600   | 3 Gbps        | 12 K        |Physical / Virtual         |
 
-## E1800, E1000, E500:  monitoring at the site level
+## Monitoring at the site level
 
 Use the following  hardware profiles for enterprise monitoring at the site level:
 

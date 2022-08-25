@@ -80,7 +80,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-The `SpeechRecognitionLanguage` property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The `SpeechRecognitionLanguage` property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 ## Add a translation language
 

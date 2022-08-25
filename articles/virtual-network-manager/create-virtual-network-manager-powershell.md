@@ -48,7 +48,7 @@ $rg = @{
     Name = 'myAVNMResourceGroup'
     Location = $location
 }
-New-AzResourceGroup $rg
+New-AzResourceGroup @rg
 
 ```
 
@@ -133,7 +133,7 @@ $virtualnetworkA | Set-AzVirtualNetwork
 $subnetB = @{
     Name = 'default'
     VirtualNetwork = $virtualNetworkB
-    AddressPrefix = '10.0.0.0/24'
+    AddressPrefix = '10.1.0.0/24'
 }
 $subnetConfigC = Add-AzVirtualNetworkSubnetConfig @subnetB
 $virtualnetworkB | Set-AzVirtualNetwork
@@ -141,7 +141,7 @@ $virtualnetworkB | Set-AzVirtualNetwork
 $subnetC = @{
     Name = 'default'
     VirtualNetwork = $virtualNetworkC
-    AddressPrefix = '10.0.0.0/24'
+    AddressPrefix = '10.2.0.0/24'
 }
 $subnetConfigC = Add-AzVirtualNetworkSubnetConfig @subnetC
 $virtualnetworkC | Set-AzVirtualNetwork
@@ -161,7 +161,6 @@ $virtualnetworkC | Set-AzVirtualNetwork
     ```
         
 ### Option 1: Static membership
-
     
 1. Add the static member to the network group with the following commands:
     1. Static members must have a network group scoped unique name. It's recommended to use a consistent hash of the virtual network ID. Below is an approach using the ARM Templates uniqueString() implementation.
@@ -213,19 +212,19 @@ $virtualnetworkC | Set-AzVirtualNetwork
 > [!NOTE]
 > It is recommended to scope all of your conditionals to only scan for type `Microsoft.Network/virtualNetwork` for efficiency.
 
-```azurepowershell-interactive
-$conditionalMembership = '{ 
-    "allof":[
-        { 
-        "field": "type", 
-        "equals": "Microsoft.Network/virtualNetwork" 
-        }
-        { 
-        "field": "name", 
-        "contains": "VNet" 
-        } 
-    ] 
-}' 
+ ```azurepowershell-interactive
+ $conditionalMembership = '{ 
+     "allof":[
+         { 
+         "field": "type", 
+         "equals": "Microsoft.Network/virtualNetwork" 
+         }
+         { 
+         "field": "name", 
+         "contains": "VNet" 
+         } 
+     ] 
+ }' 
 ```
         
 1. Create the Azure Policy definition using the conditional statement defined in the last step using New-AzPolicyDefinition.
@@ -233,23 +232,23 @@ $conditionalMembership = '{
 > [!IMPORTANT]
 > Policy resources must have a scope unique name. It is recommended to use a consistent hash of the network group. Below is an approach using the ARM Templates uniqueString() implementation.
    
-```azurepowershell-interactive
-    function Get-UniqueString ([string]$id, $length=13)
-    {
-    $hashArray = (new-object System.Security.Cryptography.SHA512Managed).ComputeHash($id.ToCharArray())
-    -join ($hashArray[1..$length] | ForEach-Object { [char]($_ % 26 + [byte][char]'a') })
-    }
-```
+ ```azurepowershell-interactive
+     function Get-UniqueString ([string]$id, $length=13)
+     {
+     $hashArray = (new-object System.Security.Cryptography.SHA512Managed).ComputeHash($id.ToCharArray())
+     -join ($hashArray[1..$length] | ForEach-Object { [char]($_ % 26 + [byte][char]'a') })
+     }
+ ```
 
-```azurepowershell-interactive
-$defn = @{
-    Name = Get-UniqueString $networkgroup.Id
-    Mode = 'Microsoft.Network.Data'
-    Policy = $conditionalMembership
-}
-    
-$policyDefinition = New-AzPolicyDefinition $defn
-```
+ ```azurepowershell-interactive
+ $defn = @{
+     Name = Get-UniqueString $networkgroup.Id
+     Mode = 'Microsoft.Network.Data'
+     Policy = $conditionalMembership
+ }
+
+ $policyDefinition = New-AzPolicyDefinition @defn
+ ```
    
 1. Assign the policy definition at a scope within your network managers scope for it to begin taking effect.
 
@@ -259,7 +258,7 @@ $policyDefinition = New-AzPolicyDefinition $defn
         PolicyDefinition  = $policyDefinition
     }
     
-    $policyAssignment = New-AzPolicyAssignment $assgn
+    $policyAssignment = New-AzPolicyAssignment @assgn
     ```
         
 ## Create a configuration
@@ -373,7 +372,5 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
 
 ## Next steps
 
-After you've created the Azure Virtual Network Manager, continue on to learn how to block network traffic by using the security admin configuration:
-
 > [!div class="nextstepaction"]
-> [Block network traffic with security admin rules](how-to-block-network-traffic-powershell.md)
+> Learn how to [Block network traffic with security admin rules](how-to-block-network-traffic-powershell.md)
