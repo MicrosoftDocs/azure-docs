@@ -47,7 +47,19 @@ Linked Databricks workspaces | | X*
 
 \* *Microsoft attempts recreation or re-attachment when a workspace is recovered. Recovery is not guaranteed, and a best effort attempt.*
 
-Recently deleted workspaces can be queried through CLI/SDK/REST API experiences and the Azure Portal, and can be recovered or permanently deleted during the set data retention period. After expiry of the retention period, a soft deleted workspace automatically gets hard deleted. A data retention period of 14 days is the default, and can be set to a value between 1-14 as a property on the workspace. While a workspace is soft-deleted, no cost are incurred from a workspace, since cost-incurring resources such as compute clusters are hard deleted at time of workspace deletion.
+## Soft-delete retention period
+
+Recently deleted workspaces can be recovered or permanently deleted during the set data retention period. During the data retention period, the following applies:
+
+* Soft deleted workspaces can be queried through CLI/SDK/REST API experiences and the Azure Portal. 
+* After expiry of the retention period, a soft deleted workspace automatically gets hard deleted.
+* A data retention period of 14 days is the default, and can be set to a value between 1-14 as a property on the workspace.
+* Optionally, you may choose to permanently delete a non-CMK workspace without going to soft delete state first. Permanently deleting a workspace allows recreation to accomodate for dev/test MLOps scenarios, or to immediately delete highly sensitive data if required.
+* Permanently deleting workspaces can only be done one workspace at at time, and not using a batch operation.
+
+## Billing implications
+
+In general, when a workspace is in soft-deleted state, there are only two operations possible: 'permanently delete' and 'recover'. All the other operations will fail. Therefore, even though the object exists, no compute operations can be performed and hence no usage will occur. When a workspace is soft-deleted, cost-incurring resources such as compute clusters are hard deleted.
 
 ## Enroll soft-delete on an Azure subscription
 
@@ -55,7 +67,7 @@ Soft delete is enabled on any workspace in Azure subscriptions that are enrolled
 
 To enable soft-delete on your Azure subscription, [register the preview feature](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal#register-preview-feature) under your Azure Subscription in the Azure Portal. Enable `Recover workspace data after accidental deletion with soft delete ` under the `Microsoft.MachineLearningServices` resource provider.
 
-## Manage soft-deleted workspaces
+## Supporting interfaces
 
 Recently deleted workspaces can be managed from the Azure Portal, CLI and SDK.
 
