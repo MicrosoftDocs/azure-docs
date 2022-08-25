@@ -103,9 +103,6 @@ The following Azure Media Services related considerations apply:
 
     Streaming endpoints have a considerable startup time. Therefore, it may take several minutes from the time you connected your account to Azure until your videos can be streamed and watched in the Azure Video Indexer web app.
 * If you connect to an existing Media Services account, Azure Video Indexer doesn't change the default Streaming Endpoint configuration. If there's no running **Streaming Endpoint**, you can't watch videos from this Media Services account or in Azure Video Indexer.
-* If you connect automatically, Azure Video Indexer sets the media **Reserved Units** to 10 S3 units:
-
-    ![Media Services reserved units](./media/create-account/ams-reserved-units.png)
 
 ## Create a classic account
 
