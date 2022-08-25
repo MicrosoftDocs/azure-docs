@@ -95,39 +95,49 @@ Follow the steps below to export a group of logic apps workflows from ISE to a l
 
 1.  At the logic apps standard extension, click the export button
 
-    ![Graphical user interface, text, application Description automatically generated](media/export-ise-to-logicapp-standard/29c03427b2c0f41c46ba5d78b2047d5a.png)
+    ![](media/export-ise-to-logicapp-standard/fffb58280c7978bc9fc543ad3c1f5d5b.png)
 
     1.  Select the correct subscription and ISE environment, then click next
 
-        ![Graphical user interface, text, application Description automatically generated](media/export-ise-to-logicapp-standard/baf21199e42c881e5e902644a011eb5b.png)
+        ![](media/export-ise-to-logicapp-standard/38b590b538689ae247883a61c22e4e6e.png)
 
     2.  Select the logic app that you want to export. Each logic app selected will be added to the selected list on the side. Once the logic app list is selected, then click next.
 
-        ![](media/export-ise-to-logicapp-standard/7ef8468cbfd5823aee9f174300b12379.png)
+        ![](media/export-ise-to-logicapp-standard/a7a63c79d11eb2962014e86152c5c660.png)
 
     3.  Review the validation results – logic apps that pass validation or present warnings are still eligible to be exported. Logic apps with validation exceptions can’t be exported and will need to be removed from the list.
 
-        ![Graphical user interface, website Description automatically generated](media/export-ise-to-logicapp-standard/3853a825977de8e1fb66aba259ecd5e7.png)
+        ![Graphical user interface, application Description automatically generated](media/export-ise-to-logicapp-standard/7ffec446130b6b1b8567b3198042bb67.png)
 
-        Logic Apps with exceptions must be fixed at the source before being exported. You must click back and remove any logic app that didn’t pass validation before continuing.
+        The icons above indicate the type of validation result returned by the tool:
 
-        In cases where all logic apps pass validation (with or without warnings) the export button will become available, like in the screenshot below. In this case, click on export (or export with warnings) to continue.
+| Validation Icon                                 | Validation Type                                                                                                                                                                                                                                            |
+|-------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![failed icon](media/export-ise-to-logicapp-standard/ed124fa0b89b54e8215a8fbcdb82af41.png) | Item failed validation – export cannot continue. The item that failed validation will be automatically expanded and will provide a text explaining the validation failure reason                                                                           |
+| ![warning icon](media/export-ise-to-logicapp-standard/6e151f804ceb7e99d9d9b8f2a5f25b3a.png) | Item passed validation with warning – the export can continue, but some post export remediation will be required. The item that generated the warning will be automatically expanded and will provide text explaining the required post export remediation |
+| ![success icon](media/export-ise-to-logicapp-standard/00170f23affdd69e88799af456e1e177.png) | Item passed validation – export can continue and no other remediation is required.                                                                                                                                                                         |
 
-        ![](media/export-ise-to-logicapp-standard/f8e393a99523c915677d98daac896af8.png)
+Logic Apps with exceptions must be fixed at the source before being exported. You must click back and remove any logic app that didn’t pass validation before continuing.
 
-    4.  Once the logic apps are ready to be exported, you must provide a location for the new VS Code project folder and click on export (or export with warnings) to complete the export
+In cases where all logic apps pass validation (with or without warnings) the export button will become available, like in the screenshot below. In this case, click on export (or export with warnings) to continue.
 
-        ![](media/export-ise-to-logicapp-standard/75307fc5f3d31bf05bd957d56d50f44d.png)
+![Graphical user interface](media/export-ise-to-logicapp-standard/6df3b0eb7fffb476f468def053ad630f.png)
 
-        Alternatively, if your logic app have managed connections and you want to deploy it, you must also provide an existing resource group where the managed connections will be deployed. Notice that at this stage, connection credentials will not be cloned from the original logic app, so you will need to reauthenticate the connections after export, before your logic app workflows can work.
+1.  Once the logic apps are ready to be exported, you must provide a location for the new VS Code project folder and click on export (or export with warnings) to complete the export
 
-        ![](media/export-ise-to-logicapp-standard/c80cc535b20aa3cf181f5a41cd85828b.png)
+    ![Graphical user interface](media/export-ise-to-logicapp-standard/20f144d4fa87fe2f4932d6ceb9d9caf4.png)
 
-1.  The export will download and expand the project in the location you selected – it will also deploy connections if you selected that option.
+    Alternatively, if your logic app have managed connections and you want to deploy it, you must also provide an existing resource group where the managed connections will be deployed. Notice that at this stage, connection credentials will not be cloned from the original logic app, so you will need to reauthenticate the connections after export, before your logic app workflows can work.
 
-    ![Text Description automatically generated](media/export-ise-to-logicapp-standard/40e663890624cf046e6c73d3fbdb3e1d.png)
+    ![Graphical user interface](media/export-ise-to-logicapp-standard/dedaf1ca05c4cb04dc5d1477548c09f4.png)
 
-    1.  After this is complete, a new workspace will be open. Start reviewing the README.md file for post deployment steps
+    1.  The export will download and expand the project in the location you selected – it will also deploy connections if you selected that option. After this is complete, a new workspace will be open. It is now safe to close the export window.
+
+        ![Graphical user interface](media/export-ise-to-logicapp-standard/9b60085b2dfb3730904ba62ec5616911.png)
+
+    2.  Start reviewing the README.md file for post deployment steps, in the new window
+
+        ![Graphical user interface](media/export-ise-to-logicapp-standard/963243b07024d8281ddab6b7991732ea.png)
 
 ## Post-deployment steps
 
@@ -138,3 +148,18 @@ When exporting actions that are dependent on an Integration account will need to
 ## Post-deployment remediation
 
 Some Logic Apps will require remediation steps post export to run on the Standard platform. Take note of the remediation steps and make sure you test your new Standard resource before making any changes to your original Consumption Logic App. You will find all the necessary post deployment steps in the README.md file generated as part of the export.
+
+# Folder Structure
+
+You will find a new set of files and folders created on the Logic App Standard project after executing the export tool. The table below describes each file appended:
+
+| Folder                    | File                                           | Description                                                                                                              |
+|---------------------------|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| .development\\ deployment | LogicAppStandardConnections.parameters.json    | ARM template parameters file for deployment of Managed Connectors                                                        |
+|                           | LogicAppStandardConnections.template.json      | ARM template definition for deployment of Managed Connectors                                                             |
+|                           | LogicAppStandardInfrastructure.parameters.json | ARM template parameters file for deployment of Logic App Standard App                                                    |
+|                           | LogicAppStandardInfrastructure.template.json   | ARM template definition for deployment of Logic App Standard App                                                         |
+| .logs/export              | exportReport.json                              | Export Report summary raw file, which includes all the steps required for post deployment remediation                    |
+|                           | exportValidation.json                          | Validation Report raw file, which includes validation results for each logic app exported.                               |
+|                           | README.md                                      | Markdown file with a summary of the export result, including the list of logic apps created and all required next steps. |
+
