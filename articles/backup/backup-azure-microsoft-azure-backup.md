@@ -169,7 +169,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
     ![Azure Backup Server - Welcome and Prerequisites check](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 3. The Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries needed. When starting  a new Azure Backup Server installation, pick the option **Install new Instance of SQL Server with this Setup** and select the **Check and Install** button. Once the prerequisites are successfully installed, select **Next**.
 
-    >[!Imoortant]
+    >[!Important]
     >After the installation is complete, ensure that you've the MARS agent version 2.0.9249.0 or above installed before vault registration. If not, we recommend you to download and install the latest version [from here](https://aka.ms/azurebackup_agent). <br><br> You can also replace the *MARSAgentInstaller.exe* file in System Center Microsoft Azure Backup Server *v3\MARSAgent* folder before installation and registration on new servers.
     
     >[!NOTE]
