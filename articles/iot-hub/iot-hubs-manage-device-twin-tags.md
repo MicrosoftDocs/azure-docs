@@ -136,6 +136,9 @@ The following section walk through several examples of tagging using Azure CLI. 
 
  > [!NOTE]
     > If you are using Powershell or CloudShell>Powershell mode, you need to add a forward slash '\\' to escape all the double quotes. Example:  --tags '{\\"country\\":\\"US\\"}'
+    
+## Create Jobs to set Tags using Azure CLI
+For full references to the [IoT Hub Jobs CLI](https://docs.microsoft.com/en-us/cli/azure/iot/hub/job?view=azure-cli-latest#az-iot-hub-job-create-examples)
 
 ## Next steps
 
