@@ -18,7 +18,7 @@ An open-source project has converted the AdventureWorks database to be compatibl
 - [Original project](https://github.com/lorint/AdventureWorks-for-Postgres)
 - [Follow on project that pre-converts the CSV files to be compatible with PostgreSQL](https://github.com/NorfolkDataSci/adventure-works-postgres)
 
-This document describes a simple process to get the AdventureWorks sample database imported into your PostgreSQL server.
+This document describes a simple process to get the AdventureWorks sample database imported into your Azure Arc-enabled PostgreSQL server.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -64,10 +64,10 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
 ```
 
 
-> **Note: You will not see so much performance benefits of running on Azure Arc-enabled PostgreSQL server until you scale out and you shard/distribute the data/tables across the worker nodes of your PostgreSQL server. See [Suggested next steps](#suggested-next-steps).**
+> **Note: You will not see so much performance benefits of running on Azure Arc-enabled PostgreSQL server until you scale out and you shard/distribute the data/tables across the worker nodes of your Azure Arc-enabled PostgreSQL server. See [Suggested next steps](#suggested-next-steps).**
 
 ## Suggested next steps
-- Read the concepts and How-to guides of Azure Database for PostgreSQL server to distribute your data across multiple PostgreSQL server nodes and to benefit from all the power of Azure Database for PostgreSQL server. :
+- Read the concepts and How-to guides of Azure Database for PostgreSQL to distribute your data across multiple PostgreSQL server nodes and to benefit from all the power of Azure Database for PostgreSQL. :
     * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
     * [Determine application type](../../postgresql/hyperscale/howto-app-type.md)
     * [Choose a distribution column](../../postgresql/hyperscale/howto-choose-distribution-column.md)
