@@ -4,7 +4,7 @@ description: Learn how to take your Azure IoT Edge solution from development to 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 03/01/2021
+ms.date: 07/22/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -213,28 +213,30 @@ If your networking setup requires that you explicitly permit connections made fr
 * **IoT Edge hub** opens a single persistent AMQP connection or multiple MQTT connections to IoT Hub, possibly over WebSockets.
 * **IoT Edge service** makes intermittent HTTPS calls to IoT Hub.
 
-In all three cases, the fully-qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
+In all three cases, the fully qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
 
 Additionally, the **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the FQDN is `mcr.microsoft.com`. The container engine connects to other registries as configured in the deployment.
 
 This checklist is a starting point for firewall rules:
 
-   | FQDN (\* = wildcard) | Outbound TCP Ports | Usage |
+   | FQDN (`*` = wildcard) | Outbound TCP Ports | Usage |
    | ----- | ----- | ----- |
    | `mcr.microsoft.com`  | 443 | Microsoft Container Registry |
-   | `\*.data.mcr.microsoft.com` | 443 | Data endpoint providing content delivery |
+   | `*.data.mcr.microsoft.com` | 443 | Data endpoint providing content delivery |
    | `*.cdn.azcr.io` | 443 | Deploy modules from the Marketplace to devices |
    | `global.azure-devices-provisioning.net`  | 443 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) access (optional) |
-   | `\*.azurecr.io` | 443 | Personal and third-party container registries |
-   | `\*.blob.core.windows.net` | 443 | Download Azure Container Registry image deltas from blob storage |
-   | `\*.azure-devices.net` | 5671, 8883, 443<sup>1</sup> | IoT Hub access |
-   | `\*.docker.io`  | 443 | Docker Hub access (optional) |
+   | `*.azurecr.io` | 443 | Personal and third-party container registries |
+   | `*.blob.core.windows.net` | 443 | Download Azure Container Registry image deltas from blob storage |
+   | `*.azure-devices.net` | 5671, 8883, 443<sup>1</sup> | IoT Hub access |
+   | `*.docker.io`  | 443 | Docker Hub access (optional) |
 
 <sup>1</sup>Open port 8883 for secure MQTT or port 5671 for secure AMQP. If you can only make connections via port 443 then either of these protocols can be run through a WebSocket tunnel.
 
-Since the IP address of an IoT hub can change without notice, always use the FQDN to allow-list configuration. To learn more, see [Understanding the IP address of your IoT hub](../iot-hub/iot-hub-understand-ip-address.md).
+Since the IP address of an IoT hub can change without notice, always use the FQDN to allowlist configuration. To learn more, see [Understanding the IP address of your IoT Hub](../iot-hub/iot-hub-understand-ip-address.md).
 
 Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
+
+You can enable dedicated data endpoints in your Azure Container registry to avoid wildcard allowlisting of the *\*.blob.core.windows.net* FQDN. For more information, see [Enable dedicated data endpoints](/azure/container-registry/container-registry-firewall-access-rules#enable-dedicated-data-endpoints).
 
 > [!NOTE]
 > To provide a consistent FQDN between the REST and data endpoints, beginning **June 15, 2020** the Microsoft Container Registry data endpoint will change from `*.cdn.mscr.io` to `*.data.mcr.microsoft.com`  

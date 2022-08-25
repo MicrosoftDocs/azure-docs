@@ -412,7 +412,7 @@ For networks whose sources are on-premises VMs, the following issues can be dete
 * Source unable to connect to destination. Target not reachable through ICMP.
 * Certificate-related issues: 
     * Client certificate required to authenticate agent. 
-    * Certificate relocation list isn't accessible. 
+    * Certificate revocation list isn't accessible. 
     * Host name of the endpoint doesn't match the certificate's subject or subject alternate name. 
     * Root certificate is missing in source's Local Computer Trusted Certification Authorities store. 
     * SSL certificate is expired, invalid, revoked, or incompatible.

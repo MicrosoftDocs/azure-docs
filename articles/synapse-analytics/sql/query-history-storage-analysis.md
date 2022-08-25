@@ -45,10 +45,11 @@ SET QUERY_STORE = ON;
 You can run performance auditing and troubleshooting related tasks by finding last executed queries, execution counts, longest running queries, queries with maximum physical I/O leads. Please refer to [Monitoring Performance By Using the Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#performance) for sample queries.
 
 Advantages:
-* 30 days of threshold for storage query data.
+* Up to 30 days of storage for query data. Default 7 days.
 * Data can be consumed in the same tool that you'd run the query in.
 
 Known Limitation:
+* Default storage of historic query data is less.
 * Scenarios for analysis are limited in Query Store for Azure Synapse when compared to using DMVs.
 
 ## DMVs

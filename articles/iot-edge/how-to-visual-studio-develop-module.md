@@ -42,7 +42,7 @@ This article assumes that you use a machine running Windows as your development 
       > [!TIP]
       > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace
 
-    * Or, in Visual Studio go to **Tools > Get Tools and Features**. The Visual Studio Installer will open. From the **Individual components** tab, select **Azure IoT Edge Tools for VS 2022**, then select **Install** in the lower right of the popup. Close the popup when finished.
+    * Or, in Visual Studio go to **Extensions > Manage Extensions**. The **Manage Extensions** popup will open. In the search box in the upper right, add the text **Azure IoT Edge Tools for VS 2022**, then select **Download**. Close the popup when finished.
 
       If you only need to update your tools, go to the **Manage Extensions** window, expand **Updates > Visual Studio Marketplace**, select **Azure IoT Edge Tools** then select **Update**. 
     

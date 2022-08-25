@@ -74,7 +74,7 @@ Setting up the Azure Percept DK is the first step in the tutorial. Below are the
 Azure Container Registry is a managed, private Docker registry service based on the open-souce Docker Registry. Container Registries are used to manage and store your private Docker containers images and related artifacts. 
 
 1. Login to Azure portal https://portal.azure.com/
-2. To create a Container Registry, go to [Create container registry - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.ContainerRegistry)
+2. To create a Container Registry, go to [Create container registry - Microsoft Azure](https://portal.azure.com/#create/Microsoft.ContainerRegistry)
 
     a. Select your Azure Subscription in the `Subscription` drop-down box 
 
@@ -161,7 +161,7 @@ Step 3 will guide users on creating and deploying a manifest to the Azure Percep
 
     ![view the count module](./media/create-people-counting-solution-with-azure-percept-vision-images/module-run.png)
 
-5. Go to [Azure Percept Studio](https://ms.portal.azure.com/#blade/AzureEdgeDevices/Main/devices) and on the left panel, select Devices, then select your Azure Percept device 
+5. Go to [Azure Percept Studio](https://portal.azure.com/#blade/AzureEdgeDevices/Main/devices) and on the left panel, select Devices, then select your Azure Percept device 
 
     :::image type="content" source="./media/create-people-counting-solution-with-azure-percept-vision-images/devices.png" alt-text="Select devices.":::
 
@@ -219,7 +219,7 @@ Consumer Groups provide independent views into the event stream that enable apps
 ## Step 5: Create a Stream Analytics job
 Step 5 guides users through creating, configuring, and running a Stream Analytics job. Stream Analytics is a hot path to stream data from out Azure IoT Hub to a Power BI workspace in real time. We will create a query so only People Counting telemetry will be streamed. Once People Counting data is in our Power BI workspace it will be easy to render with a Power BI report.
 
-1. Go to New [Stream Analytics job - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob) 
+1. Go to New [Stream Analytics job - Microsoft Azure](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) 
 
 2. Enter the following information for the job - 
 

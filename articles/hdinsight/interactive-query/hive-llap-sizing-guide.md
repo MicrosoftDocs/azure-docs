@@ -5,7 +5,6 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: reachnijel 
 ms.author: nijelsf
-ms.reviewer: HDI HiveLLAP Team
 ms.date: 07/19/2022
 ---
 

@@ -35,12 +35,13 @@ The following chart captures a typical lifecycle path for a Synapse runtime for 
 
 \* *Expected duration of a runtime in each stage. These timelines are provided as an example for a given runtime, and may vary depending on various factors. Lifecycle timelines are subject to change at Microsoft discretion.*
 
+\** *Your use of runtimes is governed by the terms applicable to your Azure subscription.*
 
 > [!IMPORTANT]
 >
 > * The above timelines are provided as examples based on current Apache Spark releases. If the Apache Spark project changes the lifecycle of a specific version affecting a Synapse runtime, changes to the stage dates will be noted on the [release notes](./apache-spark-version-support.md).
 > * Both GA and LTS runtimes may be moved into EOL stage faster based on outstanding security risks and usage rates criteria at Microsoft discretion. 
-> * Please refer to [Lifecycle FAQ - Microsoft Azure](https://docs.microsoft.com/lifecycle/faq/azure) for information about Azure lifecycle policies.
+> * Please refer to [Lifecycle FAQ - Microsoft Azure](/lifecycle/faq/azure) for information about Azure lifecycle policies.
 >
 
 ## Release stages and support

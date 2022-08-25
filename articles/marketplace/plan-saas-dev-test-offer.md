@@ -3,7 +3,6 @@ title: Plan a test and development SaaS offer in the Microsoft commercial market
 description: Plan a separate development offer for testing your offer in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

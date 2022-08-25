@@ -69,7 +69,7 @@ Learn more about [cloning Git repositories into your workspace file system](conc
 
 Or you can install packages directly in Jupyter Notebook or RStudio:
 
-* RStudio [Add RStudio]([Create and manage an Azure Machine Learning compute instance]: Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
+* RStudio ([Add RStudio](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-preview)): Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
 * Python: Add install code and execute in a Jupyter Notebook cell.
 
 > [!NOTE]

@@ -31,6 +31,9 @@ Now, with SFTP support for Azure Blob Storage, you can enable an SFTP endpoint f
 
 This article describes SFTP support for Azure Blob Storage. To learn how to enable SFTP for your storage account, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)](secure-file-transfer-protocol-support-how-to.md).
 
+> [!Note]
+> SFTP is a platform level service, so port 22 will be open even if the account option is disabled. If SFTP access is not configured then all requests will receive a disconnect from the service.
+
 ## SFTP and the hierarchical namespace
 
 SFTP support requires hierarchical namespace to be enabled. Hierarchical namespace organizes objects (files) into a hierarchy of directories and subdirectories in the same way that the file system on your computer is organized. The hierarchical namespace scales linearly and doesn't degrade data capacity or performance. 

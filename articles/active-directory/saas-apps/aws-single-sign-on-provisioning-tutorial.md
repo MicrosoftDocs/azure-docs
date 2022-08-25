@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure AWS IAM Identity Center (successor to AWS Single Sign-On) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure AWS IAM Identity Center(successor to AWS single sign-On) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to AWS IAM Identity Center.
 services: active-directory
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.date: 02/23/2021
 ms.author: thwimmer
 ---
 
-# Tutorial: Configure AWS IAM Identity Center (successor to AWS Single Sign-On) for automatic user provisioning
+# Tutorial: Configure AWS IAM Identity Center for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both AWS IAM Identity Center (successor to AWS Single Sign-On) and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [AWS IAM Identity Center](https://console.aws.amazon.com/singlesignon) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both AWS IAM Identity Center(successor to AWS single sign-On) and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [AWS IAM Identity Center](https://console.aws.amazon.com/singlesignon) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities Supported
@@ -28,7 +28,7 @@ This tutorial describes the steps you need to perform in both AWS IAM Identity C
 > * Remove users in AWS IAM Identity Center when they no longer require access
 > * Keep user attributes synchronized between Azure AD and AWS IAM Identity Center
 > * Provision groups and group memberships in AWS IAM Identity Center
-> * [Single Sign-On](aws-single-sign-on-tutorial.md) to AWS IAM Identity Center
+> * [IAM Identity Center](aws-single-sign-on-tutorial.md) to AWS IAM Identity Center
 
 ## Prerequisites
 
@@ -205,7 +205,7 @@ You can also check the AWS IAM Identity Center  troubleshooting tips [here](http
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and Single Sign-On with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and IAM Identity Center with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

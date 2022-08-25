@@ -3,7 +3,7 @@ title: Create an Azure Arc-enabled PostgreSQL Hyperscale server group from the A
 description: You can create an Azure Arc-enabled PostgreSQL Hyperscale server group from the Azure portal.
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
