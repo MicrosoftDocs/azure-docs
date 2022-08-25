@@ -868,7 +868,7 @@ public HttpResponseMessage httpStartAndWait(
 
 ---
 
-Call the function with the following line. Use 2 seconds for the timeout and 0.5 seconds for the retry interval:
+Call the function with the following line. Use 2 seconds for the timeout and 0.5 second for the retry interval:
 
 ```bash
 curl -X POST "http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5"
