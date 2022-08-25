@@ -14,16 +14,15 @@ ms.custom: template-concept
 # Lifecycle Workflows Custom Task Extension (Preview)
 
 
-Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of these built-in tasks. With the extensibility feature, you'll be able to utilize the concept of custom task extensions to call-out to external systems as part of a workflow. By calling out to the external systems, you're able to accomplish things which can extend the purpose of your workflows. When a user joins your organization you can have a workflow with a custom task extension that assigns a Teams number, or have a separate workflow that grants access to an email account for a manager when a user leaves. With the extensibility feature, Lifecycle Workflows currently support creating custom tasks extensions to call-out to [Azure Logic Apps](/azure/logic-apps/logic-apps-overview).
+Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of these built-in tasks. With the extensibility feature, you'll be able to utilize the concept of custom task extensions to call-out to external systems as part of a workflow. By calling out to the external systems, you're able to accomplish things, which can extend the purpose of your workflows. When a user joins your organization you can have a workflow with a custom task extension that assigns a Teams number, or have a separate workflow that grants access to an email account for a manager when a user leaves. With the extensibility feature, Lifecycle Workflows currently support creating custom tasks extensions to call-out to [Azure Logic Apps](/azure/logic-apps/logic-apps-overview).
 
 
 ## Custom task extension deployment scenarios
 
-When creating custom task extensions, the scenarios for how it will interact with Lifecycle Workflows can be one of three ways:
+When creating custom task extensions, the scenarios for how it will interact with Lifecycle Workflows can be one of two ways:
 
 - Fire-and-forget scenario- The Logic App is started, and the sequential task execution immediately continues with no response expected from the Logic App. This scenario is best suited if the Lifecycle workflow doesn't require any feedback (including status) from the Logic App. With this scenario, as long as the workflow is started successfully the workflow is viewed as a success.
 - Sequential task execution waiting for response from the Logic App- The Logic app is started, and the sequential task execution waits on the response from the Logic App. If no response is received within a customer defined timeout window the task will be considered failed.
-- Sequential task execution waiting for the response of a 3rd party system- The Logic app is started, and the sequential task execution waits on the response from a 3rd party system that triggers the Logic App to tell the Custom Task extension whether or not it ran successfully. Requires the LifecycleWorkflows.Resume.All application permission to run.
 
 > [!NOTE]
 > Tasks from the callback scenario will not yet time out and require a positive or negative response from the Logic App, we are working on automatically timing out the tasks.
@@ -68,18 +67,18 @@ The basic parameters of the custom task extension are:
 |description     |  A string that describes the purpose of the custom task extension for administrative use. (Optional)       |
 
 
-Within the custom task extension are arguments whose inclusion depends on the type of custom task extension you are running. For example, the following argument **callbackConfiguration** isn't required if the custom task extension does not require a reply for the workflow to continue (fire and forget).
+Within the custom task extension are arguments whose inclusion depends on the type of custom task extension you're running. For example, the following argument **callbackConfiguration** isn't required if the custom task extension doesn't require a reply for the workflow to continue (fire and forget).
 
-The parameters for the **callbackConfiguration** argument is:
+The parameters for the **callbackConfiguration** argument are:
 
 
 |Parameter  |Description  |
 |---------|---------|
 |durationBeforeTimeout     | A string parameter that accepts ISO 8601 time duration. Accepted time durations are between 5 min-3 hours. The accepted format is PT followed by an integer and M for minute or H for hour. Examples of these include: PT5M for 5 Minutes and PT3H for 3 Hours.        |
 
-The next argument for the custom task extension is **endpointConfiguration**. This argument always exists and includes information about the Logic App such as its name, the subscription, and resource group where it is located.
+The next argument for the custom task extension is **endpointConfiguration**. This argument always exists and includes information about the Logic App such as its name, the subscription, and resource group where it's located.
 
-The parameters for the **endpointConfiguration** argument is:
+The parameters for the endpointConfiguration argument are:
 
 
 |Parameter  |Description  |
@@ -104,7 +103,7 @@ the parameters for the **clientConfiguration** argument are:
 
 |Parameter  |Description  |
 |---------|---------|
-|timeoutInMilliseconds     | How long it would take for the custom task to timeout while waiting for a response from the Logic App.       |
+|timeoutInMilliseconds     | How long it would take for the custom task to time out while waiting for a response from the Logic App.       |
 |maximumRetries     | An int that tells how many times a custom task extension will attempt to retry running.      |
 
 For a complete example of the custom task extension API, see [Linking Lifecycle Workflows with Logic Apps using Microsoft Graph](trigger-custom-task.md#linking-lifecycle-workflows-with-logic-apps-using-microsoft-graph).
@@ -112,21 +111,21 @@ For a complete example of the custom task extension API, see [Linking Lifecycle 
 ## Information sent to the Logic App from the custom task extension
 
 
-When the required information is added to a customTaskExtension instance you are able to call out to the compatible Logic App. This call out information, known as the customTaskExtensionCalloutData, sends the following information to the Logic App:
+When the required information is added to a customTaskExtension instance, you're able to call out to the compatible Logic App. This call out information, known as the customTaskExtensionCalloutData, sends the following information to the Logic App:
 
 
 |parameter  |Description  |
 |---------|---------|
 |Subject     | The workflow's subject. Includes a subject ID, name, and email for the subject and the subject manager. Also includes user principal name for the subject.       |
-|workflow     |  The workflow where the task is running inside of. Workflow ID, version number, and display name is included.       |
-|task     | The task which is running the workflow.Includes the task ID and display name        |
-|callbackUriPath     | The path in Microsoft graph used to call back to the workflow to resume. Is not sent if no **callbackConfigruation** is set.        |
+|workflow     |  The workflow where the task is running inside of. Workflow ID, version number, and display name are included.       |
+|task     | The task which is running in the workflow. Includes the task ID and display name        |
+|callbackUriPath     | The path in Microsoft graph used to call back to the workflow to resume. Isn't sent if no **callbackConfigruation** is set.        |
 
 
 ### Information sent to the custom task extension from the Logic App
 
 
-After the customTaskExtensionCalloutData is sent to the Logic App, you are able to track its status using Lifecycle Workflow's **taskProcessingResults** feature. For a detailed guide on getting this information, see [List user and task processing results of a given run using Microsoft Graph](check-status-workflow.md#list-user-and-task-processing-results-of-a-given-run-using-microsoft-graph). The results returned in the taskProcessingResults call, and how you defined the custom task extension during its creation, will determine how the workflow continues. 
+After the customTaskExtensionCalloutData is sent to the Logic App, you're able to track its status using Lifecycle Workflow's **taskProcessingResults** feature. For a detailed guide on getting this information, see [List user and task processing results of a given run using Microsoft Graph](check-status-workflow.md#list-user-and-task-processing-results-of-a-given-run-using-microsoft-graph). The results returned in the taskProcessingResults call, and how you defined the custom task extension during its creation, will determine how the workflow continues. 
 
 This **taskProcessingResults** information is given with an operation status that can be as follows:
 
@@ -144,7 +143,7 @@ This **taskProcessingResults** information is given with an operation status tha
 While Canceled and Queued status results have the same meaning no matter how you designed your task, the other statuses can have special meaning.
 
 
-The following tables below describe how different designed custom task extensions define the different status that appear.
+The following tables below describe how different designed custom task extensions define the different status that appears.
 
 
 If taskProcessingResult shows as **Completed**, then the following scenario has happened for the custom task extension:
@@ -153,7 +152,7 @@ If taskProcessingResult shows as **Completed**, then the following scenario has 
 |---------|---------|
 |Fire and forget     | The Logic App successfully started.         |
 |Sequential response from Logic App     | The Logic App starts and sends a response back to the custom task extension that it started and completed.        |
-|Sequential response from 3rd party system      | The 3rd party system sends a response to the Logic App that it successfully completed, and the Logic App sends this information to the custom task extension.        |
+
 
 
 
@@ -162,17 +161,15 @@ If taskProcessingResult shows as **InProgress**, then the following scenario has
 |custom task extension  |InProgress status  |
 |---------|---------|
 |Fire and forget     | The custom task extension is waiting for the Logic App to start. If it does not start in the time duration outlined during the creation of the custom task extension, it will be noted as a failure.         |
-|Sequential response from Logic App     | The Logic App was started and is currently processing. If it does not finishing in the time duration outlined during the custom task extension creation, it will be noted as a failure.        |
-|Sequential response from 3rd party system      | The Logic App is waiting for a response from the 3rd party system. If it does not get a response in the time duration outlined during the custom task extension creation, it will be noted as a failure.        |
+|Sequential response from Logic App     | The Logic App was started and is currently processing. If it does not finish in the time duration outlined during the custom task extension creation, it will be noted as a failure.        |
 
 
 If taskProcessingResult shows as **Failed**, then the following scenario has happened for the custom task extension:
 
 |custom task extension  |Completed status  |
 |---------|---------|
-|Fire and forget     | The Logic App did not start, or start within the time duration outlined.         |
-|Sequential response from Logic App     | The Logic App either failed doing what it was designed to do, or did not return a response in the time duration outlined.        |
-|Sequential response from 3rd party system      | The 3rd party system failed doing what it was designed to do, or did not return a response to the Logic App in the time duration outlined.        |
+|Fire and forget     | The Logic App didn't start, or start within the time duration outlined.         |
+|Sequential response from Logic App     | The Logic App either failed doing what it was designed to do, or didn't return a response in the time duration outlined.        |
 
 
 ## Next steps
