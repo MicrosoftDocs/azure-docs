@@ -1,21 +1,16 @@
 ---
 title: SAP HANA Azure virtual machine ANF configuration | Microsoft Docs
 description: Azure NetApp Files Storage recommendations for SAP HANA.
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
 keywords: 'SAP, Azure, ANF, HANA, Azure NetApp Files, snapshot'
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/07/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # NFS v4.1 volumes on Azure NetApp Files for SAP HANA

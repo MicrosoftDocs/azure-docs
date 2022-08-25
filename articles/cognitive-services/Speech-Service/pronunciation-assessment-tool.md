@@ -35,7 +35,7 @@ Follow these steps to assess your pronunciation of the reference text:
 
 1. Go to **Pronunciation Assessment** in the [Speech Studio](https://aka.ms/speechstudio/pronunciationassessment).
 
-1. Choose a supported [language](language-support.md#pronunciation-assessment) that you want to evaluate the pronunciation.
+1. Choose a supported [language](language-support.md?tabs=pronunciation-assessment) that you want to evaluate the pronunciation.
 
 1. Choose from the provisioned text samples, or under the **Enter your own script** label, enter your own reference text.
 

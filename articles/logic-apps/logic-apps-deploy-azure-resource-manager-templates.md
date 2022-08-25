@@ -5,14 +5,16 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/04/2021
+ms.date: 08/20/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
 # Deploy Azure Resource Manager templates for Azure Logic Apps
 
-After you create an Azure Resource Manager template for your logic app, you can deploy your template in these ways:
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
+After you create an Azure Resource Manager template for your Consumption logic app, you can deploy your template in these ways:
 
 * [Azure portal](#portal)
 * [Visual Studio](#visual-studio)

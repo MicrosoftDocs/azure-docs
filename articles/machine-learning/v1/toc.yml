@@ -28,7 +28,7 @@
     - name: Data access
       href: concept-data.md
     - name: Studio network data access
-      href: ../concept-network-data-access.md      
+      href: concept-network-data-access.md      
   - name: Automated ML overview
     displayName: automl, auto ml
     href: concept-automated-ml-v1.md
@@ -136,9 +136,6 @@
         href: how-to-designer-import-data.md
     - name: Compliance
       items: 
-      - name: Preserve data privacy
-        displayName: data,privacy,differential privacy
-        href: how-to-differential-privacy.md
       - name: Export and delete data
         displayName: GDPR
         href: how-to-export-delete-data.md
