@@ -12,7 +12,7 @@ ms.author: victorh
 
 # Quickstart: Create an Azure Firewall and IP Groups - Bicep
 
-In this quickstart, you use a Bicep file to deploy an Azure Firewall with sample IP Groups used in a network rule and application rule. An IP Group is a top-level resource that allows you to define and group IP addresses, ranges, and subnets into a single object. This is useful for managing IP addresses in Azure Firewall rules. You can either manually enter IP addresses or import them from a file.
+In this quickstart, you use a Bicep file to deploy an Azure Firewall with sample IP Groups used in a network rule and application rule. An IP Group is a top-level resource that allows you to define and group IP addresses, ranges, and subnets into a single object. IP Group is useful for managing IP addresses in Azure Firewall rules. You can either manually enter IP addresses or import them from a file.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -61,10 +61,10 @@ Multiple Azure resources are defined in the Bicep file:
 
     ---
 
-You will be prompted to enter the following values:
+You'll be prompted to enter the following values:
 
-- Admin Username: Type username for the administrator user account
-- Admin Password: Type an administrator password or key
+- **Admin Username**: Type username for the administrator user account
+- **Admin Password**: Type an administrator password or key
 
 When the deployment finishes, you should see a message indicating the deployment succeeded.
 
