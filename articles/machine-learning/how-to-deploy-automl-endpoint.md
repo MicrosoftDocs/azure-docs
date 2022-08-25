@@ -275,7 +275,7 @@ Next, we'll create the managed online endpoints and deployments.
     )
     ```
 
-    In the above example, we assume the files you downloaded from the AutoML Models page are in the `src` directory, but you'll need to modify the parameters in the code to use the files as follows.
+    In the above example, we assume the files you downloaded from the AutoML Models page are in the `src` directory. You can modify the parameters in the code to suit your situation.
     
     | Parameter | Change to |
     | --- | --- |
