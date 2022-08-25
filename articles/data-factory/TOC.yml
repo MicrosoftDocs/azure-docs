@@ -353,6 +353,8 @@ items:
       href: connector-amazon-simple-storage-service.md
     - name: Amazon S3 Compatible Storage
       href: connector-amazon-s3-compatible-storage.md
+    - name: AppFigures
+      href: connector-appfigures.md
     - name: Asana
       href: connector-asana.md     
     - name: Avro format
