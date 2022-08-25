@@ -1,6 +1,6 @@
 ---
 title: 'How to synchronize attributes for Lifecycle workflows'
-description: Describes overview of Lifecycle workflows.
+description: Describes overview of Lifecycle workflow attributes.
 services: active-directory
 author: owinfrey
 manager: billmath
@@ -34,12 +34,12 @@ This document explains how to set up synchronization from on-premises Azure AD C
 
 
 ## Understanding EmployeeHireDate and EmployeeLeaveDateTime formatting
-The [EmployeeHireDate](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties) and EmployeeLeaveDateTime contain dates and times that must be formatted in a specific way.  This means that you may need to use an expression to convert the value of your source attribute to a format that will be accepted by the EmployeeHireDate or EmployeeLeaveDateTime.  The table below outlines the format that is expected and provides an example expression on how to convert the values.
+The [EmployeeHireDate](graph/api/resources/user?view=graph-rest-1.0#properties) and EmployeeLeaveDateTime contain dates and times that must be formatted in a specific way.  This means that you may need to use an expression to convert the value of your source attribute to a format that will be accepted by the EmployeeHireDate or EmployeeLeaveDateTime.  The table below outlines the format that is expected and provides an example expression on how to convert the values.
 
 |Scenario|Expression/Format|Target|More Information|
 |-----|-----|-----|-----|
-|Workday to Active Directory User Provisioning|FormatDateTime([StatusHireDate], , "yyyy-MM-ddzzz", "yyyyMMddHHmmss.fZ")|On-premises AD string attribute|[Attribute mappings for Workday](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/workday-inbound-tutorial#part-4-configure-attribute-mappings)|
-|SuccessFactors to Active Directory User Provisioning|FormatDateTime([endDate], ,"M/d/yyyy hh:mm:ss tt"," yyyyMMddHHmmss.fZ ")|On-premises AD string attribute|[Attribute mappings for SAP Success Factors](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial#part-4-configure-attribute-mappings)|
+|Workday to Active Directory User Provisioning|FormatDateTime([StatusHireDate], , "yyyy-MM-ddzzz", "yyyyMMddHHmmss.fZ")|On-premises AD string attribute|[Attribute mappings for Workday](azure/active-directory/saas-apps/workday-inbound-tutorial#part-4-configure-attribute-mappings)|
+|SuccessFactors to Active Directory User Provisioning|FormatDateTime([endDate], ,"M/d/yyyy hh:mm:ss tt"," yyyyMMddHHmmss.fZ ")|On-premises AD string attribute|[Attribute mappings for SAP Success Factors](azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial#part-4-configure-attribute-mappings)|
 |Custom import to Active Directory|Must be in the format "yyyyMMddHHmmss.fZ"|On-premises AD string attribute||
 |Microsoft Graph User API|Must be in the format "YYYY-MM-DDThh:mm:ssZ"|EmployeeHireDate and EmployeeLeaveDateTime||
 |Workday to Azure AD User Provisioning|Can use a direct mapping.  No expression is needed but may be used to adjust the time portion of EmployeeHireDate and EmployeeLeaveDateTime|EmployeeHireDate and EmployeeLeaveDateTime||
@@ -97,7 +97,7 @@ To ensure timing accuracy of scheduled workflows it’s curial to consider:
      - Default value: Leave blank
      - Target attribute: employeeHireDate
      - Apply this mapping: Always
-     ![Screenshot that shows attribute mapping.](media/how-to-lcw-synch-attributes/cloud-synch-1.png)
+     ![Screenshot that shows attribute mapping. 1](media/how-to-lcw-synch-attributes/cloud-synch-1.png)
  8. Select **Apply**.
  9. Back on the **Attribute mappings** screen, you should see your new attribute mapping.  
  10. Select **Save schema**.
@@ -117,14 +117,14 @@ The following example will walk you through setting up a custom synchronization 
       - Connected System Object Type: user
       - Metaverse Object Type: person
       - Precedence: 200
-     ![Screenshot that shows attribute mapping.](media/how-to-lcw-synch-attributes/aadc-4.png)
+     ![Screenshot that shows attribute mapping. 2](media/how-to-lcw-synch-attributes/aadc-4.png)
    6. On the **Scoping filter** screen, select **Next.**
    7. On the **Join rules** screen, select **Next**.
    8. On the **Transformations** screen, Under **Add transformations,** enter the following information.
       - FlowType:  Direct
       - Target Attribute: employeeHireDate
       - Source:  msDS-cloudExtensionAttribute1
-     ![Screenshot that shows attribute mapping.](media/how-to-lcw-synch-attributes/aadc-5.png)
+     ![Screenshot that shows attribute mapping. 3](media/how-to-lcw-synch-attributes/aadc-5.png)
    9.  Select **Add**.
    10. In the Synchronization Rules Editor, ensure the direction at the top is set to **Outbound**.
    11. Select **Add Rule.**  
@@ -134,14 +134,14 @@ The following example will walk you through setting up a custom synchronization 
        - Connected System Object Type: user
        - Metaverse Object Type: person
        - Precedence: 201
-     ![Screenshot that shows attribute mapping.](media/how-to-lcw-synch-attributes/aadc-6.png)
+     ![Screenshot that shows attribute mapping. 4](media/how-to-lcw-synch-attributes/aadc-6.png)
    13. On the **Scoping filter** screen, select **Next.**
    14. On the **Join rules** screen, select **Next**.
    15. On the **Transformations** screen, Under **Add transformations,** enter the following information.
        - FlowType:  Direct
        - Target Attribute: employeeHireDate
        - Source:  employeeHireDate
-     ![Screenshot that shows attribute mapping.](media/how-to-lcw-synch-attributes/aadc-7.png)
+     ![Screenshot that shows attribute mapping. 5](media/how-to-lcw-synch-attributes/aadc-7.png)
    16.  Select **Add**.
    17. Close the Synchronization Rules Editor
 
@@ -156,5 +156,5 @@ For more information, see [How to customize a synchronization rule](../hybrid/ho
 
 ## Next steps
 - [What are lifecycle workflows?](what-are-lifecycle-workflows.md)
-- [Create a custom workflow using the Azure portal](tutorial-create-custom-workflow-portal.md)
+- [Create a custom workflow using the Azure portal](tutorial-onboard-custom-workflow-portal.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)

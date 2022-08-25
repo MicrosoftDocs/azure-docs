@@ -302,7 +302,7 @@ Content-type: application/json
 > [!NOTE]
 > To create a custom task extension instance that does not wait for a response from the logic app, remove the **callbackConfiguration** parameter.
 
-For detailed information about the parameters required for the custom task extension, see [Parameters required for Custom task extension](lifecycle-workflow-extensibility.md#Parameters-required-for-the-custom-task-extension).
+For detailed information about the parameters required for the custom task extension, see [Parameters required for Custom task extension](lifecycle-workflow-extensibility.md#parameters-required-for-the-custom-task-extension).
                                
 
 

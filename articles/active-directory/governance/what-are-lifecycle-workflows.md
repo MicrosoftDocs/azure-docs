@@ -1,6 +1,6 @@
 ---
 title: 'What are lifecycle workflows? - Azure Active Directory'
-description: Describes overview of Lifecycle workflows.
+description: Describes overview of Lifecycle workflow feature.
 services: active-directory
 author: owinfrey
 manager: billmath
@@ -21,7 +21,7 @@ Azure AD Lifecycle Workflows is a new Azure AD Identity Governance service that 
 - Mover - When an individual moves between boundaries within an organization. This movement may require more access or authorization.  An example would be a user who was in marketing is now a member of the sales organization.
 - Leaver - When an individual leaves the scope of needing access, access may need to be removed. Examples would be an employee who is retiring or an employee who has been terminated.
 
-Workflows contain specific processes, which run automatically against users as they move through their life cycle. Workflows are made up of [Tasks](lifecycle-workflow-tasks.md) and [Execution conditions](understanding-lifecycle-workflows.md#execution-conditions). 
+Workflows contain specific processes, which run automatically against users as they move through their life cycle. Workflows are made up of [Tasks](lifecycle-workflow-tasks.md) and [Execution conditions](understanding-lifecycle-workflows.md#understanding-lifecycle-workflows). 
 
 Tasks are specific actions that run automatically when a workflow is triggered. An Execution condition defines the 'Scope' of "“who” and the 'Trigger' of “when” a workflow will be performed. For example, send a manager an email 7 days before the value in the NewEmployeeHireDate attribute of new employees, can be described as a workflow.  It consists of:
    - Task:  send email
