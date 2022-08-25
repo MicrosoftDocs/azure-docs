@@ -11,7 +11,7 @@ ms.reviewer: casocha
 
 # Explore .NET/.NET Core and Python trace logs in Application Insights
 
-Send diagnostic tracing logs for your ASP.NET/ASP.NET Core application from ILogger, NLog, log4Net, or System.Diagnostics.Trace to [Azure Application Insights][start]. For Python applications, send diagnostic tracing logs by using AzureLogHandler in OpenCensus Python for Azure Monitor. You can then explore and search them. Those logs are merged with the other log files from your application, so you can identify traces that are associated with each user request and correlate them with other events and exception reports.
+Send diagnostic tracing logs for your ASP.NET/ASP.NET Core application from ILogger, NLog, log4Net, or System.Diagnostics.Trace to [Azure Application Insights][start]. For Python applications, send diagnostic tracing logs by using AzureLogHandler in OpenCensus Python for Azure Monitor. You can then explore and search for them. Those logs are merged with the other log files from your application. You can use them to identify traces that are associated with each user request and correlate them with other events and exception reports.
 
 > [!NOTE]
 > Do you need the log-capture module? It's a useful adapter for third-party loggers. But if you aren't already using NLog, log4Net, or System.Diagnostics.Trace, consider calling [**Application Insights TrackTrace()**](./api-custom-events-metrics.md#tracktrace) directly.
@@ -47,20 +47,20 @@ Or right-click your project in Solution Explorer to **Configure Application Insi
 
 ## Manual installation
 
-Use this method if your project type isn't supported by the Application Insights installer (for example a Windows desktop project).
+Use this method if your project type isn't supported by the Application Insights installer. For example, if it's a Windows desktop project.
 
-1. If you plan to use log4Net or NLog, install it in your project.
+1. If you plan to use log4net or NLog, install it in your project.
 1. In Solution Explorer, right-click your project, and select **Manage NuGet Packages**.
-1. Search for "Application Insights."
+1. Search for **Application Insights**.
 1. Select one of the following packages:
 
-   - For ILogger: [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+   - **ILogger**: [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
 [![NuGet iLogger banner](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-   - For NLog: [Microsoft.ApplicationInsights.NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+   - **NLog**: [Microsoft.ApplicationInsights.NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
 [![NuGet NLog banner](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-   - For Log4Net: [Microsoft.ApplicationInsights.Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+   - **log4net**: [Microsoft.ApplicationInsights.Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
 [![NuGet Log4Net banner](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-   - For System.Diagnostics: [Microsoft.ApplicationInsights.TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+   - **System.Diagnostics**: [Microsoft.ApplicationInsights.TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
 [![NuGet System.Diagnostics banner](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
    - [Microsoft.ApplicationInsights.DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
 [![NuGet Diagnostic Source Listener banner](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
@@ -167,7 +167,7 @@ You can also add a severity level to your message. And, like other telemetry, yo
                               new Dictionary<string, string> { { "database", "db.ID" } });
   ```
 
-This would enable you to easily filter out in [Search][diagnostic] all the messages of a particular severity level that relate to a particular database.
+Now you can easily filter out in [Search][diagnostic] all the messages of a particular severity level that relate to a particular database.
 
 ## AzureLogHandler for OpenCensus Python
 
@@ -191,7 +191,7 @@ logger.warning('Hello, World!')
 
 Run your app in debug mode or deploy it live.
 
-In your app's overview pane in [the Application Insights portal][portal], select [Search][diagnostic].
+In your app's overview pane in the [Application Insights portal][portal], select [Search][diagnostic].
 
 You can, for example:
 
@@ -210,17 +210,17 @@ Find answers to common questions.
 
 ### What causes delayed telemetry, an overloaded network, and inefficient transmission?
 
-System.Diagnostics.Tracing has an [Autoflush feature](/dotnet/api/system.diagnostics.trace.autoflush). This feature causes SDK to flush with every telemetry item, which is undesirable, and can cause logging adapter issues like delayed telemetry, overloaded network, and inefficient transmission.
+System.Diagnostics.Tracing has an [Autoflush feature](/dotnet/api/system.diagnostics.trace.autoflush). This feature causes SDK to flush with every telemetry item, which is undesirable, and can cause logging adapter issues like delayed telemetry, an overloaded network, and inefficient transmission.
 
 ### How do I do this for Java?
 
-In Java codeless instrumentation (recommended), the logs are collected out of the box. Use [Java 3.0 agent](./java-in-process-agent.md).
+In Java codeless instrumentation, which is recommended, the logs are collected out of the box. Use [Java 3.0 agent](./java-in-process-agent.md).
 
 If you're using the Java SDK, use the [Java log adapters](java-2x-trace-logs.md).
 
 ### Why is there no Application Insights option on the project context menu?
 
-* Make sure that Developer Analytics Tools is installed on the development machine. At Visual Studio **Tools** > **Extensions and Updates**, look for **Developer Analytics Tools**. If it isn't on the **Installed** tab, open the **Online** tab and install it.
+* Make sure that Developer Analytics Tools is installed on the development machine. In Visual Studio, go to  **Tools** > **Extensions and Updates**, and look for **Developer Analytics Tools**. If it isn't on the **Installed** tab, open the **Online** tab and install it.
 * This project type might be one that Developer Analytics Tools doesn't support. Use [manual installation](#manual-installation).
 
 ### Why is there no log adapter option in the configuration tool?
@@ -243,7 +243,7 @@ Several factors affect the amount of data that's retained. For more information,
 
 ### Why don't I see some log entries that I expected?
 
-If your application sends voluminous amounts of data and you're using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature might operate and send only a portion of your telemetry. Learn more about [sampling](./sampling.md).
+Perhaps your application sends voluminous amounts of data and you're using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later. In this case, the adaptive sampling feature might operate and send only a portion of your telemetry. Learn more about [sampling](./sampling.md).
 
 ## <a name="add"></a>Next steps
 
