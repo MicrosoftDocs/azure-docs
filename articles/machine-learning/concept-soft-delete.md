@@ -45,17 +45,15 @@ Compute clusters |  | X
 Inference endpoints | | X 
 Linked Databricks workspaces | | X*
 
-\* Microsoft attempts recreation or re-attachment when a workspace is recovered
+\* *Microsoft attempts recreation or re-attachment when a workspace is recovered. Recovery is not guaranteed, and a best effort attempt.*
 
-Soft delete is enabled on any workspaces for subscription that are enrolled for the soft-delete preview capability. During preview, workspaces with customer-managed keys are not supported for soft-delete. Soft deleted workspaces do not incur costs, since cost-incurring resources are hard deleted at time of workspace deletion.
-
-Recently deleted workspaces can be queried through CLI/SDK/REST options and the Azure Portal, and can be recovered or permanently deleted during the data retention period. After expiry of the retention period, a soft deleted workspace automatically gets hard deleted. A data retention period of 14 days is the default, and can be set to a value between 1-14 as a property on the workspace through CLI/SDK/REST and template options. 
+Recently deleted workspaces can be queried through CLI/SDK/REST API experiences and the Azure Portal, and can be recovered or permanently deleted during the set data retention period. After expiry of the retention period, a soft deleted workspace automatically gets hard deleted. A data retention period of 14 days is the default, and can be set to a value between 1-14 as a property on the workspace. While a workspace is soft-deleted, no cost are incurred from a workspace, since cost-incurring resources such as compute clusters are hard deleted at time of workspace deletion.
 
 ## Enroll soft-delete on an Azure subscription
 
-* Soft delete is the default behavior going forward on all workspaces, except for workspaces encrypted with a customer-managed key (CMK).
-* A data retention period of 14 days is the default, and can be set to a value between 1-14 as a property on the workspace through CLI/SDK/REST and template options. We are dependent on Azure Storage who has a retention period of deleted storage accounts of 14 days. This limitation may be solved with proposed HOBO workspace-storage.
-* Recently deleted workspaces can be queried through CLI/SDK/REST options and the Azure Portal, and can be recovered or permanently deleted during the data retention period. After expiry of the retention period, a soft deleted workspace automatically gets hard deleted.
+Soft delete is enabled on any workspace in Azure subscriptions that are enrolled for the soft-delete preview capability. During preview, workspaces with customer-managed keys are not supported for soft-delete.
+
+To enable soft-delete on your Azure subscription, [register the preview feature](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal#register-preview-feature) under your Azure Subscription in the Azure Portal. Enable `Recover workspace data after accidental deletion with soft delete ` under the `Microsoft.MachineLearningServices` resource provider.
 
 ## Manage soft-deleted workspaces
 
