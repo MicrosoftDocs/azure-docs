@@ -29,12 +29,12 @@ sections:
           We'd like to make more Cognitive Services offerings available as containers. Contact your local Microsoft account manager to get updates on new container releases and other Cognitive Services announcements.
       - question: What will the service-level agreement (SLA) be for Cognitive Services containers?
         answer: |
-          Cognitive Services containers don't have an SLA.
-
-          Customers control Cognitive Services container configurations of resources, so Microsoft won't offer an SLA for general availability (GA). Customers are free to deploy containers on-premises and define the host environments.
-
           > [!IMPORTANT]
           > To learn more about service-level agreements for Cognitive Services, [visit our SLA page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
+          
+          Cognitive Services provides SLAs which can be viewed on our SLA page at the link provided above.
+          
+          However, Cognitive Services in containers do not provide an SLA. Customers control Cognitive Services container configurations of resources, so Microsoft won't offer an SLA for general availability (GA). Customers are free to deploy containers on-premises and define the host environments.
       - question: Are these containers available in sovereign clouds?
         answer: |
           Not everyone is familiar with the term *sovereign cloud*, so let's begin with definition:
