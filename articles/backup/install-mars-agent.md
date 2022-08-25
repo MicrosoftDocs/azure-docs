@@ -2,7 +2,7 @@
 title: Install the Microsoft Azure Recovery Services (MARS) agent
 description: Learn how to install the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
 ms.topic: conceptual
-ms.date: 12/15/2021
+ms.date: 08/26/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -35,6 +35,7 @@ The data that's available for backup depends on where the agent is installed.
 * Make sure that you have an Azure account if you need to back up a server or client to Azure. If you don't have an account, you can create a [free one](https://azure.microsoft.com/free/) in just a few minutes.
 * Verify internet access on the machines that you want to back up.
 * Ensure the user installing and configuring the MARS agent has local administrator privileges on the server to be protected.
+* To prevent errors during vault registration, ensure that the MARS agent version 2.0.9249.0 or above is installed. If not, we recommend you to install it [from here](https://aka.ms/azurebackup_agent).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
