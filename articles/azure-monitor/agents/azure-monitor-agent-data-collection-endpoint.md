@@ -11,7 +11,7 @@ ms.reviewer: shseth
 ---
 # Define Azure Monitor Agent network settings
 
-Azure Monitor Agent supports connecting using direct proxies, Log Analytics gateway, and private links. This articles explains how to define network settings and enable network isolation for Azure Monitor Agent.
+Azure Monitor Agent supports connecting using direct proxies, Log Analytics gateway, and private links. This article explains how to define network settings and enable network isolation for Azure Monitor Agent.
 
 ## Virtual network service tags
 
