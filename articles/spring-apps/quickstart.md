@@ -110,9 +110,9 @@ Use the following steps to clone the Spring Boot sample project.
 
 1. Use the following [Maven](https://maven.apache.org/what-is-maven.html) command to build the project.
 
-```azurecli-interactive
-mvn clean package -DskipTests
-```
+   ```azurecli-interactive
+   mvn clean package -DskipTests
+   ```
 
 ## Deploy the local app to Azure Spring Apps
 
