@@ -25,9 +25,6 @@ ms.custom: aaddev, identityplatformtop40, mode-api
 
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 
-> # Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app
->
->>>>>>> 0f2dfc07d1b6412752bb1005af34f24f0ad60939
 > In this quickstart, you download and run a code sample that demonstrates how a Windows Presentation Foundation (WPF) application can sign in users and get an access token to call the Microsoft Graph API. 
 > 
 > See [How the sample works](#how-the-sample-works) for an illustration.
