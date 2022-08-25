@@ -5,8 +5,8 @@ services: security
 author: msmbaldwin
 
 ms.assetid:
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplables
 ms.topic: article
 ms.date: 10/26/2021
 ms.author: mbaldwin
