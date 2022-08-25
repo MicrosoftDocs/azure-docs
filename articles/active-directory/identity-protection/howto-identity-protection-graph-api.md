@@ -61,11 +61,11 @@ You can confirm users compromised and flag them as high risky users in Identity 
 Confirm-MgRiskyUserCompromised -UserIds "577e09c1-5f26-4870-81ab-6d18194cbb51","bf8ba085-af24-418a-b5b2-3fc71f969bf3"
 ```
 ## Dimiss risky users using Powershell
-You can bulk dismiss risky users in in Identity Protection.
+You can bulk dismiss risky users in Identity Protection.
 ```powershell
 # Get a list of high users which are more than 90 days old
 $riskyUsers= Get-MgRiskyUser -Filter "RiskLevel eq 'high'" | where RiskLastUpdatedDateTime -LT (Get-Date).AddDays(-90)
-# bulk dimmiss the users
+# bulk dimmiss the risky users
 Invoke-MgDismissRiskyUser -UserIds $riskyUsers.Id
 ```
 ## Next steps
