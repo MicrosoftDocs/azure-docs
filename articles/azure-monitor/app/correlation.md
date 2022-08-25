@@ -129,7 +129,7 @@ W3C TraceContext-based distributed tracing is enabled by default in all recent
 
 It's important to make sure the incoming and outgoing configurations are exactly the same.
 
-### Enable W3C distributed tracing support for Web apps
+### Enable W3C distributed tracing support for web apps
 
 This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by default. To enable it, use `distributedTracingMode` config. AI_AND_W3C is provided for backward compatibility with any legacy services instrumented by Application Insights.
 

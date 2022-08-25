@@ -21,11 +21,11 @@ You can set up Application Insights to report exceptions that occur in either th
 
 To have exceptions reported from your server-side application, consider the following scenarios:
 
-  * **Azure web apps**: Add the [Application Insights Extension](./azure-web-apps.md)
-  * **Azure VM and Azure Virtual Machine Scale Sets IIS-hosted apps**: Add the [Application Monitoring Extension](./azure-vm-vmss-apps.md)
+  * **Azure web apps**: Add the [Application Insights Extension](./azure-web-apps.md).
+  * **Azure Virtual Machines and Azure Virtual Machine Scale Sets IIS-hosted apps**: Add the [Application Monitoring Extension](./azure-vm-vmss-apps.md).
   * Install [Application Insights SDK](./asp-net.md) in your app code, or
   * **IIS web servers**: Run [Application Insights Agent](./status-monitor-v2-overview.md), or
-  * **Java web apps**: Enable the [Java agent](./java-in-process-agent.md)
+  * **Java web apps**: Enable the [Java agent](./java-in-process-agent.md).
 
 ### Client side
 
