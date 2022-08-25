@@ -17,8 +17,9 @@ This article describes limitations of Azure Arc-enabled PostgreSQL.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Backup and restore
-Backup/restore capabilities have been temporarily removed as we finalize designs and experiences.
+## Backup and restore capabilities
+
+Backup and restore capabilities have been temporarily removed as we finalize designs and experiences.
 
 ## High availability
 Configuring high availability and ensuring failover in case of failures of the infrastructure is not yet available.
