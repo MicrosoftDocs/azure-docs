@@ -863,7 +863,7 @@ For more information, see the Eset documentation.
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | ExabeamEvent |
 | **Kusto function URL:** | https://aka.ms/Sentinel-Exabeam-parser |
-| **Vendor documentation/<br>installation instructions** | [Configure Advanced Analytics system activity notifications](https://docs.exabeam.com/en/advanced-analytics/i54/advanced-analytics-administration-guide/113254-configure-advanced-analytics.html#UUID-7ce5ff9d-56aa-93f0-65de-c5255b682a08) |
+| **Vendor documentation/<br>installation instructions** | [Configure Advanced Analytics system activity notifications](/advanced-threat-analytics/setting-ata-alerts#UUID-7ce5ff9d-56aa-93f0-65de-c5255b682a08) |
 | **Supported by** | Microsoft |
 
 
