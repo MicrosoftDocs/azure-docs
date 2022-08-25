@@ -77,7 +77,7 @@ You need an Azure Media Services account. You can create one for free through [C
 
 ### managedIdentityId
 
-> [!NOTE}
+> [!NOTE]
 > User assigned managed Identify must have at least Contributor role on the Media Service before deployment, when using System Assigned Managed Identity the Contributor role should be assigned after deployment.
 
 * Type: string
