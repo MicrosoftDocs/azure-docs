@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/01/2021
+ms.date: 08/24/2022
 ms.custom: devx-track-python
 ---
 
@@ -42,7 +42,7 @@ The skillset is attached to the indexer. It uses built-in skills from Microsoft 
 * [Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search/)
 
-> [!Note]
+> [!NOTE]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
 ## Download files
@@ -124,8 +124,6 @@ To interact with your Azure Cognitive Search service you will need the service U
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL were `https://mydemo.search.windows.net`, your service name would be `mydemo`.
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
-
-   Get the query key as well. It's a best practice to issue query requests with read-only access.
 
    ![Get the service name and admin and query keys](media/search-get-started-javascript/service-name-and-keys.png)
 

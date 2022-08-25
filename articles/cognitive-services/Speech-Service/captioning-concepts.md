@@ -225,7 +225,7 @@ Profanity filter is applied to the result `Text` and `MaskedNormalizedForm` prop
 
 ## Language identification
 
-If the language in the audio could change, use continuous [language identification](language-identification.md). Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md#language-identification). You provide up to 10 candidate languages, at least one of which is expected be in the audio. The Speech service returns the most likely language in the audio. 
+If the language in the audio could change, use continuous [language identification](language-identification.md). Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification). You provide up to 10 candidate languages, at least one of which is expected be in the audio. The Speech service returns the most likely language in the audio. 
 
 ## Customizations to improve accuracy
 
