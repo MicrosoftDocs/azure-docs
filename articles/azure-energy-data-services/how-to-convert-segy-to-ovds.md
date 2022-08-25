@@ -1,8 +1,8 @@
 ---
-title: How to convert a segy to ovds file #Required; page title is displayed in search results. Include the brand.
+title: Microsoft Energy Data Services - How to convert a segy to ovds file #Required; page title is displayed in search results. Include the brand.
 description: This article explains how to convert a SGY file to oVDS file format #Required; article description that is displayed in search results. 
-author: bharathim #Required; your GitHub user alias, with correct capitalization.
-ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
+author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
+ms.author: elhalper #Required; microsoft alias of author; optional team alias.
 ms.service: azure #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 08/18/2022
@@ -13,9 +13,9 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 Seismic data stored in the industry standard SEG-Y format can be converted to Open VDS (oVDS) format for use in applications via the Seismic DMS.
 
-[OSDU SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/2b031c82fe53e09be6f55d5e608bb020f7eb195c)
+[OSDU SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/release/0.15)
 
-## Pre-requisites
+## Prerequisites
 
 ### Postman
 
@@ -40,7 +40,7 @@ Seismic data stored in the industry standard SEG-Y format can be converted to Op
           --header 'Authorization: Bearer {{TOKEN}}
    ```
 
-   You should see VDS converter DAG in the list. IF NOT in the response list then REPORT the issue to AZURE Team
+   You should see VDS converter DAG in the list. IF NOT in the response list then REPORT the issue to Azure Team
 
 2. Open **sdutil** and edit the `config.yaml` at the root
    Update `config` to:
@@ -66,11 +66,13 @@ Seismic data stored in the industry standard SEG-Y format can be converted to Op
         empty: none
     ```
 
-    **Note:** See documentation [here](how-to-generate-refresh-token.md) to find instructions about how to generate a refresh token. If you continue to follow other "how-to" documentation, you'll use this refresh token again. Once you've generated the token, store it in a place where you'll be able to access it in the future.
+    > [!NOTE]
+    > See [Generate a refresh token](how-to-generate-refresh-token.md) on how to generate a refresh token. If you continue to follow other "how-to" documentation, you'll use this refresh token again. Once you've generated the token, store it in a place where you'll be able to access it in the future.
 
 3. Run **sdutil** to see if it's working fine. Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`.
 
-**Note**: when running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.
+> [!NOTE] 
+> when running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.
 
 4. Upload the seismic file
 
@@ -98,7 +100,7 @@ Seismic data stored in the industry standard SEG-Y format can be converted to Op
                "id_token": "<token>",
                "segy_url": "sd://<datapartition>/<subproject>/<filename>.segy"
 
-	    }    
+        }    
     }'
     ```
 

@@ -48,4 +48,6 @@
       href: how-to-convert-SEGY-to-ZGY.md
     - name: Convert SEG-Y to oVDS
       href: how-to-convert-SEGY-to-oVDS.md
+    - name: Generate a refresh token
+      href: how-to-generate-refresh-token.md
 
