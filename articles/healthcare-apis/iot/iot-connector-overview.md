@@ -14,7 +14,7 @@ ms.author: v-smcevoy
 
 ## Introduction
 
-MedTech service in Azure Health Data Services is a Platform as a service (PaaS) that enables you to gather data from diverse medical devices and convert it to a Fast Healthcare Interoperability Resources (FHIR&#174;) service format. MedTech service has device data translation capabilities that make it possible to convert a wide variety of data into a unified FHIR format for secure health data management in a Protected Personal Health Information (PHI) cloud environment.
+MedTech service in Azure Health Data Services is a Platform as a service (PaaS) that enables you to gather data from diverse medical devices and change it into a Fast Healthcare Interoperability Resources (FHIR&#174;) service format. MedTech service has device data translation capabilities that make it possible to convert a wide variety of data into a unified FHIR format for secure health data management in a cloud environment.
 
 MedTech service is important because healthcare data can be difficult to access or lost when it comes from diverse or incompatible devices, systems, or formats. If medical information isn't easy to access, it may have a negative impact on gaining clinical insights and a patient's health and wellness. The ability to translate many types of medical device data into a unified FHIR format enables MedTech service to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects.
 
@@ -64,7 +64,7 @@ MedTech service has many features that make it very secure, configurable,  scala
 
 ### Secure
 
-MedTech service delivers your data to FHIR service in Azure Health Data Services, ensuring that your PHI has unparalleled security and advanced threat protection. The FHIR service isolates your data in a unique database per API instance and protects it with multi-region failover. In addition, MedTech service uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for extra security and control of your MedTech service assets. 
+MedTech service delivers your data to FHIR service in Azure Health Data Services, ensuring that your Protected Personal Health Information (PHI) has unparalleled security and advanced threat protection. The FHIR service isolates your data in a unique database per API instance and protects it with multi-region failover. In addition, MedTech service uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for extra security and control of your MedTech service assets. 
 
 ### Configurable
 
