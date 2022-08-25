@@ -39,7 +39,7 @@ The one-click button will use this ARM template code.  After clicking the button
 
 Select the button below to be redirected to the custom deployment configuration page to deploy this template.  Here you only need to create a **new resource group** where all of the objects referenced above will be created.  You can leave the other values with their defaults.  Then click **Review + create** and click **Create** to start.
 
-[![Try your first data factory demo](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+[![Try your first data factory demo](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-get-started%2Fazuredeploy.json)
 
 :::image type="content" source="media/quickstart-get-started/deploy-template.png" alt-text="A screenshot of the deployment template creation dialog.":::
 
