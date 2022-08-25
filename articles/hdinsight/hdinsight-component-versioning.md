@@ -47,7 +47,7 @@ Standard support includes
 
 ### Basic support
 
-Basic support provides limited servicing to the HDInsight Resource provider. HDInsight images and open-source software (OSS) components wonn't be serviced. Only critical security fixes will be patched on HDInsight clusters. 
+Basic support provides limited servicing to the HDInsight Resource provider. HDInsight images and open-source software (OSS) components won't be serviced. Only critical security fixes will be patched on HDInsight clusters. 
 
 Basic support includes
 - Continued use of existing HDInsight 3.6 clusters.
@@ -80,7 +80,7 @@ Microsoft doesn't encourage creating analytics pipelines or solutions on cluster
 For extra release notes on the latest versions of HDInsight, see [HDInsight release notes](hdinsight-release-notes.md).
 
 ## Versioning considerations
-- Once a cluster is deployed with an image, that cluster isn't automatically upgraded to newer image version. When you creae new clusters, most recent image version will be deployed.
+- Once a cluster is deployed with an image, that cluster isn't automatically upgraded to newer image version. When you create new clusters, most recent image version will be deployed.
 - Customers should test and validate that applications run properly when using new HDInsight version.
 - HDInsight reserves the right to change the default version without prior notice. If you have a version dependency, specify the HDInsight version when you create your clusters.
 - HDInsight may retire an OSS component version before retiring the HDInsight version.
