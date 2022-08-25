@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/15/2022
+ms.date: 08/26/2022
 ms.author: rolyon
 ms.custom: contperf-fy21q2, mode-other
 #Customer intent: As a new user, I want to quickly see access for myself, user, group, or application, to make sure they have the appropriate permissions.
