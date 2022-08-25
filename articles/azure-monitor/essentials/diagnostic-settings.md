@@ -270,7 +270,7 @@ If you receive this error, update your deployments to replace any metric categor
 
 Diagnostic settings don't support resource IDs with non-ASCII characters. For example, consider the term Preproducción. Because you can't rename resources in Azure, your only option is to create a new resource without the non-ASCII characters. If the characters are in a resource group, you can move the resources under it to a new one. Otherwise, you'll need to re-create the resource.
 
-### Possibility of duplicated data or throttling
+### Possibility of duplicated or dropped data
 
 Every effort is made to ensure all log data is sent correctly to your destinations, however it's not possible guarantee 100% data transfer of logs between endpoints. Retries and other mechanisms are in place to work around these issues and attempt to ensure log data arrives at the endpoint.
 
@@ -278,7 +278,7 @@ Below are two common causes of data transfer issues and mismatched log ingestion
 
 - Logs may be duplicated for some endpoints when it is not clear if logs were successfully sent. This can occasionally happen with Log Analytics endpoints.
 
-- Some endpoints have throttling and uptime restrictions that can lead to dropped data. For example, Event Hub will often be throttled if the data ingestion volume increases too quickly and the Event Hub isn't sufficiently scaled for the load. 
+- Some endpoints have throttling and uptime restrictions that can lead to dropped data. For example, Event Hub will often be throttled if the data ingestion volume increases too quickly and the Event Hub isn't sufficiently scaled for the load.
 
 The combination of the issues described above can lead to the mismatch in log count between your Event Hub and Log Analytics Workspaces.”
 
