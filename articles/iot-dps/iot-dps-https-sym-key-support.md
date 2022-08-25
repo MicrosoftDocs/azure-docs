@@ -125,4 +125,163 @@ In this section, you'll generate a device key from the enrollment group primary 
 
 You can also use the Azure CLI or PowerShell to derive a device key. To learn more, see [Derive a device key](how-to-legacy-device-symm-key.md#derive-a-device-key).
 
-## Create a SAS token 
+## Create a SAS token
+
+To You use security tokens to grant time-bounded access for services to specific functionality in IoT Device Provisioning Service. To get authorization to connect to the provisioning service, services must send security tokens signed with either a shared access or symmetric key.
+
+A token signed with a shared access key grants access to all the functionality associated with the shared access policy permissions.
+
+```python
+from base64 import b64encode, b64decode
+from hashlib import sha256
+from time import time
+from urllib.parse import quote_plus, urlencode
+from hmac import HMAC
+
+def generate_sas_token(uri, key, policy_name, expiry=3600):
+     ttl = time() + expiry
+     sign_key = "%s\n%d" % ((quote_plus(uri)), int(ttl))
+     print(sign_key)
+     signature = b64encode(HMAC(b64decode(key), sign_key.encode('utf-8'), sha256).digest())
+
+     rawtoken = {
+         'sr' :  uri,
+         'sig': signature,
+         'se' : str(int(ttl))
+     }
+
+     if policy_name is not None:
+         rawtoken['skn'] = policy_name
+
+     return 'SharedAccessSignature ' + urlencode(rawtoken)
+
+uri = '0ne003D3F98/registrations/my-symkey-device'
+key = '18RQk/hOPJR9EbsJlk2j8WA6vWaj/yi+oaYg7zmxfQNdOyMSu+SJ8O7TSlZhDJCYmn4rzEiVKIzNiVAWjLxrGA=='
+expiry = 2592000
+policy='registration'
+
+print(generate_sas_token(uri, key, policy, expiry))
+```
+
+Where:
+
+* [resource_uri] is the URI of the resource you're trying to access with this token.  For DPS, it's of the form `[dps_id_scope]/registrations/[dps_registration_id]`, where `[dps_id_scope]` is the ID scope associated with your DPS instance, and `[dps_registration_id]` is the registration ID you want to use for your device. You can find the ID scope for your DPS instance either on its overview blade in Azure portal or by using the following azure CLI command  It will be whatever you specified in an individual enrollment in DPS, or can be anything you want in a group enrollment as long as it is unique.  Frequently used ideas here are combinations of serial numbers, MAC addresses, GUIDs, etc. found on the overview blade of your DPS instance in the Azure portal.
+
+* [device_key] is the device key associated with your device. This is either the one specified or auto-generated for you in an individual enrollment, or a derived key for a group enrollment. If you're using an individual enrollment, use the primary key you saved in [](). For an enrollment group, use the derived device key you generated in []().
+
+* [expiry_in_seconds] the validity period of this SAS token in seconds.
+
+* [policy] the policy with which the key above is associated.  For DPS device registration, this is hard coded to 'registration'.
+
+So an example set of inputs for a device called `my-symkey-device` with a validity period of 30 days might look like this (the ID scope has been modified).
+
+```python
+uri = '0ne00111111/registrations/my-symkey-device'
+key = '18RQk/hOPJR9EbsJlk2j8WA6vWaj/yi+oaYg7zmxfQNdOyMSu+SJ8O7TSlZhDJCYmn4rzEiVKIzNiVAWjLxrGA=='
+expiry = 2592000
+policy='registration'
+```
+
+Modify the script for your device and DPS instance and save it as a Python file; for example, *generate_token.ps*. Run the script, for example, `python generate_token.ps`. It should output a SAS token similar to the following:
+
+```output
+0ne003D3F98%2Fregistrations%2Fmy-symkey-device
+1663952627
+SharedAccessSignature sr=0ne00111111%2Fregistrations%2Fmy-symkey-device&sig=eNwg52xQdFTNf7bgPAlAJBCIcONivq%2Fck1lf3wtxI4A%3D&se=1663952627&skn=registration
+```
+
+Copy and save the entire line that begins with `SharedAccessSignature`. This is the SAS token. You'll need it in the following sections.
+
+To learn more about using SAS tokens with DPS and their structure, see [Control Access to DPS with SAS](how-to-control-access.md).
+  
+## Register your device
+
+You call the [Register Device](/rest/api/iot-dps/device/runtime-registration/register-device) REST API to provision your device through DPS.
+
+Use the following curl command:
+
+```bash
+curl -L -i -X PUT -H ‘Content-Type: application/json’ -H ‘Content-Encoding:  utf-8’ -H ‘Authorization: [sas_token]‘ -d ‘{“registrationId”: “[registration_id]“}’ https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/register?api-version=2019-03-31
+```
+
+Where:
+
+* `-L` tells curl to follow HTTP redirects.
+
+* `– i` tells curl to include protocol headers in output.  This is not strictly necessary, but it can be useful.
+
+* `X PUT ` tells curl that this is an HTTP PUT command. Required for this API call since we are sending a message in the body.
+
+* `-H ‘Content-Type: application/json’` tells DPS we are posting JSON content and must be 'application/json'
+
+* `-H ‘Content-Encoding:  utf-8’` tells DPS the encoding we are using for our message body. Set to the proper value for your OS/client; however, this is generally `utf-8`.  
+
+* `-d ‘{“registrationId”: “[registration_id]”}’`, the `–d` parameter is the ‘data’ or body of the message we are posting.  It must be JSON, in the form of '{"registrationId":"[registration_id"}'.  Note that for CURL, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON.
+
+* Finally, the last parameter is the URL to post to. For "regular" (i.e not on-premises) DPS, the global DPS endpoint is global.azure-devices-provisioning.net.  `https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/register?api-version=2019-03-31`.  Note that you have to replace the [dps_scope_id] and [registration_id] with the appropriate values.
+
+For example:
+
+```bash
+curl -L -i -X PUT -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -H 'Authorization: SharedAccessSignature sr=0ne00111111%2Fregistrations%2Fmy-symkey-device&sig=eNwg52xQdFTNf7bgPAlAJBCIcONivq%2Fck1lf3wtxI4A%3D&se=1663952627&skn=registration' -d '{"registrationId": "my-symkey-device"}' https://global.azure-devices-provisioning.net/0ne00111111/registrations/my-symkey-device/register?api-version=2021-06-01
+```
+
+A successful call will have a response similar to the following:
+
+```output
+Retry-After: 3
+x-ms-request-id: 46142c07-d215-408c-8b5a-7c32d988f2b0
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+{"operationId":"5.316aac5bdc130deb.f4f1828c-4dab-4ca9-98b2-dfc63b5835d6","status":"assigning"}
+```
+
+The response contains an operation ID and a status. In this case, the status is set to assigning. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you'll poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/runtime-registration/operation-status-lookup) REST API to determine when your device has been assigned or whether a failure has occurred.
+
+The valid status values for DPS are:
+
+* assigned: the return value from the status call will indicate what IoT Hub the device was assigned to.
+
+* assigning: the operation is still running.
+
+* disabled: the enrollment record is disabled in DPS, so the device  can’t be assigned.
+
+* failed: the assignment failed. There will be an errorCode and errorMessage returned in an registrationState record in the returned JSON to indicate what failed.
+
+* unassigned
+
+To get the status of the operation, use the following curl command:
+
+```bash
+curl -L -i -X GET -H ‘Content-Type: application/json’ -H ‘Content-Encoding:  utf-8’ -H ‘Authorization: [sas_token]’ https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/operations/[operation_id]?api-version=2019-03-31
+```
+
+You'll use the same ID scope, registration ID, and SAS token as you did in the Register Device command. Use the Operation ID that was returned in the Register Device response.
+
+For example:
+
+```bash
+curl -L -i -X GET -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -H 'Authorization: SharedAccessSignature sr=0ne003D3F98%2Fregistrations%2Fmy-symkey-device&sig=eNwg52xQdFTNf7bgPAlAJBCIcONivq%2Fck1lf3wtxI4A%3D&se=1663952627&skn=registration' https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/my-symkey-device/operations/5.316aac5bdc130deb.f4f1828c-4dab-4ca9-98b2-dfc63b5835d6?api-version=2021-06-01
+```
+
+The following output shows the response for a device that has been successfully assigned. Notice that the `status` is "assigned" and that the `registrationState.assignedHub` property is set to the IoT hub where the device was provisioned.
+
+```output
+x-ms-request-id: eb06d86e-f3ce-47ba-85bf-69f4fbfa3db7
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+{
+   "operationId":"5.316aac5bdc130deb.f4f1828c-4dab-4ca9-98b2-dfc63b5835d6",
+   "status":"assigned",
+   "registrationState":{
+      "registrationId":"my-symkey-device",
+      "createdDateTimeUtc":"2022-08-24T18:05:58.6300974Z",
+      "assignedHub":"MyExampleHub.azure-devices.net",
+      "deviceId":"my-symkey-device",
+      "status":"assigned",
+      "substatus":"initialAssignment",
+      "lastUpdatedDateTimeUtc":"2022-08-24T18:05:58.8110029Z",
+      "etag":"IjA1MDA5MTVjLTAwMDAtMDMwMC0wMDAwLTYzMDY2ODg2MDAwMCI="
+   }
+}
+```
