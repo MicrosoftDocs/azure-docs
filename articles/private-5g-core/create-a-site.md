@@ -43,22 +43,15 @@ In this step, you'll create the mobile network site resource representing the ph
 
 1. In the **Packet core** section, set the fields as follows:
 
-    - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to fill out the **Technology type** and **Custom location** fields.
+    - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to fill out the **Technology type**, **Azure Stack Edge Device**, and **Custom location** fields.
     - Select the recommended packet core version in the **Version** field.
     - Ensure **AKS-HCI** is selected in the **Platform** field.
 
-1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following:
+1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note:
 
-    - If this site will support 5G user equipment (UEs):
-        - **N2 interface name** and **N3 interface name** must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
-        - **N2 subnet** must match **N3 subnet**.
-        - **N2 gateway** must match **N3 gateway**.
-    - If this site will support 4G UEs:
-        - **S1-MME interface name** and **S1-U interface name** must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
-        - **S1-MME subnet** must match **S1-U subnet**.
-        - **S1-MME gateway** must match **S1-U gateway**.
+    - **N2 interface name** and **N3 interface name** (if this site will support 5G user equipment (UEs)) or **S1-MME interface name** and **S1-U interface name** (if this site will support 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
 
-1. In the **Attached data networks** section, select **Add data network**. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
+1. In the **Attached data networks** section, select **Add data network**. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note:
     - **N6 interface name** (if this site will support 5G UEs) or **SGi interface name** (if this site will support 4G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.
     - If you decided not to configure a DNS server, untick the **Specify DNS addresses for UEs?** checkbox.
 
