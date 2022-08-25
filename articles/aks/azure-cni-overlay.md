@@ -35,7 +35,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 | Cluster scale | 1000 nodes and 250 pods/node | 400 nodes and 250 pods/node |
 | Network configuration | Simple - no additional configuration required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
 | Pod connectivity performance | Performance on par with VMs in a VNet | Additional hop adds minor latency |
-| Kubernetes Network Policies | Azure Network Policies | Calico |
+| Kubernetes Network Policies | Azure Network Policies, Calico | Calico |
 | OS platforms supported | Linux only | Linux only |
 
 ## IP address planning
@@ -81,7 +81,6 @@ The overlay solution has the following limitations today
 * You cannot deploy multiple overlay clusters in the same subnet.
 * Overlay can be enabled only for new clusters. Existing (already deployed) clusters cannot be configured to use overlay.
 * You cannot use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
-* Calico policies don't work in overlay clusters.
 
 ## Steps to setup overlay clusters
 
@@ -110,7 +109,7 @@ az network vnet create -g $resourceGroup --location $location --name $vnet --add
 az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefix 10.10.0.0/16 -o none
 ```
 
-Create a cluster with Azure CNI Overlay. Use `--network-plugin-mode` to specify that this is an overlay cluster. 
+Create a cluster with Azure CNI Overlay. Use `--network-plugin-mode` to specify that this is an overlay cluster. If the pod CIDR is not specified then AKS assigns a default space, viz. 10.244.0.0/16. 
 
 ```azurecli-interactive
 clusterName="myOverlayCluster"
