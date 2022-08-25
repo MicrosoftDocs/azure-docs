@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/19/2022
+ms.date: 08/24/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -18,7 +18,11 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can manage your own keys. Customer-managed keys must be stored in Azure Key Vault or Key Vault Managed Hardware Security Model (HSM).
 
-This article shows how to configure encryption with customer-managed keys stored in a key vault by using the Azure portal, PowerShell, or Azure CLI. To learn how to configure encryption with customer-managed keys stored in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md).
+This article shows how to configure encryption with customer-managed keys for an existing storage account. The customer-managed keys are stored in a key vault.
+
+To learn how to configure customer-managed keys for a new storage account, see [Configure customer-managed keys in an Azure key vault for an existing storage account](customer-managed-keys-configure-existing-account.md).
+
+To learn how to configure encryption with customer-managed keys stored in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md).
 
 > [!NOTE]
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration.
@@ -27,20 +31,13 @@ This article shows how to configure encryption with customer-managed keys stored
 
 ## Choose a managed identity to authorize access to the key vault
 
-When you enable customer-managed keys for a storage account, you must specify a managed identity that will be used to authorize access to the key vault that contains the key. The managed identity must have permissions to access the key in the key vault.
+When you enable customer-managed keys for an existing storage account, you must specify a managed identity that will be used to authorize access to the key vault that contains the key. The managed identity must have permissions to access the key in the key vault.
 
-The managed identity that authorizes access to the key vault may be either a user-assigned or system-assigned managed identity, depending on your scenario:
-
-- When you configure customer-managed keys at the time that you create a storage account, you must specify a user-assigned managed identity.
-- When you configure customer-managed keys on an existing storage account, you can specify either a user-assigned managed identity or a system-assigned managed identity.
-
-To learn more about system-assigned versus user-assigned managed identities, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
+The managed identity that authorizes access to the key vault may be either a user-assigned or system-assigned managed identity. To learn more about system-assigned versus user-assigned managed identities, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 ### Use a user-assigned managed identity to authorize access
 
-A user-assigned is a standalone Azure resource. To learn how to create and manage a user-assigned managed identity, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
-
-Both new and existing storage accounts can use a user-assigned identity to authorize access to the key vault. You must create the user-assigned identity before you configure customer-managed keys.
+A user-assigned is a standalone Azure resource. You must create the user-assigned identity before you configure customer-managed keys. To learn how to create and manage a user-assigned managed identity, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
 #### [Azure portal](#tab/portal)
 
@@ -299,93 +296,10 @@ When you manually update the key version, you will need to update the storage ac
 
 ---
 
-## Change the key
-
-You can change the key that you are using for Azure Storage encryption at any time.
-
-# [Azure portal](#tab/portal)
-
-To change the key with the Azure portal, follow these steps:
-
-1. Navigate to your storage account and display the **Encryption** settings.
-1. Select the key vault and choose a new key.
-1. Save your changes.
-
-# [PowerShell](#tab/powershell)
-
-To change the key with PowerShell, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) as shown in [Configure customer-managed keys for an existing account](#configure-customer-managed-keys-for-an-existing-account) and provide the new key name and version. If the new key is in a different key vault, then you must also update the key vault URI.
-
-# [Azure CLI](#tab/azure-cli)
-
-To change the key with Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update) as shown in [Configure customer-managed keys for an existing account](#configure-customer-managed-keys-for-an-existing-account) and provide the new key name and version. If the new key is in a different key vault, then you must also update the key vault URI.
-
----
-
-## Revoke customer-managed keys
-
-Revoking a customer-managed key removes the association between the storage account and the key vault.
-
-# [Azure portal](#tab/portal)
-
-To revoke customer-managed keys with the Azure portal, disable the key as described in [Disable customer-managed keys](#disable-customer-managed-keys).
-
-# [PowerShell](#tab/powershell)
-
-You can revoke customer-managed keys by removing the key vault access policy. To revoke a customer-managed key with PowerShell, call the [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
-
-```azurepowershell
-Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `
-    -ObjectId $storageAccount.Identity.PrincipalId `
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-You can revoke customer-managed keys by removing the key vault access policy. To revoke a customer-managed key with Azure CLI, call the [az keyvault delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
-
-```azurecli
-az keyvault delete-policy \
-    --name <key-vault> \
-    --object-id $storage_account_principal
-```
-
----
-
-## Disable customer-managed keys
-
-When you disable customer-managed keys, your storage account is once again encrypted with Microsoft-managed keys.
-
-# [Azure portal](#tab/portal)
-
-To disable customer-managed keys in the Azure portal, follow these steps:
-
-1. Navigate to your storage account and display the **Encryption** settings.
-1. Deselect the checkbox next to the **Use your own key** setting.
-
-# [PowerShell](#tab/powershell)
-
-To disable customer-managed keys with PowerShell, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) with the `-StorageEncryption` option, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
-
-```azurepowershell
-Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
-    -AccountName $storageAccount.StorageAccountName `
-    -StorageEncryption  
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To disable customer-managed keys with Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update) and set the `--encryption-key-source parameter` to `Microsoft.Storage`, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
-
-```azurecli
-az storage account update
-    --name <storage-account> \
-    --resource-group <resource_group> \
-    --encryption-key-source Microsoft.Storage
-```
-
----
+[!INCLUDE [storage-customer-managed-keys-change-revoke-disable-include](../../../includes/storage-customer-managed-keys-change-revoke-disable-include.md)]
 
 ## Next steps
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
 - [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
-- [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md)
+- [Configure customer-managed keys in an Azure key vault for a new storage account](customer-managed-keys-configure-new-account.md)

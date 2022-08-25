@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/19/2022
+ms.date: 08/24/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -243,4 +243,4 @@ When you manually update the key version, you will need to update the storage ac
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
 - [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
-- [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md)
+- [Configure customer-managed keys in an Azure key vault for an existing storage account](customer-managed-keys-configure-existing-account.md)
