@@ -5,12 +5,12 @@ author: mmccrory
 ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 5/12/2022
+ms.date: 8/25/2022
 ms.author: memccror
 ms.custom: references_regions
 ---
 
-# Preview: Azure Automanage for machine best practices
+# Preview: Azure Automanage machine best practices
 
 This article covers information about Azure Automanage for machine best practices, which have the following benefits:
 
@@ -38,10 +38,11 @@ Automanage doesn't store/process customer data outside the geography your VMs ar
 There are several prerequisites to consider before trying to enable Azure Automanage on your virtual machines.
 
 - Supported [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions)
-- VMs must be in a supported region (see below)
-- User must have correct permissions (see below)
+- Machines must be in a [supported region](#supported-regions)
+- User must have correct [permissions](#required-rbac-permissions)
+- Machines must meet the [eligibility requirements](#enabling-automanage-for-vms-in-azure-portal) 
 - Automanage does not support Sandbox subscriptions at this time
-- Automanage does not support Windows client images at this time
+- Automanage does not support [Trusted Launch VMs](../virtual-machines/trusted-launch)
 
 ### Supported regions
 Automanage only supports VMs located in the following regions:
@@ -60,6 +61,9 @@ Automanage only supports VMs located in the following regions:
 * AU East
 * AU Southeast
 * Southeast Asia
+
+> [!NOTE]
+> If the machine is connected to a log analytics workspace, the log analytics workspace must be located in one of the supported regions listed above.
 
 ### Required RBAC permissions
 To onboard, Automanage requires slightly different RBAC roles depending on whether you are enabling Automanage for the first time in a subscription.
@@ -97,10 +101,12 @@ In the Machine selection pane in the portal, you will notice the **Eligibility**
 - Machine is not using one of the supported images: [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions)
 - Machine is not located in a supported [region](#supported-regions)
 - Machine's log analytics workspace is not located in a supported [region](#supported-regions)
-- User does not have permissions to the log analytics workspace's subscription. Check out the [required permissions](#required-rbac-permissions)
-- The Automanage resource provider is not registered on the subscription. Check out [how to register a Resource Provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1) with the Automanage resource provider: *Microsoft.Automanage*
+- User does not have sufficient permissions to the log analytics workspace or to the machine. Check out the [required permissions](#required-rbac-permissions)
 - Machine does not have necessary VM agents installed which the Automanage service requires. Check out the [Windows agent installation](../virtual-machines/extensions/agent-windows.md) and the [Linux agent installation](../virtual-machines/extensions/agent-linux.md)
 - Arc machine is not connected. Learn more about the [Arc agent status](../azure-arc/servers/overview.md#agent-status) and [how to connect](../azure-arc/servers/deployment-options.md#agent-installation-details)
+
+> [!NOTE]
+> If the machine is powered off, you can still onboard the machine to Automanage. However, Automanage will report the machine as "Unknown" in the Automanage status because Automanage needs the machine to be powered on to assess if the machine is configured to the profile. Once you power on your machine, Automanage will try to onboard the machine to the selected configuration profile.
 
 Once you have selected your eligible machines, Click **Enable**, and you're done.
 
@@ -109,7 +115,9 @@ The only time you might need to interact with this machine to manage these servi
 ## Enabling Automanage for VMs using Azure Policy
 You can also enable Automanage on VMs at scale using the built-in Azure Policy. The policy has a DeployIfNotExists effect, which means that all eligible VMs located within the scope of the policy will be automatically onboarded to Automanage VM Best Practices.
 
-A direct link to the policy is [here](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff889cab7-da27-4c41-a3b0-de1f6f87c55).
+A direct link to the policy using the built-in profiles is [here](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff889cab7-da27-4c41-a3b0-de1f6f87c550).
+
+A direct link to the policy using a custom configuration profile is [here](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb025cfb4-3702-47c2-9110-87fe0cfcc99b).
 
 For more information, check out how to enable the [Automanage built-in policy](virtual-machines-policy-enable.md). 
 
@@ -152,9 +160,10 @@ For each listed machine, the following details are displayed: Name, Configuratio
 The **Status** column can display the following states:
 - *In progress* - the VM was just enabled and is being configured
 - *Conformant* - the VM is configured and no drift is detected
-- *Not conformant* - the VM has drifted and we were unable to remediate or the machine is powered off and Automanage will attempt to onboard or remediate the VM when it is next running
+- *Not conformant* - the VM has drifted and Automanage was unable to correct one or more services to the assiged configuration profile 
 - *Needs upgrade* - the VM is onboarded to an earlier version of Automanage and needs to be [upgraded](automanage-upgrade.md) to the latest version
-- *Error* - the Automanage service is unable to monitor one or more resources
+- *Unknown* - the Automanage service is unable to determine the desired configuration of the machine. This is usually because the VM agent is not installed or is not running, or because the Automanage service does not have the necessary permissions that it needs to determine the desired configuration
+- *Error* - the Automanage service encountered an error while attempting to determine if the machine conforms with the desired configuration
 
 If you see the **Status** as *Not conformant* or *Error*, you can troubleshoot by clicking on the status in the portal and using the troubleshooting links provided
 
