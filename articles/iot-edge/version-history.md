@@ -3,7 +3,7 @@ title: IoT Edge version navigation and history - Azure IoT Edge
 description: Discover what's new in IoT Edge with information about new features and capabilities in the latest releases.
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/13/2022
+ms.date: 08/25/2022
 ms.topic: conceptual
 ms.service: iot-edge
 ---
