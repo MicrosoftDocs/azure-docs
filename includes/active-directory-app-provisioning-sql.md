@@ -2,6 +2,7 @@ This document describes the steps you need to perform to automatically provision
  
 For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md) and [on-premises application provisioning architecture](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md). The following video provides an overview of on-premises provisioning.
 
+
 > [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
 
 >[!IMPORTANT]
