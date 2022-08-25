@@ -18,6 +18,13 @@ ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+> [!IMPORTANT]
+> SDK v2 is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints.
 
 This document is structured in the way you should approach troubleshooting:
@@ -32,7 +39,8 @@ The section [HTTP status codes](#http-status-codes) explains how invocation and 
 
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* The [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
+* For Azure Machine Learning CLI v2, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
+* For Azure Machine Learning Python SDK v2, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
 
 ## Deploy locally
 
@@ -41,11 +49,27 @@ Local deployment is deploying a model to a local Docker environment. Local deplo
 > [!TIP]
 > Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
-Local deployment supports creation, update, and deletion of a local endpoint. It also allows you to invoke and get logs from the endpoint. To use local deployment, add `--local` to the appropriate CLI command:
+Local deployment supports creation, update, and deletion of a local endpoint. It also allows you to invoke and get logs from the endpoint. 
+
+# [CLI](#tab/CLI)
+
+To use local deployment, add `--local` to the appropriate CLI command:
 
 ```azurecli
 az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
+
+# [Python SDK](#tab/pythonsdk)
+
+To use local deployment, add  `local=True` parameter in the command:
+
+```python
+ml_client.begin_create_or_update(online_deployment, local=True)
+```
+
+* `ml_client` and `online_deployment` are instances for `MLClient` class and `ManagedOnlineDeployment` class, respectively.
+
+---
 
 As a part of local deployment the following steps take place:
 
@@ -74,6 +98,8 @@ To debug conda installation problems, try the following:
 
 You can't get direct access to the VM where the model is deployed. However, you can get logs from some of the containers that are running on the VM. The amount of information depends on the provisioning status of the deployment. If the specified container is up and running you'll see its console output, otherwise you'll get a message to try again later.
 
+# [CLI](#tab/CLI)
+
 To see log output from container, use the following CLI command:
 
 ```azurecli
@@ -83,7 +109,7 @@ az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 or
 
 ```azurecli
-    az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> --lines 100
+az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> --lines 100
 ```
 
 Add `--resource-group` and `--workspace-name` to the commands above if you have not already set these parameters via `az configure`.
@@ -103,6 +129,34 @@ By default the logs are pulled from the inference server. Logs include the conso
 You can also get logs from the storage initializer container by passing `–-container storage-initializer`. These logs contain information on whether code and model data were successfully downloaded to the container.
 
 Add `--help` and/or `--debug` to commands to see more information. 
+
+# [Python SDK](#tab/pythonsdk)
+
+To see log output from container, use the `get_logs` method as follows:
+
+```python
+ml_client.online_deployments.get_logs(
+    name="<deployment-name>", endpoint_name="<endpoint-name>", lines=100
+)
+```
+
+To see information about how to set these parameters, see
+[reference for get-logs](python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations?view=azure-python-preview#azure-ai-ml-operations-onlinedeploymentoperations-get-logs)
+
+By default the logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your `score.py' code.
+
+> [!NOTE]
+> If you use Python logging, ensure you use the correct logging level order for the messages to be published to logs. For example, INFO.
+
+You can also get logs from the storage initializer container by adding `container_type="storage-initializer"` option. These logs contain information on whether code and model data were successfully downloaded to the container.
+
+```python
+ml_client.online_deployments.get_logs(
+    name="<deployment-name>", endpoint_name="<endpoint-name>", lines=100, container_type="storage-initializer"
+)
+```
+
+---
 
 ## Request tracing
 
@@ -183,9 +237,21 @@ If your container could not start, this means scoring could not happen. It might
 
 To get the exact reason for an error, run: 
 
+# [CLI](#tab/CLI)
+
 ```azurecli
 az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
+
+# [Python SDK](#tab/pythonsdk)
+
+```python
+ml_client.online_deployments.get_logs(
+    name="<deployment-name>", endpoint_name="<endpoint-name>", lines=100
+)
+```
+
+---
 
 ### ERROR: OutOfCapacity
 
@@ -227,32 +293,55 @@ Make sure container image is available in workspace ACR.
 For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed011c3c42d35acb:latest` check the repository with
 `az acr repository show-tags -n testacr --repository azureml/azureml_92a029f831ce58d2ed011c3c42d35acb --orderby time_desc --output table`.
 
-#### Unable to download user model or code artifacts
+#### Unable to download user model
 
-It is possible that the user model or code artifacts can't be found. Check [container logs](#get-container-logs) to get more details.
+It is possible that the user model can't be found. Check [container logs](#get-container-logs) to get more details.
 
-Make sure model and code artifacts are registered to the same workspace as the deployment. Use the `show` command to show details for a model or code artifact in a workspace. 
+Make sure the model is registered to the same workspace as the deployment. Use the `show` command or equivalent Python method to show details for a model in a workspace. 
 
 - For example: 
   
+  # [CLI](#tab/CLI)
+
   ```azurecli
-  az ml model show --name <model-name>
-  az ml code show --name <code-name> --version <version>
+  az ml model show --name <model-name> --version <version>
   ```
  
+  # [Python SDK](#tab/pythonsdk)
+
+  ```python
+  ml_client.models.get(name="<model-name>", version=<version>)
+  ```
+  ---
+
+  > [!WARNING]
+  > You must specify either version or label to get the model information.
+
 You can also check if the blobs are present in the workspace storage account.
 
 - For example, if the blob is `https://foobar.blob.core.windows.net/210212154504-1517266419/WebUpload/210212154504-1517266419/GaussianNB.pkl`, you can use this command to check if it exists:
    
-   ```azurecli
-   az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
-   ```
+  ```azurecli
+  az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+  ```
   
 - If the blob is present, you can use this command to obtain the logs from the storage initializer:
+
+  # [CLI](#tab/CLI)
 
   ```azurecli
   az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> –-container storage-initializer`
   ```
+
+  # [Python SDK](#tab/pythonsdk)
+
+  ```python
+  ml_client.online_deployments.get_logs(
+    name="<deployment-name>", endpoint_name="<endpoint-name>", lines=100, container_type="storage-initializer"
+  )
+  ```
+
+  ---
 
 #### azureml-fe not ready
 The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. It's installed during your k8s-extension installation.
