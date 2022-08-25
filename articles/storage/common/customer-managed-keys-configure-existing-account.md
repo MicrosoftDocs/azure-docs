@@ -27,7 +27,9 @@ To learn how to configure encryption with customer-managed keys stored in a mana
 > [!NOTE]
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration.
 
-[!INCLUDE [storage-customer-managed-keys-key-vault-include](../../../includes/storage-customer-managed-keys-key-vault-include.md)]
+[!INCLUDE [storage-customer-managed-keys-key-vault-configure-include](../../../includes/storage-customer-managed-keys-key-vault-configure-include.md)]
+
+[!INCLUDE [storage-customer-managed-keys-key-vault-add-key-include](../../../includes/storage-customer-managed-keys-key-vault-add-key-include.md)]
 
 ## Choose a managed identity to authorize access to the key vault
 
@@ -296,7 +298,11 @@ When you manually update the key version, you will need to update the storage ac
 
 ---
 
-[!INCLUDE [storage-customer-managed-keys-change-revoke-disable-include](../../../includes/storage-customer-managed-keys-change-revoke-disable-include.md)]
+[!INCLUDE [storage-customer-managed-keys-change-include](../../../includes/storage-customer-managed-keys-change-include.md)]
+
+[!INCLUDE [storage-customer-managed-keys-revoke-include](../../../includes/storage-customer-managed-keys-revoke-include.md)]
+
+[!INCLUDE [storage-customer-managed-keys-disable-include](../../../includes/storage-customer-managed-keys-disable-include.md)]
 
 ## Next steps
 
