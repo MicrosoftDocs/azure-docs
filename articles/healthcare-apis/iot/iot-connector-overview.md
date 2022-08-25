@@ -6,13 +6,13 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 08/24/2022
+ms.date: 08/25/2022
 ms.author: v-smcevoy
 ---
 
 # What is MedTech service?
 
-## Introduction
+## Overview
 
 MedTech service in Azure Health Data Services is a Platform as a service (PaaS) that enables you to gather data from diverse medical devices and change it into a Fast Healthcare Interoperability Resources (FHIR&#174;) service format. MedTech service's device data translation capabilities make it possible to convert a wide variety of data into a unified FHIR format that provides secure health data management in a cloud environment.
 
@@ -32,23 +32,23 @@ In order to implement MedTech service, you need to have an Azure subscription an
 
 ### Devices
 
-When the PaaS deployment is completed, high-velocity and low-velocity patient medical data can be collected from a wide variety of JSON-compatible IoMT devices, systems, and formats.
+When the PaaS deployment is completed, high-velocity and low-velocity patient medical data can be collected from a wide range of JSON-compatible IoMT devices, systems, and formats.
 
 ### Event Hubs service
 
- IoMT data is then sent from a device over the Internet to Event Hubs service to hold it temporarily in the cloud. The event hub asynchronously processes millions of data points per second, eliminating data traffic jams and making it possible to easily handle huge amounts of information in real time.
+ IoMT data is then sent from a device over the Internet to Event Hubs service to hold it temporarily in the cloud. The event hub can asynchronously process millions of data points per second, eliminating data traffic jams, making it possible to easily handle huge amounts of information in real time.
 
 ### MedTech service
 
-After device data has been loaded into Event Hubs service, MedTech service can pick it up and process it into a unified FHIR format in five stages.
+When device data has been loaded into Event Hubs service, MedTech service is able to pick it up and convert it into a unified FHIR format in five stages.
 
-These are the five stages:
+These stages are:
 
 1. **Ingest** - MedTech service asynchronously loads the device data from the event hub at very high speed.
 
 2. **Normalize** - After the data has been ingested, MedTech service uses device mapping to streamline and process it into a normalized schema format.
 
-3. **Group** - The normalized data is then grouped by using three different parameters to prepare it for the next stage of processing. The parameters are: device identity, measurement type, time period, and (optionally) correlation id.
+3. **Group** - The normalized data is then grouped by parameters to prepare it for the next stage of processing. The parameters are: device identity, measurement type, time period, and (optionally) correlation id.
 
 4. **Transform** - When the normalized data is grouped, it is transformed through FHIR destination mapping templates and is ready to become FHIR Observation resources.
 
