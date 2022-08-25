@@ -1,5 +1,5 @@
 ---
-title: How to convert segy to zgy file #Required; page title is displayed in search results. Include the brand.
+title: Microsoft Energy Data Service - How to convert segy to zgy file #Required; page title is displayed in search results. Include the brand.
 description: This article describes how to convert a SEG-Y file to a ZGY file #Required; article description that is displayed in search results. 
 author: marielgherz #Required; your GitHub user alias, with correct capitalization.
 ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
@@ -13,7 +13,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/azure/m10-master)
 
-## Pre-requisites
+## Prerequisites
 
 ### Postman
 
