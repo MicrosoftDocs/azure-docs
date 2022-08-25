@@ -156,7 +156,7 @@ In the next steps we will create a new folder for the JavaScript SPA, and set up
 
 1. Create a new folder, `JavaScriptSPA` and then move into that folder. 
 
-1. From there, create an `index.html` file for your JavaScript SPA. This file implements a UI built with **Bootstrap 4 Framework** and imports script files for configuration, authentication and API call.
+1. From there, create an `index.html` file for your JavaScript SPA. This file implements a UI built with [**Bootstrap 4 Framework**](https://www.javatpoint.com/bootstrap-4-layouts#:~:text=Bootstrap%204%20is%20the%20newest%20version%20of%20Bootstrap.,framework%20directed%20at%20responsive%2C%20mobile-first%20front-end%20web%20development.) and imports script files for configuration, authentication and API call.
 
    In the `index.html` file, add the following code:
 
