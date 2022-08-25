@@ -38,7 +38,7 @@ To recover a deleted cognitive service resource, use the following commands. Whe
 * `{location}` with the location of your resource
 
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 If you need to recover a deleted resource, navigate to the hub of the cognitive services API type and select "Manage deleted resources" from the menu. For example, if you would like to recover an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the option under the "Services" section to land on the "Anomaly detector" hub that will list deleted resources.
 
