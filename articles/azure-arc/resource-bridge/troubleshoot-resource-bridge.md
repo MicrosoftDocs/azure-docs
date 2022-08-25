@@ -346,7 +346,7 @@ When deploying the resource bridge on VMWare Vcenter, you may get an error sayin
 
 ## Next steps
 
-[Understand recovery operations for resource bridge in Azure Arc-enabled VMware vSphere disaster scenarios](../resource-bridge/disaster-recovery.md)
+[Understand recovery operations for resource bridge in Azure Arc-enabled VMware vSphere disaster scenarios](../vmware-vsphere/disaster-recovery.md)
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for support:
 
