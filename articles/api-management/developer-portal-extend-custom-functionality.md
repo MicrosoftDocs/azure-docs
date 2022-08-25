@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: How to customize the managed API Management developer portal with custom functionality such as custom widgets.
 author: dlepow
 ms.author: danlep
-ms.date: 08/09/2022
+ms.date: 08/25/2022
 ms.service: api-management
 ms.topic: how-to
 ---
@@ -147,7 +147,7 @@ This [npm package](https://www.npmjs.com/package/@azure/api-management-custom-wi
 |---------|---------|
 |[getValues](#azureapi-management-custom-widgets-toolsgetvalues) | Returns a JSON object containing values set in the widget editor combined with default values |
 |[getEditorValues](#azureapi-management-custom-widgets-toolsgeteditorvalues)     | Returns a JSON object containing only values set in the widget editor        |
-|[buildOnChange](#azureapi-management-custom-widgets-toolsbuildonchange)     |  Takes one parameter: a JSON object with updated values; returns a function to update the widget values       |
+|[buildOnChange](#azureapi-management-custom-widgets-toolsbuildonchange)     | Accepts a  TypeScript type and returns a function to update the widget values. The returned function takes as parameter a JSON object with updated values and doesn't return anything.<br/><br/>Used internally in widget editor       |
 |[askForSecrets](#azureapi-management-custom-widgets-toolsaskforsecrets)     | Returns a JavaScript promise, which after resolution returns a JSON object of data needed to communicate with backend        |
 |[deployNodeJs](#azureapi-management-custom-widgets-toolsdeploynodejs)     | Deploys widget to blob storage        |
 |[getWidgetData](#azureapi-management-custom-widgets-toolsgetwidgetdata)     | Returns all data passed to your custom widget from the developer portal<br/><br/>Used internally in templates         |
@@ -173,11 +173,15 @@ It's intended to be used in the editor of your widget but also works in runtime.
 
 #### `@azure/api-management-custom-widgets-tools/buildOnChange` 
 
-This function is intended to be used only in the widget editor. It takes one parameter: a JSON object with updated values.  It returns a function to update the widget values. 
+> [!NOTE]
+> This function is intended to be used only in the widget editor.
+
+Accepts a TypeScript type and returns a function to update the widget values. The returned function takes as parameter a JSON object with updated values and doesn't return anything.
 
 ```JavaScript
-const onChange = buildOnChange() 
-onChange({fieldKey: 'newValue'}) 
+import {Values} from "./values"
+const onChange = buildOnChange<Values>()
+onChange({fieldKey: 'newValue'})
 ``` 
 
 #### `@azure/api-management-custom-widgets-tools/askForSecrets` 
@@ -206,7 +210,8 @@ It accepts three arguments by default:
 
 #### `@azure/api-management-custom-widgets-tools/getWidgetData` 
 
-This function is used internally in templates. In most implementations you shouldn't need it otherwise. 
+> [!NOTE]
+> This function is used internally in templates. In most implementations you shouldn't need it otherwise.
 
 This function returns all data passed to your custom widget from the developer portal. It contains other data that might be useful in debugging or in more advanced scenarios. This API is expected to change with potential breaking changes. It returns a JSON object that contains the following keys: 
 
