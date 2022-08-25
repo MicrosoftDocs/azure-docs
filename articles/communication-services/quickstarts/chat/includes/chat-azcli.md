@@ -17,7 +17,7 @@ ms.author: mayssamm
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md?#access-your-connection-strings-and-service-endpoints-using-azure-cli).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
-- Note your Communication Services resource endpoint. You can get the endpoint from the Azure portal. Alternativaly, you can find the endpoint url in the connection string. It is the url that comes after `endpoint=` and starts with `https://`.
+- Note your Communication Services resource endpoint. You can get the endpoint from the Azure portal. Alternatively, you can find the endpoint url in the connection string. It's the url that comes after `endpoint=` and starts with `https://`.
 - A [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive

@@ -19,7 +19,7 @@ Azure Communication Services Chat SDKs can be used to add rich, real-time chat t
 
 ## Chat SDK capabilities
 
-The following list presents the set of features which are currently available in the Communication Services chat SDKs.
+The following list presents the set of features that are currently available in the Communication Services chat SDKs.
 
 | Group of features | Capability | Azure CLI | JavaScript  | Java | .NET | Python | iOS | Android |
 |-----------------|-------------------|---|---|-----|----|-----|----|----|
