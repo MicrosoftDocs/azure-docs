@@ -21,7 +21,7 @@ Users and applications who are granted the [Contributor](../../role-based-access
 
 ## Data residency
 
-Azure Arc resource bridge follows data residency regulations specific to each region. If applicable, data is backed up in a secondary pair region in accordance with data residency regulations. Otherwise, data resides only in that specific region. Data is not stored or processed across different geographies.
+Azure Arc resource bridge follows data residency regulations specific to each region. If applicable, data is backed up in a secondary pair region in accordance with data residency regulations. Otherwise, data resides only in that specific region. Data isn't stored or processed across different geographies.
 
 ## Data encryption at rest
 
@@ -29,7 +29,7 @@ Azure Arc resource bridge stores resource information in Azure Cosmos DB. As des
 
 ## Security audit logs
 
-The [activity log](../../azure-monitor/essentials/activity-log.md) is a platform log in Azure that provides insight into subscription-level events. This includes tracking when the Azure Arc resource bridge is modified, deleted, or added. You can [view the activity log](../../azure-monitor/essentials/activity-log.md#view-the-activity-log) in the Azure portal or retrieve entries with PowerShell and Azure CLI. By default, activity log events are [retained for 90 days](../../azure-monitor/essentials/activity-log.md#retention-period) and then deleted.
+The [activity log](../../azure-monitor/essentials/activity-log.md) is an Azure platform log that provides insight into subscription-level events. This includes tracking when the Azure Arc resource bridge is modified, deleted, or added. You can [view the activity log](../../azure-monitor/essentials/activity-log.md#view-the-activity-log) in the Azure portal or retrieve entries with PowerShell and Azure CLI. By default, activity log events are [retained for 90 days](../../azure-monitor/essentials/activity-log.md#retention-period) and then deleted.
 
 ## Next steps
 
