@@ -13,7 +13,7 @@ ms.custom: references_regions
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# Calling Recording overview
+# Call Recording overview
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
@@ -25,7 +25,7 @@ Call Recording provides a set of APIs to start, stop, pause and resume recording
 ![Call recording concept diagram](../media/call-recording-concept.png)
 
 ## Media output types
-Call recording currently supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats in Public Preview. The mixed audio+video output media matches meeting recordings produced via Microsoft Teams recording. 
+Call recording currently supports mixed audio+video MP4 and mixed audio MP3/WAV output formats in Public Preview. The mixed audio+video output media matches meeting recordings produced via Microsoft Teams recording. 
 
 | Content Type | Content Format | Channel Type | Video | Audio |
 | :----------- | :------------- | :----------- | :---- | :--------------------------- |
@@ -90,13 +90,46 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
     "eventTime": string // ISO 8601 date time for when the event was created
 }
 ```
+## Metadata Schema 
+```typescript
+{
+  "resourceId": <string>,           // stable resource id of the ACS resource recording
+  "callId": <string>,               // group id of the call
+  "chunkDocumentId": <string>,      // object identifier for the chunk this metadata corresponds to
+  "chunkIndex": <number>,           // index of this chunk with respect to all chunks in the recording
+  "chunkStartTime": <string>,       // ISO 8601 datetime for the start time of the chunk this metadata corresponds to
+  "chunkDuration": <number>,        // duration of the chunk this metadata corresponds to in milliseconds
+  "pauseResumeIntervals": [
+              "startTime": <string>,          // ISO 8601 datetime for the time at which the recording was paused
+              "duration": <number>            // duration of the pause in the recording in milliseconds
+                          ],
+  "recordingInfo": {
+               "contentType": <string>,        // content type of recording, e.g. audio/audioVideo
+               "channelType": <string>,        // channel type of recording, e.g. mixed/unmixed
+               "format": <string>,             // format of the recording, e.g. mp4/mp3/wav
+               "audioConfiguration": {
+                   "sampleRate": <number>,       // sample rate for audio recording
+                   "bitRate": <number>,          // bitrate for audio recording
+                   "channels": <number>          // number of audio channels in output recording
+                                     }
+                    },
+  "participants": [
+    {
+      "participantId": <string>,    // participant identifier of a participant captured in the recording
+      "channel": <number>           // channel the participant was assigned to if the recording is unmixed
+    }
+  ]
+}
+
+```
+
 ## Regulatory and privacy concerns
 
 Many countries and states have laws and regulations that apply to the recording of PSTN, voice, and video calls, which often require that users consent to the recording of their communications. It is your responsibility to use the call recording capabilities in compliance with the law. You must obtain consent from the parties of recorded communications in a manner that complies with the laws applicable to each participant.
 
 Regulations around the maintenance of personal data require the ability to export user data. In order to support these requirements, recording metadata files include the participantId for each call participant in the `participants` array. You can cross-reference the MRIs in the `participants` array with your internal user identities to identify participants in a call. An example of a recording metadata file is provided below for reference.
 
-## Availability
+## Language availability
 Currently, Azure Communication Services Call Recording APIs are available in C# and Java.
 
 ## Next steps
