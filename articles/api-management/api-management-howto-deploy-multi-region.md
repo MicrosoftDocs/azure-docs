@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 07/25/2022
+ms.date: 08/25/2022
 ms.author: danlep
 ---
 
@@ -36,7 +36,7 @@ When adding a region, you configure:
 * If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
 * If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network, subnet, and public IP address in the location that you plan to add. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
 
-## <a name="add-region"> </a>Deploy API Management service to an additional location
+## <a name="add-region"> </a>Deploy API Management service to an additional region
 
 1. In the Azure portal, navigate to your API Management service and select **Locations** from the left menu.
 1. Select **+ Add** in the top bar.
@@ -48,7 +48,7 @@ When adding a region, you configure:
 1. Repeat this process until you configure all locations.
 1. Select **Save** in the top bar to start the deployment process.
 
-## <a name="remove-region"> </a>Delete an API Management service location
+## <a name="remove-region"> </a>Remove an API Management service region
 
 1. In the Azure portal, navigate to your API Management service and select **Locations** from the left menu.
 2. For the location you would like to remove, select the context menu using the **...** button at the right end of the table. Select **Delete**.
@@ -125,15 +125,15 @@ This section provides considerations for multi-region deployments when the API M
 
 * A public virtual IP address is created in every region added with a virtual network. For virtual networks in either [external mode](api-management-using-with-vnet.md) or [internal mode](api-management-using-with-internal-vnet.md), this public IP address is required for management traffic on port `3443`.
 
-    In external VNet mode, the public IP addresses are also required to route public HTTP traffic to the API gateways.
+    * **External VNet mode** - The public IP addresses are also required to route public HTTP traffic to the API gateways.
 
-* In internal VNet mode, a private IP address is also created in every region added with a virtual network. Use these addresses to connect within the network to the service endpoints in the primary and secondary regions.
+    * **Internal VNet mode** - A private IP address is also created in every region added with a virtual network. Use these addresses to connect within the network to the API Management endpoints in the primary and secondary regions.
 
 ### Routing
 
-* In external VNet mode, routing of public HTTP traffic to the regional gateways is handled automatically, in the same way it is for a non-networked API Management instance.
+* **External VNet mode** - Routing of public HTTP traffic to the regional gateways is handled automatically, in the same way it is for a non-networked API Management instance.
 
-* In internal VNet mode, private HTTP traffic isn't routed or load-balanced to the regional gateways by default. Users own the routing and are responsible for bringing their own solution to manage routing and private load balancing across multiple regions. Examples include Azure Application Gateway and Azure Traffic Manager.
+* **Internal VNet mode** - Private HTTP traffic isn't routed or load-balanced to the regional gateways by default. Users own the routing and are responsible for bringing their own solution to manage routing and private load balancing across multiple regions. Example solutions include Azure Application Gateway and Azure Traffic Manager.
 
 ## Next steps
 
