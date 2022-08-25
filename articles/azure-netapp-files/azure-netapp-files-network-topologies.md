@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 08/24/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -49,6 +49,7 @@ Azure NetApp Files Standard network features are supported for the following reg
 *	North Central US
 *   North Europe
 *	South Central US
+*   Southeast Asia
 *   Switzerland North
 *   UK South
 *	West Europe
@@ -69,7 +70,7 @@ The following table describes what’s supported for each network features confi
 
 |      Features     |      Standard network features     |      Basic network features     |
 |---|---|---|
-|     Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |     [Standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1000    |
+|     Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |     [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1000    |
 |     Azure NetApp Files delegated subnets per VNet    |     1    |     1    |
 |     [Network Security Groups](../virtual-network/network-security-groups-overview.md) (NSGs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
 |     [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDRs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
