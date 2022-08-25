@@ -6,7 +6,7 @@ author: msmbaldwin
 
 ms.assetid:
 ms.service: information-protection
-ms.subservice: aiplables
+ms.subservice: aiplabels
 ms.topic: article
 ms.date: 10/26/2021
 ms.author: mbaldwin
