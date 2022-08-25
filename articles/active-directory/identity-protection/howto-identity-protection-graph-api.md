@@ -73,6 +73,4 @@ Invoke-MgDismissRiskyUser -UserIds $riskyUsers.Id
 - [Get started with the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started)
 - [Tutorial: Identify and remediate risks using Microsoft Graph APIs](/graph/tutorial-riskdetection-api)
 - [Overview of Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Get access without a user](/graph/auth-v2-service)
-- [Azure AD Identity Protection Service Root](/graph/api/resources/identityprotectionroot)
 - [Azure Active Directory Identity Protection](./overview-identity-protection.md)
