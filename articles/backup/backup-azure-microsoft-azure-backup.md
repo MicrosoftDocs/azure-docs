@@ -2,7 +2,10 @@
 title: Use Azure Backup Server to back up workloads
 description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 08/26/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Install and upgrade Azure Backup Server
@@ -70,6 +73,9 @@ You can deduplicate the DPM storage using Windows Server Deduplication. Learn mo
 Always join Azure Backup Server to a domain. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 
 Whether you send backup data to Azure, or keep it locally, Azure Backup Server must be registered with a Recovery Services vault.
+
+>[!Note]
+>If you encounter difficulties to register to a vault or other errors, ensure that you've the MARS agent version 2.0.9249.0 or above installed. If not, we recommend you to install the latest version [from here](https://aka.ms/azurebackup_agent).
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
@@ -163,7 +169,11 @@ Once the extraction process complete, check the box to launch the freshly extrac
     ![Azure Backup Server - Welcome and Prerequisites check](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 3. The Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries needed. When starting  a new Azure Backup Server installation, pick the option **Install new Instance of SQL Server with this Setup** and select the **Check and Install** button. Once the prerequisites are successfully installed, select **Next**.
 
+    >[!Imoortant]
+    >After the installation is complete, ensure that you've the MARS agent version 2.0.9249.0 or above installed before vault registration. If not, we recommend you to download and install the latest version [from here](https://aka.ms/azurebackup_agent). <br><br> You can also replace the *MARSAgentInstaller.exe* file in System Center Microsoft Azure Backup Server *v3\MARSAgent* folder before installation and registration on new servers.
+    
     >[!NOTE]
+    >
     >If you wish to use your own SQL server, the supported SQL Server versions are SQL Server 2014 SP1 or higher, 2016 and 2017.  All SQL Server versions should be Standard or Enterprise 64-bit.
     >Azure Backup Server won't work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local. If you're using an existing SQL server for MABS, the MABS setup only supports the use of *named instances* of SQL server.
 
