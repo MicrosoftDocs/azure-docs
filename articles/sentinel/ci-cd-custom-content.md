@@ -13,7 +13,7 @@ ms.custom: template-concept
 
 # Update custom content with Microsoft Sentinel repositories (Public preview)
 
-Unlock your content as code for continuous integration and continuous delivery (CI/CD) with the repositories feature. This article describes the options you should consider when connecting to your source control solution. Repositories provide a central experience for deployment and management of Microsoft Sentinel content and removes the burden of having to manage manual processes to update and deploy your custom content across your workspaces. For more information on Sentinel content, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
+Unlock your content as code for continuous integration and continuous delivery (CI/CD) with the repositories feature. This article describes the options you should consider when connecting to your source control solution. Repositories provide a central experience for deployment and management of Microsoft Sentinel content. Automation through a workflow removes the burden of having to manage manual processes to update and deploy your custom content across your workspaces. For more information on Sentinel content, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
 
 > [!IMPORTANT]
 >
@@ -29,7 +29,7 @@ Microsoft Sentinel only supports connections to GitHub and Azure DevOps reposito
 
 - Actions must be enabled for GitHub and Pipelines must be enabled for Azure DevOps
 
-If you find content on a public repository where you aren't a contributor, you'll need to import, fork, clone or mirror the content to a repo you are a contributor to first. Then you can connect your repo to your Sentinel workspace. For more information, see [Deploy custom content from your repository](ci-cd.md).
+If you find content in a public repository where you *aren't* a contributor, you'll need to get that content into your repo first. You can do that with an import, fork, or clone of the content to a repo where you're a contributor. Then you can connect your repo to your Sentinel workspace. For more information, see [Deploy custom content from your repository](ci-cd.md).
 
 
 ### Validate your content
@@ -53,7 +53,7 @@ The first step to validate your content is to test it within Microsoft Sentinel.
 A sample repository is available with ARM templates for each of the content types listed above. The repo also demonstrates how to use advanced features of repository connections. For more information, see [Sentinel CICD sample repository](https://github.com/SentinelCICD/RepositoriesSampleContent). 
 
 
-:::image type="content" source="media/ci-cd-custom-content/repositories-connection-success.png" alt-text="Screenshot of a successful repository connection to the RepositoriesSampleContent imported from the SentinelCICD repo to a private GitHub repo in the fourthcoffee organization." lightbox="media/ci-cd-custom-content/repositories-connection-success.png":::
+:::image type="content" source="media/ci-cd-custom-content/repositories-connection-success.png" alt-text="Screenshot of a successful repository connection. The RepositoriesSampleContent is shown. This is after it was imported from the SentinelCICD repo to a private GitHub repo in the fourthcoffee organization." lightbox="media/ci-cd-custom-content/repositories-connection-success.png":::
 
 
 ### Maximum connections and deployments
@@ -66,9 +66,9 @@ A sample repository is available with ARM templates for each of the content type
 
 ## Improve performance with smart deployments
 
-Smart deployments is a back-end capability that improves the performance of deployments by actively tracking modifications made to the content files of a connected repository/branch using a csv file within the '.sentinel' folder in your repository. By actively tracking modifications made to content in each commit, your Microsoft Sentinel repositories will avoid redeploying any content that has not been modified since the last deployment into your Microsoft Sentinel workspace(s). This will improve your deployment performance and avoid unintentionally tampering with unchanged content in your workspace, such as resetting the dynamic schedules of your analytics rules by redeploying them. The Sentinel app maintains a csv file in the **.sentinel** folder for your repo, which tracks each and every commit made to the connected branch.
+Smart deployments is a back-end capability that improves performance by actively tracking modifications made to the content files of a connected repository. It uses a CSV file within the '.sentinel' folder in your repository to audit each commit. The workflow avoids redeploying content that has not been modified since the last deployment. This improves your deployment performance and prevents tampering with unchanged content in your workspace, such as resetting dynamic schedules of your analytics rules.
 
-While the smart deployments feature is enabled by default on newly created connections, we understand that some customers would prefer all their source control content to be deployed every time a deployment is triggered, regardless of whether that content was modified or not. You can modify your workflow to disable smart deployments to have your connection deploy all content regardless of its modification status. See [Customize the deployment workflow](ci-cd.md#customize-the-deployment-workflow) for more details. 
+While the smart deployments feature is enabled by default on newly created connections, we understand that some customers would prefer all their source control content to be deployed every time a deployment is triggered, regardless of whether that content was modified or not. You can modify your workflow to disable smart deployments to have your connection deploy all content regardless of its modification status. For more information, see [Customize the deployment workflow](ci-cd.md#customize-the-deployment-workflow). 
 
    > [!NOTE]
    > This capability was launched in public preview on April 20th, 2022. Connections created prior to launch would need to be updated or recreated for smart deployments to be turned on.
