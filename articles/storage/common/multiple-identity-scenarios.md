@@ -141,11 +141,10 @@ Although the apps in the previous example all shared the same service access req
 
 :::image type="content" source="media/multiple-managed-identities-small.png" lightbox="media/multiple-managed-identities.png" alt-text="A diagram showing multiple user-assigned managed identities.":::
 
-To configure this setup in your code, make sure your application registers separate services to connect to each storage account or database. 
+
 
 ## [.NET](#tab/dotnet)
-
-In the case of .NET, make sure to pull in the correct managed identity client ids for each service when configuring `DefaultAzureCredential`. The following code example configures the following service connections:
+To configure this setup in your code, make sure your application registers separate services to connect to each storage account or database. Make sure to pull in the correct managed identity client ids for each service when configuring `DefaultAzureCredential`. The following code example configures the following service connections:
 * Two connections to separate storage accounts using a shared user-assigned managed identity
 * A connection to Azure Cosmos DB and Azure SQL services using a second shared user-assigned managed identity
 
