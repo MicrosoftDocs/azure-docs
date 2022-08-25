@@ -207,7 +207,7 @@ A deployment is a set of resources required for hosting the model that does the 
 > - `code_configuration` - the configuration for the source code and scoring script
 >     - `path`- Path to the source code directory for scoring the model
 >     - `scoring_script` - Relative path to the scoring file in the source code directory
-> - `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online > endpoints SKU list](https://docs.microsoft.com/en-us/azure/machine-learning/> reference-managed-online-endpoints-vm-sku-list).
+> - `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 > - `instance_count` - The number of instances to use for the deployment
 
 ```python
