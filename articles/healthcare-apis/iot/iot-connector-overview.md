@@ -14,7 +14,7 @@ ms.author: v-smcevoy
 
 ## Introduction
 
-MedTech service in Azure Health Data Services is a Platform as a service (PaaS) that enables you to gather data from diverse medical devices and change it into a Fast Healthcare Interoperability Resources (FHIR&#174;) service format. MedTech service has device data translation capabilities that make it possible to convert a wide variety of data into a unified FHIR format for secure health data management in a cloud environment.
+MedTech service in Azure Health Data Services is a Platform as a service (PaaS) that enables you to gather data from diverse medical devices and change it into a Fast Healthcare Interoperability Resources (FHIR&#174;) service format. MedTech service's device data translation capabilities make it possible to convert a wide variety of data into a unified FHIR format that provides secure health data management in a cloud environment.
 
 MedTech service is important because healthcare data can be difficult to access or lost when it comes from diverse or incompatible devices, systems, or formats. If medical information isn't easy to access, it may have a negative impact on gaining clinical insights and a patient's health and wellness. The ability to translate many types of medical device data into a unified FHIR format enables MedTech service to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects.
 
@@ -28,7 +28,7 @@ These elements are:
 
 ### Deployment
 
-In order to implement MedTech service, you need to have an Azure subscription and then set up a workspace and a namespace to deploy three Azure services: MedTech service, FHIR service, and Event Hubs service. This creates the PaaS configuration required to receive and process data from Internet of Medical Things (IoMT) devices.
+In order to implement MedTech service, you need to have an Azure subscription and set up a workspace and namespace to deploy three Azure services: MedTech service, FHIR service, and Event Hubs service. This creates the PaaS configuration required to receive and process data from Internet of Medical Things (IoMT) devices.
 
 ### Devices
 
@@ -76,13 +76,13 @@ Useful options could include:
 
 - Observations that can be created or updated according to existing or new templates.
 
-- Choosing Health data terms in a format that works best for your organization and that provide consistency in device data ingestion. For example, you could have either "hr" or "heart rate" or "Heart Rate" to define heart rate information.
+- Being able to choose Health data terms that work best for your organization and provide consistency in device data ingestion. For example, you could have either "hr" or "heart rate" or "Heart Rate" to define heart rate information.
 
-- The [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) open-source tool facilitates customization, editing, testing, and troubleshooting MedTech service Device and FHIR destination mappings.
+- Facilitating customization, editing, testing, and troubleshooting MedTech service Device and FHIR destination mappings with The [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) open-source tool.
 
 ### Scalable
 
-The MedTech service provides special autoscaling features that enable developers to easily modify and extend the capabilities to support new device mapping template types and FHIR resources.
+The MedTech service has special autoscaling features that enable developers to easily modify and extend the capabilities to support new device mapping template types and FHIR resources.
 
 ### Extensible
 
