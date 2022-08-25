@@ -4,7 +4,7 @@ description: This tutorial shows how to provision devices for geolocation/geolat
 author: kgremban
 ms.author: kgremban
 ms.topic: tutorial
-ms.date: 08/19/2022
+ms.date: 08/24/2022
 ms.service: iot-dps
 services: iot-dps
 ---
@@ -40,7 +40,7 @@ This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://
 In this section, you'll create an Azure resource group, and two new regional IoT hub resources. One IoT hub will be for the **West US 2** region and the other will be for the **East US** region.
 
 >[!IMPORTANT]
->It's recommended that you use the same resource group for all resources created in this tutorial. This will make clean up easier after you are finished.
+>It's recommended that you use the same resource group for all resources created in this tutorial. This will make clean up easier after you're finished.
 
 1. In the Azure Cloud Shell, create a resource group with the following [az group create](/cli/azure/group#az-group-create) command:
 
@@ -386,7 +386,7 @@ If you plan to continue working with resources created in this tutorial, you can
 The steps here assume that you created all resources in this tutorial as instructed in the same resource group named **contoso-us-resource-group**.
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
+> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
 >
 
 To delete the resource group by name:
