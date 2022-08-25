@@ -15,7 +15,7 @@ ms.custom: template-concept
 
 
 
-Workflows created using Lifecycle Workflows allow for the automation of lifecycle task for users no matter where they fall in the Joiner-Mover-Leaver (JML) model of their identity lifecycle in your organization. Making sure workflows are processed correctly is an important part of an organization's lifecycle management process. Workflows that are not processed correctly can lead to many issues in terms of security and compliance. With Audit logs every action that Lifecycle Workflows complete are recorded. With history features, Lifecycle Workflows allow you to specify workflow events based on user, runs, or task summaries. This reporting feature allows you to quickly see what ran for who, and rather or not it was successful. In this article you will learn the difference between auditing logs and 3 different type of history summaries you can query with Lifecycle Workflows. You will also learn when you would use each when getting more information about how your workflows were utilized for users in your organization.
+Workflows created using Lifecycle Workflows allow for the automation of lifecycle task for users no matter where they fall in the Joiner-Mover-Leaver (JML) model of their identity lifecycle in your organization. Making sure workflows are processed correctly is an important part of an organization's lifecycle management process. Workflows that aren't processed correctly can lead to many issues in terms of security and compliance. With Audit logs every action that Lifecycle Workflows complete are recorded. With history features, Lifecycle Workflows allow you to specify workflow events based on user, runs, or task summaries. This reporting feature allows you to quickly see what ran for who, and rather or not it was successful. In this article you'll learn the difference between auditing logs and 3 different type of history summaries you can query with Lifecycle Workflows. You'll also learn when you would use each when getting more information about how your workflows were utilized for users in your organization.
 
 
 
@@ -25,7 +25,7 @@ Every time a workflow is processed, an event is logged. These events are stored 
 
 :::image type="content" source="media/lifecycle-workflow-history/lcw-audit-logs-concept.png" alt-text="lcw audit logs concept":::
 
-On the **Audit Log** page you are presented a sequential list, by date, of every action Lifecycle Workflows has taken. From this information you are able to filter based on the following parameters:
+On the **Audit Log** page you're presented a sequential list, by date, of every action Lifecycle Workflows has taken. From this information you're able to filter based on the following parameters:
 
 
 |Filter  |Description  |
@@ -34,13 +34,13 @@ On the **Audit Log** page you are presented a sequential list, by date, of every
 |Date option     | You can filter by your tenant's local time, or by UTC.        |
 |Service     | The Lifecycle Workflow service.        |
 |Category     | Categories of the event being logged. Separated into <br><br>  **All**- All events logged by Lifecycle Workflows.<br><br>  **TaskManagement**- Task specific related events logged by Lifecycle Workflows. <br><br> **WorkflowManagement**- Events dealing with the workflow itself.       |
-|Activity     |  You can filter based on specific activities which can be different based on categories.       |
+|Activity     |  You can filter based on specific activities, which are based on categories.       |
 
-After filtering this information you are also able to see other information in the log such as:
+After filtering this information, you're also able to see other information in the log such as:
 
 - **Status**: Whether or not the logged event was successful or not.
-- **Status Reason**: If the event failed, a reason could is given why.
-- **Target(s)**: Who the logged event ran for. Information given as their Azure Active Directory object Id.
+- **Status Reason**: If the event failed, a reason is given why.
+- **Target(s)**: Who the logged event ran for. Information given as their Azure Active Directory object ID.
 - **Initiated by (actor)**: Who did the event being logged. Information given by the user name. 
 
 ## Lifecycle Workflow History Summaries
@@ -48,7 +48,7 @@ After filtering this information you are also able to see other information in t
 While the large set of information contained in audit logs can be useful for compliance reasons, for regular administration use it might be too much information. To make this large set of information processed easier to read, Lifecycle Workflows provide summaries for quick use. You can view these history summaries in three ways:
 
 - **Users summary**: Shows a summary of users processed by a workflow, and which tasks failed, successfully, and totally ran for each specific user. 
-- **Runs summary**: Shows a summary of workflow runs in terms of the workflow. Successful, failed, and total task information when a workflow runs are noted.
+- **Runs summary**: Shows a summary of workflow runs in terms of the workflow. Successful, failed, and total task information when workflow runs are noted.
 - **Tasks summary**: Shows a summary of tasks processed by a workflow, and which tasks failed, successfully, and totally ran in the workflow.
 
 Summaries allow you to quickly gain details about how a workflow ran for itself, or users, without going into further details in logs.  For a step by step guide on getting this information, see [Check the status of a workflow (Preview)](check-status-workflow.md)
@@ -60,7 +60,7 @@ User summaries allow you to view workflow information through the lens of users 
 :::image type="content" source="media/lifecycle-workflow-history/lcw-users-summary-concept.png" alt-text="lcw user summary concept":::
 
 
-Within the user summary you are able to find the following information:
+Within the user summary you're able to find the following information:
 
 
 |Parameter  |Description  |
@@ -79,16 +79,16 @@ User summaries allow you to filter based on:
 - **Workflow execution type**: You can filter on workflow execution type such as **Scheduled** or **on-demand**
 - **Completed date**: You can filter a specific range from as short as 24 hours up to 30 days of when the user was processed in a workflow.
 
-For a complete guide on getting user processed summary information, see: [User workflow history using the Azure Portal](check-status-workflow.md#user-workflow-history-using-the-azure-portal).
+For a complete guide on getting user processed summary information, see: [User workflow history using the Azure portal](check-status-workflow.md#user-workflow-history-using-the-azure-portal).
 
 
 ## Runs Summary
 
-Runs summaries allow you to view workflow information through the lens of it's run history
+Runs summaries allow you to view workflow information through the lens of its run history
 
 :::image type="content" source="media/lifecycle-workflow-history/lcw-runs-status-concept.png" alt-text="lcw runs summary concept":::
 
-Within the runs summary you are able to find the following information:
+Within the runs summary you're able to find the following information:
 
 
 |Parameter  |Description  |
@@ -105,7 +105,7 @@ Runs summaries allow you to filter based on:
 - **Workflow execution type**: You can filter on workflow execution type such as **Scheduled** or **On-demand**.
 - **Completed date**: You can filter a specific range from as short as 24 hours up to 30 days of when the workflow ran.
 
-For a complete guide on getting runs information, see: [Run workflow history using the Azure Portal](check-status-workflow.md#run-workflow-history-using-the-azure-portal)
+For a complete guide on getting runs information, see: [Run workflow history using the Azure portal](check-status-workflow.md#run-workflow-history-using-the-azure-portal)
 
 
 ## Tasks summary
@@ -114,7 +114,7 @@ Task summaries allow you to view workflow information through the lens of its ta
 
 :::image type="content" source="media/lifecycle-workflow-history/lcw-task-summay-concept.png" alt-text="lcw task summary concept":::
 
-Within the tasks summary you are able to find the following information:
+Within the tasks summary you're able to find the following information:
 
 
 |Parameter  |Description  |
