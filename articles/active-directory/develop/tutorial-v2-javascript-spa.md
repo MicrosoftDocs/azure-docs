@@ -238,7 +238,7 @@ In the next steps we will create a new folder for the JavaScript SPA, and set up
    > [!TIP]
    > You can replace the version of MSAL.js in the preceding script with the latest released version under [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
-2. Now, create a .js file named `ui.js`, which will access and update DOM elements, and add the following code:
+2. Now, create a .js file named `ui.js`, which will access and update Document Object Model (DOM) elements, and add the following code:
 
    ```JavaScript
    // Select DOM elements to work with
@@ -314,15 +314,16 @@ In the next steps we will create a new folder for the JavaScript SPA, and set up
 
 Before proceeding further with authentication, register your application on **Azure Active Directory**.
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
-1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> using your Microsoft credentials.
+1. Go to and select **Azure Active Directory**. If it is not visible, you can find it by using the **Search** bar at the top of the screen.
+1. Go to the left panel, and under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application. This can be changed later if you wish.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-1. In the **Redirect URI** section, select the **Web** platform from the drop-down list, and then set the value to the application URL that's based on your web server.
+1. In the **Redirect URI** section, select the **Web** platform from the drop-down list. For simplicity, we will run this on a local host, and you can type either of the following:
+    1. `http://localhost:3000/`
+    1. If you're using a custom TCP port, use `http://localhost:<port>/` (where <port> is the custom TCP port number).
 1. Select **Register**.
-1. On the app **Overview** page, note the **Application (client) ID** value for later use.
+1. On the app **Overview** page, note the **Application (client) ID** and **Directory (tenant) ID**. We will need both of these when we create the `authConfig.js` file.
 1. Under **Manage**, select **Authentication**.
 1. In the **Implicit grant and hybrid flows** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app must sign in users and call an API.
 1. Select **Save**.
