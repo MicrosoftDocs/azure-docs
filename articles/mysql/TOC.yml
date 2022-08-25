@@ -131,7 +131,7 @@
   - name: Integrations
     items:
     - name: Power BI
-      href: flexible-server/connect-with-powerbi-desktop
+      href: flexible-server/connect-with-powerbi-desktop.md
     - name: Azure advisor
       href: ../mysql/single-server/concepts-azure-advisor-recommendations.md
     - name: Azure Data factory
