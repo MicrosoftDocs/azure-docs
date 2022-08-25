@@ -28,13 +28,13 @@ To recover the Arc resource bridge VM, you'll need to:
 - Recreate necessary custom extensions and custom locations.
 - Reconnect the new Arc resource bridge to existing resources in Azure.
 
-Follow the [Perform manual recovery for Arc resource bridge](#manual-recovery-for-arc-resource-bridge-for-arc-enabled-vmware-vsphere) if any of the following apply:
+Follow the [Perform manual recovery for Arc resource bridge](#perform-manual-recovery-for-arc-resource-bridge) if any of the following apply:
 
 - The Arc resource bridge VM template is still present in vSphere.
 - The old Arc resource bridge contained multiple cluster extensions.
 - The old Arc resource bridge contained multiple custom locations.
 
-If none of the above apply, you can use the automated recovery process described in [Use a script to recover Arc resource bridge](#recover-arc-resource-bridge-for-arc-enabled-vmware-vsphere-using-the-onboarding-script).
+If none of the above apply, you can use the automated recovery process described in [Use a script to recover Arc resource bridge](#use-a-script-to-recover-arc-resource-bridge).
 
 ## Perform manual recovery for Arc resource bridge
 
