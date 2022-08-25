@@ -56,18 +56,17 @@ In a few minutes, your creation should successfully complete.
 
 ### Important parameters you should consider:
 
-    |You need   |Shape of the server group you will deploy   |Number of worker nodes to indicate   |Note   |
-    |---|---|---|---|
-    |A scaled out form of Postgres to satisfy the scalability needs of your applications.   |3 or more Postgres instances, 1 is coordinator, n  are workers with n >=2.   |n, with n>=2.   |The Citus extension that provides the Hyperscale capability is loaded.   |
-    |A basic form of PostgreSQL server for you to do functional validation of your application at minimum cost. Not valid for performance and scalability validation. For that you need to use the type of deployments described above.   |1 Postgres instance that is both coordinator and worker.   |0 and add Citus to the list of extensions to load.   |The Citus extension that provides the Hyperscale capability is loaded.   |
-    |A simple instance of Postgres that is ready to scale out when you need it.   |1 Postgres instance. It is not yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes and distribute the data.   |0   |The Citus extension that provides the Hyperscale capability is present on your deployment but is not yet loaded.   |
-    |   |   |   |   |
+|You need   |Shape of the server group you will deploy   |Number of worker nodes to indicate   |Note   |
+|---|---|---|---|
+|A scaled out form of Postgres to satisfy the scalability needs of your applications.   |3 or more Postgres instances, 1 is coordinator, n  are workers with n >=2.   |n, with n>=2.   |The Citus extension that provides the Hyperscale capability is loaded.   |
+|A basic form of PostgreSQL server for you to do functional validation of your application at minimum cost. Not valid for performance and scalability validation. For that you need to use the type of deployments described above.   |1 Postgres instance that is both coordinator and worker.   |0 and add Citus to the list of extensions to load.   |The Citus extension that provides the Hyperscale capability is loaded.   |
+|A simple instance of Postgres that is ready to scale out when you need it.   |1 Postgres instance. It is not yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes and distribute the data.   |0   |The Citus extension that provides the Hyperscale capability is present on your deployment but is not yet loaded.   |
 
-    This table is demonstrated in the following figure:
+This table is demonstrated in the following figure:
 
-    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts PostgreSQL server worker node parameters and associated architecture." border="false":::
+:::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts PostgreSQL server worker node parameters and associated architecture." border="false":::
   
-    While indicating 1 worker works, we do not recommend you use it. This deployment will not provide you much value. With it, you will get 2 instances of Postgres: 1 coordinator and 1 worker. With this setup you actually do not scale out the data since you deploy a single worker. As such you will not see an increased level of performance and scalability. We will remove the support of this deployment in a future release.
+While indicating 1 worker works, we do not recommend you use it. This deployment will not provide you much value. With it, you will get 2 instances of Postgres: 1 coordinator and 1 worker. With this setup you actually do not scale out the data since you deploy a single worker. As such you will not see an increased level of performance and scalability. We will remove the support of this deployment in a future release.
  
 - **the storage classes** you want your server group to use. It is important you set the storage class right at the time you deploy a server group as this cannot be changed after you deploy. If you were to change the storage class after deployment, you would need to extract the data, delete your server group, create a new server group, and import the data. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
     - to set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd` followed by the name of the storage class.

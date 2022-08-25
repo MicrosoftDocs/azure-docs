@@ -164,6 +164,26 @@
             "source_path_from_root": "/articles/azure-arc/data/reference/reference-az-sql-midb-arc.md",
             "redirect_url": "/cli/azure/sql/midb-arc",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/concepts-distributed-postgres-hyperscale.md",
+            "redirect_url": "/azure/azure-arc/data/release-notes",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/articles/azure-arc/data/create-postgresql-hyperscale-server-group-azure-portal.md",
+            "redirect_url": "/azure/azure-arc/data/release-notes",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "articles/azure-arc/data/postgresql-hyperscale-server-group-placement-on-kubernetes-cluster-nodes.md",
+            "redirect_url": "/azure/azure-arc/data/release-notes",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "articles/azure-arc/data/scale-out-in-postgresql-hyperscale-server-group.md",
+            "redirect_url": "/azure/azure-arc/data/release-notes",
+            "redirect_document_id": false
           }
           ]
 }
