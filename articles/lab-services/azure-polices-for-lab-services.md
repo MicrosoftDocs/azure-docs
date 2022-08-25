@@ -18,6 +18,8 @@ Azure Policy helps you manage and prevent IT issues by applying policy definitio
 
 For a full list of built-in policies, including policies for Lab Services, see [Azure Policy built-in policy definitions](/governance/policy/samples/built-in-policies#lab-services).
 
+
+
 [!INCLUDE [lab plans only note](./includes/lab-services-new-update-focused-article.md)]
 
 ## Lab Services should enable all options for auto shutdown
@@ -62,5 +64,5 @@ During the policy assignment, the Lab Administrator can choose the following eff
 
 See the following articles:
 - [How to use the Lab Services should restrict allowed virtual machine SKU sizes Azure policy](how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy.md)
-- [Built-in Policies](../governance/policy/samples/built-in-policies.md#lab-services)
-- [What is Azure policy?](../governance/policy/overview.md)
+- [Built-in Policies](/governance/policy/samples/built-in-policies#lab-services)
+- [What is Azure policy?](/governance/policy/overview)
