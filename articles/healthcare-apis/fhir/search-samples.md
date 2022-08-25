@@ -25,7 +25,7 @@ Below are some examples of Fast Healthcare Interoperability Resources (FHIR&#174
 ```
 
 > [!NOTE]
-> The FHIR service in Azure Health Data Services limits searches with `_include` and `_revinclude` to return 100 items.
+> The FHIR service in Azure Health Data Services limits searches with `_include` and `_revinclude` to return a maximum of 100 items.
 
 ### `_revinclude`
 
@@ -56,7 +56,7 @@ In the above request, you'll receive a bundle of patients, but each entry will o
 GET {{FHIR_URL}}/Patient?gender:not=female
 ```
 
-In return, you would get all `Patient` resources whose `gender` element value is not `female`, including any patients with no gender value specified. This is different from searching for `Patient` resources with the `male` gender value, since that search wouldn't return any patients that don't have a specified gender.
+In return, you would get all `Patient` resources whose `gender` element value is not `female`, including any patients with no gender value specified. This is different from searching for `Patient` resources with the `male` gender value since that would ignore patients with no specified gender.
 
 ### `:missing`
 
