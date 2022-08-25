@@ -23,12 +23,13 @@ ms.custom: aaddev
 
 In MSAL logging is set at application creation using the `.WithLogging` builder modifier. This method takes optional parameters:
 
-- `IIdentityLogger` The logging implementation MSAL will send its logs too after chacking if logging is enabled.
+- `IIdentityLogger` is the logging implementation used by MSAL.NET to produce logs for debugging or health check purposes. Logs are only sent if logging is enabled.
 - `PiiLoggingEnabled` enables you to log personal and organizational data (PII) if set to true. By default this is set to false, so that your application does not log personal data.
 
-
-#### IIdentityLogger Interface
+### IIdentityLogger Interface
 ```CSharp
+namespace Microsoft.IdentityModel.Abstractions
+{
     public interface IIdentityLogger
     {
         //
@@ -49,11 +50,16 @@ In MSAL logging is set at application creation using the `.WithLogging` builder 
         //     Defines a structured message to be logged at the provided Microsoft.IdentityModel.Abstractions.LogEntry.EventLogLevel.
         void Log(LogEntry entry);
     }
+}
 ```
 
-#### IIdentityLogger Implementation
+Note: Partner libraries (Microsoft.Identity.Web, Microsoft.IdentityModel) provide implementations of this interface already for various environments (in particular ASP.NET Core)
 
-###### Log level from configuration file
+### IIdentityLogger Implementation
+
+The following code are examples of such an implementations. Note that if you use .NET core configuration, environment variable driven logs levels can be provided for free, in addition to the configuration file based log levels.
+
+#### Log level from configuration file
 
 It is highly recommended to configure your code to use a configuration file in your environment to set the log level as it will enable your code to change the MSAL logging level without needing to rebuild or restart the application. This is critical for diagnostic purposes, enabling us to quickly gather the required logs from the application that is currently deployed and in production.
 
@@ -139,7 +145,7 @@ Example Using IdentityLogger
         .Build();
 ```
 
-###### Log Level as Environment Variable
+#### Log Level as Environment Variable
 
 Another option we recommended is to configure your code to use an environment variable on the machine to set the log level as it will enable your code to change the MSAL logging level without needing to rebuild the application. This is critical for diagnostic purposes, enabling us to quickly gather the required logs from the application that is currently deployed and in production.
 
