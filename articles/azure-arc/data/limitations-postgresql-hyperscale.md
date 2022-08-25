@@ -23,7 +23,7 @@ Back up and restore have been temporarily removed as we finalize designs and exp
 
 ## High availability
 
-Configuring high availability and ensuring failover to recover from infrastructure failures isn't yet available.
+Configuring high availability and ensuring fail over to recover from infrastructure failures isn't yet available.
 
 ## Databases
 Hosting more than one database in a server group isn't supported if you scaled out the deployment on several worker nodes.
@@ -45,7 +45,7 @@ The table below summarizes answers to frequently asked questions regarding suppo
 
 \* Azure services
 
-__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because Microsoft doesn't own the infrastructure and doesn't operate it. Customers do.
+__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because with a hybrid service, you or your provider owns the infrastructure.
 
 ## Next steps
 
