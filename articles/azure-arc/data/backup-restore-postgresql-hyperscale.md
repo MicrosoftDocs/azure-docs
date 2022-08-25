@@ -15,5 +15,4 @@ ms.topic: how-to
 
 Backup and restore of Azure Arc-enabled PostgreSQL server is not supported in the current preview release.
 
-- Read about [scaling out (adding worker nodes)](scale-out-in-postgresql-hyperscale-server-group.md) your server group
 - Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) your server group

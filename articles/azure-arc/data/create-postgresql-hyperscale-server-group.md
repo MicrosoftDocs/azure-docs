@@ -56,10 +56,6 @@ The main parameters should consider are:
 
 - **the version of the PostgreSQL engine** you want to deploy: by default it is version 12. To deploy version 12, you can either omit this parameter or pass one of the following parameters: `--engine-version 12` or `-ev 12`. To deploy version 11, indicate `--engine-version 11` or `-ev 11`.
 
-- **the number of worker nodes** you want to deploy to scale out and potentially reach better performances. Before proceeding here, read the [concepts about PostgreSQL server](concepts-distributed-postgres-hyperscale.md). To indicate the number of worker nodes to deploy, use the parameter `--workers` or `-w` followed by an integer. The table below indicates the range of supported values and what form of Postgres deployment you get with them. For example, if you want to deploy a server group with two worker nodes, indicate `--workers 2` or `-w 2`. This will create three pods, one for the coordinator node/instance and two for the worker nodes/instances (one for each of the workers).
-
-
-
     |You need   |Shape of the server group you will deploy   |`-w` parameter to use   |Note   |
     |---|---|---|---|
     |A scaled out form of Postgres to satisfy the scalability needs of your applications.   |Three or more Postgres instances, one is coordinator, n  are workers with n >=2.   |Use `-w n`, with n>=2.   |The Citus extension that provides the Hyperscale capability is loaded.   |
@@ -147,7 +143,7 @@ For example:
 }
 ```
 
-You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL server from your favorite tool:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc. When you do so, you connect to the coordinator node/instance, which takes care of routing the query to the appropriate worker nodes/instances if you have created distributed tables. For more details, read the [concepts of Azure Arc-enabled PostgreSQL server](concepts-distributed-postgres-hyperscale.md).
+You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL server from your favorite tool:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
 
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
@@ -213,7 +209,6 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
     > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL server offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc-enabled PostgreSQL server.
 
-- [Scale out your Azure Arc-enabled for PostgreSQL server](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Expanding Persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)

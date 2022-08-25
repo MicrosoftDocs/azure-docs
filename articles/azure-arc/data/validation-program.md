@@ -118,7 +118,6 @@ The tests for data services cover the following in indirectly connected mode
 1. Deploy data controller in indirect mode
 2. Deploy [Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
 3. Deploy [Azure Arc-enabled PostgreSQL server](create-postgresql-hyperscale-server-group.md)
-4. Scale out [PostgreSQL server](scale-out-in-postgresql-hyperscale-server-group.md)
 
 More tests will be added in future releases of Azure Arc-enabled data services.
 

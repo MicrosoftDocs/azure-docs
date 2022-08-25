@@ -207,6 +207,5 @@ az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker=
 
 ## Next steps
 
-- [Scale out your Azure Database for PostgreSQL server](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)

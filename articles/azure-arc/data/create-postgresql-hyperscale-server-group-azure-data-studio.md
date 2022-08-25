@@ -56,8 +56,6 @@ In a few minutes, your creation should successfully complete.
 
 ### Important parameters you should consider:
 
-- **the number of worker nodes** you want to deploy to scale out and potentially reach better performances. Before proceeding here, read the [concepts about PostgreSQL server](concepts-distributed-postgres-hyperscale.md). The table below indicates the range of supported values and what form of Postgres deployment you get with them. For example, if you want to deploy a server group with 2 worker nodes, indicate 2. This will create three pods, one for the coordinator node/instance and two for the worker nodes/instances (one for each of the workers).
-
     |You need   |Shape of the server group you will deploy   |Number of worker nodes to indicate   |Note   |
     |---|---|---|---|
     |A scaled out form of Postgres to satisfy the scalability needs of your applications.   |3 or more Postgres instances, 1 is coordinator, n  are workers with n >=2.   |n, with n>=2.   |The Citus extension that provides the Hyperscale capability is loaded.   |
@@ -93,6 +91,5 @@ In a few minutes, your creation should successfully complete.
 
     > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL server offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc-enabled PostgreSQL server.
 
-- [Scale out your Azure Database for PostgreSQL server](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)

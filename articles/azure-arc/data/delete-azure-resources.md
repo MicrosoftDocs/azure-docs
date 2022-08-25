@@ -48,7 +48,7 @@ In some cases, you may need to manually delete Azure Arc-enabled data services r
 - [Delete specific resources in the resource group](#delete-specific-resources-in-the-resource-group)
 - [Delete resources using the Azure CLI](#delete-resources-using-the-azure-cli)
   - [Delete SQL managed instance resources using the Azure CLI](#delete-sql-managed-instance-resources-using-the-azure-cli)
-  - [Delete PostgreSQL server resources using the Azure CLI](#delete-postgresql-hyperscale-server-group-resources-using-the-azure-cli)
+  - [Delete PostgreSQL server resources using the Azure CLI](#delete-postgresql-server-resources-using-the-azure-cli)
   - [Delete Azure Arc data controller resources using the Azure CLI](#delete-azure-arc-data-controller-resources-using-the-azure-cli)
   - [Delete a resource group using the Azure CLI](#delete-a-resource-group-using-the-azure-cli)
 

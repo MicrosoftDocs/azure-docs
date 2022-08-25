@@ -211,5 +211,3 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
     * [Design a real-time analytics dashboard](../../postgresql/hyperscale/tutorial-design-database-realtime.md)*
 
 > *In these documents, skip the sections **Sign in to the Azure portal**, and **Create an Azure Database for PostgreSQL**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL server offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc-enabled PostgreSQL server.
-
-- [Scale out your Azure Database for PostgreSQL server](scale-out-in-postgresql-hyperscale-server-group.md)
