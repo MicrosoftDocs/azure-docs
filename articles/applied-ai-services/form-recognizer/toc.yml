@@ -8,6 +8,8 @@ items:
     href: overview.md
   - name: Form Recognizer Studio
     href: form-recognizer-studio-overview.md
+  - name: Form Recognizer SDK overview
+    href: sdk-overview.md
   - name: Language support
     href: language-support.md
   - name: Pricing
@@ -20,33 +22,25 @@ items:
     href: faq.yml
 - name: Quickstarts
   items:
+   - name: "Form Recognizer v3.0"
+     items:
+       - name: Form Recognizer Studio | v3.0
+         href: quickstarts/try-v3-form-recognizer-studio.md
+       - name: Form Recognizer SDKs and REST API v3.0
+         href: quickstarts/get-started-v3-sdk-rest-api.md
    - name: Form Recognizer v2.1
      items:
      - name: Sample Labeling tool
        href: quickstarts/try-sample-label-tool.md
-     - name: Client libraries and REST API
-       href: quickstarts/get-started-sdk-rest-api.md
-   - name: "Form Recognizer v3.0 | Preview"
-     items:
-       - name: Form Recognizer Studio (preview)
-         href: quickstarts/try-v3-form-recognizer-studio.md
-       - name: REST API (preview)
-         href: quickstarts/try-v3-rest-api.md
-       - name: C# SDK (preview)
-         href: quickstarts/try-v3-csharp-sdk.md
-       - name: Java SDK (preview)
-         href: quickstarts/try-v3-java-sdk.md
-       - name: JavaScript SDK (preview)
-         href: quickstarts/try-v3-javascript-sdk.md
-       - name:  Python SDK (preview)
-         href: quickstarts/try-v3-python-sdk.md
+     - name: Form Recognizer SDKs and REST API v2.1
+       href: quickstarts/get-started-v2-1-sdk-rest-api.md
 - name: How-to guides
   items:
   - name: Create a Form Recognizer resource
     href:  create-a-form-recognizer-resource.md
   - name: Check my usage and estimate the cost
     href: how-to-guides/estimate-cost.md
-  - name: Migrate to Form Recognizer v3.0 (preview)
+  - name: Migrate to Form Recognizer v3.0
     href: v3-migration-guide.md
   - name: Use the prebuilt-read model
     href: how-to-guides/use-prebuilt-read.md
@@ -56,6 +50,8 @@ items:
     href:  create-sas-tokens.md
   - name: Custom models
     items:
+    - name: Build a custom model (v3.0)
+      href: how-to-guides/build-custom-model-v3.md
     - name: Build a custom model (v2.1)
       items:
       - name: Assemble a training data set
@@ -66,14 +62,12 @@ items:
         href: label-tool.md
       - name: Use table tags to train your custom model
         href: supervised-table-tags.md
-    - name: Build a custom model (v3.0)
-      href: how-to-guides/build-custom-model-v3.md
   - name: Composed models
     items:
-     - name: Compose models v3.0 (preview)
-       href: compose-custom-models-preview.md
-     - name: Compose models v2.1 (GA)
-       href: compose-custom-models.md
+     - name: Compose models v3.0
+       href: compose-custom-models-v3.md
+     - name: Compose models v2.1
+       href: compose-custom-models-v2-1.md
   - name: Back up and recover models
     href: disaster-recovery.md
   - name: Use containers
@@ -126,13 +120,13 @@ items:
   items:
   - name: Model overview
     href: concept-model-overview.md
-  - name: Form Recognizer Studio | preview
+  - name: Form Recognizer Studio | v3.0
     href: concept-form-recognizer-studio.md
-  - name: General document model | preview
+  - name: General document model | v3.0
     href: concept-general-document.md
-  - name: W-2 form model | preview
+  - name: W-2 form model | v3.0
     href: concept-w2.md
-  - name: Read model | preview
+  - name: Read OCR model | v3.0
     href: concept-read.md
   - name: Layout model
     href: concept-layout.md
@@ -181,12 +175,10 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
-  - name: Error codes and messages v3.0 (preview)
-    href: preview-error-guide.md
-  - name: Azure Form Recognizer REST API v3.0 (preview)
+  - name: Azure Form Recognizer REST API v3.0
     items:
     - name: REST API v3.0 reference
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
     - name: Client libraries and SDKs
       items:
       - name: .NET
@@ -197,6 +189,8 @@ items:
         href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.5/index.html
       - name: JavaScript
         href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.4/index.html
+  - name: Error codes and messages v3.0
+    href: v3-error-guide.md
   - name: Azure Form Recognizer REST API v2.1
     items:
     - name: REST API v2.1 reference

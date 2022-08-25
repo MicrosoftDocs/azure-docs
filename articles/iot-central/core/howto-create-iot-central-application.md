@@ -64,8 +64,6 @@ The easiest way to get started creating IoT Central applications is on the [Azur
 
 The [Build](https://apps.azureiotcentral.com/build) lets you select the application template you want to use:
 
-:::image type="content" source="media/howto-create-iot-central-application/choose-template.png" alt-text="Screenshot of build page that lets you choose an application template.":::
-
 If you select **Create app**, you can provide the necessary information to create an application from the template:
 
 :::image type="content" source="media/howto-create-iot-central-application/create-application.png" alt-text="Screenshot showing create application page for IoT Central.":::
@@ -121,7 +119,6 @@ To create an application template from an existing IoT Central application:
 1. On the **Template Export** page, enter a name and description for your template.
 1. Select the **Export** button to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:
 
-:::image type="content" source="media/howto-create-iot-central-application/create-template.png" alt-text="Screenshot that shows create an application template.":::
 
 :::image type="content" source="media/howto-create-iot-central-application/create-template-2.png" alt-text="Screenshot that shows export an application template.":::
 

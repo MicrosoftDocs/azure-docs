@@ -4,8 +4,8 @@ description: Create a Dynamics 365 apps on Dataverse and Power Apps offer on Mic
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: JasonWHowell
-ms.author: jasonh
+author: trkeya
+ms.author: trkeya
 ms.date: 07/18/2022
 ---
 

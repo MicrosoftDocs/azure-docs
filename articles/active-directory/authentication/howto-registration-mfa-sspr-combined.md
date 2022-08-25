@@ -10,7 +10,7 @@ ms.date: 03/1/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
@@ -68,7 +68,7 @@ Complete the following steps to create a policy that applies to all selected use
 1. In the **Azure portal**, browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **+ New policy**.
 1. Enter a name for this policy, such as *Combined Security Info Registration on Trusted Networks*.
-1. Under **Assignments**, select **Users and groups**. Choose the users and groups you want this policy to apply to, then select **Done**.
+1. Under **Assignments**, select **Users or workload identities**.. Choose the users and groups you want this policy to apply to, then select **Done**.
 
    > [!WARNING]
    > Users must be enabled for combined registration.

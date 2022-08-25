@@ -983,6 +983,8 @@ items:
         href: ../data-factory/connector-amazon-simple-storage-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon S3 Compatible Storage
         href: ../data-factory/connector-amazon-s3-compatible-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: AppFigures
+        href: ../data-factory/connector-appfigures.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Asana
         href: ../data-factory/connector-asana.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Avro format
@@ -1385,6 +1387,8 @@ items:
           href: ../data-factory/connector-troubleshoot-azure-blob-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Azure Cosmos DB (including SQL API)
           href: ../data-factory/connector-troubleshoot-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure Data Explorer
+          href: ../data-factory/connector-troubleshoot-azure-data-explorer.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Azure Data Lake (Gen1 and Gen2)
           href: ../data-factory/connector-troubleshoot-azure-data-lake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Azure database for PostgreSQL
