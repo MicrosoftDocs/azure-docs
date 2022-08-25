@@ -23,7 +23,7 @@ manager: lizross
 
 ## Use an individual enrollment for symmetric key attestation
 
-Use the [az iot dps enrollment create](/cli/azure/iot/dps/enrollment?view=azure-cli-latest#az-iot-dps-enrollment-create) command to create an individual enrollment for symmetric key attestation.
+Use the [az iot dps enrollment create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-create) command to create an individual enrollment for symmetric key attestation.
 
 The following command creates an enrollment entry with the default allocation policy for your DPS instance and lets DPS assign the primary and secondary keys for your device. Substitute the name of your resource group and DPS instance. The enrollment ID is the the registration ID for your device.
 
@@ -52,7 +52,7 @@ The assigned symmetric keys are returned in the **attestation** property in the 
 }
 ```
 
-You can also get the primary key with the [az iot dps enrollment show](/cli/azure/iot/dps/enrollment?view=azure-cli-latest#az-iot-dps-enrollment-show) command:
+You can also get the primary key with the [az iot dps enrollment show](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-show) command:
 
 ```azurecli
 az iot dps enrollment show -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --show-keys true
@@ -62,7 +62,7 @@ Note down the primary key and the enrollment ID (registration ID), you'll use th
 
 ## Use an enrollment group for symmetric key attestation
 
-Use the [az iot dps enrollment-group create](/cli/azure/iot/dps/enrollment-group?view=azure-cli-latest#az-iot-dps-enrollment-group-create) command to create an enrollment group for symmetric key attestation.
+Use the [az iot dps enrollment-group create](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-create) command to create an enrollment group for symmetric key attestation.
 
 The following command creates an enrollment group entry with the default allocation policy for your DPS instance and lets DPS assign the primary and secondary keys for the enrollment group. Substitute the name of your resource group and DPS instance.  
 
@@ -91,11 +91,38 @@ The assigned symmetric keys are returned in the **attestation** property in the 
 }
 ```
 
-You can also get the primary key with the [az iot dps enrollment show](/cli/azure/iot/dps/enrollment?view=azure-cli-latest#az-iot-dps-enrollment-show) command:
+You can also get the primary key with the [az iot dps enrollment-group show](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-show) command:
 
 ```azurecli
 az iot dps enrollment-group show -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --show-keys true
 ```
 
-Note down the primary key, you'll use it later in this article to create a SAS token to authenticate with DPS.
+Note down the primary key.
 
+### Derive a device key
+
+When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead, you derive a unique key from the enrollment group key for each device. For more information, see [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments).
+
+In this section, you'll generate a device key from the enrollment group primary key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device. The result will then be converted into Base64 format.
+
+1. Generate your unique key using **openssl**. You'll use the following Bash shell script. Replace `{primary-key}` with the enrollment group's **Primary Key** that you copied earlier and replace `{contoso-simdevice}`with the registration ID you want to use for the device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
+
+    ```bash
+    KEY={primary-key}
+    REG_ID={contoso-simdevice}
+    
+    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+    echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+    ```
+
+2. The script will output something like the following key:
+
+    ```bash
+    p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=
+    ```
+
+3. Note the derived device key and the registration ID, you'll use them in the next section.
+
+You can also use the Azure CLI or PowerShell to derive a device key. To learn more, see [Derive a device key](how-to-legacy-device-symm-key.md#derive-a-device-key).
+
+## Create a SAS token 
