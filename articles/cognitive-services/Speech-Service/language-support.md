@@ -25,7 +25,7 @@ Language support varies by Speech service functionality.
 
 # [Speech-to-text](#tab/stt)
 
-The following table summarizes the locales supported for Speech-to-text. Additional remarks are included in the [Custom Speech](#custom-speech) section below.
+The table in this section summarizes the locales supported for Speech-to-text. Additional remarks are included in the [Custom Speech](#custom-speech) section below.
 
 [!INCLUDE [Language support include](includes/language-support/stt.md)]
 
@@ -35,18 +35,18 @@ To improve accuracy, customization is available for some languages and base mode
 
 # [Text-to-speech](#tab/tts)
 
-The following table summarizes the locales and voices supported for Text-to-speech. Please see the table footnotes for more details. Additional remarks are included in the [Custom Neural Voice](#custom-neural-voice), [Prebuilt neural voices](#prebuilt-neural-voices), and [Voice styles and roles](#voice-styles-and-roles) sections below.
-
-[!INCLUDE [Language support include](includes/language-support/tts.md)]
+The table in this section summarizes the locales and voices supported for Text-to-speech. Please see the table footnotes for more details. Additional remarks are included in the [Prebuilt neural voices](#prebuilt-neural-voices), [Voice styles and roles](#voice-styles-and-roles), and [Custom Neural Voice](#custom-neural-voice) sections below.
 
 You can also get a full list of languages and voices supported for each specific region or endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices). To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
-> [!IMPORTANT]
-> Pricing varies for Prebuilt Neural Voice (referred to as *Neural* on the pricing page) and Custom Neural Voice (referred to as *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
+[!INCLUDE [Language support include](includes/language-support/tts.md)]
 
 ### Prebuilt neural voices
 
 Each prebuilt neural voice supports a specific language and dialect, identified by locale. You can try the demo and hear the voices on [this website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+
+> [!IMPORTANT]
+> Pricing varies for Prebuilt Neural Voice (referred to as *Neural* on the pricing page) and Custom Neural Voice (referred to as *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
 
 Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
 
@@ -75,13 +75,13 @@ With the cross-lingual feature (preview), you can transfer your custom neural vo
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
-The following table lists the released languages and public preview languages.
+The table in this section summarizes the locales supported for Pronunciation assessment.
 
 [!INCLUDE [Language support include](includes/language-support/pronunciation-assessment.md)]
 
 # [Speech translation](#tab/speech-translation)
 
-Speech Translation supports different languages for speech-to-speech and speech-to-text translation. The available target languages depend on whether the translation target is speech or text. 
+The table in this section summarizes the locales supported for Speech translation. Speech translation supports different languages for speech-to-speech and speech-to-text translation. The available target languages depend on whether the translation target is speech or text. 
 
 #### Translate from language
 
@@ -95,25 +95,25 @@ To set the translation target language, with few exceptions you only specify the
 
 # [Language identification](#tab/language-identification)
 
-With language identification, the Speech service compares speech at the language level, such as English and German. If you include multiple locales of the same language, for example, `en-IN` and `en-US`, we'll only compare English (`en`) with the other candidate languages. The supported languages and locales are listed in the following table.
+The table in this section summarizes the locales supported for Language identification. With language identification, the Speech service compares speech at the language level, such as English and German. If you include multiple locales of the same language, for example, `en-IN` English (India) and `en-US` English (United States), we'll only compare `en` (English) with the other candidate languages.
 
 [!INCLUDE [Language support include](includes/language-support/language-identification.md)]
 
 # [Speaker recognition](#tab/speaker-recognition)
 
-Speaker recognition is mostly language agnostic. We built a universal model for text-independent speaker recognition by combining various data sources from multiple languages. We've tuned and evaluated the model on the languages and locales that appear in the following table. For more information on speaker recognition, see the [overview](speaker-recognition-overview.md).
+The table in this section summarizes the locales supported for Speaker recognition. Speaker recognition is mostly language agnostic. The universal model for text-independent speaker recognition combines various data sources from multiple languages. We've tuned and evaluated the model on these languages and locales. For more information on speaker recognition, see the [overview](speaker-recognition-overview.md).
 
 [!INCLUDE [Language support include](includes/language-support/speaker-recognition.md)]
 
 # [Custom keyword](#tab/custom-keyword)
 
-The following table outlines supported languages for custom keyword and keyword verification.
+The table in this section summarizes the locales supported for custom keyword and keyword verification.
 
 [!INCLUDE [Language support include](includes/language-support/custom-keyword.md)]
 
 # [Intent Recognition](#tab/intent-recognizer-pattern-matcher)
 
-The Intent Recognizer Pattern Matcher supports the following locales:
+The table in this section summarizes the locales supported for the Intent Recognizer Pattern Matcher.
 
 [!INCLUDE [Language support include](includes/language-support/intent-recognizer-pattern-matcher.md)]
 
