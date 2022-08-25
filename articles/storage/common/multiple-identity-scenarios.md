@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Configure credential-free connections between multiple Azure apps and services
 
-Applications often require secure connections between multiple Azure services simultaneously. For example, an enterprise Azure App Service instance might connect to several different blob storage accounts, an Azure SQL database instance, a service bus, and more. 
+Applications often require secure connections between multiple Azure services simultaneously. For example, an enterprise Azure App Service instance might connect to several different storage accounts, an Azure SQL database instance, a service bus, and more. 
 
 [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) are the recommended authentication option for secure, credential-free connections between Azure resources. Developers do not have to manually track and manage many different secrets for managed identities, since most of these tasks are handled internally by Azure. This tutorial explores how to manage connections between multiple services using managed identities and the Azure Identity client library.
 
@@ -43,7 +43,7 @@ The following steps demonstrate how to configure an app to use a system-assigned
 
 ### 1) Create a system-assigned managed identity
 
-1) In the Azure Portal, navigate to the hosted application would you like to connect to other services.
+1) In the Azure Portal, navigate to the hosted application that you would like to connect to other services.
 
 2) On the service overview page, select **Identity**.
 
@@ -104,7 +104,7 @@ using Azure.Storage.Blobs;
 using Azure.Security.KeyVault.Keys;
 ```
 
-In the `Program.cs` file of your project code, create instances of the necessary services your app will connect to. The following examples connect to blob storage and service bus using the corresponding SDK classes.
+In the `Program.cs` file of your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and service bus using the corresponding SDK classes.
 
 ```csharp
 var blobServiceClient = new BlobServiceClient(
