@@ -50,7 +50,7 @@ Billing for the instances starts when the Azure VM(s) starts.  Billing for the S
 - You create a Spark pool call SP2; it has an autoscale enabled 10 – 20 medium nodes
 - You submit a notebook job, J1 that uses 10 nodes, a Spark instance, SI1, is created to process the job
 - You now submit another job, J2, that uses 10 nodes, because there is still capacity in the pool the instance autoscales to 20 nodes and processes J2.
-- Billing starts at the submission of notebook job J1.  The Spark pool is instanciated with 10 medium nodes, each with 8 vCores (10 x 8, 80 vCores). At the submission of J2, the pool autoscales by adding another 10 medium nodes (10 x 8, 80 vCores).  Depending on the Spark pool start-up time, runtime of the first notebook job J1, the time to scale-up the pool, runtime of the second notebook, and finnally the idle timeout; the pool is likely to run
+- Billing starts at the submission of notebook job J1.  The Spark pool is instanciated with 10 medium nodes, each with 8 vCores, and typically takes ~3 minutes to start. 10 x 8, 80 vCores. At the submission of J2, the pool autoscales by adding another 10 medium nodes, and typically takes an additional 4 minutes to sacle.  Adding 10 x 8, 80 vCores for a total of 160 vCores. Depending on the Spark pool start-up time, runtime of the first notebook job J1, the time to scale-up the pool, runtime of the second notebook, and finnally the idle timeout; the pool is likely to run between 22 and 24 minutes (Spark pool instanciation time + J1 notebook job runtime all at 80 vCores) + (Spark pool autoscale up time + J2 notebook job runimte + idle timeout all at 160 vCores). 80 vCores for 4 minutes + 160 vCores for 20 minutes.  
 
 ### Example 3
 
