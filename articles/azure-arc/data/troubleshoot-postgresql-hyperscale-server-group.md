@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot PostgreSQL Hyperscale server groups
-description: Troubleshoot PostgreSQL Hyperscale server groups with a Jupyter Notebook
+title: Troubleshoot PostgreSQL servers
+description: Troubleshoot PostgreSQL servers with a Jupyter Notebook
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -11,7 +11,7 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Troubleshooting PostgreSQL Hyperscale server groups
+# Troubleshooting PostgreSQL servers
 This article describes some techniques you may use to troubleshoot your server group. In addition to this article you may want to read how to use [Kibana](monitor-grafana-kibana.md) to search the logs or use [Grafana](monitor-grafana-kibana.md) to visualize metrics about your server group. 
 
 ## Getting more details about the execution of a CLI command
@@ -41,7 +41,7 @@ Read the article about [getting logs for Azure Arc-enabled data services](troubl
 
 Notebooks can document procedures by including markdown content to describe what to do/how to do it. It can also provide executable code to automate a procedure.  This pattern is useful for everything from standard operating procedures to troubleshooting guides.
 
-For example, let's troubleshoot a PostgreSQL Hyperscale server group that might have some problems using Azure Data Studio.
+For example, let's troubleshoot a PostgreSQL server that might have some problems using Azure Data Studio.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -81,7 +81,7 @@ Implement the steps described in  [033-manage-Postgres-with-AzureDataStudio.md](
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio - Open PostgreSQL troubleshooting Notebook":::
 
-The **TSG100 - The Azure Arc-enabled PostgreSQL Hyperscale troubleshooter notebook** opens up:
+The **TSG100 - The Azure Arc-enabled PostgreSQL server troubleshooter notebook** opens up:
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio - Use PostgreSQL troubleshooting notebook":::
 
 #### Run the scripts

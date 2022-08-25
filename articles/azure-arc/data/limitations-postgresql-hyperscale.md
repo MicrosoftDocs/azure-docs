@@ -1,6 +1,6 @@
 ---
-title: Limitations of Azure Arc-enabled PostgreSQL Hyperscale
-description: Limitations of Azure Arc-enabled PostgreSQL Hyperscale
+title: Limitations of Azure Arc-enabled PostgreSQL server
+description: Limitations of Azure Arc-enabled PostgreSQL server
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -11,9 +11,9 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Limitations of Azure Arc-enabled PostgreSQL Hyperscale
+# Limitations of Azure Arc-enabled PostgreSQL server
 
-This article describes limitations of Azure Arc-enabled PostgreSQL Hyperscale. 
+This article describes limitations of Azure Arc-enabled PostgreSQL server. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -28,7 +28,7 @@ Hosting more than one database in a server group is not supported if you scaled 
 
 ## Roles and responsibilities
 
-The roles and responsibilities between Microsoft and its customers differ between Azure managed services (Platform As A Service or PaaS) and Azure hybrid (like Azure Arc-enabled PostgreSQL Hyperscale). 
+The roles and responsibilities between Microsoft and its customers differ between Azure managed services (Platform As A Service or PaaS) and Azure hybrid (like Azure Arc-enabled PostgreSQL server). 
 
 ### Frequently asked questions
 The table below summarizes answers to frequently asked questions regarding support roles and responsibilities.
@@ -52,7 +52,7 @@ __Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because Mic
 - **Create your own.** Follow these steps to create on your own Kubernetes cluster: 
    1. [Install the client tools](install-client-tools.md)
    2. [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
-   3. [Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) 
+   3. [Create an Azure Database for PostgreSQL server on Azure Arc](create-postgresql-hyperscale-server-group.md) 
 
 - **Learn**
    - [Read more about Azure Arc-enabled data services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)

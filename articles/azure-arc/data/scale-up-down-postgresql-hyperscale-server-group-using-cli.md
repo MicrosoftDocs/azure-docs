@@ -1,6 +1,6 @@
 ---
-title: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (az or kubectl)
-description: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (az or kubectl)
+title: Scale up and down an Azure Database for PostgreSQL server using CLI (az or kubectl)
+description: Scale up and down an Azure Database for PostgreSQL server using CLI (az or kubectl)
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -10,7 +10,7 @@ ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
 ---
-# Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (az or kubectl)
+# Scale up and down an Azure Database for PostgreSQL server using CLI (az or kubectl)
 
 There are times when you may need to change the characteristics or the definition of a server group. For example:
 
@@ -69,9 +69,9 @@ If you set minimum settings that are different from the maximum settings, the co
 
 The resources (vCores and memory) that will actually be used by your server group are up to the maximum settings and depend on the workloads and the resources available on the cluster. If you do not cap the settings with a max, your server group may use up to all the resources that the Kubernetes cluster allocates to the Kubernetes nodes your server group is  scheduled on.
 
-Those vCore and memory settings apply to each of the roles of the Postgres instances constituting the PostgreSQL Hyperscale server group: coordinator and workers. You may define requests and limits per role. You may define requests and limits settings that are different for each role. They may also be similar depending on your needs.
+Those vCore and memory settings apply to each of the roles of the Postgres instances constituting the PostgreSQL server: coordinator and workers. You may define requests and limits per role. You may define requests and limits settings that are different for each role. They may also be similar depending on your needs.
 
-In a default configuration, only the minimum memory is set to 256Mi as it is the minimum amount of memory that is recommended to run PostgreSQL Hyperscale.
+In a default configuration, only the minimum memory is set to 256Mi as it is the minimum amount of memory that is recommended to run PostgreSQL server.
 
 > [!NOTE]
 > Setting a minimum does not mean the server group will necessarily use that minimum. It means that if the server group needs it, it is guaranteed to be allocated at least this minimum. For example, let's consider we set `--minCpu 2`. It does not mean that the server group will be using at least 2 vCores at all times. It instead means that the sever group may start using less than 2 vCores if it does not need that much and it is guaranteed to be allocated at least 2 vCores if it needs them later on. It implies that the Kubernetes cluster allocates resources to other workloads in such a way that it can allocate 2 vCores to the server group if it ever needs them. Also, scaling up and down is not a online operation as it requires the restart of the kubernetes pods.
@@ -207,6 +207,6 @@ az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker=
 
 ## Next steps
 
-- [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-in-postgresql-hyperscale-server-group.md)
+- [Scale out your Azure Database for PostgreSQL server](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)

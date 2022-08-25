@@ -1,6 +1,6 @@
 ---
-title: Backup and Restore for Azure Database for PostgreSQL Hyperscale server groups
-description: Backup and Restore for Azure Database for PostgreSQL Hyperscale server groups
+title: Backup and Restore for Azure Database for PostgreSQL servers
+description: Backup and Restore for Azure Database for PostgreSQL servers
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -11,9 +11,9 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Back up and restore Azure Arc-enabled PostgreSQL Hyperscale server groups
+# Back up and restore Azure Arc-enabled PostgreSQL servers
 
-Backup and restore of Azure Arc-enabled PostgreSQL Hyperscale server is not supported in the current preview release.
+Backup and restore of Azure Arc-enabled PostgreSQL server is not supported in the current preview release.
 
 - Read about [scaling out (adding worker nodes)](scale-out-in-postgresql-hyperscale-server-group.md) your server group
 - Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) your server group
