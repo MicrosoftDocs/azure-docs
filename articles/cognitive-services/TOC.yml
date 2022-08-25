@@ -79,7 +79,7 @@
       href: cognitive-services-environment-variables.md
     - name: Configure customer-managed keys
       href: ./encryption/cognitive-services-encryption-keys-portal.md
-    - name: Virtual networks for Cognitive Services
+    - name: Use virtual networks
       href: cognitive-services-virtual-networks.md
     - name: Configure data loss prevention
       href: cognitive-services-data-loss-prevention.md
