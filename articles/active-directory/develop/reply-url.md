@@ -55,9 +55,9 @@ You can use a maximum of 256 characters for each redirect URI you add to an app 
 
 ## Query parameter support in redirect URIs
 
-Query parameters are allowed in redirect URIs for applications that *only* sign in users with work or school accounts.
+Query parameters are **allowed** in redirect URIs for applications that *only* sign in users with work or school accounts.
 
-Query parameters are not allowed in redirect URIs for any app registration configured to sign in users with personal Microsoft accounts like Outlook.com (Hotmail), Messenger, OneDrive, MSN, Xbox Live, or Microsoft 365.
+Query parameters are **not allowed** in redirect URIs for any app registration configured to sign in users with personal Microsoft accounts like Outlook.com (Hotmail), Messenger, OneDrive, MSN, Xbox Live, or Microsoft 365.
 
 | App registration sign-in audience                                                                                                  | Supports query parameters in redirect URI                            |
 |------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
