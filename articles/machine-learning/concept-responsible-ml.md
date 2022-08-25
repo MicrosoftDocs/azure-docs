@@ -13,7 +13,7 @@ ms.custom: responsible-ai, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to learn what Responsible AI is and how I can use it in Azure Machine Learning.
 ---
 
-# What is Responsible AI? (preview)
+# What is Responsible AI (preview)?
 
 [!INCLUDE [dev v1](../../includes/machine-learning-dev-v1.md)]
 
@@ -40,7 +40,7 @@ To build trust, it's critical that AI systems operate reliably, safely, and cons
 **Reliability and safety in Azure Machine Learning**:  The [error analysis](./concept-error-analysis.md) component of the [Responsible AI dashboard](./concept-responsible-ai-dashboard.md) enables data scientists and developers to:
 
 - Get a deep understanding of how failure is distributed for a model.
-- Identify cohorts of data with a higher error rate than the overall benchmark. 
+- Identify cohorts (subsets) of data with a higher error rate than the overall benchmark. 
 
 These discrepancies might occur when the system or model underperforms for specific demographic groups or for infrequently observed input conditions in the training data.
 
@@ -64,7 +64,7 @@ Azure Machine Learning also supports a [Responsible AI scorecard](./how-to-respo
 
 ## Privacy and security
 
-As AI becomes more prevalent, protecting privacy and securing personal and business information is becoming more important and complex. With AI, privacy and data security require close attention because access to data is essential for AI systems to make accurate and informed predictions and decisions about people. AI systems must comply with privacy laws that:
+As AI becomes more prevalent, protecting privacy and securing personal and business information are becoming more important and complex. With AI, privacy and data security require close attention because access to data is essential for AI systems to make accurate and informed predictions and decisions about people. AI systems must comply with privacy laws that:
 
 - Require transparency about the collection, use, and storage of data.
 - Mandate that consumers have appropriate controls to choose how their data is used.  
@@ -77,7 +77,7 @@ As AI becomes more prevalent, protecting privacy and securing personal and busin
 - Scan for vulnerabilities.
 - Apply and audit configuration policies.
 
-Microsoft has also created two open-source packages that could enable further implementation of privacy and security principles:
+Microsoft has also created two open-source packages that can enable further implementation of privacy and security principles:
 
 - [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core): Differential privacy is a set of systems and practices that help keep the data of individuals safe and private. In machine learning solutions, differential privacy might be required for regulatory compliance. SmartNoise is an open-source project (co-developed by Microsoft) that contains components for building differentially private systems that are global.
 
@@ -94,12 +94,12 @@ The people who design and deploy AI systems must be accountable for how their sy
 - Notify and alert on events in the machine learning lifecycle. Examples include experiment completion, model registration, model deployment, and data drift detection.
 - Monitor applications for operational issues and issues related to machine learning. Compare model inputs between training and inference, explore model-specific metrics, and provide monitoring and alerts on your machine learning infrastructure.
 
-Besides the MLOps capabilities, the [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) in Azure Machine Learning creates accountability by enabling cross-stakeholder communications. The scorecard also creates accountability by empowering developers to configure, download, and share their model health insights with their technical and non-technical stakeholders to educate them about their AI's data and model health (and to build trust).  
+Besides the MLOps capabilities, the [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) in Azure Machine Learning creates accountability by enabling cross-stakeholder communications. The scorecard also creates accountability by empowering developers to configure, download, and share their model health insights with their technical and non-technical stakeholders about AI data and model health. Sharing these insights can help build trust.  
 
-The machine learning platform also enables decision-making by informing model-driven and data-driven business decisions:
+The machine learning platform also enables decision-making by informing business decisions through:
 
-- Data-driven insights to help stakeholders understand causal treatment effects on an outcome, by using historic data only. For example: "How would a medicine affect a patient's blood pressure?" Such insights are provided through the [causal inference](concept-causal-inference.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
-- Model-driven insights, to answer user questions such as "What can I do to get a different outcome from your AI next time?" to inform their actions. Such insights are provided to data scientists through the [counterfactual what-if](concept-counterfactual-analysis.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
+- Data-driven insights to help stakeholders understand causal treatment effects on an outcome, by using historic data only. For example: "How would a medicine affect a patient's blood pressure?" These insights are provided through the [causal inference](concept-causal-inference.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
+- Model-driven insights, to answer users' questions (such as "What can I do to get a different outcome from your AI next time?") so they can take action. Such insights are provided to data scientists through the [counterfactual what-if](concept-counterfactual-analysis.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 
 ## Next steps
 

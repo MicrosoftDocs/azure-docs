@@ -86,7 +86,7 @@ The following table describes when to use Responsible AI dashboard components to
 | Diagnose | Model interpretability | The interpretability component generates human-understandable explanations of the predictions of a machine learning model. It provides multiple views into a model's behavior: <br> - Global explanations (for example, which features affect the overall behavior of a loan allocation model) <br> - Local explanations (for example, why an applicant's loan application was approved or rejected) <br><br> The capabilities of this component in the dashboard come from the [InterpretML](https://interpret.ml/) package. |
 | Diagnose | Counterfactual analysis and what-if| This component consists of two functionalities for better error diagnosis: <br> - Generating a set of examples in which minimal changes to a particular point alter the model's prediction. That is, the examples show the closest data points with opposite model predictions. <br> - Enabling interactive and custom what-if perturbations for individual data points to understand how the model reacts to feature changes. <br> <br> The capabilities of this component in the dashboard come from the [DiCE](https://github.com/interpretml/DiCE) package.  |
 
-Mitigation steps are available via standalone tools such as [Fairlearn](https://fairlearn.org/). For more information, see [unfairness mitigation algorithms](https://fairlearn.org/v0.7.0/user_guide/mitigation.html).
+Mitigation steps are available via standalone tools such as [Fairlearn](https://fairlearn.org/). For more information, see the [unfairness mitigation algorithms](https://fairlearn.org/v0.7.0/user_guide/mitigation.html).
 
 ### Responsible decision-making
 
@@ -103,7 +103,7 @@ Decision-making is one of the biggest promises of machine learning. The Responsi
 
 :::image type="content" source="./media/concept-responsible-ai-dashboard/decision-making.png" alt-text="Diagram that shows responsible AI dashboard capabilities for responsible business decision-making.":::
 
-Exploratory data analysis, counterfactual analysis, and causal inference capabilities can help you make informed model-driven and data-driven decisions responsibly.
+Exploratory data analysis, causal inference, and counterfactual analysis capabilities can help you make informed model-driven and data-driven decisions responsibly.
 
 These components of the Responsible AI dashboard support responsible decision-making:
 
@@ -137,7 +137,7 @@ When you're ready to share those insights with other stakeholders, you can extra
 
 The Responsible AI dashboard's strength lies in its customizability. It empowers users to design tailored, end-to-end model debugging and decision-making workflows that address their particular needs. 
 
-Need some inspiration? Here are some examples of how its components can be put together to analyze scenarios in diverse ways:
+Need some inspiration? Here are some examples of how the dashboard's components can be put together to analyze scenarios in diverse ways:
 
 | Responsible AI dashboard flow | Use case |
 |-------------------------------|----------|
