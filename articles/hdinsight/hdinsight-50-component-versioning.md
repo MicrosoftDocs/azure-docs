@@ -10,7 +10,7 @@ ms.date: 08/25/2022
 
 In this article, you learn about the open-source components and their versions in Azure HDInsight 5.0.
 
-Starting June 1, 2022, we have started rolling out a new  version of HDInsight 5.0, this is backward compatible with HDInsight 4.0. All new open-source releases will be added as incremental releases on HDInsight 5.0.
+Starting June 1, 2022, we have started rolling out a new  version of HDInsight 5.0, this version is backward compatible with HDInsight 4.0. All new open-source releases will be added as incremental releases on HDInsight 5.0.
 
 ## Open-source components available with HDInsight version 5.0
 
@@ -63,14 +63,13 @@ you need to select this version Interactive Query 3.1 (HDI 5.0).
 
 `HDI Version'5.0" is not supported for clusterType ''Kafka" and component Version ‘2.4'.,Cluster component version is not applicable for HDI version: 5.0 cluster type: KAFKA (Code: BadRequest)`
 
-We are working on this issue, and a fix will be rolled out shortly.
+We're working on this issue, and a fix will be rolled out shortly.
 
 ### Upcoming version upgrades. 
 HDInsight  team is working on upgrading other open-source components.
 1. Spark 3.2.0
 1. Kafka 3.2.1
 1. HBase 2.4.9
-
 
 ## Next steps
 
