@@ -6,7 +6,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 08/09/2022
 ms.author: pafarley
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
@@ -15,6 +15,8 @@ ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 # Azure Cognitive Services security
 
 Security should be considered a top priority in the development of all applications, and with the growth of artificial intelligence enabled applications, security is even more important. This article outlines various security features available for Azure Cognitive Services. Each feature addresses a specific liability, so multiple features can be used in the same workflow.
+
+For a comprehensive list of Azure service security recommendations see the [Cognitive Services security baseline](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=%2Fazure%2Fcognitive-services%2FTOC.json) article.
 
 ## Security features
 

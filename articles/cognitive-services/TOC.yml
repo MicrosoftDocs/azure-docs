@@ -71,7 +71,7 @@
         href: containers/index.yml
   - name: Security
     items:
-    - name: Cognitive Services security overview
+    - name: Security features
       href: cognitive-services-security.md
     - name: Authenticate requests to Cognitive Services
       href: authentication.md
