@@ -10837,33 +10837,33 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/recover-deleted-apps-faq.md",
+      "source_path_from_root": "articles/active-directory/manage-apps/recover-deleted-apps-faq.md",
       "redirect_url": "/azure/active-directory/manage-apps/delete-recover-faq",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-percept/voice-control-your-inventory-then-visualize-with-power-bi-dashboard.md",
-      "redirect_url": "/azure/azure-percept/index.yml",
+      "source_path_from_root": "articles/azure-percept/voice-control-your-inventory-then-visualize-with-power-bi-dashboard.md",
+      "redirect_url": "/azure/azure-percept/index",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-percept/deepstream/azure-percept-for-deepstream-overview.md",
-      "redirect_url": "/azure/azure-percept/index.yml",
+      "source_path_from_root": "articles/azure-percept/deepstream/azure-percept-for-deepstream-overview.md",
+      "redirect_url": "/azure/azure-percept/index",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-percept/hci/azure-percept-on-azure-stack-hci-overview.md",
-      "redirect_url": "/azure/azure-percept/index.yml",
+      "source_path_from_root": "articles/azure-percept/hci/azure-percept-on-azure-stack-hci-overview.md",
+      "redirect_url": "/azure/azure-percept/index",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-percept/studio/azure-percept-studio-overview.md",
-      "redirect_url": "/azure/azure-percept/index.yml",
+      "source_path_from_root": "articles/azure-percept/studio/azure-percept-studio-overview.md",
+      "redirect_url": "/azure/azure-percept/index",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-percept/open-source/azure-percept-open-source-project-overview.md",
-      "redirect_url": "/azure/azure-percept/index.yml",
+      "source_path_from_root": "articles/azure-percept/open-source/azure-percept-open-source-project-overview.md",
+      "redirect_url": "/azure/azure-percept/index",
       "redirect_document_id": false
     }
 
