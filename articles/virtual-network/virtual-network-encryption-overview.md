@@ -1,6 +1,7 @@
 ---
 title: What is Azure Virtual Network encryption? (Preview)
 description: Overview of Azure Virtual Network encryption
+ms.service: virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
