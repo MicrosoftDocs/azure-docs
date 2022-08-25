@@ -10,7 +10,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 # How to manage users?
-This article describes how to manage users in Microsoft Energy Data Services. It uses the [entitlements API](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) and acts as a group-based authorization system for data partitions within Microsoft Energy Data Service instance. For more information, review [Entitlement concepts](concepts-entitlements.md).
+This article describes how to manage users in Microsoft Energy Data Services. It uses the [entitlements API](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) and acts as a group-based authorization system for data partitions within Microsoft Energy Data Service instance. 
 
 ## 1. Prerequisites
 
@@ -41,7 +41,7 @@ Sometimes called an application password, a `client-secret` is a string value yo
 
 :::image type="content" source="media/how-to-manage-users/client-secret.png" alt-text="Screenshot of finding the client secret.":::
 
-#### 4. Find the `url`for your Microsoft Energy Data Services Instance
+#### 4. Find the `url`for your Microsoft Energy Data Services instance
 Navigate to your Microsoft Energy Data Services *Overview* page on Azure portal. Copy the URI from the essentials pane. 
 
 :::image type="content" source="media/how-to-manage-users/endpoint-url.png" alt-text="Screenshot of finding the url from Microsoft Energy Data Services instance.":::
@@ -53,11 +53,11 @@ You have two ways to get the list of data-partitions in your Microsoft Energy Da
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id.png" alt-text="Screenshot of finding the data-partition-id from the Microsoft Energy Data Services instance.":::
 
-## 2. Generate Access token
+## 2. Generate access token
 
 Run the following curl command after replacing the placeholder values with the corresponding values found as pre-requisites.
  
-**Request Format**
+**Request format**
 
 ```bash
 curl --location --request POST 'https://login.microsoftonline.com/{{tenant-id}}/oauth2/token' \
@@ -81,10 +81,10 @@ curl --location --request POST 'https://login.microsoftonline.com/{{tenant-id}}/
 ```
 Copy the `access token` value from the response. You'll need it to pass as one of the headers in all calls to the Entitlements API of your Microsoft Energy Data Services instance. 
 
-## 3. User Management Activities
+## 3. User management activities
 Get all groups that are either built in groups or have been made for your Oak instance or data partitions. Find the following two fields first. 
 
-You'll need `object-id` (OID) for your users as parameters in the calls to the Entitlements API of your Microsoft Energy Data Services Instance. `object-id`(OID) is the Azure Active Directory User Object ID. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal#to-add-or-change-profile-information) 
+You'll need `object-id` (OID) for your users as parameters in the calls to the Entitlements API of your Microsoft Energy Data Services Instance. `object-id`(OID) is the Azure Active Directory User Object ID. [Learn more](active-directory/fundamentals/active-directory-users-profile-azure-portal#to-add-or-change-profile-information) 
 
 :::image type="content" source="media/how-to-manage-users/aad-object-id.png" alt-text="Screenshot of finding the object-id from Azure Active Directory.":::
 
@@ -94,13 +94,13 @@ You'll need `object-id` (OID) for your users as parameters in the calls to the E
 
 Get all groups that are either built in groups or have been made for your Oak instance or data partitions.
 
-    ```bash
-         curl --location --request GET "<url>/api/entitlements/v2/groups/" \
-         --header 'data-partition-id: <data-partition>' \
-         --header 'Authorization: Bearer {{TOKEN}}'
-    ```
+```bash
+    curl --location --request GET "<url>/api/entitlements/v2/groups/" \
+    --header 'data-partition-id: <data-partition>' \
+    --header 'Authorization: Bearer {{TOKEN}}'
+```
 
-### 2. Add user(s) to a Users group
+### 2. Add user(s) to a users group
 
 Add user to the "Users" group using Entitlement service.
 
@@ -139,7 +139,7 @@ Add user to the "Users" group using Entitlement service.
     }
 ```
 
-### 3. Add user(s) to an Entitlements group
+### 3. Add user(s) to an entitlements group
 
 ```bash
     curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/users.datalake.editors@<data-partition-id>.contoso.com/members' \
@@ -176,7 +176,7 @@ Add user to the "Users" group using Entitlement service.
     }
 ```
 
-### 4. Get Entitlements groups for a given user
+### 4. Get entitlements groups for a given user
 
 ```bash
     curl --location --request GET 'https://<URI>/api/entitlements/v2/members/<OBJECT_ID>/groups?type=none' \
@@ -217,7 +217,7 @@ Add user to the "Users" group using Entitlement service.
     }
 ```
 
-### 5. Delete Entitlement groups of a given user
+### 5. Delete entitlement groups of a given user
 
 > [!NOTE]
 > As stated above, **DO NOT** delete the OWNER of a group unless you have another OWNER that can manage users in that group.
@@ -236,7 +236,7 @@ Add user to the "Users" group using Entitlement service.
     --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCIsImtpZCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCJ9...'
 ```
 
-**Sample Response**
+**Sample response**
 No output for a successful response
 
 
