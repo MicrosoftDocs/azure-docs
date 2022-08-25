@@ -22,7 +22,7 @@
     items:
     - name: Common deployment errors
       href: common-deployment-errors.md
-    - name: Account name invalid
+    - name: Storage account name invalid
       href: error-storage-account-name.md
     - name: Deployment quota exceeded
       href: deployment-quota-exceeded.md

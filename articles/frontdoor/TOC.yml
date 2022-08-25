@@ -204,6 +204,8 @@
         href: end-to-end-tls.md
       - name: Web Application Firewall
         href: web-application-firewall.md
+      - name: Geo-filtering
+        href: ../web-application-firewall/afds/waf-front-door-geo-filtering.md?toc=%2fazure%2ffrontdoor%2ftoc.json
     - name: Protocol
       items:
       - name: HTTP/2
@@ -584,7 +586,7 @@
       - name: Go SDK
         href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v62.3.0+incompatible/services/cdn/mgmt/2021-06-01/cdn
       - name: JavaScript SDK
-        href: /javascript/api/overview/azure/contentdeliverynetwork
+        href: /javascript/api/overview/azure/cdn
     - name: Classic
       items:
       - name: Azure CLI
@@ -594,7 +596,7 @@
       - name: REST API
         href: /rest/api/frontdoor/#front-door-classic
       - name: JavaScript SDK
-        href: /javascript/api/overview/azure/frontdoor
+        href: /javascript/api/overview/azure/arm-frontdoor-readme
       - name: Java SDK
         href: /java/api/overview/azure/resourcemanager-cdn-readme
   - name: CDN
@@ -676,4 +678,3 @@
         href: https://stackoverflow.com/questions/tagged/azure-cdn
       - name: Videos
         href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
-    

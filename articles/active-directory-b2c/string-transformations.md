@@ -864,7 +864,7 @@ Checks whether the provided phone number is valid, based on phone number regular
   </InputClaims>
   <InputParameters>
     <InputParameter Id="matchTo" DataType="string" Value="^[0-9]{4,16}$" />
-    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="Phone" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="iPhone" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />

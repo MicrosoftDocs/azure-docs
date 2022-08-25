@@ -119,7 +119,7 @@ Azure Machine Learning managed online endpoints have limits described in the fol
 
 <sup>3</sup> If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include these limit increases in the same request.
 
-To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#view-metrics). 
+To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#metrics). 
 
 To request an exception from the Azure Machine Learning product team, use the steps in the [Request quota increases](#request-quota-increases) section and provide the following information:
 

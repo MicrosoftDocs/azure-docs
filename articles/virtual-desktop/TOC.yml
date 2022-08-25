@@ -103,7 +103,7 @@
     href: store-fslogix-profile.md
   - name: Scale session hosts
     items:
-    - name: Autoscale (preview)
+    - name: Autoscale
       items:
       - name: How autoscale works
         href: autoscale-scenarios.md
@@ -191,7 +191,7 @@
         href: deploy-azure-ad-joined-vm.md
       - name: Deploy a Windows 7 virtual machine
         href: deploy-windows-7-virtual-machine.md
-      - name: Deploy Windows Server based machine
+      - name: Deploy a Windows Server-based virtual machine
         href: deploy-windows-server-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
@@ -203,7 +203,7 @@
     href: delete-host-pool.md
   - name: Set up email discovery
     href: /windows-server/remote/remote-desktop-services/rds-email-discovery?context=/azure/virtual-desktop/context/context
-  - name: Create a profile container
+  - name: FSLogix Profile Container
     items:
       - name: Use a VM-based file share
         href: create-host-pools-user-profile.md
@@ -211,16 +211,12 @@
         href: create-fslogix-profile-container.md
       - name: Use Azure NetApp Files and MSIX app attach
         href: create-netapp-files.md
-      - name: Use Azure Files and Azure AD DS
-        href: create-profile-container-adds.md
-      - name: Use Azure Files and AD DS
-        href: create-file-share.md
+      - name: Use Azure Files and Active Directory
+        href: fslogix-profile-container-configure-azure-files-active-directory.md
       - name: Use Azure Files and Azure AD
         href: create-profile-container-azure-ad.md
       - name: Install Office with FSLogix app containers
         href: fslogix-office-app-rule-editor.md
-      - name: Authorize an account to use Azure Files
-        href: azure-files-authorization.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
@@ -243,7 +239,7 @@
         href: install-office-on-wvd-master-image.md
   - name: Scale session hosts 
     items:
-      - name: Autoscale (preview)
+      - name: Autoscale
         items:
         - name: Create a scaling plan
           href: autoscale-scaling-plan.md
@@ -285,10 +281,14 @@
           href: app-attach-msixmgr.md
   - name: Use Microsoft Teams
     href: teams-on-avd.md
-  - name: Enforce Azure AD MFA
-    href: set-up-mfa.md
-  - name: Configure AD FS single sign-on
-    href: configure-adfs-sso.md
+  - name: Identity and access management
+    items:
+      - name: Enforce Azure AD MFA
+        href: set-up-mfa.md
+      - name: Configure single sign-on
+        href: configure-single-sign-on.md
+      - name: Set up the KDC proxy
+        href: key-distribution-center-proxy.md
   - name: Deploy updates with Configuration Manager
     href: configure-automatic-updates.md
   - name: Set up multimedia redirection (preview)
@@ -305,8 +305,6 @@
     href: azure-monitor.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
-  - name: Set up the KDC proxy
-    href: key-distribution-center-proxy.md
   - name: Start VM on Connect
     items:
     - name: Set up Start VM on Connect
@@ -323,6 +321,8 @@
       href: ../firewall/protect-azure-virtual-desktop.md?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext
   - name: Azure Virtual Desktop for Azure Stack HCI
     href: azure-stack-hci.md
+  - name: Set up Windows Sandbox
+    href: sandbox.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
@@ -347,6 +347,8 @@
     href: remotefx-graphics-performance-counters.md
   - name: Connections to Azure AD-joined VMs
     href: troubleshoot-azure-ad-connections.md
+  - name: Device redirections
+    href: troubleshoot-device-redirections.md
   - name: Azure Monitor
     href: troubleshoot-azure-monitor.md
   - name: Azure Files authorization

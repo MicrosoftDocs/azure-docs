@@ -54,7 +54,7 @@ Example configuration of a sink for Application Insights:
 
 - The **ApplicationInsights** element specifies instrumentation key of the Application insights resource where the Azure diagnostics data is sent.
     - If you don't have an existing Application Insights resource, see [Create a new Application Insights resource](../app/create-new-resource.md) for more information on creating a resource and getting the instrumentation key.
-    - If you are developing a Cloud Service with Azure SDK 2.8 and later, this instrumentation key is automatically populated. The value is based on the **APPINSIGHTS_INSTRUMENTATIONKEY** service configuration setting when packaging the Cloud Service project. See [Use Application Insights with Cloud Services](../app/cloudservices.md).
+    - If you are developing a Cloud Service with Azure SDK 2.8 and later, this instrumentation key is automatically populated. The value is based on the **APPINSIGHTS_INSTRUMENTATIONKEY** service configuration setting when packaging the Cloud Service project. See [Use Application Insights with Cloud Services](../app/azure-web-apps-net-core.md).
 
 - The **Channels** element contains one or more **Channel** elements.
     - The *name* attribute uniquely refers to that channel.
@@ -209,7 +209,7 @@ In the previous configuration, the following lines have the following meanings:
 - **You cannot send blob data collected by Azure diagnostics extension to Application Insights.** For example, anything specified under the *Directories* node. For Crash Dumps the actual crash dump is sent to blob storage and only a notification that the crash dump was generated is sent to Application Insights.
 
 ## Next Steps
-* Learn how to [view your Azure diagnostics information](../app/cloudservices.md) in Application Insights.
+* Learn how to [view your Azure diagnostics information](../app/azure-web-apps-net-core.md) in Application Insights.
 * Use [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) to enable the Azure diagnostics extension for your application.
 * Use [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) to enable the Azure diagnostics extension for your application
 

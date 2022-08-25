@@ -236,7 +236,7 @@ Instead of directly configuring the schema of the table, the portal allows you t
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData with 
+    | parse RawData.value with 
     ClientIP:string
     ' ' *
     ' ' *
@@ -257,7 +257,7 @@ Instead of directly configuring the schema of the table, the portal allows you t
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData with 
+    | parse RawData.value with 
     ClientIP:string
     ' ' *
     ' ' *

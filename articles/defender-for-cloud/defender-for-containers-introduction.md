@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 07/12/2022
+ms.date: 08/17/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -55,12 +55,13 @@ You can learn more about [Kubernetes data plane hardening](kubernetes-workload-p
 
 ### Scanning images in ACR registries
 
-Defender for Containers includes an integrated vulnerability scanner for scanning images in Azure Container Registry registries. The vulnerability scanner runs on an image:
+Defender for Containers offers vulnerability scanning for images in Azure Container Registries (ACRs). Triggers for scanning an image include:
 
-  - When you push the image to your registry
-  - Weekly on any image that was pulled within the last 30
-  - When you import the image to your Azure Container Registry
-  - Continuously in specific situations
+- **On push**: When an image is pushed in to a registry for storage, Defender for Containers automatically scans the image.
+
+- **Recently pulled**: Weekly scans of images that have been pulled in the last 30 days.
+
+- **On import**: When you import images into an ACR, Defender for Containers scans any supported images.
 
 Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
@@ -68,13 +69,22 @@ Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
 ### View vulnerabilities for running images
 
-The recommendation `Running container images should have vulnerability findings resolved` shows vulnerabilities for running images by using the scan results from ACR registries and information on running images from the Defender security profile/extension. Images that are deployed from a non-ACR registry, will appear under the Not applicable tab.
+Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities in images that are currently being used within their environment using the [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false) recommendation.
+
+Defender for Cloud is able to provide the recommendation, by correlating the inventory of your running containers that are collected by the Defender agent which is installed on your AKS clusters, with the vulnerability assessment scan of images that are stored in ACR. The recommendation then shows your running containers with the vulnerabilities associated with the images that are used by each container and provides you with vulnerability reports and remediation steps.
+
+> [!NOTE] 
+> **Windows containers**: There is no Defender agent for Windows containers, the Defender agent is deployed to a Linux node running in the cluster, to retrieve the running container inventory for your Windows nodes.
+>
+> Images that aren't pulled from ACR for deployment in AKS won't be checked and will appear under the **Not applicable** tab.
+>
+> Images that have been deleted from their ACR registry, but are still running, won't be reported on only 30 days after their last scan occurred in ACR.
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable." lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 
 ## Run-time protection for Kubernetes nodes and clusters
 
-Defender for Containers provides real-time threat protection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers. Threat protection at the cluster level is provided by the Defender profile and analysis of the Kubernetes audit logs. Examples of events at this level include exposed Kubernetes dashboards, creation of high-privileged roles, and the creation of sensitive mounts.
+Defender for Containers provides real-time threat protection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers. Threat protection at the cluster level is provided by the Defender agent and analysis of the Kubernetes audit logs. Examples of events at this level include exposed Kubernetes dashboards, creation of high-privileged roles, and the creation of sensitive mounts.
 
 In addition, our threat detection goes beyond the Kubernetes management layer. Defender for Containers includes host-level threat detection with over 60 Kubernetes-aware analytics, AI, and anomaly detections based on your runtime workload.
 

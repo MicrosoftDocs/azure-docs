@@ -167,7 +167,7 @@
           href: vpn-gateway-radius-mfa-nsp.md
       - name: Azure AD authentication
         items:
-        - name: Configure a tenant
+        - name: Configure a P2S VPN and tenant
           href: openvpn-azure-ad-tenant.md
         - name: Configure a tenant with multiple client apps
           href: openvpn-azure-ad-tenant-multi-app.md
@@ -199,11 +199,11 @@
       items:
       - name: Certificate authentication clients
         items:
-        - name: Windows clients
+        - name: Windows
           href: point-to-site-vpn-client-cert-windows.md
-        - name: macOS-iOS clients
+        - name: macOS-iOS
           href: point-to-site-vpn-client-cert-mac.md
-        - name: Linux clients
+        - name: Linux
           href: point-to-site-vpn-client-cert-linux.md
         - name: Install client certificates
           href: point-to-site-how-to-vpn-client-install-azure-cert.md
@@ -215,13 +215,13 @@
           href: point-to-site-vpn-client-configuration-radius-password.md
         - name: Other authentication protocols
           href: point-to-site-vpn-client-configuration-radius-other.md
-      - name: AAD authentication clients
+      - name: Azure AD authentication clients
         items:
-        - name: Windows client
+        - name: Windows
           href: openvpn-azure-ad-client.md
-        - name: macOS client
+        - name: macOS
           href: openvpn-azure-ad-client-mac.md
-        - name: Generate VPN client profile config files
+        - name: Generate profile files - Azure AD
           href: about-vpn-profile-download.md 
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md

@@ -161,6 +161,8 @@
         href: data-residency.md
   - name: Automatic recommendations
     href: automated-recommendations.md
+  - name: Move data within Azure Cosmos DB
+    href: intra-account-container-copy.md
 - name: SQL/Core API
   href: sql/index.yml
 - name: Cassandra API
@@ -362,6 +364,9 @@
           href: monitor-cosmos-db-reference.md
         - name: Third-party monitoring solutions
           href: monitoring-solutions.md
+    - name: Move data within Cosmos DB
+      displayName: Move data within Cosmos DB
+      href: how-to-container-copy.md
     - name: Migrate data to Cosmos DB
       items:
         - name: Options to migrate data into Cosmos DB
