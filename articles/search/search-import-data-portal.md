@@ -16,7 +16,7 @@ The **Import data wizard** in the Azure portal creates multiple objects used for
 
 If you're using the wizard for proof-of-concept testing, this article explains the internal workings of the wizard so that you can use it more effectively.
 
-This article isn't a step by step. For help using the wizard with built-in sample data, see the [Quickstart: Create a search index](search-get-started-portal.md) or [Quickstart: Create a text translation and entity skillset](cognitive-search-quickstart-blob.md).
+This article isn't a step by step. For help with using the wizard with built-in sample data, see the [Quickstart: Create a search index](search-get-started-portal.md) or [Quickstart: Create a text translation and entity skillset](cognitive-search-quickstart-blob.md).
 
 ## Starting the wizard
 
@@ -52,15 +52,15 @@ Overall, the advantages of using the wizard are clear: as long as requirements a
 
 The wizard isn't without limitations. Constraints are summarized as follows:
 
-+ The wizard does not support iteration or reuse. Each pass through the wizard creates a new index, skillset, and indexer configuration. Only data sources can be persisted and reused within the wizard. To edit or refine other objects, either delete the objects and start over, or use the REST APIs or .NET SDK to modify the structures.
++ The wizard doesn't support iteration or reuse. Each pass through the wizard creates a new index, skillset, and indexer configuration. Only data sources can be persisted and reused within the wizard. To edit or refine other objects, either delete the objects and start over, or use the REST APIs or .NET SDK to modify the structures.
 
-+ Source content must reside in a [supported data source](search-indexer-overview.md#supported-data-sources) and it must be under the same subscription.
++ Source content must reside in a [supported data source](search-indexer-overview.md#supported-data-sources).
 
 + Sampling is over a subset of source data. For large data sources, it's possible for the wizard to miss fields. You might need to extend the schema, or correct the inferred data types, if sampling is insufficient.
 
 + AI enrichment, as exposed in the portal, is limited to a subset of built-in skills. 
 
-+ A [knowledge store](knowledge-store-concept-intro.md), which can be created by the wizard, is limited to a few default projections and uses a default naming convention. If you want to customize names or projections, you will need to create the knowledge store through REST API or the SDKs.
++ A [knowledge store](knowledge-store-concept-intro.md), which can be created by the wizard, is limited to a few default projections and uses a default naming convention. If you want to customize names or projections, you'll need to create the knowledge store through REST API or the SDKs.
 
 + Public access to all networks must be enabled on the supported data source while the wizard is used, since the portal won't be able to access the data source during setup if public access is disabled. This means that if your data source has a firewall enabled, you must disable it, run the Import Data wizard and then enable it after wizard setup is completed. If this isn't an option, you can create Azure Cognitive Search data source, indexer, skillset and index through REST API or the SDKs.
 
@@ -96,7 +96,7 @@ Skillset configuration occurs after the data source definition because the type 
 
 The wizard will add the skills you choose, but it will also add other skills that are necessary for achieving a successful outcome. For example, if you specify a knowledge store, the wizard adds a Shaper skill to support projections (or physical data structures).
 
-Skillsets are optional and there is a button at the bottom of the page to skip ahead if you don't want AI enrichment.
+Skillsets are optional and there's a button at the bottom of the page to skip ahead if you don't want AI enrichment.
 
 <a name="index-definition"></a>
 
@@ -108,7 +108,7 @@ Because sampling is an imprecise exercise, review the index for the following co
 
 1. Is the field list accurate? If your data source contains fields that were not picked up in sampling, you can manually add any new fields that sampling missed, and remove any that don't add value to a search experience or that won't be used in a [filter expression](search-query-odata-filter.md) or [scoring profile](index-add-scoring-profiles.md).
 
-1. Is the data type appropriate for the incoming data? Azure Cognitive Search supports the [entity data model (EDM) data types](/rest/api/searchservice/supported-data-types). For Azure SQL data, there is [mapping chart](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) that lays out equivalent values. For more background, see [Field mappings and transformations](search-indexer-field-mappings.md).
+1. Is the data type appropriate for the incoming data? Azure Cognitive Search supports the [entity data model (EDM) data types](/rest/api/searchservice/supported-data-types). For Azure SQL data, there's [mapping chart](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) that lays out equivalent values. For more background, see [Field mappings and transformations](search-indexer-field-mappings.md).
 
 1. Do you have one field that can serve as the *key*? This field must be Edm.string and it must uniquely identify a document. For relational data, it might be mapped to a primary key. For blobs, it might be the `metadata-storage-path`. If field values include spaces or dashes, you must set the **Base-64 Encode Key** option in the **Create an Indexer** step, under **Advanced options**, to suppress the validation check for these characters.
 
@@ -118,7 +118,7 @@ Because sampling is an imprecise exercise, review the index for the following co
 
    + **Searchable** enables full-text search. Every field used in free form queries or in query expressions must have this attribute. Inverted indexes are created for each field that you mark as **Searchable**.
 
-   + **Retrievable** returns the field in search results. Every field that provides content to search results must have this attribute. Setting this field does not appreciably effect index size.
+   + **Retrievable** returns the field in search results. Every field that provides content to search results must have this attribute. Setting this field doesn't appreciably affect index size.
 
    + **Filterable** allows the field to be referenced in filter expressions. Every field used in a **$filter**  expression must have this attribute. Filter expressions are for exact matches. Because text strings remain intact, more storage is required to accommodate the verbatim content.
 
@@ -136,14 +136,14 @@ Because sampling is an imprecise exercise, review the index for the following co
 
 The last page of the wizard collects user inputs for indexer configuration. You can [specify a schedule](search-howto-schedule-indexers.md) and set other options that will vary by the data source type.
 
-Internally, the wizard also sets up the following, which isn't visible in the indexer until after it is created:
+Internally, the wizard also sets up the following definitions, which aren't visible in the indexer until after it's created:
 
 + [field mappings](search-indexer-field-mappings.md) between the data source and index
 + [output field mappings](cognitive-search-output-field-mapping.md) between skill output and an index
 
 ## Next steps
 
-The best way to understand the benefits and limitations of the wizard is to step through it. The following quickstart will guide you through each step.
+The best way to understand the benefits and limitations of the wizard is to step through it. The following quickstart explains each step.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create a search index using the Azure portal](search-get-started-portal.md)
