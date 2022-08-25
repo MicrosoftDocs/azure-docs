@@ -18,7 +18,10 @@ Azure Cognitive Services for Language and Speech can help you realize partial or
 The main business scenarios for the application of Azure Cognitive Services in call and contact centers are:
 - Virtual agents: Conversational AI-based telephony-integrated voicebots and voice-enabled chatbots
 - Agent-assist: Real-time transcription and analysis of a call to improve the customer experience by providing insights and suggest actions to agents
-- Post-call analytics: Post-call analysis to create insights into customer conversations to improve understanding and support continuous improvement of call handling, optimization of quality assurance and compliance control as well as other insight driven optimizations
+- Post-call analytics: Post-call analysis to create insights into customer conversations to improve understanding and support continuous improvement of call handling, optimization of quality assurance and compliance control as well as other insight driven optimizations.
+
+> [!TIP]
+> To deploy a call center transcription solution to Azure with a no-code approach, try the [Ingestion Client](/azure/cognitive-services/speech-service/ingestion-client).
 
 ## Implementation with Cognitive Services
 
@@ -53,7 +56,7 @@ The Language service offers the following features that can be used for call cen
 - [Conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization): Summarize in abstract text what each conversation participant said about the issues and resolutions. For example, a call center can group product issues that have a high volume.
 - [Sentiment analysis and opinion mining](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview): Analyze transcriptions and associate positive, neutral, or negative sentiment at the utterance and conversation-level.
 
-The Language service works well with prebuilt models. However you might want to further customize and tune models to extract more information from your data. Typical examples for Language customization include:
+While the Language service works well with prebuilt models, you might want to further customize and tune models to extract more information from your data. Typical examples for Language customization include:
 
 | Language customization | Description |
 | -------------- | ----------- |
