@@ -12,7 +12,7 @@ ms.date: 09/01/2022
 # Import data from Azure Database for MySQL Flexible Server in Power BI 
 
 >[!NOTE]
-> This article applies to Power BI Desktop only. Currently Power Query online is not supported. 
+> This article applies to Power BI Desktop only. Currently Power Query online or Power BI Service is **not supported**. 
 
 If you have business data stored in Azure database for MySQL Flexible Server then with Power BI Desktop you can visually explore your data through a free-form drag-and-drop canvas, a broad range of modern data visualizations, and an easy-to-use report authoring experiences. You can import directly from the tables or import from a SELECT query. 
 
@@ -23,8 +23,8 @@ If you have business data stored in Azure database for MySQL Flexible Server the
 3. Skip the steps below if MySQL server has SSL disabled. If SSL is enabled then follow the steps below to install the certificate. 
    - Dowload the [SSL public certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). 
    - Install the SSL certificate in Trusted Root certification authorities store by following these steps: 
-      - Start "certmgr.msc" Management Console on your Windows system.
-      - Right-click Trusted Root Certification Authorities and select Import. 
+      - Start **certmgr.msc** Management Console on your Windows system.
+      - Right-click **Trusted Root Certification Authorities** and select **Import**. 
       - Follow the prompts in the wizard to import the root certificate (for example, DigiCertGlobalRootCA.crt.pem) and click OK.
     
 ## Get MySQL server information
@@ -81,9 +81,7 @@ To make the connection, take the following steps:
 
 ## Connect using advanced options
 
-Power Query Desktop provides a set of advanced options that you can add to your query if needed.
-
-The following table lists all of the advanced options you can set in Power Query Desktop.
+Power Query Desktop provides a set of advanced options that you can add to your query if needed. The following table lists all of the advanced options you can set in Power Query Desktop.
 
 | Advanced option	| Description |
 | --------------- | ----------- |
