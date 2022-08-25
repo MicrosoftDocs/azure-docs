@@ -85,7 +85,7 @@ New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -Grou
 
 ## Configure networking
 
-Now that your SAN has been deployed, add a virtual network to your volume group, so you can connect to it.
+Now that your SAN has been deployed, add a virtual network to your volume group. Adding a virtual network to your volume group allows you to establish connections from any client in the same virtual network and subnet to the volumes in the volume group.
 
 # [Portal](#tab/azure-portal)
 
@@ -95,6 +95,17 @@ Now that your SAN has been deployed, add a virtual network to your volume group,
 
 # [PowerShell](#tab/azure-powershell)
 
+```azurepowershell
+$rule1 = New-AzElasticSanVirtualNetworkRuleObject -VirtualNetworkResourceId <resourceIDHere> -Action Allow
+
+Update-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanName -Name $volGroupName -NetworkAclsVirtualNetworkRule $rule1
+
+```
+
 ---
 
 You've now deployed and configured an elastic SAN.
+
+# Next steps
+
+Connect an Elastic SAN volume to a client.

@@ -27,6 +27,23 @@ Elastic SAN is designed for:
 - and
 - integrations
 
+
+## Benefits of Elastic SAN
+
+### Unified interface
+
+Elastic SAN provides a unified storage provisioning and simplifies managing storage at scale through grouping and policy enforcement.
+
+### Performance
+
+With Elastic SAN, it's possible to scale your performance up to millions of IOPS, double-digit GB/s throughput, and have single-digit ms latency.
+
+### Cost optimization
+
+Elastic SAN simplifies cost optimization by allowing you to increase your storage footprint in bulk. You can either increase your performance along with the storage capacity, or increase the storage capacity without increasing the SAN's performance, potentially offering a lower total cost of ownership.
+
+### Solutions that integrate with Elastic SAN
+
 ## Elastic SAN resources
 
 Elastic SAN has three resources:
@@ -35,21 +52,17 @@ Elastic SAN has three resources:
 - Volume groups
 - Volumes
 
+When deploying a SAN, you make selections at the SAN-level, including the redundancy of the entire SAN, as well as how much performance and storage the SAN has. Then you create volume groups which are a management construct that are used to manage volumes at scale, any settings applied to a volume group are inherited by any volumes inside that volume group. Finally, you partition the storage capacity allocated at the SAN-level into individual volumes.
+
 ### The SAN
 
-At the SAN-level, you provision storage, performance, and set the redundancy.
+At the SAN-level, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, as well as the total capacity that can be distributed to each volume within the SAN.
 
 ### Volume groups
 
-Volume groups are management constructs.
+Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network ACLs, are inherited by any volumes associated with that volume group. Your volume group's name is part of your volume's iSCSI IQN. A SAN can have up to 20 volume groups and a volume group can contain up to 1,000 volumes.
 
 ### Volumes
 
+You partition the appliance's storage capacity into individual volumes. These individual volumes can be mounted to your clients with iSCSI. A volume can connect to up to 20 different clients simultaneously. The name of your volume is part of their iSCSI IQN.
 
-
-
-## Benefits of Elastic SAN
-
-### Fully-managed and cost-effective
-
-### Solutions that integrate with Elastic SAN
