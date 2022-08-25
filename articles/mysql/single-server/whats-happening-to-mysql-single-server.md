@@ -13,13 +13,19 @@ ms.date: 09/15/2022
 
 # What's happening to Azure Database for MySQL Single Server?
 
-The Azure Database for MySQL Single Server service is on the path to retirement. Azure Database for MySQL Flexible Server service is the only Azure Database for MySQL service being supported.
+Hello! We have news to share - **Azure Database for MySQL - Single Server is on the retirement path**.
 
-Azure Database for MySQL Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. For more information about Flexible Server, visit **[Azure Database for MySQL - Flexible Server](../flexible-server/overview.md)**.
+After years of evolving the Azure Database for MySQL - Single Server service, it can no longer handle all the new features, functions, and security needs. We recommend that you upgrade to the Azure Database for MySQL - Flexible Server service. 
 
-If you're running any Azure Database for MySQL Single Server servers, then we strongly recommend you to upgrade to Azure Database for MySQL Flexible Server by following the migration steps below. 
+MySQL - Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. For more information about Flexible Server, visit **[Azure Database for MySQL - Flexible Server](../flexible-server/overview.md)**.
 
-## Migrate from a single server instance to a flexible server instance
+If you currently have an Azure Database for MySQL - Single Server service hosting production servers, we're glad to let you know that you can migrate your Azure Database for MySQL - Single Server servers to the Azure Database for MySQL - Flexible Server service.
+
+However, we know change can be disruptive to any environment, as such we want to help you with this transition.  Review the different ways to [migrate from MySQL - Single Server to MySQL - Flexible Server.](#migrate-from-single-server-to-flexible-server)
+
+We're no longer supporting MySQL - Single Server, so you must migrate to MySQL - Flexible Server in order to use your MySQL servers in Azure. We know migrating services can be a frustrating experience and we're sorry we're asking you to make this change. There are multiple ways to migrate to MySQL - Flexible Server, you can choose what works best works for you and your environment.
+
+## Migrate from single server to flexible server
 
 Learn how to migrate to Azure Database for MySQL Flexible Server.
 
@@ -27,9 +33,10 @@ Learn how to migrate to Azure Database for MySQL Flexible Server.
 - Migrate using CLI
 - Migrate using Workbench
 
->[!Warning]
->This article is not for Azure Database for MySQL Flexible Server users. It is for Azure Database for MySQL Single Server customers who need to upgrade to Flexible Server.
+> [!Warning]
+> This article is not for Azure Database for MySQL - Flexible Server users. It is for Azure Database for MySQL - Single Server customers who need to upgrade to MySQL - Flexible Server.
 
 ## Next steps
 
 - Start with [Quickstart: Create an Azure Database for MySQL flexible server](../flexible-server/quickstart-create-server-portal.md).
+
