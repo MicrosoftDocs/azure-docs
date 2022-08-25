@@ -47,6 +47,8 @@ items:
           href: ./hdinsight-overview-versioning.md
         - name: HDInsight versions
           href: ./hdinsight-component-versioning.md
+        - name: HDInsight version 5.0
+          href: ./hdinsight-50-component-versioning.md
         - name: HDInsight version 4.0
           href: ./hdinsight-40-component-versioning.md
         - name: HDInsight version 3.6
