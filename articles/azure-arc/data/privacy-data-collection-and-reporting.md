@@ -21,7 +21,7 @@ This article describes the data that Azure Arc-enabled data services transmits t
 Azure Arc-enabled data services may use some or all of the following products:
 
 - SQL MI – Azure Arc 
-- PostgreSQL server – Azure Arc
+- Azure Arc-enabled PostgreSQL
 - Azure Data Studio
 
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
@@ -127,7 +127,7 @@ The following sections show the properties, types, and descriptions that are col
 - Data controller state
    - `string: ProvisioningState` 
 
-### PostgreSQL server
+### Azure Arc-enabled PostgreSQL
 
 - The data controller ID
    - `string: DataControllerId`
