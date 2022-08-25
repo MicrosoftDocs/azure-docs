@@ -15,8 +15,6 @@ ms.author: kgremban
 
 This article shows you how to create an IoT hub using Azure CLI.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Create an IoT Hub
@@ -51,7 +49,7 @@ The previous command creates an IoT hub in the S1 pricing tier for which you are
 
 ## Remove an IoT Hub
 
-You can use Azure CLI to [delete an individual resource](/cli/azure/resource), such as an IoT hub, or delete a resource group and all its resources, including any IoT hubs.
+There are various commands to [delete an individual resource](/cli/azure/resource), such as an IoT hub, or delete a resource group and all its resources, including any IoT hubs.
 
 To [delete an IoT hub](/cli/azure/iot/hub#az-iot-hub-delete), run the following command:
 
@@ -68,7 +66,7 @@ az group delete --name {your resource group name}
 
 ## Next steps
 
-To learn more about using an IoT hub, see the following articles:
+Learn more about using an IoT hub:
 
 * [IoT Hub developer guide](iot-hub-devguide.md)
 * [Using the Azure portal to manage IoT Hub](iot-hub-create-through-portal.md)
