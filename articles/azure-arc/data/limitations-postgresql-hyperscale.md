@@ -17,15 +17,16 @@ This article describes limitations of Azure Arc-enabled PostgreSQL.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Backup and restore capabilities
+## Back up and restore 
 
-Backup and restore capabilities have been temporarily removed as we finalize designs and experiences.
+Back up and restore have been temporarily removed as we finalize designs and experiences.
 
 ## High availability
-Configuring high availability and ensuring failover in case of failures of the infrastructure is not yet available.
+
+Configuring high availability and ensuring failover to recover from infrastructure failures isn't yet available.
 
 ## Databases
-Hosting more than one database in a server group is not supported if you scaled out the deployment on several worker nodes.
+Hosting more than one database in a server group isn't supported if you scaled out the deployment on several worker nodes.
 
 ## Roles and responsibilities
 
@@ -44,7 +45,7 @@ The table below summarizes answers to frequently asked questions regarding suppo
 
 \* Azure services
 
-__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because Microsoft does not own the infrastructure and does not operate it. Customers do.
+__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because Microsoft doesn't own the infrastructure and doesn't operate it. Customers do.
 
 ## Next steps
 
