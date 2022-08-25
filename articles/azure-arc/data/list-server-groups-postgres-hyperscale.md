@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # List the Azure Arc-enabled PostgreSQL servers created in an Azure Arc Data Controller
 
-This article explains how you can retrieve the list of server groups created in your Arc Data Controller.
+This article explains how you can retrieve the list of servers created in your Arc Data Controller.
 
 To retrieve this list, use either of the following methods once you are connected to the Arc Data Controller:
 
