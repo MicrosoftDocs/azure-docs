@@ -47,26 +47,6 @@ There are several general practices to follow when using a reverse proxy in fron
 
   If you have configured multiple SignalR services behind your reverse proxy, make sure `negotiate` request and `connect` request with the same `asrs_request_id` query parameter(meaning they are for the same connection) are routed to the same SignalR service instance.
   
-* When your server goes through your reverse proxy to Azure SignalR, set `ServerEndpoint` as your reverse proxy URL. Your app server will use the URL defined in `ServerEndpoint` to start the server connections or REST API calls. [Check here for more details.](./concept-connection-string.md#client-and-server-endpoints)
-
-  There are two ways to configure `ServerEndpoint`:
-  1. Add a `ServerEndpoint` section to your ConnectionString: `Endpoint=...;AccessKey=...;ServerEndpoint=<reverse-proxy-URL>`
-  2. Configure `ServerEndpoint` when calling `AddAzureSignalR`:
-    
-        ```cs
-        services.AddSignalR().AddAzureSignalR(o =>
-        {
-            o.Endpoints = new Microsoft.Azure.SignalR.ServiceEndpoint[1]
-            {
-                new Microsoft.Azure.SignalR.ServiceEndpoint("<azure-signalr-connection-string>")
-                {
-                    ServerEndpoint = new Uri("<reverse-proxy-URL>")
-                }
-            };
-        })
-        ```
-
-
 * When reverse proxy is used, you can further secure your SignalR service by [disabling public network access](./howto-network-access-control.md) and use [private endpoints](howto-private-endpoints.md) to allow only private access from your reverse proxy to your SignalR service through VNet.
 
 ## Next steps
