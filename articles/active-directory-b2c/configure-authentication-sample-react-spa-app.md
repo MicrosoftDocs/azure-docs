@@ -251,7 +251,7 @@ You're now ready to test the React scoped access to the API. In this step, run b
     ![Screenshot that shows the React sample app with the login link.](./media/configure-authentication-sample-react-spa-app/sample-app-sign-in.png)
 
 1. Choose **Sign in using Popup**, or **Sign in using Redirect**. 
-1. Complete the sign-up or sign in process. Upon successful sign in, you should see a page with three buttons, **HelloAPI**, **Edit Profile** and **Sign Out**. 
+1. Complete the sign-up or sign in process. Upon successful sign-in, you should see a page with three buttons, **HelloAPI**, **Edit Profile** and **Sign Out**. 
     ![Screenshot that shows the React sample app with the user profile, and the call to the A P I.](./media/configure-authentication-sample-react-spa-app/sample-app-call-api.png)
 1. From the menu, select **HelloAPI** button. 
 1. Check out the result of the REST API call. The following screenshot shows the React sample REST API return value:
