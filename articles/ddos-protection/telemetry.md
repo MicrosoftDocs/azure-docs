@@ -49,10 +49,10 @@ You can view DDoS telemetry for a protected public IP address through three diff
 1. Click **Add metric** then click **Scope**.
 1. In the **Select a scope** menu select the **Subscription** that contains the public IP address you want to log.  
 1. Select **Public IP Address** for **Resource type** then select the specific public IP address you want to log metrics for, and then select **Apply**.
-1. For **Metric** select **Under DDos attack or not**.
+1. For **Metric** select **Under DDoS attack or not**.
 1. Select the **Aggregation** type as **Max**.
 
-:::image type="content" source="./media/ddos-attack-telemetry/ddos-metrics-menu.png" alt-text="Screenshot of creating ddos protection metrics menu.":::
+:::image type="content" source="./media/ddos-attack-telemetry/ddos-metrics-menu.png" alt-text="Screenshot of creating DDoS protection metrics menu.":::
 
 ### View metrics from virtual network 
 
