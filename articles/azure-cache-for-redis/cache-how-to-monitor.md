@@ -115,14 +115,14 @@ When you're seeing the aggregation type:
 - **Average** shows the average value of all data points in the time granularity.
 - **Sum** shows the sum of all data points in the time granularity and may be misleading depending on the specific metric.
 
-Under normal conditions, **Average** and **Max** are similar because only one node emits these metrics (the primary node). In a scenario where the number of connected clients changes rapidly, **Max**, **Average**, and **Min** would show different values and this is also expected behavior.
+Under normal conditions, **Average** and **Max** are similar because only one node emits these metrics (the primary node). In a scenario where the number of connected clients changes rapidly, **Max**, **Average**, and **Min** would show different values and is also expected behavior.
 
 Generally, **Average** shows you a smooth chart of your desired metric and reacts well to changes in time granularity. **Max** and **Min** can hide large changes in the metric if the time granularity is large but can be used with a small time granularity to help pinpoint exact times when large changes occur in the metric.
 
 The types **Count** and **“Sum** can be misleading for certain metrics (connected clients included). Instead, we suggest you look at the **Average** metrics and not the **Sum** metrics.
 
 > [!NOTE]
-> Even when the cache is idle with no connected active client applications, you might see some cache activity, such as connected clients, memory usage, and operations being performed. This activity is normal during the operation of an instance of Azure Cache for Redis.
+> Even when the cache is idle with no connected active client applications, you might see some cache activity, such as connected clients, memory usage, and operations being performed. The activity is normal in the operation of cache.
 >
 
 ## List of metrics
@@ -164,7 +164,7 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
 - Cache Misses
   -The number of failed key lookups during the specified reporting interval. This number maps to `keyspace_misses` from the Redis INFO command. Cache misses don't necessarily mean there's an issue with the cache. For example, when using the cache-aside programming pattern, an application looks first in the cache for an item. If the item isn't there (cache miss), the item is retrieved from the database and added to the cache for next time. Cache misses are normal behavior for the cache-aside programming pattern. If the number of cache misses is higher than expected, examine the application logic that populates and reads from the cache. If items are being evicted from the cache because of memory pressure, then there may be some cache misses, but a better metric to monitor for memory pressure would be `Used Memory` or `Evicted Keys`.
 - Cache Miss Rate
-  - The percent of unsuccessful key lookups during the specified reporting interval. This metric is not available in Enterprise or Enterprise Flash tier caches.
+  - The percent of unsuccessful key lookups during the specified reporting interval. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 - Cache Read
   -The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](./cache-planning-faq.yml#azure-cache-for-redis-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.
 - Cache Write
@@ -172,9 +172,9 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
 - Connected Clients
   -The number of client connections to the cache during the specified reporting interval. This number maps to `connected_clients` from the Redis INFO command. Once the [connection limit](cache-configure.md#default-redis-server-configuration) is reached, later attempts to connect to the cache fail. Even if there are no active client applications, there may still be a few instances of connected clients because of internal processes and connections.
 - Connections Created Per Second
-  - The number of instantaneous connections created per second on the cache via port 6379 or 6380 (SSL). This metric can help identify whether clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and Redis Server Load. This metric is not available in Enterprise or Enterprise Flash tier caches.
+  - The number of instantaneous connections created per second on the cache via port 6379 or 6380 (SSL). This metric can help identify whether clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and Redis Server Load. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 - Connections Closed Per Second
-  - The number of instantaneous connections closed per second on the cache via port 6379 or 6380 (SSL). This metric can help identify whether clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and Redis Server Load. This metric is not available in Enterprise or Enterprise Flash tier caches.
+  - The number of instantaneous connections closed per second on the cache via port 6379 or 6380 (SSL). This metric can help identify whether clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and Redis Server Load. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 - CPU
   -The CPU utilization of the Azure Cache for Redis server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter. Note: This metric can be noisy due to low priority background security processes running on the node, so we recommend monitoring Server Load metric to track load on a Redis server.
 - Errors
@@ -196,13 +196,13 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
 - Geo Replication Data Sync Offset (preview)
   - Depicts the approximate amount of data in bytes that has yet to be synchronized to geo-secondary cache. This metric is emitted from the geo-primary cache instance.  This metric is only available for Premium tier geo-replication enabled caches.
 - Geo Replication Full Sync Event Finished (preview)
-  - Depicts the completion of full synchronization between geo-replicated caches. This metric is emitted from the geo-secondary cache instance. When there are lot of writes on geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking a RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
-  - This metric reports 0 most of the time because geo-replication uses partial re-synchronizations for any new data added after the initial full synchronization. This metric is only available for Premium tier geo-replication enabled caches.
+  - Depicts the completion of full synchronization between geo-replicated caches. This metric is emitted from the geo-secondary cache instance. When you see lots of writes on geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
+  - This metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization. This metric is only available for Premium tier geo-replication enabled caches.
 - Geo Replication Full Sync Event Started (preview)
-  - Depicts the start of full synchronization between geo-replicated caches. This metric is emitted from the geo-secondary cache instance. When there are lot of writes in geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking a RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
-  - This metric reports 0 most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization. This metric is only available for Premium tier geo-replication enabled caches.
+  - Depicts the start of full synchronization between geo-replicated caches. This metric is emitted from the geo-secondary cache instance. When there are lot of writes in geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
+  - This metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization. This metric is only available for Premium tier geo-replication enabled caches.
 - Geo Replication Healthy
-  - Depicts the status of the geo-replication link between caches. There can be 2 possible states that the replication link can be in:
+  - Depicts the status of the geo-replication link between caches. There can be two possible states that the replication link can be in:
     - 0 disconnected/unhealthy
     - 1 – healthy
   - In the Premium tier, this metric is emitted from the geo-secondary cache instance and relies on the replication info returned by geo-secondary instance. This feature is GA for the Enterprise and Enterprise Flash tiers, and in preview on the Premium tier.
@@ -223,7 +223,7 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
 - Used Memory Percentage
   - The percent of total memory that is being used during the specified reporting interval.  This value references the `used_memory` value from the Redis INFO command to calculate the percentage.
 - Used Memory RSS
-  - The amount of cache memory used in MB during the specified reporting interval, including fragmentation and metadata. This value maps to `used_memory_rss` from the Redis INFO command. This metric is not available in Enterprise or Enterprise Flash tier caches.
+  - The amount of cache memory used in MB during the specified reporting interval, including fragmentation and metadata. This value maps to `used_memory_rss` from the Redis INFO command. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 
 ## Create alerts
 
