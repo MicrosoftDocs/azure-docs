@@ -251,7 +251,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Windows Server 2008 R2 SP1                               | X | X | X |
 | Windows Server 2008 R2                                   |   |   | X |
 | Windows Server 2008 SP2                                  |   | X |   |
-| Windows 11 client OS                                     | X<sup>2</sup> |  |  |
+| Windows 11 Client Enterprise and Pro                     | X<sup>2</sup> |  |  |
 | Windows 10 1803 (RS4) and higher                         | X<sup>2</sup> |  |  |
 | Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | 
 | Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X |   |
@@ -265,6 +265,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|:---:
+| AlmaLinux 8.5                                               | X |   |   |
 | AlmaLinux 8                                                 | X | X |   |
 | Amazon Linux 2017.09                                        |   | X |   |
 | Amazon Linux 2                                              |   | X |   |
@@ -272,6 +273,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | CentOS Linux 7                                              | X | X | X |
 | CentOS Linux 6                                              |   | X |   |
 | CentOS Linux 6.5+                                           |   | X | X |
+| CBL-Mariner 2.0                                             | X |   |   |
 | Debian 11                                                   | X |   |   |
 | Debian 10                                                   | X | X |   |
 | Debian 9                                                    | X | X | X |
@@ -282,11 +284,13 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Oracle Linux 7                                              | X | X | X |
 | Oracle Linux 6                                              |   | X |   |
 | Oracle Linux 6.4+                                           |   | X | X |
+| Red Hat Enterprise Linux Server 8.6                         | X |   |   |
 | Red Hat Enterprise Linux Server 8                           | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
 | Rocky Linux 8                                               | X | X |   |
+| SUSE Linux Enterprise Server 15 SP4                         | X |   |   |
 | SUSE Linux Enterprise Server 15 SP2                         | X |   |   |
 | SUSE Linux Enterprise Server 15 SP1                         | X | X |   |
 | SUSE Linux Enterprise Server 15                             | X | X |   |
