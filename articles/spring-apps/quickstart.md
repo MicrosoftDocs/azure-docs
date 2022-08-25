@@ -80,7 +80,7 @@ Use the following steps to provision a service instance.
 
 1. Choose **Y** to install the Azure Spring Apps extension and run it.
 
-## Create an app in your instance
+## Create an app in your Azure Spring Apps instance
 
 Use the following command to specify the app name on Azure Spring Apps as *hellospring*.
 
@@ -92,7 +92,7 @@ az spring app create \
     --assign-endpoint true
 ```
 
-## Clone the Spring Boot sample project
+## Clone and build the Spring Boot sample project
 
 Use the following steps to clone the Spring Boot sample project.
 
@@ -108,13 +108,13 @@ Use the following steps to clone the Spring Boot sample project.
    cd gs-spring-boot/complete
    ```
 
-Use the following [Maven](https://maven.apache.org/what-is-maven.html) command to build the project.
+1. Use the following [Maven](https://maven.apache.org/what-is-maven.html) command to build the project.
 
 ```azurecli-interactive
 mvn clean package -DskipTests
 ```
 
-## Deploy the local app on Azure Spring Apps
+## Deploy the local app to Azure Spring Apps
 
 Use the following command to deploy the *.jar* file for the app (*target/spring-boot-complete-0.0.1-SNAPSHOT.jar* on Windows).
 
@@ -199,7 +199,7 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 
 1. Select **Review and create**.
 
-## Import project
+## Import the project
 
 Use the following steps to import the project.
 
