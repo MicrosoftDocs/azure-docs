@@ -22,7 +22,7 @@ The Azure Active Directory (Azure AD) provisioning service supports a [SCIM 2.0]
 - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). [!INCLUDE [active-directory-p1-license.md](../../../includes/active-directory-p1-license.md)]
 - Administrator role for installing the agent. This task is a one-time effort and should be an Azure account that's either a hybrid administrator or a global administrator. 
 - Administrator role for configuring the application in the cloud (application administrator, cloud application administrator, global administrator, or a custom role with permissions).
-- Windows server 2012R2 for installing the provisioning agent.
+- A computer with at least 3 GB of RAM, to host a provisioning agent. The computer should have Windows Server 2016 or a later version of Windows Server, with connectivity to the target application, and with outbound connectivity to login.microsoftonline.com, other Microsoft Online Services and Azure domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy.
 
 ## Deploying Azure AD provisioning agent
 The Azure AD Provisioning agent can be deployed on the same server hosting a SCIM enabled application, or a seperate server, providing it has line of sight to the application's SCIM endpoint. A single agent also supports provision to multiple applications hosted locally on the same server or seperate hosts, again as long as each SCIM endpoint is reachable by the agent.  
@@ -51,7 +51,7 @@ Once the agent is installed, no further configuration is necesary on-prem, and a
  13.  Monitor using the [provisioning logs](../../active-directory/reports-monitoring/concept-provisioning-logs.md).
 
 The following video provides an overview of on-premises provisoning.
-> [!VIDEO https://aka.ms/OnPremProvisioningVideo]
+> [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
 
 ## Additional requirements
 * Ensure your [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) implementation meets the [Azure AD SCIM requirements](use-scim-to-provision-users-and-groups.md).
