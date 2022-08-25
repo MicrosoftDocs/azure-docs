@@ -336,32 +336,37 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 ### Azure NetApp Files Support
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                            | Type         | Notes                       |
-> | ---------------------------------- | -----------------------------------------------------------------------| -----------  | --------------------------- |
-> | `ANF_use_for_HANA_data`            | Create Azure NetApp Files volume for HANA data.                        | Optional     |                             |
-> | `ANF_use_existing_data_volume`     | Use existing Azure NetApp Files volume for HANA data.                  | Optional     | Use for pre-created volumes |
-> | `ANF_data_volume_name`             | Azure NetApp Files volume name for HANA data.                          | Optional     |                             |
-> | `ANF_HANA_data_volume_size`        | Azure NetApp Files volume size in GB for HANA data.                    | Optional     | default size 256            |
-> |                                    |                                                                        |              |                             |
-> | `ANF_use_for_HANA_log`             | Create Azure NetApp Files volume for HANA log.                         | Optional     |                             |
-> | `ANF_use_existing_log_volume`      | Use existing Azure NetApp Files volume for HANA log.                   | Optional     | Use for pre-created volumes |
-> | `ANF_log_volume_name`              | Azure NetApp Files volume name for HANA log.                           | Optional     |                             |
-> | `ANF_HANA_log_volume_size`         | Azure NetApp Files volume size in GB for HANA log.                     | Optional     | default size 128            |
-> |                                    |                                                                        |              |                             |
-> | `ANF_use_for_HANA_shared`          | Create Azure NetApp Files volume for HANA shared.                      | Optional     |                             |
-> | `ANF_use_existing_shared_volume`   | Use existing Azure NetApp Files volume for HANA shared.                | Optional     | Use for pre-created volumes |
-> | `ANF_shared_volume_name`           | Azure NetApp Files volume name for HANA shared.                        | Optional     |                             |
-> | `ANF_HANA_shared_volume_size`      | Azure NetApp Files volume size in GB for HANA shared.                  | Optional     | default size 128            |
-> |                                    |                                                                        |              |                             |
-> | `ANF_use_for_sapmnt`               | Create Azure NetApp Files volume for sapmnt.                           | Optional     |                             |
-> | `ANF_use_existing_sapmnt_volume`   | Use existing Azure NetApp Files volume for sapmnt.                     | Optional     | Use for pre-created volumes |
-> | `ANF_sapmnt_volume_name`           | Azure NetApp Files volume name for sapmnt.                             | Optional     |                             |
-> | `ANF_sapmnt_volume_size`           | Azure NetApp Files volume size in GB for sapmnt.                       | Optional     | default size 128            |
-> |                                    |                                                                        |              |                             |
-> | `ANF_use_for_usrsap`               | Create Azure NetApp Files volume for usrsap.                           | Optional     |                             |
-> | `ANF_use_existing_usrsap_volume`   | Use existing Azure NetApp Files volume for usrsap.                     | Optional     | Use for pre-created volumes |
-> | `ANF_usrsap_volume_name`           | Azure NetApp Files volume name for usrsap.                             | Optional     |                             |
-> | `ANF_usrsap_volume_size`           | Azure NetApp Files volume size in GB for usrsap.                       | Optional     | default size 128            |
+> | Variable                            | Description                                                            | Type         | Notes                       |
+> | ----------------------------------- | -----------------------------------------------------------------------| -----------  | --------------------------- |
+> | `ANF_HANA_data`                     | Create Azure NetApp Files volume for HANA data.                        | Optional     |                             |
+> | `ANF_HANA_data_use_existing_volume` | Use existing Azure NetApp Files volume for HANA data.                  | Optional     | Use for pre-created volumes |
+> | `ANF_HANA_data_volume_name`         | Azure NetApp Files volume name for HANA data.                          | Optional     |                             |
+> | `ANF_HANA_data_volume_size`         | Azure NetApp Files volume size in GB for HANA data.                    | Optional     | default size 256            |
+> | `ANF_HANA_data_volume_throughput`   | Azure NetApp Files volume throughput for HANA data.                    | Optional     | default is 128 MBs/s        |
+> |                                     |                                                                        |              |                             |
+> | `ANF_HANA_log`                      | Create Azure NetApp Files volume for HANA log.                         | Optional     |                             |
+> | `ANF_HANA_log_use_existing`         | Use existing Azure NetApp Files volume for HANA log.                   | Optional     | Use for pre-created volumes |
+> | `ANF_HANA_log_volume_name`          | Azure NetApp Files volume name for HANA log.                           | Optional     |                             |
+> | `ANF_HANA_log_volume_size`          | Azure NetApp Files volume size in GB for HANA log.                     | Optional     | default size 128            |
+> | `ANF_HANA_log_volume_throughput`    | Azure NetApp Files volume throughput for HANA log.                     | Optional     | default is 128 MBs/s        |
+> |                                     |                                                                        |              |                             |
+> | `ANF_HANA_shared`                   | Create Azure NetApp Files volume for HANA shared.                      | Optional     |                             |
+> | `ANF_HANA_shared_use_existing`      | Use existing Azure NetApp Files volume for HANA shared.                | Optional     | Use for pre-created volumes |
+> | `ANF_HANA_shared_volume_name`       | Azure NetApp Files volume name for HANA shared.                        | Optional     |                             |
+> | `ANF_HANA_shared_volume_size`       | Azure NetApp Files volume size in GB for HANA shared.                  | Optional     | default size 128            |
+> | `ANF_HANA_shared_volume_throughput` | Azure NetApp Files volume throughput for HANA shared.                  | Optional     | default is 128 MBs/s        |
+> |                                     |                                                                        |              |                             |
+> | `ANF_sapmnt`                        | Create Azure NetApp Files volume for sapmnt.                           | Optional     |                             |
+> | `ANF_sapmnt_use_existing_volume`    | Use existing Azure NetApp Files volume for sapmnt.                     | Optional     | Use for pre-created volumes |
+> | `ANF_sapmnt_volume_name`            | Azure NetApp Files volume name for sapmnt.                             | Optional     |                             |
+> | `ANF_sapmnt_volume_size`            | Azure NetApp Files volume size in GB for sapmnt.                       | Optional     | default size 128            |
+> | `ANF_sapmnt_throughput`             | Azure NetApp Files volume throughput for sapmnt.                       | Optional     | default is 128 MBs/s        |
+> |                                     |                                                                        |              |                             |
+> | `ANF_usr_sap`                       | Create Azure NetApp Files volume for usrsap.                           | Optional     |                             |
+> | `ANF_usr_sap_use_existing`          | Use existing Azure NetApp Files volume for usrsap.                     | Optional     | Use for pre-created volumes |
+> | `ANF_usr_sap_volume_name`           | Azure NetApp Files volume name for usrsap.                             | Optional     |                             |
+> | `ANF_usr_sap_volume_size`           | Azure NetApp Files volume size in GB for usrsap.                       | Optional     | default size 128            |
+> | `ANF_usr_sap_throughput`            | Azure NetApp Files volume throughput for usrsap.                       | Optional     | default is 128 MBs/s        |
 
 
 ## Oracle parameters

@@ -2,8 +2,8 @@
 title: Azure backup and restore plan to protect against ransomware | Microsoft Docs
 description: Learn what to do before and during a ransomware attack to protect your critical business systems and ensure a rapid recovery of business operations.
 author: TerryLanfear
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
