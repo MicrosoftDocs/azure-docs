@@ -37,7 +37,7 @@ Virtual network encryption has the following requirements:
 
 - Accelerated Networking must be enabled on the network interface of the virtual machine. For more information about Accelerated Networking, see [What is Accelerated Networking?](/azure/virtual-network/accelerated-networking-overview).
 
-Virtual Network encryption provides two methods of control when it includes VM sizes that don't meet the minimum requirements:
+Virtual Network encryption provides two methods of control when it includes virtual machine sizes that don't meet the minimum requirements:
 
 - **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be **dropped**. This happens if a virtual, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
 
@@ -51,7 +51,7 @@ The use cases for Azure Virtual Network encryption are for scenarios where virtu
 
 ## Availability
 
-Azure Virtual Network encryption is available in the following regions during the preview.:
+Azure Virtual Network encryption is available in the following regions during the preview:
 
 - East US 2 EUAP
 
@@ -75,7 +75,7 @@ Azure Virtual Network encryption has the following limitations:
 
 - Swift - Services using swift will observe connectivity failure to swift containers injected in a virtual network. A fix is currently in progress.
 
-- Gen8 behind Internal load balancer - If you enable virtual network encryption after provisioning virtual machines, it may cause connectivity problems to due the unavailability of this feature on Gen8 clusters. Virtual machines on Gen8 clusters behind an ILB will see connectivity loss accessing the virtual machines via the internal load balancer. Once support is extended to Gen8 clusters, ILB connectivity will function, but existing connections will drop.
+- Gen8 behind internal load balancer - If you enable virtual network encryption after provisioning virtual machines, it may cause connectivity problems to due the unavailability of this feature on Gen8 clusters. Virtual machines on Gen8 clusters behind an ILB will see connectivity loss accessing the virtual machines via the internal load balancer. Once support is extended to Gen8 clusters, ILB connectivity will function, but existing connections will drop.
 
 ## Next steps
 
