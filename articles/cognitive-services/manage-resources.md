@@ -107,7 +107,7 @@ To purge a deleted cognitive service resource, use the following commands. Where
 > Once a resource is purged, it is permanently deleted and cannot be restored. You will lose all data and keys associated with the resource.
 
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 If you need to purge a deleted resource, the steps are similar to recovering a deleted resource.
 
