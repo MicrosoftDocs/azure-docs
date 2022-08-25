@@ -88,7 +88,7 @@ If these resource providers are not already registered, you can register them us
 Azure PowerShell:
 
 ```azurepowershell-interactive
-Login-AzAccount
+Connect-AzAccount
 Set-AzContext -SubscriptionId [subscription you want to onboard]
 Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
 Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
