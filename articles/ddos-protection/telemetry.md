@@ -52,7 +52,7 @@ You can view DDoS telemetry for a protected public IP address through three diff
 1. For **Metric** select **Under DDoS attack or not**.
 1. Select the **Aggregation** type as **Max**.
 
-:::image type="content" source="./media/ddos-attack-telemetry/ddos-metrics-menu.png" alt-text="Screenshot of creating DDoS protection metrics menu.":::
+:::image type="content" source="./media/ddos-attack-telemetry/ddos-metrics-menu.png" alt-text="Screenshot of creating DDoS protection metrics menu." lightbox="./media/ddos-attack-telemetry/ddos-metrics-menu.png":::
 
 ### View metrics from virtual network 
 
@@ -66,7 +66,7 @@ You can view DDoS telemetry for a protected public IP address through three diff
 >[!NOTE]
 >To filter IP Addresses select **Add filter**. Under **Property**, select **Protected IP Address**, and the operator should be set to **=**. Under **Values**, you will see a dropdown of public IP addresses, associated with the virtual network, that are protected by DDoS protection.
 
-:::image type="content" source="./media/ddos-attack-telemetry/vnet-ddos-metrics.png" alt-text="Screenshot DDoS diagnostic settings.":::
+:::image type="content" source="./media/ddos-attack-telemetry/vnet-ddos-metrics.png" alt-text="Screenshot of DDoS diagnostic settings." lightbox="./media/ddos-attack-telemetry/vnet-ddos-metrics.png":::
 
 ### View metrics from Public IP address
 
@@ -82,8 +82,8 @@ You can view DDoS telemetry for a protected public IP address through three diff
 
 DDoS Protection Standard applies three auto-tuned mitigation policies (TCP SYN, TCP & UDP) for each public IP address of the protected resource, in the virtual network that has DDoS protection enabled. You can view the policy thresholds by selecting the  **Inbound TCP packets to trigger DDoS mitigation** and **Inbound UDP packets to trigger DDoS mitigation** metrics with **aggregation** type as 'Max', as shown in the following picture:
 
-![View mitigation policies](./media/manage-ddos-protection/view-mitigation-policies.png)
 
+:::image type="content" source="./media/manage-ddos-protection/view-mitigation-policies.png" alt-text="Screenshot of viewing mitigation policies." lightbox="./media/manage-ddos-protection/view-mitigation-policies.png":::
 ## Validate and test
 
 To simulate a DDoS attack to validate DDoS protection telemetry, see [Validate DDoS detection](test-through-simulations.md).
