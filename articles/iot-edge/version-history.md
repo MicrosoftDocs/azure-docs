@@ -20,7 +20,7 @@ Azure IoT Edge is governed by Microsoft's [Modern Lifecycle Policy](/lifecycle/p
 
 The IoT Edge documentation on this site is available for two different versions of the product, so that you can choose the content that applies to your IoT Edge environment. Currently, the two supported versions are:
 
-* **IoT Edge 1.4** contains content for new features and capabilities that are in the latest stable release. This version of the documentation also contains content for the IoT Edge for Linux on Windows (EFLOW) continuous release version.
+* **IoT Edge 1.4 (LTS)** is the latest long-term support (LTS) version of IoT Edge and contains content for new features and capabilities that are in the latest stable release. The documentation for this version covers all features and capabilities from all previous versions through 1.3. This version of the documentation also contains content for the IoT Edge for Linux on Windows (EFLOW) continuous release version.
 * **IoT Edge 1.1 (LTS)** is the first long-term support (LTS) version of IoT Edge. The documentation for this version covers all features and capabilities from all previous versions through 1.1. This version of the documentation also contains content for the IoT Edge for Linux on Windows long-term support version, which is based on IoT Edge 1.1 LTS.
   * This documentation version will be stable through the supported lifetime of version 1.1, and won't reflect new features released in later versions. IoT Edge 1.1 LTS will be supported until December 13, 2022 to match the [.NET Core 3.1 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
