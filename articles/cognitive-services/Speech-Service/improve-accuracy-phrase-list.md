@@ -24,14 +24,17 @@ Examples of phrases include:
 
 Phrase lists are simple and lightweight:
 - **Just-in-time**: A phrase list is provided just before starting the speech recognition, eliminating the need to train a custom model. 
-- **Lightweight**: You don't need a large data set. Simply provide a word or phrase to give it importance.
+- **Lightweight**: You don't need a large data set. Simply provide a word or phrase to boost its recognition.
 
-You can use phrase lists with the [Speech Studio](speech-studio-overview.md), [Speech SDK](quickstarts/setup-platform.md), or [Speech Command Line Interface (CLI)](spx-overview.md). The Batch transcription API does not support phrase lists. 
+You can use phrase lists with the [Speech Studio](speech-studio-overview.md), [Speech SDK](quickstarts/setup-platform.md), or [Speech Command Line Interface (CLI)](spx-overview.md).
 
 There are some situations where [training a custom model](custom-speech-overview.md) that includes phrases is likely the best option to improve accuracy. In these cases you would not use a phrase list: 
 - If you need to use a large list of phrases. A phrase list shouldn't have more than 500 phrases. 
-- If you need a phrase list for languages that are not currently supported. 
-- If you use a custom endpoint. Phrase lists can't be used with custom endpoints. 
+- If you need a phrase list for languages that are not currently supported.
+- If you need to do batch transcription. The Batch transcription API does not support phrase lists.
+
+> [!TIP]
+> You can use phrase lists with both standard and custom speech.
 
 ## Try it in Speech Studio
 
