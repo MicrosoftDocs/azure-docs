@@ -128,7 +128,7 @@ Example: `armclient patch <netapp account resource id>?api-version=2022-03-01 ./
 
 Copy the `Azure-AsyncOperation` header from the response and poll the URI using `armclient get <Azure-AsyncOperation value>`. 
 
-<!-- insert image get eng update -->
+:::image type="content" source="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png" alt-text="Screenshot of a drop-down menu with get, encrypt, and decrypt options selected." lightbox="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png":::
 
 ## Create an Azure NetApp Files volume using customer-manager keys
 
