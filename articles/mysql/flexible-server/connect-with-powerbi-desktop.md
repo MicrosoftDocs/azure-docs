@@ -86,7 +86,7 @@ Power Query Desktop provides a set of advanced options that you can add to your 
 | Advanced option	| Description |
 | --------------- | ----------- |
 | Command timeout in minutes | If your connection lasts longer than 10 minutes (the default timeout), you can enter another value in minutes to keep the connection open longer. This option is only available in Power Query Desktop. |
-| SQL statement | For information, go to [Import data from a database using native database query](https://docs.microsoft.com/power-query/native-database-query). |
+| SQL statement | For information, go to [Import data from a database using native database query](/power-query/native-database-query). |
 | Include relationship columns | If checked, includes columns that might have relationships to other tables. If this box is cleared, you won’t see those columns. |
 | Navigate using full hierarchy | If checked, the navigator displays the complete hierarchy of tables in the database you're connecting to. If cleared, the navigator displays only the tables whose columns and rows contain data. |
 | | |
@@ -94,5 +94,5 @@ Power Query Desktop provides a set of advanced options that you can add to your 
 Once you've selected the advanced options you require, select **OK** in Power Query Desktop to connect to your MySQL database.
 
 ## Next Steps
-[Build visuals with Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-what-is-desktop)
+[Build visuals with Power BI Desktop](/power-bi/fundamentals/desktop-what-is-desktop)
 
