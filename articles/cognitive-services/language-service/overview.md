@@ -39,7 +39,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
 * [Language Studio](language-studio.md)
 * [REST API and client library (Azure SDK)](named-entity-recognition/quickstart.md)-->
 
-### Personally identifying (PII) and health (PHI) information  detection
+### Personally identifying (PII) and health (PHI) information detection
 
 :::row:::
    :::column span="":::
@@ -48,6 +48,41 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
    :::column span="":::
       [PII detection](./personally-identifiable-information/overview.md) is a pre-configured feature that identifies, categorizes, and redacts sensitive information in both [unstructured text documents](./personally-identifiable-information/how-to-call.md), and [conversation transcripts](./personally-identifiable-information/how-to-call-for-conversations.md). For example: phone numbers, email addresses, forms of identification, [and more](./personally-identifiable-information/concepts/entity-categories.md).
 
+   :::column-end:::
+:::row-end:::
+
+### Language detection
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="media/studio-examples/language-detection.png" alt-text="A screenshot of a language detection example." lightbox="media/studio-examples/language-detection.png":::
+   :::column-end:::
+   :::column span="":::
+      [Language detection](./language-detection/overview.md) is a pre-configured feature that can detect the language a document is written in, and returns a language code for a wide range of languages, variants, dialects, and some regional/cultural languages.
+
+   :::column-end:::
+:::row-end:::
+
+### Sentiment Analysis and opinion mining
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="media/studio-examples/sentiment-analysis-example.png" alt-text="A screenshot of a language detection example." lightbox="media/studio-examples/sentiment-analysis-example.png":::
+   :::column-end:::
+   :::column span="":::
+      [Sentiment analysis and opinion mining](./language-detection/overview.md) are pre-configured features that help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text.
+
+   :::column-end:::
+:::row-end:::
+
+### Summarization
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="media/studio-examples/summarization-example.png" alt-text="A screenshot of a language detection example." lightbox="media/studio-examples/summarization-example.png":::
+   :::column-end:::
+   :::column span="":::
+      [Summarization](./summarization/overview.md) is a pre-configured feature that uses extractive text summarization to produce a summary of documents and conversation transcriptions. It extracts sentences that collectively represent the most important or relevant information within the original content.
    :::column-end:::
 :::row-end:::
 
