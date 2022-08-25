@@ -112,7 +112,6 @@ The following features are supported for Linux containers:
 
 ::: zone pivot="container-windows"
 
-- Storage mounts are not supported for native Windows (non-containerized) apps.
 - Azure blobs are not supported.
 - [Storage firewall](../storage/common/storage-network-security.md) is supported only through [private endpoints](../storage/common/storage-private-endpoints.md) and [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) (when [VNET integration](./overview-vnet-integration.md) is used).
 - FTP/FTPS access to mounted storage not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
