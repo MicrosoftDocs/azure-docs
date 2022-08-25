@@ -113,7 +113,7 @@ Internally, Microsoft uses these technologies to support Microsoft customer call
 
 Some businesses are required to transcribe conversations in real time. You can use real-time transcription to identify keywords and trigger searches for content and resources that are relevant to the conversation, to monitor sentiment, to improve accessibility, or to provide translations for customers and agents who aren't native speakers.
 
-For scenarios that require real-time transcription, we recommend using the [Speech SDK](speech-sdk.md). Currently, speech-to-text is available in [more than 20 languages](language-support.md), and the SDK is available in C++, C#, Java, Python, JavaScript, Objective-C, and Go. Samples are available in each language on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). For the latest news and updates, see [Release notes](releasenotes.md).
+For scenarios that require real-time transcription, we recommend using the [Speech SDK](speech-sdk.md). The SDK is available in C++, C#, Java, Python, JavaScript, Objective-C, and Go. Samples are available in each language on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). For the latest news and updates, see [Release notes](releasenotes.md).
 
 Internally, Microsoft uses the previously mentioned technologies to analyze Microsoft customer calls in real time, as shown in the following diagram:
 

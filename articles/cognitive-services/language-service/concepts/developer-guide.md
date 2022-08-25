@@ -97,11 +97,10 @@ The namespaces mentioned here have the following framework/language version supp
 
 |Framework/Language  | Minimum supported version  |
 |---------|---------|
-|.NET     | [.NET standard](/dotnet/standard/net-standard?tabs=net-standard-2-0) or later        |
+|.NET     | .NET Framework 4.6.1 or newer, or .NET (formerly .NET Core) 2.0 or newer.       |
 |Java     | v8 or later        |
 |JavaScript     | v14 LTS or later        |
 |Python| v3.7 or later        |
-
 
 # [REST API](#tab/rest-api)
 
