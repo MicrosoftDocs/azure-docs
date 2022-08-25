@@ -257,6 +257,8 @@
   items:
   - name: Azure Files API reference
     href: ../files/reference.md
+  - name: Spring Cloud Azure
+    href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/files/toc.json#resource-handing
   - name: Monitoring Azure Files reference
     href: storage-files-monitoring-reference.md
   - name: Resource Manager template

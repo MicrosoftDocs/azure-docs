@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 05/08/2022
+ms.date: 08/24/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
@@ -151,9 +151,9 @@ Here are key details about the supported Markdown format:
 
 | Property | Description | Limits |
 |----------|-------|--------|
-|`@list`|A list of items that can be referenced in an example sentence.|Maximum of 10 lists. Maximum of 4,000 items per list.|
+|`@list`|A list of items that can be referenced in an example sentence.|Maximum of 20 lists. Maximum of 35,000 items per list.|
 |`speech:phoneticlexicon`|A list of phonetic pronunciations according to the [Universal Phone Set](customize-pronunciation.md). Pronunciation is adjusted for each instance where the word appears in a list or training sentence. For example, if you have a word that sounds like "cat" and you want to adjust the pronunciation to "k ae t", you would add `- cat/k ae t` to the `speech:phoneticlexicon` list.|Maximum of 15,000 entries. Maximum of 2 pronunciations per word.|
-|`#ExampleSentences`|A pound symbol (`#`) delimits a section of example sentences. The section heading can only contain letters, digits, and underscores. Example sentences should reflect the range of speech that your model should expect. A training sentence can refer to items under a `@list` by using surrounding left and right curly braces (`{@list name}`). You can refer to multiple lists in the same training sentence, or none at all.|Maximum of 50,000 example sentences|
+|`#ExampleSentences`|A pound symbol (`#`) delimits a section of example sentences. The section heading can only contain letters, digits, and underscores. Example sentences should reflect the range of speech that your model should expect. A training sentence can refer to items under a `@list` by using surrounding left and right curly braces (`{@list name}`). You can refer to multiple lists in the same training sentence, or none at all.|Maximum file size of 200MB.|
 |`//`|Comments follow a double slash (`//`).|Not applicable|
 
 Here's an example structured text file:
