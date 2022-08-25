@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/21/2022
+ms.date: 08/25/2022
 ms.author: eur
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions
 ---
 
 # Language and voice support for the Speech service
@@ -21,32 +21,26 @@ The following tables summarize language support for [speech-to-text](speech-to-t
 
 Language support varies by Speech service functionality. 
 
-**Choose a service or feature**
+**Choose a Speech feature**
 
-# [Speech-to-text](#tab/stt)
+# [Speech-to-text and Text-to-speech](#tab/stt-tts)
 
-The table in this section summarizes the locales supported for Speech-to-text. Additional remarks are included in the [Custom Speech](#custom-speech) section below.
+The table in this section summarizes the locales and voices supported for Speech-to-text and Text-to-speech. Please see the table footnotes for more details. 
 
-[!INCLUDE [Language support include](includes/language-support/stt.md)]
+Additional remarks for Speech-to-text locales are included in the [Custom Speech](#custom-speech) section below. Additional remarks for Text-to-speech locales are included in the [Prebuilt neural voices](#prebuilt-neural-voices), [Voice styles and roles](#voice-styles-and-roles), and [Custom Neural Voice](#custom-neural-voice) sections below. 
+
+[!INCLUDE [Language support include](includes/language-support/stt-tts.md)]
 
 ### Custom Speech
 
-To improve accuracy, customization is available for some languages and base model versions by uploading audio + human-labeled transcripts, plain text, structured text, and pronunciation. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
-
-# [Text-to-speech](#tab/tts)
-
-The table in this section summarizes the locales and voices supported for Text-to-speech. Please see the table footnotes for more details. Additional remarks are included in the [Prebuilt neural voices](#prebuilt-neural-voices), [Voice styles and roles](#voice-styles-and-roles), and [Custom Neural Voice](#custom-neural-voice) sections below.
-
-You can also get a full list of languages and voices supported for each specific region or endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices). To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
-
-[!INCLUDE [Language support include](includes/language-support/tts.md)]
+To improve Speech-to-text recognition accuracy, customization is available for some languages and base models. Depending on the locale, you can upload audio + human-labeled transcripts, plain text, structured text, and pronunciation data. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
 
 ### Prebuilt neural voices
 
 Each prebuilt neural voice supports a specific language and dialect, identified by locale. You can try the demo and hear the voices on [this website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
 
 > [!IMPORTANT]
-> Pricing varies for Prebuilt Neural Voice (referred to as *Neural* on the pricing page) and Custom Neural Voice (referred to as *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
+> Pricing varies for Prebuilt Neural Voice (see *Neural* on the pricing page) and Custom Neural Voice (see *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
 
 Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
 
@@ -118,6 +112,10 @@ The table in this section summarizes the locales supported for the Intent Recogn
 [!INCLUDE [Language support include](includes/language-support/intent-recognizer-pattern-matcher.md)]
 
 ***
+
+## Get locales via API and SDK
+
+You can also get a list of locales and voices supported for each specific region or endpoint through the [Speech SDK](speech-sdk.md), [Speech-to-text REST API](rest-speech-to-text.md), [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) and [Text-to-speech REST API](rest-text-to-speech.md#get-a-list-of-voices).
 
 ## Next steps
 

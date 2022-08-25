@@ -190,7 +190,7 @@ A common task for speech translation is specifying the input (or source) languag
 speechTranslationConfig.speechRecognitionLanguage = "it-IT";
 ```
 
-The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig#speechrecognitionlanguage) property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig#speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 ## Choose one or more target languages
 
@@ -198,7 +198,7 @@ The Speech SDK can translate to multiple target languages in parallel.
 The available target languages are somewhat different from the source language list. You specify target languages by using a language code, rather than a locale.
 
 For a list of language codes for text targets, see 
-[the speech translation table on the language support page](../../../language-support.md). You can also find details about translation to synthesized languages there.
+[the speech translation table on the language support page](../../../language-support.md?tabs=speech-translation). You can also find details about translation to synthesized languages there.
 
 The following code adds German as a target language:
 
