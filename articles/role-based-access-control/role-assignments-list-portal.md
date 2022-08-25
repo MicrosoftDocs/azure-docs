@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/12/2021
+ms.date: 08/26/2022
 ms.author: rolyon
 ---
 
@@ -76,11 +76,11 @@ To list access for a user, group, service principal, or managed identity, you li
 
 1. Click **Access control (IAM)**.
 
-1. Click the **Check access** tab.
+    ![Resource group access control - Check access tab](./media/shared/rg-access-control.png)
 
-    ![Resource group access control - Check access tab](./media/role-assignments-list-portal/rg-access-control-check-access.png)
+1. On the **Check access** tab, click the **Check access** button.
 
-1. In the **Find** list, select the user, group, service principal, or managed identity you want to check access for.
+1. In the **Check access** pane, click **User, group, or service principal** or **Managed identity**.
 
 1. In the search box, enter a string to search the directory for display names, email addresses, or object identifiers.
 

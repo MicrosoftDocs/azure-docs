@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 10/15/2021
+ms.date: 08/26/2022
 ms.author: rolyon
 ms.custom: it-pro,subject-rbac-steps
 
