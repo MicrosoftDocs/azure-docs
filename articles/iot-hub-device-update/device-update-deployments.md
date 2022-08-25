@@ -29,12 +29,12 @@ Update deployments can be scheduled to start immediately or to start in the futu
 
 ### Automatic Rollback Policy
 
-After deploying an update it is critical to ensure that 
-- Devices are in a clean state post-install i.e., if an update partially fails, devices should be back to their last known good state.
-- Device ecosystem should be consistent i.e., all devices in a group should be running the same version for easier manageability.
+After deploying an update, it is critical to ensure that 
+- Devices are in a clean state post-install that is, if an update partially fails, devices should be back to their last known good state.
+- Device ecosystem should be consistent that is, all devices in a group should be running the same version for easier manageability.
 - The rollback process should be as hands-off as possible, with an option for the device operator to intervene manually only under rare, special circumstances.
 
-To enable device operators to meet these goals, update deployments can be configured with an automatic rollback policy from the cloud. This allows to define a rollback trigger policy by settingb thresholds in terms of percentage as well as minimum number of devices failed. Once the threshold has been met, all the devices in the group will be rolled back to the selected update version. 
+To enable device operators to meet these goals, update deployments can be configured with an automatic rollback policy from the cloud. This allows to define a rollback trigger policy by setting thresholds in terms of percentage and minimum number of devices failed. Once the threshold has been met, all the devices in the group will be rolled back to the selected update version. 
 
 ## Next steps
 
