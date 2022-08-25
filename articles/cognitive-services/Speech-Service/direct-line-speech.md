@@ -21,6 +21,8 @@ Direct Line Speech is a robust, end-to-end solution for creating a flexible, ext
 
 Direct Line Speech offers the highest levels of customization and sophistication for voice assistants. It's designed for conversational scenarios that are open-ended, natural, or hybrids of the two with task completion or command-and-control use. This high degree of flexibility comes with a greater complexity, and scenarios that are scoped to well-defined tasks using natural language input may want to consider [Custom Commands](custom-commands.md) for a streamlined solution experience.
 
+Direct Line Speech supports these locales: `ar-eg`, `ar-sa`, `ca-es`, `da-dk`, `de-de`, `en-au`, `en-ca`, `en-gb`, `en-in`, `en-nz`, `en-us`, `es-es`, `es-mx`, `fi-fi`, `fr-ca`, `fr-fr`, `gu-in`, `hi-in`, `hu-hu`, `it-it`, `ja-jp`, `ko-kr`, `mr-in`, `nb-no`, `nl-nl`, `pl-pl`, `pt-br`, `pt-pt`, `ru-ru`, `sv-se`, `ta-in`, `te-in`, `th-th`, `tr-tr`, `zh-cn`, `zh-hk`, and `zh-tw`.
+
 ## Getting started with Direct Line Speech
 
 To create a voice assistant using Direct Line Speech, create a Speech resource and Azure Bot resource in the [Azure portal](https://portal.azure.com). Then [connect the bot](/azure/bot-service/bot-service-channel-connect-directlinespeech) to the Direct Line Speech channel.
