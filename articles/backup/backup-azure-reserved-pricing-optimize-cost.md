@@ -34,7 +34,7 @@ Azure Backup Storage reserved capacity is available for a single subscription, m
 
 When you purchase Azure Backup Storage reserved capacity, you can use your reservation for backup data stored in the vault-standard tier only. A reservation is applied to your usage within the purchased scope and can’t be limited to a specific storage account, container, or object within the subscription.
 
-An Azure Backup Storage reservation covers only the amount of data that’s stored in a subscription or shared resource group. Early deletion, operations, bandwidth, and data transfer charges aren’t included in the reservation. As soon as you purchase a reservation, you’re charged for the capacity charges that match the reservation attributes at the discount rates, instead of pay-as-you-go rates. For more information on Azure reservations, see [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md).
+An Azure Backup Storage reservation covers only the amount of data that's stored in a subscription or shared resource group. Early deletion, operations, bandwidth, and data transfer charges aren’t included in the reservation. As soon as you purchase a reservation, you're charged for the capacity charges that match the reservation attributes at the discount rates, instead of pay-as-you-go rates. For more information on Azure reservations, see [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
 #### Supported account types, tiers, and redundancy options
 

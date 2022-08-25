@@ -18,7 +18,7 @@ Azure Backup enables you to save money on backup storage costs using Reserved ca
 - For more information about Azure Backup Storage reserved capacity, see [Optimize costs for Azure Backup storage with reserved capacity](backup-azure-reserved-pricing-optimize-cost.md).
 - For information about Azure Backup storage pricing, see [Azure Backup pricing page](https://azure.microsoft.com/pricing/details/backup/).
 
-## How's the reservation discount is applied?
+## How's the reservation discount applied?
 
 The reserved capacity discount applies to supported backup storage resources on an hourly basis. The reserved capacity discount is a use-it-or-lose-it discount. If you don't have any backup storage that meets the terms of the reservation for a given hour, then you lose a reservation quantity for that hour. You can't carry forward the unused reserved hours.
 
