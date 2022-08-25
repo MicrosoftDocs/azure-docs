@@ -79,7 +79,7 @@ Next, create a deployment slot to test that your application works properly with
     ```
 1. Deploy your application to the deployment slot using the tool of your choice (VS Code, Azure CLI, GitHub Actions, etc.)
 1. Confirm your application is functioning as expected in the deployment slot.
-1. [Swap your production and staging slots](deploy-staging-slots.md#swap-two-slots). This will apply the `APPSETTING_DEFAULT_OS=bullseye` app setting to production.
+1. [Swap your production and staging slots](deploy-staging-slots.md#swap-two-slots). This will apply the `ORYX_DEFAULT_OS=bullseye` app setting to production.
 1. Delete the deployment slot if you are no longer using it.
 
 ##### Resources
