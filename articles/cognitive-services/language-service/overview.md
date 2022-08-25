@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 07/21/2022
+ms.date: 08/25/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -35,9 +35,9 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
 
    :::column-end:::
 :::row-end:::
-You can use this feature with:
+<!--You can use this feature with:
 * [Language Studio](language-studio.md)
-* [REST API and client library (Azure SDK)](named-entity-recognition/quickstart.md)
+* [REST API and client library (Azure SDK)](named-entity-recognition/quickstart.md)-->
 
 ### Personally identifying (PII) and health (PHI) information  detection
 
@@ -51,10 +51,10 @@ You can use this feature with:
    :::column-end:::
 :::row-end:::
 
-You can use this feature with:
+<!--You can use this feature with:
 
 * [**Language Studio**](language-studio.md), a web-based platform where you can try PII detection without needing writing code.
-* [**REST API and client library (Azure SDK)**](./personally-identifiable-information/quickstart.md), which enables you to integrate PII detection into your applications using the REST API, or the client library available in a variety of languages.
+* [**REST API and client library (Azure SDK)**](./personally-identifiable-information/quickstart.md), which enables you to integrate PII detection into your applications using the REST API, or the client library available in a variety of languages.-->
 
 ### Key phrase extraction
 
@@ -67,10 +67,10 @@ You can use this feature with:
    :::column-end:::
 :::row-end:::
 
-You can use this feature with:
+<!--You can use this feature with:
 
 * [**Language Studio**](language-studio.md), a web-based platform where you can try key phrase extraction without needing writing code.
-* [**REST API and client library (Azure SDK)**](./key-phrase-extraction/quickstart.md), which enables you to integrate key phrase extraction into your applications using the REST API, or the client library available in a variety of languages.
+* [**REST API and client library (Azure SDK)**](./key-phrase-extraction/quickstart.md), which enables you to integrate key phrase extraction into your applications using the REST API, or the client library available in a variety of languages.-->
 
 ### Entity linking
 
@@ -83,10 +83,10 @@ You can use this feature with:
    :::column-end:::
 :::row-end:::
 
-You can use this feature with:
+<!--You can use this feature with:
 
 * [**Language Studio**](language-studio.md), a web-based platform where you can try key phrase extraction without needing writing code.
-* [**REST API and client library (Azure SDK)**](./entity-linking/quickstart.md), which enables you to integrate key phrase extraction into your applications using the REST API, or the client library available in a variety of languages.
+* [**REST API and client library (Azure SDK)**](./entity-linking/quickstart.md), which enables you to integrate key phrase extraction into your applications using the REST API, or the client library available in a variety of languages.-->
 
 
 ### Text analytics for health
@@ -100,11 +100,22 @@ You can use this feature with:
    :::column-end:::
 :::row-end:::
 
-You can use this feature with:
+<!--You can use this feature with:
 
 * [**Language Studio**](language-studio.md), a web-based platform where you can try key phrase extraction without needing writing code.
 * [**REST API and client library (Azure SDK)**](./entity-linking/quickstart.md), which enables you to integrate key phrase extraction into your applications using the REST API, or the client library available in a variety of languages.
-* [**Docker container**](text-analytics-for-health/how-to/use-containers.md), to deploy this feature on-premises, letting you bring the service closer to your data for compliance, security, or other operational reasons. 
+* [**Docker container**](text-analytics-for-health/how-to/use-containers.md), to deploy this feature on-premises, letting you bring the service closer to your data for compliance, security, or other operational reasons. -->
+
+### Custom text classification
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="media/studio-examples/single-classification.png" alt-text="A screenshot of a custom text classification example." lightbox="media/studio-examples/single-classification.png":::
+   :::column-end:::
+   :::column span="":::
+      [Custom text classification](./custom-text-classification/overview.md) enables you to build custom AI models to classify text into custom classes you define.
+   :::column-end:::
+:::row-end:::
 
 ### Custom Named Entity Recognition (Custom NER)
 
@@ -114,11 +125,24 @@ You can use this feature with:
       :::image type="content" source="media/studio-examples/custom-named-entity-recognition.png" alt-text="A screenshot of a custom NER example." lightbox="media/studio-examples/custom-named-entity-recognition.png":::
    :::column-end:::
    :::column span="":::
-      [Custom NER](custom-named-entity-recognition/overview.md) enables you to build an AI model to extract custom entity categories, using unstructured text that you provide. 
+      [Custom NER](custom-named-entity-recognition/overview.md) enables you to build custom AI models to extract custom entity categories, using unstructured text that you provide. 
    :::column-end:::
 :::row-end:::
 
-You can use this feature with:
+
+### Conversational language understanding
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="media/studio-examples/conversational-language-understanding.png" alt-text="A screenshot of a conversational language understanding example." lightbox="media/studio-examples/conversational-language-understanding.png":::
+   :::column-end:::
+   :::column span="":::
+      [Conversational language understanding (CLU)](./conversational-language-understanding/overview.md) enables users to build custom natural language understanding models to predict the overall intention of an incoming utterance and extract important information from it.
+   :::column-end:::
+:::row-end:::
+
+
+<!--You can use this feature with:
 
 * [**Language Studio**](./custom-named-entity-recognition/quickstart.md?pivots=language-studio), a web-based platform where you can do the following without needing to write code:
     * Create and manage a custom NER project
@@ -130,7 +154,7 @@ You can use this feature with:
     * Send prediction requests to your model, and integrate it into your applications
 * [**Client library (Azure SDK)**](custom-named-entity-recognition/how-to/call-api.md):
     * Send prediction requests to your model after it has been created with either Language Studio, or the REST API.
-
+-->
 
 
 ## Migrate from Text Analytics, QnA Maker, or Language Understanding (LUIS)
