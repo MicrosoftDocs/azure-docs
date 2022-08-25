@@ -38,9 +38,6 @@ $volGroupName = "desiredVolumeGroupName"
 
 ## Create the SAN, itself
 New-AzElasticSAN -ResourceGroupName $rgName -Name $sanName -AvailabilityZone $zone -Location $region -BaseSizeTb 50 -ExtendedSizeTb 1 -SkuName Premium_LRS
-
-## Create the volume group, this script only creates one.
-New-AzElasticSanVolumeGroup -ResourceGroupName $rgname -ElasticSANName $sanName -Name $volGroupName
 ```
 ---
 
@@ -79,7 +76,7 @@ Volumes are essentially usable partitions of the SAN's total capacity, you must 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-## Create the volume group, this script only creates one.
+## Create the volume, this script only creates one.
 New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -GroupName $volGroupName -Name "volumeName" -sizeGiB 50
 ```
 
