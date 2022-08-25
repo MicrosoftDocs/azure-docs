@@ -43,11 +43,11 @@ To make the connection, take the following steps:
  
 1. Select the **MySQL database** option in the connector selection.
 
-:::image type="content" source="./media/connect-with-powerbi-desktop/add-mysql-connection.png" alt-text="add-mysql-connection":::
+:::image type="content" source="./media/connect-with-powerbi-desktop/add-mysql-connection.png" alt-text="add a mysql connection in power bi":::
 
 3. In the **MySQL database** dialog, provide the name of the server and database. 
 
-  :::image type="content" source="./media/connect-with-powerbi-desktop/sign-in.png" alt-text="sign-in to Power BI":::
+  :::image type="content" source="./media/connect-with-powerbi-desktop/signin.png" alt-text="signin to Power BI":::
 
 3. Select the **Database** authentication type and input your MySQL credentials in the **User name** and **Password** boxes. Make sure to select the level to apply your credentials to.
 
