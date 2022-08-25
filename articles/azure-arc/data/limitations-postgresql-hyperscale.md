@@ -1,6 +1,6 @@
 ---
-title: Limitations of Azure Arc-enabled PostgreSQL server
-description: Limitations of Azure Arc-enabled PostgreSQL server
+title: Limitations of Azure Arc-enabled PostgreSQL
+description: Limitations of Azure Arc-enabled PostgreSQL
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -11,9 +11,9 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Limitations of Azure Arc-enabled PostgreSQL server
+# Limitations of Azure Arc-enabled PostgreSQL
 
-This article describes limitations of Azure Arc-enabled PostgreSQL server. 
+This article describes limitations of Azure Arc-enabled PostgreSQL. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -28,7 +28,7 @@ Hosting more than one database in a server group is not supported if you scaled 
 
 ## Roles and responsibilities
 
-The roles and responsibilities between Microsoft and its customers differ between Azure managed services (Platform As A Service or PaaS) and Azure hybrid (like Azure Arc-enabled PostgreSQL server). 
+The roles and responsibilities between Microsoft and its customers differ between Azure managed services (Platform As A Service or PaaS) and Azure hybrid (like Azure Arc-enabled PostgreSQL). 
 
 ### Frequently asked questions
 The table below summarizes answers to frequently asked questions regarding support roles and responsibilities.
