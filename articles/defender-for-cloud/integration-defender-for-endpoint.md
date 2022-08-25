@@ -227,7 +227,7 @@ If you've never enabled the integration for Windows, the **Allow Microsoft Defen
 
 ### Enable the MDE unified solution at scale
 
-You can also enable the MDE unified solution at scale through the supplied REST API version 2022-05-01. For full details see the [API documentation](/rest/api/securitycenter/settings/update?tabs=HTTP).
+You can also enable the MDE unified solution at scale through the supplied REST API version 2022-05-01. For full details see the [API documentation](/rest/api/defenderforcloud/settings/update?tabs=HTTP).
 
 This is an example request body for the PUT request to enable the MDE unified solution:
 
