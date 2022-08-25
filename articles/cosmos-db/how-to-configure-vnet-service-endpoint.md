@@ -36,7 +36,11 @@ The following sections describe how to configure a virtual network service endpo
 
 1. From the **All resources** blade, find the Azure Cosmos DB account that you want to secure.
 
-1. Select **Firewalls and virtual networks** from the settings menu, and choose to allow access from **Selected networks**.
+1. Select **Networking** from the settings menu
+
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/networking-pane.png" alt-text="Screenshot of networking menu option.":::
+
+1. Choose to allow access from **Selected networks**.
 
 1. To grant access to an existing virtual network's subnet, under **Virtual networks**, select **Add existing Azure virtual network**.
 
@@ -63,7 +67,7 @@ Here are the directions for registering subscription with resource provider.
 
 1. From the **All resources** blade, find the Azure Cosmos DB account that you want to secure.  
 
-1. Select **Firewalls and Azure virtual networks** from the settings menu, and choose to allow access from **Selected networks**.  
+1. Select **Networking** from the settings menu, and choose to allow access from **Selected networks**.  
 
 1. To grant access to a new Azure virtual network, under **Virtual networks**, select **Add new virtual network**.  
 
@@ -79,7 +83,7 @@ To ensure that you have access to Azure Cosmos DB metrics from the portal, you n
 
 1. From the **All resources** blade, find the Azure Cosmos DB account for which you assigned service endpoints.  
 
-1. Select **Firewalls and virtual networks** from the settings menu.  
+1. Select **Networking** from the settings menu.  
 
 1. To remove a virtual network or subnet rule, select **...** next to the virtual network or subnet, and select **Remove**.
 
