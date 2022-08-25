@@ -3,7 +3,7 @@ title: 'Register components with Device Update: Contoso Virtual Vacuum component
 description: Follow a Contoso Virtual Vacuum example to implement your own component enumerator by using proxy update.
 author: valls
 ms.author: valls
-ms.date: 12/3/2021
+ms.date: 08/25/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -478,7 +478,7 @@ For example, for *hostfw*, the value of the property `properties.version` will b
 
 ## Next steps
 
-This example is written in C++. You can choose to use C if you prefer. To explore example source codes, see:
+The example in this article used C. To explore C++ example source codes, see:
 
 - [CMakeLists.txt](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/CMakeLists.txt)
 - [contoso-component-enumerator.cpp](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/contoso-component-enumerator.cpp)
