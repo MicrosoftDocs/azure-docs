@@ -376,7 +376,7 @@ The following rule groups and rules are available when using Web Application Fir
 |99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)
 
 > [!NOTE]
-> When reviewing your WAF's logs, you might see rule ID 949110, which has a description of *Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded*.
+> When reviewing your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
 >
 > This rule indicates that the total anomaly score for the request exceeded the maximum allowable score. For more information, see [Anomaly scoring mode](#anomaly-scoring-mode).
 > 
