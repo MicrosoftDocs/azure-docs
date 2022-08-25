@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/23/2022
+ms.date: 08/25/2022
 ms.author: alkohli
 ---
 # Use Zero Touch Provisioning to configure Azure Stack Edge
@@ -50,7 +50,7 @@ The following PowerShell cmdlets are supported to configure Azure Stack Edge dev
 |Get-DeviceConfigurationStatus|Fetch the status of in-flight configuration changes being applied to the device to determine whether the update succeeded, failed, or is still in progress.|
 |Get-DeviceDiagnostic|Fetch diagnostic status of the device.|
 |Start-DeviceDiagnostic|Start a new diagnostic run to verify updated status after a device setup configuration package is applied.|
-|To-json|A utility command that formats cmdlet response in a JSON file.|
+|To-json|A utility command that formats the cmdlet response in a JSON file.|
 
 ## Prerequisites
 
@@ -87,13 +87,13 @@ Use the following steps to sign into a device, change the password, and fetch th
 1. Sign into the device and change the device password.
 
    ```azurepowershell
-   Set-Login “https://<IP address>” “<Password1>” “<NewPassword>”
+   Set-Login “https://<IP address>” “<CurrentPassword>” “<NewPassword>”
    ```
 
    For any subsequent sign into the device, use:
 
    ```azurepowershell
-   Set-Login “https://<SerialNumber>.local” “<CurrentPassword>”
+   Set-Login “https://<SerialNumber>.local” “<Password>”
    ```
 
 1. Fetch the device configuration.
@@ -159,6 +159,10 @@ Run the following cmdlets in PowerShell:
    Get-DeviceConfiguration | to-json | Out-File "C:\<Local path>\testconfig2.json"
    ```
 
+   Here's an example output:
+
+   ![PowerShell output showing Azure Stack Edge successful update.](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-zero-touch-provisioning-json-success.png)
+
 ## Apply a full configuration to a device, without device activation
 
 Once a config.json file has been created, as in the previous example, with the desired configuration, use the JSON file to change configuration settings on one or more devices.
@@ -186,7 +190,7 @@ Run the following cmdlets in PowerShell:
 
    Here's an example of output showing node.id:
 
-   ![PowerShell output showing Azure Stack Edge node.id](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-node-id.png)
+   ![PowerShell output showing Azure Stack Edge node.id.](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-node-id.png)
 
 1. Create an update package that uses a local JSON file for device configuration settings.
 
@@ -301,8 +305,11 @@ Use the following steps to sign into the device and run device diagnostics to ve
    ```azurepowershell
    Start-DeviceDiagnostic
    ```
+1. Fetch the status of the device diagnostics operation.
 
-   Sample output:
+   ```azurepowershell
+   Get-DeviceDiagnostic | to-json
+   ```
 
 ## Troubleshooting
 
