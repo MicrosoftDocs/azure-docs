@@ -156,7 +156,7 @@ ms.author: eur
 
 <sup>3</sup> The neural voice is available in public preview. Voices and styles in public preview are only available in three service [regions](../../regions.md): East US, West Europe, and Southeast Asia. 
 
-<sup>4</sup> Visemes are supported for the locale of the neural voice. However, SVG is only supported for neural voices in the `en-US` locale, and blend shapes is only supported for neural voices in the `en-US` and `zh-CN` locales. For more information, see [Get facial position with viseme](../../how-to-speech-synthesis-viseme.md). 
+<sup>4</sup> Visemes are supported for the locale of the neural voice. However, SVG is only supported for neural voices in the `en-US` locale, and blend shapes is only supported for neural voices in the `en-US` and `zh-CN` locales. For more information, see [Get facial position with viseme](../../how-to-speech-synthesis-viseme.md) and [Viseme element](../../speech-synthesis-markup.md#viseme-element). 
 
 <sup>5</sup> Phonemes are supported for the locale of the neural voice. For more information, see [SSML phonetic alphabets](../../speech-ssml-phonetic-sets.md) and [Use phonemes to improve pronunciation](../../speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation).
 

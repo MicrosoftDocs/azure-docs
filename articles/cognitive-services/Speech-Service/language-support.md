@@ -25,36 +25,28 @@ Language support varies by Speech service functionality.
 
 # [Speech-to-text](#tab/stt)
 
-The following table summarizes locale and voice support for Speech-to-text. Additional remarks are included in the [Custom Speech](#custom-speech) sections below.
+The following table summarizes the locales supported for Speech-to-text. Additional remarks are included in the [Custom Speech](#custom-speech) section below.
 
 [!INCLUDE [Language support include](includes/language-support/stt.md)]
 
-## Custom Speech
+### Custom Speech
 
 To improve accuracy, customization is available for some languages and base model versions by uploading audio + human-labeled transcripts, plain text, structured text, and pronunciation. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
 
 # [Text-to-speech](#tab/tts)
 
-The following table summarizes locale and voice support for Text-to-speech. Please see the table footnotes for more details. Additional remarks are included in the [Custom Neural Voice](#custom-neural-voice), [Prebuilt neural voices](#prebuilt-neural-voices), and [Voice styles and roles](#voice-styles-and-roles) sections below.
+The following table summarizes the locales and voices supported for Text-to-speech. Please see the table footnotes for more details. Additional remarks are included in the [Custom Neural Voice](#custom-neural-voice), [Prebuilt neural voices](#prebuilt-neural-voices), and [Voice styles and roles](#voice-styles-and-roles) sections below.
 
 [!INCLUDE [Language support include](includes/language-support/tts.md)]
-
-Each prebuilt neural voice supports a specific language and dialect, identified by locale. You can try the demo and hear the voices on [this website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
 
 You can also get a full list of languages and voices supported for each specific region or endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices). To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!IMPORTANT]
 > Pricing varies for Prebuilt Neural Voice (referred to as *Neural* on the pricing page) and Custom Neural Voice (referred to as *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
 
-### Custom Neural Voice
-
-Custom Neural Voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data. There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (preview). 
-
-Select the right locale that matches your training data to train a custom neural voice model. For example, if the recording data is spoken in English with a British accent, select `en-GB`. 
-
-With the cross-lingual feature (preview), you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages with Cross-lingual support.  
-
 ### Prebuilt neural voices
+
+Each prebuilt neural voice supports a specific language and dialect, identified by locale. You can try the demo and hear the voices on [this website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
 
 Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
 
@@ -72,6 +64,14 @@ To learn how you can configure and adjust neural voice styles and roles, see [Sp
 Use the following table to determine supported styles and roles for each neural voice.
 
 [!INCLUDE [Language support include](includes/language-support/voice-styles-and-roles.md)]
+
+### Custom Neural Voice
+
+Custom Neural Voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data. There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (preview). 
+
+Select the right locale that matches your training data to train a custom neural voice model. For example, if the recording data is spoken in English with a British accent, select `en-GB`. 
+
+With the cross-lingual feature (preview), you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages with Cross-lingual support.  
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
