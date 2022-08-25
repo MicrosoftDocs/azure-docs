@@ -74,20 +74,14 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
 5. Alternatively, you can add a nested tag by clicking the advanced tab in the **Assign Tags**
 
-!!TODO 
-![complex json error](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-advanced-not-working.png)
+![nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-advanced-nested-tag.png)
 
+## Querying basic and nested tags
+Following the example above, you can filter devices using the query box
+![querying nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-query-tags-2.png)
 
 ## Editting and deleting device twin tags using Azure Portal
-1. Select **Next: Networking** to continue creating your hub.
-
-   Choose the endpoints that devices can use to connect to your IoT hub. You can select the default setting, **Public access**, or choose **Private access**. Accept the default setting for this example.
-
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Choose the endpoints that can connect.":::
-
-2. Select **Next: Management** to continue creating your hub.
-
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Set the size and scale for a new hub using the Azure portal.":::
+!!TODO 
 
 ## Managing Tags using Azure CLI
 The following section walk through several examples of tagging using Azure CLI. For full references to the [device twin CLI](https://docs.microsoft.com/cli/azure/iot/hub/device-twin?view=azure-cli-latest#az-iot-hub-device-twin-update)
@@ -118,17 +112,30 @@ The following section walk through several examples of tagging using Azure CLI. 
     az iot hub device-twin update -n {iothub_name} \
         -d {device_id} --tags '{"country": "USA"}'
     ```
-    ![why does it have an error](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-cli-error.png)
 
-4. You can add complex nested tags by importing a json file:
+4. You can add complex nested tags by importing a json file or adding json directly to the input:
 
     ```azurecli
     az iot hub device-twin update --name {your iot hub name} \
         -d {device_id} --tags /path/to/file
     ```
+    ```azurecli
+    az iot hub device-twin update --name {your iot hub name} \
+        -d {device_id} --tags '{"country":{"county":"king"}}'
+    ```
+5. Using the command on an existing tag to update the value:
+    ```azurecli
+    az iot hub device-twin update --name {your iot hub name} \
+        -d {device_id} --tags '{"country": "Germany"}'
+    ```
+6. The following command removes the tag that was added by setting the value to **null**. 
+    ```azurecli
+    az iot hub device-twin update --name {your iot hub name} \
+        -d {device_id} --tags '{"country": null}'
+    ```
 
-5. The following command removes the tag that was added by setting the value to **null**. ?
-
+ > [!NOTE]
+    > If you are using Powershell or CloudShell>Powershell mode, you need to add a forward slash '\\' to escape all the double quotes. Example:  --tags '{\\"country\\":\\"US\\"}'
 
 ## Next steps
 
