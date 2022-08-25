@@ -5,7 +5,7 @@ description: Learn how to use Azure reliability features including availability 
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 07/20/2022
+ms.date: 08/25/2022
 ms.author: danlep
 ---
 
@@ -20,7 +20,8 @@ API Management supports the following key service capabilities that are recommen
 
 * **Multi-region deployment**, to provide resilience to regional outages
 
-[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
+> [!NOTE]
+> API Management supports availability zones and multi-region deployment in the **Premium** service tier.  
 
 ## Availability zones
 
