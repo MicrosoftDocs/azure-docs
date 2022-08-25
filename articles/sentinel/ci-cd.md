@@ -10,19 +10,15 @@ ms.custom: ignite-fall-2021
 
 # Deploy custom content from your repository (Public preview)
 
-> [!IMPORTANT]
->
-> The Microsoft Sentinel **Repositories** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Microsoft Sentinel *content* is Security Information and Event Management (SIEM) or Security Orchestration, Automation, and Response (SOAR) resources that assist customers with ingesting, monitoring, alerting, hunting, automating response, and more in Microsoft Sentinel. For example, Microsoft Sentinel content includes data connectors, parsers, workbooks, and analytics rules. For more information, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
 
 You can use the out-of-the-box (built-in) content provided in the Microsoft Sentinel Content hub and customize it for your own needs, or create your own custom content from scratch.
 
 When creating custom content, you can store and manage it in your own Microsoft Sentinel workspaces, or an external source control repository, including GitHub and Azure DevOps repositories. This article describes how to create and manage the connections between Microsoft Sentinel and external source control repositories. Managing your content in an external repository allows you to make updates to that content outside of Microsoft Sentinel, and have it automatically deployed to your workspaces.
 
-> [!TIP]
-> This article does *not* describe how to create specific types of content from scratch. For more information, see the relevant [Microsoft Sentinel GitHub wiki](https://github.com/Azure/Azure-Sentinel/wiki#get-started) for each content type.
+> [!IMPORTANT]
 >
+> The Microsoft Sentinel **Repositories** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites and scope
 
@@ -33,18 +29,6 @@ Before connecting your Microsoft Sentinel workspace to an external source contro
     Microsoft Sentinel currently supports connections only with GitHub and Azure DevOps repositories.
 
 - An **Owner** role in the resource group that contains your Microsoft Sentinel workspace. This role is required to create the connection between Microsoft Sentinel and your source control repository. If you are unable to use the Owner role in your environment, you can instead use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
-
-### Maximum connections and deployments
-
-- Each Microsoft Sentinel workspace is currently limited to **five connections**.
-
-- Each Azure resource group is limited to **800 deployments** in its deployment history. If you have a high volume of ARM template deployments in your resource group(s), you may see an `Deployment QuotaExceeded` error. For more information, see [DeploymentQuotaExceeded](/azure/azure-resource-manager/templates/deployment-quota-exceeded) in the Azure Resource Manager templates documentation.
-
-### Validate your content
-
-Deploying content to Microsoft Sentinel via a repository connection does not validate that content other than verifying that the data is in the correct ARM template format.
-
-We recommend that you validate your content templates using your regular validation process. You can leverage the [Microsoft Sentinel GitHub validation process](https://github.com/Azure/Azure-Sentinel/wiki#test-your-contribution) and tools to set up your own validation process.
 
 ## Connect a repository
 
@@ -128,16 +112,6 @@ After the deployment is complete:
 - The connection details on the **Repositories** page are updated with the link to the connection's deployment logs and the status and time of the last deployment. For example:
 
     :::image type="content" source="media/ci-cd/deployment-logs-status.png" alt-text="Screenshot of a GitHub repository connection's deployment logs.":::
-    
-### Improve deployment performance with smart deployments
-
-Smart deployments is a back-end capability that improves the performance of deployments by actively tracking modifications made to the content files of a connected repository/branch using a csv file within the '.sentinel' folder in your repository. By actively tracking modifications made to content in each commit, your Microsoft Sentinel repositories will avoid redeploying any content that has not been modified since the last deployment into your Microsoft Sentinel workspace(s). This will improve your deployment performance and avoid unintentionally tampering with unchanged content in your workspace, such as resetting the dynamic schedules of your analytics rules by redeploying them. 
-
-While smart deployments is enabled by default on newly created connections, we understand that some customers would prefer all their source control content to be deployed every time a deployment is triggered, regardless of whether that content was modified or not. You can modify your workflow to disable smart deployments to have your connection deploy all content regardless of its modification status. See [Customize the deployment workflow](#customize-the-deployment-workflow) for more details. 
-
-   > [!NOTE]
-   > This capability was launched in public preview on April 20th, 2022. Connections created prior to launch would need to be updated or recreated for smart deployments to be turned on.
-   >
 
 ### Customize the deployment workflow
 
