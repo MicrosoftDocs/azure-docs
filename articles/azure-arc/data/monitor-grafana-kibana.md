@@ -39,9 +39,9 @@ The relevant Grafana dashboards are:
 >  You will be prompted with a certificate warning because the certificates are self-signed certificates.
 
 
-## Monitor Azure Database for PostgreSQL server on Azure Arc
+## Monitor Azure Arc-enabled PostgreSQL server
 
-To access the logs and monitoring dashboards for PostgreSQL server, run the following `azdata` CLI command
+To access the logs and monitoring dashboards for an Azure Arc-enabled PostgreSQL server, run the following `azdata` CLI command
 
 ```azurecli
 az postgres arc-server endpoint list -n <name of postgreSQL instance> --k8s-namespace <namespace> --use-k8s
