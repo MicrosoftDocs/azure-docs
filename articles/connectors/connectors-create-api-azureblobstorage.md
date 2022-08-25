@@ -379,6 +379,7 @@ To create an Azure Blob Storage connection from a logic app workflow in single-t
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-connection-create.png" alt-text="Screenshot that shows the workflow designer with a Standard logic app workflow and a prompt to add a new connection for the Azure Blob Storage step.":::
 
 > [!NOTE]
+>
 > After you create your connection, if you have a different existing Azure Blob storage connection 
 > that you want to use instead, select **Change connection** in the trigger or action details editor.
 
@@ -386,23 +387,310 @@ If you have problems connecting to your storage account, review [how to access s
 
 ---
 
-## Built-in connector operations
+<a name="built-in-connector-operations"></a>
 
-### Triggers
+## Azure Blob built-in connector operations
 
-When a blob is Added or Modified in Azure Storage
+The Azure Blob built-in connector is available only for Standard logic app workflows and provides the following operations:
 
-### Actions
+| Trigger | Description |
+|---------|-------------|
+| [When a blob is added or updated](#when-blob-added-updated) | Start a logic app workflow when a blob is added or updated in your storage container. |
 
-Checks if Blob exists in Azure Storage
-Deletes a Blob from Azure Storage
-Get blob metadata for given path of Azure Blob Storage
-Get container metadata for given path of Azure Blob Storage
-Get SAS UI for given path of Azure Blob Storage
-List all blobs present in given path of Azure Blob Storage
-List all containers present in given path or root path of Azure Blob Storage
-Reads Blob Content from Azure Storage
-Uploads a Blob to Azure Storage
+| Action | Description |
+|--------|-------------|
+| [Check whether blob exists](#check-blob) | Check whether the specified blob exists in the specified Azure storage container. |
+| [Delete blob](#delete-blob) | Delete the specified blob from the specified Azure storage container. |
+| [Get blob metadata using path](#get-blob-metadata) | Get the metadata for the specified blob from the specified Azure storage container. |
+| [Get container metadata using path](#get-container-metadata) | Get the metadata for the specified Azure storage container. |
+| [Get blob SAS URI using path](#get-blob-sas-uri) | Get the Shared Access Signature (SAS) URI for the specified blob in the specified Azure storage container. |
+| [List all blobs using path](#list-blobs) | List all the blobs in the specified Azure storage container. |
+| [List all containers using path or root path](#list-containers) | List all the Azure storage containers in your Azure subscription. |
+| [Read blob content](#read-blob-content) | Read the content from the specified blob in the specified Azure storage container. |
+| [Upload blob to storage container](#upload-blob) | Upload the specified blob to the specified Azure storage container. |
+
+<a name="when-blob-added-updated"></a>
+
+### When a blob is added or updated
+
+Operation ID: `whenABlobIsAddedOrModified`
+
+This trigger starts a logic app workflow run when a blob is added or updated along the specified path in an Azure storage container.
+
+#### Parameters
+
+| Parameter | Key | Required | Type | Description |
+|-----------|-----|----------|------|-------------|
+| **Blob path** | `path` | True | `string` | The blob path in the Azure storage container |
+
+#### Returns
+
+| Name | Type |
+|------|------|
+| **Blob Message** | `string` |
+| **Blob Message Blob Name** | `string` |
+| **Blob Message Container Info** | `string` |
+| **Blob Message Container Info Container Name** | `string` |
+| **Blob Message Metadata** | `string` |
+| **Blob Message Properties** | `string` |
+| **Blob Message Properties Content Disposition** | ? |
+| **Blob Message Properties Content Language** | `string` |
+| **Blob Message Properties Content MD5** | `string` |
+| **Blob Message Properties Creation Time** | `string` |
+| **Blob Message Properties ETag** | `string` |
+| **Blob Message Properties Type** | `string` |
+
+<a name="check-blob"></a>
+
+### Check whether blob exists
+
+Operation ID: `blobExists`
+
+This action checks whether the specified blob exists in the specified Azure storage container.
+
+#### Parameters
+
+| Parameter | Key | Required | Type | Description |
+|-----------|-----|----------|------|-------------|
+| **Container name** | `containerName` | True | `string` | The name for the Azure storage container |
+| **Blob name** | `blobName` | True | `string` | The name for the blob |
+
+#### Returns
+
+| Name | Type |
+|------|------|
+| **Blob Exists Response** | ? |
+| **Blob Exists Response Is Blob Exists** | `string` |
+| **Blob Exists Response Metadata** | ? |
+| **Blob Exists Response Properties** | ? |
+| **Blob Exists Response Properties Content Disposition** | ?` |
+| **Blob Exists Response Properties Content Language** | `string` |
+| **Blob Exists Response Properties Content MD5** | `string` |
+| **Blob Exists Response Properties Content Type** | `string` |
+| **Blob Exists Response Properties Creation Time** | `string` |
+| **Blob Exists Response Properties ETag** | `string` |
+| **Blob Exists Response Properties Type** | `string` |
+
+<a name="delete-blob"></a>
+
+### Delete blob
+
+Operation ID: `deleteBlob`
+
+This action deletes the specified blob from the specified Azure storage container.
+
+#### Parameters
+
+| Parameter | Key | Required | Type | Description |
+|-----------|-----|----------|------|-------------|
+| **Container name** | `containerName` | True | `string` | The name for the Azure storage container |
+| **Blob name** | `blobName` | True | `string` | The name for the blob |
+
+#### Returns
+
+None.
+
+<a name="get-blob-metadata"></a>
+
+### Get blob metadata using path
+
+Operation ID: `getBlobMetadata`
+
+This action gets the metadata for the specified blob from the specified Azure storage container.
+
+#### Parameters
+
+| Parameter | Key | Required | Type | Description |
+|-----------|-----|----------|------|-------------|
+| **Container name** | `containerName` | True | `string` | The name or path for the Azure storage container |
+| **Blob name** | `blobName` | True | `string` | The name for the blob |
+
+#### Returns
+
+| Name | Type |
+|------|------|
+| **Response from get blob metadata action** | ? |
+| **Response from get blob metadata action Content Disposition** | ? |
+| **Response from get blob metadata action Content Language** | `string` |
+| **Response from get blob metadata action Content Type** | `string` |
+| **Response from get blob metadata action Creation Time** | `string` |
+| **Response from get blob metadata action ETag** | `string` |
+| **Response from get blob metadata action MD5 Hash** | `string` |
+| **Response from get blob metadata action Name** | `string` |
+| **Response from get blob metadata action Type** | `string` |
+
+<a name="get-container-metadata"></a>
+
+### Get container metadata using path
+
+Operation ID: `getContainerMetadata`
+
+This action gets the metadata for the specified Azure storage container.
+
+#### Parameters
+
+| Parameter | Key | Required | Type | Description |
+|-----------|-----|----------|------|-------------|
+| **Container name** | `containerName` | True | `string` | The name or path for the Azure storage container |
+
+#### Returns
+
+| Name | Type |
+|------|------|
+| **Response from get container metadata action** | ? |
+| **Response from get container metadata action Last Updated Time** | `string` |
+| **Response from get container metadata action ETag** | `string` |
+| **Response from get container metadata action Name** | `string` |
+
+<a name="get-blob-sas-uri"></a>
+
+### Get blob SAS URI using path 
+
+Operation ID: `getBlobSASUri`
+
+This action gets the Shared Access Signature (SAS) URI for the specified blob in the specified Azure storage container.
+
+#### Parameters
+
+| Parameter | Key | Required | Type | Description |
+|-----------|-----|----------|------|-------------|
+| **Container name** | `containerName` | True | `string` | The name or path for the Azure storage container |
+| **Blob name** | `blobName` | True | `string` | The name for the blob |
+| **Group policy identifier** | `groupPolicyIdentifier` | False | `string` | The string that identifies a stored access policy. Group policy parameters, such as start time and expiry time, have precedence over input parameters in actions. |
+| **Permissions** | `permissions` | False | ? | The access permissions for the SAS URI. |
+| **Start time** | `startTime` | False | `string` | The date and time when the SAS becomes valid, for example, `'2017-11-01T15:30:00+00.00'.Default=now()`. |
+| **Expiry time** | `expiryTime` | False | `string` | The date and time when the SAS is no longer valid, for example, `'2017-11-01T15:30:00+00.00'.Default=now() + 24h`. |
+| **Shared access protocol** | `sharedAccessProtocol` | False | ? | The allowed protocols, either HTTPS only or HTTP and HTTPS. Leave empty if you don't want to restrict traffic based on protocol. |
+| **IP address or range** | `ipAddressRange` | False | ? | The allowed IP address or address range. Leave empty if you don't to restrict traffic based on IP address. |
+
+#### Returns
+
+| Name | Type |
+|------|------|
+| **Response from get SAS URI action** | ? |
+| **Response from get SAS URI SAS URI** | `string` |
+
+<a name="list-blobs"></a>
+
+### List all blobs using path
+
+Operation ID: `listBlobs`
+
+This action lists all the blobs in the specified Azure storage container.
+
+#### Parameters
+
+| Parameter | Key | Required | Type | Description |
+|-----------|-----|----------|------|-------------|
+| **Container name** | `containerName` | True | `string` | The name or path for the Azure storage container |
+| **Blob prefix path** | `blobNamePrefix` | False | `string` | The prefix path for the blob |
+| **Paging marker** | `pageMarker` | False | ? | A marker that identifies the part of the list to return with the list action |
+
+#### Returns
+
+| Name | Type |
+|------|------|
+| **Blob List Response** | ? |
+| **Blob List Response Blob List Item** | ? |
+| **Blob List Response Blob List Item Content Disposition** | ? |
+| **Blob List Response Blob List Item Content Language** | `string` |
+| **Blob List Response Blob List Item Content MD5** | `string` |
+| **Blob List Response Blob List Item Content Type** | `string` |
+| **Blob List Response Blob List Item Creation Time** | `string` |
+| **Blob List Response Blob List Item ETag** | `string` |
+| **Blob List Response Blob List Item Name** | `string` |
+| **Blob List Response Blob List Item Paging Marker** | ? |
+| **Blob List Response Blob List Item Type** | `string` |
+| **Blob List Response Blob List of blobs** | ? |
+
+<a name="list-containers"></a>
+
+### List all containers using path or root path
+
+Operation ID: `listContainers`
+
+This action lists all the Azure storage containers in your Azure subscription.
+
+#### Parameters
+
+| Parameter | Key | Required | Type | Description |
+|-----------|-----|----------|------|-------------|
+| **Paging marker** | `pageMarker` | False | ? | A marker that identifies the part of the list to return with the list action |
+
+#### Returns
+
+| Name | Type |
+|------|------|
+| **Blob List Response** | ? |
+| **Blob List Response Blob Container List Item** | ? |
+| **Blob List Response Blob Container List Item ETag** | `string` |
+| **Blob List Response Blob Container List Item Last Updated** | `string` |
+| **Blob List Response Blob Container List Item Name** | `string` |
+| **Blob List Response List of containers** | ? |
+| **Blob List Response Paging Marker** | ? |
+
+<a name="read-blob-content"></a>
+
+### Read blob content
+
+Operation ID: `listContainers`
+
+This action reads the content from the specified blob in the specified Azure storage container.
+
+#### Parameters
+
+| Parameter | Key | Required | Type | Description |
+|-----------|-----|----------|------|-------------|
+| **Container name** | `containerName` | True | `string` | The name or path for the Azure storage container |
+| **Blob name** | `blobName` | True | `string` | The name for the blob |
+
+#### Returns
+
+| Name | Type |
+|------|------|
+| **Blob Read Response** | ? |
+| **Blob Read Response Content** | ? |
+| **Blob Read Response Properties** | ? |
+| **Blob Read Response Properties Content Disposition** | ? |
+| **Blob Read Response Properties Content Language** | `string` |
+| **Blob Read Response Properties Content MD5** | `string` |
+| **Blob Read Response Properties Content Type** | `string` |
+| **Blob Read Response Properties Creation Time** | `string` |
+| **Blob Read Response Properties ETag** | `string` |
+| **Blob Read Response Properties Metadata** | ? |
+| **Blob Read Response Properties Type** | `string` |
+
+<a name="upload-blob"></a>
+
+### Upload blob to storage container
+
+Operation ID: `listContainers`
+
+This action uploads the specified blob to the specified Azure storage container.
+
+#### Parameters
+
+| Parameter | Key | Required | Type | Description |
+|-----------|-----|----------|------|-------------|
+| **Container name** | `containerName` | True | `string` | The name or path for the Azure storage container |
+| **Blob name** | `blobName` | True | `string` | The name for the blob |
+| **Content** | `Content` | True | ? | The blob content to upload |
+| **Update flag** | `overrideIfExists` | False | ? | This flag indicates whether the blob can be updated |
+
+#### Returns
+
+| Name | Type |
+|------|------|
+| **Blob Upload Response** | ? |
+| **Blob Upload Response Metadata** | ? |
+| **Blob Upload Response Properties** | ? |
+| **Blob Upload Response Properties Creation Time** | `string` |
+| **Blob Upload Response Properties Content Disposition** | ? |
+| **Blob Upload Response Properties Content MD5** | `string` |
+| **Blob Upload Response Properties Content Type** | `string` |
+| **Blob Upload Response Properties Content Language** | `string` |
+| **Blob Upload Response Properties ETag** | `string` |
+| **Blob Upload Response Properties Type** | `string` |
 
 ## Access storage accounts behind firewalls
 
@@ -475,11 +763,11 @@ To use managed identities in your logic app to access Blob Storage, follow these
 1. [Enable support for the managed identity in your logic app](#enable-managed-identity-support).
 
 > [!NOTE]
-> Limitations for this solution:
 >
-> - To authenticate your storage account connection, you have to set up a system-assigned managed identity. 
+> This solution has the following limitations:
+>
+> To authenticate your storage account connection, you have to set up a system-assigned managed identity. 
 > A user-assigned managed identity won't work.
-> 
 
 #### Configure storage account access
 
