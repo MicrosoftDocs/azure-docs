@@ -1,20 +1,17 @@
 ---
 title: Deploy custom content from your repository
-description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can save your custom content and deploy it to Microsoft Sentinel.
-author: batamig
+description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can manage your custom content and deploy it to Microsoft Sentinel.
+author: austinmccollum
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: bagol
+ms.date: 8/25/2022
+ms.author: austinmc
 ms.custom: ignite-fall-2021
+#Customer intent: As a SOC collaborator or MSSP analyst, I want to know how to connect my source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to know how to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
 ---
 
 # Deploy custom content from your repository (Public preview)
 
-Microsoft Sentinel *content* is Security Information and Event Management (SIEM) or Security Orchestration, Automation, and Response (SOAR) resources that assist customers with ingesting, monitoring, alerting, hunting, automating response, and more in Microsoft Sentinel. For example, Microsoft Sentinel content includes data connectors, parsers, workbooks, and analytics rules. For more information, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
-
-You can use the out-of-the-box (built-in) content provided in the Microsoft Sentinel Content hub and customize it for your own needs, or create your own custom content from scratch.
-
-When creating custom content, you can store and manage it in your own Microsoft Sentinel workspaces, or an external source control repository, including GitHub and Azure DevOps repositories. This article describes how to create and manage the connections between Microsoft Sentinel and external source control repositories. Managing your content in an external repository allows you to make updates to that content outside of Microsoft Sentinel, and have it automatically deployed to your workspaces.
+When creating custom content, you can manage it from your own Microsoft Sentinel workspaces, or an external source control repository. This article describes how to create and manage connections between Microsoft Sentinel and GitHub or Azure DevOps repositories. Managing your content in an external repository allows you to make updates to that content outside of Microsoft Sentinel, and have it automatically deployed to your workspaces. For more information, see [Update custom content with repository connections](ci-cd-custom-content.md).
 
 > [!IMPORTANT]
 >
@@ -22,13 +19,14 @@ When creating custom content, you can store and manage it in your own Microsoft 
 
 ## Prerequisites and scope
 
-Before connecting your Microsoft Sentinel workspace to an external source control repository, make sure that you have:
+Microsoft Sentinel currently supports connections to GitHub and Azure DevOps repositories. Before connecting your Microsoft Sentinel workspace to your source control repository, make sure that you have:
 
-- Access to a GitHub or Azure DevOps repository, with any custom content files you want to deploy to your workspaces, in relevant [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/index.yml).
-
-    Microsoft Sentinel currently supports connections only with GitHub and Azure DevOps repositories.
+- Contributor access to your GitHub or Azure DevOps repository
+- Ensure custom content files you want to deploy to your workspaces are in relevant [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/index.yml).
 
 - An **Owner** role in the resource group that contains your Microsoft Sentinel workspace. This role is required to create the connection between Microsoft Sentinel and your source control repository. If you are unable to use the Owner role in your environment, you can instead use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
+
+For more information, see [Validate your content](ci-cd-custom-content.md#validate-your-content)
 
 ## Connect a repository
 
@@ -115,9 +113,7 @@ After the deployment is complete:
 
 ### Customize the deployment workflow
 
-The default content deployment deploys all of the relevant custom content from the connected repository branch whenever a push is made to anything in that branch.
-
-If the default configuration for your content deployment from GitHub or Azure DevOps does not meet all your requirements, you can modify the experience to fit your needs.
+The default workflow only deploys content that has been modified since the last deployment based on commits to the repository.
 
 For example, you may want to turn off smart deployments, configure different deployment triggers, or deploy content only from a specific root folder.
 

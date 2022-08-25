@@ -53,22 +53,22 @@ The first step to validate your content is to test it within Microsoft Sentinel.
 A sample repository is available with ARM templates for each of the content types listed above. The repo also demonstrates how to use advanced features of repository connections. For more information, see [Sentinel CICD sample repository](https://github.com/SentinelCICD/RepositoriesSampleContent). 
 
 
-:::image type="content" source="media/ci-cd-custom-content/repositories-connection-success.png" alt-text="Screenshot of a successful repository connection. The RepositoriesSampleContent is shown. This is after it was imported from the SentinelCICD repo to a private GitHub repo in the fourthcoffee organization." lightbox="media/ci-cd-custom-content/repositories-connection-success.png":::
+:::image type="content" source="media/ci-cd-custom-content/repositories-connection-success.png" alt-text="Screenshot of a successful repository connection. The RepositoriesSampleContent is shown. This is after it was imported from the SentinelCICD repo to a private GitHub repo in the FourthCoffee organization." lightbox="media/ci-cd-custom-content/repositories-connection-success.png":::
 
 
 ### Maximum connections and deployments
 
 - Each Microsoft Sentinel workspace is currently limited to **five repository connections**.
 
-- Each Azure resource group is limited to **800 deployments** in its deployment history. If you have a high volume of ARM template deployments in your resource group(s), you may see an `Deployment QuotaExceeded` error. For more information, see [DeploymentQuotaExceeded](/azure/azure-resource-manager/templates/deployment-quota-exceeded) in the Azure Resource Manager templates documentation.
+- Each Azure resource group is limited to **800 deployments** in its deployment history. If you have a high volume of ARM template deployments in your resource group(s), you may see the `Deployment QuotaExceeded` error. For more information, see [DeploymentQuotaExceeded](/azure/azure-resource-manager/templates/deployment-quota-exceeded) in the Azure Resource Manager templates documentation.
 
 
 
 ## Improve performance with smart deployments
 
-Smart deployments is a back-end capability that improves performance by actively tracking modifications made to the content files of a connected repository. It uses a CSV file within the '.sentinel' folder in your repository to audit each commit. The workflow avoids redeploying content that has not been modified since the last deployment. This improves your deployment performance and prevents tampering with unchanged content in your workspace, such as resetting dynamic schedules of your analytics rules.
+The **smart deployments** feature is a back-end capability that improves performance by actively tracking modifications made to the content files of a connected repository. It uses a CSV file within the '.sentinel' folder in your repository to audit each commit. The workflow avoids redeploying content that hasn't been modified since the last deployment. This improves your deployment performance and prevents tampering with unchanged content in your workspace, such as resetting dynamic schedules of your analytics rules.
 
-While the smart deployments feature is enabled by default on newly created connections, we understand that some customers would prefer all their source control content to be deployed every time a deployment is triggered, regardless of whether that content was modified or not. You can modify your workflow to disable smart deployments to have your connection deploy all content regardless of its modification status. For more information, see [Customize the deployment workflow](ci-cd.md#customize-the-deployment-workflow). 
+Smart deployments are enabled by default on newly created connections. If you prefer all source control content to be deployed every time a deployment is triggered, regardless of whether that content was modified or not, you can modify your workflow to disable smart deployments. For more information, see [Customize the deployment workflow](ci-cd.md#customize-the-deployment-workflow). 
 
    > [!NOTE]
    > This capability was launched in public preview on April 20th, 2022. Connections created prior to launch would need to be updated or recreated for smart deployments to be turned on.
@@ -77,9 +77,9 @@ While the smart deployments feature is enabled by default on newly created conne
 
 ## Consider deployment workflow options
 
-Even with smart deployments enabled, the default behavior is to push all the updated content from the connected repo branch. If the default configuration for your content deployment from GitHub or Azure DevOps doesn't meet all your requirements, you can modify the experience to fit your needs.
+Even with smart deployments enabled, the default behavior is to push all the updated content from the connected repository branch. If the default configuration for your content deployment from GitHub or Azure DevOps doesn't meet all your requirements, you can modify the experience to fit your needs.
 
-For example, you may want to turn off smart deployments, configure different deployment triggers, or deploy content only from a specific root folder for a given workspace. You may want to schedule the workflow to run periodically, or to combine different workflow events together. You can even prioritize content to be considered before the entire repo is traversed for ARM templates. For more information, see [The Repo Man Blog](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/new-capabilities-sentinel-repos)
+For example, you may want to turn off smart deployments, configure different deployment triggers, or deploy content only from a specific root folder for a given workspace. You may want to schedule the workflow to run periodically, or to combine different workflow events together. You can even prioritize content to be cevaluated before the entire repo is enumerated for valid ARM templates. For more information, see [The New Blog](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/new-capabilities-sentinel-repos)
 
 
 ## Next steps
