@@ -956,7 +956,7 @@ items:
     - name: Enable private link on an HDInsight cluster
       href: ./hdinsight-private-link.md
     - name: Enable private link on an HDInsight Kafka Rest Proxy cluster
-      href: ./kafka-rest-proxy-cluster.md  
+      href: ./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md 
     - name: Transport layer security
       href: ./transport-layer-security.md
     - name: Plan VNETs for HDInsight
