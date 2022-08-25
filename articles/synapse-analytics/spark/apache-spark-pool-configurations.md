@@ -52,7 +52,13 @@ Apache Spark pools provide the ability to automatically scale up and down comput
 
 ## Elastic pool storage
 
-Apache Spark pools utilize temporary disk storage while the pool is instantiated. For many Spark jobs, it is difficult to estimate cluster storage requirements, which may cause your Spark jobs to fail if the worker nodes exhaust storage. Elastic pool storage allows the Spark engine to monitor worker node temporary cluster storage, and attach additional disks if needed. No action is required by customers. Customers should see fewer job failures as a result of elastic pool storage.
+Apache Spark pools utilize temporary disk storage while the pool is instantiated. Spark jobs write shuffle map outputs, shuffle data and spilled data to local VM disks. Examples of operations that may utilize local disk are sort, cache, and persist. When temporary VM disk space runs out, Spark jobs may fail due to “Out of Disk Space” error (java.io.IOException: No space left on device).  In the case of “Out of Disk Space” errors, much of the burden to prevent jobs from failing shifts to the customer to reconfigure the Spark jobs (e.g., tweak the number of partitions) or clusters (e.g., add more nodes to the cluster). These errors might not be consistent, and the user may end up experimenting heavily by running production jobs. This process can be expensive for the user in multiple dimensions:
+
+1. Wasted time, customers are required to experiment quite heavily with job configurations via trial and error and are expected to understand Spark’s internal metrics to make the correct decision.
+1. Wasted resources, since production jobs can process varying amount of data, Spark jobs can fail non-deterministically if resources are not over-provisioned. For instance, consider the problem of data skew, which may result in a few nodes requiring more disk space than others. Currently in Synapse, each node in a cluster gets the same size of disk space and increasing disk space across all nodes is not an ideal solution and leads to tremendous waste.
+1. Slowdown in job execution, in the hypothetical scenario where we solve the problem by autoscaling nodes (assuming costs are not an issue to the end customer), adding a compute node is still expensive (takes a few minutes) as opposed to adding storage (takes a few seconds).
+
+With elastic pool storage which allows the Spark engine to monitor worker node temporary storage and attach additional disks if needed. No action is required by you, plus you should see less job failures as a result.
 
 > [!NOTE]
 > Azure Synapse Elastic pool storage is currently in Public Preview. During Public Preview there is no charge for use of Elastic Pool Storage.
