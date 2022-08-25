@@ -109,4 +109,4 @@ If you're running this command from a different workstation, make sure the follo
 ## Next steps
 
 - [Troubleshoot common issues related to resource bridge](../resource-bridge/troubleshoot-resource-bridge.md)
-- [Understand disastery recovery operations for resource bridge](disaster-recovery.md)
+- [Understand disaster recovery operations for resource bridge](disaster-recovery.md)
