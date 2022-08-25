@@ -953,8 +953,10 @@ items:
       href: ./hdinsight-virtual-network-architecture.md
     - name: Restrict public connectivity
       href: ./hdinsight-restrict-public-connectivity.md
-    - name: Private link
+    - name: Enable private link on an HDInsight cluster
       href: ./hdinsight-private-link.md
+    - name: Enable private link on an HDInsight Kafka Rest Proxy cluster
+      href: ./kafka-rest-proxy-cluster.md  
     - name: Transport layer security
       href: ./transport-layer-security.md
     - name: Plan VNETs for HDInsight
