@@ -224,20 +224,12 @@ items:
           href: supported-versions-postgres-hyperscale.md
         - name: Create Postgres Hyperscale server group (CLI)
           href: create-postgresql-hyperscale-server-group.md
-        - name: Create Postgres Hyperscale server group (portal)
-          href: create-postgresql-hyperscale-server-group-azure-portal.md
         - name: Create Postgres Hyperscale server group (Azure Data Studio)
           href: create-postgresql-hyperscale-server-group-azure-data-studio.md
         - name: Create Postgres Hyperscale server group - Kubernetes native tools
           href: create-postgresql-hyperscale-server-group-kubernetes-native-tools.md
         - name: Connect
           href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
-    - name: Concepts
-      items:
-        - name: Distribute data
-          href: concepts-distributed-postgres-hyperscale.md
-        - name: Server group placement
-          href: postgresql-hyperscale-server-group-placement-on-kubernetes-cluster-nodes.md
     - name: How-to
       items:
         - name: Manage
@@ -250,8 +242,6 @@ items:
               items:
                 - name: Show configuration
                   href: show-configuration-postgresql-hyperscale-server-group.md
-                - name: Scale out|in worker nodes
-                  href: scale-out-in-postgresql-hyperscale-server-group.md
                 - name: Scale up|down memory & vCores
                   href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
                 - name: Configure server parameters

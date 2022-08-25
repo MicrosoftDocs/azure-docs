@@ -12,10 +12,7 @@ ms.topic: how-to
 ---
 
 # Supported versions of Postgres with Azure Arc-enabled PostgreSQL server
-The list of supported versions evolves over time as we progress on ensuring parity with Postgres managed services in Azure PaaS. Today, the major versions that are supported are:
-- Postgres 12 (default)
-- Postgres 11
-
+The list of supported versions evolves over time as we progress on ensuring parity with Postgres managed services in Azure PaaS. Today, the major versions that is supported is Postgres 14.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
