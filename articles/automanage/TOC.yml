@@ -9,6 +9,8 @@
     items: 
     - name: GO
       href: ./quickstarts/quick-go-sdk.md
+    - name: Java
+      href: ./quickstarts/quick-java-sdk.md
     - name: Python
       href: ./quickstarts/quick-python-sdk.md
 - name: Concepts
