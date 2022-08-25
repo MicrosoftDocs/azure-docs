@@ -14,12 +14,12 @@ ms.custom: template-how-to
 
 # Check the status of a workflow (Preview)
 
-When a workflow is created, it's important to check it's status and run history to make sure it ran properly for the users it processed both by schedule and by on-demand. To get information about the status of workflows, Lifecycle Workflows allows you to check run and user processing history along with summaries to see how often a workflow has run, and who it has ran successfully for. You are also able to check the status of both the workflow, and its tasks. Checking the status of workflows and their tasks allows you to troubleshoot potential problems that could come up during their execution.
+When a workflow is created, it's important to check it's status, and run history to make sure it ran properly for the users it processed both by schedule and by on-demand. To get information about the status of workflows, Lifecycle Workflows allows you to check run and user processing history along with summaries to see how often a workflow has run, and who it ran successfully for. You're also able to check the status of both the workflow, and its tasks. Checking the status of workflows and their tasks allows you to troubleshoot potential problems that could come up during their execution.
 
 
-## Run workflow history using the Azure Portal
+## Run workflow history using the Azure portal
 
-You are able to retrieve run information of a workflow using Lifecycle Workflows. To check the runs of a workflow using the Azure portal, you would do the following steps:
+You're able to retrieve run information of a workflow using Lifecycle Workflows. To check the runs of a workflow using the Azure portal, you would do the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -35,13 +35,13 @@ You are able to retrieve run information of a workflow using Lifecycle Workflows
 
 1. On the history page, select the **Runs** button.  
 
-1. Here you will see a summary of workflow runs.
+1. Here you'll see a summary of workflow runs.
     :::image type="content" source="media/check-status-workflow/lcw-run-list.png" alt-text="LCW Runs list":::
 1. The runs summary cards include the total number of processed runs, the number of successful runs, the number of failed runs, and the total number of failed tasks.   
 
-## User workflow history using the Azure Portal
+## User workflow history using the Azure portal
 
-To get further information than just the runs summary for a workflow, you are also able to get information about users processed by a workflow. To check the status of users a workflow has processed using the Azure portal, you would do the following steps:
+To get further information than just the runs summary for a workflow, you're also able to get information about users processed by a workflow. To check the status of users a workflow has processed using the Azure portal, you would do the following steps:
 
  
 1. In the left menu, select **Lifecycle Workflows (Preview)**.
@@ -52,7 +52,7 @@ To get further information than just the runs summary for a workflow, you are al
 
 1. On the workflow overview screen, select **Workflow history (Preview)**.
     :::image type="content" source="media/check-status-workflow/workflow-history.png" alt-text="workflow overview history":::
-1. On the workflow history page you're presented with a summary of every user processed by the workflow along with counts of successful and failed users and tasks.
+1. On the workflow history page, you're presented with a summary of every user processed by the workflow along with counts of successful and failed users and tasks.
     :::image type="content" source="media/check-status-workflow/workflow-history-list.png" alt-text="list of workflow summary":::
 1. By selecting total tasks by a user you're able to see which tasks have successfully completed, or are currently in progress.
     :::image type="content" source="media/check-status-workflow/task-history-status.png" alt-text="task history status":::
@@ -115,9 +115,9 @@ GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workf
 
 ### List runs using Microsoft Graph
 
-With Microsoft Graph you're able to get full details of workflow and user processing run information.
+With Microsoft Graph, you're able to get full details of workflow and user processing run information.
 
-To view a list of runs you'd make the following API call:
+To view a list of runs, you'd make the following API call:
 
 ```http
 GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/runs
@@ -141,13 +141,13 @@ GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workf
 With Lifecycle Workflows, you're able to check the status of each user and task who had a workflow processed for them as part of a run.
 
  
-You are also able to use **userProcessingResults** with the run call to get users processed for a run by making the following API call:
+You're also able to use **userProcessingResults** with the run call to get users processed for a run by making the following API call:
 
 ```http
 GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/runs/<runId>/userProcessingResults
 ```
 
-This API call will also return a **userProcessingResults ID** value which can be used to retrieve task processing information in the following call:
+This API call will also return a **userProcessingResults ID** value, which can be used to retrieve task processing information in the following call:
 
 ```http
 GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId> /runs/<runId>/userProcessingResults/<userProcessingResultId>/taskProcessingResults
