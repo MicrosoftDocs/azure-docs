@@ -8,23 +8,23 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 08/24/2022
 ---
 # Import data wizard in Azure Cognitive Search
 
-The **Import data wizard** in the Azure portal creates multiple objects used for indexing and AI enrichment on a search service. If you are new to Azure Cognitive Search, it's one of the most powerful features at your disposal. With minimal effort, you can create an indexing or enrichment pipeline that exercises most of the functionality of Azure Cognitive Search.
+The **Import data wizard** in the Azure portal creates multiple objects used for indexing and AI enrichment on a search service. If you're new to Azure Cognitive Search, it's one of the most powerful features at your disposal. With minimal effort, you can create an indexing or enrichment pipeline that exercises most of the functionality of Azure Cognitive Search.
 
 If you're using the wizard for proof-of-concept testing, this article explains the internal workings of the wizard so that you can use it more effectively.
 
-This article is not a step by step. For help using the wizard with built-in sample data, see the [Quickstart: Create a search index](search-get-started-portal.md) or [Quickstart: Create a text translation and entity skillset](cognitive-search-quickstart-blob.md).
+This article isn't a step by step. For help using the wizard with built-in sample data, see the [Quickstart: Create a search index](search-get-started-portal.md) or [Quickstart: Create a text translation and entity skillset](cognitive-search-quickstart-blob.md).
 
 ## Starting the wizard
 
-In the [Azure portal](https://portal.azure.com), open the search service page from the dashboard or [find your service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list. In the service Overview page at the top, click **Import data**.
+In the [Azure portal](https://portal.azure.com), open the search service page from the dashboard or [find your service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list. In the service Overview page at the top, select **Import data**.
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
-The wizard opens fully expanded in the browser window so that you have more room to work. Several pages are quite dense.
+The wizard opens fully expanded in the browser window so that you have more room to work. 
 
 You can also launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, SQL Managed Instance, and Azure Blob Storage. Look for **Add Azure Cognitive Search** in the left-navigation pane on the service overview page.
 
@@ -35,26 +35,26 @@ The wizard will output the objects in the following table. After the objects are
 | Object | Description | 
 |--------|-------------|
 | [Indexer](/rest/api/searchservice/create-indexer)  | A configuration object specifying a data source, target index, an optional skillset, optional schedule, and optional configuration settings for error handing and base-64 encoding. |
-| [Data Source](/rest/api/searchservice/create-data-source)  | Persists connection information to source data, including credentials. A data source object is used exclusively with indexers. | 
+| [Data Source](/rest/api/searchservice/create-data-source)  | Persists connection information to a [supported data source](search-indexer-overview.md#supported-data-sources) on Azure. A data source object is used exclusively with indexers. | 
 | [Index](/rest/api/searchservice/create-index) | Physical data structure used for full text search and other queries. | 
-| [Skillset](/rest/api/searchservice/create-skillset) | Optional. A complete set of instructions for manipulating, transforming, and shaping content, including analyzing and extracting information from image files. Except for very simple and limited structures, it includes a reference to a Cognitive Services resource that provides enrichment. | 
+| [Skillset](/rest/api/searchservice/create-skillset) | Optional. A complete set of instructions for manipulating, transforming, and shaping content, including analyzing and extracting information from image files. Unless the volume of work fall under the limit of 20 transactions per indexer per day, the skillset must include a reference to a Cognitive Services resource that provides enrichment. | 
 | [Knowledge store](knowledge-store-concept-intro.md) | Optional. Stores output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) in tables and blobs in Azure Storage for independent analysis or downstream processing. |
 
 ## Benefits and limitations
 
 Before writing any code, you can use the wizard for prototyping and proof-of-concept testing. The wizard connects to external data sources, samples the data to create an initial index, and then imports the data as JSON documents into an index on Azure Cognitive Search. 
 
-If you are evaluating skillsets, the wizard will handle all of the output field mappings and add helper functions to create usable objects. Text split is added if you specify a parsing mode. Text merge is added if you chose image analysis so that the wizard can reunite text descriptions with image content. Shaper skills added to support valid projections if you chose the knowledge store option. All of the above tasks come with a learning curve. If you are new to enrichment, the ability to have these steps handled for you allows you to measure the value of a skill without having to invest much time and effort.
+If you're evaluating skillsets, the wizard will handle all of the output field mappings and add helper functions to create usable objects. Text split is added if you specify a parsing mode. Text merge is added if you chose image analysis so that the wizard can reunite text descriptions with image content. Shaper skills added to support valid projections if you chose the knowledge store option. All of the above tasks come with a learning curve. If you're new to enrichment, the ability to have these steps handled for you allows you to measure the value of a skill without having to invest much time and effort.
 
 Sampling is the process by which an index schema is inferred, and it has some limitations. When the data source is created, the wizard picks a random sample of documents to decide what columns are part of the data source. Not all files are read, as this could potentially take hours for very large data sources. Given a selection of documents, source metadata, such as field name or type, is used to create a fields collection in an index schema. Depending on the complexity of source data, you might need to edit the initial schema for accuracy, or extend it for completeness. You can make your changes inline on the index definition page.
 
 Overall, the advantages of using the wizard are clear: as long as requirements are met, you can prototype a queryable index within minutes. Some of the complexities of indexing, such as serializing data as JSON documents, are handled by the wizard.
 
-The wizard is not without limitations. Constraints are summarized as follows:
+The wizard isn't without limitations. Constraints are summarized as follows:
 
 + The wizard does not support iteration or reuse. Each pass through the wizard creates a new index, skillset, and indexer configuration. Only data sources can be persisted and reused within the wizard. To edit or refine other objects, either delete the objects and start over, or use the REST APIs or .NET SDK to modify the structures.
 
-+ Source content must reside in a [supported data source](search-indexer-overview.md#supported-data-sources).
++ Source content must reside in a [supported data source](search-indexer-overview.md#supported-data-sources) and it must be under the same subscription.
 
 + Sampling is over a subset of source data. For large data sources, it's possible for the wizard to miss fields. You might need to extend the schema, or correct the inferred data types, if sampling is insufficient.
 
@@ -62,7 +62,7 @@ The wizard is not without limitations. Constraints are summarized as follows:
 
 + A [knowledge store](knowledge-store-concept-intro.md), which can be created by the wizard, is limited to a few default projections and uses a default naming convention. If you want to customize names or projections, you will need to create the knowledge store through REST API or the SDKs.
 
-+ Public access to all networks must be enabled on the supported data source while the wizard is used, since the portal won't be able to access the data source during setup if public access is disabled. This means that if your data source has a firewall enabled, you must disable it, run the Import Data wizard and then enable it after wizard setup is completed. If this is not an option, you can create Azure Cognitive Search data source, indexer, skillset and index through REST API or the SDKs.
++ Public access to all networks must be enabled on the supported data source while the wizard is used, since the portal won't be able to access the data source during setup if public access is disabled. This means that if your data source has a firewall enabled, you must disable it, run the Import Data wizard and then enable it after wizard setup is completed. If this isn't an option, you can create Azure Cognitive Search data source, indexer, skillset and index through REST API or the SDKs.
 
 ## Workflow
 
@@ -82,13 +82,17 @@ The wizard is organized into four main steps:
 
 The **Import data** wizard connects to an external [supported data source](search-indexer-overview.md#supported-data-sources) using the internal logic provided by Azure Cognitive Search indexers, which are equipped to sample the source, read metadata, crack documents to read content and structure, and serialize contents as JSON for subsequent import to Azure Cognitive Search.
 
+You can paste in a connection to a supported data source in a different subscription or region, but the **Choose an existing connection** picker is scoped to the active subscription.
+
+:::image type="content" source="media/search-import-data-portal/choose-connection-same-subscription.png" alt-text="Screenshot of the Connect to your data tab." border="true":::
+
 Not all preview data sources are guaranteed to be available in the wizard. Because each data source has the potential for introducing other changes downstream, a preview data source will only be added to the data sources list if it fully supports all of the experiences in the wizard, such as skillset definition and index schema inference.
 
 You can only import from a single table, database view, or equivalent data structure, however the structure can include hierarchical or nested substructures. For more information, see [How to model complex types](search-howto-complex-data-types.md).
 
 ### Skillset configuration in the wizard
 
-Skillset configuration occurs after the data source definition because the type of data source will inform the availability of certain built-in skills. In particular, if you are indexing files from Blob Storage, your choice of parsing mode of those files will determine whether sentiment analysis is available.
+Skillset configuration occurs after the data source definition because the type of data source will inform the availability of certain built-in skills. In particular, if you're indexing files from Blob Storage, your choice of parsing mode of those files will determine whether sentiment analysis is available.
 
 The wizard will add the skills you choose, but it will also add other skills that are necessary for achieving a successful outcome. For example, if you specify a knowledge store, the wizard adds a Shaper skill to support projections (or physical data structures).
 
@@ -132,7 +136,7 @@ Because sampling is an imprecise exercise, review the index for the following co
 
 The last page of the wizard collects user inputs for indexer configuration. You can [specify a schedule](search-howto-schedule-indexers.md) and set other options that will vary by the data source type.
 
-Internally, the wizard also sets up the following, which is not visible in the indexer until after it is created:
+Internally, the wizard also sets up the following, which isn't visible in the indexer until after it is created:
 
 + [field mappings](search-indexer-field-mappings.md) between the data source and index
 + [output field mappings](cognitive-search-output-field-mapping.md) between skill output and an index

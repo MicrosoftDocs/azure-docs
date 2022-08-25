@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/29/2021
+ms.date: 08/24/2022
 ms.custom: mode-ui
 ---
 # Quickstart: Create an Azure Cognitive Search index in the Azure portal
