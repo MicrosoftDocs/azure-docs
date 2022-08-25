@@ -1,131 +1,84 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.topic: overview #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-overview #Required; leave this attribute/value as-is.
+title: What is Azure Virtual Network encryption? (Preview)
+description: Overview of Azure Virtual Network encryption
+author: asudbring
+ms.author: allensu
+ms.topic: overview
+ms.date: 09/12/2022
+ms.custom: template-overview, references_regions
+
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+#  What is Azure Virtual Network encryption? (Preview)
 
-<!--
-This template provides the basic structure of a service/product overview article.
-See the [overview guidance](contribute-how-write-overview.md) in the contributor guide.
+Azure Virtual Network encryption is a feature of Azure Virtual Network. Virtual network encryption allows you to seamlessly encrypt and decrypt internal network traffic over the wire, with minimal impact to performance and scale. Virtual network encryption utilizes CPU offload technology to perform the encryption on an FPGA to avoid expensive cryptographic calculations, achieving the same CPU and network performance as without encryption. 
 
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
+The underlying encryption technology uses DTLS v1.2 RFC 6347 with AES-GCM-256 as the cipher. During the preview, Microsoft manages the certificates that DTLS uses to create encrypted tunnels. 
 
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. H1 format is # What is <product/service>?
--->
+With the addition of virtual network encryption, end-to-end encryption between on-premisses and Azure workloads is now possible. VPN gateway and Application gateway encrypt data from outside the cloud. MACsec encrypts data in-transit between datacenters and regions. Data traversing within private virtual networks can now be encrypted through virtual network encryption. 
 
-# What is <product/service>?
+> [!IMPORTANT]
+> Azure Virtual Network encryption is currently in preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
+## Requirements
 
-[add your introductory paragraph]
+Virtual network encryption is designed to provide encryption with no performance impact. Virtual network encryption leverages a SmartNIC attached to the Azure platform that’s hosting your virtual machine. 
 
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+Virtual network encryption has the following requirements:
 
-## [Section 1 H2]
-<!-- add your content here -->
+- The virtual machine hosted on compatible hardware that has an FPGA SmartNIC. The following virtual machine SKUs are currently supported.
+    
+    - Dv4
+    - Ev4
+    - Mv2
+    - Fv2
 
-## [Section 2 H2]
-<!-- add your content here -->
+- Accelerated Networking must be enabled on the network interface of the virtual machine. For more information about Accelerated Networking, see [What is Accelerated Networking?](/azure/virtual-network/accelerated-networking-overview).
 
-## [Section n H2]
-<!-- add your content here -->
+Virtual Network encryption provides two methods of control when it includes VM sizes that don't meet the minimum requirements:
 
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+- **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be **dropped**. This happens if a virtual, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
+
+-**AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be allowed. This allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
+
+Public IP traffic isn't dropped or encrypted in either scenario. IP fragmented packets aren't supported. This scenario will only happen in jumbo frame scenarios. Global Peering is supported in regions where virtual network encryption is supported.
+
+## Use cases
+
+The use cases for Azure Virtual Network encryption are for scenarios where virtual machine to virtual machine encryption and virtual machine to on-premises is required. Azure Virtual Network encryption protects data traversing your virtual network between virtual machines and on-premises.
+
+## Availability
+
+Azure Virtual Network encryption is available in the following regions during the preview.:
+
+- East US 2 EUAP
+
+- Central US EUAP
+
+- West Central US
+
+- North Central US
+
+- East US 2
+
+- West US 2
+
+Email VNetEncryptionPM@microsoft.com to obtain access to the public preview.
+
+## Limitations
+
+Azure Virtual Network encryption has the following limitations:
+
+- In scenarios where a PaaS is involved, the virtual machine where the PaaS is hosted dictates if virtual network encryption is supported. The virtual machine must meet the listed requirements. 
+
+- Swift - Services using swift will observe connectivity failure to swift containers injected in a virtual network. A fix is currently in progress.
+
+- Gen8 behind Internal load balancer - If you enable virtual network encryption after provisioning virtual machines, it may cause connectivity problems to due the unavailability of this feature on Gen8 clusters. Virtual machines on Gen8 clusters behind an ILB will see connectivity loss accessing the virtual machines via the internal load balancer. Once support is extended to Gen8 clusters, ILB connectivity will function, but existing connections will drop.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write an overview](contribute-how-to-write-overview.md)
-- [Links](links-how-to.md)
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
----
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-concept #Required; leave this attribute/value as-is.
----
+- For more information about Azure Virtual Networks, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 
-<!--Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
-
-<!--
-This template provides the basic structure of a concept article.
-See the [concept guidance](contribute-how-write-concept.md) in the contributor guide.
-
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
-
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. Should NOT begin with a verb.
--->
-
-# [H1 heading here]
-
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
-
-[add your introductory paragraph]
-
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
-
-## [Section 1 heading]
-<!-- add your content here -->
-
-## [Section 2 heading]
-<!-- add your content here -->
-
-## [Section n heading]
-<!-- add your content here -->
-
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
-
-## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write concepts](contribute-how-to-write-concept.md)
-- [Links](links-how-to.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
 
