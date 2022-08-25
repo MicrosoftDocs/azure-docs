@@ -91,7 +91,7 @@ Each replica you create has its dedicated endpoint. If your application resides 
 When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for improved resiliency. App Configuration provider libraries have built-in failover support by accepting multiple replica endpoints. You can provide a list of your replica endpoints in the order of the most preferred to the least preferred endpoint. When the current endpoint isn't accessible, the provider library will fail over to a less preferred endpoint, but it will try to connect to the more preferred endpoints from time to time. When a more preferred endpoint becomes available, it will switch to it for future requests. You can update your application as the sample code below to take advantage of the failover feature.
 
 > [!NOTE]
-> You can only use Azure AD authentication to connect to replicas during the preview.
+> You can only use Azure AD authentication to connect to replicas. Authentication with access keys is not supported during the preview.
 
 <!-- ### [.NET](#tab/dotnet) -->
 
