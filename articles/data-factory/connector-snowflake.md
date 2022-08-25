@@ -254,7 +254,7 @@ If your sink data store and format meet the criteria described in this section, 
             "sink": {
                 "type": "<sink type>",
  	            "importSettings": {
-                    "type": "SnowflakeExportCopyCommand"
+                    "type": "SnowflakeImportCopyCommand"
                 }
             }
         }
@@ -301,7 +301,7 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
             "sink": {
                 "type": "<sink type>",
                 "importSettings": {
-                    "type": "SnowflakeExportCopyCommand"
+                    "type": "SnowflakeImportCopyCommand"
 	            }
             },
             "enableStaging": true,
@@ -393,7 +393,7 @@ If your source data store and format meet the criteria described in this section
             "source": {
                 "type": "<source type>",
  	            "exportSettings": {
-                    "type": "SnowflakeImportCopyCommand"
+                    "type": "SnowflakeExportCopyCommand"
 	            }
             },
             "sink": {
@@ -446,7 +446,7 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
             "source": {
                 "type": "<source type>",
                 "exportSettings": {
-                    "type": "SnowflakeImportCopyCommand"
+                    "type": "SnowflakeExportCopyCommand"
 	        }
             },
             "sink": {
