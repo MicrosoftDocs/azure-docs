@@ -127,7 +127,7 @@ The following sections show the properties, types, and descriptions that are col
 - Data controller state
    - `string: ProvisioningState` 
 
-### PostgreSQL server Server Group 
+### PostgreSQL server
 
 - The data controller ID
    - `string: DataControllerId`

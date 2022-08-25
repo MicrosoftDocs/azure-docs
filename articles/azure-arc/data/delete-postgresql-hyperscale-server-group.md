@@ -79,7 +79,7 @@ There are 8 PVCs for this server group.
 
 ### 2. Delete each of the PVCs
 
-Delete the data and log PVCs for each of the PostgreSQL server nodes (Coordinator and Workers) of the server group you deleted.
+Delete the data and log PVCs for the PostgreSQL server you deleted.
 
 The general format of this command is: 
 

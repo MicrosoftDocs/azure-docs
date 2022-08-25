@@ -14,7 +14,7 @@ ms.topic: how-to
 
 # Show the configuration of an Azure Arc-enabled PostgreSQL server
 
-This article explains how to display the configuration of your server group(s). It does so by anticipating some questions you may be asking to yourself and it answers them. At times, there may be several valid answers. This article pitches the most common or useful ones. It groups those questions by theme:
+This article explains how to display the configuration of your server. It does so by anticipating some questions you may be asking to yourself and it answers them. At times, there may be several valid answers. This article pitches the most common or useful ones. It groups those questions by theme:
 
 - From a Kubernetes point of view
 - From an Azure Arc-enabled data services point of view

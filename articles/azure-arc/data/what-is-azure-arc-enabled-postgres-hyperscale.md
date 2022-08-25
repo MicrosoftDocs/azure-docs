@@ -91,7 +91,7 @@ With the Direct connectivity mode offered by Azure Arc-enabled data services you
 **With Azure Arc-enabled PostgreSQL server, you can:**
 - Manage Postgres simply
     - Provision/de-provision Postgres instances with one command
-    - At any scale: scale up/down/out/in 
+    - At any scale: scale up/down
 - Simplify monitoring, failover, backup, patching/upgrade, access control & more
 - Build Postgres apps at unprecedented scale & performance
     - Scale out compute horizontally across multiple Postgres instances
