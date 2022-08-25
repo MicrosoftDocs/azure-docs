@@ -8,8 +8,7 @@ manager: barbkess
 editor: TomSh
 
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
