@@ -32,9 +32,9 @@ The diagram shows the following components of a workspace:
 
 + [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams, or projects.
 + [Compute targets](concept-compute-targets.md) are used to run your experiments.
-+ When you create the workspace, [associated resources](#resources) are also created for you.
-+ [Experiments](v1/concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  
-+ [Pipelines](v1/concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
++ When you create the workspace, [associated resources](#associated-resources) are also created for you.
++ Jobs are training runs you use to build your models.  You can organize your jobs into Experiments.
++ [Pipelines](concept-ml-pipelines.md) are reusable workflows for training and retraining your model.
 + [Data assets](concept-data.md) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a registered model.
 + Use the registered model and a scoring script to create an [online endpoint](concept-endpoints.md).
@@ -59,7 +59,7 @@ Machine learning tasks read and/or write artifacts to your workspace.
 + Register a model in the workspace.
 + Deploy a model - uses the registered model to create a deployment.
 + Create and run reusable workflows.
-+ View machine learning artifacts such as experiments, pipelines, models, deployments.
++ View machine learning artifacts such as jobs, pipelines, models, deployments.
 + Track and monitor models.
 
 ## Workspace management
