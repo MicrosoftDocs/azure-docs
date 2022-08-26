@@ -45,7 +45,7 @@ In Standard logic app workflows, a built-in connector that has the following att
 
 * Runs in the same process as the redesigned Azure Logic Apps runtime.
 
-These service provider-based built-in connectors are available alongside their [managed connector versions](managed.md).
+Service provider-based built-in connectors are available alongside their [managed connector versions](managed.md).
 
 In contrast, a built-in connector that's *not a service provider* has the following attributes:
 
