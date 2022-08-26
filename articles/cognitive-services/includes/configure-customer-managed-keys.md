@@ -34,8 +34,6 @@ When you use customer-managed keys, you need to set two properties in the key va
 
 To learn how to enable these properties on an existing key vault, see [Azure Key Vault recovery management with soft delete and purge protection](../../key-vault/general/key-vault-recovery.md).
 
-- [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md).
-- [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md).
 
 ## Enable customer-managed keys for your resource
 
