@@ -161,12 +161,16 @@
         href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Configure encryption with customer-managed keys
         items:
-        - name: Store customer-managed keys in a key vault
-          href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Store customer-managed keys in a managed HSM
+        - name: Check the encryption key model for the account
+          href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Configure customer-managed keys in Azure Key Vault
+          items:
+          - name: Configure customer-managed keys for a new account
+            href: ../common/customer-managed-keys-configure-new-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          - name: Configure customer-managed keys for an existing account
+            href: ../common/customer-managed-keys-configure-existing-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Configure customer-managed keys in a managed HSM
           href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Check the encryption key model for the account
-        href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Enable infrastructure encryption for the account
         href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Configure client-side encryption
