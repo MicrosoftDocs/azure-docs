@@ -16,7 +16,7 @@ The Azure Communication Services **Group Calling Hero Sample for Android** demon
 
 ## Download code
 
-Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-android-calling-hero/).
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero).
 
 ## Overview
 
@@ -26,13 +26,19 @@ Here's what the sample looks like:
 
 :::image type="content" source="../media/calling/landing-page-android.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
-When you press the "Start new call" button, the Android application creates a new call and joins it. The application also allows you to join an existing Azure Communication Services call by specifying the existing call's ID.
-
-After joining a call, you'll be prompted to give the application permission to access your camera and microphone. You'll also be asked to provide a display name.
+When you press the "Start new call" button, the Android application prompts you to enter your display name to use for the call.
 
 :::image type="content" source="../media/calling/pre-call-android.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
 
-Once you configure your display name and devices, you can join the call. You'll see the main call canvas where the core calling experience lives.
+After tapping "Next" on the "Start A call" page, you have the opportunity to share the "Group Call ID". 
+
+:::image type="content" source="../media/calling/share-call-android.png" alt-text="Screenshot showing the share Group Call ID screen of the sample application.":::
+
+The application allows you to join an existing Azure Communication Services call by specifying the existing call's ID or teams meeting ID link and display name.
+
+:::image type="content" source="../media/calling/join-call-android.png" alt-text="Screenshot showing the join call screen of the sample application.":::
+
+After joining a call, you'll be prompted to give the application permission to access your camera and microphone, if not already authorized. You'll see the main call canvas where the core calling experience lives.
 
 :::image type="content" source="../media/calling/main-app-android.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
