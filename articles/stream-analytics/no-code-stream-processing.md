@@ -94,7 +94,7 @@ No-code editor now supports two reference data sources:
 
 Reference data is modeled as a sequence of blobs in ascending order of the date/time specified in the blob name. Blobs can only be added to the end of the sequence by using a date/time greater than the one specified by the last blob in the sequence. Blobs are defined in the input configuration. For more information, see [Use reference data from Blob Storage for a Stream Analytics job](stream-analytics-use-reference-data.md).
 
-First, you have to select **Reference ADLS Gen2** under **Inputs** section on the ribbon. To see details about each field, see Azure Blob Storage section in [Azure Blob Storage Reference data input](stream-analytics-use-reference-data#azure-blob-storage).
+First, you have to select **Reference ADLS Gen2** under **Inputs** section on the ribbon. To see details about each field, see Azure Blob Storage section in [Azure Blob Storage Reference data input](stream-analytics-use-reference-data.md#azure-blob-storage).
 
    ![Configure ADLS Gen2 as reference data input in no code editor](./media/no-code-stream-processing/blob-referencedata-nocode.png)
 
@@ -104,7 +104,7 @@ Then, upload a JSON of array file and the fields in the file will be detected. U
 
 ### SQL Database as reference data
 
-Azure Stream Analytics supports Azure SQL Database as a source of input for reference data as well. For more information, see [Azure SQL Database Reference data input](stream-analytics-use-reference-data#azure-sql-database). You can use SQL Database as reference data for your Stream Analytics job in the no-code editor.
+Azure Stream Analytics supports Azure SQL Database as a source of input for reference data as well. For more information, see [Azure SQL Database Reference data input](stream-analytics-use-reference-data.md#azure-sql-database). You can use SQL Database as reference data for your Stream Analytics job in the no-code editor.
 
 To configure SQL database as reference data input, simply select the **Reference SQL Database** under **Inputs** section on the ribbon.
 
