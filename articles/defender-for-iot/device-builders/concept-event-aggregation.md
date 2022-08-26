@@ -153,6 +153,9 @@ Defender for IoT agents aggregate events during the send interval defined in the
 
 When the agent collects similar events to the ones that are already stored in memory, the agent will increase the hit count of this specific event to reduce the memory footprint of the agent. When the aggregation time window passes, the agent sends the hit count of each type of event that occurred. Event aggregation is the aggregation of the hit counts of similar events. For example, network activity with the same remote host and on the same port, is aggregated as one event, instead of as a separate event for each packet.
 
+> [!NOTE]
+> By default, the micro agent sends logs and telemetry to the cloud for troubleshooting and monitoring purposes. This behavior can be configured or turned off through the twin.
+
 ## Next steps
 
 For more information, see:

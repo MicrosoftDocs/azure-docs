@@ -47,9 +47,9 @@ To export device inventory data, select the **Import/Export file** :::image type
 
 Save the exported file locally.
 
-## Enhance device inventory data
+## Add to and enhance device inventory data
 
-Enhance the data in your device inventory with information from other sources, such as CMDBs, DNS, firewalls, and Web APIs. Use enhanced data to learn things such as:
+Use information from other sources, such as CMDBs, DNS, firewalls, and Web APIs, to enhance the data shown in your device inventory. For example, use enhanced data to present information about the following items:
 
 - Device purchase dates and end-of-warranty dates
 - Users responsible for each device
@@ -59,9 +59,9 @@ Enhance the data in your device inventory with information from other sources, s
 - Devices running active antivirus applications
 - Users signed in to devices
 
-Enhancement data is shown as extra columns in the on-premises management console **Device inventory** page.
+Added and enhancement data is shown as extra columns, in addition to the existing columns available in the on-premises management console **Device inventory** page.
 
-Enhance data by adding it manually or by running customized scripts from Defender for IoT. You can also work with Defender for IoT support to set up your system to receive Web API queries.
+Enhance data by adding it manually or by running a customized version of our [automation script sample](custom-columns-sample-script.md). You can also open a support ticket to set up your system to receive Web API queries.
 
 For example, the following image shows an example of how you might use enhanced data in the device inventory:
 
@@ -95,7 +95,7 @@ The new data appears in the **Device Inventory** grid.
 
 To enhance your data using automation scripts:
 
-1. Contact [Microsoft Support](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099) to obtain the relevant scripts.
+1. Copy the [sample automation script](custom-columns-sample-script.md) to a local file and modify it as needed.
 
 1. Sign in to your on-premises management console, and select **Device inventory**.
 
@@ -105,7 +105,7 @@ To enhance your data using automation scripts:
 
 1. In the **Add Custom Column** dialog box, add the new column name using up to 250 UTF characters.
 
-1. Select **Automatic**. When the **UPLOAD SCRIPT** and **TEST SCRIPT** buttons appear, upload and then test the script you'd received from [Microsoft Support](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+1. Select **Automatic**. When the **UPLOAD SCRIPT** and **TEST SCRIPT** buttons appear, upload and then test the script you'd customized earlier and saved locally.
 
 The new data appears in the **Device Inventory** grid.
 

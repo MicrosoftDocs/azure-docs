@@ -9,20 +9,34 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 07/03/2021
+ms.date: 08/17/2022
 ms.author: barclayn
 ms.reviewer: kexia
 ms.custom: "it-pro, seodec18, fasttrack-edit"
 ms.collection: M365-identity-device-management
 ---
 
+<<<<<<< HEAD
 # Configure your company branding
+=======
+# Add branding to your organization's Azure Active Directory sign-in page
+
+Use your organization's logo and custom color schemes to provide a consistent look-and-feel on your Azure Active Directory (Azure AD) sign-in pages. Your sign-in pages appear when users sign in to your organization's web-based apps, such as Microsoft 365, which uses Azure AD as your identity provider.
+>>>>>>> 00db3dbdfd8ae02eaaa2739ad7ec55cf402cc26c
 
 Create a consistent experience when users sign into your organization's web-based apps that use Azure Active Directory (Azure AD) as your identity provider, such as Microsoft 365. The sign-in process can include your company logo and customized experiences based on browser language.
 
+<<<<<<< HEAD
 ## License requirements
 
 Adding custom branding and configuring the 'keep me signed in' (KMSI) option requires one of the following licenses:
+=======
+## Customize your Azure AD sign-in page
+
+You can customize your Azure AD sign-in pages, which appear when users sign in to your organization's tenant-specific apps, such as `https://outlook.com/contoso.com`, or when passing a domain variable, such as `https://passwordreset.microsoftonline.com/?whr=contoso.com`.
+
+Your custom branding won't immediately appear when your users go to sites such as, www\.office.com. Instead, the user has to sign-in before your customized branding appears. After the user has signed in, the branding may take 15 minutes, or longer to appear. 
+>>>>>>> 00db3dbdfd8ae02eaaa2739ad7ec55cf402cc26c
 
 - Azure AD Premium 1
 - Azure AD Premium 2
@@ -42,6 +56,11 @@ Custom branding appears after users sign in. Users that start the sign-in proces
 
 **Images have different image and file size requirements.** Take note of the requirements for each option. You may need to use a photo editor to create the right-sized images. The preferred image type for all images is PNG, but JPG is accepted. 
 
+<<<<<<< HEAD
+=======
+### To configure your branding for the first time
+
+>>>>>>> 00db3dbdfd8ae02eaaa2739ad7ec55cf402cc26c
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 2. Go to **Azure Active Directory** > **Company branding** > **Configure**.
@@ -54,11 +73,19 @@ Custom branding appears after users sign in. Users that start the sign-in proces
         
     - **Sign-in page background image** Select a PNG or JPG image file to appear as the background for your sign-in pages. The image will be anchored to the center of the browser, and will scale to the size of the viewable space.
         
+<<<<<<< HEAD
         We recommended using images without a strong subject focus. An opaque white box appears in the center of the screen, which could cover any part of the image depending on the dimensions of the viewable space.
+=======
+            It's recommended to use images without a strong subject focus, for example, an opaque white box appears in the center of the screen, and could cover any part of the image depending on the dimensions of the viewable space.
+>>>>>>> 00db3dbdfd8ae02eaaa2739ad7ec55cf402cc26c
 
     - **Banner logo** Select a PNG or JPG version of your logo to appear on the sign-in page after the user enters a username and on the **My Apps** portal page.
             
+<<<<<<< HEAD
         We recommend using a transparent image because the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small. 
+=======
+            The image can't be taller than 60 pixels or wider than 280 pixels, and the file shouldn’t be larger than 10 KB. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small. 
+>>>>>>> 00db3dbdfd8ae02eaaa2739ad7ec55cf402cc26c
 
     - **Username hint** Type the hint text that appears to users if they forget their username. This text must be Unicode, without links or code, and can't exceed 64 characters. If guests sign in to your app, we suggest not adding this hint.
 
@@ -147,7 +174,12 @@ If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in
 
 ![Sample 'Stay signed in?' prompt](media/customize-branding/kmsi-stay-signed-in-prompt.png)
 
+<<<<<<< HEAD
 Details about the sign-in error are as follows and highlighted in the example.
+=======
+## Add your custom branding to pages
+Add your custom branding to pages by modifying the end of the URL with the text, `?whr=yourdomainname`. This specific modification works on different types of pages, including the Multi-Factor Authentication (MFA) setup page, the Self-service Password Reset (SSPR) setup page, and the sign-in page.
+>>>>>>> 00db3dbdfd8ae02eaaa2739ad7ec55cf402cc26c
 
 * **Sign in error code**: 50140
 * **Failure reason**: This error occurred due to "Keep me signed in" interrupt when the user was signing in.

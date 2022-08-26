@@ -46,7 +46,7 @@ Prior to performing any operations with Azure, you must log into Azure and set t
 
 Your netlist file must be uploaded to an Azure storage blob container for access by the attestation service.  
 
-Refer to this page for more information on creating the account, a container, and uploading your netlist as a blob to that container: [https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli](../storage/blobs/storage-quickstart-blobs-cli.md).  
+For more information on creating the account, a container, and uploading your netlist as a blob to that container, see [Quickstart: Create, download, and list blobs with Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md).  
 
 You can also use the Azure portal for this as well.  
 
