@@ -338,8 +338,8 @@ items:
       items:
         - name: Text analysis runtime API (v2022-05-01)
           href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-05-15-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Text analysis runtime API (v2022-07-01-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
         - name: Previous versions
           items:
           - name: v3.2-preview.2
@@ -419,8 +419,8 @@ items:
       items:
         - name: Text analysis runtime API (v2022-05-01)
           href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-05-15-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Text analysis runtime API (v2022-07-01-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
         - name: Previous versions
           items:
           - name: v3.2-preview.2
@@ -505,8 +505,8 @@ items:
       items:
         - name: Text analysis runtime API (v2022-05-01)
           href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-05-15-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Text analysis runtime API (v2022-07-01-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
         - name: Previous versions
           items:
           - name: v3.2-preview.2
@@ -583,8 +583,8 @@ items:
       items:
         - name: Text analysis runtime API (v2022-05-01)
           href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-05-15-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Text analysis runtime API (v2022-07-01-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
         - name: Previous versions
           items:
           - name: v3.2-preview.2
@@ -728,8 +728,8 @@ items:
       items:
         - name: Text analysis runtime API (v2022-05-01)
           href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-05-15-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Text analysis runtime API (v2022-07-01-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
         - name: Previous versions
           items:
           - name: v3.2-preview.2
@@ -925,8 +925,8 @@ items:
       items:
         - name: Text analysis runtime API (v2022-05-01)
           href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-05-15-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Text analysis runtime API (v2022-07-01-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
         - name: Previous versions
           items:
           - name: v3.2-preview.2
@@ -1013,8 +1013,8 @@ items:
       items:
         - name: Text analysis runtime API (v2022-05-01)
           href: /rest/api/language/text-analysis-runtime
-        - name: Text analysis runtime API (v2022-05-15-preview)
-          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Text analysis runtime API (v2022-07-01-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-07-01-preview/operations/AnalyzeText
         - name: Previous versions
           items:
           - name: v3.2-preview.2

@@ -4,8 +4,7 @@ titleSuffix: Azure
 description: Read the release notes for the Microsoft Threat Modeling Tool released on 1/29/2019. The notes include feature changes and known issues.
 author: jegeib
 ms.author: jegeib
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
 ms.topic: article
 ms.date: 01/25/2019
 ---
