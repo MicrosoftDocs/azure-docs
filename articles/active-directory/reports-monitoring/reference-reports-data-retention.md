@@ -79,6 +79,6 @@ You can retain the audit and sign-in activity data for longer than the default r
 
 ### Can I see last month's data after getting an Azure AD premium license?
 
-**No**, you can't. Azure stores up to seven days of activity data for a free version. This means, when you switch from a free to a to a premium version, you can only see up to 7 days of data.
+**No**, you can't. Azure stores up to seven days of activity data for a free version. This means, when you switch from a free to a premium version, you can only see up to 7 days of data.
 
 ---
