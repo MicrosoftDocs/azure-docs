@@ -46,6 +46,7 @@ az group create --name "test-rg" --location "eastus"
 new-azResourceGroup -Name "test-rg" -Location "eastus"
 ```
 
+---
 ### Create Virtual Machine
 
 Create a Windows virtual machine:
