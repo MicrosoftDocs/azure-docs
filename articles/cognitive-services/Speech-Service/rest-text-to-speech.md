@@ -19,7 +19,7 @@ The Speech service allows you to [convert text into synthesized speech](#convert
 
 The text-to-speech REST API supports neural text-to-speech voices, which support specific languages and dialects that are identified by locale. Each available endpoint is associated with a region. A subscription key for the endpoint or region that you plan to use is required. Here are links to more information:
 
-- For a complete list of voices, see [Language and voice support for the Speech service](language-support.md#text-to-speech).
+- For a complete list of voices, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
 - For information about regional availability, see [Speech service supported regions](regions.md#speech-service).
 - For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
 
@@ -69,7 +69,7 @@ You can use the `voices/list` endpoint to get a full list of voices for a specif
 | West US 3 | `https://westus3.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 > [!TIP]
-> [Voices in preview](language-support.md#prebuilt-neural-voices-in-preview) are available in only these three regions: East US, West Europe, and Southeast Asia.
+> [Voices in preview](language-support.md?tabs=stt-tts) are available in only these three regions: East US, West Europe, and Southeast Asia.
 
 ### Request headers
 
@@ -232,7 +232,7 @@ This table lists required and optional headers for text-to-speech requests:
 
 ### Request body
 
-If you're using a custom neural voice, the body of a request can be sent as plain text (ASCII or UTF-8). Otherwise, the body of each `POST` request is sent as [SSML](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech that the text-to-speech feature returns. For a complete list of supported voices, see [Language and voice support for the Speech service](language-support.md#text-to-speech).
+If you're using a custom neural voice, the body of a request can be sent as plain text (ASCII or UTF-8). Otherwise, the body of each `POST` request is sent as [SSML](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech that the text-to-speech feature returns. For a complete list of supported voices, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
 
 ### Sample request
 

@@ -16,7 +16,7 @@ With Proxy updates, you can (1) target over-the-air updates to multiple componen
 * Targeting specific update files to different apps/components on the device  
 * Targeting specific update files to sensors connected to an IoT devices. These sensors could be connected to the IoT device over a network protocol (for example, USB, CANbus etc.). 
 
-## Pre-requisite
+## Prerequisite 
 In order to update a component or components that connected to a target IoT Device, the device builder must register a custom **Component Enumerator Extension** that is built specifically for their IoT devices. The Component Enumerator Extension is required so that the Device Update Agent can map a **'child update'** with a specific component, or group of components, which the update is intended for. See [Contoso Component Enumerator](components-enumerator.md) for an example on how to implement and register a custom Component Enumerator extension.
 
 > [!NOTE]
