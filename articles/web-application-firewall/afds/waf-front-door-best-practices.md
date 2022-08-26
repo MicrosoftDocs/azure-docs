@@ -5,7 +5,7 @@ services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 08/25/2022
 ms.author: jodowns
 
 ---
@@ -31,6 +31,12 @@ For more information, see [Tuning Web Application Firewall (WAF) for Azure Front
 ### Use prevention mode
 
 After you've tuned your WAF, you should configure it to [run in prevention mode](waf-front-door-policy-settings.md#waf-mode). By running in prevention mode, you ensure the WAF actually blocks requests that it detects are malicious. Running in detection mode is useful while you tune and configure your WAF, but provides no protection.
+
+### Define your WAF configuration as code
+
+When you tune your WAF for your application workload, you typically create a set of rule exclusions to reduce false positive detections. If you manually configure these exclusions, then when you upgrade your WAF to use a newer ruleset version, you need to reconfigure the same exceptions against the new ruleset version. This process can be time-consuming and error-prone.
+
+Instead, consider defining your WAF rule exclusions and other configuration as code, such as by using Bicep or Terraform. Then, when you need to update your WAF ruleset version, you can easily reuse the same exclusions.
 
 ## Managed ruleset best practices
 
