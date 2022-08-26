@@ -221,7 +221,7 @@ There are four provisioning states:
 
 1. To remove a private endpoint connection, select it in the list, and select **Remove** on the toolbar.
 2. On the **Delete connection** page, select **Yes** to confirm the deletion of the private endpoint. If you select **No**, nothing happens.
-3. You should see the status changed to **Disconnected**. Then, you'll see the endpoint disappear from the list.
+3. You should see the status changed to **Disconnected**. Then, the endpoint will disappear from the list.
 
 ## Validate that the private link connection works
 
