@@ -8,7 +8,11 @@ ms.date: 08/30/2022
 
 # Enable Private Link on an HDInsight Kafka Rest Proxy cluster
 
-Follow theese extra steps to enable private link for Kafka Rest Proxy HDI clusters.
+Follow these extra steps to enable private link for Kafka Rest Proxy HDI clusters.
+
+> Warning
+> Floow these extra steps only if you are going to Enable Private Link on an HDInsight Kafka Rest Proxy cluster.
+> 
 
 ## Step 1
 
