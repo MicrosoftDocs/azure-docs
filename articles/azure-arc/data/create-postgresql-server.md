@@ -34,10 +34,10 @@ If you prefer to try out things without provisioning a full environment yourself
 Implement this step before moving to the next step. To deploy PostgreSQL server onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL server. The security context constraint (SCC) arc-data-scc is the one you added when you deployed the Azure Arc data controller.
 
 ```Console
-oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace-name>
+oc adm policy add-scc-to-user arc-data-scc -z <server-name> -n <namespace-name>
 ```
 
-**Server-group-name is the name of the server group you will create during the next step.**
+**Server-name is the name of the server you will create during the next step.**
 
 For more details on SCCs in OpenShift, refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html). Proceed to the next step.
 
@@ -52,43 +52,30 @@ az postgres arc-server create --help
 ```
 
 The main parameters should consider are:
-- **the name of the server group** you want to deploy. Indicate either `--name` or `-n` followed by a name whose length must not exceed 11 characters.
+- **the name of the server** you want to deploy. Indicate either `--name` or `-n` followed by a name whose length must not exceed 11 characters.
 
-- **the version of the PostgreSQL engine** you want to deploy: by default it is version 12. To deploy version 12, you can either omit this parameter or pass one of the following parameters: `--engine-version 12` or `-ev 12`. To deploy version 11, indicate `--engine-version 11` or `-ev 11`.
+- **the version of the PostgreSQL engine** you want to deploy: by default it is version 14. To deploy version 14, you can either omit this parameter or pass one of the following parameters: `--engine-version 14` or `-ev 14`. No other versions are available at this time.
 
-    |You need   |Shape of the server group you will deploy   |`-w` parameter to use   |Note   |
-    |---|---|---|---|
-    |A scaled out form of Postgres to satisfy the scalability needs of your applications.   |Three or more Postgres instances, one is coordinator, n  are workers with n >=2.   |Use `-w n`, with n>=2.   |The Citus extension that provides the Hyperscale capability is loaded.   |
-    |A basic form of PostgreSQL server for you to do functional validation of your application at minimum cost. Not valid for performance and scalability validation. For that you need to use the type of deployments described above.   |One Postgres instance that is both coordinator and worker.   |Use `-w 0` and load the Citus extension. Use the following parameters if deploying from command line: `-w 0` --extensions Citus.   |The Citus extension that provides the Hyperscale capability is loaded.   |
-    |A simple instance of Postgres that is ready to scale out when you need it.   |One Postgres instance. It is not yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes and distribute the data.   |Use `-w 0` or do not specify `-w`.   |The Citus extension that provides the Hyperscale capability is present on your deployment but is not yet loaded.   |
-    |   |   |   |   |
-
-    This table is demonstrated in the following figure:
-
-    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts PostgreSQL server worker node parameters and associated architecture." border="false":::
-
-    While using `-w 1` works, we do not recommend you use it. This deployment will not provide you much value. With it, you will get two instances of Postgres: One coordinator and one worker. With this setup, you actually do not scale out the data since you deploy a single worker. As such you will not see an increased level of performance and scalability. We will remove the support of this deployment in a future release.
-
-- **The storage classes** you want your server group to use. It is important you set the storage class right at the time you deploy a server group as this setting cannot be changed after you deploy. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
+- **The storage classes** you want your server to use. It is important you set the storage class right at the time you deploy a server as this setting cannot be changed after you deploy. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
     - To set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd` followed by the name of the storage class.
     - To set the storage class for the logs, indicate the parameter `--storage-class-logs` or `-scl` followed by the name of the storage class.
     - The support of setting storage classes for the backups has been temporarily removed as we temporarily removed the backup/restore functionalities as we finalize designs and experiences.
 
    > [!IMPORTANT]
-   > If you need to change the storage class after deployment, extract the data, delete your server group, create a new server group, and import the data. 
+   > If you need to change the storage class after deployment, extract the data, delete your server, create a new server, and import the data. 
 
 When you execute the create command, you will be prompted to enter the password of the default `postgres` administrative user. The name of that user cannot be changed in this Preview. You may skip the interactive prompt by setting the `AZDATA_PASSWORD` session environment variable before you run the create command.
 
 ### Examples
 
-**To deploy a server group of Postgres version 12 named postgres01 with two worker nodes that uses the same storage classes as the data controller, run the following command**:
+**To deploy a server of Postgres version 12 named postgres01 with two worker nodes that uses the same storage classes as the data controller, run the following command**:
 
 ```azurecli
 az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespace> --use-k8s
 ```
 
 > [!NOTE]  
-> - If you deployed the data controller using `AZDATA_USERNAME` and `AZDATA_PASSWORD` session environment variables in the same terminal session, then the values for `AZDATA_PASSWORD` will be used to deploy the PostgreSQL server too. If you prefer to use another password, either (1) update the value for `AZDATA_PASSWORD` or (2) delete the `AZDATA_PASSWORD` environment variable or (3) delete its value to be prompted to enter a password interactively when you create a server group.
+> - If you deployed the data controller using `AZDATA_USERNAME` and `AZDATA_PASSWORD` session environment variables in the same terminal session, then the values for `AZDATA_PASSWORD` will be used to deploy the PostgreSQL server too. If you prefer to use another password, either (1) update the value for `AZDATA_PASSWORD` or (2) delete the `AZDATA_PASSWORD` environment variable or (3) delete its value to be prompted to enter a password interactively when you create a server.
 > - Creating a PostgreSQL server will not immediately register resources in Azure. As part of the process of uploading [resource inventory](upload-metrics-and-logs-to-azure-monitor.md)  or [usage data](view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure portal.
 
 
@@ -112,10 +99,10 @@ az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 
 ## Get the endpoints to connect to your Azure Arc-enabled PostgreSQL servers
 
-To view the endpoints for a PostgreSQL server group, run the following command:
+To view the endpoints for a PostgreSQL server, run the following command:
 
 ```azurecli
-az postgres arc-server endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
+az postgres arc-server endpoint list -n <server name> --k8s-namespace <namespace> --use-k8s
 ```
 For example:
 ```console

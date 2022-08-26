@@ -375,17 +375,14 @@ Events:                      <none>
 
 #### Interpret the configuration information
 
-Let's call out some specific points of interest in the description of the `servergroup` shown above. What does it tell us about this server group?
+Let's call out some specific points of interest in the description of the `server` shown above. What does it tell us about this server group?
 
-- It is of version 12 of Postgres and runs the Citus extension:
+- It is of version 14 of Postgres:
 
    ```output
    Spec:
      Dev:  false
      Engine:
-       Extensions:
-         Name:   citus
-       Version:  12
    ```
 
 - It was created during on October 13 2021:
