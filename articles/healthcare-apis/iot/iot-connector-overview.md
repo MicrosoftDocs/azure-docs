@@ -32,7 +32,7 @@ In order to implement MedTech service, you need to have an Azure subscription an
 
 ### Devices
 
-When the PaaS deployment is completed, high-velocity and low-velocity patient medical data can be collected from a wide range of JSON-compatible IoMT devices, systems, and formats.
+After the PaaS deployment is completed, high-velocity and low-velocity patient medical data can be collected from a wide range of JSON-compatible IoMT devices, systems, and formats.
 
 ### Event Hubs service
 
