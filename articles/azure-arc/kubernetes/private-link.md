@@ -173,7 +173,7 @@ az connectedk8s connect -g <resource-group-name> -n <connected-cluster-name> -l 
 | Parameter name | Description |
 | -------------- | ----------- |
 | --enable-private-link |Property to enable/disable private links feature. Set it to "True" to enable connectivity with private links. |
-| --private-link-scope-resource-id | id of the private link scope resource created earlier. For example: /subscriptions//resourceGroups//providers/Microsoft.HybridCompute/privateLinkScopes/ |
+| --private-link-scope-resource-id | ID of the private link scope resource created earlier. For example: /subscriptions//resourceGroups//providers/Microsoft.HybridCompute/privateLinkScopes/ |
 
 For Azure Arc-enabled Kubernetes clusters that were set up prior to configuring the Azure Arc private link scope, you can configure private links through the Azure portal using the following steps:
 
