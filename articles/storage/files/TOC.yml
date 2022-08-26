@@ -111,6 +111,8 @@
         href: storage-files-identity-ad-ds-update-password.md
     - name: Enable Azure AD DS authentication and authorization
       href: storage-files-identity-auth-active-directory-domain-service-enable.md
+    - name: Enable Azure AD Kerberos authentication for hybrid accounts (preview)
+      href: storage-files-identity-auth-azure-active-directory-enable.md
   - name: Manage
     items:
     - name: Manage storage in Azure independent clouds
