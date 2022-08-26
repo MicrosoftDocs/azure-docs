@@ -58,6 +58,9 @@ Follow these steps to synthesize speech in a macOS application.
     ```
 
 1. In `AppDelegate.m`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+
+    > [!IMPORTANT]
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 1. Optionally in `AppDelegate.m`, include a speech synthesis voice name as shown here: 
     ```ObjectiveC
     speechConfig.speechSynthesisVoiceName = @"en-US-JennyNeural";

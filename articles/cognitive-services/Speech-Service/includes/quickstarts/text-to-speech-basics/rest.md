@@ -18,12 +18,15 @@ ms.author: eur
 
 At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Optionally you can rename `output.mp3` to another output filename.
 
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+
 ```console
 key="YourSubscriptionKey"
 region="YourServiceRegion"
 
-curl --location --request POST 'https://$region.tts.speech.microsoft.com/cognitiveservices/v1' \
---header 'Ocp-Apim-Subscription-Key: $key' \
+curl --location --request POST "https://$region.tts.speech.microsoft.com/cognitiveservices/v1" \
+--header "Ocp-Apim-Subscription-Key: $key" \
 --header 'Content-Type: application/ssml+xml' \
 --header 'X-Microsoft-OutputFormat: audio-16khz-128kbitrate-mono-mp3' \
 --header 'User-Agent: curl' \

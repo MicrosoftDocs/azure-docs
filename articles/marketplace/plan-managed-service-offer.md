@@ -4,9 +4,8 @@ description: Plan a Managed Service offer for Azure Marketplace in Partner Cente
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: anbene
+author: TeoLupu
+ms.author: telupu
 ms.date: 06/29/2022
 ---
 

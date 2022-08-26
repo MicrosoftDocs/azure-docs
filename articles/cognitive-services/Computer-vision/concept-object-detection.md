@@ -14,7 +14,7 @@ ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Detect common objects in images
+# Object detection
 
 Object detection is similar to [tagging](concept-tagging-images.md), but the API returns the bounding box coordinates (in pixels) for each object found in the image. For example, if an image contains a dog, cat and person, the Detect operation will list those objects with their coordinates in the image. You can use this functionality to process the relationships between the objects in an image. It also lets you determine whether there are multiple instances of the same object in an image.
 

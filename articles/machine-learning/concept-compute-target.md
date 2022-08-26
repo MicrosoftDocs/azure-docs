@@ -31,7 +31,6 @@ Azure Machine Learning has varying support across different compute targets. A t
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Learn more about how to [submit a training job to a compute target](how-to-set-up-training-targets.md).
 
 ## <a name="deploy"></a> Compute targets for inference
 
@@ -39,7 +38,7 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 
 [!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
-Learn [where and how to deploy your model to a compute target](how-to-deploy-and-where.md).
+Learn [where and how to deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md).
 
 <a name="amlcompute"></a>
 ## Azure Machine Learning compute (managed)
@@ -69,6 +68,9 @@ When created, these compute resources are automatically part of your workspace, 
 > When a compute *cluster* is idle, it autoscales to 0 nodes, so you don't pay when it's not in use. A compute *instance* is always on and doesn't autoscale. You should [stop the compute instance](how-to-create-manage-compute-instance.md#manage) when you aren't using it to avoid extra cost.
 
 ### Supported VM series and sizes
+
+> [!NOTE] 
+> H-series virtual machine series will be retired on August 31, 2022. Create compute instance and compute clusters with alternate VM sizes. Existing compute instances and clusters with H-series virtual machines will not work after August 31, 2022.
 
 When you select a node size for a managed compute resource in Azure Machine Learning, you can choose from among select VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows for different workloads. To learn more, see [VM types and sizes](../virtual-machines/sizes.md).
 
@@ -168,5 +170,4 @@ For more information, see [set up compute targets for model training and deploym
 ## Next steps
 
 Learn how to:
-* [Use a compute target to train your model](how-to-set-up-training-targets.md)
-* [Deploy your model to a compute target](how-to-deploy-and-where.md)
+* [Deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md)

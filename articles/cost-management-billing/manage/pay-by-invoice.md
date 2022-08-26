@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 07/18/2022
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -122,6 +122,18 @@ Follow the steps below to switch a billing profile to check/wire transfer. Only 
    :::image type="content" source="./media/pay-by-invoice/billing-profile-payment-methods.png" alt-text="Screenshot showing Payment methods menu item." lightbox="./media/pay-by-invoice/billing-profile-payment-methods.png" :::
 1. Under the *Other payment methods* heading, select the ellipsis (...) symbol, and then select **Make default**.  
     :::image type="content" source="./media/pay-by-invoice/customer-led-switch-to-invoice.png" alt-text="Screenshot showing Check/wire transfer ellipsis and Made default option." lightbox="./media/pay-by-invoice/customer-led-switch-to-invoice.png" :::
+
+## Check or wire transfer payment processing time
+
+Payments made by check are posted three to five business days after the check clears your bank. You can contact your bank to confirm the check status.
+
+Payments made by wire transfer have processing times that vary, depending on the type of transfer:
+
+- ACH domestic transfers - Five business days. Two to three days to arrive, plus two days to post.
+- Wire transfers (domestic) - Four business days. Two days to arrive, plus two days to post.
+- Wire transfers (international) - Seven business days. Five days to arrive, plus two days to post.
+
+If your account is approved for payment by check or wire transfer, the instructions for payment can are found on the invoice.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

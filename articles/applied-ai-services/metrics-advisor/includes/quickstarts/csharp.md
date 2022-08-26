@@ -137,6 +137,9 @@ var credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
 var adminClient = new MetricsAdvisorAdministrationClient(new Uri(endpoint), credential);
 ```
 
+> [!IMPORTANT]
+> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
+
 ## Add a data feed
 
 Metrics Advisor supports multiple types of data sources. In this sample we'll illustrate how to create a `DataFeed` that extracts data from a SQL server. 

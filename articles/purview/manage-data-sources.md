@@ -31,9 +31,16 @@ Use the following steps to register a new source.
 
 3. Select **Register**.
 
+>[!IMPORTANT]
+>Most data sources have additional information and prerequisites to register and scan them in Microsoft Purview. For a list of all available sources, and links to source-specific instructions for registeration and scanning, see our [supported sources article.](microsoft-purview-connector-overview.md#microsoft-purview-data-map-available-data-sources)
+
 ## View sources
 
-You can view all registered sources on the **Data Map** tab of the Microsoft Purview governance portal. There are two view types: map view and list view.
+You can view all registered sources on the **Data Map** tab of the Microsoft Purview governance portal. 
+There are two view types: 
+
+- [The map view](#map-view)
+- [The list view](#table-view)
 
 ### Map view
 
@@ -57,7 +64,8 @@ To create a hierarchy of collections, assign higher-level collections as a paren
 
 :::image type="content" source="media/manage-data-sources/collections.png" alt-text="A hierarchy of collections in the Microsoft Purview governance portal":::
 
-You can remove sources from a hierarchy by selecting *None* for the parent. Unparented sources are grouped in a dotted box in the map view with no arrows linking them to parents.
+>[!TIP] 
+>You can remove sources from a hierarchy by selecting *None* for the parent. Unparented sources are grouped in a dotted box in the map view with no arrows linking them to parents.
 
 ## Next steps
 

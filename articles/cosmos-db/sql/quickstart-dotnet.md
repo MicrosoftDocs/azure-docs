@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 07/06/2022
+ms.date: 07/26/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -26,7 +26,7 @@ ms.custom: devx-track-csharp
 > * [Go](create-sql-api-go.md)
 >
 
-Get started with the Azure Cosmos DB client library for .NET to create databases, containers, and items within your account. Follow these steps to  install the package and try out example code for basic tasks.
+Get started with the Azure Cosmos DB client library for .NET to create databases, containers, and items within your account.  Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). Follow these steps to  install the package and try out example code for basic tasks.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-dotnet-quickstart) are available on GitHub as a .NET project.
@@ -35,7 +35,7 @@ Get started with the Azure Cosmos DB client library for .NET to create databases
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+* An Azure account with an active subscription. [Create an account for free](https://aka.ms/trycosmosdb).
 * [.NET 6.0 or later](https://dotnet.microsoft.com/download)
 * [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 

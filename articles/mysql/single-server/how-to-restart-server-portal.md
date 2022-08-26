@@ -22,6 +22,10 @@ The time required to complete a restart depends on the MySQL recovery process. T
 To complete this how-to guide, you need:
 - An [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-portal.md)
 
+>[!Note]
+>If the user restarting the server is part of [custom role](../../role-based-access-control/custom-roles.md) the user should have write privilege on the server.
+
+
 ## Perform server restart
 
 The following steps restart the MySQL server:

@@ -78,7 +78,7 @@ items:
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+    href: /learn/modules/intro-to-azure-virtual-network-nat/
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog

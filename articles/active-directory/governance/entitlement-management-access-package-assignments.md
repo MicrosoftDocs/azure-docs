@@ -3,8 +3,8 @@ title: View, add, and remove assignments for an access package in Azure AD entit
 description: Learn how to view, add, and remove assignments for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyATL
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 01/05/2022
-ms.author: ajburnle
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -28,6 +28,7 @@ In Azure AD entitlement management, you can see who has been assigned to access 
 
 To use Azure AD entitlement management and assign users to access packages, you must have one of the following licenses:
 
+
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license
 
@@ -35,27 +36,27 @@ To use Azure AD entitlement management and assign users to access packages, you 
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. In the left menu, select **Access packages** and then open the access package.
 
-1. Click **Assignments** to see a list of active assignments.
+1. Select **Assignments** to see a list of active assignments.
 
     ![List of assignments to an access package](./media/entitlement-management-access-package-assignments/assignments-list.png)
 
-1. Click a specific assignment to see additional details.
+1. Select a specific assignment to see more details.
 
-1. To see a list of assignments that did not have all resource roles properly provisioned, click the filter status and select **Delivering**.
+1. To see a list of assignments that didn't have all resource roles properly provisioned, select the filter status and select **Delivering**.
 
     You can see additional details on delivery errors by locating the user's corresponding request on the **Requests** page.
 
-1. To see expired assignments, click the filter status and select **Expired**.
+1. To see expired assignments, select the filter status and select **Expired**.
 
-1. To download a CSV file of the filtered list, click **Download**.
+1. To download a CSV file of the filtered list, select **Download**.
 
 ## View assignments programmatically
 ### View assignments with Microsoft Graph
-You can also retrieve assignments in an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignments](/graph/api/entitlementmanagement-list-accesspackageassignments?view=graph-rest-beta&preserve-view=true). While an identity governance administrator can retrieve access packages from multiple catalogs, if user is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'`. An application that has the application permission `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can also use this API.
+You can also retrieve assignments in an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignments](/graph/api/entitlementmanagement-list-accesspackageassignments?view=graph-rest-beta&preserve-view=true). While an identity governance administrator can retrieve access packages from multiple catalogs, if user or application service principal is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'`. An application that has the application permission `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can also use this API to retrieve assignments across all catalogs.
 
 ### View assignments with PowerShell
 
@@ -75,36 +76,36 @@ In some cases, you might want to directly assign specific users to an access pac
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. In the left menu, select **Access packages** and then open the access package.
 
-1. In the left menu, click **Assignments**.
+1. In the left menu, select **Assignments**.
 
-1. Click **New assignment** to open Add user to access package.
+1. Select **New assignment** to open Add user to access package.
 
     ![Assignments - Add user to access package](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1.	In the **Select policy** list, select a policy that the users' future requests and lifecycle will be governed and tracked by. If you want the selected users to have different policy settings, you can click **Create new policy** to add a new policy.
+1.	In the **Select policy** list, select a policy that the users' future requests and lifecycle will be governed and tracked by. If you want the selected users to have different policy settings, you can select **Create new policy** to add a new policy.
 
 1.	Once you select a policy, you’ll be able to Add users to select the users you want to assign this access package to, under the chosen policy.
 
     > [!NOTE]
     > If you select a policy with questions, you can only assign one user at a time.
 
-1. Set the date and time you want the selected users' assignment to start and end. If an end date is not provided, the policy's lifecycle settings will be used.
+1. Set the date and time you want the selected users' assignment to start and end. If an end date isn't provided, the policy's lifecycle settings will be used.
 
 1.	Optionally provide a justification for your direct assignment for record keeping.
 
-1.	If the selected policy includes additional requestor information, click **View questions** to answer them on behalf of the users, then click **Save**.  
+1.	If the selected policy includes additional requestor information, select **View questions** to answer them on behalf of the users, then select **Save**.  
 
      ![Assignments - click view questions](./media/entitlement-management-access-package-assignments/assignments-view-questions.png)
 
     ![Assignments - questions pane](./media/entitlement-management-access-package-assignments/assignments-questions-pane.png)
 
-1. Click **Add** to directly assign the selected users to the access package.
+1. Select **Add** to directly assign the selected users to the access package.
 
-    After a few moments, click **Refresh** to see the users in the Assignments list.
+    After a few moments, select **Refresh** to see the users in the Assignments list.
     
 > [!NOTE]
 > When assigning users to an access package, administrators will need to verify that the users are eligible for that access package based on the existing policy requirements. Otherwise, the users won't successfully be assigned to the access package. If the access package contains a policy that requires user requests to be approved, users can't be directly assigned to the package without necessary approval(s) from the designated approver(s).
@@ -116,9 +117,9 @@ Azure AD Entitlement Management also allows you to directly assign external user
 
 1.	In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
 
-1.	In the left menu, click **Access packages** and then open the access package in which you want to add a user.
+1.	In the left menu, select **Access packages** and then open the access package in which you want to add a user.
 
-1.	In the left menu, click **Assignments**.
+1.	In the left menu, select **Assignments**.
 
 1.	Select **New assignment** to open **Add user to access package**.
 
@@ -134,9 +135,9 @@ Azure AD Entitlement Management also allows you to directly assign external user
     > - Similarly, if you set your policy to include **All configured connected organizations**, the user’s email address must be from one of your configured connected organizations. Otherwise, the user won't be added to the access package.
     > - If you wish to add any user to the access package, you'll need to ensure that you select **All users (All connected organizations + any external user)** when configuring your policy.
 
-1.	Set the date and time you want the selected users' assignment to start and end. If an end date is not provided, the policy's lifecycle settings will be used.
-1.	Click **Add** to directly assign the selected users to the access package.
-1.	After a few moments, click **Refresh** to see the users in the Assignments list.
+1.	Set the date and time you want the selected users' assignment to start and end. If an end date isn't provided, the policy's lifecycle settings will be used.
+1.	Select **Add** to directly assign the selected users to the access package.
+1.	After a few moments, select **Refresh** to see the users in the Assignments list.
 
 ## Directly assigning users programmatically
 ### Assign a user to an access package with Microsoft Graph
@@ -162,7 +163,7 @@ You can also assign multiple users that are in your directory to an access packa
 * the access package assignment policy ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackageAssignmentPolicy`cmdlet,
 * the object IDs of the target users, either as an array of strings, or as a list of user members returned from the `Get-MgGroupMember` cmdlet.
 
-For example, if you want to ensure all the users who are currently members of a group also have assignments to an access package, you can use this cmdlet to create requests for those users who don't currently have assignments.  Note that this cmdlet will only create assignments; it does not remove assignments for users who are no longer members of a group.
+For example, if you want to ensure all the users who are currently members of a group also have assignments to an access package, you can use this cmdlet to create requests for those users who don't currently have assignments.  Note that this cmdlet will only create assignments; it doesn't remove assignments for users who are no longer members of a group.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Directory.Read.All"
@@ -192,15 +193,15 @@ You can remove an assignment that a user or an administrator had previously requ
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. In the left menu, select **Access packages** and then open the access package.
 
-1. In the left menu, click **Assignments**.
+1. In the left menu, select **Assignments**.
  
-1. Click the check box next to the user whose assignment you want to remove from the access package. 
+1. Select the check box next to the user whose assignment you want to remove from the access package. 
 
-1. Click the **Remove** button near the top of the left pane. 
+1. Select the **Remove** button near the top of the left pane. 
  
     ![Assignments - Remove user from access package](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
 
