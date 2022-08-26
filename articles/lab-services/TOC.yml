@@ -163,8 +163,6 @@
       href: how-to-configure-firewall-settings.md
     - name: Configure regions for labs
       href: create-and-configure-labs-admin.md
-    - name: Request a capacity increase
-      href: how-to-request-capacity-increase.md  
   - name: Create & configure labs (educator)
     items:        
     - name: Create and manage labs
