@@ -1,6 +1,6 @@
 ---
 title: Use Eraser on Azure Kubernetes Service (AKS)
-description: Learn how to use Eraser to clean up stale images on on Azure Kubernetes Service (AKS)
+description: Learn how to use Eraser to clean up stale images on Azure Kubernetes Service (AKS)
 ms.author: nickoman
 author: nickomang
 services: container-service
@@ -10,7 +10,7 @@ ms.date: 08/26/2022
 
 # Use Eraser to clean up stale images on your Azure Kubernetes Service cluster (preview)
 
-It's common to use DevOps pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often does not account for the stale images left behind and can lead to image bloat on the nodes. These images can present security issues as they may contain vulnerabilities. By cleaning these unreferenced images, you can remove an area of risk in your clusters. When done manually, this can be time intensive process-  something Eraser can mitigate via automatic image identification and removal.
+It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images can present security issues as they may contain vulnerabilities. By cleaning these unreferenced images, you can remove an area of risk in your clusters. When done manually, this process can be time intensive, which Eraser can mitigate via automatic image identification and removal.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -33,7 +33,7 @@ In addition to choosing between manual and automatic mode, there are several opt
 |--enable-eraser|Enable the eraser feature for an AKS cluster|Yes, unless disable is specified|
 |--disable-eraser|Disable the eraser feature for an AKS cluster|Yes, unless enable is specified|
 |--eraser-vulnerability-scan|With enabled, Eraser will scan/delete both unused and vulnerable images. Without it, Eraser only scans/deletes unused images.|Yes|
-|--eraser-interval|With this parameter, the mode is set to automatic. Without it, the mode is manual. This determines the interval time Eraser will use to run. The default value is one week, the Minimum value is 24 hours, and the maximum is 3 months.|No|
+|--eraser-interval|With this parameter, the mode is set to automatic. Without it, the mode is manual. It determines the interval time Eraser will use to run. The default value is one week, the minimum value is 24 hours and the maximum is three months.|No|
 |--eraser-vulnerability-severity|The severity levels to be considered while scanning vulnerable images. Available options are: `low`, `medium`, `high`, and `critical`. The default value is `high`, meaning both images with severity level tag `high` and `critical` are recognized as vulnerabilities to be removed.|Yes|
 |--eraser-allowlist|Used to prevent specific images from deletion. The default value is null.|No| 
 
