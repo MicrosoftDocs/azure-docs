@@ -3,7 +3,7 @@ title: Enable Private Link on an Azure HDInsight cluster
 description: Learn how to connect to an outside HDInsight cluster by using Azure Private Link.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/08/2022
+ms.date: 08/30/2022
 ---
 
 # Enable Private Link on an HDInsight cluster
@@ -133,6 +133,10 @@ To create the private endpoints:
     | Virtual network | hdi-privlink-client-vnet |
     | Subnet | default |
     
+> [!NOTE]
+> Follow [this extra step](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#step-1) to enable **Private link for Kafka Rest Proxy HDI clusters** 
+> 
+
 Once the private endpoints are created, you’re done with this phase of the setup. If you didn’t make a note of the private IP addresses assigned to the endpoints, follow the steps below:
 
 1. Open the client VNET in the Azure portal. 
@@ -180,6 +184,10 @@ To configure DNS resolution through a Private DNS zone:
     | TTL | 1 |
     | TTL unit | Hours |
     | IP Address | Private IP of private endpoint for SSH access |
+   
+> [!NOTE]
+> Follow [this extra step](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#step-2) to enable **Private link for Kafka Rest Proxy HDI clusters** 
+> 
     
 4. Associate the private DNS zone with the client VNET by adding a Virtual Network Link.
     1. Open the private DNS zone in the Azure portal.
