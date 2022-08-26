@@ -4,7 +4,7 @@ description: This article provides guidance for Visual Studio users migrating AS
 author: zhenxilin
 ms.author: zhenxilin
 ms.date: 08/23/2022
-ms.topic: How-to
+ms.topic: how-to
 ms.service: stream-analytics
 ---
 
@@ -122,7 +122,7 @@ No, if your ASA job has configured multiple Inputs and Outputs sources in the Az
 
 3. Then you can preview data and verify if the new input source is added. 
 
-    :::image type="content" source="./media/stream-analytics-migrate-to-vscode/preview-data.png" alt-text="preview-data" lightbox= "./media/stream-analytics-migrate-to-vscode/preview-data.png" :::
+    :::image type="content" source="./media/stream-analytics-migrate-to-vscode/preview-data.png" alt-text="vscode preview data" lightbox= "./media/stream-analytics-migrate-to-vscode/preview-data.png" :::
 
 ## Next steps
 
