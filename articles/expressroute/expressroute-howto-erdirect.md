@@ -356,7 +356,7 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
 1. Create the ExpressRoute Direct authorization by running the following commands in PowerShell:
 
     ```powershell
-    Add-AzExpressRoutePortAuthorization -Name $Name -ExpressRoutePort $ERPort
+    Add-AzExpressRoutePortAuthorization -Name $AuthName -ExpressRoutePort $ERPort
     ```
    
    Sample output:
