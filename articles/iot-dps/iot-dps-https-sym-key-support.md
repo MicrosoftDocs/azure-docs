@@ -10,8 +10,9 @@ services: iot-dps
 manager: lizross
 ---
 
-# How to use symmetric keys over HTTPS with Azure IoT Hub Device Provisioning Service
+# How to use symmetric keys over HTTPS without an SDK
 
+In this how-to article, you'll provision a device using symmetric keys over HTTPS without using a an Azure IoT DPS device SDK. Most languages provide libraries to send HTTP requests, but, rather than focus on a specific language, in this article, you'll use the [cURL](https://en.wikipedia.org/wiki/CURL) command-line tool to send and receive over HTTPS.
 
 ## Prerequisites
 
@@ -19,13 +20,19 @@ manager: lizross
 
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
+* Install [Python 3.7](https://www.python.org/downloads/) or later installed on your machine. You can check your version of Python by running `python --version`.
+
 * Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
-## Use an individual enrollment for symmetric key attestation
+## Overview
 
-Use the [az iot dps enrollment create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-create) command to create an individual enrollment for symmetric key attestation.
+This article shows how to provision a device that uses symmetric key attestation using HTTPS requests via the cURL command-line tool.
 
-The following command creates an enrollment entry with the default allocation policy for your DPS instance and lets DPS assign the primary and secondary keys for your device. Substitute the name of your resource group and DPS instance. The enrollment ID is the the registration ID for your device.
+## Use an individual enrollment
+
+If you want to create a new individual enrollment to use for this article, you can use the [az iot dps enrollment create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-create) command to create an individual enrollment for symmetric key attestation.
+
+The following command creates an enrollment entry with the default allocation policy for your DPS instance and lets DPS assign the primary and secondary keys for your device. Substitute the name of your resource group and DPS instance. The enrollment ID is the registration ID for your device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). Make sure the enrollment ID you use in the command adheres to this format.
 
 ```azurecli
 az iot dps enrollment create -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --attestation-type symmetrickey
@@ -52,17 +59,17 @@ The assigned symmetric keys are returned in the **attestation** property in the 
 }
 ```
 
-You can also get the primary key with the [az iot dps enrollment show](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-show) command:
+If you want to use an existing individual enrollment for this article, you can get the primary key with the [az iot dps enrollment show](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-show) command:
 
 ```azurecli
 az iot dps enrollment show -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --show-keys true
 ```
 
-Note down the primary key and the enrollment ID (registration ID), you'll use them later in this article.
+Note down the primary key and the registration ID (enrollment ID) for your individual enrollment entry, you'll use them later in this article.
 
-## Use an enrollment group for symmetric key attestation
+## Use an enrollment group
 
-Use the [az iot dps enrollment-group create](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-create) command to create an enrollment group for symmetric key attestation.
+If you want to to create a new enrollment group to use for this article, you can use the [az iot dps enrollment-group create](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-create) command to create an enrollment group for symmetric key attestation.
 
 The following command creates an enrollment group entry with the default allocation policy for your DPS instance and lets DPS assign the primary and secondary keys for the enrollment group. Substitute the name of your resource group and DPS instance.  
 
@@ -91,7 +98,7 @@ The assigned symmetric keys are returned in the **attestation** property in the 
 }
 ```
 
-You can also get the primary key with the [az iot dps enrollment-group show](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-show) command:
+If you want to use an existing individual enrollment for this article, you can get the primary key with the [az iot dps enrollment-group show](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-show) command:
 
 ```azurecli
 az iot dps enrollment-group show -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --show-keys true
@@ -101,7 +108,7 @@ Note down the primary key.
 
 ### Derive a device key
 
-When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead, you derive a unique key from the enrollment group key for each device. For more information, see [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments).
+When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead, you derive a unique key for each device from the enrollment group key. For more information, see [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments).
 
 In this section, you'll generate a device key from the enrollment group primary key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device. The result will then be converted into Base64 format.
 
@@ -121,7 +128,7 @@ In this section, you'll generate a device key from the enrollment group primary 
     p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=
     ```
 
-3. Note the derived device key and the registration ID, you'll use them in the next section.
+Note down the derived device key and the registration ID you used to generate it, you'll use them in the next section.
 
 You can also use the Azure CLI or PowerShell to derive a device key. To learn more, see [Derive a device key](how-to-legacy-device-symm-key.md#derive-a-device-key).
 
@@ -165,15 +172,25 @@ print(generate_sas_token(uri, key, policy, expiry))
 
 Where:
 
-* [resource_uri] is the URI of the resource you're trying to access with this token.  For DPS, it's of the form `[dps_id_scope]/registrations/[dps_registration_id]`, where `[dps_id_scope]` is the ID scope associated with your DPS instance, and `[dps_registration_id]` is the registration ID you want to use for your device. You can find the ID scope for your DPS instance either on its overview blade in Azure portal or by using the following azure CLI command  It will be whatever you specified in an individual enrollment in DPS, or can be anything you want in a group enrollment as long as it is unique.  Frequently used ideas here are combinations of serial numbers, MAC addresses, GUIDs, etc. found on the overview blade of your DPS instance in the Azure portal.
+* [resource_uri] is the URI of the resource you're trying to access with this token.  For DPS, it's of the form `[dps_id_scope]/registrations/[dps_registration_id]`, where `[dps_id_scope]` is the ID scope of your DPS instance, and `[dps_registration_id]` is the registration ID you used for your device.
 
-* [device_key] is the device key associated with your device. This is either the one specified or auto-generated for you in an individual enrollment, or a derived key for a group enrollment. If you're using an individual enrollment, use the primary key you saved in [](). For an enrollment group, use the derived device key you generated in []().
+  You can get the ID scope for your DPS instance from the **Overview** pane of your instance in Azure portal, or you can use the [az iot dps show](/cli/azure/iot/dps#az-iot-dps-show) Azure CLI command (replace the placholders with the name of your resource group and DPS instance):
+  
+  ```azurecli
+  az iot dps show -g {resource_group_name} --name {dps_name}
+  ```
+
+* [device_key] is the device key associated with your device. This is either the one specified or auto-generated for you in an individual enrollment, or a derived key for a group enrollment.
+
+  * If you're using an individual enrollment, use the primary key you saved in [Use an individual enrollment](#use-an-individual-enrollment).
+
+  * If you're using an enrollment group, use the derived device key you generated in [Use an enrollment group](#use-an-enrollment-group).
 
 * [expiry_in_seconds] the validity period of this SAS token in seconds.
 
 * [policy] the policy with which the key above is associated.  For DPS device registration, this is hard coded to 'registration'.
 
-So an example set of inputs for a device called `my-symkey-device` with a validity period of 30 days might look like this (the ID scope has been modified).
+An example set of inputs for a device called `my-symkey-device` with a validity period of 30 days might look like this (the ID scope has been modified).
 
 ```python
 uri = '0ne00111111/registrations/my-symkey-device'
@@ -201,7 +218,7 @@ You call the [Register Device](/rest/api/iot-dps/device/runtime-registration/reg
 Use the following curl command:
 
 ```bash
-curl -L -i -X PUT -H ‘Content-Type: application/json’ -H ‘Content-Encoding:  utf-8’ -H ‘Authorization: [sas_token]‘ -d ‘{“registrationId”: “[registration_id]“}’ https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/register?api-version=2019-03-31
+curl -L -i -X PUT -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -H 'Authorization: [sas_token]' -d '{"registrationId": "[registration_id]"}' https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/register?api-version=2019-03-31
 ```
 
 Where:
@@ -212,11 +229,13 @@ Where:
 
 * `X PUT ` tells curl that this is an HTTP PUT command. Required for this API call since we are sending a message in the body.
 
-* `-H ‘Content-Type: application/json’` tells DPS we are posting JSON content and must be 'application/json'
+* `-H 'Content-Type: application/json'` tells DPS we are posting JSON content and must be 'application/json'
 
-* `-H ‘Content-Encoding:  utf-8’` tells DPS the encoding we are using for our message body. Set to the proper value for your OS/client; however, this is generally `utf-8`.  
+* `-H 'Content-Encoding:  utf-8'` tells DPS the encoding we are using for our message body. Set to the proper value for your OS/client; however, this is generally `utf-8`.  
 
-* `-d ‘{“registrationId”: “[registration_id]”}’`, the `–d` parameter is the ‘data’ or body of the message we are posting.  It must be JSON, in the form of '{"registrationId":"[registration_id"}'.  Note that for CURL, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON.
+* `-H 'Authorization: [sas_token]'` tells DPS to authenticate using your SAS token. Replace [sas_token] with the token you generated in [Create a SAS token](#create-a-sas-token).
+
+* `-d '{"registrationId": "[registration_id]"}'`, the `–d` parameter is the 'data' or body of the message we are posting.  It must be JSON, in the form of '{"registrationId":"[registration_id"}'.  Note that for CURL, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON.
 
 * Finally, the last parameter is the URL to post to. For "regular" (i.e not on-premises) DPS, the global DPS endpoint is global.azure-devices-provisioning.net.  `https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/register?api-version=2019-03-31`.  Note that you have to replace the [dps_scope_id] and [registration_id] with the appropriate values.
 
@@ -244,7 +263,7 @@ The valid status values for DPS are:
 
 * assigning: the operation is still running.
 
-* disabled: the enrollment record is disabled in DPS, so the device  can’t be assigned.
+* disabled: the enrollment record is disabled in DPS, so the device  can't be assigned.
 
 * failed: the assignment failed. There will be an errorCode and errorMessage returned in an registrationState record in the returned JSON to indicate what failed.
 
@@ -253,7 +272,7 @@ The valid status values for DPS are:
 To get the status of the operation, use the following curl command:
 
 ```bash
-curl -L -i -X GET -H ‘Content-Type: application/json’ -H ‘Content-Encoding:  utf-8’ -H ‘Authorization: [sas_token]’ https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/operations/[operation_id]?api-version=2019-03-31
+curl -L -i -X GET -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -H 'Authorization: [sas_token]' https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/operations/[operation_id]?api-version=2019-03-31
 ```
 
 You'll use the same ID scope, registration ID, and SAS token as you did in the Register Device command. Use the Operation ID that was returned in the Register Device response.
