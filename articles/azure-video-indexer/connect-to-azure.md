@@ -90,9 +90,6 @@ If your storage account is behind a firewall, see [storage account that is behin
 
 The following Azure Media Services related considerations apply:
 
-* If you plan to connect to an existing Media Services account, make sure the Media Services account was created with the classic APIs.
-
-    ![Media Services classic API](./media/create-account/enable-classic-api.png)
 * If you connect to a new Media Services account, Azure Video Indexer automatically starts the default **Streaming Endpoint** in it:
 
     ![Media Services streaming endpoint](./media/create-account/ams-streaming-endpoint.png)
