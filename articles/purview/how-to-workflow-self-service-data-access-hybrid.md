@@ -65,11 +65,11 @@ This guide will show you how to create and manage self-service access workflows 
     1. Trigger when a data access request is made. 
     1. Approval connector that specifies a user or group that will be contacted to approve the request.
     
-### Assign Data owners as approvers
-Using the dynamic variable **Asset.DataOwner** as approvers in Approval connector will send approval requests to the data owners on the entity. 
+    ### Assign Data owners as approvers
+    Using the dynamic variable **Asset.DataOwner** as approvers in Approval connector will send approval requests to the data owners on the entity. 
    
->[!Note]
-> Since entities may not have data owner field populated, using the above variables might result in errors if no data owner is found. 
+    >[!Note]
+    > Since entities may not have data owner field populated, using the above variables might result in errors if no data owner is found. 
     
     1. Condition to check approval status 
         - If approved:
