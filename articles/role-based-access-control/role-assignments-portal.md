@@ -28,7 +28,7 @@ If you need to assign administrator roles in Azure Active Directory, see [Assign
 
 [!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)] For more information, see [Understand scope](scope-overview.md).
 
-![Diagram showing the scope levels for Azure RBAC.](../../includes/role-based-access-control/media/scope-levels.png)
+![Diagram that shows the scope levels for Azure RBAC.](../../includes/role-based-access-control/media/scope-levels.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -147,7 +147,7 @@ Currently, conditions can be added to built-in or custom role assignments that h
 
 [!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)] For more information, see [Understand scope](scope-overview.md).
 
-![Diagram showing the scope levels for Azure RBAC for classic experience.](../../includes/role-based-access-control/media/scope-levels.png)
+![Diagram that shows the scope levels for Azure RBAC for classic experience.](../../includes/role-based-access-control/media/scope-levels.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

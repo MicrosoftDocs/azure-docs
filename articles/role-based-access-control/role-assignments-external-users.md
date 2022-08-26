@@ -225,7 +225,7 @@ If a guest user has been granted access to a directory, but they do not see the 
 
 If a guest user has been granted access to a directory, but they do not see the resources they have been granted access to in the Azure portal, make sure the guest user has selected the correct directory. A guest user might have access to multiple directories. To switch directories, in the upper left, click **Settings** > **Directories**, and then click the appropriate directory.
 
-![Screenshot of Poral setting Directories section in Azure portal.](./media/role-assignments-external-users/directory-switch.png)
+![Screenshot of Portal setting Directories section in Azure portal.](./media/role-assignments-external-users/directory-switch.png)
 
 ## Next steps
 
