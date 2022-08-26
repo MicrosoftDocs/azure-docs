@@ -136,7 +136,7 @@ This release includes the following updates:
 
 ---
 
-## How to use the Form Recognizer SDK in your applications
+## Use Form Recognizer SDK in your applications
 
 The Form Recognizer SDK enables the use and management of the Form Recognizer service in your application. The SDK builds on the underlying Form Recognizer REST API allowing you to easily use those APIs within your programming language paradigm. Here's how you use the Form Recognizer SDK for your preferred language:
 
