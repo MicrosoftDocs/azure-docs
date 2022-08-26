@@ -41,7 +41,7 @@ If you've created an ASA job in the Azure portal, you can download the ASA job t
 
     :::image type="content" source="./media/stream-analytics-migrate-to-vscode/portal-open-in-vscode.png" alt-text="portal open in vscode." lightbox= "./media/stream-analytics-migrate-to-vscode/portal-open-in-vscode.png" :::
 
-2. Select a folder where you want to save your ASA project.
+2. Select a folder where you want to export your ASA project to.
 3. Then it will automatically create an ASA project and add it to your workspace in VSCode. You should see a folder with the same name as your ASA job.
 
     ![VSCode export ASA project](./media/stream-analytics-migrate-to-vscode/clip_image008.jpg)
