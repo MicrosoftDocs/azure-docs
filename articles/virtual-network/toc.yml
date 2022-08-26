@@ -204,6 +204,10 @@
       href: deploy-container-networking.md
   - name: Security
     items:
+    - name: Virtual Network encryption
+      items:
+      - name: Azure PowerShell
+        href: how-to-create-encryption-powershell.md
     - name: Filter network traffic
       items:
       - name: Azure portal
