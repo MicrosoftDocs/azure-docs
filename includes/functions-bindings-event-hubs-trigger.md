@@ -302,7 +302,8 @@ import com.microsoft.azure.functions.*;
 
 /**
  * Azure Functions with Event Hub trigger.
- * and Blob Output using date in path along with sequenct and partition ID
+ * and Blob Output using date in path along with message partition ID
+ * and message sequence number from EventHub Trigger Properties
  */
 public class EventHubReceiver {
 
