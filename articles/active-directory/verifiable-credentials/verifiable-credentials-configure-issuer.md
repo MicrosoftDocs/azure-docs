@@ -91,6 +91,7 @@ In this step, you create the verified credential expert card by using Microsoft 
         ```
 
     1. Copy the following JSON and paste it in the  **Rules definition** textbox
+    
         ```JSON
         {
           "attestations": {
@@ -121,7 +122,7 @@ In this step, you create the verified credential expert card by using Microsoft 
             }
           }
         }
-    ```
+        ```
 
     1. Select **Create**.
 
