@@ -16,8 +16,8 @@ Get started creating profile assignments using the [azure-sdk-for-Java](https://
 ## Prerequisites 
 
 - [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/downloads/#java8) version 8+
-- An active [Azure Subscription](https://azure.microsoft.com/en-us/pricing/purchase-options/pay-as-you-go/)
-- An existing [Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal)
+- An active [Azure Subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
+- An existing [Virtual Machine](../virtual-machines/windows/quick-create-portal)
 
 > [!NOTE]
 > Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-go subscription.
