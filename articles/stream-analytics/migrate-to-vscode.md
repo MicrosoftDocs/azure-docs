@@ -10,7 +10,7 @@ ms.service: stream-analytics
 
 # How to Migrate ASA projects to Visual Studio Code
 
-This article provides guidance for Visual Studio users migrating ASA projects to Visual Studio Code (VSCode). Please note that the ASA tools extension for Visual Studio is no longer maintained. We recommend that you use the ASA tools extension in VSCode for local testing before you submit and start an ASA job. 
+This article provides guidance for Visual Studio users migrating Azure Stream Analytics (ASA) projects to Visual Studio Code (VSCode). Please note that the ASA Tools extension for Visual Studio is no longer maintained. We recommend that you use the ASA tools extension in VSCode for local testing before you submit and start an ASA job. 
 
 If you have a local ASA project in Visual Studio, follow [these steps](#faqs) to submit your ASA project to Azure portal. 
 
@@ -39,20 +39,20 @@ If you've created an ASA job in the Azure portal, you can export the ASA job to 
 
 1. Sign in to Azure portal and open your ASA job. Under **Query** page, select **Open in VS Code** to export job.
 
-    :::image type="content" source="./media/stream-analytics-migrate-to-vscode/portal-open-in-vscode.png" alt-text="portal open in vscode." lightbox= "./media/stream-analytics-migrate-to-vscode/portal-open-in-vscode.png" :::
+    :::image type="content" source="./media/stream-analytics-migrate-to-vscode/portal-open-in-vscode.png" alt-text="portal open in vs code." lightbox= "./media/stream-analytics-migrate-to-vscode/portal-open-in-vscode.png" :::
 
-2. Select a folder where you want to export your ASA project.
+2. Select a folder where you want to export the ASA project.
 3. Then it will automatically create an ASA project and add it to your workspace in VSCode. You should see a folder with the same name as your ASA job.
 
     ![VSCode export ASA project](./media/stream-analytics-migrate-to-vscode/vscode-export-asa-project.jpg)
 
-4. A Stream Analytics project consists of three folders: **Inputs**, **Outputs**, and **Functions**. It also has the query script **(\*.asaql)**, a **JobConfig.json** file, and an **asaproj.json** configuration file. If you has configured multiple Input and Output sources for the job, it will create JSON files for each source under the folders respectively. 
+4. A Stream Analytics project consists of three folders: **Inputs**, **Outputs**, and **Functions**. It also has the query script **(\*.asaql)**, a **JobConfig.json** file, and an **asaproj.json** configuration file. If you have configured multiple Input and Output sources for the job, it will create JSON files for each source under the folders respectively. 
 
     ![VSCode Inputs and Outputs folders](./media/stream-analytics-migrate-to-vscode/vscode-folders.jpg)
 
 ### Option 2 - Export an ASA job in VSCode
 
-1. Select the **Azure** icon on the VSCode activity bar. Find the **Subscription** where your ASA job is created, click **Export** to export the ASA job.
+1. Select the **Azure** icon on the VSCode activity bar. Find the **Subscription** where your ASA job is created, select **Export** to export the ASA job.
 
    ![Export an ASA job in VSCode](./media/stream-analytics-migrate-to-vscode/vscode-export-job.jpg)
 
@@ -71,7 +71,7 @@ Follow these steps to run your job with live input and save output results local
 
 2. Go to. **\*.asaql** file, select **Run Locally**.
     
-    :::image type="content" source="media/stream-analytics-migrate-to-vscode/run-locally-vscode.png" alt-text="run locally vscode." lightbox= "media/stream-analytics-migrate-to-vscode/run-locally-vscode.png" :::
+    :::image type="content" source="media/stream-analytics-migrate-to-vscode/run-locally-vscode.png" alt-text="run locally vs code." lightbox= "media/stream-analytics-migrate-to-vscode/run-locally-vscode.png" :::
 
 3. Then select **Use Live Input and Local Output** under the Command Palette.
     
