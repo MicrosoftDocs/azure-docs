@@ -1,13 +1,13 @@
 ---
-title: How to use the Lab Services should restrict allowed virtual machine SKU sizes Azure Policy
-description: Learn how to restrict educators to only use non-GPU virtual machines in their labs.  
+title: How to restrict the virtual machine sizes allowed for labs
+description: Learn how use the Lab Services should restrict allowed virtual machine SKU sizes Azure Policy to restrict educators to specified virtual machine sizes for their labs.  
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 08/23/2022
 ---
 
-# How to use the Lab Services should restrict allowed virtual machine SKU sizes Azure policy
+# How to restrict the virtual machine sizes allowed for labs
 
 In this how to, you'll learn how to use the *Lab Services should restrict allowed virtual machine SKU sizes* Azure policy to control the SKUs available to educators when they're creating labs.  In this example, you'll see how a lab administrator can allow only non-GPU SKUs, so educators can create only non-GPU SKU labs.
 
