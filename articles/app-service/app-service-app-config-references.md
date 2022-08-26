@@ -73,7 +73,7 @@ Any configuration changes to the app that results in a site restart causes an im
 
 ## Source Application Settings from App Config
 
-App Configuration references can be used as values for [Application Settings](configure-common.md#configure-app-settings), allowing you to keep configuration data in App Configuration instead of the site config. Application Settings and App Configuration key-values both are securely encrypted at rest. If you need Centralized Configuration management capabilities, then Configuration data should go into App Config.
+App Configuration references can be used as values for [Application Settings](configure-common.md#configure-app-settings), allowing you to keep configuration data in App Configuration instead of the site config. Application Settings and App Configuration key-values both are securely encrypted at rest. If you need centralized configuration management capabilities, then configuration data should go into App Config.
 
 To use an App Configuration reference for an [app setting](configure-common.md#configure-app-settings), set the reference as the value of the setting. Your app can reference the Configuration value through its key as usual. No code changes are required.
 
