@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
-ms.date: 04/15/2022
+ms.date: 08/26/2022
 
 ms.author: jricketts
 author: janicericketts
