@@ -299,6 +299,8 @@ To mitigate this error, either ensure that the container registry is **not priva
 If the mitigation is successful, the image will not require any building and the final image address will simply be the given image address.
 At deployment time, your online endpoint's system identity will pull the image from the private registry.
 
+For more diagnostic information, see [How To Use the Workspace Diagnostic API](../machine-learning/how-to-workspace-diagnostic-api.md).
+
 ### ERROR: OperationCancelled
 
 Below is a list of reasons you might run into this error:
