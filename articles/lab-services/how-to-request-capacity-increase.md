@@ -89,4 +89,4 @@ Your request is processed automatically and the Azure Lab Services team will con
 
 ## Next steps
 
-For more information about capacity limits, see [Capacity limits in Azure Lab Services](how-to-request-capacity-increase.md).
+For more information about capacity limits, see [Capacity limits in Azure Lab Services](capacity-limits.md).

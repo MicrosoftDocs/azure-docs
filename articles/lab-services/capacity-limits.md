@@ -65,4 +65,5 @@ Before you set up a large number of VMs across your labs, we recommend that you 
 See the following articles:
 
 - [As an admin, see VM sizing](administrator-guide.md#vm-sizing).
+- [As an admin, see request a capacity increase](./how-to-request-capacity-increase.md)
 - [Frequently asked questions](classroom-labs-faq.yml).
