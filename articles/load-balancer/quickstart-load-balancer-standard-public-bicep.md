@@ -94,11 +94,11 @@ It takes about 10 minutes to deploy the Bicep file.
 
 1. Copy only the IP address part of the public IP address, and then paste it into the address bar of your browser.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-deployment-public-ip.png" alt-text="Azure standard load balancer Resource Manager template public IP":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-deployment-public-ip.png" alt-text="Screenshot of Azure standard load balancer Resource Manager template public IP.":::
 
     The browser displays the default page of the Internet Information Services (IIS) web server.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-template/load-balancer-test-web-page.png" alt-text="IIS web server":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-template/load-balancer-test-web-page.png" alt-text="Screenshot of IIS web server.":::
 
 To see the load balancer distribute traffic across all three VMs, you can force a refresh of your web browser from the client machine.
 
