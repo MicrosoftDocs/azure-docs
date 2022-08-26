@@ -6,13 +6,13 @@ ms.subservice: verifiable-credentials
 author: barclayn
 manager: amycolannino
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 08/26/2022
 ms.author: barclayn
 ---
 
 # Entra Verified ID IDV partners
 
-Our IDV partner network extends our solution capabilities to help you build seamless end-user experiences. With Microsoft Entra Verified ID, you can integrate with IDV partners to enable remote onboarding leveraging their identity verification and proofing services. 
+Our IDV partner network extends Microsoft Entra Verified ID's capabilities to help you build seamless end-user experiences. With Verified ID, you can integrate with IDV partners to enable remote onboarding using their identity verification and proofing services.
 
 To be considered into Entra Verified ID partner documentation, submit your application [request](https://aka.ms/isvconnectvc)
 
