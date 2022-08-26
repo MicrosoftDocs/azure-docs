@@ -6,9 +6,11 @@ ms.topic: include
 ms.date: 08/02/2022
 ---
 
-<!--At this time, a test or preview build is not available for the next release.-->
+At this time, a test or preview build is not available for the next release.
 
-The current preview released on August 2, 2022.
+<!--
+
+The current test release published on Month #, ####.
 
 |Component|Value|
 |-----------|-----------|
@@ -27,3 +29,5 @@ New for this release:
 
 - `arcdata` Azure CLI extension
   - The Azure CLI help text for the Arc data controller, Arc-enabled SQL Managed Instance, and Active Directory connector command groups has been updated to reflect new naming conventions. Indirect mode arguments are now referred to as "Kubernetes API - targeted" arguments, and direct mode arguments are now referred to as "Azure Resource Manager - targeted" arguments.
+-->
+

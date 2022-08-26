@@ -101,6 +101,6 @@
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/azure-firewall/
+    href: https://azure.microsoft.com/pricing/details/firewall-manager/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/

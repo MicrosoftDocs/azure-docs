@@ -104,5 +104,5 @@ From the Microsoft Graph explorer window:
 
 ## Next steps
 
-- [Add RBAC role to the enterprise application](/azure/role-based-access-control/role-assignments-portal)
+- [Add RBAC role to the enterprise application](../../role-based-access-control/role-assignments-portal.md)
 - [Assign users to your application](add-application-portal-assign-users.md)

@@ -43,7 +43,7 @@ The Group Policy Object, which is used to onboard Azure Arc-enabled servers, req
    .\DeployGPO.ps1 -DomainFQDN <INSERT Domain FQDN> -ReportServerFQDN <INSERT Domain FQDN of Network Share> -ArcRemoteShare <INSERT Name of Network Share> -Spsecret <INSERT SPN SECRET> [-AgentProxy $AgentProxy]
     ```
 
-1. Download the latest version of the [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center and save it to the remote share.
+1. Download the latest version of the [Azure Connected Machine agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center and save it to the remote share.
 
 ## Apply the Group Policy Object
 
