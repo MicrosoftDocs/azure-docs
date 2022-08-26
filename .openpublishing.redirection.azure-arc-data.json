@@ -264,6 +264,11 @@
             "source_path_from_root": "/articles/azure-arc/data/using-extensions-in-postgresql-hyperscale-server-group.md",
             "redirect_url": "/azure/azure-arc/data/using-extensions-in-postgresql-server",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/list-server-groups-postgres-hyperscale.md",
+            "redirect_url": "/azure/azure-arc/data/list-servers-postgresql",
+            "redirect_document_id": false
           }
           ]
 }
