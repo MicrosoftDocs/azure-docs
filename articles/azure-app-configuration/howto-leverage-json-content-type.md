@@ -40,14 +40,14 @@ Some examples of valid JSON content types are:
 
 ### Valid JSON values
 
-When a key-value has JSON content type, its value must be in valid JSON format for clients to process it correctly. Otherwise, clients might fail or fall back and treat it as string format.
+When a key-value has a JSON content type, its value must be in valid JSON format for clients to process it correctly. Otherwise, clients might fail or fall back and treat it as string format.
 Some examples of valid JSON values are:
 
-- `John Doe`
+- `"John Doe"`
 - `723`
 - `false`
 - `null`
-- `2020-01-01T12:34:56.789Z`
+- `"2020-01-01T12:34:56.789Z"`
 - `[1, 2, 3, 4]`
 - `{"ObjectSetting":{"Targeting":{"Default":true,"Level":"Information"}}}`
 
@@ -73,7 +73,7 @@ In this tutorial, you'll learn how to:
 
 ## Create JSON key-values in App Configuration
 
-JSON key-values can be created using Azure portal, Azure CLI or by importing from a JSON file. In this section, you'll find instructions on creating the same JSON key-values using all three methods.
+JSON key-values can be created using Azure portal, Azure CLI, or by importing from a JSON file. In this section, you'll find instructions on creating the same JSON key-values using all three methods.
 
 ### Create JSON key-values using Azure portal
 
@@ -111,7 +111,7 @@ az appconfig kv set -n $appConfigName --content-type application/json --key Sett
 
 ### Import JSON key-values from a file
 
-Create a JSON file called `Import.json` with the following content and import as key-values into App Configuration:
+Create a JSON file called `Import.json` with the following content and import it as key-values into App Configuration:
 
 ```json
 {
@@ -140,7 +140,7 @@ The JSON key-values you created should look like this in App Configuration:
 
 ## Export JSON key-values to a file
 
-One of the major benefits of using JSON key-values is the ability to preserve the original data type of your values while exporting. If a key-value in App Configuration doesn't have JSON content type, its value will be treated as string.
+One of the major benefits of using JSON key-values is the ability to preserve the original data type of your values while exporting. If a key-value in App Configuration doesn't have JSON content type, its value will be treated as a string.
 
 Consider these key-values without JSON content type:
 

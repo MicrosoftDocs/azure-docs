@@ -6,7 +6,7 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.custom: devx-track-csharp, devdivchpfy22
-ms.date: 08/23/2022
+ms.date: 08/26/2022
 ms.author: alkemper
 
 # Customer intent: I want to use Azure App Configuration data in my CI/CD pipeline.
@@ -22,7 +22,7 @@ If you have an Azure DevOps Pipeline, you can fetch key-values from App Configur
 
 ## Deploy App Configuration data with your application
 
-Your application might fail to run if it depends on Azure App Configuration and can't reach it. Enhance the resiliency of your application by packaging configuration data into a file that's deployed with the application and loaded locally during application startup. This approach guarantees that your application has default setting values on startup. These values are overwritten by any newer changes in an App Configuration store when it's available.
+Your application might fail to run if it depends on Azure App Configuration and can't reach it. Enhance the resiliency of your application by packaging configuration data into a file that's deployed with the application and loaded locally during application startup. This approach guarantees that your application has a default setting values on startup. These values are overwritten by any newer changes in an App Configuration store when it's available.
 
 Using the [Export](./howto-import-export-data.md#export-data) function of Azure App Configuration, you can automate the process of retrieving current configuration data as a single file. You can then embed this file in a build or deployment step in your continuous integration and continuous deployment (CI/CD) pipeline.
 
@@ -34,7 +34,7 @@ You can use any code editor to do the steps in this tutorial. [Visual Studio Cod
 
 If you build locally, download and install the [Azure CLI](/cli/azure/install-azure-cli) if you haven’t already.
 
-To do a cloud build, with Azure DevOps for example, ensure that the [Azure CLI](/cli/azure/install-azure-cli) is installed in your build system.
+For example, to do a cloud build by using Azure DevOps, ensure that the [Azure CLI](/cli/azure/install-azure-cli) is installed in your build system.
 
 ### Export an App Configuration store
 
