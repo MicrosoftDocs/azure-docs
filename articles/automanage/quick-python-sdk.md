@@ -16,7 +16,7 @@ Get started creating profile assignments using the [azure-sdk-for-python](https:
 ## Prerequisites 
 
 - An active [Azure Subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
-- An existing [Virtual Machine](../virtual-machines/windows/quick-create-portal)
+- An existing [Virtual Machine](../virtual-machines/windows/quick-create-portal.md)
 
 > [!NOTE]
 > Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.

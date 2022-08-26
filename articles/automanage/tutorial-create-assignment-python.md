@@ -141,5 +141,5 @@ Navigate to the virtual machine and select the **Automanage** blade:
 ![automanage blade](media/automanage-virtual-machines/automanage-blade.png)
 
 View the Automanage Profile now enabled on the virtual machine:
-![automanage blade](media/automanage-virtual-machines/automanage-vm.png)
+![automanage vm](media/automanage-virtual-machines/automanage-vm.png)
 
