@@ -144,6 +144,10 @@ In this article you learn how to secure the following training compute resources
     > [!WARNING]
     > If you are using a __private endpoint-enabled workspace__, creating the cluster in a different region is __not supported__.
 
+* An Azure Machine Learning workspace requires outbound access to `storage.<region>/*.blob.core.windows.net` on the public internet, where `<region>` is the Azure region of the workspace. This outbound access is required by Azure Machine Learning compute cluster and compute instance. Both are based on Azure Batch, and need to access a storage account provided by Azure Batch on the public network.
+
+    By using a Service Endpoint Policy, you can mitigate this vulnerability. This feature is currently in preview. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article. 
+
 ### Azure Databricks
 
 * In addition to the __databricks-private__ and __databricks-public__ subnets used by Azure Databricks, the __default__ subnet created for the virtual network is also required.
