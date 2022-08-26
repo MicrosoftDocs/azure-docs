@@ -65,4 +65,4 @@ To see the regions that currently support Azure Arc-enabled data services, go to
 
 [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
 
-[Create an Azure Database for PostgreSQL server on Azure Arc](create-postgresql-server) (requires creation of an Azure Arc data controller first)
+[Create an Azure Database for PostgreSQL server on Azure Arc](create-postgresql-server.md) (requires creation of an Azure Arc data controller first)
