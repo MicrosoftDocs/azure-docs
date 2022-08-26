@@ -187,6 +187,10 @@
         href: dasv5-dadsv5-series.md
       - name: DCasv5 and DCadsv5-series
         href: dcasv5-dcadsv5-series.md
+      - name: Dpsv5 and Dpdsv5-series
+        href: dpsv5-dpdsv5-series.md
+      - name: Dplsv5 and Dpldsv5-series
+        href: dplsv5-dpldsv5-series.md
     - name: Compute optimized
       items:
       - name: Overview
@@ -221,6 +225,8 @@
         href: easv5-eadsv5-series.md
       - name: ECasv5 and ECadsv5-series
         href: ecasv5-ecadsv5-series.md
+      - name: Epsv5 and Epdsv5-series
+        href: epsv5-epdsv5-series.md
       - name: M-series
         href: m-series.md
       - name: Msv2 and Mdsv2 Medium Memory series
