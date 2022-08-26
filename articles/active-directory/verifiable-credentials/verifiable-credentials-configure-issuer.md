@@ -91,36 +91,36 @@ In this step, you create the verified credential expert card by using Microsoft 
         ```
 
     1. Copy the following JSON and paste it in the  **Rules definition** textbox
-    ```JSON
-    {
-      "attestations": {
-        "idTokenHints": [
-          {
-            "mapping": [
+        ```JSON
+        {
+          "attestations": {
+            "idTokenHints": [
               {
-                "outputClaim": "firstName",
-                "required": true,
-                "inputClaim": "$.given_name",
-                "indexed": false
-              },
-              {
-                "outputClaim": "lastName",
-                "required": true,
-                "inputClaim": "$.family_name",
-                "indexed": false
+                "mapping": [
+                  {
+                    "outputClaim": "firstName",
+                    "required": true,
+                    "inputClaim": "$.given_name",
+                    "indexed": false
+                  },
+                  {
+                    "outputClaim": "lastName",
+                    "required": true,
+                    "inputClaim": "$.family_name",
+                    "indexed": false
+                  }
+                ],
+                "required": false
               }
             ],
-            "required": false
+            "validityInterval": 2592000,
+            "vc": {
+              "type": [
+                "VerifiedCredentialExpert"
+              ]
+            }
           }
-        ],
-        "validityInterval": 2592000,
-        "vc": {
-          "type": [
-            "VerifiedCredentialExpert"
-          ]
         }
-      }
-    }
     ```
 
     1. Select **Create**.

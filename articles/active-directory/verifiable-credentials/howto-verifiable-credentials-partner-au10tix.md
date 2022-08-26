@@ -56,7 +56,7 @@ As a developer you can share these steps with your tenant administrator to obtai
 1. Go to QuickStart > Verification Request > [Start](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/QuickStartVerifierBlade)
 1. Choose **Select Issuer**.
 1. Look for AU10TIX in the **Search/select issuers** drop-down.
-    :::image type="content." source="media/verified-id-partner-au10tix/select-issuers.png" alt-text="Screenshot of the portal section used to choose issuers":::
+    :::image type="content" source="media/verified-id-partner-au10tix/select-issuers.png" alt-text="Screenshot of the portal section used to choose issuers.":::
 1. Check the **Government Issued ID – Global** or other credential type.
 1. Select **Add** and then select **Review**.
 1. Download the request body and Copy/paste POST API request URL.
