@@ -15,7 +15,7 @@ ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Identity Protection and the Microsoft Graph PowerShell SDK
+# Azure Active Directory Identity Protection and the Microsoft Graph PowerShell 
 
 Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](./overview-identity-protection.md) APIs. This article will show you how to use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started) to get risky user details using PowerShell. Organizations that want to query the Microsoft Graph APIs directly can use the article, [Tutorial: Identify and remediate risks using Microsoft Graph APIs](/graph/tutorial-riskdetection-api) to begin that journey.
 
@@ -63,7 +63,7 @@ Confirm-MgRiskyUserCompromised -UserIds "577e09c1-5f26-4870-81ab-6d18194cbb51","
 ## Dimiss risky users using Powershell
 You can bulk dismiss risky users in Identity Protection.
 ```powershell
-# Get a list of high users which are more than 90 days old
+# Get a list of high risky users which are more than 90 days old
 $riskyUsers= Get-MgRiskyUser -Filter "RiskLevel eq 'high'" | where RiskLastUpdatedDateTime -LT (Get-Date).AddDays(-90)
 # bulk dimmiss the risky users
 Invoke-MgDismissRiskyUser -UserIds $riskyUsers.Id
