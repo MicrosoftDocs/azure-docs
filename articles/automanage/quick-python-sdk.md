@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Python SDK
+title: Azure Quickstart SDK for Python
 description: Create configuration profile assignments using the Python SDK for Automanage.
 author: andrsmith
 ms.service: automanage
@@ -11,7 +11,7 @@ ms.author: andrsmith
 
 # Quickstart: Enable Azure Automanage for virtual machines using Python
 
-Get started creating profile assignments using the [azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python).
+Azure Automanage allows users to seamlessly apply Azure best practices to their virtual machines. This quickstart guide will help you apply a Best Practices Configuration profile to an existing virtual machine using the [azure-sdk-for-python repo](https://github.com/Azure/azure-sdk-for-python).
 
 ## Prerequisites 
 

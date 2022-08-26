@@ -1,5 +1,5 @@
 ---
-title: Quickstart - JavaScript SDK
+title: Azure Quickstart SDK for JavaScript
 description: Create configuration profile assignments using the JavaScript SDK for Automanage.
 author: andrsmith
 ms.service: automanage
@@ -11,7 +11,7 @@ ms.author: andrsmith
 
 # Quickstart: Enable Azure Automanage for virtual machines using JavaScript
 
-Get started creating profile assignments using the [azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js).
+Azure Automanage allows users to seamlessly apply Azure best practices to their virtual machines. This quickstart guide will help you apply a Best Practices Configuration profile to an existing virtual machine using the [azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js).
 
 ## Prerequisites 
 
@@ -66,5 +66,5 @@ await client.configurationProfileAssignments.createOrUpdate("default", "resource
 
 ## Next Steps
 
-Learn how to conduct more operations with the JavaScript Automanage Client by visiting the [azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/automanage/arm-automanage).
+<!-- Learn how to conduct more operations with the JavaScript Automanage Client by visiting the [azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/automanage/arm-automanage). -->
 

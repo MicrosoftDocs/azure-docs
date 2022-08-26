@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Java SDK
+title: Azure Quickstart SDK for Java
 description: Create configuration profile assignments using the Java SDK for Automanage.
 author: andrsmith
 ms.service: automanage
@@ -11,7 +11,7 @@ ms.author: andrsmith
 
 # Quickstart: Enable Azure Automanage for virtual machines using Java
 
-Get started creating profile assignments using the [azure-sdk-for-Java](https://github.com/Azure/azure-sdk-for-java).
+Azure Automanage allows users to seamlessly apply Azure best practices to their virtual machines. This quickstart guide will help you apply a Best Practices Configuration profile to an existing virtual machine using the [azure-sdk-for-java repo](https://github.com/Azure/azure-sdk-for-java).
 
 ## Prerequisites 
 
