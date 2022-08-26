@@ -47,9 +47,9 @@
     - name: Load datasets
       href: https://github.com/Azure/osdu-data-load-tno
     - name: Convert SEG-Y to ZGY
-      href: how-to-convert-SEGY-to-ZGY.md
+      href: how-to-convert-segy-to-zgy.md
     - name: Convert SEG-Y to oVDS
-      href: how-to-convert-SEGY-to-oVDS.md
+      href: how-to-convert-segy-to-ovds.md
     - name: Generate a refresh token
       href: how-to-generate-refresh-token.md
 
