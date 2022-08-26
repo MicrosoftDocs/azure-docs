@@ -20,44 +20,27 @@ Pet Clinic, as deployed in the default configuration [Quickstart: Build and depl
 
 ## Prerequisites
 
-* [MySQL CLI is installed](http://dev.mysql.com/downloads/mysql/)
-
-## Variables preparation
-
-We'll use the following values. Save them in a text file or environment variables to avoid errors. The password should be at least 8 characters long and contain at least one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric character (!, $, #, %, and so on.).
-
-```bash
-export RESOURCE_GROUP=<resource-group-name> # customize this
-export MYSQL_SERVER_NAME=<mysql-server-name> # customize this
-export MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_NAME}.mysql.database.azure.com
-export MYSQL_SERVER_ADMIN_NAME=<admin-name> # customize this
-export MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_NAME}\@${MYSQL_SERVER_NAME}
-export MYSQL_SERVER_ADMIN_PASSWORD=<password> # customize this
-export MYSQL_DATABASE_NAME=petclinic
-```
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 
 ## Prepare an Azure Database for MySQL instance
 
-1. If you didn't run the following commands in the previous quickstarts, set the CLI defaults.
-
-   ```azcli
-   az configure --defaults group=<resource group name> spring-cloud=<service name>
-   ```
-
-1. Create an Azure Database for MySQL flexible servers [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create) command below. Replace the placeholders `<database-name>`, `<resource-group-name>`, `<MySQL-flexible-server-name>`, `<admin-username>`, and `<admin-password>` with a name for your new database, the name of your resource group, a name for your new server, and an admin username and password.
+1. Create an Azure Database for MySQL flexible server using the [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create) command. Replace the placeholders `<database-name>`, `<resource-group-name>`, `<MySQL-flexible-server-name>`, `<admin-username>`, and `<admin-password>` with a name for your new database, the name of your resource group, a name for your new server, and an admin username and password.
 
    ```azcli
    az mysql flexible-server create --database-name <database-name> --resource-group <resource-group-name> --name <MySQL-flexible-server-name> --admin-user <admin-username> --admin-password <admin-password>
-      ```
+   ```
 
-> [!NOTE]
-> Standard_B1ms SKU is used by default. Refer to [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/) for pricing details.
+    > [!NOTE]
+    > Standard_B1ms SKU is used by default. Refer to [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/) for pricing details.
+
+    > [!TIP]
+    > Password should be at least eight characters long and contain at least one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric character (!, $, #, %, and so on.).
 
 1. A CLI prompt asks if you want to enable access to your IP. Enter `Y` to confirm.
 
 ## Connect your application to the MySQL database
 
-Use [Service Connector](/service-connector/overview) to connect the app hosted in Azure Spring Apps to your MySQL database.
+Use [Service Connector](../service-connector/overview.md) to connect the app hosted in Azure Spring Apps to your MySQL database.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -106,7 +89,7 @@ Use [Service Connector](/service-connector/overview) to connect the app hosted i
     | **MySQL database**        | *petclinic*                    | Select the database you created earlier.                                                                                                                                         |
     | **Client type**           | *.NET*                         | Select the application stack that works with the target service you selected.                                                                                                    |
 
-  :::image type="content" source="./media\quickstart-integrate-azure-database-mysql\basics-tab.png" alt-text="Screenshot of the Azure portal, filling out the basics tab in Service Connector.":::
+    :::image type="content" source="./media\quickstart-integrate-azure-database-mysql\basics-tab.png" alt-text="Screenshot of the Azure portal, filling out the basics tab in Service Connector.":::
 
 1. Select **Next: Authentication** to select the authentication type. Then select **Connection string > Database credentials** and enter your database username and password.
 
@@ -136,8 +119,6 @@ The target service firewall is validated                       success
 The configured values (except username/password) is validated  success
 ```
 
-Provisioning state *Succeeded* means that the connection is valid.
-
 > [!TIP]
 > To get more details about the connection between your services, remove `--output table`from the above command.
 
@@ -151,13 +132,10 @@ Azure Spring Apps connections are displayed under **Settings > Service Connector
 
 ## Clean up resources
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command, which deletes the resources in the resource group. Replace `<resource-group>` with the name of your resource group.
 
 ```azurecli
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
+az group delete --name <resource-group>
 ```
 
 ## Next steps
