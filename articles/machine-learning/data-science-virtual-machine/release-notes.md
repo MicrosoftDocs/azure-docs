@@ -21,6 +21,17 @@ Azure portal users will always find the latest image available for provisioning 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
 
+## August 16, 2022
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `22.08.11`
+
+Main changes:
+
+- Jupyterlab upgraded to version `3.4.5`
+- `matplotlib`, `azureml-mlflow` added to `sdkv2` environment.
+- Jupyterhub spawner reconfigured to root environment.
+
 ## July 28, 2022
 [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
 

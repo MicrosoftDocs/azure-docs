@@ -64,7 +64,7 @@ After your register for the above feature, go to update management center (previ
 For Azure VMs, to register the resource provider, use:
 
 ```azurepowershell
-Register-AzResourceProvider -FeatureName InGuestAutoAssessmentVMPreview -ProviderNamespace Microsoft.Compute
+Register-AzProviderPreviewFeature -Name InGuestAutoAssessmentVMPreview -ProviderNamespace Microsoft.Compute
 ```
 
 ### [CLI](#tab/cli-periodic)

@@ -58,11 +58,9 @@ Follow these steps to get the most out of your model:
 
 4. **View the model's performance**: View the evaluation details for your model to determine how well it performs when introduced to new data.
 
-5. **Improve the model**: Work on improving your model performance by examining the incorrect model predictions and examining data distribution.
+5. **Deploy the model**: Deploying a model makes it available for use via the [Analyze API](https://aka.ms/ct-runtime-swagger).
 
-6. **Deploy the model**: Deploying a model makes it available for use via the [Analyze API](https://aka.ms/ct-runtime-swagger).
-
-7. **Classify text**: Use your custom model for custom text classification tasks.
+6. **Classify text**: Use your custom model for custom text classification tasks.
 
 ## Reference documentation and code samples
 

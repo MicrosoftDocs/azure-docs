@@ -4,7 +4,7 @@ description: The app expression is used in an Azure Monitor log query to retriev
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/11/2021
+ms.date: 08/06/2022
 
 ---
 

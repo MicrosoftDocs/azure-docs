@@ -325,4 +325,4 @@ You saw how to modify your training script to accept a data path via the command
 Now that you have a model, learn:
 
 > [!div class="nextstepaction"]
-> [How to deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+> [How to deploy models with Azure Machine Learning](how-to-deploy-managed-online-endpoints.md).

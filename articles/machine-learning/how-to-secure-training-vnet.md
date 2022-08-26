@@ -84,6 +84,13 @@ In this article you learn how to secure the following training compute resources
 
     * One network security group (NSG). This NSG contains the following rules, which are specific to compute cluster and compute instance:
 
+        > [!IMPORTANT]
+        > Compute instance and compute cluster automatically create an NSG with the required rules.
+        > 
+        > If you have another NSG at the subnet level, the rules in the subnet level NSG mustn't conflict with the rules in the automatically created NSG.
+        >
+        > To learn how the NSGs filter your network traffic, see [How network security groups filter network traffic](/azure/virtual-network/network-security-group-how-it-works).
+
         * Allow inbound TCP traffic on ports 29876-29877 from the `BatchNodeManagement` service tag.
         * Allow inbound TCP traffic on port 44224 from the `AzureMachineLearning` service tag.
 
@@ -224,7 +231,7 @@ except ComputeTargetException:
 
 ---
 
-When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
+When the creation process finishes, you train your model by using the cluster in an experiment. 
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
@@ -332,7 +339,7 @@ If you don't want to use the default outbound rules and you do want to limit the
 
 ### Attach the VM or HDInsight cluster
 
-Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
+Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Manage compute resources for model training and deployment in studio](how-to-create-attach-compute-studio.md).
 
 ## Next steps
 

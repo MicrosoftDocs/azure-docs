@@ -778,9 +778,13 @@ Here's the solution:
 
 ### Operation isn't allowed for a replicated database
 
-If you're trying to create SQL objects, users, or change permissions in a database, you might get errors like "Operation CREATE USER is not allowed for a replicated database." This error is returned when you try to create objects in a database that's [shared with Spark pool](../metadata/database.md). The databases that are replicated from Apache Spark pools are read only. You can't create new objects into a replicated database by using T-SQL.
+If you're trying to create SQL objects, users, or change permissions in a database, you might get errors like "Operation is not allowed for a replicated database." This error might be returned when you try to modify a Lake database that's [shared with Spark pool](../metadata/database.md). The Lake databases that are replicated from the Apache Spark pool are managed by Synapse and you cannot create objects like in SQL Databases by using T-SQL. 
+Only the following operations are allowed in the Lake databases:
+- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the schemas other than `dbo`. If you are creating a SQL object in `dbo` schema (or omitting schema and using the default one that is usually `dbo`), you will get the error message.
+- Creating and dropping the database users from Azure Active Directory.
+- Adding or removing database users from `db_datareader` schema.
 
-Create a separate database and reference the synchronized [tables](../metadata/table.md) by using three-part names and cross-database queries.
+Other operations are not allowed in Lake databases.
 
 ### Can't create Azure AD sign-in or user
 

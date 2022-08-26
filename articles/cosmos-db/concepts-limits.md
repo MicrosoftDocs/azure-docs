@@ -129,6 +129,7 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 
 | Resource | Limit |
 | --- | --- |
+| Maximum number of databases per account  | 100 |
 | Maximum number of containers per account  | 100 |
 | Maximum number of regions | 1 (Any Azure region) |
 

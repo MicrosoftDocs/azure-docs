@@ -6,7 +6,7 @@ author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 08/11/2022
 ---
 
 # How to ingest data using Azure Stream Analytics
@@ -21,7 +21,7 @@ processing on IoT devices.
 :::image type="content" source="../media/howto-hyperscale-ingestion/azure-stream-analytics-01-reference-arch.png" alt-text="Reference architecture of ASA with Hyperscale (Citus)." border="true":::
 
 Hyperscale (Citus) shines at real-time workloads such as
-[IoT](howto-build-scalable-apps-model-high-throughput.md). For these workloads,
+[IoT](quickstart-build-scalable-apps-model-high-throughput.md). For these workloads,
 Azure Stream Analytics (ASA) can act as a no-code, performant and scalable
 alternative to pre-process and stream data from Event Hubs, IoT Hub and Azure
 Blob Storage into Hyperscale (Citus).

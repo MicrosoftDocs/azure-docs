@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 08/16/2022
 ms.custom: fasttrack-edit
 ---
 
@@ -180,7 +180,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.FlowRunActionJob.MaximumActionResultSize` | `209715200` bytes | Sets the maximum size in bytes that the combined inputs and outputs can have in an action. |
-| `Runtime.ContentLink.MaximumContentSizeInBytes` | `104857600` characters | Sets the maximum size in characters that an input or output can have in a trigger or action. |
+| `Runtime.ContentLink.MaximumContentSizeInBytes` | `104857600` bytes | Sets the maximum size in bytes that an input or output can have in a trigger or action. |
 ||||
 
 <a name="pagination"></a>
