@@ -134,9 +134,10 @@ To create the private endpoints:
     | Subnet | default |
     
 > [!NOTE]
-> Follow [this extra step](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#step-1) to enable **Private link for Kafka Rest Proxy HDI clusters** 
+> Follow this extra step from the below link to enable **Private link for Kafka Rest Proxy HDI clusters** 
 > 
-
+  ./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#create-private-endpoints
+  
 Once the private endpoints are created, you’re done with this phase of the setup. If you didn’t make a note of the private IP addresses assigned to the endpoints, follow the steps below:
 
 1. Open the client VNET in the Azure portal. 
@@ -186,7 +187,7 @@ To configure DNS resolution through a Private DNS zone:
     | IP Address | Private IP of private endpoint for SSH access |
    
 > [!NOTE]
-> Follow [this extra step](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#step-2) to enable **Private link for Kafka Rest Proxy HDI clusters** 
+> Follow ./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#configure-dns-to-connect-over-private-endpoints to enable **Private link for Kafka Rest Proxy HDI clusters** 
 > 
     
 4. Associate the private DNS zone with the client VNET by adding a Virtual Network Link.
@@ -196,7 +197,7 @@ To configure DNS resolution through a Private DNS zone:
     1. Fill in the details: Link name, Subscription, and Virtual Network
     1. Click **Save**.
 
-## <a name="CheckConnectivity"></a>Step 6: Check cluster connectivity
+## <a name="CheckConnectivity"></a>Step 7: Check cluster connectivity
 
 The last step is to test connectivity to the cluster. Since this cluster is isolated or private, we can't access the cluster using any public IP or FQDN. Instead we have a couple of options:
 
