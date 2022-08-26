@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
 ms.topic: tutorial
-ms.date: 08/26/2026
+ms.date: 08/26/2022
 
 ms.author: markvi
 author: MarkusVi
