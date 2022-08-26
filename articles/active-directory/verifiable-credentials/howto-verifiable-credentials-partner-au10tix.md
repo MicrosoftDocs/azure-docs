@@ -18,7 +18,7 @@ In this article, we cover the steps needed to integrate Microsoft Entra Verified
 
 To learn more about AU10TIX and its complete set of solutions, visit https://www.au10tix.com/.
 
-## Pre-requisites
+## Prerequisites
 
 Before you can continue with the steps below you need to meet the following requirements:
 
@@ -37,7 +37,7 @@ When onboarding users you can remove the need for error prone manual onboarding 
 
 
 
-:::image type="content" source="media/verified-id-partner-au10tix/vc-solution-architecture-diagram.png" alt-text="diagram of the verifiable credential solution.":::
+:::image type="content" source="media/verified-id-partner-au10tix/vc-solution-architecture-diagram.png" alt-text="Diagram of the verifiable credential solution.":::
 
 
 ## Configure your Application to use AU10TIX Verified ID
