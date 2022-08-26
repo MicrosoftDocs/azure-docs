@@ -14,7 +14,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Get started
+  - name: Sign up and upload your first video
     href: video-indexer-get-started.md
   - name: Invite users
     href: invite-users.md

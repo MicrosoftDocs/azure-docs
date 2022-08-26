@@ -16,6 +16,8 @@
       href: tutorial-csv-ingestion.md
     - name: Manifest ingestion tutorial
       href: tutorial-manifest-ingestion.md
+    - name: Seismic DDMS sdutil tutorial
+      href: tutorial-seismic-ddms-sdutil.md
 - name: Concepts
   items:
     - name: CSV Parser ingestion
@@ -43,9 +45,11 @@
         - name: Elastic logs integration with Azure Monitor
           href: how-to-integrate-elastic-logs-with-azure-monitor.md
     - name: Load datasets
-      href: how-to-load-datasets.md
+      href: https://github.com/Azure/osdu-data-load-tno
     - name: Convert SEG-Y to ZGY
-      href: how-to-convert-SEGY-to-ZGY.md
+      href: how-to-convert-segy-to-zgy.md
     - name: Convert SEG-Y to oVDS
-      href: how-to-convert-SEGY-to-oVDS.md
+      href: how-to-convert-segy-to-ovds.md
+    - name: Generate a refresh token
+      href: how-to-generate-refresh-token.md
 
