@@ -100,8 +100,6 @@ column and knows exactly which single shard to lock. In our tests, adding
 filters for the distribution column increased parallel update performance by
 **100x**.
 
-## Table bloat
-
 ## Lock contention
 
 The database uses locks to keep data consistent under concurrent access.
