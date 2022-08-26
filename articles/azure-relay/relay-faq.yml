@@ -149,7 +149,7 @@ sections:
           Is it possible to allow only some relay endpoints?
         answer: |
           Yes. The relay client makes connections to the Azure Relay service by using fully qualified domain names. Customers can add an entry for `*.servicebus.windows.net` on firewalls that support DNS approval listing. 
-          It is also possible to whitelist a specific namespace by using `your-namespace-name.servicebus.windows.net`. In this case you will also need to whitelist the gateways for your namespace, which can be found by using [this PowerShell script](https://github.com/Azure/azure-relay-dotnet/blob/master/tools/GetNamespaceInfo.ps1).
+          It is also possible to allowlist a specific namespace by using `your-namespace-name.servicebus.windows.net`. In this case you will also need to allowlist the gateways for your namespace, which can be found by using [this PowerShell script](https://github.com/Azure/azure-relay-dotnet/blob/master/tools/GetNamespaceInfo.ps1).
 
 additionalContent: |
 
