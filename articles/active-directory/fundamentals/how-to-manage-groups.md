@@ -21,7 +21,7 @@ Azure Active Directory (Azure AD) groups are used to manage users that all need 
 
 This article covers basic group scenarios where a single group is added to a single resource and users are added as members to that group. For more complex scenarios like dynamic memberships and rule creation, see the [Azure Active Directory user management documentation](../enterprise-users/index.yml).
 
-Before adding groups and members, review the [group and membership types article]() to help you decide which options to use when you create a group.
+Before adding groups and members, [learn about groups and membership types](concept-learn-about-groups.md) to help you decide which options to use when you create a group.
 
 ## Create a basic group and add members
 You can create a basic group and add your members at the same time using the Azure Active Directory (Azure AD) portal. To create a basic group and add members:
@@ -32,7 +32,7 @@ You can create a basic group and add your members at the same time using the Azu
 
     ![Azure AD Groups page with 'New group' option highlighted](media/how-to-manage-groups/new-group.png)
 
-1. Select a **Group type**. For more information on group types, see [Group and membership types](#group-types).
+1. Select a **Group type**. For more information on group types, see the [learn about groups and membership types](concept-learn-about-groups.md) article.
 
     - Selecting the **Microsoft 365** Group type enables the **Group email address** option.
 
@@ -46,7 +46,7 @@ You can create a basic group and add your members at the same time using the Azu
     - Enabling this option automatically selects "Assigned" as the **Membership type.**
     - The option to add roles while creating the group is added to the process.
 
-1. Select a **Membership type.** For more information on membership types, see [Group and membership types](#membership-types).
+1. Select a **Membership type.** For more information on membership types, see the [learn about groups and membership types](concept-learn-about-groups.md) article.
 
 1. Optionally add **Owners** or **Members**. Members and owners can be added after creating your group.
     1. Select the link under **Owners** or **Members** to populate a list of every user in your directory.
@@ -116,7 +116,7 @@ To edit your group settings:
 
     - **Group type.** You can't change the type of group after it's been created. To change the **Group type**, you must delete the group and create a new one.
     
-    - **Membership type.** Change the membership type. If you enabled the **Azure AD roles can be assigned to the group** option, you cannot change the membership type. For more info about the various available membership types, see [How to: Create a basic group and add members using the Azure Active Directory portal](active-directory-groups-create-azure-portal.md). 
+    - **Membership type.** Change the membership type. If you enabled the **Azure AD roles can be assigned to the group** option, you cannot change the membership type. For more info about the available membership types, see the [learn about groups and membership types](concept-learn-about-groups.md) article. 
     
     - **Object ID.** You can't change the Object ID, but you can copy it to use in your PowerShell commands for the group. For more info about using PowerShell cmdlets, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-v2-cmdlets.md).
 
@@ -159,7 +159,7 @@ You can add an existing Security group to another Security group (also known as 
 
 1. On the group Overview page, select **Group memberships** from the side menu.
 
-1.  Select **+ Add memberships**
+1.  Select **+ Add memberships**.
 
 1.  Locate the group you want your group to be a member of and choose **Select**. 
 
@@ -188,7 +188,7 @@ You can remove an existing Security group from another Security group; however, 
 
 ## Next steps
 
-- [Learn about groups and assigning access rights to groups](../fundamentals/active-directory-groups-about-NEW.md)
+- [Learn about groups and assigning access rights to groups](concept-learn-about-groups.md)
 
 - [Manage groups using PowerShell commands](../enterprise-users/groups-settings-v2-cmdlets.md)
 

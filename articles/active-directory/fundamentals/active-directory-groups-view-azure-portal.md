@@ -16,10 +16,10 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization.
 ---
 
-# Quickstart: View your organization's groups and members in Azure Active Directory
+# Quickstart: Create a group with members and view all groups and members in Azure Active Directory
 You can view your organization's existing groups and group members using the Azure portal. Groups are used to manage users that all need the same access and permissions for potentially restricted apps and services.
 
-In this quickstart, you’ll set up a new group and assign members to the group. Then you'll view your organization's group and assigned members.
+In this quickstart, you’ll set up a new group and assign members to the group. Then you'll view your organization's group and assigned members. Throughout this guide you will create a user and group that you can use in other Azure AD Fundamentals quickstarts and tutorials.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
