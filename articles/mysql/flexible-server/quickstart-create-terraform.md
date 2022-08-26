@@ -7,7 +7,7 @@ ms.topic: quickstart
 author: shreyaaithal
 ms.author: shaithal
 ms.custom: devx-track-terraform
-ms.date: 5/27/2022
+ms.date: 8/23/2022
 ---
 
 # Quickstart: Use Terraform to create an Azure Database for MySQL - Flexible Server
@@ -21,7 +21,9 @@ Article tested with the following Terraform and Terraform provider versions:
 
 [!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
 
-In this article, you learn how to deploy an Azure MySQL Flexible Server Database in a virtual network (VNet) using Terraform.
+This article shows how to use Terraform to deploy an Azure MySQL Flexible Server Database in a virtual network (VNet).
+
+In this article, you learn how to:
 
 > [!div class="checklist"]
 
@@ -52,19 +54,19 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](../../../terraform_samples/quickstart/201-mysql-fs-db/main.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/201-mysql-fs-db/main.tf)]
 
 1. Create a file named `mysql-fs-db.tf` and insert the following code:
 
-    [!code-terraform[master](../../../terraform_samples/quickstart/201-mysql-fs-db/mysql-fs-db.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/201-mysql-fs-db/mysql-fs-db.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](../../../terraform_samples/quickstart/201-mysql-fs-db/variables.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/201-mysql-fs-db/variables.tf)]
 
-1. Create a file named `output.tf` and insert the following code:
+1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](../../../terraform_samples/quickstart/201-mysql-fs-db/output.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/201-mysql-fs-db/outputs.tf)]
 
 ## Initialize Terraform
 

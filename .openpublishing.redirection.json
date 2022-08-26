@@ -534,6 +534,11 @@
     "redirect_document_id":  false
 },
 {
+    "source_path_from_root":  "/articles/frontdoor/front-door-geo-filtering.md",
+    "redirect_url":  "/azure/web-application-firewall/afds/waf-front-door-geo-filtering",
+    "redirect_document_id":  false
+},
+{
     "source_path_from_root":  "/articles/frontdoor/standard-premium/edge-locations.md",
     "redirect_url":  "/azure/frontdoor/edge-locations-by-region",
     "redirect_document_id":  false
@@ -6811,6 +6816,11 @@
 {
     "source_path_from_root":  "/articles/azure-functions/functions-bindings-errors.md",
     "redirect_url":  "/azure/azure-functions/functions-bindings-error-pages",
+    "redirect_document_id":  false
+},
+{
+    "source_path_from_root":  "/articles/azure-functions/functions-debug-event-grid-trigger-local.md",
+    "redirect_url":  "/azure/azure-functions/functions-event-grid-blob-trigger",
     "redirect_document_id":  false
 },
 {

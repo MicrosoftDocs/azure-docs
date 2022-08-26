@@ -91,8 +91,6 @@
       href: service-tags-overview.md
   - name: Security
     items:
-    - name: Virtual network encryption FAQ
-      href: virtual-network-encryption-faq.yml
     - name: Virtual network security baseline
       href: /security/benchmark/azure/baselines/virtual-network-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
     - name: Virtual network NAT security baseline
