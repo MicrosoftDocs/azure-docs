@@ -15,6 +15,8 @@ ms.topic: how-to
 
 # Log & view metrics and log files v1
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
 > * [v1](how-to-log-view-metrics.md)
 > * [v2 (preview)](../how-to-log-view-metrics.md)
