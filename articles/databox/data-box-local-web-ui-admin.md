@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/29/2022
+ms.date: 08/25/2022
 ms.author: alkohli
 ---
 
@@ -206,7 +206,7 @@ Checksum computation during prepare to ship is only done for import orders, and 
 
 We strongly recommend that you do not disable checksum unless the performance is severely affected.
 
-1. In the top-right corner of the local web UI of your device, go to **Settings**.
+1. In the local web UI, go to **Connect and copy**. Select **Settings**.
 
     ![Disable checksum](media/data-box-local-web-ui-admin/disable-checksum.png)
 
@@ -224,7 +224,7 @@ For more information related to SMB signing, see [Overview of Server Message Blo
 
 To enable SMB signing in your Azure Device:
 
-1. In the top-right corner of the local web UI of your device, select **Settings**.
+1. In the local web UI, go to **Connect and copy**. Select **Settings**.
 
     ![Open Settings](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
