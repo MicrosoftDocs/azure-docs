@@ -220,26 +220,26 @@ Next, be sure to update the image references in the deployment.template.json fil
 
 ::: moniker range=">=iotedge-1.4"
 ### Configure image garbage collection
-Image garbage collection is a feature offered by IoT Edge v1.4 and later to automatically clean up docker images that are no longer used by IoT Edge modules. It only deletes Docker images that were pulled by the IoT Edge runtime as part of a deployment. Deleting these unused module images helps conserve disk space.
+Image garbage collection is a feature in IoT Edge v1.4 and later to automatically clean up docker images that are no longer used by IoT Edge modules. It only deletes docker images that were pulled by the IoT Edge runtime as part of a deployment. Deleting unused docker images helps conserve disk space.
 
-By default, this feature is enabled to run once per day at midnight (device local time) and remove unused module images that are at least 7 days old. The parameters to disable the feature, modify the recurrence, or module image age cleanup threshold are set in the `config.toml`. If not specified, the default values are applied.
+The feature is implemented in IoT Edge's host component, the `aziot-edged` service and enabled by default. Cleanup is done every day at midnight (device local time) and removes unused docker images that were last used 7 days ago. The parameters to control cleanup behavior are set in the `config.toml` and discussed below. If not specified, the default values are applied.
 
-The following is an example `config.toml` for image garbage collection. 
+Example `config.toml` section for image garbage collection (with default values): 
 ```toml
 [image_garbage_collection]
-enabled = "true"
+enabled = true
 cleanup_recurrence = "1d"
 image_age_cleanup_threshold = "7d" 
 cleanup_time = "00:00"
 ```
-The table below contains the parameters used by image garbage collection and their description. All of these parameters are **optional** and can be set individually if the default settings need to be modified.
+The table below describes image garbage collection parameters. All parameters are **optional** and can be set individually if the default settings need to be modified.
 
 | Parameter | Description |
 |-|-|
-| `enabled` | Option to control whether image garbage collection should run or not. Users may choose to disable the feature by changing this setting to `false`.   <br><br>  **Optional** <br><br> Default value: *true* |
-| `cleanup_recurrence` | Option to change the frequency with which the cleanup job runs for image garbage collection. The value for `cleanup_recurrence` must be specified as a multiple of days and cannot be less than 1 day. <br><br> For example: 1d, 3d, 48h, 1w, etc.   <br><br>  **Optional** <br><br> Default value: *1d* |
-| `image_age_cleanup_threshold` | Option to define the minimum age threshold of unused images to consider for cleanup after which the images will be deleted automatically. Images are considered unused *after* they have been removed from the deployment. <br><br>  **Optional** <br><br> Default value: *7d* |
-| `cleanup_time` | Time of day when the cleanup job runs. `cleanup_time` is the device local time and should follow 24-hour HH:MM format. <br><br>  **Optional** <br><br> Default value: *00:00* |
+| `enabled` | Controls whether image garbage collection runs or not. You may choose to disable the feature by changing this setting to `false`.   <br><br>  **Optional** <br><br> Default value: *true* |
+| `cleanup_recurrence` | Controls the recurrence frequency of the cleanup task. Must be specified as a multiple of days and cannot be less than 1 day. <br><br> For example: 1d, 2d, 6d, etc.   <br><br>  **Optional** <br><br> Default value: *1d* |
+| `image_age_cleanup_threshold` | Defines the minimum age threshold of unused images before considering for cleanup and must be specified in days. You can specify as "0d" to clean up the images as soon as they are removed from the deployment. <br><br>  Images are considered unused *after* they have been removed from the deployment. <br><br>  **Optional** <br><br> Default value: *7d* |
+| `cleanup_time` | Time of day, *in device local time*, when the cleanup task runs. Must be in 24-hour HH:MM format. <br><br>  **Optional** <br><br> Default value: *00:00* |
 
 ::: moniker-end
 ## Networking
