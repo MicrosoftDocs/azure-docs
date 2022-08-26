@@ -141,7 +141,7 @@ ml_client.online_deployments.get_logs(
 ```
 
 To see information about how to set these parameters, see
-[reference for get-logs](python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations?view=azure-python-preview#azure-ai-ml-operations-onlinedeploymentoperations-get-logs)
+[reference for get-logs](https://docs.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-get-logs)
 
 By default the logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your `score.py' code.
 
@@ -265,7 +265,7 @@ Below is a list of reasons you might run into this error:
 * [Startup task failed due to authorization error](#authorization-error)
 * [Startup task failed due to incorrect role assignments on resource](#authorization-error)
 * [Unable to download user container image](#unable-to-download-user-container-image)
-* [Unable to download user model or code artifacts](#unable-to-download-user-model-or-code-artifacts)
+* [Unable to download user model](#unable-to-download-user-model)
 * [azureml-fe for kubernetes online endpoint is not ready](#azureml-fe-not-ready)
 
 #### Resource requests greater than limits
