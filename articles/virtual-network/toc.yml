@@ -212,6 +212,8 @@
       items:
       - name: Azure PowerShell
         href: how-to-create-encryption-powershell.md
+      - name: Azure CLI
+        href: how-to-create-encryption-cli.md
     - name: Filter network traffic
       items:
       - name: Azure portal
