@@ -105,6 +105,6 @@ Now you have a lab plan resource ID, you can use it to exclude the lab plan as y
 ## Next steps
 See the following articles:
 - [What’s new with Azure Policy for Lab Services?](azure-polices-for-lab-services.md)
-- [Built-in Policies](/azure/governance/policy/samples/built-in-policies.md#lab-services#lab-services)
-- [What is Azure policy?](/azure/governance/policy/overview.md)
+- [Built-in Policies](/azure/governance/policy/samples/built-in-policies#lab-services)
+- [What is Azure policy?](/azure/governance/policy/overview)
 
