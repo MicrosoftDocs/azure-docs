@@ -23,7 +23,7 @@ To get started with using App Configuration references in App Service, you'll fi
 
     App Configuration references will use the app's system assigned identity by default, but you can [specify a user-assigned identity](#access-app-configuration-store-with-a-user-assigned-identity).
 
-1.Enable the newly created identity to have the right set of access permissions on the App Configuration store. Update the [role assignments for your store](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration). You'll be assigning `App Configuration Data Reader` role to this identity, scoped over the resource..
+1. Enable the newly created identity to have the right set of access permissions on the App Configuration store. Update the [role assignments for your store](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration). You'll be assigning `App Configuration Data Reader` role to this identity, scoped over the resource..
 
 > [!NOTE]
 > App Configuration references do not yet support network-restricted configuration stores.
@@ -69,7 +69,7 @@ Alternatively without any `Label`:
 @Microsoft.AppConfiguration(Endpoint=https://myAppConfigStore.azconfig.io; Key=myAppConfigKey)​
 ```
 
-Any configuration changes to the app that results in a site restart causes an immediate refetch of all referenced key-values from the App Configuration store.
+Any configuration change to the app that results in a site restart causes an immediate refetch of all referenced key-values from the App Configuration store.
 
 ## Source Application Settings from App Config
 
