@@ -176,6 +176,29 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
    :::column-end:::
 :::row-end:::
 
+### Orchestration workflow
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="media/studio-examples/orchestration-workflow.png" alt-text="A screenshot of an orchestration workflow example." lightbox="media/studio-examples/orchestration-workflow.png":::
+   :::column-end:::
+   :::column span="":::
+      [Orchestration workflow](./language-detection/overview.md) is a custom feature that enables you to connect [Conversational Language Understanding (CLU)](./conversational-language-understanding/overview.md), [question answering](./question-answering/overview.md), and [LUIS](../LUIS/what-is-luis.md) applications.
+
+   :::column-end:::
+:::row-end:::
+
+### Question answering
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="media/studio-examples/question-answering.png" alt-text="A screenshot of a question answering example." lightbox="media/studio-examples/question-answering.png":::
+   :::column-end:::
+   :::column span="":::
+      [Question answering](./question-answering/overview.md) is a custom feature that enables you to connect [Conversational Language Understanding (CLU)](./conversational-language-understanding/overview.md), [question answering](./question-answering/overview.md), and [LUIS](../LUIS/what-is-luis.md) applications.
+
+   :::column-end:::
+:::row-end:::
 
 <!--You can use this feature with:
 
