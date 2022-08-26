@@ -104,7 +104,57 @@ filters for the distribution column increased parallel update performance by
 
 ## Lock contention
 
+The database uses locks to keep data consistent under concurrent access.
+However, some query patterns require an excessive amount of locking, and faster
+alternatives exist.
+
 ### Detecting locks
+
+Before diving into common locking inefficiencies, let's see how to view locks
+throughout the database cluster. The
+[citus_stat_activity](reference-metadata.md#distributed-query-activity)
+view gives a detailed view of cluster activity.
+
+The view shows, among other things, how queries are blocked by "wait events,"
+including locks.  Grouping by wait event type paints a picture of system
+health:
+
+```sql
+-- gneral system health
+
+SELECT wait_event_type, count(*)
+  FROM citus_stat_activity
+ WHERE state != 'idle'
+ GROUP BY 1
+ ORDER BY 2 DESC;
+```
+
+A blank `wait_event_type` means the query is not waiting on anything.
+
+If you do see locks in the stat activity output, you can view the specific
+blocked queries using `citus_lock_waits`:
+
+```sql
+SELECT * FROM citus_lock_waits;
+```
+
+For example, if one query is blocked on another trying to update the same row,
+you'll see the blocked and blocking statements appear:
+
+```
+-[ RECORD 1 ]-------------------------+--------------------------------------
+waiting_gpid                          | 10000011981
+blocking_gpid                         | 10000011979
+blocked_statement                     | UPDATE numbers SET j = 3 WHERE i = 1;
+current_statement_in_blocking_process | UPDATE numbers SET j = 2 WHERE i = 1;
+waiting_nodeid                        | 1
+blocking_nodeid                       | 1
+```
+
+To see not only the locks happening at the moment, but historical patterns, you
+can capture locks in the PostgreSQL logs. To learn more, see the
+[log_lock_waits](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LOCK-WAITS)
+server setting in the PostgreSQL documentation.
 
 ### Common problems and solutions
 
