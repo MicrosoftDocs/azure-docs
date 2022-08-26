@@ -69,13 +69,13 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 The Verifiable credentials service request is the Request Service API, and it needs access to Key Vault in order to sign issuance and presentation requests. 
 
-1. Select **+ Add Access Policy** and select the service principal **Verifiable Credentials Service Request** with AppId **3db474b9-6a0c-4840-96ac-1fceb342124**.
+1. Select **+ Add Access Policy** and select the service principal **Verifiable Credentials Service Request** with AppId **3db474b9-6a0c-4840-96ac-1fceb342124f**.
 
 1. For **Key permissions**, select permissions **Get** and **Sign**. 
 
     ![screenshot of key vault granting access to a security principal](media/verifiable-credentials-configure-tenant/set-key-vault-sp-access-policy.png)
 
-1. To save the changes, select **Save**.
+1. To save the changes, select **Add**.
 
 ## Set up Verified ID
 
