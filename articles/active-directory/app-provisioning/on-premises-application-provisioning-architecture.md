@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 04/11/2022
+ms.date: 08/26/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -30,6 +30,7 @@ There are three primary components to provisioning users into an on-premises app
 >[!NOTE]
 > Microsoft Identity Manager Synchronization isn't required. But you can use it to build and test your ECMA connector before you import it into the ECMA host.
 
+> [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
 
 ### Firewall requirements
 
