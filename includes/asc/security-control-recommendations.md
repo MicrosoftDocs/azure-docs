@@ -68,7 +68,7 @@ ms.custom: generated
   </tr>
   <tr>
     <td class="tg-lboi"><strong>2</strong></td>
-    <td class="tg-lboi"><strong>Protect your applications with Azure advanced networking solutions</strong> - </td>
+    <td class="tg-lboi"><strong>Protect applications against DDoS attacks</strong> - Azure’s advanced networking security solutions include Azure DDoS Protection, Azure Web Application Firewall, and the Azure Policy Add-on for Kubernetes. Use these recommendations to ensure your applications are protected with these tools and others. </td>    
     <td class="tg-lboi" width=55%>- Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed<br />- Azure DDoS Protection Standard should be enabled<br />- Azure Kubernetes Service clusters should have the Azure Policy add-on for Kubernetes installed<br />- Container CPU and memory limits should be enforced<br />- Web Application Firewall (WAF) should be enabled for Application Gateway<br />- Web Application Firewall (WAF) should be enabled for Azure Front Door Service service</td>
   </tr>
   <tr>

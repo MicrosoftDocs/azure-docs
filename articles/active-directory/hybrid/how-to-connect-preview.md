@@ -4,7 +4,7 @@ description: This topic describes in more detail features which are in preview i
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: c75cd8cf-3eff-4619-bbca-66276757cc07
