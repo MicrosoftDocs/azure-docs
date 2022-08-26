@@ -32,7 +32,7 @@ To migrate to availability zone support, your VM SKUs must be available across t
 
 ## Downtime requirements
 
-Because zonal VMs are created across the availability zones, all migration options mentioned in this article require downtime during deployment because zonal VMs are created across the availability zones.
+Because zonal VMs are created across the availability zones, all migration options mentioned in this article require downtime during deployment.
 
 ## Migration Option 1: Redeployment
 

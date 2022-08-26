@@ -29,7 +29,7 @@ This article lists the curated environments with latest framework versions in Az
 >[!IMPORTANT] 
 > To view more information about curated environment packages and versions, visit the Environments tab in the Azure Machine Learning [studio](./how-to-manage-environments-in-studio.md). 
 
-## Training curated environments
+## Curated environments
 
 ### PyTorch
 
@@ -57,7 +57,7 @@ Other available PyTorch environments:
 
 
 ### Sklearn
-**Name**: AzureML-sklearn-1.0-ubuntu20.04-py38-cpu
+**Name**: AzureML-sklearn-1.0-ubuntu20.04-py38-cpu  
 **Description**: An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the AzureML Python SDK and other Python packages.  
 * OS: Ubuntu20.04
 * Scikit-learn: 1.0
@@ -87,11 +87,7 @@ Azure ML pipeline training workflows that use AutoML automatically selects a cur
 | AzureML-AutoML-GPU | GPU | No |
 | AzureML-AutoML-DNN-GPU | GPU | Yes |
 
-For more information on AutoML and Azure ML pipelines, see [use automated ML in an Azure Machine Learning pipeline in Python](how-to-use-automlstep-in-pipelines.md).
-
-## Inference curated environments and prebuilt docker images
-
-[!INCLUDE [list-of-inference-prebuilt-docker-images](../../includes/aml-inference-list-prebuilt-docker-images.md)]
+For more information on AutoML and Azure ML pipelines, see [use automated ML in an Azure Machine Learning pipeline in Python](v1/how-to-use-automlstep-in-pipelines.md).
 
 ## Support
 Version updates for supported environments, including the base images they reference, are released every two weeks to address vulnerabilities no older than 30 days. Based on usage, some environments may be deprecated (hidden from the product but usable) to support more common machine learning scenarios.

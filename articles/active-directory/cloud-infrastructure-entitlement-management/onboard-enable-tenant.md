@@ -27,11 +27,17 @@ To enable Permissions Management in your organization:
 
 > [!NOTE]
 > During public preview, Permissions Management doesn't perform a license check.
+> The public preview environment will only be available until October 7th, 2022. You will be no longer be able view or access your configuration and data in the public preview environment after that date.
+> Once you complete all the steps and confirm to use Microsoft Entra Permissions Management, access to the public preview environment will be lost. You can take a note of your configuration before you start. 
+> To start using generally available Microsoft Entra Permissions Management, you must purchase a license or begin a trial. From the public preview console, initiate the workflow by selecting Start.
+
+
+
 
 ## How to enable Permissions Management on your Azure AD tenant
 
 1. In your browser:
-    1. Go to [Entra services](https://entra.microsoft.com) and use your credentials to sign in to [Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
+    1. Go to [Entra services](https://entra.microsoft.com) and use your credentials to sign in to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
     1. If you aren't already authenticated, sign in as a global administrator user.
     1. If needed, activate the global administrator role in your Azure AD tenant.
     1. In the Azure AD portal, select **Permissions Management**, and then select the link to purchase a license or begin a trial.

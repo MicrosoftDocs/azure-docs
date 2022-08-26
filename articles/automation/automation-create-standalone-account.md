@@ -50,7 +50,7 @@ The following table describes the fields on the **Basics** tab.
 
 The following image shows a standard configuration for a new Automation account.
 
-:::image type="content" source="./media/automation-create-standalone-account/create-account-basics.png" alt-text="Required fields for creating the Automation account on Basics tab":::
+:::image type="content" source="./media/automation-create-standalone-account/create-account-basics-v2.png" alt-text="Screenshot shows the required fields for creating the Automation account on Basics tab.":::
 
 ### Advanced
 
@@ -69,13 +69,21 @@ You can chose to enable managed identities later, and the Automation account is 
 
 The following image shows a standard configuration for a new Automation account.
 
-:::image type="content" source="./media/automation-create-standalone-account/create-account-advanced.png" alt-text="Required fields for creating the Automation account on Advanced tab":::
+:::image type="content" source="./media/automation-create-standalone-account/create-account-advanced-v2.png" alt-text="Screenshot shows the required fields for creating the Automation account on Advanced tab.":::
 
-### Tags tab
+### Networking
+
+On the **Networking** tab, you can configure connectivity to Automation Account - either publicly via public IP addresses or privately using a [Azure Automation Private Link](./how-to/private-link-security.md). Azure Automation Private Link connects one or more private endpoints (and therefore the virtual networks they are contained in) to your Automation Account resource. 
+
+The following image shows a standard configuration for a new Automation account.
+
+:::image type="content" source="./media/automation-create-standalone-account/create-account-networking-v2.png" alt-text="Screenshot shows the required fields for creating the Automation account on Networking tab.":::
+
+### Tags
 
 On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
 
-### Review + create tab
+### Review + create
 
 When you navigate to the **Review + create** tab, Azure runs validation on the Automation account settings that you have chosen. If validation passes, you can proceed to create the Automation account.
 

@@ -2,7 +2,7 @@
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 07/18/2022
 ---
 
 # Bicep CLI commands
@@ -67,6 +67,8 @@ The `decompile` command converts ARM template JSON to a Bicep file.
 ```azurecli
 az bicep decompile --file main.json
 ```
+
+The command creates a file named _main.bicep_ in the same directory as _main.json_. If _main.bicep_ exists in the same directory, use the **--force** switch to overwrite the existing Bicep file.
 
 For more information about using this command, see [Decompiling ARM template JSON to Bicep](decompile.md).
 

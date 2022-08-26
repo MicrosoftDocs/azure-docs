@@ -2,10 +2,10 @@
 title: Quickstart - Add chat to your app
 titleSuffix: An Azure Communication Services quickstart
 description: This quickstart shows you how to add Communication Services chat to your app.
-author: fanche
+author: tophpalmer
 manager: phans
 services: azure-communication-services
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services

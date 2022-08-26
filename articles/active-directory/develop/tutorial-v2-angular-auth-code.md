@@ -136,6 +136,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
     ```javascript
     import { NgModule } from '@angular/core';
     import { Routes, RouterModule } from '@angular/router';
+    import { BrowserUtils } from '@azure/msal-browser';
     import { HomeComponent } from './home/home.component';
     import { ProfileComponent } from './profile/profile.component';
 
@@ -154,7 +155,8 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
 
     @NgModule({
       imports: [RouterModule.forRoot(routes, {
-        initialNavigation: !isIframe ? 'enabled' : 'disabled' // Don't perform initial navigation in iframes
+        // Don't perform initial navigation in iframes or popups
+       initialNavigation: !BrowserUtils.isInIframe() && !BrowserUtils.isInPopup() ? 'enabledNonBlocking' : 'disabled' // Set to enabledBlocking to use Angular Universal
       })],
       exports: [RouterModule]
     })

@@ -103,7 +103,7 @@ If you experience connectivity problems with your private link setup, review the
 
        ![Verify private link service metrics](./media/private-link-tsg/pls-metrics.png)
 
-1. Use [Azure Monitor - Networks](../azure-monitor/insights/network-insights-overview.md#dependency-view) for insights and to see a dependency view of the resources by going to:
+1. Use [Azure Monitor - Networks](../network-watcher/network-insights-overview.md#dependency-view) for insights and to see a dependency view of the resources by going to:
      - Azure Monitor
      - Networks
      - Private Link services

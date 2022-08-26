@@ -3,8 +3,8 @@ title: Automate Azure AD Identity Governance tasks with Azure Automation
 description: Learn how to write PowerShell scripts in Azure Automation to interact with Azure Active Directory entitlement management and other features.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: daveba
+author: amsliu
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 1/20/2022
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
@@ -110,8 +110,9 @@ Next, you will create an app registration in Azure AD, so that Azure AD will rec
 
 1. Select each of the permissions that your Azure Automation account will require, then select **Add permissions**.
 
+ * If your runbook is only performing queries or updates within a single catalog, then you do not need to assign it tenant-wide application permissions; instead you can assign the service principal to the catalog's **Catalog owner** or **Catalog reader** role.
  * If your runbook is only performing queries for entitlement management, then it can use the **EntitlementManagement.Read.All** permission.
- * If your runbook is making changes to entitlement management, for example to create assignments, then use the **EntitlementManagement.ReadWrite.All** permission.
+ * If your runbook is making changes to entitlement management, for example to create assignments across multiple catalogs, then use the **EntitlementManagement.ReadWrite.All** permission.
  * For other APIs, ensure that the necessary permission is added.  For example, for identity protection, the **IdentityRiskyUser.Read.All** permission should be added.
 
 10. Select **Grant admin permissions** to give your app those permissions.

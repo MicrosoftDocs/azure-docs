@@ -5,9 +5,9 @@ description: Learn to deploy your AutoML model as a web service that's automatic
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: ssambare
+ms.author: sehan
 ms.reviewer: larryfr
-author: shivanissambare
+author: dem108
 ms.date: 05/11/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022

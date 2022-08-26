@@ -111,7 +111,7 @@ find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer, 
 **Count of billable events by computer**
 
 ```kusto
-find where TimeGenerated > ago(24h) project _IsBillable, Computer
+find where TimeGenerated > ago(24h) project _IsBillable, Computer, Type
 | where _IsBillable == true and Type != "Usage"
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  
@@ -429,4 +429,4 @@ W3CIISLog
 - See [Azure Monitor Logs pricing details](cost-logs.md) for details on how charges are calculated for data in a Log Analytics workspace and different configuration options to reduce your charges.
 - See [Azure Monitor cost and usage](../usage-estimated-costs.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.
 - See [Azure Monitor best practices - Cost management](../best-practices-cost.md) for best practices on configuring and managing Azure Monitor to minimize your charges.
-- See [Ingestion-time transformations in Azure Monitor Logs (preview)](ingestion-time-transformations.md) for details on using ingestion-time transformations to reduce the amount of data you collected in a Log Analytics workspace by filtering unwanted records and columns.
+- See [Data collection transformations in Azure Monitor (preview)](../essentials/data-collection-transformations.md) for details on using transformations to reduce the amount of data you collected in a Log Analytics workspace by filtering unwanted records and columns.

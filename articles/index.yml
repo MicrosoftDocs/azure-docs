@@ -281,17 +281,9 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/translator/index.yml
     # Card
-    - title: Azure Video Analyzer (Preview)
-      summary: Build intelligent video-based applications using the AI of your choice
-      imageSrc: ./media/index/video-analyzer.svg
-      azureCategories:
-        - ai-machine-learning
-        - media
-      url: azure-video-analyzer/video-analyzer-docs/overview.md
-    # Card
-    - title: Azure Video Analyzer for Media
+    - title: Azure Video Indexer
       summary: Unlock video insights
-      imageSrc: ./media/index/video-analyzer.svg
+      imageSrc: applied-ai-services/media/video-indexer.svg
       azureCategories:
         - ai-machine-learning
         - media
@@ -506,7 +498,7 @@ productDirectory:
       azureCategories:
         - compute
         - web
-      url: spring-cloud/index.yml
+      url: spring-apps/index.yml
     # Card
     - title: Azure VMware Solution
       summary: Run your VMware workloads natively on Azure
@@ -736,7 +728,7 @@ productDirectory:
     # Card
     - title: Azure Data Studio
       summary: A lightweight editor that can run serverless SQL pool queries and view and save results as text, JSON, or Excel.
-      imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
+      imageSrc: /sql/tools/media/overview-sql-tools/azure-data-studio.svg
       azureCategories:
         - developer-tools
       url: /sql/azure-data-studio/
@@ -775,14 +767,14 @@ productDirectory:
     # Card
     - title: Visual Studio
       summary: The powerful and flexible environment for developing applications in the cloud
-      imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
+      imageSrc: /media/logos/logo_visual-studio.svg
       azureCategories:
         - developer-tools
       url: /visualstudio/windows
     # Card
     - title: Visual Studio Code
       summary: A powerful, lightweight code editor for cloud development
-      imageSrc: https://docs.microsoft.com/media/logos/logo_vs-code.svg
+      imageSrc: /media/logos/logo_vs-code.svg
       azureCategories:
         - developer-tools
       url: https://code.visualstudio.com/docs
@@ -1163,6 +1155,14 @@ productDirectory:
         - networking
       url: traffic-manager/index.yml
     # Card
+    - title: Update management center (Preview)
+      summary: Centrally manage updates and compliance at scale
+      imageSrc: https://static.docs.com/ui/media/product/azure/update-center.svg
+      azureCategories:
+        - management-and-governance
+      url: update-center/index.yml
+
+    # Card
     - title: Azure Media Player
       summary: A single player for all your playback needs
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
@@ -1239,14 +1239,14 @@ productDirectory:
     # Card
     - title: Visual Studio App Center
       summary: Continuously build, test, release, and monitor your mobile and desktop apps
-      imageSrc: https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg
+      imageSrc: /media/logos/logo_vs-mobile-center.svg
       azureCategories:
         - mobile
       url: /appcenter/
     # Card
     - title: Xamarin
       summary: Create cloud-powered mobile apps faster
-      imageSrc: https://docs.microsoft.com/media/logos/logo_xamarin.svg
+      imageSrc: /media/logos/logo_xamarin.svg
       azureCategories:
         - mobile
       url: /xamarin/
@@ -1497,7 +1497,7 @@ productDirectory:
     # Card
     - title: Azure Orbital (Preview)
       summary: Satellite ground station and scheduling services for fast downlinking of data
-      imageSrc: https://docs.microsoft.com/en-us/media/logos/logo-azureorbital.svg
+      imageSrc: /media/logos/logo-azureorbital.svg
       azureCategories:
         - networking
       url: orbital/index.yml
@@ -1510,7 +1510,7 @@ productDirectory:
         - web
       url: azure-web-pubsub/index.yml
     # Card
-    - title: Azure Fluid Relay (Preview)
+    - title: Azure Fluid Relay
       summary: Easily add real-time collaborative experiences to your apps with Fluid Framework
       imageSrc: https://static.docs.com/ui/media/product/azure/fluid-relay.svg
       azureCategories:
