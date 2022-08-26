@@ -28,7 +28,6 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
         - `ml.azure.com`
         - `automlresources-prod.azureedge.net`
-        - `aka.ms` 
 
 ## Prerequisites
 
