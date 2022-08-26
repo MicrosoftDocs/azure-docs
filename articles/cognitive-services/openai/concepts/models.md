@@ -78,7 +78,7 @@ Ada is usually the fastest model and can perform tasks like parsing text, addres
 
 The Codex models are descendants of our base GPT-3 models that can understand and generate code. Their training data contains both natural language and billions of lines of public code from GitHub.
 
-They’re most capable in Python and proficient in over a dozen languages, including JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell.
+They’re most capable in Python and proficient in over a dozen languages, including C#, JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell.
 
 Currently we only offer one Codex model: `code-cushman-001`.
 
