@@ -4,7 +4,7 @@ description: Identify what requirements are needed for synchronizing all the use
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
