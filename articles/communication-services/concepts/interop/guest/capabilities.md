@@ -33,7 +33,7 @@ The following table shows supported client-side capabilities available in Azure 
 | | File sharing                                  | ❌ |
 | | Reply to chat message                         | ❌ |
 | | React to chat message                         | ❌ |
-|Calling - core | Audio send and receive          | ✔️ |
+|Meeting - core | Audio send and receive          | ✔️ |
 | | Send and receive video                        | ✔️ |
 | | Share screen and see shared screen            | ✔️ |
 | | Manage Teams convenient recording             | ❌ |
@@ -44,23 +44,23 @@ The following table shows supported client-side capabilities available in Azure 
 | | End meeting                                   | ❌ |
 | | Change meeting options                        | ❌ |
 | | Lock meeting                                  | ❌ |
-| Calling - participants| See roster              | ✔️ |
+| Meeting - participants| See roster              | ✔️ |
 | | Add and remove meeting participants           | ❌ |
 | | Dial out to phone number                      | ❌ |
 | | Disable mic or camera of others               | ❌ |
 | | Make a participant and attendee or presenter  | ❌ |
 | | Admit or reject participants in the lobby     | ❌ |
-| Calling - engagement | Raise and lower hand     | ❌ |
+| Meeting - engagement | Raise and lower hand     | ❌ |
 | | See raised and lowered hand | ❌ |
 | | See and set reactions                         | ❌ |
-| Calling - video streams | Send and receive video | ✔️ |
+| Meeting - video streams | Send and receive video | ✔️ |
 | | See together mode video stream                | ❌ |
 | | See Large gallery view                        | ❌ |
 | | See Video stream from Teams media bot         | ❌ |
 | | See adjusted content from Camera              | ❌ |
 | | Set and unset spotlight                       | ❌ |
 | | Apply background effects                      | ❌ |
-| Calling - integrations | Control Teams third-party applications | ❌ |
+| Meeting - integrations | Control Teams third-party applications | ❌ |
 | | See PowerPoint Live stream                    | ❌ |
 | | See Whiteboard stream                         | ❌ |
 | | Interact with a poll                          | ❌ |
