@@ -169,5 +169,5 @@ The sample response will have data-partition-id appended to the legal tag name a
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]
-> [How to load datasets](how-to-load-datasets.md)
+> [How to add more data partitions](how-to-add-more-data-partitions.md)
 
