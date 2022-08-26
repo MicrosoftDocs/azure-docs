@@ -51,7 +51,7 @@ Name     ResourceGroup    MasterVersion    Upgrades
 default  myResourceGroup  1.18.10          1.19.1, 1.19.3
 ```
 
-The following sample output means that the appservice-kube extension isn't compatible with your Azure CLI version (a minimum of version 2.34.1 is required):
+The following example output means that the appservice-kube extension isn't compatible with your Azure CLI version (a minimum of version 2.34.1 is required):
 
 ```console
 The 'appservice-kube' extension is not compatible with this version of the CLI.
@@ -61,13 +61,13 @@ Table output unavailable. Use the --query option to specify an appropriate query
 
 If you receive this output, you need to update your Azure CLI version. The `az upgrade` command was added in version 2.11.0 and doesn't work with versions prior to 2.11.0. Older versions can be updated by reinstalling Azure CLI as described in [Install the Azure CLI](/cli/azure/install-azure-cli). If your Azure CLI version is 2.11.0 or later, you'll receive a message to run `az upgrade` to upgrade Azure CLI to the latest version.
 
-If your Azure CLI is updated, receiving the following sample output means that no upgrades are available:
+If your Azure CLI is updated and you receive the following example output, it means that no upgrades are available:
 
 ```console
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-If no upgrade is available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when `az aks get-upgrades` shows that no upgrades are available.
+If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when `az aks get-upgrades` shows that no upgrades are available.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
