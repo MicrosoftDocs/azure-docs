@@ -2,7 +2,7 @@
 title: Create an ingress controller with an existing Application Gateway 
 description: This article provides information on how to deploy an Application Gateway Ingress Controller with an existing Application Gateway. 
 services: application-gateway
-author: caya
+author: mscatyao
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
