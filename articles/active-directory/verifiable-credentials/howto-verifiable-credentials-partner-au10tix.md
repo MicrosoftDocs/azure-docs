@@ -24,7 +24,12 @@ Before you can continue with the steps below you need to meet the following requ
 
 - A tenant [configured](verifiable-credentials-configure-tenant.md) for Entra Verified ID service.
     - If you don't have an existing tenant, you can [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- You need to have completed the onboarding process with [Au10Tix](https://www.au10tix.com/solutions/microsoft-azure-active-directory-verifiable-credentials-program/)
+- You need to have completed the onboarding process with Au10tix
+    - To create a AU10TIX account, submit the form on this [page](https://www.au10tix.com/solutions/microsoft-azure-active-directory-verifiable-credentials-program/).
+
+
+>[!IMPORTANT]
+> Before you proceed, you must have received the URL from Au10Tix for users to be issued Verified IDs. If you have not yet received it, follow up with Au10Tix before you attempt following the steps documented below.
 
 ## Scenario description
 
@@ -64,7 +69,7 @@ As a developer you now have the request URL and body from your tenant admin, fol
 
 ## Test the user flow
 
-User flow is specific to your application or website. However if you are using one of the sample apps follow the steps outlined as part of the [sample app's documentation](https://aka.ms/vcsample) .
+User flow is specific to your application or website. However if you are using one of the sample apps follow the steps outlined as part of the [sample app's documentation](https://aka.ms/vcsample).
 
 ## Next steps
 
