@@ -1,6 +1,6 @@
 ---
-title: About Immutable vault for Azure Backup (preview)
-description: This article explains about Immutable vault for Azure Backup, and how it helps in protecting data from malicious actors.
+title: Concept of Immutable vault for Azure Backup (preview)
+description: This article explains about the concept of Immutable vault for Azure Backup, and how it helps in protecting data from malicious actors.
 ms.topic: conceptual
 ms.service: backup
 ms.date: 09/15/2022
@@ -8,7 +8,7 @@ author: v-amallick
 ms.author: v-amallick
 ---
 
-# About Immutable vault for Azure Backup (preview)
+# Immutable vault for Azure Backup (preview)
 
 Immutable vault can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to make it irreversible to prevent any malicious actors from disabling immutability and deleting backups.
 
@@ -47,5 +47,5 @@ Immutable vault prevents you  from performing the following operations  on the v
 
 ## Next steps
 
-[Manage Azure Backup vault immutability (preview)](backup-azure-immutable-vault-manage.md)
+- Learn [how to manage operations of Azure Backup vault immutability (preview)](backup-azure-immutable-vault-how-to-manage.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Backup Immutable vault operations (preview)
-description: This article explains the process to manage Azure Backup Immutable vault operations.
+title: How to manage Azure Backup Immutable vault operations (preview)
+description: This article explains how to manage Azure Backup Immutable vault operations.
 ms.topic: how-to
 ms.service: backup
 ms.date: 09/15/2022
@@ -10,7 +10,7 @@ ms.author: v-amallick
 
 # Manage Azure Backup Immutable vault operations (preview)
 
-Immutable vault can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to make it irreversible to prevent any malicious actors from disabling immutability and deleting backups.
+[Immutable vault](backup-azure-immutable-vault-concept.md) can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to make it irreversible to prevent any malicious actors from disabling immutability and deleting backups.
 
 In this article, you'll learn how to:
 
@@ -44,11 +44,11 @@ You can enable immutability for a vault through its properties, follow these ste
 
 ## Perform operations on Immutable vault
 
-As per the [Restricted operations](backup-azure-immutable-vault-overview.md#restricted-operations), certain operations are restricted on Immutable Vault. However, other operations on the vault or the items it contains remain unaffected.
+As per the [Restricted operations](backup-azure-immutable-vault-concept.md#restricted-operations), certain operations are restricted on Immutable vault. However, other operations on the vault or the items it contains remain unaffected.
 
 ### Perform restricted operations
 
-[Restricted operations](backup-azure-immutable-vault-overview.md#restricted-operations) are disallowed on the vault. Consider the following example when trying to modify a policy to reduce its retention in a vault with immutability enabled.
+[Restricted operations](backup-azure-immutable-vault-concept.md#restricted-operations) are disallowed on the vault. Consider the following example when trying to modify a policy to reduce its retention in a vault with immutability enabled.
 
 Consider a policy with a daily backup point retention of *35 days* and weekly backup point retention of *two weeks*, as shown in the following screenshot.
 
@@ -56,7 +56,7 @@ Consider a policy with a daily backup point retention of *35 days* and weekly ba
 
 Now, let's try to reduce the retention of daily backup points to *30 days*, reducing by *5 days*, and save the policy.
 
-You'll see that the operation fails with the information that the vault has immutability enabled, and therefore, any changes that could reduce retention of recovery points are disallowed. 
+You'll see that the operation fails with the information that the vault has immutability enabled, and therefore, any changes that could reduce retention of recovery points are disallowed.
 
 :::image type="content" source="./media/backup-azure-immutable-vault/modify-policy-to-reduce-retention.png" alt-text="Screenshot showing to modify backup policy to reduce backup retention.":::
 
@@ -81,3 +81,7 @@ You can disable immutability only for vaults that have immutability enabled, but
 1. Select **Apply** to save the changes.
 
    :::image type="content" source="./media/backup-azure-immutable-vault/backup-azure-disable-immutability.png" alt-text="Screenshot showing to disable the Immutable vault settings.":::
+
+## Next steps
+
+- Learn [about Immutable vault for Azure Backup (preview)](backup-azure-immutable-vault-concept.md).

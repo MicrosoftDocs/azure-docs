@@ -48,7 +48,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 Azure Backup now supports immutable vaults that help you ensure that recovery points once created can't be deleted before their expiry as per the backup policy (expiry at the time at which the recovery point was created). You can also choose to make the immutability irreversible to offer maximum protection to your backup data, thus helping you protect your data better against various threats, including ransomware attacks and malicious actors.
 
-For more information, see [About Immutable vault for Azure Backup (preview)](backup-azure-immutable-vault-overview.md).
+For more information, see the [concept of Immutable vault for Azure Backup (preview)](backup-azure-immutable-vault-concept.md).
 
 ## Multi-user authorization using Resource Guard is now generally available
  
