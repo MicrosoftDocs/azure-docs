@@ -37,13 +37,12 @@ The skillset is attached to the indexer. It uses built-in skills from Microsoft 
 
 ## Prerequisites
 
-* [Visual Studio Code](https://code.visualstudio.com/download) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-* Python 3.7 or later
+* [Visual Studio Code](https://code.visualstudio.com/download) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and Python 3.7 or later
 * [Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search/)
 
 > [!NOTE]
-> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
+> You can use the free search service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
 ## Download files
 
@@ -488,9 +487,9 @@ Warnings are common with some source file and skill combinations and don't alway
 
 ## 5 - Search
 
-After indexing is finished, run queries that return the contents of individual fields. By default, Azure Cognitive Search returns the top 50 results. The sample data is small so the default works fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Cognitive Search](search-pagination-page-layout.md).
+After indexing is finished, run queries that return the contents of the index or individual fields. 
 
-As a verification step, get the index definition showing all of the fields.
+First, get the index definition showing all of the fields. Visual Studio Code limits the output to 30 lines by default, but provides an option to open the output in a text editor. Use that option to view the full output. The output is the index schema, with the name, type, and attributes of each field.
 
 ```python
 # Query the service for the index definition
@@ -499,11 +498,7 @@ r = requests.get(endpoint + "/indexes/" + index_name,
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-Visual Studio Code limits the output to 30 lines by default, but provides an option to open the output in a text editor. Use that option to view the full output.
-
-The output is the index schema, with the name, type, and attributes of each field.
-
-Submit a second query for `"*"` to return all contents of a single field, such as `organizations`.
+Next, submit a second query for `"*"` to return all contents of a single field, such as `organizations`. See [Search Documents (REST API)](/rest/api/searchservice/search-documents) for more information about the request. 
 
 ```python
 # Query the index to return the contents of organizations
@@ -512,21 +507,22 @@ r = requests.get(endpoint + "/indexes/" + index_name +
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-Repeat for other fields: `content`, `languageCode`, `keyPhrases`, and `organizations` in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
+If you'd like to continue testing from this notebook, repeat the above commands using other fields: `content`, `languageCode`, `keyPhrases`, and `organizations` in this exercise. 
 
-You can use GET or POST, depending on query string complexity and length. For more information, see [Query using the REST API](/rest/api/searchservice/search-documents).
+> [!TIP]
+> A better search experience might be switching to [Search Explorer](search-explorer.md) in the Azure portal or [creating a demo search app](search-create-app-portal.md) from the index you just created.
 
 <a name="reset"></a>
 
 ## Reset and rerun
 
-In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early stages of development, it's practical to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
 You can use the portal to delete indexes, indexers, data sources, and skillsets. When you delete the indexer, you can optionally, selectively delete the index, skillset, and data source at the same time.
 
 :::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Delete search objects in the portal" border="false":::
 
-You can also delete them using a script. The following script shows how to delete a skillset. 
+You can also delete them using a script. The following script deletes a skillset. 
 
 ```python
 # delete the skillset
