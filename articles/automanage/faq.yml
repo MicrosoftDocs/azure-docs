@@ -12,7 +12,7 @@ title: Frequently asked questions for Azure Automanage for VMs
 summary: |
   This article provides answers to some of the most common questions about [Azure Automanage for virtual machines](automanage-virtual-machines.md).
   
-  If your Azure issue is not addressed in this article, visit the Azure forums on [Microsoft Q & A and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select **Get support**.
+  If your Azure issue isn't addressed in this article, visit the Azure forums on [Microsoft Q & A and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select **Get support**.
   
   
 
@@ -86,7 +86,7 @@ sections:
       - question: |
           How much does Azure Automanage cost?
         answer: |
-          Azure Automanage is available at no additional cost in public preview. Attached Azure resources, such as Azure Backup, will incur cost.
+          Azure Automanage is available at no extra cost. Attached Azure resources, such as Azure Backup, will incur cost.
           
           
       - question: |
@@ -104,14 +104,7 @@ sections:
       - question: |
           What is a Configuration Preference?
         answer: |
-          The Configuration Preference is only used for machines that were onboarded using an earlier version of Automanage (version 2020-06-30-preview). It supports customizing a subset of settings. This has been upgraded to Custom Profiles in the latest version of Automanage.
-          
-          
-          
-      - question: |
-          When enabling Automanage, does it impact any additional machines besides the machine(s) I selected?
-        answer: |
-          If your VM is linked to an existing Log Analytics workspace, we will reuse that workspace to apply these solutions: Change Tracking, Inventory, and Update Management. All machines connected to that workspace will have those solutions enabled.
+          The Configuration Preference is only used for machines that were onboarded using an earlier version of Automanage (version 2020-06-30-preview). It supports customizing a subset of settings. Configuration preferences have been upgraded to Custom Profiles in the latest version of Automanage.
           
           
       - question: |

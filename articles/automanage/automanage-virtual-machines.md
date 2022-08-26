@@ -31,7 +31,7 @@ Azure Automanage also automatically monitors for drift and corrects for it when 
 Automanage doesn't store/process customer data outside the geography your VMs are located. In the Southeast Asia region, Automanage does not store/process data outside of Southeast Asia.
 
 > [!NOTE]
-> Automanage can be enabled on Azure virtual machines as well as Azure Arc-enabled servers. Automanage is not available in US Government Cloud at this time.
+> Automanage can be enabled on Azure virtual machines and Azure Arc-enabled servers. Automanage is not available in US Government Cloud at this time.
 
 ## Prerequisites
 
@@ -158,11 +158,11 @@ In the Azure portal, go to the **Automanage – Azure machine best practices** p
 For each listed machine, the following details are displayed: Name, Configuration profile, Status, Resource type, Resource group, Subscription.
 
 The **Status** column can display the following states:
-- *In progress* - the VM was just enabled and is being configured
+- *In progress* - the VM is being configured
 - *Conformant* - the VM is configured and no drift is detected
 - *Not conformant* - the VM has drifted and Automanage was unable to correct one or more services to the assiged configuration profile 
 - *Needs upgrade* - the VM is onboarded to an earlier version of Automanage and needs to be [upgraded](automanage-upgrade.md) to the latest version
-- *Unknown* - the Automanage service is unable to determine the desired configuration of the machine. This is usually because the VM agent is not installed or is not running, or because the Automanage service does not have the necessary permissions that it needs to determine the desired configuration
+- *Unknown* - the Automanage service is unable to determine the desired configuration of the machine. This is usually because the VM agent is not installed or the machine is not running. It can also indicate that the Automanage service does not have the necessary permissions that it needs to determine the desired configuration
 - *Error* - the Automanage service encountered an error while attempting to determine if the machine conforms with the desired configuration
 
 If you see the **Status** as *Not conformant* or *Error*, you can troubleshoot by clicking on the status in the portal and using the troubleshooting links provided
