@@ -27,30 +27,36 @@ When you add alert rules to a metric chart in the metrics explorer, alerts are t
 
 After creating a [metric chart](metrics.md#view-metrics-with-metrics-explorer), you can create a new alert rule.
 
-1.  Select **New alert rule**.  This opens the **Condition** tab that is populated with a condition configuration with the settings metric chart.  These settings include:
-    * target resource
-    * metric
-    * splitting
-    * filter dimensions.
+1. Select **New alert rule**.  This opens the **Condition** tab that contains a condition populated with the metric chart settings. 
+1. Select the condition.
+    :::image type="content" source="media/observability/metrics-alert-create-condition.png" alt-text="Screenshot of the metric explorer alert rule editor.  A condition is automatically created based on the chart settings.":::
+1. Enter the threshold values.
+1. Modify the alert logic to meet your needs. For example to configure the alert to trigger when the metric value is above the threshold for 5 minutes, select **5 minutes** from the **For** drop-down list.
+    :::image type="content" source="media/observability/screenshot-configure-alert-signal-logic.png" alt-text="Screenshot of the configure alert signal logic in Azure Container Apps.":::
+1. Select **Done**.
+1. You can add more conditions to the alert rule.  For example, you can add a condition that triggers when the metric value is below a threshold.  See 
+1. Select the **Details** tab.
+1. Enter a name and description for the alert rule.
+1. Select **Review + create**.
+1. Select **Create**.
+   :::image type="content" source="media/observability/screenshot-alert-details-dialog.png" alt-text="Screen shot of the alert details configuration page.":::
 
-:::image type="content" source="media/observability/metrics-alert-new-alert-rule.png" alt-text="Screenshot of the metrics explorer highlighting the new rule button.":::
 
-2. Select the condition to add threshold criteria to complete the condition.
-
-:::image type="content" source="media/observability/metrics-alert-create-condition.png" alt-text="Screenshot of the metric explorer alert rule editor.  A condition is automatically created based on the chart settings.":::
+#### Add conditions to an alert rule
 
 You can add more conditions to your alert rule:
-1. Select **Add condition**n in the **Create an alert rule** pane.
-:::image type="content" source="media/observability/metrics-alert-add-condition.png" alt-text="Screenshot of the metric explorer alert rule editor highlighting the Add condition button.":::
+
+1. Select **Add condition** in the **Create an alert rule** pane.
+
 1. Select from the metrics listed in the **Select a signal** pane.
 :::image type="content" source="media/observability/metrics-alert-select-a-signal.png" alt-text="Screenshot of the metric explorer alert rule editor showing the Select a signal pane.":::
 1. Configure the settings for your alert condition.  For more information about configuring alerts, see [Manage metric alerts](../azure-monitor/alerts/alerts-metric.md).
 
-You can receive individual alerts for specific revisions or replicas by enabling alert splitting and selecting **Revision** or **Replica** from the **Dimension name** list.
+    You can receive individual alerts for specific revisions or replicas by enabling alert splitting and selecting **Revision** or **Replica** from the **Dimension name** list.
 
-Example of selecting a dimension to split an alert.
+    Example of selecting a dimension to split an alert.
 
-:::image type="content" source="media/observability/metrics-alert-split-by-dimension.png" alt-text="Screenshot of the metrics explorer alert rule editor.  This example shows the Split by dimensions options in the Configure signal logic pane.":::
+    :::image type="content" source="media/observability/metrics-alert-split-by-dimension.png" alt-text="Screenshot of the metrics explorer alert rule editor.  This example shows the Split by dimensions options in the Configure signal logic pane.":::
 
  To learn more about configuring alerts, visit [Create a metric alert for an Azure resource](../azure-monitor/alerts/tutorial-metric-alert.md)
 

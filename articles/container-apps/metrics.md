@@ -47,18 +47,27 @@ The Azure Monitor metrics explorer lets you create charts from metric data to he
 1. Create a chart by selecting **Metric**.  You can modify the chart by changing aggregation, adding more metrics, changing time ranges and intervals, adding filters, and applying splitting.
 :::image type="content" source="media/observability/metrics-main-page.png" alt-text="Screenshot of the metrics explorer from the container app resource page.":::
 
+### Add filters
+
 Optionally, you can create filters based on revisions and replicas.  To create a filter:
-1. Select **Add filter**
+1. Select **Add filter**.
 1. Select a revision or replica from the **Property** list.
 1. Select values from the **Value** list.
-:::image type="content" source="media/observability/metrics-add-filter.png" alt-text="Screenshot of the metrics explorer showing the chart filter options.":::
-1. You can choose to split the metric information in your chart by revision or replica (except for Replica count, which you can only split by revision). The requests metric can also be split by status code and status code category. To split by revision:
-    1. Select **Apply splitting** 
-    1. Select **Revision** from the **Values** drop-down list. 
+    :::image type="content" source="media/observability/metrics-add-filter.png" alt-text="Screenshot of the metrics explorer showing the chart filter options.":::
 
-Splitting is only available when the chart contains a single metric.
+### Split metrics
+
+When your chart contains a single metric, you can choose to split the metric information by revision or replica with the exceptions:
+* The Replica count metric can only split by revision.
+* The requests metric can also be split by status code and status code category. 
+
+To split by revision:
+1. Select **Apply splitting** 
+1. Select **Revision** from the **Values** drop-down list. 
 
 :::image type="content" source="media/observability/metrics-apply-splitting.png" alt-text="Screenshot of the metrics explorer that shows a chart with metrics split by revision.":::
+
+### Add scopes
 
 You can add more scopes to view metrics across multiple container apps.
 
