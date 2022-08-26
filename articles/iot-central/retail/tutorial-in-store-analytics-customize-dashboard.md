@@ -125,9 +125,7 @@ To add tiles to display environmental data from the RuuviTag sensors:
 
 1. Select `Relative humidity` and `temperature` in the **Telemetry** list. These are the telemetry items that display for each zone on the tile.
 
-1. Select **Combine**. 
-
-    A new tile appears to display combined humidity and temperature telemetry for the selected sensor. 
+1. Select **Combine**. A new tile appears to display combined humidity and temperature telemetry for the selected sensor.
 
 1. Select **Configure** on the new tile for the RuuviTag sensor. 
 
