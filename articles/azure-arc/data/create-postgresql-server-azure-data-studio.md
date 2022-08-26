@@ -77,7 +77,7 @@ While indicating 1 worker works, we do not recommend you use it. This deployment
 
 
 ## Next steps
-- [Manage your server group using Azure Data Studio](manage-postgresql-hyperscale-server-group-with-azure-data-studio.md)
+- [Manage your server group using Azure Data Studio](manage-postgresql-server-with-azure-data-studio.md)
 - [Monitor your server group](monitor-grafana-kibana.md)
 - Read the concepts and How-to guides of Azure Database for PostgreSQL server to distribute your data across multiple PostgreSQL server nodes and to benefit from all the power of Azure Database for PostgreSQL server. :
     * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)

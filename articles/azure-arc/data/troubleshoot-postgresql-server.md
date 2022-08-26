@@ -72,7 +72,7 @@ kubectl config use-context default/my_kubeuser/ArcDataControllerAdmin
 
 Launch Azure Data Studio and open the troubleshooting notebook. 
 
-Implement the steps described in  [033-manage-Postgres-with-AzureDataStudio.md](manage-postgresql-hyperscale-server-group-with-azure-data-studio.md) to:
+Implement the steps described in  [033-manage-Postgres-with-AzureDataStudio.md](manage-postgresql-server-with-azure-data-studio.md) to:
 
 1. Connect to your Arc Data Controller
 2. Right select your Postgres instance and choose **[Manage]**

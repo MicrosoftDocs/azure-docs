@@ -197,7 +197,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
 ## Next steps
 
-- Connect to your Azure Arc-enabled PostgreSQL server: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
+- Connect to your Azure Arc-enabled PostgreSQL server: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgresql-server.md)
 - Read the concepts and How-to guides of Azure Database for PostgreSQL server to distribute your data across multiple PostgreSQL server nodes and to benefit from better performances potentially:
     * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
     * [Determine application type](../../postgresql/hyperscale/howto-app-type.md)

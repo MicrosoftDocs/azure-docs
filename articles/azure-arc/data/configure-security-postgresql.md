@@ -47,7 +47,7 @@ Connect to your server group with the client tool of your choice and run the sta
 CREATE EXTENSION pgcrypto;
 ```
 
-> Find details [here](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md) about how to connect.
+> Find details [here](get-connection-endpoints-and-connection-strings-postgresql-server.md) about how to connect.
 
 #### Verify the list the extensions ready to use in your server group
 
@@ -239,8 +239,8 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
 
 ## Audit
 
-For audit scenarios please configure your server group to use the `pgaudit` extensions of Postgres. For more details about `pgaudit` see [`pgAudit` GitHub project](https://github.com/pgaudit/pgaudit/blob/master/README.md). To enable the `pgaudit` extension in your server group read [Use PostgreSQL extensions](using-extensions-in-postgresql-hyperscale-server-group.md).
+For audit scenarios please configure your server group to use the `pgaudit` extensions of Postgres. For more details about `pgaudit` see [`pgAudit` GitHub project](https://github.com/pgaudit/pgaudit/blob/master/README.md). To enable the `pgaudit` extension in your server group read [Use PostgreSQL extensions](using-extensions-in-postgresql-server.md).
 
 ## Next steps
 - See [`pgcrypto` extension](https://www.postgresql.org/docs/current/pgcrypto.html)
-- See [Use PostgreSQL extensions](using-extensions-in-postgresql-hyperscale-server-group.md)
+- See [Use PostgreSQL extensions](using-extensions-in-postgresql-server.md)
