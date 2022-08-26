@@ -317,7 +317,7 @@ In the next steps we will create a new folder for the JavaScript SPA, and set up
 
 Before proceeding further with authentication, register your application on **Azure Active Directory**.
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> using your Microsoft credentials.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft credentials.
 1. Go to and select **Azure Active Directory**. If it is not visible, you can find it by using the **Search** bar at the top of the screen.
 1. Go to the left panel, and under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. This can be changed later if you wish.
@@ -331,19 +331,21 @@ Before proceeding further with authentication, register your application on **Az
 1. In the **Implicit grant and hybrid flows** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app must sign in users and call an API.
 1. Select **Save**.
 
-> ### Set a redirect URL for Node.js
+> [!TIP]
+> A *redirect URI* (or *reply URL*) is the location where the authorization server sends the user once the app has been successfully authorized and granted an authorization code or access token. In this example we are using `http://localhost:3000/` as the *redirect URI*. The default `3000` value is the port we are using, which is set in the `server.js` file.
 >
-> For Node.js, you can set the web server port in the *server.js* file. This tutorial uses port 3000, but you can use any other available port.
+> You can set up a different redirect URI at any time. Say you wanted to use your own custom port instead of `3000`. From the home page in the [Azure portal](https://portal.azure.com/);
 >
-> To set up a redirect URL in the application registration information, switch back to the **Application Registration** pane, and do either of the following:
->
-> - Set *`http://localhost:3000/`* as the **Redirect URL**.
-> - If you're using a custom TCP port, use *`http://localhost:<port>/`* (where *\<port>* is the custom TCP port number).
->   1. Copy the **URL** value.
->   1. Switch back to the **Application Registration** pane, and paste the copied value as the **Redirect URL**.
->
+> 1. Select **Azure Active Directory**. 
+> 2. Select the **Application Registration** pane on the left.
+> 3. Select the app that you have created.
+> 4. The **Overview** page should now be showing. Select the **Add a Redirect URI** text.
+> 5. Under **Platform Configurations**, select **+ Add a platform**.
+> 6. A new window will open on the right of your screen, and you can enter a redirect URI in the first box, e.g.
+>     - `http://localhost:<port>/`* (where *\<port>* is the custom TCP port number).
+> 7. Then select **Configure**. 
 
-### Configure your JavaScript SPA
+## Configure your JavaScript SPA
 
 Create a new .js file named `authConfig.js`, which will contain your configuration parameters for authentication, and add the following code:
 
