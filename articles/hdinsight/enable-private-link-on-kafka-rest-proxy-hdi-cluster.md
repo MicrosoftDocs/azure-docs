@@ -10,11 +10,11 @@ ms.date: 08/30/2022
 
 Follow these extra steps to enable private link for Kafka Rest Proxy HDI clusters.
 
-> Warning
-> Floow these extra steps only if you are going to Enable Private Link on an HDInsight Kafka Rest Proxy cluster.
-> 
+## Prerequisites 
 
-## Step 1
+As a Prerequisites, complete the steps mentioned in [Enable Private Link on an HDInsight cluster document](./hdinsight-private-link.md), then perform the below steps. 
+
+## Create private endpoints
 
 1. Click 'Create private endpoint' and use the following configurations to set up another Ambari private endpoint:
     
@@ -26,7 +26,7 @@ Follow these extra steps to enable private link for Kafka Rest Proxy HDI cluster
     | Virtual network | hdi-privlink-client-vnet |
     | Subnet | default |
 
-## Step 2
+## Configure DNS to connect over private endpoints
      
 1. Add another record set to the Private DNS for Ambari.
     
