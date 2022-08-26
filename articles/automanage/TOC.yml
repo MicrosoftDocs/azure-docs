@@ -17,6 +17,11 @@
       href: quick-java-sdk.md
     - name: Create assignment with JavaScript
       href: quick-javascript-sdk.md
+- name: Tutorials
+  expanded: true
+  items: 
+  - name: Create assignment with Python
+    href: tutorial-create-assignment-python.md
 - name: Concepts
   expanded: true
   items:
