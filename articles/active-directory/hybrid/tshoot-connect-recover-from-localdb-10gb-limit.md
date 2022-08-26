@@ -4,7 +4,7 @@ description: This topic describes how to recover Azure AD Connect Synchronizatio
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
