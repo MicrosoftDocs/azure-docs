@@ -11,7 +11,7 @@ ms.author: andrsmith
 
 # Tutorial: Create a virtual machine and assign an Automanage profile to it
 
-In this tutorial, you'll create a resource group and a virtual machine. You'll then assign an Automanage Best Practices configuration profile to the new machine using the Python SDK
+In this tutorial, you'll create a resource group and a virtual machine. You'll then assign an Automanage Best Practices configuration profile to the new machine using the Python SDK.
 
 ## Prerequisites 
 
@@ -22,7 +22,7 @@ In this tutorial, you'll create a resource group and a virtual machine. You'll t
 
 ### Sign in to Azure 
 
-sign in to Azure by using following command:
+Sign in to Azure by using following command:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
