@@ -10846,7 +10846,11 @@
       "redirect_url": "/azure/azure-percept/index",
       "redirect_document_id": false
     }
-
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/keep-me-signed-in.md",
+      "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
+      "redirect_document_id": false
+    },
 
   ]
 }
