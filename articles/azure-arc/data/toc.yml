@@ -222,11 +222,11 @@ items:
       items:
         - name: Supported versions
           href: supported-versions-postgresql.md
-        - name: Create Postgres server group (CLI)
+        - name: Create PostgreSQL server (CLI)
           href: create-postgresql-server.md
-        - name: Create Postgres server group (Azure Data Studio)
+        - name: Create PostgreSQL server (Azure Data Studio)
           href: create-postgresql-server-azure-data-studio.md
-        - name: Create Postgres server group - Kubernetes native tools
+        - name: Create PostgreSQL server - Kubernetes native tools
           href: create-postgresql-server-kubernetes-native-tools.md
         - name: Connect
           href: get-connection-endpoints-and-connection-strings-postgresql-server.md
@@ -248,13 +248,13 @@ items:
                   href: configure-server-parameters-postgresql.md
             - name: Delete
               href: delete-postgresql-server.md
-            - name: List server groups
+            - name: List servers
               href: list-servers-postgresql.md
             - name: Monitoring, log analytics, billing information (portal)
               href: monitoring-log-analytics-azure-portal-postgresql.md
             - name: Secure
               href: configure-security-postgresql.md
-            - name: Manage server group (Azure Data Studio)
+            - name: Manage servers (Azure Data Studio)
               href: manage-postgresql-server-with-azure-data-studio.md
             - name: Use Postgres extensions
               href: using-extensions-in-postgresql-server.md
