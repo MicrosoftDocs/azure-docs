@@ -51,5 +51,5 @@ Come back and read this article. It will be updated as appropriate.
 
 
 ## Next steps:
-- [Read about creating Azure Arc-enabled PostgreSQL server](create-postgresql-hyperscale-server-group.md)
-- [Read about getting a list of the Azure Arc-enabled PostgreSQL servers created in your Arc Data Controller](list-server-groups-postgres-hyperscale.md)
+- [Read about creating Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)
+- [Read about getting a list of the Azure Arc-enabled PostgreSQL servers created in your Arc Data Controller](list-servers-postgresql.md)

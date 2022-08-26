@@ -62,5 +62,5 @@ In addition, note the value for `primaryEndpoint`.
 ```
 
 ## Next steps
-- Read about [how to connect to your server group](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md).
+- Read about [how to connect to your server group](get-connection-endpoints-and-connection-strings-postgresql-server.md).
 - Read about how you can configure other aspects of your server group in the section How-to\Manage\Configure & scale section of the documentation.
