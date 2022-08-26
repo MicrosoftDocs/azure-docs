@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2020
+ms.date: 08/26/2022
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, ludwignick
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
@@ -30,7 +30,7 @@ This article defines authentication and authorization. It also briefly covers Mu
 
 ## Multi-Factor Authentication
 
-*Multi-Factor Authentication* is the act of providing an additional factor of authentication to an account. This is often used to protect against brute force attacks. It is sometimes shortened to *MFA* or *2FA*. The Microsoft identity platform uses the [Microsoft Authenticator](https://www.microsoft.com/en-us/p/microsoft-authenticator/9nblgggzmcj6#activetab=pivot:overviewtab) app for handling two-factor authentication. For more information, see [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+*Multi-Factor Authentication* is the act of providing an additional factor of authentication to an account. This is often used to protect against brute force attacks. It is sometimes shortened to *MFA* or *2FA*. The Microsoft identity platform uses the [Microsoft Authenticator](https://support.microsoft.com/en-us/account-billing/set-up-the-microsoft-authenticator-app-as-your-verification-method-33452159-6af9-438f-8f82-63ce94cf3d29#:~:text=1%20Sign%20in%20to%20your%20work%20or%20school,authenticator%20app%20other%20than%20the%20Microsoft...%20More%20) app for handling two-factor authentication. For more information, see [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 
 ## Authentication and authorization using the Microsoft identity platform
 
