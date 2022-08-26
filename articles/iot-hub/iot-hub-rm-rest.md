@@ -37,7 +37,7 @@ You can use the [IoT Hub resource provider REST API](/rest/api/iothub/iothubreso
 
 4. In NuGet Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
     > [!IMPORTANT]
-    > The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](../active-directory/develop/msal-migration.md) for more details.
+    > The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade. For more information see the [migration guide](../active-directory/develop/msal-migration.md).
 
 5. In Program.cs, replace the existing **using** statements with the following code:
 
@@ -168,7 +168,7 @@ You can now complete the application by calling the **CreateIoTHub** method befo
 
 ## Next steps
 
-Now you have deployed an IoT hub using the resource provider REST API, you may want to explore further:
+Since you've deployed an IoT hub using the resource provider REST API, you may want to explore further:
 
 * Read about the capabilities of the [IoT Hub resource provider REST API](/rest/api/iothub/iothubresource).
 
