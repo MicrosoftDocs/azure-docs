@@ -24,7 +24,7 @@ Azure Automanage allows users to seamlessly apply Azure best practices to their 
 > [!IMPORTANT]
 > You need to have the **Contributor** role on the resource group containing your VMs to enable Automanage. If you are enabling Automanage for the first time on a subscription, you need the following permissions: **Owner** role or **Contributor** along with **User Access Administrator** roles on your subscription.
 
-## Install Required Packages 
+## Install required packages 
 
 For this demo, both the **Azure Identity** and **Azure Automanage** packages are required.
 
@@ -35,7 +35,7 @@ pip install azure-identity
 pip install azure-mgmt-automanage
 ```
 
-## Import Packages 
+## Import packages 
 
 Import the **Azure Identity** and **Azure Automanage** packages into the script: 
 
@@ -44,7 +44,7 @@ from azure.identity import DefaultAzureCredential
 from azure.mgmt.automanage import AutomanageClient
 ```
 
-## Authenticate to Azure & Create an Automanage Client
+## Authenticate to Azure and create an Automanage client
 
 Use the **Azure Identity** package to authenticate to Azure and then create an Automanage Client:
 
@@ -53,7 +53,7 @@ credential = DefaultAzureCredential()
 client = AutomanageClient(credential, "<subscription ID>")
 ```
 
-## Enable Best Practices Configuration Profile to an Existing Virtual Machine
+## Enable best practices configuration profile to an existing virtual machine
 
 ```python 
 assignment = {
@@ -65,7 +65,7 @@ assignment = {
 client.configuration_profile_assignments.create_or_update("default", "resourceGroupName", "vmName", assignment)
 ```
 
-## Next Steps
+## Next steps
 
 Learn how to conduct more operations with the Automanage Client by visiting the [azure-samples-python-management repo](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/automanage).
 

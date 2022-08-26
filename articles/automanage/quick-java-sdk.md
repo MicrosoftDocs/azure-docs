@@ -25,7 +25,7 @@ Azure Automanage allows users to seamlessly apply Azure best practices to their 
 > [!IMPORTANT]
 > You need to have the **Contributor** role on the resource group containing your VMs to enable Automanage. If you are enabling Automanage for the first time on a subscription, you need the following permissions: **Owner** role or **Contributor** along with **User Access Administrator** roles on your subscription.
 
-## Add Required Dependencies 
+## Add required dependencies 
 
 Add the **Azure Identity** and **Azure Automanage** dependencies to the `pom.xml`. 
 
@@ -46,7 +46,7 @@ Add the **Azure Identity** and **Azure Automanage** dependencies to the `pom.xml
 </dependency>
 ```
 
-## Authenticate to Azure & Create an Automanage Client
+## Authenticate to Azure and create an Automanage client
 
 Use the **Azure Identity** package to authenticate to Azure and then create an Automanage Client:
 
@@ -60,7 +60,7 @@ AutomanageManager client = AutomanageManager
     .authenticate(credential, profile);
 ```
 
-## Enable Best Practices Configuration Profile to an Existing Virtual Machine
+## Enable best practices configuration profile to an existing virtual machine
 
 ```java 
 String configProfile = "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction";
@@ -75,7 +75,7 @@ client
     .create();
 ```
 
-## Next Steps
+## Next steps
 
 Learn how to conduct more operations with the Java Automanage Client by visiting the [azure-sdk-for-java repo](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/automanage/azure-resourcemanager-automanage).
 

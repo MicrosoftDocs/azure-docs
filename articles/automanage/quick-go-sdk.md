@@ -24,7 +24,7 @@ Azure Automanage allows users to seamlessly apply Azure best practices to their 
 > [!IMPORTANT]
 > You need to have the **Contributor** role on the resource group containing your VMs to enable Automanage. If you are enabling Automanage for the first time on a subscription, you need the following permissions: **Owner** role or **Contributor** along with **User Access Administrator** roles on your subscription.
 
-## Install Required Packages 
+## Install required packages 
 
 For this demo, both the **Azure Identity** and **Azure Automanage** packages are required.
 
@@ -33,7 +33,7 @@ go get "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automanage/armauto
 go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 ```
 
-## Import Packages 
+## Import packages 
 
 Import the **Azure Identity** and **Azure Automanage** packages into the script: 
 
@@ -44,7 +44,7 @@ import (
 )
 ```
 
-## Authenticate to Azure & Create an Automanage Client
+## Authenticate to Azure and create an Automanage client
 
 Use the **Azure Identity** package to authenticate to Azure and then create an Automanage Client:
 
@@ -53,7 +53,7 @@ credential, err := azidentity.NewDefaultAzureCredential(nil)
 configProfilesClient, err := armautomanage.NewConfigurationProfilesClient("<subscription ID>", credential, nil)
 ```
 
-## Enable Best Practices Configuration Profile to an Existing Virtual Machine
+## Enable best practices configuration profile to an existing virtual machine
 
 ```go 
 configProfileId := "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction"
@@ -70,7 +70,7 @@ assignment := armautomanage.ConfigurationProfileAssignment{
 newAssignment, err = assignmentClient.CreateOrUpdate(context.Background(), "default", "resourceGroupName", "vmName", assignment, nil)
 ```
 
-## Next Steps
+## Next steps
 
 Learn how to conduct more operations with the GO Automanage Client by visiting the [azure-sdk-for-go repo](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/automanage/armautomanage/).
 

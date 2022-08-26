@@ -24,7 +24,7 @@ Azure Automanage allows users to seamlessly apply Azure best practices to their 
 > [!IMPORTANT]
 > You need to have the **Contributor** role on the resource group containing your VMs to enable Automanage. If you are enabling Automanage for the first time on a subscription, you need the following permissions: **Owner** role or **Contributor** along with **User Access Administrator** roles on your subscription.
 
-## Install Required Packages 
+## Install required packages 
 
 For this demo, both the **Azure Identity** and **Azure Automanage** packages are required.
 
@@ -33,7 +33,7 @@ npm install @azure/arm-automanage
 npm install @azure/identity
 ```
 
-## Import Packages 
+## Import packages 
 
 Import the **Azure Identity** and **Azure Automanage** packages into the script: 
 
@@ -42,7 +42,7 @@ const { AutomanageClient } = require("@azure/arm-automanage");
 const { DefaultAzureCredential } = require("@azure/identity");
 ```
 
-## Authenticate to Azure & Create an Automanage Client
+## Authenticate to Azure and create an Automanage client
 
 Use the **Azure Identity** package to authenticate to Azure and then create an Automanage Client:
 
@@ -51,7 +51,7 @@ const credential = new DefaultAzureCredential();
 const client = new AutomanageClient(credential, "<subscription ID>");
 ```
 
-## Enable Best Practices Configuration Profile to an Existing Virtual Machine
+## Enable best practices configuration profile to an existing virtual machine
 
 ```javascript 
 let assignment = {
@@ -64,7 +64,7 @@ let assignment = {
 await client.configurationProfileAssignments.createOrUpdate("default", "resourceGroupName", "vmName", assignment);
 ```
 
-## Next Steps
+## Next steps
 
-<!-- Learn how to conduct more operations with the JavaScript Automanage Client by visiting the [azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/automanage/arm-automanage). -->
+Learn how to conduct more operations with the JavaScript Automanage Client by visiting the [azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/automanage/arm-automanage).
 
