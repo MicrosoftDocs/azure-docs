@@ -15,21 +15,21 @@ sections:
         answer: |
           Yes.
       
-      - question: How do I verify my data is encrypted?? 
+      - question: How do I verify my data is encrypted?
         answer: |
-          Encryption verification is limited to the status of the network interface resource, vnetEncryptionSupported, and Accelerated networking during public preview. After public preview, virtual network flow logs can be used to see the encrypted and unencrypted flows betweeen virtual machines.
+          Encryption verification is limited to the status of the network interface resource, vnetEncryptionSupported, and Accelerated networking during public preview. After public preview, virtual network flow logs can be used to see the encrypted and unencrypted flows between virtual machines.
       
       - question: Is there data not encrypted?
         answer: |
-          Fragmented packets aren't offloaded to hardware and don't get encrypted. Use a MTU of 1500 in the network configuration of your virtual machines.
+          Fragmented packets aren't offloaded to hardware and don't get encrypted. Use an MTU of 1500 in the network configuration of your virtual machines.
 
       - question: What certificate is used for the DTLS establishment on the Azure Host? 
         answer: |
-          Microsoft will manage and has created certificates for each region. Customer provided certificates is a feature on the road map.
+          Microsoft will manage and has created certificates for each region. Customer provided certificates are a feature on the road map.
       
-      - question: What is the performance impact?
+      - question: What is the performance effect?
         answer: |
-          There is a minimal performance impact to throughput/bandwidth. The crypto operations are offloaded to a crypto-specialized FPGA. There is a minimal impact to an initial connection between 2 VM’s, because a tunnel needs to be established.
+          There's a minimal performance effect to throughput/bandwidth. The crypto operations are offloaded to a crypto-specialized FPGA. There's a minimal effect to an initial connection between two virtual machines, because a tunnel needs to be established.
       
       - question: Is VPN gateway, Application gateway, Azure Firewall, or PaaS supported? 
         answer: |
