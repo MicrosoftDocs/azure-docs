@@ -72,7 +72,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create
-            url: create-postgresql-server
+            url: create-postgresql-server.md
           - text: Connect
             url: get-connection-endpoints-and-connection-strings-postgresql-server.md
           - text: Migrate
