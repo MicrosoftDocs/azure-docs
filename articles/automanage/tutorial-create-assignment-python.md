@@ -18,7 +18,7 @@ In this tutorial, you'll create a resource group and a virtual machine. You'll t
 - [Python](https://www.python.org/downloads/)
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
-## Create Resources
+## Create resources
 
 ### Sign in to Azure 
 
@@ -34,7 +34,7 @@ Connect-AzAccount
 ```
 ---
 
-### Create Resource Group
+### Create resource group
 
 Create a resource group:
 
@@ -48,7 +48,7 @@ new-azResourceGroup -Name "test-rg" -Location "eastus"
 ```
 
 ---
-### Create Virtual Machine
+### Create virtual machine
 
 Create a Windows virtual machine:
 
@@ -75,11 +75,11 @@ New-AzVm `
 ```
 
 ---
-## Assign Best Practices Profile to Virtual Machine
+## Assign best practices profile to virtual machine
 
 Now that we've successfully created a resource group and a virtual machine, it's time to set up a Python project and assign an Automanage Best Practices configuration profile to the newly created virtual machine.
 
-### Install Python Packages
+### Install Python packages
 
 Install the Azure Identity and Azure Automanage packages using `pip`:
 
@@ -88,7 +88,7 @@ pip install azure-mgmt-automanage
 pip install azure-identity
 ```
 
-### Import Packages
+### Import packages
 
 Create an `app.py` file and import the installed packages within it:
 
@@ -105,7 +105,7 @@ rg = "test-rg"
 vm = "testvm"
 ```
 
-### Authenticate to Azure & Create an Automanage Client
+### Authenticate to Azure and create an Automanage client
 
 Use the **DefaultAzureCredential** within the `azure-identity` package to **authenticate** to Azure. Then, use the credential to create an **Automanage Client**.
 
@@ -114,7 +114,7 @@ credential = DefaultAzureCredential()
 client = AutomanageClient(credential, sub)
 ```
 
-### Create a Best Practices Profile Assignment 
+### Create a best practices profile assignment 
 
 Now we'll create an assignment between our new virtual machine and a Best Practices profile: 
 
@@ -135,7 +135,7 @@ Run the python file:
 `python app.py`
 
 ---
-## View Assignment in the Portal
+## View Assignment in the portal
 
 Navigate to the virtual machine and select the **Automanage** blade: 
 ![automanage blade](media/automanage-virtual-machines/automanage-blade.png)
@@ -143,3 +143,6 @@ Navigate to the virtual machine and select the **Automanage** blade:
 View the Automanage Profile now enabled on the virtual machine:
 ![automanage vm](media/automanage-virtual-machines/automanage-vm.png)
 
+## Next steps
+
+For more information on the Automanage Python SDK, please visit the [azure-samples-python-management repo](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/automanage).
