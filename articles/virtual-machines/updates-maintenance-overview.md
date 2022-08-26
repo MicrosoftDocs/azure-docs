@@ -72,7 +72,7 @@ You can use [Update Management in Azure Automation](../automation/update-managem
 
 ## Update management center (preview)
 
-[Update management center (preview)](../update-center/overview.md) is a new-age unified service in Azure to manage and govern updates (Windows and Linux), both on-premises and other cloud platforms, across hybrid environments from a single dashboard. The new functionality provides native and out-of-the-box experience, granular access controls, flexibility to create schedules or take action now, checks updates automatically and much more. The enhanced functionality ensures that the administrators have visibility into the health of all systems in the environment. For more information, see [key benefits](../update-center/overview.md#key-benefits).
+[Update management center (preview)](../update-center/overview.md) is a new-age unified service in Azure to manage and govern updates (Windows and Linux), both on-premises and other cloud platforms, across hybrid environments from a single dashboard. The new functionality provides native and out-of-the-box experience, granular access controls, flexibility to create schedules or take action now, ability to check updates automatically and much more. The enhanced functionality ensures that the administrators have visibility into the health of all systems in the environment. For more information, see [key benefits](../update-center/overview.md#key-benefits).
 
 ## Maintenance control
 
