@@ -11,7 +11,7 @@ ms.author: andrsmith
 
 # Tutorial: Create a virtual machine and assign an Automanage profile to it
 
-In this tutorial, you will create a resource group and a virtual machine. You will then assign an Automanage Best Practices configuration profile to the new machine using the Python SDK
+In this tutorial, you'll create a resource group and a virtual machine. You'll then assign an Automanage Best Practices configuration profile to the new machine using the Python SDK
 
 ## Prerequisites 
 
@@ -77,7 +77,7 @@ New-AzVm `
 ---
 ## Assign Best Practices Profile to Virtual Machine
 
-Now that we have successfully created a resource group and a virtual machine, it's time to set up a Python project and assign an Automanage Best Practices configuration profile to the newly created virtual machine.
+Now that we've successfully created a resource group and a virtual machine, it's time to set up a Python project and assign an Automanage Best Practices configuration profile to the newly created virtual machine.
 
 ### Install Python Packages
 
@@ -116,7 +116,7 @@ client = AutomanageClient(credential, sub)
 
 ### Create a Best Practices Profile Assignment 
 
-Now we will create an assignment between our new virtual machine and a Best Practices profile: 
+Now we'll create an assignment between our new virtual machine and a Best Practices profile: 
 
 ```python
 assignment = {
