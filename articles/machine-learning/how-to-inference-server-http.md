@@ -169,6 +169,9 @@ TypeError: register() takes 3 positional arguments but 4 were given
 
 You have **Flask 2** installed in your python environment but are running a server (< 0.7.0) that does not support Flask 2. To resolve, please upgrade to the latest version of server.
 
+> [!TIP]
+> If you have `azureml-inference-server-http==0.7.x` installed but are running a server before `0.7.0`, you are probably on an older version of the training image. Please use a training image after (not including) 20220601. If you can't switch to the new training image, you can also resolve the issue by specifying `azureml-defaults==1.43` or `azureml-inference-server-http~=0.4.13` in your dependencies. You can check the image version by running `docker run <FULL_IMAGE_NAME> cat /IMAGE_INFORMATION`.
+
 ### 2. I encountered an ``ImportError`` or ``ModuleNotFoundError`` on modules ``opencensus``, ``jinja2``, ``MarkupSafe``, or ``click`` during startup like the following:
 
 ```bash
