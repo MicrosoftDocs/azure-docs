@@ -46,7 +46,7 @@ With MLflow Tracking, you can connect Azure Machine Learning as the back end of 
 
 * [Track machine learning experiments and models running locally or in the cloud](how-to-use-mlflow-cli-runs.md) with MLflow in Azure Machine Learning.
 * [Track Azure Databricks machine learning experiments](how-to-use-mlflow-azure-databricks.md) with MLflow in Azure Machine Learning.
-* [Track Azure Synapse Analytics machine learning experiments](how-to-use-mlflow-azure-databricks.md) with MLflow in Azure Machine Learning.
+* [Track Azure Synapse Analytics machine learning experiments](how-to-use-mlflow-azure-synapse.md) with MLflow in Azure Machine Learning.
 
 > [!IMPORTANT]
 > - MLflow in R support is limited to tracking an experiment's metrics, parameters, and models on Azure Machine Learning jobs. RStudio or Jupyter Notebooks with R kernels are not supported. Model registries are not supported if you're using the MLflow R SDK. As an alternative, use the Azure Machine Learning CLI or Azure Machine Learning studio for model registration and management. View an [R example about using the MLflow tracking client with Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r).
