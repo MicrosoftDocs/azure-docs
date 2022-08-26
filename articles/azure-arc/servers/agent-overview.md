@@ -2,7 +2,7 @@
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
 ms.date: 07/05/2022
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -20,7 +20,7 @@ The Azure Connected Machine agent package contains several logical components, w
 
 * The guest configuration agent provides functionality such as assessing whether the machine complies with required policies and enforcing compliance.
 
-    Note the following behavior with Azure Policy [guest configuration](../../governance/policy/concepts/guest-configuration.md) for a disconnected machine:
+    Note the following behavior with Azure Policy [guest configuration](../../governance/machine-configuration/overview.md) for a disconnected machine:
 
   * An Azure Policy assignment that targets disconnected machines is unaffected.
   * Guest assignment is stored locally for 14 days. Within the 14-day period, if the Connected Machine agent reconnects to the service, policy assignments are reapplied.

@@ -23,7 +23,7 @@ ms.author: gwallace
 
 ## Advantages of using DevOps Starter
 
-  DevOps starter the following supports two CI/CD providers, to automate your deployments
+  DevOps starter supports the following two CI/CD providers, to automate your deployments
   * [GitHub Actions](https://github.com/features/actions)
   * [Azure DevOps](https://azure.microsoft.com/services/devops)
 

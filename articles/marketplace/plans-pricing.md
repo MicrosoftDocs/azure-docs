@@ -1,12 +1,12 @@
 ---
-title: Plans and pricing for commercial marketplace offers 
+title: Plans and pricing for commercial marketplace offers | Azure Marketplace
 description: Learn about plans for Microsoft commercial marketplace offers in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/01/2022
+ms.date: 08/26/2022
 ---
 
 # Plans and pricing for commercial marketplace offers
@@ -81,18 +81,25 @@ The commercial marketplace operates on an agency model, whereby publishers set p
 
 ### Pricing models
 
-You must associate a pricing model with each plan for the following offer types. Each of these offer types have different available pricing models:
+You must associate a pricing model with each plan for the following offer types. Each of these offer types has different available pricing models:
 
 - **Azure managed application**: flat rate (monthly) and usage-based pricing (metering service dimensions).
-- **Software as a service**: flat rate (monthly or annual), per user, and usage-based pricing (metering service dimensions). 
+- **Software as a service**: flat rate (1-month to 3-year terms), per user (1-month to 3-year terms), and usage-based pricing (metering service dimensions).
+
+    > [!NOTE]
+    > For flat rate and per user pricing models, customers can pay either monthly, annually, or one-time upfront for the entire 1-year, 2-year, or 3-year term.
+
 - **Azure virtual machine**: Bring your own license (BYOL) and usage-based pricing. For a usage-based pricing model, you can charge per core, per core size, or per market and core size. A BYOL license model does not allow for additional, usage-based charges.   (BYOL virtual machine offers do not require a pricing model.)
 
 An offer can have only one pricing model. For example, a SaaS offer cannot have one plan that's flat rate and another plan that’s per user. However, a SaaS offer can have some plans with flat rate with metered billing and other flat rate plans without metered billing. See specific offer documentation for detailed information.
 
-If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. After saving your changes, you will see an **Export prices (xlsx)** link that you can use to review and change the price for each market before publishing.
-
 > [!IMPORTANT]
 > After your offer is published, the pricing model choice cannot be changed.
+
+If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. After saving your changes, you will see an **Export prices (xlsx)** link that you can use to review and change the price for each market before publishing.
+
+> [!TIP]
+> The price shown to customers in the online stores doesn't change unless you update the price in Partner Center and then republish your offer. The rate will be updated when the scheduled price change is live according to [Changing prices in active commercial marketplace offers](price-changes.md).
 
 #### Metered billing
 

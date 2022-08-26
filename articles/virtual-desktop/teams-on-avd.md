@@ -9,9 +9,6 @@ manager: femila
 ---
 # Use Microsoft Teams on Azure Virtual Desktop
 
->[!IMPORTANT]
->Media optimization for Teams is supported for Microsoft 365 Government (GCC) and GCC-High environments. Media optimization for Teams isn't supported for Microsoft 365 DoD.
-
 >[!NOTE]
 >Media optimization for Microsoft Teams is only available for the following two clients:
 >
@@ -48,7 +45,7 @@ To enable media optimization for Teams, set the following registry key on the ho
 
 ### Install the Teams WebSocket Service
 
-Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4YM8L) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
+Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://aka.ms/msrdcwebrtcsvc/msi) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
 
 #### Latest WebSocket Service versions
 
@@ -97,9 +94,6 @@ Increased the connection reliability between the WebRTC redirector service and t
 You can deploy the Teams desktop app using a per-machine or per-user installation. To install Microsoft Teams in your Azure Virtual Desktop environment:
 
 1. Download the [Teams MSI package](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
-
-      > [!IMPORTANT]
-      > Teams Desktop client version 1.3.00.21759 fixed an issue where Teams showed UTC time zone in chat, channels, and calendar. Later versions of the client will show the remote session time zone.
 
 2. Run one of the following commands to install the MSI to the host VM:
 
@@ -165,6 +159,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 - With per-machine installation, Teams on VDI isn't automatically updated the same way non-VDI Teams clients are. To update the client, you'll need to update the VM image by installing a new MSI.
 - Media optimization for Teams is only supported for the Remote Desktop client on machines running Windows 10 or later or macOS 10.14 or later.
 - Use of explicit HTTP proxies defined on the client endpoint device isn't supported.
+- Zoom in/zoom out of chat windows isn't supported.
 
 ### Calls and meetings
 

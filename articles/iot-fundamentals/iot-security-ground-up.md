@@ -5,7 +5,7 @@ author: eross-msft
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 08/24/2022
 ms.author: lizross
 ---
 # Security for Internet of Things (IoT) from the ground up

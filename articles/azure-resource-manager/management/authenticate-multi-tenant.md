@@ -20,7 +20,7 @@ The request has the following authentication header values:
 
 The auxiliary header can hold up to three auxiliary tokens. 
 
-In the code of your multi-tenant app, get the authentication token for other tenants and store them in the auxiliary headers. All the tokens must be from the same user or application. The user or application must have been invited as a guest to the other tenants.
+In the code of your multi-tenant app, get the authentication token for other tenants and store them in the auxiliary headers. The user or application must have been invited as a guest to the other tenants.
 
 ## Processing the request
 

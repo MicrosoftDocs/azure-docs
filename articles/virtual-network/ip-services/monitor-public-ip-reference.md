@@ -72,12 +72,12 @@ The following table lists the operations that Public IP addresses may record in 
 | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Get the log definitions of Public IP Address |
 | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read | Get the metrics definitions of Public IP Address |
 
-See [all the possible resource provider operations in the activity log](/azure/role-based-access-control/resource-provider-operations).  
+See [all the possible resource provider operations in the activity log](../../role-based-access-control/resource-provider-operations.md).  
 
-For more information on the schema of Activity Log entries, see [Activity Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
+For more information on the schema of Activity Log entries, see [Activity Log schema](../../azure-monitor/essentials/activity-log-schema.md). 
 
 ## See Also
 
 - See [Monitoring Azure Public IP Address](monitor-public-ip.md) for a description of monitoring Azure Public IP addresses.
 
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

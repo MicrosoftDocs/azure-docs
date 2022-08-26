@@ -14,7 +14,7 @@ ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Detect domain-specific content
+# Domain-specific content detection
 
 In addition to tagging and high-level categorization, Computer Vision also supports further domain-specific analysis using models that have been trained on specialized data.
 

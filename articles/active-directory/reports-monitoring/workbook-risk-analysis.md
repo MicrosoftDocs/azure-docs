@@ -5,14 +5,14 @@ description: Learn how to use the identity protection risk analysis workbook.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenho
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/08/2022
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: sahandle 
 

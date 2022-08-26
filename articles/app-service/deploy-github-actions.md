@@ -138,7 +138,17 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
       * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
     
     ```azurecli
-    az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:ref:refs/heads/main","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
+    az ad app federated-credential create --id <APPLICATION-OBJECT-ID> --parameters credential.json
+    ("credential.json" contains the following content)
+    {
+        "name": "<CREDENTIAL-NAME>",
+        "issuer": "https://token.actions.githubusercontent.com/",
+        "subject": "repo:organization/repository:ref:refs/heads/main",
+        "description": "Testing",
+        "audiences": [
+            "api://AzureADTokenExchange"
+        ]
+    }     
     ```
     
 To learn how to create a Create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).

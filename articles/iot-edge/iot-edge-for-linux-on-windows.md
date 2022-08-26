@@ -88,6 +88,8 @@ Azure IoT Edge for Linux on Windows emphasizes interoperability between the Linu
 
 For samples that demonstrate communication between Windows applications and Azure IoT Edge modules, see [EFLOW GitHub](https://aka.ms/AzEFLOW-Samples).
 
+Also, you can use your IoT Edge for Linux on Windows device to act as a transparent gateway for other edge devices. For more information on how to configure EFLOW as a transparent gateway, see [Configure an IoT Edge device to act as a transparent gateway](./how-to-create-transparent-gateway.md).
+
 ## Support
 
 Use the Azure IoT Edge support and feedback channels to get assistance with Azure IoT Edge for Linux on Windows.

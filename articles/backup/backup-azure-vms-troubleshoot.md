@@ -195,7 +195,7 @@ To resolve this issue, use the [restore disks](./backup-azure-arm-restore-vms.md
 
 **Error message**: VM creation failed due to Market Place purchase request being not present.
 
-Azure Backup supports backup and restore of VMs that are available in Azure Marketplace. This error occurs when you try to restore a VM (with a specific Plan/Publisher setting), which is no longer available in Azure Marketplace. [Learn more here](/azure/marketplace/deprecate-vm).
+Azure Backup supports backup and restore of VMs that are available in Azure Marketplace. This error occurs when you try to restore a VM (with a specific Plan/Publisher setting), which is no longer available in Azure Marketplace. [Learn more here](../marketplace/deprecate-vm.md).
 
 In this scenario, a partial failure happens where the disks are restored, but the VM isn't restored. This is because it's not possible to create a new VM from the restored disks.
 

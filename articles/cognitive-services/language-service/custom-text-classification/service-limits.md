@@ -92,7 +92,7 @@ The following limits are observed for the custom text classification.
 |Documents count | 10 | 100,000 |
 |Document length in characters | 1 | 128,000 characters; approximately 28,000 words or 56 pages. |
 |Count of classes | 1 | 200 |
-|Count of trained models per project| 0 | 50 |
+|Count of trained models per project| 0 | 10 |
 |Count of deployments per project| 0 | 10 |
 
 ## Naming limits
