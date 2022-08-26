@@ -65,9 +65,9 @@ Operational data is collected for all database instances and for the Azure Arc-e
 
 - Metrics – Performance and capacity related metrics, which are collected to an Influx DB provided as part of Azure Arc-enabled data services. You can view these metrics in the provided Grafana dashboard. 
 
-- Logs – logs emitted by all components including failure, warning, and informational events are collected to an Elasticsearch database provided as part of Azure Arc-enabled data services. You can view the logs in the provided Kibana dashboard. 
+- Logs – Records emitted by all components including failure, warning, and informational events are collected to an Elasticsearch database provided as part of Azure Arc-enabled data services. You can view the logs in the provided Kibana dashboard. 
 
-The operational data stored locally requires built in administrative privileges to view it in Grafana/Kibana. 
+The operational data stored locally requires built-in administrative privileges to view it in Grafana/Kibana. 
 
 The operational data does not leave your environment unless you chooses to export/upload (indirect connected mode) or automatically send (directly connected mode) the data to Azure Monitor/Log Analytics. The data goes into a Log Analytics workspace, which you control. 
 
