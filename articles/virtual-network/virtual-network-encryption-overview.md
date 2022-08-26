@@ -48,7 +48,7 @@ Public IP traffic isn't dropped or encrypted in either scenario. IP fragmented p
 
 ## Use cases
 
-The use cases for Azure Virtual Network encryption are for scenarios where virtual machine to virtual machine encryption and virtual machine to on-premises is required. Azure Virtual Network encryption protects data traversing your virtual network between virtual machines and on-premises.
+The use cases for Azure Virtual Network encryption are for scenarios where virtual machine to virtual machine encryption and virtual machine to on-premises is required. Azure Virtual Network encryption protects data traversing your virtual network virtual machine to virtual machine and virtual machine to on-premises.
 
 ## Availability
 
