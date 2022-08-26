@@ -16,7 +16,7 @@ In this tutorial, you will create a resource group and a virtual machine. You wi
 ## Prerequisites 
 
 - [Python](https://www.python.org/downloads/)
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli) or [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-8.2.0)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-8.2.0)
 
 ## Create Resources
 
@@ -138,8 +138,8 @@ Run the python file:
 ## View Assignment in the Portal
 
 Navigate to the virtual machine and select the **Automanage** blade: 
-![automanage blade](../media/tutorial-imgs/automanage-blade.png)
+![automanage blade](media/automanage-virtual-machines/automanage-blade.png)
 
 View the Automanage Profile now enabled on the virtual machine:
-![automanage blade](../media/tutorial-imgs/automanage.png)
+![automanage blade](media/automanage-virtual-machines/automanage-vm.png)
 
