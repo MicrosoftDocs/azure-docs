@@ -26,24 +26,24 @@ When a workspace is soft-deleted, data and metadata stored service-side get soft
 
 Data / configuration | Soft-deleted | Hard-deleted
 ---|---|---
-Run History | X | 
-Models | X | 
-Data | X | 
-Environments | x | 
-Components | X |
-Notebooks | X | 
-Pipelines | X |
-Designer pipelines | X | 
-AutoML jobs | X |
-Data labeling projects | X | 
-Datastores | X | 
-Queued or running jobs | | X
-Role assignments | | X*
-Internal cache | | X 
-Compute instance |  | X 
-Compute clusters |  | X 
-Inference endpoints | | X 
-Linked Databricks workspaces | | X*
+Run History | ✓ | 
+Models | ✓ | 
+Data | ✓ | 
+Environments | ✓ | 
+Components | ✓ |
+Notebooks | ✓ | 
+Pipelines | ✓ |
+Designer pipelines | ✓ | 
+AutoML jobs | ✓ |
+Data labeling projects | ✓ | 
+Datastores | ✓ | 
+Queued or running jobs | | ✓
+Role assignments | | ✓*
+Internal cache | | ✓ 
+Compute instance |  | ✓ 
+Compute clusters |  | ✓ 
+Inference endpoints | | ✓ 
+Linked Databricks workspaces | | ✓*
 
 \* *Microsoft attempts recreation or reattachment when a workspace is recovered. Recovery isn't guaranteed, and a best effort attempt.*
 
