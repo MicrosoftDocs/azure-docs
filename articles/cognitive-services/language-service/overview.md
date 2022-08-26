@@ -67,7 +67,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
 
 :::row:::
    :::column span="":::
-      :::image type="content" source="media/studio-examples/sentiment-analysis-example.png" alt-text="A screenshot of a language detection example." lightbox="media/studio-examples/sentiment-analysis-example.png":::
+      :::image type="content" source="media/studio-examples/sentiment-analysis-example.png" alt-text="A screenshot of a sentiment analysis example." lightbox="media/studio-examples/sentiment-analysis-example.png":::
    :::column-end:::
    :::column span="":::
       [Sentiment analysis and opinion mining](./language-detection/overview.md) are pre-configured features that help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text.
@@ -79,7 +79,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
 
 :::row:::
    :::column span="":::
-      :::image type="content" source="media/studio-examples/summarization-example.png" alt-text="A screenshot of a language detection example." lightbox="media/studio-examples/summarization-example.png":::
+      :::image type="content" source="media/studio-examples/summarization-example.png" alt-text="A screenshot of a summarization example." lightbox="media/studio-examples/summarization-example.png":::
    :::column-end:::
    :::column span="":::
       [Summarization](./summarization/overview.md) is a pre-configured feature that uses extractive text summarization to produce a summary of documents and conversation transcriptions. It extracts sentences that collectively represent the most important or relevant information within the original content.
