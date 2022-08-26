@@ -52,7 +52,7 @@ For the pricing details, see [pricing](https://azure.microsoft.com/pricing/detai
 > [!NOTE]
 > Use the same Azure AD user you used when connecting to Azure.
 
-It's mandatory to have the following three accounts located in the same region: 
+It's strongly recommended to have the following three accounts located in the same region: 
 
 * The Azure Video Indexer account that you're creating.
 * The Azure Video Indexer account that you're connecting with the Media Services account.
