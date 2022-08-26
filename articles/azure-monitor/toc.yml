@@ -482,7 +482,7 @@ items:
       - name: Collect text and IIS Logs
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-text-log.md
-    - name: Enable network isolation
+    - name: Define network settings
       href: agents/azure-monitor-agent-data-collection-endpoint.md
     - name: Migrate from Log Analytics Agent
       items:
@@ -1299,6 +1299,8 @@ items:
       href: containers/container-insights-troubleshoot.md
   - name: Insights
     items:
+    - name: Activity logs
+      href: essentials/activity-log-insights.md
     - name: Azure Cache for Redis
       href: ../azure-cache-for-redis/redis-cache-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Azure Cosmos DB
