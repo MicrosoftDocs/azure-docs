@@ -106,12 +106,12 @@ The database uses locks to keep data consistent under concurrent access.
 However, some query patterns require an excessive amount of locking, and faster
 alternatives exist.
 
-### Detecting locks
+### System health and locks
 
 Before diving into common locking inefficiencies, let's see how to view locks
-throughout the database cluster. The
-[citus_stat_activity](reference-metadata.md#distributed-query-activity)
-view gives a detailed view of cluster activity.
+and activity throughout the database cluster. The
+[citus_stat_activity](reference-metadata.md#distributed-query-activity) view
+gives a detailed view.
 
 The view shows, among other things, how queries are blocked by "wait events,"
 including locks.  Grouping by
