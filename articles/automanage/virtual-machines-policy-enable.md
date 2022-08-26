@@ -28,7 +28,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 ## Direct link to Policy
 There are two Automanage built-in policies: 
 1. Built-in Automanage profiles (dev/test and production): The Automanage policy definition can be found in the Azure portal by the name of [Configure virtual machines to be onboarded to Azure Automanage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff889cab7-da27-4c41-a3b0-de1f6f87c550).
-1. Custom configuration profiles : The Automanage policy definition can be found in the Azure portal by the name of [Configure virtual machines to be onboarded to Azure Automanage with Custom Configuration Profile](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb025cfb4-3702-47c2-9110-87fe0cfcc99b0).
+1. Custom configuration profiles: The Automanage policy definition can be found in the Azure portal by the name of [Configure virtual machines to be onboarded to Azure Automanage with Custom Configuration Profile](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb025cfb4-3702-47c2-9110-87fe0cfcc99b0).
 
 If you click on this link, skip directly to step 8 in [Locate and assign the policy](#locate-and-assign-the-policy) below.
 
