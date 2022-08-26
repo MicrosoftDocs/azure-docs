@@ -1,5 +1,11 @@
 {
     "redirections": [ 
+        
+    {
+        "source_path_from_root": "/articles/machine-learning/tutorial-convert-ml-experiment-to-production.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-convert-ml-experiment-to-production",
+        "redirect_document_id": true
+    },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-troubleshoot-prebuilt-docker-image-inference.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-troubleshoot-prebuilt-docker-image-inference",
@@ -11,8 +17,18 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-create-register-data-assets.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-data-assets",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-prebuilt-docker-images-inference-python-extensibility.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-prebuilt-docker-images-inference-python-extensibility",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/concept-network-data-access.md",
+        "redirect_url": "/azure/machine-learning/how-to-administrate-data-authentication",
         "redirect_document_id": true
     },
     {
@@ -42,8 +58,13 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/resource-limits-quotas-capacity.md",
-        "redirect_url": "/azure/machine-learning/resource-limits-capacity",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning/how-to-manage-quotas",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/resource-limits-capacity.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-quotas",
+        " redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/machine-learning/tutorial-train-models-with-aml.md",
@@ -1012,7 +1033,12 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/tutorial-auto-train-models.md",
-        "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
+        "redirect_url": "/azure/machine-learning/v1/how-to-auto-train-models-v1",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/tutorial-auto-train-models.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-auto-train-models-v1",
         "redirect_document_id": true
     },
     {
@@ -3389,6 +3415,16 @@
         "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/add-columns.md",
         "redirect_url": "/azure/machine-learning/component-reference/add-columns",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/concept-differential-privacy.md",
+        "redirect_url": "/azure/machine-learning/concept-responsible-ml#privacy-and-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v1/how-to-differential-privacy.md",
+        "redirect_url": "/azure/machine-learning/concept-responsible-ml#privacy-and-security",
+        "redirect_document_id": false
     }
 ]
 }

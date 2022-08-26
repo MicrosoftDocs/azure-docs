@@ -17,12 +17,8 @@ With this capability, you:
 - Are unable to view connection logs. 
 - Have a limit of 128 000 concurrent connections.  
 
-## Prerequisites
-- Azure Solution VMware private cloud
-- DNS Server configured on the NSX-T Datacenter
-
 ## Reference architecture
-The architecture shows Internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX Edge.     
+The architecture shows Internet access outbound from your Azure VMware Solution private cloud using an Azure VMware Solution Managed SNAT Service.     
 
 :::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-snat.png" alt-text="Diagram that shows architecture of Internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the SNAT Edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-snat-expanded.png":::
 

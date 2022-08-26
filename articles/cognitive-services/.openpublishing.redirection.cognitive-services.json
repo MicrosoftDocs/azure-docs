@@ -56,11 +56,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/cognitive-services/language-service/concepts/role-based-access-control.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-batch-test.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-batch-test",
             "redirect_document_id": false
