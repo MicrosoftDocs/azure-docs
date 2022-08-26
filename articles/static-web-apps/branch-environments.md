@@ -86,4 +86,4 @@ In this example, the preview environments are defined for the `dev` and `staging
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Review pull requests in pre-production environments](./review-publish-pull-requests.md)
+> [Create named preview environments](./named-environments.md)

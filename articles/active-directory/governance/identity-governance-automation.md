@@ -4,7 +4,7 @@ description: Learn how to write PowerShell scripts in Azure Automation to intera
 services: active-directory
 documentationCenter: ''
 author: amsliu
-manager: daveba
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
