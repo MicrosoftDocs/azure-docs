@@ -907,7 +907,7 @@ items:
                 href: app/java-standalone-telemetry-processors-examples.md
         - name: JVM arguments setup
           href: app/java-standalone-arguments.md
-        - name: Upgrade from 2.x SDK
+        - name: Upgrade from 2.x
           href: app/java-standalone-upgrade-from-2x.md
       - name: Python
         href: app/opentelemetry-enable.md?tabs=python
