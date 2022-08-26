@@ -143,7 +143,7 @@ The sample code snippets in the following sections demonstrate how to perform ba
 > [!IMPORTANT]
 > Make sure you have installed the correct NuGet packages and added the necessary using statements in order for the code samples to work, as described in the [setting up](#setting-up) section.
 
-* **Azure.Identity** (if you are using the Credential-Free approach)
+* **Azure.Identity** (if you are using the passwordless approach)
 * **Azure.Storage.Blobs**
 
 ### Create a container
@@ -260,7 +260,7 @@ Console.WriteLine("Done");
 
 After completing these steps the code in your `Program.cs` file should now resemble the following:
 
-## [Credential-free (Recommended)](#tab/managed-identity)
+## [Passwordless (Recommended)](#tab/managed-identity)
 
 ```csharp
 using Azure.Storage.Blobs;

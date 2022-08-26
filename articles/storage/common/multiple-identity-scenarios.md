@@ -1,7 +1,7 @@
 ---
-title: Configure credential-free connections between multiple services
+title: Configure passwordless connections between multiple services
 titleSuffix: Azure Storage
-description: Learn to work with user-assigned managed identities to configure credential-free connections between multiple Azure services.
+description: Learn to work with user-assigned managed identities to configure passwordless connections between multiple Azure services.
 services: storage
 author: alexwolfmsft
 ms.service: storage
@@ -12,11 +12,11 @@ ms.subservice: common
 ms.custom: devx-track-csharp
 ---
 
-# Configure credential-free connections between multiple Azure apps and services
+# Configure passwordless connections between multiple Azure apps and services
 
 Applications often require secure connections between multiple Azure services simultaneously. For example, an enterprise Azure App Service instance might connect to several different storage accounts, an Azure SQL database instance, a service bus, and more. 
 
-[Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) are the recommended authentication option for secure, credential-free connections between Azure resources. Developers do not have to manually track and manage many different secrets for managed identities, since most of these tasks are handled internally by Azure. This tutorial explores how to manage connections between multiple services using managed identities and the Azure Identity client library.
+[Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) are the recommended authentication option for secure, passwordless connections between Azure resources. Developers do not have to manually track and manage many different secrets for managed identities, since most of these tasks are handled internally by Azure. This tutorial explores how to manage connections between multiple services using managed identities and the Azure Identity client library.
 
 ## Compare the types of managed identities
 
@@ -33,7 +33,7 @@ Managed identities are generally implemented in your application code through a 
 
 ## Connect an Azure hosted app to multiple Azure services
 
-You have been tasked with connecting an existing app to multiple Azure services and databases using credential-free connections. The application is an ASP.NET Core Web API hosted on Azure App Service, though the steps below apply to other Azure hosting environments as well, such as Azure Spring Apps, Virtual Machines, Container Apps and AKS.
+You have been tasked with connecting an existing app to multiple Azure services and databases using passwordless connections. The application is an ASP.NET Core Web API hosted on Azure App Service, though the steps below apply to other Azure hosting environments as well, such as Azure Spring Apps, Virtual Machines, Container Apps and AKS.
 
 This tutorial applies to the following architectures, though it can be adapted to many other scenarios as well through minimal configuration changes.
 
@@ -61,7 +61,7 @@ The following steps demonstrate how to configure an app to use a system-assigned
 
     :::image type="content" source="media/assign-role-system-identity.png" alt-text="A screenshot showing how to assign a system-assigned identity."  :::
 
-5) In the **Role** search box, search for *Storage Blob Data Contributor*, which is a common role used to manage data operations for blobs. You can assign whatever role is appropriate for your use case. Select the *Storage Blob Data Contributor* from the list and choose **Next**.
+5) In the **Role** search box, search for *Storage Blob Data Contributor*,  which grants permissions to perform read and write operations on blob data. You can assign whatever role is appropriate for your use case. Select the *Storage Blob Data Contributor* from the list and choose **Next**.
 
 6) On the **Add role assignment** screen, for the **Assign access to** option, select **Managed identity**. Then choose **+Select members**.
 
@@ -212,7 +212,7 @@ These types of scenarios are explored in more depth in the [identities best prac
 
 ## Next steps
 
-In this tutorial, you learned how to migrate an application to credential-free connections. You can read the following resources to explore the concepts discussed in this article in more depth:
+In this tutorial, you learned how to migrate an application to passwordless connections. You can read the following resources to explore the concepts discussed in this article in more depth:
 
 - For more information on authorizing access with managed identity, visit [Authorize access to blob data with managed identities for Azure resources](/azure/storage/blobs/authorize-managed-identity).
 -[Authorize with Azure roles](/azure/storage/blobs/authorize-access-azure-active-directory)

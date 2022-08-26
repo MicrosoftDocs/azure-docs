@@ -1,5 +1,5 @@
 ---
-title: Migrate applications to use credential-free authentication with Azure Storage
+title: Migrate applications to use passwordless authentication with Azure Storage
 titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from authentication patterns such as connection strings to more secure approaches like Managed Identity.
 services: storage
@@ -13,13 +13,13 @@ ms.subservice: common
 ms.custom: devx-track-csharp
 ---
 
-# Migrate an application to use credential-free connections with Azure services
+# Migrate an application to use passwordless connections with Azure services
 
-Application requests to Azure Storage must be authenticated using either account access keys or credential-free connections. However, you should prioritize credential-free connections in your applications when possible. This tutorial explores how to migrate from traditional authentication methods to more secure, credential-free connections.
+Application requests to Azure Storage must be authenticated using either account access keys or passwordless connections. However, you should prioritize passwordless connections in your applications when possible. This tutorial explores how to migrate from traditional authentication methods to more secure, passwordless connections.
 
-## Compare existing authentication options
+## Security risks associated with Shared Key authorization
 
-The following code example demonstrates how to connect to Azure Storage using a storage account key. When you create a storage account, Azure generates access keys for that account.  Many developers gravitate towards this solution because it feels familiar to options they have worked with in the past. For example, connection strings for storage accounts also use access keys as part of the string. If your application currently uses access keys, consider migrating to credential-free connections using the steps described later in this document.
+The following code example demonstrates how to connect to Azure Storage using a storage account key. When you create a storage account, Azure generates access keys for that account.  Many developers gravitate towards this solution because it feels familiar to options they have worked with in the past. For example, connection strings for storage accounts also use access keys as part of the string. If your application currently uses access keys, consider migrating to passwordless connections using the steps described later in this document.
 
 ```csharp
 var blobServiceClient = new BlobServiceClient(
@@ -27,11 +27,11 @@ var blobServiceClient = new BlobServiceClient(
     new StorageSharedKeyCredential("<storage-account-name>", "<your-access-key>"));
 ```
 
-Storage account keys should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if an account key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use credential-free connections.
+Storage account keys should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if an account key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
 
-## Introducing credential-free connections
+## Migrating to passwordless connections
 
-Many Azure services support credential-free connections through Azure Managed Identity and Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries. 
+Many Azure services support passwordless connections through Azure Managed Identity and Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries. 
 
 > [!IMPORTANT]
 > Some frameworks must implement `DefaultAzureCredential` explicitly in their code, while others utilize `DefaultAzureCredential` internally through underlying plugins or drivers.
@@ -45,7 +45,7 @@ The order and locations in which `DefaultAzureCredential` searches for credentia
 > [!NOTE]
 > A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. You can read more about managed identities in the [overview](/azure/active-directory/managed-identities-azure-resources/overview) documentation.
 
-The following code examples demonstrates how to connect to an Azure Storage account using credential-free connections. The next section describes how to migrate to this setup in more detail.
+The following code examples demonstrates how to connect to an Azure Storage account using passwordless connections. The next section describes how to migrate to this setup in more detail.
 
 ### [.NET](#tab/dotnet)
 
@@ -73,21 +73,21 @@ var blobServiceClient = new BlobServiceClient(
 
 ---
 
-## Steps to migrate an app to use credential-free authentication
+## Steps to migrate an app to use passwordless authentication
 
-The following steps explain how to migrate an existing application to use credential-free connections instead of a key-based solution. These same migration steps should apply whether you are using access keys directly, or through connection strings.
+The following steps explain how to migrate an existing application to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you are using access keys directly, or through connection strings.
 
 ### 1) Configure roles and users for local development authentication
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
-### 2) Sign-in and migrate the app code to use credential-free connections
+### 2) Sign-in and migrate the app code to use passwordless connections
 
 For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
 [!INCLUDE [defaultazurecredential-sign-in](../../../includes/defaultazurecredential-sign-in.md)]
 
-Next you will need to update your code to use credential-free connections. Although conceptually similar, each language uses different implementation details.
+Next you will need to update your code to use passwordless connections. Although conceptually similar, each language uses different implementation details.
 
 ### [.NET](#tab/dotnet)
 
@@ -140,7 +140,7 @@ After making these code changes, run your application locally. The new configura
 
 ### 3) Configure the Azure hosting environment
 
-Once your application is configured to use credential-free connections and runs locally, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage. 
+Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage. 
 
 #### Create the managed identity using the Azure Portal
 
@@ -334,7 +334,7 @@ After making these code changes, browse to your hosted application in the browse
 
 ## Next steps
 
-In this tutorial, you learned how to migrate an application to credential-free connections.
+In this tutorial, you learned how to migrate an application to passwordless connections.
 
 You can read the following resources to explore the concepts discussed in this article in more depth:
 

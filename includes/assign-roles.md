@@ -23,7 +23,7 @@ The following example will assign the `Storage Blob Data Contributor` role to yo
 
 6. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
 
-7. In the dialog, search for your Azure AD username (usually your email address) and then choose **Select** at the bottom of the dialog. 
+7. In the dialog, search for your Azure AD username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog. 
 
 8. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
 
@@ -38,7 +38,7 @@ az storage account show --resource-group '<your-resource-group-name>' --name '<y
 Copy the output `Id` from the preceding command. You can then assign roles using the [az role](/cli/azure/role) command of the Azure CLI.
 
 ```azurecli
-az role assignment create --assignee "<your-username>" \
+az role assignment create --assignee "<user@domain>" \
 --role "Storage Blob Data Contributor" \
 --scope "<your-resource-id>"
 ```
@@ -54,7 +54,7 @@ Get-AzResource -ResourceGroupName "<yourResourceGroupname>" -Name "<yourStorageA
 Copy the `Id` value from the preceding command output. You can then assign roles using the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command in PowerShell.
 
 ```azurepowershell
-New-AzRoleAssignment -SignInName <yourUserName> `
+New-AzRoleAssignment -SignInName <user@domain> `
 -RoleDefinitionName "Storage Blob Data Contributor" `
 -Scope <yourStorageAccountId>
 ```
