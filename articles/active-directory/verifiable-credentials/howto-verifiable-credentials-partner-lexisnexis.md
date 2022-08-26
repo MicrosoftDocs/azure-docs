@@ -16,7 +16,7 @@ ms.author: barclayn
 
 You can use Entra Verified ID with LexisNexis Risk Solutions to enable faster onboarding by replacing some human interactions. Verifiable Credentials (VCs) can be used to onboard employees, students, citizens, or others to access services.
 
-## Pre-requisites
+## Prerequisites
 
 - A tenant [configured](verifiable-credentials-configure-tenant.md) for Entra Verified ID service.
     - If you don't have an existing tenant, you can [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -33,9 +33,9 @@ Verifiable Credentials can be used to onboard employees, students, citizens, or 
 
 :::image type="content" source="media/verified-id-partner-au10tix/vc-system-diagram.png" alt-text="Diagram of the verifiable credential solution.":::
 
-## Configure your Application to use LexisNexis
+## Configure your application to use LexisNexis
 
-For incorporating identity verification into your Apps, using LexisNexis Verified ID follow these steps.
+To incorporate identity verification into your Apps using LexisNexis Verified ID, follow these steps.
 
 ### Part 1
 
@@ -48,7 +48,7 @@ As a developer you'll provide the steps below to your tenant administrator. The 
 1. Select on **Select Issuer**.
 1. Look for LexisNexis in the Search/select issuers drop-down. 
    
-   ![Screenshot of the select issuer section of the portal showing LexisNexis as the choice](media/verified-id-partner-lexisnexis/select-issuer.png)
+   ![Screenshot of the select issuer section of the portal showing LexisNexis as the choice.](media/verified-id-partner-lexisnexis/select-issuer.png)
    
 1. Check the credential type you've discussed with LexisNexis Customer success manager for your specific needs.
 1. Choose **Add** and then choose **Review**.
@@ -66,7 +66,7 @@ As a developer you now have the request URL and body from your tenant admin, fol
 
 ## Test the user flow
 
-This will be specific to your application or website. However if you are using [one of the sample apps](https://aka.ms/vcsample) follow the steps here - [Run the test the sample app](https://aka.ms/vcsample)
+User flow is specific to your application or website. However if you are using [one of the sample apps](https://aka.ms/vcsample) follow the steps here - [Run the test the sample app](https://aka.ms/vcsample)
 
 ## Next steps
 

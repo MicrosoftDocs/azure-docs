@@ -16,6 +16,8 @@ Our IDV partner network extends Microsoft Entra Verified ID's capabilities to he
 
 To be considered into Entra Verified ID partner documentation, submit your application [request](https://aka.ms/isvconnectvc)
 
+## Partner list
+
 | IDV partner | Description | Integration walkthroughs |
 |:-------------------------|:--------------|:--------------|
 |![Screenshot of au10tix logo.](media/partner-gallery/au10tix.png) | [AU10TIX](https://www.au10tix.com/solutions/microsoft-azure-active-directory-verifiable-credentials-program) improves Verifiability While Protecting Privacy For Businesses, Employees, Contractors, Vendors, And Customers. | [Configure Verified ID by AU10TIX as your Identity Verification Partner](https://aka.ms/au10tixvc). |

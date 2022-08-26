@@ -7,7 +7,7 @@ author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 08/25/2022
+ms.date: 08/26/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -51,7 +51,7 @@ In this step, you create the verified credential expert card by using Microsoft 
 
 1. Using the [Azure portal](https://portal.azure.com/), search for **Verified ID** and select it.
 1. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the **Create credential** should appear. Alternatively, you can select **Credentials** in the left hand menu and select **+ Add a credential**.
-1. In **Create credential**, select **Custom Credential** and click **Next**:
+1. In **Create credential**, select **Custom Credential** and select **Next**:
 
     1. For **Credential name**, enter **VerifiedCredentialExpert**. This name is used in the portal to identify your verifiable credentials. It's included as part of the verifiable credentials contract.
 
@@ -101,57 +101,56 @@ In this step, you create the verified credential expert card by using Microsoft 
 }
 ```
 
-
    1. Copy the following JSON and paste it in the  **Rules definition** textbox
 
 
-```json
-{
-  "attestations": {
-    "idTokens": [
-      {
-        "clientId": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
-        "configuration": "https://didplayground.b2clogin.com/didplayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
-        "redirectUri": "vcclient://openid",
-        "scope": "openid profile email",
-        "mapping": [
+    ```json
+    {
+      "attestations": {
+        "idTokens": [
           {
-            "outputClaim": "userName",
-            "required": true,
-            "inputClaim": "$.upn",
-            "indexed": false
-          },
-          {
-            "outputClaim": "displayName",
-            "required": true,
-            "inputClaim": "$.name",
-            "indexed": false
-          },
-          {
-            "outputClaim": "firstName",
-            "required": true,
-            "inputClaim": "$.given_name",
-            "indexed": false
-          },
-          {
-            "outputClaim": "lastName",
-            "required": true,
-            "inputClaim": "$.family_name",
-            "indexed": true
+            "clientId": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
+            "configuration": "https://didplayground.b2clogin.com/didplayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
+            "redirectUri": "vcclient://openid",
+            "scope": "openid profile email",
+            "mapping": [
+              {
+                "outputClaim": "userName",
+                "required": true,
+                "inputClaim": "$.upn",
+                "indexed": false
+              },
+              {
+                "outputClaim": "displayName",
+                "required": true,
+                "inputClaim": "$.name",
+                "indexed": false
+              },
+              {
+                "outputClaim": "firstName",
+                "required": true,
+                "inputClaim": "$.given_name",
+                "indexed": false
+              },
+              {
+                "outputClaim": "lastName",
+                "required": true,
+                "inputClaim": "$.family_name",
+                "indexed": true
+              }
+            ],
+            "required": false
           }
-        ],
-        "required": false
+        ]
+      },
+      "validityInterval": 2592000,
+      "vc": {
+        "type": [
+          "VerifiedCredentialExpert"
+        ]
       }
-    ]
-  },
-  "validityInterval": 2592000,
-  "vc": {
-    "type": [
-      "VerifiedCredentialExpert"
-    ]
-  }
-}
-```
+    }
+    ```
 
    1. Select **Create**.
 
