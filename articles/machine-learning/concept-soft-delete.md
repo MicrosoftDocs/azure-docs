@@ -126,7 +126,7 @@ workspace = Workspace.create(
 
 ### Delete a workspace
 
-The default behavior when deleting a non-CMK workspace is soft-delete. Optionally, you may choose to permanently delete a non-CMK workspace without going to soft delete state first.
+The default behavior when deleting a non-CMK workspace is soft-deleted. Optionally, you may choose to permanently delete a non-CMK workspace without going to soft delete state first.
 
 > [!TIP]
 > Deletion of dependent resources is only possible in combination with permanently deleting a workspace, and fails in case a workspace is not permanently deleted to allow for best changes of recovering workspace data.
@@ -146,7 +146,7 @@ Soft delete is the default behavior when deleting a non-CMK workspace.
 az ml workspace delete --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {WORKSPACE NAME}
 ```
 
-Optionally, you may choose to permanently delete a non-CMK workspace without going to soft delete state first by setting the `permanently_delete` flag. By default, this parameter is set to `false`. Permanently deleting a workspace allows recreation to accommodate for dev/test MLOps scenarios, or to immediately delete highly sensitive data if required.
+Optionally, you may choose to permanently delete a non-CMK workspace without going to soft delete state first by setting the `permanently_delete` flag. By default, this parameter is set to `false`. Permanently deleting a workspace allows recreation to accommodate for dev/test MLOps scenarios, or to immediately delete highly sensitive data.
 
 ```azurecli
 az ml workspace delete --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {WORKSPACE NAME} --permanently_delete
@@ -165,7 +165,7 @@ workspace.delete(
 )
 ```
 
-Optionally, you may choose to permanently delete a non-CMK workspace without going to soft delete state first by setting the `permanently_delete` flag. By default, this parameter is set to `false`. Permanently deleting a workspace allows recreation to accommodate for dev/test MLOps scenarios, or to immediately delete highly sensitive data if required.
+Optionally, you may choose to permanently delete a non-CMK workspace without going to soft delete state first by setting the `permanently_delete` flag. By default, this parameter is set to `false`. Permanently deleting a workspace allows recreation to accommodate for dev/test MLOps scenarios, or to immediately delete highly sensitive data.
 
 ```python
 workspace.delete(
@@ -180,7 +180,7 @@ workspace.delete(
 ---
 
 
-### List, recover, and permanently delete soft-deleted workspaces
+### List and recover soft-deleted workspaces
 
 # [Azure portal](#tab/portal)
 
@@ -200,10 +200,18 @@ az ml workspace list-deleted --subscription {SUBSCRIPTION ID} --resource_group {
 
 __Show soft-deleted workspaces__
 
-The `az ml workspace show` will return a 404 for soft-deleted workspaces. Instead, soft-deleted workspaces can be shown via a show-deleted call, by providing subscription, original resource group and *original* name of the soft deleted resource. *Original*, since the resource group may have been deleted at this point. This aligns with ARMs future interface, where deleted resources can be queried by original resource URIs.
+The `az ml workspace show` will return a 404 for soft-deleted workspaces. Instead, soft-deleted workspaces can be shown via a show-deleted call, by providing subscription, original resource group and *original* name of the soft deleted resource. *Original*, since the resource group may have been deleted at this point.
 
 ```azurecli
 az ml workspace show-deleted --subscription {SUBSCRIPTION ID} --resource_group --name {WORKSPACE NAME}
+```
+
+__Recover deleted workspaces__
+
+To recover a deleted workspace, provide subscription ID, original resource group and original name of the soft deleted workspace.
+
+```azurecli
+az ml workspace recover --subscription {SUBSCRIPTION ID} --resource_group {RESOURCE GROUP} --name {WORKSPACE NAME}
 ```
 
 # [Python SDK](#tab/sdk)
@@ -229,53 +237,10 @@ workspace.get_deleted(
   subscription_id="{SUBSCRIPTION ID}",
   resource_group="{RESOURCE GROUP}"
 )
-
 ```
-
----
-### Azure portal
-
-#### Configure soft delete retention period
-#### Delete a workspace
-#### List, recover and permanently delete soft-deleted workspaces
-### CLI and SDK
-
-#### Configure soft delete retention period
-
-
-
-
-
-#### Soft delete a workspace
-
-
-
-#### Permanently delete a workspace
-
-
-
-#### List workspaces
-
-Soft deleted workspaces shouldn't show in az ml workspace list commands.
-
-#### List soft-deleted workspaces
-
-
-
-#### Get a soft-deleted workspace
-
-
-
-#### Recover soft-deleted workspace
 
 To recover a deleted workspace, provide subscription ID, original resource group and original name of the soft deleted workspace.
 
-CLI:
-```cli
-az ml workspace recover --subscription {SUBSCRIPTION ID} --resource_group {RESOURCE GROUP} --name {WORKSPACE NAME}
-```
-
-SDK:
 ```python
 Workspace.recover(
   subscription_id="{SUBSCRIPTION ID}",
@@ -284,7 +249,10 @@ Workspace.recover(
 )
 ```
 
-> Since workspace is already deleted, it cannot be instantiated and recovery may be implemented as a static method.
+> [!TIP]
+> Since the workspace is already deleted, it cannot be instantiated and recovery may be implemented as a static method.
+
+---
 
 ## Next steps
 
