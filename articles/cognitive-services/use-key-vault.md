@@ -11,7 +11,9 @@ zone_pivot_groups: programming-languages-set-twenty-eight
 
 # Develop Azure Cognitive Services applications with Key Vault
 
-Use this article to learn how to develop Cognitive Services applications securely by using Key Vault.
+Use this article to learn how to develop Cognitive Services applications securely by using [Azure Key Vault](/azure/key-vault/general/overview). 
+
+Key Vault reduces the chances that secrets may be accidentally leaked, because you won't store security information in your application. 
 
 ## Prerequisites
 
@@ -20,7 +22,7 @@ Use this article to learn how to develop Cognitive Services applications securel
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
 * An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
-* [A Language resource or multi-service resource](./cognitive-services-apis-create-account.md)
+* [A multi-service resource or Language resource](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
 
@@ -30,7 +32,7 @@ Use this article to learn how to develop Cognitive Services applications securel
 * [Python 3.7 or later](https://www.python.org/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
 * An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
-* [A Language resource or multi-service resource](./cognitive-services-apis-create-account.md)
+* [A multi-service resource or Language resource](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
 
@@ -40,7 +42,7 @@ Use this article to learn how to develop Cognitive Services applications securel
 * [Java Development Kit (JDK) version 8 or above](/azure/developer/java/fundamentals/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
 * An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
-* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="A Language service resource"  target="_blank">A Language resource </a>.
+* [A multi-service resource or Language resource](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
 
@@ -50,7 +52,7 @@ Use this article to learn how to develop Cognitive Services applications securel
 * [Current Node.js v14 LTS or later](https://nodejs.org/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
 * An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
-* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="A Language service resource"  target="_blank">A Language resource </a>.
+* [A multi-service resource or Language resource](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
     
@@ -61,8 +63,8 @@ Use this article to learn how to develop Cognitive Services applications securel
 
 To add your key and endpoint to your key vault, first you need to get them from your Cognitive Services resource.
 
-1. Navigate to your Azure resource using the [Azure portal](https://portal.azure.com/).
-1. From the menu on the left side, select **Keys and Endpoint**.
+1. Navigate to your Azure resource in the <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Go to Azure portal"  target="_blank">Azure portal</a>.
+1. From the collapsible menu on the left, select **Keys and Endpoint**.
 
     :::image type="content" source="language-service/custom-text-classification/media/get-endpoint-azure.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal." lightbox="language-service/custom-text-classification/media/get-endpoint-azure.png":::
 
@@ -72,31 +74,36 @@ You will add your key and endpoint to your key vault in the next step.
 
 Before your application can retrieve and use your credentials to authenticate its API calls to Cognitive Services, you will need to add your key and endpoint to your [key vault secrets](/azure/key-vault/secrets/about-secrets). 
 
-1. Open a new browser tab or window. Navigate to your key vault using the [Azure portal](https://portal.azure.com/).
-1. On the Key Vault settings pages, select **Secrets**.
-1. Click on **Generate/Import**.
-1. On the **Create a secret** screen, choose the following values:
+Repeat these steps to generate a secret for both the Cognitive Services resource key and endpoint. These secret names will be used later to authenticate your application.
+
+1. Open a new browser tab or window. Navigate to your key vault in the <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Go to Azure portal"  target="_blank">Azure portal</a>.
+1. From the collapsible menu on the left, select **Objects** > **Secrets**.
+1. Select **Generate/Import**. 
+
+    :::image type="content" source="media/key-vault/store-secrets.png" alt-text="A screenshot showing the key vault key page in the Azure portal." lightbox="media/key-vault/store-secrets.png":::
+
+1. On the **Create a secret** screen, enter the following values:
 
     |Name  | Value  |
     |---------|---------|
     |Upload options     | Manual         |
-    |Name     | A name for your secret. For example "key" or "endpoint"        |
-    |Value     | Paste your key or endpoint.       |
+    |Name     | A secret name for your key or endpoint. For example: "CognitiveServicesKey" or "CognitiveServicesEndpoint"        |
+    |Value     | Your Azure Cognitive Services resource key or endpoint.         |
 
-1. Leave the other values as their defaults. Click **Create**.
+    Later your application will use the secret "Name" to securely access the "Value". 
+
+1. Leave the other values as their defaults. Select **Create**.
 
     >[!TIP]
-    > Make sure to remember which names you used for your key and endpoint, as you'll use them later.
+    > Make sure to remember the secret names that you set for your key and endpoint, as you'll use them later in your application.
 
-Repeat these steps for both the key and endpoint your retrieved in the previous step:
-
-:::image type="content" source="media/key-vault/store-secrets.png" alt-text="A screenshot showing the key vault key page in the Azure portal." lightbox="media/key-vault/store-secrets.png":::
+You should now have named secrets for both the Cognitive Services resource key and endpoint.
 
 ## Create an environment variable for your key vault's name
 
 We recommend creating an environment variable for your Azure key vault's name. Your application will read this environment variable at runtime to retrieve your key and endpoint information.
 
-To set environment variables, use one the following commands. `KEY_VAULT_NAME` will the name of the environment variable, and replace `replace-this-value` with the name of your key vault, which will be stored in the environment variable.
+To set environment variables, use one the following commands. `KEY_VAULT_NAME` will the name of the environment variable, and replace `Your-Key-Vault-Name` with the name of your key vault, which will be stored in the environment variable.
 
 # [Command Line](#tab/command-line)
 
@@ -104,7 +111,7 @@ Create and assign persisted environment variable, given the value.
 
 ```CMD
 :: Assigns the env var to the value
-setx KEY_VAULT_NAME="replace-this-value"
+setx KEY_VAULT_NAME="Your-Key-Vault-Name"
 ```
 
 In a new instance of the **Command Prompt**, read the environment variable.
@@ -116,37 +123,36 @@ echo %KEY_VAULT_NAME%
 
 # [PowerShell](#tab/powershell)
 
-Create and assign a persisted environment variable. Replace `replace-this-value` with the name of your key vault.
+Create and assign a persisted environment variable. Replace `Your-Key-Vault-Name` with the name of your key vault.
 
 ```powershell
-# Assigns the env var to the value
-[System.Environment]::SetEnvironmentVariable('KEY_VAULT_NAME', 'replace-this-value', 'User')
+[System.Environment]::SetEnvironmentVariable('KEY_VAULT_NAME', 'Your-Key-Vault-Name', 'User')
 ```
 
 In a new instance of the **Windows PowerShell**, read the environment variable.
 
 ```powershell
-# Prints the env var value
 [System.Environment]::GetEnvironmentVariable('KEY_VAULT_NAME')
 ```
 
 # [Bash](#tab/bash)
 
-Create and assign a persisted environment variable. Replace `replace-this-value` with the name of your key vault.
+Create and assign a persisted environment variable. Replace `Your-Key-Vault-Name` with the name of your key vault.
 
 ```Bash
-# Assigns the env var to the value
-echo export KEY_VAULT_NAME="replace-this-value" >> /etc/environment && source /etc/environment
+echo export KEY_VAULT_NAME="Your-Key-Vault-Name" >> /etc/environment && source /etc/environment
 ```
 
 In a new instance of the **Bash**, read the environment variable.
 
 ```Bash
-# Prints the env var value
 echo "${KEY_VAULT_NAME}"
+```
 
-# Or use printenv:
-# printenv KEY_VAULT_NAME
+Or use printenv:
+
+```Bash
+printenv KEY_VAULT_NAME
 ```
 
 ---
@@ -172,7 +178,9 @@ Install the following client library by right-clicking on the solution in the **
 
 ## Import the example code
 
-Copy the following example code into your `program.cs` file.
+Copy the following example code into your `program.cs` file. Replace `Your-Key-Secret-Name` and `Your-Endpoint-Secret-Name` with the secret names that you set in your key vault.
+
+```csharp
 
 ```csharp
 using System;
@@ -193,9 +201,9 @@ namespace key_vault_console_app
             var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
 
             //variables for retrieving the key and endpoint from your key vault.
-            //Make sure these variables match the name you created for your secrets
-            const string keySecretName = "key";
-            const string endpointSecretName = "endpoint";
+            //Set these variables to the names you created for your secrets
+            const string keySecretName = "Your-Key-Secret-Name";
+            const string endpointSecretName = "Your-Endpoint-Secret-Name";
 
             //Endpoint for accessing your key vault
             var kvUri = $"https://{keyVaultName}.vault.azure.net";
@@ -220,9 +228,9 @@ namespace key_vault_console_app
             //String to be sent for Named Entity Recognition
             var exampleString = "I had a wonderful trip to Seattle last week.";
 
-            AzureKeyCredential key = new AzureKeyCredential(keySecret);
+            AzureKeyCredential azureKeyCredential = new AzureKeyCredential(keySecret);
             Uri endpoint = new Uri(endpointSecret);
-            var languageServiceClient = new TextAnalyticsClient(endpoint, key);
+            var languageServiceClient = new TextAnalyticsClient(endpoint, azureKeyCredential);
 
             Console.WriteLine($"Sending a Named Entity Recognition (NER) request");
             var response = languageServiceClient.RecognizeEntities(exampleString);
@@ -239,7 +247,7 @@ namespace key_vault_console_app
 
 ## Run the application
 
-Run the application by selecting the **Debug** button at the top of Visual studio. 
+Run the application by selecting the **Debug** button at the top of Visual studio. Your key and endpoint secrets will be retrieved from your key vault. 
 
 ::: zone-end
 
@@ -275,9 +283,10 @@ Create a new folder named `keyVaultExample`. Then use your preferred code editor
 
 ## Import the example code
 
-Add the following code sample to the file named `program.py`. Be sure `keySecretName` and `endpointSecretName` match the names you gave your key and endpoint in your key vault. 
+Add the following code sample to the file named `program.py`. Replace `Your-Key-Secret-Name` and `Your-Endpoint-Secret-Name` with the secret names that you set in your key vault.
 
 ```python
+import os
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 from azure.ai.textanalytics import TextAnalyticsClient
@@ -285,9 +294,9 @@ from azure.core.credentials import AzureKeyCredential
 
 keyVaultName = os.environ["KEY_VAULT_NAME"]
 
-# Make sure these values match the names specified for your key and endpoint in your key vault
-keySecretName = "key"
-endpointSecretName = "endpoint"
+# Set these variables to the names you created for your secrets
+keySecretName = "Your-Key-Secret-Name"
+endpointSecretName = "Your-Endpoint-Secret-Name"
 
 # URI for accessing key vault
 KVUri = f"https://{keyVaultName}.vault.azure.net"
@@ -298,14 +307,19 @@ kv_client = SecretClient(vault_url=KVUri, credential=credential)
 
 print(f"Retrieving your secrets from {keyVaultName}.")
 
-retrieved_key = kv_client.get_secret(secretKeyName).value
-retrieved_endpoint = kv_client.get_secret(secretEndpointName).value
+retrieved_key = kv_client.get_secret(keySecretName).value
+retrieved_endpoint = kv_client.get_secret(endpointSecretName).value
+
+print(f"Your secret key is {retrieved_key}.")
+print(f"Your secret endpoint is {retrieved_endpoint}.")
 
 # Authenticate the key vault secrets client using your key and endpoint 
-language_credential = AzureKeyCredential(retrieved_key)
+azure_key_credential = AzureKeyCredential(retrieved_key)
+
+# Now you can use key vault credentials with the Language service
 language_service_client = TextAnalyticsClient(
         endpoint=retrieved_endpoint, 
-        credential=language_credential)
+        credential=azure_key_credential)
 
 # Example of recognizing entities from text
 
@@ -326,7 +340,9 @@ except Exception as err:
 
 ## Run the application
 
-Use the following command to run the application.
+Use the following command to run the application. Your key and endpoint secrets will be retrieved from your key vault. 
+
+```console
 
 ```terminal
 python ./program.py
@@ -371,7 +387,7 @@ In your project, add the following dependencies to your `pom.xml` file.
 
 ## Import the example code
 
-Copy the following code into a file named `Example.java`.
+Copy the following code into a file named `Example.java`. Replace `Your-Key-Secret-Name` and `Your-Endpoint-Secret-Name` with the secret names that you set in your key vault.
 
 ```java
 import com.azure.identity.DefaultAzureCredentialBuilder;
@@ -390,9 +406,9 @@ public class Example {
         String keyVaultUri = "https://" + keyVaultName + ".vault.azure.net";
 
         //variables for retrieving the key and endpoint from your key vault.
-        //Make sure these variables match the name you created for your secrets
-        String keySecretName = "key";
-        String endpointSecretName = "endpoint";
+        //Set these variables to the names you created for your secrets
+        String keySecretName = "Your-Key-Secret-Name";
+        String endpointSecretName = "Your-Endpoint-Secret-Name";
 
         //Create key vault secrets client
         SecretClient secretClient = new SecretClientBuilder()
@@ -472,7 +488,7 @@ npm init -y
 
 ## Import the code sample
 
-Add the following code sample to a file named `index.js`. Be sure `keySecretName` and `endpointSecretName` match the names you gave your key and endpoint in your key vault. 
+Add the following code sample to a file named `index.js`. Replace `Your-Key-Secret-Name` and `Your-Endpoint-Secret-Name` with the secret names that you set in your key vault. 
 
 ```javascript
 const { SecretClient } = require("@azure/keyvault-secrets");
@@ -490,8 +506,9 @@ async function main() {
 
     const kvClient = new SecretClient(url, credential);
 
-    const keySecretName = "key";
-    const endpointSecretName = "endpoint";
+    // Set these variables to the names you created for your secrets
+    const keySecretName = "Your-Key-Secret-Name";
+    const endpointSecretName = "Your-Endpoint-Secret-Name";
 
     console.log("Retrieving secrets from ", keyVaultName);
     const retrievedKey = await (await kvClient.getSecret(keySecretName)).value;
@@ -523,7 +540,7 @@ main().catch((error) => {
 
 ## Run the sample application
 
-Use the following command to run the application
+Use the following command to run the application. Your key and endpoint secrets will be retrieved from your key vault. 
 
 ```terminal
 node index.js
