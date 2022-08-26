@@ -200,9 +200,8 @@ System.Diagnostics.Tracing has an [Autoflush feature](/dotnet/api/system.diagnos
 
 
 ### How do I do this for Java?
-In Java codeless instrumentation (recommended) the logs are collected out of the box, use [Java 3.0 agent](./java-in-process-agent.md).
 
-If you're using the Java SDK, use the [Java log adapters](java-2x-trace-logs.md).
+The Application Insights Java agent collects logs from Log4j, Logback and java.util.logging out of the box.
 
 ### There's no Application Insights option on the project context menu
 * Make sure that Developer Analytics Tools is installed on the development machine. At Visual Studio **Tools** > **Extensions and Updates**, look for **Developer Analytics Tools**. If it isn't on the **Installed** tab, open the **Online** tab and install it.
