@@ -16,8 +16,7 @@ The first time you visit the [www.videoindexer.ai/](https://www.videoindexer.ai/
 
 With a trial, account Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://aka.ms/avam-dev-portal).
 
-> [!NOTE]
-> The trial account is not available on the Azure Government cloud.
+The trial account is not available on the Azure Government cloud. For other Azure Government limitations, see [Limitations of Azure Video Indexer on Azure Government](connect-to-azure.md#limitations-of-azure-video-indexer-on-azure-government).
 
 You can later create a paid account where you're not limited by the quota. Two types of paid accounts are available to you: Azure Resource Manager (ARM) (currently in preview) and classic (generally available). The main difference between the two is account management platform. While classic accounts are built on the API Management, ARM-based accounts management is built on Azure, which enables apply access control to all services with role-based access control (Azure RBAC) natively.
 
@@ -36,9 +35,15 @@ With a trial account, you don't have to set up an Azure subscription. When creat
 
 ## Create accounts
 
-* ARM accounts: [Get started with Azure Video Indexer in Azure portal](create-account-portal.md). **The recommended paid account type is the ARM-based account**.  
+* ARM accounts:  **The recommended paid account type is the ARM-based account**.  
 
-    * Upgrade a trial account to an ARM based account and [**import** your content for free](connect-to-azure.md#import-your-content-from-the-trial-account).  
+    * You can create an Azure Video Indexer **ARM-based** account through one of the following:
+    
+      1. [Azure Video Indexer portal](https://aka.ms/vi-portal-link)
+      2. [Azure portal](https://portal.azure.com/#home)
+      
+    For the detailed description, [Get started with Azure Video Indexer in Azure portal](create-account-portal.md).
+* Upgrade a trial account to an ARM-based account and [import your content for free](import-content-from-trial.md).  
 * Classic accounts: [Create classic accounts using API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Paid-Account).
 * Connect a classic account to ARM: [Connect an existing classic paid Azure Video Indexer account to an ARM-based account](connect-classic-account-to-arm.md).
 

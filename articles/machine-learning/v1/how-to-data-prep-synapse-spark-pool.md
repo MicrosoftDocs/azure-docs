@@ -325,5 +325,5 @@ See the example notebooks for more concepts and demonstrations of the Azure Syna
 
 ## Next steps
 
-* [Train a model](../how-to-set-up-training-targets.md).
+* [Train a model](how-to-set-up-training-targets.md).
 * [Train with Azure Machine Learning dataset](how-to-train-with-datasets.md).

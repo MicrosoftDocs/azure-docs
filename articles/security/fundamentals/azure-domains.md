@@ -7,8 +7,8 @@ author: memildin
 manager: rkarlin
 
 ms.assetid: 
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: active-directory
+ms.subservice: domain-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
