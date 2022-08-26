@@ -21,7 +21,7 @@ Catch up on these videos you may have missed:
 
 | [How to use search in the Azure portal](https://www.youtube.com/watch?v=PcHF_DzsETA) | [How to check your subscription's secure score](https://www.youtube.com/watch?v=yqb3qvsjqXY)  | [How to find and use Translator](https://www.youtube.com/watch?v=6xBHkHkFmZ4) |
 | ------| ------ | ------ |
-| [![Image of YouTube video about how to use search in the Azure portal](https://i.ytimg.com/vi/PcHF_DzsETA/hqdefault.jpg)](http://www.youtube.com/watch?v=vQClJHt2ulQ) | [![Image of YouTube video about how to check your subscription's secure score](https://i.ytimg.com/vi/yqb3qvsjqXY/hqdefault.jpg)](https://www.youtube.com/watch?v=XyKh_3NxUlM) | [![Image of YouTube video about how to find and use Translator](https://i.ytimg.com/vi/6xBHkHkFmZ4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) |
+| [![Image of YouTube video about how to use search in the Azure portal](https://i.ytimg.com/vi/PcHF_DzsETA/hqdefault.jpg)](http://www.youtube.com/watch?v=PcHF_DzsETA) | [![Image of YouTube video about how to check your subscription's secure score](https://i.ytimg.com/vi/yqb3qvsjqXY/hqdefault.jpg)](https://www.youtube.com/watch?v=yqb3qvsjqXY) | [![Image of YouTube video about how to find and use Translator](https://i.ytimg.com/vi/6xBHkHkFmZ4/hqdefault.jpg)](http://www.youtube.com/watch?v=6xBHkHkFmZ4) |
 
 ## Video playlist
 
