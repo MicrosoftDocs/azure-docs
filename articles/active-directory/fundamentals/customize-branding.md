@@ -135,7 +135,7 @@ The **Stay signed in?** prompt appears after a user successfully signs in. This 
 
 The following diagram shows the user sign-in flow for a managed tenant and federated tenant using the KMSI in prompt. This flow contains smart logic so that the **Stay signed in?** option won't be displayed if the machine learning system detects a high-risk sign-in or a sign-in from a shared device.
 
-Go KMSI is only available on the default custom branding. It can't be added to language-specific branding. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
+KMSI is only available on the default custom branding. It can't be added to language-specific branding. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
 
 ![Diagram showing the user sign-in flow for a managed vs. federated tenant](media/customize-branding/kmsi-workflow.png)
 

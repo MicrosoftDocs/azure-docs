@@ -46,11 +46,11 @@ Custom branding appears after users sign in. Users that start the sign-in proces
 
 2. Go to **Azure Active Directory** > **Company branding** > **Customize**.
 
-    ![Custom branding landing page with 'Company branding' highlighted in the side menu and 'Configure' button highlighted in the center of the page](media/active-directory-org-customize-branding/customize-branding-getting-started.png)
+    ![Custom branding landing page with 'Company branding' highlighted in the side menu and 'Configure' button highlighted in the center of the page](media/how-to-customize-branding/customize-branding-getting-started.png)
 
 The sign-in experience process is grouped into sections. At the end of each section, select the **Review + create** button to review what you have selected and submit your changes or the **Next** button to move to the next section.
 
-!['Review + create' and 'Next: Layout' buttons from the bottom of the configure custom branding page](media/active-directory-org-customize-branding/customize-branding-buttons.png)
+!['Review + create' and 'Next: Layout' buttons from the bottom of the configure custom branding page](media/how-to-customize-branding/customize-branding-buttons.png)
 
 ## Basics
 
@@ -87,7 +87,7 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
     >[!IMPORTANT]
     >The default Microsoft 'Terms of Use' link is not the same as the Conditional Access Terms of Use. Seeing the terms here doesn't mean you've accepted those terms and conditions. 
 
-    ![Customize branding on the Footer section](media/active-directory-org-customize-branding/customize-branding-footer.png)
+    ![Customize branding on the Footer section](media/how-to-customize-branding/customize-branding-footer.png)
 
 ## Sign-in form
 
