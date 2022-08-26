@@ -15,7 +15,7 @@ ms.date: 08/10/2022
 
 Azure Cognitive Services for Language and Speech can help you realize partial or full automation of telephony-based customer interactions, and provide accessibility across multiple channels. With the Language and Speech services, you can further analyze call center transcriptions, extract and redact Personally Identifying Information (PII), summarize the transcription, and detect the sentiment.
 
-The main business scenarios for the application of Azure Cognitive Services in call and contact centers are:
+Some example scenarios for the implementation of Azure Cognitive Services in call and contact centers are:
 - Virtual agents: Conversational AI-based telephony-integrated voicebots and voice-enabled chatbots
 - Agent-assist: Real-time transcription and analysis of a call to improve the customer experience by providing insights and suggest actions to agents
 - Post-call analytics: Post-call analysis to create insights into customer conversations to improve understanding and support continuous improvement of call handling, optimization of quality assurance and compliance control as well as other insight driven optimizations.
@@ -23,7 +23,7 @@ The main business scenarios for the application of Azure Cognitive Services in c
 > [!TIP]
 > To deploy a call center transcription solution to Azure with a no-code approach, try the [Ingestion Client](/azure/cognitive-services/speech-service/ingestion-client).
 
-## Implementation with Cognitive Services
+## Cognitive Services for call centers
 
 A holistic call center implementation typically incorporates technologies from the Language and Speech services. 
 
@@ -36,7 +36,7 @@ Once you've transcribed your audio with the Speech service, you can use the Lang
 The Speech service offers the following features that can be used for call center use cases:
 
 - [Real-time speech-to-text](/azure/cognitive-services/speech-service/how-to-recognize-speech): Recognize and transcribe audio in real-time from multiple inputs. For example, with virtual agents or agent-assist, you can continuously recognize audio input and control how to process results based on multiple events.
-- [Batch speech-to-text](/azure/cognitive-services/speech-service/batch-transcription): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios.
+- [Batch speech-to-text](/azure/cognitive-services/speech-service/batch-transcription): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
 - [Text-to-speech](/azure/cognitive-services/speech-service/text-to-speech): Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech
 - [Speaker identification](/azure/cognitive-services/speech-service/speaker-recognition-overview): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for call center customer verification scenarios or fraud detection
 - [Language Identification](/azure/cognitive-services/speech-service/language-identification): Identify languages spoken in audio and can be used in real-time and post-call analysis for insights or to control the environment (such as output language of a virtual agent).
