@@ -76,7 +76,7 @@ The **Encryption** page doesn't currently support choosing an identity type (eit
 1. Configure access to the key vault. You can use role-based access control or access policies. 
     1. For role-based access control, configure the key vault to use role-based access control authorization.
     :::image type="content" source="../media/azure-netapp-files/azure-role-based-access.png" alt-text="Screenshot of the access policies menu." lightbox="../media/azure-netapp-files/azure-role-based-access.png":::
-    Create a custom role with permissions **read**, **encrypt**, and **decrypt**. 
+    Create a custom role with permissions **Read**, **Encrypt**, and **Decrypt**. 
     :::image type="content" source="../media/azure-netapp-files/netapp-account-json.png" alt-text="Screenshot of an example JSON configuration." lightbox="../media/azure-netapp-files/netapp-account-json.png":::
     Add an assignment for the user-assigned identity for the custom role on the key vault. Alternatively, you can use the built-in role `key vault crypto user`, but this role includes more permissions than are necessary.
     1. Add an access policy for the user-assigned identity on the key vault. 
