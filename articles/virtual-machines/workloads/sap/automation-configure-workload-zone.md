@@ -220,10 +220,11 @@ ANF_service_level         = "Ultra"
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                             | Description                                                            | Type     | Notes                                 |
 > | ------------------------------------ | ---------------------------------------------------------------------- | -------- | ------------------------------------- |
-> | `enable_purge_control_for_keyvaults` | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional | Use only for test deployments         |
-> | `use_private_endpoint`               | Boolean flag controlling if private endpoints are used for storage accounts and key vaults. | Optional |                                       |
-> | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | For brown field deployments.  |
-> | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | For brown field deployments.  |
+> | `enable_purge_control_for_keyvaults` | Is purge control is enabled on the Key Vault.                          | Optional | Use only for test deployments         |
+> | `use_private_endpoint`               | Are private endpoints created for storage accounts and key vaults.     | Optional |                                       |
+> | `use_service_endpoint`               | Are service endpoints defined for the subnets.                         | Optional |                                       |
+> | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | For brown field deployments.          |
+> | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | For brown field deployments.          |
 
 
 ## ISCSI Parameters
