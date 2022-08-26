@@ -46,6 +46,9 @@ The UsbIp-Win installs:
 
 At this point, a service is running on Windows to share USB devices, and the necessary tools are installed in the EFLOW virtual machine to attach to shared devices.
 
+> [!WARNING]
+> If you have an open PowerShell session, make sure to close it and open a new one to load the `usbipd` command line tool. 
+
 ## Attach a USB device to the EFLOW VM
 
 The following steps provide a sample EFLOW PowerShell cmdlet to attach a USB device to the EFLOW VM. If you want to manually execute the needed commands, see [How to use usbip-win](https://github.com/dorssel/usbipd-win).
