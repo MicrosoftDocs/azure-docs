@@ -321,6 +321,8 @@
           href: vmware-azure-install-mobility-service.md
         - name: Automate Mobility service deployment
           href: vmware-azure-mobility-install-configuration-mgr.md
+      - name: Enable replication for a physical server - Modernized
+        href: physical-server-enable-replication.md
       - name: Enable replication for VMware VMs
         href: vmware-azure-enable-replication.md
       - name: Exclude disks from replication

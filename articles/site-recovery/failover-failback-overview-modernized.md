@@ -150,9 +150,17 @@ Once you have initiated the planned failover and it completes successfully, your
 
 
 ## Next steps
-- [Failover VMware VMs to Azure (preview)](vmware-azure-tutorial-failover-failback-preview.md#run-a-failover-to-azure)
-- [Planned failover (preview)](vmware-azure-tutorial-failover-failback-preview.md#planned-failover-from-azure-to-on-premises)
-- [Re-protect (preview)](vmware-azure-tutorial-failover-failback-preview.md#re-protect-the-on-premises-machine-to-azure-after-successful-planned-failover)
-- [Cancel failover (preview)](vmware-azure-tutorial-failover-failback-preview.md#cancel-planned-failover)
+
+> [!div class="nextstepaction"]
+> [Failover VMware VMs to Azure (preview)](vmware-azure-tutorial-failover-failback-preview.md#run-a-failover-to-azure)
+
+> [!div class="nextstepaction"]
+> [Planned failover (preview)](vmware-azure-tutorial-failover-failback-preview.md#planned-failover-from-azure-to-on-premises)
+
+> [!div class="nextstepaction"]
+> [Re-protect (preview)](vmware-azure-tutorial-failover-failback-preview.md#re-protect-the-on-premises-machine-to-azure-after-successful-planned-failover)
+
+> [!div class="nextstepaction"]
+> [Cancel failover (preview)](vmware-azure-tutorial-failover-failback-preview.md#cancel-planned-failover)
 
 

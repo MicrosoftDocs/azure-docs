@@ -314,5 +314,8 @@ to private IPs.
 Now that you've enabled private endpoints for your virtual machine replication, see these other
 articles for additional and related information:
 
-- [Deploy an on-premises configuration server](./vmware-azure-deploy-configuration-server.md)
-- [Set up disaster recovery of on-premises Hyper-V VMs to Azure](./hyper-v-azure-tutorial.md)
+> [!div class="nextstepaction"]
+> [Deploy an on-premises configuration server](./vmware-azure-deploy-configuration-server.md)
+
+> [!div class="nextstepaction"]
+> [Set up disaster recovery of on-premises Hyper-V VMs to Azure](./hyper-v-azure-tutorial.md)
