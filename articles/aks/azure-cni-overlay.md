@@ -20,7 +20,7 @@ A separate routing domain is created in the Azure Networking stack for the pod's
 
 ![Azure CNI Overlay network model with an AKS cluster](media/azure-cni-overlay/AzureCNI-Overlay.png)
 
-Communication with endpoints outside the cluster, such as on-premises and peered VNets, happens using the node IP through Network Address Translation. Azure CNI translates the source IP (overlay IP of the pod) of the traffic to the primary IP address of the VM, which enables the Azure Networking stack to route the traffic to the destination. Endpoints outside the cluster cannot connect to a pod directly. You will have to publish the pod's application as a Kubernetes Load Balancer service to make it reachable on the VNet.
+Communication with endpoints outside the cluster, such as on-premises and peered VNets, happens using the node IP through Network Address Translation. Azure CNI translates the source IP (overlay IP of the pod) of the traffic to the primary IP address of the VM, which enables the Azure Networking stack to route the traffic to the destination. Endpoints outside the cluster can't connect to a pod directly. You will have to publish the pod's application as a Kubernetes Load Balancer service to make it reachable on the VNet.
 
 Outbound (egress) connectivity to the internet for overlay pods can be provided using a [Standard SKU Load Balancer](./egress-outboundtype.md#outbound-type-of-loadbalancer) or [Managed NAT Gateway](./nat-gateway.md). You can also control egress traffic by directing it to a firewall using [User Defined Routes on the cluster subnet](./egress-outboundtype.md#outbound-type-of-userdefinedrouting).
 
@@ -42,7 +42,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 
 * **Cluster Nodes**: Cluster nodes go into a subnet in your VNet, so ensure that you have a subnet big enough to account for future scale. A simple `/24` subnet can host up to 251 nodes (the first three IP addresses in a subnet are reserved for management operations).
 
-* **Pods**: The overlay solution assigns a `/24 address space for pods on every node from the private CIDR that you specify during cluster creation. The \/24 size is fixed and cannot be increased or decreased. You can run up to 250 pods on a node. When planning the pod address space, ensure that the private CIDR is large enough to provide \/24` address spaces for new nodes to support future cluster expansion. 
+* **Pods**: The overlay solution assigns a `/24 address space for pods on every node from the private CIDR that you specify during cluster creation. The \/24 size is fixed and can't be increased or decreased. You can run up to 250 pods on a node. When planning the pod address space, ensure that the private CIDR is large enough to provide \/24` address spaces for new nodes to support future cluster expansion. 
 The following are additional factors to consider when planning pod address space:
    * Pod CIDR space must not overlap with the cluster subnet range.
    * Pod CIDR space must not overlap with IP ranges used in on-premises networks and peered networks.
@@ -78,9 +78,9 @@ Use the traditional VNet option when:
 The overlay solution has the following limitations today
 
 * Only available for Linux and not for Windows.
-* You cannot deploy multiple overlay clusters in the same subnet.
-* Overlay can be enabled only for new clusters. Existing (already deployed) clusters cannot be configured to use overlay.
-* You cannot use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
+* You can't deploy multiple overlay clusters in the same subnet.
+* Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
+* You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
 
 ## Steps to setup overlay clusters
 
@@ -127,7 +127,7 @@ az aks create -n $clusterName -g $resourceGroup --location $location --network-p
 
 * *Can I configure the size of the address space assigned to each space?*
 
-  No, this is fixed at `/24` today and cannot be changed.
+  No, this is fixed at `/24` today and can't be changed.
 
 
 * *Can I add more private pod CIDRs to a cluster after the cluster has been created?*
