@@ -23,7 +23,7 @@ az postgres server-arc create -n postgres01 -w 2 --debug --k8s-namespace <namesp
 
 or
 ```azurecli
-az postgres server-arc edit -n postgres01 --extension --k8s-namespace <namespace> --use-k8s SomeExtensionName --debug
+az postgres server-arc update -n postgres01 --extension --k8s-namespace <namespace> --use-k8s SomeExtensionName --debug
 ```
 
 In addition, you may use the parameter --help on any CLI command to display some help, list of parameters for a specific command. For example:

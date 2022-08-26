@@ -17,13 +17,13 @@ ms.topic: how-to
 To change the port, edit the server group. For example, run the following command:
 
 ```azurecli
- az postgres server-arc edit -n <server group name> --port <desired port number> --k8s-namespace <namespace> --use-k8s
+ az postgres server-arc update -n <server group name> --port <desired port number> --k8s-namespace <namespace> --use-k8s
 ```
 
 If the name of your server group is _postgres01_ and you would like it to listen on port _866_. Run the following command:
 
 ```azurecli
- az postgres server-arc edit -n postgres01 --port 866 --k8s-namespace arc --use-k8s
+ az postgres server-arc update -n postgres01 --port 866 --k8s-namespace arc --use-k8s
 ```
 
 ## Verify that the port was changed

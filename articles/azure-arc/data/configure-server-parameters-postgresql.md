@@ -37,7 +37,7 @@ This document describes the steps to set the database engine settings of your Po
 The general format of the command to configure the database engine settings is:
 
 ```azurecli
-az postgres server-arc edit -n <server group name>, [{--engine-settings, -e}] [{--replace-settings , --re}] {'<parameter name>=<parameter value>, ...'} --k8s-namespace <namespace> --use-k8s
+az postgres server-arc update -n <server group name>, [{--engine-settings, -e}] [{--replace-settings , --re}] {'<parameter name>=<parameter value>, ...'} --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Show current custom values if they have been set
@@ -132,13 +132,13 @@ For default values, refer to the PostgreSQL documentation [here](https://www.pos
 ### Set a parameter which value contains a comma, space, or special character
 
 ```azurecli
-az postgres server-arc edit -n <server group name> --engine-settings  '<parameter name>="<parameter value>"' --k8s-namespace <namespace> --use-k8s
+az postgres server-arc update -n <server group name> --engine-settings  '<parameter name>="<parameter value>"' --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:
 
 ```azurecli
-az postgres server-arc edit -n postgres01 --engine-settings  'custom_variable_classes = "plpgsql,plperl"' --k8s-namespace <namespace> --use-k8s
+az postgres server-arc update -n postgres01 --engine-settings  'custom_variable_classes = "plpgsql,plperl"' --k8s-namespace <namespace> --use-k8s
 ```
 
 ### Pass an environment variable in a parameter value
@@ -148,7 +148,7 @@ The environment variable should be wrapped inside "''" so that it doesn't get re
 For example: 
 
 ```azurecli
-az postgres server-arc edit -n postgres01 --engine-settings  'search_path = "$user"' --k8s-namespace <namespace> --use-k8s
+az postgres server-arc update -n postgres01 --engine-settings  'search_path = "$user"' --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Next steps
