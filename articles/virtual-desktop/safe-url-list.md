@@ -22,8 +22,9 @@ The following table is the list of URLs your session host VMs need to access for
 
 # [Azure cloud](#tab/azure)
 
-| Address | Outbound TCP port | Purpose | Service Tag |
+| Address | Outbound TCP port | Purpose | Service tag |
 |---|---|---|---|
+| `login.microsoftonline.com` | 443 | Authentication to Microsoft Online Services |
 | `*.wvd.microsoft.com` | 443 | Service traffic | WindowsVirtualDesktop |
 | `*.prod.warm.ingest.monitor.core.windows.net` | 443 | Agent traffic | AzureMonitor |
 | `catalogartifact.azureedge.net` | 443 | Azure Marketplace | AzureFrontDoor.Frontend |
@@ -40,7 +41,7 @@ The following table is the list of URLs your session host VMs need to access for
 > [!IMPORTANT]
 > We've finished transitioning the URLs we use for Agent traffic. We no longer support the following URLs. To prevent your session host VMs from showing a *Needs Assistance* status, You must allow `*.prod.warm.ingest.monitor.core.windows.net` if you haven't already. You must also remove the following URLs if you explicitly allowed them before the change:
 > 
-> | Address | Outbound TCP port | Purpose | Service Tag |
+> | Address | Outbound TCP port | Purpose | Service tag |
 > |--|--|--|--|
 > | `production.diagnostics.monitoring.core.windows.net` | 443 | Agent traffic | AzureCloud |
 > | `*xt.blob.core.windows.net` | 443 | Agent traffic | AzureCloud |
@@ -52,7 +53,6 @@ The following table lists optional URLs that your session host virtual machines 
 
 | Address | Outbound TCP port | Purpose |
 |--|--|--|
-| `login.microsoftonline.com` | 443 | Authentication to Microsoft Online Services |
 | `login.windows.net` | 443 | Sign in to Microsoft Online Services and Microsoft 365 |
 | `*.events.data.microsoft.com` | 443 | Telemetry Service |
 | `www.msftconnecttest.com` | 443 | Detects if the OS is connected to the internet |
@@ -64,8 +64,9 @@ The following table lists optional URLs that your session host virtual machines 
 
 # [Azure for US Government](#tab/azure-for-us-government)
 
-| Address | Outbound TCP port | Purpose | Service Tag |
+| Address | Outbound TCP port | Purpose | Service tag |
 |--|--|--|--|
+| `login.microsoftonline.us` | 443 | Authentication to Microsoft Online Services and Microsoft 365 |
 | `*.wvd.azure.us` | 443 | Service traffic | WindowsVirtualDesktop |
 | `*.prod.warm.ingest.monitor.core.usgovcloudapi.net` | 443 | Agent traffic | AzureMonitor |
 | `gcs.monitoring.core.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
@@ -79,7 +80,7 @@ The following table lists optional URLs that your session host virtual machines 
 > [!IMPORTANT]
 > We've finished transitioning the URLs we use for Agent traffic. We no longer support the following URLs. To prevent your session host VMs from showing a *Needs Assistance* status, you must allow the URL `*.prod.warm.ingest.monitor.core.usgovcloudapi.net`, if you haven't already. You must also remove the following URLs if you explicitly allowed them before the change:
 > 
-> | Address | Outbound TCP port | Purpose | Service Tag |
+> | Address | Outbound TCP port | Purpose | Service tag |
 > |--|--|--|--|
 > | `monitoring.core.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
 > | `fairfax.warmpath.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
@@ -91,7 +92,6 @@ The following table lists optional URLs that your session host virtual machines 
 
 | Address | Outbound TCP port | Purpose |
 |--|--|--|
-| `login.microsoftonline.us` | 443 | Authentication to Microsoft Online Services and Microsoft 365 |
 | `*.events.data.microsoft.com` | 443 | Telemetry Service |
 | `www.msftconnecttest.com` | 443 | Detects if the OS is connected to the internet |
 | `*.prod.do.dsp.mp.microsoft.com` | 443 | Windows Update |
