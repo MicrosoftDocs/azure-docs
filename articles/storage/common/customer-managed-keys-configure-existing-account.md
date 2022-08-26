@@ -47,10 +47,10 @@ When you configure customer-managed keys with the Azure portal, you can select a
 
 #### [PowerShell](#tab/powershell)
 
-To authorize access to the key vault with a user-assigned managed identity, you will need the resource ID and principal ID of the user-assigned managed identity. Call [Get-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity) to get the user-assigned managed identity, then save the resource ID and principal ID to variables. You will need these values in subsequent steps:
+To authorize access to the key vault with a user-assigned managed identity, you will need the resource ID and principal ID of the user-assigned managed identity. Call [Get-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity) to get the user-assigned managed identity and assign it to a variable that you will reference in subsequent steps:
 
 ```azurepowershell
-$userIdentityId = Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName <resource-group>
+$userIdentity = Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName <resource-group>
 $principalId = $userIdentity.PrincipalId
 ```
 
@@ -200,8 +200,8 @@ To configure customer-managed keys for an existing account with automatic updati
 Next, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, omitting the key version. Include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account.
 
 ```azurepowershell
-Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
-    -AccountName $storageAccount.StorageAccountName `
+Set-AzStorageAccount -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
     -KeyvaultEncryption `
     -KeyName $key.Name `
     -KeyVaultUri $keyVault.VaultUri
@@ -258,8 +258,8 @@ To configure customer-managed keys with manual updating of the key version, expl
 Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```azurepowershell
-Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
-    -AccountName $storageAccount.StorageAccountName `
+Set-AzStorageAccount -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
     -KeyvaultEncryption `
     -KeyName $key.Name `
     -KeyVersion $key.Version `

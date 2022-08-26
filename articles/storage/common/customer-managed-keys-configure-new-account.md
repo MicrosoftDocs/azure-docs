@@ -45,11 +45,10 @@ When you configure customer-managed keys with the Azure portal, you can select a
 
 ### [PowerShell](#tab/powershell)
 
-To authorize access to the key vault with a user-assigned managed identity, you will need the resource ID and principal ID of the user-assigned managed identity. Call [Get-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity) to get the user-assigned managed identity, then save the resource ID and principal ID to variables. You will need these values in subsequent steps:
+To authorize access to the key vault with a user-assigned managed identity, you will need the resource ID and principal ID of the user-assigned managed identity. Call [Get-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity) to get the user-assigned managed identity and assign it to a variable that you will reference in subsequent steps:
 
 ```azurepowershell
-$userIdentityId = Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName <resource-group>
-$principalId = $userIdentity.PrincipalId
+$userIdentity = Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName <resource-group>
 ```
 
 ### [Azure CLI](#tab/azure-cli)
@@ -78,7 +77,7 @@ To configure the key vault access policy with PowerShell, call [Set-AzKeyVaultAc
 ```azurepowershell
 Set-AzKeyVaultAccessPolicy `
     -VaultName $keyVault.VaultName `
-    -ObjectId $principalId `
+    -ObjectId $userIdentity.PrincipalId `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
@@ -141,10 +140,10 @@ New-AzStorageAccount -ResourceGroupName <resource-group> `
     -SkuName Standard_LRS `
     -Location $location `
     -IdentityType SystemAssignedUserAssigned `
-    -UserIdentityId $userIdentityId `
+    -UserAssignedIdentityId $userIdentity.Id `
     -KeyVaultUri $keyVault.VaultUri `
     -KeyName $key.Name `
-    -KeyVaultUserAssignedIdentityId $userIdentityId
+    -KeyVaultUserAssignedIdentityId $userIdentity.Id
 ```
 
 ### [Azure CLI](#tab/azure-cli)
@@ -208,11 +207,11 @@ New-AzStorageAccount -ResourceGroupName <resource-group> `
     -SkuName Standard_LRS `
     -Location $location `
     -IdentityType SystemAssignedUserAssigned `
-    -UserIdentityId $userIdentityId `
+    -UserAssignedIdentityId $userIdentity.Id `
     -KeyVaultUri $keyVault.VaultUri `
     -KeyName $key.Name `
     -KeyVersion $key.Version `
-    -KeyVaultUserAssignedIdentityId $userIdentityId
+    -KeyVaultUserAssignedIdentityId $userIdentity.Id
 ```
 
 
