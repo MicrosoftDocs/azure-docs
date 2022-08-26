@@ -20,10 +20,10 @@ This article shows you how to enable the folder sharing between the Windows host
 
 ## Prerequisites
 - Azure IoT Edge for Linux on Windows 1.2.11 update or higher. For more information about EFLOW release notes, see [EFLOW Releases](https://aka.ms/AzEFLOW-Releases).
-- Windows 11, version 22000 or higher.
+- Windows 11 Sun Valley 2 (build 22621) or higher. To get Windows SV2 update, you must be part of Windows Insider Program. For more information, see [Getting started with the Windows Insider Program](https://insider.windows.com/en-us/getting-started). After installation, you can verify your build version by running `winver` at the command prompt.
 
 >[!NOTE]
-> We plan to include support for Windows 10 21H2 (version 19044) version in the upcoming months. 
+> We plan to include support for Windows 10 21H2 (version 19044) version and Windows Server 2019/2022 in the upcoming months. 
 
 If you don't have an EFLOW device ready, you should create one before continuing with this guide. Follow the steps in [Create and provision an IoT Edge for Linux on Windows device using symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) to install, deploy and provision EFLOW.
 
