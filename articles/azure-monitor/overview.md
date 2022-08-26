@@ -29,22 +29,26 @@ A few examples of what you can do with Azure Monitor include:
 The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs, which are the two fundamental types of data used by Azure Monitor. On the left are the [sources of monitoring data](data-sources.md) that populate these [data stores](data-platform.md). On the right are the different functions that Azure Monitor performs with this collected data. This includes such actions as analysis, alerting, and streaming to external systems.
 
 
-:::image type="content" source="media/overview/azure-monitor-overview-optm.svg" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/azure-monitor-overview-2022-08-25-change-analysis-opt.svg":::
+:::image type="content" source="media/overview/azure-monitor-overview-2022-08-25-change-analysis-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/azure-monitor-overview-2022-08-25-change-analysis-opt.svg":::
 
-The following video uses an earlier version of the preceding diagram, but its explanations are still relevant.
+The following video uses an earlier version of the preceding diagram, but its explanations are still relevant.  
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
 
 ## Monitor data platform
-All data collected by Azure Monitor fits into one of two fundamental types, [metrics and logs](data-platform.md). [Metrics](essentials/data-platform-metrics.md) are numerical values that describe some aspect of a system at a particular point in time. They're lightweight and capable of supporting near-real-time scenarios. [Logs](logs/data-platform-logs.md) contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces is stored as logs in addition to performance data so that it can all be combined for analysis.
+All data collected by Azure Monitor fits into four different types. 
+- **[Metrics](essentials/data-platform-metrics.md)** are numerical values that describe some aspect of a system at a particular point in time. They're lightweight and capable of supporting near-real-time scenarios. 
+- **[Logs](logs/data-platform-logs.md)** contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces is stored as logs in addition to performance data so that it can all be combined for analysis.
+- **Traces** are provided by [Application Insights](app/app-insights-overview.md). You can embed messages in your application code to track which are written to the Azure Monitor Logs store. There you can query and analyze them to trace code excution paths and find anomolies.    
+- **Changes** are tracked using [Change Analysis](change/change-analysis.md). It tracks deployments and changes in your subscription to help troubleshoot problems that appear as workloads are updated. 
 
 For many Azure resources, you'll see data collected by Azure Monitor right in their overview page in the Azure portal. Look at any virtual machine (VM), for example, and you'll see several charts that display performance metrics. Select any of the graphs to open the data in [Metrics Explorer](essentials/metrics-charts.md) in the Azure portal. With Metrics Explorer, you can chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations.
 
 ![Diagram that shows metrics data flowing into Metrics Explorer to use in visualizations.](media/overview/metrics.png)
 
-Log data collected by Azure Monitor can be analyzed with [queries](logs/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries by using [Log Analytics](./logs/log-query-overview.md) in the Azure portal. You can then either directly analyze the data by using different tools or save queries for use with [visualizations](best-practices-analysis.md) or [alert rules](alerts/alerts-overview.md).
+Log data collected by Azure Monitor can be analyzed with [queries](logs/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries by using the [Log Analytics](./logs/log-query-overview.md) user interface in the Azure portal. You can then either directly analyze the data by using different tools or save queries for use with [visualizations](best-practices-analysis.md) or [alert rules](alerts/alerts-overview.md).
 
-Azure Monitor uses a version of the [Kusto Query Language](/azure/kusto/query/) that's suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language by using [multiple lessons](logs/get-started-queries.md). Particular guidance is provided to users who are already familiar with [SQL](/azure/data-explorer/kusto/query/sqlcheatsheet) and [Splunk](/azure/data-explorer/kusto/query/splunk-cheat-sheet).
+Azure Monitor Logs uses a version of the [Kusto Query Language](/azure/kusto/query/) that's suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language by using [multiple lessons](logs/get-started-queries.md). Particular guidance is provided to users who are already familiar with [SQL](/azure/data-explorer/kusto/query/sqlcheatsheet) and [Splunk](/azure/data-explorer/kusto/query/splunk-cheat-sheet).
 
 ![Diagram that shows logs data flowing into Log Analytics for analysis.](media/overview/logs.png)
 
@@ -77,7 +81,7 @@ Azure Monitor can collect log data from any REST client by using the [Data Colle
 
 Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Some Azure resource providers have a "curated visualization," which gives you a customized monitoring experience for that particular service or set of services. They generally require minimal configuration. Larger, scalable, curated visualizations are known as "insights" and marked with that name in the documentation and the Azure portal.  
 
-For more information, see [List of insights and curated visualizations using Azure Monitor](monitor-reference.md#insights-and-curated-visualizations). Some of the larger insights are also described here.
+For more information, see [List of insights and curated visualizations using Azure Monitor](monitor-reference.md#insights-and-curated-visualizations). Some of the larger insights are described here.
 
 ### Application Insights
 
