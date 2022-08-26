@@ -33,7 +33,7 @@ To create a new glossary term, follow these steps:
 
 Microsoft Purview enables users to add rich formatting to term definitions such as adding bolding, underlining, or italicizing text. Users can also create tables, bulleted lists, or hyperlinks to external resources.
 
-:::image type="content" source="media/how-to-create-import-export/rich-text-editor.png" alt-text="Screenshot that shows the rich text editor.":::
+:::image type="content" source="media/how-to-create-import-export-glossary/rich-text-editor.png" alt-text="Screenshot that shows the rich text editor.":::
 
 Below are the rich text formatting options:
 
