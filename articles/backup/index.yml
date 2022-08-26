@@ -78,7 +78,7 @@ landingContent:
           - text: SQL Server on Azure VMs restore as files
             url: restore-sql-database-azure-vm.md#restore-as-files
           - text: Immutable vault (preview)
-            url: backup-azure-immutable-vault-overview.md
+            url: backup-azure-immutable-vault-concept.md
   # Card
   - title: Back up Azure VMs
     linkLists:
