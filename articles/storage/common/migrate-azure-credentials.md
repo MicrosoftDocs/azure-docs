@@ -31,10 +31,10 @@ Storage account keys should be used with caution. Developers must be diligent to
 
 ## Migrating to passwordless connections
 
-Many Azure services support passwordless connections through Azure Managed Identity and Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries. 
+Many Azure services support passwordless connections through Azure AD and Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries. 
 
 > [!IMPORTANT]
-> Some frameworks must implement `DefaultAzureCredential` explicitly in their code, while others utilize `DefaultAzureCredential` internally through underlying plugins or drivers.
+> Some languages must implement `DefaultAzureCredential` explicitly in their code, while others utilize `DefaultAzureCredential` internally through underlying plugins or drivers.
 
  `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code. 
 
@@ -49,7 +49,7 @@ The following code examples demonstrates how to connect to an Azure Storage acco
 
 ### [.NET](#tab/dotnet)
 
-A .NET Core application should explicitly pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
+A .NET Core application can pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
 
 ```csharp
 var blobServiceClient = new BlobServiceClient(
@@ -112,7 +112,7 @@ Next you will need to update your code to use passwordless connections. Although
         new DefaultAzureCredential());
     ```
 
-1. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
+1. Make sure to update the storage account name in the URI of your `BlobServiceClient`. The storage account name can be found on the overview page of the Azure portal.
 
     :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
 

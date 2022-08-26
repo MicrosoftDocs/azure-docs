@@ -397,7 +397,7 @@ Console.WriteLine("Done");
 
 This app creates a test file in your local *data* folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
 
-Navigate to your application directory, then build and run the application.
+If you're using Visual Studio, press F5 to build and run the code and interact with the console app. If you're using the .NET CLI, navigate to your application directory, then build and run the application.
 
 ```console
 dotnet build
