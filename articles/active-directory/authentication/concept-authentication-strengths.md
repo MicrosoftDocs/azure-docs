@@ -41,9 +41,13 @@ You can choose from built-in authentication strengths or create custom authentic
 ### Built-in authentication strengths
 Microsoft predefined some combinations of authentication methods, called _built-in authentication strengths_. Built-in authentication strengths are always available and can't be modified. 
 
-The following table lists the combinations of authentication methods included in each built-in authentication strength. Depending on which methods are available and registered for users, they can use any one of the combinations to sign-in. MFA strength is the same set of combinations that could be used to satisfy the **Require multifactor authentication** setting. 
+The following table lists the combinations of authentication methods included in each built-in authentication strength. Depending on which methods are available in the Authentication Methods policy and registered for users, they can use _any one_ of the combinations to sign-in. 
 
-|Authentication method combination |MFA strength | Passwordless authentication strength| Phishing resistant authentication strength|
+- MFA strength is the same set of combinations that could be used to satisfy the **Require multifactor authentication** setting. 
+- Passwordless authentication strength includes authentication methods that don't require a password. 
+- Phishing resistant authentication strength includes methods that require an interaction between the authentication method and the sign-in surface.  
+
+|Authentication method combination |Multifactor authentication strength | Passwordless authentication strength| Phishing resistant authentication strength|
 |----------------------------------|-------------|-------------------------------------|-------------------------------------------|
 |Windows Hello for Business| &#x2705; | &#x2705; | &#x2705; | 
 |FIDO2 security key| &#x2705; | &#x2705; | &#x2705; |
