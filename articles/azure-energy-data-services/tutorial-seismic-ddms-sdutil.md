@@ -44,25 +44,25 @@ Follow the directions in the sdutil documentation for [running sdutil in Azure e
 The utility requires other modules noted in [requirements.txt](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/blob/azure/stable/requirements.txt). You could either install the modules as is or install them in virtualenv to keep your host clean from package conflicts. if you don't want to install them in a virtual environment jump directly to the step 3.
 
 ```bash
-# check if virtualenv is already installed
-virtualenv --version
+  # check if virtualenv is already installed
+  virtualenv --version
 
-# if not install it via pip
-pip install virtualenv
+  # if not install it via pip
+  pip install virtualenv
 
-# create a virtual environment for sdutil
-virtualenv sdutilenv
+  # create a virtual environment for sdutil
+  virtualenv sdutilenv
 
-# activate the virtual environemnt
-Windows:    sdutilenv/Scripts/activate  
-Linux:      source sdutilenv/bin/activate
+  # activate the virtual environemnt
+  Windows:    sdutilenv/Scripts/activate  
+  Linux:      source sdutilenv/bin/activate
 ```
 
-install required dependencies:
+Install required dependencies:
 
 ```bash
-# run it from the extracted sdutil folder
-pip install -r requirements.txt
+  # run it from the extracted sdutil folder
+  pip install -r requirements.txt
 ```
 
 ## Usage
@@ -321,8 +321,8 @@ Project Oak is using OSDU M8 Version of sdutil
     - "refresh_token": "<refresh-token-for-your-env>"
   ```
 
-> [!NOTE] 
-> Follow the directions in [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to obtain a token if not already present.
+  > [!NOTE] 
+  > Follow the directions in [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to obtain a token if not already present.
 
 - Export or set below environment variables
 
@@ -369,8 +369,8 @@ Project Oak is using OSDU M8 Version of sdutil
     python sdutil cp sd://<datapartition>/test/file-name-at-ddms.txt local-dir/file-name-at-destination.txt
   ```
 
-> [!NOTE]
-> Don't use `cp` command to download VDS files. The VDS conversion results in multiple files, therefore the `cp` command won't be able to download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
+  > [!NOTE]
+  > Don't use `cp` command to download VDS files. The VDS conversion results in multiple files, therefore the `cp` command won't be able to download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
 
 ## Next steps
 

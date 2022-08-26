@@ -16,6 +16,8 @@
       href: tutorial-csv-ingestion.md
     - name: Manifest ingestion tutorial
       href: tutorial-manifest-ingestion.md
+    - name: Seismic DDMS sdutil tutorial
+      href: tutorial-seismic-ddms-sdutil.md
 - name: Concepts
   items:
     - name: CSV Parser ingestion

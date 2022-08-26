@@ -29,7 +29,7 @@ Seismic data stored in the industry standard SEG-Y format can be converted to Op
   git checkout azure/stable
   ```
 
-#### Step by Step guide
+## Step by step guide
 
 1. Check if VDS is registered with the workflow service or not:
 
@@ -71,8 +71,8 @@ Seismic data stored in the industry standard SEG-Y format can be converted to Op
 
 3. Run **sdutil** to see if it's working fine. Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`.
 
-> [!NOTE] 
-> when running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.
+    > [!NOTE] 
+    > when running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.
 
 4. Upload the seismic file
 
