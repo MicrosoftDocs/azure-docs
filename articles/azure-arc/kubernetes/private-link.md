@@ -162,7 +162,7 @@ If you opted out of using Azure private DNS zones during private endpoint creati
 ## Configure private links
 
 > [!NOTE]
-> Configuring private links for Azure Arc enabled Kubernetes clusters is supported starting from version 1.2.9 of connectedk8s CLI extension. Ensure that you are using connectedk8s CLI extension version greater than or equal to 1.2.9.
+> Configuring private links for Azure Arc enabled Kubernetes clusters is supported starting from version 1.3.0 of connectedk8s CLI extension. Ensure that you are using connectedk8s CLI extension version greater than or equal to 1.2.9.
 
 You can configure private links for an existing Azure Arc-enabled Kubernetes cluster or when onboarding a Kubernetes cluster to Azure Arc for the first time using the command below:
 
