@@ -262,7 +262,7 @@ The destination folder path for the captured events. This is the folder in your 
 }
 ```
 
-## Azure Storage or Azure Data Lake Storage Gen 2 as destination to captured events
+## Azure Storage or Azure Data Lake Storage Gen 2 as destination
 
 Creates a namespace of type **EventHub**, with one event hub, and also enables Capture to Azure Blob Storage or Azure Data Lake Storage Gen2. 
 
@@ -324,7 +324,7 @@ Creates a namespace of type **EventHub**, with one event hub, and also enables C
   ]
 ```
 
-## Resources to deploy for Azure Data Lake Storage Gen1 as destination
+## Azure Data Lake Storage Gen1 as destination
 
 Creates a namespace of type **EventHub**, with one event hub, and also enables Capture to Azure Data Lake Storage Gen1. If you're using Gen2 of Data Lake Storage, see the previous section.
 
