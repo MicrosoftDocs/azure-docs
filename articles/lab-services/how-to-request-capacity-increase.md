@@ -51,7 +51,7 @@ The information required for Lab Services v1 and Lab Services v2 is different. U
 
 :::image type="content" source="./media/how-to-request-capacity-increase/quota-details-v1.png" alt-text="Screenshot of the Quota details page for Lab Services v1.":::
 
-  |Name  |Value  |
+   |Name  |Value  |
    |---------|---------|
    |**Deployment Model**|Select **Lab Account (V1)**|
    |**What's the ramp-up plan (month by month usage)?**|Enter the rate at which you want to add the extra cores.|
@@ -64,7 +64,6 @@ The information required for Lab Services v1 and Lab Services v2 is different. U
 
 
 :::image type="content" source="./media/how-to-request-capacity-increase/quota-details-v2.png" alt-text="Screenshot of the Quota details page for Lab Services v2.":::
-
 
    |Name  |Value  |
    |---------|---------|
