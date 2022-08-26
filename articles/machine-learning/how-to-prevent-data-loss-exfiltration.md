@@ -22,9 +22,9 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
 * __Outbound__: If malicious agents don't have write access to outbound destination resources, they can't use that outbound for data exfiltration. Azure Active Directory, Azure Resource Manager, Azure Machine Learning, and Microsoft Container Registry belong to this category. On the other hand, Storage and AzureFrontDoor.frontend can be used for data exfiltration.
 
-    * __Storage Outbound (high risk)__: This requirement comes from compute instance and compute cluster. A malicious agent can use this outbound rule to exfiltrate data by provisioning and saving data in their own storage account. You can remove data exfiltration risk by using an Azure Service Endpoint Policy and Azure Batch's simplified node communication architecture.
+    * __Storage Outbound__: This requirement comes from compute instance and compute cluster. A malicious agent can use this outbound rule to exfiltrate data by provisioning and saving data in their own storage account. You can remove data exfiltration risk by using an Azure Service Endpoint Policy and Azure Batch's simplified node communication architecture.
 
-    * __AzureFrontDoor.frontend outbound (medium risk)__: Azure Front Door is required by the Azure Machine Learning studio UI and AutoML. Malicious agents can use this outbound rule to exfiltrate data similar to the storage outbound scenario - provisioning their own Azure Front Door and a storage account behind it. To prevent this scenario, allowlist the following fully qualified domain names (FQDN) on your Firewall, instead of using network security group.
+    * __AzureFrontDoor.frontend outbound__: Azure Front Door is required by the Azure Machine Learning studio UI and AutoML. To narrow down the list of possible outbound destinations to just those required by Azure ML, allowlist the following fully qualified domain names (FQDN) on your firewall.
 
         - `ml.azure.com`
         - `automlresources-prod.azureedge.net`
