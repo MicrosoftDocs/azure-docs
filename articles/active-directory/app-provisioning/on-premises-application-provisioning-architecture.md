@@ -30,6 +30,7 @@ There are three primary components to provisioning users into an on-premises app
 >[!NOTE]
 > Microsoft Identity Manager Synchronization isn't required. But you can use it to build and test your ECMA connector before you import it into the ECMA host.
 
+
 > [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
 
 ### Firewall requirements
