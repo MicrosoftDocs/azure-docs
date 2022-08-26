@@ -5,18 +5,16 @@
   items:
   - name: Enable on VMs in the Azure portal
     href: quick-create-virtual-machines-portal.md
-  - name: SDKs
-    items: 
-    - name: SDK Overview
-      href: quick-overview.md
-    - name: Create assignment with GO
-      href: quick-go-sdk.md
-    - name: Create assignment with Python
-      href: quick-python-sdk.md
-    - name: Create assignment with Java
-      href: quick-java-sdk.md
-    - name: Create assignment with JavaScript
-      href: quick-javascript-sdk.md
+  - name: SDK Overview
+    href: quick-overview.md
+  - name: GO
+    href: quick-go-sdk.md
+  - name: Python
+    href: quick-python-sdk.md
+  - name: Java
+    href: quick-java-sdk.md
+  - name: JavaScript
+    href: quick-javascript-sdk.md
 - name: Tutorials
   expanded: true
   items: 
