@@ -166,7 +166,7 @@ run.wait_for_completion(show_output=True)
 
 ## Git tracking and integration
 
-When you start a training job where the source directory is a local Git repository, information about the repository is stored in the job history. For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
+When you start a training job where the source directory is a local Git repository, information about the repository is stored in the job history. For more information, see [Git integration for Azure Machine Learning](../concept-train-model-git-integration.md).
 
 ## Notebook examples
 
@@ -226,7 +226,7 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
     Internally, Azure ML concatenates the blocks with the same metric name into a contiguous list.
 
-* **Compute target takes a long time to start**: The Docker images for compute targets are loaded from Azure Container Registry (ACR). By default, Azure Machine Learning creates an ACR that uses the *basic* service tier. Changing the ACR for your workspace to standard or premium tier may reduce the time it takes to build and load images. For more information, see [Azure Container Registry service tiers](container-registry/container-registry-skus.md).
+* **Compute target takes a long time to start**: The Docker images for compute targets are loaded from Azure Container Registry (ACR). By default, Azure Machine Learning creates an ACR that uses the *basic* service tier. Changing the ACR for your workspace to standard or premium tier may reduce the time it takes to build and load images. For more information, see [Azure Container Registry service tiers](../../container-registry/container-registry-skus.md).
 
 ## Next steps
 
