@@ -56,8 +56,8 @@ The `configurationProfile` value can be one of the following values:
 Follow these steps to deploy the ARM template:
 1. Save this ARM template as `azuredeploy.json`
 1. Run this ARM template deployment with `az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json`
-2. Provide the values for machineName, and configurationProfileName when prompted
-3. You're ready to deploy
+1. Provide the values for machineName, and configurationProfileName when prompted
+1. You're ready to deploy
 
 As with any ARM template, it's possible to factor out the parameters into a separate `azuredeploy.parameters.json` file and use that as an argument when deploying.
 
