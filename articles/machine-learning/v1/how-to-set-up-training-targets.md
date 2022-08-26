@@ -15,9 +15,9 @@ ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 
 # Configure and submit training jobs
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-In this article, you learn how to configure and submit Azure Machine Learning jobs to train your models. Snippets of code explain the key parts of configuration and submission of a training script.  Then use one of the [example notebooks](#notebooks) to find the full end-to-end working examples.
+In this article, you learn how to configure and submit Azure Machine Learning jobs to train your models. Snippets of code explain the key parts of configuration and submission of a training script.  Then use one of the [example notebooks](#notebook-examples) to find the full end-to-end working examples.
 
 When training, it is common to start on your local computer, and then later scale out to a cloud-based cluster. With Azure Machine Learning, you can run your script on various compute targets without having to change your training script.
 
@@ -27,10 +27,10 @@ All you need to do is define the environment for each compute target within a **
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install) (>= 1.13.0)
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md), `ws`
-* A compute target, `my_compute_target`.  [Create a compute target](how-to-create-attach-compute-studio.md) 
+* An [Azure Machine Learning workspace](../how-to-manage-workspace.md), `ws`
+* A compute target, `my_compute_target`.  [Create a compute target](../how-to-create-attach-compute-studio.md) 
 
-## <a name="whats-a-run-configuration"></a>What's a script run configuration?
+## What's a script run configuration?
 A [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) is used to configure the information necessary for submitting a training job as part of an experiment.
 
 You submit your training experiment with a ScriptRunConfig object.  This object includes the:
@@ -41,7 +41,7 @@ You submit your training experiment with a ScriptRunConfig object.  This object 
 * **environment**: The environment to use when running the script
 * and some additional configurable options (see the [reference documentation](/python/api/azureml-core/azureml.core.scriptrunconfig) for more information)
 
-## <a id="submit"></a>Train your model
+## Train your model
 
 The code pattern to submit a training job is the same for all types of compute targets:
 
@@ -53,12 +53,12 @@ The code pattern to submit a training job is the same for all types of compute t
 
 Or you can:
 
-* Submit a HyperDrive run for [hyperparameter tuning](how-to-tune-hyperparameters.md).
-* Submit an experiment via the [VS Code extension](tutorial-train-deploy-image-classification-model-vscode.md#train-the-model).
+* Submit a HyperDrive run for [hyperparameter tuning](../how-to-tune-hyperparameters.md).
+* Submit an experiment via the [VS Code extension](../tutorial-train-deploy-image-classification-model-vscode.md#train-the-model).
 
 ## Create an experiment
 
-Create an [experiment](v1/concept-azure-machine-learning-architecture.md#experiments) in your workspace. An experiment is a light-weight container that helps to organize job submissions and keep track of code.
+Create an [experiment](concept-azure-machine-learning-architecture.md#experiments) in your workspace. An experiment is a light-weight container that helps to organize job submissions and keep track of code.
 
 ```python
 from azureml.core import Experiment
@@ -76,12 +76,12 @@ The example code in this article assumes that you have already created a compute
 >[!Note]
 >Azure Databricks is not supported as a compute target for model training. You can use Azure Databricks for data preparation and deployment tasks.
 
-[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+[!INCLUDE [arc-enabled-kubernetes](../../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
-## <a name="environment"></a> Create an environment
-Azure Machine Learning [environments](concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
+## Create an environment
+Azure Machine Learning [environments](../concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
 
-You can either define your own environment, or use an Azure ML curated environment. [Curated environments](./how-to-use-environments.md#use-a-curated-environment) are predefined environments that are available in your workspace by default. These environments are backed by cached Docker images which reduces the job preparation cost. See [Azure Machine Learning Curated Environments](./resource-curated-environments.md) for the full list of available curated environments.
+You can either define your own environment, or use an Azure ML curated environment. [Curated environments](../how-to-use-environments.md#use-a-curated-environment) are predefined environments that are available in your workspace by default. These environments are backed by cached Docker images which reduces the job preparation cost. See [Azure Machine Learning Curated Environments](../resource-curated-environments.md) for the full list of available curated environments.
 
 For a remote compute target, you can use one of these popular curated environments to start with:
 
@@ -94,7 +94,7 @@ myenv = Environment.get(workspace=ws, name="AzureML-Minimal")
 
 For more information and details about environments, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md).
   
-### <a name="local"></a>Local compute target
+### Local compute target
 
 If your compute target is your **local machine**, you are responsible for ensuring that all the necessary packages are available in the Python environment where the script runs.  Use `python.user_managed_dependencies` to use your current Python environment (or the Python on the path you specify).
 
@@ -132,12 +132,12 @@ If you have command-line arguments you want to pass to your training script, you
 If you want to override the default maximum time allowed for the job, you can do so via the **`max_run_duration_seconds`** parameter. The system will attempt to automatically cancel the job if it takes longer than this value.
 
 ### Specify a distributed job configuration
-If you want to run a [distributed training](how-to-train-distributed-gpu.md) job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration), and [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration). 
+If you want to run a [distributed training](../how-to-train-distributed-gpu.md) job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration), and [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration). 
 
 For more information and examples on running distributed Horovod, TensorFlow and PyTorch jobs, see:
 
-* [Train TensorFlow models](./how-to-train-tensorflow.md#distributed-training)
-* [Train PyTorch models](./how-to-train-pytorch.md#distributed-training)
+* [Train TensorFlow models](../how-to-train-tensorflow.md#distributed-training)
+* [Train PyTorch models](../how-to-train-pytorch.md#distributed-training)
 
 ## Submit the experiment
 
@@ -149,9 +149,9 @@ run.wait_for_completion(show_output=True)
 > [!IMPORTANT]
 > When you submit the training job, a snapshot of the directory that contains your training scripts is created and sent to the compute target. It is also stored as part of the experiment in your workspace. If you change files and submit the job again, only the changed files will be uploaded.
 >
-> [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
+> [!INCLUDE [amlinclude-info](../../../includes/machine-learning-amlignore-gitignore.md)]
 > 
-> For more information about snapshots, see [Snapshots](v1/concept-azure-machine-learning-architecture.md#snapshots).
+> For more information about snapshots, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
 
 > [!IMPORTANT]
 > **Special Folders**
@@ -164,18 +164,18 @@ run.wait_for_completion(show_output=True)
 > For example, to download a file written to the *outputs* folder to your local machine after your remote training job: 
 > `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 
-## <a id="gitintegration"></a>Git tracking and integration
+## Git tracking and integration
 
 When you start a training job where the source directory is a local Git repository, information about the repository is stored in the job history. For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
-## <a name="notebooks"></a>Notebook examples
+## Notebook examples
 
 See these notebooks for examples of configuring jobs for various training scenarios:
 * [Training on various compute targets](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
 * [Training with ML frameworks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Troubleshooting
 
@@ -230,9 +230,9 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
 ## Next steps
 
-* [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md) uses a managed compute target to  train a model.
-* See how to train models with specific ML frameworks, such as [Scikit-learn](how-to-train-scikit-learn.md), [TensorFlow](how-to-train-tensorflow.md), and [PyTorch](how-to-train-pytorch.md).
-* Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
-* Once you have a trained model, learn [how and where to deploy models](how-to-deploy-managed-online-endpoints.md).
+* [Tutorial: Train and deploy a model](tutorial-1st-experiment-sdk-train.md) uses a managed compute target to  train a model.
+* See how to train models with specific ML frameworks, such as [Scikit-learn](../-to-train-scikit-learn.md), [TensorFlow](../how-to-train-tensorflow.md), and [PyTorch](../how-to-train-pytorch.md).
+* Learn how to [efficiently tune hyperparameters](../how-to-tune-hyperparameters.md) to build better models.
+* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-managed-online-endpoints.md).
 * View the [ScriptRunConfig class](/python/api/azureml-core/azureml.core.scriptrunconfig) SDK reference.
-* [Use Azure Machine Learning with Azure Virtual Networks](./how-to-network-security-overview.md)
+* [Use Azure Machine Learning with Azure Virtual Networks](../how-to-network-security-overview.md)
