@@ -59,7 +59,7 @@ You have CLI core version 2.0.81 and this extension requires a min of 2.34.1.
 Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-If you receive this output, you need to update your Azure CLI version. The `az upgrade` command was added in version 2.11.0 and doesn't work with versions prior to 2.11.0. Older versions can be updated by reinstalling Azure CLI as described in [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). If your Azure CLI version is 2.11.0 or later, you'll receive a message to run `az upgrade` to upgrade Azure CLI to the latest version.
+If you receive this output, you need to update your Azure CLI version. The `az upgrade` command was added in version 2.11.0 and doesn't work with versions prior to 2.11.0. Older versions can be updated by reinstalling Azure CLI as described in [Install the Azure CLI](/cli/azure/install-azure-cli). If your Azure CLI version is 2.11.0 or later, you'll receive a message to run `az upgrade` to upgrade Azure CLI to the latest version.
 
 If your Azure CLI is updated, receiving the following sample output means that no upgrades are available:
 
