@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 09/01/2021
+ms.date: 08/26/2022
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -275,7 +275,7 @@ related resources to match.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
     resource group specified in **ResourceGroupName**.
-  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation. 
+  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
   - Specifies when the existence of the related resources should be evaluated. The delay is only
@@ -451,7 +451,7 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 ## DeployIfNotExists
 
 Similar to AuditIfNotExists, a DeployIfNotExists policy definition executes a template deployment
-when the condition is met. Policy assignments with effect set as DeployIfNotExists require a [managed identity](../how-to/remediate-resources.md) to do remediation. 
+when the condition is met. Policy assignments with effect set as DeployIfNotExists require a [managed identity](../how-to/remediate-resources.md) to do remediation.
 
 > [!NOTE]
 > [Nested templates](../../../azure-resource-manager/templates/linked-templates.md#nested-template)
@@ -497,7 +497,7 @@ related resources to match and the template deployment to execute.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
     resource group specified in **ResourceGroupName**.
-  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation. 
+  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
   - Specifies when the existence of the related resources should be evaluated. The delay is only
@@ -748,7 +748,7 @@ Modify is used to add, update, or remove properties or tags on a subscription or
 creation or update. A common example is updating tags on resources such as costCenter. Existing
 non-compliant resources can be remediated with a
 [remediation task](../how-to/remediate-resources.md). A single Modify rule can have any number of
-operations. Policy assignments with effect set as Modify require a [managed identity](../how-to/remediate-resources.md) to do remediation. 
+operations. Policy assignments with effect set as Modify require a [managed identity](../how-to/remediate-resources.md) to do remediation.
 
 The following operations are supported by Modify:
 
