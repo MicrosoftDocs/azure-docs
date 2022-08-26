@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/24/2022
+ms.date: 08/26/2022
 ---
 
 # Azure Machine Learning data exfiltration prevention (Preview)
@@ -18,28 +18,19 @@ ms.date: 08/24/2022
 
 Azure Machine Learning has several inbound and outbound dependencies. Some of these dependencies can expose a data exfiltration risk by malicious agents within your organization. This document explains how to minimize data exfiltration risk by limiting inbound and outbound requirements.
 
-__Inbound__
+* __Inbound__: Azure Machine Learning compute instance and compute cluster have two inbound requirements: the `batchnodemanagement` (ports 29876-29877) and `azuremachinelearning` (port 44224) service tags. You can control this inbound traffic by using a network security group. It's difficult to disguise Azure service IPs, so there's low data exfiltration risk. You can also configure the compute to not use a public IP, which removes inbound requirements.
 
-Azure Machine Learning compute instance and compute cluster have two inbound requirements: the `batchnodemanagement` (ports 29876-29877) and `azuremachinelearning` (port 44224) service tags. You can control this inbound traffic by using a network security group. It's difficult to disguise Azure service IPs, so there's low data exfiltration risk. You can also configure the compute to not use a public IP, which removes inbound requirements.
+* __Outbound__: If malicious agents don't have write access to outbound destination resources, they can't use that outbound for data exfiltration. Azure Active Directory, Azure Resource Manager, Azure Machine Learning, and Microsoft Container Registry belong to this category. On the other hand, Storage, AzureFrontDoor.frontend, Azure Monitor can be used for data exfiltration.
 
-__Outbound__
+    * __Storage Outbound (high risk)__: This requirement comes from compute instance and compute cluster. A malicious agent can use this outbound rule to exfiltrate data by provisioning and saving data in their own storage account. You can remove data exfiltration risk by using an Azure Service Endpoint Policy and Azure Batch's simplified node communication architecture.
 
-If malicious agents don't have write access to outbound destination resources, they can't use that outbound for data exfiltration. Azure Active Directory, Azure Resource Manager, Azure Machine Learning, and Microsoft Container Registry belong to this category. On the other hand, Storage, AzureFrontDoor.frontend, Azure Monitor can be used for data exfiltration.
+    * __AzureFrontDoor.frontend outbound (medium risk)__: Azure Front Door is required by the Azure Machine Learning studio UI and AutoML. Malicious agents can use this outbound rule to exfiltrate data similar to the storage outbound scenario - provisioning their own Azure Front Door and a storage account behind it. To prevent this scenario, allowlist the following fully qualified domain names (FQDN) on your Firewall, instead of using network security group.
 
-__Storage Outbound__
+    - `ml.azure.com`
+    - `automlresources-prod.azureedge.net`
+    - `aka.ms`
 
-This requirement comes from compute instance and compute cluster. A malicious agent can use this outbound rule to exfiltrate data by provisioning and saving data in their own storage account. You can remove data exfiltration risk by using an Azure Service Endpoint Policy and Azure Batch's simplified node communication architecture.
-
-__AzureFrontDoor.frontend Outbound__
-
-Azure Front Door is required by the Azure Machine Learning studio UI and AutoML. Malicious agents can use this outbound rule to exfiltrate data similar to the storage outbound scenario - provisioning their own Azure Front Door and a storage account behind it. To prevent this scenario, allowlist the following fully qualified domain names (FQDN) on your Firewall, instead of using network security group.
-
-- `ml.azure.com`
-- `automlresources-prod.azureedge.net`
-
-__Azure Monitor__
-
-This requirement comes from the lack of support for private link enabled Azure Monitor. Malicious agents can use this outbound rule to exfiltrate data by provisioning and saving data in their own Azure Monitor. To prevent this scenario, block outbound traffic to Azure Monitor.
+    * __Azure Monitor outbound (low risk)__: This requirement comes from the lack of support for private link enabled Azure Monitor. Malicious agents can use this outbound rule to exfiltrate data by provisioning and saving data in their own Azure Monitor. This is a low risk, as they would need to use the Application Insights SDK to send the data from inside an app running on a compute resource. To prevent this scenario, you can block outbound traffic to Azure Monitor. However, blocking this traffic will prevent you from using Azure Machine Learning's monitoring features.
 
 ## Prerequisites
 
@@ -94,6 +85,9 @@ __Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace
 * `*.blob.core.windows.net` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
 * `*.queue.core.windows.net` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
 * `*.table.core.windows.net` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
+
+> [!IMPORTANT]
+> If you use one firewall for multiple Azure services, having outbound storage rules impacts other services. In this case, limit thee source IP of the outbound storage rule to the address space of the subnet that contains your compute instance and compute cluster resources. This limits the rule to the compute resources in the subnet.
 
 ---
 
