@@ -116,8 +116,9 @@ throughout the database cluster. The
 view gives a detailed view of cluster activity.
 
 The view shows, among other things, how queries are blocked by "wait events,"
-including locks.  Grouping by wait event type paints a picture of system
-health:
+including locks.  Grouping by
+[wait_event_type](https://www.postgresql.org/docs/14/monitoring-stats.html#WAIT-EVENT-TABLE)
+paints a picture of system health:
 
 ```sql
 -- gneral system health
@@ -129,7 +130,7 @@ SELECT wait_event_type, count(*)
  ORDER BY 2 DESC;
 ```
 
-A blank `wait_event_type` means the query is not waiting on anything.
+A NULL `wait_event_type` means the query is'nt waiting on anything.
 
 If you do see locks in the stat activity output, you can view the specific
 blocked queries using `citus_lock_waits`:
