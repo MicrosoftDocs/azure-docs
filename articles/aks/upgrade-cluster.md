@@ -17,7 +17,7 @@ For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgr
 
 ### [Azure CLI](#tab/azure-cli)
 
-This article requires that you are running the Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This article requires that you're running the Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -67,7 +67,7 @@ If your Azure CLI is updated, receiving the following sample output means that n
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-If no upgrade is available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. Attempting to upgrade a cluster to a newer Kubernetes version when `az aks get-upgrades` shows no upgrades available is not supported.
+If no upgrade is available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when `az aks get-upgrades` shows that no upgrades are available.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -81,7 +81,7 @@ To check which Kubernetes releases are available for your cluster, use the [Get-
 
 > [!NOTE]
 > When you upgrade a supported AKS cluster, Kubernetes minor versions can't be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* is not allowed.
-> 
+>
 > Skipping multiple versions can only be done when upgrading from an _unsupported version_ back to a _supported version_. For example, an upgrade from an unsupported *1.10.x* -> a supported *1.15.x* can be completed if available.
 
 The following example output shows that the cluster can be upgraded to versions *1.19.1* and *1.19.3*:
@@ -93,8 +93,7 @@ default 1.18.10                                        1.19.1
 default 1.18.10                                        1.19.3         
 ```
 
-> [!IMPORTANT]
-> If no upgrade is available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. Attempting to upgrade a cluster to a newer Kubernetes version when `Get-AzAksUpgradeProfile` shows no upgrades available is not supported.
+If no upgrade is available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when `Get-AzAksUpgradeProfile` shows that no upgrades are available.
 
 ---
 
@@ -135,8 +134,8 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS will:
 
 - Add a new buffer node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version.
-- [Cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications (if you're using max surge, it will [cordon and drain][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified).
-- When the old node is fully drained, it will be reimaged to receive the new version and it will become the buffer node for the following node to be upgraded.
+- [Cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications. If you're using max surge, it will [cordon and drain][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified.
+- When the old node is fully drained, it will be reimaged to receive the new version, and it will become the buffer node for the following node to be upgraded.
 - This process repeats until all nodes in the cluster have been upgraded.
 - At the end of the process, the last buffer node will be deleted, maintaining the existing agent node count and zone balance.
 
@@ -174,8 +173,8 @@ myAKSCluster  eastus      myResourceGroup  1.19.1               Succeeded       
 With a list of available versions for your AKS cluster, use the [Set-AzAksCluster][set-azakscluster] cmdlet to upgrade. During the upgrade process, AKS will:
 
 - Add a new buffer node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version.
-- [Cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications (if you're using max surge it will [cordon and drain][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified).
-- When the old node is fully drained, it will be reimaged to receive the new version and it will become the buffer node for the following node to be upgraded.
+- [Cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications. If you're using max surge it will [cordon and drain][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified.
+- When the old node is fully drained, it will be reimaged to receive the new version, and it will become the buffer node for the following node to be upgraded.
 - This process repeats until all nodes in the cluster have been upgraded.
 - At the end of the process, the last buffer node will be deleted, maintaining the existing agent node count and zone balance.
 
@@ -241,7 +240,7 @@ In addition to manually upgrading a cluster, you can set an auto-upgrade channel
 
 AKS uses best-effort zone balancing in node groups. During an Upgrade surge, zone(s) for the surge node(s) in virtual machine scale sets is unknown ahead of time. This can temporarily cause an unbalanced zone configuration during an upgrade. However, AKS deletes the surge node(s) once the upgrade has been completed and preserves the original zone balance. If you desire to keep your zones balanced during upgrade, increase the surge to a multiple of three nodes. Virtual machine scale sets will then balance your nodes across Availability Zones with best-effort zone balancing.
 
-If you have PVCs backed by Azure LRS Disks, they’ll be bound to a particular zone and may fail to recover immediately if the surge node doesn’t match the zone of the PVC. This could cause downtime on your application when the Upgrade operation continues to drain nodes but the PVs are bound to a zone. To handle this case and maintain high availability, configure a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application. This allows Kubernetes to respect your availability requirements during Upgrade's drain operation.
+If you have PVCs backed by Azure LRS Disks, they’ll be bound to a particular zone, and they may fail to recover immediately if the surge node doesn’t match the zone of the PVC. This could cause downtime on your application when the Upgrade operation continues to drain nodes but the PVs are bound to a zone. To handle this case and maintain high availability, configure a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application. This allows Kubernetes to respect your availability requirements during Upgrade's drain operation.
 
 ## Next steps
 
