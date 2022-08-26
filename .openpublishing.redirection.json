@@ -22354,6 +22354,11 @@
     "redirect_document_id":  false
 },
 {
+    "source_path_from_root":  "/articles/storage/common/customer-managed-keys-configure-key-vault.md",
+    "redirect_url":  "/azure/storage/common/customer-managed-keys-configure-existing-account",
+    "redirect_document_id":  false
+},
+{
     "source_path_from_root":  "/articles/storage/common/encryption-customer-managed-keys.md",
     "redirect_url":  "/azure/storage/common/customer-managed-keys-overview",
     "redirect_document_id":  true

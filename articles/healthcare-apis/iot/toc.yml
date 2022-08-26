@@ -4,7 +4,7 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: About the MedTech service
+  - name: What is MedTech service?
     href: iot-connector-overview.md
 - name: Quickstarts
   expanded: true
