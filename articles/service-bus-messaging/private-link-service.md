@@ -77,7 +77,7 @@ If you already have an existing namespace, you can create a private endpoint by 
         :::image type="content" source="./media/private-link-service/create-private-endpoint-basics-page.png" alt-text="Screenshot showing the Basics page of the Create private endpoint wizard.":::
 8. On the **Resource** page, review settings, and select **Next: Virtual Network** at the bottom of the page.
 
-    :::image type="content" source="./media/private-link-service/create-private-endpoint-resource-page.png" alt-text="Screenshot showing the Basics page of the Create private endpoint wizard.":::
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-resource-page.png" alt-text="Screenshot showing the Resource page of the Create private endpoint wizard.":::
 9. On the **Virtual Network** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
     1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
     2. Select a **subnet** in the virtual network you selected. 
