@@ -10,7 +10,7 @@ ms.date: 08/30/2022
 
 In this article, you'll learn about using Azure Private Link to connect to an HDInsight cluster privately across networks over the Microsoft backbone network. This article is an extension of the article [Restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md), which focuses on restricting public connectivity. If you want public connectivity to or within your HDInsight clusters and dependent resources, consider restricting the connectivity of your cluster by following guidelines in [Control network traffic in Azure HDInsight](./control-network-traffic.md).
 
-Private Link can be used in cross-network scenarios where virtual network peering is not available or enabled.
+Private Link can be used in cross-network scenarios where virtual network peering isn't available or enabled.
 
 > [!NOTE]
 > Restricting public connectivity is a prerequisite for enabling Private Link and shouldn't be considered the same capability.
@@ -20,7 +20,7 @@ The use of Private Link to connect to an HDInsight cluster is an optional featur
 When `privateLink` is set to *enabled*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLBs) are created, and an Azure Private Link service is provisioned for each SLB. The Private Link service is what allows you to access the HDInsight cluster from private endpoints.
 
 ## Private link deployment steps
-Successfully creating a Private Link cluster takes many steps, so we have outlined them here. Follow each of the steps below to ensure everything is setup correctly.
+Successfully creating a Private Link cluster takes many steps, so we've outlined them here. Follow each of the steps below to ensure everything is set up correctly.
 
 ### [Step 1: Create prerequisites](#Createpreqs)
 ### [Step 2: Configure HDInsight subnet](#DisableNetworkPolicy)
@@ -33,7 +33,7 @@ Successfully creating a Private Link cluster takes many steps, so we have outlin
 
 ## <a name="Createpreqs"></a>Step 1: Create prerequisites
 
-To start, deploy the following resources if you have not created them already. Once this is done you should have at least 1 resource group, 2 virtual networks, and a network security group to attach to the subnet where the HDInsight cluster will be deployed as shown below.
+To start, deploy the following resources if you haven't created them already. You need to have at least one resource group, two virtual networks, and a network security group to attach to the subnet where the HDInsight cluster will be deployed as shown below.
 
 |Type|Name|Purpose|
 |----|----|-------|
@@ -57,10 +57,10 @@ Standard load balancers don't automatically provide [public outbound NAT](../loa
 ### Deploy a NAT gateway (Option 1)
 You can opt to use a NAT gateway if you don't want to configure a firewall or a network virtual appliance (NVA) for NAT. To get started, add a NAT gateway (with a new public IP address in your virtual network) to the configured subnet of your virtual network. This gateway is responsible for translating your private internal IP address to public addresses when traffic needs to go outside your virtual network.
 
-For a basic setup to get started:
+For a basic set up to get started:
     
 1. Search for 'NAT Gateways' in the Azure portal and click **Create**.
-2. Use the following configurations in the NAT Gateway. (We are not including all configs here, so you can use the default value for those)
+2. Use the following configurations in the NAT Gateway. (We aren't including all configs here, so you can use the default values.)
     
     | Config | Value |
     | ------ | ----- |
@@ -81,12 +81,12 @@ For a basic setup to get started:
 1. Use the new firewall's private IP address as the `nextHopIpAddress` value in your route table. 
 1. Add the route table to the configured subnet of your virtual network.
 
-Your HDInsight cluster still needs access to its outbound dependencies. If these outbound dependencies are not allowed, cluster creation might fail. 
+Your HDInsight cluster still needs access to its outbound dependencies. If these outbound dependencies aren't allowed, cluster creation might fail. 
 For more information on setting up a firewall, see [Control network traffic in Azure HDInsight](./control-network-traffic.md).
 
 ## <a name="deployCluster"></a>Step 4: Deploy private link cluster
 
-At this point all prerequisites should be taken care of and you are ready to deploy the Private Link cluster. The following diagram shows an example of the networking configuration that's required before you create the cluster. In this example, all outbound traffic is forced to Azure Firewall through a user-defined route. The required outbound dependencies should be allowed on the firewall before cluster creation. For Enterprise Security Package clusters, virtual network peering can provide the network connectivity to Azure Active Directory Domain Services.
+At this point, all prerequisites should be taken care of and you are ready to deploy the Private Link cluster. The following diagram shows an example of the networking configuration that's required before you create the cluster. In this example, all outbound traffic is forced to Azure Firewall through a user-defined route. The required outbound dependencies should be allowed on the firewall before cluster creation. For Enterprise Security Package clusters, virtual network peering can provide the network connectivity to Azure Active Directory Domain Services.
 
 :::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagram of the Private Link environment before cluster creation.":::
 
@@ -108,7 +108,7 @@ To create a cluster by using the Azure CLI, see the [example](/cli/azure/hdinsig
     
 ## <a name="PrivateEndpoints"></a>Step 5: Create private endpoints
 
-Azure automatically creates a Private link service for the Ambari and SSH load balancers during the Private Link cluster deployment. After the cluster is deployed, you have to create two Private endpoints on the client VNET(s), one for Ambari and one for SSH access. Then, link them to the Private link services which were created as part of the cluster deployment.
+Azure automatically creates a Private link service for the Ambari and SSH load balancers during the Private Link cluster deployment. After the cluster is deployed, you have to create two Private endpoints on the client VNET(s), one for Ambari and one for SSH access. Then, link them to the Private link services that were created as part of the cluster deployment.
 
 To create the private endpoints:
 1. Open the Azure portal and search for 'Private link'.
@@ -119,7 +119,7 @@ To create the private endpoints:
     | ------ | ----- |
     | Name | hdi-privlink-cluster |
     | Resource type | Microsoft.Network/privateLinkServices |
-    | Resource | gateway-* (This should match the HDI deployment ID of your cluster, for example gateway-4eafe3a2a67e4cd88762c22a55fe4654) |
+    | Resource | gateway-* (This value should match the HDI deployment ID of your cluster, for example gateway-4eafe3a2a67e4cd88762c22a55fe4654) |
     | Virtual network | hdi-privlink-client-vnet |
     | Subnet | default |
     
@@ -129,7 +129,7 @@ To create the private endpoints:
     | ------ | ----- |
     | Name | hdi-privlink-cluster-ssh |
     | Resource type | Microsoft.Network/privateLinkServices |
-    | Resource | headnode-* (This should match the HDI deployment ID of your cluster, for example headnode-4eafe3a2a67e4cd88762c22a55fe4654) |
+    | Resource | headnode-* (This value should match the HDI deployment ID of your cluster, for example headnode-4eafe3a2a67e4cd88762c22a55fe4654) |
     | Virtual network | hdi-privlink-client-vnet |
     | Subnet | default |
     
@@ -159,7 +159,7 @@ The following image shows an example of the private DNS entries configured to en
 
 To configure DNS resolution through a Private DNS zone:
     
-1. Create an Azure Private DNS zone. (We are not including all configs here, all other configs are left at default values)
+1. Create an Azure Private DNS zone. (We aren't including all configs here, all other configs are left at default values)
     
     | Config | Value |
     | ------ | ----- |
@@ -198,12 +198,12 @@ To configure DNS resolution through a Private DNS zone:
 
 ## <a name="CheckConnectivity"></a>Step 6: Check cluster connectivity
 
-The last step is to test connectivity to the cluster. Since this cluster is isolated or private, we cannot access the cluster using any public IP or FQDN. Instead we have a couple of options:
+The last step is to test connectivity to the cluster. Since this cluster is isolated or private, we can't access the cluster using any public IP or FQDN. Instead we have a couple of options:
 
 * Set up VPN access to the client VNET from your on premise network
 * Deploy a VM to the client VNET and access the cluster from this VM
 
-For this example, we will deploy a VM in the client VNET using the following configuration to test the connectivity.
+For this example, we'll deploy a VM in the client VNET using the following configuration to test the connectivity.
     
 | Config | Value |
 | ------ | ----- |
@@ -225,7 +225,7 @@ To test Ambari access: <br>
 To test ssh access: <br>
 1. Open a command prompt to get a terminal window. 
 2. In the terminal window, try connecting to your cluster with SSH: `ssh sshuser@<clustername>.azurehdinsight.net` (Replace "sshuser" with the ssh user you created for your cluster) 
-3. If you are able to connect, the configuration is correct for SSH access.
+3. If you're able to connect, the configuration is correct for SSH access.
     
 ## <a name="ManageEndpoints"></a>Manage private endpoints for HDInsight
 
