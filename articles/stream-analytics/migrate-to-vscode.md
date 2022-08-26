@@ -12,13 +12,14 @@ ms.service: stream-analytics
 
 This article provides guidance for Visual Studio users migrating ASA projects to Visual Studio Code (VSCode). The ASA tools extension for Visual Studio is no longer maintained since 2020. We recommend that you use the ASA tools extension in VSCode for testing query locally before you submit and start an ASA job. 
 
-If you have a local working ASA project in Visual Studio, follow [these steps](##header-FAQs) to submit your ASA project to Azure portal. 
+If you have a local working ASA project in Visual Studio, follow [these steps](#faqs) to submit your ASA project to Azure portal. 
 
 ## Install VSCode and ASA Tools extension
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/)
 
 2. Open Visual Studio Code, select **Extensions** on the left pane, search for **Stream Analytics** and select **Install** on the **Azure Stream Analytics Tools** extension.
+
    ![Search for Stream Analytics](./media/stream-analytics-migrate-to-vscode/clip_image002.png)
 
 3. After the extension is installed, verify that **Azure Stream Analytics Tools** is visible in **Enabled Extensions**.
@@ -64,7 +65,7 @@ If you've created an ASA job in the Azure portal, you can download the ASA job t
 
 ## Run an ASA job in VSCode
 
-After an ASA job is exported, you can run your query on the local machine. For input, data can be ingested from local files or live sources. Output results are either sent as files to a local folder, or to the live sinks. For more detail, visit [Run jobs locally with VS Code](https://docs.microsoft.com/en-us/azure/stream-analytics/visual-studio-code-local-run-all).
+After an ASA job is exported, you can run your query on the local machine. For input, data can be ingested from local files or live sources. Output results are either sent as files to a local folder, or to the live sinks. For more detail, visit [Run jobs locally with VS Code](./visual-studio-code-local-run-all.md).
 
 Follow these steps to run your job with live input and save output results locally: 
 1. Before you begin, install [.NET core SDK](https://dotnet.microsoft.com/en-us/download) and restart Visual Studio Code.
@@ -75,13 +76,13 @@ Follow these steps to run your job with live input and save output results local
 
 3. Then select **Use Live Input and Local Output** under the Command Palette.
     
-    ![VSCode command palette](./media/stream-analytics-migrate-to-vscode/local-run-command-palette.png)
+    ![vscode command palette](./media/stream-analytics-migrate-to-vscode/local-run-command-palette.png)
 
 4. If your job started successfully, you can view the job diagram and metrics for your ASA job.
     
     :::image type="content" source="./media/stream-analytics-migrate-to-vscode/vscode-job-diagram-metrics.png" alt-text="view-metrics" lightbox= "./media/stream-analytics-migrate-to-vscode/vscode-job-diagram-metrics.png" :::
 
-For more details about debugging query, visit [Debug queries using job diagram](https://docs.microsoft.com/en-us/azure/stream-analytics/debug-locally-using-job-diagram-vs-code?view=azuresql)
+For more details about debugging, visit [Debug ASA queries locally using job diagram](./debug-locally-using-job-diagram-vs-code.md)
 
 ## FAQs
 
@@ -93,17 +94,17 @@ If you have a local ASA project in Visual Studio and not yet submitted, follow t
 
    ![VS Solution Explorer](./media/stream-analytics-migrate-to-vscode/vs-soluton-explorer.png)
 
-2. In the **Query Editor**, select **Submit to Azure** in the script editor.
+2. Open the script **(\*.asaql)**, select **Submit to Azure** in the editor.
 
    ![VS Submit to Azure](./media/stream-analytics-migrate-to-vscode/vs-submit-to-azure.png)
 
-3. Select **Create a New Azure Stream Analytics job** and enter a **Job Name**. Choose the **Subscription**, **Resource Group**, and **Location** for your ASA project.
+3. Select **Create a New Azure Stream Analytics job** and enter a **Job Name**. Choose the **Subscription**, **Resource Group**, and **Location** for the ASA project. 
 
    ![Graphical user interface, text, application  Description automatically generated](./media/stream-analytics-migrate-to-vscode/clip_image020.jpg)
 
-4. After you select **Submit**, you can go to the Azure portal and find the ASA job under your **Resource Group**. 
+4. Then you can go to the Azure portal and find the ASA job under your **Resource Group**. 
 
-5. Follow [these steps](##export-an-asa-job-to-vscode) to export an ASA job to VSCode. 
+5. To download an ASA job in VSCode, see [here](#download-an-asa-job-and-open-in-vscode).
 
 
 ### Do I need to configure the input and output sources after an ASA job is exported?
@@ -123,8 +124,7 @@ No, if your ASA job has configured multiple Inputs and Outputs sources in the Az
 
 3. Then you can preview data and verify if the new input source is added. 
 
-    ![preview data](./media/stream-analytics-migrate-to-vscode/preview-data.png)
-
+    :::image type="content" source="./media/stream-analytics-migrate-to-vscode/preview-data.png" alt-text="preview-data" lightbox= "./media/stream-analytics-migrate-to-vscode/preview-data.png" :::
 
 ## Next steps
 
