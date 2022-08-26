@@ -4,12 +4,12 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 08/26/2022
 ms.author: kendownie
 ms.subservice: files
 ---
 
-# Enable Azure Active Directory Kerberos authentication for Hybrid Identities on Azure Files (preview)
+# Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files (preview)
 
 > [!IMPORTANT]
 > Azure Files authentication with Azure Active Directory Kerberos is currently in public preview.
@@ -27,7 +27,7 @@ For more information on all supported options and considerations, see [Overview 
 This article focuses on the last method: enabling and configuring Azure AD for authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD identities that are synced to the cloud. This allows Azure AD users to access Azure file shares using Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. This means your end users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from hybrid Azure AD-joined and Azure AD-joined VMs. However, configuring access control lists (ACLs) and permissions might require line-of-sight to the domain controller.
 
 > [!NOTE]
-> Your Azure Storage account can't authenticate with both Azure AD and a second method like AD DS or Azure AD DS. You can only use one authentication method.
+> Your Azure Storage account can't authenticate with both Azure AD and a second method like AD DS or Azure AD DS. You can only use one authentication method. If you've already chosen another authentication method for your storage account, you must disable it before enabling Azure AD Kerberos.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -40,7 +40,7 @@ This article focuses on the last method: enabling and configuring Azure AD for a
 
 Before you enable Azure AD over SMB for Azure file shares, make sure you've completed the following prerequisites.
 
-The Azure AD Kerberos functionality is only available on the following operating systems:
+The Azure AD Kerberos functionality for hybrid identities is only available on the following operating systems:
 
   - Windows 11 Enterprise single or multi-session.
   - Windows 10 Enterprise single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
@@ -48,7 +48,7 @@ The Azure AD Kerberos functionality is only available on the following operating
 
 To learn how to create and configure a Windows VM and log in by using Azure AD-based authentication, see [Log in to a Windows virtual machine in Azure by using Azure AD](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
-User accounts created and managed solely in Azure AD are currently not supported. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and Azure AD Connect. You must create these accounts in Active Directory and sync them to Azure AD. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
+This feature doesn't currently support user accounts that you create and manage solely in Azure AD. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and Azure AD Connect. You must create these accounts in Active Directory and sync them to Azure AD. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
 
 You must disable multi-factor authentication (MFA) on the Azure AD app representing the storage account.
 
@@ -60,7 +60,7 @@ Azure Files authentication with Azure AD Kerberos public preview is available in
 
 ## Enable Azure AD Kerberos authentication for hybrid user accounts (preview)
 
-To enable Azure AD Kerberos authentication on Azure Files for hybrid user accounts (preview), use the Azure portal. Follow these steps:
+To enable Azure AD Kerberos authentication on Azure Files for hybrid user accounts (preview), use the Azure portal.
 
 1. Sign in to the Azure portal and select the storage account you want to enable Azure AD Kerberos authentication for.
 1. Under **Data storage**, select **File shares**.
@@ -87,7 +87,7 @@ To enable Azure AD Kerberos authentication on Azure Files for hybrid user accoun
 
 ## Grant admin consent to the new service principal
 
-After enabling Azure AD Kerberos authentication, you'll need to explicitly grant admin consent to the new Azure AD application registered in your Azure AD tenant to complete your configuration. You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps.
+After enabling Azure AD Kerberos authentication, you'll need to explicitly grant admin consent to the new Azure AD application registered in your Azure AD tenant to complete your configuration. You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
 
 1. Open **Azure Active Directory**.
 2. Select **App registrations** on the left pane.
