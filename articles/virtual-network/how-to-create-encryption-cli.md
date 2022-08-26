@@ -20,7 +20,7 @@ Azure Virtual Network encryption is a feature of Azure Virtual Network. Virtual 
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- This tutorial requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This how-to requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
