@@ -123,7 +123,7 @@ To configure customer-managed keys for a new storage account with automatic upda
 1. In the **Encryption key** field, choose **Select a key vault and key**, and specify the key vault and key.
 1. For the **User-assigned identity** field, select an existing user-assigned managed identity.
 
-    :::image type="content" source="media/customer-managed-keys-configure-new-account/portal-new-account-configure-cmk.png" alt-text="Screenshot showing how to configure customer-managed keys for a new storage account in Azure portal":::
+    :::image type="content" source="media/customer-managed-keys-configure-new-account/portal-new-account-configure-cmk.png" alt-text="Screenshot showing how to configure customer-managed keys for a new storage account in Azure portal.":::
 
 1. Select the **Review** button to validate and create the account.
 
@@ -184,13 +184,13 @@ To configure customer-managed keys with manual updating of the key version in th
 1. To locate the key URI in the Azure portal, navigate to your key vault, and select the **Keys** setting. Select the desired key, then click the key to view its versions. Select a key version to view the settings for that version.
 1. Copy the value of the **Key Identifier** field, which provides the URI.
 
-    :::image type="content" source="media/customer-managed-keys-configure-new-account/portal-copy-key-identifier.png" alt-text="Screenshot showing key vault key URI in Azure portal":::
+    :::image type="content" source="media/customer-managed-keys-configure-new-account/portal-copy-key-identifier.png" alt-text="Screenshot showing key vault key URI in Azure portal.":::
 
 1. In the **Encryption key** settings for your storage account, choose the **Enter key URI** option.
 1. Paste the URI that you copied into the **Key URI** field. Include the key version on the URI to configure manual updating of the key version.
 1. Specify a user-assigned managed identity by choosing the **Select an identity** link.
 
-    :::image type="content" source="media/customer-managed-keys-configure-new-account/portal-specify-key-uri.png" alt-text="Screenshot showing how to enter key URI in Azure portal":::
+    :::image type="content" source="media/customer-managed-keys-configure-new-account/portal-specify-key-uri.png" alt-text="Screenshot showing how to enter key URI in Azure portal.":::
 
 1. Select the **Review** button to validate and create the account.
 

@@ -170,7 +170,7 @@ To configure customer-managed keys for an existing account with automatic updati
 1. Navigate to your storage account.
 1. On the **Settings** blade for the storage account, click **Encryption**. By default, key management is set to **Microsoft Managed Keys**, as shown in the following image.
 
-    :::image type="content" source="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png" alt-text="Screenshot showing encryption options in Azure portal" lightbox="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png":::
+    :::image type="content" source="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png" alt-text="Screenshot showing encryption options in Azure portal." lightbox="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png":::
 
 1. Select the **Customer Managed Keys** option.
 1. Choose the **Select from Key Vault** option.
@@ -185,13 +185,13 @@ To configure customer-managed keys for an existing account with automatic updati
     1. If you select **System-assigned**, the system-assigned managed identity for the storage account is created under the covers, if it does not already exist.
     1. If you select **User-assigned**, then you must select an existing user-assigned identity that has permissions to access the key vault. To learn how to create a user-assigned identity, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
-    :::image type="content" source="media/customer-managed-keys-configure-existing-account/select-user-assigned-managed-identity-portal.png" alt-text="Screenshot showing how to select a user-assigned managed identity for key vault authentication":::
+    :::image type="content" source="media/customer-managed-keys-configure-existing-account/select-user-assigned-managed-identity-portal.png" alt-text="Screenshot showing how to select a user-assigned managed identity for key vault authentication.":::
 
 1. Save your changes.
 
 After you've specified the key, the Azure portal indicates that automatic updating of the key version is enabled and displays the key version currently in use for encryption. The portal also displays the type of managed identity used to authorize access to the key vault and the principal ID for the managed identity.
 
-:::image type="content" source="media/customer-managed-keys-configure-existing-account/portal-auto-rotation-enabled.png" alt-text="Screenshot showing automatic updating of the key version enabled":::
+:::image type="content" source="media/customer-managed-keys-configure-existing-account/portal-auto-rotation-enabled.png" alt-text="Screenshot showing automatic updating of the key version enabled.":::
 
 ### [PowerShell](#tab/powershell)
 
@@ -240,12 +240,12 @@ To configure customer-managed keys with manual updating of the key version in th
 1. To locate the key URI in the Azure portal, navigate to your key vault, and select the **Keys** setting. Select the desired key, then click the key to view its versions. Select a key version to view the settings for that version.
 1. Copy the value of the **Key Identifier** field, which provides the URI.
 
-    :::image type="content" source="media/customer-managed-keys-configure-existing-account/portal-copy-key-identifier.png" alt-text="Screenshot showing key vault key URI in Azure portal":::
+    :::image type="content" source="media/customer-managed-keys-configure-existing-account/portal-copy-key-identifier.png" alt-text="Screenshot showing key vault key URI in Azure portal.":::
 
 1. In the **Encryption key** settings for your storage account, choose the **Enter key URI** option.
 1. Paste the URI that you copied into the **Key URI** field. Omit the key version from the URI to enable automatic updating of the key version.
 
-    :::image type="content" source="media/customer-managed-keys-configure-existing-account/portal-specify-key-uri.png" alt-text="Screenshot showing how to enter key URI in Azure portal":::
+    :::image type="content" source="media/customer-managed-keys-configure-existing-account/portal-specify-key-uri.png" alt-text="Screenshot showing how to enter key URI in Azure portal.":::
 
 1. Specify the subscription that contains the key vault.
 1. Specify either a system-assigned or user-assigned managed identity.
