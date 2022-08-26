@@ -9,7 +9,7 @@ ms.date: 08/03/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
 ---
-
+ 
 # Migrate Azure managed disks to availability zone support
  
 This guide describes how to migrate Azure managed disks from non-availability zone support to availability zone support. We'll take you through the two different options for migration. The first migration option describes how to migrate a non-zonal managed disk to zonal. The second option describes how to migrate from a disk that's using [locally-redundant storage](../virtual-machines/disks-redundancy.md#locally-redundant-storage-for-managed-disks) (LRS) to a disk that's using [zone-redundant storage](../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks) (ZRS).

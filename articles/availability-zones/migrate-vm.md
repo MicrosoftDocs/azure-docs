@@ -38,19 +38,22 @@ Because zonal VMs are created across the availability zones, all migration optio
 
 ### When to use redeployment
 
-Use the redeployment option if you have good Infrastructure as Code (IaC) practices setup to manage infrastructure. The redeployment option gives you more control, and the ability to automate various processes within your deployment pipelines.
+Use the redeployment option if you have set up good Infrastructure as Code (IaC) practices to manage infrastructure. This redeployment option gives you more control and the ability to automate various processes within your deployment pipelines. 
 
 ### Redeployment considerations
 
 - When you redeploy your VM and VMSS resources, the underlying resources such as managed disk and IP address for the VM are created in the same availability zone. You must use a Standard SKU public IP address and load balancer to create zone-redundant network resources.  
 
+- Existing managed disks without availability zone support can't be attached to a VM with availability zone support. To attach an existing managed disk to a VM with availability zone support, you'll need to take a snapshot of the current disk, and then create your VM with the new managed disk attached.
+
 - For zonal deployments that require reasonably low network latency and good performance between application tier and data tier, use [proximity placement groups](../virtual-machines/co-location.md). Proximity groups can force grouping of different VM resources under a single network spine. For an example of an SAP workload that uses proximity placement groups, see [Azure proximity placement groups for optimal network latency with SAP applications](../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md)
+
 
 ### How to redeploy
 
-To redeploy, you'll need to recreate your VM and VMSS resources. To ensure high-availability of your compute resources, it's recommended that you select multiple zones for your new VMs and VMSS.
+If you want to migrate the data on your current managed disks when creating a new VM, follow the directions in [Migrate your managed disks](#migrate-your-managed-disks).
 
-To learn how create VMs in an availability zone, see:
+If you only want to create new VM with new managed disks in an availability zone, see:
 
 - [Create VM using Azure CLI](../virtual-machines/linux/create-cli-availability-zone.md)
 - [Create VM using Azure PowerShell](../virtual-machines/windows/create-PowerShell-availability-zone.md)
@@ -58,11 +61,69 @@ To learn how create VMs in an availability zone, see:
 
 To learn how to create VMSS in an availability zone, see [Create a virtual machine scale set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md).
 
+### Migrate your managed disks
+
+This section show you how to migrate the data on your current managed disks when creating a new VM.
+
+#### Step 1: Create your snapshot
+
+The easiest and cleanest way to create a snapshot is to do so while the VM is offline. See [Create snapshots while the VM is offline](../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md#create-snapshots-while-the-vm-is-offline). If you choose this approach, some downtime should be expected. To create a snapshot of your VM using the Azure portal, PowerShell, or Azure CLI, see [Create a snapshot of a virtual hard disk](../virtual-machines/snapshot-copy-managed-disk.md)
+
+If you'll be taking a snapshot of a disk that's attached to a running VM, make sure you read the guidance in [Create snapshots while the VM is running](../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md#create-snapshots-while-the-vm-is-running) before proceeding.
+
+>[!NOTE]
+> The source managed disk remains intact with its current configuration and you'll continue to be billed for it. To avoid this, you must manually delete the disk once you've finished your migration and confirmed the new disk is working. For more information, see [Find and delete unattached Azure managed and unmanaged disks](../virtual-machines/windows/find-unattached-disks.md).
+
+
+#### Step 2: Migrate your managed disk
+
+**To Migrate a non-zonal managed disk to zonal:**
+
+To migrate a non-zonal managed disk to zonal:
+
+1. Create a zonal managed disk from the source disk snapshot. The zone parameter should match your zonal VM.  To create a zonal managed disk from the snapshot, you can use [Azure CLI](../virtual-machines/scripts/create-managed-disk-from-snapshot.md)(example below), [PowerShell](../virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md), or the Azure Portal.
+
+    ```azurecli
+        az disk create --resource-group $resourceGroupName --name $diskName --location $location --zone $zone --sku $storageType --size-gb $diskSize --source $snapshotId
+    ```
+
+1. Attach the zonal managed disk to the zonal VM. For guidance on how to attach a managed disk, see [Attach a data disk to a Windows VM with Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md) or [Attach a data disk to a Windows VM with PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+
+    >[!NOTE]
+    > The source managed disk remains intact with its current configuration. If you no longer want to keep it, you must manually delete the disk. For more information, see [Find and delete unattached Azure managed and unmanaged disks](../virtual-machines/windows/find-unattached-disks.md).
+
+**To migrate a non-zonal managed disk to zone-redundant:**
+
+>![IMPORTANT]
+> Zone-redundant storage (ZRS) for managed disks has some restrictions. For more information see [Limitations](../virtual-machines/disks-deploy-zrs.md?tabs=portal#limitations). 
+
+1. Create a ZRS managed disk from the source disk snapshot by using the following Azure CLI snippet: 
+
+    ```azurecli
+    # Create a new ZRS Managed Disks using the snapshot Id and the SKU supported   
+    storageType=Premium_ZRS 
+    location=westus2 
+
+    az disk create --resource-group $resourceGroupName --name $diskName --sku $storageType --size-gb $diskSize --source $snapshotId 
+    
+    ```
+
+#### Step 3: Create a new VM with your new disks
+
+To create a new VM to deploy and boot with the new managed disks, run the following command:
+
+```azurecli
+
+    az vm create -g MyResourceGroup -n MyVm --attach-os-disk newZonalOSDiskCopy --attach-data-disks newZonalDataDiskCopy --os-type linux
+
+```
+
+
 ## Migration Option 2: Azure Resource Mover
 
 ### When to use Azure Resource Mover
 
-Use Azure Resource Mover for an easy way to move VMs or encrypted VMs from one region without availability zones to another with availability zones. If you want to learn more about the benefits of using Azure Resource Mover, see [Why use Azure Resource Mover?](../resource-mover/overview.md#why-use-resource-mover).
+Use Azure Resource Mover for an easy way to move VMs or encrypted VMs from one region without availability zones to another with availability zone support. If you want to learn more about the benefits of using Azure Resource Mover, see [Why use Azure Resource Mover?](../resource-mover/overview.md#why-use-resource-mover).
 
 ### Azure Resource Mover considerations
 
