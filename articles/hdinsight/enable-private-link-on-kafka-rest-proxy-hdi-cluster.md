@@ -8,25 +8,10 @@ ms.date: 08/30/2022
 
 # Enable Private Link on an HDInsight Kafka Rest Proxy cluster
 
-In this article, you'll learn about using Azure Private Link to connect to an HDInsight Kafka Rest Proxy cluster privately across networks over the Microsoft backbone network. This article is an extension of the article [Restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md), which focuses on restricting public connectivity. If you want public connectivity to or within your HDInsight Kafka Rest Proxy clusters and dependent resources, consider restricting the connectivity of your cluster by following guidelines in [Control network traffic in Azure HDInsight](./control-network-traffic.md).
+These are the additional steps  to enable private link for Kafka Rest Proxy HDI clusters.
 
-Private Link can be used in cross-network scenarios where virtual network peering isn't available or enabled.
 
-> [!NOTE]
-> Restricting public connectivity is a prerequisite for enabling Private Link and shouldn't be considered the same capability.
-
-The use of Private Link to connect to an HDInsight Kafka Rest Proxy cluster is an optional feature and is disabled by default. The feature is available only when the `resourceProviderConnection` network property is set to *outbound*, as described in the article [Restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md).
-
-When `privateLink` is set to be *enabled*, an internal [standard load balancer](../load-balancer/load-balancer-overview.md) (SLB) is created, and an Azure Private Link service is provisioned for each SLB. The Private Link service is what allows you to access the HDInsight Kafka Rest Proxy cluster from private endpoints.
-
-## Private link deployment steps
-Successfully creating a Private Link cluster takes many steps, so we've outlined them here. Follow each of the steps below to ensure everything is set up correctly.
-
-### [Step 1: Create private endpoints](#PrivateEndpoints)
-### [Step 2: Configure DNS to connect over private endpoints](#ConfigureDNS)
-
-    
-## <a name="PrivateEndpoints"></a>Step 1: Create private endpoints
+## Step 1: Create private endpoints
 
 Azure automatically creates a Private link service for the Ambari and SSH load balancers during the Private Link cluster deployment. After the cluster is deployed, you have to create two Private endpoints on the client VNET(s), one for Ambari and one for SSH access. Then, link them to the Private link services, which were created as part of the cluster deployment.
 
@@ -70,7 +55,7 @@ Once the private endpoints are created, you’re done with this phase of the set
 3. You should see both the Ambari and ssh Network interfaces listed and their private IP Addresses. 
 4. Make a note of these IP addresses because they're required to connect to the cluster and properly configure DNS.
 
-## <a name="ConfigureDNS"></a>Step 2: Configure DNS to connect over private endpoints
+## Step 2: Configure DNS to connect over private endpoints
 
 To access private clusters, you can configure DNS resolution through private DNS zones. The Private Link entries created in the Azure-managed public DNS zone `azurehdinsight.net` are as follows:
 
