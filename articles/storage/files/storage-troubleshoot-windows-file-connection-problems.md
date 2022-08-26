@@ -557,7 +557,7 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 6. Select **Add permissions** at the bottom of the page.
 7. Select **Grant admin consent for "DirectoryName"**.
 
-## Errors when enabling Azure AD Kerberos authentication for hybrid users (preview)
+## Potential errors when enabling Azure AD Kerberos authentication for hybrid users
 
 You might encounter the following errors when trying to enable Azure AD Kerberos authentication for hybrid user accounts, which is currently in public preview.
 
@@ -572,17 +572,20 @@ If this is the case, ask your Azure AD admin to grant admin consent to the new A
 ### Error - "The request to AAD Graph failed with code BadRequest"
 
 When enabling Azure AD Kerberos authentication, you might encounter this error if the following conditions are met:
- 
-1.	You're using the beta/preview feature of application management policies.
-2.	You (or your administrator) have set a tenant-wide policy that:
+
+1. You're using the beta/preview feature of [application management policies](/graph/api/resources/applicationauthenticationmethodpolicy?view=graph-rest-beta).
+2. You (or your administrator) have set a [tenant-wide policy](/graph/api/resources/tenantappmanagementpolicy?view=graph-rest-beta) that:
     - Has no start date, or has a start date before 2019-01-01
     - Sets a restriction on service principal passwords, which either disallows custom passwords or sets a maximum password lifetime of less than 365.5 days
 
-There is currently no workaround for this error.
+There is currently no workaround for this error during the public preview.
 
 ### Error - "Another Azure AD application already exists for this storage account. Please delete it and try again."
 
-You might encounter this error if you have enabled Azure AD Kerberos authentication through manual limited preview steps. To delete the existing application, the customer or their IT admin can run the following script. Note that the script must be run in PowerShell 5, as the AzureAD module doesn't work in PowerShell 7. This PowerShell snippet uses AAD Graph:
+You might encounter this error if you have previously enabled Azure AD Kerberos authentication through manual limited preview steps. To delete the existing application, the customer or their IT admin can run the following script. Running this script will remove the old manually created application and allow the new experience to auto-create and manage the newly created application.
+
+> [!IMPORTANT]
+> This script must be run in PowerShell 5 because the AzureAD module doesn't work in PowerShell 7. This PowerShell snippet uses Azure AD Graph.
 
 ```powershell
 $storageAccount = "exampleStorageAccountName"
