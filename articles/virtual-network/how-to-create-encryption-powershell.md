@@ -1,7 +1,7 @@
 ---
 title: Create a virtual network with encryption - Azure PowerShell
 titleSuffix: Azure Virtual Network
-description: In this how-to, learn to create an encrypted virtual network using Azure PowerShell. A virtual network lets Azure resources communicate with each other and with the internet. 
+description: In this how-to, learn how to create an encrypted virtual network using Azure PowerShell. A virtual network lets Azure resources communicate with each other and with the internet. 
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
