@@ -26,9 +26,9 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
     * __AzureFrontDoor.frontend outbound (medium risk)__: Azure Front Door is required by the Azure Machine Learning studio UI and AutoML. Malicious agents can use this outbound rule to exfiltrate data similar to the storage outbound scenario - provisioning their own Azure Front Door and a storage account behind it. To prevent this scenario, allowlist the following fully qualified domain names (FQDN) on your Firewall, instead of using network security group.
 
-    - `ml.azure.com`
-    - `automlresources-prod.azureedge.net`
-    - `aka.ms`
+        - `ml.azure.com`
+        - `automlresources-prod.azureedge.net`
+        - `aka.ms` 
 
 ## Prerequisites
 
