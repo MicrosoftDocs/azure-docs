@@ -61,7 +61,7 @@
   expanded: true
   items: 
   - name: SDKs
-    href: sdk-overview.md
+    href: reference-sdk.md
 - name: Resources
   expanded: true
   items:
