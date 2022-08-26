@@ -30,7 +30,7 @@ In this tutorial:
 >[!NOTE]
 > We recommend all new applications to use [MSAL.js 2.x and the authorization code flow with PKCE and CORS](tutorial-v2-javascript-auth-code.md) support. This tutorial uses MSAL.js v1.x which is limited to using the implicit grant flow for single-page applications. 
 
-At the end of this tutorial, you will have created the folder structure below, during which you will create the `.js` and `.html` files by copying the code blocks in the upcoming sections.
+At the end of this tutorial, you'll have created the folder structure below, and create the `.js` and `.html` files by copying the code blocks in the upcoming sections.
 
 ![a text depiction of the intended SPA folder structure](./media/tutorial-v2-javascript-spa/single-page-application-folder-structure.png)
 
@@ -347,14 +347,14 @@ Before proceeding further with authentication, register your application on **Az
 
 ## Configure your JavaScript SPA
 
-Create a new .js file named `authConfig.js`, which will contain your configuration parameters for authentication, and add the following code:
+Create a new .js file named `authConfig.js` in your `JavaScriptSPA` folder. This will contain your configuration parameters for authentication (*Client ID*, *Tenant ID*, *Redirect URI*), and add the following code:
 
 ```javascript
   const msalConfig = {
     auth: {
       clientId: "Enter_the_Application_Id_Here",
       authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
-      redirectUri: "Enter_the_Redirect_Uri_Here",
+      redirectUri: "Enter_the_Redirect_URI_Here",
     },
     cache: {
       cacheLocation: "sessionStorage", // This configures where your cache will be stored
@@ -373,14 +373,15 @@ Create a new .js file named `authConfig.js`, which will contain your configurati
   };
 ```
 
-Modify the values in the `msalConfig` section as described here:
+Modify the values in the `msalConfig` section as described below. Most will be available in your app's **Overview** page on Azure:
 
-- *\<Enter_the_Application_Id_Here>* is the **Application (client) ID** for the application you registered.
-- *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of the Azure cloud. For the main or global Azure cloud, enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), see [National clouds](./authentication-national-cloud.md).
-- Set *\<Enter_the_Tenant_info_here>* to one of the following options:
-  - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
+- `<Enter_the_Application_Id_Here>` is the **Application (client) ID** for the application you registered.
+- `<Enter_the_Cloud_Instance_Id_Here>` is the instance of the Azure cloud. For the main or global Azure cloud, enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), refer to [National clouds](./authentication-national-cloud.md).
+- Set `<Enter_the_Tenant_info_here>` to one of the following options:
+  - If your application supports *accounts in this organizational directory*, replace this value with the **Directory (tenant) ID** or **Tenant name** (for example, *contoso.microsoft.com*).
   - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
+- `<Enter_the_Redirect_URI_Here>` is the default URL that you set in the previous section, `https://localhost:3000/`.
 
 
 ## Use the Microsoft Authentication Library (MSAL) to sign in the user
