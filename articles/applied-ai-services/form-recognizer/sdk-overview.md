@@ -13,7 +13,8 @@ recommendations: false
 ---
 
 <!-- markdownlint-disable MD024 -->
-<!-- markdownlint-disable MD023 -->
+<!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD001 -->
 
 # What is the Form Recognizer SDK?
 
@@ -34,6 +35,106 @@ Form Recognizer SDK supports the following languages and platforms:
 |[Java/4.0.0-beta.6](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-java#set-up) |[Maven](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar) | [Azure SDK for Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.6/index.html)|[2022-06-30-preview, 2022-01-30-preview, 2021-09-30-preview, **v2.1-ga**, v2.0](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=form+recognizer)|[Windows, macOS, Linux](/java/openjdk/install)|
 |[JavaScript/4.0.0-beta.6](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-javascript#set-up)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.6)| [Azure SDK for JavaScript](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.6/index.html) | [2022-06-30-preview, 2022-01-30-preview, 2021-09-30-preview, **v2.1-ga**, v2.0](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=form+recognizer) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
 |[Python/3.2.0b6](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-python#set-up) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)| [Azure SDK for Python](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b6/index.html)| [2022-06-30-preview, 2022-01-30-preview, 2021-09-30-preview, **v2.1-ga**, v2.0](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=form+recognizer) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
+
+## Changelog and release history
+
+#### Form Recognizer SDK beta August 2022 preview release
+
+>[!NOTE]
+> The 4.0.0-beta.5 (C#), 4.0.0-beta.6 (Java), 4.0.0-beta.6 (JavaScript) and 3.2.0b6 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
+
+This release includes the following updates:
+
+### [**C#**](#tab/csharp)
+
+**Version 4.0.0-beta.5 (2022-08-09)**
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#400-beta5-2022-08-09)
+
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5)
+
+[**SDK reference documentation**](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet-preview&preserve-view=true)
+
+### [**Java**](#tab/java)
+
+**Version 4.0.0-beta.6 (2022-08-10)**
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#400-beta6-2022-08-10)
+
+ [**Package (Maven)**](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer)
+
+ [**SDK reference documentation**](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)
+
+### [**JavaScript**](#tab/javascript)
+
+**Version 4.0.0-beta.6 (2022-08-09)**
+
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0-beta.6/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+ [**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.6)
+
+ [**SDK reference documentation**](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview&preserve-view=true)
+
+### [Python](#tab/python)
+
+**Version 3.2.0b6 (2022-08-09)**
+
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b6/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+ [**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)
+
+ [**SDK reference documentation**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)
+
+---
+
+### Form Recognizer SDK beta June 2022 preview release
+
+>[!NOTE]
+> The 4.0.0-beta.4 (C# and JavaScript), 4.0.0-beta.5 (Java), and 3.2.0b5 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
+
+This release includes the following updates:
+
+### [**C#**](#tab/csharp)
+
+**Version 4.0.0-beta.4 (2022-06-08)**
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.4)
+
+[**SDK reference documentation**](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true)
+
+### [**Java**](#tab/java)
+
+**Version 4.0.0-beta.5 (2022-06-07)**
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0-beta.5/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+ [**Package (Maven)**](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar)
+
+ [**SDK reference documentation**](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)
+
+### [**JavaScript**](#tab/javascript)
+
+**Version 4.0.0-beta.4 (2022-06-07)**
+
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0-beta.4/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+ [**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4)
+
+ [**SDK reference documentation**](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true)
+
+### [Python](#tab/python)
+
+**Version 3.2.0b5 (2022-06-07**
+
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+ [**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b5/)
+
+ [**SDK reference documentation**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true)
+
+---
 
 ## How to use the Form Recognizer SDK in your applications
 

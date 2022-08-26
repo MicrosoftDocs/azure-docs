@@ -17,7 +17,60 @@ ms.author: lajanuar
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
+## September 2022
+
+Form Recognizer SDK
+
 ## August 2022
+
+#### Form Recognizer SDK beta August 2022 preview release
+
+>[!NOTE]
+> The 4.0.0-beta.5 (C#), 4.0.0-beta.6 (Java), 4.0.0-beta.6 (JavaScript) and 3.2.0b6 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
+
+This release includes the following updates:
+
+### [**C#**](#tab/csharp)
+
+**Version 4.0.0-beta.5 (2022-08-09)**
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#400-beta5-2022-08-09)
+
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5)
+
+[**SDK reference documentation**](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet-preview&preserve-view=true)
+
+### [**Java**](#tab/java)
+
+**Version 4.0.0-beta.6 (2022-08-10)**
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#400-beta6-2022-08-10)
+
+ [**Package (Maven)**](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer)
+
+ [**SDK reference documentation**](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)
+
+### [**JavaScript**](#tab/javascript)
+
+**Version 4.0.0-beta.6 (2022-08-09)**
+
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0-beta.6/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+ [**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.6)
+
+ [**SDK reference documentation**](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview&preserve-view=true)
+
+### [Python](#tab/python)
+
+**Version 3.2.0b6 (2022-08-09)**
+
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b6/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+ [**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)
+
+ [**SDK reference documentation**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)
+
+---
 
 ### Form Recognizer v3.0 generally available
 
@@ -76,9 +129,7 @@ The **2022-06-30-preview** release presents extensive updates across the feature
 * [**Prebuilt ID document model**](concept-id-document.md). The ID document model now extracts DateOfIssue, Height, Weight, EyeColor, HairColor, and DocumentDiscriminator from US driver's licenses. _See_ [field extraction](concept-id-document.md).
 * [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [page extraction](concept-read.md#pages).
 
-#### Form Recognizer SDK beta preview release
-
-The latest beta release version of the Azure Form Recognizer SDKs incorporates new features, minor feature updates and bug fixes.
+#### Form Recognizer SDK beta June 2022 preview release
 
 >[!NOTE]
 > The 4.0.0-beta.4 (C# and JavaScript), 4.0.0-beta.5 (Java), and 3.2.0b5 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
@@ -158,8 +209,6 @@ Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/d
   | Custom neural    |✓  |  ✓ | ✓  | ✓  |   |
 
 #### Form Recognizer SDK beta preview release
-
-The latest beta release version of the Azure Form Recognizer SDKs incorporates new features, minor feature updates and bug fixes.
 
 >[!NOTE]
 > The 4.0.0-beta.3 (C# and JavaScript), 4.0.0-beta.4 (Java), and 3.2.0b4 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
