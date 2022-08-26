@@ -583,7 +583,7 @@
     - name: Multi-user authorization using Resource Guard
       href: multi-user-authorization.md
     - name: Immutable vault
-      href: backup-azure-immutable-vault-manage.md
+      href: backup-azure-immutable-vault-how-to-manage.md
     - name: Soft delete
       items:
       - name: Overview
