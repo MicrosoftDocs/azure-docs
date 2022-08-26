@@ -32,12 +32,12 @@ To show the current definition of your server group and see what are the current
 ### With Azure CLI (az)
 
 ```azurecli
-az postgres server-arc show -n <server group name> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc show -n <server name> --k8s-namespace <namespace> --use-k8s
 ```
 ### CLI with kubectl
 
 ```console
-kubectl describe postgresql/<server group name> -n <namespace name>
+kubectl describe postgresql/<server name> -n <namespace name>
 ```
 
 It returns the configuration of your server group. If you have created the server group with the default settings, you should see the definition as follows:

@@ -126,7 +126,7 @@ Use kubectl to describe Postgres resources. To do so, you need its kind (name of
 The general format of this command is:
 
 ```console
-kubectl describe <CRD name>/<server group name> -n <namespace>
+kubectl describe <CRD name>/<server name> -n <namespace>
 ```
 
 For example:
@@ -471,7 +471,7 @@ It also indicates how many worker nodes does the server group use. Each worker n
 Run either of the following commands
 
 ```azurecli
-az postgres server-arc show -n <server group name>  --k8s-namespace <namespace> --use-k8s
+az postgres server-arc show -n <server name>  --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:

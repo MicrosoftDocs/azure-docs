@@ -30,11 +30,11 @@ postgres01  Ready    3
 
 The general format of the delete command is:
 ```azurecli
-az postgres server-arc delete -n <server group name> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc delete -n <server name> --k8s-namespace <namespace> --use-k8s
 ```
 When you execute this command, you will be requested to confirm the deletion of the server group. If you are using scripts to automate deletions you will need to use the --force parameter to bypass the confirmation request. For example, you would run a command like: 
 ```azurecli
-az postgres server-arc delete -n <server group name> --force --k8s-namespace <namespace> --use-k8s
+az postgres server-arc delete -n <server name> --force --k8s-namespace <namespace> --use-k8s
 ```
 
 For more details about the delete command, run:

@@ -115,7 +115,7 @@ az postgres server-arc list --k8s-namespace <namespace> --use-k8s
 To view the endpoints for a PostgreSQL server group, run the following command:
 
 ```azurecli
-az postgres server-arc endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc endpoint list -n <server name> --k8s-namespace <namespace> --use-k8s
 ```
 For example:
 ```console

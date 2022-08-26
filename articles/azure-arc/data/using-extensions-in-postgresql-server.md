@@ -70,7 +70,7 @@ Run either of the following command.
 
 ### With CLI command
 ```azurecli
-az postgres server-arc show -n <server group name> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc show -n <server name> --k8s-namespace <namespace> --use-k8s
 ```
 Scroll in the output and notice the engine\extensions sections in the specifications of your server group. For example:
 ```console
@@ -85,7 +85,7 @@ Scroll in the output and notice the engine\extensions sections in the specificat
 ```
 ### With kubectl
 ```console
-kubectl describe postgresqls/<server group name> -n <namespace>
+kubectl describe postgresqls/<server name> -n <namespace>
 ```
 Scroll in the output and notice the engine\extensions sections in the specifications of your server group. For example:
 ```console

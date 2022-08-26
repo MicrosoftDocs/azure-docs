@@ -23,7 +23,7 @@ This article explains how you can retrieve the connection endpoints for your ser
 
 Run the following command:
 ```azurecli
-az postgres server-arc endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc endpoint list -n <server name> --k8s-namespace <namespace> --use-k8s
 ```
 For example:
 ```azurecli
@@ -81,7 +81,7 @@ postgres=#
 
 ## From CLI with kubectl
 ```console
-kubectl get postgresqls/<server group name> -n <namespace name>
+kubectl get postgresqls/<server name> -n <namespace name>
 ```
 
 For example:
