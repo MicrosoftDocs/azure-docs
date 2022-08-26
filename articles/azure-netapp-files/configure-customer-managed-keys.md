@@ -142,7 +142,8 @@ Copy the `Azure-AsyncOperation` header from the response and poll the URI using 
      
     When you create a volume using a customer-managed key, you must also select **Standard** for the **Network features** option. Basic network features are not supported. 
 
-    <!-- IMAGE -->
+    :::image type="content" source="../media/azure-netapp-files/keys-create-volume.png" alt-text="Screenshot of a drop-down menu with get, encrypt, and decrypt options selected." lightbox="../media/azure-netapp-files/keys-create-volume.png":::
+
 1. Continue to complete the volume creation process. See: 
     * [Create an NFS volume](azure-netapp-files-create-volumes.md)
     * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
