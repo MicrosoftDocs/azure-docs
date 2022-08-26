@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create an Azure Firewall with multiple public IP addresses - Resource Manager template'
-description: In this quickstart, you learn how to use a Azure Resource Manager template (ARM template) to create an Azure Firewall with multiple public IP addresses.
+description: In this quickstart, you learn how to use an Azure Resource Manager template (ARM template) to create an Azure Firewall with multiple public IP addresses.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -67,11 +67,11 @@ Deploy the ARM template to Azure:
 
 In the Azure portal, review the deployed resources. Note the firewall public IP addresses.
 
-Use Remote Desktop Connection to connect to the firewall public IP addresses. Successful connections demonstrates firewall NAT rules that allow the connection to the backend servers.
+Use Remote Desktop Connection to connect to the firewall public IP addresses. Successful connections demonstrate firewall NAT rules that allow the connection to the backend servers.
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the firewall, delete the resource group. This removes the firewall and all the related resources.
+When you no longer need the resources that you created with the firewall, delete the resource group. Deleting the resource group removes the firewall and all the related resources.
 
 To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 
