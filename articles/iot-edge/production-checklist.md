@@ -151,24 +151,26 @@ If you deploy a large number of modules, you might exhaust this twin size limit.
 
 ::: moniker range=">=iotedge-1.4"
 ### Configure how updates to modules are applied
-When a deployment is updated, Edge Agent receives the new configuration as a twin update. If the new configuration has new or updated module images, by default, Edge Agent processes each module sequentially - the updated image is downloaded, the running module is stopped, a new module instance is started, and then the next module update is processed. 
+When a deployment is updated, Edge Agent receives the new configuration as a twin update. If the new configuration has new or updated module images, by default, Edge Agent sequentially processes each module:
+1. The updated image is downloaded
+1. The running module is stopped
+1. A new module instance is started
+1. The next module update is processed
 
 In some cases, for example when dependencies exist between modules, it may be desirable to first download all updated module images before restarting any running modules. This module update behavior can be configured by setting an IoT Edge Agent environment variable `ModuleUpdateMode` to string value `WaitForAllPulls`. For more information, see [IoT Edge Environment Variables](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
 
 ```JSON
-{
-    "modulesContent": {
-        "$edgeAgent": {
-            "properties.desired": {
-                ...
-                "systemModules": {
-                    "edgeAgent": {
-                        "env": {
-                            "ModuleUpdateMode": {
-                                "value": "WaitForAllPulls"
-                            }
-                        ...
-}
+"modulesContent": {
+    "$edgeAgent": {
+        "properties.desired": {
+            ...
+            "systemModules": {
+                "edgeAgent": {
+                    "env": {
+                        "ModuleUpdateMode": {
+                            "value": "WaitForAllPulls"
+                        }
+                    ...
 ```
 ::: moniker-end
 ### Container management
@@ -220,11 +222,12 @@ Next, be sure to update the image references in the deployment.template.json fil
 
 ::: moniker range=">=iotedge-1.4"
 ### Configure image garbage collection
-Image garbage collection is a feature in IoT Edge v1.4 and later to automatically clean up docker images that are no longer used by IoT Edge modules. It only deletes docker images that were pulled by the IoT Edge runtime as part of a deployment. Deleting unused docker images helps conserve disk space.
+Image garbage collection is a feature in IoT Edge v1.4 and later to automatically clean up Docker images that are no longer used by IoT Edge modules. It only deletes Docker images that were pulled by the IoT Edge runtime as part of a deployment. Deleting unused Docker images helps conserve disk space.
 
-The feature is implemented in IoT Edge's host component, the `aziot-edged` service and enabled by default. Cleanup is done every day at midnight (device local time) and removes unused docker images that were last used 7 days ago. The parameters to control cleanup behavior are set in the `config.toml` and discussed below. If not specified, the default values are applied.
+The feature is implemented in IoT Edge's host component, the `aziot-edged` service and enabled by default. Cleanup is done every day at midnight (device local time) and removes unused Docker images that were last used seven days ago. The parameters to control cleanup behavior are set in the `config.toml` and explained later in this section. If parameters aren't specified in the configuration file, the default values are applied.
 
-Example `config.toml` section for image garbage collection (with default values): 
+For example, the following is the `config.toml` image garbage collection section using default values:
+ 
 ```toml
 [image_garbage_collection]
 enabled = true
@@ -232,14 +235,14 @@ cleanup_recurrence = "1d"
 image_age_cleanup_threshold = "7d" 
 cleanup_time = "00:00"
 ```
-The table below describes image garbage collection parameters. All parameters are **optional** and can be set individually if the default settings need to be modified.
+The following table describes image garbage collection parameters. All parameters are **optional** and can be set individually to change the default settings.
 
-| Parameter | Description |
-|-|-|
-| `enabled` | Controls whether image garbage collection runs or not. You may choose to disable the feature by changing this setting to `false`.   <br><br>  **Optional** <br><br> Default value: *true* |
-| `cleanup_recurrence` | Controls the recurrence frequency of the cleanup task. Must be specified as a multiple of days and cannot be less than 1 day. <br><br> For example: 1d, 2d, 6d, etc.   <br><br>  **Optional** <br><br> Default value: *1d* |
-| `image_age_cleanup_threshold` | Defines the minimum age threshold of unused images before considering for cleanup and must be specified in days. You can specify as "0d" to clean up the images as soon as they are removed from the deployment. <br><br>  Images are considered unused *after* they have been removed from the deployment. <br><br>  **Optional** <br><br> Default value: *7d* |
-| `cleanup_time` | Time of day, *in device local time*, when the cleanup task runs. Must be in 24-hour HH:MM format. <br><br>  **Optional** <br><br> Default value: *00:00* |
+| Parameter | Description | Required | Default value |
+|-----------|-------------|----------|---------------|
+| `enabled` | Enables the image garbage collection. You may choose to disable the feature by changing this setting to `false`. | Optional | true |
+| `cleanup_recurrence` | Controls the recurrence frequency of the cleanup task. Must be specified as a multiple of days and can't be less than one day. <br><br> For example: 1d, 2d, 6d, etc. | Optional | 1d |
+| `image_age_cleanup_threshold` | Defines the minimum age threshold of unused images before considering for cleanup and must be specified in days. You can specify as *0d* to clean up the images as soon as they're removed from the deployment. <br><br>  Images are considered unused *after* they've been removed from the deployment. | Optional | 7d |
+| `cleanup_time` | Time of day, *in device local time*, when the cleanup task runs. Must be in 24-hour HH:MM format. | Optional | 00:00 |
 
 ::: moniker-end
 ## Networking
