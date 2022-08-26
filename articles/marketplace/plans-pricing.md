@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 08/17/2022
+ms.date: 08/26/2022
 ---
 
 # Plans and pricing for commercial marketplace offers
