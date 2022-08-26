@@ -86,11 +86,11 @@ az mysql db create --name <database-name> --resource-group <resource-group-name>
 
 ## Connect your application to the MySQL database
 
-Use Service Connector to connect the app hosted in Azure Spring Apps to your MySQL database.
+Use [Service Connector](/service-connector/overview) to connect the app hosted in Azure Spring Apps to your MySQL database.
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
+1. If you're using Service Connector for the first time, start by running the command [az provider register](../cli/azure/provider#az-provider-register.md) to register the Service Connector resource provider.
 
     ```azurecli-interactive
     az provider register -n Microsoft.ServiceLinker
