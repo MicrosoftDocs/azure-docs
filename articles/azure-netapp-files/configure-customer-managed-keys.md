@@ -72,12 +72,12 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 The **Encryption** page doesn't currently support choosing an identity type (either system-assigned or user-assigned). To configure encryption with the user-assigned identity, you need to use the REST API to do so. A good tool to use Azure REST API is [projectkudu/ARMClient: A simple command line tool to invoke the Azure Resource Manager API (github.com)](https://github.com/projectkudu/ARMClient). 
 
 1. Create a user-assigned identity in the same region as your NetApp account. Alternately, you can use an existing identity. 
-    For more information, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp.md).
+    For more information, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 1. Configure access to the key vault. You can use role-based access control or access policies. 
     1. For role-based access control, configure the key vault to use role-based access control authorization.
     :::image type="content" source="../media/azure-netapp-files/azure-role-based-access.png" alt-text="Screenshot of the access policies menu." lightbox="../media/azure-netapp-files/azure-role-based-access.png":::
     Create a custom role with permissions **read**, **encrypt**, and **decrypt**. 
-    :::image type="content" source="../media/azure-netapp-files/netapp-account-json.png" alt-text="Screenshot of the access policies menu." lightbox="../media/azure-netapp-files/netapp-account-json.png":::
+    :::image type="content" source="../media/azure-netapp-files/netapp-account-json.png" alt-text="Screenshot of an example JSON configuration." lightbox="../media/azure-netapp-files/netapp-account-json.png":::
     Add an assignment for the user-assigned identity for the custom role on the key vault. Alternatively, you can use the built-in role `key vault crypto user`, but this role includes more permissions than are necessary.
     1. Add an access policy for the user-assigned identity on the key vault. 
     :::image type="content" source="../media/azure-netapp-files/add-access-policy.png" alt-text="Screenshot of the access policies menu with the vault access permission model." lightbox="../media/azure-netapp-files/add-access-policy.png":::
@@ -128,7 +128,7 @@ Example: `armclient patch <netapp account resource id>?api-version=2022-03-01 ./
 
 Copy the `Azure-AsyncOperation` header from the response and poll the URI using `armclient get <Azure-AsyncOperation value>`. 
 
-:::image type="content" source="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png" alt-text="Screenshot of a drop-down menu with get, encrypt, and decrypt options selected." lightbox="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png":::
+:::image type="content" source="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png" alt-text="Screenshot Azure-AsyncOperation command." lightbox="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png":::
 
 ## Create an Azure NetApp Files volume using customer-manager keys
 
@@ -142,7 +142,7 @@ Copy the `Azure-AsyncOperation` header from the response and poll the URI using 
      
     When you create a volume using a customer-managed key, you must also select **Standard** for the **Network features** option. Basic network features are not supported. 
 
-    :::image type="content" source="../media/azure-netapp-files/keys-create-volume.png" alt-text="Screenshot of a drop-down menu with get, encrypt, and decrypt options selected." lightbox="../media/azure-netapp-files/keys-create-volume.png":::
+    :::image type="content" source="../media/azure-netapp-files/keys-create-volume.png" alt-text="Screenshot of create volume menu." lightbox="../media/azure-netapp-files/keys-create-volume.png":::
 
 1. Continue to complete the volume creation process. See: 
     * [Create an NFS volume](azure-netapp-files-create-volumes.md)
