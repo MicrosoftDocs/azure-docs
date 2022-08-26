@@ -152,6 +152,9 @@ You now have a server to serve your SPA. At this point your folder structure sho
 
 In the next steps we will create a new folder for the JavaScript SPA, and set up the user interface (UI).
 
+> [!TIP]
+> When you set up an Azure Active Directory (Azure AD) account, you create a tenant. This is a digital representation of your organization, and is primarily associated with a domain, like Microsoft.com. If you wish to learn how applications can work with multiple tenants, please refer to [**Multi-tenant apps**](./application-model.md/#multi-tenant-apps).
+
 ## Create the SPA UI
 
 1. Create a new folder, `JavaScriptSPA` and then move into that folder. 
