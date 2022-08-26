@@ -19,7 +19,7 @@ Learn how to use an Azure Resource Manager template to create an IoT Hub and a c
 
 ## Create an IoT hub
 
-The following Resource Manager JSON template used in this article is one of many templates from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/iothub-with-consumergroup-create/). This template creates an Azure Iot hub with three endpoints (eventhub, cloud-to-device, and messaging) and a consumer group. For more information on the Iot Hub template schema, see [Microsoft.Devices (IoT Hub) resource types](/azure/templates/microsoft.devices/iothub-allversions).
+The following Resource Manager JSON template used in this article is [one](https://azure.microsoft.com/resources/templates/iothub-with-consumergroup-create/) of many templates from [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/). This template creates an Azure Iot hub with three endpoints (eventhub, cloud-to-device, and messaging) and a consumer group. For more information on the Iot Hub template schema, see [Microsoft.Devices (IoT Hub) resource types](/azure/templates/microsoft.devices/iothub-allversions).
 
 [!code-json[iothub-creation](~/quickstart-templates/quickstarts/microsoft.devices/iothub-with-consumergroup-create/azuredeploy.json)]
 
