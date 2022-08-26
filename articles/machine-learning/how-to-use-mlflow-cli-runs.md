@@ -183,8 +183,7 @@ For details about how to log metrics, parameters and artifacts in a run using ML
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-Remote runs (jobs) let you train your models in a more robust and repetitive way. They can also leverage more powerful computes, such as Machine Learning Compute clusters. See [Use compute targets for model training](how-to-set-up-training-targets.md) to learn about different compute options.
-
+Remote runs (jobs) let you train your models in a more robust and repetitive way. They can also leverage more powerful computes, such as Machine Learning Compute clusters. See [What are compute targets in Azure Machine Learning?](concept-compute-target.md) to learn about different compute options.
 
 When submitting runs using jobs, Azure Machine Learning automatically configures MLflow to work with the workspace the job is running in. This means that there is no need to configure the MLflow tracking URI. On top of that, experiments are automatically named based on the details of the job.
 
