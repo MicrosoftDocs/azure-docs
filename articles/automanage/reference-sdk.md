@@ -22,7 +22,7 @@ Azure Automanage currently supports the following SDKs:
 - Azure CLI (pending)
 - Terraform (pending)
 
-Here is a list of a few of the primary operations the SDKs provide: 
+Here's a list of a few of the primary operations the SDKs provide: 
 
 - Create custom configuration profiles
 - Delete custom configuration profiles
