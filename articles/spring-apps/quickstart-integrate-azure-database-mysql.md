@@ -147,18 +147,20 @@ Use [Service Connector](/service-connector/overview) to connect the app hosted i
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the `az spring connection show` command to show the status of the connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below by the your own information.
+Run the `az spring connection validate` command to show the status of the connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below by the your own information.
 
 ```azurecli-interactive
-az spring connection show --connection <connection-name> mysql --resource-group <Azure-Spring-Apps-resource-group-name> --service <Azure-Spring-Apps-resource-name> --app <app-name
+az spring connection validate --connection <connection-name> mysql --resource-group <Azure-Spring-Apps-resource-group-name> --service <Azure-Spring-Apps-resource-name> --app <app-name
 ```
 
 The following output is displayed:
 
 ```Output
-ClientType    Name         ProvisioningState    ResourceGroup
-------------  -----------  -------------------  ---------------
-none          mysql_rk29a  Succeeded            myspring
+Name                                                           Result
+-------------------------------------------------------------  --------
+The target existence is validated                              success
+The target service firewall is validated                       success
+The configured values (except username/password) is validated  success
 ```
 
 Provisioning state *Succeeded* means that the connection is valid.
