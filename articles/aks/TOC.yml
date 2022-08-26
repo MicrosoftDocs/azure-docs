@@ -25,6 +25,9 @@
           href: learn/quick-kubernetes-deploy-powershell.md
         - name: Use the Azure portal
           href: learn/quick-kubernetes-deploy-portal.md
+        - name: Use Bicep
+          displayName: Resource Manager,arm,template
+          href: learn/quick-kubernetes-deploy-bicep.md
         - name: Use ARM template
           displayName: Resource Manager
           href: learn/quick-kubernetes-deploy-rm-template.md
@@ -96,7 +99,7 @@
     - name: Service meshes
       href: servicemesh-about.md
     - name: Sustainable software engineering
-      href: concepts-sustainable-software-engineering.md      
+      href: concepts-sustainable-software-engineering.md
     - name: Dapr
       href: dapr-overview.md
     - name: GitOps
@@ -265,7 +268,7 @@
             - name: Create service principal
               href: kubernetes-service-principal.md
             - name: Use managed identities
-              href: use-managed-identity.md 
+              href: use-managed-identity.md
             - name: Limit access to cluster configuration file
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
@@ -308,7 +311,7 @@
             - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
             - name: Secure pod traffic with network policies
-              href: use-network-policies.md  
+              href: use-network-policies.md
             - name: Use pod security policies (preview)
               href: use-pod-security-policies.md
             - name: Use Pod Security Admission
@@ -322,7 +325,7 @@
                 - name: Configure TLS for NGINX ingress controller
                   href: csi-secrets-store-nginx-tls.md
                 - name: Troubleshooting
-                  href: csi-secrets-store-troubleshooting.md        
+                  href: csi-secrets-store-troubleshooting.md
     - name: Configure private clusters
       items:
       - name: Create a private cluster
@@ -371,7 +374,7 @@
             - name: Use a user defined route for egress
               href: egress-outboundtype.md
             - name: Managed NAT Gateway
-              href: nat-gateway.md              
+              href: nat-gateway.md
         - name: Customize CoreDNS
           href: coredns-custom.md
     - name: Configure storage
