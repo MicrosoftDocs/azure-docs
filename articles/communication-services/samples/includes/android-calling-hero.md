@@ -74,7 +74,7 @@ Build and run the sample in Android Studio.
 
 For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services token. For production scenarios, we recommend using your own secured endpoint to provision your own tokens.
 
-With additional configuration, this sample supports connecting to an **Azure Active Directory** (Azure AD) protected endpoint so that user login is required for the app to fetch an Azure Communication Services token. See steps below:
+With additional configuration, this sample supports connecting to an **Azure Active Directory** (Azure AD) protected endpoint so that user login is required for the app to fetch an Azure Communication Services token. The sample further supports fetching user account information using **Microsoft Graph API**. See steps below:
 
 1. Enable Azure Active Directory authentication in your app.  
    - [Register your app under Azure Active Directory (using Android platform settings)](../../../active-directory/develop/tutorial-v2-android.md) 
@@ -84,7 +84,7 @@ With additional configuration, this sample supports connecting to an **Azure Act
 
 :::image type="content" source="../media/calling/aad-overview-android.png" alt-text="Azure Active Directory configuration on Azure portal.":::
 
-3. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set `isAADAuthEnabled` to enable Azure Active Directory
+3. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set `isAADAuthEnabled` in `AzureCalling/app/assets/appSettings.properties` to `true` to enable Azure Active Directory
 4. Edit `AndroidManifest.xml` and set `android:path` to keystore signature hash. (Optional. The current value uses hash from bundled debug.keystore. If different keystore is used, this must be updated.)
    ```
    <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
@@ -120,6 +120,7 @@ With additional configuration, this sample supports connecting to an **Azure Act
 
 6. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `communicationTokenFetchUrl` to be the URL for your secure Authentication Endpoint.
 7. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `aadScopes` from `Azure Active Directory` `Expose an API` scopes
+8. Set value for `graphURL` in `AzureCalling/app/assets/appSettings.properties` as the Graph API endpoint to fetch user information
 
 ## Clean up resources
 
