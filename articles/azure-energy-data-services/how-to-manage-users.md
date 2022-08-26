@@ -86,7 +86,7 @@ Get all groups that are either built in groups or have been made for your Oak in
 
 You'll need `object-id` (OID) for your users as parameters in the calls to the Entitlements API of your Microsoft Energy Data Services Instance. `object-id`(OID) is the Azure Active Directory User Object ID.
 
-:::image type="content" source="media/how-to-manage-users/aad-object-id.png" alt-text="Screenshot of finding the object-id from Azure Active Directory.":::
+:::image type="content" source="media/how-to-manage-users/azure-active-directory-object-id.png" alt-text="Screenshot of finding the object-id from Azure Active Directory.":::
 
 :::image type="content" source="media/how-to-manage-users/profile-object-id.png" alt-text="Screenshot of finding the object-id from the profile.":::
 
