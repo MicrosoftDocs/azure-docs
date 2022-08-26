@@ -2,7 +2,7 @@
 title: Sign up for Azure Video Indexer and upload your first video - Azure
 description: Learn how to sign up and upload your first video using the Azure Video Indexer portal.
 ms.topic: quickstart
-ms.date: 01/25/2021
+ms.date: 08/24/2022
 ms.author: juliako
 ms.custom: mode-other
 ---
@@ -11,9 +11,11 @@ ms.custom: mode-other
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
-This getting started quickstart shows how to sign in to the Azure Video Indexer website and how to upload your first video.
+This quickstart shows you how to sign in to the Azure Video Indexer [website](https://www.videoindexer.ai/) and how to upload your first video. When visiting the Azure Video Indexer website for the first time, the free trial account is automatically created for you. With the free trial account, you get a certain number of free indexing minutes. When creating an unlimited/paid account, you aren't limited by the quota. 
 
-When creating an Azure Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you aren't limited by the quota). With free trial, Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create an Azure Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
+With free trial, Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create an Azure Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
+
+For details about available accounts, see [Azure Video Indexer account types](accounts-overview.md).
 
 ## Sign up for Azure Video Indexer
 
