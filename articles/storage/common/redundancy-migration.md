@@ -38,7 +38,7 @@ Before you change any of your replication settings, be sure to review all of the
 
 ## Options for changing replication types
 
-You can switch a storage account from any type of replication to any other type, but some switching scenarios are more straightforward than others. The following table shows the three factors that determine the options available for switching from one to another:
+You can switch a storage account from any type of replication to any other type, with the exception of the restrictions noted under[Restrictions](#restrictions). Some switching scenarios are more straightforward than others. The following table shows the three factors that determine the options available for switching from one to another:
 
 | Redundancy factor                                                                       | Option for changing |
 |-----------------------------------------------------------------------------------------|---------------------|
@@ -46,13 +46,11 @@ You can switch a storage account from any type of replication to any other type,
 | Read access (RA) to the secondary region <br /><sub>(when geo-redundancy is used)</sub> | [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) |
 | Zone redundancy                                                                         | [Storage account migration](#storage-account-migration) <br /><sub>(live migration or manual migration)</sub> |
 
-If you just want to add or remove geo-replication or read access to the secondary region, you can [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
+If you just want to add or remove geo-replication or read access to the secondary region, you can [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
-To add or remove zone-redundancy requires migration of the data in the storage account within the primary region, and can take considerably longer. There are two supported migration methods: live migration and manual migration. Live migration is recommended, but you can use manual migration if you want more control over the process, or if another method is not supported. The two migration methods are explained in more detail later in [Storage account migration](#storage-account-migration).
+To add or remove zone-redundancy requires migration of the data in the storage account within the primary region, and can take considerably longer. There are two supported migration methods: live migration and manual migration. Live migration is recommended, but you can use manual migration if you want more control over the process, or if another method, such as live migration, is not supported. The two migration methods are explained in more detail later in [Storage account migration](#storage-account-migration).
 
-**If your account uses RA-GRS, then you need to first change your account's replication type to either LRS or GRS before proceeding with a live migration. This intermediary step removes the secondary read-only endpoint provided by RA-GRS.**
-
-If you want to change both the geo-redundancy and the zone-redundancy factors, a two-step process will be required. You will first need to make the geo-redundancy change, then perform a migration to change the zone-redundancy.
+If you want to change a combination of the zone-redundancy factors and either geo-redundancy or read-access, or both, a two-step process will be required. You will first need to make the geo-redundancy and read-access change(s), then perform a migration to change the zone-redundancy.
 
 The following table provides an overview the options for switching from each type of replication to another:
 
@@ -89,13 +87,22 @@ Restrictions apply to some replication change scenarios depending on:
 
 When planning to change your replication settings consider the following restrictions related to the storage account type:
 
-- Some storage account types only supported certain replication configurations:
-  - Premium file shares only support LRS and ZRS
-  - Premium page blob accounts only support LRS
-  - Premium block blob accounts only support LRS and ZRS, but the only way to change an account from one to the other is by performing a manual migration.
-  - Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).
+Live migration is supported for standard general-purpose v2 and premium file share storage accounts. It is not supported for premium block blob or page blob storage accounts.
+Some storage account types only supported certain replication configurations which affects whether they can be changed or migrated:
 
-  - Live migration is supported for standard general-purpose v2 and premium file share storage accounts. It is not supported for premium block blob or page blob storage accounts. , so it is not possible to change an account to another replication type. If your storage account is v1, you'll need to upgrade it to v2. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).
+| Storage account type        | Supports LRS | Supports ZRS | Supports live migration | Supports manual migration |
+|:---------------------------:|:------------:|:------------:|:-----------------------:|:-------------------------:|
+| Standard general purpose v1 | Yes          | No           | No <sup>1</sup>         | Yes                       |
+| Standard general purpose v2 | Yes          | Yes          | Yes                     | Yes                       |
+| Premium file shares         | Yes          | Yes          | ???                     | Yes                       |
+| Premium block block blob    | Yes          | Yes          | No                      | Yes                       |
+| Premium page blob           | Yes          | No           | No                      | No                        |
+| Managed disks<sup>2</sup>   | Yes          | No           | No                      | No                        |
+
+<sup>1</sup> If your storage account is v1, you'll need to upgrade it to v2. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
+<sup>2</sup> Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).<br />
+
+Note that live migration is supported for standard general-purpose v2 and premium file share storage accounts. It is not supported for premium block blob or page blob storage accounts.
 
 ### Region
 
