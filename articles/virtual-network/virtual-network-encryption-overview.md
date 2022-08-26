@@ -42,7 +42,7 @@ Virtual Network encryption provides two methods of control when it includes virt
 
 - **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be **dropped**. The traffic drop happens if a virtual machine, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
 
--**AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
+- **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
 
 Public IP traffic isn't dropped or encrypted in either scenario. IP fragmented packets aren't supported. This scenario will only happen in jumbo frame scenarios. Global Peering is supported in regions where virtual network encryption is supported.
 
@@ -66,7 +66,7 @@ Azure Virtual Network encryption is available in the following regions during th
 
 - West US 2
 
-Email VNetEncryptionPM@microsoft.com to obtain access to the public preview.
+Email **VNetEncryptionPM@microsoft.com** to obtain access to the public preview.
 
 ## Limitations
 
