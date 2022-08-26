@@ -304,19 +304,19 @@ The Application Insights .NET SDK uses `DiagnosticSource` and `Activity` to coll
 <a name="java-correlation"></a>
 ## Telemetry correlation in Java
 
-[Java agent](./java-in-process-agent.md) supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers (described earlier) for service-to-service calls via HTTP, if the [Java SDK agent](java-2x-agent.md) is configured.
+[Application Insights Java](./java-in-process-agent.md) supports automatic correlation of telemetry.
+It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers (described earlier) for service-to-service calls via HTTP, RPC, and messaging. See the list of Application Insights Java's
+[autocollected dependencies which support distributed trace propagation](java-in-process-agent.md#autocollected-dependencies).
 
 > [!NOTE]
-> Application Insights Java agent auto-collects requests and dependencies for JMS, Kafka, Netty/Webflux, and more. For Java SDK only calls made via Apache HttpClient are supported for the correlation feature. Automatic context propagation across messaging technologies (like Kafka, RabbitMQ, and Azure Service Bus) isn't supported in the SDK.
-
-> [!NOTE]
-> To collect custom telemetry you need to instrument the application with Java 2.6 SDK.
+> See [custom telemetry](./java-in-process-agent.md#custom-telemetry) if the auto-instrumentation does not cover all
+> of your needs.
 
 ### Role names
 
 You might want to customize the way component names are displayed in the [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by taking one of the following actions:
 
-- For Application Insights Java agent 3.0, set the cloud role name as follows:
+- For Application Insights Java, set the cloud role name as follows:
 
     ```json
     {
@@ -325,27 +325,9 @@ You might want to customize the way component names are displayed in the [Applic
       }
     }
     ```
-    You can also set the cloud role name using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`.
 
-- With Application Insights Java SDK 2.5.0 and later, you can specify the `cloud_RoleName`
-  by adding `<RoleName>` to your ApplicationInsights.xml file:
-
-:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
-
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-     <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000</ConnectionString>
-     <RoleName>** Your role name **</RoleName>
-     ...
-  </ApplicationInsights>
-  ```
-
-- If you use Spring Boot with the Application Insights Spring Boot Starter, you just need to set your custom name for the application in the application.properties file:
-
-  `spring.application.name=<name-of-app>`
-
-  The Spring Boot Starter automatically assigns `cloudRoleName` to the value you enter for the `spring.application.name` property.
+    You can also set the cloud role name using via environment variable or system property,
+    see [configuring cloud role name](./java-standalone-config.md#cloud-role-name) for details.
 
 ## Next steps
 

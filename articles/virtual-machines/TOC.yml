@@ -452,39 +452,39 @@
         href: ./linux/imaging.md
       - name: Linux provisioning
         href: ./linux/provisioning.md
-      - name: Endorsed Linux distributions
+      - name: Endorsed distributions
         href: ./linux/endorsed-distros.md
       - name: Distribution specific requirements
         items:
         - name: Generic steps
-          displayName: Linux distribution specific requirements, generic
+          displayName: Distribution specific requirements, generic
           href: ./linux/create-upload-generic.md
         - name: CentOS
-          displayName: Linux distribution specific requirements, CentOS
+          displayName: distribution specific requirements, CentOS
           href: ./linux/create-upload-centos.md
         - name: Debian
-          displayName: Linux distribution specific requirements, Debian
+          displayName: distribution specific requirements, Debian
           href: ./linux/debian-create-upload-vhd.md
         - name: Flatcar Container Linux
-          displayName: Linux distribution specific requirements, Flatcar, Container
+          displayName: distribution specific requirements, Flatcar, Container
           href: ./linux/flatcar-create-upload-vhd.md
         - name: FreeBSD
           displayName: distribution, FreeBSD, nix
           href: ./linux/freebsd-intro-on-azure.md
         - name: Oracle Linux
-          displayName: Linux distribution specific requirements, Oracle
+          displayName: distribution specific requirements, Oracle
           href: ./linux/oracle-create-upload-vhd.md
         - name: OpenBSD
-          displayName: Linux distribution specific requirements, OpenBSD
+          displayName: distribution specific requirements, OpenBSD
           href: ./linux/create-upload-openbsd.md
         - name: Red Hat
-          displayName: Linux distribution specific requirements, Redhat
+          displayName: distribution specific requirements, Redhat
           href: ./linux/redhat-create-upload-vhd.md
         - name: SUSE
-          displayName: Linux distribution specific requirements, SUSE
+          displayName: distribution specific requirements, SUSE
           href: ./linux/suse-create-upload-vhd.md
         - name: Ubuntu
-          displayName: Linux distribution specific requirements, Ubuntu
+          displayName: distribution specific requirements, Ubuntu
           href: ./linux/create-upload-ubuntu.md
       - name: Use cloud-init
         items:
