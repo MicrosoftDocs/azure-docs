@@ -29,7 +29,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Overview
 
-This tutorial uses Python and the [Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/) to create a data source, index, indexer, and skillset.
+This tutorial uses Python and the [Search REST APIs](/rest/api/searchservice/) to create a data source, index, indexer, and skillset.
 
 The indexer retrieves sample data in a blob container that's specified in the data source object, and sends all enriched content to a search index.
 
@@ -51,13 +51,13 @@ The sample data consists of 14 files of mixed content type that you'll upload to
 
 1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, select **Download** to copy the files to your computer.
 
-1. Right-click the zip file and select **Extract All**. There are 14 files of various types. You'll use 7 for this exercise.
+1. Right-click the zip file and select **Extract All**. There are 14 files of various types. 
 
 Optionally, you can also download the source code for this tutorial. Source code can be found at [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
+This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the Cognitive Search free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
 
 If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
@@ -109,13 +109,13 @@ If possible, create both in the same region and resource group for proximity and
 
 AI enrichment is backed by Cognitive Services, including Language service and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
 
-Since this tutorial only uses 14 transactions, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services for 20 free transactions per indexer run. The free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
+Since this tutorial only uses 14 transactions, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services for 20 free transactions per indexer run. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
 
 ### Azure Cognitive Search
 
 The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your subscription.
 
-You can use the Free tier to complete this walkthrough.
+You can use the Free tier to complete this tutorial.
 
 ### Copy an admin api-key and URL for Azure Cognitive Search
 
@@ -131,9 +131,9 @@ All requests require an api-key in the header of every request sent to your serv
 
 ## 2 - Start a notebook
 
-Create the notebook using the following instructions, or download a finished notebook from [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
+Use Visual Studio Code with the Python extension to create a new notebook. Press F1 to open the command palette and then search for "Create: New Jupyter Notebook". 
 
-Use Visual Studio Code with the Python extension to create a new notebook. Press F1 to open the command palette and then search for "Create: New Jupyter Notebook".
+Alternatively, if you downloaded the notebook from [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment), you can open it in Visual Studio Code.
 
 In your notebook, create a new cell and add this script. It loads the libraries used for working with JSON and formulating HTTP requests.
 
@@ -167,13 +167,13 @@ params = {
 
 ## 3 - Create the pipeline
 
-In Azure Cognitive Search, AI processing occurs during indexing (or data ingestion). This part of the walkthrough creates four objects: data source, index definition, skillset, indexer. 
+In Azure Cognitive Search, AI processing occurs during indexing (or data ingestion). This part of the tutorial creates four objects: data source, index definition, skillset, indexer. 
 
 ### Step 1: Create a data source
 
 A [data source object](/rest/api/searchservice/create-data-source) provides the connection string to the Blob container containing the sample data files.
 
-In the following script, replace the placeholder YOUR-BLOB-RESOURCE-CONNECTION-STRING with the connection string for the blob you created in the previous step. Replace the placeholder text for the container. Then, run the script to create a data source named `cogsrch-py-datasource`.
+In the following script, replace the placeholder YOUR-BLOB-RESOURCE-CONNECTION-STRING with the connection string for the blob you created in the previous step. Replace the placeholder YOUR-BLOB-CONTAINER-NAME with the name of your container. Then, run the script to create a data source named `cogsrch-py-datasource`.
 
 ```python
 # Create a data source
@@ -202,7 +202,7 @@ In the Azure portal, on the search service dashboard page, verify that the cogsr
 
 ### Step 2: Create a skillset
 
-In this step, you'll define a set of enrichment steps to apply to your data. You call each enrichment step a *skill*, and the set of enrichment steps a *skillset*. This tutorial uses [built-in cognitive skills](cognitive-search-predefined-skills.md) for the skillset:
+In this step, you'll define a set of enrichment steps using [built-in cognitive skills](cognitive-search-predefined-skills.md) from Microsoft:
 
 + [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) for extracting the names of organizations from content in the blob container.
 
@@ -383,7 +383,7 @@ print(r.status_code)
 
 The request should return a status code of 201 confirming success.
 
-To learn more about defining an index, see [Create Index (Azure Cognitive Search REST API)](/rest/api/searchservice/create-index).
+To learn more about defining an index, see [Create Index (REST API)](/rest/api/searchservice/create-index).
 
 ### Step 4: Create and run an indexer
 
