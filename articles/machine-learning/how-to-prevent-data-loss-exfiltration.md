@@ -20,7 +20,7 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
 * __Inbound__: Azure Machine Learning compute instance and compute cluster have two inbound requirements: the `batchnodemanagement` (ports 29876-29877) and `azuremachinelearning` (port 44224) service tags. You can control this inbound traffic by using a network security group. It's difficult to disguise Azure service IPs, so there's low data exfiltration risk. You can also configure the compute to not use a public IP, which removes inbound requirements.
 
-* __Outbound__: If malicious agents don't have write access to outbound destination resources, they can't use that outbound for data exfiltration. Azure Active Directory, Azure Resource Manager, Azure Machine Learning, and Microsoft Container Registry belong to this category. On the other hand, Storage, AzureFrontDoor.frontend, Azure Monitor can be used for data exfiltration.
+* __Outbound__: If malicious agents don't have write access to outbound destination resources, they can't use that outbound for data exfiltration. Azure Active Directory, Azure Resource Manager, Azure Machine Learning, and Microsoft Container Registry belong to this category. On the other hand, Storage and AzureFrontDoor.frontend can be used for data exfiltration.
 
     * __Storage Outbound (high risk)__: This requirement comes from compute instance and compute cluster. A malicious agent can use this outbound rule to exfiltrate data by provisioning and saving data in their own storage account. You can remove data exfiltration risk by using an Azure Service Endpoint Policy and Azure Batch's simplified node communication architecture.
 
@@ -29,8 +29,6 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
     - `ml.azure.com`
     - `automlresources-prod.azureedge.net`
     - `aka.ms`
-
-    * __Azure Monitor outbound (low risk)__: This requirement comes from the lack of support for private link enabled Azure Monitor. Malicious agents can use this outbound rule to exfiltrate data by provisioning and saving data in their own Azure Monitor. This is a low risk, as they would need to use the Application Insights SDK to send the data from inside an app running on a compute resource. To prevent this scenario, you can block outbound traffic to Azure Monitor. However, blocking this traffic will prevent you from using Azure Machine Learning's monitoring features.
 
 ## Prerequisites
 
