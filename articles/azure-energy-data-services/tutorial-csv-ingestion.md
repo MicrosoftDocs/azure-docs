@@ -15,7 +15,7 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 CSV Parser ingestion provides the capability to ingest CSV files into the Microsoft Energy Data Services instance.
 
-In this tutorial, you will learn how to:
+In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Ingest a sample Wellbore data CSV file into the Microsoft Energy Data Services instance
@@ -58,7 +58,7 @@ In this tutorial, you will learn how to:
 * Make sure to choose the **Ingestion Workflow Environment** before triggering the Postman collection.
   ![Choose environment](media/tutorial-csv-ingestion/tutorial-postman-choose-environment.png)
 * Each request can be triggered by clicking the **Send** Button.
-* On every request Postman will validate the actual API response code against the expected response code; if there is any mismatch the Test Section will indicate failures.
+* On every request Postman will validate the actual API response code against the expected response code; if there's any mismatch the Test Section will indicate failures.
 
 #### Successful Postman Call
 
