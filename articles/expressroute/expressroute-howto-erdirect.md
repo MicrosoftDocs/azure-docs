@@ -373,7 +373,7 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
 1. Verify the authorization was created successfully and store ExpressRoute Direct authorization into a variable:
 
     ```powershell
-    $ERDirectAuthorization = Get-AzExpressRoutePortAuthorization -ExpressRoutePortObject $ERPort -Name $Name
+    $ERDirectAuthorization = Get-AzExpressRoutePortAuthorization -ExpressRoutePortObject $ERPort -Name $AuthName
     $ERDirectAuthorization  
     ```
     
