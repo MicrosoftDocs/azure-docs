@@ -1,5 +1,5 @@
 ---
-title: Configure LexisNexis risk solutions as an identity verification partner using Verified ID
+title: Configure LexisNexis Risk Solutions as an identity verification partner using Verified ID
 description: This article shows you the steps you need to follow to configure LexisNexis as your identity verification partner
 services: active-directory
 author: barclayn
@@ -31,7 +31,7 @@ You can use Entra Verified ID with LexisNexis Risk Solutions to enable faster on
 Verifiable Credentials can be used to onboard employees, students, citizens, or others to access services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a verifiable credential to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a VC to prove their identity and gain access.
 
 
-:::image type="content" source="media/verified-id-partner-au10tix/vc-system-diagram.png" alt-text="diagram of the verifiable credential solution":::
+:::image type="content" source="media/verified-id-partner-au10tix/vc-system-diagram.png" alt-text="Diagram of the verifiable credential solution.":::
 
 ## Configure your Application to use LexisNexis
 

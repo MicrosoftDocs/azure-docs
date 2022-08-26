@@ -1,6 +1,6 @@
 ---
 title: Configure Verified ID by AU10TIX as your Identity Verification Partner 
-description: This article shows you the steps you need to follow to configure au10tix as your identity verification partner
+description: This article shows you the steps you need to follow to configure AU10TIX as your identity verification partner
 services: active-directory
 author: barclayn
 manager: rkarlin
@@ -36,9 +36,9 @@ Before you can continue with the steps below you need to meet the following requ
 When onboarding users you can remove the need for error prone manual onboarding steps by using Verified ID with A10TIX account onboarding. Verified IDs can be used to digitally onboard employees, students, citizens, or others to securely access resources and services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a Verified ID to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a Verified ID to prove their identity and gain access.
 
 
-:::image type="content" source="media/verified-id-partner-au10tix/vc-system-diagram.png" alt-text="diagram of the verifiable credential solution":::
+:::image type="content" source="media/verified-id-partner-au10tix/vc-system-diagram.png" alt-text="diagram of the verifiable credential solution.":::
 
-## Configure your Application to use Au10tix Verified ID
+## Configure your Application to use AU10TIX Verified ID
 
 For incorporating identity verification into your Apps, using AU10TIX  “Government Issued ID -Global” Verified ID follow these steps:
 
@@ -54,7 +54,7 @@ As a developer you can share these steps with your tenant administrator to obtai
 1. Go to QuickStart > Verification Request > [Start](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/QuickStartVerifierBlade)
 1. Choose **Select Issuer**.
 1. Look for AU10TIX in the **Search/select issuers** drop-down.
-    :::image type="content" source="media/verified-id-partner-au10tix/select-issuers.png" alt-text="screenshot of the portal section used to choose issuers":::
+    :::image type="content." source="media/verified-id-partner-au10tix/select-issuers.png" alt-text="screenshot of the portal section used to choose issuers":::
 1. Check the **Government Issued ID – Global** or other credential type.
 1. Select **Add** and then select **Review**.
 1. Download the request body and Copy/paste POST API request URL.
