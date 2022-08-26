@@ -5,7 +5,7 @@ description: Provides you with a resolution to errors while calling Azure Active
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
@@ -14,7 +14,7 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: dhanyahk
 

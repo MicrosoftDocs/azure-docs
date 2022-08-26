@@ -4,7 +4,7 @@ description: Reference of the Azure AD PowerShell cmdlets for reporting.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -13,7 +13,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/07/2020
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: dhanyahk
 

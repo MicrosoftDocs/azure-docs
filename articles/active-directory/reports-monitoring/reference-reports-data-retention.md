@@ -4,7 +4,7 @@ description: Learn how long Azure stores the various types of reporting data.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -14,7 +14,7 @@ ms.topic: reference
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/05/2020
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: dhanyahk
 
