@@ -1,6 +1,6 @@
 ---
-title: Configure security for your Azure Arc-enabled PostgreSQL Hyperscale server group
-description: Configure security for your Azure Arc-enabled PostgreSQL Hyperscale server group
+title: Configure security for your Azure Arc-enabled PostgreSQL server
+description: Configure security for your Azure Arc-enabled PostgreSQL server
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -11,7 +11,7 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Configure security for your Azure Arc-enabled PostgreSQL Hyperscale server group
+# Configure security for your Azure Arc-enabled PostgreSQL server
 
 This document describes various aspects related to security of your server group:
 
@@ -32,11 +32,11 @@ You can implement encryption at rest either by encrypting the disks on which you
 Implement system data encryption to secure any data that resides on the disks used by your Azure Arc-enabled Data Services setup. You can read more about this topic:
 
 - [Data encryption at rest](https://wiki.archlinux.org/index.php/Data-at-rest_encryption) on Linux in general 
-- Disk encryption with LUKS `cryptsetup` encrypt command (Linux)(https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) specifically Since Azure Arc-enabled Data Services runs on the physical infrastructure that you provide, you are in charge of securing the infrastructure.
+- Disk encryption with LUKS `cryptsetup` command (Linux)(https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) specifically. Since Azure Arc-enabled Data Services runs on the physical infrastructure that you provide, you are in charge of securing the infrastructure.
 
 ### Software: Use the PostgreSQL `pgcrypto` extension in your server group
 
-In addition of encrypting the disks used to host your Azure Arc setup, you can configure your Azure Arc-enabled PostgreSQL Hyperscale server group to expose mechanisms that your applications can use to encrypt data in your database(s). The `pgcrypto` extension is part of the `contrib` extensions of Postgres and is available in your Azure Arc-enabled PostgreSQL Hyperscale server group. You find details about the `pgcrypto` extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
+In addition of encrypting the disks used to host your Azure Arc setup, you can configure your Azure Arc-enabled PostgreSQL server to expose mechanisms that your applications can use to encrypt data in your database(s). The `pgcrypto` extension is part of the `contrib` extensions of Postgres and is available in your Azure Arc-enabled PostgreSQL server. You find details about the `pgcrypto` extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
 In summary, with the following commands, you enable the extension, you create it and you use it:
 
 #### Create the `pgcrypto` extension
@@ -47,7 +47,7 @@ Connect to your server group with the client tool of your choice and run the sta
 CREATE EXTENSION pgcrypto;
 ```
 
-> Find details [here](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md) about how to connect.
+> Find details [here](get-connection-endpoints-and-connection-strings-postgresql-server.md) about how to connect.
 
 #### Verify the list the extensions ready to use in your server group
 
@@ -157,17 +157,17 @@ When you connect with the application and pass a password, it looks up in the `m
    (1 row)
    ```
 
-This small example demonstrates that you can encrypt data at rest (store encrypted data) in Azure Arc-enabled PostgreSQL Hyperscale using the Postgres `pgcrypto` extension and your applications can use functions offered by `pgcrypto` to manipulate this encrypted data.
+This small example demonstrates that you can encrypt data at rest (store encrypted data) in Azure Arc-enabled PostgreSQL server using the Postgres `pgcrypto` extension and your applications can use functions offered by `pgcrypto` to manipulate this encrypted data.
 
 ## Postgres roles and users management
 
 ### General perspectives
 
-To configure roles and users in your Azure Arc-enabled PostgreSQL Hyperscale server group, use the standard Postgres way to manage roles and users. For more details, read [here](https://www.postgresql.org/docs/12/user-manag.html). The definition and configuration of the roles will be automatically be propagated to all the Postgres instances that constitute your Azure Arc-enabled PostgreSQL Hyperscale server group.
+To configure roles and users in your Azure Arc-enabled PostgreSQL server, use the standard Postgres way to manage roles and users. For more details, read [here](https://www.postgresql.org/docs/12/user-manag.html). 
 
 ### Change the password of the _postgres_ administrative user
 
-Azure Arc-enabled PostgreSQL Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you create your server group.
+Azure Arc-enabled PostgreSQL server comes with the standard Postgres administrative user _postgres_ for which you set the password when you create your server group.
 The general format of the command to change its password is:
 
 ```azurecli
@@ -239,8 +239,8 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
 
 ## Audit
 
-For audit scenarios please configure your server group to use the `pgaudit` extensions of Postgres. For more details about `pgaudit` see [`pgAudit` GitHub project](https://github.com/pgaudit/pgaudit/blob/master/README.md). To enable the `pgaudit` extension in your server group read [Use PostgreSQL extensions](using-extensions-in-postgresql-hyperscale-server-group.md).
+For audit scenarios please configure your server group to use the `pgaudit` extensions of Postgres. For more details about `pgaudit` see [`pgAudit` GitHub project](https://github.com/pgaudit/pgaudit/blob/master/README.md). To enable the `pgaudit` extension in your server group read [Use PostgreSQL extensions](using-extensions-in-postgresql-server.md).
 
 ## Next steps
 - See [`pgcrypto` extension](https://www.postgresql.org/docs/current/pgcrypto.html)
-- See [Use PostgreSQL extensions](using-extensions-in-postgresql-hyperscale-server-group.md)
+- See [Use PostgreSQL extensions](using-extensions-in-postgresql-server.md)

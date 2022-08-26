@@ -1,7 +1,7 @@
 ---
-title: Migrate data from a PostgreSQL database into an Azure Arc-enabled PostgreSQL Hyperscale server group
+title: Migrate data from a PostgreSQL database into an Azure Arc-enabled PostgreSQL server
 titleSuffix: Azure Arc-enabled database services
-description: Migrate data from a PostgreSQL database into an Azure Arc-enabled PostgreSQL Hyperscale server group
+description: Migrate data from a PostgreSQL database into an Azure Arc-enabled PostgreSQL server
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -12,20 +12,20 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Migrate PostgreSQL database to Azure Arc-enabled PostgreSQL Hyperscale server group
+# Migrate PostgreSQL database to Azure Arc-enabled PostgreSQL server
 
-This document describes the steps to get your existing PostgreSQL database (one that not hosted in Azure Arc-enabled Data Services) into your Azure Arc-enabled PostgreSQL Hyperscale server group.
+This document describes the steps to get your existing PostgreSQL database (one that not hosted in Azure Arc-enabled Data Services) into your Azure Arc-enabled PostgreSQL server.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Considerations
 
-Azure Arc-enabled PostgreSQL Hyperscale server group is the community version of PostgreSQL and runs with the CitusData extension enabled. So any tool that that works on PostgreSQL outside of Azure Arc should work with Azure Arc-enabled PostgreSQL Hyperscale server group.
+Azure Arc-enabled PostgreSQL server is the community version of PostgreSQL and runs with the CitusData extension enabled. So any tool that that works on PostgreSQL outside of Azure Arc should work with Azure Arc-enabled PostgreSQL server.
 
 
 As such, with the set of tools you use today for Postgres, you should be able to:
 1. Backup your Postgres database from your instance hosted outside of Azure Arc
-2. Restore it in your Azure Arc-enabled PostgreSQL Hyperscale server group
+2. Restore it in your Azure Arc-enabled PostgreSQL server
 
 What will be left for you to do is:
 - reset the server parameters
@@ -65,7 +65,7 @@ Configure it:
 The backup completes successfully:  
 :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="Migrate-source-backup-completed":::
 
-### Create an empty database on the destination system in your Azure Arc-enabled PostgreSQL Hyperscale server group
+### Create an empty database on the destination system in your Azure Arc-enabled PostgreSQL server
 
 > [!NOTE]
 > To register a Postgres instance in the `pgAdmin` tool, you need to you use public IP of your instance in your Kubernetes cluster and set the port and security context appropriately. You will find these details on the `psql` endpoint line after running the following command:
@@ -117,7 +117,7 @@ Configure the restore:
    The restore is successful.  
    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="Migrate-db-restore-completed":::
 
-### Verify that the database was successfully restored in your Azure Arc-enabled PostgreSQL Hyperscale server group
+### Verify that the database was successfully restored in your Azure Arc-enabled PostgreSQL server
 
 Use either of the following methods:
 
@@ -195,13 +195,13 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
    ```
 
 > [!NOTE]
-> - You will not see so much performance benefits of running on Azure Arc-enabled PostgreSQL Hyperscale until you scale out and you shard/distribute the data across the worker nodes of your PostgreSQL Hyperscale server group. See [Next steps](#next-steps).
+> - You will not see so much performance benefits of running on Azure Arc-enabled PostgreSQL server until you scale out and you shard/distribute the data across the worker nodes of your PostgreSQL server. See [Next steps](#next-steps).
 >
 > - It is not possible today to "onboard into Azure Arc" an existing Postgres instance that would running on premises or in any other cloud. In other words, it is not possible to install some sort of "Azure Arc agent" on your existing Postgres instance to make it a Postgres setup enabled by Azure Arc. Instead, you need to create a new Postgres instance and transfer data into it. You may use the technique shown above to do this or you may use any ETL tool of your choice.
 
 ## Next steps
 
-- Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from all the power of Azure Database for PostgreSQL Hyperscale:
+- Read the concepts and How-to guides of Azure Database for PostgreSQL server to distribute your data across multiple PostgreSQL server nodes and to benefit from all the power of Azure Database for PostgreSQL server:
     * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
     * [Determine application type](../../postgresql/hyperscale/howto-app-type.md)
     * [Choose a distribution column](../../postgresql/hyperscale/howto-choose-distribution-column.md)
@@ -210,6 +210,4 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
     * [Design a multi-tenant database](../../postgresql/hyperscale/tutorial-design-database-multi-tenant.md)*
     * [Design a real-time analytics dashboard](../../postgresql/hyperscale/tutorial-design-database-realtime.md)*
 
-> *In these documents, skip the sections **Sign in to the Azure portal**, and **Create an Azure Database for PostgreSQL - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc-enabled PostgreSQL Hyperscale.
-
-- [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-in-postgresql-hyperscale-server-group.md)
+> *In these documents, skip the sections **Sign in to the Azure portal**, and **Create an Azure Database for PostgreSQL**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL server offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc-enabled PostgreSQL server.

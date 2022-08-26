@@ -321,6 +321,6 @@ kubectl get datacontrollers --namespace arc
 
 ## Next steps
 
-[Create an Azure Arc-enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md)
+[Create an Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)
 
 [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md)
