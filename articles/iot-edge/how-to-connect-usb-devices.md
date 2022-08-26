@@ -77,7 +77,7 @@ The following steps provide a sample EFLOW PowerShell cmdlet to attach a USB dev
 
 1. Select the *bus ID* of the device you’d like to attach to the EFLOW.
     ```powershell
-    Add-EflowUSBDevices --busid <busid> --hostIp <host-ip>
+    Add-EflowUSBDevices -busid <busid> -hostIp <host-ip>
     ```
 
 1. Check the device was correctly attached to the EFLOW VM.
@@ -87,7 +87,7 @@ The following steps provide a sample EFLOW PowerShell cmdlet to attach a USB dev
 
 1. Once you're finished using the device in EFLOW, you can either physically disconnect the USB device or run this command from an elevated PowerShell session.
      ```powershell
-    Remove-EflowUSBDevices --busid <busid>
+    Remove-EflowUSBDevices -busid <busid>
     ```
 > [!IMPORTANT]
 > The attachment from the EFLOW VM to the USB device does not persist across reboots. To attach the USB device after reboot, you may need to create a bash script that runs during startup and connects the device using the `usbip` bash command. For more information about how to attach the device on the EFLOW VM side, see [Add-EflowUSBDevices](https://github.com/Azure/iotedge-eflow/tree/main/eflow-util/eflow-usbip/EflowUtil.psm1).
