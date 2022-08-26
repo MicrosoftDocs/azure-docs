@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 10/26/2018
 ---
 ## Prepare to authenticate Azure Resource Manager requests
-You must authenticate all the operations that you perform on resources using the [Azure Resource Manager][lnk-authenticate-arm] with Azure Active Directory (AD). The easiest way to configure this is to use PowerShell or Azure CLI.
+You must authenticate all the operations that you perform on resources using the [Azure Resource Manager][lnk-authenticate-arm] with Azure Active Directory (AD). The easiest way to configure Azure AD is to use PowerShell or Azure CLI.
 
 Install the [Azure PowerShell cmdlets][lnk-powershell-install] before you continue.
 
@@ -32,20 +32,20 @@ The following steps show how to set up password authentication for an AD applica
    Select-AzSubscription -SubscriptionName "{your subscription name}"
    ```
 
-1. Save your **TenantId** and **SubscriptionId**. You need them later.
+1. Save your **TenantId** and **SubscriptionId** for later.
 
 1. Create a new Azure Active Directory application using the following command, replacing the placeholders:
    
    * **{Display name}:** a display name for your application such as **MySampleApp**
-   * **{Home page URL}:** the URL of the home page of your app such as **http:\//mysampleapp/home**. This URL does not need to point to a real application.
-   * **{Application identifier}:** A unique identifier such as **http:\//mysampleapp**. This URL does not need to point to a real application.
+   * **{Home page URL}:** the URL of the home page of your app such as **http:\//mysampleapp/home**. This URL doesn't need to point to a real application.
+   * **{Application identifier}:** A unique identifier such as **http:\//mysampleapp**. This URL doesn't need to point to a real application.
    * **{Password}:** A password that you use to authenticate with your app.
      
      ```powershell
      $SecurePassword=ConvertTo-SecureString {password} -asplaintext -force
      New-AzADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
-1. Save the **ApplicationId** of the application you created. You need this later.
+1. Save the **ApplicationId** of the application you created for later.
 
 1. Create a new service principal using the following command, replacing **{MyApplicationId}** with the **ApplicationId** from the previous step:
    
