@@ -100,7 +100,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Microsoft Purview | Microsoft.Purview/accounts | portal |
 | Azure Backup | Microsoft.RecoveryServices/vaults | vault |
 | Azure Relay | Microsoft.Relay/namespaces | namespace |
-| Azure Cognitive Search | Microsoft.Search/searchServices | search service |
+| Azure Cognitive Search | Microsoft.Search/searchServices | searchService |
 | Azure Service Bus | Microsoft.ServiceBus/namespaces | namespace |
 | Azure SignalR Service | Microsoft.SignalRService/SignalR | signalr |
 | Azure SignalR Service | Microsoft.SignalRService/webPubSub | webpubsub |
