@@ -167,7 +167,7 @@ Updating the configuration can take a few minutes. You should get a notification
 
 - **Private repository**: Azure Spring Apps supports basic password/token-based authentication and SSH.
 
-   - **Basic Authentication**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Edit Authentication** button, represented by a pencil icon. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **HTTP Basic**, and then enter your username and password/token to grant access to Azure Spring Apps. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
+   - **Basic Authentication**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the setting under **Authentication** to open the **Edit Authentication** pane. In the **Authentication type** drop-down list, select **HTTP Basic**, and then enter your username and password/token to grant access to Azure Spring Apps. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
    :::image type="content" source="media/how-to-config-server/basic-auth.png" lightbox="media/how-to-config-server/basic-auth.png" alt-text="Screenshot of the Default repository section showing authentication settings for Basic authentication.":::
 
