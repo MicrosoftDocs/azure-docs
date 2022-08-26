@@ -484,8 +484,8 @@ Returns the information in a format and content similar to the one returned by k
 
 ## Next steps
 
-- [Read about how to scale up/down (increase or reduce memory and/or vCores) a server group](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)
+- [Read about how to scale up/down (increase or reduce memory and/or vCores) a server group](scale-up-down-postgresql-server-using-cli.md)
 - [Read about storage configuration](storage-configuration.md)
 - [Read how to monitor a database instance](monitor-grafana-kibana.md)
-- [Use PostgreSQL extensions in your Azure Arc-enabled PostgreSQL server](using-extensions-in-postgresql-hyperscale-server-group.md)
-- [Configure security for your Azure Arc-enabled PostgreSQL server](configure-security-postgres-hyperscale.md)
+- [Use PostgreSQL extensions in your Azure Arc-enabled PostgreSQL server](using-extensions-in-postgresql-server.md)
+- [Configure security for your Azure Arc-enabled PostgreSQL server](configure-security-postgresql.md)

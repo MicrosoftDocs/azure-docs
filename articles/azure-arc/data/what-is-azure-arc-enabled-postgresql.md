@@ -122,7 +122,7 @@ With the Direct connectivity mode offered by Azure Arc-enabled data services you
 - **Deploy it, create your own.** Follow these steps to create on your own Kubernetes cluster: 
    1. [Install the client tools](install-client-tools.md)
    2. [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
-   3. [Create an Azure Database for PostgreSQL server on Azure Arc](create-postgresql-hyperscale-server-group.md) 
+   3. [Create an Azure Database for PostgreSQL server on Azure Arc](create-postgresql-server) 
 
 - **Learn**
    - [Azure Arc](https://aka.ms/azurearc)

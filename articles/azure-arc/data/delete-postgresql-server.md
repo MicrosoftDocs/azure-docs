@@ -119,4 +119,4 @@ persistentvolumeclaim "data-postgres01-0" deleted
 > ```
     
 ## Next step
-Create [Azure Arc-enabled PostgreSQL server](create-postgresql-hyperscale-server-group.md)
+Create [Azure Arc-enabled PostgreSQL server](create-postgresql-server)

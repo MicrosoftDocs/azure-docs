@@ -72,11 +72,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create
-            url: create-postgresql-hyperscale-server-group.md
+            url: create-postgresql-server
           - text: Connect
-            url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+            url: get-connection-endpoints-and-connection-strings-postgresql-server.md
           - text: Migrate
-            url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+            url: migrate-postgresql-data.md
           - text: Restore
-            url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+            url: restore-adventureworks-sample-db-into-postgresql-server.md
 
