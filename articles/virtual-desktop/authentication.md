@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 08/25/2022
 ms.author: helohr
 manager: femila
 ---
@@ -102,7 +102,7 @@ Once you're connected to your remote app or desktop, you may be prompted for aut
 ### In-session passwordless authentication (preview)
 
 > [!IMPORTANT]
-> In-session passwordless authentication is currently in public preview.
+> In-session passwordless authentication is currently in Insider preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
