@@ -32,6 +32,7 @@ az login
 ```azurepowershell
 Connect-AzAccount
 ```
+---
 
 ### Create Resource Group
 
