@@ -17,7 +17,7 @@ Azure Elastic SAN is Microsoft's answer to the problem of workload optimization 
 
 ### Unified interface
 
-Elastic SAN provides a unified storage provisioning and simplifies managing storage at scale through grouping and policy enforcement.
+Elastic SAN offers a unified storage provisioning experience that simplifies managing storage at scale through grouping and policy enforcement.
 
 ### Performance
 
@@ -25,7 +25,7 @@ With Elastic SAN, it's possible to scale your performance up to millions of IOPS
 
 ### Cost optimization
 
-Elastic SAN simplifies cost optimization by allowing you to increase your storage footprint in bulk. You can either increase your performance along with the storage capacity, or increase the storage capacity without increasing the SAN's performance, potentially offering a lower total cost of ownership.
+Cost optimization can be achieved with Elastic SAN since you can increase your SAN storage in bulk. You can either increase your performance along with the storage capacity, or increase the storage capacity without increasing the SAN's performance, potentially offering a lower total cost of ownership.
 
 ## Elastic SAN resources
 
@@ -34,8 +34,6 @@ Elastic SAN has three resources:
 - The SAN itself
 - Volume groups
 - Volumes
-
-When deploying a SAN, you make selections at the SAN-level, including the redundancy of the entire SAN, as well as how much performance and storage the SAN has. Then you create volume groups which are a management construct that are used to manage volumes at scale, any settings applied to a volume group are inherited by any volumes inside that volume group. Finally, you partition the storage capacity allocated at the SAN-level into individual volumes.
 
 ### The SAN
 
