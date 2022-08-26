@@ -57,6 +57,11 @@
     href: move-automanaged-configuration-profile.md
   - name: Windows Server VNext Datacenter Azure Edition (preview)
     href: windows-server-azure-edition-vnext.md
+- name: References
+  expanded: true
+  items: 
+  - name: SDKs
+    href: sdk-overview.md
 - name: Resources
   expanded: true
   items:
@@ -64,5 +69,3 @@
     href: faq.yml
   - name: Cloud Adoption Framework
     href: /azure/cloud-adoption-framework/manage/azure-server-management/
-  - name: SDKs
-    href: sdk-overview.md

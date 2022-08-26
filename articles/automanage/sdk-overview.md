@@ -4,7 +4,7 @@ description: Get started with the Automanage SDKs.
 author: andrsmith
 ms.service: automanage
 ms.workload: infrastructure
-ms.topic: quickstart SDK overview
+ms.topic: reference
 ms.date: 08/25/2022
 ms.author: andrsmith
 ---
