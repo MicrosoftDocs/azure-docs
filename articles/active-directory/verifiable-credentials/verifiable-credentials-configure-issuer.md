@@ -40,7 +40,7 @@ The following diagram illustrates the Microsoft Entra Verified ID architecture a
 - To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
-- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization, please read this [FAQ](verifiable-credentials-faq.md#i-can-not-use-ngrok-what-do-i-do).
+- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization,read this [FAQ](verifiable-credentials-faq.md#i-can-not-use-ngrok-what-do-i-do).
 - A mobile device with Microsoft Authenticator:
   - Android version 6.2206.3973 or later installed.
   - iOS version 6.6.2 or later installed.
@@ -50,82 +50,53 @@ The following diagram illustrates the Microsoft Entra Verified ID architecture a
 In this step, you create the verified credential expert card by using Microsoft Entra Verified ID. After you create the credential, your Azure AD tenant can issue it to users who initiate the process.
 
 1. Using the [Azure portal](https://portal.azure.com/), search for **Verified ID** and select it.
-2. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the **Create credential** should appear. Alternatively, you can select **Credentials** in the left hand menu and select **+ Add a credential**.
-3. In **Create credential**, select **Custom Credential** and select **Next**:
+1. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the **Create credential** should appear. Alternatively, you can select **Credentials** in the left hand menu and select **+ Add a credential**.
+1. In **Create credential**, select **Custom Credential** and click **Next**:
 
     1. For **Credential name**, enter **VerifiedCredentialExpert**. This name is used in the portal to identify your verifiable credentials. It's included as part of the verifiable credentials contract.
 
     1. Copy the following JSON and paste it in the  **Display definition** textbox
-
     
-```json
-{
-    "locale": "en-US",
-    "card": {
-      "title": "Verified Credential Expert",
-      "issuedBy": "Microsoft",
-      "backgroundColor": "#000000",
-      "textColor": "#ffffff",
-      "logo": {
-        "uri": "https://didcustomerplayground.blob.core.windows.net/public/VerifiedCredentialExpert_icon.png",
-        "description": "Verified Credential Expert Logo"
-      },
-      "description": "Use your verified credential to prove to anyone that you know all about verifiable credentials."
-    },
-    "consent": {
-      "title": "Do you want to get your Verified Credential?",
-      "instructions": "Sign in with your account to get your card."
-    },
-    "claims": [
-      {
-        "claim": "vc.credentialSubject.userName",
-        "label": "User name",
-        "type": "String"
-      },
-      {
-        "claim": "vc.credentialSubject.displayName",
-        "label": "Display name",
-        "type": "String"
-      },
-      {
-        "claim": "vc.credentialSubject.firstName",
-        "label": "First name",
-        "type": "String"
-      },
-      {
-        "claim": "vc.credentialSubject.lastName",
-        "label": "Last name",
-        "type": "String"
-      }
-    ]
-}
-```
+        ```json
+        {
+            "locale": "en-US",
+            "card": {
+              "title": "Verified Credential Expert",
+              "issuedBy": "Microsoft",
+              "backgroundColor": "#000000",
+              "textColor": "#ffffff",
+              "logo": {
+                "uri": "https://didcustomerplayground.blob.core.windows.net/public/VerifiedCredentialExpert_icon.png",
+                "description": "Verified Credential Expert Logo"
+              },
+              "description": "Use your verified credential to prove to anyone that you know all about verifiable credentials."
+            },
+            "consent": {
+              "title": "Do you want to get your Verified Credential?",
+              "instructions": "Sign in with your account to get your card."
+            },
+            "claims": [
+              {
+                "claim": "vc.credentialSubject.firstName",
+                "label": "First name",
+                "type": "String"
+              },
+              {
+                "claim": "vc.credentialSubject.lastName",
+                "label": "Last name",
+                "type": "String"
+              }
+            ]
+        }
+        ```
 
-4. Copy the following JSON and paste it in the  **Rules definition** textbox
-
-
- ```json
+    1. Copy the following JSON and paste it in the  **Rules definition** textbox
+    ```JSON
     {
       "attestations": {
-        "idTokens": [
+        "idTokenHints": [
           {
-            "clientId": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
-            "configuration": "https://didplayground.b2clogin.com/didplayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
-            "redirectUri": "vcclient://openid",
-            "scope": "openid profile email",
             "mapping": [
-              {
-                "outputClaim": "userName",
-                "required": true,
-                "inputClaim": "$.upn",
-                "indexed": false
-              },
-              {
-                "outputClaim": "displayName",
-                "required": true,
-                "inputClaim": "$.name",
-                "indexed": false
-              },
               {
                 "outputClaim": "firstName",
                 "required": true,
@@ -136,23 +107,23 @@ In this step, you create the verified credential expert card by using Microsoft 
                 "outputClaim": "lastName",
                 "required": true,
                 "inputClaim": "$.family_name",
-                "indexed": true
+                "indexed": false
               }
             ],
             "required": false
           }
-        ]
-      },
-      "validityInterval": 2592000,
-      "vc": {
-        "type": [
-          "VerifiedCredentialExpert"
-        ]
+        ],
+        "validityInterval": 2592000,
+        "vc": {
+          "type": [
+            "VerifiedCredentialExpert"
+          ]
+        }
       }
     }
- ```
+    ```
 
-5. Select **Create**.
+    1. Select **Create**.
 
 The following screenshot demonstrates how to create a new credential:
 
