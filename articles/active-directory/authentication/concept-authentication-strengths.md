@@ -41,11 +41,7 @@ You can choose from built-in authentication strengths or create custom authentic
 ### Built-in authentication strengths
 Microsoft predefined some combinations of authentication methods, called _built-in authentication strengths_. Built-in authentication strengths are always available and can't be modified. 
 
-<!---Depending on which methods are available and registered for users, they can use any one of the combinations to sign-in. --->
-
-<!---define what strengths mean--->
-
-The following table lists the combinations of authentication methods included in each built-in authentication strength. End users will need to satisfy one of these methods when the strength enforced by a CA policy.
+The following table lists the combinations of authentication methods included in each built-in authentication strength. Depending on which methods are available and registered for users, they can use any one of the combinations to sign-in. MFA strength is the same set of combinations that could be used to satisfy the **Require multifactor authentication** setting. 
 
 |Authentication method combination |MFA strength | Passwordless authentication strength| Phishing resistant authentication strength|
 |----------------------------------|-------------|-------------------------------------|-------------------------------------------|
