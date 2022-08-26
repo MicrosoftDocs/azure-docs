@@ -20,6 +20,10 @@ ms.author: radubulboaca
 - Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-csharp) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
 - The latest versions of [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
 
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/rooms-quickstart).
+
 ## Setting up
 
 ### Create a new web application
@@ -157,3 +161,7 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 // deletes the specified room
 await roomsClient.deleteRoom(roomId);
 ```
+
+## Reference documentation
+
+Read about the full set of capabilities of Azure Communication Services rooms from the [JavaScript SDK reference](https://docs.microsoft.com/javascript/api/overview/azure/communication-rooms-readme) or [REST API reference](https://docs.microsoft.com/rest/api/communication/rooms).

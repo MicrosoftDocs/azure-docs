@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 06/29/2022
+ms.date: 08/25/2022
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -15,6 +15,13 @@ ms.date: 06/29/2022
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
+
+## Release: August 2022
+
+* Support for [PostgreSQL minor version](./concepts-supported-versions.md) 14.4. <sup>$</sup>
+* Support for [new regions](overview.md#azure-regions) Qatar Central, Switzerland West, France South.
+
+<sup>**$**</sup> New PostgreSQL 14 servers will be provisioned with version 14.4. Your existing PostgreSQL 14.3 servers will be upgraded to 14.4 in your server's future maintenance window.
 
 ## Release: July 2022
 

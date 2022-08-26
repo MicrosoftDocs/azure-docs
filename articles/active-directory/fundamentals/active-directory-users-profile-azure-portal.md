@@ -3,13 +3,13 @@ title: Add or update user profile information - Azure AD
 description: Instructions about how to add information to a user's profile in Azure Active Directory, including a picture and job details.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 06/10/2021
+ms.date: 08/17/2022
 ms.author: barclayn
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management

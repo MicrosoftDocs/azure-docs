@@ -436,7 +436,7 @@ To inject these secrets in your Spring or Tomcat configuration file, use environ
 
 ### Use the Java Key Store
 
-By default, any public or private certificates [uploaded to App Service Linux](configure-ssl-certificate.md) will be loaded into the respective Java Key Stores as the container starts. After uploading your certificate, you will need to restart your App Service for it to be loaded into the Java Key Store. Public certificates are loaded into the Key Store at `$JAVA_HOME/jre/lib/security/cacerts`, and private certificates are stored in `$JAVA_HOME/lib/security/client.jks`.
+By default, any public or private certificates [uploaded to App Service Linux](configure-ssl-certificate.md) will be loaded into the respective Java Key Stores as the container starts. After uploading your certificate, you will need to restart your App Service for it to be loaded into the Java Key Store. Public certificates are loaded into the Key Store at `$JRE_HOME/lib/security/cacerts`, and private certificates are stored in `$JRE_HOME/lib/security/client.jks`.
 
 More configuration may be necessary for encrypting your JDBC connection with certificates in the Java Key Store. Refer to the documentation for your chosen JDBC driver.
 
@@ -453,12 +453,12 @@ To initialize the `import java.security.KeyStore` object, load the keystore file
 ```java
 KeyStore keyStore = KeyStore.getInstance("jks");
 keyStore.load(
-    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/cacets"),
+    new FileInputStream(System.getenv("JRE_HOME")+"/lib/security/cacerts"),
     "changeit".toCharArray());
 
 KeyStore keyStore = KeyStore.getInstance("pkcs12");
 keyStore.load(
-    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/client.jks"),
+    new FileInputStream(System.getenv("JRE_HOME")+"/lib/security/client.jks"),
     "changeit".toCharArray());
 ```
 
@@ -1136,6 +1136,16 @@ App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To ena
 When clustering is enabled, the JBoss EAP instances use the FILE_PING JGroups discovery protocol to discover new instances and persist the cluster information like the cluster members, their identifiers, and their IP addresses. On App Service, these files are under `/home/clusterinfo/`. The first EAP instance to start will obtain read/write permissions on the cluster membership file. Other instances will read the file, find the primary node, and coordinate with that node to be included in the cluster and added to the file.
 
 The Premium V3 and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../availability-zones/migrate-app-service.md). The JBoss EAP clustering feature is compatabile with the zone redundancy feature. 
+
+#### Auto-Scale Rules
+
+When configuring auto-scale rules for horizontal scaling it is important to remove instances incrementally (one at a time) to ensure each removed instance can transfer its activity (such as handling a database transaction) to another member of the cluster. When configuring your autoscale rules in the Portal to scale down, use the following options:
+
+- **Operation**: "Decrease count by"
+- **Cool down**: "5 minutes" or greater
+- **Instance count**: 1
+
+You do not need to incrementally add instances (scaling out), you can add multiple instances to the cluster at a time.
 
 ### JBoss EAP App Service Plans
 

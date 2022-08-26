@@ -15,6 +15,10 @@ ms.custom: devx-track-azurepowershell
  
 The Microsoft-managed Default Rule Set is based on the  [OWASP Core Rule Set (CRS)](https://github.com/SpiderLabs/owasp-modsecurity-crs/tree/v3.1/dev) and includes Microsoft Threat Intelligence Collection rules. It is often expected that WAF rules need to be tuned to suit the specific needs of the application or organization using the WAF. This is commonly achieved by defining rule exclusions, creating custom rules, and even disabling rules that may be causing issues or false positives. There are a few things you can do if requests that should pass through your Web Application Firewall (WAF) are blocked.
 
+> [!Note]
+> 
+> Managed Rule Set is not available for Azure Front Door Standard SKU. For more information about the different tier SKUs, refer to [Feature comparison between tiers](/azure/frontdoor/standard-premium/tier-comparison#feature-comparison-between-tiers)
+
 First, ensure you’ve read the [Front Door WAF overview](afds-overview.md) and the [WAF Policy for Front Door](waf-front-door-create-portal.md) documents. Also, make sure you’ve enabled [WAF monitoring and logging](waf-front-door-monitor.md). These articles explain how the WAF functions, how the WAF rule sets work, and how to access WAF logs.
  
 ## Understanding WAF logs

@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 06/24/2022
+ms.date: 08/09/2022
 ms.author: alkohli
 ---
 
@@ -29,7 +29,7 @@ The following VMs are supported for creation on your Azure Stack Edge device.
 | Size              | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  |
 |-------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
 | **Standard_DS1_v2**   | 1     | 3.5           | 7                   | 2000                           | 4000                                | 2300                             | 4               | 2         |
-| **Standard_DS2_v2**   | 2     | 7             | 14                  | 2000                           | 8000                                | 2300                             | 8               | 4         |
+| **Standard_DS2_v2**   | 2     | 7             | 14                  | 2000                           | 8000                                | 2300                             | 8               | 2         |
 | **Standard_DS3_v2**   | 4     | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
 | **Standard_DS4_v2**   | 8     | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
 | **Standard_DS5_v2**   | 16    | 56            | 112                 | 2000                           | 64000                               | 2300                             | 64              | 8         |
@@ -44,7 +44,7 @@ For more information, see [Dv2 and DSv2-series](../articles/virtual-machines/dv2
 
 ### N-series GPU optimized 
 
-These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications, for example, inferencing workloads The GPU VM that you deploy should match the GPU type on your Azure Stack Edge device. 
+These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications, for example, inferencing workloads. The GPU VM that you deploy should match the GPU type on your Azure Stack Edge device. 
 
 #### For Nvidia's Tesla T4 GPU.
 
@@ -94,7 +94,7 @@ The high-performance network (HPN) virtual machines are tailored for workloads t
 
 | Size              | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  |
 |-------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
-| **Standard_DS2_v2_HPN**   | 2     | 7             | 14                  | 2000                           | 8000                                | 2300                             | 8               | 4         |
+| **Standard_DS2_v2_HPN**   | 2     | 7             | 14                  | 2000                           | 8000                                | 2300                             | 8               | 2         |
 | **Standard_DS3_v2_HPN**   | 4     | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
 | **Standard_DS4_v2_HPN**   | 8     | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
 
