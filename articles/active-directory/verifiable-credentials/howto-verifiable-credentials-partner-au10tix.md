@@ -36,7 +36,9 @@ Before you can continue with the steps below you need to meet the following requ
 When onboarding users you can remove the need for error prone manual onboarding steps by using Verified ID with A10TIX account onboarding. Verified IDs can be used to digitally onboard employees, students, citizens, or others to securely access resources and services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a Verified ID to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a Verified ID to prove their identity and gain access.
 
 
-:::image type="content" source="media/verified-id-partner-au10tix/vc-system-diagram.png" alt-text="Diagram of the verifiable credential solution.":::
+
+:::image type="content" source="media/verified-id-partner-au10tix/vc-solution-architecture-diagram.png" alt-text="diagram of the verifiable credential solution.":::
+
 
 ## Configure your Application to use AU10TIX Verified ID
 
