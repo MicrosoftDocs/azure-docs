@@ -28,8 +28,10 @@ Get started creating profile assignments using the [azure-sdk-for-js](https://gi
 
 For this demo, both the **Azure Identity** and **Azure Automanage** packages are required.
 
-`npm install @azure/arm-automanage`
-`npm install @azure/identity`
+```
+npm install @azure/arm-automanage
+npm install @azure/identity
+```
 
 ## Import Packages 
 

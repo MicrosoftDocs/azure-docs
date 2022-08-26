@@ -30,8 +30,10 @@ For this demo, both the **Azure Identity** and **Azure Automanage** packages are
 
 Use `pip` to install these packages: 
 
-`pip install azure-identity`
-`pip install azure-mgmt-automanage`
+```
+pip install azure-identity
+pip install azure-mgmt-automanage
+```
 
 ## Import Packages 
 

@@ -28,8 +28,10 @@ Get started creating profile assignments using the [azure-sdk-for-go](https://gi
 
 For this demo, both the **Azure Identity** and **Azure Automanage** packages are required.
 
-`go get "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automanage/armautomanage"`
-`go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"`
+```
+go get "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automanage/armautomanage"
+go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+```
 
 ## Import Packages 
 

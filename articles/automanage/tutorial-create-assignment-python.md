@@ -81,8 +81,10 @@ Now that we have successfully created a resource group and a virtual machine, it
 
 Install the Azure Identity and Azure Automanage packages using `pip`:
 
-`pip install azure-mgmt-automanage`
-`pip install azure-identity`
+```
+pip install azure-mgmt-automanage
+pip install azure-identity
+```
 
 ### Import Packages
 
