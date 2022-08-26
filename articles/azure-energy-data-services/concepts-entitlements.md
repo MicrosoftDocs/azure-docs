@@ -27,7 +27,7 @@ The main motivation for entitlements service is data authorization, but the func
 
 For each group, you can either add a user as an OWNER or a MEMBER. The only difference being if you're an OWNER of a group, then you can manage the members of that group. 
 > [!NOTE]
-> Do not delete the OWNER of a group unless there is another OWNER to manage the users**. 
+> Do not delete the OWNER of a group unless there is another OWNER to manage the users. 
 
 ## Group naming
 
