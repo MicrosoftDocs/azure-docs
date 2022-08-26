@@ -23,6 +23,9 @@ You can use Entra Verified ID with LexisNexis Risk Solutions to enable faster on
 - Your tenant should also have completed the LexisNexis onboarding process.
     - Create a LexisNexis account, you can request a [demo](https://solutions.risk.lexisnexis.com/did-microsoft). Expect response from your LexisNexis Risk Solutions within 48 hours.
 
+>[!IMPORTANT]
+> Before you proceed, you must have received the URL from LexisNexis risk solutions for users to be issued Verified IDs. If you have not yet received it, follow up with LexisNexis before you attempt following the steps documented below.
+
 ## Scenario description
 
 Verifiable Credentials can be used to onboard employees, students, citizens, or others to access services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a verifiable credential to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a VC to prove their identity and gain access.
