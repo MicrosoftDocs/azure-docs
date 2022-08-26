@@ -1,5 +1,5 @@
 ---
-title: How to manage users to Microsoft Energy Data Services #Required; page title is displayed in search results. Include the brand.
+title: How to manage users in Microsoft Energy Data Services #Required; page title is displayed in search results. Include the brand.
 description: This article describes how to manage users in Microsoft Energy Data Services #Required; article description that is displayed in search results. 
 author: Lakshmisha-KS #Required; your GitHub user alias, with correct capitalization.
 ms.author: lakshmishaks #Required; microsoft alias of author; optional team alias.
