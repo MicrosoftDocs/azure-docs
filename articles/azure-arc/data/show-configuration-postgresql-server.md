@@ -448,7 +448,7 @@ Use  Az CLI commands.
 Run the following command.
 
    ```azurecli
-   az postgres arc-server list --k8s-namespace <namespace> --use-k8s
+   az postgres server-arc list --k8s-namespace <namespace> --use-k8s
    ```
 
 It lists the server groups that are deployed.
@@ -471,13 +471,13 @@ It also indicates how many worker nodes does the server group use. Each worker n
 Run either of the following commands
 
 ```azurecli
-az postgres arc-server show -n <server group name>  --k8s-namespace <namespace> --use-k8s
+az postgres server-arc show -n <server group name>  --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:
 
 ```azurecli
-az postgres arc-server show -n postgres01 --k8s-namespace arc --use-k8s
+az postgres server-arc show -n postgres01 --k8s-namespace arc --use-k8s
 ```
 
 Returns the information in a format and content similar to the one returned by kubectl. Use the tool of your choice to interact with the system.

@@ -23,11 +23,11 @@ This article explains how you can retrieve the connection endpoints for your ser
 
 Run the following command:
 ```azurecli
-az postgres arc-server endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 For example:
 ```azurecli
-az postgres arc-server endpoint list -n postgres01 --k8s-namespace arc --use-k8s
+az postgres server-arc endpoint list -n postgres01 --k8s-namespace arc --use-k8s
 ```
 
 It returns the list of endpoints: the PostgreSQL endpoint, the log search dashboard (Kibana), and the metrics dashboard (Grafana). For example: 

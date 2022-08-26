@@ -171,7 +171,7 @@ Azure Arc-enabled PostgreSQL server comes with the standard Postgres administrat
 The general format of the command to change its password is:
 
 ```azurecli
-az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
+az postgres server-arc edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
 ```
 
 Where `--admin-password` is a boolean that relates to the presence of a value in the AZDATA_PASSWORD **session** environment variable.
@@ -186,11 +186,11 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
 2. Run the command:
 
    ```azurecli
-   az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
+   az postgres server-arc edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    For example
    ```azurecli
-   az postgres arc-server edit -n postgres01 --admin-password --k8s-namespace <namespace> --use-k8s
+   az postgres server-arc edit -n postgres01 --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    You will be prompted to enter the password and to confirm it:
    ```console
@@ -209,11 +209,11 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
 1. Set the value of the AZDATA_PASSWORD **session** environment variable to what you want to password to be.
 2. Run the  command:
    ```azurecli
-   az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
+   az postgres server-arc edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    For example
    ```azurecli
-   az postgres arc-server edit -n postgres01 --admin-password --k8s-namespace <namespace> --use-k8s
+   az postgres server-arc edit -n postgres01 --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    
    As the password is being updated, the output of the command shows:

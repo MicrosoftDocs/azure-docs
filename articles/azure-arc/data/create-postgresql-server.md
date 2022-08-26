@@ -44,11 +44,11 @@ For more details on SCCs in OpenShift, refer to the [OpenShift documentation](ht
 
 ## Create an Azure Arc-enabled PostgreSQL server
 
-To create an Azure Arc-enabled PostgreSQL server on your Arc data controller, you will use the command `az postgres arc-server create` to which you will pass several parameters.
+To create an Azure Arc-enabled PostgreSQL server on your Arc data controller, you will use the command `az postgres server-arc create` to which you will pass several parameters.
 
 For details about all the parameters you can set at the creation time, review the output of the command:
 ```azurecli
-az postgres arc-server create --help
+az postgres server-arc create --help
 ```
 
 The main parameters should consider are:
@@ -84,7 +84,7 @@ When you execute the create command, you will be prompted to enter the password 
 **To deploy a server group of Postgres version 12 named postgres01 with two worker nodes that uses the same storage classes as the data controller, run the following command**:
 
 ```azurecli
-az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespace> --use-k8s
+az postgres server-arc create -n postgres01 --workers 2 --k8s-namespace <namespace> --use-k8s
 ```
 
 > [!NOTE]  
@@ -97,7 +97,7 @@ az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespa
 To list the PostgreSQL servers deployed in your Arc data controller, run the following command:
 
 ```azurecli
-az postgres arc-server list --k8s-namespace <namespace> --use-k8s
+az postgres server-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 
@@ -115,7 +115,7 @@ az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 To view the endpoints for a PostgreSQL server group, run the following command:
 
 ```azurecli
-az postgres arc-server endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 For example:
 ```console
@@ -166,7 +166,7 @@ Once you have the name of the NSG, you can add a firewall rule using the followi
 > [!WARNING]
 > We do not recommend setting a rule to allow connection from any source IP address. You can lock down things better by specifying a `-source-address-prefixes` value that is specific to your client IP address or an IP address range that covers your team's or organization's IP addresses.
 
-Replace the value of the `--destination-port-ranges` parameter below with the port number you got from the `az postgres arc-server list` command above.
+Replace the value of the `--destination-port-ranges` parameter below with the port number you got from the `az postgres server-arc list` command above.
 
 ```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'

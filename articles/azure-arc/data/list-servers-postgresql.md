@@ -23,7 +23,7 @@ To retrieve this list, use either of the following methods once you are connecte
 
 The general format of the command is:
 ```azurecli
-az postgres arc-server list --k8s-namespace <namespace> --use-k8s
+az postgres server-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 It will return an output like:
@@ -39,7 +39,7 @@ It will return an output like:
 ```
 For more details about the parameters available for this command, run:
 ```azurecli
-az postgres arc-server list --help
+az postgres server-arc list --help
 ```
 
 ## From CLI with kubectl

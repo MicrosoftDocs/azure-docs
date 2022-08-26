@@ -44,7 +44,7 @@ The relevant Grafana dashboards are:
 To access the logs and monitoring dashboards for an Azure Arc-enabled PostgreSQL server, run the following `azdata` CLI command
 
 ```azurecli
-az postgres arc-server endpoint list -n <name of postgreSQL instance> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc endpoint list -n <name of postgreSQL instance> --k8s-namespace <namespace> --use-k8s
 ```
 
 The relevant postgreSQL dashboards are:

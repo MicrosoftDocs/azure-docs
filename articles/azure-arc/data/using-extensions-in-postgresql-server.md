@@ -55,11 +55,11 @@ For details about that are `shared_preload_libraries`, read the PostgreSQL docum
 
 ### Add an extension at the creation time of a server group
 ```azurecli
-az postgres arc-server create -n <name of your postgresql server group> --extensions <extension names> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc create -n <name of your postgresql server group> --extensions <extension names> --k8s-namespace <namespace> --use-k8s
 ```
 ### Add an extension to an instance that already exists
 ```azurecli
-az postgres arc-server server edit -n <name of your postgresql server group> --extensions <extension names> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc server edit -n <name of your postgresql server group> --extensions <extension names> --k8s-namespace <namespace> --use-k8s
 ```
 
 
@@ -70,7 +70,7 @@ Run either of the following command.
 
 ### With CLI command
 ```azurecli
-az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc show -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 Scroll in the output and notice the engine\extensions sections in the specifications of your server group. For example:
 ```console
@@ -180,7 +180,7 @@ SELECT name, address FROM coffee_shops ORDER BY geom <-> ST_SetSRID(ST_MakePoint
 Now, let's enable `pg_cron` on our PostgreSQL server group by adding it to the shared_preload_libraries:
 
 ```azurecli
-az postgres arc-server update -n pg2 -ns arc --extensions pg_cron
+az postgres server-arc update -n pg2 -ns arc --extensions pg_cron
 ```
 
 Your server group will restart complete the installation of the  extensions. It may take 2 to 3 minutes.

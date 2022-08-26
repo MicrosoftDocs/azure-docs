@@ -165,7 +165,7 @@ Important factors to consider when choosing a storage class for the data control
 
 Each database instance has data, logs, and backup persistent volumes. The storage classes for these persistent volumes can be specified at deployment time. If no storage class is specified the default storage class will be used.
 
-When creating an instance using either `az sql mi-arc create` or `az postgres arc-server create`, there are four parameters that can be used to set the storage classes:
+When creating an instance using either `az sql mi-arc create` or `az postgres server-arc create`, there are four parameters that can be used to set the storage classes:
 
 |Parameter name, short name|Used for|
 |---|---|
