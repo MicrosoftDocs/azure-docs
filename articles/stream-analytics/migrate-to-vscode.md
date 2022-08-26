@@ -39,7 +39,7 @@ If you've created an ASA job in the Azure portal, you can export the ASA job to 
 
 1. Sign in to Azure portal and open your ASA job. Under **Query** page, select **Open in VS Code** to export job.
 
-    :::image type="content" source="./media/stream-analytics-migrate-to-vscode/portal-open-in-vscode.png" alt-text="portal open in vs code." lightbox= "./media/stream-analytics-migrate-to-vscode/portal-open-in-vscode.png" :::
+    :::image type="content" source="./media/stream-analytics-migrate-to-vscode/portal-open-in-vscode.png" alt-text="Screenshot of the Azure portal using the Open in VSCode to launch VSCode in the local machine." lightbox= "./media/stream-analytics-migrate-to-vscode/portal-open-in-vscode.png" :::
 
 2. Select a folder where you want to export the ASA project.
 3. Then it will automatically create an ASA project and add it to your workspace in VSCode. You should see a folder with the same name as your ASA job.
@@ -71,7 +71,7 @@ Follow these steps to run your job with live input and save output results local
 
 2. Go to. **\*.asaql** file, select **Run Locally**.
     
-    :::image type="content" source="media/stream-analytics-migrate-to-vscode/run-locally-vscode.png" alt-text="run locally vs code." lightbox= "media/stream-analytics-migrate-to-vscode/run-locally-vscode.png" :::
+    :::image type="content" source="media/stream-analytics-migrate-to-vscode/run-locally-vscode.png" alt-text="Screenshot of the Visual Studio Coding using Run Locally to run an ASA job." lightbox= "media/stream-analytics-migrate-to-vscode/run-locally-vscode.png" :::
 
 3. Then select **Use Live Input and Local Output** under the Command Palette.
     
@@ -79,7 +79,7 @@ Follow these steps to run your job with live input and save output results local
 
 4. If your job started successfully, you can view the output results, job diagram, and metrics for your ASA job.
     
-    :::image type="content" source="./media/stream-analytics-migrate-to-vscode/vscode-job-diagram-metrics.png" alt-text="view-metrics" lightbox= "./media/stream-analytics-migrate-to-vscode/vscode-job-diagram-metrics.png" :::
+    :::image type="content" source="./media/stream-analytics-migrate-to-vscode/vscode-job-diagram-metrics.png" alt-text="Screenshot of the Visual Studio Code using Job Diagram and Metric features. " lightbox= "./media/stream-analytics-migrate-to-vscode/vscode-job-diagram-metrics.png" :::
 
 For more details about debugging, visit [Debug ASA queries locally using job diagram](./debug-locally-using-job-diagram-vs-code.md)
 
@@ -122,7 +122,7 @@ No, if your ASA job has configured multiple Inputs and Outputs sources in the Az
 
 3. Then you can preview data and verify if the new input source is added. 
 
-    :::image type="content" source="./media/stream-analytics-migrate-to-vscode/preview-data.png" alt-text="vscode preview data" lightbox= "./media/stream-analytics-migrate-to-vscode/preview-data.png" :::
+    :::image type="content" source="./media/stream-analytics-migrate-to-vscode/preview-data.png" alt-text="Screenshot of the Visual Studio Code using Preview Data." lightbox= "./media/stream-analytics-migrate-to-vscode/preview-data.png" :::
 
 ## Next steps
 
