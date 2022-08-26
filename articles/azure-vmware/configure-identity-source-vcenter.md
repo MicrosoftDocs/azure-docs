@@ -18,9 +18,13 @@ ms.date: 04/22/2022
 In this how-to, you learn how to:
 
 > [!div class="checklist"]
-> * List all existing external identity sources integrated with vCenter Server SSO
-> * Add Active Directory over LDAP, with or without SSL 
+> * Export the certificate for LDAPS authentication
+> * Upload the LDAPS certificate to blob storage and generate a SAS URL
+> * Configure NSX-T DNS for resolution to your Active Directory Domain
+> * Add Active Directory over (Secure) LDAPS (LDAP over SSL) or (unsecure) LDAP
 > * Add existing AD group to cloudadmin group
+> * List all existing external identity sources integrated with vCenter Server SSO
+> * Assign additional vCenter Server Roles to Active Directory Identities
 > * Remove AD group from the cloudadmin role
 > * Remove existing external identity sources
 
@@ -28,17 +32,170 @@ In this how-to, you learn how to:
 
 ## Prerequisites
 
-- Establish connectivity from your on-premises network to your private cloud.
+- Connectivity from your Active Directory network to your AVS private cloud must be operational.
 
-- If you have AD with SSL, download the certificate for AD authentication and upload it to an Azure Storage account as blob storage. Then, you'll need to [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
+- For AD authentication with LDAPS:
 
-- If you use FQDN, enable DNS resolution on your on-premises AD.
+    - You will need access to the Active Directory Domain Controller(s) with Administrator permissions
+    - Your Active Directory Domain Controller(s) must have LDAPS enabled and should be using a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or [third-party CA](https://docs.microsoft.com/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority). **Note**: Self-sign certificates are not recommended for production environments.  
+    - [Export the certificate for LDAPS authentication](#export-the-certificate-for-ldaps-authentication) and upload it to an Azure Storage account as blob storage. Then, you'll need to [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
 
- - Enable DNS Forwarder from Azure portal Ref: Configure DNS forwarder for Azure VMware Solution - Azure VMware Solution | Microsoft Docs
+- Ensure AVS has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. See [Configure DNS forwarder for Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/configure-dns-azure-vmware-solution) for further information.
+
+>[!NOTE]
+>For further information about LDAPS and certificate issuance, consult with your security or identity management team.
+
+## Export the certificate for LDAPS authentication
+
+First, verify that the certificate used for LDAPS is valid.
+
+1. Sign in to a domain controller with administrator permissions where LDAPS is enabled.
+
+1. Open the **Run command**, then type **mmc** and click the **OK** button.
+1. Click the **File** menu option then **Add/Remove Snap-in**.
+1. Select the **Certificates** in the list of Snap-ins and click in the **Add>** button.
+1. In the **Certificates snap-in** window, select **Computer account** then click  **Next**.
+1. Keep the first option selected **Local computer...** , and click  **Finish** then **OK**.
+1. Expand the **Personal** folder under the **Certificates (Local Computer)** management console and select the **Certificates** folder to list the installed certificates.
+    :::image type="content" source="media/run-command/ldaps-certificate-personal-certficates.png" alt-text="Screenshot showing displaying the list of certificates." lightbox="media/run-command/ldaps-certificate-personal-certficates.png":::
+    
+1. Double click on the certificate for LDAPS purposes. The **Certificate** General properties will display. Ensure the certificate date **Valid from** and **to** is current and the certificate has a **private key** that correspond to the certificate.
+    :::image type="content" source="media/run-command/ldaps-certificate-personal-general.png" alt-text="Screenshot showing the properties of the certificate." lightbox="media/run-command/ldaps-certificate-personal-general.png":::    
+1. On the same windows, click on the **Certification Path** tab and verify the **Certification path** is valid, which it should include the certificate chain of root CA and optionally intermediate certificates and the **Certificate Status** is OK. Close the window.
+    :::image type="content" source="media/run-command/ldaps-certificate-cert-path.png" alt-text="Screenshot showing the certificate chain." lightbox="media/run-command/ldaps-certificate-cert-path.png":::
+
+Now proceed to export the certificate
+
+1. Still on the Certificates console, right click on the LDAPS certificate and click on **All Tasks** > **Export**. The Certificate Export Wizard will prompt then click on **Next** button.  
+
+1. In the **Export Private Key** section, select the 2nd option, **No, do not export the private key** and click on the **Next** button.
+1. In the **Export File Format** section, select the 2nd option, **Base-64 encoded X.509(.CER)** and click on the **Next** button.
+1. In the **File to Export** section, click on the **Browse...** button and select a folder location where to export the certificate, enter a name then click on the **Save** button.
+
+>[!NOTE]
+>If more than one domain controller is LDAPS enabled, repeat the export procedure in the additional domain controller(s) to also export the corresponding certificate(s). Be aware that you can only reference two LDAPS server in the `New-LDAPSIdentitySource` Run Command. If the certificate is a wildcard certificate, for example ***.avsdemo.net** you only need to export the certificate from one of the domain controllers.
+
+## Upload the LDAPS certificate to blob storage and generate a SAS URL
+
+- Upload the certificate file (.cer format) you just exported to an Azure Storage account as blob storage. Then [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md). 
+
+- If multiple certificates are required, upload each certificate individually and for each certificate, generate a SAS URL.
+
+> [!IMPORTANT]
+> Make sure to copy each SAS URL string(s), because they will no longer be available once you leave the page. 
+
+> [!TIP]
+> Another alternative method for consolidating certificates is saving the certificate chains in a single file as mentioned in [this VMware KB article](https://kb.vmware.com/s/article/2041378) and generate a single SAS URL for the file that contains all of the certificates.
+
+## Configure NSX-T DNS for resolution to your Active Directory Domain
+
+A DNS Zone needs to be created and added to the DNS Service, follow the instructions in [Configure a DNS forwarder in the Azure portal](./configure-dns-azure-vmware-solution.md) to complete these two steps. 
+
+After completion, verify that your DNS Service has your DNS zone included.
+    :::image type="content" source="media/run-command/nsx-workload-networking-dns-zone-service-configured.png" alt-text="Screenshot showing the DNS Service that includes the required DNS zone." lightbox="nsx-workload-networking-dns-zone-service-configured.png":::
+    
+<!---
+- **DNS Zone Configuration**
+1. Browse to your AVS Private cloud>Workload Networking>DNS
+1. In the DNS Zone tab, click **Add**.
+:::image type="content" source="media/networking/dns/configure-dns-forwarder-1.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
+1. Under Type, select **FQDN zone**
+1. Fill in the remaining fields:
+   1. **DNS zone name** - Friendly name for the DNS zone name. It can be the same Domain FQDN, **example**: avslab.local
+   1. **Domain - FQDN** The Active Directory domain name. **example**: avslab.local
+   1. **DNS server IP** - The DNS Server(s) IP addresses that should resolve  the domain FQDN. 
+   1. **Source IP** - You can leave blank
+1. Click OK to create the DNS Zone. This can may take a few minutes.
+:::image type="content" source="media/networking/dns/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing the required information needed to add an FQDN zone.":::
+
+- **DNS Service Configuration**
+
+1. After the DNS Zone has been created, navigate to the DNS Service tab
+1. Click Edit.
+1. From the FQDN Zones drop down, select the FQDN Zone that was created in the previous step.
+1. Ensure the default DNS Service IP is selected.
+1. Click **OK** to configure the DNS Service.
+
+
+1. In the DNS service tab, verify there is a DNS Service.
+
+-->
+
+Your AVS Private cloud should now be able to resolve your on-prem Active Directory domain name properly.
+
+
+# Add Active Directory over LDAPS
+
+In your AVS private cloud you'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter Server.
+
+1. Browse to your AVS private cloud and then select **Run command** > **Packages** > **New-LDAPSIdentitySource**.
+
+1. Provide the required values or change the default values, and then select **Run**.
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **GroupName**  | The group in the external identity source that gives the cloudadmin access. For example, **avs-admins**.  |
+   | **CertificateSAS** | Path to SAS strings with the certificates for authentication to the AD source. If you're using multiple certificates, separate each SAS string with a comma. For example, **pathtocert1,pathtocert2**.  |
+   | **Credential**  | The domain username and password used for authentication with the AD source (not cloudadmin). The user must be in the **username@avslab.local** format. |
+   | **BaseDNGroups**  | Where to look for groups, for example, **CN=group1, DC=avsldap,DC=local**. Base DN is needed to use LDAP Authentication.  |
+   | **BaseDNUsers**  |  Where to look for valid users, for example, **CN=users,DC=avsldap,DC=local**.  Base DN is needed to use LDAP Authentication.  |
+   | **PrimaryUrl**  | Primary URL of the external identity source, for example, **ldaps://yourserver.avslab.local.:636**.  |
+   | **SecondaryURL**  | Secondary fall-back URL if there's primary failure. For example, **ldaps://yourbackupldapserver.avslab.local:636**. |
+   | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the AD domain as an alias of the identity source. Typically the **avsldap\** format.    |
+   | **DomainName**  | The FQDN of the domain, for example **avslab.local**.  |
+   | **Name**  | User-friendly name of the external identity source, for example, **avslab.local**. This is how it will be displayed in vCenter. |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60 days.   |
+   | **Specify name for execution**  | Alphanumeric name, for example, **addexternalIdentity**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
+
+1. Check **Notifications** or the **Run Execution Status** pane to see the progress and successful completion.
+
+## Add Active Directory over LDAP
+
+>[!NOTE]
+>LDAP is less secure, instead, use the [Add Active Directory over LDAP with SSL](#add-active-directory-over-ldap-with-ssl) option.
+
+You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter Server. 
+
+1. Select **Run command** > **Packages** > **New-LDAPIdentitySource**.
+
+1. Provide the required values or change the default values, and then select **Run**.
+   
+   | **Field** | **Value** |
+   | --- | --- |
+   | **Name**  | User-friendly name of the external identity source, for example, **avslab.local**. This is how it will be displayed in vCenter.  |
+   | **DomainName**  | The FQDN of the domain, for example **avslab.local**.  |
+   | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the AD domain as an alias of the identity source. Typically the **avsldap\** format.      |
+   | **PrimaryUrl**  | Primary URL of the external identity source, for example, **ldap://yourserver.avslab.local:389**.  |
+   | **SecondaryURL**  | Secondary fall-back URL if there's primary failure.  |
+   | **BaseDNUsers**  |  Where to look for valid users, for example, **CN=users,DC=avsldap,DC=local**.  Base DN is needed to use LDAP Authentication.  |
+   | **BaseDNGroups**  | Where to look for groups, for example, **CN=group1, DC=avsldap,DC=local**. Base DN is needed to use LDAP Authentication.  |
+   | **Credential**  | The domain username and password used for authentication with the AD source (not cloudadmin). The user must be in the **username@avslab.local** format.  |
+   | **GroupName**  | The group to give cloud admin access in your external identity source, for example, **avs-admins**.  |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60 days.   |
+   | **Specify name for execution**  | Alphanumeric name, for example, **addexternalIdentity**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
+
+1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
+
+## Add existing AD group to cloudadmin group
+
+You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to cloudadmin group. The users in this group have privileges equal to the cloudadmin (cloudadmin@vsphere.local) role defined in vCenter Server SSO.
+
+1. Select **Run command** > **Packages** > **Add-GroupToCloudAdmins**.
+
+1. Provide the required values or change the default values, and then select **Run**.
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **GroupName**  | Name of the group to add, for example, **VcAdminGroup**.  |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60 days.   |
+   | **Specify name for execution**  | Alphanumeric name, for example, **addADgroup**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
+
+1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
 ## List external identity
-
-
 
 You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identity sources already integrated with vCenter Server SSO.
 
@@ -62,87 +219,24 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
     
     :::image type="content" source="media/run-command/run-packages-execution-command-status.png" alt-text="Screenshot showing how to check the run commands notification or status." lightbox="media/run-command/run-packages-execution-command-status.png":::
 
-## Add Active Directory over LDAP with SSL
 
-You'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter Server. 
+## Assign additional vCenter Server Roles to Active Directory Identities
+Once you added an external identity over LDAP or LDAPS you can assign vCenter Server Roles to Active Directory security groups based on your organization's security controls.
 
-1. Download the certificate for AD authentication and upload it to an Azure Storage account as blob storage. If multiple certificates are required, upload each certificate individually.  
-
-1. For each certificate, [Grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md). These SAS strings are supplied to the cmdlet as a parameter. 
-
-   >[!IMPORTANT]
-   >Make sure to copy each SAS string, because they will no longer be available once you leave this page.  
+1. After you sign in to vCenter Server as a cloud admin role. You can select an item from the inventory click ACTIONS menu and select Add Permission.
    
-1. Select **Run command** > **Packages** > **New-LDAPSIdentitySource**.
+    :::image type="content" source="media/run-command/ldaps-vcenter-permission-assignment-1.png" alt-text="Screenshot displaying hot to add permission assignment." lightbox="media/run-command/ldaps-vcenter-permission-assignment-1.png":::
 
-1. Provide the required values or change the default values, and then select **Run**.
-
-   | **Field** | **Value** |
-   | --- | --- |
-   | **Name**  | User-friendly name of the external identity source, for example, **avslab.local**.  |
-   | **DomainName**  | The FQDN of the domain.   |
-   | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the AD domain as an alias of the identity source if you're using SSPI authentications.     |
-   | **PrimaryUrl**  | Primary URL of the external identity source, for example, **ldaps://yourserver:636**.  |
-   | **SecondaryURL**  | Secondary fall-back URL if there's primary failure.  |
-   | **BaseDNUsers**  |  Where to look for valid users, for example, **CN=users,DC=yourserver,DC=internal**.  Base DN is needed to use LDAP Authentication.  |
-   | **BaseDNGroups**  | Where to look for groups, for example, **CN=group1, DC=yourserver,DC= internal**. Base DN is needed to use LDAP Authentication.  |
-   | **Credential**  | The username and password used for authentication with the AD source (not cloudadmin). The user must be in the **username@avsldap.local** format. |
-   | **CertificateSAS** | Path to SAS strings with the certificates for authentication to the AD source. If you're using multiple certificates, separate each SAS string with a comma. For example, **pathtocert1,pathtocert2**.  |
-   | **GroupName**  | Group in the external identity source that gives the cloudadmin access. For example, **avs-admins**.  |
-   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60 days.   |
-   | **Specify name for execution**  | Alphanumeric name, for example, **addexternalIdentity**.  |
-   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
-
-1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
-
-
-## Add Active Directory over LDAP
-
->[!NOTE]
->We don't recommend this method. Instead, use the [Add Active Directory over LDAP with SSL](#add-active-directory-over-ldap-with-ssl) method.
-
-You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter Server. 
-
-1. Select **Run command** > **Packages** > **New-LDAPIdentitySource**.
-
-1. Provide the required values or change the default values, and then select **Run**.
-   
-   | **Field** | **Value** |
-   | --- | --- |
-   | **Name**  | User-friendly name of the external identity source, for example, **avslap.local**.  |
-   | **DomainName**  | The FQDN of the domain.    |
-   | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the AD domain as an alias of the identity source if you're using SSPI authentications.      |
-   | **PrimaryUrl**  | Primary URL of the external identity source, for example, **ldap://yourserver:389**.  |
-   | **SecondaryURL**  | Secondary fall-back URL if there's primary failure.  |
-   | **BaseDNUsers**  |  Where to look for valid users, for example, **CN=users,DC=yourserver,DC=internal**.  Base DN is needed to use LDAP Authentication.  |
-   | **BaseDNGroups**  | Where to look for groups, for example, **CN=group1, DC=yourserver,DC= internal**. Base DN is needed to use LDAP Authentication.  |
-   | **Credential**  | Username and password used for authentication with the AD source (not cloudadmin).  |
-   | **GroupName**  | Group to give cloud admin access in your external identity source, for example, **avs-admins**.  |
-   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60 days.   |
-   | **Specify name for execution**  | Alphanumeric name, for example, **addexternalIdentity**.  |
-   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
-
-1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
-
-
-## Add existing AD group to cloudadmin group
-
-You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to cloudadmin group. The users in this group have privileges equal to the cloudadmin (cloudadmin@vsphere.local) role defined in vCenter Server SSO.
-
-1. Select **Run command** > **Packages** > **Add-GroupToCloudAdmins**.
-
-1. Provide the required values or change the default values, and then select **Run**.
-
-   | **Field** | **Value** |
-   | --- | --- |
-   | **GroupName**  | Name of the group to add, for example, **VcAdminGroup**.  |
-   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60 days.   |
-   | **Specify name for execution**  | Alphanumeric name, for example, **addADgroup**.  |
-   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
-
-1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
-
-
+1. In the Add Permission prompt:
+    1. *Domain*. Select the Active Directory that was added previously.
+    1. *User/Group*. Enter the name of the desired user or group to find then select once is found.
+    1. *Role*. Select the desired role to assign.
+    1. *Propagate to children*. Optionally select the checkbox if permissions should be propagated down to children resources.
+    :::image type="content" source="media/run-command/ldaps-vcenter-permission-assignment-2.png" alt-text="Screenshot displaying assign the permission." lightbox="media/run-command/ldaps-vcenter-permission-assignment-3.png":::
+    
+1. Switch to the Permissions tab and verify the permission assignment was added.
+    :::image type="content" source="media/run-command/ldaps-vcenter-permission-assignment-3.png" alt-text="Screenshot displaying the add completion of permission assignment." lightbox="media/run-command/ldaps-vcenter-permission-assignment-3.png":::
+1. Users should now be able to sign in to vCenter Server using their Active Directory credentials.
 
 ## Remove AD group from the cloudadmin role
 
@@ -160,10 +254,6 @@ You'll run the `Remove-GroupFromCloudAdmins` cmdlet to remove a specified AD gro
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
-
-
-
-
 
 
 ## Remove existing external identity sources
