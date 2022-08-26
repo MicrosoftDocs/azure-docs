@@ -12,7 +12,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/29/2022
+ms.date: 08/26/2022
 
 ---
 
