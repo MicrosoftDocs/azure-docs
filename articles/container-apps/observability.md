@@ -28,7 +28,6 @@ These features include:
 > While not a built-in feature, [Azure Monitor's Application Insights](../azure-monitor/app/app-insights-overview.md) is a powerful tool to monitor your web and background applications.
 > Although Container Apps doesn't support the Application Insights auto-instrumentation agent, you can instrument your application code using Application Insights SDKs.  
 
-
 ## Application lifecycle observability
 
 With Container Apps observability features, you can monitor your app throughout the development-to-production lifecycle. The following sections describe the most effective monitoring features for each phase.
