@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 08/29/2022
+ms.date: 09/15/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -46,7 +46,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Immutable vault for Azure Backup (in preview)
 
-
+Azure Backup now supports immutable vaults that help you ensure that recovery points once created can't be deleted before their expiry as per the backup policy (expiry at the time at which the recovery point was created). You can also choose to make the immutability irreversible to offer maximum protection to your backup data, thus helping you protect your data better against various threats, including ransomware attacks and malicious actors.
 
 For more information, see [About Immutable vault for Azure Backup (preview)](backup-azure-immutable-vault-overview.md).
 

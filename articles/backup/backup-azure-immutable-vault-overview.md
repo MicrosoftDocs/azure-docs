@@ -3,7 +3,7 @@ title: About Immutable vault for Azure Backup (preview)
 description: This article explains about Immutable vault for Azure Backup, and how it helps in protecting data from malicious actors.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 08/29/2022
+ms.date: 09/15/2022
 author: v-amallick
 ms.author: v-amallick
 ---
