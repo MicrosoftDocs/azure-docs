@@ -90,7 +90,7 @@ Use [Service Connector](/service-connector/overview) to connect the app hosted i
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. If you're using Service Connector for the first time, start by running the command [az provider register](../cli/azure/provider#az-provider-register.md) to register the Service Connector resource provider.
+1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
 
     ```azurecli-interactive
     az provider register -n Microsoft.ServiceLinker
@@ -150,7 +150,7 @@ Use [Service Connector](/service-connector/overview) to connect the app hosted i
 Run the `az spring connection validate` command to show the status of the connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below by the your own information.
 
 ```azurecli-interactive
-az spring connection validate --connection <connection-name> mysql --resource-group <Azure-Spring-Apps-resource-group-name> --service <Azure-Spring-Apps-resource-name> --app <app-name
+az spring connection validate --connection <connection-name> --resource-group <Azure-Spring-Apps-resource-group-name> --service <Azure-Spring-Apps-resource-name> --app <app-name>
 ```
 
 The following output is displayed:
