@@ -2,7 +2,7 @@
 title: Back up Azure Database for PostgreSQL 
 description: Learn about Azure Database for PostgreSQL backup with long-term retention
 ms.topic: conceptual
-ms.date: 02/25/2022
+ms.date: 06/07/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -10,7 +10,7 @@ ms.author: v-amallick
 
 # Azure Database for PostgreSQL backup with long-term retention
 
-This article describes how to back up Azure Database for PostgreSQL server.
+This article describes how to back up Azure Database for PostgreSQL server. Before you begin, review the [supported configurations, feature considerations and known limitations](./backup-azure-database-postgresql-support-matrix.md)
 
 ## Configure backup on Azure PostgreSQL databases
 
@@ -31,7 +31,8 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 1. **Select Azure PostgreSQL databases to back up**: Choose one of the Azure PostgreSQL servers across subscriptions if they're in the same region as that of the vault. Expand the arrow to see the list of databases within a server.
 
    >[!Note]
-   >You don't need to back up the databases *azure_maintenance* and *azure_sys*. Additionally, you can't back up a database already backed-up to a Backup vault.
+   >- You don't need to back up the databases *azure_maintenance* and *azure_sys*. Additionally, you can't back up a database already backed-up to a Backup vault.
+   >- Backup of Azure PostgreSQL servers with Private endpoint enabled is currently not supported.
 
    :::image type="content" source="./media/backup-azure-database-postgresql/select-azure-postgresql-databases-to-back-up-inline.png" alt-text="Screenshot showing the option to select an Azure PostgreSQL database." lightbox="./media/backup-azure-database-postgresql/select-azure-postgresql-databases-to-back-up-expanded.png":::
 

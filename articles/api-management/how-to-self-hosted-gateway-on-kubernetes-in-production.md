@@ -109,8 +109,9 @@ In this scenario, if the SSL certificate that's used by the Management endpoint 
 
 ## Configuration backup
 
-Configure a local storage volume for the self-hosted gateway container, so it can persist a backup copy of the latest downloaded configuration. If connectivity is down, the storage volume can use the backup copy upon restart. The volume mount path must be <code>/apim/config</code>. See an example on [GitHub](https://github.com/Azure/api-management-self-hosted-gateway/blob/master/examples/self-hosted-gateway-with-configuration-backup.yaml).
+Configure a local storage volume for the self-hosted gateway container, so it can persist a backup copy of the latest downloaded configuration. If connectivity is down, the storage volume can use the backup copy upon restart. The volume mount path must be `/apim/config` and must be owned by group ID `1001`. See an example on [GitHub](https://github.com/Azure/api-management-self-hosted-gateway/blob/master/examples/self-hosted-gateway-with-configuration-backup.yaml).
 To learn about storage in Kubernetes, see the [Kubernetes website](https://kubernetes.io/docs/concepts/storage/volumes/).
+To change ownership for a mounted path, see the `securityContext.fsGroup` setting on the [Kubernetes website](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod).
 
 > [!NOTE]
 > To learn about self-hosted gateway behavior in the presence of a temporary Azure connectivity outage, see [Self-hosted gateway overview](self-hosted-gateway-overview.md#connectivity-to-azure).
@@ -145,6 +146,28 @@ Availability zones allow you to schedule the self-hosted gateway's pod on nodes 
 Pods can experience disruption due to [various](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#voluntary-and-involuntary-disruptions) reasons such as manual pod deletion, node maintenance, etc.
 
 Consider using [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets) to enforce a minimum number of pods to be available at any given time.
+
+## Security
+The self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway securely.
+
+Here is an example of the security context for the self-hosted gateway:
+```yml
+securityContext:
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
+  runAsUser: 1001       # This is a built-in user, but you can use any user ie 1000 as well
+  runAsGroup: 2000      # This is just an example
+  privileged: false
+  capabilities:
+    drop:
+    - all
+```
+
+> [!WARNING]
+> Running the self-hosted gateway with read-only filesystem (`readOnlyRootFilesystem: true`) is not supported.
+
+> [!WARNING]
+> When using local CA certificates, the self-hosted gateway must run with user ID (UID) `1001` in order to manage the CA certificates otherwise the gateway will not start up.
 
 ## Next steps
 

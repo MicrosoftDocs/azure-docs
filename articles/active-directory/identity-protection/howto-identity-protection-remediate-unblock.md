@@ -10,7 +10,7 @@ ms.date: 02/17/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
@@ -66,6 +66,8 @@ Administrators are given two options when resetting a password for their users:
 If a password reset isn't an option for you, you can choose to dismiss user risk detections.
 
 When you select **Dismiss user risk**, all events are closed and the affected user is no longer at risk. However, because this method doesn't have an impact on the existing password, it doesn't bring the related identity back into a safe state. 
+
+To **Dismiss user risk**, search for and select **Azure AD Risky users**, select the affected user, and select **Dismiss user(s) risk**.
 
 ### Close individual risk detections manually
 

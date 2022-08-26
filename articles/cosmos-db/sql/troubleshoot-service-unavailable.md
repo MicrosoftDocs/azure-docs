@@ -1,19 +1,27 @@
 ---
 title: Troubleshoot Azure Cosmos DB service unavailable exceptions
 description: Learn how to diagnose and fix Azure Cosmos DB service unavailable exceptions.
-author: j82w
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/06/2020
-ms.author: jawilley
+ms.date: 08/19/2022
+ms.author: jroth
 ms.topic: troubleshooting
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB service unavailable exceptions
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-The SDK wasn't able to connect to Azure Cosmos DB.
+The SDK wasn't able to connect to Azure Cosmos DB. This scenario can be transient or permanent depending on the network conditions.
+
+It is important to make sure the application design is following our [guide for designing resilient applications with Azure Cosmos DB SDKs](conceptual-resilient-sdk-applications.md) to make sure it correctly reacts to different network conditions. Your application should have retries in place for service unavailable errors.
+
+When evaluating the case for service unavailable errors:
+
+* What is the impact measured in volume of operations affected compared to the operations succeeding? Is it within the service SLAs?
+* Is the P99 latency affected?
+* Are the failures affecting all your application instances or only a subset? When the issue is reduced to a subset of instances, it's commonly a problem related to those instances.
 
 ## Troubleshooting steps
 The following list contains known causes and solutions for service unavailable exceptions.
@@ -22,19 +30,16 @@ The following list contains known causes and solutions for service unavailable e
 Verify that all the [required ports](sql-sdk-connection-modes.md#service-port-ranges) are enabled.
 
 ### Client-side transient connectivity issues
-Service unavailable exceptions can surface when there are transient connectivity problems that are causing timeouts. Typically, the stack trace related to this scenario will contain a `TransportException` error. For example:
-
-```C#
-TransportException: A client transport error occurred: The request timed out while waiting for a server response. 
-(Time: xxx, activity ID: xxx, error code: ReceiveTimeout [0x0010], base error: HRESULT 0x80131500
-```
+Service unavailable exceptions can surface when there are transient connectivity problems that are causing timeouts and can be safely retried following the [design recommendations](conceptual-resilient-sdk-applications.md#timeouts-and-connectivity-related-failures-http-408503).
 
 Follow the [request timeout troubleshooting steps](troubleshoot-dot-net-sdk-request-timeout.md#troubleshooting-steps) to resolve it.
 
 ### Service outage
-Check the [Azure status](https://status.azure.com/status) to see if there's an ongoing issue.
+Check the [Azure status](https://azure.status.microsoft/status) to see if there's an ongoing issue.
 
 
 ## Next steps
 * [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
-* Learn about performance guidelines for [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET v2](performance-tips.md).
+* [Diagnose and troubleshoot](troubleshoot-java-sdk-v4-sql.md) issues when you use the Azure Cosmos DB Java SDK.
+* Learn about performance guidelines for [.NET](performance-tips-dotnet-sdk-v3-sql.md).
+* Learn about performance guidelines for [Java](performance-tips-java-sdk-v4-sql.md).

@@ -1,6 +1,6 @@
 ---
 title: Use built-in views in Cost analysis
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description:  This article helps you understand when to use which view, how each one provides unique insights about your costs and recommended next steps to investigate further.
 author: bandersmsft
 ms.author: banders

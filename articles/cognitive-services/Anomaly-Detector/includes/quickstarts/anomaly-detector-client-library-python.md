@@ -91,7 +91,7 @@ client = AnomalyDetectorClient(AzureKeyCredential(SUBSCRIPTION_KEY), ANOMALY_DET
 
 ## Load time series data from a file
 
-Download the example data for this quickstart from [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv):
+Download the example data for this quickstart from [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/sampledata/univariate/request-data.csv):
 1. In your browser, right-click **Raw**.
 2. Click **Save link as**.
 3. Save the file to your application directory, as a .csv file.
@@ -102,7 +102,7 @@ Load your data file with the Pandas library's `read_csv()` method, and make an e
 
 ```python
 series = []
-data_file = pd.read_csv(TIME_SERIES_DATA_PATH, header=None, encoding='utf-8', parse_dates=[0])
+data_file = pd.read_csv(TIME_SERIES_DATA_PATH, header=None, encoding='utf-8', date_parser=[0])
 for index, row in data_file.iterrows():
     series.append(TimeSeriesPoint(timestamp=row[0], value=row[1]))
 ```

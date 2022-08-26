@@ -5,6 +5,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.custom: subject-monitoring
 ms.date: 11/04/2021
+ms.reviewer: Xema Pathak
 ---
 
 # Tutorial: Enable monitoring for Azure virtual machine

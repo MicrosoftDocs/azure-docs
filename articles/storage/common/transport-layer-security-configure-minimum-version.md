@@ -3,12 +3,12 @@ title: Enforce a minimum required version of Transport Layer Security (TLS) for 
 titleSuffix: Azure Storage
 description: Configure a storage account to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Storage.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/07/2021
-ms.author: tamram
+ms.author: jammart
 ms.reviewer: fryu
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -265,10 +265,16 @@ To create a policy with an Audit effect for the minimum TLS version with the Azu
               "equals": "Microsoft.Storage/storageAccounts"
             },
             {
-              "not": {
-                "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
-                "equals": "TLS1_2"
-              }
+                "anyOf": [
+                  {
+                    "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                    "notEquals": "TLS1_2"
+                  },
+                  {
+                    "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                    "exists": "false"
+                  }
+                ]
             }
           ]
         },
@@ -329,10 +335,16 @@ To create a policy with a Deny effect for a minimum TLS version that is less tha
           "equals": "Microsoft.Storage/storageAccounts"
         },
         {
-          "not": {
-            "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
-            "equals": "TLS1_2"
-          }
+            "anyOf": [
+              {
+                "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                "notEquals": "TLS1_2"
+              },
+              {
+                "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                "exists": "false"
+              }
+            ]
         }
       ]
     },

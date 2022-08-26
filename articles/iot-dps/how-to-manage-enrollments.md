@@ -3,7 +3,7 @@ title: Manage device enrollments for Azure IoT Hub Device Provisioning Service i
 description: How to manage device enrollments for your Device Provisioning Service (DPS) in the Azure portal
 author: kgremban
 ms.author: kgremban
-ms.date: 10/25/2021
+ms.date: 03/21/2022
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
@@ -18,6 +18,9 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 
 * [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
 * [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+> [!IMPORTANT]
+> If you have trouble accessing enrollments from the Azure portal, it may be because you have public network access disabled or IP filtering rules configured that block access for the Azure portal. To learn more, see [Disable public network access limitations](public-network-access.md#disable-public-network-access-limitations) and [IP filter rules limitations](iot-dps-ip-filtering.md#ip-filter-rules-limitations).
 
 ## Create an enrollment group
 
@@ -112,7 +115,7 @@ To create a symmetric key individual enrollment:
     | **Mechanism** | Select *Symmetric Key* |
     | **Auto Generate Keys** |Check this box. |
     | **Registration ID** | Type in a unique registration ID.|
-    | **IoT Hub Device ID** |  This ID will represent your device. It must follow the rules for a device ID. For more information, see [Device identity properties](../iot-hub/iot-hub-devguide-identity-registry. If the device ID is left unspecified, then the registration ID will be used.|
+    | **IoT Hub Device ID** |  This ID will represent your device. It must follow the rules for a device ID. For more information, see [Device identity properties](../iot-hub/iot-hub-devguide-identity-registry.md). If the device ID is left unspecified, then the registration ID will be used.|
     | **Select how you want to assign devices to hubs** |Select *Static configuration* so that you can assign to a specific hub|
     | **Select the IoT hubs this group can be assigned to** |Select one of your hubs.|
 
@@ -213,10 +216,15 @@ To remove an enrollment entry:
 
 4. In the **Settings** menu, select **Manage enrollments**.
 
-5. Select the enrollment entry you want to remove. 
+5. Select the enrollment entry you want to remove.
 
 6. At the top of the page, select **Delete**.
 
 7. When prompted to confirm, select **Yes**.
 
 8. Once the action is completed, you'll see that your entry has been removed from the list of device enrollments.
+
+> [!NOTE]
+> Deleting an enrollment group doesn't delete the registration records for devices in the group. DPS uses the registration records to determine whether the maximum number of registrations has been reached for the DPS instance. Orphaned registration records still count against this quota. For the current maximum number of registrations supported for a DPS instance, see [Quotas and limits](about-iot-dps.md#quotas-and-limits).
+>
+>You may want to delete the registration records for the enrollment group before deleting the enrollment group itself. You can see and manage the registration records for an enrollment group manually on the **Registration Records** tab for the group in Azure portal. You can retrieve and manage the registration records programmatically using the [Device Registration State REST APIs](/rest/api/iot-dps/service/device-registration-state) or equivalent APIs in the [DPS service SDKs](libraries-sdks.md), or using the [az iot dps enrollment-group registration Azure CLI commands](/cli/azure/iot/dps/enrollment-group/registration).

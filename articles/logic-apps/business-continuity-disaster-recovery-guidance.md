@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 08/20/2022
 ---
 
 # Business continuity and disaster recovery for Azure Logic Apps
@@ -34,7 +34,7 @@ Each logic app needs to specify the location that you want to use for deployment
 
 This disaster recovery strategy focuses on setting up your primary logic app to [*failover*](https://en.wikipedia.org/wiki/Failover) onto a standby or backup logic app in an alternate location where Azure Logic Apps is also available. That way, if the primary suffers losses, disruptions, or failures, the secondary can take on the work. This strategy requires that your secondary logic app and dependent resources are already deployed and ready in the alternate location.
 
-If you follow good DevOps practices, you already use [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) to define and deploy your logic apps and their dependent resources. Resource Manager templates give you the capability to use a single deployment definition and then use parameter files to provide the configuration values to use for each deployment destination. This capability means that you can deploy the same logic app to different environments, for example, development, test, and production. You can also deploy the same logic app to different Azure regions or ISEs, which supports disaster recovery strategies that use [paired-regions](../availability-zones/cross-region-replication-azure.md).
+If you follow good DevOps practices, you already use [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) to define and deploy your logic apps and their dependent resources. Resource Manager templates give you the capability to use a single deployment definition and then use parameter files to provide the configuration values to use for each deployment destination. This capability means that you can deploy the same logic app to different environments, for example, development, test, and production. You can also deploy the same logic app to different Azure regions or ISEs, which support disaster recovery strategies that use [paired-regions](../availability-zones/cross-region-replication-azure.md).
 
 For the failover strategy, your logic apps and locations must meet these requirements:
 
@@ -142,7 +142,7 @@ This example shows the active-passive setup where the primary logic app instance
 
 This example shows a combined setup where the primary location has both active logic app instances, while the secondary location has active-passive logic app instances. If the primary location experiences a disruption or failure, the active logic app in the secondary location, which is already handling a partial workload, can take over the entire workload.
 
-* In the primary location, an active logic app listens to an Azure Service Bus queue for messages, while another active logic app checks for emails by using a Office 365 Outlook polling trigger.
+* In the primary location, an active logic app listens to an Azure Service Bus queue for messages, while another active logic app checks for emails by using an Office 365 Outlook polling trigger.
 
 * In the secondary location, an active logic app works with the logic app in the primary location by listening and competing for messages from the same Service Bus queue. Meanwhile, a passive inactive logic app waits on standby to check for emails when the primary location becomes unavailable but is *disabled* to avoid rereading emails.
 
@@ -339,6 +339,19 @@ For this task, in the secondary location, create a watchdog logic app that perfo
 ### Activate your secondary instance
 
 To automatically activate the secondary instance, you can create a logic app that calls the management API such as the [Azure Resource Manager connector](/connectors/arm/) to activate the appropriate logic apps in the secondary location. You can expand your watchdog app to call this activation logic app after a specific number of failures happen.
+
+<a name="availability-zones"></a>
+
+## Zone redundancy with availability zones
+
+In each Azure region, *availability zones* are physically separate locations that are tolerant to local failures. Such failures can range from software and hardware failures to events such as earthquakes, floods, and fires. These zones achieve tolerance through the redundancy and logical isolation of Azure services.
+
+To provide resiliency and distributed availability, at least three separate availability zones exist in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region.
+
+Currently, this capability is preview and available for new Consumption logic apps in specific regions. For more information, see the following documentation:
+
+* [Protect Consumption logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md)
+* [Azure regions and availability zones](../availability-zones/az-overview.md)
 
 <a name="collect-diagnostic-data"></a>
 

@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: martinle
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ---
 
 # Azure Synapse SQL architecture 

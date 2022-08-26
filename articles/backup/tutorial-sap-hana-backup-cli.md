@@ -2,8 +2,11 @@
 title: Tutorial - SAP HANA DB backup on Azure using Azure CLI 
 description: In this tutorial, learn how to back up SAP HANA databases running on an Azure VM to an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 12/4/2019 
+ms.date: 08/11/2022
 ms.custom: devx-track-azurecli
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM using Azure CLI
@@ -143,12 +146,24 @@ The [az backup job list](/cli/azure/backup/job#az-backup-job-list) cmdlet lists 
 >
 >Modify the policy manually as needed.
 
+## Get the container name
+
+To get container name, run the following command. [Learn about this CLI command](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list).
+
+```azurecli
+    az backup item list --resource-group <resource group name> --vault-name <vault name>
+
+```
+
 ## Trigger an on-demand backup
 
-While the section above details how to configure a scheduled backup, this section talks about triggering an on-demand backup. To do this, we use the [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now) cmdlet.
+While the section above details how to configure a scheduled backup, this section talks about triggering an on-demand backup. To do this, we use the [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now) command.
 
 >[!NOTE]
-> The retention policy of an on-demand backup is determined by the underlying retention policy for the database.
+>The retention period of this backup is determined by the type of on-demand backup you have run.
+>- *On-demand full backups* are retained for a minimum of *45 days* and a maximum of *99 years*.
+>- *On-demand differential backups* are retained as per the *log retention set in the policy*.
+>- *On-demand incremental backups* aren't currently supported.
 
 ```azurecli-interactive
 az backup protection backup-now --resource-group saphanaResourceGroup \

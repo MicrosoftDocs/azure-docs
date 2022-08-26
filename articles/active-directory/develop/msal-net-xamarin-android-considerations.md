@@ -1,6 +1,5 @@
 ---
-title: Xamarin Android code configuration and troubleshooting (MSAL.NET) | Azure
-titleSuffix: Microsoft identity platform
+title: Xamarin Android code configuration and troubleshooting (MSAL.NET)
 description: Learn about considerations for using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur

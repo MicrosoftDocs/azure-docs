@@ -1,9 +1,9 @@
 ---
-author: amitkumarshukla
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/09/2020
-ms.author: amishu
+ms.date: 04/25/2022
+ms.author: eur
 ---
 
 ## Upload the audio
@@ -103,7 +103,7 @@ You can obtain **remote-conversation** by editing your pom.xml file as follows.
      <repository>
        <id>maven-cognitiveservices-speech</id>
        <name>Microsoft Cognitive Services Speech Maven Repository</name>
-       <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+       <url>https://azureai.azureedge.net/maven/</url>
      </repository>
    </repositories>
    ```

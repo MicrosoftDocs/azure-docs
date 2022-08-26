@@ -15,7 +15,7 @@ Azure Backup for MABS supports the following scenarios:
 
 | Workload | Version | SharePoint deployment | Protection and recovery |
 | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint deployed as an Azure Stack virtual machine <br> -------------- <br> SQL AlwaysOn | Protect SharePoint Farm recovery options: Recovery farm, database, and file or list item from disk recovery points.  Farm and database recovery from Azure recovery points. |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint deployed as an Azure Stack virtual machine <br> -------------- <br> SQL Always On | Protect SharePoint Farm recovery options: Recovery farm, database, and file or list item from disk recovery points.  Farm and database recovery from Azure recovery points. |
 
 ## Before you start
 

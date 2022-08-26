@@ -2,9 +2,9 @@
 title: How to stop monitoring your hybrid Kubernetes cluster | Microsoft Docs
 description: This article describes how you can stop monitoring of your hybrid Kubernetes cluster with Container insights.
 ms.topic: conceptual
-ms.date: 06/16/2020 
+ms.date: 05/24/2022
 ms.custom: devx-track-azurepowershell
-
+ms.reviewer: aul
 ---
 
 # How to stop monitoring your hybrid cluster

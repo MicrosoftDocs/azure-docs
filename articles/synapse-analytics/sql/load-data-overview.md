@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: joanpo
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ---
 
 # Design a PolyBase data loading strategy for dedicated SQL pool in Azure Synapse Analytics

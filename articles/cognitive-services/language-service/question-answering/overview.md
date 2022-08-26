@@ -3,11 +3,11 @@ title: What is question answering?
 description: Question answering is a cloud-based Natural Language Processing (NLP) service that easily creates a natural conversational layer over your data. It can be used to find the most appropriate answer for any given natural language input, from your custom knowledge base (KB) of information.
 ms.service: cognitive-services
 ms.subservice: language-service
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 recommendations: false
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 06/03/2022
 keywords: "qna maker, low code chat bots, multi-turn conversations"
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
@@ -17,6 +17,11 @@ ms.custom: language-service-question-answering, ignite-fall-2021
 Question answering provides cloud-based Natural Language Processing (NLP) that allows you to create a natural conversational layer over your data. It is used to find the most appropriate answer for any input from your custom knowledge base (KB) of information.
 
 Question answering is commonly used to build conversational client applications, which include social media applications, chat bots, and speech-enabled desktop applications. Several new features have been added including enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support.
+
+Question answering comprises of two capabilities:
+
+* Custom question answering: Using this capability users can customize different aspects like edit question and answer pairs extracted from the content source, define synonyms and metadata, accept question suggestions etc.
+* Prebuilt question answering: This capability allows users to get a response by querying a text passage without having the need to manage knowledgebases.
 
 This documentation contains the following article types:
 
@@ -58,7 +63,7 @@ Once a question answering knowledge base is published, a client application send
 
 ## Build low code chat bots
 
-The language studio portal provides the complete project/knowledge base authoring experience. You can import documents, in their current form, to your knowledge base. These documents (such as an FAQ, product manual, spreadsheet, or web page) are converted into question and answer pairs. Each pair is analyzed for follow-up prompts and connected to other pairs. The final _markdown_ format supports rich presentation including images and links.
+Language Studio portal provides the complete project/knowledge base authoring experience. You can import documents, in their current form, to your knowledge base. These documents (such as an FAQ, product manual, spreadsheet, or web page) are converted into question and answer pairs. Each pair is analyzed for follow-up prompts and connected to other pairs. The final _markdown_ format supports rich presentation including images and links.
 
 Once your knowledge base is edited, publish the knowledge base to a working [Azure Web App bot](https://azure.microsoft.com/services/bot-service/) without writing any code. Test your bot in the [Azure portal](https://portal.azure.com) or download it and continue development.
 

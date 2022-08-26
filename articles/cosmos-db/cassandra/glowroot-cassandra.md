@@ -18,16 +18,16 @@ Glowroot is an application performance management tool used to optimize and moni
 ## Prerequisites and Setup
 
 * [Create an Azure Cosmos DB Cassandra API account](manage-data-java.md#create-a-database-account).
-* [Install JAVA (version 8) for Windows](https://developers.redhat.com/products/openjdk/download)
+* [Install Java (version 8) for Windows](https://developers.redhat.com/products/openjdk/download)
 > [!NOTE]
-> Note that there are certain known incompatible build targets with newer versions. If you already have a newer version of JAVA, you can still download JDK8.
-> If you have newer JAVA installed in addition to JDK8: Set the %JAVA_HOME% variable in the local command prompt to target JDK8. This will only change Java version for the current session and leave global machine settings intact. 
+> Note that there are certain known incompatible build targets with newer versions. If you already have a newer version of Java, you can still download JDK8.
+> If you have newer Java installed in addition to JDK8: Set the %JAVA_HOME% variable in the local command prompt to target JDK8. This will only change Java version for the current session and leave global machine settings intact. 
 * [Install maven](https://maven.apache.org/download.cgi)
     * Verify successful installation by running: `mvn --version`
 
 ## Run Glowroot central collector with Cosmos DB endpoint
 Once the endpoint configuration has been completed. 
-1. [Download Glowroot central collector distribution](https://github.com/glowroot/glowroot/wiki/Central-Collector-Installation#central-collector-installation)
+1. [Download Glowroot central collector distribution](https://github.com/glowroot/glowroot)
 2. In the glowroot-central.properties file, populate the following properties from your Cosmos DB Cassandra API endpoint
     * cassandra.contactPoints
     * cassandra.username

@@ -2,12 +2,13 @@
 # Mandatory fields.
 title: Endpoints and event routes
 titleSuffix: Azure Digital Twins
-description: Learn how to route events within Azure Digital Twins and to other Azure Services.
+description: Learn how to route Azure Digital Twins events, both within the service and externally to other Azure services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/01/2022
+ms.date: 07/18/2022
 ms.topic: conceptual
 ms.service: digital-twins
+ms.custom: contperf-fy23q1
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -15,37 +16,33 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Route events within and outside of Azure Digital Twins
+# Route Azure Digital Twins events
 
-This article covers *event routes* and how Azure Digital Twins uses them to send data internally and to consumers outside the service.
+Azure Digital Twins uses *event routes* to send event data, both for routing events internally within Azure Digital Twins, and for sending event data externally to consumers outside the service.
 
-There are two major cases for sending Azure Digital Twins data:
-* Sending data from one twin in the Azure Digital Twins graph to another. For instance, when a property on one digital twin changes, you may want to notify and update another digital twin based on the updated data.
-* Sending data to downstream data services for more storage or processing (also known as *data egress*). For instance,
-  - A hospital may want to send Azure Digital Twins event data to [Time Series Insights](../time-series-insights/overview-what-is-tsi.md), to record time series data of handwashing-related events for bulk analytics.
-  - A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as [digital twins](concepts-twins-graph.md) in the twin graph, or run powerful queries using their Azure Maps and Azure Digital Twins data together.
-
-Event routes are used for both of these scenarios.
+This article describes how event routes work, including the process of setting up *endpoints*, and then setting up event routes connected to the endpoints. It also explains what happens when an endpoint fails to deliver an event in time (a process known as *dead lettering*).
 
 ## About event routes
 
-An event route lets you send event data from digital twins in Azure Digital Twins to custom-defined endpoints in your subscriptions. Three Azure services are currently supported for endpoints: [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Each of these Azure services can be connected to other services and acts as the middleman, sending data along to final destinations such as Time Series Insights or Azure Maps for whatever processing you need.
+There are two main scenarios for sending Azure Digital Twins data, and event routes are used to accomplish both:
+* Sending event data from one twin in the Azure Digital Twins graph to another. For instance, when a property on one digital twin changes, you may want to notify and update another digital twin based on the updated data.
+* Sending data outside Azure Digital Twins to downstream data services for more storage or processing. For instance, if you're already using [Azure Maps](../azure-maps/about-azure-maps.md), you might want to contribute Azure Digital Twins data to enhance your solution with integrated modeling or queries.
 
-Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
+For any event destination, an event route works by sending event data from Azure Digital Twins to custom-defined *endpoints* in your subscriptions. Three Azure services are currently supported for endpoints: [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Each of these Azure services can be connected to other services and acts as the middleman, sending data along to final destinations such as Azure Maps, or back into Azure Digital Twins for dependent graph updates.
 
-The following diagram illustrates the flow of event data through a larger IoT solution with an Azure Digital Twins aspect:
+The following diagram illustrates the flow of event data through a larger IoT solution, which includes sending Azure Digital Twins data through endpoints to other Azure Services, as well as back into Azure Digital Twins:
 
 :::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="Diagram of Azure Digital Twins routing data through endpoints to several downstream services." border="false":::
 
-Typical downstream targets for event routes are resources like Time Series Insights, Azure Maps, storage, and analytics solutions.
+For egress of data outside Azure Digital Twins, typical downstream targets for event routes are Time Series Insights, Azure Maps, storage, and analytics solutions. Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
 
-### Event routes for internal digital twin events
+For routing of internal digital twin events within the same Azure Digital Twins solution, continue to the next section.
 
-Event routes are also used to handle events within the twin graph and send data from digital twin to digital twin. This sort of event handling is done by connecting event routes through Event Grid to compute resources, such as [Azure Functions](../azure-functions/functions-overview.md). These functions then define how twins should receive and respond to events. 
+### Route internal digital twin events
 
-When a compute resource wants to modify the twin graph based on an event that it received via event route, it's helpful for it to know which twin it wants to modify ahead of time. 
+Event routes are the mechanism that's used for handling events within the twin graph, sending data from digital twin to digital twin. This sort of event handling is done by connecting event routes through Event Grid to compute resources, such as [Azure Functions](../azure-functions/functions-overview.md). These functions then define how twins should receive and respond to events. 
 
-The event message also contains the ID of the source twin that sent the message, so the compute resource can use queries or traverse relationships to find a target twin for the desired operation. 
+When a compute resource wants to modify the twin graph based on an event that it received via event route, it's helpful for it to know ahead of time which twin it should modify. The event message also contains the ID of the source twin that sent the message, so the compute resource can use queries or traverse relationships to find a target twin for the desired operation. 
 
 The compute resource also needs to establish security and access permissions independently.
 
@@ -113,8 +110,8 @@ Different types of events in IoT Hub and Azure Digital Twins produce different t
 
 ## Next steps
 
-See how to set up and manage an event route:
+Continue to the step-by-step instructions for setting up endpoints and event routes:
 * [Manage endpoints and routes](how-to-manage-routes.md)
 
-Or, see how to use Azure Functions to route events within Azure Digital Twins:
+Or, follow this walkthrough to set up an Azure Function for twin-to-twin event handling within Azure Digital Twins:
 * [Set up twin-to-twin event handling](how-to-send-twin-to-twin-events.md).

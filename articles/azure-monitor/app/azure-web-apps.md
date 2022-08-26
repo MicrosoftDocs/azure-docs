@@ -18,7 +18,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
  
     - This method is the easiest to enable, and no code change or advanced configurations are required. It is often referred to as "runtime" monitoring. For Azure App Services we recommend at a minimum enabling this level of monitoring, and then based on your specific scenario you can evaluate whether more advanced monitoring through manual instrumentation is needed.
 
-    - The following are support for auto-instrumentation monitoring:
+    - The following are supported for auto-instrumentation monitoring:
         - [.NET Core](./azure-web-apps-net-core.md)
         - [.NET](./azure-web-apps-net.md)
         - [Java](./azure-web-apps-java.md)

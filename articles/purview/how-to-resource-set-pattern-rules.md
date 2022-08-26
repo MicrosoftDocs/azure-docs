@@ -11,9 +11,9 @@ ms.date: 09/27/2021
 
 # Create resource set pattern rules
 
-At-scale data processing systems typically store a single table in storage as multiple files. This concept is represented in Azure Purview by using resource sets. A resource set is a single object in the data catalog that represents a large number of assets in storage. To learn more, see [Understanding resource sets](concept-resource-sets.md).
+At-scale data processing systems typically store a single table in storage as multiple files. This concept is represented in Microsoft Purview by using resource sets. A resource set is a single object in the data catalog that represents a large number of assets in storage. To learn more, see [Understanding resource sets](concept-resource-sets.md).
 
-When scanning a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets is a resource set. In some cases, Azure Purview's resource set grouping may not accurately reflect your data estate. Resource set pattern rules allow you to customize or override how Azure Purview detects which assets are grouped as resource sets and how they are displayed within the catalog.
+When scanning a storage account, Microsoft Purview uses a set of defined patterns to determine if a group of assets is a resource set. In some cases, Microsoft Purview's resource set grouping may not accurately reflect your data estate. Resource set pattern rules allow you to customize or override how Microsoft Purview detects which assets are grouped as resource sets and how they are displayed within the catalog.
 
 Pattern rules are currently supported in the following source types:
 - Azure Data Lake Storage Gen2
@@ -84,7 +84,7 @@ Below are the available types that can be used in static and dynamic replacers:
 | ---- | --------- |
 | string | A series of 1 or more Unicode characters including delimiters like spaces. |
 | int | A series of 1 or more 0-9 ASCII characters, it can be 0 prefixed (e.g. 0001). |
-| guid | A series of 32 or 8-4-4-4-12 string representation of an UUID as defineddefa in [RFC 4122](https://tools.ietf.org/html/rfc4122). |
+| guid | A series of 32 or 8-4-4-4-12 string representation of an UUID as defined in [RFC 4122](https://tools.ietf.org/html/rfc4122). |
 | date | A series of 6 or 8 0-9 ASCII characters with optionally separators: yyyymmdd, yyyy-mm-dd, yymmdd, yy-mm-dd, specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). |
 | time | A series of 4 or 6 0-9 ASCII characters with optionally separators: HHmm, HH:mm, HHmmss, HH:mm:ss specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). |
 | timestamp | A series of 12 or 14 0-9 ASCII characters with optionally separators: yyyy-mm-ddTHH:mm, yyyymmddhhmm, yyyy-mm-ddTHH:mm:ss, yyyymmddHHmmss specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). |

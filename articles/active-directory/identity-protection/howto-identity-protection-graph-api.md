@@ -1,37 +1,36 @@
 ---
 title: Microsoft Graph PowerShell SDK and Azure Active Directory Identity Protection
-description: Learn how to query Microsoft Graph risk detections and associated information from Azure Active Directory
+description: Query Microsoft Graph risk detections and associated information from Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 08/23/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection and the Microsoft Graph PowerShell SDK
 
-Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](./overview-identity-protection.md) APIs. This article will show you how to use the [Microsoft Graph PowerShell SDK](/graph/powershell/get-started) to get risky user details using PowerShell. Organizations that want to query the Microsoft Graph APIs directly can use the article, [Tutorial: Identify and remediate risks using Microsoft Graph APIs](/graph/tutorial-riskdetection-api) to begin that journey.
-
+Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](./overview-identity-protection.md) APIs. This article will show you how to use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started) to get risky user details using PowerShell. Organizations that want to query the Microsoft Graph APIs directly can use the article, [Tutorial: Identify and remediate risks using Microsoft Graph APIs](/graph/tutorial-riskdetection-api) to begin that journey.
 
 ## Connect to Microsoft Graph
 
 There are four steps to accessing Identity Protection data through Microsoft Graph:
 
-- [Create a certificate](#create-a-certificate)
-- [Create a new app registration](#create-a-new-app-registration)
-- [Configure API permissions](#configure-api-permissions)
-- [Configure a valid credential](#configure-a-valid-credential)
+1. [Create a certificate](#create-a-certificate)
+1. [Create a new app registration](#create-a-new-app-registration)
+1. [Configure API permissions](#configure-api-permissions)
+1. [Configure a valid credential](#configure-a-valid-credential)
 
 ### Create a certificate
 
-In a production environment you would use a certificate from your production Certificate Authority, but in this sample we will use a self-signed certificate. Create and export the certificate using the following PowerShell commands.
+In a production environment you would use a certificate from your production Certificate Authority, but in this sample we'll use a self-signed certificate. Create and export the certificate using the following PowerShell commands.
 
 ```powershell
 $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
@@ -46,7 +45,7 @@ Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
    1. In the **Name** textbox, type a name for your application (for example: Azure AD Risk Detection API).
    1. Under **Supported account types**, select the type of accounts that will use the APIs.
    1. Select **Register**.
-1. Take note of the **Application (client) ID** and **Directory (tenant) ID** as you will need these items later.
+1. Take note of the **Application (client) ID** and **Directory (tenant) ID** as you'll need these items later.
 
 ### Configure API permissions
 
@@ -68,7 +67,7 @@ In this example, we configure application permissions allowing this sample to be
 1. Under **certificates**, select **Upload certificate**.
    1. Select the previously exported certificate from the window that opens.
    1. Select **Add**.
-1. Take note of the **Thumbprint** of the certificate as you will need this information in the next step.
+1. Take note of the **Thumbprint** of the certificate as you'll need this information in the next step.
 
 ## List risky users using PowerShell
 
@@ -90,7 +89,7 @@ Get-MgRiskyUser -All
 
 ## Next steps
 
-- [Get started with the Microsoft Graph PowerShell SDK](/graph/powershell/get-started)
+- [Get started with the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started)
 - [Tutorial: Identify and remediate risks using Microsoft Graph APIs](/graph/tutorial-riskdetection-api)
 - [Overview of Microsoft Graph](https://developer.microsoft.com/graph/docs)
 - [Get access without a user](/graph/auth-v2-service)

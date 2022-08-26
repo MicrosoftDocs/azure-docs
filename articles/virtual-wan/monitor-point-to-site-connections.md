@@ -135,9 +135,7 @@ The output stored in the storage account is fetched from within the workbook by 
    | Name | Value|
    |---|---|
    |"resourcegroup" | your resource group |
-   | "sasuri"| your resource group|
-   | "storageaccountname"| `@Microsoft.KeyVault(SecretUri=https://\<keyvaultname>.vault.azure.net/secrets/sasuri/\<version>)`-->update accordingly after keyvault is created in next section. |
-   | "storagecontainer"| your storage container name|
+   | "sasuri"| `@Microsoft.KeyVault(SecretUri=https://\<keyvaultname>.vault.azure.net/secrets/sasuri/\<version>)`<br />--> update accordingly after keyvault is created in next section.|
    |"subscription" |your subscription ID |
    |"tenantname" | your tenant ID |
    | "vpngw"|This name is something like \<guid>-eastus-ps2-gw. You can get this from the vWAN HUB User VPN settings. |
@@ -175,15 +173,16 @@ The output stored in the storage account is fetched from within the workbook by 
    $tenantname = $env:appsetting_tenantname
    $subscription = $env:appsetting_subscription
    $resourceGroup = $env:appsetting_resourcegroup
-   $storageAccountName = $env:appsetting_storageaccountname
-   $vpnstatsfile = $env:appsetting_vpnstatsfile
    $vpngw = $env:appsetting_vpngw
    $sasuri = $env:appsetting_sasuri
-
+   
+   Write-Host "Connecting to Managed Identity..."
    connect-azaccount -tenant $tenantname -identity -subscription $subscription
-
-   Get-AzP2sVpnGatewayDetailedConnectionHealth -name $vpngw -ResourceGroupName $resourceGroup -OutputBlobSasUrl
-   $sasuri
+   
+   Write-Host "Executing File Update..."
+   Get-AzP2sVpnGatewayDetailedConnectionHealth -name $vpngw -ResourceGroupName $resourceGroup -OutputBlobSasUrl $sasuri
+   
+   Write-Host "Function Execution Completed!"
    ```
 
 1. Navigate back to the **Function App** page and select on **App Service Editor** in the left panel under **Development Tools**. Then, select **Go -->**.

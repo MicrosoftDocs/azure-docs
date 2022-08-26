@@ -2,14 +2,15 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/25/2020
+ms.date: 06/10/2022
 ms.author: glenga
+ms.custom: devdivchpfy22
 ---
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
 
 ## Add an output binding definition to the function
 
-Although a function can have only one trigger, it can have multiple input and output bindings, which let you connect to other Azure services and resources without writing custom integration code. 
+Although a function can have only one trigger, it can have multiple input and output bindings, which lets you connect to other Azure services and resources without writing custom integration code.
 ::: zone-end
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
 You declare these bindings in the *function.json* file in your function folder. From the previous quickstart, your *function.json* file in the *HttpExample* folder contains two bindings in the `bindings` collection:  
@@ -28,11 +29,11 @@ You declare these bindings in the *function.json* file in your function folder. 
 ::: zone-end  
 
 ::: zone pivot="programming-language-python,programming-language-javascript, programming-language-powershell, programming-language-typescript"  
-Each binding has at least a type, a direction, and a name. In the example above, the first binding is of type `httpTrigger` with the direction `in`. For the `in` direction, `name` specifies the name of an input parameter that's sent to the function when invoked by the trigger.  
+Each binding has at least a type, a direction, and a name. In the above example, the first binding is of type `httpTrigger` with the direction `in`. For the `in` direction, `name` specifies the name of an input parameter that's sent to the function when invoked by the trigger.  
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-The second binding in the collection is named `res`. This `http` binding is an output binding (`out`) that is used to write the HTTP response. 
+The second binding in the collection is named `res`. This `http` binding is an output binding (`out`) that is used to write the HTTP response.
 
 To write to an Azure Storage queue from this function, add an `out` binding of type `queue` with the name `msg`, as shown in the code below:
 
@@ -48,7 +49,7 @@ To write to an Azure Storage queue from this function, add an `out` binding of t
 ::: zone-end  
 
 ::: zone pivot="programming-language-powershell"  
-The second binding in the collection is named `res`. This `http` binding is an output binding (`out`) that is used to write the HTTP response. 
+The second binding in the collection is named `res`. This `http` binding is an output binding (`out`) that is used to write the HTTP response.
 
 To write to an Azure Storage queue from this function, add an `out` binding of type `queue` with the name `msg`, as shown in the code below:
 
@@ -56,5 +57,5 @@ To write to an Azure Storage queue from this function, add an `out` binding of t
 ::: zone-end  
 
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-In this case, `msg` is given to the function as an output argument. For a `queue` type, you must also specify the name of the queue in `queueName` and provide the *name* of the Azure Storage connection (from *local.settings.json*) in `connection`. 
+In this case, `msg` is given to the function as an output argument. For a `queue` type, you must also specify the name of the queue in `queueName` and provide the *name* of the Azure Storage connection (from *local.settings.json* file) in `connection`. 
 ::: zone-end  

@@ -1,5 +1,5 @@
 ---
-title: Train a model - Custom Translator
+title: "Legacy: Train a model - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: How to train and build a custom translation model.
 author: laujan
@@ -9,12 +9,13 @@ ms.subservice: translator-text
 ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator user, I want to understand how to train, so that I can start start building my custom translation model.
 ---
 
 # Train a model
 
-Training a model is the first and most important step to building a translation model, otherwise, model can't be built. Training happens based on documents you select for the trainings. When you select documents of "Training" document type, be mindful of the 10,000 parallel sentences minimum requirement. As you select documents, we display the total number of training sentences to guide you. This requirement does not apply when you only select documents of dictionary document type to train a model.
+Training a model is the first and most important step to building a translation model, otherwise, model can't be built. Training happens based on documents you select for the trainings. When you select documents of "Training" document type, be mindful of the 10,000 parallel sentences minimum requirement. As you select documents, we display the total number of training sentences to guide you. This requirement doesn't apply when you only select documents of dictionary document type to train a model.
 
 To train a model:
 
@@ -24,7 +25,7 @@ To train a model:
 
     - Document name: Name of the document.
 
-    - Pairing: If this document is a parallel or monolingual document. Monolingual documents are currently not supported for training.
+    - Pairing: Is this document a parallel or monolingual document? Monolingual documents are currently not supported for training.
 
     - Document type: Can be training, tuning, testing, or dictionary.
 
@@ -38,7 +39,7 @@ To train a model:
 
 3. Select **Create model** button.
 
-4. On the dialog, specify the name for your model. By default, "Train immediately" is selected to start the training pipeline when you select the **Create model** button. You can select **Save as draft** to create the model metadata and put the model in a draft state but model training would not start. At a later time, you have to manually select models in draft state to train.
+4. On the dialog, specify the name for your model. By default, "Train immediately" is selected to start the training pipeline when you select the **Create model** button. You can select **Save as draft** to create the model metadata and put the model in a draft state but model training wouldn't start. At a later time, you've to manually select models in draft state to train.
 
 5. Select the **Create model** button.
 

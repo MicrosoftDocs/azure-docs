@@ -428,7 +428,7 @@ new PoolAddParameter
                 RelativeMountPath = "cifsmountpoint",
                 Source = "source",
                 Password = "StorageAccountKey",
-                MountOptions = "-o vers=3.0,dir_mode=0777,file_mode=0777,serverino"
+                MountOptions = "-o vers=3.0,dir_mode=0777,file_mode=0777,serverino,domain=MyDomain"
             },
         }
     }

@@ -6,4 +6,4 @@ ms.date: 12/21/2020
 ms.author: hrasheed
 ---
 > [!IMPORTANT]
-> For updated Data Catalog features, please use the new [Azure Purview](../articles/purview/overview.md) service, which offers unified data governance for your entire data estate.
+> For updated Data Catalog features, please use the new [Microsoft Purview](../articles/purview/overview.md) service, which offers unified data governance for your entire data estate.

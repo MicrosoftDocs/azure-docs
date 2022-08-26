@@ -30,7 +30,7 @@ This article assumes that you have working knowledge of the Command Prompt windo
 
 # [Terminal](#tab/terminal)
 
-To get started, you need an Azure subscription key and region identifier (for example, `eastus`, `westus`). To learn how to get these credentials, see the [Speech service overview](overview.md#find-keys-and-locationregion) documentation.
+To get started, you need an Azure subscription key and region identifier (for example, `eastus`, `westus`). Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 
 To configure your subscription key and region identifier, run the following commands:  
 
@@ -55,7 +55,7 @@ spx config @region --clear
 
 # [PowerShell](#tab/powershell)
 
-To get started, you need an Azure subscription key and region identifier (for example, `eastus`, `westus`). To learn how to get these credentials, see the [Speech service overview](overview.md#find-keys-and-locationregion) documentation.
+To get started, you need an Azure subscription key and region identifier (for example, `eastus`, `westus`). Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 
 To configure your subscription key and region identifier, run the following commands in PowerShell: 
 
@@ -140,7 +140,7 @@ You can also save the synthesized output to a file. In this example, let's creat
 spx synthesize --text "Enjoy using the Speech CLI." --audio output my-sample.wav
 ```
 
-These examples presume that you're testing in English. However, Speech service supports speech synthesis in many languages. You can pull down a full list of voices either by running the following command or by visiting the [language support page](./language-support.md).
+These examples presume that you're testing in English. However, Speech service supports speech synthesis in many languages. You can pull down a full list of voices either by running the following command or by visiting the [language support page](./language-support.md?tabs=stt-tts).
 
 ```console
 spx synthesize --voices
@@ -176,7 +176,7 @@ spx translate --file /some/file/path/input.wav --source en-US --target ru-RU --o
 ```
 
 > [!NOTE]
-> For a list of all supported languages and their corresponding locale codes, see [Language and voice support for the Speech service](language-support.md).
+> For a list of all supported languages and their corresponding locale codes, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
 
 > [!TIP]
 > If you get stuck or want to learn more about the Speech CLI recognition options, you can run ```spx help translate```.

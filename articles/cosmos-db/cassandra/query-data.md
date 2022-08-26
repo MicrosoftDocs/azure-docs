@@ -4,7 +4,7 @@ description: This tutorial shows how to query user data from an Azure Cosmos DB 
 ms.service: cosmos-db
 author: TheovanKraay
 ms.author: thvankra
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018

@@ -9,15 +9,14 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 03/08/2022
 ms.topic: how-to
-ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
-
+ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
 ---
 
 # Manage Azure Machine Learning workspaces in the portal or with the Python SDK
 
 In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/)
 
-As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](reference-azure-machine-learning-cli.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
+As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](v1/reference-azure-machine-learning-cli.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
 
 ## Prerequisites
 
@@ -37,6 +36,8 @@ As your needs change or requirements for automation increase you can also manage
 ## Create a workspace
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 * **Default specification.** By default, dependent resources and the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
     
@@ -183,9 +184,7 @@ The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](/pyth
 
 ---
 
-### Vulnerability scanning
 
-Microsoft Defender for Cloud provides unified security management and advanced threat protection across hybrid cloud workloads. You should allow Microsoft Defender for Cloud to scan your resources and follow its recommendations. For more, see  [Azure Container Registry image scanning by Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
 
 ### Advanced
 
@@ -264,6 +263,8 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 ## Connect to a workspace
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 In your Python code, you create a workspace object to connect to your workspace.  This code will read the contents of the configuration file to find your workspace.  You will get a prompt to sign in if you are not already authenticated.
 
 ```python
@@ -284,6 +285,8 @@ ws = Workspace.from_config()
 
 * **[Sovereign cloud](reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
 
+   [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
     from azureml.core import Workspace
@@ -299,6 +302,8 @@ If you have problems in accessing your subscription, see [Set up authentication 
 See a list of all the workspaces you can use.
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Find your subscriptions in the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Copy the ID and use it in the code below to see all workspaces available for that subscription.
 
@@ -326,50 +331,6 @@ The Workspace.list(..) method does not return the full workspace object. It incl
 
 ---
 
-## Search for assets across a workspace (preview)
-
-With the public preview search capability, you can search for machine learning assets such as jobs, models, components, environments, and datasets across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
-
-### Free text search
-
-Type search text into the global search bar on the top of portal and hit enter to trigger a 'contains' search.
-A contains search scans across all metadata fields for the given asset and sorts results relevance.
-
-You can use the asset quick links to navigate to search results for jobs, models, components, environments, and datasets that you created.
-
-Also,  you can change the scope of applicable subscriptions and workspaces via the 'Change' link in the search bar drop down.
-
-:::image type="content" source="./media/how-to-manage-workspace/search-bar.png" alt-text="Search-bar list":::
-
-### Structured search
-
-Select any number of filters to create more specific search queries. The following filters are supported:
-
-* Job:
-* Model:
-* Component:
-* Tags:
-* SubmittedBy:
-* Environment:
-* Dataset:
-
-If an asset filter (job, model, component, environment, dataset) is present, results are scoped to those tabs. Other filters apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters, but are scoped to the tabs chosen by asset filters, if present.
-
-> [!TIP]
-> * Filters search for exact matches of text. Use free text queries for a contains search.
-> * Quotations are required around values that include spaces or other special characters.  
-> * If duplicate filters are provided, only the first will be recognized in search results.
-> * Input text of any language is supported but filter strings must match the provided options (ex. submittedBy:).
-> * The tags filter can accept multiple key:value pairs separated by a comma (ex. tags:"key1:value1, key2:value2").
-
-### View search results
-
-You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Datasets** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
-
-:::image type="content" source="./media/how-to-manage-workspace/results.png" alt-text="Results displayed after search":::
-
-If you've used this feature in a previous update, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
-
 
 ## Delete a workspace
 
@@ -380,6 +341,8 @@ When you no longer need a workspace, delete it.
 If you accidentally deleted your workspace, you may still be able to retrieve your notebooks. For details, see [Failover for business continuity and disaster recovery](./how-to-high-availability-machine-learning.md#workspace-deletion).
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Delete the workspace `ws`:
 
@@ -411,7 +374,7 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 
 * **Azure portal**: 
   * If you go directly to your workspace from a share link from the SDK or the Azure portal, you can't view the standard **Overview** page that has subscription information in the extension. In this scenario, you also can't switch to another workspace. To view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
-  * All assets (Datasets, Experiments, Computes, and so on) are available only in [Azure Machine Learning studio](https://ml.azure.com). They're *not* available from the Azure portal.
+  * All assets (Data, Experiments, Computes, and so on) are available only in [Azure Machine Learning studio](https://ml.azure.com). They're *not* available from the Azure portal.
   * Attempting to export a template for a workspace from the Azure portal may return an error similar to the following text: `Could not get resource of the type <type>. Resources of this type will not be exported.` As a workaround, use one of the templates provided at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) as the basis for your template.
 
 ### Workspace diagnostics
@@ -440,6 +403,10 @@ Once you have a workspace, learn how to [Train and deploy a model](tutorial-trai
 
 To learn more about planning a workspace for your organization's requirements, see [Organize and set up Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).
 
-To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
+* If you need to move a workspace to another Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
 
-If you need to move a workspace to another Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
+* To find a workspace, see [Search for Azure Machine Learning assets (preview)](how-to-search-assets.md).
+
+* If you need to move a workspace to another Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
+
+For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).

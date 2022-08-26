@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/22/2021
+ms.date: 06/20/2022
 ms.topic: how-to
 ---
 
@@ -17,25 +17,20 @@ Whichever approach you choose, the configuration options are the same, and the p
 
 [!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
+To learn how to manage IoT Central application by using the IoT Central REST API, see [Use the REST API to create and manage IoT Central applications.](../core/howto-manage-iot-central-with-rest-api.md)
+
 ## Options
 
 This section describes the available options when you create an IoT Central application. Depending on the method you choose, you might need to supply the options on a form or as command-line parameters:
 
 ### Pricing plans
 
-The *free* plan lets you create an IoT Central application to try for seven days. The free plan:
-
-- Doesn't require an Azure subscription.
-- Can only be created and managed on the [Azure IoT Central](https://aka.ms/iotcentral) site.
-- Lets you connect up to five devices.
-- Can be upgraded to a standard plan if you want to keep your application.
-
 The *standard* plans:
 
-- Do require an Azure subscription. You should have at least **Contributor** access in your Azure subscription. If you created the subscription yourself, you're automatically an administrator with sufficient access. To learn more, see [What is Azure role-based access control?](../../role-based-access-control/overview.md).
+- You should have at least **Contributor** access in your Azure subscription. If you created the subscription yourself, you're automatically an administrator with sufficient access. To learn more, see [What is Azure role-based access control?](../../role-based-access-control/overview.md).
 - Let you create and manage IoT Central applications using any of the available methods.
 - Let you connect as many devices as you need. You're billed by device. To learn more, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/).
-- Cannot be downgraded to a free plan, but can be upgraded or downgraded to other standard plans.
+- Can be upgraded or downgraded to other standard plans.
 
 The following table summarizes the differences between the three standard plans:
 
@@ -69,8 +64,6 @@ The easiest way to get started creating IoT Central applications is on the [Azur
 
 The [Build](https://apps.azureiotcentral.com/build) lets you select the application template you want to use:
 
-:::image type="content" source="media/howto-create-iot-central-application/choose-template.png" alt-text="Screenshot of build page that lets you choose an application template.":::
-
 If you select **Create app**, you can provide the necessary information to create an application from the template:
 
 :::image type="content" source="media/howto-create-iot-central-application/create-application.png" alt-text="Screenshot showing create application page for IoT Central.":::
@@ -82,11 +75,11 @@ The **My apps** page lists all the IoT Central applications you have access to. 
 
 ## Copy an application
 
-You can create a copy of any application, minus any device instances, device data history, and user data. The copy uses a standard pricing plan that you'll be billed for. You can't create an application that uses the free pricing plan by copying an application.
+You can create a copy of any application, minus any device instances, device data history, and user data. The copy uses a standard pricing plan that you'll be billed for.
 
 Select **Copy**. In the dialog box, enter the details for the new application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see [Create an application](howto-create-iot-central-application.md).
 
-:::image type="content" source="media/howto-create-iot-central-application/app-copy-1.png" alt-text="Screenshot of that shows application settings page.":::
+:::image type="content" source="media/howto-create-iot-central-application/app-copy-1.png" alt-text="Screenshot of that shows application management page.":::
 
 :::image type="content" source="media/howto-create-iot-central-application/app-copy-2.png" alt-text="Screenshot that shows the Copy Application settings page.":::
 
@@ -126,7 +119,6 @@ To create an application template from an existing IoT Central application:
 1. On the **Template Export** page, enter a name and description for your template.
 1. Select the **Export** button to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:
 
-:::image type="content" source="media/howto-create-iot-central-application/create-template.png" alt-text="Screenshot that shows create an application template.":::
 
 :::image type="content" source="media/howto-create-iot-central-application/create-template-2.png" alt-text="Screenshot that shows export an application template.":::
 

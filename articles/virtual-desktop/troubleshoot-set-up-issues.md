@@ -44,11 +44,11 @@ If your operation goes over the quota limit, you can do one of the following thi
 
 ### Error: Can't see user assignments in app groups.
 
-**Cause**: This error usually happens after you've moved the subscription from 1 Azure Active Directory (AD) tenant to another. If your old assignments are still tied to the old Azure AD tenant, the Azure portal will lose track of them.
+**Cause**: This error usually happens after you've moved the subscription from one Azure Active Directory tenant to another. If your old assignments are still tied to the previous Azure Active Directory tenant, the Azure portal will lose track of them.
 
 **Fix**: You'll need to reassign users to app groups.
 
-### I only see US when setting the location for my service objects
+### I don't see the Azure region I want to use when selecting the location for my service objects
 
 **Cause**: Azure doesn't currently support that region for the Azure Virtual Desktop service. To learn about which geographies we support, check out [Data locations](data-locations.md). If Azure Virtual Desktop supports the location but it still doesn't appear when you're trying to select a location, that means your resource provider hasn't updated yet.
 

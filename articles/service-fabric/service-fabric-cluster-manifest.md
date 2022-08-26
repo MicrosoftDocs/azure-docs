@@ -1,9 +1,14 @@
 ---
 title: Configure your Azure Service Fabric standalone cluster 
 description: Learn how to configure your standalone or on-premises Azure Service Fabric cluster.
-ms.topic: conceptual
-ms.date: 11/12/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Configuration settings for a standalone Windows cluster
 This article describes configuration settings of a standalone Azure Service Fabric cluster that can be set in the *ClusterConfig.json* file. You will use this file to specify information about the cluster's nodes, security configurations, as well as the network topology in terms of fault and upgrade domains.  After changing or adding configuration settings, you can either [create a standalone cluster](service-fabric-cluster-creation-for-windows-server.md) or [upgrade the configuration of a standalone cluster](service-fabric-cluster-config-upgrade-windows-server.md).
 

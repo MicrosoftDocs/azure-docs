@@ -19,7 +19,7 @@ In this quickstart, you'll create a simulated device on your Windows machine. Th
 
 If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.
 
-This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [How to provision for multitenancy](how-to-provision-multitenant.md).
+This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [Tutorial: provision for geolatency](how-to-provision-multitenant.md).
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ This quickstart demonstrates a solution for a Windows-based workstation. However
 
 ::: zone pivot="programming-language-csharp"
 
-* Install [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET SDK 6.0](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```cmd
     dotnet --info

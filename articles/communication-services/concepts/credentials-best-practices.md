@@ -130,7 +130,10 @@ const refreshAadToken = async function (abortSignal, username) {
     let account = (await publicClientApplication.getTokenCache().getAllAccounts()).find(u => u.username === username);
 
     const renewRequest = {
-        scopes: ["https://auth.msft.communication.azure.com/Teams.ManageCalls"],
+        scopes: [
+            "https://auth.msft.communication.azure.com/Teams.ManageCalls",
+            "https://auth.msft.communication.azure.com/Teams.ManageChats"
+        ],
         account: account,
         forceRefresh: forceRefresh
     };
@@ -197,7 +200,10 @@ const refreshAadToken = async function (abortSignal, username) {
     // Make sure the token has at least 10-minute lifetime and if not, force-renew it
     if (tokenResponse.expiresOn < (Date.now() + (10 * 60 * 1000))) {
         const renewRequest = {
-            scopes: ["https://auth.msft.communication.azure.com/Teams.ManageCalls"],
+            scopes: [
+                "https://auth.msft.communication.azure.com/Teams.ManageCalls",
+                "https://auth.msft.communication.azure.com/Teams.ManageChats"
+            ],
             account: account,
             forceRefresh: true // Force-refresh the token
         };        
@@ -265,7 +271,7 @@ leaveChatBtn.addEventListener('click', function() {
 
 ### Clean up resources
 
-Communication Services applications should dispose the Credential instance when it's no longer needed. Disposing the credential is also the recommended way of canceling scheduled refresh actions when the proactive refreshing is enabled.
+Since the Credential object can be passed to multiple Chat or Calling client instances, the SDK will make no assumptions about its lifetime and leaves the responsibility of its disposal to the developer. It's up to the Communication Services applications to dispose the Credential instance when it's no longer needed. Disposing the credential is also the recommended way of canceling scheduled refresh actions when the proactive refreshing is enabled.
 
 Call the `.dispose()` function.
 

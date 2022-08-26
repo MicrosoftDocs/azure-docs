@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 06/15/2022
 ms.author: anfdocs
 ---
 # Develop for Azure NetApp Files with REST API 
@@ -21,9 +21,9 @@ The REST API for the Azure NetApp Files service defines HTTP operations against 
 
 ## Azure NetApp Files REST API specification
 
-The REST API specification for Azure NetApp Files is published through [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager):
+The REST API specification for Azure NetApp Files is published through [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager):
 
-`https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
+`https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager`
 
 ## Considerations
 
@@ -42,7 +42,7 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
    2. Enter the following command in the Azure CLI: 
     
         ```azurecli
-        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE --role Contributor
+        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE --role Contributor --scopes /subscriptions/{subscription-id}
         ```
 
       The command output is similar to the following example:  

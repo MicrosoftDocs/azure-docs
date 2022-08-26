@@ -1,6 +1,5 @@
 ---
 title: Overview of consent and permissions
-titleSuffix: Azure AD
 description: Learn about the fundamental concepts of consents and permissions in Azure AD
 services: active-directory
 author: psignoret

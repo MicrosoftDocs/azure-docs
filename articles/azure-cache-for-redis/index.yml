@@ -8,7 +8,7 @@ metadata:
   ms.topic: landing-page
   author: flang-msft
   ms.author: franlanglois
-  ms.date: 01/14/2022
+  ms.date: 08/15/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -28,6 +28,8 @@ landingContent:
             url: /shows/ask-the-expert/ask-the-expert-the-latest-in-nosql-data-and-redis-on-azure
       - linkListType: whats-new
         links:
+          - text: What's new?
+            url: cache-whats-new.md
           - text: Managed identity with Azure Cache for Redis
             url: cache-managed-identity.md
           - text: Create an Enterprise tier cache
@@ -42,6 +44,8 @@ landingContent:
             url: cache-dotnet-core-quickstart.md
           - text: Code an ASP.NET web app
             url: cache-web-app-howto.md
+          - text: Code an ASP.NET Core web app
+            url: cache-web-app-aspnet-core-howto.md
           - text: Code a Java app
             url: cache-java-get-started.md
           - text: Code a Node.js app
@@ -72,6 +76,8 @@ landingContent:
            url: cache-best-practices-memory-management.md
          - text: Development
            url: cache-best-practices-development.md
+         - text: Client libraries
+           url: cache-best-practices-client-libraries.md
          - text: Scaling
            url: cache-best-practices-scale.md
          - text: Kubernetes-hosted client applications

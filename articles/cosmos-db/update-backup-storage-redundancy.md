@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/03/2021
 ms.author: govindk
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 
 ---
 

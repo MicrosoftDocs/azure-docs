@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: javascript
 ms.topic: how-to
-ms.date: 10/13/2021
+ms.date: 4/5/2022
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js, cosmos-db-video
@@ -13,9 +13,10 @@ ms.custom: devx-track-js, cosmos-db-video
 # Manage indexing in Azure Cosmos DB API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-📺 <B><a href="https://aka.ms/cosmos-db-video-indexing-best-practices-mongodb-api" target="_blank">Video: Explore indexing best practices for the Azure Cosmos DB API for MongoDB</a></b>
-
 Azure Cosmos DB API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB API for MongoDB. Indexes are specialized data structures that make querying your data roughly an order of magnitude faster.
+
+>
+> [!VIDEO https://aka.ms/docs.mongo-indexing]
 
 ## Indexing for MongoDB server version 3.6 and higher
 
@@ -202,9 +203,6 @@ The following operations are common for accounts serving wire protocol version 4
 
 [Unique indexes](../unique-keys.md) are useful for enforcing that two or more documents do not contain the same value for indexed fields.
 
-> [!IMPORTANT]
-> Unique indexes can be created only when the collection is empty (contains no documents).
-
 The following command creates a unique index on the field `student_id`:
 
 ```shell
@@ -242,6 +240,10 @@ globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {
 In the preceding example, omitting the ```"university":1``` clause returns an error with the following message:
 
 `cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }`
+
+#### Limitations
+
+Unique indexes need to be created while the collection is empty. 
 
 ### TTL indexes
 

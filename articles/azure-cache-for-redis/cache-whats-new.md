@@ -5,11 +5,64 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: reference
-ms.date: 02/25/2022
+ms.date: 08/01/2022
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## August 2022
+
+### RedisJSON module available in Azure Cache for Redis Enterprise  
+
+The Enterprise and Enterprise Flash tiers of Azure Cache for Redis now support the **RedisJSON** module. This module adds native functionality to store, query, and search JSON-formatted data that allows you to store data more easily in a document-style format in Redis. By using this module, you simplify common use cases like storing product catalog or user profile data.  
+
+The **RedisJSON** module implements the community version of the module so you can use your existing knowledge and workstreams. **RedisJSON** is  designed for use with the search functionality of **RediSearch**. Using both modules provides integrated indexing and querying of data. For more information, see [RedisJSON](https://aka.ms/redisJSON).
+
+The **RediSearch** module is also now available for Azure Cache for Redis. For more information on using Redis modules in Azure Cache for Redis, see [Use Redis modules with Azure Cache for Redis](cache-redis-modules.md).
+
+## July 2022
+
+### Redis 6 becomes default for new cache instances
+
+Beginning November 1, 2022, all versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using the latest stable version of Redis offered by Azure Cache for Redis by default. Previously, Redis version 4.0 was the default version used. However, as of October 2021, the latest stable Redis version offered in Azure Cache for Redis is 6.0.
+
+>[!NOTE]
+> This change does not affect any existing instances. It is only applicable to new instances created from November 1, 2022, and onward.
+>
+> The default Redis version that is used when creating a cache instance can vary because it is  based on the latest stable version offered in Azure Cache for Redis.
+
+If you need a specific version of Redis for your application, we recommend using latest artifact versions as shown in the table below. Then, choose the Redis version explicitly when you create the cache.
+
+| Artifact | Version that  supports specifying Redis version  |
+|---------|---------|
+| REST API              | 2020-06-01 and newer |
+| PowerShell            | 6.3.0 and newer |
+| Azure CLI             | 2.27.0 and newer |
+| Azure SDK for .NET  | 7.0.0 and newer |
+| Azure SDK for Python | 13.0.0 and newer |
+| Azure SDK  for Java  | 2.2.0 and newer |
+| Azure SDK for JavaScript| 6.0.0 and newer |
+| Azure SDK for Go    | v49.1.0 and newer |
+
+## April 2022
+
+### New metrics for connection creation rate
+
+These two new metrics can help identify whether Azure Cache for Redis clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and **Redis Server Load**.
+
+- Connections Created Per Second
+- Connections Closed Per Second
+
+For more information, see [View cache metrics](cache-how-to-monitor.md#view-cache-metrics).
+
+### Default cache change
+
+On May 15, 2022, all new Azure Cache for Redis instances will use Redis 6 by default. You can still create a Redis 4 instance by explicitly selecting the version when you create an Azure Cache for Redis instance.
+
+This change doesn't affect any existing instances. The change is only applicable to new instances created after May 15, 2022.
+
+The default version of Redis that is used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
 
 ## February 2022
 
@@ -17,7 +70,7 @@ ms.date: 02/25/2022
 
 As of May 2022, Azure Cache for Redis rolls over to TLS certificates issued by DigiCert Global G2 CA Root. The current Baltimore CyberTrust Root expires in May 2025, requiring this change.
 
-We expect that most Azure Cache for Redis customers won't be affected. However, your application might be affected if you explicitly specify a list of acceptable certificate authorities (CAs), which is known as *certificate pinning*.
+We expect that most Azure Cache for Redis customers won't be affected. However, your application might be affected if you explicitly specify a list of acceptable certificate authorities (CAs), known as *certificate pinning*.
 
 For more information, read this blog that contains instructions on [how to check whether your client application is affected](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-cache-for-redis-tls-upcoming-migration-to-digicert-global/ba-p/3171086). We recommend taking the actions recommended in the blog to avoid cache connectivity loss.
 

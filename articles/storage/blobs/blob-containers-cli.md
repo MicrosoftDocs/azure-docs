@@ -84,7 +84,7 @@ Use the `az storage container list` command to retrieve a list of storage contai
 
 The `--num-results` parameter can be used to limit the number of containers returned by the request. Azure Storage limits the number of containers returned by a single listing operation to 5000. This limit ensures that manageable amounts of data are retrieved. If the number of containers returned exceeds either the `--num-results` value or the service limit, a continuation token is returned. This token allows you to use multiple requests to retrieve any number of containers.
 
-You can also use the `--query` parameter to execute a [JMESPath query](https://jmespath.org/) on the results of commands. JMESPath is a query language for JSON that allows you to select and modify data returned from CLI output. Queries are executed on the JSON output before it can be formatted. For more information, see [How to query Azure CLI command output using a JMESPath query](/cli/azure/query-azure-cli).
+You can also use the `--query` parameter to execute a [JMESPath query](/cli/azure/query-azure-cli) on the results of commands. JMESPath is a query language for JSON that allows you to select and modify data returned from CLI output. Queries are executed on the JSON output before it can be formatted. For more information, see [How to query Azure CLI command output using a JMESPath query](/cli/azure/query-azure-cli).
 
 The following example first lists the maximum number of containers (subject to the service limit). Next, it lists three containers whose names begin with the prefix *container-* by supplying values for the `--num-results` and `--prefix` parameters. Finally, a single container is listed by supplying a known container name to the `--prefix` parameter.
 
@@ -357,7 +357,10 @@ az storage container generate-sas \
 
 ## Next steps
 
-In this how-to article, you learned how to manage containers in Azure blob storage. To learn more about working with blob storage by using Azure CLI, explore Azure CLI samples for Blob storage.
+In this how-to article, you learned how to manage containers in Azure blob storage. To learn more about working with blob storage by using Azure CLI, select an option below.
+
+> [!div class="nextstepaction"]
+> [Manage block blobs with Azure CLI](blob-cli.md)
 
 > [!div class="nextstepaction"]
 > [Azure CLI samples for Blob storage](storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

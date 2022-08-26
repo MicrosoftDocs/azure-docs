@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started with a Python script'
+title: "Tutorial: Get started with a Python script (SDK v2)"
 titleSuffix: Azure Machine Learning
 description: Get started with your first Python script in Azure Machine Learning. This is part 1 of a three-part getting-started series.
 services: machine-learning
@@ -9,11 +9,17 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 12/21/2021
-ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.date: 07/10/2022
+ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2
 ---
 
 # Tutorial: Get started with a Python script in Azure Machine Learning (part 1 of 3)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
+> * [v1](v1/tutorial-1st-experiment-hello-world.md)
+> * [v2 (preview)](tutorial-1st-experiment-hello-world.md)
 
 In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 
@@ -32,9 +38,24 @@ In this tutorial, you will:
 
 - Complete [Quickstart: Set up your workspace to get started with Azure Machine Learning](quickstart-create-resources.md) to create a workspace, compute instance, and compute cluster to use in this tutorial series.
 
+- The Azure Machine Learning Python SDK v2 (preview) installed.
+
+    To install the SDK you can either,  
+    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
+
+    * Use the following commands to install Azure ML Python SDK v2:
+       * Uninstall previous preview version:
+       ```python
+       pip uninstall azure-ai-ml
+       ```
+       * Install the Azure ML Python SDK v2:
+       ```python
+       pip install azure-ai-ml
+       ```
+
 ## Create and run a Python script
 
-This tutorial will use the compute instance as your development computer.  First create a few folders and the script:
+This tutorial will use the compute instance as your development computer. First create a few folders and the script:
 
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com) and select your workspace if prompted.
 1. On the left, select **Notebooks**
@@ -43,8 +64,8 @@ This tutorial will use the compute instance as your development computer.  First
 1. Name the folder **get-started**.
 1. To the right of the folder name, use the **...** to create another folder under **get-started**.
   :::image type="content" source="media/tutorial-1st-experiment-hello-world/create-sub-folder.png" alt-text="Screenshot shows create a subfolder menu.":::
-1. Name the new folder **src**.  Use the **Edit location** link if the file location is not correct.
-1. To the right of the **src** folder, use the **...** to create a new file in the **src** folder. 
+1. Name the new folder **src**. Use the **Edit location** link if the file location is not correct.
+1. To the right of the **src** folder, use the **...** to create a new file in the **src** folder.
 1. Name your file *hello.py*.  Switch the **File type** to *Python (*.py)*.
 
 Copy this code into your file:
@@ -54,16 +75,15 @@ Copy this code into your file:
 print("Hello world!")
 ```
 
-Your project folder structure will now look like: 
+Your project folder structure will now look like:
 
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="Folder structure shows hello.py in src subfolder.":::
 
-
 ### <a name="test"></a>Test your script
 
-You can run your code locally, which in this case means on the compute instance. Running code locally has the benefit of interactive debugging of code.  
+You can run your code locally, which in this case means on the compute instance. Running code locally has the benefit of interactive debugging of code.
 
-If you have previously stopped your compute instance, start it now with the **Start compute** tool to the right of the compute dropdown. Wait about a minute for state to change to  *Running*.
+If you have previously stopped your compute instance, start it now with the **Start compute** tool to the right of the compute dropdown. Wait about a minute for state to change to *Running*.
 
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/start-compute.png" alt-text="Screenshot shows starting the compute instance if it is stopped":::
 
@@ -75,26 +95,49 @@ You'll see the output of the script in the terminal window that opens. Close the
 
 ## <a name="control-script"></a> Create a control script
 
-A *control script* allows you to run your `hello.py` script on different compute resources. You use the control script to control how and where your machine learning code is run.  
+A *control script* allows you to run your `hello.py` script on different compute resources. You use the control script to control how and where your machine learning code is run.
 
-Select the **...** at the end of **get-started** folder to create a new file.  Create a Python file called *run-hello.py* and copy/paste the following code into that file:
+Select the **...** at the end of **get-started** folder to create a new file. Create a Python file called *run-hello.py* and copy/paste the following code into that file:
 
 ```python
 # get-started/run-hello.py
-from azureml.core import Workspace, Experiment, Environment, ScriptRunConfig
+from azure.ai.ml import MLClient, command, Input
+from azure.identity import DefaultAzureCredential
+from azureml.core import Workspace
 
+# get details of the current Azure ML workspace
 ws = Workspace.from_config()
-experiment = Experiment(workspace=ws, name='day1-experiment-hello')
 
-config = ScriptRunConfig(source_directory='./src', script='hello.py', compute_target='cpu-cluster')
+# default authentication flow for Azure applications
+default_azure_credential = DefaultAzureCredential()
+subscription_id = ws.subscription_id
+resource_group = ws.resource_group
+workspace = ws.name
 
-run = experiment.submit(config)
-aml_url = run.get_portal_url()
-print(aml_url)
+# client class to interact with Azure ML services and resources, e.g. workspaces, jobs, models and so on.
+ml_client = MLClient(
+   default_azure_credential,
+   subscription_id,
+   resource_group,
+   workspace)
+
+# target name of compute where job will be executed
+computeName="cpu-cluster"
+job = command(
+    code="./src",
+    command="python hello.py",
+    environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest",
+    compute=computeName,
+    display_name="hello-world-example",
+)
+
+returned_job = ml_client.create_or_update(job)
+aml_url = returned_job.studio_url
+print("Monitor your job at", aml_url)
 ```
 
 > [!TIP]
-> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `compute_target='cpu-cluster'` as well.
+> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `computeName='cpu-cluster'` as well.
 
 ### Understand the code
 
@@ -102,103 +145,73 @@ Here's a description of how the control script works:
 
 :::row:::
    :::column span="":::
-      `ws = Workspace.from_config()`
+      `ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)`
    :::column-end:::
    :::column span="2":::
-      [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace) connects to your Azure Machine Learning workspace, so that you can communicate with your Azure Machine Learning resources.
+      [MLClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) manages your Azure Machine Learning workspace and its assets and resources.
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      `experiment =  Experiment( ... )`
+      `job = command(...)`
    :::column-end:::
    :::column span="2":::
-      [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment) provides a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs.
+      [command](/python/api/azure-ai-ml/azure.ai.ml#azure-ai-ml-command) provides a simple way to construct a standalone command job or one as part of a dsl.pipeline.
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      `config = ScriptRunConfig( ... )` 
+      `returned_job = ml_client.create_or_update(job)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. It also specifies what compute target the script will run on. In this code, the target is the compute cluster that you created in the [setup tutorial](./quickstart-create-resources.md).
+      Submits your script. This submission is called a [job](/python/api/azure-ai-ml/azure.ai.ml.entities.job). A job encapsulates a single execution of your code. Use a job to monitor the script progress, capture the output, analyze the results, visualize metrics, and more.
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      `run = experiment.submit(config)`
+      `aml_url = returned_job.studio_url`
    :::column-end:::
    :::column span="2":::
-       Submits your script. This submission is called a [run](/python/api/azureml-core/azureml.core.run%28class%29). A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics, and more.
+      The `job` object provides a handle on the execution of your code. Monitor its progress from the Azure Machine Learning studio with the URL that's printed from the Python script.  
    :::column-end:::
 :::row-end:::
-:::row:::
-   :::column span="":::
-      `aml_url = run.get_portal_url()` 
-   :::column-end:::
-   :::column span="2":::
-        The `run` object provides a handle on the execution of your code. Monitor its progress from the Azure Machine Learning studio with the URL that's printed from the Python script.  
-   :::column-end:::
-:::row-end:::
-
 
 ## <a name="submit"></a> Submit and run your code in the cloud
 
 1. Select **Save and run script in terminal** to run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](quickstart-create-resources.md).
 
-1. In the terminal, you may be asked to sign in to authenticate.  Copy the code and follow the link to complete this step.
+1. In the terminal, you may be asked to sign in to authenticate. Copy the code and follow the link to complete this step.
 
-1. Once you're authenticated, you'll see a link in the terminal. Select the link to view the run.
+1. Once you're authenticated, you'll see a link in the terminal. Select the link to view the job.
 
-    [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
+   [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
 
 ## View the output
 
-1. In the page that opens, you'll see the run status.
-1. When the status of the run is **Completed**, select **Output + logs** at the top of the page.
-1. Select **std_log.txt** to view the output of your run.
+1. In the page that opens, you'll see the job status.
+1. When the status of the job is **Completed**, select **Output + logs** at the top of the page.
+1. Select **std_log.txt** to view the output of your job.
 
 ## <a name="monitor"></a>Monitor your code in the cloud in the studio
 
 The output from your script will contain a link to the studio that looks something like this:
-`https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
+`https://ml.azure.com/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
-Follow the link.  At first, you'll see a status of **Queued** or **Preparing**.  The very first run will take 5-10 minutes to complete. This is because the following occurs:
+Follow the link. At first, you'll see a status of **Queued** or **Preparing**. The very first run will take 5-10 minutes to complete. This is because the following occurs:
 
 * A docker image is built in the cloud
 * The compute cluster is resized from 0 to 1 node
-* The docker image is downloaded to the compute. 
+* The docker image is downloaded to the compute.
 
-Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first run has completed.
+Subsequent jobs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first job has completed.
 
-Wait about 10 minutes.  You'll see a message that the run has completed. Then use **Refresh** to see the status change to *Completed*.  Once the job completes, go to the **Outputs + logs** tab. There you can see a `std_log.txt` file that looks like this:
+Wait about 10 minutes. You'll see a message that the run has completed. Then use **Refresh** to see the status change to _Completed_. Once the job completes, go to the **Outputs + logs** tab.
+
+The `std_log.txt` file contains the standard output from a run. This file can be useful when you're debugging remote runs in the cloud.
 
 ```txt
- 1: [2020-08-04T22:15:44.407305] Entering context manager injector.
- 2: [context_manager_injector.py] Command line Options: Namespace(inject=['ProjectPythonPath:context_managers.ProjectPythonPath', 'RunHistory:context_managers.RunHistory', 'TrackUserError:context_managers.TrackUserError', 'UserExceptions:context_managers.UserExceptions'], invocation=['hello.py'])
- 3: Starting the daemon thread to refresh tokens in background for process with pid = 31263
- 4: Entering Run History Context Manager.
- 5: Preparing to call script [ hello.py ] with arguments: []
- 6: After variable expansion, calling script [ hello.py ] with arguments: []
- 7:
- 8: Hello world!
- 9: Starting the daemon thread to refresh tokens in background for process with pid = 31263
-10:
-11:
-12: The experiment completed successfully. Finalizing run...
-13: Logging experiment finalizing status in history service.
-14: [2020-08-04T22:15:46.541334] TimeoutHandler __init__
-15: [2020-08-04T22:15:46.541396] TimeoutHandler __enter__
-16: Cleaning up all outstanding Run operations, waiting 300.0 seconds
-17: 1 items cleaning up...
-18: Cleanup took 0.1812913417816162 seconds
-19: [2020-08-04T22:15:47.040203] TimeoutHandler __exit__
+hello world
 ```
-
-On line 8, you see the "Hello world!" output.
-
-The `70_driver_log.txt` file contains the standard output from a run. This file can be useful when you're debugging remote runs in the cloud.
-
 
 ## Next steps
 
@@ -209,5 +222,5 @@ In the next tutorial, you build on these learnings by running something more int
 > [!div class="nextstepaction"]
 > [Tutorial: Train a model](tutorial-1st-experiment-sdk-train.md)
 
->[!NOTE] 
+> [!NOTE]
 > If you want to finish the tutorial series here and not progress to the next step, remember to [clean up your resources](tutorial-1st-experiment-bring-data.md#clean-up-resources).

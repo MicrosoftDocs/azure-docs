@@ -96,7 +96,7 @@ sections:
       - question: |
           Why is only one instance of Network Watcher allowed per region? 
         answer: |
-          Network Watcher just needs to be enabled once for a subscription for it's features to work, this is a not a service limit.
+          Network Watcher just needs to be enabled once for a subscription for its features to work, this is a not a service limit.
 
       - question: |
           How can I manage the Network Watcher Resource? 

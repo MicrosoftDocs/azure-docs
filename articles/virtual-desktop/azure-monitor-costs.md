@@ -165,7 +165,7 @@ Using the default Pay-as-you-go model for [Log Analytics pricing](https://azure.
 
 This section will explain how to measure and manage data ingestion to reduce costs.
 
-To learn about managing rights and permissions to the workbook, see [Access control](../azure-monitor/visualize/workbooks-access-control.md).
+To learn about managing rights and permissions to the workbook, see [Access control](../azure-monitor/visualize/workbooks-overview.md#access-control).
 
 >[!NOTE]
 >Removing data points will impact their corresponding visuals in Azure Monitor for Azure Virtual Desktop.
@@ -175,7 +175,7 @@ To learn about managing rights and permissions to the workbook, see [Access cont
 Here are some suggestions to optimize your Log Analytics settings to manage data ingestion:
 
 - Use a designated Log Analytics workspace for your Azure Virtual Desktop resources to ensure that Log Analytics only collects performance counters and events for the virtual machines in your Azure Virtual Desktop deployment.
-- Adjust your Log Analytics storage settings to manage costs. You can reduce the retention period, evaluate whether a fixed storage pricing tier would be more cost-effective, or set boundaries on how much data you can ingest to limit impact of an unhealthy deployment. To learn more, see [Manage usage and costs for Azure Monitor Logs](../azure-monitor/logs/manage-cost-storage.md).
+- Adjust your Log Analytics storage settings to manage costs. You can reduce the retention period, evaluate whether a fixed storage pricing tier would be more cost-effective, or set boundaries on how much data you can ingest to limit impact of an unhealthy deployment. To learn more, see [Azure Monitor Logs pricing details](../azure-monitor/logs/cost-logs.md).
 
 ### Remove excess data
 
@@ -183,7 +183,7 @@ Our default configuration is the only set of data we recommend for Azure Monitor
 
 ### Measure and manage your performance counter data
 
-Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log Analytics workspace, see [Understanding ingested log data volume](../azure-monitor/logs/manage-cost-storage.md#understanding-ingested-data-volume).
+Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log Analytics workspace, see [Analyze usage in Log Analytics workspace](../azure-monitor/logs/analyze-usage.md).
 
 The performance counters the session hosts use will probably be your largest source of ingested data for Azure Monitor for Azure Virtual Desktop. The following custom query template for a Log Analytics workspace can track frequency and megabytes ingested per performance counter over the last day:
 

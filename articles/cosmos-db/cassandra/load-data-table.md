@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 author: TheovanKraay
 ms.author: thvankra
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.devlang: java
 #Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the global distribution, elastic scaling, multi-region , and other capabilities offered by Azure Cosmos DB.
  

@@ -1,6 +1,6 @@
 ---
 title: Configure Pluggable Authentication Modules (PAM) to audit sign-in events (Preview)
-description: Learn how to configure Pluggable Authentication Modules (PAM) to audit sign-in events when syslog is not configured for your device. 
+description: Learn how to configure Pluggable Authentication Modules (PAM) to audit sign-in events when syslog isn't configured for your device. 
 ms.date: 02/20/2022
 ms.topic: how-to
 ---

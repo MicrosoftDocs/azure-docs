@@ -3,13 +3,14 @@ title: Use Computer Vision container with Kubernetes and Helm
 titleSuffix: Azure Cognitive Services
 description: Learn how to deploy the Computer Vision container using Kubernetes and Helm.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 01/27/2020
-ms.author: aahi
+ms.date: 05/09/2022
+ms.author: pafarley
+ms.custom: cogserv-non-critical-vision
 ---
 
 # Use Computer Vision container with Kubernetes and Helm
@@ -24,7 +25,7 @@ The following prerequisites before using Computer Vision containers on-premises:
 |----------|---------|
 | Azure Account | If you don't have an Azure subscription, create a [free account][free-azure-account] before you begin. |
 | Kubernetes CLI | The [Kubernetes CLI][kubernetes-cli] is required for managing the shared credentials from the container registry. Kubernetes is also needed before Helm, which is the Kubernetes package manager. |
-| Helm CLI | Install the [Helm CLI][helm-install], which is used to to install a helm chart (container package definition). |
+| Helm CLI | Install the [Helm CLI][helm-install], which is used to install a helm chart (container package definition). |
 | Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]

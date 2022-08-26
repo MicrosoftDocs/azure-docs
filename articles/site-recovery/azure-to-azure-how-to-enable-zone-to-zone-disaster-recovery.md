@@ -1,12 +1,12 @@
 ---
 title: Enable Zone to Zone Disaster Recovery for Azure Virtual Machines
 description: This article describes when and how to use Zone to Zone Disaster Recovery for Azure virtual machines.
-author: rishjai
+author: v-pgaddala
 manager: aravindang
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/23/2022
-ms.author: rishjai
+ms.author: v-pgaddala
 
 ---
 
@@ -112,7 +112,7 @@ Pricing for Zone to Zone Disaster Recovery is identical to the pricing of Azure 
 The RTO SLA is the same as that for Site Recovery overall. We promise RTO of up to 2 hours. There is no defined SLA for RPO.
 
 **3. Is capacity guaranteed in the secondary zone?**
-The Site Recovery team and Azure capacity management team plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery will deploy to the target zone. Check [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-common-questions#capacity) for more FAQs on Capacity.
+The Site Recovery team and Azure capacity management team plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery will deploy to the target zone. Check [here](./azure-to-azure-common-questions.md#capacity) for more FAQs on Capacity.
 
 **4. Which operating systems are supported?**
 Zone to Zone Disaster Recovery supports the same operating systems as Azure to Azure Disaster Recovery. Refer to the support matrix [here](./azure-to-azure-support-matrix.md).

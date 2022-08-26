@@ -6,8 +6,6 @@ ms.date: 11/09/2021
 ---
 # Manage multi-factor authentication (MFA) enforcement on your subscriptions
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 If you're only using passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords or reuse them for multiple services. With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on (SSO).
 
 There are multiple ways to enable MFA for your Azure Active Directory (AD) users based on the licenses that your organization owns. This page provides the details for each in the context of Microsoft Defender for Cloud.
@@ -73,7 +71,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
     > The accounts are shown as object IDs rather than account names to protect the privacy of the account holders.
 
 > [!TIP]
-> Alternatively, you can use the Defender for Cloud REST API method [Assessments - Get](/rest/api/securitycenter/assessments/get).
+> Alternatively, you can use the Defender for Cloud REST API method [Assessments - Get](/rest/api/defenderforcloud/assessments/get).
 
 
 ## FAQ - MFA in Defender for Cloud
@@ -104,12 +102,12 @@ Defender for Cloud's MFA recommendations refer to [Azure RBAC](../role-based-acc
 Defender for Cloud's MFA recommendations currently don't support PIM accounts. You can add these accounts to a CA Policy in the Users/Group section.
 
 ### Can I exempt or dismiss some of the accounts?
-The capability to exempt some accounts that don’t use MFA isn't currently supported.  
+The capability to exempt some accounts that don’t use MFA isn't currently supported. There are plans to add this capability, and the information can be viewed in our [Important upcoming changes](/azure/defender-for-cloud/upcoming-changes#multiple-changes-to-identity-recommendations) page.
 
 ### Are there any limitations to Defender for Cloud's identity and access protections?
 There are some limitations to Defender for Cloud's identity and access protections:
 
-- Identity recommendations aren't available for subscriptions with more than 600 accounts. In such cases, these recommendations will be listed under "unavailable assessments".
+- Identity recommendations aren't available for subscriptions with more than 6,000 accounts. In these cases, these types of subscriptions will be listed under Not applicable tab.
 - Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
 - Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
 

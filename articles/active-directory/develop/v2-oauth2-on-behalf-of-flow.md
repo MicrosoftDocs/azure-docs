@@ -1,6 +1,5 @@
 ---
-title: Microsoft identity platform and OAuth2.0 On-Behalf-Of flow | Azure
-titleSuffix: Microsoft identity platform
+title: Microsoft identity platform and OAuth2.0 On-Behalf-Of flow
 description: This article describes how to use HTTP messages to implement service to service authentication using the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
 author: nickludwig
@@ -214,8 +213,8 @@ A service-to-service request for a SAML assertion contains the following paramet
 
 The response contains a SAML token encoded in UTF8 and Base64url.
 
-- **SubjectConfirmationData for a SAML assertion sourced from an OBO call**: If the target application requires a recipient value in **SubjectConfirmationData**, then the value must be a non-wildcard Reply URL in the resource application configuration.
-- **The SubjectConfirmationData node**: The node can't contain an **InResponseTo** attribute since it's not part of a SAML response. The application receiving the SAML token must be able to accept the SAML assertion without an **InResponseTo** attribute.
+- **SubjectConfirmationData for a SAML assertion sourced from an OBO call**: If the target application requires a `Recipient` value in `SubjectConfirmationData`, then the value must be configured as the first non-wildcard Reply URL in the resource application configuration. Since the default Reply URL isn't used to determine the `Recipient` value, you might have to reorder the Reply URLs in the application configuration.
+- **The SubjectConfirmationData node**: The node can't contain an `InResponseTo` attribute since it's not part of a SAML response. The application receiving the SAML token must be able to accept the SAML assertion without an `InResponseTo` attribute.
 - **API permissions**: You have to [add the necessary API permissions](quickstart-configure-app-access-web-apis.md) on the middle-tier application to allow access to the SAML application, so that it can request a token for the `/.default` scope of the SAML application.
 - **Consent**: Consent must have been granted to receive a SAML token containing user data on an OAuth flow. For information, see [Gaining consent for the middle-tier application](#gaining-consent-for-the-middle-tier-application) below.
 

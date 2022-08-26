@@ -3,12 +3,12 @@ title: Add or edit Azure role assignment conditions using the Azure portal (prev
 description: Learn how to add, edit, view, or delete attribute-based access control (ABAC) conditions in Azure role assignments using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 05/16/2022
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
@@ -25,7 +25,6 @@ An [Azure role assignment condition](conditions-overview.md) is an additional ch
 ## Prerequisites
 
 For information about the prerequisites to add or edit role assignment conditions, see [Conditions prerequisites](conditions-prerequisites.md).
-
 
 ## Step 1: Determine the condition you need
 
@@ -119,7 +118,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. In the **Operator** list, select an operator.
 
-    For more information, see [Operators](conditions-format.md#operators).
+    For more information, see [Azure role assignment condition format and syntax](conditions-format.md).
 
 1. In the **Value** box, enter a value for the right side of the expression.
 

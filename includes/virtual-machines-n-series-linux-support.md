@@ -3,7 +3,7 @@
  description: include file
  services: virtual-machines-linux
  author: cynthn
- ms.service: virtual-machines-linux
+ ms.service: virtual-machines
  ms.topic: include
  ms.date: 11/15/2021
  ms.author: cynthn
@@ -32,7 +32,12 @@ The GRID drivers redistributed by Azure do not work on most non-NV series VMs li
 
 |Distribution|Driver|
 | --- | -- |
-|Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7, 7.8, 7.9<br/><br/>CentOS 7.6, 7.7<br/><br/>SUSE Linux Enterprise Server 12 SP2+, 15 SP2 | NVIDIA GRID 13.1, driver branch [R470](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+|Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04 LTS<br/><br/>Red Hat Enterprise Linux 7.9<br/><br/>SUSE Linux Enterprise Server 15 SP2+, 15 SP2 | NVIDIA GRID 14.1, driver branch [R510](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+
+> [!Note]
+>The Azure NVads A10 v5 VMs only support GRID 14.1(510.73) or higher driver versions. 
+>Ubuntu 20.04 is not yet supported on Azure NVads A10 v5 VMs
+
 
 Visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) for the complete list of all previous Nvidia GRID driver links.
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 05/13/2022
 
 ms.author: mimart
 author: msmimart
@@ -16,11 +16,10 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Example: Configure SAML/WS-Fed based identity provider federation with AD FS (preview)
+# Example: Configure SAML/WS-Fed based identity provider federation with AD FS
 
 >[!NOTE]
 >- *Direct federation* in Azure Active Directory is now referred to as *SAML/WS-Fed identity provider (IdP) federation*.
->- SAML/WS-Fed IdP federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article describes how to set up [SAML/WS-Fed IdP federation](direct-federation.md) using Active Directory Federation Services (AD FS) as either a SAML 2.0 or WS-Fed IdP. To support federation, certain attributes and claims must be configured at the IdP. To illustrate how to configure an IdP for federation, we’ll use Active Directory Federation Services (AD FS) as an example. We’ll show how to set up AD FS both as a SAML IdP and as a WS-Fed IdP.
 
@@ -128,32 +127,40 @@ The next section illustrates how to configure the required attributes and claims
 ### Before you begin
 An AD FS server must already be set up and functioning before you begin this procedure. For help with setting up an AD FS server, see [Create a test AD FS 3.0 instance on an Azure virtual machine](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed).
 
+### Add the relying party trust and claim rules
 
-### Add the relying party trust and claim rules 
-1. On the AD FS server, go to **Tools** > **AD FS management**. 
-1. In the navigation pane, select **Trust Relationships** > **Relying Party Trusts**. 
-1. Under **Actions**, select **Add Relying Party Trust**.  
-1. In the add relying party trust wizard, for **Select Data Source**, use the option **Import data about the relying party published online or on a local network**. Specify this federation metadata URL: `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml`.  Leave other default selections. Select **Close**.
-1. The **Edit Claim Rules** wizard opens. 
-1. In the **Edit Claim Rules** wizard, select **Add Rule**. In **Choose Rule Type**, select **Send Claims Using a Custom Rule**. Select *Next*. 
+1. On the AD FS server, go to **Tools** > **AD FS management**.
+1. In the navigation pane, select **Trust Relationships** > **Relying Party Trusts**.
+1. Under **Actions**, select **Add Relying Party Trust**.
+1. In the **Select Data Source** section, select **Enter data about the relying party manually**, and then select **Next**.
+1. On the **Specify Display Name** page, type a name in **Display name**, under **Notes** type a description for this relying party trust, and then select **Next**.
+1. On the **Configure Certificate** page, if you have an optional token encryption certificate, select **Browse** to locate a certificate file, and then select **Next**.
+1. On the **Configure URL** page, select the **Enable support for the WS-Federation Passive protocol** check box. Under **Relying party WS-Federation Passive protocol URL**, type the URL for this relying party trust: `https://login.microsoftonline.com/login.srf`
+1. Select **Next**.
+1. On the **Configure Identifiers** page, specify the relying party trust identifier, including the tenant ID of the service partner’s Azure AD tenant: `https://login.microsoftonline.com/<tenant_ID>/`
+1. Select **Add** to add the identifier to the list, and then select **Next**.
+1. On the **Choose Access Control Policy** page, select a policy, and then select **Next**.
+1. On the **Ready to Add Trust** page, review the settings, and then select **Next** to save your relying party trust information.
+1. On the **Finish** page, select **Close**. This action automatically displays the **Edit Claim Rules** dialog box.
+1. In the **Edit Claim Rules** wizard, select **Add Rule**. In **Choose Rule Type**, select **Send Claims Using a Custom Rule**. Select *Next*.
 1. In **Configure Claim Rule**, specify the following values:
 
    - **Claim rule name**: Issue Immutable ID  
    - **Custom rule**: `c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID"), query = "samAccountName={0};objectGUID;{1}", param = regexreplace(c.Value, "(?<domain>[^\\]+)\\(?<user>.+)", "${user}"), param = c.Value);`
 
-1. Select **Finish**. 
+1. Select **Finish**.
 1. The **Edit Claim Rules** window will show the new rule. Click **Apply**.  
-1. In the same **Edit Claim Rules** wizard, select **Add Rule**. In **Cohose Rule Type**, select **Send LDAP Attributes as Claims**. Select **Next**.
-1. In **Configure Claim Rule**, specify the following values: 
+1. In the same **Edit Claim Rules** wizard, select **Add Rule**. In **Choose Rule Type**, select **Send LDAP Attributes as Claims**. Select **Next**.
+1. In **Configure Claim Rule**, specify the following values:
 
    - **Claim rule name**: Email claim rule  
    - **Attribute store**: Active Directory  
    - **LDAP Attribute**: E-Mail-Addresses  
-   - **Outgoing Claim Type**: E-Mail Address 
+   - **Outgoing Claim Type**: E-Mail Address
 
-1.	Select **Finish**. 
+1.	Select **Finish**.
 1.	The **Edit Claim Rules** window will show the new rule. Click **Apply**.  
 1.	Click **OK**. The AD FS server is now configured for federation using WS-Fed.
 
 ## Next steps
-Next, you'll [configure SAML/WS-Fed IdP federation in Azure AD](direct-federation.md#step-3-configure-samlws-fed-idp-federation-in-azure-ad) either in the Azure AD portal or by using PowerShell.
+Next, you'll [configure SAML/WS-Fed IdP federation in Azure AD](direct-federation.md#step-3-configure-samlws-fed-idp-federation-in-azure-ad) either in the Azure AD portal or by using the Microsoft Graph API.

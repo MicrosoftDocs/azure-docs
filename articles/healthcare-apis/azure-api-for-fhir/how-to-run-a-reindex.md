@@ -5,8 +5,8 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
-ms.author: cavoeg
+ms.date: 06/03/2022
+ms.author: mikaelw
 ---
 # Running a reindex job in Azure API for FHIR
 
@@ -221,3 +221,5 @@ In this article, you’ve learned how to start a reindex job. To learn how to de
 
 >[!div class="nextstepaction"]
 >[Defining custom search parameters](how-to-do-custom-search.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

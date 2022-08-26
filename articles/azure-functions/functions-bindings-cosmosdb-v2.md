@@ -52,7 +52,7 @@ The process for installing the extension varies depending on the extension versi
 
 # [Functions 2.x+](#tab/functionsv2/in-process)
 
-Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package], version 3.x.
+Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB), version 3.x.
 
 # [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
 
@@ -81,14 +81,14 @@ You can install this version of the extension in your function app by registerin
 
 # [Extension 4.x+ (preview)](#tab/extensionv4/csharp-script)
 
-This extension version is available from the extension bundle v3 by adding the following lines in your `host.json` file:
+This extension version is available from the preview extension bundle v4 by adding the following lines in your `host.json` file:
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[3.3.0, 4.0.0)"
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.0.0, 5.0.0)"
   }
 }
 ```
@@ -103,11 +103,13 @@ This extension version is available from the extension bundle v3 by adding the f
 
 The Cosmos DB is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
 
-# [Bundle v2.x](#tab/functionsv2)
+# [Bundle v2.x and v3.x](#tab/functionsv2)
 
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x or 3.x.
 
-# [Bundle v3.x](#tab/extensionv4)
+[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
+
+# [Bundle v4.x (Preview)](#tab/extensionv4)
 
 This version of the bundle contains a preview version of the Cosmos DB bindings extension (version 4.x) that introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
 
@@ -116,14 +118,15 @@ This version of the bundle contains a preview version of the Cosmos DB bindings 
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"   
-You can add this version of the extension from the preview extension bundle v3 by adding or replacing the following code in your `host.json` file:
+
+You can add this version of the extension from the preview extension bundle v4 by adding or replacing the following code in your `host.json` file:
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[3.3.0, 4.0.0)"
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.0.0, 5.0.0)"
   }
 }
 ```

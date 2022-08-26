@@ -110,8 +110,8 @@
     href: pim-troubleshoot.md
 - name: Reference
   items:
-  - name: Graph API  
-    href: /graph/api/resources/azure-ad-overview
+  - name: Microsoft Graph API  
+    href: /graph/api/resources/privilegedidentitymanagementv3-overview
   - name: Azure AD CLI    
     href: /cli/azure/ad
   - name:  Azure AD PowerShell for Graph

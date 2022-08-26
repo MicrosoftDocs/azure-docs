@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with strings
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 07/05/2022
 ---
 
 # String functions for Bicep
@@ -552,6 +552,49 @@ The output from the preceding example with the default values is:
 | firstString | Int | 2 |
 | lastString | Int | 0 |
 | notFound | Int | -1 |
+
+## join
+
+`join(inputArray, delimiter)`
+
+Joins a string array into a single string, separated using a delimiter.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray | Yes |An array of string. |An array of strings to join. |
+| delimiter | Yes |The delimiter to use for splitting the string. |
+
+### Return value
+
+A string.
+
+### Examples
+
+The following example joins the input string array into strings delimited by either a comma or a semi-colon.
+
+```bicep
+var arrayString = [
+  'one'
+  'two'
+  'three'
+]
+
+output firstOutput string = join(arrayString, ',')
+output secondOutput string = join(arrayString, ';')
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| firstOutput | String | "one,two,three" |
+| secondOutput | String | "one;two;three" |
+
+This function requires **Bicep version 0.8.2 or later**.
 
 <a id="json"></a>
 

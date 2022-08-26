@@ -3,7 +3,7 @@ title: 'Tutorial: Configure Facebook Work Accounts for automatic user provisioni
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Facebook Work Accounts.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
+author: CelesteDG
 writer: Zhchia
 manager: beatrizd
 
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 10/27/2021
-ms.author: Zhchia
+ms.author: celested
 ---
 
 # Tutorial: Configure Facebook Work Accounts for automatic user provisioning
@@ -27,7 +27,7 @@ This tutorial describes the steps you need to perform in both Facebook Work Acco
 > * Create users in Facebook Work Accounts
 > * Remove users in Facebook Work Accounts when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and Facebook Work Accounts
-> * [Single sign-on](facebook-work-accounts-tutorial.md) to Facebook Work Accounts (recommended)
+> * Single sign-on to Facebook Work Accounts (recommended)
 
 ## Prerequisites
 
@@ -51,9 +51,9 @@ Add Facebook Work Accounts from the Azure AD application gallery to start managi
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* When assigning users and groups to Facebook Work Accounts, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add more roles.
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control it by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
 ## Step 4. Configure automatic user provisioning to Facebook Work Accounts

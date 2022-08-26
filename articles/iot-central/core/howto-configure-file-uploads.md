@@ -4,7 +4,7 @@ description: How to configure file uploads from your devices to the cloud. After
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/22/2021
+ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 
@@ -13,6 +13,8 @@ ms.service: iot-central
 # Upload files from your devices to the cloud
 
 IoT Central lets you upload media and other files from connected devices to cloud storage. You configure the file upload capability in your IoT Central application, and then implement file uploads in your device code.
+
+To learn how to upload files by using the IoT Central REST API, see [How to use the IoT Central REST API to upload a file.](../core/howto-upload-file-rest-api.md)
 
 ## Prerequisites
 
@@ -26,7 +28,7 @@ To configure device file uploads:
 
 1. Navigate to the **Application** section in your application.
 
-1. Select **Device file upload**.
+1. Select **Device file storage**.
 
 1. Select the storage account and container to use. If the storage account is in a different Azure subscription from your application, enter a storage account  connection string.
 
@@ -40,9 +42,9 @@ To configure device file uploads:
 
 If you want to disable device file uploads to your IoT Central application:
 
-1. Navigate to the **Administration** section in your application.
+1. Navigate to the **Application** section in your application.
 
-1. Select **Device file upload**.
+1. Select **Device file storage**.
 
 1. Select **Delete**.
 

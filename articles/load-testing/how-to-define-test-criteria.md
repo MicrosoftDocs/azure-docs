@@ -26,23 +26,29 @@ By defining test criteria, you can specify the performance expectations of your 
 
 ## Load test pass/fail criteria
 
-This section discusses the syntax you use to define Azure Load Testing pass/fail criteria.
+This section discusses the syntax of Azure Load Testing pass/fail criteria. When a criterion evaluates to `true`, the load test gets the *failed* status.
 
-You use `Aggregate_function (client_metric) condition value` syntax. When a criterion evaluates to `true`, the load test gets the *failed* status.
+The structure of a pass/fail criterion is: `Request: Aggregate_function (client_metric) condition threshold`.
+
+The following table describes the different components:
 
 |Parameter  |Description  |
 |---------|---------|
+|`Request`     | *Optional.* Name of the sampler in the JMeter script to which the criterion applies. If you don't specify a request name, the criterion applies to the aggregate of all the requests in the script.  |
 |`Client metric`     | *Required.* The client metric on which the criteria should be applied.  |
 |`Aggregate function`     |  *Required.* The aggregate function to be applied on the client metric.  |
 |`Condition`     | *Required.* The comparison operator.        |
-|`Threshold`     |  *Required.* The numeric value to compare with the client metric.<BR>The threshold evaluates against the aggregated value. |
+|`Threshold`     |  *Required.* The numeric value to compare with the client metric. |
 
-Load Testing supports the following combination of parameters:
+Azure Load Testing supports the following metrics:
 
 |Metric  |Aggregate function  |Threshold  |Condition  |
 |---------|---------|---------|---------|
-|`response_time_ms`     |  `avg` (average)       | Integer value, representing number of milliseconds (ms)     |   `>` (greater than)      |
-|`error`     |  `percentage`       | Numerical values in the range 0-100, representing a percentage      |   `>` (greater than)      |
+|`response_time_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      |
+|`latency_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      |
+|`error`     |  `percentage`       | Numerical value in the range 0-100, representing a percentage.      |   `>` (greater than) <BR> `<` (less than)      |
+|`requests_per_sec`     |  `avg` (average)       | Numerical value with up to two decimal places.      |   `>` (greater than) <BR> `<` (less than)     |
+|`requests`     |  `count`       | Integer value.      |   `>` (greater than) <BR> `<` (less than)     |
 
 ## Define test pass/fail criteria in the Azure portal
 
@@ -82,6 +88,7 @@ In this section, you learn how to define load test pass/fail criteria for contin
     failureCriteria: 
         - avg(response_time_ms) > 300
         - percentage(error) > 20
+        - GetCustomerDetails: avg(latency_ms) >200
     ```
 
 1. Save the YAML configuration file.

@@ -4,7 +4,7 @@ description: This quickstart shows how to use the Azure portal to create an Apac
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 02/25/2020
+ms.date: 04/01/2022
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark cluster and query some data.
 ---
 

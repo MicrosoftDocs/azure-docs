@@ -153,7 +153,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-When you enable the cluster autoscaler on node pools in the cluster, those clusters will also use the cluster autoscaler profile. For example:
+When you enable the cluster autoscaler on node pools in the cluster, these node pools with CA enabled will also use the cluster autoscaler profile. For example:
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -273,6 +273,10 @@ If you wish to re-enable the cluster autoscaler on an existing cluster, you can 
 > [!NOTE]
 > If you are planning on using the cluster autoscaler with nodepools that span multiple zones and leverage scheduling features related to zones such as volume topological scheduling, the recommendation is to have one nodepool per zone and enable the `--balance-similar-node-groups` through the autoscaler profile. This will ensure that the autoscaler will scale up succesfully and try and keep the sizes of the nodepools balanced.
 
+## Configure the horizontal pod autoscaler
+
+Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] is used to provide resource utilization to Kubernetes. You can configure horizontal pod autoscaling through the `kubectl autoscale` command or through a manifest. For more details on using the horizontal pod autoscaler, see [HorizontalPodAutoscaler Walkthrough][kubernetes-hpa-walkthrough].
+
 ## Next steps
 
 This article showed you how to automatically scale the number of AKS nodes. You can also use the horizontal pod autoscaler to automatically adjust the number of pods that run your application. For steps on using the horizontal pod autoscaler, see [Scale applications in AKS][aks-scale-apps].
@@ -303,3 +307,6 @@ This article showed you how to automatically scale the number of AKS nodes. You 
 [autoscaler-scaledown]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node
 [autoscaler-parameters]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca
 [kubernetes-faq]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why
+[kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+[kubernetes-hpa-walkthrough]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+[metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server

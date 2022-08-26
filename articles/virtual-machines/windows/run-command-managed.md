@@ -51,7 +51,7 @@ az vm run-command create --name "myRunCommand" --vm-name "myVM" --resource-group
 This command will return a full list of previously deployed Run Commands along with their properties. 
 
 ```azurecli-interactive
-az vm run-command list --name "myVM" --resource-group "myRG"
+az vm run-command list --vm-name "myVM" --resource-group "myRG"
 ```
 
 ### Get execution status and results 

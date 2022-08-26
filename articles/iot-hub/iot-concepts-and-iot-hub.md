@@ -90,6 +90,9 @@ An example of a command is rebooting a device. IoT Hub implements commands by al
 
 IoT Hub gives you the ability to unlock the value of your device data with other Azure services so you can shift to predictive problem-solving rather than reactive management. Connect your IoT hub with other Azure services to do machine learning, analytics, and AI to act on real-time data, optimize processing, and gain deeper insights.
 
+>[!NOTE]
+>Azure IoT Hub doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
+
 ### Built-in endpoint collects device data by default
 
 A built-in endpoint collects data from your device by default. The data is collected using a request-response pattern over dedicated IoT device endpoints, is available for a maximum duration of seven days, and can be used to take actions on a device. Here is the data accepted by the device endpoint:

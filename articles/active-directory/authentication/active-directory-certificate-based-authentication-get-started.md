@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/10/2022
+ms.date: 05/04/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: annaba
 
 ms.collection: M365-identity-device-management
@@ -121,7 +121,7 @@ The EAS profile must contain the following information:
 
 - The EAS endpoint (for example, outlook.office365.com)
 
-An EAS profile can be configured and placed on the device through the utilization of Mobile device management (MDM) such as Intune or by manually placing the certificate in the EAS profile on the device.
+An EAS profile can be configured and placed on the device through the utilization of Mobile device management (MDM) such as Microsoft Endpoint Manager or by manually placing the certificate in the EAS profile on the device.
 
 ### Testing EAS client applications on Android
 

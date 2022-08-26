@@ -1,12 +1,13 @@
 ---
 title: PowerShell script to list and get Azure Cosmos DB SQL API resources
 description: Azure PowerShell script - Azure Cosmos DB list and get operations for SQL API
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 03/17/2020
-ms.author: mjbrown 
+ms.author: sidandrews
+ms.reviewer: mjbrown 
 ms.custom: devx-track-azurepowershell
 ---
 

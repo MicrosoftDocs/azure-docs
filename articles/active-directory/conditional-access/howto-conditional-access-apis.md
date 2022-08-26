@@ -10,7 +10,7 @@ ms.date: 09/10/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: videor, jeevanb
 
 ms.collection: M365-identity-device-management
@@ -30,6 +30,9 @@ Many of the following examples use tools like [Managed Identities](../managed-id
 ## Configure
 
 ### PowerShell
+
+> [!IMPORTANT]
+> Due to the planned deprecation of PowerShell modules (MSOL & AAD) after December 2022, no further updates are planned for these modules to support new Conditional Access features. See recent announcements for more information: https://aka.ms/AzureADPowerShellDeprecation. New Conditional Access features may not be available or may not be functional within these PowerShell modules as a result of this announcement. Please consider [migrating to Microsoft Graph PowerShell](https://aka.ms/MigrateMicrosoftGraphPowerShell). Additional guidance and examples will be released soon.
 
 For many administrators, PowerShell is already an understood scripting tool. The following example shows how to use the [Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD) to manage Conditional Access policies.
 

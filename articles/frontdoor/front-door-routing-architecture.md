@@ -43,7 +43,7 @@ For more information about how requests are made to Front Door, see [Front Door 
 
 ## Match request to a Front Door profile
 
-When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door profile. If the request is using a [custom domain name](standard-premium/how-to-add-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your profile.
+When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door profile. If the request is using a [custom domain name](standard-premium/how-to-add-custom-domain.md), the domain name must be registered with Front Door to enable requests to get matched to your profile.
 
 ::: zone-end
 
@@ -51,7 +51,7 @@ When Front Door receives an HTTP request, it uses the request's `Host` header to
 
 ## Match request to a front door
 
-When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door instance. If the request is using a [custom domain name](front-door-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your front door.
+When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door instance. If the request is using a [custom domain name](front-door-custom-domain.md), the domain name must be registered with Front Door to enable requests to get matched to your Front door.
 
 ::: zone-end
 
@@ -97,7 +97,7 @@ The route specifies the [backend pool](front-door-backend-pool.md) that the requ
 
 ## Evaluate rule sets
 
-If you have defined [rule sets](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rule sets can override the origin group](front-door-rules-engine-actions.md#origin-group-override) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
+If you have defined [rule sets](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rule sets can override the origin group](front-door-rules-engine-actions.md#RouteConfigurationOverride) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
 
 ::: zone-end
 
@@ -135,7 +135,7 @@ Front Door selects an origin to use within the origin group. Origin selection is
 
 - The health of each origin, which Front Door monitors by using [health probes](front-door-health-probes.md).
 - The [routing method](front-door-routing-methods.md) for your origin group.
-- Whether you have enabled [session affinity](front-door-routing-methods.md#affinity).
+- Whether you have enabled [session affinity](front-door-routing-methods.md#affinity)
 
 ## Forward request to origin
 
@@ -151,7 +151,7 @@ Front Door selects a backend to use within the backend pool. Backend selection i
 
 - The health of each backend, which Front Door monitors by using [health probes](front-door-health-probes.md).
 - The [routing method](front-door-routing-methods.md) for your backend pool.
-- Whether you have enabled [session affinity](front-door-routing-methods.md#affinity).
+- Whether you have enabled [session affinity](front-door-routing-methods.md#affinity)
 
 ## Forward request to backend
 

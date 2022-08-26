@@ -1,6 +1,6 @@
 ---
-title: Back up an Oracle Database 19c database on an Azure Linux VM with RMAN and Azure Files
-description: Learn how to back up an Oracle Database 19c database to Azure Files.
+title: Back up an Oracle Database on an Azure Linux VM with RMAN and Azure Files
+description: Learn how to back up an Oracle Database to Azure Files.
 author: cro27
 ms.service: virtual-machines
 ms.subservice: oracle
@@ -12,15 +12,17 @@ ms.reviewer: dbakevlar
 
 ---
 
-# Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Files
+# Back up and recover an Oracle Database on an Azure Linux VM using Azure Files
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-This article demonstrates the use of Azure Files as a media to back up and restore an Oracle database running on an Azure VM. You will back up the database using Oracle RMAN to an Azure file share mounted to the VM using the SMB protocol. Using Azure Files for backup media is extremely cost effective and performant. However, for very large databases, Azure Backup provides a better solution.
+This article demonstrates the use of Azure Files as a media to back up and restore an Oracle database running on an Azure VM. The steps in this article have been tested against Oracle 12.1 and higher. You will back up the database using Oracle RMAN to an Azure file share mounted to the VM using the SMB protocol. Using Azure Files for backup media is extremely cost effective and performant. However, for very large databases, Azure Backup provides a better solution.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-- To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 19c. The Marketplace image currently used to create the VM is  **Oracle:oracle-database-19-3:oracle-database-19-0904:latest**. Follow the steps in the [Oracle create database quickstart](./oracle-database-quick-create.md) to create an Oracle database to complete this tutorial.
+- To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database. We recommend using Oracle 12.x or higher. 
+
+- Follow the steps in the [Oracle create database quickstart](./oracle-database-quick-create.md) to create an Oracle database to complete this tutorial.
 
 ## Prepare the database environment
 
@@ -164,10 +166,10 @@ This article demonstrates the use of Azure Files as a media to back up and resto
 
 To back up to Azure Files, complete these steps:
 
-1. Set up Azure Files.
-1. Mount the Azure file share to your VM.
-1. Back up the database.
-1. Restore and recover the database.
+1. [Set up Azure Files](#set-up-azure-files).
+1. [Mount the Azure file share to your VM](#mount-the-azure-storage-file-share-to-your-vm).
+1. [Back up the database](#backup-the-database).
+1. [Restore and recover the database](#restore-and-recover-the-database).
 
 ### Set up Azure Files
 
@@ -317,7 +319,7 @@ To set up your storage account and file share run the following commands in Azur
    //orabackup1.file.core.windows.net/orabackup   10T     0   10T   0% /mnt/orabackup
    ```
 
-### Back up the database
+### Backup the database
 
 In this section, we will be using Oracle Recovery Manager (RMAN) to take a full backup of the database and archive logs and write the backup as a backup set to the Azure File share mounted earlier. 
 
@@ -330,10 +332,10 @@ In this section, we will be using Oracle Recovery Manager (RMAN) to take a full 
     RMAN> configure channel 2 device type disk format '/mnt/orabkup/%d/Full_%d_%U_%T_%s'; 
     ```
 
-2. Because Azure standard file shares have a maximum file size of 1 TiB, we will limit the size of RMAN backup pieces to 1 TiB. (Note that Premium File Shares have a maximum file size limit of 4 TiB. For more information, see [Azure Files Scalability and Performance Targets](../../../storage/files/storage-files-scale-targets.md).)
+2. In this example, we are limiting the size of RMAN backup pieces to 1 TiB. Please note the RMAN backup MAXPIECESIZE can go upto 4TiB as Azure standard file shares and Premium File Shares have a maximum file size limit of 4 TiB. For more information, see [Azure Files Scalability and Performance Targets](../../../storage/files/storage-files-scale-targets.md).)
 
     ```bash
-    RMAN> configure channel device type disk maxpiecesize 1000G;
+    RMAN> configure channel device type disk maxpiecesize 4000G;
     ```
 
 3. Confirm the configuration change details:

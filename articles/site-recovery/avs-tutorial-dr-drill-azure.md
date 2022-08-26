@@ -1,12 +1,12 @@
 ---
 title: Run a disaster recovery drill from Azure VMware Solution to Azure with Azure Site Recovery 
 description: Learn how to run a disaster recovery drill from Azure VMware Solution private cloud to Azure, with Azure Site Recovery.
-author: Harsha-CS
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.author: harshacs
+ms.author: v-pgaddala
 ms.custom: MVC
 
 ---
@@ -39,7 +39,7 @@ Complete the previous tutorials:
 
 ## Verify VM properties
 
-Before you run a test failover, verify the VM properties, and make sure that the  [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines) complies with Azure requirements.
+Before you run a test failover, verify the VM properties, and make sure that the  [VMware vSphere VM](vmware-physical-azure-support-matrix.md#replicated-machines) complies with Azure requirements.
 
 1. In **Protected Items**, click **Replicated Items** > and the VM.
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the

@@ -6,7 +6,7 @@ author: kgremban
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 03/21/2022
 ---
 
 # Manage public network access for your IoT Device Provisioning Service
@@ -31,9 +31,13 @@ To turn on public network access:
 1. Select **All networks**.
 2. Select **Save**.
 
-## Access the DPS after disabling the public network access
+## Disable public network access limitations
 
-After public network access is disabled, the DPS instance is accessible only through [its VNet private endpoint using Azure private link](virtual-network-support.md). This restriction includes accessing through the Azure portal.
+Note the following limitations when public network access is disabled:
+
+- The DPS instance is accessible only through [its VNET private endpoint using Azure private link](virtual-network-support.md).
+
+- You can no longer use the Azure portal to manage enrollments for the DPS instance. Instead you can manage enrollments using the Azure CLI, PowerShell, or service APIs from machines inside the virtual network(s) configured on the DPS instance. To learn more, see [Private endpoint limitations](virtual-network-support.md#private-endpoint-limitations).
 
 ## DPS endpoint, IP address, and ports after disabling public network access
 

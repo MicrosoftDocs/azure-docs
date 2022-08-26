@@ -2,7 +2,6 @@
 title: Migrate cluster to a newer version
 titleSuffix: Azure HDInsight
 description: Learn guidelines to migrate your Azure HDInsight cluster to a newer version.
-ms.reviewer: jasonh 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -43,7 +42,7 @@ The following documents provide guidance on how to migrate specific workloads:
 
 ## Backup and restore
 
-For more information about database backup and restore, see [Recover a database in Azure SQL Database by using automated database backups](../azure-sql/database/recovery-using-backups.md).
+For more information about database backup and restore, see [Recover a database in Azure SQL Database by using automated database backups](/azure/azure-sql/database/recovery-using-backups).
 
 ## Upgrade scenarios
 
@@ -52,7 +51,7 @@ As mentioned above, Microsoft recommends that HDInsight clusters be regularly mi
 * The cluster version is [Retired](hdinsight-retired-versions.md) or in [Basic support](hdinsight-36-component-versioning.md) and you are having a cluster issue that would be resolved with a newer version.
 * The root cause of a cluster issue is determined to be related to an undersized VM. [View Microsoft's recommended node configuration](hdinsight-supported-node-configuration.md).
 * A customer opens a support case and the Microsoft engineering team determines the issue has already been fixed in a newer cluster version.
-* A default metastore database (Ambari, Hive, Oozie, Ranger) has reached it’s utilization limit. Microsoft will ask you to recreate the cluster using a [custom metastore](hdinsight-use-external-metadata-stores.md#custom-metastore) database.
+* A default metastore database (Ambari, Hive, Oozie, Ranger) has reached it's utilization limit. Microsoft will ask you to recreate the cluster using a [custom metastore](hdinsight-use-external-metadata-stores.md#custom-metastore) database.
 * The root cause of a cluster issue is due to an **Unsupported Operation**. Here are some of the common unsupported operations:
      * **Moving or Adding a service in Ambari**. When viewing information on the cluster services in Ambari, one of the actions available from the Service Actions menu is **Move [Service Name]**. Another action is **Add [Service Name]**. Both of these options are unsupported.
      * **Python package corruption**. HDInsight clusters depend on the built-in Python environments, Python 2.7 and Python 3.5. Directly installing custom packages in those default built-in environments may cause unexpected library version changes and break the cluster. Learn how to [safely install custom external Python packages](./spark/apache-spark-python-package-installation.md#safely-install-external-python-packages) for your Spark applications.

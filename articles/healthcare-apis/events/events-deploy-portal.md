@@ -1,16 +1,16 @@
 ---
-title: Deploy Events in the Azure portal - Azure Health Data Services
+title: Deploy Events using the Azure portal - Azure Health Data Services
 description: This article describes how to deploy the Events feature in the Azure portal.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/21/2022
+ms.date: 07/06/2022
 ms.author: jasteppe
 ---
 
-# Deploy Events in the Azure portal
+# Deploy Events using the Azure portal
 
 In this quickstart, you’ll learn how to deploy the Azure Health Data Services Events feature in the Azure portal to send Fast Healthcare Interoperability Resources (FHIR&#174;) event messages.
 
@@ -88,4 +88,4 @@ To learn how to export Event Grid system diagnostic logs and metrics, see
 >[!div class="nextstepaction"]
 >[How to export Events diagnostic logs and metrics](./events-display-metrics.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

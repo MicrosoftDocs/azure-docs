@@ -22,7 +22,7 @@ Azure Advisor provides a consistent, consolidated view of recommendations for al
 > [!NOTE]
 > Before you can get recommendations, your database needs to be in use for about a week, and within that week there needs to be some consistent activity. SQL Database Advisor can optimize more easily for consistent query patterns than for random bursts of activity.
 
-For more information, see [SQL Database Advisor](../azure-sql/database/database-advisor-implement-performance-recommendations.md).
+For more information, see [SQL Database Advisor](/azure/azure-sql/database/database-advisor-implement-performance-recommendations).
 
 ## Upgrade your Storage client library to the latest version for better reliability and performance
 
@@ -48,7 +48,7 @@ Azure Premium Storage delivers high-performance, low-latency disk support for vi
 
 ## Remove data skew on your Azure Synapse Analytics tables to increase query performance
 
-Data skew can cause unnecessary data movement or resource bottlenecks when you run your workload. Advisor detects distribution data skew of greater than 15%. It recommends that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
+Data skew can cause unnecessary data movement or resource bottlenecks when you run your workload. Advisor detects distribution data skew of greater than 15%. It recommends that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-is-a-good-choice).
 
 ## Create or update outdated table statistics in your Azure Synapse Analytics tables to increase query performance
 
@@ -186,7 +186,7 @@ Learn more about [Azure Communication Services](../communication-services/overvi
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.	On the Advisor dashboard, select the **Performance** tab.
+2.    On the Advisor dashboard, select the **Performance** tab.
 
 ## Next steps
 

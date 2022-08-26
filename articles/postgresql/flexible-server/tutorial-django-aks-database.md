@@ -3,14 +3,17 @@ title: 'Tutorial: Deploy Django on AKS cluster with PostgreSQL Flexible Server b
 description: Learn how to quickly build and deploy Django  on AKS with Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.topic: tutorial
 ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Deploy Django app on AKS with Azure Database for PostgreSQL - Flexible Server
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 In this quickstart, you deploy a Django application on Azure Kubernetes Service (AKS) cluster with Azure Database for PostgreSQL - Flexible Server  using the Azure CLI.
 
@@ -167,21 +170,33 @@ Create a new file named ```Dockerfile``` and copy the code snippet below. This D
 
 ```docker
 # Use the official Python image from the Docker Hub
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 FROM python:3.8.2
 
 # Make a new directory to put our code in.
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 RUN mkdir /code
 
 # Change the working directory.
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 WORKDIR /code
 
 # Copy to code folder
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 COPY . /code/
 
 # Install the requirements.
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 RUN pip install -r requirements.txt
 
 # Run the application:
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 CMD python manage.py runserver 0.0.0.0:8000
 ```
 
@@ -368,7 +383,7 @@ az group delete --name django-project --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#additional-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#other-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 

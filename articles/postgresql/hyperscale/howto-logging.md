@@ -11,6 +11,8 @@ ms.date: 9/13/2021
 
 # Logs in Azure Database for PostgreSQL - Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 PostgreSQL database server logs are available for every node of a Hyperscale
 (Citus) server group. You can ship logs to a storage server, or to an analytics
 service. The logs can be used to identify, troubleshoot, and repair

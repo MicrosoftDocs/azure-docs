@@ -20,6 +20,8 @@ In this tutorial, you learn how to:
 > * Chat with the Bot in web chat
 > * Light up the Bot in the supported channels
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Create and publish a knowledge base
 
 Follow the [quickstart](../Quickstarts/create-publish-knowledge-base.md) to create a knowledge base. Once the knowledge base has been successfully published, you will reach the below page.

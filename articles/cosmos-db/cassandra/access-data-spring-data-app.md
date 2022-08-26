@@ -51,7 +51,7 @@ The following procedure configures the test application.
    ```     
 
     > [!NOTE]    
-    > Although the usage described below is identical for both Java version 3 and version 4 samples above, the way in which they have been implemented in order to include custom retry and load balancing policies is different. We recommend reviewing the code to understand how to implement custom policies if you are making changes to an existing spring java application.  
+    > Although the usage described below is identical for both Java version 3 and version 4 samples above, the way in which they have been implemented in order to include custom retry and load balancing policies is different. We recommend reviewing the code to understand how to implement custom policies if you are making changes to an existing Spring Java application.  
 
 1. Locate the *application.properties* file in the *resources* directory of the sample project, or create the file if it does not already exist.
 

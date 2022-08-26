@@ -1,12 +1,12 @@
 ---
 title: Manage Spark application dependencies on Azure HDInsight
 description: This article provides an introduction of how to manage Spark dependencies in HDInsight Spark cluster for PySpark and Scala applications.
-author: yanancai
-ms.author: yanacai
+author: apurbasroy
+ms.author: apsinhar
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 07/22/2022
 
 # Customer intent: As a developer for Apache Spark and Apache Spark in Azure HDInsight, I want to learn how to manage my Spark application dependencies and install packages on my HDInsight cluster.
 ---

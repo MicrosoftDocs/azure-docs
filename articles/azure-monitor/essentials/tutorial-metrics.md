@@ -5,6 +5,7 @@ author: bwren
 ms.author: bwren
 ms.topic: tutorial
 ms.date: 11/08/2021
+ms.reviewer: priyamishra
 ---
 
 # Tutorial: Analyze metrics for an Azure resource

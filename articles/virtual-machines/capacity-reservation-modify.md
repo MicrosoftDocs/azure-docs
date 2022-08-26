@@ -1,5 +1,5 @@
 ---
-title: Modify a Capacity Reservation in Azure (preview)
+title: Modify a Capacity Reservation in Azure
 description: Learn how to modify a Capacity Reservation.
 author: bdeforeest
 ms.author: bidefore
@@ -12,18 +12,14 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Modify a Capacity Reservation (preview)
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale set :heavy_check_mark: Flexible scale sets
+
 After creating a Capacity Reservation group and Capacity Reservation, you may want to modify your reservations. This article explains how to do the following actions using API, Azure portal, and PowerShell. 
 
 > [!div class="checklist"]
 > * Update the number of instances reserved in a Capacity Reservation 
 > * Resize VMs associated with a Capacity Reservation group
 > * Delete the Capacity Reservation group and Capacity Reservation
-
-> [!IMPORTANT]
-> Capacity Reservation is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## Update the number of instances reserved 
 

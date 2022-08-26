@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 03/23/2022
+ms.date: 08/10/2022
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -15,8 +15,7 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.AlertsManagement
 
-* prometheusRuleGroups
-* resourceHealthAlertRules
+* actionRules
 * smartDetectorAlertRules
 
 ## Microsoft.Automation
@@ -25,6 +24,7 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.AzureStack
 
+* generateDeploymentLicense
 * linkedSubscriptions
 * registrations
 * registrations/customerSubscriptions
@@ -48,14 +48,14 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.ContainerInstance
 
+* containerGroupProfiles
 * containerGroups
+* containerScaleSets
 
 ## Microsoft.ContainerRegistry
 
 * registries/buildTasks
-* registries/buildTasks/listSourceRepositoryProperties
 * registries/buildTasks/steps
-* registries/buildTasks/steps/listBuildArguments
 * registries/eventGridFilters
 * registries/replications
 * registries/tasks
@@ -97,18 +97,9 @@ Some resources have a limit on the number instances per region. This limit is di
 * clusters
 * namespaces
 
-## Microsoft.Experimentation
-
-* experimentWorkspaces
-
 ## Microsoft.GuestConfiguration
 
-* autoManagedVmConfigurationProfiles
-* configurationProfileAssignments
 * guestConfigurationAssignments
-* software
-* softwareUpdateProfile
-* softwareUpdates
 
 ## Microsoft.HybridCompute
 
@@ -137,6 +128,7 @@ Some resources have a limit on the number instances per region. This limit is di
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
 * netAppAccounts/capacityPools/volumes/subvolumes
+* netAppAccounts/capacityPools/volumes/volumeQuotaRules
 * netAppAccounts/snapshotPolicies
 * netAppAccounts/volumeGroups
 
@@ -190,6 +182,11 @@ Some resources have a limit on the number instances per region. This limit is di
 * virtualNetworks/privateDnsZoneLinks
 * virtualNetworkTaps
 
+## Microsoft.NotificationHubs
+
+* namespaces - By default, limited to 800 instances. That limit can be increased by contacting support.
+* namespaces/notificationHubs - By default, limited to 800 instances. That limit can be increased by contacting support.
+
 ## Microsoft.PowerBI
 
 * workspaceCollections - By default, limited to 800 instances. That limit can be increased by contacting support.
@@ -202,6 +199,10 @@ Some resources have a limit on the number instances per region. This limit is di
 ## Microsoft.Relay
 
 * namespaces
+
+## Microsoft.Security
+
+* assignments
 
 ## Microsoft.ServiceBus
 

@@ -1,9 +1,8 @@
 ---
 title: Configure consulting service offer listing details for the commercial marketplace
 description: Configure consulting service offer listing details in the Microsoft commercial marketplace using Partner Center. 
-author:  Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: emuench
+author: TeoLupu
+ms.author: telupu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -40,6 +39,9 @@ Enter the name, email address, and phone number of two people in your company (y
 Add at least one and up to three PDF documents to support your offer listing. After you’ve uploaded each file, provide a name for the document. This name will be displayed in your offer listing.
 
 ## Marketplace media
+
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
 
 > [!NOTE]
 > If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.

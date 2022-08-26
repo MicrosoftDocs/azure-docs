@@ -1,8 +1,8 @@
 ---
 title: Azure traffic analytics schema | Microsoft Docs
 description: Understand schema of Traffic Analytics to analyze Azure network security group flow logs.
-author: vinynigam
-manager: agummadi
+author: harshacs
+manager: vinynigam
 ms.service: network-watcher
 ms.topic: article
 ms.workload:  infrastructure-services
@@ -173,8 +173,8 @@ Below is the schema for public ip details:
 | FlowIntervalEndTime_t | Date and Time in UTC | End time of the flow log processing interval |
 | FlowType_s | * AzurePublic <br> * ExternalPublic <br> * MaliciousFlow | Definition in notes below the table |
 | IP | Public IP | Public IP whose information is provided in the record |
-| Location | Location of the IP | - For Azure Public IP: Azure region of virtual network/network interface/virtual machine to which the IP belongs to <br> - For External Public IP and Malicious IP: 2-letter country code where IP is located (ISO 3166-1 alpha-2) |
-| PublicIPDetails | Information about IP | - For AzurePublic IP: Azure Service behind the IP <br> - ExternalPublic/Malicious IP: WhoIS information of the IP |
+| Location | Location of the IP | - For Azure Public IP: Azure region of virtual network/network interface/virtual machine to which the IP belongs OR Global for IP [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) <br> - For External Public IP and Malicious IP: 2-letter country code where IP is located (ISO 3166-1 alpha-2) |
+| PublicIPDetails | Information about IP | - For AzurePublic IP: Azure Service owning the IP OR "Microsoft Virtual Public IP" for IP [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) <br> - ExternalPublic/Malicious IP: WhoIS information of the IP |
 | ThreatType | Threat posed by malicious IP | **For Malicious IPs only**: One of the threats from the list of currently allowed values (described below) |
 | ThreatDescription | Description of the threat | **For Malicious IPs only**: Description of the threat posed by the malicious IP |
 | DNSDomain | DNS domain | **For Malicious IPs only**: Domain name associated with this IP |

@@ -4,14 +4,14 @@ titleSuffix: Azure Load Balancer
 description: In this article, learn how to configure Azure Load Balancer TCP idle timeout and reset.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.custom: seodec18, devx-track-azurepowershell
 ms.service: load-balancer
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2020
-ms.author: allensu
+ms.author: mbender
 ---
 
 # Configure TCP reset and idle timeout for Azure Load Balancer

@@ -3,13 +3,13 @@ title: Types of attacks Azure DDoS Protection Standard mitigates
 description: Learn what types of attacks Azure DDoS Protection Standard protects against.
 services: ddos-protection
 documentationcenter: na
-author: aletheatoh
+author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
-ms.author: yitoh
+ms.author: abell
 
 ---
 # Types of DDoS attacks overview

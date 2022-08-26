@@ -3,7 +3,7 @@ title: Limits and restrictions - Azure IoT Edge | Microsoft Docs
 description: Description of the limits and restrictions when using IoT Edge.
 author: raisalitch
 ms.author: ralitchf
-ms.date: 01/28/2022
+ms.date: 07/05/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -11,7 +11,7 @@ services: iot-edge
 
 # Understand Azure IoT Edge limits and restrictions
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 This article explains the limits and restrictions when using IoT Edge.
 
@@ -62,10 +62,26 @@ Supported query syntax:
 Not supported query syntax:
 * [Message routing query based on device twin](../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-device-twin)
 
+### Restart policies
+ Don't use `on-unhealthy` or `on-failure` as values in modules' `restartPolicy` because they are unimplemented and won't initiate a restart. Only `never` and `always` restart policies are implemented.
+
+The recommended way to automatically restart unhealthy IoT Edge modules is noted in [this workaround](https://github.com/Azure/iotedge/issues/6358#issuecomment-1144022920). Configure the `Healthcheck` property in the module's `createOptions` to handle a failed health check. 
+
 ### File upload
 IoT Hub only supports file upload APIs for device identities, not module identities. Since IoT Edge exclusively uses modules, file upload isn't natively supported in IoT Edge.
 
 For more information on uploading files with IoT Hub, see [Upload files with IoT Hub](../iot-hub/iot-hub-devguide-file-upload.md).
+
+### Edge agent environment variables
+Changes made in `config.toml` to `edgeAgent` environment variables like the `hostname` aren't applied to `edgeAgent` if the container already existed. To apply these changes, remove the `edgeAgent` container using the command  `sudo docker rm -f edgeAgent`. The IoT Edge daemon recreates the container and starts edgeAgent in about a minute.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+### AMQP transport
+When using Node.js to send device to cloud messages with the AMQP protocol to an IoT Edge runtime, messages stop sending after 2047 messages. No error is thrown and the messages eventually start sending again, then cycle repeats. If the client connects directly to Azure IoT Hub, there's no issue with sending messages. This issue has been fixed in IoT Edge 1.2 and later.
+
+:::moniker-end
+<!-- end 1.1 -->
 
 ## Next steps
 For more information, see [IoT Hub other limits](../iot-hub/iot-hub-devguide-quotas-throttling.md#other-limits).

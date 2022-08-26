@@ -1,20 +1,14 @@
 ---
 title: Azure VMs high availability for SAP NW on RHEL | Microsoft Docs
 description: Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/24/2022
+ms.date: 08/24/2022
 ms.author: radeltch
-
 ---
 
 # Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux
@@ -81,42 +75,12 @@ To achieve high availability, SAP NetWeaver requires shared storage. GlusterFS i
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-rhel/ha-rhel.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The following list shows the configuration of the (A)SCS and ERS load balancer.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The presented configuration shows a load balancer with:
 
-### (A)SCS
-
-* Frontend configuration
-  * IP address 10.0.0.7
-* Probe Port
-  * Port 620<strong>&lt;nr&gt;</strong>
-* Load-balancing rules
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 36<strong>&lt;nr&gt;</strong> TCP
-    * 39<strong>&lt;nr&gt;</strong> TCP
-    * 81<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-### ERS
-
-* Frontend configuration
-  * IP address 10.0.0.8
-* Probe Port
-  * Port 621<strong>&lt;nr&gt;</strong>
-* Load-balancing rules
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 33<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
+* Frontend IP address 10.0.0.7 for ASCS
+* Frontend IP address 10.0.0.8 for ERS
+* Probe port 62000 for ASCS
+* Probe port 62101 for ERS
 
 ## Setting up GlusterFS
 
@@ -159,12 +123,10 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
 1. Create an Availability Set  
    Set max update domain
 1. Create Virtual Machine 1  
-   Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
    Select Availability Set created earlier  
 1. Create Virtual Machine 2  
-   Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
    Select Availability Set created earlier  
 1. Add at least one data disk to both virtual machines  
    The data disks are used for the /usr/sap/`<SAPSID`> directory
@@ -201,7 +163,7 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **nw1-lb-ers**)
-1. Alternatively, if your scenario requires basic load balancer (internal), follow these steps:  
+1. Alternatively, ***only if*** your scenario requires basic load balancer (internal), follow these configuration steps instead to create basic load balancer:  
    1. Create the frontend IP addresses
       1. IP address 10.0.0.7 for the ASCS
          1. Open the load balancer, select frontend IP pool, and click Add
@@ -513,7 +475,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Update the /usr/sap/sapservices file
 
-   To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from /usr/sap/sapservices file. Do not comment out the SAP HANA instance if it will be used with HANA SR.
+   To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from /usr/sap/sapservices file.
 
    <pre><code>
    sudo vi /usr/sap/sapservices
@@ -525,7 +487,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # LD_LIBRARY_PATH=/usr/sap/<b>NW1</b>/ERS<b>02</b>/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/<b>NW1</b>/ERS<b>02</b>/exe/sapstartsrv pf=/usr/sap/<b>NW1</b>/ERS<b>02</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> -D -u <b>nw1</b>adm
    </code></pre>
 
-1. **[1]** Create the SAP cluster resources
+2. **[1]** Create the SAP cluster resources
 
   If using enqueue server 1 architecture (ENSA1), define the resources as follows:
 
@@ -1068,6 +1030,7 @@ Follow these steps to install an SAP application server.
 
 ## Next steps
 
+* To deploy cost optimization scenario where PAS and AAS instance is deployed with SAP NetWeaver HA cluster on RHEL, see [Install SAP Dialog Instance with SAP ASCS/SCS high availability VMs on RHEL](high-availability-guide-rhel-with-dialog-instance.md)
 * [HA for SAP NW on Azure VMs on RHEL for SAP applications multi-SID guide](./high-availability-guide-rhel-multi-sid.md)
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]

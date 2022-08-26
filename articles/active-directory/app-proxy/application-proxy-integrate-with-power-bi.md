@@ -3,7 +3,7 @@ title: Enable remote access to Power BI with Azure Active Directory Application 
 description: Covers the basics about how to integrate an on-premises Power BI with Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

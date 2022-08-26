@@ -2,11 +2,11 @@
 title: 'Quickstart: Create an internal load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create an internal load balancer using Azure PowerShell
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 03/24/2022
-ms.author: allensu
+ms.author: mbender
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
@@ -146,7 +146,7 @@ $nsg = @{
 New-AzNetworkSecurityGroup @nsg
 
 ```
-## Create standard load balancer
+## Create load balancer
 
 This section details how you can create and configure the following components of the load balancer:
 
@@ -356,7 +356,6 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 --     ----            -------------   -----         -----------     --------             -------
 8      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
 9      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
-10     Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
 ```
 
 ## Create the test virtual machine

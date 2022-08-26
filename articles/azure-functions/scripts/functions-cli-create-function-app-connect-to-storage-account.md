@@ -2,28 +2,34 @@
 title: Create a function app with connected storage - Azure CLI
 description: Azure CLI Script Sample - Create an Azure Function that connects to an Azure Storage
 ms.topic: sample
-ms.date: 04/20/2017
+ms.date: 03/24/2022
 ms.custom: mvc, devx-track-azurecli
 ---
-# Create a function app with a named Storage account connection 
+# Create a function app with a named Storage account connection
 
-This Azure Functions sample script creates a function app and connects the function to an Azure Storage account. The created app setting that contains the connection can be used with a [storage trigger or binding](../functions-bindings-storage-blob.md). 
+This Azure Functions sample script creates a function app and connects the function to an Azure Storage account. The created app setting that contains the storage connection string can be used with a [storage trigger or binding](../functions-bindings-storage-blob.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
 ## Sample script
 
-This sample creates an Azure Function app and adds the storage connection string to an app setting.
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
+### Run the script
 
-[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
+:::code language="azurecli" source="~/azure_cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh" id="FullScript":::
 
-## Script explanation
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
+```
+
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 

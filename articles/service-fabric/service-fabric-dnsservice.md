@@ -1,11 +1,14 @@
 ---
 title: Azure Service Fabric DNS service
 description: Use Service Fabric's dns service for discovering microservices from inside the cluster.
-
 ms.topic: conceptual
-ms.date: 7/20/2018
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # DNS Service in Azure Service Fabric
 The DNS Service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol.
 
@@ -241,6 +244,23 @@ public class ValuesController : Controller
     }
 }
 ```
+## Recursive Queries
+
+For DNS names that the DNS service can't resolve on its own (for example, a public DNS name), it will forward the query to pre-existing recursive DNS servers on the nodes. 
+
+
+Prior to Service Fabric 9.0, these servers were queried serially with a fixed timeout period of 5 seconds in between. If a server didn't respond within the timeout period, the next server (if available) would be queried. In the case that these DNS servers were encountering any issues, completion of DNS queries would take longer than 5 seconds, which is not ideal. 
+
+
+Beginning in Service Fabric 9.0, support for parallel recursive queries was added. With parallel queries, all recursive DNS servers can be contacted at once, where the first response wins. This will result in quicker responses in the scenario previously mentioned. 
+
+Fine-grained options are also introduced in Service Fabric 9.0 to control the behavior of the recursive queries, including the timeout periods and query attempts. These options can be set in the cluster config, under **DnsService**:
+
+- **RecursiveQuerySerialMaxAttempts** - The number of serial queries that will be attempted, at most. If this number is higher than the amount of forwarding DNS servers, querying will stop once all the servers have been attempted exactly once. 
+- **RecursiveQuerySerialTimeout** - The timeout value in seconds for each attempted serial query.
+- **RecursiveQueryParallelMaxAttempts** - The number of times parallel queries will be attempted. Parallel queries are executed after the max attempts for serial queries have been exhausted. 
+- **RecursiveQueryParallelTimeout** - The timeout value in seconds for each attempted parallel query.
+
 
 ## Known Issues
 * For Service Fabric versions 6.3 and higher, there is a problem with DNS lookups for service names containing a hyphen in the DNS name. For more information on this issue, please track the following [GitHub Issue](https://github.com/Azure/service-fabric-issues/issues/1197). A fix for this is coming in the next 6.3 update.

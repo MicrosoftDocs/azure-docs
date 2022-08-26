@@ -1,12 +1,12 @@
 ---
-title: Azure Front Door - URL Rewrite | Microsoft Docs
+title: Azure Front Door - URL Rewrite
 description: This article helps you understand how URL rewrites works in Azure Front Door.
 services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/09/2022
+ms.date: 03/22/2022
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -15,7 +15,7 @@ zone_pivot_groups: front-door-tiers
 
 ::: zone pivot="front-door-standard-premium"
 
-Azure Front Door Standard/Premium supports URL rewrite to change the path of a request that is being routed to your origin. URL rewrite also allows you to add conditions to make sure that the URL or the specified headers gets rewritten only when certain conditions gets met. These conditions are based on the request and response information.
+Azure Front Door supports URL rewrite to change the path of a request that is being routed to your origin. URL rewrite also allows you to add conditions to make sure that the URL or the specified headers gets rewritten only when certain conditions get met. These conditions are based on the request and response information.
 
 With this feature, you can redirect users to different origins based on scenarios, device types, or the requested file type.
 
@@ -51,11 +51,13 @@ For example, if I set **Preserve unmatched path to No**.
 
 ::: zone pivot="front-door-classic"
 
-Azure Front Door supports URL rewrite by configuring an optional **Custom Forwarding Path** to use when constructing the request to forward to the backend. By default, if a custom forwarding path isn't provided, the Front Door will copy the incoming URL path to the URL used in the forwarded request. The Host header used in the forwarded request is as configured for the selected backend. Read [Backend Host Header](front-door-backend-pool.md#hostheader) to learn what it does and how you can configure it.
+Azure Front Door (classic) supports URL rewrite by configuring an optional **Custom Forwarding Path** to use when constructing the request to forward to the backend. By default, if a custom forwarding path isn't provided, the Front Door will copy the incoming URL path to the URL used in the forwarded request. The Host header used in the forwarded request is as configured for the selected backend. Read [Backend Host Header](front-door-backend-pool.md#hostheader) to learn what it does and how you can configure it.
 
-The robust part of URL rewrite is that the custom forwarding path will copy any part of the incoming path that matches the wildcard path to the forwarded path (these path segments are the **green** segments in the example below):
+The robust part of URL rewrite is that the custom forwarding path will copy any part of the incoming path that matches the wildcard path to the forwarded path.
 
-:::image type="content" source="./media/front-door-url-rewrite/front-door-url-rewrite-example.jpg" alt-text="Azure Front Door URL Rewrite":::
+For example, if you have a **match path** of `/foo/*` and configured `/fwd/` for the **custom forwarding path**, any path segment from the wildcard onward will be copied to the forwarding path, shown in orange in the diagram below. In this example, when the **incoming URL path** is `/foo/a/b/c` you'll have a **forwarded path** of `/fwd/a/b/c`. Noticed that the `a/b/c` path segment will replace the wildcard, which is show in green in the below diagram.
+
+:::image type="content" source="./media/front-door-url-rewrite/url-rewrite-example.png" alt-text="Diagram of a URL path rewrite in Azure Front Door":::
 
 ## URL rewrite example
 
@@ -82,19 +84,19 @@ For example, if we read across the second row, it's saying that for incoming req
 | www\.contoso.com/foo/**bar** | /foo/\* | /**bar** | /fwd/**bar** | /foo/**bar** | /foo/bar/**bar** |
 
 > [!NOTE]
-> Azure Front Door only supports URL rewrite from a static path to another static path. Preserve unmatched path is supported with Azure Front Door Standard/Premium SKU. For more information, see [Preserve unmatched path](front-door-url-rewrite.md#preserve-unmatched-path).
+> Azure Front Door only supports URL rewrite from a static path to another static path. Preserve unmatched path is supported with Azure Front Door Standard and Premium tier. For more information, see [Preserve unmatched path](front-door-url-rewrite.md#preserve-unmatched-path).
 > 
 
 ## Optional settings
 
 There are extra optional settings you can also specify for any given routing rule settings:
 
-* **Cache Configuration** - If disabled or not specified, requests that match to this routing rule won't attempt to use cached content and instead will always fetch from the backend. Read more about [Caching with Front Door](front-door-caching.md).
+* **Cache Configuration** - If disabled or not specified, requests that match to this routing rule won't attempt to use cached content and instead will always fetch from the backend. Read more about [Caching with Azure Front Door](front-door-caching.md).
 
 ::: zone-end
 
 ## Next steps
 
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
-- Learn more about [Azure Front Door Rules engine](front-door-rules-engine.md)
+- Learn how to [create an Azure Front Door profile](create-front-door-portal.md).
+- Learn more about [Azure Front Door Rule set](front-door-rules-engine.md)
 - Learn about [Azure Front Door routing architecture](front-door-routing-architecture.md).

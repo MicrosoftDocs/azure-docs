@@ -1,51 +1,59 @@
-| `ipa` | Example&nbsp;1         | Example&nbsp;2   | Example&nbsp;3     |
-|-------|-------------------|-----------------------|---------------|
-| `a`   | **á**bdito        | consul**a**r          | medir**á**    |
-| `ɐ`   | **a**bacaxi       | dom**a**ção           | long**a**     |
-| `ɐ͡j` | **ei**dético      | dir**ei**ta           | detect**ei**  |
-| `ɐ̃`  | **an**verso       | viaj**an**te          | af**ã**       |
-| `ɐ͡j̃`| **an**gels        | viag**en**s           | tamb**ém**    |
-| `ɐ͡w̃`| **hão**           | significaç**ão**zinha | gab**ão**     |
-| `ɐ͡w` |                   | s**au**dar            | hell**o**     |
-| `a͡j` | **ai**rosa        | cultur**ai**s         | v**ai**       |
-| `ɔ`   | **ho**ra          | dep**ó**sito          | l**ó**        |
-| `ɔ͡j` | **ói**s           | her**ói**co           | d**ói**       |
-| `a͡w` | **ou**tlook       | inc**au**to           | p**au**       |
-| `ə`   | **e**xtremo       | sapr**e**mar          | noit**e**     |
-| `b`   | **b**acalhau      | ta**b**aco            | clu**b**      |
-| `d`   | **d**ado          | da**d**o              | ban**d**      |
-| `ɾ`   | **r**ename        | ve**r**ás             | chuta**r**    |
-| `e`   | **e**clipse       | hav**e**r             | buff**et**    |
-| `ɛ`   | **e**co           | hib**é**rnios         | pat**é**      |
-| `ɛ͡w` |                   | pirin**éu**s          | escarc**éu**  |
-| `ẽ`  | **em**baçado      | dirim**en**te         | ám**en**      |
-| `e͡w` | **eu**            | d**eu**s              | beb**eu**     |
-| `f`   | **f**im           | e**f**icácia          | gol**f**      |
-| `g`   | **g**adinho       | ape**g**o             | blo**g**      |
-| `i`   | **i**greja        | aplaud**i**do         | escrev**i**   |
-| `ĩ`  | **im**paciente    | esp**in**çar          | manequ**im**  |
-| `i͡w` |                   | n**iu**e              | garant**iu**  |
-| `j`   | **i**ode          | desassoc**i**ado      | substitu**i** |
-| `k`   | **k**iwi          | trafi**c**ado         | sna**ck**     |
-| `l`   | **l**aborar       | pe**l**ada            | fu**ll**      |
-| `ɫ`   |                   | po**l**vo             | brasi**l**    |
-| `ʎ`   | **lh**anamente    | anti**lh**as          |               |
-| `m`   | **m**aça          | ama**nh**ã            | mode**m**     |
-| `n`   | **n**utritivo     | campa**n**a           | sca**n**      |
-| `ɲ`   | **nh**ambu-grande | toalhi**nh**a         | pe**nh**      |
-| `o`   | **o**fir          | consumad**o**r        | stacatt**o**  |
-| `o͡j` | **oi**rar         | n**oi**te             | f**oi**       |
-| `õ`  | **om**brão        | barr**on**da          | d**om**       |
-| `o͡j̃`|                   | ocupaç**õe**s         | exp**õe**     |
-| `p`   | **p**ai           | crá**p**ula           | lapto**p**    |
-| `ʀ`   | **r**ecordar      | gue**rr**a            | chauffeu**r** |
-| `s`   | **s**eco          | gro**ss**eira         | bo**ss**      |
-| `ʃ`   | **ch**uva         | du**ch**ar            | médio**s**    |
-| `t`   | **t**abaco        | pelo**t**a            | inpu**t**     |
-| `u`   | **u**bi           | fac**u**ltativo       | fad**o**      |
-| `u͡j` | **ui**var         | arr**ui**vado         | f**ui**       |
-| `ũ`  | **um**bilical     | f**un**cionar         | fór**um**     |
-| `u͡j̃`|                   | m**ui**to             |               |
-| `v`   | **v**aca          | combatí**v**el        | pavlo**v**    |
-| `w`   | **w**affle        | restit**u**ir         | katofi**o**   |
-| `z`   | **z**âmbia        | pra**z**er            | ja**zz**      |
+### Vowels
+
+| `ipa` | `viseme` | Example 1         | Example 2             | Example 3     |
+|-------|----------|-------------------|-----------------------|---------------|
+| `a`   | 2        | **á**bdito        | consul**a**r          | medir**á**    |
+| `ɐ`   | 4        | **a**bacaxi       | dom**a**ção           | long**a**     |
+| `ɐj`  | 4,6      | **ei**dético      | dir**ei**ta           | detect**ei**  |
+| `ɐ̃`  | 4        | **an**verso       | viaj**an**te          | af**ã**       |
+| `ɐ̃j̃`| 4,6      | **an**gels        | viag**en**s           | tamb**ém**    |
+| `ɐ̃w̃`| 4,7      | **hão**           | significaç**ão**zinha | gab**ão**     |
+| `ɐ͡w` | 4,7      |                   | s**au**dar            | hell**o**     |
+| `a͡j` | 2,6      | **ai**rosa        | cultur**ai**s         | v**ai**       |
+| `ɔ`   | 3        | **ho**ra          | dep**ó**sito          | l**ó**        |
+| `ɔ͡j` | 3,6      | **ói**s           | her**ói**co           | d**ói**       |
+| `a͡w` | 2,7      | **ou**tlook       | inc**au**to           | p**au**       |
+| `ə`   | 1        | **e**xtremo       | sapr**e**mar          | noit**e**     |
+| `e`   | 4        | **e**clipse       | hav**e**r             | buff**et**    |
+| `ɛ`   | 4        | **e**co           | hib**é**rnios         | pat**é**      |
+| `ɛ͡w` | 4,7      |                   | pirin**éu**s          | escarc**éu**  |
+| `ẽ`  | 4        | **em**baçado      | dirim**en**te         | ám**en**      |
+| `e͡w` | 4,7      | **eu**            | d**eu**s              | beb**eu**     |
+| `i`   | 6        | **i**greja        | aplaud**i**do         | escrev**i**   |
+| `ĩ`  | 6        | **im**paciente    | esp**in**çar          | manequ**im**  |
+| `i͡w` | 6,7      |                   | n**iu**e              | garant**iu**  |
+| `o`   | 8        | **o**fir          | consumid**o**r        | stacatt**o**  |
+| `o͡j` | 8,6      | **oi**rar         | n**oi**te             | f**oi**       |
+| `õ`  | 8        | **om**brão        | barr**on**da          | d**om**       |
+| `õj̃`| 8,6      |                   | ocupaç**õe**s         | exp**õe**     |
+| `u`   | 7        | **u**bi           | fac**u**ltativo       | fad**o**      |
+| `u͡j` | 7,6      | **ui**var         | arr**ui**vado         | f**ui**       |
+| `ũ`  | 7        | **um**bilical     | f**un**cionar         | fór**um**     |
+| `ũj̃`| 7,6      |                   | m**ui**to             |               |
+
+### Consonant
+
+| `ipa` | `viseme` | Example 1         | Example 2             | Example 3     |
+|-------|----------|-------------------|-----------------------|---------------|
+| `b`   | 21       | **b**acalhau      | ta**b**aco            | clu**b**      |
+| `d`   | 19       | **d**ado          | da**d**o              | ban**d**      |
+| `ɾ`   | 19       | **r**ename        | ve**r**ás             | chuta**r**    |
+| `f`   | 18       | **f**im           | e**f**icácia          | gol**f**      |
+| `g`   | 20       | **g**adinho       | ape**g**o             | blo**g**      |
+| `j`   | 6        | **i**ode          | desassoc**i**ado      | substitu**i** |
+| `k`   | 20       | **k**iwi          | trafi**c**ado         | sna**ck**     |
+| `l`   | 14       | **l**aborar       | pe**l**ada            | fu**ll**      |
+| `ɫ`   | 14       |                   | po**l**vo             | brasi**l**    |
+| `ʎ`   | 14       | **lh**anamente    | anti**lh**as          |               |
+| `m`   | 21       | **m**aça          | ama**nh**ã            | mode**m**     |
+| `n`   | 19       | **n**utritivo     | campa**n**a           | sca**n**      |
+| `ɲ`   | 19       | **nh**ambu-grande | toalhi**nh**a         | pe**nh**      |
+| `p`   | 21       | **p**ai           | crá**p**ula           | lapto**p**    |
+| `ʀ`   | 13       | **r**ecordar      | gue**rr**a            | chauffeu**r** |
+| `s`   | 15       | **s**eco          | gro**ss**eira         | bo**ss**      |
+| `ʃ`   | 16       | **ch**uva         | du**ch**ar            | médio**s**    |
+| `t`   | 19       | **t**abaco        | pelo**t**a            | inpu**t**     |
+| `v`   | 18       | **v**aca          | combatí**v**el        | pavlo**v**    |
+| `w`   | 7        | **w**affle        | restit**u**ir         | katofi**o**   |
+| `z`   | 15       | **z**âmbia        | pra**z**er            | ja**zz**      |
+| `ʒ`   | 16       | **g**elada        | infli**g**ir          | cu**j**       |

@@ -1,17 +1,15 @@
 ---
 title: 'Quickstart: View enterprise applications'
 description: View the enterprise applications that are registered to use your Azure Active Directory tenant.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: AllisonAm
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 03/24/2022
-ms.author: davidmu
-ms.reviewer: arvinh
+ms.author: alamaral
 ms.custom: mode-other
 #Customer intent: As an administrator of an Azure AD tenant, I want to search for and view the enterprise applications in the tenant.
 ---
@@ -62,7 +60,7 @@ Select options according to what you're looking for:
 1. Under **Application Status**, choose **Any**, **Disabled**, or **Enabled**. The **Any** option includes both disabled and enabled applications.
 1. Under **Application Visibility**, choose **Any**, or **Hidden**. The **Hidden** option shows applications that are in the tenant, but aren't visible to users.
 1. After choosing the options you want, select **Apply**.
-1. Select **Add filters** to add more options for filtering the search results. The other that exist are:
+1. Select **Add filters** to add more options for filtering the search results. The other options are:
    - **Application ID**
    - **Created on**
    - **Assignment required**
@@ -79,4 +77,4 @@ If you created a test application named **Azure AD SAML Toolkit 1** that was use
 
 Learn how to delete an enterprise application.
 > [!div class="nextstepaction"]
-> [Delete an application](add-application-portal.md)
+> [Delete an application](delete-application-portal.md)

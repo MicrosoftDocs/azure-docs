@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 3/29/2022
 ms.author: ryanwi
 ms.reviewer: ludwignick
 ms.custom: aaddev
@@ -17,13 +17,13 @@ ms.custom: aaddev
 
 # Admin consent on the Microsoft identity platform
 
-Some permissions require consent from an administrator before they can be granted within a tenant.  You can also use the admin consent endpoint to grant permissions to an entire tenant.
+Some permissions require consent from an administrator before they can be granted within a tenant. You can also use the admin consent endpoint to grant permissions to an entire tenant.
 
 ## Recommended: Sign the user into your app
 
 Typically, when you build an application that uses the admin consent endpoint, the app needs a page or view in which the admin can approve the app's permissions. This page can be part of the app's sign-up flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
-When you sign the user into your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow the [Microsoft identity platform protocol tutorials](active-directory-v2-protocols.md).
+When you sign the user into your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users.
 
 ## Request the permissions from a directory admin
 

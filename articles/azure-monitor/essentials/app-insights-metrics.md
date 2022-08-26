@@ -2,10 +2,9 @@
 title: Azure Application Insights log-based metrics | Microsoft Docs
 description: This article lists Azure Application Insights metrics with supported aggregations and dimensions. The details about log-based metrics include the underlying Kusto query statements.
 author: vgorbenko
-services: azure-monitor
-
+services: azure-monitor  
 ms.topic: reference
-ms.date: 07/03/2019
+ms.date: 07/03/2019    
 ms.author: vitalyg
 ---
 
@@ -326,6 +325,9 @@ performanceCounters
 | summarize sum(performanceCounter_value) / count() by bin(timestamp, 1m)
 | render timechart
 ```
+
+> [!NOTE]
+> The range of the metric is between 0 and 100 * n, where n is the number of available CPU cores. For example, the metric value of 200% could represent full utilization of two CPU core or half utilization of 4 CPU cores and so on. The *Process CPU Normalized* is an alternative metric collected by many SDKs which represents the same value but divides it by the number of available CPU cores. Thus, the range of *Process CPU Normalized* metric is 0 through 100.
 
 ### Process IO rate (performanceCounters/processIOBytesPerSecond)
 

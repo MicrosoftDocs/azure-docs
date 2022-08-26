@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
 description: Troubleshooting Azure Files problems in Linux. See common issues related to Azure Files when you connect from Linux clients, and see possible resolutions.
-author: jeffpatt24
+author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 10/16/2018
-ms.author: jeffpatt
+ms.author: kendownie
 ms.subservice: files
 ---
 # Troubleshoot Azure Files problems in Linux (SMB)

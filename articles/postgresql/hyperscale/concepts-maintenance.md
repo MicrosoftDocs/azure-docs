@@ -11,6 +11,8 @@ ms.date: 02/14/2022
 
 # Scheduled maintenance in Azure Database for PostgreSQL – Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 Azure Database for PostgreSQL - Hyperscale (Citus) does periodic maintenance to
 keep your managed database secure, stable, and up-to-date.  During maintenance,
 all nodes in the server group get new features, updates, and patches.

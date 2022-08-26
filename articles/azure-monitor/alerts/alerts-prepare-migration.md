@@ -23,7 +23,7 @@ The following table is a reference to the programmatic interfaces for both class
 | Deployment script type | Classic alerts | New metric alerts |
 | ---------------------- | -------------- | ----------------- |
 |REST API     | [microsoft.insights/alertrules](/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [az monitor alert](/cli/azure/monitor/alert)        | [az monitor metrics alert](/cli/azure/monitor/metrics/alert)        |
+|Azure CLI     | `az monitor alert`        | [az monitor metrics alert](/cli/azure/monitor/metrics/alert)        |
 |PowerShell      | [Reference](/powershell/module/az.monitor/add-azmetricalertrule)       |  [Reference](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager template | [For classic alerts](./alerts-enable-template.md)|[For new metric alerts](./alerts-metric-create-templates.md)|
 

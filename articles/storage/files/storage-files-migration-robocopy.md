@@ -1,11 +1,11 @@
 ---
 title: Migrate to Azure file shares using RoboCopy
 description: Learn how to migrate files from several locations Azure file shares with RoboCopy.
-author: fauhse
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 04/12/2021
-ms.author: fauhse
+ms.author: kendownie
 ms.subservice: files
 ---
 

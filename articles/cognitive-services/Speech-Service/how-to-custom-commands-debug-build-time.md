@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Debug errors when authoring a Custom Commands application

@@ -1,12 +1,13 @@
 ---
 title: Getting started with SQL queries in Azure Cosmos DB
 description: Learn how to use SQL queries to query data from Azure Cosmos DB. You can upload sample data to a container in Azure Cosmos DB and query it. 
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 
 ---
 # Getting started with SQL queries
@@ -14,7 +15,7 @@ ms.author: tisande
 
 In Azure Cosmos DB SQL API accounts, there are two ways to read data:
 
-**Point reads** - You can do a key/value lookup on a single *item ID* and partition key. The *item ID* and partition key combination is the key and the item itself is the value. For a 1 KB document, point reads typically cost 1 [request unit](../request-units.md) with a latency under 10 ms. Point reads return a single item.
+**Point reads** - You can do a key/value lookup on a single *item ID* and partition key. The *item ID* and partition key combination is the key and the item itself is the value. For a 1 KB document, point reads typically cost 1 [request unit](../request-units.md) with a latency under 10 ms. Point reads return a single whole item, not a partial item or a specific field.
 
 Here are some examples of how to do **Point reads** with each SDK:
 

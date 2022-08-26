@@ -3,11 +3,10 @@ title: Add technical details for an Azure application offer
 description: Add technical details for an Azure application offer in Partner Center (Azure Marketplace).
 author: macerru
 ms.author: macerr
-ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 04/29/2022
 ---
 
 # Add technical details for an Azure application offer

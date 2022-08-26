@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform videos | Azure
+title: Microsoft identity platform videos
 description: A list of videos about modern authentication and the Microsoft identity platform
 services: active-directory
 author: mmacy

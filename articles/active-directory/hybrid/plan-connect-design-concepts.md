@@ -4,7 +4,7 @@ description: This topic details certain implementation design areas
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
@@ -179,6 +179,9 @@ When you are selecting the attribute for providing the value of UPN to be used i
 * The suffix in the values matches to one of the verified custom domains in Azure AD
 
 In express settings, the assumed choice for the attribute is userPrincipalName. If the userPrincipalName attribute does not contain the value you want your users to sign in to Azure, then you must choose **Custom Installation**.
+
+>[!NOTE]
+>It's recommended as a best practice that the UPN prefix contains more than one character.
 
 ### Custom domain state and UPN
 It is important to ensure that there is a verified domain for the UPN suffix.

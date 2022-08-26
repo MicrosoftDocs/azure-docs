@@ -27,6 +27,17 @@ To learn more about the different types of certificates and their roles, see [Un
 >[!NOTE]
 >The term "root CA" used throughout this article refers to the topmost authority public certificate of the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it is actually an intermediate CA public certificate.
 
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+## Changes in version 1.2
+
+* The **device CA certificate** was renamed as **edge CA certificate**.
+* The **workload CA certificate** was deprecated. Now the IoT Edge security manager generates the IoT Edge hub server certificate directly from the edge CA certificate, without the intermediate workload CA certificate between them.
+
+:::moniker-end
+<!-- end-1.2 -->
+
 ### Prerequisites
 
 * An IoT Edge device.
@@ -41,9 +52,21 @@ To learn more about the different types of certificates and their roles, see [Un
 
 You should use your own certificate authority to create the following files:
 
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+* Root CA
+* Edge CA certificate
+* Edge CA private key
+:::moniker-end
+<!-- end-1.2 -->
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 * Root CA
 * Device CA certificate
 * Device CA private key
+:::moniker-end
+<!-- end-1.1 -->
 
 In this article, what we refer to as the *root CA* is not the topmost certificate authority for an organization. It's the topmost certificate authority for the IoT Edge scenario, which the IoT Edge hub module, user modules, and any downstream devices use to establish trust between each other.
 
@@ -54,6 +77,7 @@ In this article, what we refer to as the *root CA* is not the topmost certificat
 > Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
 :::moniker-end
+<!-- end-1.1 -->
 
 To see an example of these certificates, review the scripts that create demo certificates in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
@@ -65,9 +89,21 @@ Copy the three certificate and key files onto your IoT Edge device.
 
 If you used the sample scripts to [create demo certificates](how-to-create-test-certificates.md), the three certificate and key files are located at the following paths:
 
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+* Edge CA certificate: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
+* Edge CA private key: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
+* Root CA: `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+:::moniker-end
+<!-- end-1.2 -->
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 * Device CA certificate: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * Device CA private key: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
 * Root CA: `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+:::moniker-end
+<!-- end-1.1 -->
 
 You can use a service like [Azure Key Vault](../key-vault/index.yml) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files. If you generated the certificates on the IoT Edge device itself, you can skip this step and use the path to the working directory.
 
@@ -136,7 +172,7 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. Open the IoT Edge security daemon config file: `/etc/aziot/config.toml`
@@ -151,8 +187,8 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
 
    ```toml
    [edge_ca]
-   cert = "file:///<path>/<device CA cert>"
-   pk = "file:///<path>/<device CA key>"
+   cert = "file:///<path>/<edge CA cert>"
+   pk = "file:///<path>/<edge CA key>"
    ```
 
 1. Make sure that the service has read permissions for the directories holding the certificates and keys.
@@ -161,7 +197,7 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
    * The certificate files should be owned by the **aziotcs** group.
 
    >[!TIP]
-   >If your device CA certificate is read-only, meaning you created it and don't want the IoT Edge service to rotate it, set the private key file to mode 0440 and the certificate file to mode 0444. If you created the initial files and then configured the cert service to rotate the device CA certificate in the future, set the private key file to mode 0660 and the certificate file to mode 0664.
+   >If your edge CA certificate is read-only, meaning you created it and don't want the IoT Edge service to rotate it, set the private key file to mode 0440 and the certificate file to mode 0444. If you created the initial files and then configured the cert service to rotate the edge CA certificate in the future, set the private key file to mode 0660 and the certificate file to mode 0664.
 
 1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following directory. IoT Edge will recreate them with the new CA certificate you provided.
 
@@ -174,14 +210,24 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
    ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Customize certificate lifetime
 
 IoT Edge automatically generates certificates on the device in several cases, including:
 
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates an **edge CA certificate**. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
+:::moniker-end
+<!-- end 1.2 -->
+
+<!-- 1.1. -->
+:::moniker range="iotedge-2018-06"
 * If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates a **device CA certificate**. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
 * The IoT Edge security manager also generates a **workload CA certificate** signed by the device CA certificate
+:::moniker-end
+<!-- end 1.1 -->
 
 For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
@@ -190,10 +236,15 @@ For these two automatically generated certificates, you have the option of setti
 >[!NOTE]
 >There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 30 day lifetime, but is automatically renewed before expiring. The auto-generated CA lifetime value set in the config file doesn't affect this certificate.
 
-Upon expiry after the specified number of days, IoT Edge has to be restarted to regenerate the device CA certificate. The device CA certificate won't be renewed automatically.
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Upon expiry after the specified number of days, IoT Edge has to be restarted to regenerate the edge CA certificate. The edge CA certificate won't be renewed automatically.
+:::moniker-end
+<!-- end 1.2 -->
 
 <!-- 1.1. -->
 :::moniker range="iotedge-2018-06"
+Upon expiry after the specified number of days, IoT Edge has to be restarted to regenerate the device CA certificate. The device CA certificate won't be renewed automatically.
 
 # [Linux containers](#tab/linux)
 
@@ -268,7 +319,7 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. To configure the certificate expiration to something other than the default 90 days, add the value in days to the **Edge CA certificate (Quickstart)** section of the config file.
@@ -292,9 +343,9 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
    sudo iotedge check --verbose
    ```
 
-   Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated device CA certificates expire.
+   Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated edge CA certificates expire.
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Next steps
 

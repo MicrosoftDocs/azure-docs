@@ -47,9 +47,9 @@ For more information about the ways workflows can access and work with apps, dat
 
 * [Connectors for Azure Logic Apps](../connectors/apis-list.md)
 
-* [Managed connectors for Azure Logic Apps](../connectors/built-in.md)
+* [Managed connectors for Azure Logic Apps](../connectors/managed.md)
 
-* [Built-in triggers and actions for Azure Logic Apps](../connectors/managed.md)
+* [Built-in triggers and actions for Azure Logic Apps](../connectors/built-in.md)
 
 * [B2B enterprise integration solutions with Azure Logic Apps](logic-apps-enterprise-integration-overview.md)
 
