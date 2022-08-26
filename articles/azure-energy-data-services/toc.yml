@@ -28,6 +28,8 @@
       href: concepts-index-and-search.md
     - name: Domain Data Management Services (DDMS)
       href: concepts-ddms.md
+    - name: Entitlements
+      href: concepts-entitlements.md
 - name: How-to guides
   items:
     - name: Administration
