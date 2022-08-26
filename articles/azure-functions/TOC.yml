@@ -403,6 +403,8 @@
         - name: Manage a function app
           href: functions-how-to-use-azure-function-app-settings.md
           displayName: app setting, application setting
+        - name: Reference app settings from App Configuration (preview)
+          href: app-service-app-config-references.md
         - name: Set the runtime version
           href: set-runtime-version.md
         - name: Disable a function

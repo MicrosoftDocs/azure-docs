@@ -23,7 +23,7 @@ To get started with using App Configuration references in App Service, you'll fi
 
     App Configuration references will use the app's system assigned identity by default, but you can [specify a user-assigned identity](#access-app-configuration-store-with-a-user-assigned-identity).
 
-1. Enable the newly created identity to have the right set of access permissions on the App Configuration store. Update [Access Control for App Config](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration). You'll be assigning `App Configuration Data Reader` role to this identity.
+1.Enable the newly created identity to have the right set of access permissions on the App Configuration store. Update the [role assignments for your store](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration). You'll be assigning `App Configuration Data Reader` role to this identity, scoped over the resource..
 
 > [!NOTE]
 > App Configuration references do not yet support network-restricted configuration stores.
@@ -121,7 +121,7 @@ Below is an example pseudo-template for a function app with App Configuration re
         "FontNameKey": "FontName",
         "FontColorKey": "FontColor",
         "myLabel": "Test",
-        "App Configuration Data Reader": "516239f1-63e1-4d78-a4de-a74fb236a071"
+        "App Configuration Data Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '516239f1-63e1-4d78-a4de-a74fb236a071')]"
     },
     "resources": [
         {
