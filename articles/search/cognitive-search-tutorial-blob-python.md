@@ -29,16 +29,16 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Overview
 
-This tutorial uses Python and the [**azure-search-documents** client library](/python/api/overview/azure/search-documents-readme) to create a data source, index, indexer, and skillset.
+This tutorial uses Python and the [Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/) to create a data source, index, indexer, and skillset.
 
-The indexer connects to sample data in a blob container that's specified in the data source object, and sends all enriched content to a search index.
+The indexer retrieves sample data in a blob container that's specified in the data source object, and sends all enriched content to a search index.
 
 The skillset is attached to the indexer. It uses built-in skills from Microsoft to find and extract information. Steps in the pipeline include Optical Character Recognition (OCR) on images, language detection on text, key phrase extraction, and entity recognition (organizations). New information created by the pipeline is stored in new fields in an index. Once the index is populated, you can use the fields in queries, facets, and filters.
 
 ## Prerequisites
 
-<!-- * [Visual Studio Code](https://code.visualstudio.com/download) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) -->
-* [Anaconda 3.7](https://www.anaconda.com/distribution/#download-section)
+* [Visual Studio Code](https://code.visualstudio.com/download) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+* Python 3.7 or later
 * [Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search/)
 
@@ -47,7 +47,7 @@ The skillset is attached to the indexer. It uses built-in skills from Microsoft 
 
 ## Download files
 
-The sample data consists of 14 files of mixed content type that you will upload to Azure Blob Storage in a later step.
+The sample data consists of 14 files of mixed content type that you'll upload to Azure Blob Storage in a later step.
 
 1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer.
 
@@ -133,9 +133,9 @@ All requests require an api-key in the header of every request sent to your serv
 
 Create the notebook using the following instructions, or download a finished notebook from [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
 
-Use Anaconda Navigator to launch Jupyter Notebook and create a new Python 3 notebook.
+Use Visual Studio Code with the Python extension to create a new notebook. Press F1 to open the command palette and then search for "Create: New Jupyter Notebook".
 
-In your notebook, run this script to load the libraries used for working with JSON and formulating HTTP requests.
+In your notebook, create a new cell and add this script. It loads the libraries used for working with JSON and formulating HTTP requests.
 
 ```python
 import json
@@ -143,7 +143,7 @@ import requests
 from pprint import pprint
 ```
 
-In the same notebook, define the names for the data source, index, indexer, and skillset. Run this script to set up the names for this tutorial.
+In the next cell, define the names for the data source, index, indexer, and skillset. Run this script to set up the names for this tutorial.
 
 ```python
 # Define the names for the data source, skillset, index and indexer
@@ -153,7 +153,7 @@ index_name = "cogsrch-py-index"
 indexer_name = "cogsrch-py-indexer"
 ```
 
-In the following script, replace the placeholders for your search service (YOUR-SEARCH-SERVICE-NAME) and admin API key (YOUR-ADMIN-API-KEY), and then run it to set up the search service endpoint.
+In a third cell, paste the following script, replacing the placeholders for your search service (YOUR-SEARCH-SERVICE-NAME) and admin API key (YOUR-ADMIN-API-KEY), and then run it to set up the search service endpoint.
 
 ```python
 # Setup the endpoint
@@ -499,9 +499,7 @@ r = requests.get(endpoint + "/indexes/" + index_name,
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-The results should look similar to the following example. The screenshot only shows a part of the response.
-
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Query index for all fields" border="false":::
+Visual Studio Code limits the output to 30 lines by default, but provides an option to open the output in a text editor. Use that option to view the full output.
 
 The output is the index schema, with the name, type, and attributes of each field.
 
@@ -513,10 +511,6 @@ r = requests.get(endpoint + "/indexes/" + index_name +
                  "/docs?&search=*&$select=organizations", headers=headers, params=params)
 pprint(json.dumps(r.json(), indent=1))
 ```
-
-The results should look similar to the following example. The screenshot only shows a part of the response.
-
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Query index for the contents of organizations" border="false":::
 
 Repeat for additional fields: `content`, `languageCode`, `keyPhrases`, and `organizations` in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
 
