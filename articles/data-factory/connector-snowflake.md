@@ -252,10 +252,7 @@ If your sink data store and format meet the criteria described in this section, 
                 }
             },
             "sink": {
-                "type": "<sink type>",
- 	            "importSettings": {
-                    "type": "SnowflakeImportCopyCommand"
-                }
+                "type": "<sink type>"
             }
         }
     }
@@ -292,17 +289,14 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
         ],
         "typeProperties": {
             "source": {
-                "type": "SnowflakeSource",
+                "type": "SnowflakeSource",               
+                "sqlReaderQuery": "SELECT * FROM MyTable",
                 "exportSettings": {
-                    "type": "SnowflakeExportCopyCommand"
-                },
-                "sqlReaderQuery": "SELECT * FROM MyTable"
+                "type": "SnowflakeExportCopyCommand"
+                }
             },
             "sink": {
-                "type": "<sink type>",
-                "importSettings": {
-                    "type": "SnowflakeImportCopyCommand"
-	            }
+                "type": "<sink type>"               
             },
             "enableStaging": true,
             "stagingSettings": {
@@ -391,10 +385,7 @@ If your source data store and format meet the criteria described in this section
         ],
         "typeProperties": {
             "source": {
-                "type": "<source type>",
- 	            "exportSettings": {
-                    "type": "SnowflakeExportCopyCommand"
-	            }
+                "type": "<source type>"
             },
             "sink": {
                 "type": "SnowflakeSink",
@@ -444,10 +435,7 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
         ],
         "typeProperties": {
             "source": {
-                "type": "<source type>",
-                "exportSettings": {
-                    "type": "SnowflakeExportCopyCommand"
-	            }
+                "type": "<source type>"
             },
             "sink": {
                 "type": "SnowflakeSink",
