@@ -2,7 +2,7 @@
 title: Create a classic Azure Video Indexer account connected to Azure
 description: Learn how to create a classic Azure Video Indexer account connected to Azure.
 ms.topic: tutorial
-ms.date: 05/03/2022
+ms.date: 08/24/2022
 ms.author: itnorman
 ms.custom: ignite-fall-2021
 ---
@@ -66,10 +66,6 @@ If your storage account is behind a firewall, see [storage account that is behin
 
 1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](/azure/media-services/previous/media-services-portal-create-account).
 
-     Make sure the Media Services account was created with the classic APIs.
-
-    :::image type="content" alt-text="Screenshot that shows how to use the classic API." source="./media/create-account/enable-classic-api.png":::
-
     > [!NOTE]
     > Make sure to write down the Media Services resource and account names. 
 1. Before you can play your videos in the Azure Video Indexer web app, you must start the default **Streaming Endpoint** of the new Media Services account.
@@ -103,9 +99,6 @@ The following Azure Media Services related considerations apply:
 
     Streaming endpoints have a considerable startup time. Therefore, it may take several minutes from the time you connected your account to Azure until your videos can be streamed and watched in the Azure Video Indexer web app.
 * If you connect to an existing Media Services account, Azure Video Indexer doesn't change the default Streaming Endpoint configuration. If there's no running **Streaming Endpoint**, you can't watch videos from this Media Services account or in Azure Video Indexer.
-* If you connect automatically, Azure Video Indexer sets the media **Reserved Units** to 10 S3 units:
-
-    ![Media Services reserved units](./media/create-account/ams-reserved-units.png)
 
 ## Create a classic account
 
@@ -167,10 +160,10 @@ To create a paid account in Azure Government, follow the instructions in [Create
 ### Limitations of Azure Video Indexer on Azure Government
 
 * Only paid accounts (ARM or classic) are available on Azure Government. 
-* No manual content moderation available in Government cloud.
+* No manual content moderation available in Azure Government.
 
     In the public cloud when content is deemed offensive based on a content moderation, the customer can ask for a human to look at that content and potentially revert that decision.
-* Bing description - in Gov cloud we won't present a description of celebrities and named entities identified. This is a UI capability only.
+* Bing description - in Azure Government we won't present a description of celebrities and named entities identified. This is a UI capability only.
 
 ## Clean up resources
 

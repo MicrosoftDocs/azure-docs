@@ -187,22 +187,23 @@ use_private_endpoint      = true
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                             | Description                                                            | Type         | Notes  |
 > | ------------------------------------ | -----------------------------------------------------------------------| -----------  | ------ |
-> | `ANF_account_arm_id`                 | Azure resource identifier for the Azure NetApp Files Account.          | Optional     | For brown field deployments. |
 > | `ANF_account_name`                   | Name for the Azure NetApp Files Account.                               | Optional     | |
 > | `ANF_service_level`                  | Service level for the Azure NetApp Files Capacity Pool.                | Optional     | |
-> | `ANF_use_existing_pool`              | Use existing the Azure NetApp Files Capacity Pool.                     | Optional     | |
 > | `ANF_pool_size`                      | The size (in GB) of the Azure NetApp Files Capacity Pool.              | Optional     | |
+> | `ANF_qos_type`                       | The Quality of Service type of the pool (Auto or Manual).              | Optional     | |
+> | `ANF_use_existing_pool`              | Use existing the Azure NetApp Files Capacity Pool.                     | Optional     | |
 > | `ANF_pool_name`                      | The name of the Azure NetApp Files Capacity Pool.                      | Optional     | |
+> | `ANF_account_arm_id`                 | Azure resource identifier for the Azure NetApp Files Account.          | Optional     | For brown field deployments. |
 > |                                      |                                                                        |              | |
-> | `ANF_use_existing_transport_volume`  | Defines if an existing transport volume is used.                       | Optional     | |
-> | `ANF_transport_volume_name`          | Defines the transport volume name.                                     | Optional     | |
+> | `ANF_transport_volume_use_existing`  | Defines if an existing transport volume is used.                       | Optional     | |
+> | `ANF_transport_volume_name`          | Defines the transport volume name.                                     | Optional     | For brown field deployments. |
 > | `ANF_transport_volume_size`          | Defines the size of the transport volume in GB.                        | Optional     | |
 > | `ANF_transport_volume_throughput`    | Defines the throughput of the transport volume.                        | Optional     | |
 > |                                      |                                                                        |              | |
-> | `ANF_use_existing_install_volume`  | Defines if an existing install volume is used.                           | Optional     | |
-> | `ANF_install_volume_name`          | Defines the install volume name.                                         | Optional     | |
-> | `ANF_install_volume_size`          | Defines the size of the install volume in GB.                            | Optional     | |
-> | `ANF_install_volume_throughput`    | Defines the throughput of the install volume.                            | Optional     | |
+> | `ANF_install_volume_use_existing`    | Defines if an existing install volume is used.                         | Optional     | |
+> | `ANF_install_volume_name`            | Defines the install volume name.                                       | Optional     | For brown field deployments. |
+> | `ANF_install_volume_size`            | Defines the size of the install volume in GB.                          | Optional     | |
+> | `ANF_install_volume_throughput`      | Defines the throughput of the install volume.                          | Optional     | |
 
 
 **Minimum required ANF definition**
@@ -219,10 +220,11 @@ ANF_service_level         = "Ultra"
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                             | Description                                                            | Type     | Notes                                 |
 > | ------------------------------------ | ---------------------------------------------------------------------- | -------- | ------------------------------------- |
-> | `enable_purge_control_for_keyvaults` | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional | Use only for test deployments         |
-> | `use_private_endpoint`               | Boolean flag controlling if private endpoints are used for storage accounts and key vaults. | Optional |                                       |
-> | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | For brown field deployments.  |
-> | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | For brown field deployments.  |
+> | `enable_purge_control_for_keyvaults` | Is purge control is enabled on the Key Vault.                          | Optional | Use only for test deployments         |
+> | `use_private_endpoint`               | Are private endpoints created for storage accounts and key vaults.     | Optional |                                       |
+> | `use_service_endpoint`               | Are service endpoints defined for the subnets.                         | Optional |                                       |
+> | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | For brown field deployments.          |
+> | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | For brown field deployments.          |
 
 
 ## ISCSI Parameters
