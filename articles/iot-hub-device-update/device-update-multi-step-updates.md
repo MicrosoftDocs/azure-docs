@@ -209,7 +209,7 @@ Currently, a child update can't contain any reference steps. This restriction is
 
 Inline step(s) specified in a parent update are applied to the host device. Here the ADUC_WorkflowData object that is passed to a step handler (also known as an update content handler) and it will not contain the `Selected Components` data. The handler for this type of step should *not* be a `Component-Aware` handler.
 
-The steps content handler applies **IsInstalled** validation logic for each step. The Device Update agent’s step handler checks to see if particular update is already installed by checking whether IsInstalled() resulted in a result code “900” which means ‘true’. If an update is already installed, to avoid re-installing an update that is already on the device, the DU agent will skip future steps because we use it to determine whether to perform the step or not.
+The steps content handler applies **IsInstalled** validation logic for each step. The Device Update agent’s step handler checks to see if particular update is already installed by checking whether IsInstalled() resulted in a result code “900” which means ‘true’. If an update is already installed, to avoid reinstalling an update that is already on the device, the DU agent will skip future steps because we use it to determine whether to perform the step or not.
 
 To report an update result, the result of a step handler execution must be written to ADUC_Result struct in a desired result file as specified in --result-file option. Then based on results of the execution, for success return 0, for any fatal errors return -1 or 0xFF.
 
@@ -217,7 +217,7 @@ For more information, see [Steps content handler](https://github.com/Azure/iot-h
 
 ### Reference steps in a parent update
 
-Reference step(s) specified in a parent update are applied to components on or connected to the host device. A **reference step** is a step that contains update identifier of another apdate, called a child update.
+Reference step(s) specified in a parent update are applied to components on or connected to the host device. A **reference step** is a step that contains update identifier of another update, called a child update.
 
 When processing a reference step, the steps handler downloads a detached update manifest file specified in the reference step data, then validates the file integrity. Next, the steps handler parses the child update manifest and creates an **ADUC_Workflow** object (also known as child workflow data) by combining the data from the child update manifest and file URLs information from the parent update manifest.  This child workflow data also has a 'level' property set to '1'.
 

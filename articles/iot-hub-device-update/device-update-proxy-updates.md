@@ -10,11 +10,11 @@ ms.service: iot-hub-device-update
 
 # Proxy updates and multi-component updating
 
-With proxy updates, you can target over-the-air updates to multiple components on the IoT device or to multiple sensors connected to the IoT device. Use cases where proxy updates is applicable include:
+With proxy updates, you can target over-the-air updates to multiple components on the IoT device or to multiple sensors connected to the IoT device. Use cases where proxy updates are applicable include:
 
 * Targeting specific update files to different partitions on the device.
 * Targeting specific update files to different apps/components on the device  
-* Targeting specific update files to sensors connected to an IoT devices. These sensors could be connected to the IoT device over a network protocol (for example, USB, CANbus etc.).
+* Targeting specific update files to sensors connected to an IoT device. These sensors could be connected to the IoT device over a network protocol (for example, USB, CANbus etc.).
 
 ## Prerequisites
 
