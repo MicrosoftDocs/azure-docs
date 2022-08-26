@@ -14,8 +14,8 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 
 | Direction | Ports | Service tag | Purpose |
 | ----- |:-----:| ----- | ----- |
-| Inbound | 29876-29877 | BatchNodeManagement | Create, update, and delete of Azure Machine Learning compute instance and compute cluster. It is not required if you use No Public IP option.|
-| Inbound | 44224 | AzureMachineLearning | Create, update, and delete of Azure Machine Learning compute instance. It is not required if you use No Public IP option.|
+| Inbound | 29876-29877 | BatchNodeManagement | Create, update, and delete of Azure Machine Learning compute instance and compute cluster. It isn't required if you use No Public IP option.|
+| Inbound | 44224 | AzureMachineLearning | Create, update, and delete of Azure Machine Learning compute instance. It isn't required if you use No Public IP option.|
 | Outbound | 80, 443 | AzureActiveDirectory | Authentication using Azure AD. |
 | Outbound | 443, 8787, 18881 | AzureMachineLearning | Using Azure Machine Learning services. |
 | Outbound | 443 | AzureResourceManager | Creation of Azure resources with Azure Machine Learning. |
@@ -43,7 +43,7 @@ You may also need to allow __outbound__ traffic to Visual Studio Code and non-Mi
 | ----- | ----- |
 | **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
 | **\*.anaconda.org** | Used to get repo data. |
-| **pypi.org** | Used to list dependencies from the default index, if any, and the index is not overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
+| **pypi.org** | Used to list dependencies from the default index, if any, and the index isn't overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
 | **cloud.r-project.org** | Used when installing CRAN packages for R development. |
 | **\*pytorch.org** | Used by some examples based on PyTorch. |
 | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
