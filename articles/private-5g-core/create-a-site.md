@@ -43,7 +43,7 @@ In this step, you'll create the mobile network site resource representing the ph
 
 1. In the **Packet core** section, set the fields as follows:
 
-    - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to fill out the **Technology type**, **Azure Stack Edge Device**, and **Custom location** fields.
+    - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to fill out the **Technology type**, **Azure Stack Edge device**, and **Custom location** fields.
     - Select the recommended packet core version in the **Version** field.
     - Ensure **AKS-HCI** is selected in the **Platform** field.
 
