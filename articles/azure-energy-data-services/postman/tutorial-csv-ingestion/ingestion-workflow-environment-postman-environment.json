@@ -1,0 +1,89 @@
+{
+	"id": "df1ec480-88b7-44fa-8e64-a3870cd2b56f",
+	"name": "Ingestion Workflow Environment",
+	"values": [
+		{
+			"key": "TENANT_ID",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "CLIENT_ID",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "CLIENT_SECRET",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "SCOPE",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "refresh_token",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "DNS",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "access_token",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "data-partition-id",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "cloud_platform",
+			"value": "Azure",
+			"enabled": true
+		},
+		{
+			"key": "domain",
+			"value": ".contoso.com",
+			"enabled": true
+		},
+		{
+			"key": "LEGAL_HOST",
+			"value": "{{DNS}}/api/legal/v1",
+			"enabled": true
+		},
+		{
+			"key": "SEARCH_HOST",
+			"value": "{{DNS}}/api/search/v2",
+			"enabled": true
+		},
+		{
+			"key": "SCHEMA_HOST",
+			"value": "{{DNS}}",
+			"enabled": true
+		},
+		{
+			"key": "FILE_HOST",
+			"value": "https://{{DNS}}/api/file/v2",
+			"enabled": true
+		},
+		{
+			"key": "WORKFLOW_HOST",
+			"value": "{{DNS}}/api/workflow/v1",
+			"enabled": true
+		},
+		{
+			"key": "csv_parsing_dag_name",
+			"value": "csv-parser",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-12-01T15:48:47.591Z",
+	"_postman_exported_using": "Postman/9.2.0"
+}
