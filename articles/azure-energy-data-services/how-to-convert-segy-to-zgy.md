@@ -207,7 +207,7 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
     ```
 
     > [!NOTE]
-    > Please see documentation [here](./how-to-generate-refresh-token.md) to find instructions about how to generate a refresh token. If you continue to follow other "how-to" documentation, you'll use this refresh token again. Once you've generated the token, store it in a place where you'll be able to access it in the future.
+    > Please see documentation [here](how-to-generate-refresh-token.md) to find instructions about how to generate a refresh token. If you continue to follow other "how-to" documentation, you'll use this refresh token again. Once you've generated the token, store it in a place where you'll be able to access it in the future.
 
 8. Run the following commands using **sdutil** to see its working fine.  Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`. If you run into errors with these commands, refer to the [SDUTIL tutorial](/tutorials/tutorial-seismic-ddms-sdutil.md).
 
