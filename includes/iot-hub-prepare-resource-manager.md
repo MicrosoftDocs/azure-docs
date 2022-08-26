@@ -29,8 +29,7 @@ The following steps show how to set up password authentication for an AD applica
    Select the subscription you want to use. You can use either the subscription name or ID from the output of the previous command.
 
    ```powershell
-   Select-AzSubscription `
-   -SubscriptionName "{your subscription name}"
+   Select-AzSubscription -SubscriptionName "{your subscription name}"
    ```
 
 1. Save your **TenantId** and **SubscriptionId**. You need them later.
@@ -43,7 +42,7 @@ The following steps show how to set up password authentication for an AD applica
    * **{Password}:** A password that you use to authenticate with your app.
      
      ```powershell
-     $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
+     $SecurePassword=ConvertTo-SecureString {password} -asplaintext -force
      New-AzADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 1. Save the **ApplicationId** of the application you created. You need this later.
@@ -60,7 +59,7 @@ The following steps show how to set up password authentication for an AD applica
     New-AzRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
 
-You finished creating the Azure AD application that enables you to authenticate from your custom C# application. 
+With your new Azure AD application, you can now authenticate from your custom C# application. 
 
 You need the following values later in this tutorial:
 
