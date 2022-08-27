@@ -37,7 +37,7 @@ In this how-to, you learn how to:
 - For AD authentication with LDAPS:
 
     - You will need access to the Active Directory Domain Controller(s) with Administrator permissions
-    - Your Active Directory Domain Controller(s) must have LDAPS enabled and should be using a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or [third-party CA](https://docs.microsoft.com/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority). **Note**: Self-sign certificates are not recommended for production environments.  
+    - Your Active Directory Domain Controller(s) must have LDAPS enabled and should be using a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or [third-party CA]/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority). **Note**: Self-sign certificates are not recommended for production environments.  
     - [Export the certificate for LDAPS authentication](#export-the-certificate-for-ldaps-authentication) and upload it to an Azure Storage account as blob storage. Then, you'll need to [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
 
 - Ensure AVS has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. See [Configure DNS forwarder for Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/configure-dns-azure-vmware-solution) for further information.
@@ -124,7 +124,7 @@ After completion, verify that your DNS Service has your DNS zone included.
 Your AVS Private cloud should now be able to resolve your on-prem Active Directory domain name properly.
 
 
-# Add Active Directory over LDAPS
+## Add Active Directory over LDAP with SSL
 
 In your AVS private cloud you'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter Server.
 
@@ -153,7 +153,7 @@ In your AVS private cloud you'll run the `New-LDAPSIdentitySource` cmdlet to add
 ## Add Active Directory over LDAP
 
 >[!NOTE]
->LDAP is less secure, instead, use the [Add Active Directory over LDAP with SSL](#add-active-directory-over-ldap-with-ssl) option.
+>We don't recommend this method. Instead, use the [Add Active Directory over LDAP with SSL](#add-active-directory-over-ldap-with-ssl) method.
 
 You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter Server. 
 
@@ -168,8 +168,8 @@ You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an externa
    | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the AD domain as an alias of the identity source. Typically the **avsldap\** format.      |
    | **PrimaryUrl**  | Primary URL of the external identity source, for example, **ldap://yourserver.avslab.local:389**.  |
    | **SecondaryURL**  | Secondary fall-back URL if there's primary failure.  |
-   | **BaseDNUsers**  |  Where to look for valid users, for example, **CN=users,DC=avsldap,DC=local**.  Base DN is needed to use LDAP Authentication.  |
-   | **BaseDNGroups**  | Where to look for groups, for example, **CN=group1, DC=avsldap,DC=local**. Base DN is needed to use LDAP Authentication.  |
+   | **BaseDNUsers**  |  Where to look for valid users, for example, **CN=users,DC=avslab,DC=local**.  Base DN is needed to use LDAP Authentication.  |
+   | **BaseDNGroups**  | Where to look for groups, for example, **CN=group1, DC=avslab,DC=local**. Base DN is needed to use LDAP Authentication.  |
    | **Credential**  | The domain username and password used for authentication with the AD source (not cloudadmin). The user must be in the **username@avslab.local** format.  |
    | **GroupName**  | The group to give cloud admin access in your external identity source, for example, **avs-admins**.  |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60 days.   |
