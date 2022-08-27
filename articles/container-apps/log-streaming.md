@@ -12,29 +12,28 @@ ms.author: v-bcatherine
 
 # View log streams in Azure Container Apps
 
-While developing and troubleshooting your container app, you often want to see a container's logs in real-time.  Container Apps lets you view a stream of your container's `stdout` and `stderr` log messages using the Azure portal or the Azure CLI.
+While developing and troubleshooting your container app, it's important to see a container's logs in real-time.  Container Apps lets you view a stream of your container's `stdout` and `stderr` log messages through the Azure portal or the Azure CLI.
 
 ## Azure portal
 
+To view a container app's log stream in the Azure portal with these steps.
 
 1. Navigate to your container app in the Azure portal.
 1. Select **Log stream** under the *Monitoring* section on the sidebar menu.
-1. Select the Revision, Replica, and Container yoFu want to view the log stream for.  If your app has only one revision, replica, and container, you can skip this step.
+1. If you have multiple revisions, replicas, or containers, you can select from the pull-down menus to choose a container.  If your app has only one container, you can skip this step.
 
-    :::image type="content" source="media/observability/log-stream-ss.png" alt-text="Screenshot of Azure Container Apps Log Stream page.":::
-
-
-After you select a container, a stream of application log data is display in the viewing pane.  To save the log messages, copy and paste them into the editor of your choice.
+After a container is selected, the log stream is displayed in the viewing pane.
 
 :::image type="content" source="media/observability/log-stream.png" alt-text="Screenshot of Azure Container Apps Log stream page.":::
 
 ## Azure CLI
 
-You can view container's application logs from the Azure CLI with the `az containerapp logs show` command.  The show command has the following options:
+You can view container's log stream from the Azure CLI with the `az containerapp logs show` command.  You can use these arguments to:
 
 - View previous log entries with the  `--tail` argument.
 - View a live stream with the `--follow`argument. 
-- Use `Ctrl/Cmd-C` to stop the live stream.
+
+Use `Ctrl/Cmd-C` to stop the live stream.
 
 For example, you can list the last 50 container log entries in a container app with a single revision, replica, and container using the following command.
 
@@ -42,8 +41,8 @@ For example, you can list the last 50 container log entries in a container app w
 
 ```azurecli
 az containerapp logs show \
-  --name album-api \
-  --resource-group album-api-rg \
+  --name <ContainerAppName> \
+  --resource-group <ResourceGroup> \
   --tail 50
 ```
 
@@ -51,46 +50,73 @@ az containerapp logs show \
 
 ```azurecli
 az containerapp logs show `
-  --name album-api `
-  --resource-group album-api-rg `
+  --name <ContainerAppName> `
+  --resource-group <ResourceGroup> `
   --tail 50
 ```
 
 ---
 
-When your app has multiple active revisions, replicas, and containers, specify the container by including  `--revision`, `--replica`, and `--container` arguments in the `az containerapp logs show` command.
+When your app has multiple active revisions, replicas, and containers, you need to specify the container by including  the `--revision`, `--replica`, and `--container` arguments in the `az containerapp logs show` command.
 
-Run the `az containerapp revision list` command to get the revision, replica, and container names to use in the `az containerapp logs show` command. For example:
+You can get the revision names with the `az containerapp revision list` command.  Replace the \<placeholders\> with your container app's values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp revision list \
-  --name album-api \
-  --resource-group album-api-rg
+  --name <ContainerAppName> \
+  --resource-group <ResourceGroup> \
+  --query "[].name"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
 az containerapp revision list `
-  --name album-api `
-  --resource-group album-api-rg 
+  --name <ContainerAppName> `
+  --resource-group <ResourceGroup> `
+  --query "[].name"
 ```
 
 ---
 
-Run the `az container app show` command using the names from the `az containerapp revision list ` command output.  For example:
+Use the `az containerapp replica list` command to get the replica and container names. Replace the \<placeholders\> with your container app's values.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az containerapp replica list \
+  --name <ContainerAppName> \
+  --resource-group <ResourceGroup> \
+  --revision <RevisionName> \
+  --query "[].{Containers:properties.containers[].name, Name:name}"
+```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az containerapp replica list `
+  --name <ContainerAppName> `
+  --resource-group <ResourceGroup> `
+  --revision <RevisionName> `
+  --query "[].{Containers:properties.containers[].name, Name:name}"
+```
+
+---
+
+Run the `az container app show` command using the names from the `az containerapp revision list ` command output.  Replace the \<placeholders\> with your container app's values.
+
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp logs show \
-  --name album-api \
-  --resource-group album-api-rg \
-  --revision album-api--v2 \
-  --replica album-api--v2-5fdd5b4ff5-6mblw \
-  --container album-api-container \
+  --name <ContainerAppName> \
+  --resource-group <ResourceGroup> \
+  --revision <RevisionName> \
+  --replica <ReplicaName> \
+  --container <ContainerName> \
   --follow
 ```
 
@@ -98,16 +124,16 @@ az containerapp logs show \
 
 ```azurecli
 az containerapp logs show  `
-  --name album-api `
-  --resource-group album-api-rg `
-  --revision album-api--v2 `
-  --replica album-api--v2-5fdd5b4ff5-6mblw `
-  --container album-api-container `
+  --name <ContainerAppName> `
+  --resource-group <ResourceGroup> `
+  --revision <RevisionName> `
+  --replica <ReplicaName> `
+  --container <ContainerName> `
   --follow
+```
 
 ---
 
-```
 
 Enter **Ctrl-C** to stop the log stream.
 

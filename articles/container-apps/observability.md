@@ -11,22 +11,20 @@ ms.author: v-bcatherine
 
 # Observability in Azure Container Apps
 
-Azure Container Apps provides several built-in observability features that give you a holistic view of your container app’s health throughout its application lifecycle.  These features help you monitor and diagnose the state of your app to improve performance and respond to critical problems.
+Azure Container Apps provides several built-in observability features that together give you a holistic view of your container app’s health throughout its application lifecycle.  These features help you monitor and diagnose the state of your app to improve performance and respond to trends and critical problems.
 
 These features include:
 
-
 |Feature  |Description  |
 |---------|---------|
-|[Log streaming](log-streaming.md) | View streaming logs from a container in near real-time. |
-|[Container console](container-console.md) | Connect to the Linux console in your containers to observe, test and debug your application from inside the container. |
-|[Azure Monitor metrics](metrics.md)| View and analyze compute and network usage metrics to improve the performance of your app. |
+|[Log streaming](log-streaming.md) | View streaming console logs from a container in near real-time. |
+|[Container console](container-console.md) | Connect to the Linux console in your containers to debug your application from inside the container. |
+|[Azure Monitor metrics](metrics.md)| View and analyze your application's compute and network usage through metric data. |
 |[Azure Monitor Log Analytics](log-monitoring.md) | Run queries to view and analyze your app's system and application logs. |
-|[Azure Monitor alerts](alerts.md)|Create and manage alerts to notify you of events and conditions based on metric and log data.|
+|[Azure Monitor alerts](alerts.md) | Create and manage alerts to notify you of events and conditions based on metric and log data.|
 
 >[!NOTE]
-> While not a built-in feature, [Azure Monitor's Application Insights](../azure-monitor/app/app-insights-overview.md) is a powerful tool to monitor your web and background applications.
-> Although Container Apps doesn't support the Application Insights auto-instrumentation agent, you can instrument your application code using Application Insights SDKs.  
+> While not a built-in feature, [Azure Monitor's Application Insights](../azure-monitor/app/app-insights-overview.md) is a powerful tool to monitor your web and background applications.  Although Container Apps doesn't support the Application Insights auto-instrumentation agent, you can instrument your application code using Application Insights SDKs.  
 
 ## Application lifecycle observability
 
@@ -36,14 +34,14 @@ With Container Apps observability features, you can monitor your app throughout 
 
 During the development and test phase, real-time access to your containers' application logs and console is critical for debugging issues.  Container Apps provides: 
 
-- [Log streaming](log-streaming.md): view real-time log streams from your containers.
+- [Log streaming](log-streaming.md): View real-time log streams from your containers.
 - [Container console](container-console.md): Access the container console to debug your application.
 
 ### Deployment
 
-Once you deploy your container app, it's essential to monitor your app. Continuous monitoring helps you quickly identify problems that may occur around error rates, performance, or metrics.
+Once you deploy your container app, it's essential to monitor your app. Upon deployment, continuous monitoring helps you quickly identify problems that may occur around error rates, performance, or metrics.
 
-Azure Monitor features give you the ability to track your app with the following features:
+Azure Monitor gives you the ability to track your app with the following features:
 
 - [Azure Monitor metrics](metrics.md): Monitor and analyze key metrics.
 - [Azure Monitor alerts](alerts.md): Send alerts for critical conditions.
@@ -51,7 +49,7 @@ Azure Monitor features give you the ability to track your app with the following
 
 ### Maintenance
 
-Container Apps manages updates to your container app by creating [revisions](revisions.md).  You can run multiple revisions concurrently to perform A/B testing or for blue green deployments.  These observability features will help you monitor your app across revisions:
+Container Apps manages updates to your container app by creating [revisions](revisions.md).  You can run multiple revisions concurrently in blue green deployments or to perform A/B testing.  These observability features will help you monitor your app across revisions:
 
 - [Azure Monitor metrics](metrics.md): Monitor and compare key metrics for multiple revisions.
 - [Azure Monitor alerts](alerts.md): Send alerts individual alerts per revision.
