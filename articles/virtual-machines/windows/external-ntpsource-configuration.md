@@ -25,7 +25,7 @@ Time synchronization in Active Directory should be managed by only allowing the 
 
 To check current time source in your **PDC**, from an elevated command prompt run *w32tm /query /source* and note the output for later comparison.
 
-1. From *Start* run *gpedit.msc*
+1. From *Start* run *gpedit.msc*.
 2. Navigate to the *Global Configuration Settings* policy under *Computer Configuration* -> *Administrative Templates* -> *System* -> *Windows Time Service*.
 3. Set it to *Enabled* and configure the *AnnounceFlags* parameter to **5**.
 4. Navigate to *Computer Settings* -> *Administrative Templates* -> *System* -> *Windows Time Service* -> *Time Providers*.
@@ -61,7 +61,7 @@ Configure the following Group Policy Object to enable your clients to synchroniz
 
 To check current time source in your client, from an elevated command prompt run *w32tm /query /source* and note the output for later comparison.
 
-1. From a Domain Controller go to *Start* run *gpmc.msc*
+1. From a Domain Controller go to *Start* run *gpmc.msc*.
 2. Browse to the Forest and Domain where you want to create the GPO.
 3. Create a new GPO, for example *Clients Time Sync*, in the container *Group Policy Objects*.
 4. Right-click on the newly created GPO and Edit.
@@ -83,3 +83,17 @@ Below are links to more details about the time sync:
 ](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
 - [Accurate Time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time)
 - [Support boundary to configure the Windows Time service for high-accuracy environments](/windows-server/networking/windows-time-service/support-boundary)
+
+## Force NTS Source Update after System Reboot
+
+As reported in the documentation the System will take up to 15 minutes to update the Time Sync with the External NTP Source. During the reboot the VMs will load the standard Azure configuration. After 15 minutes from startup the correct NTP Source will be loaded. In order to load in a fast way the custom configuration you can create a scheduled task to run after the System Reboot.
+
+1. From the PDC Domain Controller go to *Start* and open the *Task Scheduler*.
+2. Browse to -> Microsoft -> Windows -> Time Synchronization branch and click *Create Task* in the menu on the right hand side.
+3. In the Create Task window -> General tab, click the *Change User or Group...* button and set it to run as *LOCAL SERVICE*. Then check the box to *Run with highest privileges*. 
+4. Under *Configure for:* select your operating system.
+5. Switch to the *Triggers tab*, click the *New...* button, and enter your preferred settings. Before click to *OK*, make sure the box next to *Enabled* is checked. The suggestion is to trigger the task *At system startup* and delay the task for *2 minutes*.
+6. Now go to the *Actions* tab. Click the *New...* button and enter the following details: *Action:* Start a program. *Program/script:* set *%windir%\system32\w32tm.exe* . *Add arguments:* /resync. Click *OK*.
+6. Under *Conditions* tab ensure that *Start the task only if the computer is in idle for* and *Start the task only if the computer is on AC power* is not selected. Click *Ok*.
+
+The configuration is completed. If the VMs needs to be restarted the NTP Configuration will be loaded after the startup in 2 minutes.
