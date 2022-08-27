@@ -1,5 +1,5 @@
 ---
-title: Azure AD authentication strengths overview
+title: Azure AD authentication strength overview
 description: Learn how admins can use Azure AD Conditional Access to distinguish which authentication methods can be used based on relevant security factors.
 
 services: multi-factor-authentication
@@ -15,15 +15,14 @@ ms.reviewer: michmcla, inbarckms
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD authentication strengths overview 
+# Azure AD authentication strength overview 
 
-Conditional Access Authentication strength control allows administrators to require specific combinations of authentication methods in order to access a resource. For example, requiring phishing-resistant authentication methods when accessing a sensitive resource while allowing a less secure multi-factor authentication (MFA) combinations, such as password + SMS, when accessing non-sensitive applications. 
+Authentication strength is a Conditional Access (CA) control that allows administrators to require specific combinations of authentication methods to access a resource. For example, you can require phishing-resistant authentication methods to access a sensitive resource while allowing less secure multifactor authentication (MFA) combinations, such as password + SMS, to access non-sensitive applications. 
 
-Authentication strength is based on the Authentication method policy, where administrators can scope authentication methods to specific users and groups to be used throughout the different applications in Azure Active Directory (Azure AD). It allows administrators to scope the usage of these methods even further for specific scenarios such as sensitive resources, user risk, location and more. 
+Authentication strength is based on the Authentication Method policy, where administrators can scope authentication methods to specific users and groups for different applications in Azure Active Directory (Azure AD). It allows administrators to scope the usage of these methods even further for specific scenarios such as sensitive resource access, user risk, location, and more. 
 
-When creating a Conditional Access policy with 'Require authentication strength' control, Administrators can choose between three built-in Authentication strengths policies (Multifactor authentication, Passwordless MFA and Phishing-resistant MFA), or using a custom Authentication strength policy based on the authentication methods combinations they would like to allow. 
+When creating a Conditional Access policy with **Require authentication strength** control, Administrators can choose between three built-in Authentication strengths policies (Multifactor authentication, Passwordless MFA and Phishing-resistant MFA), or create a custom Authentication strength policy based on the authentication methods combinations they want to allow. 
  
-
 ## Scenarios for authentication strengths
 
 Authentication strength can help customers address scenarios such as: 
@@ -36,7 +35,7 @@ Authentication strength can help customers address scenarios such as:
 
 ## Authentication strength policy 
 
-Authentication strength policy contains a combination of authentication methos. Users can satisfy the authentication strength policy by authenticating with any of the combinations allowed by the policy.
+Authentication strength policy contains a combination of authentication methods. Users can satisfy the authentication strength policy by authenticating with any of the combinations allowed by the policy.
 
 For example, the built-in “Phishing-resistant MFA” policy has the following combinations:
 •	Windows Hello for Business
