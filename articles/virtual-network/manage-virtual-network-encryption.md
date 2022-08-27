@@ -56,7 +56,25 @@ There are two options for the parameter **`-EncryptionEnforcementPolicy`**:
 
 - **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
 
-# [**CLI**](#tab/manage-encryption-portal)
+Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) and [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to enable encryption for the virtual network and set the encryption enforcement policy.
+
+```azurepowershell-interactive
+## Place the virtual network configuration into a variable. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Update the encryption and enforcement parameter and save the configuration. ##
+$vnet.Encryption = @{
+Enabled = "true"
+Enforcement = "dropUnencrypted"
+}
+$vnet | Set-AzVirtualNetwork
+```
+
+# [**CLI**](#tab/manage-encryption-cli)
 
 There are two options for the parameter **`--encryption-enforcement-policy`**:
 
@@ -64,6 +82,15 @@ There are two options for the parameter **`--encryption-enforcement-policy`**:
 
 - **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
 
+Use [az network vnet update](/cli/azure/network/vnet#az-network-vnet-update) to enable encryption for the virtual network and set the encryption enforcement policy.
+
+```azurecli-interactive
+az network vnet update \
+    --name myVNet \
+    --resource-group myResourceGroup \
+    --enable-encryption true \
+    --encryption-enforcement-policy dropUnencrypted
+```
 ---
 
 ## Enable encryption
@@ -77,8 +104,33 @@ In this section, you'll enable encryption with the Azure portal, PowerShell, and
 
 # [**PowerShell**](#tab/manage-encryption-powershell)
 
-# [**CLI**](#tab/manage-encryption-portal)
+Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) and [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to enable encryption for the virtual network.
 
+```azurepowershell-interactive
+## Place the virtual network configuration into a variable. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Update the encryption parameter and save the configuration. ##
+$vnet.Encryption = @{
+Enabled = "true"
+}
+$vnet | Set-AzVirtualNetwork
+```
+
+# [**CLI**](#tab/manage-encryption-cli)
+
+Use [az network vnet update](/cli/azure/network/vnet#az-network-vnet-update) to enable encryption for the virtual network.
+
+```azurecli-interactive
+az network vnet update \
+    --name myVNet \
+    --resource-group myResourceGroup \
+    --enable-encryption true
+```
 ---
 
 ## Disable encryption
@@ -87,8 +139,33 @@ In this section, you'll enable encryption with the Azure portal, PowerShell, and
 
 # [**PowerShell**](#tab/manage-encryption-powershell)
 
-# [**CLI**](#tab/manage-encryption-portal)
+Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) and [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to disable encryption for the virtual network.
 
+```azurepowershell-interactive
+## Place the virtual network configuration into a variable. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Update the encryption parameter and save the configuration. ##
+$vnet.Encryption = @{
+Enabled = "false"
+}
+$vnet | Set-AzVirtualNetwork
+```
+
+# [**CLI**](#tab/manage-encryption-cli)
+
+Use [az network vnet update](/cli/azure/network/vnet#az-network-vnet-update) to disable encryption for the virtual network.
+
+```azurecli-interactive
+az network vnet update \
+    --name myVNet \
+    --resource-group myResourceGroup \
+    --enable-encryption false
+```
 ---
 
 ## Change enforcement policy
@@ -111,7 +188,24 @@ There are two options for the parameter **`-EncryptionEnforcementPolicy`**:
 
 - **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
 
-# [**CLI**](#tab/manage-encryption-portal)
+Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) and [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to change the encryption enforcement policy.
+
+```azurepowershell-interactive
+## Place the virtual network configuration into a variable. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Update the encryption and enforcement parameter and save the configuration. ##
+$vnet.Encryption = @{
+Enforcement = "allowUnencrypted"
+}
+$vnet | Set-AzVirtualNetwork
+```
+
+# [**CLI**](#tab/manage-encryption-cli)
 
 There are two options for the parameter **`--encryption-enforcement-policy`**:
 
@@ -119,6 +213,14 @@ There are two options for the parameter **`--encryption-enforcement-policy`**:
 
 - **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
 
+Use [az network vnet update](/cli/azure/network/vnet#az-network-vnet-update) to change the encryption enforcement policy..
+
+```azurecli-interactive
+az network vnet update \
+    --name myVNet \
+    --resource-group myResourceGroup \
+    --encryption-enforcement-policy allowUnencrypted
+```
 ---
 
 ## Next steps
