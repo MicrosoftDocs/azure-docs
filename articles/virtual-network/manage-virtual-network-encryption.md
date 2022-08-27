@@ -50,7 +50,7 @@ There are two options for the encryption enforcement policy parameter:
 
 # [**PowerShell**](#tab/manage-encryption-powershell)
 
-There are two options for the parameter **`-EncryptionEnforcementPolicy`**:
+There are two options for the encryption enforcement policy parameter:
 
 - **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be **dropped**. The traffic drop happens if a virtual machine, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
 
@@ -182,7 +182,7 @@ There are two options for the encryption enforcement policy parameter:
 
 # [**PowerShell**](#tab/manage-encryption-powershell)
 
-There are two options for the parameter **`-EncryptionEnforcementPolicy`**:
+There are two options for the encryption enforcement policy parameter:
 
 - **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be **dropped**. The traffic drop happens if a virtual machine, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
 
