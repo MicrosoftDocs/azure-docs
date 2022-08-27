@@ -110,14 +110,12 @@ To set environment variables, use one the following commands. `KEY_VAULT_NAME` w
 Create and assign persisted environment variable, given the value.
 
 ```CMD
-:: Assigns the env var to the value
 setx KEY_VAULT_NAME="Your-Key-Vault-Name"
 ```
 
 In a new instance of the **Command Prompt**, read the environment variable.
 
 ```CMD
-:: Prints the env var value
 echo %KEY_VAULT_NAME%
 ```
 
@@ -149,14 +147,13 @@ In a new instance of the **Bash**, read the environment variable.
 echo "${KEY_VAULT_NAME}"
 ```
 
-Or use printenv:
+You can also use `printenv` to read the environment variable.
 
 ```Bash
 printenv KEY_VAULT_NAME
 ```
 
 ---
-
 
 ::: zone pivot="programming-language-csharp"
 
