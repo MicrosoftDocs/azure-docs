@@ -78,6 +78,7 @@ The information required for Lab Services v1 and Lab Services v2 is different. U
    |**If you plan to use the new capacity within a custom Virtual Network, what region does your VNET reside in?**| Select the region where your VNET exists.|
    |**Can you specify the expected deployment time?**|Enter the expected deployment time.|
    |**Additional details**|Answer the questions in the additional details box. The more information you can provide here, the easier it will be for the Azure Lab Services team to process your request. |
+
 ---
 
 When you've entered the required information and any additional details, select **Save and continue**.
