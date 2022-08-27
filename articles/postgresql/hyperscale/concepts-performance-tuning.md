@@ -13,10 +13,10 @@ ms.date: 08/24/2022
 
 [!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
-Running a distributed database at its full potential provides a lot of
-performance. However, reaching that performance can take some adjustments in
-application code and data modeling. This article covers some of the most common
--- and effective -- techniques to improve performance.
+Running a distributed database at its full potential offers high performance.
+However, reaching that performance can take some adjustments in application
+code and data modeling. This article covers some of the most common--and
+effective--techniques to improve performance.
 
 ## Client-side connection pooling
 
@@ -25,7 +25,7 @@ requests a connection from the pool when needed, and the pool returns one that
 is already established if possible, or establishes a new one. When done, the
 application releases the connection back to the pool rather than closing it.
 
-Adding a client-side connection pool is an easy way to boost applicatiohn
+Adding a client-side connection pool is an easy way to boost application
 performance with minimal code changes. In our measurements, running single-row
 insert statements goes about **24x faster** on a Hyperscale (Citus) server
 group with pooling enabled.
@@ -54,7 +54,7 @@ abnormally long-running queries:
 |---------|-------|--------|
 | log_statement_stats | OFF | Avoid profiling overhead |
 | log_duration | OFF | Don't need to know the duration of normal queries |
-| log_statement | NONE | Don't log queries without a a more specific reason |
+| log_statement | NONE | Don't log queries without a more specific reason |
 | log_min_duration_statement | A value longer than what you think normal queries should take | Shows the abnormally long queries |
 
 > [!NOTE]
@@ -67,8 +67,8 @@ abnormally long-running queries:
 When updating a distributed table, try to filter queries on the distribution
 column. For instance, in our [multi-tenant
 tutorial](tutorial-design-database-multi-tenant.md#use-psql-utility-to-create-a-schema)
-we have an `ads` table distributed by `company_id`. The naive way to update an ad is
-to single it out like this:
+we have an `ads` table distributed by `company_id`. The naive way to update an
+ad is to single it out like this:
 
 ```sql
 -- slow
@@ -79,12 +79,12 @@ UPDATE ads
 ```
 
 Although the query uniquely identifies a row and updates it, Hyperscale (Citus)
-doesn't know at planning time which shard the query will update. Citus takes a
+doesn't know, at planning time, which shard the query will update. Citus takes a
 ShareUpdateExclusiveLock on all shards to be safe, which blocks other queries
 trying to update the table.
 
-Even though the `id` was sufficient to identify a row, we can include a redundant
-additional filter to make the query faster:
+Even though the `id` was sufficient to identify a row, we can include an
+extra filter to make the query faster:
 
 ```sql
 -- fast
@@ -128,7 +128,7 @@ SELECT wait_event_type, count(*)
  ORDER BY 2 DESC;
 ```
 
-A NULL `wait_event_type` means the query is'nt waiting on anything.
+A NULL `wait_event_type` means the query isn't waiting on anything.
 
 If you do see locks in the stat activity output, you can view the specific
 blocked queries using `citus_lock_waits`:
@@ -173,14 +173,15 @@ Tips:
 
 * Consider setting
   [lock_timeout](https://www.postgresql.org/docs/14/runtime-config-client.html#GUC-LOCK-TIMEOUT)
-  in a SQL session prior to running a heavy DDL command. This will abort the DDL
-  command if it waits too long for a write lock. A DDL command waiting for a lock
-  can cause later queries to queue behind itself.
+  in a SQL session prior to running a heavy DDL command. With `lock_timeout`,
+  PostgreSQL will abort the DDL command if the command waits too long for a write
+  lock. A DDL command waiting for a lock can cause later queries to queue behind
+  itself.
 
 #### Idle connections
 
-Idle (uncommitted) transactions can unnecessary block other queries. For
-example:
+Idle (uncommitted) transactions sometimes block other queries unnecessarily.
+For example:
 
 ```sql
 BEGIN;
@@ -217,7 +218,7 @@ situation is less performant than avoiding deadlocks in the first place. A
 common source of deadlocks comes from updating the same set of rows in a
 different order from multiple transactions at once.
 
-For instance running these transactions in parallel:
+For instance, running these transactions in parallel:
 
 Session A:
 
@@ -237,7 +238,7 @@ UPDATE ads SET updated_at = now() WHERE id = 1 AND company_id = 1;
 -- ERROR:  canceling the transaction since it was involved in a distributed deadlock
 ```
 
-Session A updated id 1 then 2, whereas the session B updated 2 then 1. Write
+Session A updated ID 1 then 2, whereas the session B updated 2 then 1. Write
 SQL code for transactions carefully to update rows in the same order. (The
 update order is sometimes called a "locking hierarchy.")
 
@@ -260,7 +261,7 @@ particularly the IOPS metric maxing out.
 
 Tips:
 
-1. If your data is naturally ordered, such as in a timeseries, use PostgreSQL
+1. If your data is naturally ordered, such as in a time series, use PostgreSQL
    table partitioning. See [this
    guide](https://docs.citusdata.com/en/stable/use_cases/timeseries.html) to learn
    how to partition distributed tables in Hyperscale (Citus).
