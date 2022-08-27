@@ -37,7 +37,7 @@ In this how-to, you learn how to:
 - For AD authentication with LDAPS:
 
     - You will need access to the Active Directory Domain Controller(s) with Administrator permissions
-    - Your Active Directory Domain Controller(s) must have LDAPS enabled and should be using a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or [third-party CA]/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority). **Note**: Self-sign certificates are not recommended for production environments.  
+    - Your Active Directory Domain Controller(s) must have LDAPS enabled and should be using a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or [Third-party/Public CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority). **Note**: Self-sign certificates are not recommended for production environments.  
     - [Export the certificate for LDAPS authentication](#export-the-certificate-for-ldaps-authentication) and upload it to an Azure Storage account as blob storage. Then, you'll need to [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
 
 - Ensure AVS has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. See [Configure DNS forwarder for Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/configure-dns-azure-vmware-solution) for further information.
@@ -92,34 +92,7 @@ Now proceed to export the certificate
 A DNS Zone needs to be created and added to the DNS Service, follow the instructions in [Configure a DNS forwarder in the Azure portal](./configure-dns-azure-vmware-solution.md) to complete these two steps. 
 
 After completion, verify that your DNS Service has your DNS zone included.
-    :::image type="content" source="media/run-command/nsx-workload-networking-dns-zone-service-configured.png" alt-text="Screenshot showing the DNS Service that includes the required DNS zone." lightbox="nsx-workload-networking-dns-zone-service-configured.png":::
-    
-<!---
-- **DNS Zone Configuration**
-1. Browse to your AVS Private cloud>Workload Networking>DNS
-1. In the DNS Zone tab, click **Add**.
-:::image type="content" source="media/networking/dns/configure-dns-forwarder-1.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
-1. Under Type, select **FQDN zone**
-1. Fill in the remaining fields:
-   1. **DNS zone name** - Friendly name for the DNS zone name. It can be the same Domain FQDN, **example**: avslab.local
-   1. **Domain - FQDN** The Active Directory domain name. **example**: avslab.local
-   1. **DNS server IP** - The DNS Server(s) IP addresses that should resolve  the domain FQDN. 
-   1. **Source IP** - You can leave blank
-1. Click OK to create the DNS Zone. This can may take a few minutes.
-:::image type="content" source="media/networking/dns/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing the required information needed to add an FQDN zone.":::
-
-- **DNS Service Configuration**
-
-1. After the DNS Zone has been created, navigate to the DNS Service tab
-1. Click Edit.
-1. From the FQDN Zones drop down, select the FQDN Zone that was created in the previous step.
-1. Ensure the default DNS Service IP is selected.
-1. Click **OK** to configure the DNS Service.
-
-
-1. In the DNS service tab, verify there is a DNS Service.
-
--->
+ :::image type="content" source="media/run-command/ldaps-dns-zone-service-configured.png" alt-text="Screenshot showing the DNS Service that includes the required DNS zone." lightbox="ldaps-dns-zone-service-configured.png":::
 
 Your AVS Private cloud should now be able to resolve your on-prem Active Directory domain name properly.
 
