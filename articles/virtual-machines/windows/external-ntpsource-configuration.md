@@ -84,7 +84,7 @@ Below are links to more details about the time sync:
 - [Accurate Time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time)
 - [Support boundary to configure the Windows Time service for high-accuracy environments](/windows-server/networking/windows-time-service/support-boundary)
 
-## Force NTS Source Update after System Reboot
+## Force NTP Source Update after System Reboot
 
 As reported in the documentation the System will take up to 15 minutes to update the Time Sync with the External NTP Source. During the reboot the VMs will load the standard Azure configuration. After 15 minutes from startup the correct NTP Source will be loaded. In order to load in a fast way the custom configuration you can create a scheduled task to run after the System Reboot.
 
