@@ -132,6 +132,10 @@ Conditional Access grant controls ‘Require multifactor authentication’ and �
 
 Combinations that are currently not available: <!-- Namrata to update about B2B, Inbar to work with Vimala on CBA-->
 
+<!-- place holder: Auth Strength with CCS -->
+<! Place holder: what-if tool -->
+
+
 ## Prerequisites
 
 **License** Your tenant needs to have Azure AD Premium P1 license to use Conditional Access. If needed, you can enable free trial. 
