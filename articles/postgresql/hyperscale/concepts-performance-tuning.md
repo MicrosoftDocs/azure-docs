@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 08/26/2022
 ---
 
 # Hyperscale (Citus) performance tuning
