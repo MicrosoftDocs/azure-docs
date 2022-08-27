@@ -161,18 +161,117 @@ server setting in the PostgreSQL documentation.
 
 DDL Commands like `truncate`, `drop`, and `create index` all take write locks,
 and block writes on the entire table. Minimizing such operations reduces
-locking issues. Try to consolidate them into maintenance windows, or use them
-less often.
+locking issues.
+
+Tips:
+
+* Try to consolidate DDL into maintenance windows, or use them less often.
+
+* PostgreSQL supports [building indices
+  concurrently](https://www.postgresql.org/docs/current/sql-createindex.html#SQL-CREATEINDEX-CONCURRENTLY),
+  to avoid taking a write lock on the table.
+
+* Consider setting
+  [lock_timeout](https://www.postgresql.org/docs/14/runtime-config-client.html#GUC-LOCK-TIMEOUT)
+  in a SQL session prior to running a heavy DDL command. This will abort the DDL
+  command if it waits too long for a write lock. A DDL command waiting for a lock
+  can cause later queries to queue behind itself.
 
 #### Idle connections
 
-Idle (uncommitted) transactions can unnecessary block other queries.
+Idle (uncommitted) transactions can unnecessary block other queries. For
+example:
 
-#### Locking hierarchy
+```sql
+BEGIN;
 
-Avoid deadlocks with a locking hierarchy.
+UPDATE ... ;
+
+-- Suppose the client waits now and doesn't COMMIT right away.
+--
+-- Other queries that want to update the same rows will be blocked.
+
+COMMIT; -- finally!
+```
+
+To manually clean up any long-idle queries on the coordinator node, you can run
+a command like this:
+
+```sql
+SELECT pg_terminate_backend(pid)
+FROM pg_stat_activity
+WHERE datname = 'citus'
+ AND pid <> pg_backend_pid()
+ AND state in ('idle in transaction')
+ AND state_change < current_timestamp - INTERVAL '15' MINUTE;
+```
+
+PostgreSQL also offers an
+[idle_in_transaction_session_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT)
+setting to automate idle session termination.
+
+#### Deadlocks
+
+Citus detects distributed deadlocks and cancels their queries, but the
+situation is less performant than avoiding deadlocks in the first place. A
+common source of deadlocks comes from updating the same set of rows in a
+different order from multiple transactions at once.
+
+For instance running these transactions in parallel:
+
+Session A:
+
+```sql
+BEGIN;
+UPDATE ads SET updated_at = now() WHERE id = 1 AND company_id = 1;
+UPDATE ads SET updated_at = now() WHERE id = 2 AND company_id = 1;
+```
+
+Session B:
+
+```sql
+BEGIN;
+UPDATE ads SET updated_at = now() WHERE id = 2 AND company_id = 1;
+UPDATE ads SET updated_at = now() WHERE id = 1 AND company_id = 1;
+
+-- ERROR:  canceling the transaction since it was involved in a distributed deadlock
+```
+
+Session A updated id 1 then 2, whereas the session B updated 2 then 1. Write
+SQL code for transactions carefully to update rows in the same order. (The
+update order is sometimes called a "locking hierarchy.")
+
+In our measurement, bulk updating a set of rows with many transactions went
+**3x faster** when avoiding deadlock.
 
 ## I/O during ingestion
+
+I/O bottlenecking is typically less of a problem for Hyperscale (Citus) than
+for single-node PostgreSQL because of sharding. The shards are individually
+smaller tables, with better index and cache hit rates, yielding better
+performance.
+
+However, even with Hyperscale (Citus), as tables and indices grow larger, disk
+I/O can become a problem for data ingestion.  Things to look out for are an
+increasing number of 'IO' `wait_event_type` entries appearing in
+`citus_stat_activity` (see [system health and locks](#system-health-and-locks)
+above). Also look at [metrics in the Azure portal](concepts-monitoring.md),
+particularly the IOPS metric maxing out.
+
+Tips:
+
+1. If your data is naturally ordered, such as in a timeseries, use PostgreSQL
+   table partitioning. See [this
+   guide](https://docs.citusdata.com/en/stable/use_cases/timeseries.html) to learn
+   how to partition distributed tables in Hyperscale (Citus).
+
+2. Remove unused indices. Index maintenance causes I/O amplification during
+   ingestion.  To find which indices are unused, use [this
+   query](howto-useful-diagnostic-queries.md#identifying-unused-indices).
+
+3. If possible, avoid indexing randomized data. For instance, some UUID
+   generation algorithms follow no order. Indexing such a value causes a lot
+   overhead. Try a bigint sequence instead, or monotonically increasing UUIDs.
 
 ## Summary of results
 
@@ -181,6 +280,7 @@ Avoid deadlocks with a locking hierarchy.
 | Scoping queries | 100x |
 | Connection pooling | 24x |
 | Efficient logging | 10x |
+| Avoiding deadlock | 3x |
 
 ## Next steps
 
