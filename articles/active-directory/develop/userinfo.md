@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 08/26/2022
 ms.author: ludwignick
 ms.reviewer: ludwignick
 ms.custom: aaddev
@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # Microsoft identity platform UserInfo endpoint
 
-The UserInfo endpoint is part of the [OpenID Connect standard](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo) (OIDC), designed to return claims about the user that authenticated.  For the Microsoft identity platform, the UserInfo endpoint is hosted on Microsoft Graph (https://graph.microsoft.com/oidc/userinfo). 
+Part of the OpenID Connect (OIDC) standard, the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo) is designed to return information (claims) about an authenticated user. In the Microsoft identity platform, the UserInfo endpoint is provided by Microsoft Graph at https://graph.microsoft.com/oidc/userinfo. 
 
 ## Find the .well-known configuration endpoint
 
