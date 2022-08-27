@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Manage Azure Virtual Network encryption
 
-Management of virtual network encryption consists of enabling or disabling encryption on an existing Azure Virtual Network. The encryption enforcement policy can also be set on an existing virtual network. To manage the options for virtual network encryptions, you can use the Azure CLI or Azure PowerShell.
+Management of virtual network encryption consists of enabling or disabling encryption on an existing Azure Virtual Network. The encryption enforcement policy can also be set on an existing virtual network. To manage the options for virtual network encryptions, you can use the Azure portal, Azure CLI or Azure PowerShell.
 
 ## Prerequisites
 
