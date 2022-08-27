@@ -5,7 +5,7 @@ keywords: azure app service, web app, health check, route traffic, healthy insta
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 07/19/2021
+ms.date: 08/26/2022
 ms.author: msangapu
 ms.custom: contperf-fy22q1
 ---
@@ -134,7 +134,6 @@ After providing your application's Health check path, you can monitor the health
 
 ## Limitations
 
-- Health check should not be enabled on Premium Functions sites. Due to the rapid scaling of Premium Functions, the Health check requests can cause unnecessary fluctuations in HTTP traffic. Premium Functions have their own internal health probes that are used to inform scaling decisions.
 - Health check can be enabled for **Free** and **Shared** App Service Plans so you can have metrics on the site's health and set up alerts, but because **Free** and **Shared** sites cannot scale out, any unhealthy instances will not be replaced. You should scale up to the **Basic** tier or higher so you can scale out to 2 or more instances and utilize the full benefit of Health check. This is recommended for production-facing applications as it will increase your app's availability and performance.
 
 ## Frequently Asked Questions
