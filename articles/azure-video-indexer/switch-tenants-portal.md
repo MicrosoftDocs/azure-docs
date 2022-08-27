@@ -7,9 +7,9 @@ ms.date: 08/26/2022
 
 # Switch between multiple tenants
 
-This article shows how to switch between multiple tenants on the Azure Video Indexer website.
+This article shows how to switch between multiple tenants on the Azure Video Indexer website. When you create an ARM-based account, the new account may not show up on the Azure Video Indexer website. So you need to make sure to sign in with the correct domain.
 
-To make sure you sign in with the correct  domain name, you first go to the Azure portal to get the correct domain name. You then sign out of your Azure Video Indexer (AVI) account on the AVI website and sign in with the correct domain name you got from the Azure portal. 
+To make sure you sign in with the correct domain name, you first go to the Azure portal to get the domain name. You then sign out of your Azure Video Indexer (AVI) account on the AVI website and sign in with the domain name you got from the Azure portal. 
 
 ## Sign in to the Azure portal to get the domain name
 
@@ -23,7 +23,7 @@ If you have multiple subscriptions and need to switch subscriptions:
     > ![Select Switch directory in the Azure portal.](./media/switch-directory/choose-subscription.png)
 1. Select the **All Directories** tab.
 1. Find the directory you want to switch to. For more information, see [Switch and manage directories](../azure-portal/set-preferences.md#switch-and-manage-directories).
-1. Copy the domain name for the selected directory, you'll use it in the later steps.
+1. Copy the domain name for the selected directory, you'll use it in the last step of the next section.
 
 ## Sign in with the correct domain name on the AVI website
 
@@ -48,7 +48,7 @@ If you have multiple subscriptions and need to switch subscriptions:
 1. Enter the domain name you copied in the [Sign in to the Azure portal to get the domain name](#sign-in-to-the-azure-portal-to-get-the-domain-name) section.
 
     > [!div class="mx-imgBorder"]
-    > ![Sign in to an organization.](./media/switch-directory/find-your-organization.png)
+    > ![Find the organization.](./media/switch-directory/find-your-organization.png)
 
 ## Next steps
 
