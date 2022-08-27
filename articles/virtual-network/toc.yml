@@ -215,7 +215,7 @@
         - name: Azure PowerShell
           href: how-to-create-encryption-powershell.md
       - name: Manage virtual network encryption
-        href: manage-vrutal-network-encryption.md
+        href: manage-virtual-network-encryption.md
     - name: Filter network traffic
       items:
       - name: Azure portal
