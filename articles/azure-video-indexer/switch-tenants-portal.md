@@ -9,7 +9,10 @@ ms.date: 08/26/2022
 
 This article shows how to switch between multiple tenants on the Azure Video Indexer website. When you create an ARM-based account, the new account may not show up on the Azure Video Indexer website. So you need to make sure to sign in with the correct domain.
 
-To make sure you sign in with the correct domain name, you first go to the Azure portal to get the domain name. You then sign out of your Azure Video Indexer (AVI) account on the AVI website and sign in with the domain name you got from the Azure portal. 
+The steps that show how to sign in with the correct domain name are shown in this article:
+
+1. You first go to the Azure portal to get the domain name. 
+1. You then sign out of your Azure Video Indexer (AVI) account on the AVI website and sign in with the domain name you got from the Azure portal. 
 
 ## Sign in to the Azure portal to get the domain name
 
