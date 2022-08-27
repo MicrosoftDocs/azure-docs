@@ -94,6 +94,6 @@ As reported in the documentation the System will take up to 15 minutes to update
 4. Under *Configure for:* select your operating system.
 5. Switch to the *Triggers tab*, click the *New...* button, and enter your preferred settings. Before click to *OK*, make sure the box next to *Enabled* is checked. The suggestion is to trigger the task *At system startup* and delay the task for *2 minutes*.
 6. Now go to the *Actions* tab. Click the *New...* button and enter the following details: *Action:* Start a program. *Program/script:* set *%windir%\system32\w32tm.exe* . *Add arguments:* /resync. Click *OK*.
-6. Under *Conditions* tab ensure that *Start the task only if the computer is in idle for* and *Start the task only if the computer is on AC power* is not selected. Click *Ok*.
+7. Under *Conditions* tab ensure that *Start the task only if the computer is in idle for* and *Start the task only if the computer is on AC power* is not selected. Click *Ok*.
 
 The configuration is completed. If the VMs needs to be restarted the NTP Configuration will be loaded after the startup in 2 minutes.
