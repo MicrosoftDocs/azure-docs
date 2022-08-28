@@ -27,9 +27,25 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## August 2022
 
+- [Create and delete incidents manually (Preview)](#create-and-delete-incidents-manually-preview)
 - [Azure resource entity page (Preview)](#azure-resource-entity-page-preview)
 - [New data sources for User and entity behavior analytics (UEBA) (Preview)](#new-data-sources-for-user-and-entity-behavior-analytics-ueba-preview)
 - [Microsoft Sentinel Solution for SAP is now generally available](#microsoft-sentinel-solution-for-sap-is-now-generally-available)
+
+### Create and delete incidents manually (Preview)
+
+Microsoft Sentinel **incidents** have two main sources: 
+
+- They are generated automatically by detection mechanisms that operate on the logs and alerts that Sentinel ingests from its connected data sources.
+
+- They are ingested directly from other connected Microsoft security services (such as [Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md)) that created them.
+
+There can, however, be data from sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, that justify launching an investigation. For this reason, Microsoft Sentinel now allows security analysts to manually create incidents from scratch for any type of event, regardless of its source or associated data, in order to manage and document the investigation.
+
+Since this capability raises the possibility that you'll create an incident in error, Microsoft Sentinel also allows you to delete incidents right from the portal as well.
+
+- [Learn more about creating incidents manually](create-incident-manually.md).
+- [Learn more about deleting incidents](delete-incident.md).
 
 ### Azure resource entity page (Preview)
 
