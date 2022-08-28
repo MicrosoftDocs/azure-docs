@@ -4,6 +4,7 @@ description: This article lists all releases of Azure AD Connect and Azure AD Sy
 author: billmath
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
+manager: amycolannino
 ms.topic: reference
 ms.workload: identity
 ms.date: 7/6/2022

@@ -7,8 +7,8 @@ manager: barbkess
 editor: TomShinder
 
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: virtual-machines
+ms.subservice: security
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
