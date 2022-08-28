@@ -15,7 +15,13 @@ ms.date: 08/17/2022
 >
 > Manual incident creation is generally available using the API.
 
-With Microsoft Sentinel as your SIEM, your SOC’s threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents are generated automatically by detection mechanisms that operate on the logs that Sentinel ingests from its connected data sources.
+With Microsoft Sentinel as your SIEM, your SOC’s threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents are either generated automatically by detection mechanisms that operate on the logs and alerts that Sentinel ingests from its connected data sources, or imported directly from other connected Microsoft security services (such as [Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md)).
+
+- ***(MICHAL - OPTION B:)***
+
+    With Microsoft Sentinel as your SIEM, your SOC’s threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents have two main sources: 
+    - They are generated automatically by detection mechanisms that operate on the logs and alerts that Sentinel ingests from its connected data sources.
+    - They are imported directly from other connected Microsoft security services (such as [Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md)).
 
 There can, however, be data from other sources – *besides those ingested into Microsoft Sentinel* – that justify creating an incident to be investigated. For example, an employee might witness an unrecognized person engaging in suspicious activity related to the organization’s information assets, and this employee might call or email the SOC to report the activity.
 
