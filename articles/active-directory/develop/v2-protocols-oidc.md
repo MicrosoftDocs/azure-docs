@@ -237,7 +237,7 @@ The full OpenID Connect sign-in and token acquisition flow looks similar to this
 
 In addition to the ID token, the authenticated user's information is also made available at the OIDC [UserInfo endpoint](userinfo.md).
 
-To get a an access token for the OIDC UserInfo endpoint, modify the sign-in request as described here:
+To get an access token for the OIDC UserInfo endpoint, modify the sign-in request as described here:
 
 ```HTTP
 // Line breaks are for legibility only.
