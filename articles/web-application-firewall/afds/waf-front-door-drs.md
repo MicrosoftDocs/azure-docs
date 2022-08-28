@@ -28,7 +28,7 @@ The Azure-managed Default Rule Set (DRS) includes rules against the following th
 
 The version number of the DRS increments when new attack signatures are added to the rule set.
 
-DRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Default Rule Set to meet your application requirements. You can also set specific actions per rule. Available actions are *allow*, *block*, *redirect*, and *log*).
+DRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Default Rule Set to meet your application requirements. You can also set specific actions per rule. The available actions are: [Allow, Block, Log, and Redirect](afds-overview.md#waf-actions).
 
 Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You may configure an exclusion list for a managed rule, rule group, or for the entire rule set. For more information, see [Web Application Firewall (WAF) with Front Door exclusion lists](./waf-front-door-exclusion.md).
 
