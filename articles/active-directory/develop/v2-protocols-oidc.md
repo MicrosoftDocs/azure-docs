@@ -9,7 +9,7 @@ ms.date: 08/26/2022
 ms.reviewer: ludwignick
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: reference
+ms.topic: conceptual
 ---
 
 # OpenID Connect on the Microsoft identity platform
@@ -83,7 +83,7 @@ Host: login.microsoftonline.com
 ```
 
 > [!TIP]
-> Try it! To see the OpenID configuration document for an application's `common` authority, navigate to[https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration).
+> Try it! To see the OpenID configuration document for an application's `common` authority, navigate to [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration).
 
 ### Sample response
 
@@ -111,7 +111,7 @@ The configuration metadata is returned in JSON format as shown in the following 
 
 ## Send the sign-in request
 
-To authenticate a user and request an ID token for use in your application, direct the user's user-agent to the Microsoft identity platform's _/authorize_ endpoint. The request is similar to the first leg of the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md) but with these distinctions:
+To authenticate a user and request an ID token for use in your application, direct their user-agent to the Microsoft identity platform's _/authorize_ endpoint. The request is similar to the first leg of the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md) but with these distinctions:
 
 * Include the `openid` scope in the `scope` parameter.
 * Specify `id_token` or `code+id_token` in the `response_type` parameter.
@@ -202,7 +202,7 @@ Receiving an ID token in your app might not always be sufficient to fully authen
 
 Web apps and web APIs that use ID tokens for authorization must validate them because such applications gate access to data. Other types of application might not benefit from ID token validation, however. Native and single-page apps (SPAs), for example, rarely benefit from ID token validation because any entity with physical access to the device or browser can potentially bypass the validation. Methods of token validation bypass include providing fake tokens or keys by modifying network traffic to the device and by debugging the application and stepping over the validation logic during program execution.
 
-If you need or choose to validate ID tokens in your application, we recommend not doing so manually, and instead using a library to parse and validate the tokens. Token validation libraries are available for most development languages, frameworks, and platforms.
+If you need or choose to validate ID tokens in your application, we recommend not doing so manually. Instead, use a token validation library to parse and validate the tokens. Token validation libraries are available for most development languages, frameworks, and platforms.
 
 ### What to validate in an ID token
 
@@ -238,7 +238,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your app registration's
 &response_type=id_token%20token                       // Requests both an ID token and access token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your application's redirect URI (URL-encoded)
 &response_mode=form_post                              // 'form_post' or 'fragment'
-&scope=openid+profile+email                           // 'openid' is required; 'profile' and 'email' provide additional information in the UserInfo endpoint the same way they do in an ID token. 
+&scope=openid+profile+email                           // 'openid' is required; 'profile' and 'email' provide information in the UserInfo endpoint as they do in an ID token. 
 &state=12345                                          // Any value - provided by your app
 &nonce=678910                                         // Any value - provided by your app
 ```
