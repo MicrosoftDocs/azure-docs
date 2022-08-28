@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: Use TLS/SSL certificates in an application.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 10/08/2021
 ms.custom: devx-track-java, event-tier1-build-2022
@@ -57,6 +57,9 @@ After you grant access to your key vault, you can import your certificate using 
 1. Select **Import Key Vault Certificate** in the **Public Key Certificates** section.
 1. Select your Key Vault in **Key vault** and the certificate in **Certificate**, then **Select** and **Apply**.
 1. When you have successfully imported your certificate, you'll see it in the list of Public Key Certificates.
+
+> [!NOTE]
+> The Azure Key Vault and Azure Spring Apps instances should be in the same tenant.
 
 ### Import a local certificate file
 

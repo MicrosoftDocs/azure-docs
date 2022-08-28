@@ -6,11 +6,11 @@ services: azure
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 03/17/2022
+ms.date: 08/24/2022
 
 ms.author: sarahlipsey
 author: shlipsey3
-manager: rachelkarlin
+manager: amycolannino
 ms.reviewer: quentinb
 ---
 # Sunset for SHA-1 Online Certificate Standard Protocol signing

@@ -1,18 +1,18 @@
 ---
-title: "How to: Use Language Service features asynchronously"
+title: "How to: Use Language service features asynchronously"
 titleSuffix: Azure Cognitive Services
-description: Learn how to send Language Service API requests asynchronously.
+description: Learn how to send Language service API requests asynchronously.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 08/25/2022
 ms.author: aahi
 ---
 
-# How to use Language Service features asynchronously
+# How to use Language service features asynchronously
 
 The Language service enables you to send API requests asynchronously, using either the REST API or client library. You can also include multiple different Language service features in your request, to be performed on your data at the same time. 
 
@@ -26,6 +26,7 @@ Currently, the following features are available to be used asynchronously:
 * Customer content detection
 * Sentiment analysis and opinion mining
 * Text Analytics for health
+* Personal Identifiable information (PII)
 
 When you send asynchronous requests, you will incur charges based on number of text records you include in your request, for each feature use. For example, if you send a text record for sentiment analysis and NER, it will be counted as sending two text records, and you will be charged for both according to your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/). 
 
@@ -36,7 +37,7 @@ To submit an asynchronous job, review the [reference documentation](/rest/api/la
 1. In the `tasks` object, include the operations you want performed on your data. For example, if you wanted to perform sentiment analysis, you would include the `SentimentAnalysisLROTask` object.
 1. You can optionally:
     1. Choose a specific [version of the model](model-lifecycle.md) used on your data.
-    1. Include additional Language Service features in the `tasks` object, to be performed on your data at the same time.   
+    1. Include additional Language ervice features in the `tasks` object, to be performed on your data at the same time.   
 
 Once you've created the JSON body for your request, add your key to the `Ocp-Apim-Subscription-Key` header. Then send your API request to job creation endpoint. For example:
 
@@ -66,6 +67,10 @@ Afterwards, use the client object to send asynchronous calls to the API. The met
 ## Result availability 
 
 When using this feature asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
+
+## Automatic language detection
+
+Starting in version `2022-07-01-preview` of the REST API, you can request automatic [language detection](../language-detection/overview.md) on your documents. By setting the `language` parameter to `auto`, the detected language code of the text will be returned as a language value in the response. This language detection will not incur extra charges to your Language resource.
 
 ## Data limits
 

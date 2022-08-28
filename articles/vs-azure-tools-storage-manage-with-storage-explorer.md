@@ -53,9 +53,9 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 Storage Explorer is also available as a *.tar.gz* download. If you use the *.tar.gz*, you must install dependencies manually. The following distributions of Linux support *.tar.gz* installation:
 
+* Ubuntu 22.04 x64
 * Ubuntu 20.04 x64
 * Ubuntu 18.04 x64
-* Ubuntu 16.04 x64
 
 The *.tar.gz* installation might work on other distributions, but only these listed ones are officially supported.
 
@@ -118,7 +118,7 @@ Storage Explorer lets you connect to individual resources, such as an Azure Data
 | Gen2 directories | Yes      | No                   | Yes (URL)                      | Yes                |
 | File shares      | No       | No                   | Yes (URL)                      | No                 |
 | Queues           | Yes      | No                   | Yes (URL)                      | No                 |
-| Tables           | No       | No                   | Yes (URL)                      | No                 |
+| Tables           | Yes      | No                   | Yes (URL)                      | No                 |
 
 Storage Explorer can also connect to a [local storage emulator](#local-storage-emulator) using the emulator's configured ports.
 

@@ -41,7 +41,8 @@ The exception is if combining data in the same workspace helps you reach a [comm
 If you create separate workspaces for other criteria then you'll usually create additional workspace pairs. For example, if you have two Azure tenants, you may create four workspaces - an operational and security workspace in each tenant.
 
 
-- **If you use both Azure Monitor and Microsoft Sentinal**, create a separate workspace for each. Consider combining the two if it helps you reach a commitment tier.
+- **If you use both Azure Monitor and Microsoft Sentinel**, create a separate workspace for each. Consider combining the two if it helps you reach a commitment tier.
+- **If you use both Microsoft Sentinel and Microsoft Defender for Cloud**, consider using the same workspace for both solutions to keep security data in one place.
 
 
 ### Azure tenants

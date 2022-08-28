@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Active Directory logs with ArcSight us
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: b37bef0d-982e-4e28-86b2-6c61ca524ae1
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/19/2019
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: dhanyahk
 

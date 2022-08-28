@@ -5,7 +5,7 @@ description: Learn how to migrate Azure App Service to availability zone support
 author: anaharris-ms
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 06/07/2022
+ms.date: 08/03/2022
 ms.author: anaharris
 ms.reviewer: jordanselig
 ms.custom: references_regions
@@ -45,6 +45,7 @@ Availability zone support is a property of the App Service plan. The following a
   - France Central
   - UK South
   - Japan East
+  - East Asia
   - Southeast Asia
   - Australia East
 - Availability zones can only be specified when creating a **new** App Service plan. A pre-existing App Service plan can't be converted to use availability zones.
@@ -84,7 +85,7 @@ You can create an App Service with availability zones using the [Azure CLI](/cli
 To enable availability zones using the Azure CLI, include the `--zone-redundant` parameter when you create your App Service plan. You can also include the `--number-of-workers` parameter to specify capacity. If you don't specify a capacity, the platform defaults to three. Capacity should be set based on the workload requirement, but no less than three. A good rule of thumb to choose capacity is to ensure sufficient instances for the application such that losing one zone of instances leaves sufficient capacity to handle expected load.
 
 ```azurecli
-az appservice plan create --resource-group MyResourceGroup --name MyPlan --zone-redundant --number-of-workers 6
+az appservice plan create --resource-group MyResourceGroup --name MyPlan --sku P1v2 --zone-redundant --number-of-workers 6
 ```
 
 > [!TIP]

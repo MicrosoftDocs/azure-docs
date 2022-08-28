@@ -22,6 +22,9 @@
     href: day2-operations-resource-bridge.md
   - name: Remove vCenter from Azure Arc
     href: remove-vcenter-from-arc-vmware.md
+  - name: Perform recovery operations
+    displayName: disaster
+    href: disaster-recovery.md
 - name: Reference
   items:
   - name: Azure CLI

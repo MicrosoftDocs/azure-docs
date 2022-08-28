@@ -129,7 +129,7 @@ Application Insights helps development teams understand app performance and usag
 
 There are many ways to explore Application Insights telemetry. For more information, see the following articles:
 
-- [Smart detection in Application Insights](./proactive-diagnostics.md)
+- [Smart detection in Application Insights](../alerts/proactive-diagnostics.md)
 
   Set up automatic alerts that adapt to your app's normal telemetry patterns and trigger when something is outside the usual pattern. You can also set alerts on specified levels of custom or standard metrics. For more information, see [Create, view, and manage log alerts using Azure Monitor](../alerts/alerts-log.md).
 

@@ -25,7 +25,7 @@ These are the data sources from which the UEBA engine collects and analyzes data
 
 ## UEBA enrichments
 
-This section describes the enrichments UEBA adds to Microsoft Sentinel entities, along with all their details, that you can use to focus and sharpen your security incident investigations. These enrichments are displayed on [entity pages](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) and can be found in the following Log Analytics tables, the contents and schema of which are listed below:
+This section describes the enrichments UEBA adds to Microsoft Sentinel entities, along with all their details, that you can use to focus and sharpen your security incident investigations. These enrichments are displayed on [entity pages](entity-pages.md#how-to-use-entity-pages) and can be found in the following Log Analytics tables, the contents and schema of which are listed below:
 
 - The **BehaviorAnalytics** table is where UEBA's output information is stored.
 
@@ -37,11 +37,11 @@ This section describes the enrichments UEBA adds to Microsoft Sentinel entities,
 
         <a name="baseline-explained"></a>User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activityinsights-field) column in this table.
 
-- The **IdentityInfo** table is where identity information synchronized to UEBA from Azure Active Directory is stored.
+- The **IdentityInfo** table is where identity information synchronized to UEBA from Azure Active Directory (and from on-premises Active Directory via Microsoft Defender for Identity) is stored.
 
 ### BehaviorAnalytics table
 
-The following table describes the behavior analytics data displayed on each [entity details page](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) in Microsoft Sentinel.
+The following table describes the behavior analytics data displayed on each [entity details page](entity-pages.md#how-to-use-entity-pages) in Microsoft Sentinel.
 
 | Field                     | Type     | Description                                                     |
 | ------------------------- | -------- | --------------------------------------------------------------- |

@@ -1,12 +1,12 @@
 ---
 title: Integrate Azure Database for MySQL with Service Connector
 description: Integrate Azure Database for MySQL into your application with Service Connector
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 08/11/2022
+ms.custom: event-tier1-build-2022
 ---
 
 # Integrate Azure Database for MySQL with Service Connector
@@ -17,21 +17,50 @@ This page shows the supported authentication types and client types of Azure Dat
 
 - Azure App Service
 - Azure Container Apps
-- Azure Spring Cloud
+- Azure Spring Apps
 
 ## Supported authentication types and client types
+
+Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+
+### [Azure App Service](#tab/app-service)
 
 | Client type                     | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
 |---------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
 | .NET (MySqlConnector)           |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Go (go-sql-driver for mysql)    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Java (JDBC)                     |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Java - Spring Boot (JDBC)       |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Node.js (mysql)                 |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Python (mysql-connector-python) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Python-Django                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Go (go-sql-driver for mysql)    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | PHP (mysqli)                    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Ruby (mysql2)                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| None                            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+
+### [Azure Container Apps](#tab/container-apps)
+
+| Client type                     | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
+|---------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
+| .NET (MySqlConnector)           |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Go (go-sql-driver for mysql)    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java (JDBC)                     |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot (JDBC)       |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Node.js (mysql)                 |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Python (mysql-connector-python) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Python-Django                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| PHP (mysqli)                    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Ruby (mysql2)                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| None                            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+
+### [Azure Spring Apps](#tab/spring-apps)
+
+| Client type                     | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
+|---------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
+| Java (JDBC)                     |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot (JDBC)       |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+
+---
 
 ## Default environment variable names or application properties
 

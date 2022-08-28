@@ -11,7 +11,7 @@ ms.author: cherylmc
 ---
 # Configure a point-to-site VPN connection using Azure certificate authentication: Azure portal
 
-This article helps you securely connect individual clients running Windows, Linux, or macOS to an Azure VNet. point-to-site VPN connections are useful when you want to connect to your VNet from a remote location, such when you're telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. point-to-site connections don't require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2. For more information about point-to-site VPN, see [About point-to-site VPN](point-to-site-about.md).
+This article helps you securely connect individual clients running Windows, Linux, or macOS to an Azure VNet. point-to-site VPN connections are useful when you want to connect to your VNet from a remote location, such as when you're telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. point-to-site connections don't require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2. For more information about point-to-site VPN, see [About point-to-site VPN](point-to-site-about.md).
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-diagram.png" alt-text="Connect from a computer to an Azure VNet - point-to-site connection diagram.":::
 

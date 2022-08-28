@@ -4,6 +4,7 @@ description: This article lists all releases of Azure AD Connect and Azure AD Sy
 author: billmath
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
+manager: amycolannino
 ms.topic: reference
 ms.workload: identity
 ms.date: 7/6/2022
@@ -76,6 +77,14 @@ Auto-upgrade is meant to push all important updates and critical fixes to you. I
 If you want all the latest features and updates, check this page and install what you need.
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
+
+## 2.1.16.0
+
+### Release status
+8/2/2022: Released for download and auto-upgrade.
+
+### Bug fixes
+ - We fixed a bug where auto-upgrade fails when the service account is in "UPN" format.
 
 ## 2.1.15.0
 
