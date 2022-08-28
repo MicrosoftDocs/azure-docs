@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 ## Reload data from App Configuration
 
-Azure Functions support running [in-process](/azure/azure-functions/functions-dotnet-class-library) or [isolated-process](/azure/azure-functions/dotnet-isolated-process-guide). The main difference in App Configuration usage between the two modes is how the configuration is refreshed. In the in-process mode, you must make a call in each function to refresh the configuration. In the isolated-process mode, there is support for middleware. The App Configuration middleware, `Microsoft.Azure.AppConfiguration.Functions.Worker`, enables the call to refresh configuration automatically before each function is executed.
+Azure Functions support running [in-process](../azure-functions/functions-dotnet-class-library.md) or [isolated-process](../azure-functions/dotnet-isolated-process-guide.md). The main difference in App Configuration usage between the two modes is how the configuration is refreshed. In the in-process mode, you must make a call in each function to refresh the configuration. In the isolated-process mode, there is support for middleware. The App Configuration middleware, `Microsoft.Azure.AppConfiguration.Functions.Worker`, enables the call to refresh configuration automatically before each function is executed.
 
 1. Update the code that connects to App Configuration and add the data refreshing conditions.
 

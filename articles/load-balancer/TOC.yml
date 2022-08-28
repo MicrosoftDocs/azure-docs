@@ -8,12 +8,15 @@
   items:
   - name: Create a public load balancer
     items:
-    - name: Portal 
+    - name: Portal
       href: quickstart-load-balancer-standard-public-portal.md
     - name: PowerShell
       href: quickstart-load-balancer-standard-public-powershell.md
     - name: CLI
       href: quickstart-load-balancer-standard-public-cli.md
+    - name: Bicep
+      displayName: Resource Manager,ARM,template
+      href: quickstart-load-balancer-standard-public-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
@@ -222,7 +225,7 @@
   - name: IPv6
     items:
     - name: Public Load Balancer
-      items: 
+      items:
       - name: Standard Public Load Balancer with IPv6 - PowerShell
         href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
       - name: Standard Public Load Balancer with IPv6 - Azure CLI
@@ -233,20 +236,20 @@
       items:
       - name: Standard Internal Load Balancer with IPv6 - PowerShell
         href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
-    - name: Add IPv6 to existing deployments 
+    - name: Add IPv6 to existing deployments
       items:
       - name: Add IPv6 to an IPv4 application- PowerShell
         href: ipv6-add-to-existing-vnet-powershell.md
       - name: Add IPv6 to an IPv4 application - Azure CLI
-        href: ipv6-add-to-existing-vnet-cli.md 
+        href: ipv6-add-to-existing-vnet-cli.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer
       href: load-balancer-troubleshoot.md
     - name: Health Probe status
-      href: load-balancer-troubleshoot-health-probe-status.md  
+      href: load-balancer-troubleshoot-health-probe-status.md
     - name: Backend pool (VM) traffic
-      href: load-balancer-troubleshoot-backend-traffic.md         
+      href: load-balancer-troubleshoot-backend-traffic.md
     - name: Troubleshoot SNAT exhaustion and connection timeouts
       href: troubleshoot-outbound-connection.md
     - name: Resource health and inbound availability issues

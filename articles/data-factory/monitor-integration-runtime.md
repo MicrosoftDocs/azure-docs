@@ -4,7 +4,7 @@ description: Learn how to monitor different types of integration runtime in Azur
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 08/12/2022
 author: joshuha-msft
 ms.author: joowen 
 ms.custom: devx-track-azurepowershell
@@ -229,7 +229,7 @@ The **NODE SIZE** informational tile shows the SKU (SSIS edition_VM tier_VM seri
 
 The **RUNNING / REQUESTED NODE(S)** informational tile compares the number of nodes currently running to the total number of nodes previously requested for your Azure-SSIS IR.
 
-The **DUAL STANDBY PAIR / ROLE** informational tile shows the name of your dual standby Azure-SSIS IR pair that works in sync with Azure SQL Database managed instance failover group for business continuity and disaster recovery (BCDR) and the current primary/secondary role of your Azure-SSIS IR. When SSISDB failover occurs, your primary and secondary Azure-SSIS IRs will swap roles (see [Configuring your Azure-SSIS IR for BCDR](./configure-bcdr-azure-ssis-integration-runtime.md)).
+The **DUAL STANDBY PAIR / ROLE** informational tile shows the name of your dual standby Azure-SSIS IR pair that works in sync with Azure SQL Managed Instance failover group for business continuity and disaster recovery (BCDR) and the current primary/secondary role of your Azure-SSIS IR. When SSISDB failover occurs, your primary and secondary Azure-SSIS IRs will swap roles (see [Configuring your Azure-SSIS IR for BCDR](./configure-bcdr-azure-ssis-integration-runtime.md)).
 
 The functional tiles are described in more details below.
 

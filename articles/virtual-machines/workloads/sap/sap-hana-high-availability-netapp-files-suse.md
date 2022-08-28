@@ -479,7 +479,7 @@ Follow the steps in, [Setting up Pacemaker on SUSE Enterprise Linux](./high-avai
 
 ### Implement the Python system replication hook SAPHanaSR
 
-This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.  Follow the steps mentioned in, [Implement the Python System Replication hook SAPHanaSR](./sap-hana-high-availability.md#implement-the-python-system-replication-hook-saphanasr)
+This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook.  Follow the steps mentioned in, [Implement the Python System Replication hook SAPHanaSR](./sap-hana-high-availability.md#implement-the-python-system-replication-hook-saphanasr)
 
 
 ## Configure SAP HANA cluster resources

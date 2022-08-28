@@ -20,7 +20,7 @@ With Microsoft Defender for Servers, you can deploy [Microsoft Defender for Endp
 
 You can learn about Defender for Cloud's integration with Microsoft Defender for Endpoint by watching this video from the Defender for Cloud in the Field video series: [Defender for Servers integration with Microsoft Defender for Endpoint](episode-sixteen.md)
 
-For more information about migrating servers from Defender for Endpoint to Defender for Cloud, see the [Microsoft Defender for Endpoint to Microsoft Defender for Cloud Migration Guide](/microsoft-365/security/defender-endpoint/migrating-mde-server-to-cloud&preserve-view=true).
+For more information about migrating servers from Defender for Endpoint to Defender for Cloud, see the [Microsoft Defender for Endpoint to Microsoft Defender for Cloud Migration Guide](/microsoft-365/security/defender-endpoint/migrating-mde-server-to-cloud).
 
 ## Availability
 
@@ -227,7 +227,7 @@ If you've never enabled the integration for Windows, the **Allow Microsoft Defen
 
 ### Enable the MDE unified solution at scale
 
-You can also enable the MDE unified solution at scale through the supplied REST API version 2022-05-01. For full details see the [API documentation](/rest/api/securitycenter/settings/update?tabs=HTTP).
+You can also enable the MDE unified solution at scale through the supplied REST API version 2022-05-01. For full details see the [API documentation](/rest/api/defenderforcloud/settings/update?tabs=HTTP).
 
 This is an example request body for the PUT request to enable the MDE unified solution:
 

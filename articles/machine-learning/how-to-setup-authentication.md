@@ -25,7 +25,7 @@ Learn how to set up authentication to your Azure Machine Learning workspace from
 
 * __Service principal__: You create a service principal account in Azure Active Directory, and use it to authenticate or get a token. A service principal is used when you need an _automated process to authenticate_ to the service without requiring user interaction. For example, a continuous integration and deployment script that trains and tests a model every time the training code changes.
 
-* __Azure CLI session__: You use an active Azure CLI session to authenticate. The Azure CLI extension for Machine Learning (the `ml` extension or CLI v2) is a command line tool for working with Azure Machine Learning. You can log in to Azure via the Azure CLI on your local workstation, without storing credentials in Python code or prompting the user to authenticate. Similarly, you can reuse the same scripts as part of continuous integration and deployment pipelines, while authenticating the Azure CLI with a service principal identity.
+* __Azure CLI session__: You use an active Azure CLI session to authenticate. The Azure CLI extension for Machine Learning (the `ml` extension or CLI v2) is a command line tool for working with Azure Machine Learning. You can sign in to Azure via the Azure CLI on your local workstation, without storing credentials in Python code or prompting the user to authenticate. Similarly, you can reuse the same scripts as part of continuous integration and deployment pipelines, while authenticating the Azure CLI with a service principal identity.
 
 * __Managed identity__: When using the Azure Machine Learning SDK v2 _on a compute instance_ or _on an Azure Virtual Machine_, you can use a managed identity for Azure. This workflow allows the VM to connect to the workspace using the managed identity, without storing credentials in Python code or prompting the user to authenticate. Azure Machine Learning compute clusters can also be configured to use a managed identity to access the workspace when _training models_.
 
@@ -277,8 +277,8 @@ The service principal can also be used to authenticate to the Azure Machine Lear
 For information and samples on authenticating with MSAL, see the following articles:
 
 * JavaScript - [How to migrate a JavaScript app from ADAL.js to MSAL.js](../active-directory/develop/msal-compare-msal-js-and-adal-js.md).
-* Node.js - [How to migrate a Node.js app from ADAL to MSAL](../active-directory/develop/msal-node-migration.md).
-* Python - [ADAL to MSAL migration guide for Python](../active-directory/develop/migrate-python-adal-msal.md).
+* Node.js - [How to migrate a Node.js app from Microsoft Authentication Library to MSAL](../active-directory/develop/msal-node-migration.md).
+* Python - [Microsoft Authentication Library to MSAL migration guide for Python](../active-directory/develop/migrate-python-adal-msal.md).
 
 ## Use managed identity authentication
 
@@ -326,5 +326,4 @@ can require two-factor authentication, or allow sign in only from managed device
 ## Next steps
 
 * [How to use secrets in training](how-to-use-secrets-in-runs.md).
-* [How to configure authentication for models deployed as a web service](how-to-authenticate-web-service.md).
-* [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).
+* [How to authenticate to online endpoints](how-to-authenticate-online-endpoint.md).
