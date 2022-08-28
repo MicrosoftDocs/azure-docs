@@ -44,8 +44,8 @@ Create incidents based on the observed results of hunting activities. For exampl
 There are three ways to create an incident manually:
 
 - [Create an incident using the Azure portal](#create-an-incident-using-the-azure-portal)
-- [Create an incident using the Microsoft Sentinel API](#create-an-incident-using-the-microsoft-sentinel-api), through the [Incidents](/rest/api/securityinsights/preview/incidents) operation group. It allows you to get, create, update, and delete incidents.
 - [Create an incident using Azure Logic Apps](#create-an-incident-using-azure-logic-apps), using the Microsoft Sentinel Incident trigger.
+- [Create an incident using the Microsoft Sentinel API](#create-an-incident-using-the-microsoft-sentinel-api), through the [Incidents](/rest/api/securityinsights/preview/incidents) operation group. It allows you to get, create, update, and delete incidents.
 
 ### Create an incident using the Azure portal
 
