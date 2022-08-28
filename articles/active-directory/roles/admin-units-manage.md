@@ -109,13 +109,26 @@ In Azure AD, you can delete an administrative unit that you no longer need as a 
 
 1. To confirm that you want to delete the administrative unit, select **Yes**.
 
-### PowerShell
+### PowerShell - AzureAD Module
 
 Use the [Remove-AzureADMSAdministrativeUnit](/powershell/module/azuread/remove-azureadmsadministrativeunit) command to delete an administrative unit.
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
 Remove-AzureADMSAdministrativeUnit -Id $adminUnitObj.Id
+```
+### PowerShell - Microsoft Graph PowerShell SDK
+
+```
+Import-Module Microsoft.Graph.Identity.DirectoryManagement
+
+$params = @{
+	DisplayName = "Seattle District Technical Schools"
+	Description = "Seattle district technical schools administration"
+	Visibility = "HiddenMembership"
+}
+
+New-MgDirectoryAdministrativeUnit -BodyParameter $params
 ```
 
 ### Microsoft Graph API
