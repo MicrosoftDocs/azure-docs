@@ -1,17 +1,17 @@
 ---
-title: Using Microsoft Azure PowerShell and Azure CLI to deploy the MedTech service using the Azure portal - Azure Health Data Services
-description: In this article, you'll learn how to use Microsoft Azure PowerShell and Azure CLI to deploy the MedTech service in the Azure portal.
+title: Using Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager template - Azure Health Data Services
+description: In this article, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager template.
 author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/22/2022
+ms.date: 08/27/2022
 ms.author: v-smcevoy
 ---
 
-# Using Microsoft Azure PowerShell and Azure CLI to deploy of the MedTech service using the Azure portal
+# Using Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager template
 
-In this quickstart, you'll learn how to use an Azure Resource Manager (ARM) template to deploy the MedTech service using either Azure PowerShell or the Azure Command-Line Interface (CLI).
+In this quickstart, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
