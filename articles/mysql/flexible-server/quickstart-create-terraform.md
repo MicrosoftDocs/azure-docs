@@ -7,7 +7,7 @@ ms.topic: quickstart
 author: shreyaaithal
 ms.author: shaithal
 ms.custom: devx-track-terraform
-ms.date: 8/23/2022
+ms.date: 8/28/2022
 ---
 
 # Quickstart: Use Terraform to create an Azure Database for MySQL - Flexible Server
