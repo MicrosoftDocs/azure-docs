@@ -5,7 +5,7 @@ services: web-application-firewall
 author: mohitkusecurity
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 08/16/2022
+ms.date: 08/28/2022
 ms.author: mohitku
 ms.reviewer: victorh 
 ms.custom: devx-track-azurepowershell
@@ -70,9 +70,9 @@ Now, let's check the information in the `details` field. This is where you can s
 ```json
 {
     "time": "2020-09-24T16:43:04.5422943Z",
-    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.NETWORK/FRONTDOORS/AFDWAFDEMOSITE",
+    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.CDN/PROFILES/AFDWAFDEMOSITE",
     "category": "FrontDoorWebApplicationFirewallLog",
-    "operationName": "Microsoft.Network/FrontDoor/WebApplicationFirewallLog/Write",
+    "operationName": "Microsoft.Cdn/Profiles/WebApplicationFirewallLog/Write",
     "properties": {
         "clientIP": "1.1.1.1",
         "clientPort": "53566",
@@ -144,9 +144,9 @@ You can see these are related logs based on the `trackingReference` value being 
 ```json
 {
     "time": "2020-09-24T16:43:04.5430764Z",
-    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.NETWORK/FRONTDOORS/AFDWAFDEMOSITE",
+    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.CDN/PROFILES/AFDWAFDEMOSITE",
     "category": "FrontDoorAccessLog",
-    "operationName": "Microsoft.Network/FrontDoor/AccessLog/Write",
+    "operationName": "Microsoft.Cdn/Profiles/AccessLog/Write",
     "properties": {
         "trackingReference": "0mMxsXwAAAABEalekYeI4S55qpi5R7R0/V1NURURHRTA4MTIAZGI4NGQzZDgtNWQ5Ny00ZWRkLTg2ZGYtZDJjNThlMzI2N2I4",
         "httpMethod": "POST",
@@ -333,9 +333,9 @@ In this example, you can see the rule that blocked the request (with the same Tr
 ```json
 {
     "time": "2020-09-24T16:43:04.5422943Z",
-    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.NETWORK/FRONTDOORS/AFDWAFDEMOSITE",
+    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.CDN/PROFILES/AFDWAFDEMOSITE",
     "category": "FrontDoorWebApplicationFirewallLog",
-    "operationName": "Microsoft.Network/FrontDoor/WebApplicationFirewallLog/Write",
+    "operationName": "Microsoft.Cdn/Profiles/WebApplicationFirewallLog/Write",
     "properties": {
         "clientIP": "1.1.1.1",
         "clientPort": "53566",
