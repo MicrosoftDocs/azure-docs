@@ -271,7 +271,7 @@ To configure your storage account:
     ```powershell
     Connect-AzAccount -Tenant $tenantId -SubscriptionId $subscriptionId
 
-    $AdModule = Get-Module ActiveDirectory;
+    $AdModule = Get-Module ActiveDirectory -ListAvailable;
 	if ($null -eq $AdModule) {
         Write-Error "Please install and/or import the ActiveDirectory PowerShell module." -ErrorAction Stop;
     }
