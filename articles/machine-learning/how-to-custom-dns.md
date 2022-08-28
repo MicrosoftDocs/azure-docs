@@ -595,4 +595,4 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 
 For information on integrating Private Endpoints into your DNS configuration, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
-For information on deploying models with a custom DNS name or TLS security, see [Secure web services using TLS](how-to-secure-web-service.md).
+For information on deploying models with a custom DNS name or TLS security, see [Secure web services using TLS](./v1/how-to-secure-web-service.md).

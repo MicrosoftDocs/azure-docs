@@ -56,6 +56,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust-github.md",
+      "redirect_url": "/azure/active-directory/develop/workload-identity-federation-create-trust",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-limitations.md",
       "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
       "redirect_document_id": false
@@ -2033,7 +2038,7 @@
     {
       "source_path_from_root": "/articles/active-directory/conditional-access/conditional-access-for-exo-and-spo.md",
       "redirect_url": "/azure/active-directory/conditional-access/block-legacy-authentication",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/conditional-access/baseline-protection.md",
@@ -2422,7 +2427,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-graph-api.md",
-      "redirect_url": "https://docs.microsoft.com/graph/migrate-azure-ad-graph-planning-checklist",
+      "redirect_url": "/graph/migrate-azure-ad-graph-planning-checklist",
       "redirect_document_id": false
     },
     {
@@ -2795,7 +2800,7 @@
       "redirect_url": "/azure/active-directory/develop/howto-authenticate-service-principal-powershell",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-devhowto-multi-tenant-overview.md",
       "redirect_url": "/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant",
@@ -4248,7 +4253,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/conditional-access/concept-conditional-access-block-legacy-authentication.md",
-      "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-block-legacy-authentication",
+      "redirect_url": "/azure/active-directory/conditional-access/block-legacy-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/concept-fundamentals-block-legacy-authentication.md",
+      "redirect_url": "/azure/active-directory/conditional-access/block-legacy-authentication",
       "redirect_document_id": true
     },
     {
@@ -10827,8 +10837,13 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/recover-deleted-apps-faq.md",
+      "source_path": "articles/active-directory/manage-apps/recover-deleted-apps-faq.md",
       "redirect_url": "/azure/active-directory/manage-apps/delete-recover-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-percept/voice-control-your-inventory-then-visualize-with-power-bi-dashboard.md",
+      "redirect_url": "/azure/azure-percept/index",
       "redirect_document_id": false
     }
 

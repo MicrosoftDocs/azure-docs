@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart - Deploy a model and generate text using Azure OpenAI'
 titleSuffix: Azure OpenAI
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions and search calls.
+description: Walkthrough on how to get started with Azure OpenAI and make your first completions call.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services

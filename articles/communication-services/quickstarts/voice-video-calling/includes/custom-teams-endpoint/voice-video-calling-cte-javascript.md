@@ -2,7 +2,7 @@
 author: xixian73
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 07/26/2021
+ms.date: 08/02/2022
 ms.author: xixian
 ---
 
@@ -10,7 +10,7 @@ Get started with Azure Communication Services by using the Communication Service
 
 ## Sample Code
 
-If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
+If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-cte-video-calling).
 
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -28,10 +28,10 @@ mkdir calling-quickstart && cd calling-quickstart
 ### Install the package
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 > [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `1.5.4-beta.1`.
+> This quickstart uses the Azure Communication Services Calling SDK version `1.7.0-beta.1`.
 ```console
 npm install @azure/communication-common --save
-npm install @azure/communication-calling@1.5.4-beta.1 --save
+npm install @azure/communication-calling@1.7.0-beta.1 --save
 ```
 ### Set up the app framework
 This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:

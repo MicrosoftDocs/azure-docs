@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise Tier
 description: How to use Application Configuration Service for Tanzu with Azure Spring Apps Enterprise Tier.
 author: karlerickson
 ms.author: xiading
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 02/09/2022
 ms.custom: devx-track-java, event-tier1-build-2022
@@ -84,6 +84,9 @@ The following image shows the three types of repository authentication supported
    | Host key                 | No        | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
    | Host key algorithm       | No        | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
    | Strict host key checking | No        | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
+
+> [!NOTE]
+> Application Configuration Service for Tanzu doesn't support SHA-2 signatures yet and we are actively working on to support it in future release. Before that, please use SHA-1 signatures or basic auth instead.
 
 To validate access to the target URI, select **Validate**. After validation completes successfully, select **Apply** to update the configuration settings.
 

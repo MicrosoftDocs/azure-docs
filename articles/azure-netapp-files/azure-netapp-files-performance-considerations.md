@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/26/2021
+ms.date: 08/02/2022
 ms.author: anfdocs
 ---
 # Performance considerations for Azure NetApp Files
@@ -21,7 +21,7 @@ The [throughput limit](azure-netapp-files-service-levels.md) for a volume with a
 
 ## Quota and throughput  
 
-The throughput limit is only one determinant of the actual performance that will be realized.  
+Throughput limits are a combination of read and write speed. The throughput limit is only one determinant of the actual performance that will be realized.  
 
 Typical storage performance considerations, including read and write mix, the transfer size, random or sequential patterns, and many other factors will contribute to the total performance delivered. 
 

@@ -2,7 +2,7 @@
 title: Introduction to Azure Spring Apps
 description: Learn the features and benefits of Azure Spring Apps to deploy and manage Java Spring applications in Azure.
 author: karlerickson
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: overview
 ms.date: 03/09/2021
 ms.author: karler

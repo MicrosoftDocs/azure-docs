@@ -188,7 +188,7 @@ ws.compute_targets['Synapse Spark pool alias']
 
 ## Next steps
 
-* [How to data wrangle with Azure Synapse (preview)](how-to-data-prep-synapse-spark-pool.md).
-* [How to use Apache Spark in your machine learning pipeline with Azure Synapse (preview)](how-to-use-synapsesparkstep.md)
-* [Train a model](how-to-set-up-training-targets.md).
+* [How to data wrangle with Azure Synapse (preview)](v1/how-to-data-prep-synapse-spark-pool.md).
+* [How to use Apache Spark in your machine learning pipeline with Azure Synapse (preview)](v1/how-to-use-synapsesparkstep.md)
+* [Train a model](v1/how-to-set-up-training-targets.md).
 * [How to securely integrate Azure Synapse and Azure Machine Learning workspaces](how-to-private-endpoint-integration-synapse.md).

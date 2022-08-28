@@ -1,9 +1,9 @@
 ---
-title: Introduction to Microsoft Entra Verified ID (preview)
+title: Introduction to Microsoft Entra Verified ID
 description: An overview Azure Verifiable Credentials.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor:
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
@@ -13,14 +13,9 @@ ms.author: barclayn
 ms.reviewer: 
 ---
 
-# Introduction to Microsoft Entra Verified ID (preview)
+# Introduction to Microsoft Entra Verified ID
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
-
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Our digital and physical lives are increasingly linked to the apps, services, and devices we use to access a rich set of experiences. This digital transformation allows us to interact with hundreds of companies and thousands of other users in ways that were previously unimaginable.
 
@@ -85,10 +80,10 @@ In order to be able to resolve DID documents, DIDs are typically recorded on an 
 Enables real people to use decentralized identities and Verifiable Credentials. Authenticator creates DIDs, facilitates issuance and presentation requests for verifiable credentials and manages the backup of your DID's seed through an encrypted wallet file.
 
 **4. Microsoft Resolver**.
-An API that connects to our ION node to look up and resolve DIDs using the ```did:ion``` method and return the DID Document Object (DDO). The DDO includes DPKI metadata associated with the DID such as public keys and service endpoints. 
+An API that look up and resolve DIDs using the ```did:web``` or the ```did:ion``` methods and return the DID Document Object (DDO). The DDO includes DPKI metadata associated with the DID such as public keys and service endpoints. 
 
-**5. Azure Active Directory Verified Credentials Service**.
-An issuance and verification service in Azure and a REST API for [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) that are signed with the ```did:ion``` method. They enable identity owners to generate, present, and verify claims. This forms the basis of trust between users of the systems.
+**5. Entra Verified ID Service**.
+An issuance and verification service in Azure and a REST API for [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) that are signed with the ```did:web``` or the ```did:ion``` method. They enable identity owners to generate, present, and verify claims. This forms the basis of trust between users of the systems.
 
 ## A sample scenario
 

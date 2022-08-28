@@ -4,7 +4,7 @@ description: Understand planning for an Azure Files deployment. You can either d
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/19/2022
+ms.date: 08/02/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
@@ -41,6 +41,20 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 | Symbolic link support | Not supported | Supported |
 | Optionally internet accessible | Yes (SMB 3.0+ only) | No |
 | Supports FileREST | Yes | Subset: <br /><ul><li>[Operations on the `FileService`](/rest/api/storageservices/operations-on-the-account--file-service-)</li><li>[Operations on `FileShares`](/rest/api/storageservices/operations-on-shares--file-service-)</li><li>[Operations on `Directories`](/rest/api/storageservices/operations-on-directories)</li><li>[Operations on `Files`](/rest/api/storageservices/operations-on-files)</li></ul> |
+| Mandatory lock/advisory byte range lock | Not supported | Supported |
+| Extended/named attributes | Not supported | Not supported |
+| Alternate data streams | Not supported | N/A |
+| Object identifiers | Not supported | N/A |
+| Reparse points | Not supported | N/A |
+| Sparse files | Not supported | N/A |
+| Compression | Not supported | N/A |
+| Named pipes | Not supported | N/A |
+| SMB Direct | Not supported | N/A |
+| SMB Directory Leasing | Not supported | N/A |
+| Volume Shadow Copy | Not supported | N/A |
+| Short file names (8.3 alias ) | Not supported | N/A |
+| Server service | Not supported | N/A |
+| File system transactions (TxF) | Not supported | N/A |
 
 ## Management concepts
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
@@ -104,9 +118,9 @@ For more information about encryption in transit, see [requiring secure transfer
 Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats.
 
 ### Soft delete
-Soft delete for file shares is a storage-account level setting that allows you to recover your file share when it is accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it's permanently deleted, and undelete the share anytime during this retention period. 
+Soft delete is a storage-account level setting for SMB file shares that allows you to recover your file share when it's accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it's permanently deleted, and undelete the share anytime during this retention period. 
 
-We recommend turning on soft delete for most file shares. If you have a workflow where share deletion is common and expected, you may decide to have a short retention period or not have soft delete enabled at all.
+We recommend turning on soft delete for most SMB file shares. If you have a workflow where share deletion is common and expected, you may decide to have a short retention period or not have soft delete enabled at all. Soft delete doesn't work for NFS shares, even if it's enabled for the storage account.
 
 For more information about soft delete, see [Prevent accidental data deletion](./storage-files-prevent-file-share-deletion.md).
 
