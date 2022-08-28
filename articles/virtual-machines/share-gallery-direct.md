@@ -47,6 +47,7 @@ During the preview:
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 - PowerShell, Ansible, and Terraform aren't supported at this time.
 - Not available in Government clouds
+- For consuming direct shared images in target subscription, Direct shared images can be found from VM/VMSS creation blade only.
 - **Known issue**: When creating a VM from a direct shared image using the Azure portal, if you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 
 ## Prerequisites
