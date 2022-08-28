@@ -15,17 +15,15 @@ ms.date: 08/17/2022
 >
 > Manual incident creation is generally available using the API.
 
-With Microsoft Sentinel as your SIEM, your SOC’s threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents are either generated automatically by detection mechanisms that operate on the logs and alerts that Sentinel ingests from its connected data sources, or imported directly from other connected Microsoft security services (such as [Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md)).
+With Microsoft Sentinel as your SIEM, your SOC’s threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents have two main sources: 
 
-- ***(MICHAL - OPTION B:)***
+- They are generated automatically by detection mechanisms that operate on the logs and alerts that Sentinel ingests from its connected data sources.
 
-    With Microsoft Sentinel as your SIEM, your SOC’s threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents have two main sources: 
-    - They are generated automatically by detection mechanisms that operate on the logs and alerts that Sentinel ingests from its connected data sources.
-    - They are imported directly from other connected Microsoft security services (such as [Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md)).
+- They are ingested directly from other connected Microsoft security services (such as [Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md)) that created them.
 
 There can, however, be data from other sources – *besides those ingested into Microsoft Sentinel* – that justify creating an incident to be investigated. For example, an employee might witness an unrecognized person engaging in suspicious activity related to the organization’s information assets, and this employee might call or email the SOC to report the activity.
 
-For this reason, Microsoft Sentinel allows security analysts to manually create incidents from the user interface, for any type of event, regardless of its source or associated data.
+For this reason, Microsoft Sentinel allows security analysts to manually create incidents for any type of event, regardless of its source or associated data.
 
 ## Common use cases
 
@@ -100,6 +98,29 @@ Select the incident in the queue to see its full details, add bookmarks, change 
 
 If for some reason you change your mind after the fact about creating the incident, you can [delete it](delete-incident.md) from the queue grid, or from within the incident itself.
 
+### Create an incident using Azure Logic Apps
+
+Creating an incident is also available as a Logic Apps action in the Microsoft Sentinel connector, and therefore in Microsoft Sentinel [playbooks](tutorial-respond-threats-playbook.md).
+
+You can find the **Create incident (preview)** action in the playbook schema for the incident trigger.
+
+:::image type="content" source="media/create-incident-manually/create-incident-logicapp-action.png" alt-text="Screenshot of create incident logic app action in Microsoft Sentinel connector.":::
+
+You need to supply parameters as described below:
+
+- Select your **Subscription**, **Resource group**, and **Workspace name** from their respective drop-downs.
+
+- For the remaining fields, see the explanations above (under [Create an incident using the Azure portal](#create-an-incident-using-the-azure-portal)).
+
+    :::image type="content" source="media/create-incident-manually/create-incident-logicapp-parameters.png" alt-text="Screenshot of create incident action parameters in Microsoft Sentinel connector.":::
+
+Microsoft Sentinel supplies sample playbook templates that shows you how to work with this capability:
+
+- **Create incident with Microsoft Form**
+- **Create incident from shared email inbox**
+
+You can find them in the playbook templates gallery on the Microsoft Sentinel **Automation** page.
+
 ### Create an incident using the Microsoft Sentinel API
 
 The [Incidents](/rest/api/securityinsights/preview/incidents) operation group allows you not only to create, but also to [update (edit)](/rest/api/securityinsights/preview/incidents/create-or-update), [get (retrieve)](/rest/api/securityinsights/preview/incidents/get), [list](/rest/api/securityinsights/preview/incidents/list), and [delete](/rest/api/securityinsights/preview/incidents/delete) incidents.
@@ -131,29 +152,6 @@ Here's an example of what a request body might look like:
   }
 }
 ```
-
-### Create an incident using Azure Logic Apps
-
-Creating an incident is also available as a Logic Apps action in the Microsoft Sentinel connector, and therefore in Microsoft Sentinel [playbooks](tutorial-respond-threats-playbook.md).
-
-You can find the **Create incident (preview)** action in the playbook schema for the incident trigger.
-
-:::image type="content" source="media/create-incident-manually/create-incident-logicapp-action.png" alt-text="Screenshot of create incident logic app action in Microsoft Sentinel connector.":::
-
-You need to supply parameters as described below:
-
-- Select your **Subscription**, **Resource group**, and **Workspace name** from their respective drop-downs.
-
-- For the remaining fields, see the explanations above (under [Create an incident using the Azure portal](#create-an-incident-using-the-azure-portal)).
-
-    :::image type="content" source="media/create-incident-manually/create-incident-logicapp-parameters.png" alt-text="Screenshot of create incident action parameters in Microsoft Sentinel connector.":::
-
-Microsoft Sentinel supplies sample playbook templates that shows you how to work with this capability:
-
-- **Create incident with Microsoft Form**
-- **Create incident from shared email inbox**
-
-You can find them in the playbook templates gallery on the Microsoft Sentinel **Automation** page.
 
 ## Notes
 
