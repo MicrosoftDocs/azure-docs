@@ -72,7 +72,7 @@ The following shows an example log entry:
 {
   "time": "2020-06-09T22:32:17.8383427Z",
   "category": "FrontDoorAccessLog",
-  "operationName": "Microsoft.Network/FrontDoor/AccessLog/Write",
+  "operationName": "Microsoft.Cdn/Profiles/AccessLog/Write",
   "properties": {
     "trackingReference": "08Q3gXgAAAAAe0s71BET/QYwmqtpHO7uAU0pDRURHRTA1MDgANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
     "httpMethod": "GET",
@@ -153,7 +153,7 @@ The following table shows the values logged for each request:
 | Property  | Description |
 | ------------- | ------------- |
 | Action |Action taken on the request. Logs include requests with all actions. Metrics include requests with all actions except *Log*.|
-| ClientIp | The IP address of the client that made the request. If there was an `X-Forwarded-For` header in the request, the client IP address is taken from that header field instead. |
+| ClientIP | The IP address of the client that made the request. If there was an `X-Forwarded-For` header in the request, the client IP address is taken from that header field instead. |
 | ClientPort | The IP port of the client that made the request. |
 | Details | Additional details on the request, including any threats that were detected. <br />matchVariableName:   HTTP parameter name of the request matched, for example, header names (up to 100 characters maximum).<br /> matchVariableValue:  Values that triggered the match (up to 100 characters maximum). |
 | Host | The `Host` header of the request. |
@@ -161,20 +161,10 @@ The following table shows the values logged for each request:
 | PolicyMode | Operations mode of the WAF policy. Possible values are `Prevention` and `Detection`. |
 | RequestUri | Full URI of the request. |
 | RuleName | The name of the WAF rule that the request matched. |
-| SocketIp | The source IP address seen by WAF. This IP address is based on the TCP session, and does not consider any request headers. |
+| SocketIP | The source IP address seen by WAF. This IP address is based on the TCP session, and does not consider any request headers. |
 | TrackingReference | The unique reference string that identifies a request served by Front Door. This value is sent to the client in the `X-Azure-Ref` response header. Use this field when searching for a specific request in the log. |
 
 The following example query shows the requests that were blocked by the Front Door WAF:
-
-::: zone pivot="front-door-classic"
-
-```kusto
-AzureDiagnostics
-| where ResourceType == "FRONTDOORS" and Category == "FrontdoorWebApplicationFirewallLog"
-| where action_s == "Block"
-```
-
-::: zone-end
 
 ::: zone pivot="front-door-standard-premium"
 
@@ -186,7 +176,51 @@ AzureDiagnostics
 
 ::: zone-end
 
+::: zone pivot="front-door-classic"
+
+```kusto
+AzureDiagnostics
+| where ResourceType == "FRONTDOORS" and Category == "FrontdoorWebApplicationFirewallLog"
+| where action_s == "Block"
+```
+
+::: zone-end
+
 The following shows an example log entry, including the reason that the request was blocked:
+
+::: zone pivot="front-door-standard-premium"
+
+```json
+{
+  "time": "2020-06-09T22:32:17.8376810Z",
+  "category": "FrontdoorWebApplicationFirewallLog",
+  "operationName": "Microsoft.Cdn/Profiles/Write",
+  "properties": {
+    "clientIP": "xxx.xxx.xxx.xxx",
+    "clientPort": "52097",
+    "socketIP": "xxx.xxx.xxx.xxx",
+    "requestUri": "https://wafdemofrontdoorwebapp.azurefd.net:443/?q=%27%20or%201=1",
+    "ruleName": "Microsoft_DefaultRuleSet-1.1-SQLI-942100",
+    "policy": "WafDemoCustomPolicy",
+    "action": "Block",
+    "host": "wafdemofrontdoorwebapp.azurefd.net",
+    "trackingReference": "08Q3gXgAAAAAe0s71BET/QYwmqtpHO7uAU0pDRURHRTA1MDgANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
+    "policyMode": "prevention",
+    "details": {
+      "matches": [
+        {
+          "matchVariableName": "QueryParamValue:q",
+          "matchVariableValue": "' or 1=1"
+        }
+      ]
+    }
+  }
+}
+```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
 
 ```json
 {
@@ -215,6 +249,8 @@ The following shows an example log entry, including the reason that the request 
   }
 }
 ```
+
+::: zone-end
 
 ## Next steps
 
