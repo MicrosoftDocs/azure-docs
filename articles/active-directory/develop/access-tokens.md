@@ -219,7 +219,7 @@ The `alg` claim indicates the algorithm that was used to sign the token, while t
 
 At any given point in time, Azure AD may sign an ID token using any one of a certain set of public-private key pairs. Azure AD rotates the possible set of keys on a periodic basis, so the application should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by Azure AD is every 24 hours.
 
-Acquire the signing key data necessary to validate the signature by using the [OpenID Connect metadata document](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document) located at:
+Acquire the signing key data necessary to validate the signature by using the [OpenID Connect metadata document](v2-protocols-oidc.md#fetch-the-openid-configuration-document) located at:
 
 ```
 https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
