@@ -121,7 +121,11 @@
   - name: Security
     items:
     - name: Multi-user authorization
-      href: multi-user-authorization-concept.md
+      items:
+      - name: Recovery Services vault
+        href: multi-user-authorization-concept.md
+      - name: Backup vault
+        href: multi-user-authorization-backup-vault-concept.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices
@@ -578,8 +582,12 @@
       href: security-overview.md
     - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
-    - name: Multi-user authorization using Resource Guard
-      href: multi-user-authorization.md
+    - name: Configure Multi-user authorization using Resource Guard
+      items:
+      - name: Recovery Services vault
+        href: multi-user-authorization.md
+      - name: Backup vault
+        href: multi-user-authorization-configure-for-backup-vault.md
     - name: Soft delete
       items:
       - name: Overview

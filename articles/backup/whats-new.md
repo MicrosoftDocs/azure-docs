@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 09/07/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -16,6 +16,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- September 2022
+  - [Multi-user authorization using Resource Guard for Backup vault (in preview)](#multi-user-authorization-using-resource-guard-for-backup-vault-in-preview)
 - June 2022
   - [Multi-user authorization using Resource Guard is now generally available](#multi-user-authorization-using-resource-guard-is-now-generally-available)
 - May 2022
@@ -41,6 +43,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Multi-user authorization using Resource Guard for Backup vault (in preview)
+
+Azure Backup now supports multi-user authorization (MUA) that allows you to add an additional layer of protection to critical operations on your Backup vaults. For MUA, Azure Backup uses the Azure resource, Resource Guard, to ensure critical operations are performed only with applicable authorization.
+
+For more information, see the [overview of MUA for Backup vault](multi-user-authorization-backup-vault-concept.md).
 
 ## Multi-user authorization using Resource Guard is now generally available
  

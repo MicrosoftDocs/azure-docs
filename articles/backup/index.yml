@@ -59,10 +59,6 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Azure Blobs backup
-            url: blob-backup-overview.md
-          - text: Azure Disk Backup
-            url: disk-backup-overview.md
           - text: Backup Center
             url: backup-center-overview.md
           - text: Backup Azure Database for PostgreSQL 
@@ -75,10 +71,12 @@ landingContent:
             url: backup-support-matrix-iaas.md#vm-storage-support
           - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
-          - text: Multi-user authorization (MUA)
+          - text: Multi-user authorization (MUA) for Recovery Services vault
             url: multi-user-authorization.md
           - text: SQL Server on Azure VMs restore as files
             url: restore-sql-database-azure-vm.md#restore-as-files
+          - text: Multi-user authorization (MUA) for Backup vault
+            url: multi-user-authorization-backup-vault-concept.md
   # Card
   - title: Back up Azure VMs
     linkLists:
