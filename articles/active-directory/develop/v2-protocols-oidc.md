@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 # OpenID Connect on the Microsoft identity platform
 
-OpenID Connect (OIDC) extends the OAuth 2.0 authorization protocol for use also as an authentication protocol. You can use OIDC to enable single sign-on (SSO) between your OAuth-enabled applications through the use of a security token called an *ID token*.
+OpenID Connect (OIDC) extends the OAuth 2.0 authorization protocol for use also as an authentication protocol. You can use OIDC to enable single sign-on (SSO) between your OAuth-enabled applications by using a security token called an *ID token*.
 
 The full specification for OIDC is available on the OpenID Foundation's website at [OpenID Connect Core 1.0 specification](https://openid.net/specs/openid-connect-core-1_0.html).
 
@@ -50,11 +50,15 @@ Requesting an ID token by specifying a `response_type` of `id_token` is explaine
 
 ## Fetch the OpenID configuration document
 
-OpenID providers like the Microsoft identity platform provide an [OpenID Provider Configuration Document](https://openid.net/specs/openid-connect-discovery-1_0.html) at a publicly accessible endpoint containing the provider's OIDC endpoints, supported claims, and other metadata. Client applications can use the metadata to discover the URLs to use for authentication and the authentication service's public signing keys, among other things. It's more common (and recommended) to use an existing authentication library in your app for working with the OpenID Connect configuration document than hand-coding the requests and response handling in your application.
+OpenID providers like the Microsoft identity platform provide an [OpenID Provider Configuration Document](https://openid.net/specs/openid-connect-discovery-1_0.html) at a publicly accessible endpoint containing the provider's OIDC endpoints, supported claims, and other metadata. Client applications can use the metadata to discover the URLs to use for authentication and the authentication service's public signing keys, among other things.
 
-Every app registration in Azure AD is provided a publicly accessible endpoint and URI that serves its OpenID configuration document. To determine the OpenID configuration document URI for your app, append the configuration document path to your app registration's _authority URL_.
+Authentication libraries are the most common consumers of the OpenID configuration document, which they use for discovery of authentication URLs, the provider's public signing keys, and other service metadata. If you use an authentication library in your app (recommended), you likely won't need to hand-code requests to and responses from the OpenID configuration document endpoint.
 
-* Configuration document path: `/.well-known/openid-configuration`
+### Find your app's OpenID configuration document URI
+
+Every app registration in Azure AD is provided a publicly accessible endpoint that serves its OpenID configuration document. To determine the URI of the configuration document's endpoint for your app, append the *well-known OpenID configuration* path to your app registration's *authority URL*.
+
+* Well-known configuration document path: `/.well-known/openid-configuration`
 * Authority URL: `https://login.microsoftonline.com/{tenant}/v2.0`
 
 The value of `{tenant}` varies based on the application's sign-in audience as shown in the following table. The authority URL also varies by [cloud instance](authentication-national-cloud.md#azure-ad-authentication-endpoints).
@@ -64,7 +68,7 @@ The value of `{tenant}` varies based on the application's sign-in audience as sh
 | `common` |Users with both a personal Microsoft account and a work or school account from Azure AD can sign in to the application. |
 | `organizations` |Only users with work or school accounts from Azure AD can sign in to the application. |
 | `consumers` |Only users with a personal Microsoft account can sign in to the application. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Only users from a specific Azure AD tenant (either members of the directory with a work or school account or guests in the directory with a personal Microsoft account) can sign in to the application. <br/><br/>The value can be the domain name of the Azure AD tenant or the tenant ID in GUID format. You can also use the consumer tenant GUID, `9188040d-6c67-4c5b-b112-36a304b66dad`, in place of `consumers`.  |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Only users from a specific Azure AD tenant (directory members with a work or school account or directory guests with a personal Microsoft account) can sign in to the application. <br/><br/>The value can be the domain name of the Azure AD tenant or the tenant ID in GUID format. You can also use the consumer tenant GUID, `9188040d-6c67-4c5b-b112-36a304b66dad`, in place of `consumers`.  |
 
 You can also find your app's OpenID configuration document URI in its app registration in the Azure portal.
 
@@ -140,7 +144,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `nonce` | Required | A value included in the request, generated by the app, that will be included in the resulting id_token value as a claim. The app can verify this value to mitigate token replay attacks. The value typically is a randomized, unique string that can be used to identify the origin of the request. |
 | `response_mode` | Recommended | Specifies the method that should be used to send the resulting authorization code back to your app. Can be `form_post` or `fragment`. For web applications, we recommend using `response_mode=form_post`, to ensure the most secure transfer of tokens to your application. |
 | `state` | Recommended | A value included in the request that also will be returned in the token response. It can be a string of any content you want. A randomly generated unique value typically is used to [prevent cross-site request forgery attacks](https://tools.ietf.org/html/rfc6749#section-10.12). The state also is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view the user was on. |
-| `prompt` | Optional | Indicates the type of user interaction that is required. The only valid values at this time are `login`, `none`, `consent`, and `select_account`. The `prompt=login` claim forces the user to enter their credentials on that request, which negates single sign-on. The `prompt=none` parameter is the opposite, and should be paired with a `login_hint` to indicate which user must be signed in. These parameters ensure that the user isn't presented with any interactive prompt at all. If the request can't be completed silently via single sign-on (because no user is signed in, the hinted user isn't signed in, or there are multiple users signed in and no hint is provided), the Microsoft identity platform returns an error. The `prompt=consent` claim triggers the OAuth consent dialog after the user signs in. The dialog asks the user to grant permissions to the app. Finally, `select_account` shows the user an account selector, negating silent SSO but allowing the user to pick which account they intend to sign in with, without requiring credential entry. You cannot use `login_hint` and `select_account` together.|
+| `prompt` | Optional | Indicates the type of user interaction that is required. The only valid values at this time are `login`, `none`, `consent`, and `select_account`. The `prompt=login` claim forces the user to enter their credentials on that request, which negates single sign-on. The `prompt=none` parameter is the opposite, and should be paired with a `login_hint` to indicate which user must be signed in. These parameters ensure that the user isn't presented with any interactive prompt at all. If the request can't be completed silently via single sign-on, the Microsoft identity platform returns an error. Causes include no signed-in user, the hinted user isn't signed in, or multiple users are signed in but no hint was provided. The `prompt=consent` claim triggers the OAuth consent dialog after the user signs in. The dialog asks the user to grant permissions to the app. Finally, `select_account` shows the user an account selector, negating silent SSO but allowing the user to pick which account they intend to sign in with, without requiring credential entry. You cannot use `login_hint` and `select_account` together.|
 | `login_hint` | Optional | You can use this parameter to pre-fill the username and email address field of the sign-in page for the user, if you know the username ahead of time. Often, apps use this parameter during reauthentication, after already extracting the `login_hint` [optional claim](active-directory-optional-claims.md) from an earlier sign-in. |
 | `domain_hint` | Optional | The realm of the user in a federated directory.  This skips the email-based discovery process that the user goes through on the sign-in page, for a slightly more streamlined user experience. For tenants that are federated through an on-premises directory like AD FS, this often results in a seamless sign-in because of the existing login session. |
 
@@ -188,21 +192,26 @@ The following table describes error codes that can be returned in the `error` pa
 
 | Error code | Description | Client action |
 | --- | --- | --- |
-| `invalid_request` | Protocol error, such as a missing, required parameter. |Fix and resubmit the request. This is a development error that typically is caught during initial testing. |
-| `unauthorized_client` | The client application can't request an authorization code. |This usually occurs when the client application isn't registered in Azure AD or isn't added to the user's Azure AD tenant. The application can prompt the user with instructions to install the application and add it to Azure AD. |
+| `invalid_request` | Protocol error like a missing required parameter. |Fix and resubmit the request. This development error should be caught during application testing. |
+| `unauthorized_client` | The client application can't request an authorization code. |This error can occur when the client application isn't registered in Azure AD or isn't added to the user's Azure AD tenant. The application can prompt the user with instructions to install the application and add it to Azure AD. |
 | `access_denied` | The resource owner denied consent. |The client application can notify the user that it can't proceed unless the user consents. |
-| `unsupported_response_type` |The authorization server does not support the response type in the request. |Fix and resubmit the request. This is a development error that typically is caught during initial testing. |
+| `unsupported_response_type` |The authorization server does not support the response type in the request. |Fix and resubmit the request. This development error should be caught during application testing. |
 | `server_error` | The server encountered an unexpected error. |Retry the request. These errors can result from temporary conditions. The client application might explain to the user that its response is delayed because of a temporary error. |
 | `temporarily_unavailable` | The server is temporarily too busy to handle the request. |Retry the request. The client application might explain to the user that its response is delayed because of a temporary condition. |
-| `invalid_resource` | The target resource is invalid because either it does not exist, Azure AD can't find it, or it isn't correctly configured. |This indicates that the resource, if it exists, hasn't been configured in the tenant. The application can prompt the user with instructions for installing the application and adding it to Azure AD. |
+| `invalid_resource` | The target resource is invalid because either it does not exist, Azure AD can't find it, or it isn't correctly configured. |This error indicates that the resource, if it exists, hasn't been configured in the tenant. The application can prompt the user with instructions for installing the application and adding it to Azure AD. |
 
 ## Validate the ID token
 
 Receiving an ID token in your app might not always be sufficient to fully authenticate the user. You might also need to validate the ID token's signature and verify its claims per your app's requirements. Like all OpenID providers, the Microsoft identity platform's ID tokens are [JSON Web Tokens (JWTs)](https://tools.ietf.org/html/rfc7519) signed by using public key cryptography.
 
-Web apps and web APIs that use ID tokens for authorization must validate them because such applications gate access to data. Other types of application might not benefit from ID token validation, however. Native and single-page apps (SPAs), for example, rarely benefit from ID token validation because any entity with physical access to the device or browser can potentially bypass the validation. Methods of token validation bypass include providing fake tokens or keys by modifying network traffic to the device and by debugging the application and stepping over the validation logic during program execution.
+Web apps and web APIs that use ID tokens for authorization must validate them because such applications gate access to data. Other types of application might not benefit from ID token validation, however. Native and single-page apps (SPAs), for example, rarely benefit from ID token validation because any entity with physical access to the device or browser can potentially bypass the validation.
 
-If you need or choose to validate ID tokens in your application, we recommend not doing so manually. Instead, use a token validation library to parse and validate the tokens. Token validation libraries are available for most development languages, frameworks, and platforms.
+Two examples of token validation bypass are:
+
+* Providing fake tokens or keys by modifying network traffic to the device
+* Debugging the application and stepping over the validation logic during program execution.
+
+If you validate ID tokens in your application, we recommend *not* doing so manually. Instead, use a token validation library to parse and validate tokens. Token validation libraries are available for most development languages, frameworks, and platforms.
 
 ### What to validate in an ID token
 
@@ -218,7 +227,7 @@ Once you've validated the ID token, you can begin a session with the user and us
 
 ## Protocol diagram: Access token acquisition
 
-Many applications need not only to sign in a user, but also access a web API on behalf of the user. If your app uses the OAuth 2.0 authorization code grant type, this scenario combines OpenID Connect for user authentication and the auth code flow for getting an access token for a protected resource (typically a web API).
+Many applications need not only to sign in a user, but also access a protected resource like a web API on behalf of the user. This scenario combines OpenID Connect to get an ID token for authenticating the user and OAuth 2.0 to get an access token for a protected resource.
 
 The full OpenID Connect sign-in and token acquisition flow looks similar to this diagram:
 
@@ -275,7 +284,7 @@ Response parameters mean the same thing regardless of the flow used to acquire t
 | `access_token` | The token that will be used to call the UserInfo endpoint.|
 | `token_type` | Always "Bearer" |
 | `expires_in`| How long until the access token expires, in seconds. |
-| `scope` | The permissions granted on the access token.  Note that since the UserInfo endpoint is hosted on MS Graph, there may be additional Graph scopes listed here (e.g. user.read) if they were previously granted to the app.  That's because a token for a given resource always includes every permission currently granted to the client.  |
+| `scope` | The permissions granted on the access token. Because the UserInfo endpoint is hosted on Microsoft Graph, it's possible for `scope` to contain others previously granted to the application (for example, `User.Read`). |
 | `id_token` | The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [ID token reference](id-tokens.md). |
 | `state` | If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
@@ -308,9 +317,14 @@ Review the [UserInfo documentation](userinfo.md#calling-the-api) to look over ho
 
 ## Send a sign-out request
 
-When you want to sign out the user from your app, it isn't sufficient to clear your app's cookies or otherwise end the user's session. You must also redirect the user to the Microsoft identity platform to sign out. If you don't do this, the user reauthenticates to your app without entering their credentials again, because they will have a valid single sign-in session with the Microsoft identity platform.
+To sign out a user, perform both of these operations:
 
-You can redirect the user to the `end_session_endpoint` (which supports both HTTP GET and POST requests) listed in the OpenID Connect metadata document:
+* Redirect the user's user-agent to the Microsoft identity platform's logout URI
+* Clear your app's cookies or otherwise end the user's session in your application.
+
+If you fail to perform either operation, the user may remain authenticated and not be prompted to sign-in the next time they user your app.
+
+Redirect the user-agent to the `end_session_endpoint` as shown in the OpenID Connect configuration document. The `end_session_endpoint` supports both HTTP GET and POST requests.
 
 ```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
@@ -328,6 +342,6 @@ When you redirect the user to the `end_session_endpoint`, the Microsoft identity
 
 ## Next steps
 
-* Review the [UserInfo documentation](userinfo.md)
-* Learn how to [customize the values in a token](active-directory-claims-mapping.md) with data from your on-premises systems. 
-* Learn how to [include additional standard claims in tokens](active-directory-optional-claims.md).  
+* Review the [UserInfo endpoint documentation](userinfo.md).
+* [Populate claim values in a token](active-directory-claims-mapping.md) with data from on-premises systems. 
+* [Include additional claims in tokens](active-directory-optional-claims.md).  
