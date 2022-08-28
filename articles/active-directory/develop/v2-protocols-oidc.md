@@ -28,7 +28,7 @@ This diagram shows the basic OpenID Connect sign-in flow. The steps in the flow 
 
 ## Enable ID tokens
 
-The *ID token* introduced by OpenID Connect is issued by the authorization server (the Microsoft identity platform) when the client application requests one during user authentication. The ID token enables a client application to verify the identity of user and to get other information (claims) about the user.
+The *ID token* introduced by OpenID Connect is issued by the authorization server (the Microsoft identity platform) when the client application requests one during user authentication. The ID token enables a client application to verify the identity of the user and to get other information (claims) about them.
 
 ID tokens aren't issued by default for an application registered with the Microsoft identity platform. Enable ID tokens for an app by using one of the following methods.
 
@@ -44,17 +44,17 @@ Or:
 
 If you forget to enable ID tokens for your app and you request one, the Microsoft identity platform returns an `unsupported_response` error similar to:
 
-*The provided value for the input parameter 'response_type' isn't allowed for this client. Expected value is 'code'*.
+> *The provided value for the input parameter 'response_type' isn't allowed for this client. Expected value is 'code'*.
 
-Requesting an ID token by specifying a `response_type` of `id_token` is explained in the [Send the sign-in request](#send-the-sign-in-request) later in the article.
+Requesting an ID token by specifying a `response_type` of `id_token` is explained in [Send the sign-in request](#send-the-sign-in-request) later in the article.
 
-## Fetch the OpenID Connect discovery document
+## Fetch the OpenID configuration document
 
-OpenID Connect providers like the Microsoft identity platform offer an endpoint for the [discovery of OIDC metadata](https://openid.net/specs/openid-connect-discovery-1_0.html) for that provider. Client applications can use the information in metadata document to find URLs to use for authentication and the authentication service's public signing keys. It's more common (and recommended) to use an authentication library that handles working with the OpenID Connect discovery document for you than writing the code to do so.
+OpenID providers like the Microsoft identity platform provide an [OpenID Provider Configuration Document](https://openid.net/specs/openid-connect-discovery-1_0.html) at a publicly accessible endpoint containing the provider's OIDC endpoints, supported claims, and other metadata. Client applications can use the metadata to discover the URLs to use for authentication and the authentication service's public signing keys, among other things. It's more common (and recommended) to use an existing authentication library in your app for working with the OpenID Connect configuration document than hand-coding the requests and response handling in your application.
 
-Every app registration in Azure AD includes a publicly accessible OIDC discovery document URI. To determine the URI your app can use to get most of the information it needs to sign in users and request ID tokens, append the _discovery document path_ to your app registration's _authority URL_.
+Every app registration in Azure AD is provided a publicly accessible endpoint and URI that serves its OpenID configuration document. To determine the OpenID configuration document URI for your app, append the configuration document path to your app registration's _authority URL_.
 
-* Discovery document path: `/.well-known/openid-configuration`
+* Configuration document path: `/.well-known/openid-configuration`
 * Authority URL: `https://login.microsoftonline.com/{tenant}/v2.0`
 
 The value of `{tenant}` varies based on the application's sign-in audience as shown in the following table. The authority URL also varies by [cloud instance](authentication-national-cloud.md#azure-ad-authentication-endpoints).
@@ -66,16 +66,16 @@ The value of `{tenant}` varies based on the application's sign-in audience as sh
 | `consumers` |Only users with a personal Microsoft account can sign in to the application. |
 | `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Only users from a specific Azure AD tenant (either members of the directory with a work or school account or guests in the directory with a personal Microsoft account) can sign in to the application. <br/><br/>The value can be the domain name of the Azure AD tenant or the tenant ID in GUID format. You can also use the consumer tenant GUID, `9188040d-6c67-4c5b-b112-36a304b66dad`, in place of `consumers`.  |
 
-You can also find your app's OpenID discovery document URI its app registration in the Azure portal.
+You can also find your app's OpenID configuration document URI in its app registration in the Azure portal.
 
-To find the OIDC discovery document for your app, navigate to the [Azure portal](https://portal.azure.com) and then:
+To find the OIDC configuration document for your app, navigate to the [Azure portal](https://portal.azure.com) and then:
 
 1. Select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Endpoints**.
 1. Locate the URI under **OpenID Connect metadata document**.
 
 ### Sample request
 
-This request gets the OpenID Connect discovery metadata from the `common` authority's OIDC discovery document endpoint on the Azure public cloud:
+This request gets the OpenID configuration metadata from the `common` authority's OpenID configuration document endpoint on the Azure public cloud:
 
 ```http
 GET /common/v2.0/.well-known/openid-configuration
@@ -83,11 +83,11 @@ Host: login.microsoftonline.com
 ```
 
 > [!TIP]
-> Try it! To see the OIDC discovery document for the `common` authority, navigate to[https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration).
+> Try it! To see the OpenID configuration document for an application's `common` authority, navigate to[https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration).
 
 ### Sample response
 
-The discovery metadata is returned in JSON format as shown in following example (truncated for brevity). The metadata returned in the JSON response is described in detail in the [OpenID Connect 1.0 discovery specification](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
+The configuration metadata is returned in JSON format as shown in the following example (truncated for brevity). The metadata returned in the JSON response is described in detail in the [OpenID Connect 1.0 discovery specification](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
 ```json
 {
@@ -200,54 +200,57 @@ The following table describes error codes that can be returned in the `error` pa
 
 Receiving an ID token in your app might not always be sufficient to fully authenticate the user. You might also need to validate the ID token's signature and verify its claims per your app's requirements. Like all OpenID providers, the Microsoft identity platform's ID tokens are [JSON Web Tokens (JWTs)](https://tools.ietf.org/html/rfc7519) signed by using public key cryptography.
 
-Not all apps benefit from validating the ID token, however. Native and single-page apps (SPAs), for example, rarely benefit from validating the ID token. Someone with physical access to the device (or browser) can bypass the validation in several ways: by editing the web traffic to the device to provide fake tokens and keys or by debugging the application to skip the validation logic. On the other hand, web apps and web APIs using an ID token for authorization must validate the ID token because they're gating access to data.
+Web apps and web APIs that use ID tokens for authorization must validate them because such applications gate access to data. Other types of application might not benefit from ID token validation, however. Native and single-page apps (SPAs), for example, rarely benefit from ID token validation because any entity with physical access to the device or browser can potentially bypass the validation. Methods of token validation bypass include providing fake tokens or keys by modifying network traffic to the device and by debugging the application and stepping over the validation logic during program execution.
 
 If you need or choose to validate ID tokens in your application, we recommend not doing so manually, and instead using a library to parse and validate the tokens. Token validation libraries are available for most development languages, frameworks, and platforms.
 
 ### What to validate in an ID token
 
-In addition to validating the signature of the ID token, you should validate several of its claims as described in our [ID token reference](id-tokens.md) article and its [Validating an ID token](id-tokens.md#validating-an-id-token) section. Also see [Important information about signing key-rollover](active-directory-signing-key-rollover.md).
+In addition to validating ID token's signature, you should validate several of its claims as described in the [ID token reference](id-tokens.md) article and its [Validating an ID token](id-tokens.md#validating-an-id-token) section. Also see [Important information about signing key-rollover](active-directory-signing-key-rollover.md).
 
-Other common ID token validations vary by application scenario, including:
+Several other validations are common and vary by application scenario, including:
 
 * Ensuring the user/organization has signed up for the app.
 * Ensuring the user has proper authorization/privileges
 * Ensuring a certain strength of authentication has occurred, such as [multi-factor authentication](../authentication/concept-mfa-howitworks.md).
 
-Once you've validated the ID token, you can begin a session with the user and use the claims in the ID token to obtain information about the user in your app. This information can be used for display, records, personalization, etc.
+Once you've validated the ID token, you can begin a session with the user and use the information in the token's claims for app personalization, display, or for storing their data.
 
 ## Protocol diagram: Access token acquisition
 
-Many applications need not only to sign in a user, but also access a web API on behalf of the user by using OAuth 2.0. If your app uses the authorization code grant type, this scenario combines OpenID Connect for user authentication and getting an access token for a protected resource (typically a web API) by using an OAuth 2.0 authorization code.
+Many applications need not only to sign in a user, but also access a web API on behalf of the user. If your app uses the OAuth 2.0 authorization code grant type, this scenario combines OpenID Connect for user authentication and the auth code flow for getting an access token for a protected resource (typically a web API).
 
-The full OpenID Connect sign-in and token acquisition flow looks similar to the next diagram. We describe each step in detail in the next sections of the article.
+The full OpenID Connect sign-in and token acquisition flow looks similar to this diagram:
 
 ![OpenID Connect  protocol: Token acquisition](./media/v2-protocols-oidc/convergence-scenarios-webapp-webapi.svg)
 
-## Get an access token to call UserInfo
+## Get an access token for the UserInfo endpoint
 
 In addition to the ID token, the authenticated user's information is also made available at the OIDC [UserInfo endpoint](userinfo.md).
 
-To acquire a token for the OIDC UserInfo endpoint, modify the sign-in request:
+To acquire a an access token for the OIDC UserInfo endpoint, modify the sign-in request as described here:
 
 ```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
-&response_type=id_token%20token                       // this will return both an ID token and an access token
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered redirect URI, URL encoded
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your app registration's Application (client) ID
+&response_type=id_token%20token                       // Requests both an ID token and access token
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your application's redirect URI (URL-encoded)
 &response_mode=form_post                              // 'form_post' or 'fragment'
-&scope=openid+profile+email                           // `openid` is required.  `profile` and `email` provide additional information in the UserInfo endpoint the same way they do in an ID token. 
-&state=12345                                          // Any value, provided by your app
-&nonce=678910                                         // Any value, provided by your app
+&scope=openid+profile+email                           // 'openid' is required; 'profile' and 'email' provide additional information in the UserInfo endpoint the same way they do in an ID token. 
+&state=12345                                          // Any value - provided by your app
+&nonce=678910                                         // Any value - provided by your app
 ```
 
-You can also use the [authorization code flow](v2-oauth2-auth-code-flow.md), the [device code flow](v2-oauth2-device-code.md), or a [refresh token](v2-oauth2-auth-code-flow.md#refresh-the-access-token) in place of `response_type=token` to get a token for your app.
+You can use the [authorization code flow](v2-oauth2-auth-code-flow.md), the [device code flow](v2-oauth2-device-code.md), or a [refresh token](v2-oauth2-auth-code-flow.md#refresh-the-access-token) in place of `response_type=token` to get an access token for your app.
 
+<!-- UNCOMMENT WHEN/IF THE TEST APP REGISTRATION IS RE-ENABLED -->
+<!--
 > [!TIP]
 > Click the following link to execute this request. After you sign in, your browser is redirected to `https://localhost/myapp/`, with an ID token and a token in the address bar. Note that this request uses `response_mode=fragment` for demonstration purposes only - for a webapp we recommend using `form_post` for additional security where possible. 
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid+profile+email&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+-->
 
 ### Successful token response
 
