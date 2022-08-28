@@ -197,8 +197,7 @@ If the service principal was already created for you in the last section, follow
 3. Select **All Applications**.
 4. Select the application with the name matching **[Storage Account] $storageAccountName.file.core.windows.net**.
 5. Select **API permissions** in the left pane.
-6. Select **Add permissions** at the bottom of the page.
-7. Select **Grant admin consent for "DirectoryName"**.
+6. Select **Grant admin consent for "DirectoryName"**.
 
 If you created the service principal in the last section, follow these steps:
 
