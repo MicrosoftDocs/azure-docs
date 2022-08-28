@@ -3,9 +3,16 @@ name: Mark stale pull requests
 on:
   schedule:
   - cron: "0 */6 * * *"
+  
+permissions:
+  contents: read
 
 jobs:
   stale:
+
+    permissions:
+      issues: write
+      pull-requests: write
 
     runs-on: ubuntu-latest
 
