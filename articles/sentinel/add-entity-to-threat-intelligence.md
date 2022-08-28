@@ -24,39 +24,77 @@ The [investigation graph](investigate-cases.md) is a visual, intuitive tool that
 
 1. From the Microsoft Sentinel navigation menu, select **Incidents**.
 
-    :::image type="content" source="media/investigate-cases/incident-severity.png" alt-text="Screenshot of incidents queue displayed in a grid." lightbox="media/investigate-cases/incident-severity.png":::
-
 1. Select an incident to investigate. In the incident details panel, select the **Actions** button and choose **Investigate** from the pop-up menu. This will open the investigation graph.
 
+    <!--
     :::image type="content" source="media/relate-alerts-to-incidents/investigation-map.png" alt-text="Screenshot of incidents with alerts in investigation graph." lightbox="media/investigate-cases/incident-severity.png":::
+    -->
 
-1. Select the entity you want to add as a threat indicator. A side panel will open on the right. Select **Add to TI**.
+1. Select the entity from the graph that you want to add as a threat indicator. A side panel will open on the right. Select **Add to TI**.
 
-1. The **New indicator** side panel will open. Fill in the fields as described below.
+1. The **New indicator** side panel will open. The following fields will be populated automatically:
 
-    | Field | Required? | Description |
-    | ----- | --------- | ----------- |
-    | Type | Yes | Type of the indicator (ipv4-addr, ipv6-addr, URL, file, domain-name).<br>**This is auto-populated based on the entity type.** |
-    | Value | Yes | Value of the observable.
+    - **Type**
+        - The type of indicator represented by the entity you're adding.  
+            Drop-down with possible values: *ipv4-addr*, *ipv6-addr*, *URL*, *file*, *domain-name*
+        - Required; automatically populated based on the **entity type**.
 
-1. Hover over one of the related alerts until a menu pops out to its side. Select **Add alert to incident (Preview)**.
+    - **Value**
+        - The name of this field changes dynamically to the selected indicator type.
+        - The value of the indicator itself.
+        - Required; automatically populated by the **entity value**.
 
-    :::image type="content" source="media/relate-alerts-to-incidents/add-alert-to-incident.png" alt-text="Screenshot of adding an alert to an incident in the investigation graph.":::
+    - **Tags** 
+        - Free-text tags you can add to the indicator.
+        - Optional; automatically populated by the **incident ID**. You can add others.
+    
+    - **Name**
+        - Name of the indicator - this is what will be displayed in your list of indicators.
+        - Optional; automatically populated by the **incident name.**
+    
+    - **Created by**
+        - Creator of the indicator.
+        - Optional; automatically-populated by the user logged into Microsoft Sentinel.
 
-1. The alert is added to the incident, and for all purposes is part of the incident, along with all its entities and details. You'll see two visual representations of this:
+    Fill in the remaining fields accordingly.
 
-    - The line connecting it to the entity in the investigation graph has changed from dotted to solid, and connections to entities in the added alert have been added to the graph.
+    - **Threat type**
+        - The threat type represented by the indicator. ***EXAMPLE???***
+        - Optional; free text.
 
-        :::image type="content" source="media/relate-alerts-to-incidents/alert-joined-to-incident.png" alt-text="Screenshot showing an alert added to an incident." lightbox="media/relate-alerts-to-incidents/alert-joined-to-incident.png":::
+    - **Description**
+        - Description of the indicator.
+        - Optional; free text.
 
-    - The alert now appears in this incident's timeline, together with the alerts that were already there.
+    - **Revoked**
+        - Revoked status of the indicator. Mark checkbox to revoke the indicator, clear checkbox to make it active.
+        - Optional; boolean.
 
-        :::image type="content" source="media/relate-alerts-to-incidents/two-alerts.png" alt-text="Screenshot showing an alert added to an incident's timeline.":::
+    - **Confidence**
+        - Score reflecting confidence in the correctness of the data, by percent.
+        - Optional; integer, 1-100
+
+    - **Kill chain**
+        - Phases in the [*Lockheed Martin Cyber Kill Chain*](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html#OVERVIEW) to which the indicator corresponds.
+        - Optional; free text 
+
+    - **Valid from**
+        - The time from which this indicator is considered valid.
+        - Required; date/time 
+
+    - **Valid until**
+        - The time at which this indicator should no longer be considered valid.
+        - Optional; date/time 
 
 
+1. When all the fields are filled in to your satisfaction, select **Apply**. You'll see a confirmation message in the upper-right-hand corner that your indicator was created.
+
+1. The entity will be added as a threat indicator in your workspace. You can find it [in the list of indicators in the **Threat intelligence** page](work-with-threat-indicators.md#find-and-view-your-indicators-in-the-threat-intelligence-page), and also [in the *ThreatIntelligenceIndicators* table in **Logs**](work-with-threat-indicators.md#find-and-view-your-indicators-in-logs). 
 
 ## Next steps
-In this article, you learned how to add alerts to incidents and remove them using the Microsoft Sentinel portal and API. For more information, see:
+
+In this article, you learned how to add entities to your threat indicator lists. For more information, see:
 
 - [Investigate incidents with Microsoft Sentinel](investigate-cases.md)
-- [Incident relations group in the Microsoft Sentinel REST API](/rest/api/securityinsights/preview/incident-relations)
+- [Understand threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md)
+- [Work with threat indicators in Microsoft Sentinel](work-with-threat-indicators.md)

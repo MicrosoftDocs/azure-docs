@@ -27,9 +27,18 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## August 2022
 
+- [Add entities to threat intelligence (Preview)](#add-entities-to-threat-intelligence-preview)
 - [Azure resource entity page (Preview)](#azure-resource-entity-page-preview)
 - [New data sources for User and entity behavior analytics (UEBA) (Preview)](#new-data-sources-for-user-and-entity-behavior-analytics-ueba-preview)
 - [Microsoft Sentinel Solution for SAP is now generally available](#microsoft-sentinel-solution-for-sap-is-now-generally-available)
+
+### Add entities to threat intelligence (Preview)
+
+When investigating an incident, you examine entities and their context as an important part of understanding the scope and nature of the incident. In the course of the investigation, you may discover an entity in the incident that should be labeled and tracked as an indicator of compromise (IOC), a threat indicator.
+
+Microsoft Sentinel allows you to flag the entity as malicious, right from within the investigation graph. You'll then be able to view this indicator both in Logs and in the Threat Intelligence blade in Sentinel.
+
+Learn how to [add an entity to your threat intelligence](add-entity-to-threat-intelligence.md).
 
 ### Azure resource entity page (Preview)
 
