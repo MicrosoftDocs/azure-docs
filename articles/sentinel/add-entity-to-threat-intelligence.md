@@ -26,11 +26,11 @@ The [investigation graph](investigate-cases.md) is a visual, intuitive tool that
 
 1. Select an incident to investigate. In the incident details panel, select the **Actions** button and choose **Investigate** from the pop-up menu. This will open the investigation graph.
 
-    <!--
-    :::image type="content" source="media/relate-alerts-to-incidents/investigation-map.png" alt-text="Screenshot of incidents with alerts in investigation graph." lightbox="media/investigate-cases/incident-severity.png":::
-    -->
+    :::image type="content" source="media/add-entity-to-threat-intelligence/select-incident-to-investigate.png" alt-text="Screenshot of selecting incident from queue to investigate.":::
 
 1. Select the entity from the graph that you want to add as a threat indicator. A side panel will open on the right. Select **Add to TI**.
+
+    :::image type="content" source="media/add-entity-to-threat-intelligence/add-entity-to-ti.png" alt-text="Screenshot of adding entity to threat intelligence.":::
 
 1. The **New indicator** side panel will open. The following fields will be populated automatically:
 
@@ -59,7 +59,7 @@ The [investigation graph](investigate-cases.md) is a visual, intuitive tool that
     Fill in the remaining fields accordingly.
 
     - **Threat type**
-        - The threat type represented by the indicator. ***EXAMPLE???***
+        - The threat type represented by the indicator.
         - Optional; free text.
 
     - **Description**
@@ -86,6 +86,7 @@ The [investigation graph](investigate-cases.md) is a visual, intuitive tool that
         - The time at which this indicator should no longer be considered valid.
         - Optional; date/time 
 
+    :::image type="content" source="media/add-entity-to-threat-intelligence/new-indicator-panel.png" alt-text="Screenshot of entering information in new threat indicator panel.":::
 
 1. When all the fields are filled in to your satisfaction, select **Apply**. You'll see a confirmation message in the upper-right-hand corner that your indicator was created.
 
