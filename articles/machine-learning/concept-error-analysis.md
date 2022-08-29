@@ -1,7 +1,7 @@
 ---
-title: Assess errors in ML models 
+title: Assess errors in machine learning models 
 titleSuffix: Azure Machine Learning
-description: Assess model error distributions in different cohorts of your dataset with the Responsible AI dashboard's integration of Error Analysis.
+description: Assess model error distributions in different cohorts of your dataset with the Responsible AI dashboard's integration of error analysis.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -11,45 +11,50 @@ author: mesameki
 ms.date: 08/17/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
-# Assess errors in ML models (preview)
+# Assess errors in machine learning models (preview)
 
-One of the most apparent challenges with current model debugging practices is using aggregate metrics to score models on a benchmark dataset. Model accuracy may not be uniform across subgroups of data, and there might exist input cohorts for which the model fails more often. The direct consequences of these failures are a lack of reliability and safety, appearance of fairness issues, and a loss of trust in machine learning altogether.
+One of the biggest challenges with current model-debugging practices is using aggregate metrics to score models on a benchmark dataset. Model accuracy might not be uniform across subgroups of data, and there might be input cohorts for which the model fails more often. The direct consequences of these failures are a lack of reliability and safety, the appearance of fairness issues, and a loss of trust in machine learning altogether.
 
-:::image type="content" source="./media/concept-error-analysis/error-analysis.png" alt-text="Diagram showing benchmark and machine learning model point to accurate then to different regions fail for different reasons.":::
+:::image type="content" source="./media/concept-error-analysis/error-analysis.png" alt-text="Diagram that shows an example of accuracy rate and failures for a benchmark and machine learning model.":::
 
-Error Analysis moves away from aggregate accuracy metrics, exposes the distribution of errors to developers in a transparent way, and enables them to identify & diagnose errors efficiently.
+Error analysis moves away from aggregate accuracy metrics. It exposes the distribution of errors to developers in a transparent way, and it enables them to identify and diagnose errors efficiently.
 
-The Error Analysis component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) provides machine learning practitioners with a deeper understanding of model failure distribution and assists them with quickly identifying erroneous cohorts of data. It contributes to the “identify” stage of the model lifecycle workflow through a decision tree that reveals cohorts with high error rates and a heatmap that visualizes how input features impact the error rate across cohorts. Discrepancies in error might occur when the system underperforms for specific demographic groups or infrequently observed input cohorts in the training data.
+The error analysis component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) provides machine learning practitioners with a deeper understanding of model failure distribution and helps them quickly identify erroneous cohorts of data. This component identifies the cohorts of data with a higher error rate versus the overall benchmark error rate. It contributes to the identification stage of the model lifecycle workflow through:
 
-The capabilities of this component are founded by [Error Analysis](https://erroranalysis.ai/)) package, generating model error profiles.  
+- A decision tree that reveals cohorts with high error rates.
+- A heatmap that visualizes how input features affect the error rate across cohorts. 
 
-Use Error Analysis when you need to:
+Discrepancies in errors might occur when the system underperforms for specific demographic groups or infrequently observed input cohorts in the training data.
 
-- Gain a deep understanding of how model failures are distributed across a given dataset and across several input and feature dimensions.
+The capabilities of this component come from the [Error Analysis](https://erroranalysis.ai/) package, which generates model error profiles.  
+
+Use error analysis when you need to:
+
+- Gain a deep understanding of how model failures are distributed across a dataset and across several input and feature dimensions.
 - Break down the aggregate performance metrics to automatically discover erroneous cohorts in order to inform your targeted mitigation steps.
-
-## How are error analyses generated?
-
-Error Analysis identifies the cohorts of data with a higher error rate versus the overall benchmark error rate. The dashboard allows for error exploration by using either a decision tree or a heatmap guided by errors.
 
 ## Error tree
 
-Often, error patterns may be complex and involve more than one or two features. Therefore, it may be difficult for developers to explore all possible combinations of features to discover hidden data pockets with critical failure. To alleviate the burden, the binary tree visualization automatically partitions the benchmark data into interpretable subgroups, which have unexpectedly high or low error rates. In other words, the tree uses the input features to maximally separate model error from success. For each node defining a data subgroup, users can investigate the following information:
+Often, error patterns are complex and involve more than one or two features. Developers might have difficulty exploring all possible combinations of features to discover hidden data pockets with critical failures. 
 
-- **Error rate**: a portion of instances in the node for which the model is incorrect. This is shown through the intensity of the red color.
-- **Error coverage**: a portion of all errors that fall into the node. This is shown through the fill rate of the node.
-- **Data representation**: number of instances in each node of the error tree. This is shown through the thickness of the incoming edge to the node along with the actual total number of instances in the node.
+To alleviate the burden, the binary tree visualization automatically partitions the benchmark data into interpretable subgroups that have unexpectedly high or low error rates. In other words, the tree uses the input features to maximally separate model error from success. For each node that defines a data subgroup, users can investigate the following information:
 
-:::image type="content" source="./media/concept-error-analysis/error-analysis-tree.png" alt-text="Screenshot of an error Analysis tree showing cohorts with higher or lower error rates and coverage." lightbox ="./media/concept-error-analysis/error-analysis-tree.png":::
+- **Error rate**: A portion of instances in the node for which the model is incorrect. It's shown through the intensity of the red color.
+- **Error coverage**: A portion of all errors that fall into the node. It's shown through the fill rate of the node.
+- **Data representation**: The number of instances in each node of the error tree. It's shown through the thickness of the incoming edge to the node, along with the total number of instances in the node.
 
-## Error Heatmap
+:::image type="content" source="./media/concept-error-analysis/error-analysis-tree.png" alt-text="Screenshot of an error analysis tree that shows cohorts with higher or lower error rates and coverage." lightbox ="./media/concept-error-analysis/error-analysis-tree.png":::
 
-The view slices the data based on a one- or two-dimensional grid of input features. Users can choose the input features of interest for analysis. The heatmap visualizes cells with higher error with a darker red color to bring the user’s attention to regions with high error discrepancy. This is beneficial especially when the error themes are different in different partitions, which happen frequently in practice. In this error identification view, the analysis is highly guided by the users and their knowledge or hypotheses of what features might be most important for understanding failure.
+## Error heatmap
 
-:::image type="content" source="./media/concept-error-analysis/error-analysis-heatmap.png" alt-text="Screenshot of an error Analysis heatmap showing model errors partitioned by one or two features.":::
+The view slices the data based on a one-dimensional or two-dimensional grid of input features. Users can choose the input features of interest for analysis. 
+
+The heatmap visualizes cells with high error by using a darker red color to bring the user's attention to those regions. This feature is especially beneficial when the error themes are different across partitions, which happens often in practice. In this error identification view, the analysis is highly guided by the users and their knowledge or hypotheses of what features might be most important for understanding failures.
+
+:::image type="content" source="./media/concept-error-analysis/error-analysis-heatmap.png" alt-text="Screenshot of an error analysis heatmap that shows model errors partitioned by one or two features.":::
 
 ## Next steps
 
-- Learn how to generate the Responsible AI dashboard via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI](how-to-responsible-ai-dashboard-ui.md).
-- Explore the [supported Error Analysis visualizations](how-to-responsible-ai-dashboard.md#error-analysis).
+- Learn how to generate the Responsible AI dashboard via [CLI and SDK](how-to-responsible-ai-dashboard-sdk-cli.md) or [Azure Machine Learning studio UI](how-to-responsible-ai-dashboard-ui.md).
+- Explore the [supported error analysis visualizations](how-to-responsible-ai-dashboard.md#error-analysis).
 - Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.
