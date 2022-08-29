@@ -108,7 +108,9 @@ In Azure Functions, a function project is the unit of deployment and execution f
 
 Before you can deploy your function code to your new App Service Kubernetes environment, you need to create two more resources:
 
-- A [Storage account](../storage/common/storage-account-create.md), which is currently required by tooling and isn't part of the environment.
+- A [Storage account](../storage/common/storage-account-create.md)(optional). You should be able to create new function app without storage account using "az functionapp create" ONLY. For rest of the client tooling like for example: Azure portal storage account is REQUIRED. 
+> [!NOTE]
+> Triggers like Azure Cosmos DB, Kafka, RabbitMQ, Service Bus and Http will work successfully without storage account dependency and rest of the supported triggers may fail without storage account as they might have dependency on storage account.Optional storage account is supported from appservice-kube version 0.1.7 onwards. 
 - A function app, which provides the context for executing your function code. The function app runs in the App Service Kubernetes environment and maps to your local function project. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
 > [!NOTE]
@@ -151,7 +153,7 @@ In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom locati
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
-Because it can take some time for a full deployment to complete on an Azure Arc-enabled Kubernetes cluster, you may want to re-run the following command to verify your published functions:
+Because it can take some time for a full deployment to complete on an Azure Arc-enabled Kubernetes cluster, you may want to rerun the following command to verify your published functions:
 
 ```command
 func azure functionapp list-functions

@@ -158,7 +158,10 @@ Docker Hub is a container registry that hosts images and provides image and cont
 
 Before you can deploy your container to your new App Service Kubernetes environment, you need to create two more resources:
 
-- A [Storage account](../storage/common/storage-account-create.md), which is currently required by tooling and isn't part of the environment.
+- A [Storage account](../storage/common/storage-account-create.md)(optional). You should be able to create new function app without storage account using "az functionapp create" ONLY. For rest of the client tooling like for example: Azure portal storage account is REQUIRED. 
+> [!NOTE]
+> Triggers like Azure Cosmos DB, Kafka, RabbitMQ, Service Bus and Http will work successfully without storage account dependency and rest of the supported triggers may fail without storage account as they might have dependency on storage account.
+Optional storage account is supported from appservice-kube version 0.1.7 onwards.
 - A function app, which provides the context for running your container. The function app runs in the App Service Kubernetes environment and maps to your local function project. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
 > [!NOTE]
