@@ -71,7 +71,7 @@ Localization is key to making products for users around the world and who speak 
 
 ## Accessibility
 
-Accessibility is a key focus of the calling libraries. You can use a screen reader to make important announcements about call status and to help ensure that vision-impaired users can effectively participate when they use the application.
+Accessibility is a key focus of the calling libraries. You can use a screen reader to make important announcements about call status and to help ensure that visually impaired users can effectively participate when they use the application.
 
 ## Participant view data injection
 
