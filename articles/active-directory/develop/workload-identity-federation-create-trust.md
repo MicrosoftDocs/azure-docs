@@ -175,7 +175,7 @@ The *id* parameter specifies the identifier URI, application ID, or object ID of
 
 The *name* specifies the name of your federated identity credential.
 
-The *issuer* identifies the path to the GitHub OIDC provider: `https://token.actions.githubusercontent.com/`. This issuer will become trusted by your Azure application.  
+The *issuer* identifies the path to the GitHub OIDC provider: `https://token.actions.githubusercontent.com`. This issuer will become trusted by your Azure application.  
 
 *subject* identifies the GitHub organization, repo, and environment for your GitHub Actions workflow.  When the GitHub Actions workflow requests Microsoft identity platform to exchange a GitHub token for an access token, the values in the federated identity credential are checked against the provided GitHub token. Before Azure will grant an access token, the request must match the conditions defined here.
 - For Jobs tied to an environment: `repo:< Organization/Repository >:environment:< Name >`
