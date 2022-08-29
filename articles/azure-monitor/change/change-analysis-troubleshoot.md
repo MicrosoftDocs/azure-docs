@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 ms.reviewer: cawa
 ---
 
-# Troubleshoot Azure Monitor's Change Analysis (preview)
+# Troubleshoot Azure Monitor's Change Analysis
 
 ## Trouble registering Microsoft.ChangeAnalysis resource provider from Change history tab.
 

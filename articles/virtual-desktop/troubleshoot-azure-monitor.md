@@ -3,13 +3,16 @@ title: Troubleshoot Monitor Azure Virtual Desktop - Azure
 description: How to troubleshoot issues with Azure Monitor for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/29/2021
+ms.date: 08/12/2022
 ms.author: helohr
 manager: femila
 ---
 # Troubleshoot Azure Monitor for Azure Virtual Desktop
 
 This article presents known issues and solutions for common problems in Azure Monitor for Azure Virtual Desktop.
+
+>[!IMPORTANT]
+>[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). While Azure Monitor currently uses the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to Azure Monitor by August 31, 2024.
 
 ## Issues with configuration and setup
 

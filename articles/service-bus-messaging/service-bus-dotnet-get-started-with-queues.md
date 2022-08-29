@@ -115,8 +115,11 @@ This section shows you how to create a .NET Core console application to send mes
             // of the application, which is best practice when messages are being published or read
             // regularly.
             //
-            // Create the clients that we'll use for sending and processing messages.
-            client = new ServiceBusClient(connectionString);
+            // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+            // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+
+            var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+            client = new ServiceBusClient(connectionString, clientOptions);
             sender = client.CreateSender(queueName);
     
             // create a batch 
@@ -182,8 +185,11 @@ This section shows you how to create a .NET Core console application to send mes
                 // of the application, which is best practice when messages are being published or read
                 // regularly.
                 //
-                // Create the clients that we'll use for sending and processing messages.
-                client = new ServiceBusClient(connectionString);
+                // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+                // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+    
+                var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+                client = new ServiceBusClient(connectionString, clientOptions);
                 sender = client.CreateSender(queueName);
     
                 // create a batch 
@@ -329,10 +335,12 @@ In this section, you'll add code to retrieve messages from the queue.
                     // of the application, which is best practice when messages are being published or read
                     // regularly.
                     //
+                    // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+                    // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
         
-                    // Create the client object that will be used to create sender and receiver objects
-                    client = new ServiceBusClient(connectionString);
-        
+                    var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+                    client = new ServiceBusClient(connectionString, clientOptions);
+            
                     // create a processor that we can use to process the messages
                     processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
         
@@ -411,9 +419,11 @@ In this section, you'll add code to retrieve messages from the queue.
                 // of the application, which is best practice when messages are being published or read
                 // regularly.
                 //
+                // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+                // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
     
-                // Create the client object that will be used to create sender and receiver objects
-                client = new ServiceBusClient(connectionString);
+                var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+                client = new ServiceBusClient(connectionString, clientOptions);
     
                 // create a processor that we can use to process the messages
                 processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());

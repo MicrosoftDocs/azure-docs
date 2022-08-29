@@ -1,5 +1,5 @@
 ---
-title: How to get facial pose events for lip-sync
+title: Get facial position with viseme
 titleSuffix: Azure Cognitive Services
 description: Speech SDK supports viseme events during speech synthesis, which represent key poses in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme.
 services: cognitive-services
@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial position with viseme
 
 > [!NOTE]
-> Viseme ID supports neural voices in [all viseme-supported locales](language-support.md#viseme). Scalable Vector Graphics (SVG) only supports neural voices in `en-US` locale, and blend shapes supports neural voices in `en-US` and `zh-CN` locales.
+> Viseme ID supports neural voices in [all viseme-supported locales](language-support.md?tabs=stt-tts). Scalable Vector Graphics (SVG) only supports neural voices in `en-US` locale, and blend shapes supports neural voices in `en-US` and `zh-CN` locales.
 
 A *viseme* is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. Each viseme depicts the key facial poses for a specific set of phonemes.
 
@@ -40,8 +40,6 @@ Neural Text-to-Speech (Neural TTS) turns input text or SSML (Speech Synthesis 
 The overall workflow of viseme is depicted in the following flowchart:
 
 ![Diagram of the overall workflow of viseme.](media/text-to-speech/viseme-structure.png)
-
-You can request viseme output in SSML. For details, see [how to use viseme element in SSML](speech-synthesis-markup.md#viseme-element).
 
 ## Viseme ID
 
@@ -70,6 +68,9 @@ The blend shapes JSON string is represented as a 2-dimensional matrix. Each row 
 ## Get viseme events with the Speech SDK
 
 To get viseme with your synthesized speech, subscribe to the `VisemeReceived` event in the Speech SDK.
+
+> [!NOTE]
+> To request SVG or blend shapes output, you should use the `mstts:viseme` element in SSML. For details, see [how to use viseme element in SSML](speech-synthesis-markup.md#viseme-element).
 
 The following snippet shows how to subscribe to the viseme event:
 

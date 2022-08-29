@@ -265,11 +265,11 @@ Cloud role name overrides allow you to override the [default cloud role name](#c
     "roleNameOverrides": [
       {
         "httpPathPrefix": "/myapp1",
-        "roleName": "12345678-0000-0000-0000-0FEEDDADBEEF"
+        "roleName": "Role A"
       },
       {
         "httpPathPrefix": "/myapp2",
-        "roleName": "87654321-0000-0000-0000-0FEEDDADBEEF"
+        "roleName": "Role B"
       }
     ]
   }
@@ -347,6 +347,13 @@ These are the valid `level` values that you can specify in the `applicationinsig
 > [!NOTE]
 > If an exception object is passed to the logger, then the log message (and exception object details)
 > will show up in the Azure portal under the `exceptions` table instead of the `traces` table.
+> If you want to see the log messages across both the `traces` and `exceptions` tables,
+> you can write a Logs (Kusto) query to union across them, e.g.
+>
+> ```
+> union traces, (exceptions | extend message = outerMessage)
+> | project timestamp, message, itemType
+> ```
 
 ### LoggingLevel
 

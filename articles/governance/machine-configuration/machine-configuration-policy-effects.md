@@ -66,7 +66,7 @@ evaluation the machine is no longer in the desired state. The agent reports
 the status as "NonCompliant" and doesn't automatically remediate.
 
 To enable this behavior, set the
-[assignmentType property](/rest/api/guestconfiguration/machine-configuration-assignments/get#assignmenttype)
+[assignmentType property](/rest/api/guestconfiguration/guest-configuration-assignments/get#assignmenttype)
 of the machine configuration assignment to "ApplyandMonitor". Each time the
 assignment is processed within the machine, for each resource the
 [Test](/powershell/dsc/resources/get-test-set#test)
@@ -78,7 +78,7 @@ or if the method returns "false" the agent reports "NonCompliant".
 Machine configuration supports the concept of "continuous remediation". If the machine drifts out of compliance for a configuration, the next time it's evaluated the configuration is corrected automatically. Unless an error occurs, the machine always reports status as "Compliant" for the configuration. There's no way to report when a drift was automatically corrected when using continuous remediation.
 
 To enable this behavior, set the
-[assignmentType property](/rest/api/guestconfiguration/machine-configuration-assignments/get#assignmenttype)
+[assignmentType property](/rest/api/guestconfiguration/guest-configuration-assignments/get#assignmenttype)
 of the machine configuration assignment to "ApplyandAutoCorrect". Each time the
 assignment is processed within the machine, for each resource the
 [Test](/powershell/dsc/resources/get-test-set#test)
@@ -122,7 +122,7 @@ If enforcement is set to "Disabled", the configuration assignment
 audits the state of the machine until the behavior is changed by a
 [remediation task](../policy/how-to/remediate-resources.md). By default, machine configuration
 definitions update the
-[assignmentType property](/rest/api/guestconfiguration/machine-configuration-assignments/get#assignmenttype) from "Audit" to "ApplyandMonitor" so the configuration
+[assignmentType property](/rest/api/guestconfiguration/guest-configuration-assignments/get#assignmenttype) from "Audit" to "ApplyandMonitor" so the configuration
 is applied one time and then it won't apply again until a remediation is
 triggered.
 
@@ -145,7 +145,7 @@ experience by updating a guest assignment resource, even if the update
 doesn't make changes to the resource properties.
 
 When a machine configuration assignment is created, the
-[complianceStatus property](/rest/api/guestconfiguration/machine-configuration-assignments/get#compliancestatus)
+[complianceStatus property](/rest/api/guestconfiguration/guest-configuration-assignments/get#compliancestatus)
 is set to "Pending".
 The machine configuration service inside the machine (delivered to Azure
 virtual machines by the

@@ -54,15 +54,14 @@ The online library is continuously updated with Appliances for demo, proof of co
 
 ## Deployment of S/4HANA system for productive usage through SAP Cloud Appliance Library
 
-You now can also deploy S4H systems for productive usage through SAP Cloud Appliance Library. Within a few clicks, you can have your SAP system for productive usage up and running. The following links highlight the solutions that you can quickly deploy on Azure. Just select  the "Deploy System" under "Products" link. 
-
-You will need to authenticate with your S-User. 
+You can now also deploy SAP S/4HANA systems with High Availability (HA), non-HA or single server architecture through SAP Cloud Appliance Library. The offering comprises default SAP S/4HANA software stacks including FPS levels as well as an integration into Maintenance Planner to enable creation and installation of custom SAP S/4HANA software stacks.
+The following links highlight the Product stacks that you can quickly deploy on Azure. Just select “Deploy System”.
 
 | All products | Link |
 | -------------- | :--------- |
 | **SAP S/4HANA 2021 FPS01 for Productive Deployments**   | [Deploy System](https://cal.sap.com/catalog#/products) |
-|This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. You will need a valid license for deployment initiation. |
-| **SAP S/4HANA 2021 Initial Shipment Stack for Productive Deployments**   | [Deploy System](https://cal.sap.com/catalog#/products) |
+|This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. |
+| **SAP S/4HANA 2021 FPS00 for Productive Deployments, Initial Shipment Stack**   | [Deploy System](https://cal.sap.com/catalog#/products) |
 |This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. |
  
 ---
