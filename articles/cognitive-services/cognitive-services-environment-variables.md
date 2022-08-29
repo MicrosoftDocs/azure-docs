@@ -75,7 +75,7 @@ echo "${ENVIRONMENT_VARIABLE_KEY}"
 > [!TIP]
 > After you set an environment variable, restart your integrated development environment (IDE) to ensure that the newly added environment variables are available.
 
-## Use an environment variable
+## Retrieve an environment variable
 
 To use an environment variable in your code, it must be read into memory. Use one of the following code snippets, depending on which language you're using. These code snippets demonstrate how to get an environment variable given the `ENVIRONMENT_VARIABLE_KEY` and assign the value to a program variable named `value`.
 
