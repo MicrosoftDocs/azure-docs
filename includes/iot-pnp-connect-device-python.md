@@ -62,7 +62,7 @@ Open the **simple_thermostat.py** file in a text editor. Notice how it:
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/pnp/README.md).
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/pnp/README.md).
 
 Now that you've seen the code, use the following command to run the sample:
 
