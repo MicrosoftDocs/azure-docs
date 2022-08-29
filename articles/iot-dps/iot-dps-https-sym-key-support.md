@@ -14,29 +14,31 @@ manager: lizross
 
 In this how-to article, you'll provision a device using symmetric keys over HTTPS without using a an Azure IoT DPS device SDK. Most languages provide libraries to send HTTP requests, but, rather than focus on a specific language, in this article, you'll use the [cURL](https://en.wikipedia.org/wiki/CURL) command-line tool to send and receive over HTTPS.
 
+For this article, you can use either an [individual enrollment](concepts-service.md#individual-enrollment) or an [enrollment group](concepts-service.md#enrollment-group) to provision through DPS. After installing the prerequisites, complete either [Use individual enrollment](#use-an-individual-enrollment) or [Use an enrollment group](#use-an-enrollment-group) before continuing on to create a SAS token and registering your device with DPS.
+
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
-* Install [Python 3.7](https://www.python.org/downloads/) or later installed on your machine. You can check your version of Python by running `python --version`.
+* Make sure [Python 3.7](https://www.python.org/downloads/) or later is installed on your machine. You can check your version of Python by running `python --version`.
 
 * Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
-
-## Overview
-
-This article shows how to provision a device that uses symmetric key attestation using HTTPS requests via the cURL command-line tool.
 
 ## Use an individual enrollment
 
 If you want to create a new individual enrollment to use for this article, you can use the [az iot dps enrollment create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-create) command to create an individual enrollment for symmetric key attestation.
 
-The following command creates an enrollment entry with the default allocation policy for your DPS instance and lets DPS assign the primary and secondary keys for your device. Substitute the name of your resource group and DPS instance. The enrollment ID is the registration ID for your device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). Make sure the enrollment ID you use in the command adheres to this format.
+The following command creates an enrollment entry with the default allocation policy for your DPS instance and lets DPS assign the primary and secondary keys for your device:
 
 ```azurecli
 az iot dps enrollment create -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --attestation-type symmetrickey
 ```
+
+* Substitute the name of your resource group and DPS instance.
+
+* The enrollment ID is the registration ID for your device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). Make sure the enrollment ID you use in the command adheres to this format.
 
 The assigned symmetric keys are returned in the **attestation** property in the response:
 
@@ -58,6 +60,8 @@ The assigned symmetric keys are returned in the **attestation** property in the 
 
 }
 ```
+
+Note down the primary key and the registration ID (enrollment ID) for your individual enrollment entry, you'll use them later in this article.
 
 If you want to use an existing individual enrollment for this article, you can get the primary key with the [az iot dps enrollment show](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-show) command:
 
@@ -65,17 +69,19 @@ If you want to use an existing individual enrollment for this article, you can g
 az iot dps enrollment show -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --show-keys true
 ```
 
-Note down the primary key and the registration ID (enrollment ID) for your individual enrollment entry, you'll use them later in this article.
-
 ## Use an enrollment group
 
 If you want to to create a new enrollment group to use for this article, you can use the [az iot dps enrollment-group create](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-create) command to create an enrollment group for symmetric key attestation.
 
-The following command creates an enrollment group entry with the default allocation policy for your DPS instance and lets DPS assign the primary and secondary keys for the enrollment group. Substitute the name of your resource group and DPS instance.  
+The following command creates an enrollment group entry with the default allocation policy for your DPS instance and lets DPS assign the primary and secondary keys for the enrollment group:  
 
 ```azurecli
-az iot dps enrollment create -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id}
+az iot dps enrollment-group create -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id}
 ```
+
+* Substitute the name of your resource group and DPS instance.
+
+* The enrollment ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
 The assigned symmetric keys are returned in the **attestation** property in the response:
 
@@ -98,13 +104,13 @@ The assigned symmetric keys are returned in the **attestation** property in the 
 }
 ```
 
+Note down the primary key.
+
 If you want to use an existing individual enrollment for this article, you can get the primary key with the [az iot dps enrollment-group show](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-show) command:
 
 ```azurecli
 az iot dps enrollment-group show -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --show-keys true
 ```
-
-Note down the primary key.
 
 ### Derive a device key
 
@@ -134,9 +140,9 @@ You can also use the Azure CLI or PowerShell to derive a device key. To learn mo
 
 ## Create a SAS token
 
-To You use security tokens to grant time-bounded access for services to specific functionality in IoT Device Provisioning Service. To get authorization to connect to the provisioning service, services must send security tokens signed with either a shared access or symmetric key.
+When using symmetric key attestation, devices authenticate with DPS using a Shared Access Signature (SAS) token. For devices provisioning through an individual enrollment, the token is generated using either the primary or secondary key set in the enrollment entry. For a device provisioning through an enrollment group, the token is generated using a derived device key, which, in turn, has been generated using the either the primary or secondary key set in the enrollment group entry. The token specifies an expiry time and a target resource URI.
 
-A token signed with a shared access key grants access to all the functionality associated with the shared access policy permissions.
+The following Python script can be used to generate a SAS token:
 
 ```python
 from base64 import b64encode, b64decode
@@ -304,3 +310,9 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
    }
 }
 ```
+
+## Next Steps
+
+* To learn more about symmetric key attestation, see [Symmetric key attestation](concepts-symmetric-key-attestation.md).
+
+* To learn more about SAS tokens and their structure, see [Control access to DPS with SAS](how-to-control-access.md).
