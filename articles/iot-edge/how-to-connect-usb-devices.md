@@ -21,8 +21,8 @@ Setting up the USB/IP project on your Windows machine enables common developer U
 
 ## Prerequisites
 
-- Azure IoT Edge for Linux on Windows 1.2.10 update or higher. For more information about EFLOW release notes, see [EFLOW Releases](https://aka.ms/AzEFLOW-Releases).
-- A machine with an x64/x86 processor is required. (Currently, usbipd-win doesn't support ARM64).
+- Azure IoT Edge for Linux on Windows 1.3.1 update or higher. For more information about EFLOW release notes, see [EFLOW Releases](https://aka.ms/AzEFLOW-Releases).
+- A machine with an x64/x86 processor is required, *usbipd-win* doesn't support ARM64.
 
 > [!NOTE]
 >  To check your Azure IoT Edge for Linux on Windows version, go to _Add or Remove Programs_ and then search for _Azure IoT Edge_. The installed version is listed under _Azure IoT Edge_. If you need to update to the latest version, see [Azure IoT Edge for Linux on Windows updates](./iot-edge-for-linux-on-windows-updates.md).
