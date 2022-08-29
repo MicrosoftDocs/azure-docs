@@ -53,13 +53,15 @@
       - name: Troubleshoot hybrid Azure AD joined Windows current version
         href: troubleshoot-hybrid-join-windows-current.md
       - name: Troubleshoot pending device state
-        href: /troubleshoot/azure/active-directory/pending-devices
+        href: /troubleshoot/azure/active-directory/pending-devices?toc=/azure/active-directory/fundamentals/toc.json
       - name: Troubleshoot using dsregcmd
         href: troubleshoot-device-dsregcmd.md
       - name: Troubleshoot hybrid Azure AD joined down level Windows devices
         href: troubleshoot-hybrid-join-windows-legacy.md
   - name: Manage device identities
     href: device-management-azure-portal.md
+  - name: Troubleshooting Windows devices
+    href: troubleshoot-device-windows-joined.md
   - name: Manage stale devices
     href: manage-stale-devices.md
   - name: Azure Linux VMs and Azure AD
