@@ -9,9 +9,9 @@ ms.date: 08/29/2022
 ms.author: pafarley
 ---
 
-#### [Language service](#tab/language)
+#### [Language service](#tab/language-service)
 
-1. Select the following link to create a Langauge resource:
+1. Select the following link to create a Language resource:
    - [Language service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)
 1. On the **Select additional features** page, choose whether you'd like to include the customization features that work with other services.
 1. On the **Create** page, provide the following information:
