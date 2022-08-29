@@ -180,7 +180,7 @@ Ubuntu 18.04 and above have changed to `netplan` for OS network management. We r
     :wq
     ```
 
-6. Test the changes using [netplan try](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) to confirm syntax:
+6. Test the changes using [netplan try](https://manpages.ubuntu.com/manpages/kinetic/en/man8/netplan-try.8.html) to confirm syntax:
 
     ```bash
     netplan try
