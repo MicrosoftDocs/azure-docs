@@ -33,10 +33,10 @@ API keys are disabled by default in Azure Managed Grafana. There are two ways yo
 
     #### [Azure CLI](#tab/azcli)
 
-    Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to update your Azure Managed Grafana instance and enable deterministic outbound IPs.
+    Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to update your Azure Managed Grafana instance and enable deterministic outbound IPs. Replace `<azure-managed-grafana-instance-name>` with the name of your Azure Managed Grafana instance.
 
     ```azurecli-interactive
-    az grafana update --name --deterministic-outbound-ip Enabled
+    az grafana update --name <azure-managed-grafana-instance-name> --deterministic-outbound-ip Enabled
     ```
 
     ---
@@ -58,10 +58,31 @@ You have limited access to your data source by disabling public access, activati
 
 ## Check access to the data source
 
-Check if your Azure Managed Grafana endpoint can still access your data source by going to your Grafana endpoint, then **Configuration > Data Source > Azure Data Explorer Datasource > Settings**. At the bottom of the page, select **Save & test**:
+Check if the Azure Managed Grafana endpoint can still access your data source.
 
-- If the message "Success" is displayed, Azure Managed Grafana can access your data source.
-- If the following error messages are displayed,  Azure Managed Grafana can't access the data source: "Error updating Azure Data Explorer schema" and "Post "https://\<Azure-Data-Explorer URI\>/v1/rest/query": dial tcp 13.90.24.175:443: i/o timeout". Make sure that you have entered the IP addresses correctly in the data source firewall allowlist.
+### [Portal](#tab/portal)
+
+1. In the Azure portal, go to your instance's **Overview** page and select the **Endpoint** URL.
+
+1. Got to **Configuration > Data Source > Azure Data Explorer Datasource > Settings** and at the bottom of the page, select **Save & test**:
+
+    - If the message "Success" is displayed, Azure Managed Grafana can access your data source.
+    - If the following error messages is displayed, Azure Managed Grafana can't access the data source: "Post "https://\<Azure-Data-Explorer URI\>/v1/rest/query": dial tcp 13.90.24.175:443: i/o timeout". Make sure that you have entered the IP addresses correctly in the data source firewall allowlist.
+
+### [Azure CLI](#tab/portal)
+
+Run the [az grafana data-source query](/cli/azure/grafana/data-source#az-grafana-data-source-query) command to query the data source. Replace `<azure-managed-grafana-instance-name>` and `<data-source-name>` with the name of your Azure Managed Grafana instance and the name of your data source.
+
+```azurecli-interactive
+az grafana data-source query --name <azure-managed-grafana-instance-name> --data-source <data-source-name> --output table
+```
+
+If the following error message is displayed, Azure Managed Grafana can't access the data source: `error":"Post \\"https://mlgdataexplorer.eastus.kusto.windows.net/v1/rest/query\\": dial tcp 13.90.24.175:443: i/o timeout`. Make sure that you have entered the IP addresses correctly in the data source firewall allowlist.
+ 
+> [!TIP]
+> You can get the name of your data sources by running `az grafana data-source list --name <azure-managed-grafana-instance-name> --output table` 
+
+---
 
 ## Next steps
 
