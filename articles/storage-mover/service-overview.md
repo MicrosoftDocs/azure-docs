@@ -84,6 +84,6 @@ We must provide at least one next step, but should provide no more than three. T
 ## Next steps
 <!-- Add a context sentence for the following links -->
 These articles can help you become more familiar with the Storage Mover service.
-- deployment p[Planning for an Azure Storage Mover deployment](deployment-planning.md)
+- [Planning for an Azure Storage Mover deployment](deployment-planning.md)
 - [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md)
 - [Deploying a Storage Mover agent](agent-deploy.md)
