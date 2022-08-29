@@ -28,7 +28,7 @@ In the following sections, we'll cover the various aspects of querying resources
 
 ## Search parameters
 
-When you do a search in FHIR, you are searching the database for resources that match certain search criteria. The FHIR API specifies a rich set of search parameters for fine-tuning search criteria. Each resource in FHIR carries information as a set of elements, and search parameters work to query the information in these elements. In a FHIR search API call, if a positive match is found between the request's search parameters and element values stored in a resource instance, then the FHIR server returns a bundle containing the resource instance(s) whose elements satisfied the search criteria. 
+When you do a search in FHIR, you are searching the database for resources that match certain search criteria. The FHIR API specifies a rich set of search parameters for fine-tuning search criteria. Each resource in FHIR carries information as a set of elements, and search parameters work to query the information in these elements. In a FHIR search API call, if a positive match is found between the request's search parameters and the corresponding element values stored in a resource instance, then the FHIR server returns a bundle containing the resource instance(s) whose elements satisfied the search criteria. 
 
 For each search parameter, the FHIR specification defines the [data type(s)](https://www.hl7.org/fhir/search.html#ptypes) that can be used. Support in the FHIR service for the various data types is outlined below.
 
