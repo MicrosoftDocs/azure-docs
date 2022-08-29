@@ -59,8 +59,15 @@ For more information, see [Web Application Firewall DRS rule groups and rules](w
 Front Door's WAF enables you to control the number of requests allowed from each client's IP address over a period of time. It's a good practice to add rate limiting to reduce the impact of clients accidentally or intentionally sending large amounts of traffic to your service, such as during a [*retry storm*](/azure/architecture/antipatterns/retry-storm/).
 
 For more information, see the following resources:
+- [What is rate limiting for Azure Front Door Service?](waf-front-door-rate-limit.md).
 - [Configure a Web Application Firewall rate limit rule using Azure PowerShell](waf-front-door-rate-limit-powershell.md).
 - [Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?](waf-faq.yml#why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server-)
+
+### Use a high threshold for rate limits
+
+It's usually a good practice to set your rate limit threshold to be quite high. For example, if you know that a single client IP address might send around 10 requests to your server each minute, consider specifying a threshold of 20 requests per minute.
+ 
+High rate limit thresholds avoid blocking legitimate traffic, while still providing protection against extremely high numbers of requests that might overwhelm your infrastructure. 
 
 ## Geo-filtering best practices
 
