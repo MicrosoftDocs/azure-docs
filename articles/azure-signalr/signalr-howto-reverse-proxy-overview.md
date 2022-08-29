@@ -14,8 +14,9 @@ A reverse proxy server can be used in front of Azure SignalR Service. Reverse pr
 
 A common architecture using a reverse proxy server with Azure SignalR is as below:
 
-:::image type="content" source="./media/signalr-howto-reverse-proxy-overview/arch.png" alt-text="Architecture using  Azure SignalR with a reverse proxy server.":::   
+:::image type="content" source="./media/signalr-howto-reverse-proxy-overview/architecture.png" alt-text="Architecture using  Azure SignalR with a reverse proxy server.":::   
 
+## General practices
 There are several general practices to follow when using a reverse proxy in front of SignalR Service.
 
 * Make sure to rewrite the incoming HTTP [HOST header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host) with the Azure SignalR service URL, e.g. `https://demo.service.signalr.net`. Azure SignalR is a multi-tenant service, and it relies on the `HOST` header to resolve to the correct endpoint. For example, when [configuring Application Gateway](./signalr-howto-work-with-app-gateway.md#create-an-application-gateway-instance) for Azure SignalR, select **Yes** for the option *Override with new host name*.
@@ -23,8 +24,8 @@ There are several general practices to follow when using a reverse proxy in fron
 * When your client goes through your reverse proxy to Azure SignalR, set `ClientEndpoint` as your reverse proxy URL. When your client *negotiate*s with your hub server, the hub server will return the URL defined in `ClientEndpoint` for your client to connect. [Check here for more details.](./concept-connection-string.md#client-and-server-endpoints)
 
   There are two ways to configure `ClientEndpoint`:
-  1. Add a `ClientEndpoint` section to your ConnectionString: `Endpoint=...;AccessKey=...;ClientEndpoint=<reverse-proxy-URL>`
-  2. Configure `ClientEndpoint` when calling `AddAzureSignalR`:
+  * Add a `ClientEndpoint` section to your ConnectionString: `Endpoint=...;AccessKey=...;ClientEndpoint=<reverse-proxy-URL>`
+  * Configure `ClientEndpoint` when calling `AddAzureSignalR`:
     
       ```cs
       services.AddSignalR().AddAzureSignalR(o =>
@@ -40,8 +41,8 @@ There are several general practices to follow when using a reverse proxy in fron
       ```
 
 * When a client goes through your reverse proxy to Azure SignalR, there are two types of requests:
-  1. HTTP post request to `<reverse-proxy-URL>/client/negotiate`, which we call as **negotiate request**
-  2. WebSocket/SSE/LongPolling connection request depending on your transport type to `<reverse-proxy-URL>/client`, which we call as **connect request**.
+  * HTTP post request to `<reverse-proxy-URL>/client/negotiate`, which we call as **negotiate request**
+  * WebSocket/SSE/LongPolling connection request depending on your transport type to `<reverse-proxy-URL>/client`, which we call as **connect request**.
   
   Make sure that your reverse proxy supports both transport types for `/client` subpath. For example, when your transport type is WebSocket, make sure your reverse proxy supports both HTTP and WebSocket for `/client` subpath.
 
