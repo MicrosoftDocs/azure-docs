@@ -55,7 +55,7 @@ For example:
     }
   ],
   "createdDateTime": "2022-01-19T06:23:52.6996916Z",
-  "manifestVersion": "4.0"
+  "manifestVersion": "5.0"
 }
 ```
 
