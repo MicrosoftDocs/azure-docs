@@ -35,7 +35,7 @@ As your needs change or requirements for automation increase you can also manage
 
 ## Create a workspace
 
-You can create a workspace [directly in Azure Machine Learning studio](./quickstart-create-resources.md), with limited options available. Or use one of the methods below for more control of options.
+You can create a workspace [directly in Azure Machine Learning studio](./quickstart-create-resources.md#create-the-workspace), with limited options available. Or use one of the methods below for more control of options.
 
 # [Python](#tab/python)
 
