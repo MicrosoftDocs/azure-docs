@@ -50,36 +50,16 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 
 ### [Decision](#tab/decision)
 
-1. You can select one of these links to create a Decision resource: 
-    - [Anomaly Detector](https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector)
-    - [Content Moderator](https://portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
-    - [Metrics Advisor](https://portal.azure.com/#create/Microsoft.CognitiveServicesMetricsAdvisor)
-    - [Personalizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)
-
-1. On the **Create** page, provide the following information:
-
-    [!INCLUDE [Create Azure resource for subscription](./includes/quickstarts/cognitive-resource-project-details.md)]
-
-1. Configure additional settings for your resource as needed, read and accept the conditions (as applicable), and then select **Review + create**.
+[!INCLUDE [Create Decision resource for subscription](./includes/quickstarts/create-decision-resource-portal.md)]
 
 ### [Language](#tab/language)
 
-1. You can select one of these links to create a Language resource: 
-    - [Immersive reader](https://portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)
-    - [Language Understanding (LUIS)](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-    - [Language service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)
-    - [Translator](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)
-    - [QnA Maker](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)
-
-1. On the **Create** page, provide the following information:
-
-    [!INCLUDE [Create Azure resource for subscription](./includes/quickstarts/cognitive-resource-project-details.md)]
-
-1. Configure additional settings for your resource as needed, read and accept the conditions (as applicable), and then select **Review + create**.
+[!INCLUDE [Create Language resource for subscription](./includes/quickstarts/create-language-resource-portal.md)]
 
 ### [Speech](#tab/speech)
 
-1. You can select this link to create a Speech resource: [Speech Services](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
+1. You can select this link to create a Speech resource: 
+   - [Speech Services](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 
 1. On the **Create** page, provide the following information:
 
@@ -89,16 +69,7 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 
 ### [Vision](#tab/vision)
 
-1. You can select one of these links to create a Vision resource: 
-    - [Computer vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
-    - [Custom vision service](https://portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision)
-    - [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) 
-
-1. On the **Create** page, provide the following information:
-
-    [!INCLUDE [Create Azure resource for subscription](./includes/quickstarts/cognitive-resource-project-details.md)]
-
-1. Configure additional settings for your resource as needed, read and accept the conditions (as applicable), and then select **Review + create**.
+[!INCLUDE [Create Vision resource for subscription](./includes/quickstarts/create-vision-resource-portal.md)]
 
 ---
 
