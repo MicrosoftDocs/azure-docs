@@ -1,5 +1,5 @@
 ---
-title: Assess AI systems by using the Responsible AI dashboard
+title: Assess AI systems and make data-driven decisions with Azure Machine Learning Responsible AI dashboard
 titleSuffix: Azure Machine Learning
 description: Learn how to use the comprehensive UI and SDK/YAML components in the Responsible AI dashboard to debug your machine learning models and make data-driven decisions.
 services: machine-learning
