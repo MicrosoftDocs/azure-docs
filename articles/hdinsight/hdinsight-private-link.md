@@ -22,16 +22,7 @@ The use of Private Link to connect to an HDInsight cluster is an optional featur
 When `privateLink` is set as *enabled*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLBs) are created, and an Azure Private Link service is provisioned for each SLB. The Private Link service is what allows you to access the HDInsight cluster from private endpoints.
 
 ## Private link deployment steps
-Successfully creating a Private Link cluster takes many steps, so we've outlined them here. Follow each of the steps below to ensure everything is set-up correctly.
-
-### [Step 1: Create prerequisites](#Createpreqs)
-### [Step 2: Configure HDInsight subnet](#DisableNetworkPolicy)
-### [Step 3: Deploy NAT gateway or firewall](#NATorFirewall)
-### [Step 4: Deploy private link cluster](#deployCluster)
-### [Step 5: Create private endpoints](#PrivateEndpoints)
-### [Step 6: Configure DNS to connect over private endpoints](#ConfigureDNS)
-### [Step 7: Check cluster connectivity](#CheckConnectivity)
-### [Appendix: Manage private endpoints for HDInsight](#ManageEndpoints)
+Successfully creating a Private Link cluster takes many steps, so we've outlined them here. Follow each of the steps below to ensure everything is set up correctly.
 
 ## <a name="Createpreqs"></a>Step 1: Create prerequisites
 
@@ -59,7 +50,7 @@ Standard load balancers don't automatically provide [public outbound NAT](../loa
 ### Deploy a NAT gateway (Option 1)
 You can opt to use a NAT gateway if you don't want to configure a firewall or a network virtual appliance (NVA) for NAT. To get started, add a NAT gateway (with a new public IP address in your virtual network) to the configured subnet of your virtual network. This gateway is responsible for translating your private internal IP address to public addresses when traffic needs to go outside your virtual network.
 
-For a basic set up to get started:
+For a basic setup to get started:
     
 1. Search for 'NAT Gateways' in the Azure portal and click **Create**.
 2. Use the following configurations in the NAT Gateway. (We aren't including all configs here, so you can use the default values.)
@@ -115,7 +106,7 @@ Azure automatically creates a Private link service for the Ambari and SSH load b
 To create the private endpoints:
 1. Open the Azure portal and search for 'Private link'.
 2. In the results, click the Private link icon.
-3. Click 'Create private endpoint' and use the following configurations to setup the Ambari private endpoint:
+3. Click 'Create private endpoint' and use the following configurations to set up the Ambari private endpoint:
     
     | Config | Value |
     | ------ | ----- |
@@ -203,7 +194,7 @@ To configure DNS resolution through a Private DNS zone:
 
 The last step is to test connectivity to the cluster. Since this cluster is isolated or private, we can't access the cluster using any public IP or FQDN. Instead we have a couple of options:
 
-* Set up VPN access to the client VNET from your on premise network
+* Set up VPN access to the client VNET from your on-premises network
 * Deploy a VM to the client VNET and access the cluster from this VM
 
 For this example, we'll deploy a VM in the client VNET using the following configuration to test the connectivity.
