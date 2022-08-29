@@ -163,9 +163,6 @@
              href: concept-data-analysis.md
            - name: Counterfactual analysis and what-if
              href: concept-counterfactual-analysis.md
-           - name: Differential Privacy
-             displayName: differential,privacy
-             href: concept-differential-privacy.md
     - name: Workspace & compute resources
       items: 
         - name: Workspace
@@ -197,6 +194,9 @@
           href: ./security-controls-policy.md
         - name: Data encryption
           href: concept-data-encryption.md
+        - name: Data exfiltration prevention
+          displayName: loss
+          href: how-to-prevent-data-loss-exfiltration.md
         - name: Customer-managed keys
           href: concept-customer-managed-keys.md
         - name: Vulnerability management
@@ -385,9 +385,6 @@
           items:
           - name: Train with SDK v2 (preview)
             href: how-to-train-sdk.md
-          - name: Configure & submit training run
-            displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-            href: how-to-set-up-training-targets.md
           - name: Tune hyperparameters
             displayName: parameter, hyperparameter, hyperdrive
             href: how-to-tune-hyperparameters.md
@@ -763,8 +760,6 @@
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/machine-learning-services/
-    - name: Service limits
-      href: resource-limits-capacity.md
     - name: Conda licensing
       href: /legal/machine-learning/conda-licensing
     - name: Regional availability
