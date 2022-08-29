@@ -2,11 +2,11 @@
 title: 'Quickstart: Deploy a Python (Django or Flask) web app to Azure'
 description: Get started with Azure App Service by deploying your first Python app to Azure App Service.
 ms.topic: quickstart
-ms.date: 03/22/2022
+ms.date: 08/23/2022
 author: mijacobs
 ms.author: mijacobs
 ms.devlang: python
-ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22
+ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22, vscode-azure-extension-update-completed
 ---
 
 # Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service
@@ -16,6 +16,8 @@ In this quickstart, you'll deploy a Python web app (Django or Flask) to [Azure A
 To complete this quickstart, you need:
 1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. <a href="https://www.python.org/downloads/" target="_blank">Python 3.9 or higher</a> installed locally.
+
+>**Note**: This article contains current instructions on deploying a Python web app using Azure App Service. Python on Windows is no longer supported.
 
 ## 1 - Sample application
 

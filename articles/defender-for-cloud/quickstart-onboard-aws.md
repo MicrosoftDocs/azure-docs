@@ -37,7 +37,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 |Aspect|Details|
 |----|:----|
 |Release state:|General Availability (GA)|
-|Pricing:|The **CSPM plan** is free.<br>The **[Defender for SQL](defender-for-sql-introduction.md)** plan is billed at the same price as Azure resources.<br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for AWS at the same price as for Azure resources.<br>For every AWS machine connected to Azure with [Azure Arc-enabled servers](../azure-arc/servers/overview.md), the **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines. If an AWS EC2 doesn't have the Azure Arc agent deployed, you won't be charged for that machine.|
+|Pricing:|The **CSPM plan** is free.<br>The **[Defender for SQL](defender-for-sql-introduction.md)** plan is billed at the same price as Azure resources.<br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for AWS at the same price as for Azure resources.<br>For every AWS machine connected to Azure, the **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines.<br>Learn more about [Defender plan pricing and billing](enhanced-security-features-overview.md#faq---pricing-and-billing)|
 |Required roles and permissions:|**Contributor** permission for the relevant Azure subscription. <br> **Administrator** on the AWS account.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
@@ -400,7 +400,8 @@ You can check out the following blogs:
 
 ## Next steps
 
-Connecting your AWS account is part of the multicloud experience available in Microsoft Defender for Cloud. For related information, see the following page:
+Connecting your AWS account is part of the multicloud experience available in Microsoft Defender for Cloud. For related information, see the following pages:
 
 - [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 - [Connect your GCP projects to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
+- [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector)

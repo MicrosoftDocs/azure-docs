@@ -69,7 +69,7 @@ Use the Azure CLI for creating a new cache and geo-replication group, or to add 
 
 #### Create new Enterprise instance in a new geo-replication group using Azure CLI
 
-This example creates a new Azure Cache for Redis Enterprise E10 cache instance called _Cache1_ in the East US region. Then, the cache is added to a new active geo-replication group called `replicationGroup`:
+This example creates a new Azure Cache for Redis Enterprise E10 cache instance called _Cache1_ in the East US region. Then, the cache is added to a new active geo-replication group called _replicationGroup_:
 
 ```azurecli-interactive
 az redisenterprise create --location "East US" --cluster-name "Cache1" --sku "Enterprise_E10" --resource-group "myResourceGroup" --group-nickname "replicationGroup" --linked-databases id="/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"
@@ -77,12 +77,11 @@ az redisenterprise create --location "East US" --cluster-name "Cache1" --sku "En
 
 To configure active geo-replication properly, the ID of the cache instance being created must be added with the `--linked-databases` parameter. The ID is in the format:
 
-`/subscriptions/\<your-subscription-ID>/resourceGroups/\<your-resource-group-name>/providers/Microsoft.Cache/redisEnterprise/\<your-cache-name>/databases/default`
+`/subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group-name>/providers/Microsoft.Cache/redisEnterprise/<your-cache-name>/databases/default`
 
 #### Create new Enterprise instance in an existing geo-replication group using Azure CLI
 
 This example creates a new Cache for Redis Enterprise E10 instance called _Cache2_ in the West US region. Then, the cache is added to the `replicationGroup` active geo-replication group created above. This way, it's linked in an active-active configuration with Cache1.
-<!-- love the simple, declarative sentences. I am once again add the full product name -->
 
 ```azurecli-interactive
 az redisenterprise create --location "West US" --cluster-name "Cache2" --sku "Enterprise_E10" --resource-group "myResourceGroup" --group-nickname "replicationGroup" --linked-databases id="/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default" --linked-databases id="/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache2/databases/default"
@@ -96,7 +95,7 @@ Use Azure PowerShell to create a new cache and geo-replication group, or to add 
 
 #### Create new Enterprise instance in a new geo-replication group using PowerShell
 
-This example creates a new Azure Cache for Redis Enterprise E10 cache instance called "Cache1" in the East US region. Then, the cache is added to a new active geo-replication group called `replicationGroup`:
+This example creates a new Azure Cache for Redis Enterprise E10 cache instance called "Cache1" in the East US region. Then, the cache is added to a new active geo-replication group called _replicationGroup_:
 
 ```powershell-interactive
 New-AzRedisEnterpriseCache -Name "Cache1" -ResourceGroupName "myResourceGroup" -Location "East US" -Sku "Enterprise_E10" -GroupNickname "replicationGroup" -LinkedDatabase '{id:"/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"}'
@@ -104,7 +103,7 @@ New-AzRedisEnterpriseCache -Name "Cache1" -ResourceGroupName "myResourceGroup" -
 
 To configure active geo-replication properly, the ID of the cache instance being created must be added with the `-LinkedDatabase` parameter. The ID is in the format:
 
-`id:"/subscriptions/\<your-subscription-ID>/resourceGroups/\<your-resource-group-name>/providers/Microsoft.Cache/redisEnterprise/\<your-cache-name>/databases/default`
+`/subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group-name>/providers/Microsoft.Cache/redisEnterprise/<your-cache-name>/databases/default`
 
 #### Create new Enterprise instance in an existing geo-replication group using PowerShell
 

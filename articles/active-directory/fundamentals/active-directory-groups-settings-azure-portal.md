@@ -3,13 +3,13 @@ title: Edit your group information - Azure Active Directory | Microsoft Docs
 description: Instructions about how to edit your group's information using Azure Active Directory.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/27/2018
+ms.date: 08/17/2022
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"
@@ -21,6 +21,7 @@ ms.collection: M365-identity-device-management
 Using Azure Active Directory (Azure AD), you can edit a group's settings, including updating its name, description, or membership type.
 
 ## To edit your group settings
+
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory**, and then select **Groups**.
@@ -52,6 +53,7 @@ Using Azure Active Directory (Azure AD), you can edit a group's settings, includ
     - **Object ID.** You can't change the Object ID, but you can copy it to use in your PowerShell commands for the group. For more info about using PowerShell cmdlets, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-v2-cmdlets.md).
 
 ## Next steps
+
 These articles provide additional information on Azure Active Directory.
 
 - [View your groups and members](active-directory-groups-view-azure-portal.md)

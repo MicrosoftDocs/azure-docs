@@ -5,7 +5,7 @@ services: web-application-firewall
 author: mohitkusecurity
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 08/21/2022
 ms.author: mohitku
 ms.reviewer: victorh 
 ms.custom: devx-track-azurepowershell
@@ -14,6 +14,10 @@ ms.custom: devx-track-azurepowershell
 # Tuning Web Application Firewall (WAF) for Azure Front Door
  
 The Microsoft-managed Default Rule Set is based on the  [OWASP Core Rule Set (CRS)](https://github.com/SpiderLabs/owasp-modsecurity-crs/tree/v3.1/dev) and includes Microsoft Threat Intelligence Collection rules. It is often expected that WAF rules need to be tuned to suit the specific needs of the application or organization using the WAF. This is commonly achieved by defining rule exclusions, creating custom rules, and even disabling rules that may be causing issues or false positives. There are a few things you can do if requests that should pass through your Web Application Firewall (WAF) are blocked.
+
+> [!Note]
+> 
+> Managed Rule Set is not available for Azure Front Door Standard SKU. For more information about the different tier SKUs, refer to [Feature comparison between tiers](/azure/frontdoor/standard-premium/tier-comparison#feature-comparison-between-tiers)
 
 First, ensure you’ve read the [Front Door WAF overview](afds-overview.md) and the [WAF Policy for Front Door](waf-front-door-create-portal.md) documents. Also, make sure you’ve enabled [WAF monitoring and logging](waf-front-door-monitor.md). These articles explain how the WAF functions, how the WAF rule sets work, and how to access WAF logs.
  
@@ -270,6 +274,12 @@ Another way to view request and response headers is to look inside the developer
 ### Finding request cookie names
 
 If the request contains cookies, the Cookies tab can be selected to view them in Fiddler. Cookie information can also be used to create exclusions or custom rules in WAF.
+
+## Anomaly scoring rule
+
+If you see rule ID 949110 during the process of tuning your WAF, this indicates that the request was blocked by the [anomaly scoring](waf-front-door-drs.md#anomaly-scoring-mode) process.
+
+Review the other WAF log entries for the same request, by searching for the log entries with the same tracking reference. Look at each of the rules that were triggered, and tune each rule by following the guidance throughout this article.
 
 ## Next steps
 

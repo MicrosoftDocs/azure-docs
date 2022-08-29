@@ -30,6 +30,10 @@ Here is an example of a typical VNET setup with a subnet delegated to Azure Orbi
 
 :::image type="content" source="media/azure-ground-station-subnet-example.png" alt-text="Screenshot of subnet configuration with Orbital delegated subnet." lightbox="media/azure-ground-station-subnet-example.png":::
 
+## Prepare endpoints
+
+Set the MTU of all desired endpoints to at least 3650.
+
 ## Setting up the contact profile
 
 Prerequisites:

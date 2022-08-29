@@ -83,6 +83,8 @@
         href: scenario-secured-hub-app-gateway.md
       - name: Microsoft 365 - ExpressRoute private peering
         href: scenario-365-expressroute-private.md
+    - name: Virtual WAN routing deep dive
+      href: routing-deep-dive.md
   - name: Site-to-site
     items:
     - name: About S2S IPsec policies
@@ -225,7 +227,7 @@
           href: virtual-wan-route-table-nva-portal.md
         - name: Azure PowerShell
           href: virtual-wan-route-table-nva.md
-    - name: Configure BGP peering with virtual hub
+    - name: Configure BGP peering to an NVA
       href: create-bgp-peering-hub-portal.md
   - name: Security
     items:
