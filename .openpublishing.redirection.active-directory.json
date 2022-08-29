@@ -31,11 +31,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/saas-apps/netmotion-mobility-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/active-directory/fundamentals/whats-new-microsoft-365-government.md",
       "redirect_url": "/azure/active-directory/fundamentals/whats-new",
       "redirect_document_id": true
@@ -10842,8 +10837,13 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/recover-deleted-apps-faq.md",
+      "source_path": "articles/active-directory/manage-apps/recover-deleted-apps-faq.md",
       "redirect_url": "/azure/active-directory/manage-apps/delete-recover-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-percept/voice-control-your-inventory-then-visualize-with-power-bi-dashboard.md",
+      "redirect_url": "/azure/azure-percept/index",
       "redirect_document_id": false
     }
 

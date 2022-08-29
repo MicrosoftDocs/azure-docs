@@ -331,7 +331,7 @@ In addition, the model now includes people and locations in-context which are no
 ### Azure Video Indexer is deployed on US Government cloud
 
 You can now create an Azure Video Indexer paid account on US government cloud in Virginia and Arizona regions.
-Azure Video Indexer free trial offering isn't available in the mentioned region. For more information go to Azure Video Indexer Documentation.
+Azure Video Indexer trial offering isn't available in the mentioned region. For more information go to Azure Video Indexer Documentation.
 
 ### Azure Video Indexer deployed in the India Central region
 

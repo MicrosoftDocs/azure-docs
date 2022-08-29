@@ -30,6 +30,19 @@ The automation framework also defines the credentials for the default virtual ma
 | [Service principal](#service-principal-creation) | Environment | Deployer's key vault | Environment identifier | Deployment credentials. |
 | VM credentials | Environment | Workload's key vault | Environment identifier | Sets the default VM user information. |
 
+### SAP and Virtual machine Credentials management
+
+The automation framework will use the workload zone key vault for storing both the automation user credentials and the SAP system credentials. The virtual machine credentials are named as follows:
+
+| Credential         | Name                            | Example                         |
+| ------------------ | ------------------------------- | ------------------------------- | 
+| Private key        | [IDENTIFIER]-sshkey             | DEV-WEEU-SAP01-sid-sshkey       | 
+| Public key         | [IDENTIFIER]-sshkey-pub         | DEV-WEEU-SAP01-sid-sshkey-pub   | 
+| Username           | [IDENTIFIER]-username           | DEV-WEEU-SAP01-sid-username     | 
+| Password           | [IDENTIFIER]-password           | DEV-WEEU-SAP01-sid-password     | 
+| sidadm Password    | [IDENTIFIER]-[SID]-sap-password | DEV-WEEU-SAP01-X00-sap-password | 
+
+
 ### Service principal creation
 
 Create your service principal:

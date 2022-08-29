@@ -4,14 +4,14 @@ description: Manage guest users as members of a group or assigned to an applicat
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 4/16/2021
+ms.date: 08/23/2021
 ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -38,7 +38,7 @@ For more information, [License requirements](access-reviews-overview.md#license-
 First, you must be assigned one of the following roles:
 - global administrator
 - User administrator
-- (Preview) M365 or AAD Security Group owner of the group to be reviewed
+- (Preview) Microsoft 365 or Azure AD Security Group owner of the group to be reviewed
 
 Then, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization.
 
@@ -119,7 +119,13 @@ In some organizations, guests might not be aware of their group memberships.
 
 4. After the reviewers give input, stop the access review. For more information, see [Complete an access review of groups or applications](complete-access-review.md).
 
-5. Remove guest access for guests who were denied, didn't complete the review, or didn't previously accept their invitation. If some of the guests are contacts who were selected to participate in the review or they didn't previously accept an invitation, you can disable their accounts by using the Azure portal or PowerShell. If the guest no longer needs access and isn't a contact, you can remove their user object from your directory by using the Azure portal or PowerShell to delete the guest user object.
+5. You can automatically delete the guest users Azure AD B2B accounts as part of an access review when you are configuring an Access review for **Select Team + Groups**. This option is not available for **All Microsoft 365 groups with guest users**.
+
+![Screenshot showing page to create access review.](media/manage-guest-access-with-access-reviews/new-access-review.png)
+
+To do so, select **Auto apply results to resource** as this will automatically remove the user from the resource. **If reviewer don't respond** should be set to **Remove access** and **Action to apply on denied guest users** should also be set to **Block from signing in for 30 days then remove user from the tenant**.
+
+This will immediately block sign in to the guest user account and then automatically delete their Azure AD B2B account after 30 days.
 
 ## Next steps
 
