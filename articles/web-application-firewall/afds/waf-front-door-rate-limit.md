@@ -13,7 +13,7 @@ ms.author: jodowns
 
 Rate limiting enables you to detect and block abnormally high levels of traffic from any client IP address. By using the web application firewall (WAF) with Azure Front Door, you can mitigate some types of denial of service attacks. Rate limiting also protects you against clients that have accidentally been misconfigured to send large volumes of requests in a short time period.
 
-Rate limits are applied for each client IP address. If you have multiple clients accessing your Front Door from different IP addresses, they will each have their own rate limits applied.
+Rate limits are applied for each client IP address. If you have multiple clients accessing your Front Door from different IP addresses, they'll each have their own rate limits applied.
 
 ## Configure a rate limit policy
 
@@ -44,7 +44,7 @@ You also must specify at least one *match condition*, which tells Front Door whe
 
 Requests from the same client often arrive at the same Front Door server. In that case, you'll see requests are blocked as soon as the rate limit is reached for each client IP address.
 
-However, it's possible that requests from the same client might arrive at a different Front Door server that has not refreshed the rate limit counter yet. For example, the client might open a new TCP connection for each request. If the threshold is low enough, the first request to the new Front Door server could pass the rate limit check. So, for a very low threshold (for example, less than about 50 requests per minute), you might see additional requests above the threshold get through.
+However, it's possible that requests from the same client might arrive at a different Front Door server that hasn't refreshed the rate limit counter yet. For example, the client might open a new TCP connection for each request. If the threshold is low enough, the first request to the new Front Door server could pass the rate limit check. So, for a very low threshold (for example, less than about 50 requests per minute), you might see some requests above the threshold get through.
 
 ## Next steps
 
