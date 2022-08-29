@@ -58,14 +58,14 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 
 ### [Speech](#tab/speech)
 
-1. You can select this link to create a Speech resource: 
+1. Select the following links to create a Speech resource: 
    - [Speech Services](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 
 1. On the **Create** page, provide the following information:
 
     [!INCLUDE [Create Azure resource for subscription](./includes/quickstarts/cognitive-resource-project-details.md)]
 
-1. Configure other settings for your resource as needed, read and accept the conditions (as applicable), and then select **Review + create**.
+1. Select **Review + create**.
 
 ### [Vision](#tab/vision)
 
