@@ -324,7 +324,7 @@ To configure your storage account:
 
 Enable Azure AD Kerberos functionality by configuring the group policy or registry value in the following list:
 
-- Group policy: `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+- Group policy: `Administrative Templates\System\Kerberos\Allow retrieving the cloud kerberos ticket during the logon`
 - Registry value: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
 
 Next, make sure you can retrieve a Kerberos Ticket Granting Ticket (TGT) by following these instructions:
