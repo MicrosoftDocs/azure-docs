@@ -55,7 +55,7 @@ To add or remove zone-redundancy requires migration of the data in the storage a
 
 If you want to change both the zone-redundancy factor and either geo-redundancy, read-access or both, a two-step process will be required. You will first need to make the geo-redundancy and read-access change(s), then perform a migration to change the zone-redundancy.
 
-The following table shows the options for converting from any replication setting to any other:
+The following table shows the options for converting from each replication setting to every other:
 
 | Convert         | ...to: | LRS| GRS <sup>1,2</sup> | RA-GRS <sup>1,2</sup> | ZRS <sup>5</sup> | GZRS <sup>1,2,5</sup> | RA-GZRS <sup>1,2,5</sup> |
 |-----------------|--------|----|-----|--------|-----|------|---------|
@@ -199,7 +199,7 @@ az storage account update \
 
 ## Storage account migration
 
-There are two supported methods of migrating your storage account:
+There are two supported methods for migrating your storage account:
 
 - [Live migration](#perform-a-live-migration)
 - [Manual migration](#perform-a-manual-migration)
@@ -208,7 +208,7 @@ Live migration is the preferred method if:
 
 - Data availability must be maintained during the migration process
 - The exact timing of the migration is not critical
-- You want to minimize the amount of effort required during the migration
+- You want to minimize the amount of effort required to complete the migration
 
 Manual migration might be the best option if you want the most control over the process, including the timing. It might be the only option in scenarios where live migration is not supported.
 
@@ -220,7 +220,7 @@ You must perform a manual migration if:
 
 ### Perform a live migration
 
-The live migration option is available in most scenarios where you want to change zone-redundancy. The only exceptions are those one previously noted under [Restrictions](#restrictions).
+The live migration option is available in most scenarios where you want to change zone-redundancy. The only exceptions are those previously noted under [Restrictions](#restrictions).
 
 During a live migration, you can access data in your storage account with no loss of durability or availability. The Azure Storage SLA is maintained during the migration process and there is no data loss associated with a live migration. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
