@@ -78,7 +78,7 @@ To enable log analytics for each resource, go to your individual Azure Front Doo
 
 1. Once finished configuring individual WAF resources, select the **Next steps** tab. Select one of the recommended workbooks. This workbook will use all log analytic data that was enabled previously. A working WAF workbook should now exist for your WAF resources.
 
-   :::image type="content" source="media//waf-sentinel/waf-workbooks.png" alt-text="WAF workbooks":::
+   :::image type="content" source="media//waf-sentinel/waf-workbooks.png" alt-text="WAF workbooks" lightbox="media//waf-sentinel/waf-workbooks.png":::
 
 ## Next steps
 
