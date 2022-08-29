@@ -25,7 +25,7 @@ Due to their dynamic nature, deployments remain active and in-progress until the
 
 ### Deployment scheduling
 
-Update deployments can be scheduled to start immediately or to start in the future at a particular time and date. This allows to efficiently plan for device downtime so that it doesn't interfere with any other critical device workflows. 
+Update deployments can be scheduled to start immediately or to start in the future at a particular time and date. This allows the user to efficiently plan device downtime so that it doesn't interfere with any other critical device workflows. 
 
 ### Automatic Rollback Policy
 
