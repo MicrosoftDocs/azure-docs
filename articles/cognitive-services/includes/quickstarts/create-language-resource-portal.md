@@ -23,6 +23,7 @@ ms.author: pafarley
 
 1. Select the following link to create a LUIS resource:
    - [Language Understanding (LUIS)](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. On the **Create** page, provide the following information:
 
    |Project details| Description   |
    |--|--|

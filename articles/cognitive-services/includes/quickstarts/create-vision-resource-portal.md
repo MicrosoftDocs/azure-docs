@@ -30,7 +30,7 @@ ms.author: pafarley
 #### [Custom Vision](#tab/custom-vision)
 
 1. Select the following link to create a Custom Vision resource:
-   - [Custom vision service](https://portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision)
+   - [Custom Vision service](https://portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision)
 1. On the **Create** page, provide the following information:
 
     |Project details| Description   |

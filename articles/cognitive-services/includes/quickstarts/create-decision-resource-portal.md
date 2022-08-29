@@ -20,7 +20,7 @@ ms.author: pafarley
 #### [Content Moderator](#tab/content-moderator)
 
 1. Select the following link to create a Content Moderator resource:
-   - [Content Moderator](https://portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)1. 
+   - [Content Moderator](https://portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
 1. On the **Create** page, provide the following information:
 
    [!INCLUDE [Create Azure resource for subscription](./cognitive-resource-project-details.md)]
