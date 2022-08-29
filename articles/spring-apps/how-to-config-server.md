@@ -51,6 +51,9 @@ Azure Spring Apps supports Azure DevOps, GitHub, GitLab, and Bitbucket for stori
 
 Additionally, some configurable properties are available only for certain types. The following subsections list the properties for each repository type.
 
+> [!NOTE]
+> Config Server takes `master` (on Git) as the default label if you don't specify one. However, GitHub has recently changed the default branch from `master` to `main`. To avoid Azure Spring Apps Config Server failure, be sure to pay attention to the default label when setting up Config Server with GitHub, especially for newly-created repositories.
+
 ### Public repository
 
 When you use a public repository, your configurable properties are more limited.
@@ -84,7 +87,11 @@ All configurable properties used to set up private Git repository with SSH are l
 | `strict-host-key-checking` | No       | Indicates whether the Config Server instance will fail to start when using the private `host-key`. Should be *true* (default value) or *false*.                      |
 
 > [!NOTE]
+<<<<<<< HEAD
 > Config Server takes `master` (om Git itself) as the default label if you don't specify one. But GitHub has changed the default branch from `master` to `main` recently. To avoid Azure Spring Apps Config Server failure, pay attention to the default label when setting up Config Server with GitHub, especially for newly-created repositories.
+=======
+> Config Server doesn't support SHA-2 signatures yet and we are actively working on to support it in future release. Before that, please use SHA-1 signatures or basic auth instead.
+>>>>>>> 80ee9cccd986e593ecd6ca2451c0f3f9c40b5bf3
 
 ### Private repository with basic authentication
 
