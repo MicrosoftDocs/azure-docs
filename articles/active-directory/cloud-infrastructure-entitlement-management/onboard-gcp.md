@@ -18,6 +18,20 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on P
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
+## Explanation
+
+For GCP, permissions management is scoped to a *GCP project*. A GCP project is a logical collection of your resources in GCP, somewhat analogous to a subscription in Azure, albeit with further configurations you can perform e.g. application registrations.
+
+<!-- Diagram from Gargi-->
+
+There are several moving parts across GCP and Azure which are required to be configured before onboarding.
+
+1. An AAD OIDC App
+1. An Workload Identity in GCP
+1. OAuth2 confidential client grant utilized
+1. A GCP service account with permissions to collect
+
+
 ## Onboard a GCP project
 
 1. If the **Data Collectors** dashboard isn't displayed when Permissions Management launches:
@@ -108,7 +122,7 @@ This option detects all projects that are accessible by the Cloud Infrastructure
 
     The **Welcome to Permissions Management GCP onboarding** screen appears, displaying steps you must complete to onboard your GCP project.
 
-### 5. Paste the environment vars from the Permissions Management portal.
+### 5. Paste the environmental variables from the Permissions Management portal.
 
 1. Return to Permissions Management and select **Copy export variables**.
 1. In the GCP Onboarding shell editor, paste the variables you copied, and then press **Enter**.

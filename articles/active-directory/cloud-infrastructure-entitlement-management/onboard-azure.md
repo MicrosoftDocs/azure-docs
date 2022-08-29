@@ -18,6 +18,14 @@ This article describes how to onboard a Microsoft Azure subscription or subscrip
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
+## Explanation
+
+Given Permissions Management is hosted on Azure and you are onboarding your Azure subscriptions to be monitored and managed, setup is simple with few moving parts to configure. Below is what is required to configure onboarding:
+
+1. When your tenant is onboarded, an application is created in the tenant.
+1. This app requires 'reader' permissions on the subscriptions
+1. For controller functionality, the app requires 'User Access Administrator' to create and implement right-size roles
+
 ## Prerequisites
 
 To add Permissions Management to your Azure AD tenant:

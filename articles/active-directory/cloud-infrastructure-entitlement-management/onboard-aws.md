@@ -18,6 +18,20 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Pe
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
+## Explanation
+
+There are several moving parts across AWS and Azure which are required to be configured before onboarding.
+
+1. An AAD OIDC App
+1. An AWS OIDC account
+1. An (optional) AWS Master account
+1. An (optional) AWS Central logging account
+1. An AWS OIDC role
+1. An AWS Cross Account role assumed by OIDC role
+ 
+
+<!-- diagram from gargi -->
+
 ## Onboard an AWS account
 
 1. If the **Data Collectors** dashboard isn't displayed when Permissions Management launches:
