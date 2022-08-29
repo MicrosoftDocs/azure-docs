@@ -66,7 +66,7 @@ To enable Azure AD Kerberos authentication on Azure Files for hybrid user accoun
 1. Under **Data storage**, select **File shares**.
 1. Next to **Active Directory**, select the configuration status (for example, **Not configured**).
  
-   :::image type="content" source="media/storage-files-identity-auth-azure-active-directory-enable/configure-active-directory.png" alt-text="Screenshot of the Azure portal showing file share settings for a storage account. Active Directory configuration settings is selected." lightbox="media/storage-files-identity-auth-azure-active-directory-enable/configure-active-directory.png" border="true":::
+   :::image type="content" source="media/storage-files-identity-auth-azure-active-directory-enable/configure-active-directory.png" alt-text="Screenshot of the Azure portal showing file share settings for a storage account. Active Directory configuration settings are selected." lightbox="media/storage-files-identity-auth-azure-active-directory-enable/configure-active-directory.png" border="true":::
 
 1. Under **Azure AD Kerberos (preview)**, select **Set up**.
 1. Select the **Azure AD Kerberos** checkbox.
