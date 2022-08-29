@@ -40,10 +40,10 @@ Azure OpenAI's model names typically correspond to the following standard naming
 | --- | --- |
 | `{family}` | The model family of the model. For example, [GPT-3 models](#gpt-3-models) uses `text`, while [Codex models](#codex-models) use `code`.|
 | `{capability}` | The relative capability of the model. For example, GPT-3 models include `ada`, `babbage`, `curie`, and `davinci`.|
-| `{input-type}` | ([Embeddings models](#embeddings-models) only) The input type of the embedding supported by the model. For example, text search embedding models include `doc` and `query`.|
+| `{input-type}` | ([Embeddings models](#embeddings-models) only) The input type of the embedding supported by the model. For example, text search embedding models support `doc` and `query`.|
 | `{identifier}` | The version identifier of the model. |
 
-For example, most powerful GPT-3 model is called `text-davinci-002`, while our most powerful Codex model is called `code-davinci-002`.
+For example, our most powerful GPT-3 model is called `text-davinci-002`, while our most powerful Codex model is called `code-davinci-002`.
 
 > Older versions of the GPT-3 models are available, named `ada`, `babbage`, `curie`, and `davinci`. These older models do not follow the standard naming conventions, and they are primarily intended for fine tuning. For more information, see [Learn how to customize a model for your application](../how-to/fine-tuning.md).
 
