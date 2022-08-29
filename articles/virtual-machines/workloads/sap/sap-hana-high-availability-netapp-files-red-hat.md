@@ -500,12 +500,12 @@ Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux](./high-av
 
 ### Implement the Python system replication hook SAPHanaSR
 
-This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.    
+This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook.    
 
 1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
 
    > [!TIP]
-   > The python hook can only be implemented for HANA 2.0.        
+   > The Python hook can only be implemented for HANA 2.0.        
 
    1. Prepare the hook as `root`.  
 
