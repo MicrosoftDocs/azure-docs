@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: How to customize the managed API Management developer portal with custom functionality such as custom widgets.
 author: dlepow
 ms.author: danlep
-ms.date: 08/25/2022
+ms.date: 08/29/2022
 ms.service: api-management
 ms.topic: how-to
 ---
@@ -82,9 +82,9 @@ The managed developer portal includes a **Custom HTML code** widget where you ca
 
     > [!NOTE]
     > If the tab doesn't open, do the following:
-    > 1. Make sure the development server started. To do that, check output on the console where you started the server in the previous step. It should display the port the server is running on (for example, `http://127.0.0.1:**3001**`).
+    > 1. Make sure the development server started. To do that, check output on the console where you started the server in the previous step. It should display the port the server is running on (for example, `http://127.0.0.1:3001`).
     > 1. Go to your API Management service in the Azure portal and open your developer portal with the administrative interface. 
-    > 1. Append `/?MS_APIM_CW_localhost_port=**3001**` to the URL. Change the port number if your server runs on a different port.
+    > 1. Append `/?MS_APIM_CW_localhost_port=3001` to the URL. Change the port number if your server runs on a different port.
 
 1. Implement the code of the widget and test it locally. The code of the widget is located in the `src` folder, in the following subfolders: 
 
