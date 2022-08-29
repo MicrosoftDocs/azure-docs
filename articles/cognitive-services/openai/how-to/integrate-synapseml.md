@@ -171,7 +171,7 @@ display(completed_autobatch_df)
 
 ### Prompt engineering for translation
 
-The Azure OpenAI service can solve many different natural language tasks through [prompt engineering](completions.md). Here we show an example of prompting for language translation:
+The Azure OpenAI service can solve many different natural language tasks through [prompt engineering](completions.md). Here, we show an example of prompting for language translation:
 
 ```python
 translate_df = spark.createDataFrame(
@@ -186,7 +186,7 @@ display(completion.transform(translate_df))
 
 ### Prompt for question answering
 
-Here, we prompt GPT-3 for general-knowledge question answering:
+Here, we prompt the GPT-3 model for general-knowledge question answering:
 
 ```python
 qa_df = spark.createDataFrame(

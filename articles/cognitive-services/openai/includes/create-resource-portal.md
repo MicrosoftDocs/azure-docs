@@ -52,6 +52,3 @@ Before you can generate text or inference, you need to deploy a model. This is d
     :::image type="content" source="../media/create-resource/deployment.png" alt-text="Screenshot of the Azure OpenAI Studio page with the 'Go to Deployments' button highlighted." lightbox="../media/create-resource/deployment.png":::
 
 1. Create a new deployment called `text-davinci-002` and choose the `text-davinci-002` model from the drop-down.
-
-  > [!NOTE]
-  > Text-davinci-002 is only available in South Central US. If you are in a different region, please choose `text-davinci-001`.

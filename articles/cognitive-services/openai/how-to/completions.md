@@ -295,7 +295,7 @@ While all prompts result in completions, it can be helpful to think of text comp
 Vertical farming provides a novel solution for producing food locally, reducing transportation costs and
 ```
 
-This next prompt shows how you can use completion to help write React components. We send some code to the API, and it's able to continue the rest because it has an understanding of the React library. We recommend using OpenAI's Codex models for tasks that involve understanding or generating code. Currently only `code-cushman-001` is supported.
+This next prompt shows how you can use completion to help write React components. We send some code to the API, and it's able to continue the rest because it has an understanding of the React library. We recommend using models from our Codex series for tasks that involve understanding or generating code. Currently, we support two Codex models: `code-davinci-002` and `code-cushman-001`. For more information about Codex models, see the [Codex models](../concepts/models.md#codex-models) section in [Models](../concepts/models.md).
 
 ```
 import React from 'react';
@@ -355,7 +355,7 @@ Q:
 
 ## Working with code
 
-The Codex model series is a descendant of OpenAI's base GPT-3 series that's been trained on both natural language and billions of lines of code. It's most capable in Python and proficient in over a dozen languages including JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell. 
+The Codex model series is a descendant of OpenAI's base GPT-3 series that's been trained on both natural language and billions of lines of code. It's most capable in Python and proficient in over a dozen languages including C#, JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell. 
 
 You can use Codex for a variety of tasks including:
 
@@ -503,7 +503,7 @@ Create a list of random animals and species
 animals  = [ {"name": "Chomper", "species": "Hamster"}, {"name":
 ```
 
-**Lower temperatures give more precise results.** Setting the API temperature to 0, or close to zero (such as 0.1 or 0.2) tends to give better results in most cases. Unlike GPT-3, where a higher temperature can provide useful creative and random results, higher temperatures with Codex may give you really random or erratic responses.
+**Lower temperatures give more precise results.** Setting the API temperature to 0, or close to zero (such as 0.1 or 0.2) tends to give better results in most cases. Unlike GPT-3 models, where a higher temperature can provide useful creative and random results, higher temperatures with Codex models may give you really random or erratic responses.
 
 In cases where you need Codex to provide different potential results, start at zero and then increment upwards by .1 until you find suitable variation.
 
