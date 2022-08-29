@@ -15,7 +15,7 @@ ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
 
 # Use the portal to create an Azure AD application and service principal that can access resources
 
-This article shows you how to create a new Azure Active Directory (Azure AD) application and service principal that can be used with the role-based access control. When you have applications, hosted services, or automated tools that needs to access or modify resources, you can create an identity for the app. This identity is known as a service principal. Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to log in with a user identity.
+This article shows you how to create a new Azure Active Directory (Azure AD) application and service principal that can be used with the role-based access control. When you have applications, hosted services, or automated tools that need to access or modify resources, you can create an identity for the app. This identity is known as a service principal. Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to log in with a user identity.
 
 This article shows you how to use the portal to create the service principal in the Azure portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.  You can also [use Azure PowerShell to create a service principal](howto-authenticate-service-principal-powershell.md).
 
@@ -100,7 +100,7 @@ You can set the scope at the level of the subscription, resource group, or resou
    If you don't see the subscription you're looking for, select **global subscriptions filter**. Make sure the subscription you want is selected for the portal.
 
 1. Select **Access control (IAM)**.
-1. Select Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 1. In the **Role** tab, select the role you wish to assign to the application in the list. For example, to allow the application to execute actions like **reboot**, **start** and **stop** instances, select the **Contributor** role.  Read more about the [available roles](../../role-based-access-control/built-in-roles.md).
 
     Select the **Next** button to move to the **Members** tab. Select **Assign access to**-> **User, group, or service principal** and then select **Select members**. By default, Azure AD applications aren't displayed in the available options. To find your application, search by name (for example, "example-app") and select it from the returned list. Click the **Select** button. Then click the **Review + assign** button.
