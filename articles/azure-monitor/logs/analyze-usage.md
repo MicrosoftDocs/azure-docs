@@ -27,7 +27,7 @@ You should start your analysis with existing tools in Azure Monitor. These requi
 - Top resources contributing data
 - Trend of data ingestion
 
-See the **Usage** tab for a breakdown of ingestion by solution and table. This can help you quickly identify the tables that contribute to the bulk of your data volume. It also shows trending of data collection over time to determine if data collection steadily increase over time or suddenly increased in response to a particular configuration change.
+See the **Usage** tab for a breakdown of ingestion by solution and table. This can help you quickly identify the tables that contribute to the bulk of your data volume. It also shows trending of data collection over time to determine if data collection steadily increases over time or suddenly increased in response to a particular configuration change.
 
 Select **Additional Queries** for pre-built queries that help you further understand your data patterns.
 
@@ -273,7 +273,7 @@ union AppAvailabilityResults,
 | summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
 ```
 
-To look at the data volume trends for only a single Application Insights resources, add the following line before the `summarize` in the above query:
+To look at the data volume trends for only a single Application Insights resource, add the following line before the `summarize` in the above query:
 
 ```kusto
 | where _ResourceId contains "<myAppInsightsResourceName>"
