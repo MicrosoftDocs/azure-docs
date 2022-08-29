@@ -125,7 +125,6 @@ The route config definition includes the following parts:
 
 - OpenAPI URI: The URI points to an OpenAPI specification. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification can be shown in API portal to try out. Two types of URI are accepted. The first type of URI is a public endpoint like `https://petstore3.swagger.io/api/v3/openapi.json`. The second type of URI is a constructed URL `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps that includes the API definition.
 - routes: A list of route rules about how the traffic goes to one app.
-- protocol: The backend protocol of the application to which Spring Cloud Gateway routes traffic. Its supported values are `HTTP` or `HTTPS`, the default is `HTTP`. To secure traffic from Spring Cloud Gateway to your HTTPS-enabled application, you need to set the protocol to `HTTPS` in your route configuration.
 
 Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps that the requests will route to.
 
@@ -143,7 +142,6 @@ Here's a sample of the JSON file that is passed to the `--routes-file` parameter
    "open_api": {
       "uri": "<OpenAPI-URI>"
    },
-   "protocol": "<protocol-of-routed-app>",
    "routes": [
       {
          "title": "<title-of-route>",
@@ -226,7 +224,6 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    ```json
    {
-      "protocol": "HTTP",
       "routes": [
          {
             "title": "Customers service",
