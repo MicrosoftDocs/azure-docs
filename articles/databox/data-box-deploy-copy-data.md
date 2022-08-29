@@ -61,10 +61,10 @@ The following table shows the UNC path to the shares on your Data Box and Azure 
  
 |Azure Storage types  | Data Box shares            |
 |-------------------|--------------------------------------------------------------------------------|
-| Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
-| Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        | 
-| Azure Block blobs (Archive)   | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_BlockBlobArchive>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>      |     
+| Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.file.core.windows.net/<ShareName>/files/a.txt`</li>        | 
+| Azure Block blobs (Archive)   | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlobArchive>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>      |     
 
 If using a Windows Server host computer, follow these steps to connect to the Data Box.
 
