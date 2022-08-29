@@ -1,15 +1,15 @@
 ---
-title: Exporting ISE Workflows to Logic Apps Standard
-description: Learn how to use the VS Code Extension to export logic apps workflows from an Integration Service Environment (ISE) to a Logic App Standard project.
+title: Export ISE workflows to Standard workflows
+description: Export workflows from an integration service environment (ISE) to Standard, single-tenant Azure Logic Apps using Visual Studio Code.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
-ms.topic: walkthrough
-ms.date: 08/11/2022
-#Customer intent: As a developer, I want to export one or more ISE workflows to a Logic App Standard workflow.
+ms.topic: how-to-
+ms.date: 09/14/2022
+#Customer intent: As a developer, I want to export one or more ISE workflows to a Standard workflow.
 ---
 
-# Exporting ISE Workflows to Logic Apps Standard
+# Export workflows from an integration service environment (ISE) to Azure Logic Apps (Standard)
 
 > [!NOTE]
 > This capability is in preview and is subject to the 
