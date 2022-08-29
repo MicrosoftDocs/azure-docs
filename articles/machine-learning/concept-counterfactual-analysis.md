@@ -20,7 +20,7 @@ Standard interpretability techniques approximate a machine learning model or ran
 
 Such an analysis helps in disentangling the impact of correlated features in isolation. It also helps you get a more nuanced understanding of how much of a feature change is needed to see a model decision flip for classification models and a decision change for regression models.
 
-The counterfactual analysis and what-if component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) has two functions:
+The *counterfactual analysis and what-if* component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) has two functions:
 
 - Generate a set of examples with minimal changes to a particular point such that they change the model's prediction (showing the closest data points with opposite model predictions).
 - Enable users to generate their own what-if perturbations to understand how the model reacts to feature changes.

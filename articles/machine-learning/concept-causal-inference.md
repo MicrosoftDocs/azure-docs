@@ -14,9 +14,9 @@ ms.custom: responsible-ml, event-tier1-build-2022
 
 # Make data-driven policies and influence decision-making (preview)
 
-Although machine learning models are powerful in identifying patterns in data and making predictions, they offer little support for estimating how the real-world outcome changes in the presence of an intervention. 
+Machine learning models are powerful in identifying patterns in data and making predictions. But they offer little support for estimating how the real-world outcome changes in the presence of an intervention. 
 
-Practitioners have become increasingly focused on using historical data to inform their future decisions and business interventions. For example, how would the revenue be affected if a corporation pursues a new pricing strategy? Would a new medication improve a patient's condition, all else equal?
+Practitioners have become increasingly focused on using historical data to inform their future decisions and business interventions. For example, how would the revenue be affected if a corporation pursued a new pricing strategy? Would a new medication improve a patient's condition, all else equal?
 
 The *causal inference* component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) addresses these questions by estimating the effect of a feature on an outcome of interest on average, across a population or a cohort, and on an individual level. It also helps construct promising interventions by simulating feature responses to various interventions and creating rules to determine which population cohorts would benefit from an intervention. Collectively, these functionalities allow decision-makers to apply new policies and effect real-world change.
 

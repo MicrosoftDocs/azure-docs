@@ -27,14 +27,14 @@ Two common types of AI-caused harms are:
 
 - **Quality-of-service harm**: An AI system doesn't work as well for one group of people as it does for another. For example, a voice recognition system might fail to work as well for women as it does for men.
 
-To reduce unfair behavior in AI systems, you have to assess and mitigate these harms. The model overview component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) contributes to the identification stage of the model lifecycle by generating model performance metrics for your entire dataset and your identified cohorts of data. It generates these metrics across subgroups identified in terms of sensitive features or sensitive attributes.
+To reduce unfair behavior in AI systems, you have to assess and mitigate these harms. The *model overview* component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) contributes to the identification stage of the model lifecycle by generating model performance metrics for your entire dataset and your identified cohorts of data. It generates these metrics across subgroups identified in terms of sensitive features or sensitive attributes.
 
 >[!NOTE]
 > Fairness is a socio-technical challenge. Quantitative fairness metrics don't capture many aspects of fairness, such as justice and due process. Also, many quantitative fairness metrics can't all be satisfied simultaneously. 
 >
 > The goal of the Fairlearn open-source package is to enable humans to assess the impact and mitigation strategies. Ultimately, it's up to the humans who build AI and machine learning models to make trade-offs that are appropriate for their scenarios.
 
-In this component of the Responsible AI dashboard, fairness is conceptualized through an approach known as *group fairness*, which asks: Which groups of individuals are at risk for experiencing harm? The term *sensitive features* suggests that the system designer should be sensitive to these features when assessing group fairness. 
+In this component of the Responsible AI dashboard, fairness is conceptualized through an approach known as *group fairness*. This approach asks: "Which groups of individuals are at risk for experiencing harm?" The term *sensitive features* suggests that the system designer should be sensitive to these features when assessing group fairness. 
 
 During the assessment phase, fairness is quantified through *disparity metrics*. These metrics can evaluate and compare model behavior across groups either as ratios or as differences. The Responsible AI dashboard supports two classes of disparity metrics:
 

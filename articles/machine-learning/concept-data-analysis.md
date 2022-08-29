@@ -16,7 +16,7 @@ ms.custom: responsible-ml, event-tier1-build-2022
 
 Machine learning models "learn" from historical decisions and actions captured in training data. As a result, their performance in real-world scenarios is heavily influenced by the data they're trained on. When feature distribution in a dataset is skewed, it can cause a model to incorrectly predict data points that belong to an underrepresented group or to be optimized along an inappropriate metric. 
 
-For example, while a model was training an AI system for predicting house prices, the training set was representing 75 percent of newer houses that have less than median prices. As a result, it was much less accurate in successfully identifying more expensive historic houses. The fix was to add older and expensive houses to the training data and augment the features to include insights about historic value. That data augmentation improved results.
+For example, while a model was training an AI system for predicting house prices, the training set was representing 75 percent of newer houses that had less than median prices. As a result, it was much less accurate in successfully identifying more expensive historic houses. The fix was to add older and expensive houses to the training data and augment the features to include insights about historic value. That data augmentation improved results.
 
 The data explorer component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) helps visualize datasets based on predicted and actual outcomes, error groups, and specific features. It helps you identify issues of overrepresentation and underrepresentation and to see how data is clustered in the dataset. Data visualizations consist of aggregate plots or individual data points.
 
