@@ -220,6 +220,8 @@ When requesting the quota increase, provide the following information:
 1. When opening the support request, select __Machine Learning Service: Endpoint Limits__ as the __Quota type__.
 1. On the __Additional details__ tab, select __Enter details__ and then provide the quota you'd like to increase and the new value. Also provide the reason for the quota increase. Select __Save and continue__ to continue.
 
+    :::image type="content" source="./media/how-to-manage-quotas/quota-details.png" alt-text="Screenshot of the quota details form.":::
+
 ## Next steps
 
 + [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
