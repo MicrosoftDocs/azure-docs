@@ -113,7 +113,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > RHEL 7.6: fence-agents-4.2.1-11.el7_6.8  
    > RHEL 7.5: fence-agents-4.0.11-86.el7_5.8  
    > RHEL 7.4: fence-agents-4.0.11-66.el7_4.12  
-   > For more information, see [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711.
+   > For more information, see [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711).
 
    > [!IMPORTANT]
    > We recommend the following versions of Azure Fence agent (or later) for customers wishing to use Managed Identities for Azure resources instead of service principal names for the fence agent.
@@ -121,7 +121,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > RHEL 8.2: fence-agents-4.2.1-41.el8_2.4
    > RHEL 8.1: fence-agents-4.2.1-30.el8_1.4
    > RHEL 7.9: fence-agents-4.2.1-41.el7_9.4
-   test sentence
 
    Check the version of the Azure fence agent. If necessary, update it to a version equal to or later than the stated above.
 
@@ -282,13 +281,13 @@ Use the following content for the input file. You need to adapt the content to y
 
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). Verify each VM's managed identity role assignment contains all cluster VMs.
 
+> [!IMPORTANT]
+> Be aware assignment and removal of authorization with managed identities can be [delayed by as much as 24 hours](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization).
+
 #### Using Service Principal
 
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
 Make sure to assign the role for both cluster nodes.    
-
-[!IMPORTANT]
-Be aware assignment and removal of authorization with managed identities can be [delayed by as much as 24 hours](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization).
 
 ### **[1]** Create the STONITH devices
 
