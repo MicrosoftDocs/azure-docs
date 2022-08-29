@@ -19,11 +19,12 @@ The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine is isolated from
 This article shows you how to enable the folder sharing between the Windows host OS and the EFLOW virtual machine. 
 
 ## Prerequisites
-- Azure IoT Edge for Linux on Windows 1.2.11 update or higher. For more information about EFLOW release notes, see [EFLOW Releases](https://aka.ms/AzEFLOW-Releases).
+- Azure IoT Edge for Linux on Windows 1.3.1 update or higher. For more information about EFLOW release notes, see [EFLOW Releases](https://aka.ms/AzEFLOW-Releases).
+- A machine with an x64/x86 processor.
 - Windows 11 Sun Valley 2 (build 22621) or higher. To get Windows SV2 update, you must be part of Windows Insider Program. For more information, see [Getting started with the Windows Insider Program](https://insider.windows.com/en-us/getting-started). After installation, you can verify your build version by running `winver` at the command prompt.
 
 >[!NOTE]
-> We plan to include support for Windows 10 21H2 (version 19044) version and Windows Server 2019/2022 in the upcoming months. 
+>We plan to include support for Windows 10 21H2 (version 19044) version, Windows Server 2019/2022, and ARM64 processors in the upcoming months. 
 
 If you don't have an EFLOW device ready, you should create one before continuing with this guide. Follow the steps in [Create and provision an IoT Edge for Linux on Windows device using symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) to install, deploy and provision EFLOW.
 
@@ -103,7 +104,12 @@ The following steps provide example EFLOW PowerShell commands to share one or mo
     ``` 
 
 1. Go to the _Read-Access_ shared folder (mounted under _/tmp/host-read-access_) and check the content of the _Hello-World.txt_ file.
+    
+    >[!NOTE]
+    >By default, all shared folders are shared under *root* ownership. To access the folder, you should log in as root using `sudo su` or change the folder ownership to *iotedge-user* using `chown` command.
+    
     ```bash
+    sudo su
     cd /tmp/host-read-access
     cat Hello-World.txt
     ```
