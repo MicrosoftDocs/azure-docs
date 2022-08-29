@@ -115,7 +115,7 @@ To indicate a number of cores, you just pass a number without unit.
 **Configure the coordinator role to not exceed 2 cores and the worker role to not exceed 4 cores:**
 
 ```azurecli
- az postgres server-arc update -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2  --k8s-namespace arc --use-k8s
+ az postgres server-arc update -n postgres01 --cores-request 1, --cores-limit 4 --k8s-namespace arc --use-k8s
  az postgres server-arc update -n postgres01 --cores-request worker=1, --cores-limit worker=4 --k8s-namespace arc --use-k8s
 ```
 
@@ -191,13 +191,13 @@ If you are not familiar with the `vi` editor, see a description of the commands 
 To reset core/memory limits/requests parameters to their default values, edit them and pass an empty string instead of an actual value. For example, if you want to reset the core limit parameter, run the following commands:
 
 ```azurecli
-az postgres server-arc update -n postgres01 --cores-request coordinator='',worker='' --k8s-namespace arc --use-k8s
-az postgres server-arc update -n postgres01 --cores-limit coordinator='',worker='' --k8s-namespace arc --use-k8s
+az postgres server-arc update -n postgres01 --cores-request='' --k8s-namespace arc --use-k8s
+az postgres server-arc update -n postgres01 --cores-limit='' --k8s-namespace arc --use-k8s
 ```
 
 or 
 ```azurecli
-az postgres server-arc update -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker='' --k8s-namespace arc --use-k8s
+az postgres server-arc update -n postgres01 --cores-request='' --cores-limit='' --k8s-namespace arc --use-k8s
 ```
 
 ## Next steps
