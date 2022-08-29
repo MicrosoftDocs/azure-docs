@@ -5,7 +5,7 @@ services: active-directory
 author: gargi-sinha
 ms.author: gasinh
 manager: martinco
-ms.date: 08/20/2022
+ms.date: 08/29/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
