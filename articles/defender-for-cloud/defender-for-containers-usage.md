@@ -180,4 +180,4 @@ Some images may reuse tags from an image that was already scanned. For example, 
 
 ## Next steps
 
-Learn more about the [advanced protection plans of Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
+Learn more about the [advanced protection plans of Microsoft Defender for Cloud](enhanced-security-features-overview.md).
