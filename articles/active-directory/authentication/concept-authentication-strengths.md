@@ -53,13 +53,13 @@ When you create a Conditional Access policy that uses the **Require authenticati
 Built-in authentication strengths are combinations of authentication methods that are predefined by Microsoft. Built-in authentication strengths are always available and can't be modified.
 The following table lists the combinations of authentication methods included in each built-in authentication strength policy. Depending on which methods are available in the Authentication Methods policy and registered for users, they can use any one of the combinations to sign-in.
 
-•	**Multifactor Authentication strength policy** - the same set of combinations that could be used to satisfy the **Require multifactor authentication setting**.
+•	**MFA strength policy** - the same set of combinations that could be used to satisfy the **Require multifactor authentication setting**.
 
 •	**Passwordless MFA authentication strength policy** - includes authentication methods that satisfy MFA but don't require a password.
 
 •	**Phishing-resistant MFA authentication strength policy** - includes methods that require an interaction between the authentication method and the sign-in surface.
 
-|Authentication method combination |Multifactor authentication strength | Passwordless authentication strength| Phishing resistant authentication strength|
+|Authentication method combination |MFA strength | Passwordless MFA strength| Phishing-resistant MFA strength|
 |----------------------------------|-------------|-------------------------------------|-------------------------------------------|
 |Windows Hello for Business| &#x2705; | &#x2705; | &#x2705; | 
 |FIDO2 security key| &#x2705; | &#x2705; | &#x2705; |
@@ -103,19 +103,22 @@ To evaluate if the user should gain access to the resource, the following consid
 -	Which methods are allowed for user sign-in in the Authentication Method policy?
 -	Is the user registered for the required methods?
 
-When accessing a resource protected by an authentication strength Conditional Access policy, we evaluate if the methods they have previously used satisfy the authentication requirements. For example, if the user has used Password + SMS to sign-in to Azure AD and they are now accessing a resource that requires the authentication strengths of Multifactor authentication, we will allow the user to access the resource without an additional prompt. In the next step, the user is accessing a resource protected by Phishing-resistant MFA authentication strength policy. At this point, the user will be prompted to a phishing resistant authentication method, such as Windows Hello for Business. 
+When accessing a resource protected by an authentication strength Conditional Access policy, we evaluate if the methods they have previously used satisfy the authentication requirements. For example, let's say a user signs in with Password + SMS. They access a resource protected by an MFA authentication strength policy. In this case, the user can access the resource without another authentication prompt.
 
-If the user has not previously used the method required by the authentication strength, the user will be redirected to registered the required methods. Registering additional strong authentication methods is possible only if the user can satisfy MFA requirements.
+Let's say the user next tries to access a resource protected by a Phishing-resistant MFA authentication strength policy. At this point, the user will be prompted to provide a phishing resistant authentication method, such as Windows Hello for Business. 
 
-If the authentication strength policy only includes methods that the user is not allowed to register or to use, the user is blocked from sign-in to the resource. 
+If the user has never used the method required by the authentication strength policy, the user will be redirected to register the required methods. Registering additional strong authentication methods is possible only if the user can satisfy MFA requirements.
+
+If the authentication strength policy doesn't include methods that the user can register and use, the user is blocked from sign-in to the resource. 
 
 ### User experience for external users
 <!-- Namrata to add -->
 
 ### Registering additional authentication strength 
-Not all authentication methods are available to register in the inline registration flow of the combined registration. For optimal user experience, we recommend ensuring your users are registered for the different methods they may need to use.
+Not all authentication methods are available to register in the inline registration flow of the combined registration. For the best user experience, make sure users are registered for the different methods they may need to use.
 
-#### How to register additional methods who are not supported by the inline registration flow:
+#### Register additional methods that are not supported by the inline registration flow
+
 * Microsoft Authenticator (Phone Sign-in)
 * FIDO2
 * Certificate Based Authentication
