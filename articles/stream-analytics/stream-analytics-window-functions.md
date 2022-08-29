@@ -3,7 +3,7 @@ title: Introduction to Azure Stream Analytics windowing functions
 description: This article describes four windowing functions (tumbling, hopping, sliding, session) that are used in Azure Stream Analytics jobs.
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 08/29/2022
 ---
 # Introduction to Stream Analytics windowing functions
 
