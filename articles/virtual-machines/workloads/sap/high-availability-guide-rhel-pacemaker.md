@@ -121,6 +121,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > RHEL 8.2: fence-agents-4.2.1-41.el8_2.4
    > RHEL 8.1: fence-agents-4.2.1-30.el8_1.4
    > RHEL 7.9: fence-agents-4.2.1-41.el7_9.4
+   test sentence
 
    Check the version of the Azure fence agent. If necessary, update it to a version equal to or later than the stated above.
 
@@ -252,7 +253,7 @@ Follow these steps to create a service principal, if not using managed identity.
 
 ### **[1]** Create a custom role for the fence agent
 
-The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md) or [Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
+Neither Managed Identity nor Service Principal have permissions to access your Azure resources by default. You need to give the Managed Idenity or Service Principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md) or [Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
 
 Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
@@ -285,6 +286,9 @@ Assign the custom role "Linux Fence Agent Role" that was created in the last cha
 
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
 Make sure to assign the role for both cluster nodes.    
+
+[!IMPORTANT]
+Be aware assignment and removal of authorization with managed identities can be [delayed by as much as 24 hours](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization).
 
 ### **[1]** Create the STONITH devices
 
