@@ -21,7 +21,28 @@ metadata:
 
 ## FRONT MATTER END
 
-
+##HIGHLIGHTED CONTENT #############################################################################################################################
+highlightedContent:
+  items:
+    - title: What is the Azure AD B2C?
+      itemType: overview # controls the icon image and super-title text
+      url: overview.md
+    - title: Compare Azure AD and Azure AD B2C
+      url: supported-azure-ad-features.md
+      itemType: overview
+    - title: Get started with Azure AD B2C
+      url: tutorial-create-tenant.md
+      itemType: tutorial
+    - title: Azure AD B2C technical and feature overview
+      url: technical-overview.md
+      itemType: overview
+    - title: Customer success stories
+      url: https://customers.microsoft.com/
+      itemType: overview
+    - title: Pricing
+      url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
+      itemType: reference
+##HIGHLIGHTED CONTENT END ##########################################################################################################################
 
 ## BAND 2 ####################################################################################################################################################
 productDirectory:
@@ -69,26 +90,26 @@ conceptualContent:
   summary: Quickly access documentation for adding authentication and authorization to your applications and customizing your applications to match your processes and branding. 
   items:
     ## CARD 1 ######################
-    - title: Overview of Azure AD B2C
-      links:
-        - text: What is Azure AD B2C?
-          url: overview.md
-          itemType: overview
-        - text: Compare Azure AD and Azure AD B2C
-          url: supported-azure-ad-features.md
-          itemType: overview
-        - text: Get started with Azure AD B2C
-          url: tutorial-create-tenant.md
-          itemType: overview
-        - text: Technical and feature overview
-          url: technical-overview.md
-          itemType: overview
-        - text: Pricing
-          url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
-          itemType: overview
-        - text: Customer stories
-          url: https://customers.microsoft.com/
-          itemType: overview
+    ##- title: Overview of Azure AD B2C
+      ##links:
+        ##- text: What is Azure AD B2C?
+         ## url: overview.md
+          ##itemType: overview
+        ##- text: Compare Azure AD and Azure AD B2C
+          ##url: supported-azure-ad-features.md
+         ## itemType: overview
+       ## - text: Get started with Azure AD B2C
+        ##  url: tutorial-create-tenant.md
+         ## itemType: overview
+        ##- text: Technical and feature overview
+          ##url: technical-overview.md
+          ##itemType: overview
+        ##- text: Pricing
+         ## url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
+         ## itemType: overview
+        ##- text: Customer stories
+          ##url: https://customers.microsoft.com/
+         ## itemType: overview
 
 
     ## CARD 2 ######################
