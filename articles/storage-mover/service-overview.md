@@ -1,14 +1,12 @@
 ---
-title: What is Azure Storage Mover
-description: Learn about the Azure Storage Mover service
+title: Introduction to Azure Storage Mover | Microsoft Docs
+description: An overview of Azure Storage Mover, a fully-managed migration service for your files and folder migrations to Azure Storage.
 author: stevenmatthew
 
 ms.service: storage-mover
 ms.topic: overview
-ms.date: 08/11/2022
+ms.date: 08/29/2022
 ms.author: shaas
-
-ms.custom: template-overview
 ---
 
 <!-- 
@@ -34,235 +32,58 @@ Set expectations for what the content covers, so customers know the content meet
 
 A light intro that describes what the article covers. Answer the fundamental “why would I want to know this?” question. Keep it as short as possible.-->
 
-Azure Storage Mover is a service that enables the migration of unstructured data into Azure Storage. <!--Because it has both could-based and on-premises components, it is considered a hybrid cloud service.-->
+Azure Storage Mover enables you to migrate your files and folders to Azure Storage. It's a fully-managed migration service that allows you to minimize downtime for your workload.
 
-These documents will walk you through the process of migrating your unstructured data into Azure using the Azure Storage Mover service. The information is useful for partners, vendors, and end-users/customers.
+- You can use it for different migration scenarios, such as lift-and-shift as well as cloud migrations you'll have to repeat occasionally.
+- Maintain oversight and manage the migration of all your globally distributed file shares from a single storage mover resource.
+
+Azure Storage Mover is a new service, currently in public preview.
 
 <!-- 3. H2s
 ##Docs Required##
 
 Each H2 is used to set expectations for the content that follows. The last sentence of the paragraph should summarize how the individual section contributes to the whole.-->
 
-## Running PowerShell against Canary
+## Supported sources and targets
 
-When utilizing the Storage Mover public preview, you have the option to use your own Azure subscription, or to use the shared Azure subscription: *XDataMove-Dev - Microsoft Azure*  
+:::row:::
+  :::column:::
+    :::image type="content" source="media/overview/nfs-to-flat-blob.png" alt-text="An image illustrating a source NFS share migrated through an Azure Storage Mover agent VM to an Azure Storage blob container." lightbox="media/overview/nfs-to-flat-blob-large.png":::
+  :::column-end:::
+  :::column:::
+    At this time in the Azure Storage Mover release, the service supports migrations from NFS shares on a NAS or server device in your network to an Azure blob container. 
 
-If you are using your own Azure subscription, you need the **microsoft.storagemover** feature registered for your subscription. To register your subscription, select the link to file an [IcM ticket](https://portal.microsofticm.com/imp/v3/incidents/create?tmpl=F2JO3X). The IcM ticket will alert the Directly Responsible Individual (DRI) to associate the **Microsoft.StorageMover/EUAPParticipation** feature enabled for your subscription.
+    > [!IMPORTANT]
+    > Storage accounts with the [hierarchical namespace service (HNS)](../storage/blobs/data-lake-storage-namespace.md) feature enabled are not supported at this time.
+    
+    An Azure blob container without the hierarchical namespace service feature doesn’t have a traditional file system. A standard blob container supports “virtual” folders. Files in folders on the source will get their path prepended to their name and placed in a flat list in the target blob container.
+    
+    Empty folders will be represented by the Storage Mover service as an empty blob in the target. The metadata of the source folder will be persisted in the custom metadata field of this blob, just like files.        
+  :::column-end:::
+:::row-end:::
 
-The **Microsoft.StorageMover/EUAPParticipation** feature will allow you to access the **eastus2euap** and **centraleuap** regions. These are Azure's Canary Islands regions and are referred to as "Early Updates Access Program" regions. They’re both true Azure regions; one built with Availability Zones and the other without. Both regions form a region pair which can be used to validate data geo-replication capabilities.
+## Fully-managed migrations
 
-> [!IMPORTANT]
-> Azure's Canary regions are only open to a few customers within the Early User Access Program (EUAP) and they do not have any service guarantees.
+Azure Storage Mover provides a set of management resources that allow you to express your migration plan and retain oversight about migration progress and results for every share you like to migrate. 
 
-You must also have the latest Azure PowerShell cmdlets installed. You can verify that you have the latest version or install them by opening PowerShell with elevated privileges and running the sample commands provided.
+The [resource hierarchy article](resource-hierarchy.md) has more information about individual Storage Mover resources and how to best use them for your migration.
 
-```azurepowershell
-   #Verify the latest version
-   Get-Command -Module Az.Storage
+Create a migration project for every workload you like to migrate. Within a project, define the source, target, and migration settings for each source share your workload depends on. You can remain in full control about when to start the migration of a share, track it's progress, and see its results. 
 
-   #Install the latest version
-   Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force -AllowClobber
-```
+A single storage mover resource, deployed to your subscription, can be used to manage migrations for source shares located in different parts of the world. The storage mover resource does not process your files and folders. Your data is sent directly from the migration agent to your selected targets in Azure. The [planning for an Azure Storage Mover deployment](deployment-planning.md) article has more details.
 
-Finally, ensure that you have the latest version of [StorageMover PowerShell cmdlets](\\xstoreself.corp.microsoft.com\scratch\XDataMove\Public Preview\PSCmdlets) installed. If you encounter issues when accessing the share, reach out to [johnmic](mailto:johnmic@microsoft.com).
+## A hybrid cloud service
 
-You can verify that you have the latest version by opening PowerShell with elevated privileges and running the sample command provided.
-
-```azurepowershell
-   #Verify the latest version
-   Get-Command -Module Az.StorageMover
-```
-
-> [!IMPORTANT]
-> Although the manifest has rolled out globally in ARM, the feature itself is enabled only in the Canary regions. As a result, all Storage mover resources must be created in the Canary regions. Run the following using PowerShell with elevated permissions.
-
-1. Set your environment.
-
-  ```powershell
-  Clear-AzContext
-  Login-AzAccount
-  ```
-
-1. Set your subscription.
-
-  ```powershell
-  Set-AzContext -Subscription XDataMove-Dev #for those of us using the Dev subscription
-  ```
-
-1. Confirm the context was configured correctly using `Get-AzStorageMover` to retrieve the list of storage movers already created against that subscription.
-
-  ```powershell
-  Get-AzStorageMove -Name XDataMove-Dev #for those of us using the Dev subscription
-  ```
-
-1. Create a resource group in a canary region (eastus2euap).
-
-  ```powershell
-  $rg = New-AzResourceGroup -Name [resourceGroupName] -Location eastus2euap
-  ```
-
-1. Perform agent setup steps
-1. Set the following variables with values that will work for you.
-
-  ```azurepowershell
-  $arcId              = "/subscriptions/f686d426-8d16-42db-81b7-ab578e110ccd/resourceGroups/rg/providers/Microsoft.HybridCompute/machines/agentname"
-  $subscriptionId     = "3c480e71-a914-4bcd-8780-9faf6fefbf08"  
-  $arcId              = "/subscriptions/f686d426-8d16-42db-81b7-ab578e110ccd/resourceGroups/rg/providers/Microsoft.HybridCompute/machines/agentname"
-  $guid               = "f686d426-8d16-42db-81b7-ab578e110ccd"
-  $accountId          = "/subscriptions/3c480e71-a914-4bcd-8780-9faf6fefbf08/resourceGroups/ahhuss/providers/Microsoft.Storage/storageAccounts/ahhuss1234"
-  $agentName          = "testAgentName"
-  $projectName        = "testProjectName"
-  $containerName      = "containername"
-  $sourceEndpointName = "testSourceEndpoint"
-  $targetEndpointName = "testTargetEndpoint"
-  $jobDefinitionName  = "testJobDefinitionName"
-  $sourcePath         = "/"
-  $targetPath         = "/"
-  $location           = "eastus2euap"
-  $ResourceGroupName  = "testResourceGroup"
-  ```
-
-1. Create a storage mover and verify that it exists in your resource group.
-
-  ```powershell
-  New-AzStorageMover -Name $StorageMoverName `
-    -ResourceGroupName $ResourceGroupName `
-    -Location $location `
-    -Tag @{"tag1" = "value1"; "tag2" = "value2"} `
-    -Description "storagemover description" #-Debug
-
-  Get-AzStorageMover -ResourceGroupName $ResourceGroupName -Name $StorageMoverName
-  ```
-
-1. Perform Agent registration steps or follow these steps just for testing creation of the resource.
-
-  @Ahmed/@akash can we put in the direct REST API calls here instead of the PS cmdlets since those are going to be suppressed
-
-  ```powershell
-  # Create an agent
-  New-AzStorageMoverAgent -ResourceGroupName $ResourceGroupName `
-    -StorageMoverName $StorageMoverName `
-    -Name $agentName `
-    -ArcResourceId $arcId `
-    -Description "Agent description" `
-    -ArcVMUuid $guid #-Debug
-
-  # Verify that the agent exists
-  Get-AzStorageMoverAgent -ResourceGroupName $ResourceGroupName `
-    -StorageMoverName $StorageMoverName `
-    -Name $agentName
-  ```
-
-1. Create a project and verify that it exists.
-
-  ```powershell
-  New-AzStorageMoverProject `
-    -ResourceGroupName $ResourceGroupName `
-    -StorageMoverName $StorageMoverName `
-    -Name $projectName `
-    -Description "project description" 
-
-  
-  Get-AzStorageMoverProject `
-    -ResourceGroupName $ResourceGroupName `
-    -StorageMoverName $StorageMoverName `
-    -Name $projectName 
-  ```
-
-1. Create the target endpoint and verify that it exists.
-
-  ```powershell
-  $containerProperties = New-AzStorageMoverAzureStorageBlobContainerEndpointPropertiesObject `
-    -BlobContainerName $containerName  `
-    -StorageAccountResourceId $accountid `
-    -EndpointType AzureStorageBlobContainer
-
-  New-AzStorageMoverEndpoint `
-    -ResourceGroupName $ResourceGroupName `
-    -StorageMoverName $StorageMoverName `
-    -Name $targetEndpointName `
-    -Property $containerProperties #-debug
-  ```
-
-1. Create the source endpoint and verify that it exists.
-
-  ```powershell
-  $NFSProperties = New-AzStorageMoverNfsMountEndpointPropertiesObject `
-    -Host "10.0.0.1" `
-    -NfsVersion NFSv3 `
-    -RemoteExport "/" `
-    -EndpointType NfsMount
-
-  New-AzStorageMoverEndpoint `
-    -ResourceGroupName $ResourceGroupName `
-    -StorageMoverName $StorageMoverName `
-    -Name $sourceEndpointName `
-    -Property $NFSProperties
-  ```
-
-1. Get the endpoints to verify they were created correctly.
-
-  ```powershell
-  Get-AzStorageMoverEndpoint `
-    -ResourceGroupName $ResourceGroupName `
-    -StorageMoverName $StorageMoverName
-  ```
-
-1. Create a job definition and verify that it exists
-
-  ```powershell
-  New-AzStorageMoverJobDefinition 
-    -ResourceGroupName $ResourceGroupName `
-    -StorageMoverName $StorageMoverName `
-    -ProjectName $projectName `
-    -Name $jobDefinitionName `
-    -Description "JobDefinition description" `
-    -SourceName $sourceEndpointName `
-    -SourceSubPath $sourcePath `
-    -TargetName $targetEndpointName `
-    -TargetSubPath $targetPath `
-    -CopyMode Mirror `
-    -AgentName $agentName
-
-  Get-AzStorageMoverJobDefinition `
-    -ResourceGroupName $ResourceGroupName `
-    -StorageMoverName $StorageMoverName `
-    -ProjectName $projectName `
-    -Name $jobDefinitionName 
-  ```
-
-1. Start a new job and see if it exists.
-
-  ```powershell
-  Start-AzStorageMoverJob `
-    -ResourceGroupName $ResourceGroupName `
-    -StorageMoverName $StorageMoverName `
-    -ProjectName $projectName `
-    -JobDefinitionName $jobDefinitionName
-
-  Get-AzStorageMoverJobRun `
-    -ResourceGroupName $ResourceGroupName `
-    -StorageMoverName $StorageMoverName `
-    -ProjectName $projectName `
-    -JobDefinitionName $jobDefinitionName 
-  ```
-
-## Section 2 H2
-
-Add some content here.
-
-## [Section n H2]
-
-Add some content here.
+[!INCLUDE [hybrid-service-explanation](includes/hybrid-service-explanation.md)]
 
 <!-- 4. Next steps
 ##Docs Required##
 
 We must provide at least one next step, but should provide no more than three. This should be relevant to the learning path and provide context so the customer can determine why they would click the link.-->
 
-## Supported sources and targets
-
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Step 1](service-overview.md)
-- [Step 2](service-overview.md)
+These articles can help you become more familiar with the Storage Mover service.
+- deployment p[Planning for an Azure Storage Mover deployment](deployment-planning.md)
+- [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md)
+- [Deploying a Storage Mover agent](agent-deploy.md)
