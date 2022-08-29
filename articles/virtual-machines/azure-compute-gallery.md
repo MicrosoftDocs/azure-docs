@@ -17,7 +17,7 @@ ms.reviewer: cynthn
 
 An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images and [applications](vm-applications.md). An Azure Compute Gallery provides:
 
-- Global replication.
+- Global replication.<sup>1</sup>
 - Versioning and grouping of resources for easier management.
 - Highly available resources with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
 - Premium storage support (Premium_LRS).
@@ -26,6 +26,7 @@ An Azure Compute Gallery helps you build structure and organization around your 
 
 With a gallery, you can share your resources to everyone, or limit sharing to different users, service principals, or AD groups within your organization. Resources can be replicated to multiple regions, for quicker scaling of your deployments.
 
+<sup>1</sup> The Azure Compute Gallery service is not a global resource. For disaster recovery scenarios, it is a best practice is to have at least two galleries, in different regions.
 
 ## Images 
 
@@ -48,7 +49,7 @@ There are limits, per subscription, for deploying resources using Azure Compute 
 - 100 galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
-- 10 image version replicas, per subscription, per region
+- 100 image version replicas, per subscription, per region however 50 replicas should be sufficient for most use cases
 - Any disk attached to the image must be less than or equal to 1TB in size
 
 For more information, see [Check resource usage against limits](../networking/check-usage-against-limits.md) for examples on how to check your current usage.

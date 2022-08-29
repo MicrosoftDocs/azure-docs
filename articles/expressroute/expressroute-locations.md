@@ -54,7 +54,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | Supported | Supported | Osaka, Tokyo, Tokyo2 |
 | **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |Supported |Supported | Cape Town, Johannesburg|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Supported |Supported | Montreal, Toronto, Quebec City, Vancouver |
-| **[BICS](https://bics.com/bics-solutions-suite/cloud-connect/bics-cloud-connect-an-official-microsoft-azure-technology-partner/)** | Supported | Supported | Amsterdam2, London2 |
+| **[BICS](https://www.bics.com/cloud-connect/)** | Supported | Supported | Amsterdam2, London2 |
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Supported |Supported | Amsterdam, Amsterdam2, Chicago, Frankfurt, Hong Kong SAR, Johannesburg, London, London2, Newport(Wales), Paris, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **BSNL** |Supported |Supported | Chennai, Mumbai |
 | **[C3ntro](https://www.c3ntro.com/)** |Supported |Supported | Miami |
@@ -108,7 +108,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[KT](https://cloud.kt.com/)** | Supported | Supported | Seoul, Seoul2 |
 | **[Level 3 Communications](https://www.lumen.com/en-us/hybrid-it-cloud/cloud-connect.html)** |Supported |Supported | Amsterdam, Chicago, Dallas, London, Newport (Wales), Sao Paulo, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Supported |Supported | Busan, Seoul |
-| **[Liquid Telecom](https://liquidcloud.africa/connect/)** |Supported |Supported | Cape Town, Johannesburg |
+| **[Liquid Intelligent Technologies ](https://liquidcloud.africa/connect/)** |Supported |Supported | Cape Town, Johannesburg |
 | **[LGUplus](http://www.uplus.co.kr/)** |Supported |Supported | Seoul |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported | Amsterdam, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublin, Frankfurt, Geneva, Hong Kong, Hong Kong2, Las Vegas, London, London2, Los Angeles, Madrid, Melbourne, Miami, Minneapolis, Montreal, Munich, New York, Osaka, Oslo, Paris, Perth, Phoenix, Quebec City, Queretaro (Mexico), San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Stavanger, Stockholm, Sydney, Sydney2, Tokyo, Tokyo2 Toronto, Vancouver, Washington DC, Washington DC2, Zurich |
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** |Supported |Supported | London |
@@ -273,7 +273,7 @@ If you are remote and do not have fiber connectivity or you want to explore othe
 | **[Gulf Bridge International](https://gbiinc.com/)** | Equinix | Amsterdam |
 | **[HSO](https://www.hso.co.uk/products/cloud-direct)** |Equinix | London, Slough |
 | **[IVedha Inc](https://ivedha.com/cloud-services)**| Equinix | Toronto |
-| **[Kaalam Telecom Bahrain B.S.C](http://www.kalaam-telecom.com/azure/)**| Level 3 Communications |Amsterdam |
+| **[Kaalam Telecom Bahrain B.S.C](https://kalaam-telecom.com/)**| Level 3 Communications |Amsterdam |
 | **LGA Telecom** |Equinix |Singapore|
 | **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |Hong Kong SAR 
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sydney |

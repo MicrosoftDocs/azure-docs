@@ -10,7 +10,7 @@ ms.date: 06/01/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: spunukol
 
 #Customer intent: As an IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.

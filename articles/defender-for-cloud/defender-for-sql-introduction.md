@@ -8,7 +8,7 @@ ms.custom: references_regions
 
 # Overview of Microsoft Defender for Azure SQL
 
-Microsoft Defender for Azure SQL includes two Microsoft Defender plans that extend Microsoft Defender for Cloud's [data security package](/azure/azure-sql/database/azure-defender-for-sql) to protect your SQL estate regardless of where it is located (Azure, multicloud or hybrid environments). Microsoft Defender for Azure SQL includes functions that can be used to discover and mitigate potential database vulnerabilities. Defender for Azure SQL can also detect anomalous activities that may be an indication of a threat to your databases.
+Microsoft Defender for Azure SQL includes two Microsoft Defender plans that extend Microsoft Defender for Cloud's [data security package](/azure/azure-sql/database/azure-defender-for-sql) to protect your SQL estate regardless of where it is located (Azure, multicloud, or hybrid environments). Microsoft Defender for Azure SQL includes functions that can be used to discover and mitigate potential database vulnerabilities. Defender for Azure SQL can also detect anomalous activities that may be an indication of a threat to your databases.
 
 ## Availability
 
@@ -27,7 +27,7 @@ Microsoft Defender for Azure SQL databases protects:
 - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
 - [Dedicated SQL pool in Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-When you enabled **Microsoft Defender for Azure SQL**, all supported resources that exist within the subscription are protected. Future resources created on the same subscription are also be protected.
+When you enabled **Microsoft Defender for Azure SQL**, all supported resources that exist within the subscription are protected. Future resources created on the same subscription will also be protected.
 
 > [!NOTE]
 > Microsoft Defender for Azure SQL database currently works for read-write replicas only.

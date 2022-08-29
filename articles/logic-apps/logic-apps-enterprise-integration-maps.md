@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 08/22/2022
 ---
 
 # Add XSLT maps to transform XML in workflows with Azure Logic Apps
