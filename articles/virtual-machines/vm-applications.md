@@ -1,7 +1,7 @@
 ---
 title: Overview of VM Applications in the Azure Compute Gallery
 description: Learn more about VM application packages in an Azure Compute Gallery.
-author: ericd-mst-github
+author: nikhilpatel909
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
@@ -131,7 +131,7 @@ It's possible to use a different interpreter like Chocolatey or PowerShell, as l
 
 ## How updates are handled
 
-When you update an application version, the update command you provided during deployment will be used. If the updated version doesn’t have an update command, then the current version will be removed and the new version will be installed. 
+When you update an application version on a VM or VMSS, the update command you provided during deployment will be used. If the updated version doesn’t have an update command, then the current version will be removed and the new version will be installed. 
 
 Update commands should be written with the expectation that it could be updating from any older version of the VM application.
 

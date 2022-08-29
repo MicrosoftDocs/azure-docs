@@ -5,6 +5,19 @@
   items:
   - name: Enable on VMs in the Azure portal
     href: quick-create-virtual-machines-portal.md
+  - name: GO
+    href: quick-go-sdk.md
+  - name: Python
+    href: quick-python-sdk.md
+  - name: Java
+    href: quick-java-sdk.md
+  - name: JavaScript
+    href: quick-javascript-sdk.md
+- name: Tutorials
+  expanded: true
+  items: 
+  - name: Create assignment with Python
+    href: tutorial-create-assignment-python.md
 - name: Concepts
   expanded: true
   items:
@@ -44,6 +57,11 @@
     href: move-automanaged-configuration-profile.md
   - name: Windows Server VNext Datacenter Azure Edition (preview)
     href: windows-server-azure-edition-vnext.md
+- name: References
+  expanded: true
+  items: 
+  - name: SDKs
+    href: reference-sdk.md
 - name: Resources
   expanded: true
   items:

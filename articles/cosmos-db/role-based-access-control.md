@@ -4,8 +4,8 @@ description: Learn how Azure Cosmos DB provides database protection with Active 
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/11/2022
-author: ThomasWeiss
-ms.author: thweiss
+author: seesharprun
+ms.author: sidandrews
 ms.custom: devx-track-azurepowershell
 ---
 

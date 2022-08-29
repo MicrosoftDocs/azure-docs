@@ -3,7 +3,7 @@ title: Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 description: Information about autoscale and a collection of four example scenarios that illustrate how various parts of autoscale for Azure Virtual Desktop work.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 08/15/2022
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -34,13 +34,17 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 >   - Central US
 >   - East US
 >   - East US 2
+>   - Japan East
 >   - North Central US
 >   - North Europe
 >   - South Central US
+>   - UK South
+>   - UK West
 >   - West Central US
 >   - West Europe
 >   - West US
 >   - West US 2
+>   - West US 3
 
 ## How a scaling plan works
 

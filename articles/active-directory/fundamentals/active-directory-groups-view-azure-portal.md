@@ -3,12 +3,12 @@ title: Quickstart - View groups & members - Azure AD
 description: Instructions about how to search for and view your organization's groups and their assigned members.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 08/17/2022
 ms.author: barclayn
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, mode-other
 ms.reviewer: krbain
@@ -24,14 +24,17 @@ In this quickstart, you’ll set up a new group and assign members to the group.
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
 ## Prerequisites
+
 Before you begin, you’ll need to:
 
 - Create an Azure Active Directory tenant. For more information, see [Access the Azure Active Directory portal and create a new tenant](active-directory-access-create-new-tenant.md).
 
 ## Sign in to the Azure portal
+
 You must sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 ## Create a new group 
+
 Create a new group, named _MDM policy - West_. For more information about creating a group, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
 1. Go to **Azure Active Directory** > **Groups**.

@@ -16,6 +16,8 @@
         href: 23video-tutorial.md
       - name: 360 Online
         href: 360online-tutorial.md
+      - name: 4DX
+        href: 4dx-tutorial.md
       - name: 4me
         href: 4me-tutorial.md
       - name: 8x8
@@ -76,12 +78,16 @@
         href: adp-emea-french-hr-portal-tutorial.md  
       - name: ADP Globalview (Deprecated)
         href: adglobalview-tutorial.md
+      - name: Adra by Trintech
+        href: adra-by-trintech-tutorial.md
       - name: Agile Provisioning
         href: agile-provisioning-tutorial.md
       - name: Agiloft Contract Management Suite
         href: agiloft-tutorial.md
       - name: Aha!
         href: aha-tutorial.md
+      - name: Ahrtemis
+        href: ahrtemis-tutorial.md
       - name: Air
         href: air-tutorial.md
       - name: Airstack
@@ -182,6 +188,8 @@
         href: archie-tutorial.md  
       - name: Ardoq
         href: ardoq-tutorial.md
+      - name: Arena
+        href: arena-tutorial.md
       - name: ARES for Enterprise
         href: ares-for-enterprise-tutorial.md
       - name: Ariba
@@ -588,6 +596,8 @@
         href: cs-stars-tutorial.md
       - name: Culture Shift
         href: culture-shift-tutorial.md  
+      - name: Curator
+        href: curator-tutorial.md
       - name: Curricula SAML
         href: curricula-saml-tutorial.md
       - name: Cyara CX Assurance Platform
@@ -764,6 +774,8 @@
         href: equinix-federation-app-tutorial.md
       - name: Equisolve
         href: equisolve-tutorial.md
+      - name: ERA_EHS_CORE
+        href: era-ehs-core-tutorial.md
       - name: EasySSO for Jira
         href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
@@ -819,8 +831,6 @@
         href: f5-big-ip-oracle-jd-edwards-easy-button.md
       - name: F5 BIG-IP Easy Button for SSO to SAP ERP using Azure AD
         href: f5-big-ip-sap-erp-easy-button.md    
-      - name: Facebook Work Accounts
-        href: facebook-work-accounts-tutorial.md  
       - name: FactSet
         href: factset-tutorial.md
       - name: Fastly Edge Cloud
@@ -991,6 +1001,8 @@
       items:
       - name: Hackerone
         href: hackerone-tutorial.md
+      - name: HackNotice
+        href: hacknotice-tutorial.md
       - name: Halosys
         href: halosys-tutorial.md
       - name: HappyFox
@@ -1307,6 +1319,8 @@
         href: korn-ferry-alp-tutorial.md
       - name: Kpifire
         href: kpifire-tutorial.md
+      - name: KPMG Leasing Tool
+        href: kpmg-tool-tutorial.md
       - name: Kronos
         href: kronos-tutorial.md
       - name: Kronos Workforce Dimensions
@@ -1325,6 +1339,8 @@
         href: lanschool-air-tutorial.md
       - name: LaunchDarkly
         href: launchdarkly-tutorial.md
+      - name: Lattice
+        href: lattice-tutorial.md
       - name: LawVu
         href: lawvu-tutorial.md  
       - name: LCVista
@@ -1446,7 +1462,9 @@
       - name: Meta Networks Connector
         href: metanetworksconnector-tutorial.md
       - name: Metatask
-        href: metatask-tutorial.md  
+        href: metatask-tutorial.md
+      - name: Meta Work Accounts
+        href: meta-work-accounts-tutorial.md  
       - name: Mevisio
         href: mevisio-tutorial.md
       - name: Michigan Data Hub Single Sign-On
@@ -1539,6 +1557,8 @@
         href: neotalogicstudio-tutorial.md
       - name: NetDocuments
         href: netdocuments-tutorial.md
+      - name: NetMotion Mobility
+        href: netmotion-mobility-tutorial.md
       - name: Netop Portal
         href: netop-portal-tutorial.md
       - name: Netskope Cloud Security
@@ -1823,6 +1843,8 @@
         href: qmarkets-idea-innovation-management-tutorial.md
       - name: QPrism
         href: qprism-tutorial.md
+      - name: QReserve
+        href: qreserve-tutorial.md
       - name: Qualaroo
         href: qualaroo-tutorial.md  
       - name: Quantum Workplace
@@ -2081,6 +2103,8 @@
         href: siteintel-tutorial.md
       - name: Skedda
         href: skedda-tutorial.md
+      - name: Sketch
+        href: sketch-tutorial.md
       - name: Skillcast
         href: skillcast-tutorial.md
       - name: Skilljar
@@ -2095,6 +2119,8 @@
         href: skills-workflow-tutorial.md
       - name: Skopenow
         href: skopenow-tutorial.md
+      - name: Skybreathe® Analytics
+        href: skybreathe-analytics-tutorial.md
       - name: SkyDesk Email
         href: skydeskemail-tutorial.md
       - name: SKYSITE
@@ -2237,6 +2263,8 @@
         href: tangoanalytics-tutorial.md
       - name: Tangoe Command Premium Mobile
         href: tangoe-tutorial.md
+      - name: Tango Reserve by AgilQuest (EU Instance)
+        href: tango-reserve-tutorial.md
       - name: TAP App Security
         href: tap-app-security-tutorial.md  
       - name: TargetProcess
@@ -2299,6 +2327,8 @@
         href: tidemark-tutorial.md
       - name: TigerConnect Secure Messenger
         href: tigertext-tutorial.md
+      - name: TigerGraph
+        href: tigergraph-tutorial.md
       - name: Timeclock 365 SAML
         href: timeclock-365-saml-tutorial.md
       - name: TimeLive
@@ -2401,6 +2431,8 @@
         href: uservoice-tutorial.md
       - name: UserZoom
         href: userzoom-tutorial.md
+      - name: valid8Me
+        href: valid8me-tutorial.md
       - name: ValidSign
         href: validsign-tutorial.md
       - name: Vault Platform
@@ -2505,6 +2537,8 @@
         href: wisdom-by-invictus-tutorial.md
       - name: Wizergos Productivity Software
         href: wizergosproductivitysoftware-tutorial.md
+      - name: Wiz SSO
+        href: wiz-sso-tutorial.md
       - name: Wootric
         href: wootric-tutorial.md
       - name: Work.com
@@ -2519,6 +2553,8 @@
         href: workfront-tutorial.md
       - name: Workgrid
         href: workgrid-tutorial.md
+      - name: workhub
+        href: workhub-tutorial.md
       - name: Workpath
         href: workpath-tutorial.md
       - name: Workplace by Meta
@@ -2878,8 +2914,10 @@
         href: linkedinelevate-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
+      - name: Lucid (All Products)
+        href: lucid-all-products-provisioning-tutorial.md
       - name: Lucidchart
-        href: lucidchart-provisioning-tutorial.md
+        href: lucidchart-provisioning-tutorial.md        
       - name: Leapsome
         href: leapsome-provisioning-tutorial.md
       - name: LogicGate

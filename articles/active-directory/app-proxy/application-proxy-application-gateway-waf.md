@@ -71,7 +71,7 @@ To ensure the connector VMs send requests to the Application Gateway, an [Azure 
 
 ### Test the application.
 
-After [adding a user for testing](/azure/active-directory/app-proxy/application-proxy-add-on-premises-application#add-a-user-for-testing), you can test the application by accessing https://www.fabrikam.one. The user will be prompted to authenticate in Azure AD, and upon successful authentication, will access the application. 
+After [adding a user for testing](./application-proxy-add-on-premises-application.md#add-a-user-for-testing), you can test the application by accessing https://www.fabrikam.one. The user will be prompted to authenticate in Azure AD, and upon successful authentication, will access the application. 
 
 ![Screenshot of authentication step.](./media/application-proxy-waf/sign-in-2.png)
 ![Screenshot of server response.](./media/application-proxy-waf/application-gateway-response.png)
@@ -90,13 +90,12 @@ The Application Gateway [Firewall logs][waf-logs] provide more details about the
 
 ## Next steps
 
-To prevent false positives, learn how to [Customize Web Application Firewall rules](/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal), configure [Web Application Firewall exclusion lists](/azure/web-application-firewall/ag/application-gateway-waf-configuration?tabs=portal), or [Web Application Firewall custom rules](/azure/web-application-firewall/ag/create-custom-waf-rules).
+To prevent false positives, learn how to [Customize Web Application Firewall rules](../../web-application-firewall/ag/application-gateway-customize-waf-rules-portal.md), configure [Web Application Firewall exclusion lists](../../web-application-firewall/ag/application-gateway-waf-configuration.md?tabs=portal), or [Web Application Firewall custom rules](../../web-application-firewall/ag/create-custom-waf-rules.md).
 
-[waf-overview]: /azure/web-application-firewall/ag/ag-overview 
-[appgw_quick]: /azure/application-gateway/quick-create-portal
-[appproxy-add-app]: /azure/active-directory/app-proxy/application-proxy-add-on-premises-application
-[appproxy-optimize]: /azure/active-directory/app-proxy/application-proxy-network-topology
-[appproxy-custom-domain]: /azure/active-directory/app-proxy/application-proxy-configure-custom-domain
-[private-dns]: /azure/dns/private-dns-getstarted-portal
-[waf-logs]: /azure/application-gateway/application-gateway-diagnostics#firewall-log
-
+[waf-overview]: ../../web-application-firewall/ag/ag-overview.md
+[appgw_quick]: ../../application-gateway/quick-create-portal.md
+[appproxy-add-app]: ./application-proxy-add-on-premises-application.md
+[appproxy-optimize]: ./application-proxy-network-topology.md
+[appproxy-custom-domain]: ./application-proxy-configure-custom-domain.md
+[private-dns]: ../../dns/private-dns-getstarted-portal.md
+[waf-logs]: ../../application-gateway/application-gateway-diagnostics.md#firewall-log

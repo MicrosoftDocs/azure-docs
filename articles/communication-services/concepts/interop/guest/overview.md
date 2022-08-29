@@ -35,6 +35,8 @@ You can create an identity and access token for Teams external users on Azure po
 
 With a valid identity, access token, and Teams meeting URL, you can use [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/story/composites-call-with-chat-jointeamsmeeting--join-teams-meeting) to join Teams meeting without any code.
 
+>[!VIDEO https://www.youtube.com/embed/chMHVHLFcao]
+
 ### Single-click deployment
 
 The [Azure Communication Services Calling Hero Sample](../../../samples/calling-hero-sample.md) demonstrates how developers can use Azure Communication Services Calling Web SDK to join a Teams meeting from a web application as a Teams external user. You can experiment with the capability with single-click deployment to Azure.
