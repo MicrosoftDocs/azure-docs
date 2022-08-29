@@ -319,7 +319,7 @@ To collect custom telemetry, you need to instrument the application with Java 2.
 
 You might want to customize the way component names are displayed in the [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by taking one of the following actions:
 
-- For Application Insights Java agent 3.0, set the cloud role name as follows:
+- For Application Insights Java, set the cloud role name as follows:
 
     ```json
     {
@@ -328,7 +328,8 @@ You might want to customize the way component names are displayed in the [Applic
       }
     }
     ```
-    You can also set the cloud role name by using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`.
+
+You can also set the cloud role name by using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`.
 
 - With Application Insights Java SDK 2.5.0 and later, you can specify the `cloud_RoleName`
   by adding `<RoleName>` to your ApplicationInsights.xml file:
@@ -348,7 +349,7 @@ You might want to customize the way component names are displayed in the [Applic
 
   `spring.application.name=<name-of-app>`
 
-  The Spring Boot Starter automatically assigns `cloudRoleName` to the value you enter for the `spring.application.name` property.
+You can also set the cloud role name via environment variable or system property. See [Configuring cloud role name](./java-standalone-config.md#cloud-role-name) for details.
 
 ## Next steps
 
