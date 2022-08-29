@@ -69,7 +69,7 @@ The following table shows the options for converting from each replication setti
 
 <sup>1</sup> Converting from local to geo-redundancy incurs a one-time egress charge. See [Costs associated with changing how data is replicated](#costs-associated-with-changing-how-data-is-replicated). <br />
 <sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier. See [the section about Access tiers](#access-tier).<br />
-<sup>3</sup> Live migration is supported for standard general-purpose v2 and premium file share storage accounts. Live migration is not supported for premium block blob or page blob storage accounts. See [the storage account type section](#storage-account-type).<br />
+<sup>3</sup> Live migration is supported for standard general-purpose v2 and premium file share storage accounts. Live migration is not supported for premium block blob or page blob storage accounts. While live migration is supported for premium file share storage accounts, it must be initiated by opening a support request with Microsoft. Customer-initiated live migration is not currently supported for Premium file share accounts. See [the storage account type section](#storage-account-type).<br />
 <sup>4</sup> After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). For more information, See [the failover and failback section](#failover-and-failback) and [use caution when failing back to the original primary](storage-disaster-recovery-guidance.md#use-caution-when-failing-back-to-the-original-primary).<br />
 <sup>5</sup> Migrating from LRS to ZRS is not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares. See [Protocol support](#protocol-support).<br />
 
@@ -85,23 +85,24 @@ Restrictions apply to some replication change scenarios depending on:
 
 ### Storage account type
 
-When planning to change your replication settings consider the following restrictions related to the storage account type.
+When planning to change your replication settings, consider the following restrictions related to the storage account type.
 
 Some storage account types only support certain replication configurations, which affects whether they can be simply changed, or require migration:
 
 | Storage account type        | Supports LRS | Supports ZRS | Supports live migration | Supports manual migration |
 |:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|
 | Standard general purpose v2 | Yes          | Yes          | Yes                     | Yes                       |
-| Premium file shares         | Yes          | Yes          | Yes                     | Yes                       |
+| Premium file shares         | Yes          | Yes          | Yes <sp>1</sp>          | Yes                       |
 | Premium block block blob    | Yes          | Yes          | No                      | Yes                       |
 | Premium page blob           | Yes          | No           | No                      | No                        |
 | Managed disks<sup>2</sup>   | Yes          | No           | No                      | No                        |
-| Standard general purpose v1 | Yes          | No           | No <sup>1</sup>         | Yes                       |
-| ZRS Classic<sup>3</sup><br /><sub>(available in standard general purpose v1 accounts)</sub>     | Yes          | No           | No                      | No                        |
+| Standard general purpose v1 | Yes          | No           | No <sup>3</sup>         | Yes                       |
+| ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub>     | Yes          | No           | No                      | No                        |
 
-<sup>1</sup> If your storage account is v1, you'll need to upgrade it to v2 before performing a live migration. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
+<sup>1</sup> Currently, live migration for Premium file shares is only available by opening a support request; customer-initiated live migration is not yet supported.<br />
 <sup>2</sup> Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).<br />
-<sup>3</sup> ZRS Classic storage accounts have been deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
+<sup>3</sup> If your storage account is v1, you'll need to upgrade it to v2 before performing a live migration. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
+<sup>4</sup> ZRS Classic storage accounts have been deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
 
 Note that live migration is supported for standard general-purpose v2 and premium file share storage accounts. It is not supported for premium block blob or page blob storage accounts.
 
