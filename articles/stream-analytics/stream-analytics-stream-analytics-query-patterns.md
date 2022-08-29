@@ -7,7 +7,7 @@ ms.author: fleide
 
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/18/2019
+ms.date: 08/29/2022
 ms.custom: devx-track-js
 ---
 
