@@ -1,6 +1,6 @@
 ---
 title: Clean up stale guest accounts - Azure Active Directory | Microsoft Docs
-description: Clean up stale guest accounts using Access Reviews 
+description: Clean up stale guest accounts using access reviews 
 services: active-directory 
 author: gargi-sinha
 ms.author: gasinh
@@ -14,7 +14,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Clean up stale guest accounts using Access Reviews
+# Clean up stale guest accounts using access reviews
 
 As users collaborate with external partners, it’s possible that many guest accounts get created in Azure Active Directory (Azure AD) tenants over time. When collaboration ends and the users no longer access your tenant, the guest accounts may become stale. Admins can use Access Reviews to automatically review inactive guest users and block them from signing in, and later, delete them from the directory.
 
@@ -49,7 +49,7 @@ Use the following instructions to learn how to create Access Reviews that follow
    |Scope| **Guest users only**|
    |(Optional) Review inactive guests | Check the box for **Inactive users (on tenant level) only**.<br> Enter the number of days that constitute inactivity.|
 
-   ![Screenshot shows the review type dialog for multi-stage review for guests to self-attest continued access](./media/clean-up-stale-guest-accounts/review-type-multi-stage-review.png)
+   ![Screenshot shows the review type dialog for multi-stage review for guests to self-attest continued access.](./media/clean-up-stale-guest-accounts/review-type-multi-stage-review.png)
 
 5. Select **Next: Reviews**.
 
@@ -71,7 +71,7 @@ Use the following instructions to learn how to create Access Reviews that follow
    | **Specify reviewees to go to the next stage** | | 
    | Reviewees going to the next stage | Select reviewees. For example, select users who self-approved or responded **Don't know**.
 
-    ![Screenshot shows the first stage review for multi-stage review for guests to self-attest continued access](./media/clean-up-stale-guest-accounts/first-stage-review-for-multi-stage-review.png)
+    ![Screenshot shows the first stage review for multi-stage review for guests to self-attest continued access.](./media/clean-up-stale-guest-accounts/first-stage-review-for-multi-stage-review.png)
 
 7. Select **Next: Settings**.
 
@@ -88,11 +88,11 @@ Use the following instructions to learn how to create Access Reviews that follow
    | Additional content for reviewer email | Add a custom message for reviewers |
    | All other fields| Leave the default values for the remaining options. |
 
-   ![Screenshot shows the settings dialog for multi-stage review for guests to self-attest continued access](./media/clean-up-stale-guest-accounts/settings-for-multi-stage-review.png)
+   ![Screenshot shows the settings dialog for multi-stage review for guests to self-attest continued access.](./media/clean-up-stale-guest-accounts/settings-for-multi-stage-review.png)
 
 9. Select **Next: Review + Create**
 
-10. Enter an Access Review name. (Optional) provide description .
+10. Enter an Access Review name. (Optional) provide description.
 
 11. Select **Create**.
 
@@ -102,7 +102,7 @@ Use the following instructions to learn how to create Access Reviews that follow
 
    `(user.userType -eq "Guest") and (user.mail -contains "@contoso.com") and (user.accountEnabled -eq true)`
 
-2. To [create an Access Review](https://docs.microsoft.com/azure/active-directory/governance/create-access-review) for the dynamic group, navigate to **Azure Active Directory > Identity Governance > Access Reviews**.
+2. To [create an access review](https://docs.microsoft.com/azure/active-directory/governance/create-access-review) for the dynamic group, navigate to **Azure Active Directory > Identity Governance > Access Reviews**.
 
 3. Select **New access review**.
 
@@ -120,7 +120,7 @@ Use the following instructions to learn how to create Access Reviews that follow
    >[!NOTE]
    >The inactivity time you configure will not affect recently created users. The Access Review will check if the user has been created in the timeframe you configure and ignore users who haven’t existed for at least that amount of time. For example, if you set the inactivity time as 90 days and a guest user was created/invited less than 90 days ago, the guest user will not be in scope of the Access Review. This ensures that guests can sign in once before being removed.
    
-   ![Screenshot shows the review type dialog to remove inactive external guests](./media/clean-up-stale-guest-accounts/review-type-remove-inactive-guests.png)
+   ![Screenshot shows the review type dialog to remove inactive external guests.](./media/clean-up-stale-guest-accounts/review-type-remove-inactive-guests.png)
 
 5. Select **Next: Reviews**.
 
@@ -138,7 +138,7 @@ Use the following instructions to learn how to create Access Reviews that follow
 
 7. Select **Next: Settings**.
 
-   ![Screenshot shows the Reviews dialog to remove inactive external guests](./media/clean-up-stale-guest-accounts/reviews-remove-inactive-guests.png)
+   ![Screenshot shows the Reviews dialog to remove inactive external guests.](./media/clean-up-stale-guest-accounts/reviews-remove-inactive-guests.png)
 
 8. Configure Settings:
 
@@ -152,11 +152,11 @@ Use the following instructions to learn how to create Access Reviews that follow
    | No sign-in within 30 days | Check the box |
    | All other fields | Check/uncheck the boxes based on your preference. |
 
-   ![Screenshot shows the Settings dialog to remove inactive external guests](./media/clean-up-stale-guest-accounts/settings-remove-inactive-guests.png)
+   ![Screenshot shows the Settings dialog to remove inactive external guests.](./media/clean-up-stale-guest-accounts/settings-remove-inactive-guests.png)
 
 9. Select **Next: Review + Create**.
 
-10. Enter an Access Review name. (Optional) provide description .
+10. Enter an Access Review name. (Optional) provide description.
 
 11. Select **Create**.
 
