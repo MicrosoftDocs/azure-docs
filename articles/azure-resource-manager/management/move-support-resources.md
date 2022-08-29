@@ -1131,7 +1131,7 @@ Jump to a resource provider namespace:
 > Make sure moving to new subscription doesn't exceed [subscription quotas](azure-subscription-service-limits.md#azure-monitor-limits).
 
 > [!WARNING]
-> When moving a workspace-based Application Insights component to a different subscription, telemetry stored in the original subscription will not be accessible anymore. This is because telemetry is identified by the Application Insights resource ID, which changes when you move the component to a different subscription. Please notice that once moved, there is no way to retrieve telemetry from the original subscription.
+> Moving or renaming any Application Insights resource changes the resource ID. When the ID changes for a workspace-based resource, data sent for the prior ID is accessible only by querying the underlying Log Analytics workspace. The data will not be accessible from within the renamed or moved Application Insights resource.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
