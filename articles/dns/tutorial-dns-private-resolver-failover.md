@@ -127,7 +127,7 @@ Now that DNS resolution is working from on-premises to Azure using two different
    > [!NOTE]
    > The DNS server that you use to configure forwarding should be a server that client devices on your network will use for DNS resolution. If the server you're configuring is not the default, you'll need to query it's IP address directly (ex: nslookup test.azure.contoso.com 10.100.0.2) after forwarding is configured.
 
-1. Open an elevated Windows PowerShell prompt and prompt commands. Replace **azure.contoso.com** with the name of your private zone, and replace the IP addresses below with the IP addresses for your private resolvers.
+1. Open an elevated Windows PowerShell prompt and issue the following command. Replace **azure.contoso.com** with the name of your private zone, and replace the IP addresses below with the IP addresses of your private resolvers.
 
     ```PowerShell
     Add-DnsServerConditionalForwarderZone -Name "azure.contoso.com" -MasterServers 10.20.0.4,10.10.0.4

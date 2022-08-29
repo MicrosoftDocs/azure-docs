@@ -39,9 +39,7 @@
         - name: Object detection with AutoML
           displayName: automl, automated, auto ml, computer vision, images, image model
           href: tutorial-auto-train-image-models.md
-        - name: Prep your code for production
-          displayName: mlops, mlopspython, production
-          href: tutorial-convert-ml-experiment-to-production.md
+
     - name: Studio
       items: 
         - name: Automated ML (UI)
@@ -165,9 +163,6 @@
              href: concept-data-analysis.md
            - name: Counterfactual analysis and what-if
              href: concept-counterfactual-analysis.md
-           - name: Differential Privacy
-             displayName: differential,privacy
-             href: concept-differential-privacy.md
     - name: Workspace & compute resources
       items: 
         - name: Workspace
@@ -199,6 +194,9 @@
           href: ./security-controls-policy.md
         - name: Data encryption
           href: concept-data-encryption.md
+        - name: Data exfiltration prevention
+          displayName: loss
+          href: how-to-prevent-data-loss-exfiltration.md
         - name: Customer-managed keys
           href: concept-customer-managed-keys.md
         - name: Vulnerability management
@@ -283,7 +281,7 @@
           displayName: compute target, low priority, managed identity
           href: how-to-create-attach-compute-cluster.md
         - name: AKS and Arc Enabled Kubernetes cluster
-          displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
+          displayName: Azure Arc, Kubernetes, on-premises, multi-cloud, attach
           href: how-to-attach-kubernetes-anywhere.md
         - name: Manage compute resources
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
@@ -356,7 +354,7 @@
           href: how-to-datastore.md
         - name: Create data assets
           displayName: Create data assets
-          href: how-to-create-register-data-assets.md
+          href: how-to-create-data-assets.md
         - name: Read & write data in jobs
           displayName: Read & write data in jobs
           href: how-to-read-write-data-v2.md
@@ -387,9 +385,6 @@
           items:
           - name: Train with SDK v2 (preview)
             href: how-to-train-sdk.md
-          - name: Configure & submit training run
-            displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-            href: how-to-set-up-training-targets.md
           - name: Tune hyperparameters
             displayName: parameter, hyperparameter, hyperdrive
             href: how-to-tune-hyperparameters.md
@@ -765,8 +760,6 @@
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/machine-learning-services/
-    - name: Service limits
-      href: resource-limits-capacity.md
     - name: Conda licensing
       href: /legal/machine-learning/conda-licensing
     - name: Regional availability
