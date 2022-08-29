@@ -59,4 +59,3 @@ After administrators confirm the settings using [report-only mode](howto-conditi
 - [Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 - [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 - [What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
-- 

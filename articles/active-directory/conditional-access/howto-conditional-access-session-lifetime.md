@@ -120,7 +120,7 @@ To make sure that your policy works as expected, the recommended best practice i
       1. Choose **Periodic reauthentication** and enter a value of hours or days or select **Every time**.
 1. Save your policy.
 
-![Conditional Access policy configured for sign-in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+   > ![Conditional Access policy configured for sign-in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
 ### Policy 2: Persistent browser session
 
@@ -135,11 +135,12 @@ To make sure that your policy works as expected, the recommended best practice i
 
 1. Under **Access controls** > **Session**.
    1. Select **Persistent browser session**.
+
+      > [!NOTE]
+      > Persistent Browser Session configuration in Azure AD Conditional Access overrides the “Stay signed in?” setting in the company branding pane in the Azure portal for the same user if you have configured both policies.
+
    1. Select a value from dropdown.
 1. Save your policy.
-
-> [!NOTE]
-> Persistent Browser Session configuration in Azure AD Conditional Access overrides the “Stay signed in?” setting in the company branding pane in the Azure portal for the same user if you have configured both policies.
 
 ### Policy 3: Sign-in frequency control every time risky user
 

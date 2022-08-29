@@ -15,7 +15,7 @@ ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
-# How To: Configure and enable risk policies
+# Configure and enable risk policies
 
 As we learned in the previous article, [Identity Protection policies](concept-identity-protection-policies.md) we have two risk policies that we can enable in our directory. 
 
