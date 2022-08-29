@@ -1,6 +1,6 @@
 ---
 title: Private connectivity for Arc enabled Kubernetes clusters using private link (preview)
-ms.date: 04/08/2021
+ms.date: 08/28/2021
 ms.topic: article
 description: With Azure Arc, you can use a Private Link Scope model to allow multiple Kubernetes clusters to use a single private endpoint.
 ms.custom: references_regions
@@ -72,7 +72,7 @@ Azure Arc-enabled Kubernetes integrates with several Azure services to bring clo
 
 There are two ways you can achieve this:
 
-* If your network is configured to route all internet-bound traffic through the Azure VPN or ExpressRoute circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Azure AD, Azure Resource Manager, Azure Frontdoor and Microsoft Container Registry  using [service tags] (/azure/virtual-network/service-tags-overview). The NSG rules should look like the following:
+* If your network is configured to route all internet-bound traffic through the Azure VPN or ExpressRoute circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Azure AD, Azure Resource Manager, Azure FrontDoor and Microsoft Container Registry  using [service tags] (/azure/virtual-network/service-tags-overview). The NSG rules should look like the following:
 
     | Setting                 | Azure AD rule                                                 | Azure Resource Manager rule                                   | AzureFrontDoorFirstParty rule                                 | Microsoft Container Registry rule                            |     
     |-------------------------|---------------------------------------------------------------|---------------------------------------------------------------|---------------------------------------------------------------|---------------------------------------------------------------
@@ -123,7 +123,7 @@ The Private Endpoint on your virtual network allows it to reach Azure Arc-enable
 1. On the **Configuration** page, perform the following:
     1. Choose the virtual network and subnet from which you want to connect to Azure Arc-enabled Kubernetes clusters.
     1. For **Integrate with private DNS zone**, select **Yes**. A new Private DNS Zone will be created. The actual DNS zones may be different from what is shown in the screenshot below.
-    
+
         :::image type="content" source="media/private-link/create-private-endpoint-2.png" alt-text="Screenshot of the Configuration step to create a private endpoint in the Azure portal.":::
 
         > [!NOTE]
@@ -131,7 +131,7 @@ The Private Endpoint on your virtual network allows it to reach Azure Arc-enable
     1. Select **Review + create**.
     1. Let validation pass.
     1. Select **Create**.
-    
+
     :::image type="content" source="media/private-link/create-private-endpoint-2.png" alt-text="Screenshot of the Configuration step to create a private endpoint in the Azure portal.":::
 
     > [!NOTE]
