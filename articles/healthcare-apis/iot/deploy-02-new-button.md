@@ -11,7 +11,7 @@ ms.author: v-smcevoy
 
 # Deploy the MedTech service with a QuickStart template
 
-In this quickstart, you'll learn how to deploy the MedTech service in the Azure portal using two different methods: with a [quickstart template](#deploy-the-medtech-service-with-a-quickstart-template) or [manually](#deploy-the-medtech-service-manually). The MedTech service will enable you to ingest data from Internet of Things (IoT) into your Fast Healthcare Interoperability Resources (FHIR&#174;) service.
+In this quickstart, you'll learn how to deploy the MedTech service in the Azure portal using two different methods: with a [quickstart template](./deploy-02-new-button.md) or [manually](./deploy-03-new-manual.md). The MedTech service will enable you to ingest data from Internet of Things (IoT) into your Fast Healthcare Interoperability Resources (FHIR&#174;) service.
 
 > [!IMPORTANT]
 >
