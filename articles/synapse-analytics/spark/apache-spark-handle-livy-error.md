@@ -645,19 +645,6 @@ Each error code falls under one of the following four buckets:
     Disable broadcast by setting `spark.sql.autoBroadcastJoinThreshold` to `-1`
     Increase memory of node or driver to handle larger broadcast joins
 
-100. **Spark_Ambiguous_Executor_MessageTypeMinus22**
-
-    Unknown reason detected with executor unable to be created. This could be where the driver could not connect with the executor. Please check driver and executor logs for more information.
-
-101. **Spark_Ambiguous_ExecutorLostFailure_ExitCodeMinus100**
-
-    The task failed because the executor that it was running on was lost. This may happen because the task crashed the JVM. ExitCode -100 means the executor was killed by YARN either due to being lost or node failure.Possible causes:
-
-    1. Driver memory issues
-    2. Executor Memory issues
-    3. Executor lost Please check the logs to see if these issues occur.
-
-
 
 > [!NOTE]
 > If you have built any tooling around Synapse job monitoring that checks for a failing job by checking against the error code `LIVY_JOB_STATE_DEAD`, that would no longer work as the returned error codes would be different as mentioned above. Please modify any scripts accordingly in order to utilize this feature, or disable the feature if not needed.
