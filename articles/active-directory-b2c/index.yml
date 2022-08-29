@@ -249,7 +249,11 @@ conceptualContent:
             itemType: how-to-guide 
           - text: 'Manage user data: delete or export'
             url: manage-user-data.md
-            itemType: how-to-guide                          
+            itemType: how-to-guide
+          - text: Security Information and Event Management (SIEM)
+            url: https://github.com/azure-ad-b2c/siem
+            itemType: reference            
+                                    
                                                  
     ## CARD 8 ######################
     - title: Automate
