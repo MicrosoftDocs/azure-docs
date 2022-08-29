@@ -54,21 +54,6 @@ az postgres server-arc create --help
 The main parameters should consider are:
 - **the name of the server group** you want to deploy. Indicate either `--name` or `-n` followed by a name whose length must not exceed 11 characters.
 
-- **the version of the PostgreSQL engine** you want to deploy: by default it is version 12. To deploy version 12, you can either omit this parameter or pass one of the following parameters: `--engine-version 12` or `-ev 12`. To deploy version 11, indicate `--engine-version 11` or `-ev 11`.
-
-    |You need   |Shape of the server group you will deploy   |`-w` parameter to use   |Note   |
-    |---|---|---|---|
-    |A scaled out form of Postgres to satisfy the scalability needs of your applications.   |Three or more Postgres instances, one is coordinator, n  are workers with n >=2.   |Use `-w n`, with n>=2.   |The Citus extension that provides the Hyperscale capability is loaded.   |
-    |A basic form of PostgreSQL server for you to do functional validation of your application at minimum cost. Not valid for performance and scalability validation. For that you need to use the type of deployments described above.   |One Postgres instance that is both coordinator and worker.   |Use `-w 0` and load the Citus extension. Use the following parameters if deploying from command line: `-w 0` --extensions Citus.   |The Citus extension that provides the Hyperscale capability is loaded.   |
-    |A simple instance of Postgres that is ready to scale out when you need it.   |One Postgres instance. It is not yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes and distribute the data.   |Use `-w 0` or do not specify `-w`.   |The Citus extension that provides the Hyperscale capability is present on your deployment but is not yet loaded.   |
-    |   |   |   |   |
-
-    This table is demonstrated in the following figure:
-
-    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts PostgreSQL server worker node parameters and associated architecture." border="false":::
-
-    While using `-w 1` works, we do not recommend you use it. This deployment will not provide you much value. With it, you will get two instances of Postgres: One coordinator and one worker. With this setup, you actually do not scale out the data since you deploy a single worker. As such you will not see an increased level of performance and scalability. We will remove the support of this deployment in a future release.
-
 - **The storage classes** you want your server group to use. It is important you set the storage class right at the time you deploy a server group as this setting cannot be changed after you deploy. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
     - To set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd` followed by the name of the storage class.
     - To set the storage class for the logs, indicate the parameter `--storage-class-logs` or `-scl` followed by the name of the storage class.
@@ -81,10 +66,10 @@ When you execute the create command, you will be prompted to enter the password 
 
 ### Examples
 
-**To deploy a server group of Postgres version 12 named postgres01 with two worker nodes that uses the same storage classes as the data controller, run the following command**:
+**To deploy a PostgreSQL server named postgres01 that uses the same storage classes as the data controller, run the following command**:
 
 ```azurecli
-az postgres server-arc create -n postgres01 --workers 2 --k8s-namespace <namespace> --use-k8s
+az postgres server-arc create -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 > [!NOTE]  
@@ -106,7 +91,6 @@ az postgres server-arc list --k8s-namespace <namespace> --use-k8s
     "name": "postgres01",
     "replicas": 1,
     "state": "Ready",
-    "workers": 2
   }
 ```
 

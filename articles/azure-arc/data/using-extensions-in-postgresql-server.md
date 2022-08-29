@@ -53,17 +53,10 @@ For details about that are `shared_preload_libraries`, read the PostgreSQL docum
 - This step isn't needed for the extensions that are part of `contrib`
 - this step isn't required for extensions that are not required to pre-load by shared_preload_libraries. For these extensions you may jump the next paragraph [Create extensions](#create-extensions).
 
-### Add an extension at the creation time of a server group
-```azurecli
-az postgres server-arc create -n <name of your postgresql server group> --extensions <extension names> --k8s-namespace <namespace> --use-k8s
-```
 ### Add an extension to an instance that already exists
 ```azurecli
-az postgres server-arc server edit -n <name of your postgresql server group> --extensions <extension names> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc server edit -n <postgresql server> --extensions <extension names> --k8s-namespace <namespace> --use-k8s
 ```
-
-
-
 
 ## Show the list of extensions added to shared_preload_libraries
 Run either of the following command.

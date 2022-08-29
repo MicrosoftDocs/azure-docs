@@ -32,14 +32,6 @@ This document describes the steps to set the database engine settings of your Po
 > - `ssl`
 > - `wal_level`
 
-## Syntax
-
-The general format of the command to configure the database engine settings is:
-
-```azurecli
-az postgres server-arc update -n <server name>, [{--engine-settings, -e}] [{--replace-settings , --re}] {'<parameter name>=<parameter value>, ...'} --k8s-namespace <namespace> --use-k8s
-```
-
 ## Show current custom values if they have been set
 
 **With an Az CLI command:**

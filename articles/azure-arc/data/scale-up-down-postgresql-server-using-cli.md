@@ -104,7 +104,7 @@ How do you indicate what role does the setting apply to?
 **The general syntax is:**
 
 ```azurecli
-az postgres server-arc update -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc update -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit --k8s-namespace <namespace> --use-k8s
 ```
 
 The value you indicate for the memory setting is a number followed by a unit of volume. For example, to indicate 1Gb, you would indicate 1024Mi or 1Gi.
@@ -117,11 +117,6 @@ To indicate a number of cores, you just pass a number without unit.
 ```azurecli
  az postgres server-arc update -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2  --k8s-namespace arc --use-k8s
  az postgres server-arc update -n postgres01 --cores-request worker=1, --cores-limit worker=4 --k8s-namespace arc --use-k8s
-```
-
-or
-```azurecli
-az postgres server-arc update -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4 --k8s-namespace arc --use-k8s
 ```
 
 > [!NOTE]
