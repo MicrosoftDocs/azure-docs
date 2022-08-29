@@ -282,6 +282,8 @@
       href: indicators-bulk-file-import.md
     - name: Work with threat indicators
       href: work-with-threat-indicators.md
+    - name: Add entity to threat indicators
+      href: add-entity-to-threat-intelligence.md
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data

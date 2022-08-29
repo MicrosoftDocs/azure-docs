@@ -13,7 +13,7 @@ When investigating an incident, you examine entities and their context as an imp
 
 For example, you may discover an IP address performing port scans across your network, or functioning as a command and control node, sending and/or receiving transmissions from large numbers of nodes in your network.
 
-Microsoft Sentinel allows you to flag the entity as malicious, right from within the investigation graph. You'll then be able to view this indicator both in Logs and in the Threat Intelligence blade in Sentinel.
+Microsoft Sentinel allows you to flag the entity as malicious, right from within the investigation graph. You'll then be able to view this indicator both in Logs and in the Threat Intelligence blade, and use it across your Microsoft Sentinel workspace.
 
 > [!IMPORTANT]
 > Adding entities as TI indicators is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -29,6 +29,12 @@ The [investigation graph](investigate-cases.md) is a visual, intuitive tool that
     :::image type="content" source="media/add-entity-to-threat-intelligence/select-incident-to-investigate.png" alt-text="Screenshot of selecting incident from queue to investigate.":::
 
 1. Select the entity from the graph that you want to add as a threat indicator. A side panel will open on the right. Select **Add to TI**.
+
+    Only the following types of entities can be added as threat indicators:
+    - Domain name
+    - IP address (IPv4 and IPv6)
+    - URL
+    - File (hash)
 
     :::image type="content" source="media/add-entity-to-threat-intelligence/add-entity-to-ti.png" alt-text="Screenshot of adding entity to threat intelligence.":::
 
