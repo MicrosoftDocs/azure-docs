@@ -31,7 +31,7 @@ During the patching of `PersistentVolumeClaim`, the status of the persistent vol
 > [Note]
 > Ensure the managed instance is in a healthy state before you proceed. Run `kubectl get sqlmi -n <namespace>` and check the status of the managed instance.
 
-### 1. Scale the `StatefulSets` to 0
+## 1. Scale the `StatefulSets` to 0
 
 The number of `StatefulSets` deployed is equal to the number of replicas. For General Purpose service tier, this is 1. For Business Critical service tier it could be 1, 2 or 3 depending on how many replicas were specified. Run the below command to get the number of stateful sets if you have a Business Critical instance. 
 
@@ -59,7 +59,7 @@ For example:
 kubectl scale statefulsets sqlmi1 --namespace arc --replicas=0
 ```
 
-### 2. Patch the PVC to the new size
+## 2. Patch the PVC to the new size
 
 Run the below command to get the name of the `PersistentVolumeClaim` which needs to be resized:
 
@@ -88,7 +88,7 @@ $newsize='{\"spec\":{\"resources\":{\"requests\":{\"storage\":\"50Gi\"}}}}'
 kubectl patch pvc data-a6gt3be7mrtq60eao0gmgxgd-sqlmi1-0 --namespace arcns --type merge --patch $newsize
 ```
 
-### 3. Scale the `StatefulSets` to original size
+## 3. Scale the `StatefulSets` to original size
 
 Once the resize completes, scale the `StatefulSets` back to its original size by running the below command:
 
