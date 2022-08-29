@@ -131,8 +131,8 @@ Before we dive in the code, you'll need to connect to your Azure ML workspace. T
 
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find your Subscription ID:
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
-1. At the bottom, select **View all properties in Azure portal**
-1. Copy the value from Azure portal into the code.
+1. You'll see the values you need for **<SUBSCRIPTION_ID>**, **<RESOURCE_GROUP>**, and **<AML_WORKSPACE_NAME>**.
+1. Copy a value, then close the window and paste that into your code.  Open the tool again to get the next value.
 
 :::image type="content" source="media/tutorial-pipeline-python-sdk/find-info.png" alt-text="Screenshot shows how to find values needed for your code.":::
 
