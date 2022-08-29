@@ -187,7 +187,7 @@ landingContent:
             url: ./ip-services/manage-public-ip-address-prefix.md
   
   # Card
-  - title: Architectural Guidance
+  - title: Learn about Virtual Network architecture
     linkLists:
       - linkListType: overview
         links:

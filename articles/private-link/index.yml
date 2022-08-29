@@ -74,7 +74,7 @@ landingContent:
             url: /rest/api/virtualnetwork/privatelinkservices
 
 
-  - title: Architectural Guidance
+  - title: Learn about Private Link architecture
     linkLists:
       - linkListType: concept
         links:
