@@ -5,7 +5,7 @@ author: Niharikadutta
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 06/16/2022
+ms.date: 08/29/2022
 ms.author: nidutta
 ---
 
@@ -20,6 +20,10 @@ To make this process easier, we have introduced a more precise list of error cod
 
 ![Screenshot of New error codes.](./media/apache-spark-error-classification/apache-spark-new-error-view.png)
 
+## Enable error classification in Synapse
+
+This error classification feature can be enabled or disabled by setting the following Spark config to `true` or `false` at the job or pool level - `livy.rsc.synapse.error-classification.enabled` .
+
 Please find below the list of all error types we support today. Please note, we are continuously refining and adding to these error codes by improving our model.
 
 ## Supported error codes and what they mean
@@ -30,8 +34,6 @@ Each error code falls under one of the following four buckets:
 2. **System** - Indicating a system error
 3. **Ambiguous** - Could be either user or system error
 4. **Unknown** - No classification yet, most probably because the error type isn't included in the model
-
-### Different error codes supported
 
 1. **Spark_Ambiguous_ABFS_StorageAccountDoesNotExist**
     
@@ -222,7 +224,7 @@ Each error code falls under one of the following four buckets:
 
     Unable to connect to the MetaStore.
 
-    This is typically a system error. However, if you're using an external Metastore, please ensure the setup specified at [Share Hive metastore with Synapse](../../../azure/hdinsight/share-hive-metastore-with-synapse.md) is followed.
+    This is typically a system error. However, if you're using an external Metastore, please ensure the setup specified at [Share Hive metastore with Synapse](../../azure/hdinsight/share-hive-metastore-with-synapse.md) is followed.
 
 28. **Spark_System_NonJvmUserApp_FileDoesNotMatchContent**
 
@@ -506,6 +508,7 @@ Each error code falls under one of the following four buckets:
     No TSG is available yet for this error code.
 
 81. **Spark_User_UserApp_ModuleNotFoundError
+
     No TSG is available yet for this error code.
 
 82. **Spark_User_UserApp_NoSuchElementException**
@@ -644,4 +647,4 @@ Each error code falls under one of the following four buckets:
 
 
 > [!NOTE]
-> If you have built any tooling around Synapse job monitoring that checks for a failing job by checking against the error code `LIVY_JOB_STATE_DEAD`, that would no longer work as the returned error codes would be different as mentioned above. Please modify any scripts accordingly, this feature is currently disabled by default and can be opted-in by reaching out to the team at `impulse-devs@microsoft.com`. This feature will be enabled by default from 8th August and hence it is recommended to make any changes needed by then.
+> If you have built any tooling around Synapse job monitoring that checks for a failing job by checking against the error code `LIVY_JOB_STATE_DEAD`, that would no longer work as the returned error codes would be different as mentioned above. Please modify any scripts accordingly in order to utilize this feature, or disable the feature if not needed.
