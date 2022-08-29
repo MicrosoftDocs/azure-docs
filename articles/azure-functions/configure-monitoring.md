@@ -419,6 +419,10 @@ Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupNa
 > [!NOTE]
 > Overriding the `host.json` through changing app settings will restart your function app.
 
+## Monitor function apps using Health check
+
+The Health Check feature can be used to monitor function apps. It can be configured the same way as App Service apps as per [Monitor App Service instances using Health check](../app-service/monitor-instances-health-check.md). Your function app should have an HTTP trigger function that responds with an HTTP status code of 200 on the same endpoint as configured on the 'Path' parameter of the health check. You can also have that function perform extra checks to ensure that dependent services are reachable and working.
+
 ## Next steps
 
 For more information about monitoring, see:
