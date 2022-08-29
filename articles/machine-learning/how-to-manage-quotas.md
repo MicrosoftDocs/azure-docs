@@ -121,23 +121,8 @@ Azure Machine Learning managed online endpoints have limits described in the fol
 
 To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#metrics). 
 
-To request an exception from the Azure Machine Learning product team, use the steps in the [Request quota increases](#request-quota-increases) section and provide the following information:
+To request an exception from the Azure Machine Learning product team, use the steps in the [Request quota increases](#request-quota-increases).
 
-1. When opening the support request, __do not select Service and subscription limits (quotas)__. Instead, select __Technical__ as the issue type.
-1. Provide the Azure __subscriptions__ and __regions__ where you want to increase the quota.
-1. Provide the __tenant ID__ and __customer name__.
-1. Provide the __quota type__ and __new limit__. Use the following table as a guide:
-
-  | Quota Type	| New Limit |
-  | ----- | ----- |
-  | MaxEndpointsPerSub (Number of endpoints per subscription) |	? |
-  | MaxDeploymentsPerSub (Number of deployments per subscription) | ? |
-  | MaxDeploymentsPerEndpoint (Number of deployments per endpoint) | ? |
-  | MaxInstancesPerDeployment (Number of instances per deployment) | ? |
-  | EndpointRequestRateLimitPerSec (Total requests per second at endpoint level for all deployments) | ? |
-  | EndpointConnectionRateLimitPerSec (Total connections per second at endpoint level for all deployments) | ? |
-  | EndpointConnectionLimit (Total connections active at endpoint level for all deployments) | ? |
-  | EndpointBandwidthLimitKBps (Total bandwidth at endpoint level for all deployments (MBPS)) | ? |
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
@@ -227,6 +212,13 @@ When you're requesting a quota increase, select the service that you have in min
 
 > [!NOTE]
 > [Free trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a free trial subscription, you can upgrade to a [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure free trial to pay-as-you-go](../cost-management-billing/manage/upgrade-azure-subscription.md) and [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).
+
+### Endpoint quota increases
+
+When requesting the quota increase, provide the following information:
+
+1. When opening the support request, select __Machine Learning Service: Endpoint Limits__ as the __Quota type__.
+1. On the __Additional details__ tab, select __Enter details__ and then provide the quota you'd like to increase and the new value. Also provide the reason for the quota increase. Select __Save and continue__ to continue.
 
 ## Next steps
 
