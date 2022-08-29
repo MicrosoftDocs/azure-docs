@@ -209,7 +209,7 @@
       - name: Manage
         items:
         - name: Synchronize attributes (Preview)
-          href: how-to-lcw-synch-attributes.md  
+          href: how-to-lifecycle-workflow-sync-attributes.md  
         - name: Manage workflow properties (Preview)
           href: manage-workflow-properties.md
         - name: Manage workflow versions (Preview)
@@ -234,7 +234,7 @@
   - name: Lifecycle Workflows - FAQs (Preview)
     href: workflows-faqs.md  
   - name: Developer API reference Lifecycle Workflows- Azure Active Directory
-    href: lifecycle-workflows-dev-reference.md  
+    href: lifecycle-workflows-developer-reference.md  
   - name: Preparing user accounts for Lifecycle workflows tutorials (Preview)
     href: tutorial-prepare-azuread-user-accounts.md 
   - name: Configure a Logic App for Lifecycle Workflow use (Preview)
