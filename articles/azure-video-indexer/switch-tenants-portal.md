@@ -7,13 +7,13 @@ ms.date: 08/26/2022
 
 # Switch between multiple tenants
 
-This article shows how to switch between multiple tenants on the Azure Video Indexer website. When you create an ARM-based account, the new account may not show up on the Azure Video Indexer website. So you need to make sure to sign in with the correct domain.
+This article shows how to switch between multiple tenants on the Azure Video Indexer website. When you create an Azure Resource Manager (ARM)-based account, the new account may not show up on the Azure Video Indexer website. So you need to make sure to sign in with the correct domain.
 
 The article shows how to sign in with the correct domain name into the Azure Video Indexer website. 
 
-## Get the domain name for the Azure portal
+## Get the domain name from the Azure portal
 
-1. In the [Azure portal](https://portal.azure.com/), sign in with the same subscription in which your Azure Video Indexer Azure Resource Manager account was created. 
+1. In the [Azure portal](https://portal.azure.com/), sign in with the same subscription tenant in which your Azure Video Indexer Azure Resource Manager (ARM) account was created. 
 1. Hover over your account name (in the right-top corner). 
 
     > [!div class="mx-imgBorder"]
