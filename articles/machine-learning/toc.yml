@@ -246,6 +246,9 @@
           href: how-to-high-availability-machine-learning.md
         - name: Regenerate storage access keys
           href: how-to-change-storage-access-key.md
+        - name: Data exfiltration prevention
+          displayName: loss
+          href: how-to-prevent-data-loss-exfiltration.md
     - name: Create & manage workspaces
       items:
         - name: Use Azure portal or Python SDK
@@ -382,9 +385,6 @@
           items:
           - name: Train with SDK v2 (preview)
             href: how-to-train-sdk.md
-          - name: Configure & submit training run
-            displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-            href: how-to-set-up-training-targets.md
           - name: Tune hyperparameters
             displayName: parameter, hyperparameter, hyperdrive
             href: how-to-tune-hyperparameters.md

@@ -141,6 +141,9 @@
         href: how-to-export-delete-data.md
   - name: Train models
     items: 
+    - name: Configure & submit training run
+      displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+      href: how-to-set-up-training-targets.md
     - name: Train with SDK v1
       href: how-to-attach-compute-targets.md
     - name: Automated machine learning
