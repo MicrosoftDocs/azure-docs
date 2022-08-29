@@ -158,7 +158,7 @@ az network vnet update \
 
 ## Change enforcement policy
 
-The encryption enforcement policy can be changed on the Azure Virtual Network. To change the policy on the virtual network, you can use the Azure portal, PowerShell, and the Azure CLI.
+The encryption enforcement policy can be changed on the Azure Virtual Network.
 
 # [**PowerShell**](#tab/manage-encryption-powershell)
 
