@@ -136,6 +136,7 @@ The EA admin receives an invoice notification email after the end of billing per
 If you want to update the PO number after your invoice is generated, then contact Azure support in the Azure portal.
 
 Check out the [Manage purchase order number in the Azure portal](https://www.youtube.com/watch?v=26aanfQfjaY) video.
+>[!VIDEO https://www.youtube.com/embed/26aanfQfjaY]
 
 To update the PO number for a billing account:
 
