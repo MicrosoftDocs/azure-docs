@@ -60,11 +60,11 @@ This tutorial assumes that you have an network security group that you can enabl
 
     ---
 
-You will be prompted to enter the resource ID of the existing network security group. The syntax of the network security group resource ID is:
+    You will be prompted to enter the resource ID of the existing network security group. The syntax of the network security group resource ID is:
 
-```json
-"/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkSecurityGroups/<network-security-group-name>"
-```
+    ```json
+    "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkSecurityGroups/<network-security-group-name>"
+    ```
 
 When the deployment finishes, you should see a message indicating the deployment succeeded.
 
