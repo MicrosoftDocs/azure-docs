@@ -13,7 +13,7 @@ ms.date: 08/10/2022
 
 # Call Center Overview
 
-Azure Cognitive Services for Language and Speech can help you realize partial or full automation of telephony-based customer interactions, and provide accessibility across multiple channels. With the Language and Speech services, you can further analyze call center transcriptions, extract and redact Personally Identifying Information (PII), summarize the transcription, and detect the sentiment.
+Azure Cognitive Services for Language and Speech can help you realize partial or full automation of telephony-based customer interactions, and provide accessibility across multiple channels. With the Language and Speech services, you can further analyze call center transcriptions, extract and redact conversation personally identifiable information (PII), summarize the transcription, and detect the sentiment.
 
 Some example scenarios for the implementation of Azure Cognitive Services in call and contact centers are:
 - Virtual agents: Conversational AI-based telephony-integrated voicebots and voice-enabled chatbots
@@ -23,13 +23,13 @@ Some example scenarios for the implementation of Azure Cognitive Services in cal
 > [!TIP]
 > To deploy a call center transcription solution to Azure with a no-code approach, try the [Ingestion Client](/azure/cognitive-services/speech-service/ingestion-client).
 
-## Cognitive Services for call centers
+## Cognitive Services features for call centers
 
 A holistic call center implementation typically incorporates technologies from the Language and Speech services. 
 
-Telephony data typically used in call centers generated through landlines, mobile phones, and radios is ordinarily of low quality. This data is often narrowband, in the range of 8 KHz, which can create challenges when you're converting speech to text. The Speech service recognition models are trained to ensure that you can get high-quality transcriptions, however you choose to capture the audio.
+Audio data typically used in call centers generated through landlines, mobile phones, and radios is often narrowband, in the range of 8 KHz, which can create challenges when you're converting speech to text. The Speech service recognition models are trained to ensure that you can get high-quality transcriptions, however you choose to capture the audio.
 
-Once you've transcribed your audio with the Speech service, you can use the Language service to perform analytics on your call center data such as: sentiment analysis, summarizing the reason for customer calls, how they were resolved, extracting and redacting PII, and more.
+Once you've transcribed your audio with the Speech service, you can use the Language service to perform analytics on your call center data such as: sentiment analysis, summarizing the reason for customer calls, how they were resolved, extracting and redacting conversation PII, and more.
 
 ### Speech service
 
