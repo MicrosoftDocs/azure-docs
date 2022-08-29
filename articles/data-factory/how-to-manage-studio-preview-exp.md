@@ -110,7 +110,7 @@ Columns can be rearranged by dragging a column by its header. You can also sort 
 
 UI (user interface) changes have been made to activities in the pipeline editor canvas. These changes were made to simplify and streamline the pipeline creation process. 
 
-#### Adding activities
+#### Adding activities to the canvas
 
 You now have the option to add an activity using the Add button in the bottom right corner of an activity in the pipeline editor canvas. Clicking the button will open a drop-down list of all activities that you can add. 
 
