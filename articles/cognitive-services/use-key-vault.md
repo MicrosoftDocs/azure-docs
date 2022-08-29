@@ -105,7 +105,7 @@ We recommend creating an environment variable for your Azure key vault's name. Y
 
 To set environment variables, use one the following commands. `KEY_VAULT_NAME` will the name of the environment variable, and replace `Your-Key-Vault-Name` with the name of your key vault, which will be stored in the environment variable.
 
-# [Command Line](#tab/command-line)
+# [Azure CLI](#tab/azure-cli)
 
 Create and assign persisted environment variable, given the value.
 
@@ -133,26 +133,6 @@ In a new instance of the **Windows PowerShell**, read the environment variable.
 [System.Environment]::GetEnvironmentVariable('KEY_VAULT_NAME')
 ```
 
-# [Bash](#tab/bash)
-
-Create and assign a persisted environment variable. Replace `Your-Key-Vault-Name` with the name of your key vault.
-
-```Bash
-echo export KEY_VAULT_NAME="Your-Key-Vault-Name" >> /etc/environment && source /etc/environment
-```
-
-In a new instance of the **Bash**, read the environment variable.
-
-```Bash
-echo "${KEY_VAULT_NAME}"
-```
-
-You can also use `printenv` to read the environment variable.
-
-```Bash
-printenv KEY_VAULT_NAME
-```
-
 ---
 
 ::: zone pivot="programming-language-csharp"
@@ -176,8 +156,6 @@ Install the following client library by right-clicking on the solution in the **
 ## Import the example code
 
 Copy the following example code into your `program.cs` file. Replace `Your-Key-Secret-Name` and `Your-Endpoint-Secret-Name` with the secret names that you set in your key vault.
-
-```csharp
 
 ```csharp
 using System;

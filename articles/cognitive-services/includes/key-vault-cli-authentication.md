@@ -25,7 +25,7 @@ On systems with a default web browser, the Azure CLI will launch the browser to 
 
 If you have multiple subscriptions, make sure to [select the Azure subscription](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) that contains your key vault.
 
-# [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 You can also use [Azure PowerShell](/powershell/azure) to authenticate. Applications using the `DefaultAzureCredential` or the `AzurePowerShellCredential` can then use this account to authenticate calls in their application when running locally.
 
@@ -58,7 +58,7 @@ az keyvault set-policy --name Your-Key-Vault-Name --upn user@domain.com --secret
 To set the access policy, run the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.accounts/set-azcontext) command. Replace `Your-Key-Vault-Name` with the name of your key vault. Replace `user@domain.com` with your Azure Active Directory user name.
 
 ```powershell
-Set-AzKeyVaultAccessPolicy -VaultName 'Your-Key-Vault-Name' -UserPrincipalName 'user@domain.com' -PermissionsToKeys create,import,delete,list -PermissionsToSecrets set,delete -PassThru
+Set-AzKeyVaultAccessPolicy -VaultName 'Your-Key-Vault-Name' -UserPrincipalName 'user@domain.com' -PermissionsToSecrets delete,get,list,set,purge -PassThru
 ```
 
 ---
