@@ -34,7 +34,7 @@ After deploying an update, it is critical to ensure that
 - Device ecosystem should be consistent that is, all devices in a group should be running the same version for easier manageability.
 - The rollback process should be as hands-off as possible, with an option for the device operator to intervene manually only under rare, special circumstances.
 
-To enable device operators to meet these goals, update deployments can be configured with an automatic rollback policy from the cloud. This allows to define a rollback trigger policy by setting thresholds in terms of percentage and minimum number of devices failed. Once the threshold has been met, all the devices in the group will be rolled back to the selected update version. 
+To enable device operators to meet these goals, update deployments can be configured with an automatic rollback policy from the cloud. This allows you to define a rollback trigger policy by setting thresholds in terms of percentage and minimum number of devices failed. Once the threshold has been met, all the devices in the group will be rolled back to the selected update version. 
 
 ## Next steps
 
