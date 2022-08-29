@@ -135,7 +135,7 @@ For information about IoT Edge for Linux on Windows updates, see [EFLOW Updates]
 :::moniker range=">=iotedge-2020-11"
 
 >[!NOTE]
->Currently, there is not support for IoT Edge version 1.4 running on Windows devices.
+>Currently, there is no support for IoT Edge version 1.4 running on Windows devices.
 >
 >To view the steps for updating IoT Edge for Linux on Windows, see [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true&tabs=windows).
 

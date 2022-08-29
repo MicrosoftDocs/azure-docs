@@ -140,7 +140,7 @@ Simulated TPM samples:
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
    ```
    
-   If you have enrolled the device using a custom **Registration Id**, you must specify that Registration Id as well when provisioning:
+   If you have enrolled the device using a custom **Registration Id**, you must specify that registration ID as well when provisioning:
    
    ```powershell
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE" -registrationId "REGISTRATION_ID_HERE"
@@ -174,7 +174,7 @@ Simulated TPM samples:
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
    ```
    
-   If you have enrolled the device using a custom **Registration Id**, you must specify that Registration Id as well when provisioning:
+   If you have enrolled the device using a custom **Registration Id**, you must specify that registration ID as well when provisioning:
    
    ```powershell
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE" -registrationId "REGISTRATION_ID_HERE"
