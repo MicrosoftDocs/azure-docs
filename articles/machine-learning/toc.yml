@@ -194,9 +194,6 @@
           href: ./security-controls-policy.md
         - name: Data encryption
           href: concept-data-encryption.md
-        - name: Data exfiltration prevention
-          displayName: loss
-          href: how-to-prevent-data-loss-exfiltration.md
         - name: Customer-managed keys
           href: concept-customer-managed-keys.md
         - name: Vulnerability management
@@ -249,6 +246,9 @@
           href: how-to-high-availability-machine-learning.md
         - name: Regenerate storage access keys
           href: how-to-change-storage-access-key.md
+        - name: Data exfiltration prevention
+          displayName: loss
+          href: how-to-prevent-data-loss-exfiltration.md
     - name: Create & manage workspaces
       items:
         - name: Use Azure portal or Python SDK
