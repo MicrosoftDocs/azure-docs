@@ -178,13 +178,13 @@ Updating the configuration can take a few minutes. You should get a notification
    > Some Git repository servers use a *personal-token* or an *access-token*, such as a password, for **Basic Authentication**. You can use that kind of token as a password in Azure Spring Apps because it will never expire. But for other Git repository servers, such as Bitbucket and Azure DevOps Server, the *access-token* expires in one or two hours. As a result, this approach isn't viable when you use those repository servers with Azure Spring Apps.
    > GitHub has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for GitHub. For more information, see [Token authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
-   - **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Edit Authentication** button, represented by a pencil icon. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your **Private key**. Optionally, specify your **Host key** and **Host key algorithm**. Include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
+   - **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the setting under **Authentication** to open the **Edit Authentication** pane. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your **Private key**. Optionally, specify your **Host key** and **Host key algorithm**. Include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
    :::image type="content" source="media/how-to-config-server/ssh-auth.png" lightbox="media/how-to-config-server/ssh-auth.png" alt-text="Screenshot of the Default repository section showing authentication settings for SSH authentication.":::
 
 #### Additional repositories
 
-If you want to use an optional **Additional repositories** to configure your service, specify the **URI** and **Authentication** the same way as the **Default repository**. Be sure to include a **Name** for your pattern, and then select **Apply** to attach it to your instance.
+If you want to to configure your service with an optional additional repository, specify the **URI** and **Authentication** as you did for the default repository. Be sure to include a **Name** setting for your pattern, and then select **Apply** to attach it to your instance.
 
 ### Enter repository information into a YAML file
 
