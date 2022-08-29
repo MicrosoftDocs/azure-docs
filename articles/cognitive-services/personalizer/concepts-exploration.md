@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 08/28/2022
 ---
 
-# Exploration and Known
+# Exploration
 
 With exploration, Personalizer is able to continuously deliver good results, even as user behavior changes.
 
@@ -25,7 +25,7 @@ Personalizer currently uses an algorithm called *epsilon greedy* to explore.
 
 You configure the percentage of traffic to use for exploration in the Azure portal's **Configuration** page for Personalizer. This setting determines the percentage of Rank calls that perform exploration. 
 
-Personalizer determines whether to explore or use the model's learned best action with this probability on each rank call. This is different than the behavior in some A/B frameworks that lock a treatment on specific user IDs.
+Personalizer determines whether to explore or use the model's most probable action on each rank call. This is different than the behavior in some A/B frameworks that lock a treatment on specific user IDs.
 
 ## Best practices for choosing an exploration setting
 
