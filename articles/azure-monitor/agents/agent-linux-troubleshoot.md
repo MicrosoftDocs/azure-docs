@@ -189,7 +189,7 @@ Below the output plug-in, uncomment the following section by removing the `#` in
 ### Probable causes
 
 * The proxy specified during onboarding was incorrect.
-* The Azure Monitor and Azure Automation Service Endpoints aren't included in the approved list in your datacenter.
+* The Azure Monitor and Azure Automation service endpoints aren't included in the approved list in your datacenter.
 
 ### Resolution
 
@@ -233,7 +233,7 @@ Performance-related bugs don't happen all the time, and they're difficult to rep
 
 1. Callstack will be dumped in the omiagent_trace file. If you notice many curl and NSS function calls, follow these resolution steps.
 
-### Resolution (step by step)
+### Resolution
 
 1. Upgrade the nss-pem package to [v1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html): <br/>
 `sudo yum upgrade nss-pem`
@@ -455,7 +455,7 @@ sudo sh ./onboard_agent.sh --purge
 
 You can continue to reonboard after you use the `--purge` option.
 
-## Log Analytics agent extension in the Azure portal is marked with a failed state: Provisioning failed
+## Issue: Log Analytics agent extension in the Azure portal is marked with a failed state: Provisioning failed
 
 ### Probable causes
 
@@ -490,7 +490,7 @@ The Log Analytics agent packages on the host are outdated.
 
 ### Probable causes
 
-There's a known issue where, if the VM's language isn't English, a check will fail when verifying which version of Python is being used. This issue leads to the agent always assuming Python2 is being used and failing if there's no Python2.
+For this known issue, if the VM's language isn't English, a check will fail when verifying which version of Python is being used. This issue leads to the agent always assuming Python2 is being used and failing if there's no Python2.
 
 ### Resolution
 
