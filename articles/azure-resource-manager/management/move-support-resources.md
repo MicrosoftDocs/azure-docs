@@ -120,7 +120,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.KubernetesConfiguration](#microsoftkubernetesconfiguration)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
-> - [Microsoft.LoadTestServices](#microsoftloadtestservices)
+> - [Microsoft.LoadTestService](#microsoftloadtestservice)
 > - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
 > - [Microsoft.LocationServices](#microsoftlocationservices)
 > - [Microsoft.Logic](#microsoftlogic)
@@ -1241,12 +1241,12 @@ Jump to a resource provider namespace:
 > | labaccounts | No | No | No |
 > | users | No | No | No |
 
-## Microsoft.LoadTestServices
+## Microsoft.LoadTestService
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | LoadTestService | No | No | No |
+> | loadtests | No | No | No |
 
 ## Microsoft.LocationBasedServices
 
