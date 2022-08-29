@@ -18,7 +18,7 @@ This article explains how to resize an existing persistent volume to increase it
 > [Note]
 > Resizing PVCs using this method only works your `StorageClass` supports `AllowVolumeExpansion=True`.
 
-When you deploy an Azure Arc enabled SQL managed instance, you can configure the size of the persistent volume (PV) for `data`, `logs`, `datalogs`, `backups` and so forth. The deployment creates these volumes based on the values set by parameters `--volume-size-data`, `--volume-size-logs`, `--volume-size-datalogs`, and `--volume-size-backups`. When these volumes become full, you will need to resize the `PersistentVolumes`. Azure Arc enabled SQL Managed Instance is deployed as part of a `Statefulsets` for both General Purpose or Business Critical service tiers. Kubernetes supports automatic resizing for persistent volumes but not for volumes attached to `StatefulSets`. 
+When you deploy an Azure Arc enabled SQL managed instance, you can configure the size of the persistent volume (PV) for `data`, `logs`, `datalogs`, and `backups`. The deployment creates these volumes based on the values set by parameters `--volume-size-data`, `--volume-size-logs`, `--volume-size-datalogs`, and `--volume-size-backups`. When these volumes become full, you will need to resize the `PersistentVolumes`. Azure Arc enabled SQL Managed Instance is deployed as part of a `Statefulsets` for both General Purpose or Business Critical service tiers. Kubernetes supports automatic resizing for persistent volumes but not for volumes attached to `StatefulSets`. 
 
 Following are the steps to resize persistent volumes attached to `StatefulSets`: 
 
