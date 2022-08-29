@@ -4,7 +4,7 @@ description: Tips to avoid and fix configuration errors and other problems that 
 author: ekpgh    
 ms.service: hpc-cache
 ms.topic: troubleshooting
-ms.date: 08/25/2022
+ms.date: 08/29/2022
 ms.author: v-erinkelly
 ---
 
@@ -21,9 +21,9 @@ If the solution to your problem is not included here, please [open a support tic
 
 ## Provide sufficient connection threads
 
-Large HPC Cache systems make multiple connection requests to a storage target. For example, if your storage target uses the Ubuntu Linux `nfs-kernel-server` module, the default number of NFS daemon threads can be as low as eight. 64 threads is a more reasonable number for a medium or large HPC Cache.
+Large HPC Cache systems make multiple connection requests to a storage target. For example, if your storage target uses the Ubuntu Linux `nfs-kernel-server` module, the default number of NFS daemon threads can be as low as eight. Increase the number of threads to 128 or 256, which are more reasonable numbers to support a medium or large HPC Cache.
 
-You can check or set the number of threads in Ubuntu by using the RCPNFSDCOUNT value in `/etc/init.d/nfs-kernel-server`.
+You can check or set the number of threads in Ubuntu by using the RPCNFSDCOUNT value in `/etc/init.d/nfs-kernel-server`.
 
 ## Check port settings
 
