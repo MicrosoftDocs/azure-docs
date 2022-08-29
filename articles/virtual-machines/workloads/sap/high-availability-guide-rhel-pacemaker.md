@@ -231,8 +231,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 The STONITH device uses either a managed identity for Azure resource or service principal to authorize against Microsoft Azure. 
 
-Select the respective tab below to view respective instructions.
-
 ### Using Managed Identity
 To create a managed identity (MSI), [create a system-assigned](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. User assigned managed identities should not be used with Pacemaker at this time.
 
@@ -279,13 +277,13 @@ Use the following content for the input file. You need to adapt the content to y
 
 ### **[A]** Assign the custom role to the Service Principal
 
-#### [Using Managed Identity](#tab/msi1)
+#### Using Managed Identity
 
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). Verify each VM's managed identity role assignment contains all cluster VMs.
 
-#### [Using Service Principal](#tab/spn1)
+#### Using Service Principal
 
-If using Service Principal, assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
 Make sure to assign the role for both cluster nodes.    
 
 ### **[1]** Create the STONITH devices
@@ -301,7 +299,7 @@ sudo pcs property set stonith-timeout=900
 > Refer to the bold section in the command. For more information, see [What format should I use to specify node mappings to stonith devices in pcmk_host_map](https://access.redhat.com/solutions/2619961)
 
 
-#### [Managed Identity](#tab/msi3)
+#### [Managed Identity](#tab/msi)
 
 For RHEL **7.X**, use the following command to configure the fence device:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm <b>msi=true</b> resourceGroup="<b>resource group</b>" \ 
@@ -317,7 +315,7 @@ power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_
 op monitor interval=3600
 </code></pre>
 
-#### [Service Principal](#tab/spn3)
+#### [Service Principal](#tab/spn)
 
 For RHEL **7.X**, use the following command to configure the fence device:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" \
