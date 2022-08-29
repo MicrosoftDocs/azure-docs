@@ -25,8 +25,6 @@ Back up and restore have been temporarily removed as we finalize designs and exp
 
 Configuring high availability to recover from infrastructure failures isn't yet available.
 
-## Databases
-Hosting more than one database in a server group isn't supported if you scaled out the deployment on several worker nodes.
 
 ## Roles and responsibilities
 

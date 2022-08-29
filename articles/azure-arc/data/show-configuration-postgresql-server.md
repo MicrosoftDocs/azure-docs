@@ -23,7 +23,7 @@ This article explains how to display the configuration of your server. It does s
 
 ## From a Kubernetes point of view
 
-### What are the Postgres server groups deployed and how many pods are they using?
+### What are the Postgres servers deployed and how many pods are they using?
 
 List the Kubernetes resources of type Postgres. Run the command:
 
@@ -35,10 +35,10 @@ The output of this command shows the list of server groups created. For each, it
 
 ```output
 NAME         STATE   READY-PODS   PRIMARY-ENDPOINT     AGE
-postgres01   Ready   5/5          20.101.12.221:5432   12d
+postgres01   Ready   1/1          20.101.12.221:5432   12d
 ```
 
-This example shows that one server group is created. It runs on five pods: one coordinator and four workers.
+This example shows that one server is created. It runs on one pod.
 
 ### What pods are used by Azure Arc-enabled PostgreSQL servers?
 
@@ -48,7 +48,7 @@ Run:
 kubectl get pods -n <namespace>
 ```
 
-The command returns the list of pods. You will see the pods used by your server groups based on the names you gave to those server groups. For example:
+The command returns the list of pods. You will see the pods used by your servers based on the names you gave to those servers. For example:
 
 ```console
 NAME                 READY   STATUS    RESTARTS   AGE
@@ -64,24 +64,8 @@ metricsdc-fkxv2      2/2     Running   0          12d
 metricsdc-hs4h5      2/2     Running   0          12d
 metricsdc-tvz22      2/2     Running   0          12d
 metricsui-7pcch      2/2     Running   0          12d
-postgres01c0-0       3/3     Running   0          2d19h
-postgres01w0-0       3/3     Running   0          2d19h
-postgres01w0-1       3/3     Running   0          2d19h
-postgres01w0-2       3/3     Running   0          2d19h
-postgres01w0-3       3/3     Running   0          2d19h
+postgres01-0         3/3     Running   0          2d19h
 ```
-
-### What pod is used for what role in the server group?
-
-Any pod name suffixed with `c` represents a coordinator node. Any node name suffixed by `w`  is worker node, such as the five pods that host the server group:
-
-- `postgres01c0-0` the coordinator node
-- `postgres01w0-0` a worker node
-- `postgres01w0-1` a worker node
-- `postgres01w0-2` a worker node
-- `postgres01w0-3` a worker node
-
-You may ignore for now the character `0` displayed after `c` and `w` (ServerGroupName`c0`-x or ServerGroupName`w0`-x). It will be a notation used when the product will offer high availability experiences.
 
 ### What is the status of the pods?
 
@@ -89,7 +73,7 @@ Run `kubectl get pods -n <namespace>` and look at the column `STATUS`
 
 ### What persistent volume claims (PVCs) are being used?
 
-To understand what PVCs are used, and which are used for data, logs, and backups, run:
+To understand what PVCs are used, and which are used for data, and logs, run:
 
 ```console
 kubectl get pvc -n <namespace>
@@ -97,7 +81,6 @@ kubectl get pvc -n <namespace>
 
 By default, the prefix of the name of a PVC indicates its usage:
 
-- `backups-`...: is a PVC used for backups
 - `data-`...: is PVC used for data files
 - `logs-`...: is a PVC used for transaction logs/WAL files
 
@@ -105,10 +88,6 @@ For example:
 
 ```output
 NAME                                            STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
-backups-few7hh0k4npx9phsiobdc3hq-postgres01-0   Bound    local-pv-485e37db   1938Gi     RWO            local-storage   6d6h
-backups-few7hh0k4npx9phsiobdc3hq-postgres01-1   Bound    local-pv-9d3d4a15   1938Gi     RWO            local-storage   6d6h
-backups-few7hh0k4npx9phsiobdc3hq-postgres01-2   Bound    local-pv-7b8dd819   1938Gi     RWO            local-storage   6d6h
-...
 data-few7hh0k4npx9phsiobdc3hq-postgres01-0      Bound    local-pv-3c1a8cc5   1938Gi     RWO            local-storage   6d6h
 data-few7hh0k4npx9phsiobdc3hq-postgres01-1      Bound    local-pv-8303ab19   1938Gi     RWO            local-storage   6d6h
 data-few7hh0k4npx9phsiobdc3hq-postgres01-2      Bound    local-pv-55572fe6   1938Gi     RWO            local-storage   6d6h
@@ -119,7 +98,7 @@ logs-few7hh0k4npx9phsiobdc3hq-postgres01-2      Bound    local-pv-5ccd02e6   193
 ...
 ```
 
-### How much memory and vCores are being used and what extensions were created for a server group?
+### How much memory and vCores are being used by a server?
 
 Use kubectl to describe Postgres resources. To do so, you need its kind (name of the Kubernetes resource (CRD) for Postgres in Azure Arc) and the name of the server group.
 
@@ -154,49 +133,20 @@ Metadata:
       f:spec:
         .:
         f:dev:
-        f:engine:
-          .:
-          f:extensions:
-          f:version:
-        f:scale:
-          .:
-          f:replicas:
-          f:workers:
         f:scheduling:
           .:
           f:default:
             .:
             f:resources:
               .:
+              f:limits:
+                .:
+                f:cpu:
+                f:memory:
               f:requests:
                 .:
+                f:cpu:
                 f:memory:
-          f:roles:
-            .:
-            f:coordinator:
-              .:
-              f:resources:
-                .:
-                f:limits:
-                  .:
-                  f:cpu:
-                  f:memory:
-                f:requests:
-                  .:
-                  f:cpu:
-                  f:memory:
-            f:worker:
-              .:
-              f:resources:
-                .:
-                f:limits:
-                  .:
-                  f:cpu:
-                  f:memory:
-                f:requests:
-                  .:
-                  f:cpu:
-                  f:memory:
         f:services:
           .:
           f:primary:
@@ -205,9 +155,6 @@ Metadata:
             f:type:
         f:storage:
           .:
-          f:backups:
-            .:
-            f:volumes:
           f:data:
             .:
             f:volumes:
@@ -221,15 +168,12 @@ Metadata:
     Fields Type:  FieldsV1
     fieldsV1:
       f:IsValid:
-      f:spec:
-        f:scale:
-          f:syncReplicas:
       f:status:
         .:
+        f:lastUpdateTime:
         f:logSearchDashboard:
         f:metricsDashboard:
         f:observedGeneration:
-        f:podsStatus:
         f:primaryEndpoint:
         f:readyPods:
         f:state:
@@ -240,44 +184,20 @@ Metadata:
   UID:               23565e53-2e7a-4cd6-8f80-3a79397e1d7a
 Spec:
   Dev:  false
-  Engine:
-    Extensions:
-      Name:   citus
-    Version:  12
-  Scale:
-    Replicas:       1
-    Sync Replicas:  0
-    Workers:        4
   Scheduling:
     Default:
       Resources:
+        Limits:
+          Cpu:     2
+          Memory:  1Gi
         Requests:
+          Cpu:     1
           Memory:  256Mi
-    Roles:
-      Coordinator:
-        Resources:
-          Limits:
-            Cpu:     2
-            Memory:  1Gi
-          Requests:
-            Cpu:     1
-            Memory:  256Mi
-      Worker:
-        Resources:
-          Limits:
-            Cpu:     2
-            Memory:  1Gi
-          Requests:
-            Cpu:     1
-            Memory:  256Mi
   Services:
     Primary:
       Port:  5432
       Type:  LoadBalancer
   Storage:
-    Backups:
-      Volumes:
-        Size:  5Gi
     Data:
       Volumes:
         Class Name:  managed-premium
@@ -287,103 +207,19 @@ Spec:
         Class Name:  managed-premium
         Size:        5Gi
 Status:
+  Last Update Time:      2021-10-22T22:37:53.000000Z
   Log Search Dashboard:  https://12.235.78.99:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))
   Metrics Dashboard:     https://12.346.578.99:3000/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
   Observed Generation:   29
-  Pods Status:
-    Conditions:
-      Last Transition Time:  2021-10-22T22:37:53.000000Z
-      Status:                True
-      Type:                  Initialized
-      Last Transition Time:  2021-10-22T22:40:55.000000Z
-      Status:                True
-      Type:                  Ready
-      Last Transition Time:  2021-10-22T22:40:55.000000Z
-      Status:                True
-      Type:                  ContainersReady
-      Last Transition Time:  2021-10-22T22:37:53.000000Z
-      Status:                True
-      Type:                  PodScheduled
-    Name:                    postgres01w0-1
-    Role:                    worker
-    Conditions:
-      Last Transition Time:  2021-10-22T22:37:53.000000Z
-      Status:                True
-      Type:                  Initialized
-      Last Transition Time:  2021-10-22T22:42:41.000000Z
-      Status:                True
-      Type:                  Ready
-      Last Transition Time:  2021-10-22T22:42:41.000000Z
-      Status:                True
-      Type:                  ContainersReady
-      Last Transition Time:  2021-10-22T22:37:53.000000Z
-      Status:                True
-      Type:                  PodScheduled
-    Name:                    postgres01c0-0
-    Role:                    coordinator
-    Conditions:
-      Last Transition Time:  2021-10-22T22:37:54.000000Z
-      Status:                True
-      Type:                  Initialized
-      Last Transition Time:  2021-10-22T22:40:52.000000Z
-      Status:                True
-      Type:                  Ready
-      Last Transition Time:  2021-10-22T22:40:52.000000Z
-      Status:                True
-      Type:                  ContainersReady
-      Last Transition Time:  2021-10-22T22:37:54.000000Z
-      Status:                True
-      Type:                  PodScheduled
-    Name:                    postgres01w0-3
-    Role:                    worker
-    Conditions:
-      Last Transition Time:  2021-10-22T22:37:53.000000Z
-      Status:                True
-      Type:                  Initialized
-      Last Transition Time:  2021-10-22T22:38:35.000000Z
-      Status:                True
-      Type:                  Ready
-      Last Transition Time:  2021-10-22T22:38:35.000000Z
-      Status:                True
-      Type:                  ContainersReady
-      Last Transition Time:  2021-10-22T22:37:53.000000Z
-      Status:                True
-      Type:                  PodScheduled
-    Name:                    postgres01w0-0
-    Role:                    worker
-    Conditions:
-      Last Transition Time:  2021-10-22T22:37:53.000000Z
-      Status:                True
-      Type:                  Initialized
-      Last Transition Time:  2021-10-22T22:42:40.000000Z
-      Status:                True
-      Type:                  Ready
-      Last Transition Time:  2021-10-22T22:42:40.000000Z
-      Status:                True
-      Type:                  ContainersReady
-      Last Transition Time:  2021-10-22T22:37:53.000000Z
-      Status:                True
-      Type:                  PodScheduled
-    Name:                    postgres01w0-2
-    Role:                    worker
-  Primary Endpoint:          20.101.12.221:5432
-  Ready Pods:                5/5
-  Running Version:           v1.1.0_2021-10-12_patching_0bcb7bcaf
-  State:                     Ready
-Events:                      <none>
+  Primary Endpoint:      20.101.12.221:5432
+  Ready Pods:            1/1
+  State:                 Ready
+Events:                  <none>
 ```
 
 #### Interpret the configuration information
 
-Let's call out some specific points of interest in the description of the `server` shown above. What does it tell us about this server group?
-
-- It is of version 14 of Postgres:
-
-   ```output
-   Spec:
-     Dev:  false
-     Engine:
-   ```
+Let's call out some specific points of interest in the description of the `server` shown above. What does it tell us about this server?
 
 - It was created during on October 13 2021:
 
@@ -392,55 +228,33 @@ Let's call out some specific points of interest in the description of the `serve
      Creation Timestamp:  2021-10-13T01:09:25Z
    ```
 
-- It uses four worker nodes:
-
-   ```output
-        Scale:
-          Replicas:       1
-          Sync Replicas:  0
-          Workers:        4
-   ```
-
-- Resource configuration: in this example, its coordinator and workers are guaranteed 256Mi of memory. The coordinator and the worker nodes can not use more that 1Gi of memory. Both the coordinator and the workers are guaranteed one vCore and can't consume more than two vCores.
+- Resource configuration: in this example, its guaranteed 256Mi of memory. The server can not use more that 1Gi of memory. It is guaranteed one vCore and can't consume more than two vCores.
 
    ```console
         Scheduling:
        Default:
          Resources:
-           Requests:
-             Memory:  256Mi
-       Roles:
-         Coordinator:
-           Resources:
-             Limits:
-               Cpu:     2
-               Memory:  1Gi
-             Requests:
-               Cpu:     1
-               Memory:  256Mi
-         Worker:
-           Resources:
-             Limits:
-               Cpu:     2
-               Memory:  1Gi
-             Requests:
-               Cpu:     1
-               Memory:  256Mi
+            Limits:
+              Cpu:     2
+              Memory:  1Gi
+            Requests:
+              Cpu:     1
+              Memory:  256Mi
    ```
 
-- What's the status of the server group? Is it available for my applications?
+- What's the status of the server? Is it available for my applications?
 
-   Yes, all pods (coordinator node and all four workers nodes are ready)
+   Yes, the pods is ready
 
    ```console
-   Ready Pods:                5/5
+   Ready Pods:                1/1
    ```
 
 ## From an Azure Arc-enabled data services point of view
 
 Use  Az CLI commands.
 
-### What are the Postgres server groups deployed and how many workers are they using?
+### What are the Postgres servers deployed?
 
 Run the following command.
 
@@ -448,22 +262,19 @@ Run the following command.
    az postgres server-arc list --k8s-namespace <namespace> --use-k8s
    ```
 
-It lists the server groups that are deployed.
+It lists the servers that are deployed.
 
    ```output
    [
      {
        "name": "postgres01",
-       "replicas": 1,
-       "state": "Ready",
-       "workers": 4
+       "state": "Ready"
      }
    ]
    ```
 
-It also indicates how many worker nodes does the server group use. Each worker node is deployed on one pod to which you need to add one pod used to host the coordinator node.
 
-### How much memory and vCores are being used and what extensions were created for a group?
+### How much memory and vCores are being used?
 
 Run either of the following commands
 
@@ -484,5 +295,4 @@ Returns the information in a format and content similar to the one returned by k
 - [Read about how to scale up/down (increase or reduce memory and/or vCores) a server group](scale-up-down-postgresql-server-using-cli.md)
 - [Read about storage configuration](storage-configuration.md)
 - [Read how to monitor a database instance](monitor-grafana-kibana.md)
-- [Use PostgreSQL extensions in your Azure Arc-enabled PostgreSQL server](using-extensions-in-postgresql-server.md)
 - [Configure security for your Azure Arc-enabled PostgreSQL server](configure-security-postgresql.md)
