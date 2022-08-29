@@ -1,12 +1,13 @@
 ---
 title: Use SCP to move files to and from a VM
 description: Securely move files to and from a Linux VM in Azure using SCP and an SSH key pair.
-author: cynthn
+author: mattmcinnes
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 07/30/2022
-ms.author: cynthn
+ms.date: 08/29/2022
+ms.author: mattmcinnes
+ms.custom: GGAL-freshness822
 ---
 
 # Use SCP to move files to and from a VM 
@@ -15,18 +16,18 @@ ms.author: cynthn
 
 This article shows how to move files from your workstation up to an Azure VM, or from an Azure VM down to your workstation, using Secure Copy (SCP). Moving files between your workstation and a VM, quickly and securely, is critical for managing your Azure infrastructure. 
 
-For this article, you need a VM deployed in Azure with SSH enabled. You also need an SCP client for your local computer. It is built on top of SSH and included in the default shell of most computers.
+For this article, you need a VM deployed in Azure with SSH enabled. You also need an SCP client for your local computer. It is built on top of SSH and included in the default shell of most Linux and Windows (10 and newer) installations.
 
 
 ## Quick commands
 
-Copy a file up to the VM
+Upload a file to the VM
 
 ```bash
 scp file azureuser@azurehost:directory/targetfile
 ```
 
-Copy a file down from the VM
+Download a file from the VM
 
 ```bash
 scp azureuser@azurehost:directory/file targetfile
@@ -42,7 +43,7 @@ SCP uses SSH for the transport layer. SSH handles the authentication on the dest
 
 For more information on configuring your `~/.ssh/config` and SSH public and private keys, see [Create SSH keys](/linux/mac-create-ssh-keys.md).
 
-## SCP a file to a VM
+## Upload a file to a VM
 
 For the first example, we copy an Azure configuration file up to a VM that is used to deploy automation. Because this file contains Azure API credentials, which include secrets, security is important. The encrypted tunnel provided by SSH protects the contents of the file.
 
@@ -52,9 +53,9 @@ The following command copies the local *.azure/config* file to an Azure VM with 
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config
 ```
 
-## SCP a directory from a VM
+## Download a directory from a VM
 
-For this example, we copy a directory of log files from the VM down to your workstation. A log file may or may not contain sensitive or secret data. However, using SCP ensures the contents of the log files are encrypted. Using SCP to transfer the files is the easiest way to get the log directory and files down to your workstation while also being secure.
+For this example, we copy a directory of log files from the VM down to your workstation. A log file may or may not contain sensitive or secret data. However, using SCP ensures the contents of the log files are encrypted. A log directory may contain too many relevant files to copy one at a time, so downloading the whole directory is preferred in this situation. Using SCP to transfer the files is the easiest way to get the log directory and files down to your workstation while also being secure.
 
 The following command copies files in the */home/azureuser/logs/* directory on the Azure VM to the local /tmp directory:
 
