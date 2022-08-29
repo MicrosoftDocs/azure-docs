@@ -5,7 +5,7 @@ services: web-application-firewall
 author: mohitkusecurity
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 08/21/2022
 ms.author: mohitku
 ms.reviewer: victorh 
 ms.custom: devx-track-azurepowershell
@@ -274,6 +274,12 @@ Another way to view request and response headers is to look inside the developer
 ### Finding request cookie names
 
 If the request contains cookies, the Cookies tab can be selected to view them in Fiddler. Cookie information can also be used to create exclusions or custom rules in WAF.
+
+## Anomaly scoring rule
+
+If you see rule ID 949110 during the process of tuning your WAF, this indicates that the request was blocked by the [anomaly scoring](waf-front-door-drs.md#anomaly-scoring-mode) process.
+
+Review the other WAF log entries for the same request, by searching for the log entries with the same tracking reference. Look at each of the rules that were triggered, and tune each rule by following the guidance throughout this article.
 
 ## Next steps
 

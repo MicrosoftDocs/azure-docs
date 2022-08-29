@@ -14,7 +14,7 @@ ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-ti
 
 # Manage Azure Machine Learning workspaces in the portal or with the Python SDK
 
-In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/)
+In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/).  
 
 As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](v1/reference-azure-machine-learning-cli.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
 
@@ -34,6 +34,8 @@ As your needs change or requirements for automation increase you can also manage
 [!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
 
 ## Create a workspace
+
+You can create a workspace [directly in Azure Machine Learning studio](./quickstart-create-resources.md#create-the-workspace), with limited options available. Or use one of the methods below for more control of options.
 
 # [Python](#tab/python)
 
