@@ -116,6 +116,41 @@ Therefore you could consider to deploy similar throughput for the ANF volumes as
 
 Documentation on how to deploy an SAP HANA scale-out configuration with standby node using NFS v4.1 volumes that are hosted in ANF is published in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
 
+## Linux Kernel Settings
+To successfully deploy SAP HANA on ANF Linux kernel settings need to be implemented according to SAP note [3024346](https://launchpad.support.sap.com/#/notes/3024346).
+
+For systems using High Availability (HA) using pacemaker and Azure Load Balancer following settings need to be implemeneted in file /etc/sysctl.d/91-NetApp-HANA.conf
+
+```
+net.core.rmem_max = 16777216
+net.core.wmem_max = 16777216
+net.ipv4.tcp_rmem = 4096 131072 16777216
+net.ipv4.tcp_wmem = 4096 16384 16777216
+net.core.netdev_max_backlog = 300000
+net.ipv4.tcp_slow_start_after_idle=0
+net.ipv4.tcp_no_metrics_save = 1
+net.ipv4.tcp_moderate_rcvbuf = 1
+net.ipv4.tcp_window_scaling = 1
+net.ipv4.tcp_timestamps = 0
+net.ipv4.tcp_sack = 1
+```
+
+Systems running with no pacemaker and Azure Load Balancer should implemented these settings in /etc/sysctl.d/91-NetApp-HANA.conf
+
+```
+net.core.rmem_max = 16777216
+net.core.wmem_max = 16777216
+net.ipv4.tcp_rmem = 4096 131072 16777216
+net.ipv4.tcp_wmem = 4096 16384 16777216
+net.core.netdev_max_backlog = 300000
+net.ipv4.tcp_slow_start_after_idle=0
+net.ipv4.tcp_no_metrics_save = 1
+net.ipv4.tcp_moderate_rcvbuf = 1
+net.ipv4.tcp_window_scaling = 1
+net.ipv4.tcp_timestamps = 1
+net.ipv4.tcp_sack = 1
+```
+
 ## Deployment through Azure NetApp Files application volume group for SAP HANA (AVG)
 To deploy ANF volumes with proximity to your VM, a new functionality called Azure NetApp Files application volume group for SAP HANA (AVG) got developed. **The functionality is currently in public preview**. There's a series of articles that document the functionality. Best is to start with the article [Understand Azure NetApp Files application volume group for SAP HANA](../../../azure-netapp-files/application-volume-group-introduction.md). As you read the articles, it becomes clear that the usage of AVGs involves the usage of Azure proximity placement groups as well. Proximity placement groups are used by the new functionality to tie into with the volumes that are getting created. To ensure that over the lifetime of the HANA system, the VM’s aren't going to be moved away from the ANF volumes, we recommend using a combination of Avset/ PPG for each of the zones you deploy into.
 The order of deployment would look like:
