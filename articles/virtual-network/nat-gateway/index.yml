@@ -86,6 +86,12 @@ landingContent:
         links:
           - text: Architecture Framework for NAT gateway
             url: /azure/architecture/networking/guide/well-architected-network-address-translation-gateway
+
+      - linkListType: reference
+        links:
+          - text: Azure NAT Gateway considerations for multitenancy
+            url: /azure/architecture/guide/multitenant/service/nat-gateway
+           
  
    # Card (optional)
   - title: Security
