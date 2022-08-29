@@ -92,6 +92,19 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 
 [!INCLUDE [functions-limits](../../includes/functions-limits.md)]
 
+## Limitations for creating new function apps in an existing resource group
+
+In some cases, when trying to create a new function app plan, you may receive one of the following errors:
+
+* The pricing tier is not allowed in this resource group
+* <SKU_name> workers are not available in resource group <resource_group_name>
+
+This can happen if you are creating the function app in an existing resource group that already contains or previously contained other function apps or web apps of different SKU or operating system in the same region. Other platform level features like availability zone support can also cause this limitation.
+
+The reason this happens is due to how function app and web app plans are mapped to different pools of resources when being created. Different SKUs require a different set of infrastructure capabilities. When you create an app in a resource group, that resource group is mapped and assigned to a specific pool of resources. If you try to create another plan in that resource group and the mapped pool does not have the required resources, this error will occur.
+
+The recommendation is to create the plan in a new resource group.
+
 ## Networking features
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
@@ -105,6 +118,8 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 | **[Dedicated plan]** | You pay the same for function apps in an App Service Plan as you would for other App Service resources, like web apps.|
 | **[App Service Environment (ASE)][Dedicated plan]** | There's a flat monthly rate for an ASE that pays for the infrastructure and doesn't change with the size of the ASE. There's also a cost per App Service plan vCPU. All apps hosted in an ASE are in the Isolated pricing SKU. |
 | **[Kubernetes]**| You pay only the costs of your Kubernetes cluster; no additional billing for Functions. Your function app runs as an application workload on top of your cluster, just like a regular app. |
+
+## Limitations for apps in the same resource group and region
 
 ## Next steps
 
