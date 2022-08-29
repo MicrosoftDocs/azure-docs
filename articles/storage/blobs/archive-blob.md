@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/21/2022
+ms.date: 08/24/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: blobs
@@ -285,29 +285,57 @@ You can use the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manage
 
 To create a lifecycle management policy to archive blobs in the Azure portal, follow these steps:
 
+#### Step 1: Create the rule and specify the blob type
+
 1. Navigate to your storage account in the portal.
-1. Under **Data management**, locate the **Lifecycle management** settings.
-1. Select the **Add a rule** button.
-1. On the **Details** tab, specify a name for your rule.
-1. Specify the rule scope: either **Apply rule to all blobs in your storage account**, or **Limit blobs with filters**.
-1. Select the types of blobs for which the rule is to be applied, and specify whether to include blob snapshots or versions.
+
+2. Under **Data management**, locate the **Lifecycle management** settings.
+
+3. Select the **Add a rule** button.
+
+4. On the **Details** tab, specify a name for your rule.
+
+5. Specify the rule scope: either **Apply rule to all blobs in your storage account**, or **Limit blobs with filters**.
+
+6. Select the types of blobs for which the rule is to be applied, and specify whether to include blob snapshots or versions.
 
     :::image type="content" source="media/archive-blob/lifecycle-policy-details-tab-portal.png" alt-text="Screenshot showing how to configure a lifecycle management policy - Details tab.":::
+
+#### Step 2: Add rule conditions
 
 1. Depending on your selections, you can configure rules for base blobs (current versions), previous versions, or blob snapshots. Specify one of two conditions to check for:
 
     - Objects were last modified some number of days ago.
+    - Objects were created some number of days ago.
     - Objects were last accessed some number of days ago.
 
     Only one of these conditions can be applied to move a particular type of object to the Archive tier per rule. For example, if you define an action that archives base blobs if they haven't been modified for 90 days, then you can't also define an action that archives base blobs if they haven't been accessed for 90 days. Similarly, you can define one action per rule with either of these conditions to archive previous versions, and one to archive snapshots.
 
-1. Next, specify the number of days to elapse after the object is modified or accessed.
-1. Specify that the object is to be moved to the Archive tier after the interval has elapsed.
+8. Next, specify the number of days to elapse after the object is modified or accessed.
 
-    :::image type="content" source="media/archive-blob/lifecycle-policy-base-blobs-tab-portal.png" alt-text="Screenshot showing how to configure a lifecycle management policy - Base blob tab.":::
+9. Specify that the object is to be moved to the Archive tier after the interval has elapsed.
 
-1. If you chose to limit the blobs affected by the rule with filters, you can specify a filter, either with a blob prefix or blob index match.
-1. Select the **Add** button to add the rule to the policy.
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot showing how to configure a lifecycle management policy - Base blob tab.](./media/archive-blob/lifecycle-policy-base-blobs-tab-portal.png)
+
+10. If you chose to limit the blobs affected by the rule with filters, you can specify a filter, either with a blob prefix or blob index match.
+   
+#### Step 3: Ensure that the rule excludes rehydrated blobs
+
+If you rehydrate a blob by changing its tier, this rule will move the blob back to the archive tier if the last modified time, creation time, or last access time is beyond the threshold set for the policy. 
+
+If you selected the **Last modified** rule condition, you can prevent this from happening by selecting **Skip blobs that have been rehydrated in the last**, and then entering the number of days you want a rehydrated blob to be excluded from this rule.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot showing the skip blobs that have been rehydrated in the last setting.](./media/archive-blob/lifecycle-policy-base-blobs-tab-portal-exclude-rehydrated-blobs.png)
+
+> [!NOTE]
+> This option appears only if you selected the **Last modified** rule condition.
+
+Select the **Add** button to add the rule to the policy.
+
+
+#### View the policy JSON
 
 After you create the lifecycle management policy, you can view the JSON for the policy on the **Lifecycle management** page by switching from **List view** to **Code view**.
 
@@ -324,7 +352,8 @@ Here's the JSON for the simple lifecycle management policy created in the images
         "actions": {
           "baseBlob": {
             "tierToArchive": {
-              "daysAfterLastAccessTimeGreaterThan": 90
+              "daysAfterLastAccessTimeGreaterThan": 90,
+              "daysAfterLastTierChangeGreaterThan": 7
             }
           }
         },

@@ -25,7 +25,7 @@ Below are some examples of Fast Healthcare Interoperability Resources (FHIR&#174
 ```
 
 > [!NOTE]
-> The FHIR service in Azure Health Data Services limits searches with `_include` and `_revinclude` to return 100 items.
+> The FHIR service in Azure Health Data Services limits searches with `_include` and `_revinclude` to return a maximum of 100 items.
 
 ### `_revinclude`
 
@@ -56,7 +56,7 @@ In the above request, you'll receive a bundle of patients, but each entry will o
 GET {{FHIR_URL}}/Patient?gender:not=female
 ```
 
-In return, you would get all `Patient` resources whose `gender` element value is not `female`, including any patients with no gender value specified. This is different from searching for `Patient` resources with the `male` gender value, since that search wouldn't return any patients that don't have a specified gender.
+In return, you would get all `Patient` resources whose `gender` element value is not `female`, including any patients with no gender value specified. This is different from searching for `Patient` resources with the `male` gender value since that would ignore patients with no specified gender.
 
 ### `:missing`
 
@@ -123,7 +123,7 @@ GET {{FHIR_URL}}/Patient?general-practitioner:Practitioner.name=Sarah&general-pr
 
 This would return all `Patient` resources that have a reference to "Sarah" as a `generalPractitioner` plus a reference to a `generalPractitioner` that has an address in the state of Washington. In other words, if a patient had a `generalPractitioner` named Sarah from New York state and another `generalPractitioner` named Bill from Washington state, this would meet the conditions for a positive match when doing this search.
 
-For scenarios in which the search criteria carries a logical AND condition that strictly checks for paired element values, refer to the **composite search** examples below.
+For scenarios in which the search requires a logical AND condition that strictly checks for paired element values, refer to the **composite search** examples below.
 
 ## Reverse chained search
 
@@ -145,7 +145,7 @@ GET {{FHIR_URL}}/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:P
 
 ## Composite search
 
-To search for resources that contain elements grouped together as logically connected pairs, FHIR defines composite search, which joins single parameter values together with the `$` operator – making a connected pair of parameters. In a composite search, a positive match occurs when the intersection of element values satisfies all of the conditions set in the paired search parameters. For example, if you want to find all `DiagnosticReport` resources that contain a potassium value less than `9.2`:
+To search for resources that contain elements grouped together as logically connected pairs, FHIR defines composite search, which joins single parameter values together with the `$` operator – forming a connected pair of parameters. In a composite search, a positive match occurs when the intersection of element values satisfies all conditions set in the paired search parameters. For example, if you want to find all `DiagnosticReport` resources that contain a potassium value less than `9.2`:
 
 ```rest
 GET {{FHIR_URL}}/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2
