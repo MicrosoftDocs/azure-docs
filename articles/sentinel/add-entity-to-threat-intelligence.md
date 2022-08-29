@@ -9,11 +9,11 @@ ms.author: yelevin
 
 # Add entities to threat intelligence in Microsoft Sentinel
 
-When investigating an incident, you examine entities and their context as an important part of understanding the scope and nature of the incident. In the course of the investigation, you may discover an entity in the incident that should be labeled and tracked as an indicator of compromise (IOC), a threat indicator.
+When investigating an incident, you examine entities and their context as an important part of understanding the scope and nature of the incident. In the course of the investigation, you may discover a domain name, URL, file, or IP address in the incident that should be labeled and tracked as an indicator of compromise (IOC), a threat indicator.
 
 For example, you may discover an IP address performing port scans across your network, or functioning as a command and control node, sending and/or receiving transmissions from large numbers of nodes in your network.
 
-Microsoft Sentinel allows you to flag the entity as malicious, right from within the investigation graph. You'll then be able to view this indicator both in Logs and in the Threat Intelligence blade, and use it across your Microsoft Sentinel workspace.
+Microsoft Sentinel allows you to flag these types of entities as malicious, right from within the investigation graph, and add it to your threat indicator lists. You'll then be able to view the added indicators both in Logs and in the Threat Intelligence blade, and use them across your Microsoft Sentinel workspace.
 
 > [!IMPORTANT]
 > Adding entities as TI indicators is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
