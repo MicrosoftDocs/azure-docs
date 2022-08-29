@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Manage Azure Virtual Network encryption
 
-Management of virtual network encryption consists of enabling or disabling encryption on an existing Azure Virtual Network. The encryption enforcement policy can also be set on an existing virtual network. To manage the options for virtual network encryptions, you can use the Azure portal, Azure CLI or Azure PowerShell.
+Management of virtual network encryption consists of enabling or disabling encryption on an existing Azure Virtual Network. The encryption enforcement policy can also be set on an existing virtual network. To manage the options for virtual network encryptions, you can use the Azure CLI or Azure PowerShell.
 
 ## Prerequisites
 
@@ -39,14 +39,6 @@ Encryption and the enforcement policy can be set at the same time on an existing
 
 > [!IMPORTANT]
 > Azure Virtual Network encryption requires supported virtual machine SKUs in the virtual network for traffic to be encrypted. The setting **dropUnencrypted** will drop traffic between unsupported virtual machine SKUs if they are deployed in the virtual network. For more information, see [Azure Virtual Network encryption requirements](virtual-network-encryption-overview.md#requirements).
-
-# [**Portal**](#tab/manage-encryption-portal)
-
-There are two options for the encryption enforcement policy parameter:
-
-- **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be **dropped**. The traffic drop happens if a virtual machine, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
-
-- **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
 
 # [**PowerShell**](#tab/manage-encryption-powershell)
 
@@ -100,8 +92,6 @@ In this section, you'll enable encryption with the Azure portal, PowerShell, and
 > [!IMPORTANT]
 > Azure Virtual Network encryption requires supported virtual machine SKUs in the virtual network for traffic to be encrypted. The setting **dropUnencrypted** will drop traffic between unsupported virtual machine SKUs if they are deployed in the virtual network. For more information, see [Azure Virtual Network encryption requirements](virtual-network-encryption-overview.md#requirements).
 
-# [**Portal**](#tab/manage-encryption-portal)
-
 # [**PowerShell**](#tab/manage-encryption-powershell)
 
 Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) and [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to enable encryption for the virtual network.
@@ -134,8 +124,6 @@ az network vnet update \
 ---
 
 ## Disable encryption
-
-# [**Portal**](#tab/manage-encryption-portal)
 
 # [**PowerShell**](#tab/manage-encryption-powershell)
 
@@ -171,14 +159,6 @@ az network vnet update \
 ## Change enforcement policy
 
 The encryption enforcement policy can be changed on the Azure Virtual Network. To change the policy on the virtual network, you can use the Azure portal, PowerShell, and the Azure CLI.
-
-# [**Portal**](#tab/manage-encryption-portal)
-
-There are two options for the encryption enforcement policy parameter:
-
-- **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be **dropped**. The traffic drop happens if a virtual machine, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
-
-- **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
 
 # [**PowerShell**](#tab/manage-encryption-powershell)
 
