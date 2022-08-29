@@ -68,7 +68,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
     In all other cases, when an incident is no longer needed, it should be **closed**, not deleted. [Closing an incident](investigate-cases.md#closing-an-incident) requires you to specify the reason for closing it, and allows you to add additional comments for context and clarification. Closing old incidents in this way preserves the transparency and integrity of your SOC, and also allows for the possibility of reopening the incident if the problem resurfaces.
 
 
-- The incident delete operation is not reversible! After you delete an incident, the only reference to it will be the audit data in the *SecurityIncident* table in the Logs screen. (See the [table's schema documentation in Log Analytics](/azure/azure-monitor/reference/tables/securityincident)).
+- The incident delete operation is not reversible! After you delete an incident, the only reference to it will be the audit data in the *SecurityIncident* table in the Logs screen. (See the [table's schema documentation in Log Analytics](/azure/azure-monitor/reference/tables/securityincident)). The *Status* field in that table will be updated to "Deleted" for that incident.
 
 - This operation requires a [Microsoft Sentinel Contributor](roles.md) role.
 
