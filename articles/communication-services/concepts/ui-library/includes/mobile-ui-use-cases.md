@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 09/14/2021
 ---
 
-Use the UI Library for iOS and Android to create calling use cases through the Azure Communication Services calling composite. Use composites in Communications Services to easily integrate an entire calling experience in your application by using only a couple lines of code. Composites manage the entire lifecycle of the call, from setup until the call ends.
+Use the UI Library for iOS and Android to create calling use cases through the Azure Communication Services call composite. Use composites in Communications Services to easily integrate an entire calling experience in your application by using only a couple lines of code. Composites manage the entire lifecycle of the call, from setup until the call ends.
 
-## Calling
+## Calling use cases
 
-The calling composite in Communication Services supports use cases in these areas:
+You can use the call composite in Communication Services to create use cases in these areas:
 
 | Area                                                                                            | Use cases                                              |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
@@ -35,23 +35,23 @@ The calling composite in Communication Services supports use cases in these area
 
 ## Supported identities
 
-To initialize a composite and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authentication](../../authentication.md) and [Access tokens](../../../quickstarts/access-tokens.md).
+To initialize a composite and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authenticate to Azure Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/access-tokens.md).
 
 ## Teams interoperability
 
 :::image type="content" source="../../media/mobile-ui/teams-interop-diagram.png" border="false" alt-text="Diagram that shows the Teams interoperability pattern for calling and chat.":::
 
-For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI Library composites to join a user to a Teams meeting via Communication Services. To enable Teams interoperability, use the calling composite. The composite manages the entire lifecycle of joining a Teams interoperability call.
+For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI Library composites to join a user to a Teams meeting via Communication Services. To enable Teams interoperability, use the call composite. The composite manages the entire lifecycle of joining a Teams interoperability call.
 
 :::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Screenshot that shows the user experience before a caller is added to a Teams meeting.":::
 
 ## View shared content
 
-Through the UI Library for mobile native platforms, call participants can view shared content when other participants share their screens during a Teams call. A remote participant can use a pinching gesture to magnify the shared content in the call.
+Through the UI Library for mobile native platforms, call participants can view shared content when other participants share their screens during a Teams call. A remote participant can use stretch and pinch gestures to zoom in or out on the shared content in the call.
 
 ## Theming
 
-You can use the UI Library calling composite for iOS and Android to create a custom theme of a caller's experience by passing a set of theming colors. For more information, see [How to create your theme](../../../how-tos/ui-library-sdk/theming.md).
+You can use the UI Library call composite for iOS and Android to create a custom theme of a caller's experience. To create the platform experience, pass a set of theming colors as shown in the following table. For more information, see [How to create your theme](../../../how-tos/ui-library-sdk/theming.md).
 
 | Android                            | iOS                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
@@ -59,39 +59,39 @@ You can use the UI Library calling composite for iOS and Android to create a cus
 
 ## Screen size
 
-You can adapt the Azure Communication Services calling composite to adapt to screen sizes from 5 inches to tablets. You also can use split mode and tablet mode in the calling composite to get the dynamic participants' roster layout, provide clarity on the view, and focus on the conversation.
+You can adapt the Azure Communication Services call composite to adapt to screen sizes from 5 inches to tablet size. Use split mode and tablet mode in the call composite to get the dynamic participants' roster layout, provide clarity on the view, and focus on the conversation.
 
 |Split mode | Tablet mode|
 |---------|---------|
-| :::image type="content" source="../../media/mobile-ui/meet-splitscreen.png" alt-text="Screenshot that demonstrates a split screen view."::: |  :::image type="content" source="../../media/mobile-ui/tablet-landscape.png" alt-text="Screenshot that demonstrates tablet mode."::: |
+| :::image type="content" source="../../media/mobile-ui/meet-splitscreen.png" alt-text="Screenshot that demonstrates a split-screen view."::: |  :::image type="content" source="../../media/mobile-ui/tablet-landscape.png" alt-text="Screenshot that demonstrates tablet mode."::: |
 
 ## Localization
 
-Localization is key to making products that can be used around the world and by people who speak different languages. The UI Library supports 12 languages: English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish, Chinese, and right-to-left language capabilities. For more information, see [How to add localization to your app](../../../how-tos/ui-library-sdk/localization.md).
+Localization is key to making products for users around the world and who speak different languages. UI Library supports 12 languages: English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish, and Chinese. It also supports right-to-left languages. For more information, see [How to add localization to your app](../../../how-tos/ui-library-sdk/localization.md).
 
 ## Accessibility
 
-Accessibility is a key focus of the calling libraries. Screen readers are supported to make important announcements about calling status and to help ensure that vision-impaired users can effectively participate when they use the application.
+Accessibility is a key focus of the calling libraries. You can use a screen reader to make important announcements about call status and to help ensure that vision-impaired users can effectively participate when they use the application.
 
 ## Participant view data injection
 
-Use the UI Library for mobile native platforms to give local and remote participants the option to modify how they appear as users in the call. A local participant can choose a local avatar and custom display name when a call begins. A remote user can create a customized avatar when they join the meeting. For more information, see [How to customize participant views](../../../how-tos/ui-library-sdk/data-model.md).
+Use the UI Library for mobile native platforms to give local and remote participants the option to modify how they appear as users in a call. A local participant can choose a local avatar and custom display name when a call begins. A remote user can create a customized avatar when they join the meeting. For more information, see [How to customize participant views](../../../how-tos/ui-library-sdk/data-model.md).
 
 :::image type="content" source="../../media/mobile-ui/ios-composite.gif" alt-text="Gif animation that shows the pre-meeting experience and joining experience on iOS.":::
 
 ## Recommended architecture
 
-Initialize a composite by using an Azure Communication Services access token. Get access tokens from Azure Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create access tokens](../../../quickstarts/access-tokens.md) and [Trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
+Initialize a composite by using an Azure Communication Services access token. It's important to get access tokens from Azure Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/access-tokens.md) and the [trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
 
 :::image type="content" source="../../media/mobile-ui/ui-library-architecture.png" border="false" alt-text="Diagram that shows the recommended architecture.":::
 
-These client libraries also require the context for the call they join. Like user access tokens, disseminate the context to clients by using your own trusted service. The following table summarizes the initialization and resource management functions to operationalize:
+These client libraries also require the context for the call they join. Like user access tokens, disseminate the context to clients by using your own trusted service. The following table summarizes the initialization and resource management functions to operationalize to add context to a client library:
 
 | Contoso responsibilities                                 | UI Library responsibilities                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
 | Provide an access token from Azure                          | Pass through the provided access token to initialize components       |
-| Provide refresh function                                 | Refresh access token by using developer provided function          |
-| Retrieve and pass join information for call or chat          | Pass through call and chat information to initialize components |
+| Provide a refresh function                                 | Refresh access token by using developer-provided function          |
+| Retrieve and pass join information for the call or chat          | Pass through call and chat information to initialize components |
 | Retrieve and pass user information for any custom data model | Pass through a custom data model to components to render          |
 
 ## Platform support
