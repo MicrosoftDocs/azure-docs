@@ -68,7 +68,7 @@ Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 Enter `spx` to see help for the Speech CLI.
 
 > [!NOTE]
-> As an alternative, you can download the Linux binaries as a [.zip file](https://aka.ms/speech/spx-linux). Extract `spx-netcore-30-linux-x64.zip` to a new `~/spx` directory, enter `sudo chmod +r+x spx` on the binary, and add the `~/spx` path to your `PATH` system variable.
+> As an alternative, you can download the Linux binaries as a [.zip file](https://aka.ms/speech/spx-linux). Extract `spx-net60-linux-x64.zip` to a new `~/spx` directory. Enter `sudo chmod +r+x spx` on the binary, and add the `~/spx` path to your `PATH` system variable (`export PATH="~/spx:$PATH"`).
 
 
 #### [macOS](#tab/macOS)

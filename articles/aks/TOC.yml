@@ -25,6 +25,9 @@
           href: learn/quick-kubernetes-deploy-powershell.md
         - name: Use the Azure portal
           href: learn/quick-kubernetes-deploy-portal.md
+        - name: Use Bicep
+          displayName: Resource Manager,arm,template
+          href: learn/quick-kubernetes-deploy-bicep.md
         - name: Use ARM template
           displayName: Resource Manager
           href: learn/quick-kubernetes-deploy-rm-template.md
@@ -96,7 +99,9 @@
     - name: Service meshes
       href: servicemesh-about.md
     - name: Sustainable software engineering
-      href: concepts-sustainable-software-engineering.md      
+      href: concepts-sustainable-software-engineering.md
+    - name: Dapr
+      href: dapr-overview.md
     - name: GitOps
       href: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
       maintainContext: True
@@ -221,7 +226,7 @@
               href: use-multiple-node-pools.md
             - name: Use spot node pools
               href: spot-node-pool.md
-            - name: Use CVM
+            - name: Use Confidential Virtual Machines (preview)
               href: use-cvm.md
             - name: Use system node pools
               href: use-system-pools.md
@@ -263,7 +268,7 @@
             - name: Create service principal
               href: kubernetes-service-principal.md
             - name: Use managed identities
-              href: use-managed-identity.md 
+              href: use-managed-identity.md
             - name: Limit access to cluster configuration file
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
@@ -306,9 +311,11 @@
             - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
             - name: Secure pod traffic with network policies
-              href: use-network-policies.md  
+              href: use-network-policies.md
             - name: Use pod security policies (preview)
               href: use-pod-security-policies.md
+            - name: Use Pod Security Admission
+              href: use-psa.md
             - name: Secrets Store CSI Driver
               items:
                 - name: Secrets Store CSI Driver configuration
@@ -318,7 +325,7 @@
                 - name: Configure TLS for NGINX ingress controller
                   href: csi-secrets-store-nginx-tls.md
                 - name: Troubleshooting
-                  href: csi-secrets-store-troubleshooting.md        
+                  href: csi-secrets-store-troubleshooting.md
     - name: Configure private clusters
       items:
       - name: Create a private cluster
@@ -367,7 +374,7 @@
             - name: Use a user defined route for egress
               href: egress-outboundtype.md
             - name: Managed NAT Gateway
-              href: nat-gateway.md              
+              href: nat-gateway.md
         - name: Customize CoreDNS
           href: coredns-custom.md
     - name: Configure storage
@@ -452,9 +459,7 @@
           href: ../api-management/api-management-kubernetes.md
         - name: Use Dapr
           items:
-            - name: Dapr overview
-              href: dapr-overview.md
-            - name: How to use Dapr
+            - name: How to use the Dapr extension
               href: dapr.md
             - name: Migrate from Dapr OSS
               href: dapr-migration.md
@@ -536,7 +541,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/containerservice
     - name: Python
-      href: /python/api/overview/azure/containerservice
+      href: /python/api/overview/azure/container-service
     - name: Java
       href: /java/api/overview/azure/containerservice
     - name: Node.js
@@ -548,7 +553,7 @@
       href: ./policy-reference.md
 - name: Resources
   items:
-    - name: Build your skill with Microsoft Learn
+    - name: Build your skills with Microsoft Learn
       href: /learn/browse/?products=azure-container-instances&azure-container-registry
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/

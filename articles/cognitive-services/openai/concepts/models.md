@@ -25,7 +25,7 @@ The service provides access to many different models. Models describe a family o
 
 ## Naming convention
 
-Azure OpenAI's models follow a standard naming convention: `{task}-{model name}-{version #}`. For example, our most powerful natural language model is called `text-davinci-001` and a codex series model would look like `code-cushman-001`.
+Azure OpenAI's models follow a standard naming convention: `{task}-{model name}-{version #}`. For example, our most powerful natural language model is called `text-davinci-001` and a Codex series model would look like `code-cushman-001`.
 
 > Older versions of the GPT-3 models are available as `ada`, `babbage`, `curie`, `davinci` and do not follow these conventions. These models are primarily intended to be used for fine-tuning and search.
 
@@ -55,13 +55,13 @@ Another area where Davinci excels is in understanding the intent of text. Davinc
 
 ### Curie
 
-Curie is extremely powerful, yet very fast. While Davinci is stronger when it comes to analyzing complicated text, Curie is quite capable for many nuanced tasks like sentiment classification and summarization. Curie is also good at answering questions and performing Q&A and as a general service chatbot.
+Curie is powerful, yet fast. While Davinci is stronger when it comes to analyzing complicated text, Curie is capable for many nuanced tasks like sentiment classification and summarization. Curie is also good at answering questions and performing Q&A and as a general service chatbot.
 
 **Use for**: Language translation, complex classification, text sentiment, summarization
 
 ### Babbage
 
-Babbage can perform straightforward tasks like simple classification. It’s also quite capable when it comes to Semantic Search ranking how well documents match up with search queries.
+Babbage can perform straightforward tasks like simple classification. It’s also capable when it comes to semantic search ranking how well documents match up with search queries.
 
 **Use for**: Moderate classification, semantic search classification
 
@@ -78,9 +78,9 @@ Ada is usually the fastest model and can perform tasks like parsing text, addres
 
 The Codex models are descendants of our base GPT-3 models that can understand and generate code. Their training data contains both natural language and billions of lines of public code from GitHub.
 
-They’re most capable in Python and proficient in over a dozen languages including JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell.
+They’re most capable in Python and proficient in over a dozen languages, including C#, JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell.
 
-Currently we only offer one codex model: `code-cushman-001`.
+Currently we only offer one Codex model: `code-cushman-001`.
 
 ## Embeddings Models
 
@@ -90,7 +90,7 @@ Ada (1024 dimensions),
 Babbage (2048 dimensions),
 Curie (4096 dimensions),
 Davinci (12,288 dimensions).
-Davinci is the most capable, but is slower and more expensive than the other models. Ada is the least capable, but is significantly faster and cheaper.
+Davinci is the most capable, but is slower and more expensive than the other models. Ada is the least capable, but is both faster and cheaper.
 
 These embedding models are specifically created to be good at a particular task.
 
@@ -112,17 +112,17 @@ These models help measure whether long documents are relevant to a short search 
 
 ### Code search embeddings
 
-Similarly to search embeddings, there are two types: one for embedding code snippets to be retrieved and one for embedding natural language search queries.
+Similar to text search embeddings, there are two types: one for embedding code snippets to be retrieved and one for embedding natural language search queries.
 
 | USE CASES | AVAILABLE MODELS |
 |---|---|
 | Code search and relevance | code-search-ada-code-001, <br> code-search-ada-text-001, <br> code-search-babbage-code-001, <br> code-search-babbage-text-001 |
 
-When using our embedding models, please keep in mind their limitations and risks.
+When using our embedding models, keep in mind their limitations and risks.
 
 ## Finding the right model
 
-We recommend starting with our Davinci model since it will be the best way to understand what the service is capable of. After you have an idea of what you want to accomplish, you can either stay with Davinci if you’re not concerned about cost and speed or move onto Curie or another model and try to optimize around its capabilities.
+We recommend starting with our Davinci model since it will be the best way to understand what the service is capable of. After you have an idea of what you want to accomplish, you can either stay with Davinci if you’re not concerned about cost and speed, or you can move onto Curie or another model and try to optimize around its capabilities.
 
 ## Next steps
 

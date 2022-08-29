@@ -3,7 +3,7 @@ title: Rules and Display Definition Reference
 description: Rules and Display Definition Reference
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
