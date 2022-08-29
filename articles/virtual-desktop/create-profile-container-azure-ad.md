@@ -6,7 +6,7 @@ author: Heidilohr
 manager: femila
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 08/29/2022
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory (preview)
