@@ -7,6 +7,8 @@
     href: ./overview.md
 - name: Concepts
   items:
+  - name: Guest configuration agent notes
+    href: ./agent-notes.md
   - name: Understand machine configuration assignments
     href: ./machine-configuration-assignments.md
   - name: Azure Automation DSC to machine configuration migration planning
