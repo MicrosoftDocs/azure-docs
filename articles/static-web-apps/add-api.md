@@ -2,11 +2,11 @@
 title: Add an API to Azure Static Web Apps with Azure Functions
 description: Get started with Azure Static Web Apps by adding a Serverless API to your static web app using Azure Functions.
 services: static-web-apps
-author: manekinekko
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  how-to
-ms.date: 12/03/2021
-ms.author: wachegha
+ms.date: 08/29/2022
+ms.author: cshoe
 ms.custom: devx-track-js
 ---
 
@@ -117,7 +117,7 @@ Update the content of the _src/index.html_ file with the following code to fetch
     (async function() {
         const { text } = await( await fetch(`/api/message`)).json();
         document.querySelector('#name').textContent = text;
-    }())
+    }());
     </script>
 </body>
 
@@ -221,15 +221,9 @@ To run your frontend app and API together locally, Azure Static Web Apps provide
 
 Ensure you have the necessary command line tools installed.
 
-1. Install Azure Static Web Apps CLI.
-    ```bash
-    npm install -g @azure/static-web-apps-cli
-    ```
-
-1. Install Azure Functions Core Tools V3.
-    ```bash
-    npm install -g azure-functions-core-tools@3
-    ```
+```bash
+npm install -g @azure/static-web-apps-cli
+```
 
 ### Build frontend app
 
@@ -277,7 +271,7 @@ Run the frontend app and API together by starting the app with the Static Web Ap
     # [No Framework](#tab/vanilla-javascript)
 
     Pass the current folder (`src`) and the API folder (`api`) to the CLI.
-     
+
     ```bash
     swa start src --api-location api
     ```
@@ -308,7 +302,7 @@ Run the frontend app and API together by starting the app with the Static Web Ap
 
     ---
 
-1. When the CLI processes start, access your app at `http://localhost:4280/`. Notice how the page calls the API and displays its output, `Hello from the API`.
+1. When the CLI processes start, access your app at [http://localhost:4280/](http://localhost:4280/). Notice how the page calls the API and displays its output, `Hello from the API`.
 
 1. To stop the CLI, type <kbd>Ctrl + C</kbd>.
 
@@ -329,7 +323,7 @@ To publish changes to your static web app in Azure, commit and push your code to
 
 1. Select the **Git: Commit All** command.
 
-1. When prompted for a commit message, enter **add API** and commit all changes to your local git repository.
+1. When prompted for a commit message, enter **feat: add API** and commit all changes to your local git repository.
 
 1. Press <kbd>F1</kbd> to open the Command Palette.
 
