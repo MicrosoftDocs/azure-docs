@@ -30,9 +30,9 @@ write a tagline for an ice cream shop
 we serve up smiles with every scoop!
 ```
 
-The actual completion results you see may differ because the API is stochastic by default which means that you might get a slightly different completion every time you call it, even if your prompt stays the same. You can control this behavior with the temperature setting.
+The actual completion results you see may differ because the API is stochastic by default. In other words, you might get a slightly different completion every time you call it, even if your prompt stays the same. You can control this behavior with the temperature setting.
 
-This simple text-in, text-out interface means you can "program" the model by providing instructions or just a few examples of what you'd like it to do. Its success generally depends on the complexity of the task and quality of your prompt. A general rule is to think about how you would write a word problem for a middle school student to solve. A well-written prompt provides enough information for the model to know what you want and how it should respond.
+This simple, "text in, text out" interface means you can "program" the model by providing instructions or just a few examples of what you'd like it to do. Its success generally depends on the complexity of the task and quality of your prompt. A general rule is to think about how you would write a word problem for a middle school student to solve. A well-written prompt provides enough information for the model to know what you want and how it should respond.
 
 > [!NOTE]
 > Keep in mind that the models' training data cuts off in October 2019, so they may not have knowledge of current events. We plan to add more continuous training in the future.
@@ -43,15 +43,15 @@ This simple text-in, text-out interface means you can "program" the model by pro
 
 OpenAI's models can do everything from generating original stories to performing complex text analysis. Because they can do so many things, you have to be explicit in showing what you want. Showing, not just telling, is often the secret to a good prompt. 
 
-The models try to predict what you want from the prompt. If you send the words "Give me a list of cat breeds," the model wouldn't automatically assume that you're asking for a list of cat breeds. You could just as easily be asking the model to continue a conversation where the first words are "Give me a list of cat breeds" and the next ones are "and I'll tell you which ones I like." If the model only assumed that you wanted a list of cats, it wouldn't be as good at content creation, classification, or other tasks.
+The models try to predict what you want from the prompt. If you send the words "Give me a list of cat breeds," the model wouldn't automatically assume that you're asking for a list of cat breeds. You could as easily be asking the model to continue a conversation where the first words are "Give me a list of cat breeds" and the next ones are "and I'll tell you which ones I like." If the model only assumed that you wanted a list of cats, it wouldn't be as good at content creation, classification, or other tasks.
 
 There are three basic guidelines to creating prompts:
 
 **Show and tell.** Make it clear what you want either through instructions, examples, or a combination of the two. If you want the model to rank a list of items in alphabetical order or to classify a paragraph by sentiment, show it that's what you want.
 
-**Provide quality data.** If you're trying to build a classifier or get the model to follow a pattern, make sure that there are enough examples. Be sure to proofread your examples — the model is usually smart enough to see through basic spelling mistakes and give you a response, but it also might assume this is intentional and it can affect the response.
+**Provide quality data.** If you're trying to build a classifier or get the model to follow a pattern, make sure that there are enough examples. Be sure to proofread your examples — the model is usually smart enough to see through basic spelling mistakes and give you a response, but it also might assume that the mistakes are intentional and it can affect the response.
 
-**Check your settings.** The temperature and top_p settings control how deterministic the model is in generating a response. If you're asking it for a response where there's only one right answer, then you'd want to set these lower. If you're looking for a response that's not obvious, then you might want to set them higher. The number one mistake people use with these settings is assuming that they're "cleverness" or "creativity" controls.
+**Check your settings.** The temperature and top_p settings control how deterministic the model is in generating a response. If you're asking it for a response where there's only one right answer, then you'd want to set these settings to lower values. If you're looking for a response that's not obvious, then you might want to set them to higher values. The number one mistake people use with these settings is assuming that they're "cleverness" or "creativity" controls.
 
 ### Troubleshooting
 
@@ -485,7 +485,7 @@ Create an array of users and email addresses
 """
 ```
 
-**Put comments inside of functions can be helpful.** Recommended coding standards usually suggest placing the description of a function inside the function. Using this format helps Codex more clearly understand what you want the function to do.
+**Put comments inside of functions can be helpful.** Recommended coding standards suggest placing the description of a function inside the function. Using this format helps Codex more clearly understand what you want the function to do.
 
 ```
 def getUserBalance(id):
@@ -558,7 +558,7 @@ Use the lists to generate stories about what I saw at the zoo in each city
 */
 ```
 
-**Use Codex to explain code.** Codex's ability to create and understand code allows us to use it to perform tasks like explaining what the code in a file does. One way to accomplish this is by putting a comment after a function that starts with "This function" or "This application is."  Codex will usually interpret this as the start of an explanation and complete the rest of the text.
+**Use Codex to explain code.** Codex's ability to create and understand code allows us to use it to perform tasks like explaining what the code in a file does. One way to accomplish this is by putting a comment after a function that starts with "This function" or "This application is."  Codex typically interprets this comment as the start of an explanation and completes the rest of the text.
 
 ```
 /* Explain what the previous function is doing: It

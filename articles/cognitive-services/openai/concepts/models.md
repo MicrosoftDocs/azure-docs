@@ -64,7 +64,7 @@ While Davinci is the most capable, the other models provide significant speed ad
 
 ### <a id="gpt-3-davinci"></a>Davinci
 
-Davinci is the most capable model and can perform any task the other models can perform, often with less instruction. For applications requiring deep understanding of the content, like summarization for a specific audience and creative content generation, Davinci produces the best results. These increased capabilities require more compute resources, so Davinci costs more and isn't as fast as the other models.
+Davinci is the most capable model and can perform any task the other models can perform, often with less instruction. For applications requiring deep understanding of the content, like summarization for a specific audience and creative content generation, Davinci produces the best results. The increased capabilities provided by Davinci require more compute resources, so Davinci costs more and isn't as fast as the other models.
 
 Another area where Davinci excels is in understanding the intent of text. Davinci is excellent at solving many kinds of logic problems and explaining the motives of characters. Davinci has been able to solve some of the most challenging AI problems involving cause and effect.
 
@@ -103,7 +103,7 @@ Similar to GPT-3, Davinci is the most capable Codex model and can perform any ta
 
 ### Cushman
 
-Cushman is powerful, yet fast. While Davinci is stronger when it comes to analyzing complicated tasks, Cushman is quite capable for many code generation tasks and typically runs faster (and at a lower cost) than Davinci.
+Cushman is powerful, yet fast. While Davinci is stronger when it comes to analyzing complicated tasks, Cushman is capable for many code generation tasks. Cushman typically runs faster and cheaper than Davinci, as well.
 
 ## Embeddings models
 
@@ -115,8 +115,6 @@ Currently, we offer three families of Embeddings models for different functional
 - Davinci: 12,288 dimensions
 
 Davinci is the most capable, but is slower and more expensive than the other models. Ada is the least capable, but is both faster and cheaper.
-
-These Embeddings models are specifically created to be good at a particular task.
 
 ### Similarity embedding
 
@@ -146,7 +144,7 @@ When using our Embeddings models, keep in mind their limitations and risks.
 
 ## Finding the right model
 
-We recommend starting with the most powerful model in a model family, such as the Davinci model, because it's the best way to understand what the service is capable of. After you have an idea of what you want to accomplish, you can either stay with that model or, if balancing capability and cost is a concern for your application, you can move to a model with lower capability and cost, such as Curie or Cushman, and optimize around its capability.
+We recommend starting with the most capable model in a model family because it's the best way to understand what the service is capable of. After you have an idea of what you want to accomplish, you can either stay with that model or move to a model with lower capability and cost, optimizing around that model's capabilities. 
 
 ## Next steps
 
