@@ -40,6 +40,6 @@ ms.author: pafarley
    | **Name** | A descriptive name for your cognitive services resource. For example, *MyCognitiveServicesResource*. |
    | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](/azure/cognitive-services/custom-vision-service/limits-and-quotas).|
    | **Storage** | You can optionally use your own Azure database resource to store the data that Metrics Advisor will use.
-1. Mark your acknowledgement of the Service Agreement and Terms and then select **Review + create**.
+1. Mark your acknowledgment of the Service Agreement and Terms and then select **Review + create**.
 
 ---

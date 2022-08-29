@@ -16,7 +16,7 @@ ms.author: pafarley
 
 1. On the **Create** page, provide the following information:
    [!INCLUDE [Create Azure resource for subscription](./cognitive-resource-project-details.md)]
-1. Mark your acknowledgement of the Responsible AI terms and then select **Review + create**.
+1. Mark your acknowledgment of the Responsible AI terms and then select **Review + create**.
 
 #### [Face](#tab/face)
 
@@ -25,7 +25,7 @@ ms.author: pafarley
 1. On the **Create** page, provide the following information:
 
    [!INCLUDE [Create Azure resource for subscription](./cognitive-resource-project-details.md)]
-1. Mark your acknowledgement of the Face terms of use and then select **Review + create**.
+1. Mark your acknowledgment of the Face terms of use and then select **Review + create**.
 
 #### [Custom Vision](#tab/custom-vision)
 

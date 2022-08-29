@@ -17,7 +17,7 @@ ms.author: pafarley
 1. On the **Create** page, provide the following information:
 
    [!INCLUDE [Create Azure resource for subscription](./cognitive-resource-project-details.md)]
-1. Mark your acknowledgement of the Responsible AI terms and select **Review + create**.
+1. Mark your acknowledgment of the Responsible AI terms and select **Review + create**.
 
 #### [Language Understanding (LUIS)](#tab/luis)
 
