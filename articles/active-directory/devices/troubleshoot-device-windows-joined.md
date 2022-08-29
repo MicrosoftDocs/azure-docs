@@ -20,11 +20,11 @@ If you have a Windows 11 or Windows 10 device that isn't working with Azure Acti
 1. Sign in to the **Azure portal**.
 1. Browse to **Azure Active Directory** > **Devices** > **Diagnose and solve problems**.
 1. Select **Troubleshoot** under the **Windows 10+ related issue** troubleshooter.
-   > :::image type="content" source="media/troubleshoot-device-windows-joined/devices-troubleshoot-windows.png" alt-text="Windows trobuleshooter located in the diagnose and solve pane of the Azure portal." lightbox="media/troubleshoot-device-windows-joined/devices-troubleshoot-windows.png":::
+   :::image type="content" source="media/troubleshoot-device-windows-joined/devices-troubleshoot-windows.png" alt-text="Windows trobuleshooter located in the diagnose and solve pane of the Azure portal." lightbox="media/troubleshoot-device-windows-joined/devices-troubleshoot-windows.png":::
 1. Select **instructions** and follow the steps to download, run, and collect the required logs for the troubleshooter to analyze.
 1. Return to the Azure portal when you've collected and zipped the `authlogs` folder and contents
 1. Select **Browse** and choose the zip file you wish to upload.
-   > :::image type="content" source="media/troubleshoot-device-windows-joined/devices-troubleshoot-windows-upload.png" alt-text="Browse to select the logs gathered in the previous step to allow the troubleshooter to make recommendations." lightbox="media/troubleshoot-device-windows-joined/devices-troubleshoot-windows-upload.png":::
+   :::image type="content" source="media/troubleshoot-device-windows-joined/devices-troubleshoot-windows-upload.png" alt-text="Browse to select the logs gathered in the previous step to allow the troubleshooter to make recommendations." lightbox="media/troubleshoot-device-windows-joined/devices-troubleshoot-windows-upload.png":::
 
 The troubleshooter will review the contents of the file you uploaded and provide suggested next steps. These next steps may include links to documentation or contacting support for further assistance.
 
