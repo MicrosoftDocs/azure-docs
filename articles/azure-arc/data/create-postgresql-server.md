@@ -34,10 +34,10 @@ If you prefer to try out things without provisioning a full environment yourself
 Implement this step before moving to the next step. To deploy PostgreSQL server onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL server. The security context constraint (SCC) arc-data-scc is the one you added when you deployed the Azure Arc data controller.
 
 ```Console
-oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace-name>
+oc adm policy add-scc-to-user arc-data-scc -z <server-name> -n <namespace-name>
 ```
 
-**Server-group-name is the name of the server group you will create during the next step.**
+**Server-name is the name of the server you will create during the next step.**
 
 For more details on SCCs in OpenShift, refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html). Proceed to the next step.
 
@@ -52,7 +52,7 @@ az postgres server-arc create --help
 ```
 
 The main parameters should consider are:
-- **the name of the server group** you want to deploy. Indicate either `--name` or `-n` followed by a name whose length must not exceed 11 characters.
+- **the name of the server** you want to deploy. Indicate either `--name` or `-n` followed by a name whose length must not exceed 11 characters.
 
 - **The storage classes** you want your server group to use. It is important you set the storage class right at the time you deploy a server group as this setting cannot be changed after you deploy. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
     - To set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd` followed by the name of the storage class.
@@ -60,7 +60,7 @@ The main parameters should consider are:
     - The support of setting storage classes for the backups has been temporarily removed as we temporarily removed the backup/restore functionalities as we finalize designs and experiences.
 
    > [!IMPORTANT]
-   > If you need to change the storage class after deployment, extract the data, delete your server group, create a new server group, and import the data. 
+   > If you need to change the storage class after deployment, extract the data, delete your server, create a new server, and import the data. 
 
 When you execute the create command, you will be prompted to enter the password of the default `postgres` administrative user. The name of that user cannot be changed in this Preview. You may skip the interactive prompt by setting the `AZDATA_PASSWORD` session environment variable before you run the create command.
 
@@ -73,7 +73,7 @@ az postgres server-arc create -n postgres01 --k8s-namespace <namespace> --use-k8
 ```
 
 > [!NOTE]  
-> - If you deployed the data controller using `AZDATA_USERNAME` and `AZDATA_PASSWORD` session environment variables in the same terminal session, then the values for `AZDATA_PASSWORD` will be used to deploy the PostgreSQL server too. If you prefer to use another password, either (1) update the value for `AZDATA_PASSWORD` or (2) delete the `AZDATA_PASSWORD` environment variable or (3) delete its value to be prompted to enter a password interactively when you create a server group.
+> - If you deployed the data controller using `AZDATA_USERNAME` and `AZDATA_PASSWORD` session environment variables in the same terminal session, then the values for `AZDATA_PASSWORD` will be used to deploy the PostgreSQL server too. If you prefer to use another password, either (1) update the value for `AZDATA_PASSWORD` or (2) delete the `AZDATA_PASSWORD` environment variable or (3) delete its value to be prompted to enter a password interactively when you create a server.
 > - Creating a PostgreSQL server will not immediately register resources in Azure. As part of the process of uploading [resource inventory](upload-metrics-and-logs-to-azure-monitor.md)  or [usage data](view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure portal.
 
 
@@ -96,7 +96,7 @@ az postgres server-arc list --k8s-namespace <namespace> --use-k8s
 
 ## Get the endpoints to connect to your Azure Arc-enabled PostgreSQL servers
 
-To view the endpoints for a PostgreSQL server group, run the following command:
+To view the endpoints for a PostgreSQL server, run the following command:
 
 ```azurecli
 az postgres server-arc endpoint list -n <server name> --k8s-namespace <namespace> --use-k8s
