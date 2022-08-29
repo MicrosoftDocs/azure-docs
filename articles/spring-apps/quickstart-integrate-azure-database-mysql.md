@@ -1,12 +1,12 @@
 ---
 title: "Quickstart - Integrate with Azure Database for MySQL"
 description: Explains how to provision and prepare an Azure Database for MySQL instance, and then configure Pet Clinic on Azure Spring Apps to use it as a persistent database with only one command.
-author: karlerickson
-ms.author: karler
+author: maud-lv
+ms.author: malev
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 08/26/2022
-ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022
+ms.date: 08/28/2022
+ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, service-connector
 ---
 
 # Quickstart: Integrate Azure Spring Apps with Azure Database for MySQL
@@ -26,8 +26,12 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. Create an Azure Database for MySQL flexible server using the [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create) command. Replace the placeholders `<database-name>`, `<resource-group-name>`, `<MySQL-flexible-server-name>`, `<admin-username>`, and `<admin-password>` with a name for your new database, the name of your resource group, a name for your new server, and an admin username and password.
 
-   ```azcli
-   az mysql flexible-server create --database-name <database-name> --resource-group <resource-group-name> --name <MySQL-flexible-server-name> --admin-user <admin-username> --admin-password <admin-password>
+   ```azurecli-interactive
+   az mysql flexible-server create --database-name <database-name> \
+       --resource-group <resource-group-name> \
+       --name <MySQL-flexible-server-name> \
+       --admin-user <admin-username> \
+       --admin-password <admin-password>
    ```
 
     > [!NOTE]
@@ -42,6 +46,9 @@ An Azure account with an active subscription. [Create an account for free](https
 
 Use [Service Connector](../service-connector/overview.md) to connect the app hosted in Azure Spring Apps to your MySQL database.
 
+> [!NOTE]
+> The service binding feature in Azure Spring Apps is being deprecated in favor of Service Connector.
+
 ### [Azure CLI](#tab/azure-cli)
 
 1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
@@ -50,7 +57,7 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
     az provider register -n Microsoft.ServiceLinker
     ```
 
-1. Run the `az spring connection create` command to create a service connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below by your own information.
+1. Run the `az spring connection create` command to create a service connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below with your own information.
 
     | Setting                   | Description                                                                                  |
     |---------------------------|----------------------------------------------------------------------------------------------|
@@ -64,7 +71,14 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
     | `--secret`                | The MySQL server password.                                                                   |
 
     ```azurecli-interactive
-    az spring connection create mysql-flexible --resource-group <Azure-Spring-Apps-resource-group-name> --service <Azure-Spring-Apps-resource-name> --app <app-name> --target-resource-group <mySQL-server-resource-group> --server <server-name> --database <database-name> --secret name=<username> secret=<secret>
+    az spring connection create mysql-flexible \
+        --resource-group <Azure-Spring-Apps-resource-group-name> \
+        --service <Azure-Spring-Apps-resource-name> \
+        --app <app-name> \
+        --target-resource-group <mySQL-server-resource-group> \
+        --server <server-name> \
+        --database <database-name> \
+        --secret name=<username> secret=<secret>
     ```
 
     > [!TIP]
@@ -103,10 +117,13 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the `az spring connection validate` command to show the status of the connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below by your own information.
+Run the `az spring connection validate` command to show the status of the connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below with your own information.
 
 ```azurecli-interactive
-az spring connection validate --connection <connection-name> --resource-group <Azure-Spring-Apps-resource-group-name> --service <Azure-Spring-Apps-resource-name> --app <app-name>
+az spring connection validate --connection <connection-name> \
+    --resource-group <Azure-Spring-Apps-resource-group-name> \ 
+    --service <Azure-Spring-Apps-resource-name> \
+    --app <app-name>
 ```
 
 The following output is displayed:
@@ -120,7 +137,7 @@ The configured values (except username/password) is validated  success
 ```
 
 > [!TIP]
-> To get more details about the connection between your services, remove `--output table`from the above command.
+> To get more details about the connection between your services, remove `--output table` from the above command.
 
 ### [Portal](#tab/azure-portal)
 
