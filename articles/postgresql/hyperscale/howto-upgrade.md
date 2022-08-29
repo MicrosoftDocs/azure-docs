@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 08/29/2022
 ---
 
 # Upgrade Hyperscale (Citus) server group
@@ -20,7 +20,8 @@ on all server group nodes.
 
 Upgrading PostgreSQL causes more changes than you might imagine, because
 Hyperscale (Citus) will also upgrade the [database
-extensions](reference-extensions.md), including the Citus extension.
+extensions](reference-extensions.md), including the Citus extension. Upgrades
+also require downtime in the database cluster.
 
 We strongly recommend you to test your application with the new PostgreSQL and
 Citus version before you upgrade your production environment.  Also, please see
