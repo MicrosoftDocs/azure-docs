@@ -166,7 +166,9 @@
     - name: Configure regions for labs
       href: create-and-configure-labs-admin.md     
     - name: Restrict VM sizes allowed for labs
-      href: how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy.md 
+      href: how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy.md
+    - name: Request a capacity increase
+      href: how-to-request-capacity-increase.md   
   - name: Create & configure labs (educator)
     items:        
     - name: Create and manage labs
