@@ -1769,3 +1769,12 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+# Owner: jodowns
+- id: web-application-firewall-configuration
+  title: Azure CLI and Azure portal
+  prompt: Choose an option
+  pivots:
+  - id: powershell
+    title: PowerShell
+  - id: portal
+    title: Azure portal
