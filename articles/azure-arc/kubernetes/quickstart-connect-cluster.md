@@ -2,7 +2,7 @@
 title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
-ms.date: 08/03/2022
+ms.date: 08/25/2022
 ms.custom: template-quickstart, mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
@@ -150,6 +150,9 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 | `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Identity certificates. |
 |`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net`, `https://k8sconnectcsp.azureedge.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
 |`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
+
+> [!NOTE]
+> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET /urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
 
 ## Create a resource group
 

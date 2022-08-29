@@ -4,7 +4,7 @@ description: Learn how to extend the default configuration and operational tasks
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: curtand
 
 ms.assetid: c18bee36-aebf-4281-b8fc-3fe14116f1a5
