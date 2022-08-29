@@ -224,7 +224,7 @@ Each error code falls under one of the following four buckets:
 
     Unable to connect to the MetaStore.
 
-    This is typically a system error. However, if you're using an external Metastore, please ensure the setup specified at [Share Hive metastore with Synapse](../../azure/hdinsight/share-hive-metastore-with-synapse.md) is followed.
+    This is typically a system error. However, if you're using an external Metastore, please ensure the setup specified at [Share Hive metastore with Synapse](../../hdinsight/share-hive-metastore-with-synapse.md) is followed.
 
 28. **Spark_System_NonJvmUserApp_FileDoesNotMatchContent**
 
@@ -605,7 +605,7 @@ Each error code falls under one of the following four buckets:
 
     `spark.conf.set("fs.azure.sas.<container name>.<storage account name>.blob.core.windows.net", token)`
 
-    A full example is provided in [this article](./apache-spark-development-using-notebooks?tabs=classical#read-a-csv-from-azure-blob-storage-as-a-spark-dataframe).
+    A full example is provided in [this article](./apache-spark-development-using-notebooks.md?tabs=classical#read-a-csv-from-azure-blob-storage-as-a-spark-dataframe).
 
 95. **Spark_User_WASB_PathDoesNotExist**
 
@@ -644,6 +644,19 @@ Each error code falls under one of the following four buckets:
     Use `persist()` on DataFrames then Spark will use Shuffle Join
     Disable broadcast by setting `spark.sql.autoBroadcastJoinThreshold` to `-1`
     Increase memory of node or driver to handle larger broadcast joins
+
+100. **Spark_Ambiguous_Executor_MessageTypeMinus22**
+
+    Unknown reason detected with executor unable to be created. This could be where the driver could not connect with the executor. Please check driver and executor logs for more information.
+
+101. **Spark_Ambiguous_ExecutorLostFailure_ExitCodeMinus100**
+
+    The task failed because the executor that it was running on was lost. This may happen because the task crashed the JVM. ExitCode -100 means the executor was killed by YARN either due to being lost or node failure.Possible causes:
+
+    1. Driver memory issues
+    2. Executor Memory issues
+    3. Executor lost Please check the logs to see if these issues occur.
+
 
 
 > [!NOTE]
