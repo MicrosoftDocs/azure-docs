@@ -22,7 +22,7 @@ Send diagnostic tracing logs for your ASP.NET/ASP.NET Core application from ILog
 
 ## Install logging on your app
 
-Install your chosen logging framework in your project, which should result in an entry in app.config or web.config.
+Install your chosen logging framework in your project, which should result in an entry in *app.config* or *web.config*.
 
 ```xml
  <configuration>
@@ -119,7 +119,7 @@ You can configure [System.Diagnostics.DiagnosticSource](https://github.com/dotne
     </Add>
 ```
 
-For each DiagnosticSource you want to trace, add an entry with the **Name** attribute set to the name of your DiagnosticSource.
+For each diagnostic source you want to trace, add an entry with the `Name` attribute set to the name of your diagnostic source.
 
 ## Use ETW events
 
@@ -155,7 +155,7 @@ var telemetryClient = new TelemetryClient(configuration);
 telemetryClient.TrackTrace("Slow response - database01");
 ```
 
-An advantage of TrackTrace is that you can put relatively long data in the message. For example, you can encode POST data there.
+An advantage of `TrackTrace` is that you can put relatively long data in the message. For example, you can encode POST data there.
 
 You can also add a severity level to your message. And, like other telemetry, you can add property values to help filter or search for different sets of traces. For example:
 
@@ -197,7 +197,7 @@ You can, for example:
 
 * Filter on log traces or on items with specific properties.
 * Inspect a specific item in detail.
-* Find other system log data that relates to the same user request (has the same OperationId).
+* Find other system log data that relates to the same user request (has the same operation ID).
 * Save the configuration of a page as a favorite.
 
 > [!NOTE]
