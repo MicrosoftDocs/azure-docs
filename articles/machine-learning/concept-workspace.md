@@ -31,7 +31,7 @@ The diagram shows the following components of a workspace:
 + A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 
 + [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams, or projects.
-+ [Compute targets](concept-compute-targets.md) are used to run your experiments.
++ [Compute targets](concept-compute-target.md) are used to run your experiments.
 + When you create the workspace, [associated resources](#associated-resources) are also created for you.
 + Jobs are training runs you use to build your models.  You can organize your jobs into Experiments.
 + [Pipelines](concept-ml-pipelines.md) are reusable workflows for training and retraining your model.
@@ -81,7 +81,7 @@ You can also perform the following workspace management tasks:
 There are multiple ways to create a workspace:  
 
 * Use [Azure Machine Learning studio](quickstart-create-resources.md) to quickly create a workspace with default settings.
-* Use the [Azure portal](how-to-manage-workspace?tabs=azure-portal#create-a-workspace) for a point-and-click interface with more options. 
+* Use the [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface with more options. 
 * Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupyter notebooks.
 * Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](how-to-configure-cli.md) when you need to automate or customize the creation with corporate security standards.
 * If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
