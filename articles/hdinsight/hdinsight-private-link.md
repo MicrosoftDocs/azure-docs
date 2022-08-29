@@ -134,10 +134,9 @@ To create the private endpoints:
     | Subnet | default |
     
 > [!IMPORTANT]
-> Follow this extra step to enable [Create private endpoints](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#create-private-endpoints) 
+> If you are using KafkaRestProxy HDInsight cluster, then follow this extra steps to [Enable Private Endpoints](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#create-private-endpoints).
 > 
- 
- 
+  
   
 Once the private endpoints are created, you’re done with this phase of the setup. If you didn’t make a note of the private IP addresses assigned to the endpoints, follow the steps below:
 
@@ -188,9 +187,8 @@ To configure DNS resolution through a Private DNS zone:
     | IP Address | Private IP of private endpoint for SSH access |
    
 > [!IMPORTANT]
-> Follow this extra step to enable [Configure DNS to connect over private endpoints](/azure/hdinsight/enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#configure-dns-to-connect-over-private-endpoints)
+> If you are using KafkaRestProxy HDInsight cluster, then follow this extra steps to [Enable DNS to connect over private endpoint](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#configure-dns-to-connect-over-private-endpoints).
 > 
-
     
 4. Associate the private DNS zone with the client VNET by adding a Virtual Network Link.
     1. Open the private DNS zone in the Azure portal.
