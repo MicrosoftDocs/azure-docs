@@ -260,12 +260,12 @@
           href: ./security-controls-policy.md
         - name: Secure using X.509 CA certificates
           items:
-            - name: X.509 CA certificate security overview
-              displayName:
-              href: iot-hub-x509ca-overview.md
             - name: X.509 CA certificate security concepts
               displayName:
               href: iot-hub-x509ca-concept.md
+            - name: X.509 CA certificates for IoT Hub
+              displayName:
+              href: iot-hub-x509ca-overview.md
 
 - name: How-to guides
   items:
