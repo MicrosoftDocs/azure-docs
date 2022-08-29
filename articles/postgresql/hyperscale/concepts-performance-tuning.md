@@ -119,7 +119,7 @@ including locks.  Grouping by
 paints a picture of system health:
 
 ```sql
--- gneral system health
+-- general system health
 
 SELECT wait_event_type, count(*)
   FROM citus_stat_activity
