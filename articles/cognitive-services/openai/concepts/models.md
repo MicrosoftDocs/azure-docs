@@ -86,7 +86,7 @@ Babbage can perform straightforward tasks like simple classification. It’s als
 
 Ada is usually the fastest model and can perform tasks like parsing text, address correction and certain kinds of classification tasks that don’t require too much nuance. Ada’s performance can often be improved by providing more context.
 
-**Use For** Parsing text, simple classification, address correction, keywords
+**Use for**: Parsing text, simple classification, address correction, keywords
 
 ## Codex models
 
@@ -103,16 +103,22 @@ Similar to GPT-3, Davinci is the most capable Codex model and can perform any ta
 
 ### Cushman
 
-Cushman is powerful, yet fast. While Davinci is stronger when it comes to analyzing complicated tasks, Cushman is capable for many code generation tasks. Cushman typically runs faster and cheaper than Davinci, as well.
+Cushman is powerful, yet fast. While Davinci is stronger when it comes to analyzing complicated tasks, Cushman is a capable model for many code generation tasks. Cushman typically runs faster and cheaper than Davinci, as well.
 
 ## Embeddings models
 
-Currently, we offer three families of Embeddings models for different functionalities: text search, text similarity, and code search. Each family includes models across the following spectrum of capabilities:
+Currently, we offer three families of Embeddings models for different functionalities: 
+
+- [Similarity](#similarity-embedding)
+- [Text search](#text-search-embedding)
+- [Code search](#code-search-embedding)
+
+Each family includes models across the following spectrum of capability:
 
 - Ada: 1024 dimensions
 - Babbage: 2048 dimensions
 - Curie: 4096 dimensions
-- Davinci: 12,288 dimensions
+- Davinci: 12288 dimensions
 
 Davinci is the most capable, but is slower and more expensive than the other models. Ada is the least capable, but is both faster and cheaper.
 
