@@ -8,13 +8,17 @@ items:
     href: overview.md
   - name: Form Recognizer Studio
     href: form-recognizer-studio-overview.md
-  - name: Form Recognizer SDK overview
+  - name: Form Recognizer SDK
+    displayName: get started, install, download, documentAnalysisClient, document analysis client
     href: sdk-overview.md
   - name: Language support
+    displayName: locale
     href: language-support.md
   - name: Pricing
+    displayName: cost
     href: https://azure.microsoft.com/pricing/details/form-recognizer/
   - name: Service limits
+    displayName: ocr
     href: service-limits.md
   - name: What's new
     href: whats-new.md
@@ -25,36 +29,47 @@ items:
    - name: "Form Recognizer v3.0"
      items:
        - name: Form Recognizer Studio | v3.0
+         displayName: get started
          href: quickstarts/try-v3-form-recognizer-studio.md
        - name: Form Recognizer SDKs and REST API v3.0
+         displayName: get started, documentAnalysisClient, document analysis client, polygon
          href: quickstarts/get-started-v3-sdk-rest-api.md
    - name: Form Recognizer v2.1
      items:
      - name: Sample Labeling tool
+       displayName: table, label, ocr, bounding box
        href: quickstarts/try-sample-label-tool.md
      - name: Form Recognizer SDKs and REST API v2.1
+       displayName: formRecognizerClient, form recognizer client
        href: quickstarts/get-started-v2-1-sdk-rest-api.md
 - name: How-to guides
   items:
   - name: Create a Form Recognizer resource
+    displayName: endpoint
     href:  create-a-form-recognizer-resource.md
   - name: Check my usage and estimate the cost
     href: how-to-guides/estimate-cost.md
   - name: Migrate to Form Recognizer v3.0
+    displayName: get started, confidence, bounding box, polygon
     href: v3-migration-guide.md
   - name: Use the prebuilt-read model
     href: how-to-guides/use-prebuilt-read.md
+    displayName: documentAnalysisClient, document analysis client
   - name: Use SDKs and the REST API (v2.1)
+    displayName: formRecognizerClient, form recognizer client, bounding box, begin_analyze
     href: how-to-guides/try-sdk-rest-api.md
   - name: Create SAS tokens for storage containers
+    displayName: blob
     href:  create-sas-tokens.md
   - name: Custom models
     items:
     - name: Build a custom model (v3.0)
+      displayName: table, label, ocr
       href: how-to-guides/build-custom-model-v3.md
     - name: Build a custom model (v2.1)
       items:
       - name: Assemble a training data set
+        displayName: table, label, ocr
         href: build-training-data-set.md
       - name: Deploy the sample-labeling tool
         href: deploy-label-tool.md
@@ -65,8 +80,10 @@ items:
   - name: Composed models
     items:
      - name: Compose models v3.0
+       displayName: table, label, ocr
        href: compose-custom-models-v3.md
      - name: Compose models v2.1
+       displayName: table, label, ocr, confidence, bounding box
        href: compose-custom-models-v2-1.md
   - name: Back up and recover models
     href: disaster-recovery.md
@@ -119,6 +136,7 @@ items:
 - name: Concepts
   items:
   - name: Model overview
+    displayName: get started, prebuilt
     href: concept-model-overview.md
   - name: Form Recognizer Studio | v3.0
     href: concept-form-recognizer-studio.md
@@ -127,8 +145,10 @@ items:
   - name: W-2 form model | v3.0
     href: concept-w2.md
   - name: Read OCR model | v3.0
+    displayName: confidence
     href: concept-read.md
   - name: Layout model
+    displayName: table, label, ocr, confidence, polygon
     href: concept-layout.md
   - name: Invoice model
     href: concept-invoice.md
@@ -141,12 +161,14 @@ items:
   - name: Custom models
     items:
     - name: Custom model
+      displayName: table, label, ocr, confidence
       href: concept-custom.md
     - name: Custom template model
       href: concept-custom-template.md
     - name: Custom neural model
       href: concept-custom-neural.md
     - name: Accuracy and confidence scores
+      displayName: table, label, ocr
       href: concept-accuracy-confidence.md
   - name: Composed models
     href:  concept-composed-models.md
