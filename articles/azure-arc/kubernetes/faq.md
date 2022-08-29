@@ -2,7 +2,7 @@
 title: "Azure Arc-enabled Kubernetes and GitOps frequently asked questions"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 04/06/2022
+ms.date: 08/22/2022
 ms.topic: conceptual
 description: "This article contains a list of frequently asked questions related to Azure Arc-enabled Kubernetes and Azure GitOps"
 keywords: "Kubernetes, Arc, Azure, containers, configuration, GitOps, faq"
@@ -33,19 +33,21 @@ If the Azure Arc-enabled Kubernetes cluster is on Azure Stack Edge, AKS on Azure
 
 ## How do I address expired Azure Arc-enabled Kubernetes resources?
 
-The system assigned managed identity associated with your Azure Arc-enabled Kubernetes cluster is only used by the Azure Arc agents to communicate with the Azure Arc services. The certificate associated with this system assigned managed identity has an expiration window of 90 days, and the agents will attempt to renew this certificate between Day 46 to Day 90. Once this certificate expires, the resource is considered `Expired` and all features (such as configuration, monitoring, and policy) stop working on this cluster and you'll then need to delete and connect the cluster to Azure Arc once again. It is thus advisable to have the cluster come online at least once between Day 46 to Day 90 time window to ensure renewal of the managed identity certificate.
+The system-assigned managed identity associated with your Azure Arc-enabled Kubernetes cluster is only used by the Azure Arc agents to communicate with the Azure Arc services. The certificate associated with this system assigned managed identity has an expiration window of 90 days, and the agents will attempt to renew this certificate between Day 46 to Day 90. To avoid having your managed identity certificate expire, be sure that the cluster comes online at least once between Day 46 and Day 90 so that the certificate can be renewed.
 
-To check when the certificate is about to expire for any given cluster, run the following command:
+If the managed identity certificate expires, the resource is considered `Expired` and all Azure Arc features (such as configuration, monitoring, and policy) will stop working on the cluster.
+
+To check when the managed identity certificate will expire for a given cluster, run the following command:
 
 ```azurecli
 az connectedk8s show -n <name> -g <resource-group>
 ```
 
-In the output, the value of the `managedIdentityCertificateExpirationTime` indicates when the managed identity certificate will expire (90D mark for that certificate). 
+In the output, the value of the `managedIdentityCertificateExpirationTime` indicates when the managed identity certificate will expire (90D mark for that certificate).
 
 If the value of `managedIdentityCertificateExpirationTime` indicates a timestamp from the past, then the `connectivityStatus` field in the above output will be set to `Expired`. In such cases, to get your Kubernetes cluster working with Azure Arc again:
 
-1. Delete Azure Arc-enabled Kubernetes resource and agents on the cluster. 
+1. Delete the Azure Arc-enabled Kubernetes resource and agents on the cluster.
 
     ```azurecli
     az connectedk8s delete -n <name> -g <resource-group>
