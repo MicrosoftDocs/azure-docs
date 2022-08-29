@@ -21,7 +21,7 @@ higher.
 ## Upgrade precautions
 
 Upgrades require some downtime in the database cluster. The exact time depends
-on the source and destinationn versions of the upgrade. To prepare for the
+on the source and destination versions of the upgrade. To prepare for the
 production cluster upgrade, we recommend [testing the
 upgrade](howto-upgrade.md#test-the-upgrade-first), and measure downtime during
 the test.

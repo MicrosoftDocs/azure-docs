@@ -24,7 +24,7 @@ extensions](reference-extensions.md), including the Citus extension. Upgrades
 also require downtime in the database cluster.
 
 We strongly recommend you to test your application with the new PostgreSQL and
-Citus version before you upgrade your production environment.  Also, please see
+Citus version before you upgrade your production environment.  Also, see
 our list of [upgrade precautions](concepts-upgrade.md).
 
 A convenient way to test is to make a copy of your server group using
