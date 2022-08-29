@@ -58,10 +58,12 @@ Optionally, you can create filters based on revisions and replicas.  To create a
 ### Split metrics
 
 When your chart contains a single metric, you can choose to split the metric information by revision or replica with the exceptions:
+
 * The Replica count metric can only split by revision.
 * The requests metric can also be split by status code and status code category. 
 
 To split by revision:
+
 1. Select **Apply splitting** 
 1. Select **Revision** from the **Values** drop-down list. 
 
