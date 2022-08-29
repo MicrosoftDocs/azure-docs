@@ -40,7 +40,7 @@ The article shows how to sign in with the correct domain name into the Azure Vid
 
     > [!div class="mx-imgBorder"]
     > ![Sign in to an organization.](./media/switch-directory/sign-in-organization.png)
-1. Enter the domain name you copied in the [Sign in to the Azure portal to get the domain name](#sign-in-to-the-azure-portal-to-get-the-domain-name) section.
+1. Enter the domain name you copied in the [Get the domain name from the Azure portal](#get-the-domain-name-from-the-azure-portal) section.
 
     > [!div class="mx-imgBorder"]
     > ![Find the organization.](./media/switch-directory/find-your-organization.png)
