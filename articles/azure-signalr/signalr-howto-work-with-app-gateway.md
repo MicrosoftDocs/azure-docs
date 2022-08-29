@@ -84,7 +84,7 @@ Create from the portal an Application Gateway instance **_AG1_**:
 
             :::image type="content" source="./media/signalr-howto-work-with-app-gateway/application-gateway-setup-backend.png" alt-text="Set up the application gateway backend setting for the SignalR Service.":::
 
-        :::image type="content" source="./media/signalr-howto-work-with-app-gateway/application-gateway-create-rule-backends.png" alt-text="Set up the application gateway backend setting for the SignalR Service.":::  
+        :::image type="content" source="./media/signalr-howto-work-with-app-gateway/application-gateway-create-rule-backends.png" alt-text="Creating backend targets for application gateway.":::  
 
 * Review and create the **_AG1_**
     
