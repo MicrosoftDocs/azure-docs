@@ -57,9 +57,9 @@ Zone-redundant Premium plans can currently be enabled in any of the following re
 | Brazil South     | France Central       | Qatar Central |                    | Australia East |
 | Canada Central   | Germany West Central |               |                    | Central India  |
 | Central US       | North Europe         |               |                    | China North 3  |
-| East US          | Sweden Central       |               |                    | Japan East     |
-| East US 2        | UK South             |               |                    | Southeast Asia |
-| South Central US | West Europe          |               |                    | East Asia      |
+| East US          | Sweden Central       |               |                    | East Asia      |
+| East US 2        | UK South             |               |                    | Japan East     |
+| South Central US | West Europe          |               |                    | Southeast Asia |
 | West US 2        |                      |               |                    |                |
 | West US 3        |                      |               |                    |                |
 
