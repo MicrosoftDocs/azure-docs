@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/26/2022
+ms.date: 08/29/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -119,6 +119,8 @@ Once your share-level permissions are in place, there are two options for config
 
 - **Windows Explorer experience:** If you choose this option, then the client must be domain-joined to the on-premises AD.
 - **icacls utility:** If you choose this option, then the client needs line-of-sight to the on-premises AD.
+
+To configure directory and file level permissions through Windows File explorer, you also need to specify domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or from an on-premises AD-joined client. If you prefer to configure using icacls, this step is not required.
 
 To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
