@@ -27,9 +27,10 @@ An Azure account with an active subscription. [Create an account for free](https
 1. Create an Azure Database for MySQL flexible server using the [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create) command. Replace the placeholders `<database-name>`, `<resource-group-name>`, `<MySQL-flexible-server-name>`, `<admin-username>`, and `<admin-password>` with a name for your new database, the name of your resource group, a name for your new server, and an admin username and password.
 
    ```azurecli-interactive
-   az mysql flexible-server create --database-name <database-name> \
+   az mysql flexible-server create \
        --resource-group <resource-group-name> \
        --name <MySQL-flexible-server-name> \
+       --database-name <database-name> \
        --admin-user <admin-username> \
        --admin-password <admin-password>
    ```
@@ -54,7 +55,7 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
 1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
 
     ```azurecli-interactive
-    az provider register -n Microsoft.ServiceLinker
+    az provider register --namespace Microsoft.ServiceLinker
     ```
 
 1. Run the `az spring connection create` command to create a service connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below with your own information.
@@ -120,10 +121,11 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
 Run the `az spring connection validate` command to show the status of the connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below with your own information.
 
 ```azurecli-interactive
-az spring connection validate --connection <connection-name> \
+az spring connection validate
     --resource-group <Azure-Spring-Apps-resource-group-name> \ 
     --service <Azure-Spring-Apps-resource-name> \
-    --app <app-name>
+    --app <app-name> \
+    --connection <connection-name>
 ```
 
 The following output is displayed:
