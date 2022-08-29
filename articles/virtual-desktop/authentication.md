@@ -79,6 +79,7 @@ If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved yo
     - Username and password
 - The macOS client supports the following authentication method:
     - Username and password
+    - Smart card
 
 >[!IMPORTANT]
 >In order for authentication to work properly, your local machine must also be able to access the [required URLs for Remote Desktop clients](safe-url-list.md#remote-desktop-clients).
