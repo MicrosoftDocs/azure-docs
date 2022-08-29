@@ -21,6 +21,21 @@ Deployments in Device Update for IoT Hub are dynamic in nature. Dynamic deployme
 
 Due to their dynamic nature, deployments remain active and in-progress until they are explicitly canceled. A deployment is considered inactive and superseded if a new deployment is created targeting the same device group. A deployment can be retried for devices that might fail. Once a deployment is canceled, it cannot be reactivated.
 
+## Deployment policies
+
+### Deployment scheduling
+
+Update deployments can be scheduled to start immediately or to start in the future at a particular time and date. This allows the user to efficiently plan device downtime so that it doesn't interfere with any other critical device workflows. 
+
+### Automatic Rollback Policy
+
+After deploying an update, it is critical to ensure that 
+- Devices are in a clean state post-install that is, if an update partially fails, devices should be back to their last known good state.
+- Device ecosystem should be consistent that is, all devices in a group should be running the same version for easier manageability.
+- The rollback process should be as hands-off as possible, with an option for the device operator to intervene manually only under rare, special circumstances.
+
+To enable device operators to meet these goals, update deployments can be configured with an automatic rollback policy from the cloud. This allows you to define a rollback trigger policy by setting thresholds in terms of percentage and minimum number of devices failed. Once the threshold has been met, all the devices in the group will be rolled back to the selected update version. 
+
 ## Next steps
 
 [Deploy an update](./deploy-update.md)

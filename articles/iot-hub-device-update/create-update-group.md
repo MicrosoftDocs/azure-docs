@@ -3,13 +3,13 @@ title: Create device group in Device Update for Azure IoT Hub | Microsoft Docs
 description: Create a device group in Device Update for Azure IoT Hub
 author: vimeht
 ms.author: vimeht
-ms.date: 2/17/2021
+ms.date: 8/19/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
 # Create device groups in Device Update for IoT Hub
-Device Update for IoT Hub allows deploying an update to a group of IoT devices.
+Device Update for IoT Hub allows deploying an update to a group of IoT devices. This step is optional when trying to deploy updates to your managed devices. You can deploy updates to your devices using the default group that is created for you. Alternatively, you can assign a user-defined tag to your devices, and they will be automatically grouped based on the tag and the device compatibility properties.
 
   > [!NOTE] 
   > If you would like to deploy to a default group instead of a user-created group, you can directly move to [How to Deploy an Update](deploy-update.md)
@@ -33,6 +33,10 @@ The below documentation describes how to add and update a tag.
 You can update the Device Twin with the appropriate Tag using RegistryManager after enrolling the device with Device Update. 
 [Learn how to add tags using a sample .NET app.](../iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)  
 [Learn about tag properties](../iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format).
+
+  > [!NOTE]
+  > The tag should be added to the device twin if your Device Update agent is provisioned with device identity, or it should be added to the corresponding module twin   > if the Device Update agent is provisioned with a module identity.
+
 
 #### Device Update Tag Format
 
@@ -69,8 +73,8 @@ Tags can also be added or updated in Device twin or Module Twin directly.
 
 ### Limitations
 
-* You can add any value to your tag except for ‘Uncategorized’ which is a reserved value.
-* Tag value cannot exceed 255 characters.
+* You can add any value to your tag except for ‘Uncategorized’ and "$default" which are reserved values.
+* Tag value cannot exceed 200 characters.
 * Tag value can contain alphanumeric characters and the following special characters ".","-","_","~".
 * Tag and Group names are case-sensitive.
 * A device can only have one tag with the name ADUGroup, any subsequent additions of a tag with that name will override the existing value for tag name ADUGroup.
@@ -88,13 +92,8 @@ Tags can also be added or updated in Device twin or Module Twin directly.
 
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot of ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
-5. Select **Add group** to create a new group.
 
-   :::image type="content" source="media/create-update-group/add-group.png" alt-text="Screenshot of device group addition." lightbox="media/create-update-group/add-group.png":::
-
-6. Select an IoT Hub tag and Device Class from the list and then select **Create group**.
-
-   :::image type="content" source="media/create-update-group/select-tag.png" alt-text="Screenshot of tag selection." lightbox="media/create-update-group/select-tag.png":::
+5. Groups will be automatically created based on the tags assigned as well as the compatibility properties of the devices. One group can have multiple subgroups with different device classes. 
 
 7. Once the group is created, you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available, and Updates in Progress. [Learn  about update compliance.](device-update-compliance.md)
 
