@@ -3,6 +3,8 @@ title: Enable Private Link on an Azure HDInsight cluster
 description: Learn how to connect to an outside HDInsight cluster by using Azure Private Link.
 ms.service: hdinsight
 ms.topic: conceptual
+ms.author: piyushgupta
+author: piyush-gupta1999
 ms.date: 08/30/2022
 ---
 
@@ -17,10 +19,10 @@ Private Link can be used in cross-network scenarios where virtual network peerin
 
 The use of Private Link to connect to an HDInsight cluster is an optional feature and is disabled by default. The feature is available only when the `resourceProviderConnection` network property is set to *outbound*, as described in the article [Restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md).
 
-When `privateLink` is set to *enabled*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLBs) are created, and an Azure Private Link service is provisioned for each SLB. The Private Link service is what allows you to access the HDInsight cluster from private endpoints.
+When `privateLink` is set as *enabled*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLBs) are created, and an Azure Private Link service is provisioned for each SLB. The Private Link service is what allows you to access the HDInsight cluster from private endpoints.
 
 ## Private link deployment steps
-Successfully creating a Private Link cluster takes many steps, so we've outlined them here. Follow each of the steps below to ensure everything is set up correctly.
+Successfully creating a Private Link cluster takes many steps, so we've outlined them here. Follow each of the steps below to ensure everything is set-up correctly.
 
 ### [Step 1: Create prerequisites](#Createpreqs)
 ### [Step 2: Configure HDInsight subnet](#DisableNetworkPolicy)
@@ -71,7 +73,7 @@ For a basic set up to get started:
     | Virtual network | hdi-privlink-cluster-vnet |
     | Subnet name | default |
 
-3. Once the NAT Gateway is finished deploying, you are ready to go to the next step.
+3. Once the NAT Gateway is finished deploying, you're ready to go to the next step.
 
 ### Configure a firewall (Option 2)
 For a basic setup to get started:
@@ -86,7 +88,7 @@ For more information on setting up a firewall, see [Control network traffic in A
 
 ## <a name="deployCluster"></a>Step 4: Deploy private link cluster
 
-At this point, all prerequisites should be taken care of and you are ready to deploy the Private Link cluster. The following diagram shows an example of the networking configuration that's required before you create the cluster. In this example, all outbound traffic is forced to Azure Firewall through a user-defined route. The required outbound dependencies should be allowed on the firewall before cluster creation. For Enterprise Security Package clusters, virtual network peering can provide the network connectivity to Azure Active Directory Domain Services.
+At this point, all prerequisites should be taken care of and you're ready to deploy the Private Link cluster. The following diagram shows an example of the networking configuration that's required before you create the cluster. In this example, all outbound traffic is forced to Azure Firewall through a user-defined route. The required outbound dependencies should be allowed on the firewall before cluster creation. For Enterprise Security Package clusters, virtual network peering can provide the network connectivity to Azure Active Directory Domain Services.
 
 :::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagram of the Private Link environment before cluster creation.":::
 
@@ -134,7 +136,7 @@ To create the private endpoints:
     | Subnet | default |
     
 > [!IMPORTANT]
-> If you are using KafkaRestProxy HDInsight cluster, then follow this extra steps to [Enable Private Endpoints](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#create-private-endpoints).
+> If you're using KafkaRestProxy HDInsight cluster, then follow this extra steps to [Enable Private Endpoints](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#create-private-endpoints).
 > 
   
   
@@ -187,7 +189,7 @@ To configure DNS resolution through a Private DNS zone:
     | IP Address | Private IP of private endpoint for SSH access |
    
 > [!IMPORTANT]
-> If you are using KafkaRestProxy HDInsight cluster, then follow this extra steps to [Enable DNS to connect over private endpoint](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#configure-dns-to-connect-over-private-endpoints).
+> If you are using KafkaRestProxy HDInsight cluster, then follow this extra steps to [Configure DNS to connect over private endpoint](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#configure-dns-to-connect-over-private-endpoints).
 > 
     
 4. Associate the private DNS zone with the client VNET by adding a Virtual Network Link.
