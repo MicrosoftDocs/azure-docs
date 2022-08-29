@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 08/29/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---

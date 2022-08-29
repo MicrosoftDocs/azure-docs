@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 08/29/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
@@ -17,7 +17,7 @@ A dedicated gateway is server-side compute that is a front-end to your Azure Cos
 
 ## Overview
 
-You can provision a dedicated gateway to improve performance at scale. The most common reason that you would want to provision a dedicated gateway would be for caching. When you provision a dedicated gateway, an [integrated cache](integrated-cache.md) is automatically configured within the dedicated gateway. Point reads and queries that hit the integrated cache do not use any of your RUs. Provisioning a dedicated gateway with an integrated cache can help read-heavy workloads lower costs on Azure Cosmos DB.
+You can provision a dedicated gateway to improve performance at scale. The most common reason that you would want to provision a dedicated gateway is for caching. When you provision a dedicated gateway, an [integrated cache](integrated-cache.md) is automatically configured within the dedicated gateway. Point reads and queries that hit the integrated cache do not use any of your RUs. Provisioning a dedicated gateway with an integrated cache can help read-heavy workloads lower costs on Azure Cosmos DB.
 
 The dedicated gateway is built into Azure Cosmos DB. When you [provision a dedicated gateway](how-to-configure-integrated-cache.md), you have a fully-managed node that routes requests to backend partitions. Connecting to Azure Cosmos DB with the dedicated gateway provides lower and more predictable latency than connecting to Azure Cosmos DB with the standard gateway. Even cache misses will see latency improvements when comparing the dedicated gateway and standard gateway.
 
@@ -31,7 +31,7 @@ cosmoscachefeedback@microsoft.com
 
 There are two [connectivity modes](./sql/sql-sdk-connection-modes.md) for Azure Cosmos DB, Direct mode and Gateway mode. With Gateway mode you can connect to either the standard gateway or the dedicated gateway depending on the endpoint you configure.
 
-:::image type="content" source="./media/dedicated-gateway/connection-policy.png" alt-text="An image that shows how Cosmos DB connectivity modes work." border="false":::
+:::image type="content" source="./media/dedicated-gateway/connection-policy.png" alt-text="An image that shows how Cosmos DB connectivity modes work." :::
 
 ### Connect to Azure Cosmos DB using direct mode
 
@@ -43,18 +43,18 @@ If you connect to Azure Cosmos DB using gateway mode, your application will conn
 
 When connecting to Azure Cosmos DB with gateway mode, you can connect with either of the following options:
 
-* **Standard gateway** -  While the backend, which includes your provisioned throughput and storage, has dedicated capacity per container, the standard gateway is shared between many Azure Cosmos accounts. It is practical for many customers to share a standard gateway since the compute resources consumed by each individual customer is small.
+* **Standard gateway** -  While the backend, which includes your provisioned throughput and storage, has dedicated capacity per container, the standard gateway is shared between many Azure Cosmos DB accounts. It is practical for many customers to share a standard gateway since the compute resources consumed by each individual customer is small.
 * **Dedicated gateway** - In this gateway, the backend and gateway both have dedicated capacity. The integrated cache requires a dedicated gateway because it requires significant CPU and memory that is specific to your Azure Cosmos account.
 
 You must connect to Azure Cosmos DB using the dedicated gateway in order to use the integrated cache. The dedicated gateway has a different endpoint from the standard one provided with your Azure Cosmos DB account, but requests are routed in the same way. When you connect to your dedicated gateway endpoint, your application sends a request to the dedicated gateway, which then routes the request to different backend nodes. If possible, the integrated cache will serve the result.
 
 Diagram of gateway mode connection with a dedicated gateway:
 
-:::image type="content" source="./media/dedicated-gateway/dedicated-gateway-connection-policy.png" alt-text="An image that shows how the Cosmos DB dedicated gateway works." border="false":::
+:::image type="content" source="./media/dedicated-gateway/dedicated-gateway-connection-policy.png" alt-text="An image that shows how the Cosmos DB dedicated gateway works." :::
  
 ## Provisioning the dedicated gateway
 
-A dedicated gateway cluster can be provisioned in Core (SQL) API accounts. A dedicated gateway cluster can have up to five nodes and you can add or remove nodes at any time. All dedicated gateway nodes within your account [share the same connection string](how-to-configure-integrated-cache.md#configuring-the-integrated-cache).
+A dedicated gateway cluster can be provisioned in Core (SQL) API accounts. A dedicated gateway cluster can have up to five nodes by default and you can add or remove nodes at any time. All dedicated gateway nodes within your account [share the same connection string](how-to-configure-integrated-cache.md#configuring-the-integrated-cache).
 
 Dedicated gateway nodes are independent from one another. When you provision multiple dedicated gateway nodes, any single node can route any given request. In addition, each node has a separate integrated cache from the others. The cached data within each node depends on the data that was recently [written or read](integrated-cache.md#item-cache) through that specific node. If an item or query is cached on one node, it isn't necessarily cached on the others.
 
@@ -74,7 +74,7 @@ The dedicated gateway is available in the following sizes. The integrated cache 
 There are many different ways to provision a dedicated gateway:
 
 - [Provision a dedicated gateway using the Azure Portal](how-to-configure-integrated-cache.md#provision-the-dedicated-gateway)
-- [Use Azure Cosmos DB's REST API](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/service/create)
+- [Use Azure Cosmos DB's REST API](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/service/create) 
 - [Azure CLI](/cli/azure/cosmosdb/service?view=azure-cli-latest&preserve-view=true#az-cosmosdb-service-create)
 - [ARM template](/azure/templates/microsoft.documentdb/databaseaccounts/services?tabs=bicep)
     - Note: You cannot deprovision a dedicated gateway using ARM templates
