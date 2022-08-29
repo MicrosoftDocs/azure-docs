@@ -18,17 +18,17 @@ This article describes some techniques you may use to troubleshoot your server g
 You may add the parameter **--debug** to any CLI command you execute. Doing so will display to your console additional information about the execution of that command. You should find it useful to get details to help you understand the behavior of that command.
 For example you could run
 ```azurecli
-az postgres arc-server create -n postgres01 -w 2 --debug --k8s-namespace <namespace> --use-k8s
+az postgres server-arc create -n postgres01 -w 2 --debug --k8s-namespace <namespace> --use-k8s
 ```
 
 or
 ```azurecli
-az postgres arc-server edit -n postgres01 --extension --k8s-namespace <namespace> --use-k8s SomeExtensionName --debug
+az postgres server-arc update -n postgres01 --extension --k8s-namespace <namespace> --use-k8s SomeExtensionName --debug
 ```
 
 In addition, you may use the parameter --help on any CLI command to display some help, list of parameters for a specific command. For example:
 ```azurecli
-az postgres arc-server create --help
+az postgres server-arc create --help
 ```
 
 

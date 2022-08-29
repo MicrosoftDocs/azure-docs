@@ -44,19 +44,17 @@ For more details on SCCs in OpenShift, refer to the [OpenShift documentation](ht
 
 ## Create an Azure Arc-enabled PostgreSQL server
 
-To create an Azure Arc-enabled PostgreSQL server on your Arc data controller, you will use the command `az postgres arc-server create` to which you will pass several parameters.
+To create an Azure Arc-enabled PostgreSQL server on your Arc data controller, you will use the command `az postgres server-arc create` to which you will pass several parameters.
 
 For details about all the parameters you can set at the creation time, review the output of the command:
 ```azurecli
-az postgres arc-server create --help
+az postgres server-arc create --help
 ```
 
 The main parameters should consider are:
 - **the name of the server** you want to deploy. Indicate either `--name` or `-n` followed by a name whose length must not exceed 11 characters.
 
-- **the version of the PostgreSQL engine** you want to deploy: by default it is version 14. To deploy version 14, you can either omit this parameter or pass one of the following parameters: `--engine-version 14` or `-ev 14`. No other versions are available at this time.
-
-- **The storage classes** you want your server to use. It is important you set the storage class right at the time you deploy a server as this setting cannot be changed after you deploy. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
+- **The storage classes** you want your server group to use. It is important you set the storage class right at the time you deploy a server group as this setting cannot be changed after you deploy. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
     - To set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd` followed by the name of the storage class.
     - To set the storage class for the logs, indicate the parameter `--storage-class-logs` or `-scl` followed by the name of the storage class.
     - The support of setting storage classes for the backups has been temporarily removed as we temporarily removed the backup/restore functionalities as we finalize designs and experiences.
@@ -68,10 +66,10 @@ When you execute the create command, you will be prompted to enter the password 
 
 ### Examples
 
-**To deploy a server of Postgres version 12 named postgres01 with two worker nodes that uses the same storage classes as the data controller, run the following command**:
+**To deploy a PostgreSQL server named postgres01 that uses the same storage classes as the data controller, run the following command**:
 
 ```azurecli
-az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespace> --use-k8s
+az postgres server-arc create -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 > [!NOTE]  
@@ -84,7 +82,7 @@ az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespa
 To list the PostgreSQL servers deployed in your Arc data controller, run the following command:
 
 ```azurecli
-az postgres arc-server list --k8s-namespace <namespace> --use-k8s
+az postgres server-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 
@@ -93,7 +91,6 @@ az postgres arc-server list --k8s-namespace <namespace> --use-k8s
     "name": "postgres01",
     "replicas": 1,
     "state": "Ready",
-    "workers": 2
   }
 ```
 
@@ -102,7 +99,7 @@ az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 To view the endpoints for a PostgreSQL server, run the following command:
 
 ```azurecli
-az postgres arc-server endpoint list -n <server name> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc endpoint list -n <server name> --k8s-namespace <namespace> --use-k8s
 ```
 For example:
 ```console
@@ -153,7 +150,7 @@ Once you have the name of the NSG, you can add a firewall rule using the followi
 > [!WARNING]
 > We do not recommend setting a rule to allow connection from any source IP address. You can lock down things better by specifying a `-source-address-prefixes` value that is specific to your client IP address or an IP address range that covers your team's or organization's IP addresses.
 
-Replace the value of the `--destination-port-ranges` parameter below with the port number you got from the `az postgres arc-server list` command above.
+Replace the value of the `--destination-port-ranges` parameter below with the port number you got from the `az postgres server-arc list` command above.
 
 ```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'

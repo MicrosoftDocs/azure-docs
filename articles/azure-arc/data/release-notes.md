@@ -419,7 +419,7 @@ az arcdata sql mi-arc update
    1. Enable the extension:
 
       ```console
-      az postgres arc-server edit -n myservergroup --extensions pg_cron
+      az postgres server-arc update -n myservergroup --extensions pg_cron
       ```
 
    1. Restart the server group.
@@ -427,7 +427,7 @@ az arcdata sql mi-arc update
    1. Configure the extension:
 
       ```console
-      az postgres arc-server edit -n myservergroup --engine-settings cron.database_name='postgres'
+      az postgres server-arc update -n myservergroup --engine-settings cron.database_name='postgres'
       ```
 
    If you execute the second command before the restart has completed it will fail. If that is the case, simply wait for a few more moments and execute the second command again.
@@ -546,7 +546,7 @@ Use the following tools:
    1. Enable the extension:
 
       ```console
-      azdata postgres arc-server edit -n myservergroup --extensions pg_cron
+      azdata postgres server-arc update -n myservergroup --extensions pg_cron
       ```
 
    1. Restart the server group.
@@ -554,7 +554,7 @@ Use the following tools:
    1. Configure the extension:
 
       ```console
-      azdata postgres arc-server edit -n myservergroup --engine-settings cron.database_name='postgres'
+      azdata postgres server-arc update -n myservergroup --engine-settings cron.database_name='postgres'
       ```
 
    If you execute the second command before the restart has completed it will fail. If that is the case, simply wait for a few more moments and execute the second command again.
@@ -617,7 +617,7 @@ To update your scripts for data controller, replace `azdata arc dc...` with `az 
 
 To update your scripts for managed instance, replace `azdata arc sql mi...` with `az sql mi-arc...`.
 
-For Azure Arc-enabled PostgreSQL server, replace `azdata arc sql postgres...` with `az postgres arc-server...`.
+For Azure Arc-enabled PostgreSQL server, replace `azdata arc sql postgres...` with `az postgres server-arc...`.
 
 In addition to the parameters that have historically existed on the `azdata` commands, the same commands in the `arcdata` Azure CLI extension have some new parameters such as `--k8s-namespace` and `--use-k8s` are now required. The `--use-k8s` parameter will be used to differentiate when the command should be sent to the Kubernetes API or to the ARM API. For now all Azure CLI commands for Azure Arc-enabled data services target only the Kubernetes API.
 
