@@ -9,7 +9,7 @@ ms.author: victorh
 ms.topic: conceptual
 ---
 
-# Web Application Firewall (WAF) with Front Door Service exclusion lists 
+# Web Application Firewall (WAF) with Front Door exclusion lists
 
 Sometimes Web Application Firewall (WAF) might block a request that you want to allow for your application. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. The rest of the request is evaluated as normal.
 
