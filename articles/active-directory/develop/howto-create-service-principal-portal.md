@@ -60,7 +60,7 @@ To check your subscription permissions:
 
 1. Select **My permissions**. Then, select **Click here to view complete access details for this subscription**.
 
-   :::image type="content" source="media/howto-create-service-principal-portal/view-details.png.png" alt-text="Select the subscription you want to create the service principal in.":::
+   :::image type="content" source="media/howto-create-service-principal-portal/view-details.png" alt-text="Select the subscription you want to create the service principal in.":::
 
 1. Select **Role assignments** to view your assigned roles, and determine if you have adequate permissions to assign a role to an AD app. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned the Owner role, which means that user has adequate permissions.
 
