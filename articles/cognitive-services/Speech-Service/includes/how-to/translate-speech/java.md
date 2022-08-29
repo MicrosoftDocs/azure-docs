@@ -25,7 +25,7 @@ public class App {
 }
 ```
 
-For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-environment-variables).
+For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-environment-variables.md).
 
 ## Create a speech translation configuration
 

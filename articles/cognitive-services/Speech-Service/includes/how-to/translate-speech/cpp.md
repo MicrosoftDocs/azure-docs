@@ -19,7 +19,7 @@ auto SPEECH__SUBSCRIPTION__KEY = getenv("SPEECH__SUBSCRIPTION__KEY");
 auto SPEECH__SERVICE__REGION = getenv("SPEECH__SERVICE__REGION");
 ```
 
-For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-environment-variables).
+For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-environment-variables.md).
 
 ## Create a speech translation configuration
 
