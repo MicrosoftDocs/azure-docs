@@ -21,15 +21,13 @@ You can set up Application Insights to report exceptions that occur in either th
 
 To have exceptions reported from your server-side application, consider the following scenarios:
 
-  * **Azure web apps**: Add the [Application Insights Extension](./azure-web-apps.md).
-  * **Azure Virtual Machines and Azure Virtual Machine Scale Sets IIS-hosted apps**: Add the [Application Monitoring Extension](./azure-vm-vmss-apps.md).
-  * Install [Application Insights SDK](./asp-net.md) in your app code, or
-  * **IIS web servers**: Run [Application Insights Agent](./status-monitor-v2-overview.md), or
-  * **Java web apps**: Enable the [Java agent](./java-in-process-agent.md).
+  * Add the [Application Insights Extension](./azure-web-apps.md) for Azure web apps.
+  * Add the [Application Monitoring Extension](./azure-vm-vmss-apps.md) for Azure Virtual Machines and Azure Virtual Machine Scale Sets IIS-hosted apps.
+  * Install [Application Insights SDK](./asp-net.md) in your app code, run [Application Insights Agent](./status-monitor-v2-overview.md) for IIS web servers, or enable the [Java agent](./java-in-process-agent.md) for Java web apps.
 
 ### Client side
 
-The JavaScript SDK provides the ability for client-side reporting of exceptions that occur in web browsers. To set up exception reporting on the client, see [Application Insights for web pages](./javascript.md).
+The JavaScript SDK provides the ability for client-side reporting of exceptions that occur in web browsers. To set up exception reporting on the client, see [Application Insights for webpages](./javascript.md).
 
 ### Application frameworks
 
@@ -48,7 +46,7 @@ With some application frameworks, more configuration is required. Consider the f
 
 Open the app solution in Visual Studio. Run the app, either on your server or on your development machine by using <kbd>F5</kbd>. Re-create the exception.
 
-Open the **Application Insights Search** telemetry window in Visual Studio. While debugging, select the **Application Insights** dropdown.
+Open the **Application Insights Search** telemetry window in Visual Studio. While debugging, select the **Application Insights** dropdown box.
 
 ![Screenshot that shows right-clicking the project and choosing Application Insights.](./media/asp-net-exceptions/34.png)
 
@@ -99,7 +97,7 @@ Request details don't include the data sent to your app in a POST call. To have 
 
 ## <a name="exceptions"></a> Capture exceptions and related diagnostic data
 
-At first, you won't see in the portal all the exceptions that cause failures in your app. You'll see any browser exceptions, if you're using the [JavaScript SDK](./javascript.md) in your web pages. But most server exceptions are caught by IIS and you have to write a bit of code to see them.
+At first, you won't see in the portal all the exceptions that cause failures in your app. You'll see any browser exceptions, if you're using the [JavaScript SDK](./javascript.md) in your webpages. But most server exceptions are caught by IIS and you have to write a bit of code to see them.
 
 You can:
 
@@ -173,7 +171,7 @@ The properties and measurements parameters are optional, but they're useful for 
 
 Most browser exceptions are reported.
 
-If your web page includes script files from content delivery networks or other domains, ensure your script tag has the attribute `crossorigin="anonymous"` and that the server sends [CORS headers](https://enable-cors.org/). This behavior will allow you to get a stack trace and detail for unhandled JavaScript exceptions from these resources.
+If your webpage includes script files from content delivery networks or other domains, ensure your script tag has the attribute `crossorigin="anonymous"` and that the server sends [CORS headers](https://enable-cors.org/). This behavior will allow you to get a stack trace and detail for unhandled JavaScript exceptions from these resources.
 
 ## Reuse your telemetry client
 
@@ -325,11 +323,11 @@ There are several cases that the exception filters can't handle. For example:
 * Exception thrown during application startup.
 * Exception thrown in background tasks.
 
-All exceptions *handled* by application still need to be tracked manually. Unhandled exceptions originating from controllers typically result in a 500 "Internal Server Error" response. If such a response is manually constructed as a result of a handled exception, or no exception at all, it's tracked in a corresponding request telemetry with `ResultCode` 500. However, the Application Insights SDK is unable to track a corresponding exception.
+All exceptions *handled* by application still need to be tracked manually. Unhandled exceptions originating from controllers typically result in a 500 "Internal Server Error" response. If such a response is manually constructed as a result of a handled exception, or no exception at all, it's tracked in a corresponding request telemetry with `ResultCode` 500. However, the Application Insights SDK can't track a corresponding exception.
 
 ### Prior versions support
 
-If you use Web API 1 (and prior) of Application Insights Web SDK 2.5 (and prior), refer to the following examples to track exceptions.
+If you use Web API 1 (and earlier) of Application Insights Web SDK 2.5 (and earlier), refer to the following examples to track exceptions.
 
 #### Web API 1.x
 
@@ -411,7 +409,7 @@ namespace ProductsAppPureWebAPI.App_Start
 }
 ```
 
-Add this snippet to the services in WebApiConfig:
+Add this snippet to the services in `WebApiConfig`:
 
 ```csharp
 using System.Web.Http;
@@ -444,12 +442,12 @@ namespace WebApi2WithMVC
 
 As alternatives, you could:
 
-- Replace the only ExceptionHandler with a custom implementation of IExceptionHandler. This exception handler is only called when the framework is still able to choose which response message to send, not when the connection is aborted, for instance.
-- Use Exception Filters, as described in the preceding section on Web API 1.x controllers, which aren't called in all cases.
+- Replace the only `ExceptionHandler` instance with a custom implementation of `IExceptionHandler`. This exception handler is only called when the framework is still able to choose which response message to send, not when the connection is aborted, for instance.
+- Use exception filters, as described in the preceding section on Web API 1.x controllers, which aren't called in all cases.
 
 ## WCF
 
-Add a class that extends Attribute and implements IErrorHandler and IServiceBehavior.
+Add a class that extends `Attribute` and implements `IErrorHandler` and `IServiceBehavior`.
 
 ```csharp
     using System;
@@ -521,11 +519,11 @@ namespace WcfService4
 
 If you've [installed the Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md) on your server, you can get a chart of the exceptions rate, measured by .NET. Both handled and unhandled .NET exceptions are included.
 
-Open a metrics explorer tab, add a new chart, and under **Performance Counters**, select **Exception rate**.
+Open a metrics explorer tab, add a new chart. Under **Performance Counters**, select **Exception rate**.
 
-The .NET framework calculates the rate by counting the number of exceptions in an interval and dividing by the length of the interval.
+The .NET Framework calculates the rate by counting the number of exceptions in an interval and dividing by the length of the interval.
 
-This count is different from the Exceptions count calculated by the Application Insights portal counting TrackException reports. The sampling intervals are different, and the SDK doesn't send TrackException reports for all handled and unhandled exceptions.
+This count is different from the Exceptions count calculated by the Application Insights portal counting `TrackException` reports. The sampling intervals are different, and the SDK doesn't send `TrackException` reports for all handled and unhandled exceptions.
 
 ## Next steps
 
