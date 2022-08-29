@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 08/29/2022
 ---
 
 # Move operation support for resources
@@ -120,6 +120,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.KubernetesConfiguration](#microsoftkubernetesconfiguration)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
+> - [Microsoft.LoadTestServices](#microsoftloadtestservices)
 > - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
 > - [Microsoft.LocationServices](#microsoftlocationservices)
 > - [Microsoft.Logic](#microsoftlogic)
@@ -1239,6 +1240,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | labaccounts | No | No | No |
 > | users | No | No | No |
+
+## Microsoft.LoadTestServices
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | LoadTestService | No | No | No |
 
 ## Microsoft.LocationBasedServices
 
