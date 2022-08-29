@@ -106,3 +106,7 @@ Ensure the Arc enabled SQL managed instance is back to ready status by running:
 ```console
 kubectl get sqlmi -A
 ```
+
+## See also
+
+[Sizing Guidance](sizing-guidance.md)
