@@ -46,8 +46,7 @@ Substitute the name of your resource group and DPS instance. The enrollment ID i
 az iot dps enrollment create -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --attestation-type x509 --certificate-path {path to your certificate}
 ```
 
->[NOTE!]
->
+> [!NOTE]
 > If you're using Cloud Shell to run Azure CLI commands, you can use the upload button to upload your certificate file to your cloud drive before you run the command.
 >
 > :::image type="content" source="media/iot-dps-https-x509-support/upload-to-cloud-shell.png" alt-text="Screenshot that shows the upload file button in Azure Cloud Shell.":::
@@ -64,9 +63,8 @@ Substitute the name of your resource group and DPS instance.
 az iot dps enrollment-group create -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --attestation-type x509 --certificate-path {path to your certificate}
 ```
 
->[NOTE!]
->
-> If you're using Cloud Shell to run Azure CLI commands, you can use the upload button to upload your certificate file to your cloud drive before you run the command.
+> [!NOTE]
+>> If you're using Cloud Shell to run Azure CLI commands, you can use the upload button to upload your certificate file to your cloud drive before you run the command.
 >
 > :::image type="content" source="media/iot-dps-https-x509-support/upload-to-cloud-shell.png" alt-text="Screenshot that shows the upload file button in Azure Cloud Shell.":::
 
@@ -111,7 +109,8 @@ For example:
 ```bash
 curl -L -i -X PUT --cert device-cert.pem --key unencrypted-device-key.pem -H 'Content-Type:
 application/json' -H 'Content-Encoding:  utf-8' -d '{"registrationId": "my-x509-device"}' https://global.azure-devices-p
-rovisioning.net/0ne003D3F98/registrations/my-x509-device/register?api-version=2021-06-01```
+rovisioning.net/0ne003D3F98/registrations/my-x509-device/register?api-version=2021-06-01
+```
 
 A successful call will have a response similar to the following:
 
