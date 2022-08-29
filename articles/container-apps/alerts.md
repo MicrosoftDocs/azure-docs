@@ -23,9 +23,9 @@ The **Alerts** page in the **Monitoring** section on your container app page dis
 
 ### Create metric alert rules
 
-When you add alert rules to a metric chart in the metrics explorer, alerts are triggered when the collected metric data matches alert rule conditions.  
+When you create alerts rules based on a metric chart in the metrics explorer, alerts are triggered when the metric data matches alert rule conditions. For more information about creating metrics charts, see [Using metrics explorer](metrics.md#using-metrics-explorer)
 
-After creating a [metric chart](metrics.md#Using metrics explorer), you can create a new alert rule.
+After creating a metric chart, you can create a new alert rule.
 
 1. Select **New alert rule**.  The **Create an alert rule** page is opened to the **Condition** tab.  Here you'll find a *condition* that is populated with the metric chart settings. 
 1. Select the condition.
@@ -71,13 +71,18 @@ To create an alert rule:
 1. Select **New alert rule**.  
 :::image type="content" source="media/observability/log-alert-new-alert-rule.png" alt-text="Screenshot of the Log Analytics interface highlighting the new alert rule button.":::
 1. The **Create an alert rule** editor is opened to the **Condition** tab, which is populated with your log query.  
+  :::image type="content" source="media/observability/log-alerts-rule-editor.png" alt-text="Screenshot of the Log Analytics alert rule editor.":::
 1. Configure the settings in the **Measurement**  section
+  :::image type="content" source="media/observability/screenshot-metrics-alerts-measurements.png" alt-text="Screen shot of metrics Create an alert rule measurement section.":::
 1. Optionally, you can enable alert splitting in the alert rule to send individual alerts for each dimension you select in the **Split by dimensions** section of the editor.
-  :::image type="content" source="media/observability/log-alerts-splitting.png" alt-text="Screenshot of the Log Analytics alert rule editor showing the Split by dimensions options":::
+  :::image type="content" source="media/observability/log-alerts-splitting.png" alt-text="Screenshot of the Create an alert rule Split by dimensions section":::
 1. Enter the threshold criteria in the**Alert logic** section.
-    :::image type="content" source="media/observability/log-alerts-rule-editor.png" alt-text="Screenshot of the Log Analytics alert rule editor.":::
+    :::image type="content" source="media/observability/log-alert-alert-logic.png" alt-text="Screenshot of the Create an alert rule Alert logic section.":::
 1. Select the **Details** tab.
 1. Enter a name and description for the alert rule.
+:::image type="content" source="media/observability/screenshot-alert-details-dialog.png" alt-text="Screen shot of the alert details configuration page.":::
+1. Select **Review + create**.
+1. Select **Create**.
 
  [!div class="nextstepaction"]
 > [View log streams from the Azure portal](log-streaming.md)
