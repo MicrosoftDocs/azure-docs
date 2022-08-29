@@ -96,23 +96,23 @@ W3C TraceContext-based distributed tracing is enabled by default in all recent
 
 - **Incoming configuration**
 
-  - For Java EE apps, add the following code to the `<TelemetryModules>` tag in ApplicationInsights.xml:
+  For Java EE apps, add the following code to the `<TelemetryModules>` tag in *ApplicationInsights.xml*:
 
-    ```xml
-    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
-       <Param name = "W3CEnabled" value ="true"/>
-       <Param name ="enableW3CBackCompat" value = "true" />
-    </Add>
-    ```
+  ```xml
+  <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
+     <Param name = "W3CEnabled" value ="true"/>
+     <Param name ="enableW3CBackCompat" value = "true" />
+  </Add>
+  ```
 
-  - For Spring Boot apps, add these properties:
+  For Spring Boot apps, add these properties:
 
-    - `azure.application-insights.web.enable-W3C=true`
-    - `azure.application-insights.web.enable-W3C-backcompat-mode=true`
+  - `azure.application-insights.web.enable-W3C=true`
+  - `azure.application-insights.web.enable-W3C-backcompat-mode=true`
 
 - **Outgoing configuration**
 
-  Add the following code to AI-Agent.xml:
+  Add the following code to *AI-Agent.xml*:
 
   ```xml
   <Instrumentation>
@@ -198,7 +198,7 @@ By looking at the [Trace-Context header format](https://www.w3.org/TR/trace-cont
 
 `trace-flags`: `01`
 
-If you look at the request entry that was sent to Azure Monitor, you can see fields populated with the trace header information. You can find the data under Logs (Analytics) in the Azure Monitor Application Insights resource.
+If you look at the request entry that was sent to Azure Monitor, you can see fields populated with the trace header information. You can find the data under **Logs (Analytics)** in the Azure Monitor Application Insights resource.
 
 ![Screenshot that shows Request telemetry in Logs (Analytics).](./media/opencensus-python/0011-correlation.png)
 
@@ -317,7 +317,7 @@ To collect custom telemetry, you need to instrument the application with Java 2.
 
 ### Role names
 
-You might want to customize the way component names are displayed in the [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by taking one of the following actions:
+You might want to customize the way component names are displayed in [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set `cloud_RoleName` by taking one of the following actions:
 
 - For Application Insights Java, set the cloud role name as follows:
 
@@ -329,10 +329,10 @@ You might want to customize the way component names are displayed in the [Applic
     }
     ```
 
-You can also set the cloud role name by using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`.
+  You can also set the cloud role name by using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`.
 
-- With Application Insights Java SDK 2.5.0 and later, you can specify the `cloud_RoleName`
-  by adding `<RoleName>` to your ApplicationInsights.xml file:
+- With Application Insights Java SDK 2.5.0 and later, you can specify `cloud_RoleName`
+  by adding `<RoleName>` to your *ApplicationInsights.xml* file:
 
    :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
@@ -345,7 +345,7 @@ You can also set the cloud role name by using the environment variable `APPLICAT
   </ApplicationInsights>
   ```
 
-- If you use Spring Boot with the Application Insights Spring Boot Starter, set your custom name for the application in the application.properties file:
+- If you use Spring Boot with the Application Insights Spring Boot Starter, set your custom name for the application in the *application.properties* file:
 
   `spring.application.name=<name-of-app>`
 
