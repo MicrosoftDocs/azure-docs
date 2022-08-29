@@ -41,7 +41,7 @@ The Storage Mover agent is a VM that you need to run, ideally close to the sourc
 
 The agent is made available as a VM disk image, compatible to be used with a new Windows HyperV VM. The agent can also be referred to as a migration appliance because it features a reduced, administrative shell that limits which operations you can perform on this machine.
 
-Use of the agent in migrations is managed through Azure (Azure portal / Az PowerShell / AzCLI).
+Use of the agent in migrations is managed through Azure (Azure portal / Az PowerShell / Az CLI).
 Network configuration and troubleshooting actions are available though an agent-local, administrative shell.
 
 ## Download the agent VM image

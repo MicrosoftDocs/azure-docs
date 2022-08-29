@@ -57,7 +57,7 @@ Your agent needs to be connected to the internet. The article **<!!!!! ARTICLE A
 
 When logged into the administrative shell, you can test the agents connectivity state:
 
-```Storage Mover agent - administrative shell
+```StorageMoverAgent-AdministrativeShell
 1) System configuration
 2) Network configuration
 3) Service and job status
@@ -71,7 +71,7 @@ xdmsh> 2
 ```
 Select menu item 2) *Network configuration*.
 
-```administrative-shell
+```StorageMoverAgent-AdministrativeShell
 1) Show network configuration
 2) Update network configuration
 3) Test network connectivity
@@ -91,7 +91,7 @@ The **<!!!!! ARTICLE AND LINK NEEDED !!!!!>** article can help troubleshoot in c
 In this step, you'll register your agent with the storage mover resource you've deployed in an Azure subscription.
 [Connect to the administrative shell](#step-1-connect-to-the-agent-vm) of your agent, then select menu item *4) Register*:
 
-```powershell
+```StorageMoverAgent-AdministrativeShell
 1) System configuration
 2) Network configuration
 3) Service and job status

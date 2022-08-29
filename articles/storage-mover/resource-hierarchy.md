@@ -30,7 +30,7 @@ Several Azure resources are involved in a Storage Mover deployment. This article
 
 Azure Storage Mover is a hybrid cloud service. Hybrid services have a cloud service component and an infrastructure component the administrator of the service runs in their corporate environment. For Storage Mover, that hybrid component is a migration agent. Agents are virtual machines, ran on a host near the source storage.
 
-All aspects of a migration are managed from the cloud service. The exception is the process of registering a migration agent. Registration is needed to create a trust relationship with your storage mover instance. Registration of an agent has to be initiated from the agent and with Azure credentials that allow Owner level permissions of the storage mover resource the agent is to be registered with. After registration is complete, the agent can then be controlled through the cloud service (Azure portal, Azure PowerShell/CLI).
+All aspects of a migration are managed from the cloud service. The exception is the process of registering a migration agent. You can learn more about [agent registration](agent-register.md) in a separate article.
 
 ## Storage mover resource
 
@@ -55,7 +55,7 @@ You can deploy several migration agent VMs and register each with a unique name 
 > The proximity and network quality between your migration agent and the target storage in Azure determine migration velocity in early stages of your migration. The region of the storage mover resource you've deployed doesn't play a role for performance.
 
 > [!NOTE]
-> In order to minimize downtime for your workload, you may decide to copy multiple times from source to target. In later copy runs, migration velocity is often more influenced by the speed at which the migration agent can evaluate if a file needs to be copied or not. In later migration stages, local compute and memory resources on an agent become more important to the migration velocity than network quality.
+> In order to minimize downtime for your workload, you may decide to copy multiple times from source to target. In later copy runs, migration velocity is often influenced more by the speed at which the migration agent can evaluate if a file needs to be copied or not. That means local compute and memory resources on an agent can become more important to the migration velocity than network quality.
 
 ## Migration project
 
@@ -70,18 +70,18 @@ In a different example, one source may even need to be split into multiple targe
 Grouping sources into a project doesn't mean you have to migrate all of them in parallel. You have control over what to run and when to run it. The remaining paragraphs in this article describe additional resources that allow for such fine-grained control.
 
 > [!TIP]
-> You can optionally add a description to your project. That might help to keep track of additional information for your project. If you've already created a migration plan elsewhere, the description field can be used to link this project to your plan. You might also use it to record other information a colleague might need later on. You can add descriptions to all storage mover resources and each description can contain up to 1024 characters.
+> You can optionally add a description to your project. A description can help to keep track of additional information for your project. If you've already created a migration plan elsewhere, the description field can be used to link this project to your plan. You can also use it to record information a colleague might need later on. You can add descriptions to all storage mover resources and each description can contain up to 1024 characters.
 
 ## Job definition
 
 A Job definition is contained in a project. The job definition describes a source, a target, and the migration settings you want to use the next time you start a copy from the defined source to the defined target in Azure.
 
 > [!IMPORTANT]
-> Once a job definition was created, source and target information cannot be changed. However, migration settings can be changed any time. They'll take effect at the next time you start a copy.
+> Once a job definition was created, source and target information cannot be changed. However, migration settings can be changed any time. A change won't affect a running migration job but take effect the next time you start a migration job.
 
 Here is an example for why changing source and target information is prohibited in a job definition. Let's say you define *Share A* as the source and copy to your target a few times. Let's also assume the the source can be changed in a job definition, and you change it to *Share B*. That can have potentially dangerous consequences.
 
-A common migration setting mirrors source to target. If that is applied to your migration, files from *Share A* might get deleted in the target, as soon as you start copying files from *Share B*. To prevent mistakes, source, target, and their optional sub-path information are locked when a job definition is created. If you want to reuse the same target but use a different source (or vice versa), you'll ave to create a new job definition.
+A common migration setting is to mirrors source to target. If that is applied to our example, files from *Share A* might get deleted in the target, as soon as you start copying files from *Share B*. To prevent mistakes and maintain the integrity of a job run history, you can't edit the source or target in a job definition. Source, target, and their optional sub-path information are locked when a job definition is created. If you want to reuse the same target but use a different source (or vice versa), you'll have to create a new job definition.
 
 The job definition also keeps a historic record of past copy runs and their results.
 
@@ -89,17 +89,26 @@ The job definition also keeps a historic record of past copy runs and their resu
 
 When you start a job definition, a new resource is implicitly created: a job run resource. The job definition contains all the information the storage mover service needs to start a copy. In a typical migration, you might copy from source to target several times. Each time you start a job definition, that is recorded in a job run.
 
-The job run or *job* in short, is given to the migration agent you've selected. The agent will then have all the necessary information about source, target, and the migration behavior it needs to follow to accomplish the migration you've previously defined.
+The job run is a snapshot of the job definition and given to the migration agent you've selected. The agent will then have all the necessary information about source, target, and the migration behavior it needs to follow to accomplish the migration you've previously defined.
+
+> [!IMPORTANT]
+> A change to migration settings won't affect a running migration job. At the time of starting a job run, a snapshot of the job definition is taken and executed b the migration agent. You can't change a job run, your only option is to cancel it.
 
 A job run has a state, progress information and copy result information. You'll find the most critical information about your job run as properties on the job run resource itself. The migration agent has a custom telemetry channel that allows it to store this information directly in the job run resource.
 
 The agent also emits additional information and migration results through the Azure Monitor service:
 - **Metrics** are numerical values, recorded over time. They can be plotted using the Azure Monitor service. Some selected metrics are also directly available when managing the job definition / job runs in the portal.
-- **Copy logs** are optional. If enabled, every job run has it's own copy log. A log entry is generated for each namespace item the agent encounters in the source, that cannot be copied. Success logs are currently not available.
+- **Copy logs** are optional. If enabled, every job run has it's own copy log. A log entry is generated for each namespace item the agent encounters in the source, that cannot be copied.
 
+> [!NOTE]
+> At this time in the public preview, copy logs are not available in Azure. They are, however, available via manual download from the migration agent that completed the job run.
+
+<!-- 
+!########################################################
 > [!IMPORTANT]
 > Metric information is available by default, but you must opt-in to enable copy logs. That can be done as part of creating your storage mover resource and also later on. If you want to check if copy logs are enabled, or manage details, you can use the *Diagnostic settings* menu on the Azure portal page for your storage mover resource.
-
+!########################################################
+-->
 Learn more about telemetry, metrics and logs in the [job definition monitoring article](job-definitions-monitor.md).
 
 ## Endpoint
