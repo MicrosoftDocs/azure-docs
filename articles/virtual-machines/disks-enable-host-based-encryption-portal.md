@@ -47,7 +47,6 @@ You must enable the feature for your subscription before you use the EncryptionA
     
     ```azurecli
     az feature register --name EncryptionAtHost  --namespace Microsoft.Compute 
-
     ```
     
     ---
