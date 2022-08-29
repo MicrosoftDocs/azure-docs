@@ -184,7 +184,7 @@ Updating the configuration can take a few minutes. You should get a notification
 
 #### Additional repositories
 
-If you want to to configure your service with an optional additional repository, specify the **URI** and **Authentication** as you did for the default repository. Be sure to include a **Name** setting for your pattern, and then select **Apply** to attach it to your instance.
+If you want to configure your service with an optional additional repository, specify the **Uri** and **Authentication** settings as you did for the default repository. Be sure to include a **Name** setting for your pattern, and then select **Apply** to attach it to your instance.
 
 ### Enter repository information into a YAML file
 
@@ -202,11 +202,11 @@ spring:
 
 ```
 
-Select the **Import settings** button, and then select the YAML file from your project directory. Select **Import**, and then an `async` operation from your **Notifications** will pop up. After 1-2 minutes, Config Server should report success.
+Select the **Import settings** button, and then select the YAML file from your project directory. Select **Import**, and then an `async` operation from your **Notifications** pops up. After 1-2 minutes, Config Server should report success.
 
-:::image type="content" source="media/how-to-config-server/local-yml-success.png" lightbox="media/how-to-config-server/local-yml-success.png" alt-text="Screenshot of the Config Server Notifications pane.":::
+:::image type="content" source="media/how-to-config-server/import-settings.png" lightbox="media/how-to-config-server/import-settings.png" alt-text="Screenshot of the Config Server Import settings pane.":::
 
-The information from your YAML file should be displayed in the Azure portal. Select **Apply** to finish.
+The information from your YAML file displays in the Azure portal. Select **Apply** to finish.
 
 ## Use Azure Repos for Azure Spring Apps configuration
 
