@@ -141,24 +141,7 @@ After the zone-redundant plan is created and deployed, any function app hosted o
 
 ## Migrate your function app to a zone-redundant plan
 
-This section describes how to migrate the public multi-tenant Premium plan from non-availability zone to availability zone support. We'll take you through the different considerations for migration.
-
-### Downtime requirements
-
-Downtime will be dependent on how you decide to carry out the migration. Since you can't convert pre-existing Premium plans to use availability zones, migration will consist of a side-by-side deployment where you'll create new Premium plans. Downtime will depend on how you choose to redirect traffic from your old to your new availability zone enabled function app. For example, for HTTP based functions if you're using an [Application Gateway](../app-service/networking/app-gateway-with-service-endpoints.md), a [custom domain](../app-service/app-service-web-tutorial-custom-domain.md), or [Azure Front Door](../frontdoor/front-door-overview.md), downtime will be dependent on the time it takes to update those respective services with your new app's information. Alternatively, you can route traffic to multiple apps at the same time using a service such as [Azure Traffic Manager](../app-service/web-sites-traffic-manager.md) and only fully cutover to your new availability zone enabled apps when everything is deployed and fully tested. You can also [write defensive functions](performance-reliability.md#write-defensive-functions) to ensure messages are not lost during the migration for non-HTTP functions.
-
-### Migration guidance: Redeployment
-
-If you want your function app to use availability zones, redeploy your apps into newly created availability zone enabled function app plans.
-
-### How to redeploy
-
-The following steps describe how to enable availability zones.
-
-1. To redeploy and ensure you'll be able to use availability zones, you'll need to be on the function app footprint that supports availability zones. If you're already using the Premium SKU and are in one of the [supported regions](#regional-availability), you can move on to the next step. Otherwise, you should create a new resource group in one of the supported regions to ensure the function app control plane can find a scale unit in the selected region that supports availability zones.
-1. Create a new Premium plan in one of the supported regions using the **new** resource group. Ensure the [new Premium plan has zone redundancy enabled](#how-to-deploy-a-function-app-on-a-zone-redundant-premium-plan).
-1. Create and deploy your apps into the new Premium plan using your desired [deployment method](functions-deployment-technologies.md).
-1. After testing and enabling the new apps, you can optionally disable or delete your non availability zone apps.
+For information on how to migrate the public multi-tenant Premium plan from non-availability zone to availability zone support please refer to [Migrate App Service to availability zone support](../availability-zones/migrate-functions.md).
 
 ## Pricing
 
