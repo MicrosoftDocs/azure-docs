@@ -21,7 +21,7 @@ In the following sections, you'll use  the Azure CLI to assign roles, and obtain
 ## Prerequisites
 
 - An Azure subscription
-- Access granted to the service in the desired Azure subscription
+- Access granted to the Azure OpenAI service in the desired Azure subscription
     Currently, access to this service is granted only by invitation. You can request access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - Azure CLI. [Installation Guide](/cli/azure/install-azure-cli)
 - The following Python libraries: os, requests, json

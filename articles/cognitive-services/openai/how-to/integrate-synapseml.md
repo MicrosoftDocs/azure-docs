@@ -19,7 +19,10 @@ The Azure OpenAI service can be used to solve a large number of natural language
 
 ## Prerequisites
 
-- An Azure OpenAI resource – request access [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUOFA5Qk1UWDRBMjg0WFhPMkIzTzhKQ1dWNyQlQCN0PWcu) before [creating a resource](create-resource.md?pivots=web-portal#create-a-resource)
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+- Access granted to the Azure OpenAI service in the desired Azure subscription
+    Currently, access to this service is granted only by invitation. You can request access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+- An Azure OpenAI resource – [create a resource](create-resource.md?pivots=web-portal#create-a-resource)
 - An Apache Spark cluster with SynapseML installed - create a serverless Apache Spark pool [here](../../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool)
 
 We recommend [creating a Synapse workspace](../../../synapse-analytics/get-started-create-workspace.md), but an Azure Databricks, HDInsight, or Spark on Kubernetes, or even a Python environment with the `pyspark` package, will also work.
