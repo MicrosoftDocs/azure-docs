@@ -28,7 +28,7 @@ You can add serverless APIs to Azure Static Web Apps that are powered by Azure F
 
 ## Create the static web app
 
-Before adding an API, create and deploy a frontend application to Azure Static Web Apps. Use an existing app that you have already deployed or create one by following the [Building your first static site with Azure Static Web Apps](getting-started.md) quickstart.
+Before adding an API, create and deploy a frontend application to Azure Static Web Apps. Use an existing app that you've already deployed or create one by following the [Building your first static site with Azure Static Web Apps](getting-started.md) quickstart.
 
 In Visual Studio Code, open the root of your app's repository. The folder structure contains the source for your frontend app and the Static Web Apps GitHub workflow in _.github/workflows_ folder.
 
@@ -46,7 +46,7 @@ You create an Azure Functions project for your static web app's API. By default,
 
 1. Press <kbd>F1</kbd> to open the Command Palette.
 
-1. Select **Azure Static Web Apps: Create HTTP Function...**. If you're prompted to install the Azure Functions extension, install it and re-run this command.
+1. Select **Azure Static Web Apps: Create HTTP Function...**. If you're prompted to install the Azure Functions extension, install it and rerun this command.
 
 1. When prompted, enter the following values:
 
@@ -215,7 +215,7 @@ export default {
 
 ## Run the frontend and API locally
 
-To run your frontend app and API together locally, Azure Static Web Apps provides a CLI that emulates the cloud environment. The CLI leverages the Azure Functions Core Tools to run the API.
+To run your frontend app and API together locally, Azure Static Web Apps provides a CLI that emulates the cloud environment. The CLI uses the Azure Functions Core Tools to run the API.
 
 ### Install command line tools
 
@@ -231,7 +231,7 @@ If your app uses a framework, build the app to generate the output before runnin
 
 # [No Framework](#tab/vanilla-javascript)
 
-There is no need to build the app.
+There's no need to build the app.
 
 # [Angular](#tab/angular)
 
