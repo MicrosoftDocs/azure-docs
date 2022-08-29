@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/14/2022
+ms.date: 07/29/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Tableau Cloud
@@ -143,9 +143,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
   
     a. In the Azure portal, go on the **Tableau Cloud** application integration page.
 
-	b. In the **User Attributes & Claims** section, click on the edit icon.
+	b. In the **User Attributes & Claims** section, click on the edit icon, perform the following steps to add SAML token attribute as shown in the below table:
 
    ![Screenshot shows the User Attributes & Claims section where you can select the edit icon.](./media/tableauonline-tutorial/attribute-section.png)
+
+	| Name | Source Attribute|
+	| ---------------| --------------- |
+	| DispalyName | user.displayname |
+
 
 	c. Copy the namespace value for these attributes: givenname, email and surname by using the following steps:
 
@@ -163,9 +168,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     * Email: **mail** or **userprincipalname**
 
-    * First name: **givenname**
-
-    * Last name: **surname**
+    * Full name: **displayname**
 
     ![Screenshot shows the Match attributes section where you can enter the values.](./media/tableauonline-tutorial/claims.png)
 
