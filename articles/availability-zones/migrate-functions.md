@@ -11,19 +11,19 @@ ms.custom: references_regions
 
 ---
 
-## Migrate your function app to a zone-redundant plan
+# Migrate your function app to a zone-redundant plan
 
 Availability zones (AZ) support for Azure Functions is available on Premium (Elastic Premium) and Dedicated (App Service) plans. A zone-redundant function app plan automatically balances its instances between availability zones for higher availability. This article describes how to migrate to the public multi-tenant Premium plan with availability zone support. For migration to zone redundancy on Dedicated plans, refer [here](migrate-app-service.md).
 
-### Downtime requirements
+## Downtime requirements
 
 Downtime will be dependent on how you decide to carry out the migration. Since you can't convert pre-existing Premium plans to use availability zones, migration will consist of a side-by-side deployment where you'll create new Premium plans. Downtime will depend on how you choose to redirect traffic from your old to your new availability zone enabled function app. For example, for HTTP based functions if you're using an [Application Gateway](../app-service/networking/app-gateway-with-service-endpoints.md), a [custom domain](../app-service/app-service-web-tutorial-custom-domain.md), or [Azure Front Door](../frontdoor/front-door-overview.md), downtime will be dependent on the time it takes to update those respective services with your new app's information. Alternatively, you can route traffic to multiple apps at the same time using a service such as [Azure Traffic Manager](../app-service/web-sites-traffic-manager.md) and only fully cutover to your new availability zone enabled apps when everything is deployed and fully tested. You can also [write defensive functions](../azure-functions/performance-reliability.md#write-defensive-functions) to ensure messages are not lost during the migration for non-HTTP functions.
 
-### Migration guidance: Redeployment
+## Migration guidance: Redeployment
 
 If you want your function app to use availability zones, redeploy your app into a newly created availability zone enabled Premium function app plan.
 
-### How to redeploy
+## How to redeploy
 
 The following steps describe how to enable availability zones.
 
@@ -35,13 +35,13 @@ The following steps describe how to enable availability zones.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about the Azure Functions Premium plan](functions-premium-plan.md)
+> [Learn about the Azure Functions Premium plan](../azure-functions/functions-premium-plan.md)
 
 > [!div class="nextstepaction"]
-> [Learn about Azure Functions support for availability zone redundancy](azure-functions-az-redundancy.md)
+> [Learn about Azure Functions support for availability zone redundancy](../azure-functions/azure-functions-az-redundancy.md)
 
 > [!div class="nextstepaction"]
 > [ARM Quickstart Templates](https://azure.microsoft.com/resources/templates/)
 
 > [!div class="nextstepaction"]
-> [Azure Functions geo-disaster recovery](functions-geo-disaster-recovery.md)
+> [Azure Functions geo-disaster recovery](../azure-functions/functions-geo-disaster-recovery.md)
