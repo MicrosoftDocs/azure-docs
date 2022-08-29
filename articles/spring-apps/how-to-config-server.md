@@ -25,7 +25,7 @@ Spring Cloud Config Server provides server and client-side support for an extern
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- An already provisioned and running Azure Spring Apps service of basic or standard tier. To set up and launch an Azure Spring Apps service, see [Quickstart: Launch a Java Spring application by using the Azure CLI](./quickstart.md). Spring Cloud Config Server is not applicable to enterprise tier.
+- An already provisioned and running Azure Spring Apps service of basic or standard tier. To set up and launch an Azure Spring Apps service, see [Quickstart: Launch a Java Spring application by using the Azure CLI](./quickstart.md). Spring Cloud Config Server isn't applicable to enterprise tier.
 
 ## Restriction
 
@@ -246,15 +246,15 @@ Azure Spring Apps can access Git repositories that are public, secured by SSH, o
 
    - Add the repository URL that you saved in the previous section.
    - Select **Authentication** and then select **HTTP Basic**.
-   - Specify a **username** -- the user name that you saved in the previous section.
-   - Specify a **password** -- the password that you saved in the previous section.
+   - For **username**, specify the user name that you saved in the previous section.
+   - For **password**, specify the password that you saved in the previous section.
    - Select **Apply**, and then wait for the operation to complete.
 
    :::image type="content" source="media/how-to-config-server/config-server-azure-repos.png" lightbox="media/how-to-config-server/config-server-azure-repos.png" alt-text="Screenshot of repository configuration settings.":::
 
 ## Delete your configuration
 
-Select **Reset** on the **Config Server** tab to erase your existing settings. Delete the config server settings if you want to connect your Config Server instance to another source, such as when you are moving from GitHub to Azure DevOps.
+Select **Reset** on the **Config Server** tab to erase your existing settings. Delete the config server settings if you want to connect your Config Server instance to another source, such as when you're moving from GitHub to Azure DevOps.
 
 ## Config Server refresh
 
