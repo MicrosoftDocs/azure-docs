@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN, a service that enables you to cre
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 07/23/2021
+ms.date: 08/29/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ---
@@ -13,11 +13,17 @@ ms.subservice: elastic-san
 
 Azure Elastic SAN is Microsoft's answer to the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. Elastic SAN is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
 
+Elastic SAN is designed for large scale IO-intensive workloads and top tier databases, such as:
+- SAP HANA
+- SQL
+- Epic
+- Azure Kubernetes Service
+
 ## Benefits of Elastic SAN
 
 ### Unified interface
 
-Elastic SAN offers a unified storage provisioning experience that simplifies managing storage at scale through grouping and policy enforcement.
+Elastic SAN offers a unified storage provisioning experience that simplifies deploying and managing storage at scale through grouping and policy enforcement.
 
 ### Performance
 
@@ -41,11 +47,15 @@ At the SAN-level, you select the redundancy of the entire SAN and provision stor
 
 ### Volume groups
 
-Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network ACLs, are inherited by any volumes associated with that volume group. Your volume group's name is part of your volume's iSCSI IQN. A SAN can have up to 20 volume groups and a volume group can contain up to 1,000 volumes.
+Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network ACLs, are inherited by any volumes associated with that volume group. A SAN can have up to 20 volume groups and a volume group can contain up to 1,000 volumes.
+
+ Your volume group's name is part of your volume's iSCSI Qualified Name (IQN). Follow these rules when naming a volume group: The name must be 1 to 80 characters long, must be lowercase, and can only contain alphanumeric characters, underscores, and hyphens.
 
 ### Volumes
 
-You partition the appliance's storage capacity into individual volumes. These individual volumes can be mounted to your clients with iSCSI. A volume can connect to up to 20 different clients simultaneously. The name of your volume is part of their iSCSI IQN.
+You partition the appliance's storage capacity into individual volumes. These individual volumes can be mounted to your clients with iSCSI. A volume can connect to up to 20 different clients simultaneously. 
+
+The name of your volume is part of their iSCSI IQN. Follow these rules when naming a volume: The name must be 1 to 80 characters long, must be lowercase, and can only contain alphanumeric characters, underscores, and hyphens.
 
 ## Next steps
 
