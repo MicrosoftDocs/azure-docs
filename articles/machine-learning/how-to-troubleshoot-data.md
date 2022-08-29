@@ -40,6 +40,7 @@ Errors also include:
 - ScriptExecution.DatabaseConnection.Authentication.AzureIdentityAccessTokenResolution.InvalidResource
   - The server under the subscription and resource group could not be found. Check that the subscription ID and resource group defined in the datastore matches that of the server and update the values if needed. This may not be the same as the subscription ID or resource group of the workspace in case of a cross subscription or cross resource group server.
 - ScriptExecution.DatabaseConnection.Authentication.AzureIdentityAccessTokenResolution.FirewallSettingsResolutionFailure
+  - The identity does not have permission to read firewall settings of the target server. Contact your data admin to the Reader role to the workspace MSI.
 
 ## ScriptExecution.DatabaseQuery
 
@@ -61,7 +62,7 @@ Contact your data admin to verify or add the correct permissions to the service 
 Errors also include:
 
 - ScriptExecution.StreamAccess.Authentication.AzureIdentityAccessTokenResolution.FirewallSettingsResolutionFailure
-  - The identity does not have permission to read firewall settings of the target storage account. Reader role is needed.
+  - The identity does not have permission to read firewall settings of the target storage account. Contact your data admin to the Reader role to the workspace MSI.
 - ScriptExecution.StreamAccess.Authentication.AzureIdentityAccessTokenResolution.PrivateEndpointResolutionFailure
   - The target storage account is using a virtual network but the logged in session is not connecting to the workspace via a private endpoint. Add a private endpoint to the workspace and ensure that the virtual network or subnet of the private endpoint is allowed by the storage virtual network settings and add the user's public IP to the storage firewall allow list.
 - ScriptExecution.StreamAccess.Authentication.AzureIdentityAccessTokenResolution.NetworkIsolationViolated
