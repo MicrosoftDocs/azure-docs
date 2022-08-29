@@ -1,16 +1,16 @@
 ---
-title: How to manage groups - Azure Active Directory | Microsoft Docs
+title: Learn about groups and group membership - Azure Active Directory | Microsoft Docs
 description: Information about Azure Active Directory groups and access rights
 services: active-directory
-author: barclayn
-manager: rkarlin
+author: shlipsey3
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/29/2018
-ms.author: barclayn
+ms.date: 08/29/2022
+ms.author: sarahlipsey
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"                      
 ms.collection: M365-identity-device-management
@@ -88,10 +88,10 @@ After a user requests to join a group, the request is forwarded to the group own
 
 - [Create and manage Azure AD groups and group membership](how-to-manage-groups.md)
 
+- [Learn about group-based licensing in Azure AD](active-directory-licensing-whatis-azure-portal.md)
+
 - [Manage access to SaaS apps using groups](../enterprise-users/groups-saasapps.md)
 
 - [Manage dynamic rules for users in a group](../enterprise-users/groups-create-rule.md)
-
-- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../enterprise-users/licensing-group-advanced.md#limitations-and-known-issues)
 
 - [Learn about Privileged Identity Management for Azure AD roles](../../active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)
