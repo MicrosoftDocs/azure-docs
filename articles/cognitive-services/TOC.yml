@@ -72,7 +72,7 @@
   - name: Security
     items:
     - name: Security features
-      href: cognitive-services-security.md
+      href: security-features.md
     - name: Authenticate requests to Cognitive Services
       href: authentication.md
     - name: Use environment variables with Cognitive Services
