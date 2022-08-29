@@ -183,7 +183,7 @@ To find a device template ID, navigate to the **Devices** page in your IoT Centr
 
 :::image type="content" source="media/howto-query-with-rest-api/show-device-template-id.png" alt-text="Screenshot that shows how to find the device template ID in the page URL.":::
 
-You can also use the [Devices - Get](/rest/api/iotcentral/1.2-previewdataplane/devices/get) REST API call to get the device template ID for a device.
+You can also use the [Devices - Get](/rest/api/iotcentral/2022-07-31dataplane/devices/get) REST API call to get the device template ID for a device.
 
 ## WHERE clause
 
