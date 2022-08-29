@@ -61,7 +61,7 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 ### [Document Translation support for scanned PDF documents](https://aka.ms/blog_ScannedPdfTranslation)
 
-* Document Translator uses optical character recognition (OCR) technology to extract and translate text in scanned PDF document while retaining the original layout.
+* Document Translation uses optical character recognition (OCR) technology to extract and translate text in scanned PDF document while retaining the original layout.
 
 ## April 2022
 

@@ -7,6 +7,7 @@ items:
   - name: What is Translator Service?
     href: translator-overview.md
   - name: Language Support
+    displayName: detection, detect
     href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator
@@ -50,14 +51,17 @@ items:
   - name: How-to guides
     items:
     - name: Use the Text Translator APIs
+      displayName: detection, detect
       href: translator-text-apis.md
     - name: Migrate to V3 Text API
+      displayName: speech, error, 401000, 400000, 401, 405000
       href: migrate-to-v3.md
     - name: Add profanity filtering
       href: profanity-filtering.md
     - name: Receive word alignment information
       href: word-alignment.md
     - name: Prevent translation of content
+      displayName: textType, text type
       href: prevent-translation.md
     - name: Use the dynamic dictionary feature
       href: dynamic-dictionary.md
@@ -72,6 +76,7 @@ items:
       - name: Use containers in disconnected environments
         href: ../containers/disconnected-containers.md
       - name: "Container: Translate"
+        displayName: textType, text type
         href: containers/translator-container-supported-parameters.md
   - name: Tutorials
     items:
@@ -92,32 +97,39 @@ items:
     - name: Languages
       href: reference/v3-0-languages.md
     - name: Translate
+      displayName: detection, detect
       href: reference/v3-0-translate.md
     - name: Transliterate
       href: reference/v3-0-transliterate.md
     - name: Detect
       href: reference/v3-0-detect.md
     - name: BreakSentence
+      displayName: detection, detect
       href: reference/v3-0-break-sentence.md
     - name: Dictionary Lookup
       href: reference/v3-0-dictionary-lookup.md
     - name: Dictionary Examples
       href: reference/v3-0-dictionary-examples.md
     - name: Request limits
+      displayName: detection, detect
       href: request-limits.md
 - name: Document Translation
   items:
     - name: What is Document Translation?
+      displayName: ocr, batch
       href: document-translation/overview.md
     - name: Client-library SDKs
+      displayName: batch
       href: document-translation/client-sdks.md
     - name: Quickstart
+      displayName: batch
       href: document-translation/get-started-with-document-translation.md
     - name: How-to guides
       items:
       - name: Create SAS tokens for storage containers
         href: document-translation/create-sas-tokens.md
       - name: Create and use managed identities
+        displayName: batch
         href: document-translation/managed-identity.md
     - name: Reference
       items:
@@ -198,6 +210,7 @@ items:
     - name: Concepts
       items:
       - name: Customize and improve text translation
+        displayName: speech
         href: customization.md
       - name: Workspaces and projects
         href: custom-translator/workspace-and-project.md
@@ -226,7 +239,7 @@ items:
 - name: Resources
   items:
   - name: Translator in sovereign clouds
-    displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
+    displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china, batch
     href: sovereign-clouds.md
   - name: Compliance and certification
     href: https://www.microsoft.com/translator/business/notrace/
