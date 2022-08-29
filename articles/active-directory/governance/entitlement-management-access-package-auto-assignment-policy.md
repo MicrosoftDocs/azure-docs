@@ -4,7 +4,7 @@ description: Learn how to configure automatic assignments based on rules for an 
 services: active-directory
 documentationCenter: ''
 author: markwahl-msft
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity

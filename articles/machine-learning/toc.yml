@@ -246,6 +246,9 @@
           href: how-to-high-availability-machine-learning.md
         - name: Regenerate storage access keys
           href: how-to-change-storage-access-key.md
+        - name: Data exfiltration prevention
+          displayName: loss
+          href: how-to-prevent-data-loss-exfiltration.md
     - name: Create & manage workspaces
       items:
         - name: Use Azure portal or Python SDK
