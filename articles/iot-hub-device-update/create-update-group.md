@@ -93,7 +93,7 @@ Tags can also be added or updated in Device twin or Module Twin directly.
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot of ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
 
-5. Groups will be automatically created based on the tags assigned as well as the compatibility propoerties of the devices. One group can have multiple subgroups with different device classes. 
+5. Groups will be automatically created based on the tags assigned as well as the compatibility properties of the devices. One group can have multiple subgroups with different device classes. 
 
 7. Once the group is created, you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available, and Updates in Progress. [Learn  about update compliance.](device-update-compliance.md)
 
