@@ -116,7 +116,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Timetabling Solutions SSO
 
-To configure single sign-on on **Timetabling Solutions** side, you need to send the **Thumbprint Value** and appropriate copied URLs from Azure portal to [Timetabling Solutions support team](https://www.timetabling.com.au/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Timetabling Solutions** side, you need to populate the **Thumbprint Value** and appropriate copied URLs from the Azure portal to the Timetabling Solutions [Administration Console](https://admin.timetabling.education/).
 
 ### Create Timetabling Solutions test user
 
