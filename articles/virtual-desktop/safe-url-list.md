@@ -3,16 +3,14 @@ title: Required URLs for Azure Virtual Desktop
 description: A list of URLs you must unblock to ensure your Azure Virtual Desktop deployment works as intended.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/26/2022
+ms.date: 08/29/2022
 ms.author: helohr
 manager: femila
 ---
 
 # Required URLs for Azure Virtual Desktop
 
-In order to deploy and make Azure Virtual Desktop available to your users, you must allow specific URLs that your session host virtual machines (VMs) can access them anytime. Users also need to be able to connect to certain URLs to access their Azure Virtual Desktop resources. This article lists the required URLs you need to allow for your session hosts and users. Azure Virtual Desktop doesn't support deployments that block the URLs listed in this article.
-
-For more information about how to allow certain URLs in Azure Firewall, see [Configure an application rule](../firewall/tutorial-firewall-deploy-portal-policy.md#configure-an-application-rule).
+In order to deploy and make Azure Virtual Desktop available to your users, you must allow specific URLs that your session host virtual machines (VMs) can access them anytime. Users also need to be able to connect to certain URLs to access their Azure Virtual Desktop resources. This article lists the required URLs you need to allow for your session hosts and users if you're using [Azure Firewall](../firewall/protect-azure-virtual-desktop.md) or a third-party firewall or proxy service. Azure Virtual Desktop doesn't support deployments that block the URLs listed in this article.
 
 You can validate that your session host VMs can connect to these URLs by following the steps to run the [Required URL Check tool](required-url-check-tool.md). The Required URL Check tool will validate each URL and show whether your session host VMs can access them. You can only use for deployments in the Azure public cloud, it does not check access for sovereign clouds.
 
@@ -152,3 +150,7 @@ Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=%2Fa
 ---
 
 These URLs only correspond to client sites and resources. This list doesn't include URLs for other services like Azure Active Directory or Office 365. Azure Active Directory URLs can be found under IDs 56, 59 and 125 in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
+
+## Next steps
+
+To learn how to unblock these URLs in Azure Firewall for your Azure Virtual Desktop deployment, see [Use Azure Firewall to protect Azure Virtual Desktop](../firewall/protect-azure-virtual-desktop.md).
