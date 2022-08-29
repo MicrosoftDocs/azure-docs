@@ -21,75 +21,68 @@ In this guide, learn how to identify and resolve known issues with data access w
 
 ## Error Codes
 
-Error codes are hierarchical, with `.` delimiters between segments. The more segments there are, the more specific the error classification.
+Data access error codes are hierarchical delimited by the full stop character `.` and are more specific the more segments there are.
 
 ## ScriptExecution.DatabaseConnection
 
 ### ScriptExecution.DatabaseConnection.NotFound
 
-Issue: The database defined in the datastore cannot be found.
-
-Mitigation: Check if the database still exists in Azure portal or linked to from the Azure Machine Learning Studio datastore details page.
+The database or server defined in the datastore could not be found or no longer exists. Check if the database still exists in Azure portal or linked to from the Azure Machine Learning Studio datastore details page. If it does not exist, recreating it with the same name will enable the existing datastore to be used. If a new server name or database is used, the datastore will have to be deleted and recreated to use the new name.
 
 ### ScriptExecution.DatabaseConnection.Authentication
 
-Issue: The method of authentication to SQL failed.
+The authentication failed while trying to connect to the database. The authentication method is stored inside the datastore and supports SQL authentication, service principal, or no stored credential (identity based access). Enabling workspace MSI makes the authentication use the workspace MSI when previewing data in Azure Machine Learning Studio.
 
-Mitigation Check your access or contact your data admin - if a datastore with credential is used, that the service principal or username/password combination is valid and given access. If identity access, check that the user or compute identity is given SQL access.
+Contact your data admin to verify or add the correct permissions to the service principal or user identity.
 
 Errors also include:
 
 - ScriptExecution.DatabaseConnection.Authentication.AzureIdentityAccessTokenResolution.InvalidResource
+  - The server under the subscription and resource group could not be found. Check that the subscription ID and resource group defined in the datastore matches that of the server and update the values if needed. This may not be the same as the subscription ID or resource group of the workspace in case of a cross subscription or cross resource group server.
 - ScriptExecution.DatabaseConnection.Authentication.AzureIdentityAccessTokenResolution.FirewallSettingsResolutionFailure
 
 ## ScriptExecution.DatabaseQuery
 
-### ScriptExecution.DatabaseQuery.Unexpected
-
-TBD
-
 ### ScriptExecution.DatabaseQuery.TimeoutExpired
 
-Issue: The SQL query timed out. The SQL took longer to run than the specified query timeout or the default.
-
-Mitigation: Increase the specified query timeout of the data asset. In case of Azure Machine Learning Studio SQL preview, there will have a fixed query timeout, but the data asset defined value will be honored for jobs.
+The executed SQL query took too long and timed out. The timeout can be specified at time of data asset creation. If a new timeout is needed, a new asset must be created or a new version of the current asset must be created. In case of Azure Machine Learning Studio SQL preview, there will have a fixed query timeout, but the defined value will always be honored for jobs.
 
 ## ScriptExecution.StreamAccess
 
 ### ScriptExecution.StreamAccess.Authentication
 
-Issue: The method of authentication to storage failed.
+The authentication failed while trying to connect to the storage account. The authentication method is stored inside the datastore and depending on the datastore type, can support account key, SAS token, service principal or no stored credential (identity based access). Enabling workspace MSI makes the authentication use the workspace MSI when previewing data in Azure Machine Learning Studio.
 
-Mitigation: Check your access or contact your data admin. If the data asset uses a datastore with credential, ensure that the credential is valid. If identity access is used (credential is not there or a direct URI is used), then ensure that the user or compute identity has sufficient access. The RBAC required is Reader and Storage Blob Data Reader or above.
+Contact your data admin to verify or add the correct permissions to the service principal or user identity.
+
+> [!IMPORTANT]
+> If identity based access is used, the required RBAC role is Storage Blob Data Reader. If workspace MSI is used for Azure Machine Learning Studio preview, the required RBAC roles are Storage Blob Data Reader and Reader.
 
 Errors also include:
 
 - ScriptExecution.StreamAccess.Authentication.AzureIdentityAccessTokenResolution.FirewallSettingsResolutionFailure
-  - Issue: The identity does not have permission to read firewall settings of the target storage account.
-  - Mitigation: The workspace MSI or user identity needs to be assigned the Reader role.
+  - The identity does not have permission to read firewall settings of the target storage account. Reader role is needed.
 - ScriptExecution.StreamAccess.Authentication.AzureIdentityAccessTokenResolution.PrivateEndpointResolutionFailure
-  - Issue: The target storage account is using a virtual network but the logged in session is not connecting to the workspace via private endpoint.
-  - Mitigation: Add a private endpoint to the workspace and ensure that the virtual network or subnet of the private endpoint is allowed by the storage virtual network settings. Add the user's public IP to the storage firewall whitelist.
+  - The target storage account is using a virtual network but the logged in session is not connecting to the workspace via a private endpoint. Add a private endpoint to the workspace and ensure that the virtual network or subnet of the private endpoint is allowed by the storage virtual network settings and add the user's public IP to the storage firewall allow list.
 - ScriptExecution.StreamAccess.Authentication.AzureIdentityAccessTokenResolution.NetworkIsolationViolated
-  - Issue: The firewall settings do not permit this data access.
-  - Mitigation: Check that your logged in session is within compatible network settings with the storage account, and if Workspace MSI is used, that that has Reader access to the storage account.
-- ScriptExecution.DatabaseConnection.Authentication.AzureIdentityAccessTokenResolution.InvalidResource
-  - Issue: The storage account under the subscription and resource group could not be found.
-  - Mitigation: Check the subscription ID and resource group defined in the datastore and update if needed. This may not be the same as the subscription ID or resource group of the workspace in case of a cross subscription or cross resource group storage account.
-- ScriptExecution.StreamAccess.Authentication.AzureIdentityAccessTokenResolution.Unexpected
+  - The target storage account's firewall settings do not permit this data access. Check that your logged in session is within compatible network settings with the storage account, and if Workspace MSI is used, that it has Reader access to the storage account.
+- ScriptExecution.StreamAccess.Authentication.AzureIdentityAccessTokenResolution.InvalidResource
+  - The storage account under the subscription and resource group could not be found. Check that the subscription ID and resource group defined in the datastore matches that of the storage account and update the values if needed. This may not be the same as the subscription ID or resource group of the workspace in case of a cross subscription or cross resource group storage account.
 
 ### ScriptExecution.StreamAccess.NotFound
 
-The specified file or folder path does not exist.
-
-Check the provided path for typos or if using a datastore, that the right datastore is used (including the datastore's account & container). In the case of an HSN enabled Blob storage, otherwise known as ADLS Gen2, or an `abfs[s]` URI, that storage ACLs may restrict particular folders or paths. This will appear as a "NotFound" error instead of an "Authentication" error.
+The specified file or folder path does not exist. Check that the provided path exists in Azure portal or if using a datastore, that the right datastore is used (including the datastore's account and container). In the case of an HNS enabled Blob storage, otherwise known as ADLS Gen2, or an `abfs[s]` URI, that storage ACLs may restrict particular folders or paths. This will appear as a "NotFound" error instead of an "Authentication" error.
 
 ### ScriptExecution.StreamAccess.Validation
 
-Errors include:
+There were validation errors in the request for data access.
+
+Errors also include:
 
 - ScriptExecution.StreamAccess.Validation.TextFile-InvalidEncoding
+  - The defined encoding for delimited file parsing is not applicable for the underlying data. Update the encoding of the MLTable to match the encoding of the file(s).
 - ScriptExecution.StreamAccess.Validation.StorageRequest-InvalidUri
+  - The requested URI is not well formatted. We support `abfs[s]`, `wasb[s]`, `https`, and `azureml` URIs.
 
 ## Next steps
 
