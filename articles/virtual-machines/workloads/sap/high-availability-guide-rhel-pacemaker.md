@@ -299,7 +299,7 @@ sudo pcs property set stonith-timeout=900
 > Refer to the bold section in the command. For more information, see [What format should I use to specify node mappings to stonith devices in pcmk_host_map](https://access.redhat.com/solutions/2619961)
 
 
-#### [Managed Identity]
+#### [Managed Identity](#tab/msi)
 
 For RHEL **7.X**, use the following command to configure the fence device:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="<b>resource group</b>" \ 
@@ -315,7 +315,7 @@ power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_
 op monitor interval=3600
 </code></pre>
 
-#### [Managed Identity]
+#### [Service Principal](#tab/spn)
 
 For RHEL **7.X**, use the following command to configure the fence device:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
@@ -328,6 +328,8 @@ For RHEL **8.X**, use the following command to configure the fence device:
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
+
+---
 
 > [!TIP]
 > Only configure the `pcmk_delay_max` attribute in two node Pacemaker clusters. For more information on preventing fence races in a two node Pacemaker cluster, see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829). 
