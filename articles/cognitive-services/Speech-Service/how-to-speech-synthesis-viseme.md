@@ -49,7 +49,32 @@ Speech audio output can be accompanied by viseme IDs and `Audio offset`. The `Au
 
 ### Map phonemes to visemes
 
-Visemes vary by language and locale. Each locale has a set of visemes that correspond to its specific phonemes. The [SSML phonetic alphabets](speech-ssml-phonetic-sets.md) documentation maps viseme IDs to the corresponding International Phonetic Alphabet (IPA) phonemes.
+Visemes vary by language and locale. Each locale has a set of visemes that correspond to its specific phonemes. The [SSML phonetic alphabets](speech-ssml-phonetic-sets.md) documentation maps viseme IDs to the corresponding International Phonetic Alphabet (IPA) phonemes. The table below shows a mapping relationship between viseme IDs and mouth shapes, listing typical IPA phonemes for each viseme ID.
+
+| Viseme ID | IPA | Mouth shape|
+|---------------|---------------|---------------|
+|0|Silence|![Mouth shape of viseme ID 0.](media/text-to-speech/viseme-id-0.jpg)|
+|1|`æ`, `ə`, `ʌ`| ![Mouth shape of viseme ID 1.](media/text-to-speech/viseme-id-1.jpg)|
+|2|`ɑ`|![Mouth shape of viseme ID 2.](media/text-to-speech/viseme-id-2.jpg)|
+|3|`ɔ`|![Mouth shape of viseme ID 3.](media/text-to-speech/viseme-id-3.jpg)|
+|4|`ɛ`, `ʊ`|![Mouth shape of viseme ID 4.](media/text-to-speech/viseme-id-4.jpg)|
+|5|`ɝ`|![Mouth shape of viseme ID 5.](media/text-to-speech/viseme-id-5.jpg)|
+|6|`j`, `i`, `ɪ`, |![Mouth shape of viseme ID 6.](media/text-to-speech/viseme-id-6.jpg)|
+|7|`w`, `u`|![Mouth shape of viseme ID 7.](media/text-to-speech/viseme-id-7.jpg)|
+|8|`o`|![Mouth shape of viseme ID 8.](media/text-to-speech/viseme-id-8.jpg)|
+|9|Not supported|![Mouth shape of viseme ID 9.](media/text-to-speech/viseme-id-9.jpg)|
+|10|Not supported|![Mouth shape of viseme ID 10.](media/text-to-speech/viseme-id-10.jpg)|
+|11|Not supported|![Mouth shape of viseme ID 11.](media/text-to-speech/viseme-id-11.jpg)|
+|12|`h`|![Mouth shape of viseme ID 12.](media/text-to-speech/viseme-id-12.jpg)|
+|13|`ɹ`|![Mouth shape of viseme ID 13.](media/text-to-speech/viseme-id-13.jpg)|
+|14|`l`|![Mouth shape of viseme ID 14.](media/text-to-speech/viseme-id-14.jpg)|
+|15|`s`, `z`|![Mouth shape of viseme ID 15.](media/text-to-speech/viseme-id-15.jpg)|
+|16|`ʃ`, `tʃ`, `dʒ`, `ʒ`|![Mouth shape of viseme ID 16.](media/text-to-speech/viseme-id-16.jpg)|
+|17|`ð`|![Mouth shape of viseme ID 17.](media/text-to-speech/viseme-id-17.jpg)|
+|18|`f`, `v`|![Mouth shape of viseme ID 18.](media/text-to-speech/viseme-id-18.jpg)|
+|19|`d`, `t`, `n`, `θ`|![Mouth shape of viseme ID 19.](media/text-to-speech/viseme-id-19.jpg)|
+|20|`k`, `g`, `ŋ`|![Mouth shape of viseme ID 20.](media/text-to-speech/viseme-id-20.jpg)|
+|21|`p`, `b`, `m`|![Mouth shape of viseme ID 21.](media/text-to-speech/viseme-id-21.jpg)|
 
 ## 2D SVG animation
 
