@@ -29,19 +29,19 @@ Connect and sign in to a VM you created with multiple private IP addresses. You 
     * **Subnet mask**: Set based on your subnet. For example, if the subnet is a /24 subnet then the subnet mask is 255.255.255.0.
     * **Default gateway**: The first IP address in the subnet. If your subnet is 10.0.0.0/24, then the gateway IP address is 10.0.0.1.
     * Select **Use the following DNS server addresses** and enter the following values:
-      * **Preferred DNS server**: If you are not using your own DNS server, enter 168.63.129.16.  If you are using your own DNS server, enter the IP address for your server.  (For Alternate DNS Server you can pick any free public DNS server address.)
+      * **Preferred DNS server**: If you aren't using your own DNS server, enter 168.63.129.16.  If you're using your own DNS server, enter the IP address for your server.  (For Alternate DNS Server you can pick any free public DNS server address.)
     * Select the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses, that you added to the Azure network interface in a previous step, to the Windows network interface that is assigned the primary IP address assigned to the Azure network interface.
 
-      You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system. When you manually set the IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#private) settings. You should never assign an Azure public IP address within the operating system.
+      You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system. When you manually set the IP address within the operating system, ensure that it's the same address as the private IP address assigned to the Azure [network interface](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#private) settings. You should never assign an Azure public IP address within the operating system.
 
-    * Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
+    * Select **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
 
 6. From a command prompt, type *ipconfig /all*. Verify all IP addresses you added are shown and DHCP is turned off.
 7. Configure Windows to use the private IP address of the primary IP configuration in Azure as the primary IP address for Windows. See [No Internet access from Azure Windows VM that has multiple IP addresses](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) for details. 
 
 #### Validation (Windows Server)
 
-To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, once you have added it correctly using steps above, use the following command (replacing 10.0.0.7 with the secondary, private IP address):
+To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated it, once you've added it correctly using steps above, use the following command (replacing 10.0.0.7 with the secondary, private IP address):
 
 ```bash
 ping -S 10.0.0.7 outlook.com
@@ -60,7 +60,7 @@ ping -S 10.0.0.7 outlook.com
 We recommend looking at the latest documentation for your Linux distribution. 
 
 1. Open a terminal window.
-2. Make sure you are the root user. If you are not, enter the following command:
+2. Make sure you're the root user. If you aren't, enter the following command:
 
    ```bash
    sudo -i
@@ -118,7 +118,7 @@ We recommend looking at the latest documentation for your Linux distribution.
 
 #### Validation (Ubuntu 14/16)
 
-To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
+To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
 
 ```bash
 ping -I 10.0.0.5 outlook.com
@@ -151,7 +151,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 Ubuntu 18.04 and above have changed to `netplan` for OS network management. We recommend looking at the latest documentation for your Linux distribution. 
 
 1. Open a terminal window.
-2. Make sure you are the root user. If you are not, enter the following command:
+2. Make sure you're the root user. If you are not, enter the following command:
 
     ```bash
     sudo -i
@@ -222,7 +222,7 @@ Ubuntu 18.04 and above have changed to `netplan` for OS network management. We r
 
 #### Validation (Ubuntu 18.04+)
 
-To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
+To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
 
 ```bash
 ping -I 10.0.0.5 outlook.com
@@ -253,13 +253,13 @@ ip route add default via 10.0.0.1 dev eth2 table custom
   <summary>Expand</summary>
 
 1. Open a terminal window.
-2. Make sure you are the root user. If you are not, enter the following command:
+2. Make sure you're the root user. If you are not, enter the following command:
 
     ```bash
     sudo -i
     ```
 
-3. Enter your password and follow instructions as prompted. Once you are the root user, navigate to the network scripts folder with the following command:
+3. Enter your password and follow instructions as prompted. Once you're the root user, navigate to the network scripts folder with the following command:
 
     ```bash
     cd /etc/sysconfig/network-scripts
@@ -312,7 +312,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 
 #### Validation (Red Hat, CentOS, and others)
 
-To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
+To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
 
 ```bash
 ping -I 10.0.0.5 outlook.com
@@ -343,7 +343,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
   <summary>Expand</summary>
 
 1. Open a terminal window.
-1. Make sure you are the root user. If you are not, enter the following command:
+1. Make sure you're the root user. If you are not, enter the following command:
 
    ```bash
    sudo -i
