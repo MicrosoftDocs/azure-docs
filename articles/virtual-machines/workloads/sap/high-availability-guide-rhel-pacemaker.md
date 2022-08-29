@@ -277,11 +277,11 @@ Use the following content for the input file. You need to adapt the content to y
 
 ### **[A]** Assign the custom role to the Service Principal
 
-#### Using Managed Identity
+#### [Using Managed Identity](#tab/msi)
 
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). Verify each VM's managed identity role assignment contains all cluster VMs.
 
-#### Using Service Principal
+#### [Using Service Principal](#tab/spn)
 
 If using Service Principal, assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
 Make sure to assign the role for both cluster nodes.    
@@ -302,14 +302,14 @@ sudo pcs property set stonith-timeout=900
 #### [Managed Identity](#tab/msi)
 
 For RHEL **7.X**, use the following command to configure the fence device:    
-<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="<b>resource group</b>" \ 
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm <b>msi=true</b> resourceGroup="<b>resource group</b>" \ 
 subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
 
 For RHEL **8.X**, use the following command to configure the fence device:  
-<pre><code>sudo pcs stonith create rsc_st_azure msi=true fence_azure_arm resourceGroup="<b>resource group</b>" \
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm <b>msi=true</b> resourceGroup="<b>resource group</b>" \
 subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
