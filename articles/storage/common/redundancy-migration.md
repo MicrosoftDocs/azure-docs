@@ -92,7 +92,7 @@ Some storage account types only support certain replication configurations, whic
 | Storage account type        | Supports LRS | Supports ZRS | Supports live migration | Supports manual migration |
 |:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|
 | Standard general purpose v2 | Yes          | Yes          | Yes                     | Yes                       |
-| Premium file shares         | Yes          | Yes          | Yes <sp>1</sp>          | Yes                       |
+| Premium file shares         | Yes          | Yes          | Yes <sup>1</sup>        | Yes                       |
 | Premium block block blob    | Yes          | Yes          | No                      | Yes                       |
 | Premium page blob           | Yes          | No           | No                      | No                        |
 | Managed disks<sup>2</sup>   | Yes          | No           | No                      | No                        |
