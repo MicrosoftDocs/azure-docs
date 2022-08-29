@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent network requirements
 description: Learn about the networking requirements for using the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 07/26/2022
+ms.date: 08/29/2022
 ms.topic: conceptual 
 ---
 
