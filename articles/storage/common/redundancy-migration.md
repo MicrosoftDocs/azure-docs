@@ -54,14 +54,15 @@ To add or remove zone-redundancy requires migration of the data in the storage a
 
 If you want to change both the zone-redundancy factor and either geo-redundancy, read-access or both, a two-step process will be required. You will first need to make the geo-redundancy and read-access change(s), then perform a migration to change the zone-redundancy.
 
-The following table provides an overview the options for switching from each type of replication to another:
-
-| Switching | …to LRS | …to GRS/RA-GRS | …to ZRS | …to GZRS/RA-GZRS |
-|--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>…from LRS</b> | N/A | Use Azure portal, PowerShell, or CLI <sup>1,2</sup> | Perform a live migration <br /><br /><br /> - OR - <br /><br /> Perform a manual migration<sup>5</sup> | Switch to GRS/RA-GRS first, then perform a live migration to GZRS/RA-GZRS<br /><br /> - OR - <br /><br /> Perform a manual migration<sup>3</sup> |
-| <b>…from GRS/RA-GRS</b> | Use Azure portal, PowerShell, or CLI | N/A | Switch to LRS first, then perform a live migration to ZRS<br /><br /> - OR - <br /><br /> Perform a manual migration<sup>3</sup> | Perform a live migration <br /><br /><br /><br /> - OR - <br /><br /> Perform a manual migration<sup>3</sup> |
-| <b>…from ZRS</b> | Perform a live migration <br /><br /><br /> - OR - <br /><br /> Perform a manual migration | Switch to GZRS/RA-GZRS first, then perform a live migration to GRS/RA-GRS <br /><br /> - OR - <br /><br /> Perform a manual migration | N/A | Perform a live migration<sup>3</sup> <br /><br /><br /><br /> - OR - <br /><br /> Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> |
-| <b>…from GZRS/RA-GZRS</b> | Switch to ZRS first, then perform a live migration to LRS <br /><br /> - OR - <br /><br /> Perform a manual migration | Perform a manual migration | Use Azure portal, PowerShell, or CLI | N/A |
+| Convert | To: | LRS| GRS | RA-GRS | ZRS | GZRS | RA-GZRS |
+|---------|-----|----|-----|--------|-----|------|---------|
+| <b>…from | | | | | | | |
+| <b> LRS</b> | | <b>N/A | Use Azure portal, PowerShell, or CLI <sup>1,2</sup> | Use Azure portal, PowerShell, or CLI <sup>1,2</sup> | Migrate<sup>5</sup> | Switch to GRS first, then migrate to GZRS | Switch to RA-GRS first, then migrate to RA-GZRS |
+| <b> GRS</b> | | Use Azure portal, PowerShell, or CLI | <b>N/A | Use Azure portal, PowerShell, or CLI | Switch to LRS first, then migrate to ZRS | Migrate |Switch to RA-GRS first, then migrate to RA-GZRS |
+| <b> RA-GRS</b> | | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | <b>N/A | Switch to LRS first, then migrate to ZRS | Switch to GRS first, then migrate to GZRS | Migrate |
+| <b> ZRS</b> | | Migrate | Switch to GZRS first, then migrate to GRS | Switch to RA-GZRS first, then migrate to RA-GRS |<b>N/A | Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> | Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> |
+| <b> GZRS</b> | | Switch to ZRS first, then migrate to LRS | Migrate | Switch to RA-GZRS first, then migrate to RA-GRS | Use Azure portal, PowerShell, or CLI | <b>N/A | Use Azure portal, PowerShell, or CLI |
+| <b> RA-GZRS</b> | | Switch to ZRS first, then migrate to LRS | Switch to GZRS first, then migrate to GRS | Migrate | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | <b>N/A |
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
 <sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier.<br />
