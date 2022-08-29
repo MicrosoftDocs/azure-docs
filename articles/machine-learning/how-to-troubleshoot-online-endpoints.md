@@ -141,7 +141,7 @@ ml_client.online_deployments.get_logs(
 ```
 
 To see information about how to set these parameters, see
-[reference for get-logs](https://docs.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-get-logs)
+[reference for get-logs](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-get-logs)
 
 By default the logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your `score.py' code.
 
