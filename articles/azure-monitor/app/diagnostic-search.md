@@ -11,7 +11,7 @@ ms.reviewer: saars
 
 Transaction search is a feature of [Application Insights](./app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. You can also view log traces and events that you've coded.
 
-For more complex queries over your data, use [Analytics](../logs/log-analytics-tutorial.md).
+For more complex queries over your data, use [Log Analytics](../logs/log-analytics-tutorial.md).
 
 ## Where do you see Search?
 
@@ -58,8 +58,8 @@ The event types are:
 * **Trace**: [Diagnostic logs](./asp-net-trace-logs.md) including TrackTrace, log4Net, NLog, and System.Diagnostic.Trace calls.
 * **Request**: HTTP requests received by your server application including pages, scripts, images, style files, and data. These events are used to create the request and response overview charts.
 * **Page View**: [Telemetry sent by the web client](./javascript.md) used to create page view reports.
-* **Custom Event**: If you inserted calls to TrackEvent() to [monitor usage](./api-custom-events-metrics.md), you can search them here.
-* **Exception**: Uncaught [exceptions in the server](./asp-net-exceptions.md), and the exceptions that you log by using TrackException().
+* **Custom Event**: If you inserted calls to `TrackEvent()` to [monitor usage](./api-custom-events-metrics.md), you can search them here.
+* **Exception**: Uncaught [exceptions in the server](./asp-net-exceptions.md), and the exceptions that you log by using `TrackException()`.
 * **Dependency**: [Calls from your server application](./asp-net-dependencies.md) to other services such as REST APIs or databases, and AJAX calls from your [client code](./javascript.md).
 * **Availability**: Results of [availability tests](./monitor-web-app-availability.md).
 
@@ -100,7 +100,7 @@ You can use the following search expressions:
 
 | Sample query | Effect |
 | --- | --- |
-| `apple` |Find all events in the time range whose fields include the word "apple" |
+| `apple` |Find all events in the time range whose fields include the word "apple". |
 | `apple AND banana` <br/>`apple banana` |Find events that contain both words. Use capital "AND", not "and". <br/>Short form. |
 | `apple OR banana` |Find events that contain either word. Use "OR", not "or". |
 | `apple NOT banana` |Find events that contain one word but not the other. |
