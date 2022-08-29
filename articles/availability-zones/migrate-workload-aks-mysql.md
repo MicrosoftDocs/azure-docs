@@ -16,8 +16,48 @@ This guide describes how to migrate Azure Kubernetes Service and MySQL Flexible 
 
 To create availability zone support for this workload, you must re-create and re-deploy your AKS cluster or MySQL Flexible Server.
 
-This migration guidance describes how you to create availability zone support across the entire workload This workload uses some core Azure services such as Azure Kubernetes Service (AKS), Azure Database for MySQL Flexible Server and Azure Cache for Redis.  
 
+## Workload service dependencies
+
+To provide full workload support for availability zones, each service dependency in the workload must support availability zones. 
+
+There are two approaches types of availability zone supported services: [zonal or zone-redundant](az-region.md#highly-available-services). Most services support one or the other. However, in some cases, there are options for choosing either a zonal or zone-redundant resource for that service. We'll indicate which services zonal and zone-redundant resources n the recommendations below.  
+
+The AKS and MySQL workload architecture consists of the following components:
+
+### Azure Kubernetes Service (AKS)
+
+- *Zonal* : The system node pool and user node pools are zonal when you pre-select the zones in which the node pools are deployed during creation time. In the case of a single datacenter outage, we recommended that you pre-select all three zones for better resiliency. Additional user node pools that support availability zones can be added to an existing AKS cluster and by supplying a value for the `zones` parameter. 
+
+- *Zone-redundant*: Kubernetes control plane components such as *etcd*, *API server*, *Scheduler*, and *Controller Manager*  are automatically replicated or distributed across zones.  
+
+    >[!NOTE]
+    >To enable zone-redundancy of the AKS cluster control plane components, you must define your default system node pool with zones when you create an AKS cluster. Adding additional zonal node pools to an existing non-zonal AKS cluster won't make the AKS cluster zone-redundant, because that action doesn't distribute the control plane components across zones after-the-fact.  
+
+### Azure Database for MySQL Flexible Server 
+
+- *Zonal*: This availability mode means that a standby server is always available within the same zone as the primary server. While this option reduces failover time and network latency, it's less resilient due to a single zone outage impacting both the primary and standby servers. 
+    
+- *Zone-redundant*: This availability mode means that a standby server is always available within another zone in the same region as the primary server. This means that you have two zones enabled for zone redundancy for the primary and standby servers. We recommend this configuration for better resiliency. 
+
+
+### Azure Standard Load Balancer or Azure Application Gateway 
+
+#### Standard Load Balancer
+To understand considerations related to Standard Load Balancer resources, see [Load Balancer and Availablity Zones](../load-balancer/load-balancer-standard-availability-zones.md). 
+
+- *Zone-redundant*: Choosing zone-redundancy is the recommended way to configure your Frontend IP with your existing Load Balancer. The zone-redundant front-end corresponds with the AKS cluster back-end pool which is distributed across multiple zones. 
+
+- *Zonal*: If you're pinning your node pools to specific zones-for example, zone 1 and 2- you can pre-select zone 1 and 2 for your Frontend IP in the existing Load Balancer. The reason for pinning your node pools to specific zones could be due to the availability of specialized VM SKU series, for example, M-series. 
+
+#### Azure Application Gateway 
+Using the Application Gateway Ingress Controller add-on with your AKS cluster is supported only on Application Gateway v2 SKUs (Standard and WAF). 
+
+- *Zonal*: To leverage the benefits of availability zones, We recommend that the Application Gateway resource be created in multiple zones, such as zone 1, 2, and 3. Select all three zones for best intra-region resiliency strategy. 
+
+to understand considerations related to Azure Application Gateway,
+
+Please refer to <doc link> Azure Application Gateway PG link: Scaling and Zone-redundant Application Gateway v2 | Microsoft Docs CAE guidance link Application Gateway V2 AZ Migration Guidance.docx </doc link> AZ migration guidance to understand considerations related to this resource. There are instances whereby you are pinning your node pools to specific zones, in which you pre-select zone 1 and 2 during the creation of your App Gateway resource so as to correspond to your backend node pools. The reason for pinning your node pools to specific zones could be due to the availability of specialized VM SKU series, i.e., M-series. 
 
 ## Prerequisites
 
@@ -31,56 +71,8 @@ To migrate to availability zone support, your VM SKUs must be available across t
 
 Because zonal VMs are created across the availability zones, all migration options mentioned in this article require downtime during deployment.
 
-## Migration Option 1: Redeployment
+## Considerations
 
-### When to use redeployment
-
-Use the redeployment option if you have good Infrastructure as Code (IaC) practices setup to manage infrastructure. The redeployment option gives you more control, and the ability to automate various processes within your deployment pipelines.
-
-### Redeployment considerations
-
-- When you redeploy your VM and VMSS resources, the underlying resources such as managed disk and IP address for the VM are created in the same availability zone. You must use a Standard SKU public IP address and load balancer to create zone-redundant network resources.  
-
-- For zonal deployments that require reasonably low network latency and good performance between application tier and data tier, use [proximity placement groups](../virtual-machines/co-location.md). Proximity groups can force grouping of different VM resources under a single network spine. For an example of an SAP workload that uses proximity placement groups, see [Azure proximity placement groups for optimal network latency with SAP applications](../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md)
-
-### How to redeploy
-
-To redeploy, you'll need to recreate your VM and VMSS resources. To ensure high-availability of your compute resources, it's recommended that you select multiple zones for your new VMs and VMSS.
-
-To learn how create VMs in an availability zone, see:
-
-- [Create VM using Azure CLI](../virtual-machines/linux/create-cli-availability-zone.md)
-- [Create VM using Azure PowerShell](../virtual-machines/windows/create-PowerShell-availability-zone.md)
-- [Create VM using Azure portal](../virtual-machines/create-portal-availability-zone.md?tabs=standard)
-
-To learn how to create VMSS in an availability zone, see [Create a virtual machine scale set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md).
-
-## Migration Option 2: Azure Resource Mover
-
-### When to use Azure Resource Mover
-
-Use Azure Resource Mover for an easy way to move VMs or encrypted VMs from one region without availability zones to another with availability zones. If you want to learn more about the benefits of using Azure Resource Mover, see [Why use Azure Resource Mover?](../resource-mover/overview.md#why-use-resource-mover).
-
-### Azure Resource Mover considerations
-
-When you use Azure Resource mover, all keys and secrets are copied from the source key vault to the newly created destination key vault in your target region. All resources related to your customer-managed keys, such as Azure Key Vaults, disk encryption sets, VMs, disks, and snapshots, must be in the same subscription and region. Azure Key Vault’s default availability and redundancy feature can't be used as the destination key vault for the moved VM resources, even if the target region is a secondary region to which your source key vault is replicated.  
-
-### How to use Azure Resource Mover
-
-To learn how to move VMs to another region, see [Move Azure VMs to an availability zone in another region](../resource-mover/move-region-availability-zone.md)
-
-To learn how to move encrypted VMs to another region, see [Tutorial: Move encrypted Azure VMs across regions](../resource-mover/tutorial-move-region-encrypted-virtual-machines.md)
-
-## Disaster Recovery Considerations
-
-Typically, availability zones are used to deploy VMs in a High Availability configuration. They may be too close to each other to serve as a Disaster Recovery solution during a natural disaster.  However, there are scenarios where availability zones can be used for Disaster Recovery. To learn more, see [Using Availability Zones for Disaster Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md#using-availability-zones-for-disaster-recovery).
-
-The following requirements should be part of a disaster recovery strategy that helps your organization run its workloads during planned or unplanned outages across zones:
-
-- The source VM must already be a zonal VM, which means that it's placed in a logical zone.  
-- You'll need to replicate your VM from one zone to another zone using Azure Site Recovery service.  
-- Once your VM is replicated to another zone, you can follow steps to run a Disaster Recovery drill, fail over, reprotect, and failback.  
-- To enable VM disaster recovery between availability zones, follow the instructions in [Enable Azure VM disaster recovery between availability zones](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md) .  
 
 ## Next Steps
 
