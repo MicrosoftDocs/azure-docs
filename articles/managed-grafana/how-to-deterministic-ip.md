@@ -67,7 +67,7 @@ Check if the Azure Managed Grafana endpoint can still access your data source.
 1. Got to **Configuration > Data Source > Azure Data Explorer Datasource > Settings** and at the bottom of the page, select **Save & test**:
 
     - If the message "Success" is displayed, Azure Managed Grafana can access your data source.
-    - If the following error message is displayed, Azure Managed Grafana can't access the data source: `Post "https://\<Azure-Data-Explorer URI\>/v1/rest/query": dial tcp 13.90.24.175:443: i/o timeout`. Make sure that you've entered the IP addresses correctly in the data source firewall allowlist.
+    - If the following error message is displayed, Azure Managed Grafana can't access the data source: `Post "https://<Azure-Data-Explorer-URI>/v1/rest/query": dial tcp 13.90.24.175:443: i/o timeout`. Make sure that you've entered the IP addresses correctly in the data source firewall allowlist.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -77,7 +77,7 @@ Run the [az grafana data-source query](/cli/azure/grafana/data-source#az-grafana
 az grafana data-source query --name <azure-managed-grafana-instance-name> --data-source <data-source-name> --output table
 ```
 
-If the following error message is displayed, Azure Managed Grafana can't access the data source: `error":"Post \\"https://mlgdataexplorer.eastus.kusto.windows.net/v1/rest/query\\": dial tcp 13.90.24.175:443: i/o timeout`. Make sure that you've entered the IP addresses correctly in the data source firewall allowlist.
+If the following error message is displayed, Azure Managed Grafana can't access the data source: `"error": "Post \\"https://<Azure-Data-Explorer-URI>/v1/rest/query\\": dial tcp 13.90.24.175:443: i/o timeout"`. Make sure that you've entered the IP addresses correctly in the data source firewall allowlist.
 
 > [!TIP]
 > You can get the name of your data sources by running `az grafana data-source list --name <azure-managed-grafana-instance-name> --output table` 
