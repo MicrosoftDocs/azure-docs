@@ -46,7 +46,7 @@ Availability zone support is a property of the Premium plan. The following are t
   - Availability zone (AZ) support isn't currently available for function apps on [Consumption](consumption-plan.md) plans.
 - Function apps hosted on a Premium plan must have a minimum [always ready instances](functions-premium-plan.md#always-ready-instances) count of three.
   - The platform will enforce this minimum count behind the scenes if you specify an instance count fewer than three.
-- If you aren't using Premium plan or a scale unit that supports availability zones, are in an unsupported region, or are unsure, see the [migration guidance](#migration-guidance-redeployment).
+- If you aren't using Premium plan or a scale unit that supports availability zones, are in an unsupported region, or are unsure, see the [migration guidance](../availability-zones/migrate-functions.md).
 
 ## Regional availability
 
