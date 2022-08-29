@@ -29,7 +29,7 @@ The following table is the list of URLs your session host VMs need to access for
 | `gcs.prod.monitoring.core.windows.net` | 443 | Agent traffic | AzureCloud |
 | `kms.core.windows.net` | 1688 | Windows activation | Internet |
 | `azkms.core.windows.net` | 1688 | Windows activation | Internet |
-| `mrsglobalsteus2prod.blob.core.windows.net` | 443 | Agent and side by side stack updates | AzureCloud |
+| `mrsglobalsteus2prod.blob.core.windows.net` | 443 | Agent and side-by-side (SXS) stack updates | AzureCloud |
 | `wvdportalstorageblob.blob.core.windows.net` | 443 | Azure portal support | AzureCloud |
 | `169.254.169.254` | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
 | `168.63.129.16` | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
@@ -69,7 +69,7 @@ The following table lists optional URLs that your session host virtual machines 
 | `*.prod.warm.ingest.monitor.core.usgovcloudapi.net` | 443 | Agent traffic | AzureMonitor |
 | `gcs.monitoring.core.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
 | `kms.core.usgovcloudapi.net` | 1688 | Windows activation | Internet |
-| `mrsglobalstugviffx.blob.core.usgovcloudapi.net` | 443 | Agent and side by side stack updates | AzureCloud |
+| `mrsglobalstugviffx.blob.core.usgovcloudapi.net` | 443 | Agent and side-by-side (SXS) stack updates | AzureCloud |
 | `wvdportalstorageblob.blob.core.usgovcloudapi.net` | 443 | Azure portal support | AzureCloud |
 | `169.254.169.254` | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
 | `168.63.129.16` | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
