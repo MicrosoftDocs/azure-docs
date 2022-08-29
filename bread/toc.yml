@@ -50,7 +50,7 @@
         topicHref: /azure/active-directory-b2c/
         items:
         - name: Single-page app
-          tocHref: /azure/active-directory-b2c/
+          tocHref: /azure/active-directory-b2c/index-spa/
           topicHref: /azure/active-directory-b2c/index-spa
       - name: Domain services
         tocHref: /azure/active-directory-domain-services/
