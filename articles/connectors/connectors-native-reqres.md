@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 08/16/2022
+ms.date: 08/29/2022
 tags: connectors
 ---
 
@@ -419,9 +419,8 @@ When you use the Request trigger to receive inbound requests, you can model the 
 > processes at least one Response action during runtime. Otherwise, if all Response actions are skipped, 
 > the caller receives a **502 Bad Gateway** error, even if the workflow finishes successfully.
 >
-> * If you implemnt a Response action in a stateless workflow of Logic Apps Standard, the Response action needs to be the last
-> action of the workflow. Even if you place the Reponse action in other place of the workflow, the engine will not execute it 
-> until it has executed all other actions.
+> * In a Standard logic app **stateless** workflow, the Response action must appear last in your workflow. If the action appears 
+> anywhere else, Azure Logic Apps still won't run the action until all other actions finish running.
 
 
 ## [Consumption](#tab/consumption)
