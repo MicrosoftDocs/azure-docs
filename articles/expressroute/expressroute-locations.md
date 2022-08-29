@@ -64,7 +64,7 @@ The following table shows locations by service provider. If you want to view ava
 | **China Mobile International** |Supported |Supported | Hong Kong, Hong Kong2, Singapore |
 | **China Telecom Global** |Supported |Supported | Hong Kong, Hong Kong2 |
 | **[China Unicom Global](https://cloudbond.chinaunicom.cn/home-en)** |Supported |Supported | Frankfurt, Hong Kong, Singapore2, Tokyo2 |
-| **[Chunghwa Telecom](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Supported |Supported | Taipei |
+| **Chunghwa Telecom** |Supported |Supported | Taipei |
 | **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |Supported |Supported | Miami |
 | **[Cologix](https://cologix.com/connectivity/cloud/cloud-connect/microsoft-azure/)** |Supported |Supported | Chicago, Dallas, Minneapolis, Montreal, Toronto, Vancouver, Washington DC |
 | **[Colt](https://www.colt.net/direct-connect/azure/)** |Supported |Supported | Amsterdam, Amsterdam2, Berlin, Chicago, Dublin, Frankfurt, Geneva, Hong Kong, London, London2, Marseille, Milan, Munich, Newport, Osaka, Paris, Seoul, Silicon Valley, Singapore2, Tokyo, Tokyo2, Washington DC, Zurich |
