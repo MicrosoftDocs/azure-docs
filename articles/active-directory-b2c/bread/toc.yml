@@ -6,7 +6,7 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/index
     items:  
-    - name: B2C
+    - name: B2
       tocHref: /azure/active-directory/develop/
       topicHref: /azure/active-directory-b2c/index
 
@@ -18,7 +18,7 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/index
     items:  
-    - name: B2C
+    - name: B2
       tocHref: /azure/active-directory/external-identities/
       topicHref: /azure/active-directory-b2c/index
 
@@ -30,7 +30,7 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/index
     items:  
-    - name: B2C
+    - name: B2
       tocHref: /azure/active-directory/fundamentals/
       topicHref: /azure/active-directory-b2c/index
 
