@@ -20,7 +20,7 @@ Using the resources and libraries described in this article, you can embed conti
 
 ## Features and benefits
 
-Cognitive Services for big data can use resources from any [supported region](https://azure.microsoft.comglobal-infrastructure/services/?products=cognitive-services), as well as [containerized Cognitive Services](../cognitive-services-container-support.md). Containers support low or no connectivity deployments with ultra-low latency responses. Containerized Cognitive Services can be run locally, directly on the worker nodes of your Spark cluster, or on an external orchestrator like Kubernetes.
+Cognitive Services for big data can use resources from any [supported region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services), as well as [containerized Cognitive Services](../cognitive-services-container-support.md). Containers support low or no connectivity deployments with ultra-low latency responses. Containerized Cognitive Services can be run locally, directly on the worker nodes of your Spark cluster, or on an external orchestrator like Kubernetes.
 
 ## Supported services
 

@@ -59,6 +59,32 @@ This feature is available in C, C#, JAVA and Node.js client SDKs. To learn more 
 
 [IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) devices use the payload to send their model ID when they register with DPS. You can find examples of this usage in the PnP samples in the SDK or sample repositories. For example, [C# PnP thermostat](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/main/iot-hub/Samples/device/PnpDeviceSamples/Thermostat/Program.cs) or [Node.js PnP temperature controller](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/pnp_temperature_controller.js).
 
+## IoT Edge support
+
+Starting with version 1.4, IoT Edge supports sending a data payload contained in a JSON file. The payload file is read and sent to DPS when the device is (re)registered which typically happens when you run `iotedge config apply` for the first time. You can also force it to be re-read and registered by using the CLI's reprovision command `iotedge system reprovision`.
+
+Below is an example snippet from `/etc/aziot/config.toml` where the `payload` property is set to the path of a local JSON file.
+
+```toml
+   [provisioning]
+   source = "dps"
+   global_endpoint = "https://global.azure-devices-provisioning.net"
+   id_scope = "0ab1234C5D6"
+
+   # Uncomment to send a custom payload during DPS registration
+   payload = { uri = "file:///home/aziot/payload.json" }
+ 
+```
+
+The payload file (in this case `/home/aziot/payload/json`) can contain any valid JSON such as:
+
+
+```json
+{
+    "modelId": "dtmi:com:example:edgedevice;1"
+}
+```
+
 ## Next steps
 
 * To learn how to provision devices using a custom allocation policy, see [How to use custom allocation policies](./how-to-use-custom-allocation-policies.md)

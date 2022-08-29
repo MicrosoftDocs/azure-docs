@@ -66,6 +66,8 @@
       href: users-restrict-guest-permissions.md
     - name: Clean up unmanaged accounts
       href: clean-up-unmanaged-azure-ad-accounts.md 
+    - name: Clean up stale guest accounts
+      href: clean-up-stale-guest-accounts.md
     - name: Dynamic groups and guests   
       href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
   - name: Organization (tenant)
