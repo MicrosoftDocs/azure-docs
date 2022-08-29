@@ -71,6 +71,28 @@ You can also link a custom task extension to an existing Azure Logic App. To do 
 1. You can Review information about the updated custom task extension and the existing Logic App linked to it. Select **Create** if the details match what you desire for the custom task extension.
 
 
+## Add your custom task extension to a workflow
+
+After you've created your custom task extension, you can now add it to a workflow.  Unlike some tasks, which can only be added to workflow templates that match its category, a custom task extension can be added to any template you choose to make a custom workflow from.
+
+To Add a custom task extension to a workflow, you'd do the following steps:
+
+1. In the left menu, select **Lifecycle workflows (Preview)**. 
+
+1. In the left menu, select **Workflows (Preview)**.
+
+1. Select the workflow that you want to add the custom task extension to.
+
+1. On the workflow screen, select **Tasks**.
+
+1. On the tasks screen, select **Add task**.
+
+1. In the **Select tasks** drop down, select **Run a Custom Task Extension**, and select **Add**.
+
+1. On the custom task extension page, you can give the task a name and description. You can also choose from a list of configured custom task extensions to use.
+    :::image type="content" source="media/trigger-custom-task/add-custom-task-extension.png" alt-text="add a custom task extension to workflow.":::     
+1. When finished, select **Save**.   
+
 ## Next steps
 
 - [Lifecycle workflow extensibility (Preview)](lifecycle-workflow-extensibility.md)
