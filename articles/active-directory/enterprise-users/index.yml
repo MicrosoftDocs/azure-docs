@@ -10,11 +10,11 @@ metadata:
   services: active-directory
   ms.service: active-directory
   ms.subservice: enterprise-users
-  manager: karenhoran
+  manager: amycolannino
   ms.topic: landing-page
   ms.date: 04/18/2021
-  author: curtand
-  ms.author: curtand
+  author: barclayn
+  ms.author: barclayn
 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

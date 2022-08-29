@@ -6,7 +6,7 @@ ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 06/02/2022
+ms.date: 07/15/2022
 ---
 
 # Azure guidance for secure isolation
@@ -117,7 +117,7 @@ With Key Vault, you can import or generate encryption keys in HSMs, ensuring tha
 :::image type="content" source="./media/secure-isolation-fig3.png" alt-text="Azure Key Vault support for bring your own key (BYOK)":::
 **Figure 3.**  Azure Key Vault support for bring your own key (BYOK)
 
-**Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.**
+**Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.** For extra assurances, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys)
 
 Key Vault provides a robust solution for encryption key lifecycle management. Upon creation, every key vault or managed HSM is automatically associated with the Azure AD tenant that owns the subscription. Anyone trying to manage or retrieve content from a key vault or managed HSM must be properly authenticated and authorized:
 
@@ -146,7 +146,7 @@ You control access permissions and can extract detailed activity logs from the A
 > - **[Enable logging for Azure Key Vault](../key-vault/general/logging.md)**
 > - **[How to secure storage account for Azure Key Vault logs](../storage/blobs/security-recommendations.md)**
 
-You can also use the [Azure Key Vault solution in Azure Monitor](../azure-monitor/insights/key-vault-insights-overview.md) to review Key Vault logs. To use this solution, you need to enable logging of Key Vault diagnostics and direct the diagnostics to a Log Analytics workspace. With this solution, it isn't necessary to write logs to Azure Blob storage.
+You can also use the [Azure Key Vault solution in Azure Monitor](../key-vault/key-vault-insights-overview.md) to review Key Vault logs. To use this solution, you need to enable logging of Key Vault diagnostics and direct the diagnostics to a Log Analytics workspace. With this solution, it isn't necessary to write logs to Azure Blob storage.
 
 > [!NOTE]
 > For a comprehensive list of Azure Key Vault security recommendations, see **[Azure security baseline for Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline)**.
@@ -216,7 +216,7 @@ The Azure Management Console and Management Plane follow strict security archite
 - **Management Console (MC)** – The MC in Azure Cloud is composed of the Azure portal GUI and the Azure Resource Manager API layers. They both use user credentials to authenticate and authorize all operations.
 - **Management Plane (MP)** – This layer performs the actual management actions and is composed of the Compute Resource Provider (CRP), Fabric Controller (FC), Fabric Agent (FA), and the underlying Hypervisor, which has its own Hypervisor Agent to service communication. These layers all use system contexts that are granted the least permissions needed to perform their operations.
 
-The Azure FC allocates infrastructure resources to tenants and manages unidirectional communications from the Host OS to Guest VMs. The VM placement algorithm of the Azure FC is highly sophisticated and nearly impossible to predict. The FA resides in the Host OS and it manages tenant VMs. The collection of the Azure Hypervisor, Host OS and FA, and customer VMs constitute a compute node, as shown in Figure 4. FCs manage FAs although FCs exist outside of compute nodes – separate FCs exist to manage compute and storage clusters. If you update your application’s configuration file while running in the MC, the MC communicates through CRP with the FC and the FC communicates with the FA.
+The Azure FC allocates infrastructure resources to tenants and manages unidirectional communications from the Host OS to Guest VMs. The VM placement algorithm of the Azure FC is highly sophisticated and nearly impossible to predict. The FA resides in the Host OS and it manages tenant VMs. The collection of the Azure Hypervisor, Host OS and FA, and customer VMs constitute a compute node, as shown in Figure 4. FCs manage FAs although FCs exist outside of compute nodes – separate FCs exist to manage compute and storage clusters. If you update your application’s configuration file while running in the MC, the MC communicates through CRP with the FC, and the FC communicates with the FA.
 
 CRP is the front-end service for Azure Compute, exposing consistent compute APIs through Azure Resource Manager, thereby enabling you to create and manage virtual machine resources and extensions via simple templates.
 
@@ -267,7 +267,7 @@ The Target of Evaluation (TOE) was composed of Microsoft Windows Server, Microso
 - **Security Management** – Windows includes several functions to manage security policies. Access to administrative functions is enforced through administrative roles. Windows also has the ability to support the separation of management and operational networks and to prohibit data sharing between Guest VMs.
 - **Protection of the TOE Security Functions (TSF)** – Windows implements various self-protection mechanisms to ensure that it can't be used as a platform to gain unauthorized access to data stored on a Guest VM, that the integrity of both the TSF and its Guest VMs is maintained, and that Guest VMs are accessed solely through well-documented interfaces.
 - **TOE Access** – In the context of this evaluation, Windows allows an authorized administrator to configure the system to display a logon banner before the logon dialog.
-- **Trusted Path/Channels** – Windows implements IPsec, TLS, and HTTPS trusted channels and paths for the purpose of remote administration, transfer of audit data to the operational environment, and separation of management and operational networks.
+- **Trusted Path/Channels** – Windows implements IPsec, TLS, and HTTPS trusted channels and paths for remote administration, transfer of audit data to the operational environment, and separation of management and operational networks.
 
 More information is available from the [third-party certification report](https://www.niap-ccevs.org/MMO/Product/st_vid11087-vr.pdf).
 
@@ -745,7 +745,7 @@ Storage accounts are encrypted regardless of their performance tier (standard or
 Because data encryption is performed by the Storage service, server-side encryption with CMK enables you to use any operating system types and images for your VMs. For your Windows and Linux IaaS VMs, Azure also provides Azure Disk encryption that enables you to encrypt managed disks with CMK within the Guest VM, as described in the next section. Combining Azure Storage service encryption and Disk encryption effectively enables [double encryption of data at rest](../virtual-machines/disks-enable-double-encryption-at-rest-portal.md).
 
 #### Azure Disk encryption
-Azure Storage service encryption encrypts the page blobs that store Azure Virtual Machine disks. Moreover, you may optionally use [Azure Disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to encrypt Azure [Windows](../virtual-machines/windows/disk-encryption-overview.md) and [Linux](../virtual-machines/linux/disk-encryption-overview.md) IaaS Virtual Machine disks to increase storage isolation and assure cryptographic certainty of your data stored in Azure. This encryption includes [managed disks](../virtual-machines/managed-disks-overview.md), as described later in this section. Azure disk encryption uses the industry standard [BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide OS-based volume encryption that is integrated with Azure Key Vault.
+Azure Storage service encryption encrypts the page blobs that store Azure Virtual Machine disks. Moreover, you may optionally use [Azure Disk encryption](../virtual-machines/disk-encryption-overview.md) to encrypt Azure [Windows](../virtual-machines/windows/disk-encryption-overview.md) and [Linux](../virtual-machines/linux/disk-encryption-overview.md) IaaS Virtual Machine disks to increase storage isolation and assure cryptographic certainty of your data stored in Azure. This encryption includes [managed disks](../virtual-machines/managed-disks-overview.md), as described later in this section. Azure disk encryption uses the industry standard [BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide OS-based volume encryption that is integrated with Azure Key Vault.
 
 Drive encryption through BitLocker and DM-Crypt is a data protection feature that integrates with the operating system and addresses the threats of data theft or exposure from lost, stolen, or inappropriately decommissioned computers. BitLocker and DM-Crypt provide the most protection when used with a Trusted Platform Module (TPM) version 1.2 or higher. The TPM is a microcontroller designed to secure hardware through integrated cryptographic keys – it's commonly pre-installed on newer computers. BitLocker and DM-Crypt can use this technology to protect the keys used to encrypt disk volumes and provide integrity to computer boot process.
 
@@ -774,7 +774,7 @@ For [Windows VMs](../virtual-machines/windows/disk-encryption-faq.yml), Azure Di
 Customer-managed keys (CMK) enable you to have [full control](../virtual-machines/disk-encryption.md#full-control-of-your-keys) over your encryption keys. You can grant access to managed disks in your Azure Key Vault so that your keys can be used for encrypting and decrypting the DEK. You can also disable your keys or revoke access to managed disks at any time. Finally, you have full audit control over key usage with Azure Key Vault monitoring to ensure that only managed disks or other authorized resources are accessing your encryption keys.
 
 ##### *Encryption at host*
-Encryption at host ensures that data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. Disks with encryption at host enabled aren't encrypted with Azure Storage encryption; instead, the server hosting your VM provides the encryption for your data, and that encrypted data flows into Azure Storage. For more information, see [Encryption at host - End-to-end encryption for your VM data](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data). As mentioned previously, [Azure Disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) for VM and VMSS isn't supported by Managed HSM. However, encryption at host with CMK is supported by Managed HSM.
+Encryption at host ensures that data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. Disks with encryption at host enabled aren't encrypted with Azure Storage encryption; instead, the server hosting your VM provides the encryption for your data, and that encrypted data flows into Azure Storage. For more information, see [Encryption at host - End-to-end encryption for your VM data](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data). As mentioned previously, [Azure Disk encryption](../virtual-machines/disk-encryption-overview.md) for virtual machines and virtual machine scale sets isn't supported by Managed HSM. However, encryption at host with CMK is supported by Managed HSM.
 
 You're [always in control of your customer data](https://www.microsoft.com/trust-center/privacy/data-management) in Azure. You can access, extract, and delete your customer data stored in Azure at will. When you terminate your Azure subscription, Microsoft takes the necessary steps to ensure that you continue to own your customer data. A common concern upon data deletion or subscription termination is whether another customer or Azure administrator can access your deleted data. The following sections explain how data deletion, retention, and destruction work in Azure.
 

@@ -28,6 +28,8 @@ items:
       href: storage-configuration.md
     - name: Sizing guidance
       href: sizing-guidance.md
+    - name: Operate with least privilege
+      href: least-privilege.md
 - name: How-to guides
   items:
     - name: Install tools
@@ -58,6 +60,8 @@ items:
             href: create-data-controller-direct-azure-portal.md
           - name: Azure CLI
             href: create-data-controller-direct-cli.md
+          - name: Resource sync
+            href: resource-sync.md
         - name: Configure monitor certificates
           href: monitor-certificates.md
     - name: Common experiences across Azure Arc-enabled data services

@@ -188,23 +188,7 @@
           - name: Scan with Microsoft Defender for Cloud
             href: scan-images-defender.md
           - name: Scan with GitHub Actions
-            href: github-action-scan.md
-    - name: Troubleshoot
-      expanded: false
-      items:
-        - name: Troubleshoot login
-          href: container-registry-troubleshoot-login.md
-        - name: Troubleshoot network issues
-          href: container-registry-troubleshoot-access.md
-        - name: Troubleshoot registry performance
-          href: container-registry-troubleshoot-performance.md
-        - name: Detect common issues
-          href: container-registry-check-health.md
-          displayName: check, health
-        - name: ACR Technical Support policies
-          href: container-registry-support-policies.md
-        - name: FAQ
-          href: container-registry-faq.yml
+            href: github-action-scan.md        
 - name: Tasks
   expanded: true
   items:
@@ -330,6 +314,22 @@
     href: ./policy-reference.md
   - name: Monitoring data
     href: monitor-service-reference.md
+- name: Troubleshoot
+  expanded: false
+  items:
+  - name: Troubleshoot login issues
+    href: container-registry-troubleshoot-login.md
+  - name: Troubleshoot network issues
+    href: container-registry-troubleshoot-access.md
+  - name: Troubleshoot performance issues
+    href: container-registry-troubleshoot-performance.md
+  - name: Detect common issues
+    href: container-registry-check-health.md
+    displayName: check, health
+  - name: Technical Support policies
+    href: container-registry-support-policies.md
+  - name: FAQ
+    href: container-registry-faq.yml
 - name: Resources
   expanded: false
   items:

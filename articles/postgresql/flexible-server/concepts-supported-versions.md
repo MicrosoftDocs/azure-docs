@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 06/29/2022
+ms.date: 08/25/2022
 ---
 
 # Supported PostgreSQL major versions in Azure Database for PostgreSQL - Flexible Server
@@ -17,10 +17,10 @@ Azure Database for PostgreSQL - Flexible Server currently supports the following
 
 ## PostgreSQL version 14
 
-The current minor release is **14.3**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/14/static/release-14-3.html) to learn more about improvements and fixes in this release. New servers will be created with this minor version.
+The current minor release is **14.4**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/about/news/postgresql-144-released-2470/) to learn more about improvements and fixes in this release. New servers will be created with this minor version.
 
 >[!NOTE]
-> If you are deploying Postgres 14 in a Private Access (VNET), in some cases, your deployment may fail. This will be addressed shortly. Meanwhile, to explore Postgres 14, consider deploying in Public access. 
+> PostgreSQL community has released this out of band version 14.4 to address a critical issue. See the [release notes](https://www.postgresql.org/docs/release/14.4/) for details.
 
 ## PostgreSQL version 13
 

@@ -5,14 +5,14 @@ author: hrshelar
 ms.service: orbital
 ms.topic: conceptual
 ms.custom: ga
-ms.date: 07/07/2022
+ms.date: 07/13/2022
 ms.author: hrshelar
 #Customer intent: As a satellite operator or user, I want to understand what the spacecraft object does so I can manage my mission.
 ---
 
 # Spacecraft object
 
-Learn about how you can represent your spacecraft details in Azure Orbital GSaaS. 
+Learn about how you can represent your spacecraft details in Azure Orbital Ground Station (AOGS).
 
 ## Spacecraft details
 

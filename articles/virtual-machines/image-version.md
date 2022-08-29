@@ -134,7 +134,7 @@ For more information about the parameters you can specify for an image definitio
 
 In this example, the image definition is named *myImageDefinition*, and is for a [specialized](shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az sig image-definition create \
    --resource-group myGalleryRG \
    --gallery-name myGallery \

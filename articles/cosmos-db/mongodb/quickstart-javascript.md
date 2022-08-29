@@ -273,4 +273,4 @@ Remove-AzResourceGroup @parameters
 In this quickstart, you learned how to create an Azure Cosmos DB MongoDB API account, create a database, and create a collection using the MongoDB driver. You can now dive deeper into the Cosmos DB MongoDB API to import more data, perform complex queries, and manage your Azure Cosmos DB MongoDB resources.
 
 > [!div class="nextstepaction"]
-> [Migrate MongoDB to Azure Cosmos DB API for MongoDB offline](/azure/dms/tutorial-mongodb-cosmos-db?toc=%2Fazure%2Fcosmos-db%2Ftoc.json%3Ftoc%3D%2Fazure%2Fcosmos-db%2Ftoc.json)
+> [Migrate MongoDB to Azure Cosmos DB API for MongoDB offline](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%3ftoc%3d%2fazure%2fcosmos-db%2ftoc.json)

@@ -280,11 +280,4 @@ If you allow a simulation to run for much longer, your visualization will look s
 
 ## Next steps
 
-The digital twins are stored by default as a flat hierarchy in Time Series Insights, but they can be enriched with model information and a multi-level hierarchy for organization. To learn more about this process, read: 
-
-* [Define and apply a model](../time-series-insights/tutorial-set-up-environment.md#define-and-apply-a-model) 
-
-You can write custom logic to automatically provide this information using the model and graph data already stored in Azure Digital Twins. To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
-
-* [Manage a digital twin](./how-to-manage-twin.md)
-* [Query the twin graph](./how-to-query-graph.md)
+After establishing a data pipeline to send time series data from Azure Digital Twins to Time Series Insights, you might want to think about how to translate asset models designed for Azure Digital Twins into asset models for Time Series Insights. For a tutorial on this next step in the integration process, see [Model synchronization between Azure Digital Twins and Time Series Insights Gen2](../time-series-insights/tutorials-model-sync.md).

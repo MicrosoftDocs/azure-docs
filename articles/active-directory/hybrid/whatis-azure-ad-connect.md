@@ -28,6 +28,10 @@ Azure AD Connect provides the following features:
 
 ![What is Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
 
+> [!IMPORTANT]
+> Azure AD Connect Health for Sync requires Azure AD Connect Sync V2. If you are still using AADConnect V1 you must upgrade to the latest version. 
+> AADConnect V1 is retired on August 31, 2022. Azure AD Connect Health for Sync will no longer work with AADConnect V1 in December 2022.
+
 
 
 ## What is Azure AD Connect Health?

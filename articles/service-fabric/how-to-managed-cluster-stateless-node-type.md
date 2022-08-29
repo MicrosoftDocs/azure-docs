@@ -1,15 +1,17 @@
 ---
 title: Deploy a Service Fabric managed cluster with stateless node types
 description: Learn how to create and deploy stateless node types in Service Fabric managed clusters
-ms.topic: conceptual
-ms.date: 4/11/2022
-author: craftyhouse
-ms.author: micraft
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Deploy a Service Fabric managed cluster with stateless node types
 
-Service Fabric node types come with an inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types change this assumption for a node type. This allows the node type to benefit from features such as faster scale out operations, support for Automatic OS Upgrades, Spot VMs, and scaling out to more than 100 nodes in a node type.
+Service Fabric node types come with an inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types change this assumption for a node type. This allows the node type to benefit from features such as faster scale-out operations, support for Automatic OS Upgrades, Spot VMs, and scaling out to more than 100 nodes in a node type.
 
 * Primary node types can't be configured to be stateless.
 * Stateless node types require an API version of **2021-05-01** or later.

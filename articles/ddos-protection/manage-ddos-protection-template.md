@@ -10,7 +10,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: jgao
-ms.date: 04/26/2021
+ms.date: 08/12/2022
 ---
 
 # Quickstart: Create an Azure DDoS Protection Standard using ARM template

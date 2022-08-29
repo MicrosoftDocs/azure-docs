@@ -4,7 +4,7 @@ description: Microsoft Connected Cache within an Azure IoT Edge for Industrial I
 author: andyriv
 ms.author: andyriv
 ms.date: 2/16/2021
-ms.topic: tutorial
+ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
