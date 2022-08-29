@@ -404,7 +404,7 @@
           href: functions-how-to-use-azure-function-app-settings.md
           displayName: app setting, application setting
         - name: Reference function app settings from App Configuration (preview)
-          href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/app-service-app-config-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Set the runtime version
           href: set-runtime-version.md
         - name: Disable a function
