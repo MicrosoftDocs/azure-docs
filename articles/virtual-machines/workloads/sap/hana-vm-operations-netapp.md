@@ -36,6 +36,7 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 - Azure NetApp Files offers [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
 - Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. Though to achieve proximity, the functionality of [Application Volume Groups](../../../azure-netapp-files/application-volume-group-introduction.md) is in public preview. See also later in this article
 - The User ID for <b>sid</b>adm and the Group ID for `sapsys` on the virtual machines must match the configuration in Azure NetApp Files. 
+- Implement Linux OS parameters mentioned in SAP note [3024346](https://launchpad.support.sap.com/#/notes/3024346)
 
 > [!IMPORTANT]
 > For SAP HANA workloads, low latency is critical. Work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in close proximity.  
