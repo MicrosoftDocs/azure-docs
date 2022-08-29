@@ -161,7 +161,7 @@ You have two options to add activities to your iteration and conditional activit
 
 Your containerized activities can be viewed in two sizes. In the expanded size, you will be able to see all the activities in the container.
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-23.png" alt-text="Screenshot of the drop-down list of activities in the right-most activity.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-23.png" alt-text="Screenshot of a ForEach activity with nest activities shown in a container view.":::
 
 To save space on your canvas, you can also collapse the containerized view using the **Minimize** arrows found in the top right corner of the activity. 
 
