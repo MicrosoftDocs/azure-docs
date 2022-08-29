@@ -27,7 +27,7 @@ highlightedContent:
     - title: What is the Azure AD B2C?
       itemType: overview # controls the icon image and super-title text
       url: overview.md
-    - title: Compare Azure AD and Azure AD B2C
+    - title: Azure AD features supported in Azure AD B2C
       url: supported-azure-ad-features.md
       itemType: overview
     - title: Get started with Azure AD B2C
@@ -139,7 +139,7 @@ conceptualContent:
           - text: Register your applications
             url: index-register-apps.yml
             itemType: tutorial
-          - text: Create a user sign-in/sign-up experience
+          - text: Create sign-in/sign-up user flows
             url: index-create-user-flow.yml
             itemType: how-to-guide
           - text: Sign-in options
