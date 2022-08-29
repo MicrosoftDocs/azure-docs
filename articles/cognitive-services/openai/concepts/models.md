@@ -21,7 +21,7 @@ The service provides access to many different models, grouped by family and capa
 |--|--|
 | [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. |
 | [Codex](#codex-models) | A series of models that can understand and generate code, including translating natural language to code. |
-| [Embeddings](#embedding-models) | A set of models that can understand and use embeddings. An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently, we offer three families of Embeddings models for different functionalities: text search, text similarity, and code search. |
+| [Embeddings](#embeddings-models) | A set of models that can understand and use embeddings. An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently, we offer three families of Embeddings models for different functionalities: text search, text similarity, and code search. |
 
 ## Model capabilities
 
