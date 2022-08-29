@@ -47,7 +47,7 @@ items:
     - name: Learn about groups
       href: concept-learn-about-groups.md
     - name: Manage groups
-      href: how-to-manage-groups-groups.md
+      href: how-to-manage-groups.md
     - name: Create a group and add members
       href: active-directory-groups-view-azure-portal.md
   - name: Manage licenses

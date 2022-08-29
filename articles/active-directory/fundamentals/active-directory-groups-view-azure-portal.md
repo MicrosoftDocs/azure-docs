@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 # Quickstart: Create a group with members and view all groups and members in Azure Active Directory
 You can view your organization's existing groups and group members using the Azure portal. Groups are used to manage users that all need the same access and permissions for potentially restricted apps and services.
 
-In this quickstart, you’ll set up a new group and assign members to the group. Then you'll view your organization's group and assigned members. Throughout this guide you will create a user and group that you can use in other Azure AD Fundamentals quickstarts and tutorials.
+In this quickstart, you’ll set up a new group and assign members to the group. Then you'll view your organization's group and assigned members. Throughout this guide, you'll create a user and group that you can use in other Azure AD Fundamentals quickstarts and tutorials.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
@@ -52,7 +52,7 @@ Create a new group, named _MDM policy - West_. For more information about creati
 1. Select **Create**.
 
 ## Create a new user
-A user must exist before being added as a group member, so you'll need to create a new user. For this quickstart we've added a user named _Alain Charon_. Check the "Custom domain names" tab first to get the verified domain name in which to create users. For more information about creating a user, see [How to add or delete users](add-users-azure-active-directory.md).
+A user must exist before being added as a group member, so you'll need to create a new user. For this quickstart, we've added a user named _Alain Charon_. Check the "Custom domain names" tab first to get the verified domain name in which to create users. For more information about creating a user, see [How to add or delete users](add-users-azure-active-directory.md).
 
 1. Go to **Azure Active Directory** > **Users**.
 

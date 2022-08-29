@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Learn about groups and access rights in Azure Active Directory
 
-Azure Active Directory (Azure AD) provides several ways to manage access to resources, applications, and tasks. With Azure AD groups you can grant access and permissions to a group of users instead of for each individual user. Limiting access to Azure AD resources to only those users who need it is one of the core security principals of [Zero Trust](https://docs.microsoft.com/security/zero-trust/zero-trust-overview/). This article provides an overview of how groups and access rights can be used to together to make managing your Azure AD users easier while also applying security best practices.
+Azure Active Directory (Azure AD) provides several ways to manage access to resources, applications, and tasks. With Azure AD groups, you can grant access and permissions to a group of users instead of for each individual user. Limiting access to Azure AD resources to only those users who need access is one of the core security principals of [Zero Trust](https://docs.microsoft.com/security/zero-trust/zero-trust-overview/). This article provides an overview of how groups and access rights can be used together to make managing your Azure AD users easier while also applying security best practices.
 
 Azure AD lets you use groups to manage access to applications, data, and resources. Resources can be:
 
@@ -48,8 +48,8 @@ This option also lets you give people outside of your organization access to the
 
 ### Membership types:
 - **Assigned:** Lets you add specific users as members of a group and have unique permissions.
-- **Dynamic user:** Lets you use dynamic membership rules to automatically add and remove members. If a member's attributes change, the system looks at your dynamic group rules for the directory to see if the member meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
-- **Dynamic device:** Lets you use dynamic group rules to automatically add and remove devices. If a device's attributes change, the system looks at your dynamic group rules for the directory to see if the device meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
+- **Dynamic user:** Lets you use dynamic membership rules to automatically add and remove members. If a member's attributes change, the system looks at your dynamic group rules for the directory to see if the member meets the rule requirements (is added), or no longer meets the rules requirements (is removed).
+- **Dynamic device:** Lets you use dynamic group rules to automatically add and remove devices. If a device's attributes change, the system looks at your dynamic group rules for the directory to see if the device meets the rule requirements (is added), or no longer meets the rules requirements (is removed).
 
     > [!IMPORTANT]
     > You can create a dynamic group for either devices or users, but not for both. You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributions. For more info about creating a dynamic group for users and devices, see [Create a dynamic group and check status](../enterprise-users/groups-create-rule.md)
@@ -61,7 +61,7 @@ After creating an Azure AD group, you need to grant it the appropriate access. E
 
 ### How access management in Azure AD works
 
-Azure AD helps you give access to your organization's resources by providing access rights to a single user or to an entire Azure AD group. Using groups lets the resource owner or Azure AD directory owner assign a set of access permissions to all the members of the group. The resource or directory owner can also give management rights for the member list to someone else, such as a department manager or a help desk administrator, letting that person add and remove members, as needed. For more information about how to manage group owners, see the [Manage groups](how-to-manage-groups.md) article.
+Azure AD helps you give access to your organization's resources by providing access rights to a single user or to an entire Azure AD group. Using groups lets the resource owner or Azure AD directory owner assign a set of access permissions to all the members of the group. The resource or directory owner can also give management rights to someone such as a department manager or a help desk administrator, letting that person add and remove members. For more information about how to manage group owners, see the [Manage groups](how-to-manage-groups.md) article.
 
 ![Azure Active Directory access management diagram](./media/concept-learn-about-groups/access-management-overview.png)
 
@@ -82,7 +82,7 @@ After creating a group, you need to decide how to assign access rights. Explore 
 ### Can users join groups without being assigned?
 The group owner can let users find their own groups to join, instead of assigning them. The owner can also set up the group to automatically accept all users that join or to require approval.
 
-After a user requests to join a group, the request is forwarded to the group owner. If it's required, the owner can approve the request and the user is notified of the group membership. However, if you have multiple owners and one of them disapproves, the user is notified, but isn't added to the group. For more information and instructions about how to let your users request to join groups, see [Set up Azure AD so users can request to join groups](../enterprise-users/groups-self-service-management.md).
+After a user requests to join a group, the request is forwarded to the group owner. If it's required, the owner can approve the request and the user is notified of the group membership. If you have multiple owners and one of them disapproves, the user is notified, but isn't added to the group. For more information and instructions about how to let your users request to join groups, see [Set up Azure AD so users can request to join groups](../enterprise-users/groups-self-service-management.md).
 
 ## Next steps
 

@@ -58,7 +58,7 @@ You can create a basic group and add your members at the same time using the Azu
 
 ### Turn off group welcome email
 
-When any new Microsoft 365 group is created, whether with dynamic or static membership, a welcome notification is sent to all users who are added to the group. When any attributes of a user or device change, all dynamic group rules in the organization are processed for potential membership changes. Users who are added then also receive the welcome notification. You can turn this behavior off in [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup).
+A welcome notification is sent to all users when they're added to a new Microsoft 365 group, regardless of the membership type. When an attribute of a user or device changes, all dynamic group rules in the organization are processed for potential membership changes. Users who are added then also receive the welcome notification. You can turn off this behavior in [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup).
 
 ## Add or remove members and owners
 Members and owners can be added to and removed from existing Azure AD groups. The process is the same for members and owners.
@@ -116,12 +116,12 @@ To edit your group settings:
 
     - **Group type.** You can't change the type of group after it's been created. To change the **Group type**, you must delete the group and create a new one.
     
-    - **Membership type.** Change the membership type. If you enabled the **Azure AD roles can be assigned to the group** option, you cannot change the membership type. For more info about the available membership types, see the [learn about groups and membership types](concept-learn-about-groups.md) article. 
+    - **Membership type.** Change the membership type. If you enabled the **Azure AD roles can be assigned to the group** option, you can't change the membership type. For more info about the available membership types, see the [learn about groups and membership types](concept-learn-about-groups.md) article. 
     
     - **Object ID.** You can't change the Object ID, but you can copy it to use in your PowerShell commands for the group. For more info about using PowerShell cmdlets, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-v2-cmdlets.md).
 
 ## Delete a group
-You can delete an Azure AD group for any number of reasons, but typically it'll be because you:
+You can delete an Azure AD group for any number of reasons, but typically it will be because you:
 
 - Chose the incorrect **Group type** option.
 
@@ -182,7 +182,7 @@ You can remove an existing Security group from another Security group; however, 
 
 1. Select **Remove**.
 
-    For this exercise we're now going to remove "MDM policy - West" from the "MDM policy - All org" group.
+    For this exercise, we're now going to remove "MDM policy - West" from the "MDM policy - All org" group.
 
     ![Group membership page showing both the member and the group details with 'Remove membership' option highlighted](media/how-to-manage-groups/remove-nested-group.png)
 
