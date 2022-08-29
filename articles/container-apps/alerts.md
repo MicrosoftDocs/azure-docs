@@ -25,7 +25,7 @@ To learn more about alerts, refer to [Overview of alerts in Microsoft Azure](../
 
 When you add alert rules to a metric chart in the metrics explorer, alerts are triggered when the collected metric data matches alert rule conditions.  
 
-After creating a [metric chart](metrics.md#view-metrics-with-metrics-explorer), you can create a new alert rule.
+After creating a [metric chart](metrics.md#Using metrics explorer), you can create a new alert rule.
 
 1. Select **New alert rule**.  This opens the **Condition** tab that contains a condition populated with the metric chart settings. 
 1. Select the condition.
