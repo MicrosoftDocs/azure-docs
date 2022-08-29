@@ -492,13 +492,13 @@ The steps in this section use the following prefixes:
 
 ## Implement the Python system replication hook SAPHanaSR
 
-This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.    
+This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook.    
 
 1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
 
    > [!TIP]
    > Verify that package SAPHanaSR is at least version 0.153 to be able to use the SAPHanaSR Python hook functionality.       
-   > The python hook can only be implemented for HANA 2.0.        
+   > The Python hook can only be implemented for HANA 2.0.        
 
    1. Prepare the hook as `root`.  
 
@@ -530,7 +530,7 @@ This is important step to optimize the integration with the cluster and improve 
 2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
     ```bash
     cat << EOF > /etc/sudoers.d/20-saphana
-    # Needed for SAPHanaSR python hook
+    # Needed for SAPHanaSR Python hook
     hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
     EOF
     ```
