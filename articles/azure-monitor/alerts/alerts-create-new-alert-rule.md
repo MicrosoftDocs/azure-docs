@@ -188,7 +188,7 @@ And then defining these elements for the resulting alert actions using:
     From this point on, you can select the **Review + create** button at any time.
 
 1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
-1. (Optional) If you want to make sure that the data processing for the action group takes place within a specific region, you can select one of these regions in which to process the action group:
+1. (Optional) If you want to make sure that the data processing for the action group takes place within a specific region, you can select an action group in one of these regions in which to process the action group:
     - Sweden Central
     - Germany West Central
 
@@ -200,7 +200,7 @@ And then defining these elements for the resulting alert actions using:
 1. In the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
     - Select the **Resource group**.
-    - (Optional) If you want to make sure that the data processing for the alert rule takes place within a specific region, and you're creating a metric alert rule that monitors a custom metric, you can select one of these regions for the processing of the alert rule. 
+    - (Optional) If you want to make sure that the data processing for the alert rule takes place within a specific region, and you're creating a metric alert rule that monitors a custom metric, you can select to process the alert rule in one of these regions. 
         - North Europe
         - West Europe
         - Sweden Central
