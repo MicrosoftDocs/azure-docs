@@ -38,9 +38,9 @@ If you are using the Azure portal to create a workflow, you can customize existi
 1. select **Workflows (Preview)** 
 
 1. On the workflows screen, select the workflow template that you want to use. 
- :::image type="content" source="media/create-lifecycle-workflow/lcw-template-list.png" alt-text="list of lcw templates":::
+ :::image type="content" source="media/create-lifecycle-workflow/template-list.png" alt-text="list of lifecycle workflows templates.":::
 1. Enter a display name and description for the workflow. The display name must be unique and not match the name of any other workflow you've created. 
- :::image type="content" source="media/create-lifecycle-workflow/lcw-template-basics.png" alt-text="LCW template basic information":::
+ :::image type="content" source="media/create-lifecycle-workflow/template-basics.png" alt-text="workflow template basic information.":::
 
 1. Select the **Trigger type** to be used for this workflow.
 
@@ -53,16 +53,16 @@ If you are using the Azure portal to create a workflow, you can customize existi
 
 1. Select the **Property**, **Operator**, and give it a **value**. The following picture gives an example of a rule being set up for a sales department.
 
-    :::image type="content" source="media/create-lifecycle-workflow/lcw-template-scope.png" alt-text="lcw template configure scope":::
+    :::image type="content" source="media/create-lifecycle-workflow/template-scope.png" alt-text="Lifecycle Workflows template configure scope.":::
 
 1. To view your rule syntax, select the **View rule syntax** button.
-    :::image type="content" source="media/create-lifecycle-workflow/lcw-template-syntax.png" alt-text="LCW rule syntax":::
+    :::image type="content" source="media/create-lifecycle-workflow/template-syntax.png" alt-text="Lifecycle Workflows rule syntax.":::
 
 1. You can copy and paste multiple user property rules on this screen. For more detailed information on which properties that can be included see: [User Properties](/graph/aad-advanced-queries?tabs=http#user-properties) 
 
 1. To Add a task to the template, select **Add task**.
 
-    :::image type="content" source="media/create-lifecycle-workflow/lcw-template-tasks.png" alt-text="lcw template add tasks":::
+    :::image type="content" source="media/create-lifecycle-workflow/template-tasks.png" alt-text="Lifecycle workflows template add tasks.":::
 
 1. To enable an existing task on the list, select **enable**. You're also able to disable a task by selecting **disable**.
 
@@ -70,7 +70,7 @@ If you are using the Azure portal to create a workflow, you can customize existi
 
 1. Review the workflow's settings.
 
-    :::image type="content" source="media/create-lifecycle-workflow/lcw-template-review.png" alt-text="lcw template review and create":::
+    :::image type="content" source="media/create-lifecycle-workflow/template-review.png" alt-text="Lifecycle Workflows template review and create.":::
 
 1. Select **Create** to create the workflow.
 

@@ -31,13 +31,13 @@ You can remove workflows that are no longer needed. Deleting these workflows all
 
 1. On the workflows screen, select the workflow you want to delete.
 
-     :::image type="content" source="media/delete-lifecycle-workflow/lcw-delete-button.png" alt-text="List of lcw workflows to delete":::
+     :::image type="content" source="media/delete-lifecycle-workflow/delete-button.png" alt-text="List of Lifecyle Workflows to delete":::
 
 1. With the workflow highlighted, select **Delete**.
 
 1. Confirm you want to delete the selected workflow. 
  
-     :::image type="content" source="media/delete-lifecycle-workflow/lcw-delete-workflow.png" alt-text="confirm deleted workflow":::
+     :::image type="content" source="media/delete-lifecycle-workflow/delete-workflow.png" alt-text="confirm deleted workflow":::
 
 ## View deleted workflows
 
@@ -48,7 +48,7 @@ After deleting workflows, you can view them on the **Deleted Workflows (Preview)
 
 1. On this page, you'll see a list of deleted workflows, a description of the workflow, what date it was deleted, and its permanent delete date. By default the permanent delete date for a workflow is always 30 days after it was originally deleted.
 
-     :::image type="content" source="media/delete-lifecycle-workflow/lcw-deleted-list.png" alt-text="List of deleted LCW workflows":::
+     :::image type="content" source="media/delete-lifecycle-workflow/deleted-list.png" alt-text="List of deleted  workflows":::
  
 1. To restore a deleted workflow, select the workflow you want to restore and select **Restore workflow**.
 
@@ -87,3 +87,4 @@ GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/delet
 
 ## Next steps
 - [What are Lifecycle Workflows?](what-are-lifecycle-workflows.md)
+- [Manage Lifecycle Workflow Versions](manage-workflow-tasks.md)

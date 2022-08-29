@@ -32,9 +32,8 @@ Automatic workflow schedules [trigger](understanding-lifecycle-workflows.md#trig
 
 Finally, Lifecycle Workflows can even [integrate with Logic Apps](lifecycle-workflow-extensibility.md) tasks ability to extend workflows for more complex scenarios using your existing Logic apps.
 
-.
 
- ![Intro to lifecycle workflows](media/what-are-lifecycle-workflows/intro-2.png)
+ ![Intro to lifecycle workflows.](media/what-are-lifecycle-workflows/intro-2.png)
 
 
 ## Why use Lifecycle workflows?

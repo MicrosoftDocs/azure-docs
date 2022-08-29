@@ -104,7 +104,7 @@ For the purpose of this tutorial, there are three tasks that will be introduced 
 The following POST API call will create a leaver workflow that can be executed on-demand for real-time employee terminations.
 
 ```http
-POST https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows
+POST https://graph.microsoft.com/beta/identityGovernance/LifecycleWorkflows/workflows
 Content-type: application/json
 
 {
@@ -156,7 +156,7 @@ Now that the workflow is created, it will automatically run the workflow every 3
 To run a workflow on-demand for users using the GRAPH API do the following steps:
 
 1.  Open [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-2. Make sure the top is still set to **POST**, and **beta** and `https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<id>/activate` is in the box.  Change `<id>` to the ID of workflows. 
+2. Make sure the top is still set to **POST**, and **beta** and `https://graph.microsoft.com/beta/identityGovernance/LifecycleWorkflows/workflows/<id>/activate` is in the box.  Change `<id>` to the ID of workflows. 
  3. Copy the code below in to the **Request body** 
  4. Replace `<userid>` in the code below with the value of the user's ID.
  5. Select **Run query**
@@ -179,17 +179,17 @@ To begin, you will just need the ID of the workflow and the date range for which
 This example will show you how to list the userProcessingResults for the last 7 days.
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflow id>/userProcessingResults
+GET https://graph.microsoft.com/beta/identityGovernance/LifecycleWorkflows/workflows/<workflow id>/userProcessingResults
 ```
 Furthermore, it is possible to get a summary of the userProcessingResults to get a quicker overview of large amounts of data, but for this a time span must be specified.
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflow id>/userProcessingResults/summary(startDateTime=2022-05-01T00:00:00Z,endDateTime=2022-05-30T00:00:00Z)
+GET https://graph.microsoft.com/beta/identityGovernance/LifecycleWorkflows/workflows/<workflow id>/userProcessingResults/summary(startDateTime=2022-05-01T00:00:00Z,endDateTime=2022-05-30T00:00:00Z)
 ```
 You may also check the full details about the tasks of a given userProcessingResults. You will need to provide the workflow ID of the workflow, as well as the userProcessingResult ID. You may obtain the userProcessingResult ID from the response of the userProcessingResults GET call above.
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflow_id>/userProcessingResults/<userProcessingResult_id>/taskProcessingResults
+GET https://graph.microsoft.com/beta/identityGovernance/LifecycleWorkflows/workflows/<workflow_id>/userProcessingResults/<userProcessingResult_id>/taskProcessingResults
 ```
 
 ## Next steps

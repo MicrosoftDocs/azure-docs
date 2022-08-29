@@ -237,3 +237,6 @@
     href: lifecycle-workflows-dev-reference.md  
   - name: Preparing user accounts for Lifecycle workflows tutorials (Preview)
     href: tutorial-prepare-azuread-user-accounts.md 
+  - name: Configure a Logic App for Lifecycle Workflow use (Preview)
+    href: configure-logic-app-lifecycle-workflows.md
+      

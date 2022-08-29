@@ -35,7 +35,7 @@ While updates to workflows can trigger the creation of a new version, this isn't
 
 
 You'll find these corresponding parameters in the Azure portal under the **Properties** section of the workflow you're updating.
-:::image type="content" source="media/lifecycle-workflow-versioning/lcw-basic-updateable-properties.png" alt-text="updated basic properties LCW":::
+:::image type="content" source="media/lifecycle-workflow-versioning/lcw-basic-updateable-properties.png" alt-text="updated basic properties LCW" lightbox="media/lifecycle-workflow-versioning/lcw-basic-updateable-properties.png":::
 
 For a step by step guide on updating these properties using both the Azure portal and the API via Microsoft Graph, see: [Manage workflow properties](manage-workflow-properties.md).
 

@@ -97,7 +97,7 @@ To ensure timing accuracy of scheduled workflows it’s curial to consider:
      - Default value: Leave blank
      - Target attribute: employeeHireDate
      - Apply this mapping: Always
-     ![Screenshot that shows attribute mapping. 1](media/how-to-lcw-synch-attributes/cloud-synch-1.png)
+     ![ Synchronization attribute mapping.](media/how-to-lifecycle-workflow-sync-attributes/cloud-synch-1.png)
  8. Select **Apply**.
  9. Back on the **Attribute mappings** screen, you should see your new attribute mapping.  
  10. Select **Save schema**.
@@ -117,14 +117,14 @@ The following example will walk you through setting up a custom synchronization 
       - Connected System Object Type: user
       - Metaverse Object Type: person
       - Precedence: 200
-     ![Screenshot that shows attribute mapping. 2](media/how-to-lcw-synch-attributes/aadc-4.png)
+     ![Create inbound synchronization rule basics.](media/how-to-lifecycle-workflow-sync-attributes/aadc-4.png)
    6. On the **Scoping filter** screen, select **Next.**
    7. On the **Join rules** screen, select **Next**.
    8. On the **Transformations** screen, Under **Add transformations,** enter the following information.
       - FlowType:  Direct
       - Target Attribute: employeeHireDate
       - Source:  msDS-cloudExtensionAttribute1
-     ![Screenshot that shows attribute mapping. 3](media/how-to-lcw-synch-attributes/aadc-5.png)
+     ![Create inbound synchronization rule transformations.](media/how-to-lifecycle-workflow-sync-attributes/aadc-5.png)
    9.  Select **Add**.
    10. In the Synchronization Rules Editor, ensure the direction at the top is set to **Outbound**.
    11. Select **Add Rule.**  
@@ -134,14 +134,14 @@ The following example will walk you through setting up a custom synchronization 
        - Connected System Object Type: user
        - Metaverse Object Type: person
        - Precedence: 201
-     ![Screenshot that shows attribute mapping. 4](media/how-to-lcw-synch-attributes/aadc-6.png)
+     ![Create outbound synchronization rule basics.](media/how-to-lifecycle-workflow-sync-attributes/aadc-6.png)
    13. On the **Scoping filter** screen, select **Next.**
    14. On the **Join rules** screen, select **Next**.
    15. On the **Transformations** screen, Under **Add transformations,** enter the following information.
        - FlowType:  Direct
        - Target Attribute: employeeHireDate
        - Source:  employeeHireDate
-     ![Screenshot that shows attribute mapping. 5](media/how-to-lcw-synch-attributes/aadc-7.png)
+     ![Create inbound synchronization transformations.](media/how-to-lifecycle-workflow-sync-attributes/aadc-7.png)
    16.  Select **Add**.
    17. Close the Synchronization Rules Editor
 

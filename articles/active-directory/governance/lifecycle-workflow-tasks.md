@@ -67,7 +67,7 @@ Below is each specific task, and detailed information such as parameters and pre
 
 
 Lifecycle Workflows allow you to automate the sending of welcome emails to new hires in your organization. You're able to customize the task name and description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-email-task.png" alt-text="LCW Email task":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-email-task.png" alt-text="Lifecycle Workflows Email task.":::
 
 
 The Azure AD prerequisite to run the **Send welcome email to new hire** task is:
@@ -107,7 +107,7 @@ With this task in the Azure portal, you're able to give the task a name and desc
 
 **Activation duration**- How long the password is active.
 **One time use**- If the password is one use only.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-TAP-task.png" alt-text="TAP LCW task":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-tap-task.png" alt-text="TAP Lifecycle Workflows task.":::
  
 
 The Azure AD prerequisites to run the **Generate Temporary Access Password and send via email to user's manager** task are:
@@ -162,7 +162,7 @@ For Microsoft Graph the parameters for the **Generate Temporary Access Password 
 Allows users to be added to a cloud-only group. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
 
 You're able to customize the task name and description for this task.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-add-group-task.png" alt-text="LCW Add user to group task":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-add-group-task.png" alt-text="Lifecycle Workflows Add user to group task.":::
 
 
 For Microsoft Graph the parameters for the **Add user to group** task are as follows:
@@ -198,7 +198,7 @@ For Microsoft Graph the parameters for the **Add user to group** task are as fol
 ### Add user to team
 
 You're able to add a user to an existing static team. You're able to customize the task name and description for this task.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-add-team-task.png" alt-text="LCW add user to team":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-add-team-task.png" alt-text="Lifecycle Workflows add user to team.":::
 
 
 For Microsoft Graph the parameters for the **Add user to team** task are as follows:
@@ -235,7 +235,7 @@ For Microsoft Graph the parameters for the **Add user to team** task are as foll
 
 Allows cloud-only user accounts to be enabled. You're able to customize the task name and description for this task in the Azure portal.
 
-:::image type="content" source="media/lifecycle-workflow-task/lcw-enable-task.png" alt-text="LCW enable user account":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-enable-task.png" alt-text="Lifecycle Workflows enable user account.":::
 
 
 For Microsoft Graph the parameters for the **Enable user account** task are as follows:
@@ -266,7 +266,7 @@ For Microsoft Graph the parameters for the **Enable user account** task are as f
 
 Workflows can be configured to launch a custom task extension. You're able to customize the task name and description for this task using the Azure portal.
 
-:::image type="content" source="media/lifecycle-workflow-task/lcw-custom-extension-task.png" alt-text="LCW custom extension task":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-custom-extension-task.png" alt-text="Lifecycle Workflow custom extension task.":::
 
 The Azure AD prerequisite to run the **Run a Custom Task Extension** task is:
 
@@ -308,7 +308,7 @@ For more information on setting up a Logic app to run with Lifecycle Workflows, 
 ### Disable user account
 
 Allows cloud-only user accounts can be disabled. You're able to customize the task name and description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-disable-task.png" alt-text="LCW disable user account":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-disable-task.png" alt-text="Lifecycle Workflows disable user account.":::
 
 
 For Microsoft Graph the parameters for the **Disable user account** task are as follows:
@@ -341,7 +341,7 @@ For Microsoft Graph the parameters for the **Disable user account** task are as 
 Allows you to remove a user from cloud-only groups. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
 
 You're able to customize the task name and description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-remove-group-task.png" alt-text="LCW Remove user from select groups":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-remove-group-task.png" alt-text="Lifecycle Workflows Remove user from select groups.":::
 
 
 
@@ -382,7 +382,7 @@ Allows users to be removed from every cloud-only group they are a member of. To 
 
 
 You're able to customize the task name and description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-remove-all-groups-task.png" alt-text="LCW remove user from all groups":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-remove-all-groups-task.png" alt-text="Lifecycle Workflows remove user from all groups.":::
 
 
 For Microsoft Graph the parameters for the **Remove users from all groups** task are as follows:
@@ -413,7 +413,7 @@ For Microsoft Graph the parameters for the **Remove users from all groups** task
 ### Remove User from Teams
 
 Allows a user to be removed from one or multiple static teams. You're able to customize the task name and description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-remove-user-team-task.png" alt-text="LCW remove user from teams":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-remove-user-team-task.png" alt-text="Lifecycle Workflows remove user from teams.":::
 
 For Microsoft Graph the parameters for the **Remove User from Teams** task are as follows:
 
@@ -448,7 +448,7 @@ For Microsoft Graph the parameters for the **Remove User from Teams** task are a
 ### Remove users from all teams
 
 Allows users to be removed from every static team they are a member of. You're able to customize the task name and description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-remove-user-all-team-task.png" alt-text="LCW remove user from all teams":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-remove-user-all-team-task.png" alt-text="Lifecycle Workflows remove user from all teams.":::
 
 For Microsoft Graph the parameters for the **Remove users from all teams** task are as follows:
 
@@ -480,7 +480,7 @@ For Microsoft Graph the parameters for the **Remove users from all teams** task 
 Allows all direct license assignments to be removed from a user. For group-based license assignments, you would run a task to remove the user from the group the license assignment is part of.
 
 You're able to customize the task name and description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-remove-license-assignment-task.png" alt-text="LCW remove all licenses from users":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-remove-license-assignment-task.png" alt-text="Lifecycle Workflows remove all licenses from users.":::
 
 For Microsoft Graph the parameters for the **Remove all license assignment from user** task are as follows:
 
@@ -510,7 +510,7 @@ For Microsoft Graph the parameters for the **Remove all license assignment from 
 ### Delete User
 
 Allows cloud-only user accounts to be deleted. You're able to customize the task name and description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-delete-user-task.png" alt-text="LCW Delete user account":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-delete-user-task.png" alt-text="Lifecycle Workflows Delete user account.":::
 
 
 For Microsoft Graph the parameters for the **Delete User** task are as follows:
@@ -541,7 +541,7 @@ For Microsoft Graph the parameters for the **Delete User** task are as follows:
 ## Send email to manager before user last day
 
 Allows an email to be sent to a users manager before their last day. You're able to customize the task name and the description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-send-email-before-last-day.png" alt-text="send email before user last day task":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-send-email-before-last-day.png" alt-text="Lifecycle Workflows send email before user last day task.":::
 
 
 The Azure AD prerequisite to run the **Send email before user last day** task are:
@@ -575,7 +575,7 @@ For Microsoft Graph the parameters for the **Send email before user last day** t
 ## Send email on users last day
 
 Allows an email to be sent to a user's manager on their last day. You're able to customize the task name and the description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-send-email-last-day.png" alt-text="lcw task to send email last day":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-send-email-last-day.png" alt-text="Lifecycle Workflows task to send email last day.":::
 
 The Azure AD prerequisite to run the **Send email on user last day** task are:
 
@@ -608,7 +608,7 @@ For Microsoft Graph the parameters for the **Send email on user last day** task 
 ## Send offboarding email to users manager after their last day
 
 Allows an email containing offboarding information to be sent to the user's manager after their last day. You're able to customize the task name and description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/lcw-offboard-email-manager.png" alt-text="lcw send offboarding email to users manager after their last day":::
+:::image type="content" source="media/lifecycle-workflow-task/lifecycle-workflows-offboard-email-manager.png" alt-text="Lifecycle Workflows send offboarding email to users manager after their last day.":::
 
 The Azure AD prerequisite to run the **Send offboarding email to users manager after their last day** task are:
 

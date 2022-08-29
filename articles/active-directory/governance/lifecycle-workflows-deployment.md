@@ -109,9 +109,9 @@ The following is important information about your organization and the technolog
 |Item|Description|Documentation|
 |-----|-----|-----|
 |Inbound Provisioning|You have a process to create user accounts for employees in Azure AD such as HR inbound, SuccessFactors, or MIM.</br></br>  Alternatively you have a process to create user accounts in Active Directory and those accounts are provisioned to Azure AD.|[Workday to Active Directory](../saas-apps/workday-inbound-tutorial.md)</br></br>[Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md)</br></br>[SuccessFactors to Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)</br></br>[SuccessFactors to Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)</br></br>[Azure AD Connect](../hybrid/whatis-azure-ad-connect-v2.md)</br></br>[Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md)|
-|Attribute synchronization|The accounts in Azure AD have the employeeHireDate and employeeLeaveDateTime attributes populated.  The values may be populated when the accounts are created from an HR system or synchronized from AD using Azure AD Connect or cloud sync.</br></br>You have additional attributes, that will be used to determine the scope, such as department, populated or the ability to populate, with data.|[How to synchronize attributes for Lifecycle Workflows](how-to-lcw-synch-attributes.md)
+|Attribute synchronization|The accounts in Azure AD have the employeeHireDate and employeeLeaveDateTime attributes populated.  The values may be populated when the accounts are created from an HR system or synchronized from AD using Azure AD Connect or cloud sync. You have additional attributes, that will be used to determine the scope, such as department, populated or the ability to populate, with data.|[How to synchronize attributes for Lifecycle Workflows](how-to-lifecycle-workflow-sync-attributes.md)
 
-## Understanding parts of a workflow.
+## Understanding parts of a workflow
 Before you begin planning a Lifecycle Workflow deployment, you should become familiar with the parts of workflow and the terminology around Lifecycle Workflows.
 
 The [Understanding Lifecycle Workflows](understanding-lifecycle-workflows.md) document, uses the portal to explain the parts of a workflow. The [Developer API reference Lifecycle Workflows](lifecycle-workflows-dev-reference.md) document, uses a GRAPH example to explain the parts of a workflow. 
@@ -143,7 +143,7 @@ The following table provides a quick checklist of steps you can use when designi
 
 |Step|Description|
 |-----|-----|
-|[Determine your scenario](#determine-your-scenario)|Determine what scenario you are addressing with a workflow|
+|[Determine your scenario](#determine-your-scenario)|Determine what scenario you're addressing with a workflow|
 |[Determine the execution conditions](#determine-the-execution-conditions)|Determine who and when the workflow will run|
 |[Review the tasks](#review-the-tasks)|Review and add additional tasks to the workflow|
 |[Create your workflow](#create-your-workflow)|Create your workflow after planning and design.|
@@ -194,7 +194,7 @@ The following is some important information regarding time zones that you should
 -  if you're in a single time zone it's recommended that you hardcode the time portion to something that works for you.  An example would be 5am for new hire scenarios and 10pm for last day of work scenarios.
 - It's recommended, that if you're using temporary access pass (TAP), that you set the maximum lifetime to 24 hours.  Doing this will help ensure that the TAP hasn't expired after being sent to an employee who may be in a different timezone.  For more information, see [Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods.](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
 
-For more information, see [How to synchronize attributes for Lifecycle Workflows](../governance/how-to-lcw-synch-attributes.md)
+For more information, see [How to synchronize attributes for Lifecycle Workflows](../governance/how-to-lifecycle-workflow-sync-attributes.md)
 
 ## Review the tasks
 Now that we've determined the scenario and the who and when, you should consider whether the pre-defined tasks are sufficient or are you going to need additional tasks.  The table below has a list of the pre-defined tasks that are currently in the portal.  Use this table to determine if you want to add more tasks.
@@ -224,11 +224,11 @@ For more information on tasks, see [Lifecycle Workflow tasks](lifecycle-workflow
 ### Group and team tasks
 If you're using a group or team task, the workflow will need you to specify the group or groups.  In the screenshot below, you'll see the yellow triangle on the task indicating that it's missing information.  
 
- [![Screenshot of Onboadrd new hire](media/lifecycle-workflows-deployment/group-1.png)](media/lifecycle-workflows-deployment/group-1.png#lightbox)
+ [![Screenshot of onboard new hire.](media/lifecycle-workflows-deployment/group-1.png)](media/lifecycle-workflows-deployment/group-1.png#lightbox)
 
-By clicking on the task, you'll be presented with a navagation bar to add or remove groups.  Select the "x groups selected" link to add groups.
+By clicking on the task, you'll be presented with a navigation bar to add or remove groups.  Select the "x groups selected" link to add groups.
 
- [![Screenshot of add groups](media/lifecycle-workflows-deployment/group-2.png)](media/lifecycle-workflows-deployment/group-2.png#lightbox)
+ [![Screenshot of add groups.](media/lifecycle-workflows-deployment/group-2.png)](media/lifecycle-workflows-deployment/group-2.png#lightbox)
 
 ### Custom task extensions
 Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of these built-in tasks. With the extensibility feature, you'll be able to utilize the concept of custom task extensions to call-out to external systems as part of a Lifecycle Workflow. 
@@ -242,7 +242,7 @@ When creating custom task extensions, the scenarios for how it will interact wit
 - For more information on custom extensions, see [Lifecycle Workflow extensibility (Preview)](lifecycle-workflow-extensibility.md)
 
 ## Create your workflow
-Now that you have design and planned your workflow, you can create it in the portal.  For detailed information on creating a workflow see [Create a Lifecycle workflow.](create-lifecycle-workflow.md)
+Now that you have design and planned your workflow, you can create it in the portal.  For detailed information on creating a workflow, see [Create a Lifecycle workflow.](create-lifecycle-workflow.md)
 
 
 ## Plan a pilot
@@ -254,7 +254,7 @@ In your pilot, we recommend that you:
 * Start with Lifecycle Workflows where the results are applied to a small subset of users.
 * Monitor audit logs to ensure all events are properly audited.
 
-For more information, see [Best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
+For more information, see [Best practices for a pilot.](../fundamentals/active-directory-deployment-plans.md).
 
 
 
@@ -266,7 +266,7 @@ Using the on-demand feature will allow you to test and evaluate whether the Life
 Once you have completed testing, you can either rework the Lifecycle Workflow or get ready for a broader distribution.
 
 ### Audit logs
-You can also get more information from the audit logs.  These logs can be accessed in the portal under Azure Active Directory/monitoring.  For more information see [Audit logs in Azure AD](../reports-monitoring/concept-audit-logs.md) and [Lifecycle workflow history.](lifecycle-workflow-history.md)
+You can also get more information from the audit logs.  These logs can be accessed in the portal under Azure Active Directory/monitoring.  For more information, see [Audit logs in Azure AD](../reports-monitoring/concept-audit-logs.md) and [Lifecycle workflow history.](lifecycle-workflow-history.md)
 
 
 
@@ -275,7 +275,7 @@ You can also get more information from the audit logs.  These logs can be access
 |Stage|Description|
 | - | - |
 |Determine the scenario| A pre-hire workflow that sends email to new manager. |
-|Determine the execution conditions|The workflow will run on new employees is the sales department, two(2) days before the employeeHireDate.|
+|Determine the execution conditions|The workflow will run on new employees in the sales department, two(2) days before the employeeHireDate.|
 |Review the tasks.|We'll use the pre-defined tasks in the workflow.  No extra tasks will be added.|
 |Create the workflow in the portal|Use the pre-defined template for new hire in the portal.|
 |Enable and test the workflow| Use the on-demand feature to test the workflow on one user.|
@@ -286,6 +286,6 @@ You can also get more information from the audit logs.  These logs can be access
 
 Learn about the following related technologies:
 
-* [How to synchronize attributes for Lifecycle Workflows](how-to-lcw-synch-attributes.md)
+* [How to synchronize attributes for Lifecycle Workflows](how-to-lifecycle-workflow-sync-attributes.md)
 * [Understanding Lifecycle Workflows](understanding-lifecycle-workflows.md)
 * [Lifecycle Workflow templates.](lifecycle-workflow-templates.md)

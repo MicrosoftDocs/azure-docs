@@ -17,14 +17,14 @@ ms.collection: M365-identity-device-management
 The following reference doc provides an overview of how a lifecycle workflow is constructed.  The examples here are using workflows that are created using GRAPH and not in the portal.  The concepts are however the same.  For information using the portal, see [Understanding lifecycle workflows](understanding-lifecycle-workflows.md)
 
 ## Parts of a workflow 
-LCW enables you to use workflows for managing the lifecycle of your Azure AD users. In order to create a workflow, you must either specify pre-defined or custom information.  Pre-defined workflows can be selected in the Azure AD portal.  
+Lifecycle Workflows enables you to use workflows for managing the lifecycle of your Azure AD users. In order to create a workflow, you must either specify pre-defined or custom information. Pre-defined workflows can be selected in the Azure AD portal.  
 
 A workflow can be broken down in to three main parts.
    - General information
    - task information
    - execution conditions
 
-  [![Object id](media/understanding-lifecycle-workflows/workflow-1.png)](media/understanding-lifecycle-workflows/workflow-1.png#lightbox)
+  [![Parts of a workflow](media/understanding-lifecycle-workflows/workflow-1.png)](media/understanding-lifecycle-workflows/workflow-1.png#lightbox)
 
 ### General information
 This portion of a workflow covers basic information such as display name and a description of what the workflow does. 

@@ -15,6 +15,8 @@ ms.custom: template-tutorial
 ---
 # Lifecycle workflows - FAQs (preview)
 
+In this article you will find questions to commonly asked questions about [Lifecycle Workflows](what-are-lifecycle-workflows.md). Please check back to this page frequently as changes happen often, and answers are continually being added.
+
 ## Frequently asked questions
 
 ### Can I create custom workflows for guests?

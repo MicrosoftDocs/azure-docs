@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 # Check the status of a workflow (Preview)
 
-When a workflow is created, it's important to check it's status, and run history to make sure it ran properly for the users it processed both by schedule and by on-demand. To get information about the status of workflows, Lifecycle Workflows allows you to check run and user processing history along with summaries to see how often a workflow has run, and who it ran successfully for. You're also able to check the status of both the workflow, and its tasks. Checking the status of workflows and their tasks allows you to troubleshoot potential problems that could come up during their execution.
+When a workflow is created, it's important to check its status, and run history to make sure it ran properly for the users it processed both by schedule and by on-demand. To get information about the status of workflows, Lifecycle Workflows allows you to check run and user processing history. This history also gives you summaries to see how often a workflow has run, and who it ran successfully for. You're also able to check the status of both the workflow, and its tasks. Checking the status of workflows and their tasks allows you to troubleshoot potential problems that could come up during their execution.
 
 
 ## Run workflow history using the Azure portal
@@ -36,7 +36,7 @@ You're able to retrieve run information of a workflow using Lifecycle Workflows.
 1. On the history page, select the **Runs** button.  
 
 1. Here you'll see a summary of workflow runs.
-    :::image type="content" source="media/check-status-workflow/lcw-run-list.png" alt-text="LCW Runs list":::
+    :::image type="content" source="media/check-status-workflow/run-list.png" alt-text="Workflow Runs list.":::
 1. The runs summary cards include the total number of processed runs, the number of successful runs, the number of failed runs, and the total number of failed tasks.   
 
 ## User workflow history using the Azure portal
@@ -51,15 +51,15 @@ To get further information than just the runs summary for a workflow, you're als
 1. select the workflow you want to see user processing information for. 
 
 1. On the workflow overview screen, select **Workflow history (Preview)**.
-    :::image type="content" source="media/check-status-workflow/workflow-history.png" alt-text="workflow overview history":::
+    :::image type="content" source="media/check-status-workflow/workflow-history.png" alt-text="workflow overview history.":::
 1. On the workflow history page, you're presented with a summary of every user processed by the workflow along with counts of successful and failed users and tasks.
-    :::image type="content" source="media/check-status-workflow/workflow-history-list.png" alt-text="list of workflow summary":::
+    :::image type="content" source="media/check-status-workflow/workflow-history-list.png" alt-text="list of workflow summary.":::
 1. By selecting total tasks by a user you're able to see which tasks have successfully completed, or are currently in progress.
-    :::image type="content" source="media/check-status-workflow/task-history-status.png" alt-text="task history status":::
+    :::image type="content" source="media/check-status-workflow/task-history-status.png" alt-text="task history status.":::
 1. By selecting failed tasks, you're able to see which tasks have failed for a specific user.
-    :::image type="content" source="media/check-status-workflow/task-history-failed.png" alt-text="failed tasks history":::
+    :::image type="content" source="media/check-status-workflow/task-history-failed.png" alt-text="failed tasks history.":::
 1. By selecting unprocessed tasks, you're able to see which tasks are unprocessed.
-    :::image type="content" source="media/check-status-workflow/task-history-unprocessed.png" alt-text="unprocessed tasks":::
+    :::image type="content" source="media/check-status-workflow/task-history-unprocessed.png" alt-text="unprocessed tasks.":::
 
 
 ## User workflow history using Microsoft Graph
