@@ -2,7 +2,7 @@
 title: Azure Functions availability zone support on Elastic Premium plans
 description: Learn how to use availability zone redundancy with Azure Functions for high-availability function applications on Elastic Premium plans.
 ms.topic: conceptual
-ms.author: johnguo, thalme
+ms.author: johnguo
 ms.date: 08/29/2022
 ms.custom: references_regions
 # Goal: Introduce AZ Redundancy in Azure Functions Elastic Premium plans to customers + a tutorial on how to get started with ARM templates
