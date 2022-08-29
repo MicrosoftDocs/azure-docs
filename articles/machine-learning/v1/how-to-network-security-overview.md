@@ -185,7 +185,7 @@ After securing the workspace with a private endpoint, use the following steps to
 1. [Enable public access](how-to-configure-private-link.md#enable-public-access) to the workspace.
 1. [Configure the Azure Storage firewall](/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet.
 
-## Optional: enable studio functionality
+## Optional: Enable studio functionality
 
 If your storage is in a VNet, you must use extra configuration steps to enable full functionality in studio. By default, the following features are disabled:
 

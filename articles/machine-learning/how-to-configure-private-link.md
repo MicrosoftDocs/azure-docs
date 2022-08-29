@@ -35,7 +35,6 @@ Azure Private Link enables you to connect to your workspace using a private endp
 > * [Secure workspace resources](how-to-secure-workspace-vnet.md).
 > * [Secure training environments](how-to-secure-training-vnet.md).
 > * [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md).
-> * Placeholder for AKS article
 > * [Use Azure Machine Learning studio in a VNet](how-to-enable-studio-virtual-network.md).
 > * [API platform network isolation](how-to-configure-network-isolation-with-v2.md).
 

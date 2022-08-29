@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/28/2022
+ms.date: 08/29/2022
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions, devx-track-azurecli, event-tier1-build-2022
 ---
 
@@ -85,7 +85,7 @@ In this article you learn how to secure the following training compute resources
 
         The following screenshot shows an example of these rules:
 
-        :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Screenshot of NSG":::
+        :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" lightbox="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Screenshot of the network security group.":::
 
 
         > [!TIP]
@@ -150,7 +150,7 @@ For more information on using Azure Databricks in a virtual network, see [Deploy
 
 For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](../how-to-access-azureml-behind-firewall.md).
 
-## <a name="compute-cluster"></a>Compute clusters
+## Compute cluster
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -195,7 +195,7 @@ When the creation process finishes, you train your model by using the cluster in
 
 [!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
 
-### <a name="no-public-ip-amlcompute"></a>No public IP for compute clusters (preview)
+### No public IP for compute clusters (preview)
 
 When you enable **No public IP**, your compute cluster doesn't use a public IP for communication with any dependencies. Instead, it communicates solely within the virtual network using Azure Private Link ecosystem and service/private endpoints, eliminating the need for a public IP entirely. No public IP removes access and discoverability of compute cluster nodes from the internet thus eliminating a significant threat vector. **No public IP** clusters help comply with no public IP policies many enterprises have. 
 
@@ -228,7 +228,7 @@ You can also create no public IP compute cluster through an ARM template. In the
 
 For steps on how to create a compute instance deployed in a virtual network, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
-### <a name="no-public-ip"></a>No public IP for compute instances (preview)
+### No public IP for compute instances (preview)
 
 When you enable **No public IP**, your compute instance doesn't use a public IP for communication with any dependencies. Instead, it communicates solely within the virtual network using Azure Private Link ecosystem and service/private endpoints, eliminating the need for a public IP entirely. No public IP removes access and discoverability of compute instance node from the internet thus eliminating a significant threat vector. Compute instances will also do packet filtering to reject any traffic from outside virtual network. **No public IP** instances are dependent on [Azure Private Link](how-to-configure-private-link.md) for Azure Machine Learning workspace. 
 
