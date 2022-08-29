@@ -418,6 +418,11 @@ When you use the Request trigger to receive inbound requests, you can model the 
 > * If you have one or more Response actions in a complex workflow with branches, make sure that the workflow 
 > processes at least one Response action during runtime. Otherwise, if all Response actions are skipped, 
 > the caller receives a **502 Bad Gateway** error, even if the workflow finishes successfully.
+>
+> * If you implemnt a Response action in a stateless workflow of Logic Apps Standard, the Response action needs to be the last
+> action of the workflow. Even if you place the Reponse action in other place of the workflow, the engine will not execute it 
+> until it has executed all other actions.
+
 
 ## [Consumption](#tab/consumption)
 
