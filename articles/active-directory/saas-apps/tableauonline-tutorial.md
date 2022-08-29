@@ -125,7 +125,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Setup configuration](common/setup-sso.png)
 
-3. If you want to setup Tableau Cloud manually, in a different web browser window, sign in to your Tableau Cloud company site as an administrator.
+3. If you want to set up Tableau Cloud manually, in a different web browser window, sign in to your Tableau Cloud company site as an administrator.
 
 1. Go to **Settings** and then **Authentication**.
 
