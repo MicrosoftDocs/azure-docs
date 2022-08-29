@@ -31,9 +31,7 @@ It will return an output like:
 [
   {
     "name": "postgres01",
-    "replicas": 1,
-    "state": "Ready",
-    "workers": 4
+    "state": "Ready"
   }
 ]
 ```

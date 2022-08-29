@@ -47,12 +47,6 @@ kind: postgresql
 metadata:
   name: pg1
 spec:
-  engine:
-    version: 12
-    extensions:
-    - name: citus
-  scale:
-    workers: 3
   scheduling:
     default:
       resources:
@@ -66,10 +60,6 @@ spec:
     primary:
       type: LoadBalancer # Modify service type based on your Kubernetes environment
   storage:
-    backups:
-      volumes:
-      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
-        size: 5Gi
     data:
       volumes:
       - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
@@ -108,9 +98,6 @@ echo -n '<your string to encode here>' | base64
 
 The template has a value of `pg1` for the name attribute.  You can change this value but it must be characters that follow the DNS naming standards. If you change the name, change the name of the secret to match.  For example, if you change the name of the PostgreSQL server to `pg2`, you must change the name of the secret from `pg1-login-secret` to `pg2-login-secret`
 
-### Customizing the engine version
-
-You can change the engine version to be either postgresql-11 or postgresql-12 by editing the `kind` attribute.
 
 ### Customizing the resource requirements
 

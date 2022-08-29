@@ -13,26 +13,26 @@ ms.topic: how-to
 
 # Delete an Azure Arc-enabled PostgreSQL server
 
-This document describes the steps to delete a server group from your Azure Arc setup.
+This document describes the steps to delete a server from your Azure Arc setup.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Delete the server group
+## Delete the server
 
 As an example, let's consider we want to delete the _postgres01_ instance from the below setup:
 
 ```azurecli
-az postgres server-arc list --k8s-namespace <namespace> --use-k8s
-Name        State    Workers
-----------  -------  ---------
-postgres01  Ready    3
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
+Name        State  
+----------  -------
+postgres01  Ready  
 ```
 
 The general format of the delete command is:
 ```azurecli
 az postgres server-arc delete -n <server name> --k8s-namespace <namespace> --use-k8s
 ```
-When you execute this command, you will be requested to confirm the deletion of the server group. If you are using scripts to automate deletions you will need to use the --force parameter to bypass the confirmation request. For example, you would run a command like: 
+When you execute this command, you will be requested to confirm the deletion of the server. If you are using scripts to automate deletions you will need to use the --force parameter to bypass the confirmation request. For example, you would run a command like: 
 ```azurecli
 az postgres server-arc delete -n <server name> --force --k8s-namespace <namespace> --use-k8s
 ```
@@ -42,7 +42,7 @@ For more details about the delete command, run:
 az postgres server-arc delete --help 
 ```
 
-### Delete the server group used in this example
+### Delete the server used in this example
 
 ```azurecli
 az postgres server-arc delete -n postgres01 --k8s-namespace <namespace> --use-k8s

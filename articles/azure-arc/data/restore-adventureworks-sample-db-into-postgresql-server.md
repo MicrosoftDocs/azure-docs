@@ -64,8 +64,6 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
 ```
 
 
-> **Note: You will not see so much performance benefits of running on Azure Arc-enabled PostgreSQL server until you scale out and you shard/distribute the data/tables across the worker nodes of your Azure Arc-enabled PostgreSQL server. See [Suggested next steps](#suggested-next-steps).**
-
 ## Suggested next steps
 - Read the concepts and How-to guides of Azure Database for PostgreSQL to distribute your data across multiple PostgreSQL server nodes and to benefit from all the power of Azure Database for PostgreSQL. :
     * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)

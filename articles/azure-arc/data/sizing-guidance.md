@@ -34,7 +34,7 @@ Limit values for cores are the billable metric on SQL managed instance and Postg
 
 ## Minimum deployment requirements
 
-A minimum size Azure Arc-enabled data services deployment could be considered to be the Azure Arc data controller plus one SQL managed instance plus one PostgreSQL server with two worker nodes.  For this configuration, you need at least 16 GB of RAM and 4 cores of _available_ capacity on your Kubernetes cluster.  You should ensure that you have a minimum Kubernetes node size of 8 GB RAM and 4 cores and a sum total capacity of 16 GB RAM available across all of your Kubernetes nodes.  For example, you could have 1 node at 32 GB RAM and 4 cores or you could have 2 nodes with 16GB RAM and 4 cores each.
+A minimum size Azure Arc-enabled data services deployment could be considered to be the Azure Arc data controller plus one SQL managed instance plus one PostgreSQL server.  For this configuration, you need at least 16 GB of RAM and 4 cores of _available_ capacity on your Kubernetes cluster.  You should ensure that you have a minimum Kubernetes node size of 8 GB RAM and 4 cores and a sum total capacity of 16 GB RAM available across all of your Kubernetes nodes.  For example, you could have 1 node at 32 GB RAM and 4 cores or you could have 2 nodes with 16GB RAM and 4 cores each.
 
 See the [storage-configuration](storage-configuration.md) article for details on storage sizing.
 
@@ -102,19 +102,19 @@ Each PostgreSQL server node must have the following minimum resource requests:
 - Memory: 256Mi
 - Cores: 1
 
-Each PostgreSQL server coordinator or worker pod that is created has three containers:
+Each PostgreSQL server pod that is created has three containers:
 
 |Container name|CPU Request|Memory Request|CPU Limit|Memory Limit|Notes|
 |---|---|---|---|---|---|
-|fluentbit|100m|100Mi|Not specified|Not specified|The fluentbit container resource requests are _in addition to_ the requests specified for the PostgreSQL server nodes.|
+|fluentbit|100m|100Mi|Not specified|Not specified|The fluentbit container resource requests are _in addition to_ the requests specified for the PostgreSQL server.|
 |postgres|User specified or not specified.|User specified or 256Mi (default).|User specified or not specified.|User specified or not specified.||
-|telegraf|Not specified|Not specified|Not specified|Not specified||
+|arc-postgresql-agent|Not specified|Not specified|Not specified|Not specified||
 
 ## Cumulative sizing
 
 The overall size of an environment required for Azure Arc-enabled data services is primarily a function of the number and size of the database instances that will be created.  The overall size can be difficult to predict ahead of time knowing that the number of instances will grow and shrink and the amount of resources that are required for each database instance will change.
 
-The baseline size for a given Azure Arc-enabled data services environment is the size of the data controller which requires 4 cores and 16 GB of RAM.  From there you can add on top the cumulative total of cores and memory required for the database instances.  For SQL managed instance the number of pods is equal to the number of SQL managed instances that are created.  For PostgreSQL servers the number of pods is equivalent to the number of worker nodes plus one for the coordinator node.  For example, if you have a PostgreSQL Server group with 3 worker nodes, the total number of pods will be 4.
+The baseline size for a given Azure Arc-enabled data services environment is the size of the data controller which requires 4 cores and 16 GB of RAM.  From there you can add on top the cumulative total of cores and memory required for the database instances.  For SQL managed instance the number of pods is equal to the number of SQL managed instances that are created.  For PostgreSQL servers the number of pods is equal to the number of PostgreSQL servers that are created.
 
 In addition to the cores and memory you request for each database instance, you should add 250m of cores and 250Mi of RAM for the agent containers.
 
@@ -124,7 +124,7 @@ Requirements:
 
 - **"SQL1"**: 1 SQL managed instance with 16 GB of RAM, 4 cores
 - **"SQL2"**: 1 SQL managed instance with 256 GB of RAM, 16 cores
-- **"Postgres1"**: 1 PostgreSQL server with 4 workers at 12 GB of RAM, 4 cores
+- **"Postgres1"**: 1 PostgreSQL server at 12 GB of RAM, 4 cores
 
 Sizing calculations:
 
@@ -132,11 +132,11 @@ Sizing calculations:
 - The size of "SQL2" is: 1 pod * ([256 Gi RAM, 16 cores] + + [250Mi RAM, 250m cores]) for the agents per pod = 256.25 Gi RAM, 16.25 cores.
 - The total size of SQL 1 and SQL 2 is: (16.25 GB + 256.25 Gi) = 272.5 GB RAM, (4.25 cores + 16.25 cores) = 20.5 cores.
 
-- The size of "Postgres1" is: (4 worker pods + 1 coordinator pod) * ([12 GB RAM, 4 cores] + [250Mi RAM, 250m cores]) for the agents per pod = 61.25 GB RAM, 21.25 cores.
+- The size of "Postgres1" is: 1 pod * ([12 GB RAM, 4 cores] + [250Mi RAM, 250m cores]) for the agents per pod = 12.25 GB RAM, 4.25 cores.
 
-- The total capacity required for the database instances is: 272.5 GB RAM, 20.5 cores for SQL + 61.25 GB RAM, 21.25 cores for PostgreSQL server = 333.75 GB RAM, 42.5 cores.
+- The total capacity required for the database instances is: 272.5 GB RAM, 20.5 cores for SQL + 12.25 GB RAM, 4.25 cores for PostgreSQL server = 284.75 GB RAM, 24.75 cores.
 
-- The total capacity required for the database instances plus the data controller is: 333.75 GB RAM, 42.5 cores for the database instances + 16 GB RAM, 4 cores for the data controller = 349.75 GB RAM, 46.5 cores.
+- The total capacity required for the database instances plus the data controller is: 284.75 GB RAM, 24.75 cores for the database instances + 16 GB RAM, 4 cores for the data controller = 300.75 GB RAM, 28.75 cores.
 
 See the [storage-configuration](storage-configuration.md) article for details on storage sizing.
 
