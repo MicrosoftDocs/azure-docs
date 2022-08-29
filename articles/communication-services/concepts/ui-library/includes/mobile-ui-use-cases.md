@@ -1,12 +1,9 @@
 ---
-title:  UI Library for mobile native platforms use case scenarios
-titleSuffix: An Azure Communication Services - UI Library for Mobile native platforms use cases scenarios
-description: Learn how to use components in Azure Communications Services UI Library for mobile native platforms in your applications.
 author: garchiro7
 ms.author: jorgegarc
-ms.date: 09/14/2021
-ms.topic: include
 ms.service: azure-communication-services
+ms.topic: include
+ms.date: 09/14/2021
 ---
 
 Use the UI Library for iOS and Android to create calling use cases through the Azure Communication Services calling composite. Use composites in Communications Services to easily integrate an entire calling experience in your application by using only a couple lines of code. Composites manage the entire lifecycle of the call, from setup until the call ends.
@@ -18,8 +15,8 @@ The calling composite in Communication Services supports use cases in these area
 | Area                                                                                            | Use cases                                              |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
 | Call types                                                                                | Join a Microsoft Teams meeting                                     |
-|                                                                                                 | Join Azure Communication Services call by using group ID   |
-| [Teams interopability](../../teams-interop.md)                        | Call lobby                                             |
+|                                                                                                 | Join a call by using a group ID   |
+| [Teams interoperability](../../teams-interop.md)                     | Call lobby                                             |
 |                                                                                                 | Transcription and recording alert banner               |
 | Participant gallery                                                                   | Remote participants are displayed on a grid              |
 |                                                                                                 | Video preview available throughout call for local user |
@@ -31,10 +28,10 @@ The calling composite in Communication Services supports use cases in these area
 |                                                                                                 | Camera device management                               |
 |                                                                                                 | Speaker device management (wired or Bluetooth)                              |
 |                                                                                                 | Local preview available for user to check video        |
-| Call controls                                                                            | Mute/unmute call                                       |
-|                                                                                                 | Video on/off on call                                   |
+| Call controls                                                                            | Mute and unmute a call                                       |
+|                                                                                                 | Video on or off on a call                                   |
 |                                                                                                 | End call                                               |
-|                                                                                                 | Hold/resume call after audio interruption                 |
+|                                                                                                 | Hold and resume a call after audio interruption                 |
 
 ## Supported identities
 
