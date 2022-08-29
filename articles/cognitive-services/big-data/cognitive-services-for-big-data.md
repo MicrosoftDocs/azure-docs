@@ -24,7 +24,7 @@ Cognitive Services for big data can use resources from any [supported region](ht
 
 ## Supported services
 
-[Cognitive Services](../index.yml), accessed through APIs and SDKs, help developers build intelligent applications without having AI or data science skills. With Cognitive Services you can make your applications see, hear, speak, understand, and reason. To use Cognitive Services, your application must send data to the service over the network. Once received, the service sends an intelligent response in return. The following Cognitive Services resources are available for big data workloads:
+[Cognitive Services](../index.yml), accessed through APIs and SDKs, help developers build intelligent applications without having AI or data science skills. With Cognitive Services you can make your applications see, hear, speak, and understand. To use Cognitive Services, your application must send data to the service over the network. Once received, the service sends an intelligent response in return. The following Cognitive Services resources are available for big data workloads:
 
 ### Vision
 

@@ -18,7 +18,7 @@ ms.devlang: azurecli
 
 Use this quickstart to create a Cognitive Services resource using [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands. After creating the resource, use the keys and endpoint generated for you to authenticate your applications.
 
-Azure Cognitive Services is a cloud-based service with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
+Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
 ## Types of Cognitive Services resource
 
