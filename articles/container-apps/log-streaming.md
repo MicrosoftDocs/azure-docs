@@ -16,7 +16,7 @@ While developing and troubleshooting your container app, it's important to see a
 
 ## Azure portal
 
-To view a container app's log stream in the Azure portal with these steps.
+View a container app's log stream in the Azure portal with these steps.
 
 1. Navigate to your container app in the Azure portal.
 1. Select **Log stream** under the *Monitoring* section on the sidebar menu.
@@ -28,14 +28,16 @@ After a container is selected, the log stream is displayed in the viewing pane.
 
 ## Azure CLI
 
-You can view container's log stream from the Azure CLI with the `az containerapp logs show` command.  You can use these arguments to:
+You can view a container's log stream from the Azure CLI with the `az containerapp logs show` command.  You can use these arguments to:
 
 - View previous log entries with the  `--tail` argument.
 - View a live stream with the `--follow`argument. 
 
 Use `Ctrl/Cmd-C` to stop the live stream.
 
-For example, you can list the last 50 container log entries in a container app with a single revision, replica, and container using the following command.
+For example, you can list the last 50 container log entries in a container app with a single container using the following command.
+
+This example live streams the a container's log entries.
 
 # [Bash](#tab/bash)
 

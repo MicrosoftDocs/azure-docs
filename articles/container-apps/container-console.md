@@ -29,44 +29,70 @@ Select **Console** in the **Monitoring** menu group from your container app page
 
 Use the `az containerapp exec` command to connect to a container console.  Select **Ctrl-D** to exit the console.
 
-For example, connect to a container console in a container app with a single revision, replica, and container using the following command.
+For example, connect to a container console in a container app with a single revision, replica, and container using the following command.  Replace the \<placeholders\> with your container app's values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp exec \
-  --name album-api \
-  --resource-group album-api-rg
+  --name <ContainerAppName> \
+  --resource-group <ResourceGroup>
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
 az containerapp exec `
-  --name album-api `
-  --resource-group album-api-rg
+  --name <ContainerAppName> `
+  --resource-group <ResourceGroup>
 ```
 
 ---
 
 To connect to a container console in a container app with multiple revisions, replicas, and containers include the `--revision`, `--replica`, and `--container` arguments with the `az containerapp exec` command. 
 
-Use the `az containerapp revision list` command to list active revision, replica and container names in your app. For example:
+You can get the revision names with the `az containerapp revision list` command.  Replace the \<placeholders\> with your container app's values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp revision list \
-  --name album-api \
-  --resource-group album-api-rg
+  --name <ContainerAppName> \
+  --resource-group <ResourceGroup> \
+  --query "[].name"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
 az containerapp revision list `
-  --name album-api `
-  --resource-group album-api-rg
+  --name <ContainerAppName> `
+  --resource-group <ResourceGroup> `
+  --query "[].name"
+```
+
+---
+
+Use the `az containerapp replica list` command to get the replica and container names. Replace the \<placeholders\> with your container app's values.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az containerapp replica list \
+  --name <ContainerAppName> \
+  --resource-group <ResourceGroup> \
+  --revision <RevisionName> \
+  --query "[].{Containers:properties.containers[].name, Name:name}"
+```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az containerapp replica list `
+  --name <ContainerAppName> `
+  --resource-group <ResourceGroup> `
+  --revision <RevisionName> `
+  --query "[].{Containers:properties.containers[].name, Name:name}"
 ```
 
 ---
