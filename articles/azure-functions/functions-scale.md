@@ -119,8 +119,6 @@ The recommendation is to create the plan in a new resource group.
 | **[App Service Environment (ASE)][Dedicated plan]** | There's a flat monthly rate for an ASE that pays for the infrastructure and doesn't change with the size of the ASE. There's also a cost per App Service plan vCPU. All apps hosted in an ASE are in the Isolated pricing SKU. |
 | **[Kubernetes]**| You pay only the costs of your Kubernetes cluster; no additional billing for Functions. Your function app runs as an application workload on top of your cluster, just like a regular app. |
 
-## Limitations for apps in the same resource group and region
-
 ## Next steps
 
 + [Deployment technologies in Azure Functions](functions-deployment-technologies.md) 
