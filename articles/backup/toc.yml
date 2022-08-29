@@ -121,11 +121,7 @@
   - name: Security
     items:
     - name: Multi-user authorization
-      items:
-      - name: Recovery Services vault
-        href: multi-user-authorization-concept.md
-      - name: Backup vault
-        href: multi-user-authorization-backup-vault-concept.md
+      href: multi-user-authorization-concept.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices
