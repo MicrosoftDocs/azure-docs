@@ -26,8 +26,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Fixed a bug where the sample_weight column was not properly validated.
     + Added rolling_forecast() public method to the forecasting pipeline wrappers for all supported forecasting models. This method replaces the deprecated rolling_evaluation() method.
     + Fixed an issue where AutoML Regression tasks may fall back to train-valid split for model evaluation, when CV would have been a more appropriate choice.
-  + **azureml-contrib-aisc**
-    + Only used by 1P for now
   + **azureml-core**
     + New cloud configuration suffix added, "aml_discovery_endpoint".
   + **azureml-mlflow**
