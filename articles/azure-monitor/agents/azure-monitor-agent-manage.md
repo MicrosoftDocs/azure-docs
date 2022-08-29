@@ -16,7 +16,7 @@ This article provides the different options currently available to install, unin
 
 ## Virtual machine extension details
 
-The Azure Monitor agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. You can install it by using any of the methods to install virtual machine extensions including those described in this article.
+The Azure Monitor agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. You can install it by using any of the methods to install virtual machine extensions including the methods described in this article.
 
 | Property | Windows | Linux |
 |:---|:---|:---|
@@ -38,7 +38,7 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
    |:---|:---|:---|  
    | <ul><li>[Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)</li><li>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, scale sets,</li><li>Azure Arc-enabled servers</li></ul> | To deploy the agent |  
    | Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li></ul> | To deploy Azure Resource Manager templates |  
-- **Non-Azure**: For installing the agent on physical servers and virtual machines hosted *outside* of Azure (that is, on-premises) or in other clouds, you must [install the Azure Arc Connected Machine agent](../../azure-arc/servers/agent-overview.md) first, at no added cost.
+- **Non-Azure**: To install the agent on physical servers and virtual machines hosted *outside* of Azure (that is, on-premises) or in other clouds, you must [install the Azure Arc Connected Machine agent](../../azure-arc/servers/agent-overview.md) first, at no added cost.
 - **Authentication**: [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md) must be enabled on Azure virtual machines. Both user-assigned and system-assigned managed identities are supported.
   - **User-assigned**: This managed identity is recommended for large-scale deployments, configurable via [built-in Azure policies](#using-azure-policy). You can create a user-assigned managed identity once and share it across multiple VMs, which means it's more scalable than a system-assigned managed identity. If you use a user-assigned managed identity, you must pass the managed identity details to the Azure Monitor agent via extension settings:
   
@@ -63,8 +63,7 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
     (If you use private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)).
 
 > [!NOTE]
-> This article only pertains to agent installation or management. After you install the agent, you must review the next article to [configure data collection rules and associate them with the machines](./data-collection-rule-azure-monitor-agent.md) with agents installed.  
-> **The Azure Monitor agents cannot function without being associated with data collection rules.**
+> This article only pertains to agent installation or management. After you install the agent, you must review the next article to [configure data collection rules and associate them with the machines](./data-collection-rule-azure-monitor-agent.md) with agents installed. *The Azure Monitor agents can't function without being associated with data collection rules.*
 
 ## Use the Azure portal
 
@@ -72,7 +71,7 @@ Follow these instructions to use the Azure portal.
 
 ### Install
 
-To install the Azure Monitor agent by using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) in the Azure portal. This process not only creates the rule but also associates it to the selected resources and installs the Azure Monitor agent on them if it's not already installed.
+To install the Azure Monitor agent by using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) in the Azure portal. This process creates the rule, associates it to the selected resources, and installs the Azure Monitor agent on them if it's not already installed.
 
 ### Uninstall
 
@@ -80,7 +79,7 @@ To uninstall the Azure Monitor agent by using the Azure portal, go to your virtu
 
 ### Update
 
-To perform a one-time update of the agent, you must first uninstall the existing agent version and then install the new version as described.
+To perform a one-time update of the agent, you must first uninstall the existing agent version,. Then install the new version as described.
 
 We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature. Go to your virtual machine or scale set, select the **Extensions** tab and select **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that opens, select **Enable automatic upgrade**.
 
@@ -166,7 +165,7 @@ Remove-AzVMExtension -Name AzureMonitorLinuxAgent -ResourceGroupName <resource-g
 
 ### Update on Azure virtual machines
 
-To perform a one-time update of the agent, you must first uninstall the existing agent version and then install the new version as described.
+To perform a one-time update of the agent, you must first uninstall the existing agent version,. Then install the new version as described.
 
 We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature by using the following PowerShell commands.
 
@@ -309,7 +308,7 @@ az vm extension delete --resource-group <resource-group-name> --vm-name <virtual
 
 ### Update on Azure virtual machines
 
-To perform a one-time update of the agent, you must first uninstall the existing agent version and then install the new version as described.
+To perform a one-time update of the agent, you must first uninstall the existing agent version,. Then install the new version as described.
   
 We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature by using the following CLI commands.
 
@@ -392,7 +391,7 @@ az connectedmachine extension update --name AzureMonitorLinuxAgent --machine-nam
 
 ## Use Azure Policy
 
-Use the following policies and policy initiatives to automatically install the agent and associate it with a data collection rule, every time you create a virtual machine, scale set, or Azure Arc-enabled server.
+Use the following policies and policy initiatives to automatically install the agent and associate it with a data collection rule every time you create a virtual machine, scale set, or Azure Arc-enabled server.
 
 > [!NOTE]
 > As per Microsoft Identity best practices, policies for installing the Azure Monitor agent on virtual machines and scale sets rely on user-assigned managed identity. This option is the more scalable and resilient managed identity for these resources.
@@ -412,7 +411,7 @@ Policy initiatives for Windows and Linux virtual machines, scale sets consist of
   - `User-Assigned Managed Identity Resource Group`: If you use your own identity (selected `true`), specify the resource group where the identity exists.
   - `Additional Virtual Machine Images`: Pass additional VM image names that you want to apply the policy to, if not already included.
 - Create and deploy the association to link the machine to specified data collection rule.
-   - `Data Collection Rule Resource Id`: The ARM resourceId of the rule you want to associate via this policy to all machines the policy is applied to.
+   - `Data Collection Rule Resource Id`: The Azure Resource Manager resourceId of the rule you want to associate via this policy to all machines the policy is applied to.
 
    ![Partial screenshot from the Azure Policy Definitions page that shows two built-in policy initiatives for configuring the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)
 
