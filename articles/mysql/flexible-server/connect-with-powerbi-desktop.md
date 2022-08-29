@@ -19,9 +19,9 @@ With Power BI Desktop you can visually explore your data through a free-form dra
 ## Prerequisites
 
 1. Install [Power BI desktop](https://aka.ms/pbidesktopstore).
-2. If you are trying to connect with MySQL database for the first time in Power BI, you need to install the Oracle [MySQL Connector/NET](https://dev.mysql.com/downloads/connector/net/) package.
+2. If you connect with MySQL database for the first time in Power BI, you need to install the Oracle [MySQL Connector/NET](https://dev.mysql.com/downloads/connector/net/) package.
 3. Skip the steps below if MySQL server has SSL disabled. If SSL is enabled then follow the steps below to install the certificate. 
-   - Dowload the [SSL public certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). 
+   - Download the [SSL public certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). 
    - Install the SSL certificate in Trusted Root certification authorities store by following these steps: 
       - Start **certmgr.msc** Management Console on your Windows system.
       - Right-click **Trusted Root Certification Authorities** and select **Import**. 
@@ -35,7 +35,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Select the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
-5. Go to **Databases** page to find the database you want to connect to. Power BI desktop supports adding a connection to a single database and hence providing a database name is rquired for importing data. 
+5. Go to **Databases** page to find the database you want to connect to. Power BI desktop supports adding a connection to a single database and hence providing a database name is required for importing data. 
 
 ## Connect to MySQL database from Power Query Desktop
 
