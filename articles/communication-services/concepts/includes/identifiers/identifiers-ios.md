@@ -42,7 +42,7 @@ The `MicrosoftTeamsUserIdentifier` represents a Teams user. You need to know the
 let userId = await getUserIdFromGraph("bob@contoso.com")
 
 # create an identifier
-let teamsUser = MicrosoftTeamsUserIdentifier(userId)
+let teamsUser = MicrosoftTeamsUserIdentifier(userId: userId)
 
 # if you're not operating in the public cloud, you must also pass the right Cloud type.
 gcchTeamsUser = MicrosoftTeamsUserIdentifier(userId: userId, cloud: CommunicationCloudEnvironment.Gcch)
@@ -60,7 +60,7 @@ The `PhoneNumberIdentifier` represents a phone number. The service assumes that 
 
 ```swift
 # create an identifier
-let phoneNumber = PhoneNumberIdentifier("+112345556789")
+let phoneNumber = PhoneNumberIdentifier(phoneNumber: "+112345556789")
 ```
 
 #### API reference
@@ -93,7 +93,7 @@ switch (communicationIdentifier)
         print(#"Communication user: \(communicationUser.id)"#)
     case let teamsUser as MicrosoftTeamsUserIdentifier:
         print(#"Teams user: \(teamsUser.UserId)"#)
-    case phoneNumber as PhoneNumberIdentifier:
+    case let phoneNumber as PhoneNumberIdentifier:
         print(#"Phone number: \(phoneNumber.PhoneNumber)"#)
     case let unknown as UnknownIdentifier:
         print(#"Unknown: \(unknown.Id)"#)
