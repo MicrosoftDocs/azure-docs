@@ -35,7 +35,7 @@ Create a resource group with the [az group create][az-group-create] command. An 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -45,7 +45,7 @@ You now create the required Azure resources then deploy the web app.
 
 Create your App Service Plan.
 
-```azurecli
+```azurecli-interactive
 az appservice plan create --resource-group myResourceGroup --location eastus --name PV3ASP --hyper-v --sku p1v3
 ```
 
@@ -55,9 +55,9 @@ az appservice plan create --resource-group myResourceGroup --location eastus --n
 
 ## 4 - Create your web app
 
-    ```azurecli
-    az webapp create --resource-group myResourceGroup --plan PV3ASP --name myContainerApp --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
-    ```
+```azurecli-interactive
+az webapp create --resource-group myResourceGroup --plan pv3aspcli2 --name myContainerApp --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
+```
 ## 5 - Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
