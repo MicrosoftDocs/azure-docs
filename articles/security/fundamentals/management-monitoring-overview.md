@@ -8,8 +8,7 @@ manager: barbkess
 editor: TomSh
 
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -55,7 +54,7 @@ Multi-Factor Authentication helps safeguard access to data and applications whil
 
 Learn more:
 
-* [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+* [Multi-Factor Authentication](/azure/multi-factor-authentication/)
 * [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [How Azure AD Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 

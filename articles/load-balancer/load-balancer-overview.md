@@ -54,7 +54,7 @@ Key scenarios that you can accomplish using Azure Standard Load Balancer include
 
 - Increase availability by distributing resources **[within](./tutorial-load-balancer-standard-public-zonal-portal.md)** and **[across](./quickstart-load-balancer-standard-public-portal.md)** zones.
 
-- Configure **[outbound connectivity ](./load-balancer-outbound-connections.md)** for Azure virtual machines.
+- Configure **[outbound connectivity](./load-balancer-outbound-connections.md)** for Azure virtual machines.
 
 - Use **[health probes](./load-balancer-custom-probe-overview.md)** to monitor load-balanced resources.
 

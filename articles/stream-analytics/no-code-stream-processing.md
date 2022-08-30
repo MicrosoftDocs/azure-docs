@@ -6,10 +6,10 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: mvc, event-tier1-build-2022
-ms.date: 05/08/2022
+ms.date: 08/26/2022
 ---
 
-# No-code stream processing through Azure Stream Analytics (Preview)
+# No-code stream processing through Azure Stream Analytics (preview)
 
 You can process your real-time data streams in Azure Event Hubs by using Azure Stream Analytics. The no-code editor allows you to develop a Stream Analytics job without writing a single line of code. In minutes, you can develop and run a job that tackles many scenarios, including:
 
@@ -48,17 +48,17 @@ The following screenshot shows a finished Stream Analytics job. It highlights al
 :::image type="content" source="./media/no-code-stream-processing/created-stream-analytics-job.png" alt-text="Screenshot that shows the authoring interface sections." lightbox="./media/no-code-stream-processing/created-stream-analytics-job.png" :::
 
 1. **Ribbon**: On the ribbon, sections follow the order of a classic analytics process: an event hub as input (also known as a data source), transformations (streaming ETL operations), outputs, a button to save your progress, and a button to start the job.
-2. **Diagram view**: A graphical representation of your Stream Analytics job, from input to operations to outputs.
+2. **Diagram view**: This is a graphical representation of your Stream Analytics job, from input to operations to outputs.
 3. **Side pane**: Depending on which component you selected in the diagram view, you'll have settings to modify input, transformation, or output.
-4. **Tabs for data preview, authoring errors, and runtime errors**: For each tile, the data preview will show you results for that step (live for inputs; on demand for transformations and outputs). This section also summarizes any authoring errors or warnings that you might have in your job when it's being developed. Selecting each error or warning will select that transform.
+4. **Tabs for data preview, authoring errors, runtime logs, and metrics**: For each tile, the data preview will show you results for that step (live for inputs; on demand for transformations and outputs). This section also summarizes any authoring errors or warnings that you might have in your job when it's being developed. Selecting each error or warning will select that transform. It also provides the job metrics for you to monitor the running job's health.
 
-## Event hub as the streaming input
+## Event Hubs as the streaming input
 
 Azure Event Hubs is a big-data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored through any real-time analytics provider or batching/storage adapter.
 
 To configure an event hub as an input for your job, select the **Event Hub** icon. A tile appears in the diagram view, including a side pane for its configuration and connection.
 
-When you're connecting to your event hub in no-code editor, we recommend that you create a new consumer group (which is the default option). This approach helps prevent the event hub from reaching the concurrent readers' limit. To understand more about consumer groups and whether you should select an existing consumer group or create a new one, see [Consumer groups](../event-hubs/event-hubs-features.md). 
+When you're connecting to your event hub in the no-code editor, we recommend that you create a new consumer group (which is the default option). This approach helps prevent the event hub from reaching the concurrent readers' limit. To understand more about consumer groups and whether you should select an existing consumer group or create a new one, see [Consumer groups](../event-hubs/event-hubs-features.md). 
 
 If your event hub is in the Basic tier, you can use only the existing **$Default** consumer group. If your event hub is in a Standard or Premium tier, you can create a new consumer group.
 
@@ -90,23 +90,39 @@ The available data types are:
 
 Reference data is static or changes slowly over time. It's typically used to enrich incoming streams and do lookups in your job. For example, you might join data stream input to reference data, much as you would perform a SQL join to look up static values. For more information about reference data inputs, see [Use reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md).
 
+The no-code editor now supports two reference data sources:
+- Azure Data Lake Storage Gen2
+- Azure SQL Database
+
+:::image type="content" source="./media/no-code-stream-processing/reference-data-sources.png" alt-text="Screenshot that shows a SQL Database reference input node." lightbox= "./media/no-code-stream-processing/reference-data-sources.png" :::
+
 ### Azure Data Lake Storage Gen2 as reference data
 
-Reference data is modeled as a sequence of blobs in ascending order of the date/time combination specified in the blob name. You can add blobs to the end of the sequence only by using a date/time greater than the one that the last blob specified in the sequence. Blobs are defined in the input configuration. For more information, see [Data protection in Azure Stream Analytics](data-protection.md).
+Reference data is modeled as a sequence of blobs in ascending order of the date/time combination specified in the blob name. You can add blobs to the end of the sequence only by using a date/time greater than the one that the last blob specified in the sequence. Blobs are defined in the input configuration.
 
-First, select your Azure Data Lake Storage Gen2 instance. To see details about each field, see the section about Azure Blob Storage in [Use reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md).
+First, under the **Inputs** section on the ribbon, select **Reference ADLS Gen2**. To see details about each field, see the section about Azure Blob Storage in [Use reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md#azure-blob-storage).
 
-![Screenshot that shows fields for configuring Azure Data Lake Storage Gen2 as input in the no-code editor.](./media/no-code-stream-processing/msi-eh-nocode.png)
+![Screenshot that shows fields for configuring Azure Data Lake Storage Gen2 as input in the no-code editor.](./media/no-code-stream-processing/blob-referencedata-nocode.png)
 
-Then, upload a JSON array file. The fields in the file will be detected. Use this reference data to perform transformation with streaming input data from the event hub.
+Then, upload a JSON array file. The fields in the file will be detected. Use this reference data to perform transformation with streaming input data from Event Hubs.
 
 ![Screenshot that shows selections for uploading JSON for reference data.](./media/no-code-stream-processing/blob-referencedata-upload-nocode.png)
+
+### Azure SQL Database as reference data
+
+You can use Azure SQL Database as reference data for your Stream Analytics job in the no-code editor. For more information, see the section about SQL Database in [Use reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md#azure-sql-database). 
+
+To configure SQL Database as reference data input, select **Reference SQL Database** under the **Inputs** section on the ribbon. Then fill in the information to connect your reference database and select the table with your needed columns. You can also fetch the reference data from your table by editing the SQL query manually.
+
+:::image type="content" source="./media/no-code-stream-processing/sqldb-reference-data-no-code.png" alt-text="Screenshot that shows SQL Database reference input configuration." lightbox= "./media/no-code-stream-processing/sqldb-reference-data-no-code.png" :::
 
 ## Transformations
 
 Streaming data transformations are inherently different from batch data transformations. Almost all streaming data has a time component, which affects any data-preparation tasks involved.
 
-To add a streaming data transformation to your job, select the transformation symbol on the ribbon for that transformation. The respective tile will be dropped in the diagram view. After you select it, you'll see the side pane for that transformation to configure it.
+To add a streaming data transformation to your job, select the transformation symbol under **Operations** section on the ribbon for that transformation. The respective tile will be dropped in the diagram view. After you select it, you'll see the side pane for that transformation to configure it.
+
+:::image type="content" source="./media/no-code-stream-processing/transformation-operations.png" alt-text="Screenshot that shows the transformation operations." lightbox="./media/no-code-stream-processing/transformation-operations.png" :::
 
 ### Filter
 
@@ -155,7 +171,7 @@ By default, all fields from both tables are included. Prefixes left (first node)
 
 ### Group by
 
-Use the **Group by** transformation to calculate aggregations across all events within a certain time window. You can group by the values in one or more fields. It's like the **Aggregate** transformation but provides more options for aggregations. It also includes more complex time-window options. Also like **Aggregate**, you can add more than one aggregation per transformation.
+Use the **Group by** transformation to calculate aggregations across all events within a certain time window. You can group by the values in one or more fields. It's like the **Aggregate** transformation but provides more options for aggregations. It also includes more complex options for time windows. Also like **Aggregate**, you can add more than one aggregation per transformation.
 
 The aggregations available in the transformation are:
 
@@ -193,7 +209,7 @@ Use the **Expand array** transformation to create a new row for each value withi
 
 ## Streaming outputs
 
-The no-code drag-and-drop experience currently supports three outputs to store your processed real-time data.
+The no-code drag-and-drop experience currently supports several output sinks to store your processed real-time data.
 
 :::image type="content" source="./media/no-code-stream-processing/outputs.png" alt-text="Screenshot that shows streaming output options." lightbox="./media/no-code-stream-processing/outputs.png" :::
 
@@ -201,7 +217,7 @@ The no-code drag-and-drop experience currently supports three outputs to store y
 
 Data Lake Storage Gen2 makes Azure Storage the foundation for building enterprise data lakes on Azure. It's designed to service multiple petabytes of information while sustaining hundreds of gigabits of throughput. It allows you to easily manage massive amounts of data. Azure Blob Storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud.
 
-Select **ADLS Gen2** as output for your Stream Analytics job. Then select the container where you want to send the output of the job. For more information about Azure Data Lake Gen2 output for a Stream Analytics job, see [Blob Storage and Azure Data Lake Gen2 output from Azure Stream Analytics](blob-storage-azure-data-lake-gen2-output.md).
+Under the **Outputs** section on the ribbon, select **ADLS Gen2** as the output for your Stream Analytics job. Then select the container where you want to send the output of the job. For more information about Azure Data Lake Gen2 output for a Stream Analytics job, see [Blob Storage and Azure Data Lake Gen2 output from Azure Stream Analytics](blob-storage-azure-data-lake-gen2-output.md).
 
 When you're connecting to Azure Data Lake Storage Gen2, if you select **Managed Identity** as the authentication mode, then the Storage Blob Data Contributor role will be granted to the managed identity for the Stream Analytics job. To learn more about managed identities for Azure Data Lake Storage Gen2, see [Use managed identities to authenticate your Azure Stream Analytics job to Azure Blob Storage](blob-output-managed-identity.md). 
 
@@ -216,21 +232,32 @@ Azure Stream Analytics jobs can send output to a dedicated SQL pool table in Azu
 > [!IMPORTANT]
 > The dedicated SQL pool table must exist before you can add it as output to your Stream Analytics job. The table's schema must match the fields and their types in your job's output.
 
-Select **Synapse** as output for your Stream Analytics job. Then select the SQL pool table where you want to send the output of the job. For more information about Azure Synapse output for a Stream Analytics job, see [Azure Synapse Analytics output from Azure Stream Analytics](azure-synapse-analytics-output.md).
+Under the **Outputs** section on the ribbon, select **Synapse** as the output for your Stream Analytics job. Then select the SQL pool table where you want to send the output of the job. For more information about Azure Synapse output for a Stream Analytics job, see [Azure Synapse Analytics output from Azure Stream Analytics](azure-synapse-analytics-output.md).
 
 ### Azure Cosmos DB
 
 Azure Cosmos DB is a globally distributed database service that offers limitless elastic scale around the globe. It also offers rich queries and automatic indexing over schema-agnostic data models.
 
-Select **CosmosDB** as output for your Stream Analytics job. For more information about Azure Cosmos DB output for a Stream Analytics job, see [Azure Cosmos DB output from Azure Stream Analytics](azure-cosmos-db-output.md).
+Under the **Outputs** section on the ribbon, select **CosmosDB** as the output for your Stream Analytics job. For more information about Azure Cosmos DB output for a Stream Analytics job, see [Azure Cosmos DB output from Azure Stream Analytics](azure-cosmos-db-output.md).
 
-When you're connecting to Azure Cosmos DB, if you select **Managed Identity** as the authentication mode, then the Contributor role will be granted to the managed identity for the Stream Analytics job. To learn more about managed identities for Azure Cosmos DB, see [Use managed identities to access Cosmos DB from an Azure Stream Analytics job (preview)](cosmos-db-managed-identity.md). 
+When you're connecting to Azure Cosmos DB, if you select **Managed Identity** as the authentication mode, then the Contributor role will be granted to the managed identity for the Stream Analytics job. To learn more about managed identities for Azure Cosmos DB, see [Use managed identities to access Azure Cosmos DB from an Azure Stream Analytics job (preview)](cosmos-db-managed-identity.md). 
 
 Managed identities eliminate the limitations of user-based authentication methods. These limitations include the need to reauthenticate because of password changes or user token expirations that occur every 90 days. 
 
 ![Screenshot that shows selecting managed identity as the authentication method for Cosmos DB.](./media/no-code-stream-processing/msi-cosmosdb-nocode.png)
 
-## Data preview, errors, and metrics
+### Azure SQL Database
+
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is a fully managed platform as a service (PaaS) database engine that can help you to create a highly available and high-performance data storage layer for the applications and solutions in Azure. By using the no-code editor, you can configure Azure Stream Analytics jobs to write the processed data to an existing table in SQL Database.
+
+> [!IMPORTANT]
+> The Azure SQL Database table must exist before you can add it as output to your Stream Analytics job. The table's schema must match the fields and their types in your job's output.
+
+To configure Azure SQL Database as output, select **SQL Database** under the **Outputs** section on the ribbon. Then fill in the needed information to connect your SQL database and select the table that you want to write data to.
+
+For more information about Azure SQL Database output for a Stream Analytics job, see [Azure SQL Database output from Azure Stream Analytics](./sql-database-output.md).
+
+## Data preview, authoring errors, runtime logs, and metrics
 
 The no-code drag-and-drop experience provides tools to help you author, troubleshoot, and evaluate the performance of your analytics pipeline for streaming data.
 
@@ -266,11 +293,13 @@ If you have any authoring errors or warnings, the **Authoring errors** tab will 
 
 :::image type="content" source="./media/no-code-stream-processing/authoring-errors.png" alt-text="Screenshot that shows a list of example authoring errors." lightbox="./media/no-code-stream-processing/authoring-errors.png" :::
 
-### Runtime errors
+### Runtime logs
 
-On the **Runtime errors** tab, you can select a timespan to filter error events. Runtime errors are critical-level errors. These errors are helpful when you want to edit your Stream Analytics job topology or configuration for troubleshooting. 
+Runtime logs appear at the warning, error, or information level when a job is running. These logs are helpful when you want to edit your Stream Analytics job topology or configuration for troubleshooting. We highly recommend that you turn on diagnostic logs and send them to Log Analytics workspace in **Settings** to have more insights into your running jobs for debugging.
 
-In the following screenshot example, the user has configured Azure Synapse output with an incorrect table name. The user started the job, but a runtime error is stating that the schema definition for the output table can't be found.
+:::image type="content" source="./media/no-code-stream-processing/diagnostic-log.png" alt-text="Screenshot that shows the diagnostic log configuration in the no-code editor." lightbox="./media/no-code-stream-processing/diagnostic-log.png" ::: 
+
+In the following screenshot example, the user has configured SQL Database output with a table schema that doesn't match with the fields of the job output.
 
 :::image type="content" source="./media/no-code-stream-processing/runtime-errors.png" alt-text="Screenshot that shows the tab for runtime errors." lightbox="./media/no-code-stream-processing/runtime-errors.png" :::
 
@@ -278,7 +307,7 @@ In the following screenshot example, the user has configured Azure Synapse outpu
 
 If the job is running, you can monitor the health of your job on the **Metrics** tab. The four metrics shown by default are **Watermark delay**, **Input events**, **Backlogged input events**, and **Output events**. You can use these metrics to understand if the events are flowing in and out of the job without any input backlog.  
 
-![Metrics for jobs created from no code editor](./media/no-code-stream-processing/metrics-nocode.png)
+:::image type="content" source="./media/no-code-stream-processing/metrics-nocode.png" alt-text="Screenshot that shows the metrics for a job created from the no-code editor." lightbox= "./media/no-code-stream-processing/metrics-nocode.png" :::
 
 You can select more metrics from the list. To understand all the metrics in detail, see [Azure Stream Analytics job metrics](stream-analytics-job-metrics.md).
 
@@ -305,7 +334,7 @@ You can configure these options:
 
 ## Stream Analytics jobs list
 
-To see a list of all Stream Analytics jobs created by no-code drag and drop, select **Process data** > **Stream Analytics jobs**.
+To see a list of all Stream Analytics jobs that you created by using the no-code drag-and-drop experience, select **Process data** > **Stream Analytics jobs**.
 
 :::image type="content" source="./media/no-code-stream-processing/jobs-list.png" alt-text="Screenshot that shows the Stream Analytics job list where you review job status." lightbox="./media/no-code-stream-processing/jobs-list.png" :::
 

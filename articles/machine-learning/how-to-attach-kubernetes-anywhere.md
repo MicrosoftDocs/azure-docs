@@ -437,7 +437,7 @@ In the above example, replace `<instance_type_name>` with the name of the instan
 ## Next steps
 
 - [Train models with CLI v2](how-to-train-cli.md)
-- [Train models with Python SDK](how-to-set-up-training-targets.md)
+- [Train models with Python SDK](how-to-train-sdk.md)
 - [Deploy model with an online endpoint (CLI v2)](./how-to-deploy-managed-online-endpoints.md)
 - [Use batch endpoint for batch scoring (CLI v2)](./how-to-use-batch-endpoint.md)
 
