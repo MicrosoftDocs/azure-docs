@@ -65,6 +65,6 @@ The tool is built to show customers results quickly. You can customize the tool 
 
 ## Next steps
 
-* [Learn more about Cognitive Services features for call center](/azure/cognitive-services/speech-service/call-center-overview)
+* [Learn more about Cognitive Services features for call center](/azure/cognitive-services/speech-service/call-center-overview?context=context/context)
 * [Explore the Language service features](/azure/cognitive-services/language-service/overview#available-features)
 * [Explore the Speech service features](/azure/cognitive-services/speech-service/overview)
