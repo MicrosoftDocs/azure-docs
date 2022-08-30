@@ -107,11 +107,11 @@ else {
 }
 ```
 
-## RawId representation
+## Raw ID representation
 
 Sometimes you need to serialize an identifier to a flat string. For example, if you want to store the identifier in a database table or if you'd like to use it as a url parameter.
 
-For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw Id, and a valid raw ID can always be converted to an identifier.
+For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw ID, and a valid raw ID can always be converted to an identifier.
 
 Since `azure-communication-common 1.2.0` the SDK helps with the conversion:
 

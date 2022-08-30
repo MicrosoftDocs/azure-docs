@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: domessin
 ---
 
-In REST APIs the identifier is a polymorphic type, you construct a JSON object and a property that maps to a concrete identifier subtype. For convenience and backwards-compatibility reasons, the `kind` and `rawId` properties are optional in requests but get populated in service responses.
+In REST APIs, the identifier is a polymorphic type: you construct a JSON object and a property that maps to a concrete identifier subtype. For convenience and backwards-compatibility reasons, the `kind` and `rawId` properties are optional in requests but get populated in service responses.
 
 ### Communication User identifier
 
@@ -187,48 +187,33 @@ if (communicationIdentifier.communicationUser) {
 }
 ```
 
-## RawId representation
+## Raw ID representation
 
 Sometimes you need to serialize an identifier to a flat string. For example, if you want to store the identifier in a database table or if you'd like to use it as a url parameter.
 
-For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw Id, and a valid raw ID can always be converted to an identifier.
+For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw ID, and a valid raw ID can always be converted to an identifier.
 
-If you're using the Azure SDK, it will help you with the conversion. If you use the REST API directly, you need to construct the raw id manually as follows.
+If you're using the Azure SDK, it will help you with the conversion. If you use the REST API directly, you need to construct the raw id manually as described below.
 
-| Identifier | Raw ID |
-|---|---|
-| <pre style="font-size: 14px">{<br/>    "communicationUser": {<br/>        "id": "8:acs:[resourceId]\_[userId]"<br/>    }<br/>}</pre> | `8:acs:[resourceId]\_[userId]` |
-| <pre style="font-size: 14px">{<br/>    "phoneNumber": {<br/>         "value": "+1123455567"<br/>    }<br/>}</pre> | `4:+1123455567` |
-| <pre style="font-size: 14px">{<br/>    "microsoftTeamsUser": {<br/>        "userId": "[aadUserId]"<br/>    }<br/>}</pre> | `8:orgid:[aadUserId]` |
-| <pre style="font-size: 14px">{<br/>    "microsoftTeamsUser": {<br/>        "userId": "[visitorUserId]",<br/>        "isAnonymous": true<br/>    }<br/>}</pre> | `8:teamsvisitor:[visitorUserId]` |
-| <pre style="font-size: 14px">{<br/>    "microsoftTeamsUser": {<br/>        "userId": "[aadUserId]",<br/>        "cloud": "gcch"<br/>    }<br/>}</pre> | `8:gcch:[aadUserId]` |
+### Communication user
 
-:::row:::
-   :::column span="":::
-      **Identifier**
-   :::column-end:::
-   :::column span="":::
-      **Raw ID**
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
+*Identifier:*
 ```json
 {
     "communicationUser": {
-        "id": "8:acs:[resourceId]_[userId]"
+        "id": "[communicationUserId]"
     }
 }
-```    
-   :::column-end:::
-   :::column span="":::
-```json
-"8:acs:[resourceId]_[userId]"
 ```
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
+*Raw ID:*
+
+`[communicationUserId]`
+
+The raw ID is the same as `communicationUser.id`.
+
+### Microsoft Teams user
+
+*Identifier:*
 ```json
 {
     "microsoftTeamsUser": {
@@ -236,15 +221,13 @@ If you're using the Azure SDK, it will help you with the conversion. If you use 
     }
 }
 ```
-   :::column-end:::
-   :::column span="":::
-```json
-"8:orgid:[aadUserId]"
-```
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
+*Raw ID:*
+
+`8:orgid:[aadUserId]`
+
+The raw ID is the AAD user object id prefixed with `8:orgid:`.
+
+*Identifier:*
 ```json
 {
     "microsoftTeamsUser": {
@@ -253,15 +236,13 @@ If you're using the Azure SDK, it will help you with the conversion. If you use 
     }
 }
 ```
-   :::column-end:::
-   :::column span="":::
-```json
-"8:gcch:[aadUserId]"
-```
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
+*Raw ID:*
+
+`8:gcch:[aadUserId]`
+
+The raw ID is the AAD user object id prefixed with `8:gcch:` or `8:dod:` depending on the cloud environment.
+
+*Identifier:*
 ```json
 {
     "microsoftTeamsUser": {
@@ -270,15 +251,15 @@ If you're using the Azure SDK, it will help you with the conversion. If you use 
     }
 }
 ```
-   :::column-end:::
-   :::column span="":::
-```json
-"8:teamsvisitor:[visitorUserId]"
-```
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
+*Raw ID:* 
+
+`8:teamsvisitor:[visitorUserId]`
+
+The raw ID is the Teams visitor ID prefixed with `8:teamsvisitor:`. The Teams visitor ID is a temporary ID that Teams generates to enable meeting access.
+
+### Phone number
+
+*Identifier:*
 ```json
 {
     "phoneNumber": {
@@ -286,26 +267,23 @@ If you're using the Azure SDK, it will help you with the conversion. If you use 
     }
 }
 ```
-   :::column-end:::
-   :::column span="":::
-```json
-"4:1123455567"
-```
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
+*Raw ID:*
+
+`4:1123455567`
+
+The raw ID is the E.164 formatted phone number without the leading `+` and prefixed with `4:`.
+
+### Unknown identifier
+
+*Identifier:*
 ```json
 {
     "rawId": "[unknown identifier id]"
 }
 ```
-   :::column-end:::
-   :::column span="":::
-```json
-"[unknown identifier id]"
-```
-   :::column-end:::
-:::row-end:::
+*Raw ID:*
 
-If a raw ID is invalid the service will fail the request.
+`[unknown identifier id]`
+
+
+If a raw ID is invalid, the service will fail the request.
