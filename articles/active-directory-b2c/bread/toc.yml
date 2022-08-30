@@ -15,3 +15,6 @@
     - name: B2C
       tocHref: /azure/active-directory/fundamentals/
       topicHref: /azure/active-directory-b2c/index
+  - name: SPA documentation
+    tocHref: /azure/active-directory-b2c/
+    topicHref: /azure/active-directory-b2c/index-spa
