@@ -64,7 +64,7 @@ Navigate back to `AzureCommunicationUIDemoApp/`
 1. Run `yarn react-native start`
 2. Open another Terminal, navigate to `AzureCommunicationUIDemoApp/` folder, and run `yarn react-native run-ios` or `yarn react-native run-android`
 
-Alternatively, you can also run the iOS app by launching Xcode from the `.xcworkspace` file, and run the app with scheme `AzureCommunicationUIDemoApp` on your simulator or iOS device. To run Android app, you can also launch Android Studio and run on Android emulator or Android device after sycning up grade project.
+Alternatively, you can also run the iOS app by launching Xcode from the `.xcworkspace` file, and run the app with scheme `AzureCommunicationUIDemoApp` on your simulator or iOS device. To run Android app, you can also launch Android Studio and run on Android emulator or Android device after syncing up grade project.
 
 ### Highlights & Feedback
 

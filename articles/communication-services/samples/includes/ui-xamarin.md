@@ -50,10 +50,10 @@ It's recommended building the binding libraries on macOS first.
 First navigate to `XamariniOSindins/CommunicationUIProxy.Binding` and build the `CommunicationUIProxy.Binding.sln`.
 This will generate `CommunicationUIProxy.Binding\bin` folder where it will have `NativeLibrary.dll` for you to use.
 
-Open `CommunicationCallingXamarinSampleApp.sln`. Under the `CommunicationCallingXamarinSampleApp.iOS/References` right click and `Add Reference`. In the `.Net Assembly` tab we can browse to where the `.dll` of our binding library and add it as a reference. 
-Now you can including the library into your project by adding `using Xam.CommunicationUIProxy.iOS;` at the top of your `.cs` files.
+Open `CommunicationCallingXamarinSampleApp.sln`. Under the `CommunicationCallingXamarinSampleApp.iOS/References` right click and `Add Reference`. In the `.Net Assembly` tab, we can browse to where the `.dll` of our binding library and add it as a reference.
+Now you can include the library into your project by adding `using Xam.CommunicationUIProxy.iOS;` at the top of your `.cs` files.
 
-Set `CommunicationCallingXamarinSampleApp.iOS` as start up project, build, and select a device or emulator to run application.
+Set `CommunicationCallingXamarinSampleApp.iOS` as startup project, build, and select a device or emulator to run application.
 
 ### Highlights & Feedback
 
