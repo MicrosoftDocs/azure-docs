@@ -6,7 +6,7 @@ author: cebundy
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 08/29/2022
+ms.date: 08/30/2022
 ms.author: v-bcatherine
 ---
 
@@ -59,7 +59,13 @@ az containerapp logs show `
 
 ---
 
-When your app has multiple active revisions, replicas, and containers, you need to specify the container by including  the `--revision`, `--replica`, and `--container` arguments in the `az containerapp logs show` command.
+To connect to a container console in a container app with multiple revisions, replicas, and containers include the  following parameters in the `az containerapp logs show` command.
+
+| Argument | Description |
+|----------|-------------|
+| `--revision` | The revision name of the container connect to. |
+| `--replica` | The replica name of the container o connect to. |
+| `--container` | The container name of the container to connect to. |
 
 You can get the revision names with the `az containerapp revision list` command.  Replace the \<placeholders\> with your container app's values.
 
@@ -107,7 +113,7 @@ az containerapp replica list `
 
 ---
 
-Run the `az container app show` command using the names from the `az containerapp revision list ` command output.  Replace the \<placeholders\> with your container app's values.
+Stream the container logs with the `az container app show` command. Replace the \<placeholders\> with your container app's values.
 
 
 # [Bash](#tab/bash)

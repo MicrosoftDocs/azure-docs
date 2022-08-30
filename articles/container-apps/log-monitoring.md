@@ -6,7 +6,7 @@ author: cebundy
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 07/29/2022
+ms.date: 08/30/2022
 ms.author: v-bcatherine
 ---
 

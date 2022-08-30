@@ -6,7 +6,7 @@ author: cebundy
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 08/25/2022
+ms.date: 08/30/2022
 ms.author: v-bcatherine
 ---
 
@@ -17,11 +17,11 @@ Connecting to a container's console is useful when you want to troubleshoot your
 
 ## Azure portal
 
-Select **Console** in the **Monitoring** menu group from your container app page in the Azure portal.
+To connect to a container's console in the Azure portal, follow these steps.
 
-* Select the revision, replica and container you want to connect to.
-
-* You can choose to access your console via bash, sh, or a custom executable.  If you choose a custom executable, it must be available in the container.
+1. Select **Console** in the **Monitoring** menu group from your container app page in the Azure portal.
+1. Select the revision, replica and container you want to connect to.
+1. Choose to access your console via bash, sh, or a custom executable.  If you choose a custom executable, it must be available in the container.
 
 :::image type="content" source="media/observability/console-ss.png" alt-text="Screenshot of Azure Container Apps Console page.":::
 
@@ -29,7 +29,7 @@ Select **Console** in the **Monitoring** menu group from your container app page
 
 Use the `az containerapp exec` command to connect to a container console.  Select **Ctrl-D** to exit the console.
 
-For example, connect to a container console in a container app with a single revision, replica, and container using the following command.  Replace the \<placeholders\> with your container app's values.
+For example, connect to a container console in a container app with a single container using the following command.  Replace the \<placeholders\> with your container app's values.
 
 # [Bash](#tab/bash)
 
@@ -49,7 +49,13 @@ az containerapp exec `
 
 ---
 
-To connect to a container console in a container app with multiple revisions, replicas, and containers include the `--revision`, `--replica`, and `--container` arguments with the `az containerapp exec` command. 
+To connect to a container console in a container app with multiple revisions, replicas, and containers include the  following parameters in the `az containerapp exec` command.
+
+| Argument | Description |
+|----------|-------------|
+| `--revision` | The revision name of the container connect to. |
+| `--replica` | The replica name of the container o connect to. |
+| `--container` | The container name of the container to connect to. |
 
 You can get the revision names with the `az containerapp revision list` command.  Replace the \<placeholders\> with your container app's values.
 
@@ -97,28 +103,28 @@ az containerapp replica list `
 
 ---
 
-Connect to the container console using the names from the `az containerapp revision list` command.
+Connect to the container console with the `az containerapp exec` command. Replace the \<placeholders\> with your container app's values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp exec \
-  --name album-api \
-  --resource-group album-api-rg \
-  --revision album-api--v2 \
-  --replica album-api--v2-5fdd5b4ff5-6mblw \
-  --container album-api-container 
+  --name <ContainerAppName> \
+  --resource-group <ResourceGroup> \
+  --revision <RevisionName> \
+  --replica <ReplicaName> \
+  --container <ContainerName> 
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
 az containerapp exec `
-  --name album-api `
-  --resource-group album-api-rg `
-  --revision album-api--v2 `
-  --replica album-api--v2-5fdd5b4ff5-6mblw `
-  --container album-api-container
+  --name <ContainerAppName> `
+  --resource-group <ResourceGroup> `
+  --revision <RevisionName> `
+  --replica <ReplicaName> `
+  --container <ContainerName> 
 ```
 
 ---

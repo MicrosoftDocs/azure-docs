@@ -39,12 +39,12 @@ During the development and test phase, real-time access to your containers' appl
 
 ### Deployment
 
-Once you deploy your container app, it's essential to monitor your app. Upon deployment, continuous monitoring helps you quickly identify problems that may occur around error rates, performance, or metrics.
+Once you deploy your container app, continuous monitoring helps you quickly identify problems that may occur around error rates, performance, and resource consumption.
 
 Azure Monitor gives you the ability to track your app with the following features:
 
 - [Azure Monitor metrics](metrics.md): Monitor and analyze key metrics.
-- [Azure Monitor alerts](alerts.md): Send alerts for critical conditions.
+- [Azure Monitor alerts](alerts.md): Recieve alerts for critical conditions.
 - [Azure Monitor Log Analytics](log-monitoring.md): View and analyze application logs.
 
 ### Maintenance
@@ -52,7 +52,7 @@ Azure Monitor gives you the ability to track your app with the following feature
 Container Apps manages updates to your container app by creating [revisions](revisions.md).  You can run multiple revisions concurrently in blue green deployments or to perform A/B testing.  These observability features will help you monitor your app across revisions:
 
 - [Azure Monitor metrics](metrics.md): Monitor and compare key metrics for multiple revisions.
-- [Azure Monitor alerts](alerts.md): Send alerts individual alerts per revision.
+- [Azure Monitor alerts](alerts.md): Receive individual alerts per revision.
 - [Azure Monitor Log Analytics](log-monitoring.md): View, analyze and compare log data for multiple revisions.
 
 ## Next steps

@@ -6,7 +6,7 @@ author: cebundy
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 07/29/2022
+ms.date: 08/30/2022
 ms.author: v-bcatherine
 ---
 
@@ -19,9 +19,9 @@ Azure Monitor alerts notify you so that you can respond quickly to critical issu
 
 You can create alert rules from metric charts in the metric explorer and from queries in Log Analytics.  You can also define and manage alerts from the **Monitor>Alerts** page.  To learn more about alerts, refer to [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md).
 
-The **Alerts** page in the **Monitoring** section on your container app page displays all of your app's alerts.  You can filter the list by alert type, resource, time and severity.  You can also modify and create new alerts from this page.
+The **Alerts** page in the **Monitoring** section on your container app page displays all of your app's alerts.  You can filter the list by alert type, resource, time and severity.  You can also modify and create new alert rules from this page.
 
-### Create metric alert rules
+## Create metric alert rules
 
 When you create alerts rules based on a metric chart in the metrics explorer, alerts are triggered when the metric data matches alert rule conditions. For more information about creating metrics charts, see [Using metrics explorer](metrics.md#using-metrics-explorer)
 
@@ -41,7 +41,7 @@ After creating a metric chart, you can create a new alert rule.
    :::image type="content" source="media/observability/screenshot-alert-details-dialog.png" alt-text="Screen shot of the alert details configuration page.":::
 
 
-#### Add conditions to an alert rule
+### Add conditions to an alert rule
 
 To add more conditions to your alert rule:
 
@@ -61,7 +61,7 @@ Example of selecting a dimension to split an alert.
 
  To learn more about configuring alerts, visit [Create a metric alert for an Azure resource](../azure-monitor/alerts/tutorial-metric-alert.md)
 
-### Create log alert rules
+## Create log alert rules
 
 You can create log alerts from queries in Log Analytics.  When you create an alert rule from a query, the query is run at set intervals triggering alerts when the log data matches the alert rule conditions.  To learn more about creating log alert rules, see [Manage log alerts](../azure-monitor/alerts/alerts-log.md).
 
@@ -84,5 +84,5 @@ To create an alert rule:
 1. Select **Review + create**.
 1. Select **Create**.
 
- [!div class="nextstepaction"]
+> [!div class="nextstepaction"]
 > [View log streams from the Azure portal](log-streaming.md)
