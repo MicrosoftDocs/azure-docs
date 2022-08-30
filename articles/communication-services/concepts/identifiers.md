@@ -20,7 +20,7 @@ Communication Services SDKs and REST APIs use the *identifier* type to identify 
 
 Depending on context identifiers get wrapped with extra properties, like inside the `ChatParticipant` in the Chat SDK or inside the `RemoteParticipant` in the Calling SDK.
 
-In this article you'll learn about different types of identifiers and how they look in different programming languages. You'll also get tips on how to use them.
+In this article, you'll learn about different types of identifiers and how they look across programming languages. You'll also get tips on how to use them.
 
 
 ## The CommunicationIdentifier type

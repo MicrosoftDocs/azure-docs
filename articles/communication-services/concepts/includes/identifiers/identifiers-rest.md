@@ -193,7 +193,7 @@ Sometimes you need to serialize an identifier to a flat string. For example, if 
 
 For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw ID, and a valid raw ID can always be converted to an identifier.
 
-If you're using the Azure SDK, it will help you with the conversion. If you use the REST API directly, you need to construct the raw id manually as described below.
+If you're using the Azure SDK, it will help you with the conversion. If you use the REST API directly, you need to construct the raw ID manually as described below.
 
 ### Communication user
 
@@ -225,7 +225,7 @@ The raw ID is the same as `communicationUser.id`.
 
 `8:orgid:[aadUserId]`
 
-The raw ID is the AAD user object id prefixed with `8:orgid:`.
+The raw ID is the Azure AD user object ID prefixed with `8:orgid:`.
 
 *Identifier:*
 ```json
@@ -240,7 +240,7 @@ The raw ID is the AAD user object id prefixed with `8:orgid:`.
 
 `8:gcch:[aadUserId]`
 
-The raw ID is the AAD user object id prefixed with `8:gcch:` or `8:dod:` depending on the cloud environment.
+The raw ID is the Azure AD user object ID prefixed with `8:gcch:` or `8:dod:` depending on the cloud environment.
 
 *Identifier:*
 ```json
