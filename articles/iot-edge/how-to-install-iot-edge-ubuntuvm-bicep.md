@@ -96,6 +96,7 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
    --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
    --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
    ```
+
    :::moniker-end
    :::moniker range=">=iotedge-2020-11"
    To use an **authenticationType** of `password`, see the example below:
@@ -127,6 +128,7 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
    --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
    --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
    ```
+
    :::moniker-end
 
 1. Verify that the deployment has completed successfully.  A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name, this should be in the format `vm-0000000000000`. Also, take note of the associated **DNS Name**, which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
