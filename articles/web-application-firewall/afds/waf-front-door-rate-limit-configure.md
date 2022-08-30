@@ -181,7 +181,61 @@ $frontDoorSecurityPolicy = New-AzFrontDoorCdnSecurityPolicy `
 
 ::: zone pivot="portal"
 
-<!-- TODO -->
+## Create a Front Door profile and WAF policy
+
+1. On the Azure portal home page, select **Create a resource**.
+
+1. Search for **Front Door**, and select **Front Door and CDN profiles**.
+
+1. Select **Create**.
+
+1. Select **Continue to create a Front Door** to use the *quick create* portal creation process.
+
+1. Enter the information required on the *Basics* page:
+
+   - **Resource group:** Select an existing resource group, or create a new resource group for the Front Door and WAF resources.
+   - **Name:** Enter the name of your Front Door profile.
+   - **Tier:** Select *Standard* or *Premium*. For this scenario, both tiers support rate limiting.
+   - **Endpoint name:** Front Door endpoints must have globally unique names, so provide a unique name for your endpoint.
+   - **Origin type** and **Origin host name:** Select the origin application that you want to protect with your rate limiting rule.
+
+1. Next to **WAF policy**, select **Create new**.
+
+1. Enter the name of a WAF policy and select **Create**.
+
+1. Select **Review + create**, then select **Create**.
+
+## Use prevention mode on the WAF
+
+1. Open the WAF policy.
+
+   Notice that the *Policy mode* is *Detection*. This setting means that the WAF won't block requests. For more information, see [WAF modes](afds-overview.md#waf-modes).
+
+1. Select **Switch to prevention mode**.
+
+## Create a rate limit rule
+
+1. Select **Custom rules** > **Add custom rule**.
+
+1. Enter the information required to create a rate limiting rule:
+
+   - **Custom rule name:** Enter the name of the custom rule, such as *rateLimitRule*.
+   - **Rule type:** Rate limit
+   - **Priority:** Enter the priority of the rule, such as *1*.
+   - **Rate limit duration:** 1 minute
+   - **Rate limit threshold (requests):** 1000
+
+1. In **Conditions**, enter the information required to specify a match condition to identify requests where the URL contains the string */promo*:
+
+   - **Match type:** String
+   - **Match variable:** RequestUri
+   - **Operation:** Is
+   - **Operator:** Contains
+   - **Match values:** */promo*
+
+1. Select **Add**.
+
+1. Select **Save**.
 
 ::: zone-end
 
