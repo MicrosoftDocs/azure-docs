@@ -12,11 +12,11 @@ This article gives an overview of Azure Video Indexer accounts types and provide
 
 ## A trial account
 
-The first time you visit the [www.videoindexer.ai/](https://www.videoindexer.ai/) website, a trial account is automatically created. A trial Azure Video Indexer account has limitation on number of indexing minutes, support, and SLA.
+The first time you visit the [www.videoindexer.ai/](https://www.videoindexer.ai/) website, a trial account is automatically created. The trial Azure Video Indexer account has limitation on number of indexing minutes, support, and SLA.
 
-With a trial, account Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://aka.ms/avam-dev-portal).
+With the trial, account Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://aka.ms/avam-dev-portal).
 
-With a trial account, you don't have to set up an Azure subscription.
+When using the trial account, you don't have to set up an Azure subscription.
 
 The trial account option is not available on the Azure Government cloud. For other Azure Government limitations, see [Limitations of Azure Video Indexer on Azure Government](connect-to-azure.md#limitations-of-azure-video-indexer-on-azure-government).
 
@@ -26,7 +26,7 @@ You can later create a paid account where you're not limited by the quota. Two t
 
 With the paid option, you pay for indexed minutes, for more information, see [Azure Video Indexer pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
 
-When creating a paid account, you need to connect Azure Video Indexer to your Azure subscription and an Azure Media Services account. 
+When creating a new paid account, you need to connect the Azure Video Indexer account to your Azure subscription and an Azure Media Services account. 
 
 **The recommended paid account type is the ARM-based account**.
 
