@@ -34,20 +34,20 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
 
 1. Ensure that you have installed the Azure CLI iot extension with:
 
-   ```azurecli-interactive
+   ```azurecli
    az extension add --name azure-iot
    ```
 
 1. Next, if you're using Azure CLI on your desktop, start by logging in:
 
-   ```azurecli-interactive
+   ```azurecli
    az login
    ```
 
 1. If you have multiple subscriptions, select the subscription you'd like to use:
    1. List your subscriptions:
 
-      ```azurecli-interactive
+      ```azurecli
       az account list --output table
       ```
 
@@ -55,13 +55,13 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
 
    1. Set your working subscription with the ID that you copied:
 
-      ```azurecli-interactive
+      ```azurecli
       az account set -s <SubscriptionId>
       ```
 
 1. Create a new resource group (or specify an existing one in the next steps):
 
-   ```azurecli-interactive
+   ```azurecli
    az group create --name IoTEdgeResources --location westus2
    ```
 
@@ -69,7 +69,7 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
    :::moniker range="iotedge-2018-06"
    To use an **authenticationType** of `password`, see the example below:
 
-   ```azurecli-interactive
+   ```azurecli
    az deployment group create \
    --resource-group IoTEdgeResources \
    --template-file "main.bicep" \
@@ -82,7 +82,7 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
 
    To authenticate with an SSH key, you may do so by specifying an **authenticationType** of `sshPublicKey`, then provide the value of the SSH key in the **adminPasswordOrKey** parameter.  An example is shown below.
 
-   ```azurecli-interactive
+   ```azurecli
    #Generate the SSH Key
    ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""
 
@@ -101,7 +101,7 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
    :::moniker range=">=iotedge-2020-11"
    To use an **authenticationType** of `password`, see the example below:
 
-   ```azurecli-interactive
+   ```azurecli
    az deployment group create \
    --resource-group IoTEdgeResources \
    --template-file "main.bicep" \
@@ -114,7 +114,7 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
 
    To authenticate with an SSH key, you may do so by specifying an **authenticationType** of `sshPublicKey`, then provide the value of the SSH key in the **adminPasswordOrKey** parameter.  An example is shown below.
 
-   ```azurecli-interactive
+   ```azurecli
    #Generate the SSH Key
    ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""
 
