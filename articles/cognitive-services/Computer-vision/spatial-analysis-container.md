@@ -39,7 +39,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * 4 GB of system RAM
 * 4 GB of GPU RAM
 * 8 core CPU
-* One NVIDIA CUDA Compute Capable GPU 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), 1080Ti, or 2080Ti)
+* One NVIDIA CUDA Compute Capable GPU 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), A2, 1080Ti, or 2080Ti)
 * 20 GB of HDD space
 
 #### Recommended hardware
@@ -47,7 +47,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * 32 GB of system RAM
 * 16 GB of GPU RAM
 * 8 core CPU
-* Two NVIDIA CUDA Compute Capable GPUs 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), 1080Ti, or 2080Ti)
+* Two NVIDIA CUDA Compute Capable GPUs 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), A2, 1080Ti, or 2080Ti)
 * 50 GB of SSD space
 
 In this article, you'll download and install the following software packages. The host computer must be able to run the following (see below for instructions):
