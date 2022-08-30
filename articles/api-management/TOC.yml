@@ -78,6 +78,8 @@
               href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
       - name: Observability
         href: observability.md
+      - name: DevOps and CI/CD
+        href: devops-api-development-templates.md  
       - name: APIs
         items:
             - name: API design ebook
@@ -145,8 +147,6 @@
               items:
               - name: Landing zone accelerator
                 href: /azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-              - name: CI/CD using ARM templates
-                href: devops-api-development-templates.md
               - name: Manage using automation
                 href: automation-manage-api-management.md
               - name: Configure using Git
