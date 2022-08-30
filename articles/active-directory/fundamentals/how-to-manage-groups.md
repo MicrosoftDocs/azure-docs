@@ -24,9 +24,11 @@ This article covers basic group scenarios where a single group is added to a sin
 Before adding groups and members, [learn about groups and membership types](concept-learn-about-groups.md) to help you decide which options to use when you create a group.
 
 ## Create a basic group and add members
-You can create a basic group and add your members at the same time using the Azure Active Directory (Azure AD) portal. To create a basic group and add members:
+You can create a basic group and add your members at the same time using the Azure Active Directory (Azure AD) portal. Azure AD roles that can manage groups include Groups Administrator, User Administrator, Privileged Role Administrator, or Global Administrator. Review the [appropriate Azure AD roles for managing groups](../roles/delegate-by-task.md#groups)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
+To create a basic group and add members:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using an appropriate administrator account for the directory.
 
 1. Go to **Azure Active Directory** > **Groups** > **New group**.
 
@@ -43,8 +45,11 @@ You can create a basic group and add your members at the same time using the Azu
 1. **Group description.** Add an optional description to your group.
 
 1. Switch the **Azure AD roles can be assigned to the group** setting to yes to use this group to assign Azure AD roles to members.
+    - This option is only available with Premium P1 or P2 licenses.
+    - You must have the Privileged Role Administrator or Global Administrator role to see this option.
     - Enabling this option automatically selects "Assigned" as the **Membership type.**
     - The option to add roles while creating the group is added to the process.
+    - [Learn more about role-assignable groups](../roles/groups-create-eligible.md).
 
 1. Select a **Membership type.** For more information on membership types, see the [learn about groups and membership types](concept-learn-about-groups.md) article.
 
@@ -67,7 +72,7 @@ Need to add multiple members at one time? Learn about the [add members in bulk](
 
 ### Add members or owners of a group:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Group Owner or User Administrator account for the directory.
 
 1. Go to **Azure Active Directory** > **Groups**.
 
@@ -96,7 +101,7 @@ Using Azure AD, you can edit a group's name, description, or membership type.
 
 To edit your group settings:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Groups Administrator account for the directory.
 
 1. Go to **Azure Active Directory** > **Groups**. The **Groups - All groups** page appears, showing all of your active groups.
 
@@ -130,7 +135,7 @@ You can delete an Azure AD group for any number of reasons, but typically it wil
 - No longer need the group.
 
 To delete a group:
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Groups Administrator account for the directory.
 
 2. Go to **Azure Active Directory** > **Groups**.
 
