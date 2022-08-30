@@ -20,6 +20,8 @@ This article shows how to configure a WAF rate limit rule.
 > [!NOTE]
 > This article describes how to use rate limiting for Azure Front Door Standard/Premium.
 
+::: zone pivot="portal,powershell"
+
 ## Scenario
 
 Suppose you're responsible for a public website. You've just added a page with information about a promotion your organization is running. You're concerned that, if clients visit that page too often, some of your backend services might not scale quickly and the application might have performance issues.
@@ -28,6 +30,8 @@ You decide to create a rate limiting rule that restricts each client IP address 
 
 > [!TIP]
 > If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+::: zone-end
 
 ::: zone pivot="portal"
 
@@ -265,6 +269,8 @@ $frontDoorSecurityPolicy = New-AzFrontDoorCdnSecurityPolicy `
 ::: zone-end
 
 ::: zone pivot="bicep"
+
+## Quickstart
 
 To create a Front Door profile with a rate limit rule by using Bicep, see the [Front Door Standard/Premium with rate limit](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-rate-limit/) Bicep quickstart.
 
