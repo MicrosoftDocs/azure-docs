@@ -542,9 +542,15 @@
       - name: Troubleshoot high memory utilization
         href: flexible-server/how-to-high-memory-utilization.md 
         displayName: High Memory Utilization
+      - name: Troubleshoot high io utilization
+        href: flexible-server/how-to-high-io-utilization.md 
+        displayName: High IOPS Utilization
       - name: Troubleshoot autovacuum 
         href: flexible-server/how-to-autovacuum-tuning.md
         displayName: Autovacuum troubleshooting, tuning
+      - name: Bulk Data Load Best Practices 
+        href: flexible-server/how-to-bulkload_data.md
+        displayName: Bulk Data Load Best Practices
   - name: How-to guides
     items:
     - name: Manage a server
