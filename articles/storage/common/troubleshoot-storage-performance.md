@@ -104,6 +104,6 @@ If you are experiencing a delay between the time an application adds a message t
 
 ## See also
 
-- [Troubleshoot client application errors](../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Troubleshoot availability issues](../common/troubleshoot-storage-availability.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Troubleshoot client application errors](../common/troubleshoot-storage-client-application-errors.md?toc=/azure/storage/blobs/toc.json)
+- [Troubleshoot availability issues](../common/troubleshoot-storage-availability.md?toc=/azure/storage/blobs/toc.json)
 - [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/)
