@@ -92,7 +92,7 @@ Mitigation steps are available via standalone tools such as [Fairlearn](https://
 
 Decision-making is one of the biggest promises of machine learning. The Responsible AI dashboard can help you make informed business decisions through:
 
-- Data-driven insights, to further understand causal treatment effects on an outcome, by using historical data only. For example:
+- Data-driven insights, to further understand causal treatment effects on an outcome by using historical data only. For example:
 
   "How would a medicine affect a patient's blood pressure?"
   
@@ -111,7 +111,7 @@ These components of the Responsible AI dashboard support responsible decision-ma
 - **Causal inference**: The causal inference component estimates how a real-world outcome changes in the presence of an intervention. It also helps construct promising interventions by simulating feature responses to various interventions and creating rules to determine which population cohorts would benefit from a particular intervention. Collectively, these functionalities allow you to apply new policies and effect real-world change.
   
   The capabilities of this component come from the [EconML](https://github.com/Microsoft/EconML) package, which estimates heterogeneous treatment effects from observational data via machine learning.
-- **Counterfactual analysis**: You can reuse the counterfactual analysis component here to generate minimum changes applied to a data point's features that lead to opposite model predictions. For example, Taylor would have obtained the loan approval from the AI if they earned $10,000 more in annual income and had two fewer credit cards open. 
+- **Counterfactual analysis**: You can reuse the counterfactual analysis component here to generate minimum changes applied to a data point's features that lead to opposite model predictions. For example: Taylor would have obtained the loan approval from the AI if they earned $10,000 more in annual income and had two fewer credit cards open. 
 
   Providing this information to users informs their perspective. It educates them on how they can take action to get the desired outcome from the AI in the future.
   
@@ -119,7 +119,7 @@ These components of the Responsible AI dashboard support responsible decision-ma
 
 ## Reasons for using the Responsible AI dashboard
 
-Although progress has been made on individual tools for specific areas of Responsible AI, data scientists often need to use various tools to holistically evaluate their models and data. For example, they might have to use model interpretability and fairness assessment together. 
+Although progress has been made on individual tools for specific areas of Responsible AI, data scientists often need to use various tools to holistically evaluate their models and data. For example: they might have to use model interpretability and fairness assessment together. 
 
 If data scientists discover a fairness issue with one tool, they then need to jump to a different tool to understand what data or model factors lie at the root of the issue before taking any steps on mitigation. The following factors further complicate this challenging process:
 
@@ -165,13 +165,13 @@ The following people can use the Responsible AI dashboard, and its corresponding
 
 - The Responsible AI dashboard currently supports regression and classification (binary and multi-class) models trained on tabular structured data. 
 - The Responsible AI dashboard currently supports MLflow models that are registered in Azure Machine Learning with a sklearn (scikit-learn) flavor only. The scikit-learn models should implement `predict()/predict_proba()` methods, or the model should be wrapped within a class that implements `predict()/predict_proba()` methods. The models must be loadable in the component environment and must be pickleable.
-- The Responsible AI dashboard currently visualizes up to 5K of your data points in the dashboard UI. You should downsample your dataset to 5K or less before passing it to the dashboard.
+- The Responsible AI dashboard currently visualizes up to 5K of your data points on the dashboard UI. You should downsample your dataset to 5K or less before passing it to the dashboard.
 - The dataset inputs to the Responsible AI dashboard must be pandas DataFrames in Parquet format. NumPy and SciPy sparse data is currently not supported. 
-- The Responsible AI dashboard currently supports numeric or categorical features. For categorical features, you have to explicitly specify the feature names.  
+- The Responsible AI dashboard currently supports numeric or categorical features. For categorical features, the user has to explicitly specify the feature names.  
 - The Responsible AI dashboard currently doesn't support datasets with more than 10K columns.
 
 
 ## Next steps
 
 - Learn how to generate the Responsible AI dashboard via [CLI and SDK](how-to-responsible-ai-dashboard-sdk-cli.md) or [Azure Machine Learning studio UI](how-to-responsible-ai-dashboard-ui.md).
-- Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.
+- Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed on the Responsible AI dashboard.
