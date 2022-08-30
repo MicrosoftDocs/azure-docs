@@ -589,10 +589,10 @@ It may take some time for the Nvidia Operator and NFD to completely install and 
    oc logs cuda-vector-add --tail=-1
    ```
 
-  > [!NOTE] 
-    > If you get an error `Error from server (BadRequest): container "cuda-vector-add" in pod "cuda-vector-add" is waiting to start: ContainerCreating`, try running `oc delete pod cuda-vector-add` and then re-run the create statement above.
+> [!NOTE] 
+> If you get an error `Error from server (BadRequest): container "cuda-vector-add" in pod "cuda-vector-add" is waiting to start: ContainerCreating`, try running `oc delete pod cuda-vector-add` and then re-run the create statement above.
 
-  The output should be similar to the following (depending on GPU):
+The output should be similar to the following (depending on GPU):
 
    ```bash
    [Vector addition of 5000 elements]
@@ -602,7 +602,7 @@ It may take some time for the Nvidia Operator and NFD to completely install and 
    Test PASSED
    Done
    ```
-  If successful, the pod can be deleted:
+If successful, the pod can be deleted:
 
    ```bash
    oc delete pod cuda-vector-add
