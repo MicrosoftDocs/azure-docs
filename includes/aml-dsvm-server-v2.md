@@ -15,7 +15,7 @@ ms.date: 12/27/2021
 
 1. Download a workspace configuration file:
 
-    * Sign in to [Azure studio](https://ml.azure.com)
+    * Sign in to [Azure Machine Learning studio](https://ml.azure.com)
     * Select your workspace settings in the upper right
     * Select **Download config file**
 
