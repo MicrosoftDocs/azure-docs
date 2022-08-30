@@ -48,7 +48,6 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     :::image type="content" source="media/quick-create-portal/review-create.png" alt-text="Screenshot showing the Review + create button at the bottom of the page.":::
 
-    ![Screenshot showing the Review and create button at the bottom of the page](./media/quick-create-portal/review-create.png)
 
 1. After validation runs, select the **Create** button at the bottom of the page.
     :::image type="content" source="media/quick-create-portal/validation.png" alt-text="Screenshot showing that validation has passed. Select the Create button to create the VM.":::
