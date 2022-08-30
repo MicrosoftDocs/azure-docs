@@ -66,7 +66,7 @@ Azure CNI offers two IP addressing options for pods- the traditional configurati
 
 Use overlay networking when:
 
-* You have limited IP address space.
+* You would like to scale to a large number of Pods but have limited IP address space in your VNet.
 * Most of the pod communication is within the cluster.
 * You don't need advanced AKS features, such as virtual nodes.
 
@@ -119,7 +119,7 @@ Create a cluster with Azure CNI Overlay. Use `--network-plugin-mode` to specify 
 clusterName="myOverlayCluster"
 subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
 
-az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16 --vnet-subnet-id /subscriptions/$subscription /resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet
+az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16 --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet
 ```
 
 ## Frequently asked questions
