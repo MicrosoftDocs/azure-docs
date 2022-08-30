@@ -51,7 +51,7 @@ Having multiple Azure AD Connect sync servers connected to the same Azure AD ten
 ## Multiple forests, single Azure AD tenant
 ![Topology for multiple forests and a single tenant](./media/plan-connect-topologies/multiforestsingledirectory.png)
 
-Many organizations have environments with multiple on-premises Active Directory forests. There are various reasons for having more than one on-premises Active Directory forest. Typical examples are designs with account-resource forests and the result of a merger or acquisition.
+Many organizations have environments with multiple on-premises Active Directory forests. There are various reasons for having more than one on-premises Active Directory forest. Typical examples are designs with account-resource forests and the result of a merger or acquisition. In this case for continue to use the PassThrough Authentication the environments need to have a two-way trust in place.
 
 When you have multiple forests, all forests must be reachable by a single Azure AD Connect sync server. The server must be joined to a domain. If necessary to reach all forests, you can place the server in a perimeter network (also known as DMZ, demilitarized zone, and screened subnet).
 
