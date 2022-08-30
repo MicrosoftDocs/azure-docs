@@ -52,6 +52,10 @@ items:
     items:
     - name: Troubleshoot NAT gateway
       href: troubleshoot-nat.md
+    - name: Troubleshoot NAT gateway connectivity
+      href: troubleshoot-nat-connectivity.md
+    - name: Troubleshoot NAT gateway and Azure services
+      href: troubleshoot-nat-and-azure-services.md
 - name: Reference
   items:
   - name: Azure CLI
