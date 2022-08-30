@@ -27,9 +27,11 @@ API keys are disabled by default in Azure Managed Grafana. There are two ways yo
 
     ### [Portal](#tab/portal)
 
-    In the Azure portal, under **Settings** select **Configuration**, and then under **Deterministic outbound IP**, select **Enable**.
+    1. In the Azure portal, under **Settings** select **Configuration**, and then under **Deterministic outbound IP**, select **Enable**.
 
-    :::image type="content" source="media/deterministic-ips/enable-deterministic-IP-support.png" alt-text="Screenshot of the Azure platform. Enable deterministic IPs.":::
+        :::image type="content" source="media/deterministic-ips/enable-deterministic-IP-support.png" alt-text="Screenshot of the Azure platform. Enable deterministic IPs.":::
+    1. Select **Save** to confirm the activation of deterministic outbound IP addresses.
+    1. Select **Refresh** to display the list of IP addresses under **Static IP address**.
 
     ### [Azure CLI](#tab/azure-cli)
 
