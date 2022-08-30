@@ -53,8 +53,8 @@ To connect to a container console in a container app with multiple revisions, re
 
 | Argument | Description |
 |----------|-------------|
-| `--revision` | The revision name of the container connect to. |
-| `--replica` | The replica name of the container o connect to. |
+| `--revision` | The revision names of the container to connect to. |
+| `--replica` | The replica name of the container to connect to. |
 | `--container` | The container name of the container to connect to. |
 
 You can get the revision names with the `az containerapp revision list` command.  Replace the \<placeholders\> with your container app's values.

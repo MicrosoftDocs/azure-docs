@@ -59,7 +59,7 @@ az provider register --namespace Microsoft.App
 
 ---
 
-Register the `Microsoft.OperationalInsights` provider for the [Azure Monitor Log Analytics Workspace](../articles/container-apps/log-monitoring.md) if you have not used it before.
+Register the `Microsoft.OperationalInsights` provider for the [Azure Monitor Log Analytics Workspace](../articles/container-apps/log-monitoring.md) if you haven't used it before.
 
 # [Bash](#tab/bash)
 

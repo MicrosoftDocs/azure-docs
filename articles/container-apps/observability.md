@@ -44,7 +44,7 @@ Once you deploy your container app, continuous monitoring helps you quickly iden
 Azure Monitor gives you the ability to track your app with the following features:
 
 - [Azure Monitor metrics](metrics.md): Monitor and analyze key metrics.
-- [Azure Monitor alerts](alerts.md): Recieve alerts for critical conditions.
+- [Azure Monitor alerts](alerts.md): Receive alerts for critical conditions.
 - [Azure Monitor Log Analytics](log-monitoring.md): View and analyze application logs.
 
 ### Maintenance

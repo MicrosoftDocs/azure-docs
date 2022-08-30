@@ -24,7 +24,7 @@ There are two types of logs for Container Apps.
 
 ## System Logs
 
-The Container Apps service provides system log messages at the container app level.  System logs emits the following messages:
+The Container Apps service provides system log messages at the container app level.  System logs emit the following messages:
 
 | Source | Type | Message |
 |---------|------|---------|
@@ -74,7 +74,7 @@ The most commonly used Container Apps specific columns in ContainerAppConsoleLog
 
 Log Analytics is a tool in the Azure portal that you can use to view and analyze log data. Using Log Analytics, you can write Kusto queries and then sort, filter, and visualize the results in charts to spot trends and identify issues. You can work interactively with the query results or use them with other features such as alerts, dashboards, and workbooks.
 
-### Azure Portal
+### Azure portal
 
 Start Log Analytics from **Logs** in the sidebar menu on your container app page.  You can also start Log Analytics from **Monitor>Logs**.  
 
