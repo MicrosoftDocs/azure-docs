@@ -23,7 +23,7 @@ To get started with using App Configuration references in App Service, you'll fi
 
     App Configuration references will use the app's system assigned identity by default, but you can [specify a user-assigned identity](#access-app-configuration-store-with-a-user-assigned-identity).
 
-1. Enable the newly created identity to have the right set of access permissions on the App Configuration store. Update the [role assignments for your store](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration). You'll be assigning `App Configuration Data Reader` role to this identity, scoped over the resource..
+1. Enable the newly created identity to have the right set of access permissions on the App Configuration store. Update the [role assignments for your store](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration). You'll be assigning `App Configuration Data Reader` role to this identity, scoped over the resource.
 
 > [!NOTE]
 > App Configuration references do not yet support network-restricted configuration stores.
@@ -230,3 +230,8 @@ Below is an example pseudo-template for a function app with App Configuration re
 If a reference isn't resolved properly, the reference value will be used instead. For the application settings, an environment variable would be created whose value has the `@Microsoft.AppConfiguration(...)` syntax. It may cause an error, as the application was expecting a configuration value instead.
 
 Most commonly, this error could be due to a misconfiguration of the [App Configuration access policy](#granting-your-app-access-to-app-configuration). However, it could also be due to a syntax error in the reference or the Configuration key-value not existing in the store.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Reference Key vault secrets from App Service](./app-service-key-vault-references.md) 
