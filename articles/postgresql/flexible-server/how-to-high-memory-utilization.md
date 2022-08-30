@@ -112,6 +112,6 @@ For more information on the **EXPLAIN** command, review [Explain Plan](https://w
 
 ## Next steps
 
-- Troubleshoot and tune Autovacuum [Autovacuum Tuning](./how-to-high-cpu-utilization.md).
+- Troubleshoot and tune Autovacuum [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
 - Troubleshoot High CPU Utilization [High CPU Utilization](./how-to-high-cpu-utilization.md).
 - Configure server parameters [Server Parameters](./howto-configure-server-parameters-using-portal.md).

@@ -194,5 +194,5 @@ vacuum analyze <table_name>;
 
 ## Next steps
 
-- Troubleshoot and tune Autovacuum [Autovacuum Tuning](./how-to-high-cpu-utilization.md).
+- Troubleshoot and tune Autovacuum [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
 - Troubleshoot High Memory Utilization [High Memory Utilization](./how-to-high-memory-utilization.md).
