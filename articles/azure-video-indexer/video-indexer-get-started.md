@@ -11,7 +11,7 @@ ms.custom: mode-other
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
-This quickstart shows you how to sign in to the Azure Video Indexer [website](https://www.videoindexer.ai/) and how to upload your first video. When visiting the Azure Video Indexer website for the first time, the trial account is automatically created for you. With the trial account, you get a certain number of free indexing minutes. You can later add a paid (ARM-based or classic) account. With the paid option, you pay for indexed minutes.
+This quickstart shows you how to sign in to the Azure Video Indexer [website](https://www.videoindexer.ai/) and how to upload your first video. When visiting the Azure Video Indexer website for the first time, a trial account is automatically created for you. With the trial account, you get a certain number of free indexing minutes. You can later add a paid (ARM-based or classic) account. With the paid option, you pay for indexed minutes.
 
 For details about available accounts (trial and paid options), see [Azure Video Indexer account types](accounts-overview.md).
 
