@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 08/15/2022
 ms.custom: devx-track-java, ignite-fall-2021
 ms.author: aahi
 ---
@@ -13,9 +13,9 @@ ms.author: aahi
 
 Use this quickstart to create a text summarization application with the client library for Java. In the following example, you will create a Java application that can summarize documents.
 
-## Prerequisites
+[!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
-[!INCLUDE [availability](../regional-availability.md)]
+## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) with version 8 or above

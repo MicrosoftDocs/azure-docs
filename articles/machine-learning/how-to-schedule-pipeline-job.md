@@ -61,6 +61,8 @@ You can schedule a pipeline job yaml in local or an existing pipeline job in wor
 
 - **(Required)**  `type` specifies the schedule type is `recurrence`. It can also be `cron`, see details in the next section.
 
+List continues below.
+
 # [Python](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
@@ -70,6 +72,8 @@ You can schedule a pipeline job yaml in local or an existing pipeline job in wor
 `RecurrenceTrigger` contains following properties:
 
 - **(Required)** To provide better coding experience, we use `RecurrenceTrigger` for recurrence schedule.
+
+List continues below.
 
 ---
 
@@ -103,6 +107,8 @@ The `trigger` section defines the schedule details and contains following proper
 
 - **(Required)** `type` specifies the schedule type is `cron`.
 
+List continues below. 
+
 # [Python](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
@@ -112,6 +118,8 @@ The `trigger` section defines the schedule details and contains following proper
 The `CronTrigger` section defines the schedule details and contains following properties:
 
 - **(Required)** To provide better coding experience, we use `CronTrigger` for recurrence schedule.
+
+List continues below. 
 
 ---
 

@@ -16,7 +16,7 @@ Before attempting to use `$export`, make sure that your FHIR service is configur
 
 ## Calling the `$export` endpoint
 
-After setting up the FHIR service to connect with an ADLS Gen2 account, you can call the `$export` endpoint and the FHIR service will export data into a blob storage container inside the storage account. The example request below exports all resources into a container specified by name (`{{containerName}}`) within the ADLS Gen2 account. Note that the container in the ADLS Gen2 account must be created beforehand if you want to specify the `{{containerName}}` in the request.
+After setting up the FHIR service to connect with an ADLS Gen2 account, you can call the `$export` endpoint and the FHIR service will export data into a blob storage container inside the storage account. The example request below exports all resources into a container specified by name (`{{containerName}}`). Note that the container in the ADLS Gen2 account must be created beforehand if you want to specify the `{{containerName}}` in the request.
 
 ```
 GET {{fhirurl}}/$export?_container={{containerName}}
@@ -29,7 +29,7 @@ For general information about the FHIR `$export` API spec, please see the [HL7 F
 
 **Jobs stuck in a bad state**
 
-In some situations, there's a potential for a job to be stuck in a bad state while attempting to `$export` data from the FHIR service. This can occur especially if the ADLS Gen2 account permissions haven't been set up correctly. One way to check the status of your `$export` operation is to go to your storage account's **Storage browser** and see if any `.ndjson` files are present in the export container. If the files aren't present and there are no other `$export` jobs running, then there's a possibility the current job is stuck in a bad state. In this case, you can cancel the `$export` job by calling the FHIR service API with a `DELETE` request. Later you can requeue the `$export` job and try again. Information about canceling an `$export` operation can be found in the [Bulk Data Delete Request](https://hl7.org/fhir/uv/bulkdata/export/index.html#bulk-data-delete-request) documentation from HL7. 
+In some situations, there's a potential for a job to be stuck in a bad state while the FHIR service is attempting to export data. This can occur especially if the ADLS Gen2 account permissions haven't been set up correctly. One way to check the status of your `$export` operation is to go to your storage account's **Storage browser** and see if any `.ndjson` files are present in the export container. If the files aren't present and there are no other `$export` jobs running, then there's a possibility the current job is stuck in a bad state. In this case, you can cancel the `$export` job by calling the FHIR service API with a `DELETE` request. Later you can requeue the `$export` job and try again. Information about canceling an `$export` operation can be found in the [Bulk Data Delete Request](https://hl7.org/fhir/uv/bulkdata/export/index.html#bulk-data-delete-request) documentation from HL7. 
 
 > [!NOTE] 
 > In the FHIR service, the default time for an `$export` operation to idle in a bad state is 10 minutes before the service will stop the operation and move to a new job. 

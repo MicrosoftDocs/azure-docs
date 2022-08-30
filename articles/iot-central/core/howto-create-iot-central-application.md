@@ -17,6 +17,8 @@ Whichever approach you choose, the configuration options are the same, and the p
 
 [!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
+To learn how to manage IoT Central application by using the IoT Central REST API, see [Use the REST API to create and manage IoT Central applications.](../core/howto-manage-iot-central-with-rest-api.md)
+
 ## Options
 
 This section describes the available options when you create an IoT Central application. Depending on the method you choose, you might need to supply the options on a form or as command-line parameters:
@@ -61,8 +63,6 @@ If you choose one of the standard plans, you need to provide billing information
 The easiest way to get started creating IoT Central applications is on the [Azure IoT Central](https://aka.ms/iotcentral) site.
 
 The [Build](https://apps.azureiotcentral.com/build) lets you select the application template you want to use:
-
-:::image type="content" source="media/howto-create-iot-central-application/choose-template.png" alt-text="Screenshot of build page that lets you choose an application template.":::
 
 If you select **Create app**, you can provide the necessary information to create an application from the template:
 
@@ -119,7 +119,6 @@ To create an application template from an existing IoT Central application:
 1. On the **Template Export** page, enter a name and description for your template.
 1. Select the **Export** button to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:
 
-:::image type="content" source="media/howto-create-iot-central-application/create-template.png" alt-text="Screenshot that shows create an application template.":::
 
 :::image type="content" source="media/howto-create-iot-central-application/create-template-2.png" alt-text="Screenshot that shows export an application template.":::
 

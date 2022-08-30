@@ -21,6 +21,8 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
+To learn how to manage data export by using the IoT Central UI, see [Export IoT data to Blob Storage.](../core/howto-export-to-blob-storage.md)
+
 ## Data export
 
 You can use the IoT Central data export feature to stream telemetry, property changes, device connectivity events, device lifecycle events, and device template lifecycle events to destinations such as Azure Event Hubs, Azure Service Bus, Azure Blob Storage, and webhook endpoints.

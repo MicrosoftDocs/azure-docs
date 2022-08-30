@@ -17,7 +17,7 @@ ms.custom: github-actions-azure
 Get started with [GitHub Actions](https://docs.github.com/en/actions) to train a model on Azure Machine Learning. 
 
 > [!NOTE]
-> GitHub Actions for Azure Machine Learning are provided as-is, and are not fully supported by Microsoft. If you encounter problems with a specific action, open an issue in the repository for the action. For example, if you encounter a problem with the aml-deploy action, report the problem in the [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) repo.
+> GitHub Actions for Azure Machine Learning are provided as-is, and are not fully supported by Microsoft. If you encounter problems with a specific action, open an issue in the repository for the action. For example, if you encounter a problem with the aml-deploy action, report the problem in the [https://github.com/Azure/aml-deploy](https://github.com/Azure/aml-deploy) repo.
 
 ## Prerequisites 
 
@@ -224,4 +224,4 @@ When your resource group and repository are no longer needed, clean up the resou
 
 > [!div class="nextstepaction"]
 > [Learning path: End-to-end MLOps with Azure Machine Learning](/learn/paths/build-first-machine-operations-workflow/)
-> [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)
+> [Create and run machine learning pipelines with Azure Machine Learning SDK v1](v1/how-to-create-machine-learning-pipelines.md)
