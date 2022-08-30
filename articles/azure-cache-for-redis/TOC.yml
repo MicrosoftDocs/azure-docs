@@ -114,7 +114,7 @@
     - name: Redis modules 
       href: cache-redis-modules.md
     - name: Caching architecture
-      href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
+      href: /azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json
 - name: How-to guides
   items:
   - name: Plan
