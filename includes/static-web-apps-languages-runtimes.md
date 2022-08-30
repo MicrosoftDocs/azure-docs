@@ -1,8 +1,8 @@
 ---
 author: craigshoemaker
-ms.service: container-apps
+ms.service: static-web-apps
 ms.topic: include
-ms.date: 08/04/2022
+ms.date: 08/30/2022
 ms.author: cshoe
 ---
 
@@ -19,6 +19,21 @@ To configure the API language runtime version, set the `apiRuntime` property in 
 | Python 3.8 | Linux | 3.x | `python:3.8` | - |
 | Python 3.9 | Linux | 4.x | `python:3.9` | - |
 
+### .NET
+
+To change the runtime version in a .NET app, change the `TargetFramework` value in the _csproj_ file. While optional, if you set a `apiRuntime` value in the _staticwebapp.config.json_ file, make sure the value matches what you define in the _csproj_ file.
+
+The following example demonstrates how to update the `TargetFramework` element for NET 6.0 as the API language runtime version in the _csproj_ file.
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    ...
+  </PropertyGroup>
+...
+```
+
 ### Node.js
 
 The following example configuration demonstrates how to use the `apiRuntime` property to select Node.js 16 as the API language runtime version in the _staticwebapp.config..json_ file.
@@ -33,17 +48,6 @@ The following example configuration demonstrates how to use the `apiRuntime` pro
 }
 ```
 
-### .NET Framework
+### Python
 
-To change the runtime in a .NET app, you need to update the `apiRuntime` value in the _staticwebapp.config.json_ file in addition to the `TargetFramework` value in the _csproj_ file.
-
-The following example demonstrates how to update the `TargetFramework` element for NET 6.0 as the API language runtime version in the _csproj_ file.
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    ...
-  </PropertyGroup>
-...
-```
+TODO
