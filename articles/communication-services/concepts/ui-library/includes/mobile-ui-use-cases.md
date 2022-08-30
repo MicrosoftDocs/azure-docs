@@ -8,7 +8,7 @@ ms.date: 09/14/2021
 
 Use the UI Library for iOS and Android to create calling use cases through the Azure Communication Services call composite. Use composites in Communications Services to easily integrate an entire calling experience in your application by using only a couple lines of code. Composites manage the entire lifecycle of the call, from setup until the call ends.
 
-## Calling use cases
+## Call use cases
 
 You can use the call composite in Communication Services to create use cases in these areas:
 
@@ -16,21 +16,21 @@ You can use the call composite in Communication Services to create use cases in 
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
 | Call types                                                                                | Join a Microsoft Teams meeting                                     |
 |                                                                                                 | Join a call by using a group ID   |
-| [Teams interoperability](../../teams-interop.md)                     | Call lobby                                             |
-|                                                                                                 | Transcription and recording alert banner               |
-| Participant gallery                                                                   | Remote participants are displayed on a grid              |
-|                                                                                                 | Video preview available throughout call for local user |
-|                                                                                                 | Default avatars available when video is off            |
-|                                                                                                 | Shared screen content displayed in participant gallery |
-|                                                                                                 | Participant avatar customization                |
-|                                                                                                 | Participant roster                                     |
-| Call configuration                                                                    | Microphone device management                           |
-|                                                                                                 | Camera device management                               |
-|                                                                                                 | Speaker device management (wired or Bluetooth)                              |
-|                                                                                                 | Local preview available for user to check video        |
+| [Teams interoperability](../../teams-interop.md)                     | Join the call lobby                                             |
+|                                                                                                 | Display a transcription and recording alert banner banner               |
+| Participant gallery                                                                   | Show remote participants on a grid              |
+|                                                                                                 | Make video preview available throughout a call for a local user |
+|                                                                                                 | Make default avatars available when video is off            |
+|                                                                                                 | Show shared screen content in the participant gallery |
+|                                                                                                 | Enable participant avatar customization                |
+|                                                                                                 | Show the participant roster                                     |
+| Call configuration                                                                    | Manage microphone device                           |
+|                                                                                                 | Manage camera device                               |
+|                                                                                                 | Manage speaker device (wired or Bluetooth)                              |
+|                                                                                                 | Make local preview available for user to check video       |
 | Call controls                                                                            | Mute and unmute a call                                       |
-|                                                                                                 | Video on or off on a call                                   |
-|                                                                                                 | End call                                               |
+|                                                                                                 | Turn video on or off during a call                                   |
+|                                                                                                 | End a call                                               |
 |                                                                                                 | Hold and resume a call after audio interruption                 |
 
 ## Supported identities
@@ -39,9 +39,11 @@ To initialize a composite and authenticate to the service, a user must have an A
 
 ## Teams interoperability
 
+For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI Library composites to join a user to a Teams meeting via Communication Services. To enable Teams interoperability, use the call composite. The composite manages the entire lifecycle of joining a Teams interoperability call.
+
 :::image type="content" source="../../media/mobile-ui/teams-interop-diagram.png" border="false" alt-text="Diagram that shows the Teams interoperability pattern for calling and chat.":::
 
-For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI Library composites to join a user to a Teams meeting via Communication Services. To enable Teams interoperability, use the call composite. The composite manages the entire lifecycle of joining a Teams interoperability call.
+The following figure shows an example of the user experience before a caller is added to a Teams meeting:
 
 :::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Screenshot that shows the user experience before a caller is added to a Teams meeting.":::
 
@@ -77,20 +79,20 @@ Accessibility is a key focus of the calling libraries. You can use a screen read
 
 Use the UI Library for mobile native platforms to give local and remote participants the option to modify how they appear as users in a call. A local participant can choose a local avatar and custom display name when a call begins. A remote user can create a customized avatar when they join the meeting. For more information, see [How to customize participant views](../../../how-tos/ui-library-sdk/data-model.md).
 
-:::image type="content" source="../../media/mobile-ui/ios-composite.gif" alt-text="Gif animation that shows the pre-meeting experience and joining experience on iOS.":::
+:::image type="content" source="../../media/mobile-ui/ios-composite.gif" alt-text="GIF animation that shows the pre-meeting experience and joining experience on iOS.":::
 
 ## Recommended architecture
 
 Initialize a composite by using an Azure Communication Services access token. It's important to get access tokens from Azure Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/access-tokens.md) and the [trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
 
-:::image type="content" source="../../media/mobile-ui/ui-library-architecture.png" border="false" alt-text="Diagram that shows the recommended architecture.":::
+:::image type="content" source="../../media/mobile-ui/ui-library-architecture.png" border="false" alt-text="Diagram that shows the recommended architecture for UI Library.":::
 
-These client libraries also require the context for the call they join. Like user access tokens, disseminate the context to clients by using your own trusted service. The following table summarizes the initialization and resource management functions to operationalize to add context to a client library:
+Call and chat client libraries must have the context for the call they join. Like user access tokens, disseminate the context to clients by using your own trusted service. The following table summarizes the initialization and resource management functions that are required to add context to a client library:
 
 | Contoso responsibilities                                 | UI Library responsibilities                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
 | Provide an access token from Azure                          | Pass through the provided access token to initialize components       |
-| Provide a refresh function                                 | Refresh access token by using developer-provided function          |
+| Provide a refresh function                                 | Refresh the access token by using a developer-provided function          |
 | Retrieve and pass join information for the call or chat          | Pass through call and chat information to initialize components |
 | Retrieve and pass user information for any custom data model | Pass through a custom data model to components to render          |
 
