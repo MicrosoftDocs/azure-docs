@@ -21,6 +21,54 @@ compliant with the specific standard.
 
 ## Release notes
 
+### September 2022
+- **App Service apps should be injected into a virtual network**
+  - Update scope of policy to remove slots
+    - Creation of "App Service app slots should be injected into a virtual network" to monitor slots
+- **App Service app slots should be injected into a virtual network**
+  - New policy created
+- **Function apps should have 'Client Certificates (Incoming client certificates)' enabled**
+  - Update scope of policy to remove slots
+    - Creation of "Function app slots should have 'Client Certificates (Incoming client certificates)' enabled" to monitor slots
+- **Function app slots should have 'Client Certificates (Incoming client certificates)' enabled**
+  - New policy created
+- **Function apps should use an Azure file share for its content directory**
+  - Update scope of policy to remove slots
+    - Creation of "Function app slots should use an Azure file share for its content directory" to monitor slots
+- **Function app slots should use an Azure file share for its content directory**
+  - New policy created
+- **App Service apps should have 'Client Certificates (Incoming client certificates)' enabled**
+  - Update scope of policy to remove slots
+    - Creation of "App Service app slots should have 'Client Certificates (Incoming client certificates)' enabled" to monitor slots
+- **App Service app slots should have 'Client Certificates (Incoming client certificates)' enabled**
+  - New policy created
+- **App Service apps should use an Azure file share for its content directory**
+  - Update scope of policy to remove slots
+    - Creation of "App Service app slots should use an Azure file share for its content directory" to monitor slots
+- **App Service app slots should use an Azure file share for its content directory**
+  - New policy created 
+- **Function app slots should require FTPS only**
+  - New policy created
+- **App Service app slots should require FTPS only**
+  - New policy created
+- **Function app slots should not have CORS configured to allow every resource to access your apps**
+  - New policy created
+- **App Service app slots should not have CORS configured to allow every resource to access your app**
+  - New policy created
+- **Function apps should only be accessible over HTTPS**
+  - Update scope of policy to remove slots
+    - Creation of "Function app slots should only be accessible over HTTPS" to monitor slots
+  - Add "Deny" effect
+  - Creation of "Configure Function apps to only be accessible over HTTPS" for enforcement of policy
+- **Function app slots should only be accessible over HTTPS**
+  - New policy created
+- **Configure Function apps to only be accessible over HTTPS**
+  - New policy created
+- **Configure Function app slots to only be accessible over HTTPS**
+  - New policy created
+- **App Service apps should use a SKU that supports private link**
+  - Update list of supported SKUs of policy to include the Workflow Standard tier for Logic Apps
+
 ### August 2022
 - **App Service apps should only be accessible over HTTPS**
   - Update scope of policy to remove slots
