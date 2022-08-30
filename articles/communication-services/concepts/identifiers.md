@@ -44,7 +44,7 @@ There are user identities that you create yourself and there are external identi
 ::: zone-end
 
 ::: zone pivot="programming-language-ios"
-[!INCLUDE [Identifiers in the iOS SDK](./includes/identifiers/identifiers-java.md)]
+[!INCLUDE [Identifiers in the iOS SDK](./includes/identifiers/identifiers-ios.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-android"
