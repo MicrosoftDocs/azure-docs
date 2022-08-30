@@ -98,7 +98,7 @@ Besides the MLOps capabilities, the [Responsible AI scorecard](how-to-responsibl
 
 The machine learning platform also enables decision-making by informing business decisions through:
 
-- Data-driven insights to help stakeholders understand causal treatment effects on an outcome, by using historic data only. For example: "How would a medicine affect a patient's blood pressure?" These insights are provided through the [causal inference](concept-causal-inference.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
+- Data-driven insights, to help stakeholders understand causal treatment effects on an outcome, by using historical data only. For example, "How would a medicine affect a patient's blood pressure?" These insights are provided through the [causal inference](concept-causal-inference.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - Model-driven insights, to answer users' questions (such as "What can I do to get a different outcome from your AI next time?") so they can take action. Such insights are provided to data scientists through the [counterfactual what-if](concept-counterfactual-analysis.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 
 ## Next steps
