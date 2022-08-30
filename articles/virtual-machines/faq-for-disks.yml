@@ -122,7 +122,7 @@ sections:
       - question: |
           Can I create locally redundant storage, geo-redundant storage, and zone-redundant storage managed disks?
         answer: |
-          Azure Managed Disks currently supports only locally redundant storage managed disks.
+          Azure Managed Disks currently supports only locally redundant storage and zone-redundant storage managed disks.
 
       - question: |
           Can I shrink or downsize my managed disks?
