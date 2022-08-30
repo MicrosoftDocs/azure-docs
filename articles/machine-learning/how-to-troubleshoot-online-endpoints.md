@@ -59,7 +59,7 @@ To use local deployment, add `--local` to the appropriate CLI command:
 az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 To use local deployment, add  `local=True` parameter in the command:
 
@@ -130,7 +130,7 @@ You can also get logs from the storage initializer container by passing `–-con
 
 Add `--help` and/or `--debug` to commands to see more information. 
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 To see log output from container, use the `get_logs` method as follows:
 
@@ -243,7 +243,7 @@ To get the exact reason for an error, run:
 az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 ```python
 ml_client.online_deployments.get_logs(
@@ -307,7 +307,7 @@ Make sure the model is registered to the same workspace as the deployment. Use t
   az ml model show --name <model-name> --version <version>
   ```
  
-  # [Python SDK](#tab/pythonsdk)
+  # [Python](#tab/python)
 
   ```python
   ml_client.models.get(name="<model-name>", version=<version>)
@@ -333,7 +333,7 @@ You can also check if the blobs are present in the workspace storage account.
   az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> –-container storage-initializer`
   ```
 
-  # [Python SDK](#tab/pythonsdk)
+  # [Python](#tab/python)
 
   ```python
   ml_client.online_deployments.get_logs(
