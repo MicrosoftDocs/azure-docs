@@ -7,6 +7,7 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/23/2022
 ms.author: v-pgaddala
+ms.custom: references_regions
 ---
 
 # Enable Azure VM disaster recovery between availability zones
