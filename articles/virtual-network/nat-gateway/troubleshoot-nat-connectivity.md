@@ -2,10 +2,15 @@
 title: Troubleshoot Azure Virtual Network NAT connectivity
 titleSuffix: Azure Virtual Network
 description: Troubleshoot connectivity issues with Virtual Network NAT.
+services: virtual-network
+documentationcenter: na
 author: asudbring
+manager: KumudD
 ms.service: virtual-network
-ms.subservice: nat
+# Customer intent: As an IT administrator, I want to troubleshoot Virtual Network NAT.
 ms.topic: troubleshooting
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
 ms.date: 08/29/2022
 ms.author: allensu
 ---
@@ -165,6 +170,5 @@ To learn more about NAT gateway, see:
 * [Virtual Network NAT](/azure/virtual-network/nat-gateway/nat-overview) 
 * [NAT gateway resource](/azure/virtual-network/nat-gateway/nat-gateway-resource) 
 * [Metrics and alerts for NAT gateway resources](/azure/virtual-network/nat-gateway/nat-metrics) 
-
 
 
