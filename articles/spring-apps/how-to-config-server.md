@@ -246,11 +246,12 @@ Use the following steps to get your repo URL and credentials.
 
 1. In the left pane of the service page under **Settings**, select the **Config Server** tab. Configure the repository you created, as follows:
 
-   - Add the repository URL that you saved in the previous section.
-   - Select **Authentication** and then select **HTTP Basic**.
-   - For **username**, specify the user name that you saved in the previous section.
-   - For **password**, specify the password that you saved in the previous section.
-   - Select **Apply**, and then wait for the operation to complete.
+   - Add the repository URI that you saved in the previous section.
+   - Select the setting under **Authentication** to open the **Edit Authentication** pane.
+   - For **Authentication type**, select **HTTP Basic**.
+   - For **Username**, specify the user name that you saved in the previous section.
+   - For **Password**, specify the password that you saved in the previous section.
+   - Select **OK**, and then wait for the operation to complete.
 
    :::image type="content" source="media/how-to-config-server/config-server-azure-repos.png" lightbox="media/how-to-config-server/config-server-azure-repos.png" alt-text="Screenshot of repository configuration settings.":::
 
