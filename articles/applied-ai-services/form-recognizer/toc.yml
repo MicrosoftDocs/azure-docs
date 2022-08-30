@@ -7,7 +7,7 @@ items:
   - name: What is Azure Form Recognizer?
     href: overview.md
   - name: Form Recognizer Studio
-    displayName: get started,
+    displayName: get started
     href: form-recognizer-studio-overview.md
   - name: Form Recognizer SDK
     displayName: get started, install, download, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, Identity, changelog, preview, beta, package, version,AzureKeyCredential, Azure key credential, key, endpoint
@@ -22,7 +22,7 @@ items:
     displayName: quota, tier, throttle, max, adjustment, request, support, ocr
     href: service-limits.md
   - name: What's new
-    displayName: changelog, release, update, preview, beta, package 
+    displayName: changelog, release, update, preview, beta, package
     href: whats-new.md
   - name: Form Recognizer FAQ
     displayName: storage, security, privacy, help, support, version, development, migrate, migration
@@ -54,7 +54,7 @@ items:
     displayName: price, metrics, dashboard, check, estimate
     href: how-to-guides/estimate-cost.md
   - name: Migrate to Form Recognizer v3.0
-    displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose. copy
+    displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-migration-guide.md
   - name: Use the prebuilt-read model
     displayName: documentAnalysisClient, document analysis client, AnalyzeResult, analyze, output
@@ -93,7 +93,7 @@ items:
        displayName: FOTT, label, ocr, confidence, bounding box
        href: compose-custom-models-v2-1.md
   - name: Back up and recover models
-    displayName: disaster, recovery, region, copy, modelId, model ID, 
+    displayName: disaster, recovery, region, copy, modelId, model ID
     href: disaster-recovery.md
   - name: Use containers
     items:
@@ -104,7 +104,7 @@ items:
       displayName: docker, docker-compose, container, run, billing, key, logging, EULA, telemetry, proxy
       href: containers/form-recognizer-container-configuration.md
     - name: Container image tags
-      displayName: registry, mcr, 
+      displayName: registry, mcr
       href: containers/form-recognizer-container-image-tags.md
     - name: Use container instances
       href: ../../cognitive-services/containers/azure-container-instance-recipe.md
@@ -114,16 +114,16 @@ items:
       displayName: firewall, security, subdomain, VNet, virtual network, az, region, cli
       href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/form-recognizer/context/context
     - name: Create and use managed identities
-      displayName: Azure RBAC. role based access control, sas, private, assigned, system assigned, role, blob, 
+      displayName: Azure RBAC. role based access control, sas, private, assigned, system assigned, role, blob
       href: managed-identities.md
     - name: Configure managed identities with private endpoints
       displayName: Azure RBAC. role based access control, sas, private, assigned, system assigned, role, blob, virtual, firewall, VNet, virtual network, endpoint, storage
       href: managed-identities-secured-access.md
     - name: Use customer-managed keys
-      displayName: encrypt, encryption, key vault, 
+      displayName: encrypt, encryption, key vault
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
-      displayName: headers, subscription, access token, azure active directory, subdomain, role, service principal, 
+      displayName: headers, subscription, access token, azure active directory, subdomain, role, service principal
       href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: Samples
   items:
@@ -150,12 +150,12 @@ items:
 - name: Concepts
   items:
   - name: Model overview
-    displayName: get started, prebuilt, extraction, input, 
+    displayName: get started, prebuilt, extraction, input
     href: concept-model-overview.md
   - name: Form Recognizer Studio | v3.0
     href: concept-form-recognizer-studio.md
   - name: General document model | v3.0
-    displayName: key value pairs, selection marks, structured, 
+    displayName: key value pairs, selection marks, structured
     href: concept-general-document.md
   - name: W-2 form model | v3.0
     displayName: wage, tax, salary, employee
@@ -184,21 +184,21 @@ items:
       displayName: table, label, ocr, confidence, template, neural, build mode, signature
       href: concept-custom.md
     - name: Custom template model
-      displayName: structure, selection, label, table, tabular, train
+      displayName: structure, selection, label, table, tabular, train, signature
       href: concept-custom-template.md
     - name: Custom neural model
-      displayName: selection, structure, table, tabular, train
+      displayName: selection, structure, table, tabular, train, signature
       href: concept-custom-neural.md
     - name: Accuracy and confidence scores
-      displayName: table, label, ocr, performance, 
+      displayName: table, label, ocr, performance, signature
       href: concept-accuracy-confidence.md
   - name: Composed models
-    displayName: custom, assign, modelId, model ID, template, nueural, 
+    displayName: custom, assign, modelId, model ID, template, neural
     href:  concept-composed-models.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Azure Logic Apps
-    displayName: connector, automate, workflow, 
+    displayName: connector, automate, workflow
     href: tutorial-logic-apps.md
   - name: Use managed identities to access Azure storage
     href: ../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json
