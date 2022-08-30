@@ -177,7 +177,7 @@ location: '<region>'
 # [JSON](#tab/json)
 
 ```json
-"location": "<region>",
+"location": "<region>"
 ```
 
 ---
@@ -219,8 +219,10 @@ By default, Image Builder will not change the size of the image, it will use the
 ```json
 {
   "osDiskSizeGB": 100
-},
+}
 ```
+
+---
 
 ## vnetConfig
 
@@ -239,7 +241,6 @@ vnetConfig: {
 ```json
 "vnetConfig": {
   "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
-}
 }
 ```
 
@@ -276,7 +277,7 @@ identity:{
     "userAssignedIdentities": {
         "<imgBuilderId>": {}
     }
-},
+}
 ```
 
 ---
@@ -318,8 +319,8 @@ properties:{
     "userAssignedIdentities": [
       "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName>"
     ]
-  },
-},
+  }
+}
 ```
 
 ---
@@ -412,7 +413,7 @@ source:{
   "offer": "UbuntuServer",
   "sku": "18.04-LTS",
   "version": "latest"
-},
+}
 ```
 
 ---
@@ -589,7 +590,7 @@ customize: [
         "<command to run inline>",
     ]
   }
-],
+]
 ```
 
 ---
@@ -630,15 +631,15 @@ customize: [
     "name": "<name>",
     "scriptUri": "<link to script>",
     "sha256Checksum": "<sha256 checksum>"
-  },
+  }
 ],
 "customize": [
   {
     "type": "Shell",
     "name": "<name>",
     "inline": "<commands to run>"
-  },
-],
+  }
+]
 ```
 
 ---
@@ -725,7 +726,7 @@ customize: [
     "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
     "restartTimeout": "5m"
   }
-],
+]
 ```
 
 ---
@@ -765,7 +766,7 @@ customize: [
     validExitCodes: [<exit code>]
     runElevated: <true or false>
   }
-],
+]
 ```
 
 # [JSON](#tab/json)
@@ -786,7 +787,7 @@ customize: [
     "validExitCodes": [<exit code>],
     "runElevated": <true or false>
   }
-],
+]
 ```
 
 ---
@@ -892,7 +893,7 @@ customize: [
     ],
     "updateLimit": 20
   }
-],
+]
 ```
 
 ---
