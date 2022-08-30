@@ -31,7 +31,7 @@ Before acquiring a phone number, make sure your subscription meets the [geograph
 | Operation | Scope | Timeframe | Limit (number of requests) |
 | --- | -- | -- | -- |
 | Purchase phone number | Azure tenant | - | 1 |
-| Search for phone numbers | Azure tenant | 1 week | 5 |
+| Search for phone numbers | Azure tenant | one week | 5 |
 
 ### Action to take
 
@@ -135,8 +135,8 @@ The Communication Services Calling SDK supports the following streaming configur
 
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
-| **Maximum # of outgoing local streams that you can send simultaneously**     | 1 video or 1 screen sharing | 1 video + 1 screen sharing |
-| **Maximum # of incoming remote streams that you can render simultaneously** | 4 videos + 1 screen sharing | 6 videos + 1 screen sharing |
+| **Maximum # of outgoing local streams that you can send simultaneously**     | one video or one screen sharing | one video + one screen sharing |
+| **Maximum # of incoming remote streams that you can render simultaneously** | four videos + one screen sharing | six videos + one screen sharing |
 
 While the Calling SDK won't enforce these limits, your users may experience performance degradation if they're exceeded.
 
