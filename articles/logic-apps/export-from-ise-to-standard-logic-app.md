@@ -1,6 +1,6 @@
 ---
 title: Export workflows from ISE to Standard
-description: Export logic app workflows from an integration service environment (ISE) to Standard, single-tenant Azure Logic Apps using Visual Studio Code.
+description: Export logic app workflows from an integration service environment (ISE) to a Standard logic app using Visual Studio Code.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
@@ -9,14 +9,14 @@ ms.date: 09/14/2022
 #Customer intent: As a developer, I want to export one or more ISE workflows to a Standard workflow.
 ---
 
-# Export logic app workflows from an ISE to Standard Azure Logic Apps (Preview)
+# Export logic app workflows from an ISE to a Standard logic app (Preview)
 
 > [!NOTE]
 >
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Standard workflows that run in single-tenant Azure Logic Apps offer many new and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with local development and debugging using Visual Studio Code, App Services Environment support, low latency with stateless workflows, and more.
+Standard logic app workflows that run in single-tenant Azure Logic Apps offer many new and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with local development and debugging using Visual Studio Code, App Services Environment support, low latency with stateless workflows, and more.
 
 If you want the benefits from Standard workflows, but your workflows run in an Integration Service Environment (ISE), you can now replace your ISE with single-tenant Azure Logic Apps. This switch makes sense for most scenarios that require some ISE capabilities such as isolation and network integration, but not others, and can help reduce operation costs.
 
