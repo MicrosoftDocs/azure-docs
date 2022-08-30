@@ -42,6 +42,7 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 
 - *Percentage Volume Consumed Size*    
     The percentage of the volume consumed, including snapshots.  
+    Aggregation metrix (for example, min, max) are not supported for percentage volume consumed size.
 - *Volume Allocated Size*   
     The provisioned size of a volume
 - *Volume Quota Size*    
