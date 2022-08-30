@@ -244,7 +244,7 @@ To see your indoor map, load it into a web browser. It should appear like the im
 
   ![indoor map image](media/how-to-use-indoor-module/indoor-map-graphic.png)
 
-[See live demo](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
+[See live demo](https://samples.azuremaps.com/?sample=creator-indoor-maps)
 
 ## Next steps
 

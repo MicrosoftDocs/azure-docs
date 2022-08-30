@@ -206,7 +206,7 @@ Use the following steps to import a Databricks notebook that contains the Python
 
     :::image type="content" source="media/howto-create-custom-analytics/databricks-import.png" alt-text="Screenshot of data bricks import.":::
 
-1. Choose to import from a URL and enter the following address: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
+1. Choose to import from a URL and enter the following address: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/main/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/main/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
 1. To import the notebook, choose **Import**.
 

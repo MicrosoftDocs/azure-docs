@@ -3,7 +3,7 @@ title: Azure portal administration for direct Enterprise Agreements
 description: This article explains the common tasks that a direct enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/16/2021
+ms.date: 08/29/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -15,6 +15,13 @@ ms.reviewer: sapnakeshari
 This article explains the common tasks that a direct Enterprise Agreement (EA) administrator accomplishes in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). A direct enterprise agreement is signed between Microsoft and an enterprise agreement customer.
 
 Conversely, an indirect EA is one where a customer signs an agreement with a Microsoft partner. Indirect EAs are managed using the [Azure Enterprise portal](https://ea.azure.com/). For more information about managing indirect EAs, see [Azure EA portal administration](ea-portal-administration.md).
+
+> [!NOTE]
+> We recommend that direct EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with the Azure portal for direct Enterprise Agreement customers](ea-direct-portal-get-started.md).
+>
+> As of October 10, 2022 direct EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect direct Azure Government EA enrollments or indirect EA (an indirect EA is one where a customer signs an agreement with a Microsoft partner) enrollments. Both continue using the EA portal to manage their enrollment.
 
 ## Manage your enrollment
 
@@ -94,7 +101,9 @@ If your enterprise administrator can't assist you, create an [Azure support re
 - Email address to add, and authentication type (work, school, or Microsoft account)
 - Email approval from an existing enterprise administrator
 
-If the existing enterprise administrator isn't available, contact your partner or software advisor to request that they change the contact details through the Volume Licensing Service Center (VLSC) tool.
+>[!NOTE]
+>  - We recommend that you have at least one active Enterprise Administrator at all times. If no active Enterprise Administrator is available, contact your partner to change the contact information on the Volume License agreement. Your partner can make changes to the customer contact information by using the Contact Information Change Request (CICR) process available in the eAgreements (VLCM) tool.
+>  - Any new EA administrator account created using the CICR process is assigned read-only permissions to the enrollment in the EA portal and Azure portal. To elevate access, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Create an Azure enterprise department
 
@@ -107,9 +116,9 @@ EA admins and department administrators use departments to organize and report o
 
 A department administrator can add new accounts to their departments. They can also remove accounts from their departments, but not from the enrollment.
 
-Check out the [EA admin manage departments](https://www.youtube.com/watch?v=NUlRrJFF1_U) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+Check out the [Manage departments in the Azure portal](https://www.youtube.com/watch?v=NUlRrJFF1_U) video.
 
->[!VIDEO https://www.youtube.com/embed/cxAtOSSE6UI]
+>[!VIDEO https://www.youtube.com/embed/vs3wIeRDK4Q]
 
 ### To create a department
 
@@ -419,6 +428,32 @@ You can delete an enrollment account only when there are no active subscriptions
 1. In the Accounts list, search for the account you would like to delete.
 1. In the account row that you want to delete, select the ellipsis (**…**) symbol, and then select **Delete**.
 1. On the Delete account page, select the **Yes, I want to delete this account** confirmation and then and select **Delete**.
+
+## Manage notification contacts
+
+Notifications allow enterprise administrators to enroll their team members to receive usage, invoice, and user management notifications without giving them billing account access in the Azure portal.
+
+Notification contacts are shown in the Azure portal in the Notifications under Settings. Managing your notification contacts makes sure that the right people in your organization get Azure EA notifications. 
+
+To view current notifications settings and add contacts:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
+1. Navigate to **Cost Management + Billing**.
+1. In the left menu, select **Billing scopes** and then select a billing account scope.
+1. In the left menu, under **Settings**, select **Notifications**.
+    Notification contacts are shown on the page.
+1. To add a contact, select **+ Add**.
+1. In the **Add Contact** area, enter the contact's email address.
+1. Under **Frequency**, select a notification interval. Weekly is the default value.
+1. Under **Categories**, select Lifecycle Management to receive notifications when the enrollment end date is approached or ended.
+1. Select **Add** to save the changes.  
+    :::image type="content" source="./media/direct-ea-administration/add-contact.png" alt-text="Screenshot showing the Add Contact window where you add a contact." :::
+
+The new notification contact is shown in the Notification list.
+
+An EA admin can manage notification access for a contact by selecting the ellipsis (…) symbol to the right of each contact. They can edit and remove existing notification contacts.
+
+By default, notification contacts are subscribed for the coverage period end date approaching lifecycle notifications. Unsubscribing lifecycle management notifications suppresses notifications for the coverage period and agreement end date.
 
 ## Azure sponsorship offer
 

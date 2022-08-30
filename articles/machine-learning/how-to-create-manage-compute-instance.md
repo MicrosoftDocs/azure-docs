@@ -10,7 +10,7 @@ ms.topic: how-to
 author: swatig007
 ms.author: swatig
 ms.reviewer: sgilley
-ms.date: 05/04/2022
+ms.date: 08/05/2022
 ---
 
 # Create and manage an Azure Machine Learning compute instance
@@ -142,17 +142,20 @@ Where the file *create-instance.yml* is:
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop-preview) below.
 
 
----
 
 You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 
-## Enable SSH access
+### Enable SSH access
 
 SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
 [!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
 
-Once the compute instance is created and running, see [Connect with SSH access](how-to-create-attach-compute-studio.md#ssh-access).
+### Connect with SSH
+
+[!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
+
+---
 
 ## Create on behalf of (preview)
 
@@ -380,17 +383,20 @@ To use RStudio open source, set up a custom application as follows:
 1. Set up the application to run on **Target port** `8787` - the docker image for RStudio open source listed below needs to run on this Target port. 
 1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
 1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`. 
-1. Select **Create** to set up RStudio as a custom application on your compute instance.
+1. Use **Bind mounts** to add access to the files in your default storage account: 
+   * Specify **/home/azureuser/cloudfiles** for **Host path**.  
+   * Specify **/home/azureuser/cloudfiles** for the **Container path**.
+   * Select **Add** to add this mounting.  Because the files are mounted, changes you make to them will be available in other compute instances and applications.
+3. Select **Create** to set up RStudio as a custom application on your compute instance.
 
- 
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom application" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
  
 ### Setup other custom applications
 
 Set up other custom applications on your compute instance by providing the application on a Docker image.
 
-1.	Follow the steps listed above to **Add application** when creating your compute instance.
-1.	Select **Custom Application** on the **Application** dropdown. 
+1. Follow the steps listed above to **Add application** when creating your compute instance.
+1. Select **Custom Application** on the **Application** dropdown. 
 1. Configure the **Application name**, the **Target port** you wish to run the application on, the **Published port** you wish to access the application on and the **Docker image** that contains your application.
 1. Optionally, add **Environment variables** and **Bind mounts** you wish to use for your application.
 1. Select **Create** to set up the custom application on your compute instance.
@@ -536,4 +542,4 @@ To create a compute instance, you'll need permissions for the following actions:
 * [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
 * [Update the compute instance to the latest VM image](concept-vulnerability-management.md#compute-instance)
-* [Submit a training job](how-to-set-up-training-targets.md)
+* [Submit a training job](v1/how-to-set-up-training-targets.md)

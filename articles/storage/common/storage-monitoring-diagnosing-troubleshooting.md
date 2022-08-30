@@ -79,7 +79,7 @@ The remainder of this section describes what metrics you should monitor and why.
 You can use the [Azure portal](https://portal.azure.com) to view the health of the Storage service (and other Azure services) in all the Azure regions around the world. Monitoring enables you to see immediately if an issue outside of your control is affecting the Storage service in the region you use for your application.
 
 The [Azure portal](https://portal.azure.com) can also provide notifications of incidents that affect the various Azure services.
-Note: This information was previously available, along with historical data, on the [Azure Service Dashboard](https://status.azure.com).
+Note: This information was previously available, along with historical data, on the [Azure Service Dashboard](https://azure.status.microsoft).
 For more information about Application Insights for Azure DevOps, see the appendix "[Appendix 5: Monitoring with Application Insights for Azure DevOps](#appendix-5)."
 
 ### <a name="monitoring-capacity"></a>Monitoring capacity

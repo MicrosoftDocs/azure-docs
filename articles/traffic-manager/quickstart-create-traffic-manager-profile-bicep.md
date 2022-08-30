@@ -2,8 +2,8 @@
 title: 'Quickstart: Create an Azure Traffic Manager profile - Bicep'
 description: This quickstart article describes how to create an Azure Traffic Manager profile by using Bicep.
 services: traffic-manager
-author: schaffererin
-ms.author: v-eschaffer
+author: greg-lindsay
+ms.author: greglin
 ms.date: 06/20/2022
 ms.topic: quickstart
 ms.service: traffic-manager

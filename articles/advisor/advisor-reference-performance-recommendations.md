@@ -814,12 +814,6 @@ We have detected that you do not have up-to-date table statistics which may be i
 
 Learn more about [SQL data warehouse - UpdateTableStatisticsSqlDW (Update statistics on table columns)](https://aka.ms/learnmorestatistics).
 
-### Right-size overutilized SQL Databases
-
-We've analyzed the DTU consumption of your SQL Database over the past 14 days and identified SQL Databases with high usage. You can improve your database performance by right-sizing to the recommended SKU based on the 95th percentile of your everyday workload
-
-Learn more about [SQL database - sqlRightsizePerformance (Right-size overutilized SQL Databases)](https://aka.ms/SQLDBrecommendation).
-
 ### Scale up to optimize cache utilization with SQL Data Warehouse
 
 We have detected that you had high cache used percentage with a low hit percentage. This indicates high cache eviction which can impact the performance of your workload.

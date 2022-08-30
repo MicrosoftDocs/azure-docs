@@ -20,6 +20,8 @@ This article outlines how to register a Power BI tenant in a **same-tenant scena
 |---|---|---|---|---|---|---|---|
 | [Yes](#deployment-checklist)| [Yes](#deployment-checklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)| No |
 
+For a list of metadata available for Power BI, see our [available metadata documentation](available-metadata.md).
+
 ### Supported scenarios for Power BI scans
 
 |**Scenarios**  |**Microsoft Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Runtime option** | **Authentication option**  | **Deployment checklist** | 
@@ -37,6 +39,7 @@ This article outlines how to register a Power BI tenant in a **same-tenant scena
 -  You can create only one scan for a Power BI data source that is registered in your Microsoft Purview account.
 -  If Power BI dataset schema isn't shown after scan, it's due to one of the current limitations with [Power BI Metadata scanner](/power-bi/admin/service-admin-metadata-scanning).
 -  Empty workspaces are skipped.
+-  Payload is currently limited to 2MB and 300 columns when scanning an asset.
 
 ## Prerequisites
 
@@ -60,7 +63,7 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
 1. Make sure Power BI tenant ID is entered correctly during the registration.
-1. Make sure your [PowerBI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
+1. Make sure your [Power BI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
 1. From Azure portal, validate if Microsoft Purview account Network is set to public access.
 1. From Power BI tenant Admin Portal, make sure Power BI tenant is configured to allow public network.
 1. In Azure Active Directory tenant, create a security group.
@@ -72,7 +75,7 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
 1. Make sure Power BI tenant ID is entered correctly during the registration.
-1. Make sure your [PowerBI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
+1. Make sure your [Power BI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
 1. From Azure portal, validate if Microsoft Purview account Network is set to public access.
 1. From Power BI tenant Admin Portal, make sure Power BI tenant is configured to allow public network.
 1. Check your Azure Key Vault to make sure:
@@ -104,7 +107,7 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
 1. Make sure Power BI tenant ID is entered correctly during the registration.
-1. Make sure your [PowerBI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
+1. Make sure your [Power BI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
 1. Check your Azure Key Vault to make sure:
    1. There are no typos in the password.
    2. Microsoft Purview Managed Identity has get/list access to secrets.
@@ -128,7 +131,7 @@ Use any of the following deployment checklists during the setup or for troublesh
    3. Under **Authentication**, **Allow public client flows** is enabled.
 2. Review network configuration and validate if:
    1. A [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links) is deployed. (Optional)
-   2. All required [private endpoints for Microsoft Purview](/azure/purview/catalog-private-link-end-to-end) are deployed.
+   2. All required [private endpoints for Microsoft Purview](./catalog-private-link-end-to-end.md) are deployed.
    3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled.
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled through private network.
 
@@ -241,7 +244,7 @@ To create and run a new scan, do the following:
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Image showing Power BI scan setup.":::
 
     > [!Note]
-    > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of PowerBI source.
+    > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of Power BI source.
 
 3. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem.
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
@@ -309,7 +312,7 @@ To create and run a new scan, do the following:
 1. Give your scan a name. Then select the option to include or exclude the personal workspaces.
    
     >[!Note]
-    > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of PowerBI source.
+    > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of Power BI source.
 
 1. Select your self-hosted integration runtime from the drop-down list. 
 

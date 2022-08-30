@@ -26,7 +26,7 @@ The Translator service can be accessed through two different resource types:
 
 * [**Single-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource types enable access to a single service API key and endpoint.
 
-* [**Multi-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource types enable access to multiple Cognitive Services using a single API key and endpoint. The Cognitive Services resource is currently available for the following services:
+* [**Multi-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource types enable access to multiple Cognitive Services using a single API key and endpoint.
 
 > [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Translator Service access only, create a Translator single-service resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../active-directory/authentication/overview-authentication.md).
@@ -47,8 +47,8 @@ The Translator service can be accessed through two different resource types:
 1. **Pricing tier**. Select a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/translator) that meets your needs:
 
    * Each subscription has a free tier.
-   * The free tier has the same features and functionalities as paid plans and doesn't expire.
-   * Only have one free subscription per account is allowed.
+   * The free tier has the same features and functionality as the paid plans and doesn't expire.
+   * Only one free tier is available per subscription.
    * Document Translation isn't supported in the free tier. Select Standard S1 to try that feature.
 
 1. If you've created a multi-service resource, you'll need to confirm additional usage details via the check boxes.

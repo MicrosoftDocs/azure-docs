@@ -1,11 +1,11 @@
 ---
 title: Why use Azure Orbital?
-description: Azure Orbital is a cloud-based Ground Station as a Service that allows you to streamline your operations by ingesting space data directly into Azure.
+description: Azure Orbital is a cloud-based ground station as a Service that allows you to streamline your operations by ingesting space data directly into Azure.
 author: wamota
 ms.service: orbital
 ms.topic: overview
-ms.custom: public-preview
-ms.date: 11/16/2021
+ms.custom: ga
+ms.date: 07/13/2022
 ms.author: wamota
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
@@ -56,6 +56,5 @@ Azure Orbital offers two main services:
 
 ## Next steps
 
-- [Quickstart: Onboard to the Azure Orbital Preview](orbital-preview.md)
-- [Quickstart: Register Spacecraft](register-spacecraft.md)
-- [Quickstart: Configure a Contact Profile](contact-profile.md)
+- [Register Spacecraft](register-spacecraft.md)
+- [Configure a Contact Profile](contact-profile.md)

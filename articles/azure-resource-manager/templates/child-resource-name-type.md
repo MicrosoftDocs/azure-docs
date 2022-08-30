@@ -92,7 +92,7 @@ The following example shows the child resource outside of the parent resource. Y
 ]
 ```
 
-When defined outside of the parent resource, you format the type and with slashes to include the parent type and name.
+When defined outside of the parent resource, you format the type and name values with slashes to include the parent type and name.
 
 ```json
 "type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",

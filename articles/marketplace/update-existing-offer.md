@@ -6,13 +6,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya
 ms.author: trkeya
-ms.date: 04/21/2022
+ms.date: 08/29/2022
 ms.custom: contperf-fy21q2
 ---
 
 # Update existing offers in the commercial marketplace
 
 This article explains how to make updates to existing offers and plans, and also how to remove an offer from the commercial marketplace. You can view your offers in the [Commercial Marketplace portal](https://go.microsoft.com/fwlink/?linkid=2165935.) in Partner Center.
+
+> [!TIP]
+> After publishing an offer, the [owner](user-roles.md) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).
 
 ## Request access to manage an offer
 
@@ -151,7 +154,7 @@ Remember to republish your offer after making updates for the changes to take ef
 
 ## Stop distribution of an offer or plan
 
-You can remove offer listings and plans from the Microsoft commercial marketplace, which will prevent new customers from finding and purchasing them. Any customers who previously acquired the offer or plan can still use it, and they can download it again if needed. However, they won't get updates if you decide to republish the offer or plan at a later time.
+You can remove offer listings and plans from the Microsoft commercial marketplace, which will prevent new customers from finding and purchasing them. Any customers who previously acquired the offer or plan can still use it but they can’t re-download or redeploy. Also, they won't get updates if you decide to republish the offer or plan at a later time.
 
 - To stop distribution of an offer after you've published it, select **Stop distribution** from the **Offer overview** page. Within a few hours of your confirmation, the offer will no longer be visible in the commercial marketplace.
 

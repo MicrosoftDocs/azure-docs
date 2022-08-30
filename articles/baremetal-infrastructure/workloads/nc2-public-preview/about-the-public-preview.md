@@ -19,7 +19,7 @@ In particular, this article highlights Public Preview features.
 ## Unlock the benefits of Azure
 
 * Establish a consistent hybrid deployment strategy
-* Operate seamlessly with on-premise Nutanix Clusters in Azure
+* Operate seamlessly with on-premises Nutanix Clusters in Azure
 * Build and scale without constraints
 * Invent for today and be prepared for tomorrow with NC2 on Azure
 
@@ -46,10 +46,9 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 ### More benefits
 
 * Microsoft Azure Consumption Contract (MACC) credits
-* Nutanix Bring your own License (BYOL)  
 
 > [!NOTE]
-> During the public preview, RI is not supported. 
+> During the public preview, RI is not supported.
 An additional discount may be available.
 
 ## Support

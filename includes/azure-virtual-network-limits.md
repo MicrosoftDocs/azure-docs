@@ -25,6 +25,7 @@ The following limits apply only for networking resources managed through **Azure
 | [Virtual network gateways (ExpressRoute gateways) per virtual network](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
 | DNS servers per virtual network |20 |
 | Private IP addresses per virtual network |65,536 |
+| Total Private Addresses for a group of Peered Virtual networks | 128,000 |
 | Private IP addresses per network interface |256 |
 | Private IP addresses per virtual machine |256 |
 | Public IP addresses per network interface |256 |
@@ -77,8 +78,15 @@ The following limits apply only for networking resources managed through Azure R
 | Load Balancers per VM <sup>2<sup>       | 2 (1 Public and 1 internal)   |
 
 <sup>1</sup> The limit is up to 1,200 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set placement groups.
+
 <sup>2</sup> An exception to this limit is that 2 public load balancers can be in front of a VM if an IPv4 address config is used for one load balancer and IPv6 address config is used for the second.
 
+**Gateway Load Balancer**
+
+| Resource                                | Limit        |
+|-----------------------------------------|------------------------------|
+| Resources chained per Load Balancer (LB frontend configurations or VM NIC IP configurations combined) | 100 |
+ 
 **Basic Load Balancer**
 
 | Resource                                | Limit        |

@@ -6,11 +6,11 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ---
 
-# Tutorial: Use the Azure Video Indexer API
+# Use the Azure Video Indexer API
 
 Azure Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft into one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platforms. You can use the API to upload your files, get detailed video insights, get URLs of embeddable insight and player widgets, and more.
 
-When creating an Azure Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With a paid option, you create an Azure Video Indexer account that's [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
+When creating an Azure Video Indexer account, you can choose a trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a trial, account, Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With a paid option, you create an Azure Video Indexer account that's [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 This article shows how the developers can take advantage of the [Azure Video Indexer API](https://api-portal.videoindexer.ai/).
 
@@ -222,5 +222,5 @@ After you are done with this tutorial, delete resources that you are not plannin
 ## Next steps
 
 - [Examine details of the output JSON](video-indexer-output-json-v2.md)
-- Check out the [sample code](https://github.com/Azure-Samples/media-services-video-indexer) that demonstrates important aspect of uploading and indexing a video. Following the code will give you a good idea of how to use our API for basic functionalities. Make sure to read the inline comments and notice our best practices advices.
+- Check out the [sample code](https://github.com/Azure-Samples/media-services-video-indexer) that demonstrates important aspect of uploading and indexing a video. Following the code will give you a good idea of how to use our API for basic functionalities. Make sure to read the inline comments and notice our best practices advice.
 

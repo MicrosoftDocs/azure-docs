@@ -22,8 +22,8 @@ In the following sections, you'll use  the Azure CLI to assign roles, and obtain
 
 - An Azure subscription
 - Access granted to service in the desired Azure subscription. 
-- Azure CLI. [Installation Guide](https://docs.microsoft.com/cli/azure/install-azure-cli)
-- The following python libraries: os, requests, json
+- Azure CLI. [Installation Guide](/cli/azure/install-azure-cli)
+- The following Python libraries: os, requests, json
 
 ## Sign into the Azure CLI
 
@@ -63,10 +63,10 @@ Assigning yourself to the Cognitive Services User role will allow you to use you
 Use the access token to authorize your API call by setting the `Authorization` header value.
 
     ```bash
-    curl ${endpoint%/}/openai/deployment/YOUR_DEPLOYMNET_NAME/search?api-version=2022-06-01-preview \
+    curl ${endpoint%/}/openai/deployment/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-06-01-preview \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $accessToken" \
-    -d '{ "documents": ["White House", "hospital", "school"],  "query": "the president"}'
+    -d '{ "prompt": "Once upon a time" }'
     ```
 
 ## Authorize access to managed identities

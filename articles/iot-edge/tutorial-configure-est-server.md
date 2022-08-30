@@ -29,7 +29,7 @@ This tutorial walks you through hosting a test EST server and configuring an IoT
 ## Prerequisites
 
 * An existing IoT Edge device with the [latest Azure IoT Edge runtime](how-to-update-iot-edge.md) installed. If you need to create a test device, complete [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](quickstart-linux.md).
-* Your IoT Edge device requires Azure IoT Edge runtime 1.2 or later for EST support. Azure IoT Edge runtime 1.3 is required for EST certificate renewal. 
+* Your IoT Edge device requires Azure IoT Edge runtime 1.2 or later for EST support. Azure IoT Edge runtime 1.3 or later required for EST certificate renewal. 
 * IoT Hub Device Provisioning Service (DPS) linked to IoT Hub. For information on configuring DPS, see [Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal](../iot-dps/quick-setup-auto-provision.md).
 
 ## What is Enrollment over Secure Transport?
@@ -124,7 +124,7 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
 1. You should see `-----BEGIN CERTIFICATE-----` midway through the output. Retrieving the certificate verifies that the server is reachable and can present its certificate.
 
 > [!TIP]
-> To run this container in the cloud, build the image and [push the image to Azure Container Registry](../container-registry/container-registry-get-started-portal.md). Then, follow the [quickstart to deploy to Azure Container Instance](/azure/container-instances/container-instances-quickstart-portal).
+> To run this container in the cloud, build the image and [push the image to Azure Container Registry](../container-registry/container-registry-get-started-portal.md). Then, follow the [quickstart to deploy to Azure Container Instance](../container-instances/container-instances-quickstart-portal.md).
 
 ## Download CA certificate
 

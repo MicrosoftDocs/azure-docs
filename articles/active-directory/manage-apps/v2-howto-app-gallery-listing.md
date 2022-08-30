@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 6/2/2022
 ms.author: ergreenl
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, contperf-fy22q4
 ---
 
 # Submit a request to publish your application in Azure Active Directory application gallery

@@ -335,7 +335,7 @@ Creating assessment on top of servers containing SQL instances that weren't disc
 
 ## Common SQL Server instances and database discovery errors
 
-Azure Migrate supports discovery of SQL Server instances and databases running on on-premises machines by using Azure Migrate: Discovery and assessment. SQL discovery is currently supported for VMware only. See the [Discovery](tutorial-discover-vmware.md) tutorial to get started.
+Azure Migrate supports discovery of SQL Server instances and databases running on on-premises machines by using Azure Migrate: Discovery and assessment. See the [Discovery](tutorial-discover-vmware.md) tutorial to get started.
 
 Typical SQL discovery errors are summarized in the following table.
 

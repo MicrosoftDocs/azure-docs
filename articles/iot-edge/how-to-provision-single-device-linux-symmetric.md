@@ -5,13 +5,13 @@ author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 07/11/2022
 ms.author: patricka
 ---
 
 # Create and provision an IoT Edge device on Linux using symmetric keys
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, including installing IoT Edge.
 
@@ -279,7 +279,7 @@ Remove the IoT Edge runtime.
 ::: moniker range="iotedge-2018-06"
 
 ```bash
-sudo apt-get remove iotedge
+sudo apt-get autoremove iotedge
 ```
 
 ::: moniker-end
@@ -289,10 +289,10 @@ sudo apt-get remove iotedge
 
 # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
 ```bash
-sudo apt-get remove aziot-edge
+sudo apt-get autoremove --purge aziot-edge
 ```
 
-Use the `--purge` flag if you want to delete all the files associated with IoT Edge, including your configuration files. Leave this flag out if you want to reinstall IoT Edge and use the same configuration information in the future.
+Leave out the `--purge` flag if you plan to reinstall IoT Edge and use the same configuration information in the future. The `--purge` flags deletes all the files associated with IoT Edge, including your configuration files.
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 ```bash
@@ -318,8 +318,7 @@ Finally, remove the container runtime from your device.
 
 # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
 ```bash
-sudo apt-get remove --purge moby-cli
-sudo apt-get remove --purge moby-engine
+sudo apt-get autoremove --purge moby-engine
 ```
 
 # [Red Hat Enterprise Linux](#tab/rhel)
