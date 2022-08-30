@@ -202,17 +202,19 @@ spring:
 
 ```
 
-Select the **Import settings** button, and then select the YAML file from your project directory. Select **Import**, and then an `async` operation from your **Notifications** pops up. After 1-2 minutes, Config Server should report success.
+Select the **Import settings** button, and then select the YAML file from your project directory. Select **Import**.
 
 :::image type="content" source="media/how-to-config-server/import-settings.png" lightbox="media/how-to-config-server/import-settings.png" alt-text="Screenshot of the Config Server Import settings pane.":::
 
-The information from your YAML file displays in the Azure portal. Select **Apply** to finish.
+Your **Notifications** displays an `async` operation. Config Server should report success after 1-2 minutes. The information from your YAML file displays in the Azure portal. Select **Apply** to finish the import.
 
 ## Use Azure Repos for Azure Spring Apps configuration
 
-Azure Spring Apps can access Git repositories that are public, secured by SSH, or secured using HTTP basic authentication. Azure Repos can make it easier to create and manage repositories that are secured using HTTP basic authentication.
+Azure Spring Apps can access Git repositories that are public, secured by SSH, or secured using HTTP basic authentication. HTTP basic authentication is the easiest of the options for creating and managing repositories with Azure Repos.
 
-### Get repo url and credentials
+### Get repo URL and credentials
+
+Use the following steps to get your repo URL and credentials.
 
 1. In the Azure Repos portal for your project, select the **Clone** button:
 
