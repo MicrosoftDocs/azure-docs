@@ -41,27 +41,6 @@ For language-specific examples of adding pooling in application code, see the
 > benefit more from client- rather than server-side pooling. (Although both
 > forms of pooling can be used at once without harm.)
 
-## Efficient database logging
-
-Logging all SQL statements all the time adds overhead. In our measurements,
-using more a judicious log level improved the transactions per second by
-**10x** vs full logging.
-
-For efficient everyday operation, you can disable logging except for errors and
-abnormally long-running queries:
-
-| setting | value | reason |
-|---------|-------|--------|
-| log_statement_stats | OFF | Avoid profiling overhead |
-| log_duration | OFF | Don't need to know the duration of normal queries |
-| log_statement | NONE | Don't log queries without a more specific reason |
-| log_min_duration_statement | A value longer than what you think normal queries should take | Shows the abnormally long queries |
-
-> [!NOTE]
->
-> These log settings are the default in PostgreSQL, except
-> log_min_duration_statement, which by default is disabled (-1).
-
 ## Scoping distributed queries
 
 When updating a distributed table, try to filter queries on the distribution
@@ -99,6 +78,27 @@ The Hyperscale (Citus) query planner sees a direct filter on the distribution
 column and knows exactly which single shard to lock. In our tests, adding
 filters for the distribution column increased parallel update performance by
 **100x**.
+
+## Efficient database logging
+
+Logging all SQL statements all the time adds overhead. In our measurements,
+using more a judicious log level improved the transactions per second by
+**10x** vs full logging.
+
+For efficient everyday operation, you can disable logging except for errors and
+abnormally long-running queries:
+
+| setting | value | reason |
+|---------|-------|--------|
+| log_statement_stats | OFF | Avoid profiling overhead |
+| log_duration | OFF | Don't need to know the duration of normal queries |
+| log_statement | NONE | Don't log queries without a more specific reason |
+| log_min_duration_statement | A value longer than what you think normal queries should take | Shows the abnormally long queries |
+
+> [!NOTE]
+>
+> These log settings are the default in PostgreSQL, except
+> log_min_duration_statement, which by default is disabled (-1).
 
 ## Lock contention
 
