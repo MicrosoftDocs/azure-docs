@@ -27,7 +27,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 | Chat              | Send and receive chat messages                                                                                      | ✔️ |
 |                   | Send and receive Giphy                                                                                              | ❌ |
 |                   | Send messages with high priority                                                                                    | ❌ |
-|                   | Recieve messages with high priority                                                                                 | ✔️ |
+|                   | Receive messages with high priority                                                                                 | ✔️ |
 |                   | Send and receive Loop components                                                                                    | ❌ |
 |                   | Send and receive Emojis                                                                                             | ❌ |
 |                   | Send and receive Stickers                                                                                           | ❌ |
