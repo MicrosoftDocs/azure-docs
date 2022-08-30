@@ -31,7 +31,7 @@ This article shows you how to access the repository from the following environme
 - Data Science Virtual Machine
 
 
-## Option 1: Get samples on Azure Machine Learning compute instance (recommended)
+## Option 1: Access on Azure Machine Learning compute instance (recommended)
 
 The easiest way to get started with the samples is to complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the Azure Machine Learning Notebooks repository. No downloads or installation necessary.
 
@@ -41,7 +41,7 @@ To add the community-driven repository, [use a compute instance terminal](how-to
 git clone https://github.com/Azure/azureml-examples.git --depth 1
 ```
 
-## Option 2: Get samples on your won notebook server
+## Option 2: Access on your own notebook server
 
 If you'd like to bring your own notebook server for local development, follow these steps on your computer.
 
@@ -50,7 +50,7 @@ If you'd like to bring your own notebook server for local development, follow th
 These instructions install the base SDK packages necessary for the quickstart and tutorial notebooks. Other sample notebooks may require you to install extra components. For more information, see [Install the Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
 
 
-## Option 3: Get samples on a DSVM
+## Option 3: Access on a DSVM
 
 The Data Science Virtual Machine (DSVM) is a customized VM image built specifically for doing data science. If you [create a DSVM](how-to-configure-environment.md#dsvm), the SDK and notebook server are installed and configured for you. However, you'll still need to create a workspace and clone the sample repository.
 
