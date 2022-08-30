@@ -13,7 +13,7 @@ ms.author: jasteppe
 
 Many functions are available when using **JmesPath** as the expression language. Besides the functions available as part of the JmesPath specification, many more custom functions may also be used. This article describes the MedTech service-specific custom functions for use with the MedTech service [device mapping](how-to-use-device-mappings.md) during the device message [normalization](iot-data-flow.md#normalize) process.
 
-> [!NOTE]
+> [!TIP]
 > For more information on JmesPath functions, see the JmesPath [specification](https://jmespath.org/specification.html#built-in-functions).
 
 ## Function signature
