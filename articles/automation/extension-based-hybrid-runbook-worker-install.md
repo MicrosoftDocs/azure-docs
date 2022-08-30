@@ -261,7 +261,7 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 ## Install Hybrid worker extension 
 
 
-#### [using REST API](#tab/rest-api)
+#### [Using REST API](#tab/rest-api)
 
 **Prerequisites**
 
@@ -373,12 +373,12 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
     ```
    Response of the *PUT* call will confirm if the extension is successfully installed or not on the targeted VM. You can also go to the VM in the Azure portal, and check status of extensions installed on the target VM under **Extensions** tab.
 
-#### [Visual Studio](#tab/visual-studio)
+#### [Using CLI](#tab/cli)
 
 **Manage Hybrid Worker Extension**
 
-- To create, delete, and manage extension-based Hybrid Runbook Worker groups, see [az automation hrwg | Microsoft Docs](../cli/azure/automation/hrwg?view=azure-cli-latest)
-- To create, delete, and manage extension-based Hybrid Runbook Worker, see [az automation hrwg hrw | Microsoft Docs](../cli/azure/automation/hrwg/hrw?view=azure-cli-latest)
+- To create, delete, and manage extension-based Hybrid Runbook Worker groups, see [az automation hrwg | Microsoft Docs](./cli/azure/automation/hrwg?view=azure-cli-latest)
+- To create, delete, and manage extension-based Hybrid Runbook Worker, see [az automation hrwg hrw | Microsoft Docs](./cli/azure/automation/hrwg/hrw?view=azure-cli-latest)
 
 ---
 
