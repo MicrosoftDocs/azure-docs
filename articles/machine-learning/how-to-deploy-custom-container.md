@@ -10,7 +10,7 @@ author: dem108
 ms.reviewer: larryfr
 ms.date: 05/11/2022
 ms.topic: how-to
-ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022
+ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2
 ms.devlang: azurecli
 ---
 
