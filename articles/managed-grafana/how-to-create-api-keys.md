@@ -27,7 +27,7 @@ During the creation of the Azure Managed Grafana workspace, enable the creation 
 
 ### Enable API key creation on an existing Azure Managed Grafana instance
 
-#### [Portal](#tab/portal)
+#### [Portal](#tab/azure-portal)
 
   1. In the Azure portal, under **Settings**, select **Configuration**, and then under **API keys**, select **Enable**.
 
@@ -61,7 +61,7 @@ az grafana update --name <azure-managed-grafana-name> --api-keys Enabled
 
    :::image type="content" source="media/create-api-keys/form.png" alt-text="Screenshot of the Grafana dashboard. API creation form filled out.":::
 
-1. Once the key has been generated, a message pops up with the new key and a curl command including your key. Copy this information and save it in your records now, as it will be hidden once you leave this page. If you close this page without save the new API key, you will need to generate a new one.
+1. Once the key has been generated, a message pops up with the new key and a curl command including your key. Copy this information and save it in your records now, as it will be hidden once you leave this page. If you close this page without save the new API key, you'll need to generate a new one.
 
    :::image type="content" source="media/create-api-keys/api-key-created.png" alt-text="Screenshot of the Grafana dashboard. API key is displayed.":::
 
@@ -82,7 +82,7 @@ You can now use this Grafana API key to call the Grafana server.
    az grafana api-key create --name <azure-managed-grafana-name> --key <key>
    ```
 
-1. The terminal returns a key ID, a key and a key name. Copy this information and save it in your records now, as you will only be able to view this key once.
+1. The terminal returns a key ID, a key and a key name. Copy this information and save it in your records now, as you'll only be able to view this key once.
 
 ---
 
