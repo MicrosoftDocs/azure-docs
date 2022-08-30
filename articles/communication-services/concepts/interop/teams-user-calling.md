@@ -14,7 +14,7 @@ ms.subservice: calling
 ---
 # Calling capabilities supported for Teams users in Calling SDK
 
-The Azure Communication Services Calling SDK for JavaScript enables Teams user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away, check out [Calling quickstarts](../../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md). 
+The Azure Communication Services Calling SDK for JavaScript enables Teams user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away, check out [Calling quickstarts](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md). 
 
 Key features of the Calling SDK:
 
@@ -22,8 +22,8 @@ Key features of the Calling SDK:
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire. 
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications data plane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
 - **PSTN** - The Calling SDK can receive and initiate voice calls with the traditional publicly switched telephony system [using phone numbers you acquire in the Teams Admin Portal](/microsoftteams/pstn-connectivity).
-- **Teams Meetings** - The Calling SDK can [join Teams meetings](../../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video data plane. 
-- **Notifications** - The Calling SDK provides APIs that allow clients to be notified of an incoming call. In situations where your app is not running in the foreground, patterns are available to [fire pop-up notifications](../../notifications.md) ("toasts") to inform users of an incoming call. 
+- **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video data plane. 
+- **Notifications** - The Calling SDK provides APIs that allow clients to be notified of an incoming call. In situations where your app is not running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform users of an incoming call. 
 
 ## Calling capabilities 
 
@@ -144,14 +144,14 @@ The following list presents the set of features that are currently available in 
 |                   | Honor setting "Spam filtering"                                                                                       |   ✔️      |
 |                   | Honor setting "SIP devices can be used for calls"                                                                    |   ✔️      |
 
-Support for streaming, timeouts, platforms, and browsers is shared with [Communication Services calling SDK overview](../../voice-video-calling/calling-sdk-features.md).
+Support for streaming, timeouts, platforms, and browsers is shared with [Communication Services calling SDK overview](../voice-video-calling/calling-sdk-features.md).
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with calling](../../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
+> [Get started with calling](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
 
 For more information, see the following articles:
-- Familiarize yourself with general [call flows](../../call-flows.md)
-- Learn about [call types](../../voice-video-calling/about-call-types.md)
+- Familiarize yourself with general [call flows](../call-flows.md)
+- Learn about [call types](../voice-video-calling/about-call-types.md)
