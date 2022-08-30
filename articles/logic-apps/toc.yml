@@ -184,7 +184,7 @@
       href: add-artifacts-integration-service-environment-ise.md
     - name: Set up customer-managed encryption keys for integration service environments
       href: customer-managed-keys-integration-service-environment.md
-    - name: Export from ISE to Standard Azure Logic Apps
+    - name: Export from ISE to Standard logic app
       href: export-from-ise-to-standard-logic-app.md
   - name: Access on-premises data
     items:
