@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: timwarner
 ms.service: machine-configuration
 ---
-# Understand the machine configuration feature of Azure Policy
+# Understand the machine configuration feature of Azure Automanage
 
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
