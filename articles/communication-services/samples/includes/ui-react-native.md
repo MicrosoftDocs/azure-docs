@@ -24,7 +24,7 @@ Find the project for this sample on [GitHub](https://github.com/Azure-Samples/co
 
 ### Features
 
-Refer to the native [UI Library overview](/concepts/ui-library/ui-library-overview?pivots=platform-mobile)
+Refer to the native [UI Library overview](/concepts/ui-library/ui-library-overview.md)
 
 ### Prerequisites
 
