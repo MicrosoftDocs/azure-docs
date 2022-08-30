@@ -42,12 +42,12 @@ The Responsible AI dashboard is accompanied by a [PDF scorecard](how-to-responsi
 
 The Responsible AI dashboard brings together, in a comprehensive view, various new and pre-existing tools. The dashboard integrates these tools with [Azure Machine Learning CLI v2, Azure Machine Learning Python SDK v2](concept-v2.md), and [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). The tools include:  
 
-- [Data explorer](concept-data-analysis.md) to understand and explore your dataset distributions and statistics.
-- [Model overview and fairness assessment](concept-fairness-ml.md) to evaluate the performance of your model and evaluate your model's group fairness issues (how your model's predictions affect diverse groups of people).
-- [Error analysis](concept-error-analysis.md) to view and understand how errors are distributed in your dataset.  
-- [Model interpretability](how-to-machine-learning-interpretability.md) (importance values for aggregate and individual features) to understand your model's predictions and how those overall and individual predictions are made.
-- [Counterfactual what-if](concept-counterfactual-analysis.md) to observe how feature perturbations would affect your model predictions while providing the closest data points with opposing or different model predictions.
-- [Causal analysis](concept-causal-inference.md) to use historical data to view the causal effects of treatment features on real-world outcomes.
+- [Data explorer](concept-data-analysis.md), to understand and explore your dataset distributions and statistics.
+- [Model overview and fairness assessment](concept-fairness-ml.md), to evaluate the performance of your model and evaluate your model's group fairness issues (how your model's predictions affect diverse groups of people).
+- [Error analysis](concept-error-analysis.md), to view and understand how errors are distributed in your dataset.  
+- [Model interpretability](how-to-machine-learning-interpretability.md) (importance values for aggregate and individual features), to understand your model's predictions and how those overall and individual predictions are made.
+- [Counterfactual what-if](concept-counterfactual-analysis.md), to observe how feature perturbations would affect your model predictions while providing the closest data points with opposing or different model predictions.
+- [Causal analysis](concept-causal-inference.md), to use historical data to view the causal effects of treatment features on real-world outcomes.
 
 Together, these tools will help you debug machine learning models, while informing your data-driven and model-driven business decisions. The following diagram shows how you can incorporate them into your AI lifecycle to improve your models and get solid data insights.
 
@@ -92,7 +92,7 @@ Mitigation steps are available via standalone tools such as [Fairlearn](https://
 
 Decision-making is one of the biggest promises of machine learning. The Responsible AI dashboard can help you make informed business decisions through:
 
-- Data-driven insights to further understand causal treatment effects on an outcome, by using historic data only. For example:
+- Data-driven insights, to further understand causal treatment effects on an outcome, by using historical data only. For example:
 
   "How would a medicine affect a patient's blood pressure?"
   
@@ -111,7 +111,7 @@ These components of the Responsible AI dashboard support responsible decision-ma
 - **Causal inference**: The causal inference component estimates how a real-world outcome changes in the presence of an intervention. It also helps construct promising interventions by simulating feature responses to various interventions and creating rules to determine which population cohorts would benefit from a particular intervention. Collectively, these functionalities allow you to apply new policies and effect real-world change.
   
   The capabilities of this component come from the [EconML](https://github.com/Microsoft/EconML) package, which estimates heterogeneous treatment effects from observational data via machine learning.
-- **Counterfactual analysis**: You can reuse the counterfactual analysis component here to generate minimum changes applied to a data point's features that lead to opposite model predictions. For example: Taylor would have gotten the loan approval from the AI if they earned $10,000 more in annual income and had two fewer credit cards open. 
+- **Counterfactual analysis**: You can reuse the counterfactual analysis component here to generate minimum changes applied to a data point's features that lead to opposite model predictions. For example, Taylor would have obtained the loan approval from the AI if they earned $10,000 more in annual income and had two fewer credit cards open. 
 
   Providing this information to users informs their perspective. It educates them on how they can take action to get the desired outcome from the AI in the future.
   
@@ -147,7 +147,7 @@ Need some inspiration? Here are some examples of how the dashboard's components 
 | Model overview > data explorer | To understand the root cause of errors and fairness issues introduced via data imbalances or lack of representation of a particular data cohort |
 | Model overview > interpretability | To diagnose model errors through understanding how the model has made its predictions |
 | Data explorer > causal inference  | To distinguish between correlations and causations in the data or decide the best treatments to apply to get a positive outcome |
-| Interpretability > causal inference | To learn whether the factors that the model has used for prediction making have any causal effect on the real-world outcome|
+| Interpretability > causal inference | To learn whether the factors that the model has used for prediction-making have any causal effect on the real-world outcome|
 | Data explorer > counterfactuals analysis and what-if | To address customers' questions about what they can do next time to get a different outcome from an AI system|
 
 ## People who should use the Responsible AI dashboard
@@ -164,10 +164,10 @@ The following people can use the Responsible AI dashboard, and its corresponding
 ## Supported scenarios and limitations
 
 - The Responsible AI dashboard currently supports regression and classification (binary and multi-class) models trained on tabular structured data. 
-- The Responsible AI dashboard currently supports MLFlow models that are registered in Azure Machine Learning with a sklearn flavor only. The scikit-learn models should implement `predict()/predict_proba()` methods, or the model should be wrapped within a class that implements `predict()/predict_proba()` methods. The models must be loadable in the component environment and must be pickleable.
+- The Responsible AI dashboard currently supports MLflow models that are registered in Azure Machine Learning with a sklearn (scikit-learn) flavor only. The scikit-learn models should implement `predict()/predict_proba()` methods, or the model should be wrapped within a class that implements `predict()/predict_proba()` methods. The models must be loadable in the component environment and must be pickleable.
 - The Responsible AI dashboard currently visualizes up to 5K of your data points in the dashboard UI. You should downsample your dataset to 5K or less before passing it to the dashboard.
 - The dataset inputs to the Responsible AI dashboard must be pandas DataFrames in Parquet format. NumPy and SciPy sparse data is currently not supported. 
-- The Responsible AI dashboard currently supports numeric or categorical features. For categorical features, the user has to explicitly specify the feature names.  
+- The Responsible AI dashboard currently supports numeric or categorical features. For categorical features, you have to explicitly specify the feature names.  
 - The Responsible AI dashboard currently doesn't support datasets with more than 10K columns.
 
 
