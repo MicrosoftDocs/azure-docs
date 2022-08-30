@@ -166,7 +166,7 @@ You'll need to modify this file to use the files you downloaded from the AutoML 
 After you create a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
 
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
