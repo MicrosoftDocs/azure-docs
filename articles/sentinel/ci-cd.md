@@ -21,10 +21,10 @@ When creating custom content, you can manage it from your own Microsoft Sentinel
 
 Microsoft Sentinel currently supports connections to GitHub and Azure DevOps repositories. Before connecting your Microsoft Sentinel workspace to your source control repository, make sure that you have:
 
+- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace *or* a combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection
 - Contributor access to your GitHub or Azure DevOps repository
+- Actions enabled for GitHub and Pipelines enabled for Azure DevOps
 - Ensure custom content files you want to deploy to your workspaces are in relevant [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/index.yml).
-
-- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace. This role is required to create the connection between Microsoft Sentinel and your source control repository. If you are unable to use the Owner role in your environment, you can instead use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
 
 For more information, see [Validate your content](ci-cd-custom-content.md#validate-your-content)
 
@@ -113,9 +113,7 @@ After the deployment is complete:
 
 ### Customize the deployment workflow
 
-The default workflow only deploys content that has been modified since the last deployment based on commits to the repository.
-
-For example, you may want to turn off smart deployments, configure different deployment triggers, or deploy content only from a specific root folder.
+The default workflow only deploys content that has been modified since the last deployment based on commits to the repository. But you may want to turn off smart deployments or perform other customizations. For example, you can configure different deployment triggers, or deploy content exclusively from a specific root folder.
 
 Select one of the following tabs depending on your connection type:
 
@@ -125,7 +123,7 @@ Select one of the following tabs depending on your connection type:
 
 1. In GitHub, go to your repository and find your workflow in the `.github/workflows` directory.
 
-    The workflow name is shown in the first line of the workflow file, and has the following default naming convention: `Deploy Content to <workspace-name> [<deployment-id>]`.
+    The workflow file is the YML file starting with `sentinel-deploy-xxxxx.yml`. Open that file and the workflow name is shown in the first line and has the following default naming convention: `Deploy Content to <workspace-name> [<deployment-id>]`.
 
     For example: `name: Deploy Content to repositories-demo [xxxxx-dk5d-3s94-4829-9xvnc7391v83a]`
 
@@ -149,6 +147,9 @@ Select one of the following tabs depending on your connection type:
 
         For more information, see the [GitHub documentation](https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#configuring-workflow-events) on configuring workflow events.
 
+    - **To disable smart deployments**:
+        The smart deployments behavior is separate from the deployment trigger discussed above. Navigate to the `jobs` section of your workflow. Switch the `smartDeployment` default value from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
+
     - **To modify the deployment path**:
 
         In the default configuration shown above for the `on` section, the wildcards (`**`) in the first line in the `paths` section indicate that the entire branch is in the path for the deployment triggers.
@@ -168,8 +169,6 @@ Select one of the following tabs depending on your connection type:
         ...
             directory: '${{ github.workspace }}/SentinelContent'
         ```
-    - **To disable smart deployments**:
-        Navigate to the `jobs` section of your workflow. Switch the `smartDeployment` default value (typically on line 33) from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
 
 For more information, see the [GitHub documentation](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpaths) on GitHub Actions and editing GitHub workflows.
 
@@ -190,6 +189,9 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
         By default, this configuration is set to detect any push to the connected branch, including both modifications to existing content and additions of new content to the repository.
 
         Modify this trigger to any available Azure DevOps Triggers, such as to scheduling or pull request triggers. For more information, see the [Azure DevOps trigger documentation](/azure/devops/pipelines/yaml-schema).
+
+    - **To disable smart deployments**:
+        The smart deployments behavior is separate from the deployment trigger discussed above. Navigate to the `ScriptArguments` section of your pipeline. Switch the `smartDeployment` default value from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
 
     - **To modify the deployment path**:
 
@@ -222,9 +224,6 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
             azureSubscription: `Sentinel_Deploy_ServiceConnection_0000000000000000`
             workingDirectory: `SentinelContent`
         ```
-    
-    - **To disable smart deployments**:
-        Navigate to the `ScriptArguments` section of your pipeline. Switch the `smartDeployment` default value (typically on line 33) from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
 
 For more information, see the [Azure DevOps documentation](/azure/devops/pipelines/yaml-schema) on the Azure DevOps YAML schema.
 
