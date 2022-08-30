@@ -358,9 +358,9 @@ const container = client.database("myDatabase").container("myContainer");
 const triggerId = "trgPreValidateToDoItemTimestamp";
 await container.items.create({
     category: "Personal",
-    name = "Groceries",
-    description = "Pick up strawberries",
-    isComplete = false
+    name: "Groceries",
+    description: "Pick up strawberries",
+    isComplete: false
 }, {preTriggerInclude: [triggerId]});
 ```
 

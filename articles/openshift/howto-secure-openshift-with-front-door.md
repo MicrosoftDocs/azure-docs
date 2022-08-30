@@ -5,7 +5,7 @@ author: rahulm23
 ms.author: rahulmehta
 ms.service: azure-redhat-openshift
 ms.topic: how-to
-ms.date: 12/07/2021  
+ms.date: 12/07/2021
 keywords: azure, openshift, red hat, front, door
 #Customer intent: I need to understand how to secure access to Azure Red Hat OpenShift applications with Azure Front Door.
 ---
@@ -18,7 +18,7 @@ This article explains how to use Azure Front Door Premium to secure access to Az
 
 The following prerequisites are required: 
 
-- You have an existing Azure Red Hat OpenShift cluster. Follow this guide to to [create a private Azure Red Hat OpenShift cluster](howto-create-private-cluster-4x.md).
+- You have an existing Azure Red Hat OpenShift cluster. Follow this guide to [create a private Azure Red Hat OpenShift cluster](howto-create-private-cluster-4x.md).
 
 - The cluster is configured with private ingress visibility.
 
@@ -254,6 +254,6 @@ Because Azure Front Door is a global service, the application can take up to 30 
 
 ## Next steps
 
-Create a Azure Web Application Firewall on Azure Front Door using the Azure portal:
+Create an Azure Web Application Firewall on Azure Front Door using the Azure portal:
 > [!div class="nextstepaction"]
 > [Tutorial: Create a Web Application Firewall policy on Azure Front Door using the Azure portal](../web-application-firewall/afds/waf-front-door-create-portal.md)

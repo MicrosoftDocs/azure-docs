@@ -456,6 +456,20 @@ groups:
     title: REST API
   - id: vision-studio
     title: Vision Studio
+- id: programming-languages-ocr
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-rest-api
+    title: REST API
+  - id: vision-studio
+    title: Vision Studio
 - id: programming-languages-set-diberry-3core
   title: Programming languages
   prompt: Choose a programming language
