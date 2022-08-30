@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure App Service
 description: Lists Azure Policy Regulatory Compliance controls available for Azure App Service. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 08/29/2022
+ms.date: 09/19/2022
 ms.topic: sample
 ms.service: app-service
 ms.custom: subject-policy-compliancecontrols
@@ -22,6 +22,7 @@ compliant with the specific standard.
 ## Release notes
 
 ### September 2022
+
 - **App Service apps should be injected into a virtual network**
   - Update scope of policy to remove slots
     - Creation of "App Service app slots should be injected into a virtual network" to monitor slots
@@ -70,6 +71,7 @@ compliant with the specific standard.
   - Update list of supported SKUs of policy to include the Workflow Standard tier for Logic Apps
 
 ### August 2022
+
 - **App Service apps should only be accessible over HTTPS**
   - Update scope of policy to remove slots
     - Creation of "App Service app slots should only be accessible over HTTPS" to monitor slots
