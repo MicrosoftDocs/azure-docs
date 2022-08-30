@@ -58,7 +58,7 @@ Install-Module PowerShellGet -Force -AllowClobber
 
 Then, restart PowerShell to ensure you use the latest version.
 
-#### Install the Az.FrontDoor module 
+#### Install the Front Door PowerShell modules
 
 Install the *Az.FrontDoor* and *Az.Cdn* PowerShell modules to work with Front Door Standard/Premium from PowerShell:
 

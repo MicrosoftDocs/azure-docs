@@ -19,7 +19,7 @@ Rate limits are applied for each client IP address. If you have multiple clients
 
 Rate limiting is configured by using [custom WAF rules](./waf-front-door-custom-rules.md).
 
-When you configure a rate limit rule, you specify the *threshold*: the number of web requests allowed from each client IP address within a one-minute duration.
+When you configure a rate limit rule, you specify the *threshold*: the number of web requests allowed from each client IP address within a time period of either one minute or five minutes.
 
 > [!TIP]
 > It's usually a good practice to set your rate limit threshold to be quite high. For example, if you know that a single client IP address might send around 10 requests to your server each minute, consider specifying a threshold of 20 requests per minute.
