@@ -12,11 +12,15 @@ This article gives an overview of Azure Video Indexer accounts types and provide
 
 ## Overview
 
+### Trial overview
+
 The first time you visit the [www.videoindexer.ai/](https://www.videoindexer.ai/) website, a trial account is automatically created. A trial Azure Video Indexer account has limitation on number of indexing minutes, support, and SLA.
 
 With a trial, account Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://aka.ms/avam-dev-portal).
 
 The trial account option is not available on the Azure Government cloud. For other Azure Government limitations, see [Limitations of Azure Video Indexer on Azure Government](connect-to-azure.md#limitations-of-azure-video-indexer-on-azure-government).
+
+### Paid (unlimited)
 
 You can later create a paid account where you're not limited by the quota. Two types of paid accounts are available to you: Azure Resource Manager (ARM) (currently in preview) and classic (generally available). The main difference between the two is account management platform. While classic accounts are built on the API Management, ARM-based accounts management is built on Azure, which enables apply access control to all services with role-based access control (Azure RBAC) natively.
 
@@ -35,9 +39,11 @@ With a trial account, you don't have to set up an Azure subscription. When creat
 
 ## Create accounts
 
-* ARM accounts: **The recommended paid account type is the ARM-based account**. Make sure you are signed in with the correct domain to the [Azure Video Indexer website](https://www.videoindexer.ai/). For details, see [Switch tenants][switch-tenants-portal.md].  
+**The recommended paid account type is the ARM-based account**.
 
-    * You can create an Azure Video Indexer **ARM-based** account through one of the following:
+* Ceating ARM accounts. Make sure you are signed in with the correct domain to the [Azure Video Indexer website](https://www.videoindexer.ai/). For details, see (Switch tenants)[switch-tenants-portal.md].  
+
+    * You can create an Azure Video Indexer ARM-based account through one of the following:
     
       1. The [Azure Video Indexer website](https://aka.ms/vi-portal-link)
       2. The [Azure portal](https://portal.azure.com/#home)
