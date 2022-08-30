@@ -127,6 +127,8 @@
     href: setup-guide.md
   - name: Create & configure lab plans (admin)
     items:
+    - name: Request core limit increase
+      href: how-to-request-capacity-increase.md  
     - name: Create and manage lab plans
       href: how-to-manage-lab-plans.md
     - name: Add a lab creator
@@ -167,8 +169,6 @@
       href: create-and-configure-labs-admin.md     
     - name: Restrict VM sizes allowed for labs
       href: how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy.md
-    - name: Request a capacity increase
-      href: how-to-request-capacity-increase.md   
   - name: Create & configure labs (educator)
     items:        
     - name: Create and manage labs

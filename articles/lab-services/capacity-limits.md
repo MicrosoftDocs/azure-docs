@@ -28,7 +28,7 @@ These actions may be disabled if there no more cores that can be enabled for you
 
 If you reach the cores limit, you can request a limit increase to continue using Azure Lab Services. The request process is a checkpoint to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments.
 
-To create a support request, see [Request a capacity increase](./how-to-request-capacity-increase.md).
+To create a support request, see [Request a core limit increase](./how-to-request-capacity-increase.md).
 
 ## Subscriptions with default limit of zero cores
 

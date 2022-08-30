@@ -1,6 +1,6 @@
 ---
-title:  Request a capacity increase
-description: Learn how to request an increase in capacity (quota) for your labs. 
+title:  Request a core limit increase
+description: Learn how to request a core limit (quota) increase to expand capacity for your labs. 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
@@ -9,7 +9,7 @@ ms.date: 08/26/2022
 
 <!-- As a lab administrator, I want more cores available for my subscription so that I can support more students. -->
 
-# Request a capacity increase
+# Request a core limit increase
 
 If you reach the cores limit for your subscription, you can request a limit increase to continue using Azure Lab Services. The request process allows the Azure Lab Services team to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
@@ -42,9 +42,9 @@ You can follow these steps to request a limit increase:
 1. On the Additional details tab, in the **Problem details** section, select **Enter details**.
    :::image type="content" source="./media/how-to-request-capacity-increase/enter-details-link.png" alt-text="Screenshot of the Additional details page with Enter details highlighted."::: 
 
-## Make capacity increase request
+## Make core limit increase request
 
-When you request an increase in capacity (sometimes called a core limit increase), you must supply some information to help the Azure Lab Services team evaluate and action your request as quickly as possible. The more information you can supply and the earlier you supply it, the more quickly the Azure Lab Services team will be able to process your request. 
+When you request core limit increase (sometimes called an increase in capacity), you must supply some information to help the Azure Lab Services team evaluate and action your request as quickly as possible. The more information you can supply and the earlier you supply it, the more quickly the Azure Lab Services team will be able to process your request. 
 
 The information required for the original version of Lab Services (May 2019) and the updated version of Lab Services (August 2022) is different. Use the appropriate tab below to guide you as you complete the **Quota details**. 
 #### [Lab Accounts](#tab/LabAccounts/)
