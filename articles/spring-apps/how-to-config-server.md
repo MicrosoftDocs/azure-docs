@@ -29,7 +29,7 @@ Spring Cloud Config Server provides server and client-side support for an extern
 
 ## Restriction
 
-There are some restrictions when you use Config Server with a Git back end. Some properties are automatically injected into your application environment to access Config Server and Service Discovery. If you also configure those properties from your Config Server files, you might experience conflicts and unexpected behavior. The properties include:
+There are some restrictions when you use Config Server with a Git back end. The following properties are automatically injected into your application environment to access Config Server and Service Discovery. If you also configure those properties from your Config Server files, you might experience conflicts and unexpected behavior.
 
 ```yaml
 eureka.client.service-url.defaultZone
@@ -47,12 +47,12 @@ spring.jmx.enabled
 
 ## Create your Config Server files
 
-Azure Spring Apps supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing your Config Server files. When you've your repository ready, create the configuration files with the following instructions and store them there.
+Azure Spring Apps supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing your Config Server files. When your repository is ready, this article describes how to create the configuration files and store them there.
 
-Additionally, some configurable properties are available only for certain types. The following subsections list the properties for each repository type.
+Additionally, some configurable properties are available only for certain types. The following sections describe the properties for each repository type.
 
 > [!NOTE]
-> Config Server takes *master* (on Git) as the default label if you don't specify one. However, GitHub has recently changed the default branch from *master* to *main*. To avoid Azure Spring Apps Config Server failure, be sure to pay attention to the default label when setting up Config Server with GitHub, especially for newly-created repositories.
+> Config Server takes `master` (on Git) as the default label if you don't specify one. However, GitHub has recently changed the default branch from `master` to `main`. To avoid Azure Spring Apps Config Server failure, be sure to pay attention to the default label when setting up Config Server with GitHub, especially for newly-created repositories.
 
 ### Public repository
 
@@ -105,7 +105,7 @@ The following table lists the configurable properties that you can use to set up
 | `password`      | No       | The password or personal access token used to access the Git repository server. Required when the Git repository server supports HTTP basic authentication. |
 
 > [!NOTE]
-> Many `Git` repository servers support the use of tokens rather than passwords for HTTP basic authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire shouldn't use token-based authentication with Azure Spring Apps.
+> Many Git repository servers support the use of tokens rather than passwords for HTTP basic authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire shouldn't use token-based authentication with Azure Spring Apps.
 > GitHub has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for GitHub. For more information, see [Token authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
 ### Other Git repositories
@@ -164,11 +164,11 @@ Updating the configuration can take a few minutes. You should get a notification
 
 ### Enter repository information directly to the Azure portal
 
-You can enter repository information for the default repository and, optionally, for addtional repositories.
+You can enter repository information for the default repository and, optionally, for additional repositories.
 
 #### Default repository
 
-Follow the steps in this section to enter repository information for a public or private repository.
+Use the steps in this section to enter repository information for a public or private repository.
 
 - **Public repository**: In the **Default repository** section, in the **Uri** box, paste the repository URI. Enter *config* for the **Label** setting. Ensure that the **Authentication** setting is *Public*, and then select **Apply**.
 
@@ -178,8 +178,8 @@ Follow the steps in this section to enter repository information for a public or
 
    :::image type="content" source="media/how-to-config-server/basic-auth.png" lightbox="media/how-to-config-server/basic-auth.png" alt-text="Screenshot of the Default repository section showing authentication settings for Basic authentication.":::
 
-   > [!CAUTION]
-   > Some Git repository servers use a *personal-token* or an *access-token*, such as a password, for HTTP basic authentication. You can use these types of tokens as a password in Azure Spring Apps because they will never expire. However, for other Git repository servers, such as Bitbucket and Azure DevOps Server, the *access-token* expires in one or two hours. As a result, this approach won't work when you use those repository servers with Azure Spring Apps.
+   > [!NOTE]
+   > Many Git repository servers support the use of tokens rather than passwords for HTTP basic authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire shouldn't use token-based authentication with Azure Spring Apps.
    > GitHub has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for GitHub. For more information, see [Token authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
    - **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the setting under **Authentication** to open the **Edit Authentication** pane. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your **Private key**. Optionally, specify your **Host key** and **Host key algorithm**. Include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
@@ -192,7 +192,7 @@ If you want to configure your service with an optional additional repository, sp
 
 ### Enter repository information into a YAML file
 
-If you've written a YAML file with your repository settings, you can import the file directly from your local machine to Azure Spring Apps. The following example shows a simple YAML file for a private repository with basic authentication:
+If you've written a YAML file with your repository settings, you can import the file directly from your local machine to Azure Spring Apps. The following example shows a simple YAML file for a private repository with basic authentication.
 
 ```yaml
 spring:
@@ -263,11 +263,11 @@ Select **Reset** on the **Config Server** tab to erase your existing settings. D
 
 ## Config Server refresh
 
-When properties are changed, services consuming those properties must be notified before changes can be made. The default solution for Spring Cloud Config is to manually trigger the refresh event, which may not be feasible if there are many app instances. For more information, see [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/)
+When properties are changed, services consuming those properties must be notified before changes can be made. The default solution for Spring Cloud Config Server is to manually trigger the refresh event, which may not be feasible if there are many app instances. For more information, see [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/)
 
-Instead, you can automatically refresh values from the config server by letting the config client poll for changes based on a refresh internal, as follows:
+Instead, you can automatically refresh values from Config Server by letting the config client poll for changes based on a refresh internal. Use the following steps to automatically refresh values from Config Server.
 
-1. Register a scheduled task to refresh the context in a given interval.
+1. Register a scheduled task to refresh the context in a given interval, as shown in the following example.
 
    ```java
    @ConditionalOnBean({RefreshEndpoint.class})
@@ -294,7 +294,7 @@ Instead, you can automatically refresh values from the config server by letting 
    }
    ```
 
-1. Enable auto-refresh and set the appropriate refresh interval in your *application.yml* file. In this example, the client polls for config changes every 60 seconds, which is the minimum value you can set for a refresh interval.
+1. Enable auto-refresh and set the appropriate refresh interval in your *application.yml* file. In the following example, the client polls for config changes every 60 seconds, which is the minimum value you can set for a refresh interval.
 
    By default, auto-refresh is set to *false* and the refresh-interval is set to *60 seconds*.
 
@@ -312,7 +312,7 @@ Instead, you can automatically refresh values from the config server by letting 
                  - refresh
    ```
 
-1. Add @RefreshScope in your code. In this example, the variable `connectTimeout` is automatically refreshed every 60 seconds.
+1. Add @RefreshScope in your code. In the following example, the variable `connectTimeout` is automatically refreshed every 60 seconds.
 
    ```java
    @RestController
@@ -323,8 +323,7 @@ Instead, you can automatically refresh values from the config server by letting 
    }
    ```
 
-> [!TIP]
-> For more information, see the [config-client-polling sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/config-client-polling).
+For more information, see the [config-client-polling sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/config-client-polling).
 
 ## Next steps
 
