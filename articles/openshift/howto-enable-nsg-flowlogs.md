@@ -5,7 +5,7 @@ author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: how-to
 ms.author: johnmarc
-ms.date: 08/09/2022
+ms.date: 08/30/2022
 topic: how-to
 recommendations: true
 keywords: azure, openshift, aro, red hat, azure CLI
