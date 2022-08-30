@@ -318,7 +318,7 @@ The `platform` section controls platform specific settings, such as the API lang
 
 ### Selecting the API language runtime version
 
-[!INCLUDE [Languages and runtimes](../../includes/container-apps-languages-runtimes.md)]
+[!INCLUDE [Languages and runtimes](../../includes/static-web-apps-languages-runtimes.md)]
 
 ## Networking
 
