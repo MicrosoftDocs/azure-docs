@@ -8,6 +8,7 @@ services: web-application-firewall
 ms.date: 08/29/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
+zone_pivot_groups: web-application-firewall-configuration
 ---
 
 # Configure a Web Application Firewall rate limit rule
@@ -28,7 +29,7 @@ You decide to create a rate limiting rule that restricts each client IP address 
 > [!TIP]
 > If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-# [Portal](#tab/portal)
+::: zone pivot="portal"
 
 ## Create a Front Door profile and WAF policy
 
@@ -110,7 +111,9 @@ Here, you reconfigure the WAF to use prevention mode.
 
    ![Screenshot of the Azure portal showing the custom rule list, including the new rate limiting rule.](../media/waf-front-door-rate-limit-configure/custom-rule-save.png)
 
-# [PowerShell](#tab/powershell)
+::: zone-end
+
+::: zone pivot="portal"
 
 ## Prerequisites
 
@@ -259,11 +262,13 @@ $frontDoorSecurityPolicy = New-AzFrontDoorCdnSecurityPolicy `
 > [!NOTE]
 > Whenever you make changes to your WAF policy, you don't need to recreate the Front Door security policy. WAF policy updates are automatically applied to the Front Door domains.
 
-# [Bicep](#tab/bicep)
+::: zone-end
+
+::: zone pivot="bicep"
 
 To create a Front Door profile with a rate limit rule by using Bicep, see the [Front Door Standard/Premium with rate limit](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-rate-limit/) Bicep quickstart.
 
----
+::: zone-end
 
 ## Next steps
 
