@@ -56,14 +56,10 @@ Because managed identity for storage is only used with the import/export feature
 
    :::image type="content" source="media/cache-managed-identity/system-assigned.png" alt-text="Advanced page of the form":::
 
-1. Complete the creation process. Once the cache has been created and deployed, open it, and select the **Identity** tab under the **Settings** section on the left.
+1. Complete the creation process. Once the cache has been created and deployed, open it, and select the **Identity** tab under the **Settings** section on the left. You see that a system-assigned **object ID** has been assigned to the cache **Identity**.
 
    :::image type="content" source="media/cache-managed-identity/identity-resource.png" alt-text="Managed Identity in the Resource menu":::
   
-1. You see that a system-assigned **object ID** has been assigned to the cache **Identity**.
-  
-   :::image type="content" source="media/cache-managed-identity/user-assigned.png" alt-text="System assigned resource settings for identity":::
-
 ## Add system assigned identity to an existing cache
 
 1. Navigate to your Azure Cache for Redis resource from the Azure portal. Select **Identity**  from the Resource menu on the left.
