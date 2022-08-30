@@ -66,7 +66,7 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 ```
 
 > [!NOTE]
-> Starting from 3.4.0-BETA, `telemetryKind` of `request`, `dependency`, `trace` (log), and `exception` is supported
+> Starting from 3.4.0-BETA, `telemetryKind` of `request`, `dependency`, `trace` (log), or `exception` is supported
 > (and should be set) on all sampling overrides, e.g.
 > ```json
 > {
@@ -78,14 +78,14 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 >     "sampling": {
 >       "overrides": [
 >         {
->           "telemetryKind": "request"
+>           "telemetryKind": "request",
 >           "attributes": [
 >             ...
 >           ],
 >           "percentage": 0
 >         },
 >         {
->           "telemetryKind": "request"
+>           "telemetryKind": "request",
 >           "attributes": [
 >             ...
 >           ],
