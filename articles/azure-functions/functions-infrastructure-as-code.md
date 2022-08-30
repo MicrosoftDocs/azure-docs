@@ -4,7 +4,7 @@ description: Learn how to build a Bicep file or an Azure Resource Manager templa
 
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 08/30/2022
 ms.custom: fasttrack-edit, devx-track-azurepowershell
 ---
 
@@ -155,9 +155,6 @@ Application Insights is recommended for monitoring your function apps. The Appli
 resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
   name: applicationInsightsName
   location: appInsightsLocation
-  tags: {
-    'hidden-link:${resourceId('Microsoft.Web/sites', applicationInsightsName)}': 'Resource'
-  }
   kind: 'web'
   properties: {
     Application_Type: 'web'
@@ -175,9 +172,6 @@ resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
     "apiVersion": "2020-02-02",
     "name": "[parameters('applicationInsightsName')]",
     "location": "[parameters('appInsightsLocation')]",
-    "tags": {
-      "[format('hidden-link:{0}', resourceId('Microsoft.Web/sites', parameters('applicationInsightsName')))]": "Resource"
-    },
     "kind": "web",
     "properties": {
       "Application_Type": "web",
@@ -188,8 +182,6 @@ resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
 ```
 
 ---
-
-***jgao: do we need "tags" in the sample?
 
 In addition, the instrumentation key needs to be provided to the function app using the `APPINSIGHTS_INSTRUMENTATIONKEY` application setting. This property is specified in the `appSettings` collection in the `siteConfig` object:
 
@@ -306,8 +298,6 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ```
 
 ---
-
-***jgao: I add some additional properties per the best practices.
 
 > [!IMPORTANT]
 > If you're explicitly defining a hosting plan, an additional item would be needed in the dependsOn array: `"[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"`
@@ -453,8 +443,6 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 ```
 
 ---
-
-***jgao: properties/name is read-only value now.
 
 #### Linux
 
@@ -620,7 +608,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ---
 
 > [!IMPORTANT]
-> Do not need to set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting in a deployment slot. This setting is generated for you when the app is created in the deployment slot.
+> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting in a new deployment slot. This setting is generated for you when the app is created in the deployment slot.
 
 #### Linux
 
@@ -1035,9 +1023,9 @@ In the App Service plan, your function app runs on dedicated VMs on Basic, Stand
 
 For a sample Bicep file/Azure Resource Manager template, see [Function app on Azure App Service plan].
 
-### Create an App Service plan
+### Create a Dedicated plan
 
-An App Service plan is defined by a `serverfarm` resource. You can specify the SKU as follows:
+In Functions, the Dedicated plan is just a regular App Service plan, which is defined by a `serverfarm` resource. You can specify the SKU as follows:
 
 #### Windows
 
@@ -1491,9 +1479,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 ---
 
-***jgao: remove extendedLocation.type because it is readonly.
-
-The plan resource should use the Kubernetes (K1) SKU, and its `kind` field should be "linux,kubernetes". Within `properties`, `reserved` should be "true", and `kubeEnvironmentProfile.id` should be set to the App Service Kubernetes environment resource ID. An example plan might look like:
+The plan resource should use the Kubernetes (K1) SKU, and its `kind` field should be `linux,kubernetes`. Within `properties`, `reserved` should be `true`, and `kubeEnvironmentProfile.id` should be set to the App Service Kubernetes environment resource ID. An example plan might look like:
 
 # [Bicep](#tab/bicep)
 
@@ -1547,9 +1533,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 ---
 
-***jgao: removed some of the properties.  See azureArc.bicep.
-
-The function app resource should have its `kind` field set to **functionapp,linux,kubernetes** or **functionapp,linux,kubernetes,container** depending on if you intend to deploy via code or container. An example function app might look like:
+The function app resource should have its `kind` field set to **functionapp,linux,kubernetes** or **functionapp,linux,kubernetes,container** depending on if you intend to deploy via code or container. An example .NET 6.0 function app might look like:
 
 # [Bicep](#tab/bicep)
 
