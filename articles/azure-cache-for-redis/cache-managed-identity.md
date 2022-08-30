@@ -69,6 +69,7 @@ Because managed identity for storage is only used with the import/export feature
    :::image type="content" source="media/cache-managed-identity/identity-save.png" alt-text="System assigned identity status is on":::
 
 1. A dialog pops up saying that your cache will be registered with Azure Active Directory and that it can be granted permissions to access resources protected by Azure AD. Select **Yes**.
+   :::image type="content" source="media/cache-managed-identity/user-assigned.png" alt-text="Screenshot showing a asking if you want to enable managed identity.":::
 
 1. You see an **Object (principal) ID**, indicating that the identity has been assigned.
 
