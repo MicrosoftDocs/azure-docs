@@ -506,19 +506,20 @@ In summary, this code introduces methods of the application dealing with user ac
 
 Now that we have our all our code set up, we now need to test it!
 
-1. Configure the server to listen to a TCP port that's based on the location of your *index.html* file. For Node.js, start the web server to listen to the port by running the following commands at a command-line prompt from the application folder:
+1. We now need to configure the server to listen to a TCP port that's based on the location of your `index.html` file. For Node.js, we can start the web server to listen to the port we have specified in the previous section by running the following commands at a command-line prompt from the `JavaScriptSPA` folder:
 
    ```bash
    npm install
    npm start
    ```
-1. In your browser, enter **http://localhost:3000** or **http://localhost:{port}**, where *port* is the port that your web server is listening to. You should see the contents of your *index.html* file and the **Sign In** button.
+
+1. In your browser, enter `http://localhost:3000` (or `http://localhost:{port}` if you have chosen a custom port). You should see the contents of your `index.html` file and a **Sign In** button on the top right of the screen.
 
 
 > [!Important]
-> Enable popups and redirects for your site in your browser settings.
+> Be sure to enable popups and redirects for your site in your browser settings.
 
-After the browser loads your *index.html* file, select **Sign In**. You're prompted to sign in with the Microsoft identity platform:
+After the browser loads your `index.html` file, select **Sign In**. You'll now be prompted to sign in with the Microsoft identity platform:
 
 ![The JavaScript SPA account sign-in window](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 
