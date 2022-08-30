@@ -53,11 +53,7 @@ The high-level steps for the Azure Logic Apps integration are as follows:
 - **Create a lifecycle workflow customTaskExtension which holds necessary information about the Azure Logic App**: Creating a custom task extension that references the configured Azure Logic App.
 - **Update or create a Lifecycle workflow with the “Run a custom task extension” task, referencing your created customTaskExtension**: Adding the newly created custom task extension to a new workflow, or updating the information to an existing workflow.
 
-
-
-
 ## Logic App parameters used by the custom task
-
 
 When creating a custom task extension from the Azure portal, you're able to create a Logic App, or link it to an existing one.
 :::image type="content" source="media/lifecycle-workflow-extensibility/custom-task-logic-app.png" alt-text="custom task create logic app."::: 
@@ -70,10 +66,6 @@ The following information is supplied to the custom task from the Logic App:
 
 
 For a guide on supplying this information to a custom task extension via Microsoft Graph, see: [Configure a Logic App for Lifecycle Workflow use](configure-logic-app-lifecycle-workflows.md).
-
-
-
-
 
 ## Next steps
 
