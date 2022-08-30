@@ -32,7 +32,7 @@ If you find content in a public repository where you *aren't* a contributor, you
 ### Validate your content
 
 The following Microsoft Sentinel content types can be deployed through a repository connection:
-- Analytic rules 
+- Analytics rules 
 - Automation rules
 - Hunting queries
 - Parsers
