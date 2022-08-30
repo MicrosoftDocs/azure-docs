@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Using an Azure Resource Manager template
+title: Quickstart - Create a new Azure Windows VM and connect it to an existing Automation account and Hybrid Worker Group using an Azure Resource Manager template
 description: Learn how to create a new Azure Windows VM and connect it to an existing Automation account and Hybrid Worker Group using Azure Resource Manager template.
 services: automation
 ms.subservice: process-automation
@@ -295,6 +295,24 @@ The following Azure resources are defined in the template:
 
 - [hybridRunbookWorkerGroups/hybridRunbookWorkers](/azure/templates/microsoft.automation/automationaccounts/hybridrunbookworkergroups/hybridrunbookworkers)
 - [Microsoft.Compute/virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions)
+
+## Review parameters
+
+Review the parameters used in this template.
+
+| Property | Description |
+| --- | --- |
+| automationAccount | The name of the existing Automation account. |
+| automationAccountLocation | The region of the existing Automation account. |
+| workerGroupName | The name of the existing Hybrid Worker Group. |
+| virtualMachineName | The name for the VM to be created. The default value is `simple-vm`. |
+| adminUsername | The VM admin user name. |
+| adminPassword | The VM admin password. |
+| vmLocation | The region for the new VM. The default value is `North Central US`. |
+| vmSize | The size for the new VM. The default value is `Standard_DS1_v2`. |
+| osVersion | The OS for the new Windows VM. The default value is `2019-Datacenter`. |
+| dnsNameForPublicIP | The DNS name for the public IP. |
+
 
 
 ## Next steps
