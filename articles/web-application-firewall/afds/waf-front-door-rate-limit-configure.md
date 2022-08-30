@@ -185,11 +185,19 @@ $frontDoorSecurityPolicy = New-AzFrontDoorCdnSecurityPolicy `
 
 1. On the Azure portal home page, select **Create a resource**.
 
+   ![Screenshot of the Azure portal showing the 'Create a resource' button on the home page.](../media/waf-front-door-rate-limit-configure/create-resource.png)
+
 1. Search for **Front Door**, and select **Front Door and CDN profiles**.
+
+   ![Screenshot of the Azure portal showing the marketplace, with Front Door highlighted.](../media/waf-front-door-rate-limit-configure/create-front-door.png)
 
 1. Select **Create**.
 
+   ![Screenshot of the Azure portal showing the marketplace and Front Door, with the create button highlighted.](../media/waf-front-door-rate-limit-configure/create-front-door-2.png)
+
 1. Select **Continue to create a Front Door** to use the *quick create* portal creation process.
+
+   ![Screenshot of the Azure portal showing the Front Door offerings, with the 'Quick create' option selected and the 'Continue to create a Front Door' button highlighted.](../media/waf-front-door-rate-limit-configure/quick-create.png)
 
 1. Enter the information required on the *Basics* page:
 
@@ -201,21 +209,33 @@ $frontDoorSecurityPolicy = New-AzFrontDoorCdnSecurityPolicy `
 
 1. Next to **WAF policy**, select **Create new**.
 
+   ![Screenshot of the Azure portal showing the Front Door creation workflow, with the WAF policy 'Create new' button highlighted.](../media/waf-front-door-rate-limit-configure/front-door-waf-policy-create.png)
+
 1. Enter the name of a WAF policy and select **Create**.
+
+   ![Screenshot of the Azure portal showing the WAF policy creation prompt, with the 'Create' button highlighted.](../media/waf-front-door-rate-limit-configure/waf-policy-create.png)
 
 1. Select **Review + create**, then select **Create**.
 
 ## Use prevention mode on the WAF
 
+By default, the Azure portal creates WAF policies in detection mode. This setting means that the WAF won't block requests. For more information, see [WAF modes](afds-overview.md#waf-modes).
+
+Here, you reconfigure the WAF to use prevention mode.
+
 1. Open the WAF policy.
 
-   Notice that the *Policy mode* is *Detection*. This setting means that the WAF won't block requests. For more information, see [WAF modes](afds-overview.md#waf-modes).
+   Notice that the *Policy mode* is *Detection*.
+
+   ![Screenshot of the Azure portal showing the WAF policy, with the policy mode and 'Switch to prevention mode' button highlighted.](../media/waf-front-door-rate-limit-configure/waf-policy-mode.png)
 
 1. Select **Switch to prevention mode**.
 
 ## Create a rate limit rule
 
 1. Select **Custom rules** > **Add custom rule**.
+
+   ![Screenshot of the Azure portal showing the WAF policy's custom rules page.](../media/waf-front-door-rate-limit-configure/custom-rule-add.png)
 
 1. Enter the information required to create a rate limiting rule:
 
@@ -233,9 +253,13 @@ $frontDoorSecurityPolicy = New-AzFrontDoorCdnSecurityPolicy `
    - **Operator:** Contains
    - **Match values:** */promo*
 
+   ![Screenshot of the Azure portal showing the custom rule configuration.](../media/waf-front-door-rate-limit-configure/custom-rule.png)
+
 1. Select **Add**.
 
 1. Select **Save**.
+
+   ![Screenshot of the Azure portal showing the custom rule list, including the new rate limiting rule.](../media/waf-front-door-rate-limit-configure/custom-rule-save.png)
 
 ::: zone-end
 
