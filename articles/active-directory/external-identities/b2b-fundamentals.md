@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 This article contains recommendations and best practices for business-to-business (B2B) collaboration in Azure Active Directory (Azure AD).
 
 > [!IMPORTANT]
-> The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. Learn more about [configuring email one-time passcode](one-time-passcode.md) and [fallback authentication methods](one-time-passcode.md#disable-email-one-time-passcode), such as unmanaged ("viral") accounts and Microsoft accounts.
+> The [email one-time passcode feature](one-time-passcode.md) is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. When this feature is turned off, the fallback authentication method is to prompt invitees to create a Microsoft account.
 
 ## B2B recommendations
 
