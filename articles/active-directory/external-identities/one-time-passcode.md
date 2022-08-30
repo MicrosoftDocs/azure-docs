@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/10/2022
+ms.date: 08/30/2022
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
@@ -26,7 +26,7 @@ You can enable this feature at any time in the Azure portal by configuring the E
 
 > [!IMPORTANT]
 >
-> - The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven’t explicitly turned it off. This feature provides a seamless fallback authentication method for your guest users. If you don’t want to use this feature, you can [disable it](#disable-email-one-time-passcode), in which case users will redeem invitations using unmanaged ("viral") Azure AD accounts as a fallback. Soon, we’ll stop creating new unmanaged accounts and tenants during invitation redemption, and we'll enforce redemption with a Microsoft account instead.
+> - The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven’t explicitly turned it off. This feature provides a seamless fallback authentication method for your guest users. If you don’t want to use this feature, you can [disable it](#disable-email-one-time-passcode), in which case users will be prompted to create a Microsoft account instead.
 > - Email one-time passcode settings have moved in the Azure portal from **External collaboration settings** to **All identity providers**.
 > [!NOTE]
 > One-time passcode users must sign in using a link that includes the tenant context (for example, `https://myapps.microsoft.com/?tenantid=<tenant id>` or `https://portal.azure.com/<tenant id>`, or in the case of a verified domain, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Direct links to applications and resources also work as long as they include the tenant context. Guest users are currently unable to sign in using endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com` will result in an error.
@@ -91,7 +91,7 @@ Guest user teri@gmail.com is invited to Fabrikam, which doesn't have Google fede
 
 ## Disable email one-time passcode
 
-The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. This feature provides a seamless fallback authentication method for your guest users. If you don't want to use this feature, you can disable it, in which case users will redeem invitations using unmanaged ("viral") Azure AD accounts as a fallback. Soon, we'll stop creating new unmanaged accounts and tenants during invitation redemption, and we'll enforce redemption with a Microsoft account instead.
+The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. This feature provides a seamless fallback authentication method for your guest users. If you don't want to use this feature, you can disable it, in which case users will be prompted to create a Microsoft account.
 
 > [!NOTE]
 >
@@ -159,7 +159,7 @@ Your existing guest users won't be affected if you enable email one-time passcod
 
 **What is the user experience when email one-time passcode is disabled?**
 
-If you’ve disabled the email one-time passcode feature, the user redeems invitations using an unmanaged ("viral") account as a fallback. In a separate release, we’ll stop creating new, unmanaged Azure AD accounts and tenants during B2B collaboration invitation redemption and will enforce redemption with a Microsoft account.
+If you’ve disabled the email one-time passcode feature, the user is prompted to create a Microsoft account.
 
 Also, when email one-time passcode is disabled, users might see a sign-in error when they're redeeming a direct application link and they weren't added to your directory in advance.
 
