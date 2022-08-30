@@ -37,9 +37,9 @@ For language-specific examples of adding pooling in application code, see the
 >
 > Hyperscale (Citus) also provides [server-side connection
 > pooling](concepts-connection-pool.md) using pgbouncer, but it mainly serves
-> to increase the client connection limit. Short lived client connections
-> benefit more from client- rather than server-side pooling. (Although both
-> forms of pooling can be used at once without harm.)
+> to increase the client connection limit. An individual application's
+> performance benefits more from client- rather than server-side pooling.
+> (Although both forms of pooling can be used at once without harm.)
 
 ## Scoping distributed queries
 
