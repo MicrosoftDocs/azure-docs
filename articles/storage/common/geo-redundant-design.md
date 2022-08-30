@@ -28,11 +28,9 @@ You can design your application to handle transient faults or significant outage
 
 Keep in mind these key considerations when designing your application for availability and resiliency using RA-GRS or RA-GZRS:
 
-- A read-only copy of the data you store in the primary region is asynchronously replicated in a secondary region. The storage service determines the location of the secondary region.
+- A read-only copy of the data you store in the primary region is asynchronously replicated in a secondary region. This asynchronous replication means that the read-only copy in the secondary region is [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency) with the data in the primary region. The storage service determines the location of the secondary region.
 
-- The read-only copy in the secondary region is [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency) with the data in the primary region.
-
-- You can use the Azure Storage client library to read data from the primary or secondary region, and to write data to the primary region. You can also automatically redirect read requests to the secondary region if a read request to the primary region times out.
+- You can use the Azure Storage client libraries to perform read and update requests against the primary region endpoint. If the primary region is unavailable, you can automatically redirect read requests to the secondary region. You can also configure your app to send read requests directly to the secondary region, if desired, even when the primary region is available.
 
 - If the primary region becomes unavailable, you can initiate an account failover. When you fail over to the secondary region, the DNS entries pointing to the primary region are changed to point to the secondary region. After the failover is complete, write access is restored for GRS and RA-GRS accounts. For more information, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
@@ -46,20 +44,11 @@ Later in this article, you'll learn more about [handling eventually consistent d
 
 ### Handling services separately or all together
 
-While unlikely, it's possible for one service (blobs, queues, tables) to become unavailable while the other services are still fully functional. You can handle the retries for each service separately, or you can handle retries generically for all the storage services together.
+While unlikely, it's possible for one service (blobs, queues, tables, or files) to become unavailable while the other services are still fully functional. You can handle the retries for each service separately, or you can handle retries generically for all the storage services together.
 
 For example, if you use queues and blobs in your application, you may decide to put in separate code to handle retryable errors for each service. That way, a blob service error will only affect the part of your application that deals with blobs, leaving queues to continue running as normal. If, however, you decide to handle all storage service retries together, then requests to both blob and queue services will be affected if either service returns a retryable error.
 
 Ultimately, this decision depends on the complexity of your application. You may prefer to handle failures by service to limit the impact of retries. Or you may decide to redirect read requests for all storage services to the secondary region when you detect a problem with any storage service in the primary region.
-
-### Further considerations
-
-The rest of this article will discuss these further considerations in greater detail:
-
-- Read-only mode and handling update requests
-- Retry handling for read and update requests
-- Example of handling eventually consistent data using **Last Sync Time**
-- Testing strategies
 
 ## Running your application in read-only mode
 
@@ -100,21 +89,25 @@ Uri secondaryAccountUri = new Uri($"https://{accountName}-secondary.blob.core.wi
 BlobClientOptions blobClientOptions = new BlobClientOptions()
 {
     Retry = {
-        //The delay between retry attempts for a fixed approach or the delay on which to base calculations for a backoff-based approach
+        // The delay between retry attempts for a fixed approach or the delay
+        // on which to base calculations for a backoff-based approach
         Delay = TimeSpan.FromSeconds(2),
 
-        //The maximum number of retry attempts before giving up
+        // The maximum number of retry attempts before giving up
         MaxRetries = 5,
 
-        //The approach to use for calculating retry delays
+        // The approach to use for calculating retry delays
         Mode = RetryMode.Exponential,
 
-        //The maximum permissible delay between retry attempts
+        // The maximum permissible delay between retry attempts
         MaxDelay = TimeSpan.FromSeconds(10)
     },
 
-    // If the GeoRedundantSecondaryUri property is set, the secondary Uri will be used for GET or HEAD requests during retries.
-    // If the status of the response from the secondary Uri is a 404, then subsequent retries for the request will not use the secondary Uri again, as this indicates that the resource may not have propagated there yet.
+    // If the GeoRedundantSecondaryUri property is set, the secondary Uri will be used for 
+    // GET or HEAD requests during retries.
+    // If the status of the response from the secondary Uri is a 404, then subsequent retries
+    // for the request will not use the secondary Uri again, as this indicates that the resource 
+    // may not have propagated there yet.
     // Otherwise, subsequent retries will alternate back and forth between primary and secondary Uri.
     GeoRedundantSecondaryUri = secondaryAccountUri
 };
@@ -162,7 +155,7 @@ Another consideration is how to handle multiple instances of an application, and
 
 Geo-redundant storage works by replicating transactions from the primary to the secondary region. The replication process guarantees that the data in the secondary region is eventually consistent. This means that all the transactions in the primary region will eventually appear in the secondary region, but that there may be a lag before they appear. There's also no guarantee that transactions will arrive in the secondary region in the same order as they were originally applied in the primary region. If your transactions arrive in the secondary region out of order, you *may* consider your data in the secondary region to be in an inconsistent state until the service catches up.
 
-The following table shows an example of what might happen when you update the details of an employee to make them a member of the **administrator role**. For the sake of this example, this requires you update the **employee** entity and update an **administrator role** entity with a count of the total number of administrators. Notice how the updates are applied out of order in the secondary region.
+The following example for Azure Table storage shows what might happen when you update the details of an employee to make them a member of the **administrator role**. For the sake of this example, this requires you update the **employee** entity and update an **administrator role** entity with a count of the total number of administrators. Notice how the updates are applied out of order in the secondary region.
 
 | **Time** | **Transaction**                                            | **Replication**                       | **Last Sync Time** | **Result** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------|
@@ -176,7 +169,7 @@ The following table shows an example of what might happen when you update the de
 
 In this example, assume the client switches to reading from the secondary region at T5. It can successfully read the **administrator role** entity at this time, but the entity contains a value for the count of administrators that isn't consistent with the number of **employee** entities that are marked as administrators in the secondary region at this time. Your client could display this value, with the risk that the information is inconsistent. Alternatively, the client could attempt to determine that the **administrator role** is in a potentially inconsistent state because the updates have happened out of order, and then inform the user of this fact.
 
-To recognize that it has potentially inconsistent data, the client can use the value of the **Last Sync Time** property, which you can get at any time by querying a storage service. **Last Sync Time** tells you the time when the data in the secondary region was last consistent and when the service had applied all the transactions prior to that point in time. In the example shown above, after the service inserts the **employee** entity in the secondary region, the last sync time is set to *T1*. It remains at *T1* until the service updates the **employee** entity in the secondary region when it's set to *T6*. If the client retrieves the last sync time when it reads the entity at *T5*, it can compare it with the timestamp on the entity. If the timestamp on the entity is later than the last sync time, then the entity is in a potentially inconsistent state, and you can take the appropriate action. Using this field requires that you know when the last update to the primary was completed.
+To determine whether a storage account has potentially inconsistent data, the client can check the value of the **Last Sync Time** property. **Last Sync Time** tells you the time when the data in the secondary region was last consistent and when the service had applied all the transactions prior to that point in time. In the example shown above, after the service inserts the **employee** entity in the secondary region, the last sync time is set to *T1*. It remains at *T1* until the service updates the **employee** entity in the secondary region when it's set to *T6*. If the client retrieves the last sync time when it reads the entity at *T5*, it can compare it with the timestamp on the entity. If the timestamp on the entity is later than the last sync time, then the entity is in a potentially inconsistent state, and you can take the appropriate action. Using this field requires that you know when the last update to the primary was completed.
 
 To learn how to check the last sync time, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
 
