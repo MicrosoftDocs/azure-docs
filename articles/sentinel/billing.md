@@ -180,7 +180,7 @@ The following data sources are free with Microsoft Sentinel:
 
 Although alerts are free, the raw logs for some Microsoft 365 Defender, Defender for Cloud Apps, Azure Active Directory (Azure AD), and Azure Information Protection (AIP) data types are paid.
 
-Some of the data connectors, such as Microsoft 365 Defender and Defender for Cloud Apps, include both free and paid data types. The following table lists the free data sources you can enable in Microsoft Sentinel. 
+The following table lists the free data sources you can enable in Microsoft Sentinel. 
 
 | Microsoft Sentinel data connector   | Free data type | 
 |-------------------------------------|--------------------------------|
