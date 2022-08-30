@@ -80,7 +80,7 @@ landingContent:
             url: troubleshoot-nat.md
 
   # Card (optional)
-  - title: Architectural Guidance
+  - title: Learn about Virtual Network NAT architecture
     linkLists:
       - linkListType: overview
         links:
