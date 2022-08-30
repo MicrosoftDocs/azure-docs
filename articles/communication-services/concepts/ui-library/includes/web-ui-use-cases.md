@@ -6,7 +6,9 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Use the UI Library to create calling and chat experiences through Azure Communication Services UI components and composites. In a composite, capabilities are built in directly and exposed when you integrate the composite into an application. In a UI component, capabilities are exposed through a combination of UI functionality and underlying stateful libraries. To take full advantage of these capabilities, we recommend that you use UI components with stateful call and chat client libraries.
+Use components and composites in the Azure Communication Services UI Library to create call and chat experiences in your applications. 
+
+In a composite, call and chat capabilities are built in directly and exposed when you integrate the composite into an application. In a UI component, call and chat capabilities are exposed through a combination of UI functionality and underlying stateful libraries. To take full advantage of these capabilities, we recommend that you use UI components with stateful call and chat client libraries.
 
 Get more conceptual documentation, quickstarts, and examples in the [UI Library storybook](https://azure.github.io/communication-ui-library).
 
@@ -26,11 +28,11 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 |                     | Make video preview available throughout a call for a local user |
 |                     | Make default avatars available when video is off            |
 |                     | Show shared screen content in the participant gallery |
-| Call configuration  | Manage microphone device                          |
-|                     | Manage camera device                               |
-|                     | Manage speaker device                              |
+| Call configuration  | Manage the microphone device                          |
+|                     | Manage the camera device                               |
+|                     | Manage the speaker device                              |
 |                     | Make local preview available for user to check video        |
-| Participants        | Show participant roster                                     |
+| Participants        | Show a participant roster                                     |
 
 ## Chat use cases
 
@@ -41,10 +43,10 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 | Chat actions | Send a chat message                                |
 |              | Receive a chat message                             |
 | Chat events  | Show typing indicators                                |
-|              | Send read receipt                                     |
+|              | Show a read receipt                                     |
 |              | Show when a participant is added or removed                        |
-|              | Show that the hat title changed                               |
-| Participants | Show participant roster                               |
+|              | Show changes to the chat title                               |
+| Participants | Show a participant roster                               |
 
 ## Supported identities
 
@@ -66,7 +68,7 @@ If you use UI components to deliver Teams interoperability experiences, begin by
 
 ## Customization
 
-Use UI Library patterns to modify components to fit the look and feel of your application. These capabilities are a key area of differentiation between Communication Services composites and UI components. Composites have fewer customization options for a simpler integration experience.
+Use UI Library patterns to modify components to match the look and feel of your application. Customization is a key difference between composites and UI components in Communication Services. Composites have fewer customization options for a simpler integration experience.
 
 The following table compares composites and UI components for customization use cases:
 
@@ -82,7 +84,7 @@ The following table compares composites and UI components for customization use 
 
 ## Observability
 
-The state management architecture of UI Library is decoupled, so you can access the stateful calling and chat clients directly. You can hook into the stateful client to read the state, handle events, and override behavior to pass onto the UI components.
+The state management architecture of UI Library is decoupled, so you can access stateful call and chat clients directly. You can hook into the stateful client to read the state, handle events, and override behavior to pass onto the UI components.
 
 The following table compares composites and UI components for observability use cases:
 
@@ -94,11 +96,11 @@ The following table compares composites and UI components for observability use 
 
 ## Recommended architecture
 
-Initialize a composite and base components by using an Azure Communication Services access token. It's important to get access tokens from Azure Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/access-tokens.md) and the [trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
+Initialize a composite and base components by using an Azure Communication Services access token. It's important to get access tokens from Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/access-tokens.md) and the [trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
 
 :::image type="content" source="../../media/mobile-ui/ui-library-architecture.png" border="false" alt-text="Diagram that shows the recommended UI Library architecture.":::
 
-Call and chat client libraries also must have the context for the call or chat they join. Like user access tokens, disseminate the context to clients by using your own trusted service.
+Call and chat client libraries must have the context for the call or chat they join. Like user access tokens, disseminate the context to clients by using your own trusted service.
 
 The following table summarizes initialization and resource management functions that are required to add context to a client library:
 
@@ -113,11 +115,11 @@ The following table summarizes initialization and resource management functions 
 
 | SDK    | Windows            | macOS                | Ubuntu   | Linux    | Android  | iOS        |
 | ------ | ------------------ | -------------------- | -------- | -------- | -------- | ---------- |
-| UI SDK | Chrome,\* Microsoft Edge | Chrome,\* Safari\*\* | Chrome\* | Chrome\* | Chrome\* | Safari\*\* |
+| UI SDK | Chrome\*, Microsoft Edge | Chrome\*, Safari\*\* | Chrome\* | Chrome\* | Chrome\* | Safari\*\* |
 
 \* The current version of Chrome and the two preceding releases are supported.
 
-\*\* Safari version 13.1 and later versions are supported. Outgoing video for Safari macOS is not yet supported, but it is supported on iOS. Outgoing screen sharing is supported only on desktop iOS.
+\*\* Safari version 13.1 and later versions are supported. Outgoing video for Safari macOS isn't yet supported, but it is supported for iOS. Outgoing screen sharing is supported only on desktop iOS.
 
 ## Accessibility
 
