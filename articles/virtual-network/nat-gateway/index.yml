@@ -80,12 +80,18 @@ landingContent:
             url: troubleshoot-nat.md
 
   # Card (optional)
-  - title: Architectural Guidance
+  - title: Learn about Virtual Network NAT architecture
     linkLists:
       - linkListType: overview
         links:
           - text: Architecture Framework for NAT gateway
             url: /azure/architecture/networking/guide/well-architected-network-address-translation-gateway
+
+      - linkListType: concept
+        links:
+          - text: Azure NAT Gateway considerations for multitenancy
+            url: /azure/architecture/guide/multitenant/service/nat-gateway
+           
  
    # Card (optional)
   - title: Security
