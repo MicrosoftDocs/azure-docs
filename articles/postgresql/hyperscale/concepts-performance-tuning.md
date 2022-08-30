@@ -267,8 +267,19 @@ performance.
 However, even with Hyperscale (Citus), as tables and indices grow larger, disk
 I/O can become a problem for data ingestion.  Things to look out for are an
 increasing number of 'IO' `wait_event_type` entries appearing in
-`citus_stat_activity` (see [system health and locks](#system-health-and-locks)
-above). Also look at [metrics in the Azure portal](concepts-monitoring.md),
+`citus_stat_activity`:
+
+```sql
+SELECT wait_event_type, wait_event count(*)
+  FROM citus_stat_activity
+ WHERE state='active'
+ GROUP BY 1,2;
+```
+
+Run the above query repeatedly to capture wait event related information. Note
+how the counts of different wait event types change.
+
+Also look at [metrics in the Azure portal](concepts-monitoring.md),
 particularly the IOPS metric maxing out.
 
 Tips:
