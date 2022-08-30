@@ -55,7 +55,7 @@ Learn more about data terms at the [Azure Monitor for Window Virtual Desktop glo
 If you want to monitor more Performance counters or Windows Event Logs, you can enable them to send diagnostics info to your Log Analytics workspace and monitor them in **Host Diagnostics: Host browser**. 
 
 - To add performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters)
-- To add Windows Events, see [Configuring Windows Event Logs](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs)
+- To add Windows Events, see [Configuring Windows Event Logs](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs)
 
 Can't find a data point to help diagnose an issue? Send us feedback!
 
