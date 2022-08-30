@@ -5,7 +5,7 @@ author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 04/01/2022
+ms.date: 08/30/2022
 ms.author: esarroyo
 ms.reviewer: mjbrown
 ms.custom: cosmos-db-video
@@ -14,7 +14,7 @@ ms.custom: cosmos-db-video
 # Best practices for Azure Cosmos DB .NET SDK
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article walks through the best practices for using the Azure Cosmos DB .NET SDK. Following these practices, will help improve your latency, availability, and boost overall performance. 
+This article walks through the best practices for using the Azure Cosmos DB .NET SDK. Following these practices, will help improve your latency, availability, and boost overall performance.
 
 Watch the video below to learn more about using the .NET SDK from a Cosmos DB engineer!
 
@@ -44,8 +44,12 @@ Watch the video below to learn more about using the .NET SDK from a Cosmos DB en
 |  <input type="checkbox"/>   |    Document Size  |    The request charge of a specified operation correlates directly to the size of the document. We recommend reducing the size of your documents as operations on large documents cost more than operations on smaller documents.      |
 | <input type="checkbox"/>   |     Increase the number of threads/tasks    |    Because calls to Azure Cosmos DB are made over the network, you might need to vary the degree of concurrency of your requests so that the client application spends minimal time waiting between requests. For example, if you're using the [.NET Task Parallel Library](/dotnet/standard/parallel-programming/task-parallel-library-tpl), create on the order of hundreds of tasks that read from or write to Azure Cosmos DB.     |
 |  <input type="checkbox"/> |    Enabling Query Metrics     |  For more logging of your backend query executions, you can enable SQL Query Metrics using our .NET SDK. For instructions on how to collect SQL Query Metrics [visit](profile-sql-api-query.md)    |
-|  <input type="checkbox"/>    | SDK Logging   | Use SDK logging to capture extra diagnostics information and troubleshoot latency issues.  Log the [diagnostics string](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet&preserve-view=true) in the V2 SDK or [`Diagnostics`](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet&preserve-view=true) in v3 SDK for more detailed cosmos diagnostic information for the current request to the service. As an example use case, capture Diagnostics on any exception and on completed operations if the `Diagnostics.ElapsedTime` is greater than a designated threshold value (that is, if you have an SLA of 10 seconds, then capture diagnostics when `ElapsedTime` > 10 seconds). It's advised to only use these diagnostics during performance testing.     |
+|  <input type="checkbox"/>    | SDK Logging   | Log [SDK diagnostics](#capture-diagnostics) for outstanding scenarios, such as exceptions or when requests go beyond an expected latency.
 |  <input type="checkbox"/>    | DefaultTraceListener   | The DefaultTraceListener poses performance issues on production environments causing high CPU and I/O bottlenecks. Make sure you're using the latest SDK versions or [remove the DefaultTraceListener from your application](performance-tips-dotnet-sdk-v3-sql.md#logging-and-tracing)  |
+
+## <a name="capture-diagnostics"></a>Capture the diagnostics
+
+[!INCLUDE[cosmos-db-dotnet-sdk-diagnostics](../includes/cosmos-db-dotnet-sdk-diagnostics.md)]
 
 ## Best practices when using Gateway mode
 Increase `System.Net MaxConnections` per host when you use Gateway mode. Azure Cosmos DB requests are made over HTTPS/REST when you use Gateway mode. They're subject to the default connection limit per hostname or IP address. You might need to set `MaxConnections` to a higher value (from 100 through 1,000) so that the client library can use multiple simultaneous connections to Azure Cosmos DB. In .NET SDK 1.8.0 and later, the default value for `ServicePointManager.DefaultConnectionLimit` is 50. To change the value, you can set `Documents.Client.ConnectionPolicy.MaxConnectionLimit` to a higher value.
