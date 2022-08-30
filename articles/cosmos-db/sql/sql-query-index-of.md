@@ -40,13 +40,24 @@ INDEX_OF(<str_expr1>, <str_expr2> [, <numeric_expr>])
   The following example returns the index of various substrings inside "abc".  
   
 ```sql
-SELECT INDEX_OF("abc", "ab") AS i1, INDEX_OF("abc", "b") AS i2, INDEX_OF("abc", "c") AS i3 
+SELECT 
+    INDEX_OF("abc", "ab") AS index_of_prefix, 
+    INDEX_OF("abc", "b") AS index_of_middle, 
+    INDEX_OF("abc", "c") AS index_of_last,
+    INDEX_OF("abc", "d") AS index_of_missing
 ```  
   
  Here is the result set.  
   
 ```json
-[{"i1": 0, "i2": 1, "i3": -1}]  
+[
+  {
+    "index_of_prefix": 0,
+    "index_of_middle": 1,
+    "index_of_last": 2,
+    "index_of_missing": -1
+  }
+] 
 ```  
 
 ## Next steps
