@@ -7,7 +7,7 @@ ms.date: 08/30/2022
 ms.author: helohr
 manager: femila
 ---
-# Microsoft Endpoint Manager for Azure Virtual Desktop
+# Manage session hosts with Microsoft Endpoint Manager
 
 We recommend using [Microsoft Endpoint Manager](https://www.microsoft.com/endpointmanager) to manage your Azure Virtual Desktop environment. Microsoft Endpoint Manager is a unified management platform that includes Microsoft Endpoint Configuration Manager and Microsoft Intune.
 
