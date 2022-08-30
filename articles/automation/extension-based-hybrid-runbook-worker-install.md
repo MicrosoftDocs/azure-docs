@@ -564,13 +564,16 @@ Review the parameters used in this template.
 | dnsNameForPublicIP | The DNS name for the public IP. |
 
 
-## Install Hybrid worker extension using REST API
+## Install Hybrid worker extension 
 
-### Prerequisites
+
+#### [using REST API](#tab/rest-api)
+
+**Prerequisites**
 
 You would require an Azure VM or Arc-enabled server. You can follow the steps [here](../azure-arc/servers/onboard-portal.md) to create an Arc connected machine.
 
-### Install and use Hybrid Worker extension using REST API
+**Install and use Hybrid Worker extension**
 
 To install and use Hybrid Worker extension using REST API, follow these steps. The West Central US region is considered in this example.
 
@@ -676,6 +679,14 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
     ```
    Response of the *PUT* call will confirm if the extension is successfully installed or not on the targeted VM. You can also go to the VM in the Azure portal, and check status of extensions installed on the target VM under **Extensions** tab.
 
+#### [Visual Studio](#tab/visual-studio)
+
+**Manage Hybrid Worker Extension**
+
+- To create, delete, and manage extension-based Hybrid Runbook Worker groups, see [az automation hrwg | Microsoft Docs](../cli/azure/automation/hrwg?view=azure-cli-latest)
+- To create, delete, and manage extension-based Hybrid Runbook Worker, see [az automation hrwg hrw | Microsoft Docs](../cli/azure/automation/hrwg/hrw?view=azure-cli-latest)
+
+---
 
 ## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
 
