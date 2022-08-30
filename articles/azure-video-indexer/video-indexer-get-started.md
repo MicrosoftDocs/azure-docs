@@ -26,6 +26,10 @@ Once you start using Azure Video Indexer, all your stored data and uploaded cont
 
 ## Upload a video using the Azure Video Indexer website
 
+### Supported browsers
+
+For more information, see [supported browsers](video-indexer-overview.md#supported-browsers).
+
 ### Supported file formats for Azure Video Indexer
 
 See the [input container/file formats](/azure/media-services/latest/encode-media-encoder-standard-formats-reference) article for a list of file formats that you can use with Azure Video Indexer.
@@ -47,7 +51,8 @@ See the [input container/file formats](/azure/media-services/latest/encode-media
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progress of the upload"::: 
 
-    The produced JSON output contains  `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility). 
+    The produced JSON output contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility). 
+    
 1. Once Azure Video Indexer is done analyzing, you'll get an email with a link to your video and a short description of what was found in your video. For example: people, spoken and written words, topics, and named entities.
 1. You can later find your video in the library list and perform different operations. For example: search, reindex, edit.
 
@@ -59,10 +64,6 @@ After you upload and index a video, you can continue using [Azure Video Indexer 
 For more details, see [Upload and index videos](upload-index-videos.md).
 
 To start using the APIs, see [use APIs](video-indexer-use-apis.md)
-
-## Supported browsers
-
-For more information, see [supported browsers](video-indexer-overview.md#supported-browsers).
 
 ## Next steps
 
