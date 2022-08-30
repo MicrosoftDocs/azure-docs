@@ -67,7 +67,7 @@ First we'll create our employee, Melva Prince.
   }
   }
    ```
- :::image type="content" source="media/tutorial-lifecycle-workflows/graph-1.png" alt-text="POST create Melva." lightbox="media/tutorial-lifecycle-workflows/graph-1.png":::
+ :::image type="content" source="media/tutorial-lifecycle-workflows/graph-post-user.png" alt-text="POST create Melva in graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-post-user.png":::
 
 Next, we'll create Britta Simon.  This is the account that will be used as our manager.
 
@@ -175,7 +175,7 @@ For the tutorial, the **mail** attribute only needs to be set on the manager acc
  5. At the top, select **Edit**.
  6. Under manager, select **Change** and Select **Britta Simon**.
  7. At the top, select **Save**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/user-1.png" alt-text="Edit user." lightbox="media/tutorial-lifecycle-workflows/user-1.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/user-1.png" alt-text="The Graph edit user option." lightbox="media/tutorial-lifecycle-workflows/user-1.png":::
  9. Go back to users and select **Britta Simon**.
  10. At the top, select **Edit**.
  11. Under **Email**, enter a valid email address.
@@ -194,7 +194,7 @@ In order to do this, we must get the object ID for our user Melva Prince.
  3.  Select **Users**.
  4.  Select **Melva Prince**.
  5.  Select the copy sign next to the **Object ID**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/update-2.png" alt-text="Object ID." lightbox="media/tutorial-lifecycle-workflows/update-2.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/update-2.png" alt-text="Graph Object ID." lightbox="media/tutorial-lifecycle-workflows/update-2.png":::
 
  6.  Now navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
  7. Sign-in to Graph Explorer with the global administrator account for your tenant.
@@ -224,13 +224,13 @@ The manager attribute is used for email notification tasks.  It's used by the li
     }
    ```
 
- :::image type="content" source="media/tutorial-lifecycle-workflows/graph-2.png" alt-text="PUT add manager." lightbox="media/tutorial-lifecycle-workflows/graph-2.png":::
+ :::image type="content" source="media/tutorial-lifecycle-workflows/graph-add-manager.png" alt-text="Add manager graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-add-manager.png":::
 
  6. Now, we can verify that the manager has been set correctly by changing the **PUT** to **GET**.
  7. Make sure `https://graph.microsoft.com/v1.0/users/<id>/manager/` is in the box.  The `<id>` is still that of Melva Prince. 
  8. Select **Run query**.  You should see Britta Simon returned in the Response.
 
- :::image type="content" source="media/tutorial-lifecycle-workflows/graph-3.png" alt-text="GET manager." lightbox="media/tutorial-lifecycle-workflows/graph-3.png":::
+ :::image type="content" source="media/tutorial-lifecycle-workflows/graph-get-manager.png" alt-text="Get manager Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-get-manager.png":::
 
 For more information about updating manager information for a user in Graph API, see [assign manager](/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http) documentation. You can also set this attribute in the Azure Admin center. For more information, see [add or change profile information](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context).
 

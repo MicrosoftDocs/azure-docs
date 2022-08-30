@@ -58,24 +58,24 @@ Use the following steps to create a pre-hire workflow that will generate a TAP a
  3.  Select **Identity Governance**.
  4.  Select **Lifecycle workflows (Preview)**.
  5.  On the **Overview (Preview)** page, select **New workflow**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-1.png" alt-text="New workflow" lightbox="media/tutorial-lifecycle-workflows/portal-1.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Select new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
 
  6. From the templates, select **select** under **Onboard pre-hire employee**.
-  :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2.png" alt-text="Select workflow." lightbox="media/tutorial-lifecycle-workflows/portal-2.png":::
+  :::image type="content" source="media/tutorial-lifecycle-workflows/select-template.png" alt-text="Select workflow template." lightbox="media/tutorial-lifecycle-workflows/select-template.png":::
     
  7.  Next, you will configure the basic information about the workflow.  This information includes when the workflow will trigger, known as **Days from event**.  So in this case, the workflow will trigger two days before the employee's hire date.  On the onboard pre-hire employee screen, add the following settings and then select **Next: Configure Scope**.
 
-     :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3.png" alt-text="Configure workflow." lightbox="media/tutorial-lifecycle-workflows/portal-3.png":::
+     :::image type="content" source="media/tutorial-lifecycle-workflows/configure-scope.png" alt-text="Select configure scope." lightbox="media/tutorial-lifecycle-workflows/configure-scope.png":::
 
    8.  Next, you will configure the scope. The scope determines which users this workflow will run against.  In this case, it will be on all users in the Sales department.  On the configure scope screen, under **Rule** add the following settings and then select **Next: Review tasks**
 
-       :::image type="content" source="media/tutorial-lifecycle-workflows/portal-5.png" alt-text="Scope workflow." lightbox="media/tutorial-lifecycle-workflows/portal-5.png":::
+       :::image type="content" source="media/tutorial-lifecycle-workflows/review-tasks.png" alt-text="Select review tasks." lightbox="media/tutorial-lifecycle-workflows/review-tasks.png":::
 
    9. On the following page, you may inspect the task if desired but no additional configuration is needed. Select **Next: Review + Create** when you are finished.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-6.png" alt-text="Review workflow." lightbox="media/tutorial-lifecycle-workflows/portal-6.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/onboard-review-create.png" alt-text="Review and create onboard workflow." lightbox="media/tutorial-lifecycle-workflows/onboard-review-create.png":::
 
    10.  On the review blade, verify the information is correct and select **Create**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-4.png" alt-text="Create workflow." lightbox="media/tutorial-lifecycle-workflows/portal-4.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/onboard-create.png" alt-text="Create onboard workflow." lightbox="media/tutorial-lifecycle-workflows/onboard-create.png":::
 
  
 ## Run the workflow 
