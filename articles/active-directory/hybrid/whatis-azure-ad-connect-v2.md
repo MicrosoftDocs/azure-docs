@@ -3,7 +3,7 @@ title: 'What is Azure AD Connect v2.0? | Microsoft Docs'
 description: Learn about the next version of Azure AD Connect.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
