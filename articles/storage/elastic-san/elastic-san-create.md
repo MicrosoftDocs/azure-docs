@@ -15,9 +15,8 @@ This article explains how to deploy and configure an Elastic SAN.
 
 ## Prerequisites
 
-An Azure Virtual Network with a subnet that has the Storage service endpoint registered.
-Register your subscription with the preview feature:
-`Register-AzProviderFeature -FeatureNameAllow ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan`
+- An Azure Virtual Network with a subnet that has the Storage service endpoint registered.
+- Register your subscription with the preview feature: `Register-AzProviderFeature -FeatureNameAllow ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan`
 
 ## Create the SAN
 
