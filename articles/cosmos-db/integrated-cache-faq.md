@@ -13,7 +13,7 @@ ms.reviewer: jucocchi
 # Azure Cosmos DB integrated cache frequently asked questions
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-The Azure Cosmos DB integrated cache is an in-memory cache that is built-in to Azure Cosmos DB. This article answers commonly asked questions about the Azure Cosmos DB integrated cache.
+The Azure Cosmos DB integrated cache is an in-memory cache that is built in to Azure Cosmos DB. This article answers commonly asked questions about the Azure Cosmos DB integrated cache.
 
 ## Frequently asked questions
 
@@ -62,5 +62,5 @@ The integrated cache supports both session and eventual consistency. You can als
 - [Configure the integrated cache](how-to-configure-integrated-cache.md)
 - [Dedicated gateway](dedicated-gateway.md)
 - Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

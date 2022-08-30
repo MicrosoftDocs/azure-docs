@@ -25,7 +25,7 @@ This article describes how to provision a dedicated gateway, configure the integ
 
 1. Navigate to an Azure Cosmos DB account in the Azure portal and select the **Dedicated Gateway** tab.
 
-   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-tab.png" alt-text="An image that shows how to navigate to the dedicated gateway tab" lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-tab.png" :::
+   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-tab.png" alt-text="Screenshot of the Azure Portal that shows how to navigate to the Azure Cosmos DB dedicated gateway tab." lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-tab.png" :::
 
 2. Fill out the **Dedicated gateway** form with the following details:
 
@@ -33,11 +33,11 @@ This article describes how to provision a dedicated gateway, configure the integ
    * **SKU** - Select a SKU with the required compute and memory size. The integrated cache will use approximately 50% of the memory, and the remaining memory is used for metadata and routing requests to the backend partitions.
    *  **Number of instances** - Number of nodes. For development purpose, we recommend starting with one node of the D4 size. Based on the amount of data you need to cache and to achieve high availability, you can increase the node size after initial testing.
 
-   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-input.png" alt-text="An image that shows sample input settings for creating a dedicated gateway cluster" lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-input.png" :::
+   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-input.png" alt-text="Screenshot of the Azure Portal dedicated gateway tab that shows sample input settings for creating a dedicated gateway cluster." lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-input.png" :::
 
 3. Select **Save** and wait about 5-10 minutes for the dedicated gateway provisioning to complete. When the provisioning is done, you'll see the following notification:
 
-   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-notification.png" alt-text="An image that shows how to check if dedicated gateway provisioning is complete" lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-notification.png" :::
+   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-notification.png" alt-text="Screenshot of a notification in the Azure Portal that shows how to check if dedicated gateway provisioning is complete." lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-notification.png" :::
 
 ## Configuring the integrated cache
 
@@ -47,7 +47,7 @@ When you create a dedicated gateway, an integrated cache is automatically provis
 
       The updated dedicated gateway connection string is in the **Keys** blade:
    
-      :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-connection-string.png" alt-text="An image that shows the dedicated gateway connection string" lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-connection-string.png" :::
+      :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-connection-string.png" alt-text="Screenshot of the Azure Portal keys tab with the dedicated gateway connection string." lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-connection-string.png" :::
 
       All dedicated gateway connection strings follow the same pattern. Remove `documents.azure.com` from your original connection string and replace it with `sqlx.cosmos.azure.com`. A dedicated gateway will always have the same connection string, even if you remove and reprovision it.
 

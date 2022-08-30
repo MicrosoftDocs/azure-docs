@@ -19,7 +19,7 @@ A dedicated gateway is server-side compute that is a front-end to your Azure Cos
 
 You can provision a dedicated gateway to improve performance at scale. The most common reason that you would want to provision a dedicated gateway is for caching. When you provision a dedicated gateway, an [integrated cache](integrated-cache.md) is automatically configured within the dedicated gateway. Point reads and queries that hit the integrated cache do not use any of your RUs. Provisioning a dedicated gateway with an integrated cache can help read-heavy workloads lower costs on Azure Cosmos DB.
 
-The dedicated gateway is built into Azure Cosmos DB. When you [provision a dedicated gateway](how-to-configure-integrated-cache.md), you have a fully-managed node that routes requests to backend partitions. Connecting to Azure Cosmos DB with the dedicated gateway provides lower and more predictable latency than connecting to Azure Cosmos DB with the standard gateway. Even cache misses will see latency improvements when comparing the dedicated gateway and standard gateway.
+The dedicated gateway is built into Azure Cosmos DB. When you [provision a dedicated gateway](how-to-configure-integrated-cache.md), you have a fully managed node that routes requests to backend partitions. Connecting to Azure Cosmos DB with the dedicated gateway provides lower and more predictable latency than connecting to Azure Cosmos DB with the standard gateway. Even cache misses will see latency improvements when comparing the dedicated gateway and standard gateway.
 
 There are only minimal code changes required in order for your application to use a dedicated gateway. Both new and existing Azure Cosmos DB accounts can provision a dedicated gateway for improved read performance.
 
@@ -31,7 +31,7 @@ cosmoscachefeedback@microsoft.com
 
 There are two [connectivity modes](./sql/sql-sdk-connection-modes.md) for Azure Cosmos DB, Direct mode and Gateway mode. With Gateway mode you can connect to either the standard gateway or the dedicated gateway depending on the endpoint you configure.
 
-:::image type="content" source="./media/dedicated-gateway/connection-policy.png" alt-text="An image that shows how Cosmos DB connectivity modes work." :::
+:::image type="content" source="./media/dedicated-gateway/connection-policy.png" alt-text="Diagram that shows how Cosmos DB connectivity modes work." :::
 
 ### Connect to Azure Cosmos DB using direct mode
 
@@ -43,14 +43,14 @@ If you connect to Azure Cosmos DB using gateway mode, your application will conn
 
 When connecting to Azure Cosmos DB with gateway mode, you can connect with either of the following options:
 
-* **Standard gateway** -  While the backend, which includes your provisioned throughput and storage, has dedicated capacity per container, the standard gateway is shared between many Azure Cosmos DB accounts. It is practical for many customers to share a standard gateway since the compute resources consumed by each individual customer is small.
+* **Standard gateway** -  While the backend, which includes your provisioned throughput and storage, has dedicated capacity per container, the standard gateway is shared between many Azure Cosmos DB accounts. It is practical for many customers to share a standard gateway since the compute resources consumed by each individual customer are small.
 * **Dedicated gateway** - In this gateway, the backend and gateway both have dedicated capacity. The integrated cache requires a dedicated gateway because it requires significant CPU and memory that is specific to your Azure Cosmos account.
 
 You must connect to Azure Cosmos DB using the dedicated gateway in order to use the integrated cache. The dedicated gateway has a different endpoint from the standard one provided with your Azure Cosmos DB account, but requests are routed in the same way. When you connect to your dedicated gateway endpoint, your application sends a request to the dedicated gateway, which then routes the request to different backend nodes. If possible, the integrated cache will serve the result.
 
 Diagram of gateway mode connection with a dedicated gateway:
 
-:::image type="content" source="./media/dedicated-gateway/dedicated-gateway-connection-policy.png" alt-text="An image that shows how the Cosmos DB dedicated gateway works." :::
+:::image type="content" source="./media/dedicated-gateway/dedicated-gateway-connection-policy.png" alt-text="Diagram that shows how the Cosmos DB dedicated gateway works." :::
  
 ## Provisioning the dedicated gateway
 
@@ -102,5 +102,5 @@ Read more about dedicated gateway usage in the following articles:
 - [Configure the integrated cache](how-to-configure-integrated-cache.md)
 - [Integrated cache FAQ](integrated-cache-faq.md)
 - Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

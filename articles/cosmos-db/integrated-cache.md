@@ -143,7 +143,7 @@ When using the integrated cache, it is helpful to monitor some key metrics. The 
 
 All existing metrics are available, by default, from the **Metrics** blade (not Metrics classic):
 
-   :::image type="content" source="./media/integrated-cache/integrated-cache-metrics.png" alt-text="An image that shows the location of integrated cache metrics" border="false":::
+   :::image type="content" source="./media/integrated-cache/integrated-cache-metrics.png" alt-text="Screenshot of the Azure Portal that shows the location of integrated cache metrics." border="false":::
 
 Metrics are either an average, maximum, or sum across all dedicated gateway nodes. For example, if you provision a dedicated gateway cluster with five nodes, the metrics reflect the aggregated value across all five nodes. It isn't possible to determine the metric values for each individual node.
 
@@ -181,5 +181,5 @@ In some cases, if latency is unexpectedly high, you may need more dedicated gate
 - [Configure the integrated cache](how-to-configure-integrated-cache.md)
 - [Dedicated gateway](dedicated-gateway.md)
 - Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
