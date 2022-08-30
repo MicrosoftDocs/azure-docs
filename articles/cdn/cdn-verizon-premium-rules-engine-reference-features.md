@@ -158,12 +158,6 @@ These features allow a request to be redirected or rewritten to a different URL.
 
 **[Back to the top](#top)**
 
-### <a name="waf"></a>Web Application Firewall
-
-The [Web Application Firewall](https://docs.edgecast.com/pci-cdn/Content/Web-Security/Web-Application-Firewall-WAF.htm) feature determines whether a request will be screened by Web Application Firewall.
-
-**[Back to the top](#top)**
-
 For the most recent features, see the [Verizon Rules Engine documentation](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Actions).
 
 ## Next steps
