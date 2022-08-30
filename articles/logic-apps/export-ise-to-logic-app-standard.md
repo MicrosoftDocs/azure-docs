@@ -186,16 +186,18 @@ If you export actions that depend on an integration account, you have to manuall
 
 ## Project folder structure
 
-You will find a new set of files and folders created on the Logic App Standard project after executing the export tool. The table below describes each file appended:
+After the export process finishes, your Standard logic app project contains new folders and files alongside most others in a [typical Standard logic app project](create-single-tenant-workflows-visual-studio-code.md).
 
-| Folder                    | File                                           | Description                                                                                                              |
-|---------------------------|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| .development\\ deployment | LogicAppStandardConnections.parameters.json    | ARM template parameters file for deployment of Managed Connectors                                                        |
-|                           | LogicAppStandardConnections.template.json      | ARM template definition for deployment of Managed Connectors                                                             |
-|                           | LogicAppStandardInfrastructure.parameters.json | ARM template parameters file for deployment of Logic App Standard App                                                    |
-|                           | LogicAppStandardInfrastructure.template.json   | ARM template definition for deployment of Logic App Standard App                                                         |
-| .logs/export              | exportReport.json                              | Export Report summary raw file, which includes all the steps required for post deployment remediation                    |
-|                           | exportValidation.json                          | Validation Report raw file, which includes validation results for each logic app exported.                               |
-|                           | README.md                                      | Markdown file with a summary of the export result, including the list of logic apps created and all required next steps. |
+The following table describes these new folders and files added by the export process:
+
+| Folder | File | Description |
+|--------|------|-------------|
+| .development\\deployment | LogicAppStandardConnections.parameters.json | Azure Resource Manager template parameters file for deploying managed connectors |
+| | LogicAppStandardConnections.template.json | Azure Resource Manager template definition for deploying managed connectors |
+| | LogicAppStandardInfrastructure.parameters.json | Azure Resource Manager template parameters file for deploying Standard logic app resource |
+| | LogicAppStandardInfrastructure.template.json | Azure Resource Manager template definition for deploying Standard logic app resource |
+| .logs\\export | exportReport.json | Export report summary raw file, which includes all the steps required for post-export remediation |
+| | exportValidation.json | Validation report raw file, which includes the validation results for each exported logic app. |
+| | README.md | Markdown file with export results summary, including the created logic apps and all the required next steps. |
 
 ## Next steps
