@@ -3,7 +3,7 @@ title: Troubleshoot sign in problems in Azure AD Domain Services | Microsoft Doc
 description: Learn how to troubleshoot common user sign-in problems and errors in Azure Active Directory Domain Services.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services

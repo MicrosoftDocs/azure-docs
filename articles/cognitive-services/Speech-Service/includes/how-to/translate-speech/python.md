@@ -58,7 +58,7 @@ def translate_speech_to_text():
     translation_config.speech_recognition_language = from_language
 ```
 
-The `speech_recognition_language` property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The `speech_recognition_language` property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 ## Add a translation language
 
