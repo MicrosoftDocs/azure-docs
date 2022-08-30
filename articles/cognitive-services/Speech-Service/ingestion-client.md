@@ -46,7 +46,7 @@ The following Speech service features are used by the Ingestion Client:
 - [Batch speech-to-text](/azure/cognitive-services/speech-service/batch-transcription): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
 - [Speaker identification](/azure/cognitive-services/speech-service/speaker-recognition-overview): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for call center customer verification scenarios or fraud detection.
 
-Language service features are also used by the Ingestion Client:
+Language service features used by the Ingestion Client:
 
 - [Personally Identifiable Information (PII) extraction and redaction](/azure/cognitive-services/language-service/personally-identifiable-information/how-to-call-for-conversations): Identify, categorize, and redact sensitive information in conversation transcription.
 - [Sentiment analysis and opinion mining](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview): Analyze transcriptions and associate positive, neutral, or negative sentiment at the utterance and conversation-level.
@@ -65,6 +65,6 @@ The tool is built to show customers results quickly. You can customize the tool 
 
 ## Next steps
 
-* [Learn more about Cognitive Services features for call center](/azure/cognitive-services/speech-service/call-center-overview?context=context/context)
+* [Learn more about Cognitive Services features for call center](/azure/cognitive-services/speech-service/call-center-overview)
 * [Explore the Language service features](/azure/cognitive-services/language-service/overview#available-features)
 * [Explore the Speech service features](/azure/cognitive-services/speech-service/overview)
