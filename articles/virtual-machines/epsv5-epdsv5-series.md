@@ -52,7 +52,7 @@ Epdsv5-series virtual machines feature the Ampere® Altra® Arm-based processor 
 - [Memory Preserving Updates](maintenance-and-updates.md): Supported 
 - [VM Generation Support](generation-2.md): Generation 2 
 - [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
-- [Ephemeral OS Disks](ephemeral-os-disks.md): Not supported
+- [Ephemeral OS Disks](ephemeral-os-disks.md): Supported
 - [Nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps | Max NICs | Max network bandwidth (Mbps) |
