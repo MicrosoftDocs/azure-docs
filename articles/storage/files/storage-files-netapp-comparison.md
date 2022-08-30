@@ -6,7 +6,7 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/04/2022
+ms.date: 08/30/2022
 ms.author: kendownie
 ---
 
@@ -37,7 +37,7 @@ Most workloads that require cloud file storage work well on either Azure Files o
 
 | Category | Azure Files | Azure NetApp Files |
 |---------|---------|---------|
-| Minimum Share/Volume Size | Premium<br><ul><li>100 GiB</li></ul><br>Standard<br><ul><li>No minimum.</li></ul> | All tiers<br><ul><li>100 GiB (Minimum capacity pool size: 4 TiB)</li></ul> |
+| Minimum Share/Volume Size | Premium<br><ul><li>100 GiB</li></ul><br>Standard<br><ul><li>No minimum (SMB only - NFS requires Premium shares).</li></ul> | All tiers<br><ul><li>100 GiB (Minimum capacity pool size: 4 TiB)</li></ul> |
 | Maximum Share/Volume Size | 100 TiB | All tiers<br><ul><li>100 TiB (500 TiB capacity pool limit)</li></ul><br>Up to 12.5 PiB per Azure NetApp account. |
 | Maximum Share/Volume IOPS | Premium<br><ul><li>Up to 100k</li></ul><br>Standard<br><ul><li>Up to 20k</li></ul> | Ultra and Premium<br><ul><li>Up to 450k </li></ul><br>Standard<br><ul><li>Up to 320k</li></ul> |
 | Maximum Share/Volume Throughput | Premium<br><ul><li>Up to 10 GiB/s</li></ul><br>Standard<br><ul><li>Up to 300 MiB/s</li></ul> | Ultra and Premium<br><ul><li>Up to 4.5 GiB/s</li></ul><br>Standard<br><ul><li>Up to 3.2GiB/s</li></ul> |

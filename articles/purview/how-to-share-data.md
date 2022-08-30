@@ -59,7 +59,8 @@ For an overview of how data sharing works, watch this short [demo](https://aka.m
     > - Redundancy options: LRS, GRS, RA-GRS
 
 * You need the **Owner** or **Storage Blob Data Owner** role on the source storage account to be able to share data. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
-* If the source storage account is in a different Azure subscription than the one for Microsoft Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types.md) in the Azure subscription where the Azure data store is located.
+* If the source storage account is in a different Azure subscription than the one for Microsoft Purview account, the Microsoft.Purview resource provider needs to be registered in the Azure subscription where the Storage account is located. It is automatically registered at the time of share provider adding an asset if the user has permission to do the `/register/action` operation and therefore, Contributor or Owner roles to the subscription where the Storage account is located.
+This registration is only needed the first time when sharing or receiving data into a storage account in the Azure subscription.
 
 ## Create a share
 
