@@ -116,7 +116,7 @@ ARO uses Kubernetes MachineSet to create machine sets. The procedure below expla
 
 1. View existing machine sets.
 
-   For ease of set up, this example uses the first machine set as the one to clone to create a new GPU machine set.
+   For ease of setup, this example uses the first machine set as the one to clone to create a new GPU machine set.
 
    ```bash
    MACHINESET=$(oc get machineset -n openshift-machine-api -o=jsonpath='{.items[0]}' | jq -r '[.metadata.name] | @tsv')
