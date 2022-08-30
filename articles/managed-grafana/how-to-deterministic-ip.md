@@ -15,35 +15,51 @@ In this guide, learn how to activate deterministic outbound IP support used by A
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance with the deterministic outbound IP option set to enabled. If you don't have one yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
 - A data source. For example, an [Azure Data Explorer database](/azure/data-explorer/create-cluster-database-portal).
 
 ## Enable deterministic outbound IPs
 
-API keys are disabled by default in Azure Managed Grafana. There are two ways you can enable API keys:
+Deterministic outbound IP support is disabled by default in Azure Managed Grafana. You can enable this feature during the creation of the instance, or you can activate it on an instance that's already been created.
 
-- During the creation of the Azure Managed Grafana workspace, enable **Deterministic outbound IP** in the **Advanced** tab.
-- In your Managed Grafana workspace.
+### Create an Azure Managed Grafana workspace with deterministic outbound IPs enabled
 
-    ### [Portal](#tab/portal)
+#### [Portal](#tab/portal)
 
-    1. In the Azure portal, under **Settings** select **Configuration**, and then under **Deterministic outbound IP**, select **Enable**.
+When creating an instance, in the **Advanced** tab, set **Deterministic outbound IP** to **Enable**. 
 
-        :::image type="content" source="media/deterministic-ips/enable-deterministic-IP-support.png" alt-text="Screenshot of the Azure platform. Enable deterministic IPs.":::
-    1. Select **Save** to confirm the activation of deterministic outbound IP addresses.
-    1. Select **Refresh** to display the list of IP addresses under **Static IP address**.
+For more information about creating a new instance, go to [Quickstart: Create an Azure Managed Grafana instance](quickstart-managed-grafana-portal.md).
 
-    ### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
-    Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to update your Azure Managed Grafana instance and enable deterministic outbound IPs. Replace `<azure-managed-grafana-instance-name>` with the name of your Azure Managed Grafana instance.
+Run the [az grafana create](/cli/azure/grafana#az-grafana-create) command to create an Azure Managed Grafana instance with deterministic outbound IPs enabled. Replace `<azure-managed-grafana-name>` and `<resource-group>` with the name of the new Azure Managed Grafana instance and a resource group.
 
-    ```azurecli-interactive
-    az grafana update --name <azure-managed-grafana-instance-name> --deterministic-outbound-ip Enabled
-    ```
+```azurecli-interactive
+az grafana create --name <azure-managed-grafana-name> --resource-group <resource-group> --deterministic-outbound-ip Enabled
+```
 
-    ---
+---
 
-On the **Configuration** page, Azure Managed Grafana lists two outbound static IP addresses assigned to your instance.
+### Activate deterministic outbound IPs on an existing Azure Managed Grafana instance
+
+#### [Portal](#tab/portal)
+
+  1. In the Azure portal, under **Settings** select **Configuration**, and then under **Deterministic outbound IP**, select **Enable**.
+
+      :::image type="content" source="media/deterministic-ips/enable-deterministic-IP-support.png" alt-text="Screenshot of the Azure platform. Enable deterministic IPs.":::
+  1. Select **Save** to confirm the activation of deterministic outbound IP addresses.
+  1. Select **Refresh** to display the list of IP addresses under **Static IP address**.
+
+#### [Azure CLI](#tab/azure-cli)
+
+Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to update your Azure Managed Grafana instance and enable deterministic outbound IPs. Replace `<azure-managed-grafana-name>` with the name of your Azure Managed Grafana instance.
+
+```azurecli-interactive
+az grafana update --name <azure-managed-grafana-name> --deterministic-outbound-ip Enabled
+```
+
+The deterministic outbound IPs are listed under `outboundIPs` in the output of the Azure CLI.
+
+---
 
 ## Disable public access to a data source and allow Azure Managed Grafana IP addresses
 
@@ -66,17 +82,16 @@ Check if the Azure Managed Grafana endpoint can still access your data source.
 
 1. In the Azure portal, go to your instance's **Overview** page and select the **Endpoint** URL.
 
-1. Got to **Configuration > Data Source > Azure Data Explorer Datasource > Settings** and at the bottom of the page, select **Save & test**:
-
-    - If the message "Success" is displayed, Azure Managed Grafana can access your data source.
-    - If the following error message is displayed, Azure Managed Grafana can't access the data source: `Post "https://<Azure-Data-Explorer-URI>/v1/rest/query": dial tcp 13.90.24.175:443: i/o timeout`. Make sure that you've entered the IP addresses correctly in the data source firewall allowlist.
+1. Go to **Configuration > Data Source > Azure Data Explorer Datasource > Settings** and at the bottom of the page, select **Save & test**:
+   - If the message "Success" is displayed, Azure Managed Grafana can access your data source.
+   - If the following error message is displayed, Azure Managed Grafana can't access the data source: `Post "https://<Azure-Data-Explorer-URI>/v1/rest/query": dial tcp 13.90.24.175:443: i/o timeout`. Make sure that you've entered the IP addresses correctly in the data source firewall allowlist.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the [az grafana data-source query](/cli/azure/grafana/data-source#az-grafana-data-source-query) command to query the data source. Replace `<azure-managed-grafana-instance-name>` and `<data-source-name>` with the name of your Azure Managed Grafana instance and the name of your data source.
+Run the [az grafana data-source query](/cli/azure/grafana/data-source#az-grafana-data-source-query) command to query the data source. Replace `<azure-managed-grafana-name>` and `<data-source-name>` with the name of your Azure Managed Grafana instance and the name of your data source.
 
 ```azurecli-interactive
-az grafana data-source query --name <azure-managed-grafana-instance-name> --data-source <data-source-name> --output table
+az grafana data-source query --name <azure-managed-grafana-name> --data-source <data-source-name> --output table
 ```
 
 If the following error message is displayed, Azure Managed Grafana can't access the data source: `"error": "Post \\"https://<Azure-Data-Explorer-URI>/v1/rest/query\\": dial tcp 13.90.24.175:443: i/o timeout"`. Make sure that you've entered the IP addresses correctly in the data source firewall allowlist.
