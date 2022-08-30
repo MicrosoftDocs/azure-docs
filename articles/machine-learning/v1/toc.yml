@@ -23,6 +23,9 @@
       href: ../migrate-execute-r-script.md
 - name: Concepts (v1)
   items:
+  - name: Model training
+    displayName: run config, machine learning pipeline, ml pipeline, train model
+    href: concept-train-machine-learning-model-v1.md
   - name: Work with data
     items: 
     - name: Data access
