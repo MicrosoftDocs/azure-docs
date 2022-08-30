@@ -11,21 +11,22 @@ ms.service: machine-configuration
 
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
-- Guest configuration agent release notes
-- Agent issues
-- Agent FAQs
+## About the guest configuration agent
+
+Placeholder text.
+
+## Release notes
+
+Placeholder text.
+
+## Known issues
+
+Placeholder text.
+
+## FAQ
+
+Following are the most common frequently asked questions (FAQs) for the guest configuration agent:
 
 ## Next steps
 
-- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
-- [Create a package artifact](./machine-configuration-create.md)
-  for machine configuration.
-- [Test the package artifact](./machine-configuration-create-test.md)
-  from your development environment.
-- Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](./machine-configuration-create-definition.md)
-  for at-scale management of your environment.
-- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
-  Azure portal.
-- Learn how to view
-  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md) policy assignments.
+- related links go here
