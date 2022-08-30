@@ -151,7 +151,7 @@ The process of deletion is automatically initiated when you unregister the agent
  
 ### Authorization
 
-The registered agent needs to be authorized to several services and resources in your subscription. The managed identity is its way to prove its identity. The Azure service or resource can then decide if the agent is authorized to access it.
+The registered agent needs to be authorized to access several services and resources in your subscription. The managed identity is its way to prove its identity. The Azure service or resource can then decide if the agent is authorized to access it.
 
 The agent is automatically authorized to converse with the Storage Mover service. You won't be able to see or influence this authorization short of destroying the managed identity, for instance by un-registering the agent.
 
@@ -159,7 +159,7 @@ The agent is automatically authorized to converse with the Storage Mover service
 
 Perhaps the most important resource the agent needs to be authorized for access is the Azure Storage that is the target for a migration job. [Role-based access control](../role-based-access-control/overview.md) is used for that. For an Azure blob container as a target, the registered agent's managed identity is assigned to the built-in role "Storage Blob Data Contributor" of the target container (not the whole storage account).
 
-This assignment is made in the admin's logon context in the Azure portal. That means you must be a member of the control plane role "Owner" for the target container. This assignment is made just-in-time when you start a migration job. That is the definitive moment where you have selected an agent to execute a migration job. As part of this start action, the agent is given permissions to the target container. 
+This assignment is made in the admin's logon context in the Azure portal. That means the admin must be a member of the RBAC control plane role "Owner" for the target container. This assignment is made just-in-time when you start a migration job. That is the definitive moment where you have selected an agent to execute a migration job. As part of this start action, the agent is given permissions to the data plane of the target container. The agent won't be authorized to perform any management plane actions, such as deleting the target container or configuring any features on it.
 
 > [!WARNING]
 > Access is granted to a specific agent just-in-time for running a migration job. However, the agent's authorization to access the target is not automatically removed. You must either manually remove the agent's managed identity from a specific target or unregister the agent to destroy the service principal. This action removes all target storage authorization as well as the ability of the agent to communicate with the Storage Mover and Azure ARC services.
