@@ -17,7 +17,7 @@ ms.subservice: data
 This document explains the limitations of Azure Communication Services APIs and possible resolutions.
 
 ## Throttling patterns and architecture
-When you hit service limitations, you will generally receive an HTTP status code 429 (Too many requests). In general, the following are best practices for handling throttling:
+When you hit service limitations, you'll generally receive an HTTP status code 429 (Too many requests). In general, the following are best practices for handling throttling:
 
 - Reduce the number of operations per request.
 - Reduce the frequency of calls.
@@ -29,7 +29,7 @@ You can find more general guidance on how to set up your service architecture to
 Before acquiring a phone number, make sure your subscription meets the [geographic and subscription](./telephony/plan-solution.md) requirements. Otherwise, you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
 
 | Operation | Scope | Timeframe | Limit (number of requests) |
-| --- | -- | -- | -- |
+|---|--|--|--|
 | Purchase phone number | Azure tenant | - | 1 |
 | Search for phone numbers | Azure tenant | one week | 5 |
 
@@ -51,12 +51,12 @@ If you want to purchase more phone numbers or place a special order, follow the 
 | **exchangeTokens**| 30 | 500 |
 
 ### Action to take
-We recommend acquiring identities and tokens before starting other transactions like creating chat threads or starting calls, for example, when your webpage is initially loaded, or the app is starting up. 
+We recommend acquiring identities and tokens before creating chat threads or starting calls. For example, when the webpage loads or the application starts. 
 
 For more information, see the [identity concept overview](./authentication.md) page.
 
 ## SMS
-When sending or receiving a high volume of messages, you might receive a ```429``` error. This error indicates you are hitting the service limitations, and your messages will be queued to be sent once the number of requests is below the threshold.
+When sending or receiving a high volume of messages, you might receive a ```429``` error. This error indicates you're hitting the service limitations, and your messages will be queued to be sent once the number of requests is below the threshold.
 
 Rate Limits for SMS:
 
@@ -65,16 +65,16 @@ Rate Limits for SMS:
 |Send Message|Per Number|60|200|200|
 
 ### Action to take
-If you require to send a volume of messages that exceed the rate limits, please email us at phone@microsoft.com.
+If you require to send a volume of messages that exceed the rate limits, email us at phone@microsoft.com.
 
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
 ## Email
-Sending a high volume of messages has a set of limitations on the number of email messages you can send. If you hit these limits, your messages will not be queued to be sent. You can submit these requests again, once the Retry-After time expires.
+Sending a high volume of messages has a set of limitations on the number of email messages you can send. If you hit these limits, your messages won't be queued to be sent. You can submit these requests again, once the Retry-After time expires.
 
 ### Rate Limits 
 
-|Operation|Scope|Timeframe (minutes)| Limit (number of email) |
+|Operation|Scope|Timeframe (minutes)| Limit (number of emails) |
 |---------|-----|-------------|-------------------|
 |Send Email|Per Subscription|1|10|
 |Send Email|Per Subscription|60|25|
@@ -89,7 +89,7 @@ Sending a high volume of messages has a set of limitations on the number of emai
 |Attachment size - per message |10 MB |
 
 ### Action to take
-This sandbox setup is to help developers start building the application. You can gradually request to increase the sending volume once the application is ready to go live. Please submit a support request to raise your desired sending limit if you require sending a volume of messages exceeding the rate limits.
+This sandbox setup is to help developers start building the application. You can gradually request to increase the sending volume once the application is ready to go live. Submit a support request to raise your desired sending limit if you require sending a volume of messages exceeding the rate limits.
 
 ## Chat
 
@@ -160,7 +160,7 @@ The following timeouts apply to the Communication Services Calling SDKs:
 For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md).
 
 ## Teams Interoperability and Microsoft Graph
-Using a Teams interoperability scenario, you will likely use some Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings).  
+Using a Teams interoperability scenario, you'll likely use some Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings).  
 
 Each service offered through Microsoft Graph has different limitations; service-specific limits are [described here](/graph/throttling) in more detail.
 
