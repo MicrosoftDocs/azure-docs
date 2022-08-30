@@ -162,7 +162,10 @@ blocking_nodeid                       | 1
 To see not only the locks happening at the moment, but historical patterns, you
 can capture locks in the PostgreSQL logs. To learn more, see the
 [log_lock_waits](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LOCK-WAITS)
-server setting in the PostgreSQL documentation.
+server setting in the PostgreSQL documentation. Another great resource is
+[seven tips for dealing with
+locks](https://www.citusdata.com/blog/2018/02/22/seven-tips-for-dealing-with-postgres-locks/)
+on the Citus Data Blog.
 
 ### Common problems and solutions
 
