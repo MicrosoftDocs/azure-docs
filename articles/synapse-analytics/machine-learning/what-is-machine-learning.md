@@ -71,7 +71,7 @@ Models that have been trained either in Azure Synapse or outside Azure Synapse c
 
 ## SynapseML
 
-SynapseML (previously known as MMLSpark), is an open-source library that simplifies the creation of massively scalable machine learning (ML) pipelines. It is an ecosystem of tools used to expand the Apache Spark framework in several new directions. SynapseML unifies several existing machine learning frameworks and new Microsoft algorithms into a single, scalable API that’s usable across Python, R, Scala, and Java. To learn more, see the [key features of SynapseML](synapse-machine-learning-library.md).
+SynapseML (previously known as MMLSpark), is an open-source library that simplifies the creation of massively scalable machine learning (ML) pipelines. It is an ecosystem of tools used to expand the Apache Spark framework in several new directions. SynapseML unifies several existing machine learning frameworks and new Microsoft algorithms into a single, scalable API that’s usable across Python, R, Scala, .NET, and Java. To learn more, see the [key features of SynapseML](synapse-machine-learning-library.md).
 
 ## Next steps
 
