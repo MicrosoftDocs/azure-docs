@@ -91,7 +91,7 @@ Volumes are usable partitions of the SAN's total capacity, you must provision th
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-## Create the volume, this script only creates one.
+## Create the volume, this command only creates one.
 New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -GroupName $volGroupName -Name "volumeName" -sizeGiB 50
 ```
 
