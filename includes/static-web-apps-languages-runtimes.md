@@ -47,3 +47,17 @@ The following example configuration demonstrates how to use the `apiRuntime` pro
   ...
 }
 ```
+
+### Python
+
+The following example configuration demonstrates how to use the `apiRuntime` property to select Python 3.8 as the API language runtime version in the _staticwebapp.config..json_ file.
+
+```json
+{
+  ...
+  "platform": {
+    "apiRuntime": "python:3.8"
+  }
+  ...
+}
+```
