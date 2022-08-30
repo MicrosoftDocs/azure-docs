@@ -1,10 +1,9 @@
 ---
-title: Microsoft Endpoint Manager for Azure Virtual Desktop
-description: Recommended ways for you to manage your Azure Virtual Desktop environment.
+title: Manage session hosts with Microsoft Endpoint Manager - Azure Virtual Desktop
+description: Recommended ways for you to manage your Azure Virtual Desktop session hosts.
 author: heidilohr
-
 ms.topic: conceptual
-ms.date: 06/29/2022
+ms.date: 08/30/2022
 ms.author: helohr
 manager: femila
 ---
