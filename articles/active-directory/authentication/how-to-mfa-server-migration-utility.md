@@ -44,7 +44,8 @@ Admins can use the MFA Server Migration Utility to target single users or groups
 ||[Configure MFA Server Migration Utility](#configure-the-mfa-server-migration-utility) |
 |Migrations |[Migrate user data](#migrate-user-data)|
 ||[Validate and test](#validate-and-test)|
-||[Educate users](#educate-users)|[Staged Rollout](#enable-staged-rollout-using-azure-portal) |
+||[Staged Rollout](#enable-staged-rollout-using-azure-portal) |
+||[Educate users](#educate-users)|
 ||[Complete user migration](#complete-user-migration)|
 |Finalize |[Migrate MFA Server dependencies](#migrate-mfa-server-dependencies)|
 ||[Update domain federation settings](#update-domain-federation-settings)|
