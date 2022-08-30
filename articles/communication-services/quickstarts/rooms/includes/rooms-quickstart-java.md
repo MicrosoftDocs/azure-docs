@@ -194,4 +194,4 @@ roomsClient.deleteRoomWithResponse(roomId, Context.NONE);
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services rooms from the [Java SDK reference](https://docs.microsoft.com/java/api/overview/azure/communication-rooms-readme) or [REST API reference](https://docs.microsoft.com/rest/api/communication/rooms).
+Read about the full set of capabilities of Azure Communication Services rooms from the [Java SDK reference](/java/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).

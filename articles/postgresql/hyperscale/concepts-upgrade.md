@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 08/29/2022
 ---
 
 # Hyperscale (Citus) server group upgrades
@@ -20,9 +20,15 @@ higher.
 
 ## Upgrade precautions
 
-Upgrading a major version of Citus can introduce changes in behavior.
-It's best to familiarize yourself with new product features and changes
-to avoid surprises.
+Upgrades require some downtime in the database cluster. The exact time depends
+on the source and destination versions of the upgrade. To prepare for the
+production cluster upgrade, we recommend [testing the
+upgrade](howto-upgrade.md#test-the-upgrade-first), and measure downtime during
+the test.
+
+Also, upgrading a major version of Citus can introduce changes in behavior.
+It's best to familiarize yourself with new product features and changes to
+avoid surprises.
 
 Noteworthy Citus 11 changes:
 

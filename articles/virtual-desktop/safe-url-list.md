@@ -10,7 +10,7 @@ manager: femila
 
 # Required URLs for Azure Virtual Desktop
 
-In order to deploy and make Azure Virtual Desktop available to your users, you must allow specific URLs that your session host virtual machines (VMs) can access them anytime. Users also need to be able to connect to certain URLs to access their Azure Virtual Desktop resources. This article lists the required URLs you need to allow for your session hosts and users if you're using [Azure Firewall](../firewall/protect-azure-virtual-desktop.md) or a third-party firewall or proxy service. Azure Virtual Desktop doesn't support deployments that block the URLs listed in this article.
+In order to deploy and make Azure Virtual Desktop available to your users, you must allow specific URLs that your session host virtual machines (VMs) can access them anytime. Users also need to be able to connect to certain URLs to access their Azure Virtual Desktop resources. This article lists the required URLs you need to allow for your session hosts and users. These URLs could be blocked if you're using [Azure Firewall](../firewall/protect-azure-virtual-desktop.md) or a third-party firewall or proxy service. Azure Virtual Desktop doesn't support deployments that block the URLs listed in this article.
 
 You can validate that your session host VMs can connect to these URLs by following the steps to run the [Required URL Check tool](required-url-check-tool.md). The Required URL Check tool will validate each URL and show whether your session host VMs can access them. You can only use for deployments in the Azure public cloud, it does not check access for sovereign clouds.
 
@@ -37,7 +37,7 @@ The following table is the list of URLs your session host VMs need to access for
 | `www.microsoft.com` | 80 | Certificates | N/A |
 
 > [!IMPORTANT]
-> We've finished transitioning the URLs we use for Agent traffic. We no longer support the following URLs. To prevent your session host VMs from showing a *Needs Assistance* status, You must allow `*.prod.warm.ingest.monitor.core.windows.net` if you haven't already. You must also remove the following URLs if you explicitly allowed them before the change:
+> We've finished transitioning the URLs we use for Agent traffic. We no longer support the following URLs. To prevent your session host VMs from showing a *Needs Assistance* status due to this, you must allow the URL `*.prod.warm.ingest.monitor.core.windows.net` if you haven't already. You should also remove the following URLs if you explicitly allowed them before the change:
 > 
 > | Address | Outbound TCP port | Purpose | Service tag |
 > |--|--|--|--|
@@ -53,7 +53,7 @@ The following table lists optional URLs that your session host virtual machines 
 |--|--|--|
 | `login.windows.net` | 443 | Sign in to Microsoft Online Services and Microsoft 365 |
 | `*.events.data.microsoft.com` | 443 | Telemetry Service |
-| `www.msftconnecttest.com` | 443 | Detects if the OS is connected to the internet |
+| `www.msftconnecttest.com` | 443 | Detects if the session host is connected to the internet |
 | `*.prod.do.dsp.mp.microsoft.com` | 443 | Windows Update |
 | `*.sfx.ms` | 443 | Updates for OneDrive client software |
 | `*.digicert.com` | 443 | Certificate revocation check |
@@ -64,7 +64,7 @@ The following table lists optional URLs that your session host virtual machines 
 
 | Address | Outbound TCP port | Purpose | Service tag |
 |--|--|--|--|
-| `login.microsoftonline.us` | 443 | Authentication to Microsoft Online Services and Microsoft 365 |
+| `login.microsoftonline.us` | 443 | Authentication to Microsoft Online Services |
 | `*.wvd.azure.us` | 443 | Service traffic | WindowsVirtualDesktop |
 | `*.prod.warm.ingest.monitor.core.usgovcloudapi.net` | 443 | Agent traffic | AzureMonitor |
 | `gcs.monitoring.core.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
@@ -76,7 +76,7 @@ The following table lists optional URLs that your session host virtual machines 
 | `ocsp.msocsp.com` | 80 | Certificates | N/A |
 
 > [!IMPORTANT]
-> We've finished transitioning the URLs we use for Agent traffic. We no longer support the following URLs. To prevent your session host VMs from showing a *Needs Assistance* status, you must allow the URL `*.prod.warm.ingest.monitor.core.usgovcloudapi.net`, if you haven't already. You must also remove the following URLs if you explicitly allowed them before the change:
+> We've finished transitioning the URLs we use for Agent traffic. We no longer support the following URLs. To prevent your session host VMs from showing a *Needs Assistance* status due to this, you must allow the URL `*.prod.warm.ingest.monitor.core.usgovcloudapi.net`, if you haven't already. You should also remove the following URLs if you explicitly allowed them before the change:
 > 
 > | Address | Outbound TCP port | Purpose | Service tag |
 > |--|--|--|--|
@@ -91,7 +91,7 @@ The following table lists optional URLs that your session host virtual machines 
 | Address | Outbound TCP port | Purpose |
 |--|--|--|
 | `*.events.data.microsoft.com` | 443 | Telemetry Service |
-| `www.msftconnecttest.com` | 443 | Detects if the OS is connected to the internet |
+| `www.msftconnecttest.com` | 443 | Detects if the session host is connected to the internet |
 | `*.prod.do.dsp.mp.microsoft.com` | 443 | Windows Update |
 | `oneclient.sfx.ms` | 443 | Updates for OneDrive client software |
 | `*.digicert.com` | 443 | Certificate revocation check |
@@ -127,6 +127,7 @@ Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=%2Fa
 
 | Address | Outbound TCP port | Purpose | Client(s) |
 |--|--|--|--|
+| `login.microsoftonline.com` | 443 | Authentication to Microsoft Online Services | All |
 | `*.wvd.microsoft.com` | 443 | Service traffic | All |
 | `*.servicebus.windows.net` | 443 | Troubleshooting data | All |
 | `go.microsoft.com` | 443 | Microsoft FWLinks | All |
@@ -139,6 +140,7 @@ Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=%2Fa
 
 | Address | Outbound TCP port | Purpose | Client(s) |
 |--|--|--|--|
+| `login.microsoftonline.us` | 443 | Authentication to Microsoft Online Services | All |
 | `*.wvd.azure.us` | 443 | Service traffic | All |
 | `*.servicebus.usgovcloudapi.net` | 443 | Troubleshooting data | All |
 | `go.microsoft.com` | 443 | Microsoft FWLinks | All |
