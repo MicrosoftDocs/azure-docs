@@ -4,7 +4,7 @@ description: Export logic app workflows from an integration service environment 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
-ms.topic: how-to-
+ms.topic: how-to
 ms.date: 09/14/2022
 #Customer intent: As a developer, I want to export one or more ISE workflows to a Standard workflow.
 ---
