@@ -7,7 +7,7 @@ manager: RezaJooyandeh
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/24/2022
+ms.date: 08/30/2022
 ms.topic: include
 ms.custom: include file
 ms.author: domessin
@@ -122,4 +122,18 @@ const identifierKind = getIdentifierKind(identifier); // now you can switch-case
 
 ## RawId representation
 
+Sometimes you need to serialize an identifier to a flat string. For example, if you want to store the identifier in a database table or if you'd like to use it as a url parameter.
 
+For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw Id, and a valid raw Id can always be converted to an identifier.
+
+Since `azure-communication-common@2.1.0` the SDK helps with the conversion:
+
+```typescript
+// get an identifier's raw Id
+const rawId = getIdentifierRawId(communicationIdentifier);
+
+// create an identifier from a given raw Id
+const identifier = createIdentifierFromRawId(rawId);
+```
+
+An invalid raw Id will just convert to an `UnknownIdentifier` in the SDK and any validation only happens service-side.

@@ -7,7 +7,7 @@ manager: RezaJooyandeh
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/24/2022
+ms.date: 08/30/2022
 ms.topic: include
 ms.custom: include file
 ms.author: domessin
@@ -91,19 +91,19 @@ While you construct identifiers for a concrete type that you pass *into* the SDK
 ```csharp
 switch (communicationIdentifier)
 {
-     case let communicationUser as CommunicationUserIdentifier:
-        print(#"Communication user: \(communicationUser.id)");
+    case CommunicationUserIdentifier communicationUser:
+        Console.WriteLine($"Communication user: {communicationUser.Id}");
         break;
-    case let teamsUser as MicrosoftTeamsUserIdentifier:
-        print(#"Teams user: \(teamsUser.UserId)");
+    case MicrosoftTeamsUserIdentifier teamsUser:
+        Console.WriteLine($"Teams user: {teamsUser.UserId}");
         break;
-    case phoneNumber as PhoneNumberIdentifier:
-        print(#"Phone number: \(phoneNumber.PhoneNumber)");
+    case PhoneNumberIdentifier phoneNumber:
+        Console.WriteLine($"Phone number: {phoneNumber.PhoneNumber}");
         break;
-    case let unknown as UnknownIdentifier:
-        print(#"Unknown: \(unknown.Id)");
+    case UnknownIdentifier unknown:
+        Console.WriteLine($"Unknown: {unknown.Id}");
         break;
-    @unknown default:
+    default:
         // be careful here whether you want to throw because a new SDK version
         // can introduce new identifier types
         break;
@@ -112,6 +112,18 @@ switch (communicationIdentifier)
 
 ## RawId representation
 
-- 1:1 translation from/to identifier
-- useful for db serialization, keys in dictionaries, url query params
-- how to construct per type
+Sometimes you need to serialize an identifier to a flat string. For example, if you want to store the identifier in a database table or if you'd like to use it as a url parameter.
+
+For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw Id, and a valid raw Id can always be converted to an identifier.
+
+Since `Azure.Communication.Common 1.2.0` the SDK helps with the conversion:
+
+```c#
+// get an identifier's raw Id
+string rawId = communicationIdentifier.RawId;
+
+// create an identifier from a given raw Id
+CommunicationIdentifier identifier = CommunicationIdentifier.FromRawId(rawId);
+```
+
+An invalid raw Id will just convert to an `UnknownIdentifier` in the SDK and any validation only happens service-side.

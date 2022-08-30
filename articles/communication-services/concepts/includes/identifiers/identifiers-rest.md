@@ -7,7 +7,7 @@ manager: RezaJooyandeh
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/24/2022
+ms.date: 08/30/2022
 ms.topic: include
 ms.custom: include file
 ms.author: domessin
@@ -145,7 +145,7 @@ If a new identifier got introduced in a service it will get downgraded to the `C
 
 #### API reference
 
-[UnknownIdentifier](/javascript/api/@azure/communication-common/unknownidentifier)
+[CommunicationIdentifierModel](https://github.com/Azure/azure-rest-api-specs/blob/c1883ee5b87c41dfcb699420409bc0e31cff0786/specification/communication/data-plane/Common/stable/2022-07-13/common.json#L87)
 
 ### How to handle the `CommunicationIdentifierModel` in responses
 
@@ -186,3 +186,21 @@ if (communicationIdentifier.communicationUser) {
     console.log(`Unknown: ${communicationIdentifier.rawId}`);
 }
 ```
+
+## RawId representation
+
+Sometimes you need to serialize an identifier to a flat string. For example, if you want to store the identifier in a database table or if you'd like to use it as a url parameter.
+
+For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw Id, and a valid raw Id can always be converted to an identifier.
+
+If you are using the Azure SDK it will help you with the conversion. Using the REST API directly, requires you to construct the raw id manually as follows.
+
+| Identifier | Raw Id |
+|---|---|
+| <pre style="font-size: 14px">{<br/>    "communicationUser": {<br/>        "id": "8:acs:[resourceId]\_[userId]"<br/>    }<br/>}</pre> | `8:acs:[resourceId]\_[userId]` |
+| <pre style="font-size: 14px">{<br/>    "phoneNumber": {<br/>         "value": "+1123455567"<br/>    }<br/>}</pre> | `4:+1123455567` |
+| <pre style="font-size: 14px">{<br/>    "microsoftTeamsUser": {<br/>        "userId": "[aadUserId]"<br/>    }<br/>}</pre> | `8:orgid:[aadUserId]` |
+| <pre style="font-size: 14px">{<br/>    "microsoftTeamsUser": {<br/>        "userId": "[visitorUserId]",<br/>        "isAnonymous": true<br/>    }<br/>}</pre> | `8:teamsvisitor:[visitorUserId]` |
+| <pre style="font-size: 14px">{<br/>    "microsoftTeamsUser": {<br/>        "userId": "[aadUserId]",<br/>        "cloud": "gcch"<br/>    }<br/>}</pre> | `8:gcch:[aadUserId]` |
+
+If a raw Id is invalid the service will fail the request.
