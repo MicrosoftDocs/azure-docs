@@ -16,6 +16,7 @@ ms.subservice: calling
 
 The Azure Communication Services Calling SDK for JavaScript enables Teams user devices to drive voice and video communication experiences. This page provides detailed descriptions of phone calling features. To get started right away, check out [Calling quickstarts](../../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md). 
 
+## Phone capabilities
 The following list of capabilities is supported for scenarios where at least one phone number participates in 1:1 or group call:
 
 | Group of features | Capability                                                                                                          | JavaScript |
