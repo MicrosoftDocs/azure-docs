@@ -118,7 +118,7 @@ For that purpose, identifiers have another representation called `RawId`. An ide
 
 Since `Azure.Communication.Common 1.2.0` the SDK helps with the conversion:
 
-```c#
+```csharp
 // get an identifier's raw Id
 string rawId = communicationIdentifier.RawId;
 
