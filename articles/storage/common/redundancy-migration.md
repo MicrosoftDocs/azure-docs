@@ -87,7 +87,9 @@ Restrictions apply to some replication change scenarios depending on:
 
 When planning to change your replication settings, consider the following restrictions related to the storage account type.
 
-Some storage account types only support certain replication configurations, which affects whether they can be simply changed, or require migration:
+Some storage account types only support certain redundancy configurations, which affects whether they can be converted and, if so, how. For more details on Azure storage account types and the supported redundancy options, see [the storage account overview](storage-account-overview.md#types-of-storage-accounts).
+
+The following table provides an overview of redundancy options available for storage account types and whether live or manual migration are supported:
 
 | Storage account type        | Supports LRS | Supports ZRS | Supports live migration | Supports manual migration |
 |:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|
