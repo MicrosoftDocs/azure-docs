@@ -1,0 +1,377 @@
+---
+author: karavar
+ms.author: vakarand
+ms.date: 08/23/2022
+ms.service: active-directory
+ms.subservice: managed-identity
+ms.topic: include
+title: Cross-tenant customer-managed key (CMK) configuration - Azure
+description: include file for cross-tenant customer-managed key (CMK) configuration
+services: active-directory
+---
+
+## Configure cross-tenant customer-managed keys
+
+This section describes how to configure a cross-tenant customer-managed key (CMK) and encrypt customer data. You learn how to encrypt customer data in a resource in *Tenant1* using a CMK stored in a key vault in *Tenant2*. You can use the Azure portal, Azure PowerShell, or Azure CLI.
+
+# [Portal](#tab/azure-portal)
+
+Sign in to the [Azure portal](https://portal.azure.com) and follow these steps.
+
+### Service provider configures identities
+
+The following steps are performed by the service provider in the service provider's tenant *Tenant1*.
+
+#### Create a multi-tenant application registration
+
+You can either create a new multi-tenant Azure AD application registration or start with an existing multi-tenant application registration. If starting with an existing application registration, note the ApplicationId (aka ClientId) of the application.
+
+To create a new registration:
+
+1. Search for **Azure Active Directory** in the search box. Locate and select the **Azure Active Directory** extension.
+1. Select **Manage > App registrations** from the left pane.
+1. Select **+ New registration**.
+1. Provide the name for the application registration and select *Account in any organizational directory (Any Azure AD directory – Multitenant)*.
+1. Select **Register**.
+1. Note the **ApplicationId/ClientId** of the application.
+
+:::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/register-an-application.png" alt-text="Screen shot showing how to create a new multi-tenant application registration." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/register-an-application.png" border="true":::
+
+#### Create a resource group and a user-assigned managed identity
+
+Create a user-assigned managed identity to be used as a Federated Identity Credential.
+
+1. Search for **Managed Identities** in the search box. Locate and select the **Managed Identities** extension.
+1. Select **+ Create**.
+1. Provide the resource group, region, and name for the managed identity.
+1. Select **Review + create**.
+1. On successful deployment, note the **Azure ResourceId** of the user-assigned managed identity, which is available under **Properties**. Example:
+
+   /subscriptions/tttttttt-0000-tttt-0000-tttt0000tttt/resourcegroups/XTCMKDemo/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ConsotoCMKDemoUA
+
+:::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-user-assigned-managed-identity.png" alt-text="Screen shot showing how to create a resource group and a user-assigned managed identity." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-user-assigned-managed-identity.png" border="true":::
+
+#### Configure the user-assigned managed identity as a federated credential on the application
+
+Configure a user-assigned managed identity as a federated identity credential on the application, so that it can impersonate the identity of the application.
+
+1. Navigate to **Azure Active Directory > App registrations > your application**.
+2. Select **Certificates & secrets**.
+3. Select **Federated credentials**.
+
+   :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/certificates-and-secrets.png" alt-text="Screen shot showing how to navigate to Certificate and secrets." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/certificates-and-secrets.png" border="true":::
+
+4. Select **+ Add credential**.
+5. Under **Federated credential scenario**, select **Customer Managed Keys**.
+6. Click **Select a managed identity**. From the pane, select the subscription. Under **Managed identity**, select **User-assigned managed identity**. In the **Select** box, search for the managed identity you created earlier, then click **Select** at the bottom of the pane.
+ 
+   :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/select-managed-identity.png" alt-text="Screen shot showing how to select a managed identity." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/select-managed-identity.png" border="true":::
+
+7. Under **Credential details**, provide a name and optional description for the credential and select **Add**.
+
+   :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/add-a-credential.png" alt-text="Screen shot showing how to add a credential." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/add-a-credential.png" border="true":::
+
+# [PowerShell](#tab/azure-powershell)
+
+To use Azure PowerShell, install the latest Az module or the Az.Storage module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+
+[!INCLUDE [azure-powershell-requirements-no-header.md](azure-powershell-requirements-no-header.md)]
+
+### Service provider configures identities
+
+The following steps are performed by the service provider in the service provider's tenant *Tenant1*.
+
+#### Create a new multi-tenant application registration
+
+Pick a name for your multi-tenant application in *Tenant1*. For example: “XTCMKDemoApp”. Note that this name is used by customers to identify the application in *Tenant2*. Note the application ID (or client ID) of the app, the object ID of the app, and also the tenant ID for the app. You'll need these values in the following steps.  
+
+#### Create a resource group and a user-assigned managed identity
+
+Create a user-assigned managed identity to be used as a Federated Identity Credential.
+
+```azurepowershell-interactive
+$subscriptionId="aaaaaaaa-0000-aaaa-0000-aaaa0000aaaa"
+$tenantId="bbbbbbbb-0000-bbbb-0000-bbbb0000bbbb"
+$appName="XTCMKDemoApp"
+$uamiName="XTCMKDemoAppUA"
+$rgName="XTCMKDemoAppRG"
+$location="westcentralus"
+
+Set-AzContext -Subscription $subscriptionId
+
+New-AzResourceGroup -Location $location -ResourceGroupName $rgName
+
+$uamiObject = New-AzUserAssignedIdentity -Name $uamiName -ResourceGroupName $rgName -Location $location -SubscriptionId $subscriptionId
+```
+
+#### Configure the user-assigned managed identity as a federated credential on the application
+
+```azurepowershell-interactive
+Connect-MgGraph
+$appObject = New-MgApplication -DisplayName $appName -SignInAudience AzureADMultipleOrgs
+
+$issuer="https://login.microsoftonline.com/$tenantId/v2.0"
+$subject=$uamiObject.PrincipalId
+$audience="api://AzureADTokenExchange"
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](azure-cli-prepare-your-environment-no-header.md)]
+
+### Service provider configures identities
+
+The following steps are performed by the service provider in the service provider's tenant *Tenant1*.
+
+#### Service provider signs in to Azure
+
+Sign in to Azure to use Azure CLI.
+
+```azurecli-interactive
+az login
+```
+
+#### Create a new multi-tenant application registration
+
+Pick a name for your multi-tenant application in *Tenant1*. For example: “XTCMKDemoApp”. Note that this name is used by customers to identify the application in *Tenant2*. Note the application ID (or client ID) of the app, the object ID of the app, and also the tenant ID for the app. You'll need these values in the following steps.  
+
+```azurecli-interactive
+export appObjectId=$(az ad app create --display-name $appName --sign-in-audience AzureADMultipleOrgs --query id --output tsv)
+echo $appObjectId
+export appId=$(az ad app show --id $appObjectId --query appId --output tsv)
+echo "Multi-tenant Azure AD Application has appId = $appId and ObjectId = $appObjectId"
+```
+
+#### Create a resource group and a user-assigned managed identity
+
+Create a resource group using your Azure subscription. Also create a user-assigned managed identity (to be used as a federated identity credential). Get the object ID of the user-managed identity, which you'll need in the following steps. To create a managed identity, you must have a [Managed identity contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role.
+
+```azurecli-interactive
+export subscriptionId="aaaaaaaa-0000-aaaa-0000-aaaa0000aaaa"
+export tenantId="bbbbbbbb-0000-bbbb-0000-bbbb0000bbbb"
+export appName="XTCMKDemoApp"
+
+export uamiName="XTCMKDemoAppUA"
+export rgName="XTCMKDemoAppRG"
+export location="westcentralus"
+
+export appObjectId=$(az ad app create --display-name $appName --sign-in-audience AzureADMultipleOrgs --query id --output tsv)
+
+export appId=$(az ad app show --id $appObjectId --query appId --output tsv)
+
+az group create --location $location --resource-group $rgName --subscription $subscriptionId
+echo "Created a new resource group with name = $rgName, location = $location in subscriptionid = $subscriptionId"
+
+export uamiObjectId=$(az identity create --name $uamiName --resource-group $rgName --location $location --subscription $subscriptionId --query principalId --out tsv)
+```
+
+#### Configure the user-assigned managed identity as a federated credential on the application
+
+Run the [az ad app federated-credential create](/cli/azure/ad/app/federated-credential?view=azure-cli-latest#az-ad-app-federated-credential-create) method to configure a federated identity credential on an app and create a trust relationship with an external identity provider.
+
+Use `api://AzureADTokenExchange` as the `audience` value in the federated identity credential. See the [API reference](https://aka.ms/fedcredentialapi) for more details.
+
+```azurecli-interactive
+az ad app federated-credential create --id <appObjectId> --parameters credential.json
+("credential.json" contains the following content)
+{
+    "name": "test01",
+    "issuer": "https://login.microsoftonline.com/<tenantID>/v2.0",
+    "subject": "<uamiObjectId>",
+    "description": "federated identity credential for CMK",
+    "audiences": [
+        "api://AzureADTokenExchange"
+    ]
+}
+```
+
+---
+
+#### Share the application ID with the customer
+
+Find the application ID (client ID) of the multi-tenant application and share it with the customer(s). In this example, it is "appId".
+
+### Customer grants the service provider's app access to the CMK
+
+The following steps are performed by the customer in the customer's tenant *Tenant2*. The customer can use the Azure portal, Azure PowerShell, or Azure CLI.
+
+The user executing the steps must be an administrator with a privileged role such as [Application Administrator](../articles/active-directory/roles/permissions-reference.md#application-administrator), [Cloud Application Administrator](../articles/active-directory/roles/permissions-reference.md#cloud-application-administrator), or [Global Administrator](../articles/active-directory/roles/permissions-reference.md#global-administrator).
+
+# [Portal](#tab/azure-portal)
+
+Sign in to the [Azure portal](https://portal.azure.com) and follow these steps.
+
+#### Install the service provider application using AppId in the customer tenant
+
+1. Use [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/new-mgserviceprincipal?view=graph-powershell-beta), [Azure PowerShell](/powershell/module/az.resources/new-azadserviceprincipal?view=azps-7.4.0), or [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create) to manually create the service principal.
+1. Construct an [admin-consent URL](../articles/active-directory/manage-apps/grant-admin-consent.md#construct-the-url-for-granting-tenant-wide-admin-consent) and grant tenant-wide consent to create the service principal. You'll need to provide them with your AppId.
+
+#### Create a key vault
+
+1. From the Azure portal menu, or from the Home page, select **+ Create a resource**. In the Search box, enter **Key Vault**. From the results list, select **Key Vault**. On the Key Vault section, select **Create**.
+1. Choose a subscription. Under **Resource group**, select **Create new** and enter a resource group name.
+1. Enter a unique name for the key vault.
+1. Select a region and pricing tier.
+1. Under the **Access policy** tab, select **Azure role-based access control** for **Permission model**.
+1. Select **Review + create** and then **Create**.
+
+:::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-a-key-vault.png" alt-text="Screen shot showing how to create a key vault." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-a-key-vault.png" border="true":::
+
+Take note of the **Vault name** and **Vault URI**. Applications that use your vault through its REST API must use this URI.
+
+For more information, see [Quickstart - Create an Azure Key Vault with the Azure portal](../articles/key-vault/general/quick-create-portal.md).
+
+#### Assign Key Vault Administrator role to your account
+
+This ensures that you can create the encryption keys and/or other objects in this key vault.
+
+1. Navigate to your storage account and select **Access Control (IAM)** from the left pane.
+1. Under **Grant access to this resource**, select **Add role assignment**.
+1. Search for and select **Key vault administrator**.
+1. Under **Members**, select **User, group, or service principal**.
+1. Select **Members** and search for your username.
+1. Select **Review + Assign**.
+
+#### Create an encryption key
+
+1. On the Key Vault properties page, select **Keys**.
+1. Select **Generate/Import**.
+1. On the **Create a key** screen choose the following values. Leave the other values to their defaults. 
+   - Options: Generate
+   - Name: mycmkkey
+1. Select **Create**.
+1. Copy the key URL.
+
+#### Grant the service provider application access to the key vault
+
+Grant the service provider application access to the key vault using Azure Role Based Access Control using the role **Key Vault Crypto Service Encryption User**.
+
+1. Navigate to your storage account and select **Access Control (IAM)** from the left pane.
+1. Under **Grant access to this resource**, select **Add role assignment**.
+1. Search for and select **Key Vault Crypto Service Encryption User**.
+1. Under **Members**, select **User, group, or service principal**.
+1. Select **Members** and search for the application name of the application you installed from the service provider.
+1. Select **Review + Assign**.
+
+Now you can copy the key vault URL and key name into the Customer-Managed-Keys configuration of the SaaS offering.
+
+# [PowerShell](#tab/azure-powershell)
+
+To use Azure PowerShell, install the latest Az module or the Az.Storage module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+
+[!INCLUDE [azure-powershell-requirements-no-header.md](azure-powershell-requirements-no-header.md)]
+
+#### Install the service provider application using AppId in the customer tenant
+
+Once you receive the application ID of the service provider's multi-tenant application, install the application in your tenant *Tenant2*. Installing the application creates a service principal in your tenant.
+
+Execute the following cmdlets in the Tenant where you plan to create the key vault.
+
+```azurepowershell-interactive
+$rgName="MyCMKKeys"
+$subscriptionId="cccccc-0000-ccc-000-cccc0000cccc"
+$vaultName="mykeyvaultname"
+$location="westcentralus"
+$currentUserObjectId="enter-your-objectId"
+
+Set-AzContext -Subscription $subscriptionId
+New-AzResourceGroup -Location $location -ResourceGroupName $rgName
+
+# Install the application and create service principal with AppId
+$serviceprincipalObject = New-AzADServicePrincipal -ApplicationId <Pass the AppId aka ClientId from Phase 1>
+# $serviceprincipalObject = Get-AzADServicePrincipal -ApplicationId $addObject.Id
+```
+
+#### Create a key vault and encryption key
+
+1. Add role assignments to manage resources and key vaults in the resource group.
+
+    ```azurepowershell-interactive
+    $currentUserObjectId="object-id-of-the-user"
+    ```
+
+2. Create a new Azure key vault.
+
+    ```azurepowershell-interactive
+    New-AzKeyVault -Location $location -Name $vaultName -ResourceGroupName $rgName -SubscriptionId $subscriptionId -EnablePurgeProtection -EnableRbacAuthorization
+    New-AzRoleAssignment -RoleDefinitionName "Key Vault Administrator" -Scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName -ObjectId $currentUserObjectId
+    ```
+
+3. Create an encryption key in the Key Vault.
+
+    ```azurepowershell-interactive
+    Add-AzKeyVaultKey -Name mastercmkkey -VaultName $vaultName -Destination software
+    ```
+
+#### Grant the service provider application access to the key vault
+
+Assign the **Key Vault Crypto Service Encryption User** role to the service-provider application at the resource group scope.
+
+```azurepowershell-interactive
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Service Encryption User" -Scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName -ObjectId $serviceprincipalObject.Id
+```
+
+Now you can copy the key vault URL and key name into the Customer-Managed-Keys configuration of the SaaS offering.
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](azure-cli-prepare-your-environment-no-header.md)]
+
+#### Customer signs in to Azure
+
+Sign in to Azure to use Azure CLI.
+
+```azurecli-interactive
+az login
+```
+
+#### Install the service provider application using AppId in the customer tenant
+
+Once you receive the application ID of the service provider's multi-tenant application, install the application in your tenant *Tenant2* using the following command. Installing the application creates a service principal in your tenant.
+
+```azurecli-interactive
+# Install the application - create service principal with AppId
+export appId='<replace-the-multi-tenant-applicationID>' #appId from Phase 1.
+export appObjectId=$(az ad sp create --id $appId --query id --out tsv)
+```
+
+#### Create a key vault and encryption key
+
+Create a key vault in Azure Key Vault and add an encryption key.
+
+1. Create Azure RBAC role assignments for the current user to manage resources and key vaults in the resource group. This role assignment is required so that the user continues to have access to the key vault via Azure RBAC after its creation.
+
+    ```azurecli-interactive
+    export rgName="MyCMKKeys"
+    subscriptionId="<replace-your-subscriptionId>"
+    location="westcentralus"
+    
+    az group create --location $location --name $rgName
+    export currentUserObjectId=$(az ad signed-in-user show --query objectId --out tsv)
+    ```
+
+2. Create a new Azure key vault.
+
+    ```azurecli-interactive
+    export vaultName="mykeyvaultname"
+    az keyvault create --location $location --name $vaultName --resource-group $rgName --subscription $subscriptionId --enable-purge-protection true --enable-rbac-authorization true --query name --out tsv
+    az role assignment create --role "Key Vault Administrator" --scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName --assignee-object-id $currentUserObjectId
+    ```
+
+3. Create an encryption key in the Key Vault.
+
+    ```azurecli-interactive
+    az keyvault key create --name mastercmkkey --vault-name $vaultName
+    ```
+
+#### Grant the service provider application access to the key vault
+
+Assign the **Key Vault Crypto Service Encryption User** role to the service-provider application at the resource group scope.
+
+```azurecli-interactive
+az role assignment create --role "Key Vault Crypto Service Encryption User" --scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName --assignee-object-id $appObjectId
+```
+
+Now you can copy the key vault URL and key name into the Customer-Managed-Keys configuration of the SaaS offering.
+
+---
