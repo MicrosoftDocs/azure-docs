@@ -173,7 +173,7 @@
             - name: Deploy extension-based worker
               href: extension-based-hybrid-runbook-worker-install.md
               items:
-              - name: Using ARM templateManage modules in Azure Automation
+              - name: Using ARM template
                 href: use-azure-resource-manager-template.md
             - name: Deploy agent-based Windows worker
               href: automation-windows-hrw-install.md
