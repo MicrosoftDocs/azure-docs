@@ -105,11 +105,6 @@ When you're scanning a data source in Microsoft Purview, you need to provide a c
 
 ## Option 2: Use private endpoints 
 
-You can use [Azure private endpoints](../private-link/private-endpoint-overview.md) for your Microsoft Purview accounts. This option is useful if you need to do either of the following:
-
-- Scan Azure infrastructure as a service (IaaS) and PaaS data sources inside Azure virtual networks and on-premises data sources through a private connection.
-- Allow users on a virtual network to securely access Microsoft Purview over [Azure Private Link](../private-link/private-link-overview.md). 
-
 Similar to other PaaS solutions, Microsoft Purview does not support deploying directly into a virtual network. So you can't use certain networking features with the offering's resources, such as network security groups, route tables, or other network-dependent appliances such as Azure Firewall. Instead, you can use private endpoints that can be enabled on your virtual network. You can then disable public internet access to securely connect to Microsoft Purview. 
 
 You must use private endpoints for your Microsoft Purview account if you have any of the following requirements: 
