@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/18/2022
+ms.date: 08/30/2022
 
 ms.author: gasinh
 author: gargi-sinha
@@ -267,7 +267,7 @@ If you only want to migrate registered MFA phone numbers, you can export the use
 
 1. Open the Multi-Factor Authentication Server admin console on the MFA Server. 
 1. Select **File** > **Export Users**.
-3)	Save the .csv file. The default name is Multi-Factor Authentication Users.csv.
+1. Save the .csv file. The default name is Multi-Factor Authentication Users.csv.
 
 #### Interpret and format the .csv file
 
