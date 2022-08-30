@@ -3,37 +3,53 @@ title: Ingestion Client - Speech service
 titleSuffix: Azure Cognitive Services
 description: In this article we describe a tool released on GitHub that enables customers push audio files to Speech Service easily and quickly 
 services: cognitive-services
-author: panosperiorellis
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/17/2021
-ms.author: panosper
-ms.custom: seodec18
+ms.date: 08/29/2022
+ms.author: eur
 ---
 
-# Ingestion Client for the Speech service
+# Ingestion Client with Azure Cognitive Services
 
-The Ingestion Client is a tool released on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/ingestion) that enables customers to transcribe audio files through Speech services quickly with little or no development effort. It works by wiring up a dedicated [Azure storage](https://azure.microsoft.com/product-categories/storage/) account to custom [Azure Functions](https://azure.microsoft.com/services/functions/) that use either the [REST API](/azure/cognitive-services/speech-service/rest-speech-to-text) or the [SDK](/azure/cognitive-services/speech-service/speech-sdk) in a serverless fashion to pass transcription requests to the service.  
+The Ingestion Client is a tool released by Microsoft on [GitHub](/azure/cognitive-services/speech-service/ingestion-client) that helps you quickly deploy a call center transcription solution to Azure with a no-code approach. 
 
-## Architecture
+> [!TIP]
+> You can use the tool and resulting solution in production to process a high volume of audio.
 
-The tool helps those customers that want to get an idea of the quality of the transcript without making development investments up front. The tool connects a few resources to transcribe audio files that land in the dedicated [Azure Storage container](https://azure.microsoft.com/product-categories/storage/).
+Ingestion Client uses the [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/), [Azure Cognitive Service for Speech](/azure/cognitive-services/speech-service/), [Azure storage](https://azure.microsoft.com/product-categories/storage/), and [Azure Functions](https://azure.microsoft.com/services/functions/). 
 
-Internally, the tool uses our V3.0 Batch API or SDK, and follows best practices to handle scale-up, retries and failover. The following schematic describes the resources and connections.
+## Get started with the Ingestion Client
 
-:::image type="content" source="media/ingestion-client/architecture-1.png" alt-text="Ingestion Client Architecture.":::
+An Azure Account and an Azure Cognitive Services resource are needed to run the Ingestion Client.
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne"  title="Create a Cognitive Services resource"  target="_blank">Create a Cognitive Services resource</a> in the Azure portal.
+* Get the resource key and region. After your Cognitive Services resource is deployed, select **Go to resource** to view and manage keys. For more information about Cognitive Services resources, see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource). 
 
-The [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/ingestion/ingestion-client/Setup/guide.md) describes how to setup and use the tool.
+See the [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/ingestion/ingestion-client/Setup/guide.md) on GitHub to learn how to setup and use the tool.
+
+## Ingestion Client Features
+
+The Ingestion Client works by connecting a dedicated [Azure storage](https://azure.microsoft.com/product-categories/storage/) account to custom [Azure Functions](https://azure.microsoft.com/services/functions/) in a serverless fashion to pass transcription requests to the service. The transcribed audio files land in the dedicated [Azure Storage container](https://azure.microsoft.com/product-categories/storage/). 
 
 > [!IMPORTANT]
 > Pricing varies depending on the mode of operation (batch vs real time) as well as the Azure Function SKU selected. By default the tool will create a Premium Azure Function SKU to handle large volume. Visit the [Pricing](https://azure.microsoft.com/pricing/details/functions/) page for more information.
 
-Both, the Microsoft [Speech SDK](/azure/cognitive-services/speech-service/speech-sdk) and the [Speech-to-text REST API v3.0](/azure/cognitive-services/speech-service/rest-speech-to-text), can be used to obtain transcripts. The decision does impact overall costs as it is explained in the guide. 
+Internally, the tool uses Speech and Language services, and follows best practices to handle scale-up, retries and failover. The following schematic describes the resources and connections.
 
-> [!TIP]
-> You can use the tool and resulting solution in production to process a high volume of audio.
+:::image type="content" source="media/ingestion-client/architecture-1.png" alt-text="Ingestion Client Architecture.":::
+
+The following Speech service features are used by the Ingestion Client:
+
+- [Batch speech-to-text](/azure/cognitive-services/speech-service/batch-transcription): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
+- [Speaker identification](/azure/cognitive-services/speech-service/speaker-recognition-overview): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for call center customer verification scenarios or fraud detection.
+
+Language service features are also used by the Ingestion Client:
+
+- [Personally Identifiable Information (PII) extraction and redaction](/azure/cognitive-services/language-service/personally-identifiable-information/how-to-call-for-conversations): Identify, categorize, and redact sensitive information in conversation transcription.
+- [Sentiment analysis and opinion mining](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview): Analyze transcriptions and associate positive, neutral, or negative sentiment at the utterance and conversation-level.
 
 ## Tool customization
 

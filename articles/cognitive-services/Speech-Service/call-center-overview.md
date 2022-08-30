@@ -37,8 +37,8 @@ The Speech service offers the following features that can be used for call cente
 
 - [Real-time speech-to-text](/azure/cognitive-services/speech-service/how-to-recognize-speech): Recognize and transcribe audio in real-time from multiple inputs. For example, with virtual agents or agent-assist, you can continuously recognize audio input and control how to process results based on multiple events.
 - [Batch speech-to-text](/azure/cognitive-services/speech-service/batch-transcription): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
-- [Text-to-speech](/azure/cognitive-services/speech-service/text-to-speech): Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech
-- [Speaker identification](/azure/cognitive-services/speech-service/speaker-recognition-overview): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for call center customer verification scenarios or fraud detection
+- [Text-to-speech](/azure/cognitive-services/speech-service/text-to-speech): Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech.
+- [Speaker identification](/azure/cognitive-services/speech-service/speaker-recognition-overview): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for call center customer verification scenarios or fraud detection.
 - [Language Identification](/azure/cognitive-services/speech-service/language-identification): Identify languages spoken in audio and can be used in real-time and post-call analysis for insights or to control the environment (such as output language of a virtual agent).
 
 The Speech service works well with prebuilt models. However, you might want to further customize and tune the experience for your product or environment. Typical examples for Speech customization include:
@@ -52,7 +52,7 @@ The Speech service works well with prebuilt models. However, you might want to f
 
 The Language service offers the following features that can be used for call center use cases:
 
-- [Personally Identifiable Information (PII) extraction and redaction](/azure/cognitive-services/language-service/personally-identifiable-information/overview): Identify, categorize, and redact sensitive information in conversation transcription.
+- [Personally Identifiable Information (PII) extraction and redaction](/azure/cognitive-services/language-service/personally-identifiable-information/how-to-call-for-conversations): Identify, categorize, and redact sensitive information in conversation transcription.
 - [Conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization): Summarize in abstract text what each conversation participant said about the issues and resolutions. For example, a call center can group product issues that have a high volume.
 - [Sentiment analysis and opinion mining](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview): Analyze transcriptions and associate positive, neutral, or negative sentiment at the utterance and conversation-level.
 
