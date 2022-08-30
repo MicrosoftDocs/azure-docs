@@ -55,51 +55,47 @@ dependencies {
 
 Two Maven repositories are required to integrate the library: MavenCentral and the Azure package repository.
 
-1. In your project Gradle scripts, ensure that the following repositories are added.
+1. In your project Gradle scripts, ensure that the following repositories are added. For Android Studio (2020.\*), `repositories` is in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  For earlier versions of Android Studio (4.\*), `repositories` is in the project-level `build.gradle` `allprojects{}`.
 
-   For Android Studio (2020.\*), `repositories` is in `settings.gradle` > `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  For earlier versions of Android Studio (4.\*), `repositories` is in the project-level `build.gradle`  > `allprojects{}`.  
-
-   ```groovy
-   // dependencyResolutionManagement
-   repositories {
-       ...
-       mavenCentral()
-       maven {
-           url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
-       }
-       ...
-   }
-   ```
+    ```groovy
+    // dependencyResolutionManagement
+    repositories {
+        ...
+        mavenCentral()
+        maven {
+            url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
+        }
+        ...
+    }
+    ```
 
 1. Sync your project with the Gradle files. To sync the project, on the **File** menu, select **Sync Project With Gradle Files**.
 
 ## Add a button to Activity_main.xml
 
-1. Go to the layout file (*app/src/main/res/layout/activity_main.xml*).
+In the layout file (*app/src/main/res/layout/activity_main.xml*), add the following code to create a button to start the composite:
 
-1. Add the following code to create a button to start the composite:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
-    
-        <Button
-            android:id="@+id/startButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Launch"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    ```
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Launch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
 
 ## Initialize composite
 
@@ -218,13 +214,15 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                                                  | Description                                                                                  |
 | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| [CallComposite](#create-call-composite)                               | Composite component that renders a call experience with participant gallery and controls   |
-| [CallCompositeBuilder](#create-call-composite)                        | Builder that builds `CallComposite` with options                                                |
-| [CallCompositeJoinMeetingLocator](#group-call)                        | Passed-in `CallComposite` launch to start a group call                                         |
-| [CallCompositeTeamsMeetingLinkLocator](#teams-meeting)                | Passed to `CallComposite` launch to join a Microsoft Teams meeting                                     |
-| [CallCompositeLocalizationOptions](#apply-localization-configuration) | Injected as optional in `CallCompositeBuilder` to set the language of the composite      |
+| [CallComposite](#create-callcomposite)                               | Composite component that renders a call experience with participant gallery and controls   |
+| [CallCompositeBuilder](#create-callcomposite)                        | Builder that builds `CallComposite` with options                                                |
+| [CallCompositeJoinMeetingLocator](#set-up-a-group-call)                        | Passed-in `CallComposite` launch to start a group call                                         |
+| [CallCompositeTeamsMeetingLinkLocator](#set-up-a-teams-meeting)                | Passed to `CallComposite` launch to join a Microsoft Teams meeting                                     |
+| [CallCompositeLocalizationOptions](#apply-a-localization-configuration) | Injected as optional in `CallCompositeBuilder` to set the language of the composite      |
 
 ## UI Library functionality
+
+Learn how to create major features for your Android application.
 
 ### Create CallComposite
 
@@ -273,11 +271,7 @@ CommunicationTokenCredential communicationTokenCredential =
 If you don't already have an access token, see [Create Azure Communication Services access tokens for testing](../../../identity/quick-create-identity.md).
 
 -----
-### Set up  a group call or Teams meeting options
-
-Depending on what type of call or meeting you want to set up, select an options object to initialize.
-
-### Group call
+### Set up a group call
 
 To set up a group call, initialize a `CallCompositeGroupCallLocator` and supply it to the `CallCompositeRemoteOptions` object.
 
@@ -305,7 +299,7 @@ CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
 ```
 -----
 
-### Teams Meeting
+### Set up a Teams meeting
 
 To set up a Teams meeting, initialize a `CallCompositeTeamsMeetingLinkLocator` and supply it to the `CallCompositeRemoteOptions` object.
 
@@ -334,7 +328,7 @@ CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
 -----
 
 -----
-### Get a Microsoft Teams meeting link
+#### Get a Microsoft Teams meeting link
 
 You can get a Microsoft Teams meeting link by using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?preserve-view=true&tabs=http&view=graph-rest-beta).
 
