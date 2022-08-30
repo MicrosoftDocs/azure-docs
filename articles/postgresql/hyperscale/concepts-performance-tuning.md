@@ -97,8 +97,10 @@ abnormally long-running queries:
 
 > [!NOTE]
 >
-> These log settings are the default in PostgreSQL, except
-> log_min_duration_statement, which by default is disabled (-1).
+> The log-related settings in our managed service take the above
+> recommendations into account. You can leave them as they are. However, we've
+> sometimes seen customers change the settings to make logging aggressive,
+> which has led to performance issues.
 
 ## Lock contention
 
