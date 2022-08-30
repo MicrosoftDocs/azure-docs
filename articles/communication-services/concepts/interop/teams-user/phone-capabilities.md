@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Teams identity overview
+title: Phone capabilities supported for Teams users
 titleSuffix: An Azure Communication Services concept document
-description: Provides an overview of the support for Teams identity in Azure Communication Services Calling SDK.
+description: Provides an overview of phone capabilities supported for Teams users in Azure Communication Services Calling SDK.
 author: tomaschladek
 manager: chpalmer
 services: azure-communication-services
