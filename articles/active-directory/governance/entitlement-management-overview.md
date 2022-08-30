@@ -4,7 +4,7 @@ description: Get an overview of Azure Active Directory entitlement management an
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

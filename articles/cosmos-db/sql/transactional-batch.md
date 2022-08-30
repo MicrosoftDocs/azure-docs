@@ -1,6 +1,6 @@
 ---
-title: Transactional batch operations in Azure Cosmos DB using the .NET SDK 
-description: Learn how to use TransactionalBatch in the Azure Cosmos DB .NET SDK to perform a group of point operations that either succeed or fail. 
+title: Transactional batch operations in Azure Cosmos DB using the .NET or Java SDK 
+description: Learn how to use TransactionalBatch in the Azure Cosmos DB .NET or Java SDK to perform a group of point operations that either succeed or fail. 
 author: stefArroyo 
 ms.author: esarroyo
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ---
 
-# Transactional batch operations in Azure Cosmos DB using the .NET SDK
+# Transactional batch operations in Azure Cosmos DB using the .NET or Java SDK
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Transactional batch describes a group of point operations that need to either succeed or fail together with the same partition key in a container. In the .NET and Java SDKs, the `TransactionalBatch` class is used to define this batch of operations. If all operations succeed in the order they're described within the transactional batch operation, the transaction will be committed. However, if any operation fails, the entire transaction is rolled back.

@@ -35,6 +35,10 @@ items:
       href: vm/tutorial-monitor-vm-guest.md
   - name: Application Insights
     items:
+    - name: Application Insights SDK for ASP.NET Core applications
+      href: app/tutorial-asp-net-core.md
+    - name: Custom metrics with .NET and .NET Core
+      href: app/tutorial-asp-net-custom-metrics.md
     - name: Find application run-time exceptions
       href: app/tutorial-runtime-exceptions.md
     - name: Find application performance issues
@@ -478,7 +482,7 @@ items:
       - name: Collect text and IIS Logs
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-text-log.md
-    - name: Enable network isolation
+    - name: Define network settings
       href: agents/azure-monitor-agent-data-collection-endpoint.md
     - name: Migrate from Log Analytics Agent
       items:
@@ -661,12 +665,6 @@ items:
         href: alerts/alerts-log-webhook.md
       - name: Log analytics alerts legacy API
         href: alerts/api-alerts.md
-    - name:  Activity log alert rules
-      items:
-      - name: Migrate management events to activity log alerts
-        href: ./alerts/activity-log-alerts.md
-      - name: Webhook schema
-        href: alerts/activity-log-alerts-webhook.md
     - name: Service health alerts
       items:
       - name: View notifications
@@ -692,6 +690,8 @@ items:
         href: alerts/alerts-common-schema-definitions.md
       - name: Common alert schema definition for Test action group
         href: alerts/alerts-common-schema-test-action-definitions.md
+      - name: Configure the schema to get activity log alerts
+        href: alerts/activity-log-alerts-webhook.md        
       - name: Non-common alert schema definition
         href: alerts/alerts-non-common-schema-definitions.md
       - name: Integrate the common alert schema with Logic Apps
@@ -1237,8 +1237,8 @@ items:
         href: containers/container-insights-enable-aks-policy.md
       - name: Supported region mappings
         href: containers/container-insights-region-mapping.md
-      - name: Migrate from Azure Red Hat OpenShift v4.x
-        href: containers/container-insights-transition-hybrid.md
+      - name: Transition from Container monitoring solution
+        href: containers/container-insights-transition-solution.md
     - name: Configure
       items:
       - name: Agent management
@@ -1299,6 +1299,8 @@ items:
       href: containers/container-insights-troubleshoot.md
   - name: Insights
     items:
+    - name: Activity logs
+      href: essentials/activity-log-insights.md
     - name: Azure Cache for Redis
       href: ../azure-cache-for-redis/redis-cache-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Azure Cosmos DB
@@ -1418,7 +1420,7 @@ items:
       - name: Sample JSON to covert View Designer views
         href: visualize/workbooks-view-designer-conversions.md 
     - name: Workbook Samples
-      href: visualize/workbooks-sample-links.md          
+      href: visualize/workbooks-samples.md          
   - name: Other visualizations
     items:
     - name: Monitoring solutions
