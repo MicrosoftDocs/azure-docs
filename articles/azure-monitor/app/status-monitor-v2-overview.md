@@ -40,9 +40,8 @@ Application Insights Agent is located here: https://www.powershellgallery.com/pa
 - [Start-ApplicationInsightsMonitoringTrace](./status-monitor-v2-api-reference.md#start-applicationinsightsmonitoringtrace)
 
 ## Troubleshooting
-- [Troubleshooting](status-monitor-v2-troubleshoot.md)
-- [Known issues](status-monitor-v2-troubleshoot.md#known-issues)
 
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/status-monitor-v2-troubleshoot).
 
 ## FAQ
 

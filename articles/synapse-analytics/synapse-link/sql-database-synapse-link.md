@@ -28,6 +28,8 @@ You can start or stop a link connection. When started, a link connection will st
 
 You need to select compute core counts for each link connection to replicate your data. The core counts represent the compute power and it impacts your data replication latency and cost.
 
+You also have the chance to make a trade-off between cost and latency by selecting the continuous or batch mode to replicate the data.  When you select continuous mode, the runtime will be running continuously so that any changes applied to your SQL DB or SQL Server will be replicated to Synapse with low latency. When you select batch mode with specified interval, the changes applied to your SQL DB or SQL Server will be accumulated and replicated to Synapse in a batch mode with specified interval.  By doing so, you can save cost as you are only charged for the time when the runtime is required to replicate your data. After each batch of data is replicated, the runtime will be shut down automatically.
+
 ## Monitoring
 
 You can monitor Azure Synapse Link for SQL at the link and table levels. For each link connection, you'll see the following status:

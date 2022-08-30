@@ -58,7 +58,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
 **iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
 **Multipath IO** | Not supported.
-**Storage vMotion** | Not supported. Replication won't work if a VM uses storage vMotion.
+**Storage vMotion** | Supported. 
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
@@ -120,7 +120,7 @@ This table summarizes assessment support and limitations for VMware virtualizati
 **VMware requirements** | **Details**
 --- | ---
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5, or 6.7.
-**VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, or 6.7.
+**VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, 6.7 or 7.0.
 **vCenter Server permissions** | A read-only account for vCenter Server.
 
 ### VM requirements (agent-based)

@@ -1,8 +1,8 @@
 ---
-title: Get started with Microsoft Defender for IoT for OT security
+title: Tutorial - Get started with Microsoft Defender for IoT for OT security
 description: This tutorial describes how to use Microsoft Defender for IoT to set up a network for OT system security.
 ms.topic: tutorial
-ms.date: 03/24/2022
+ms.date: 07/11/2022
 ---
 
 # Tutorial: Get started with Microsoft Defender for IoT for OT security
@@ -32,8 +32,7 @@ Before you start, make sure that you have the following:
 
 - At least one device to monitor, with the device connected to a SPAN port on a switch.
 
-- VMware, ESXi 5.5 or later, installed and operational:
-
+- VMware, ESXi 5.5 or later, installed and operational on your sensor.
 
 - <a name="hw"></a>Available hardware resources for your VM as follows:
 
@@ -65,6 +64,8 @@ You can either purchase pre-configured appliances or bring your own appliance an
 1. In the **Purchase an appliance and install software** box, ensure that the default option is selected for the latest and recommended software version, and then select **Download**.
 
 1. Save the downloaded software in a location that will be accessible from your VM.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 ## Create a VM for your sensor
 
@@ -196,8 +197,9 @@ This tutorial describes how to create a cloud-connected sensor, connecting direc
 Before continuing, make sure that your sensor can access the cloud using HTTP on port 443 to the following Microsoft domains:
 
 - **IoT Hub**: `*.azure-devices.net`
-- **Threat Intelligence**: `*.blob.core.windows.net`
+- **Blob Storage**: `*.blob.core.windows.net`
 - **Eventhub**: `*.servicebus.windows.net`
+- **Microsoft Download Center**: `download.microsoft.com`
 
 > [!TIP]
 > Defender for IoT supports other cloud-connection methods, including proxies or multi-cloud vendors. For more information, see [OT sensor cloud connection methods](architecture-connections.md), [Connect your OT sensors to the cloud](connect-sensors.md), [Cloud-connected vs local sensors](architecture.md#cloud-connected-vs-local-sensors).
@@ -205,7 +207,7 @@ Before continuing, make sure that your sensor can access the cloud using HTTP on
 
 ## Onboard and activate the virtual sensor
 
-Before you can start using your Defender for IoT sensor, you'll need to onboard the created virtual sensor to your Azure subscription and download the virtual sensor's activation file to activate the sensor.
+Before you can start using your Defender for IoT sensor, you'll need to onboard your new virtual sensor to your Azure subscription, and download the virtual sensor's activation file to activate the sensor.
 
 ### Onboard the virtual sensor
 
@@ -215,7 +217,7 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
 
 1. At the bottom left, select **Set up OT/ICS Security**.
 
-   :::image type="content" source="media/tutorial-onboarding/onboard-a-sensor.png" alt-text="Screenshot of selecting to onboard the sensor to start the onboarding process for your sensor.":::
+   :::image type="content" source="media/tutorial-onboarding/onboard-a-sensor.png" alt-text="Screenshot of the Getting started page for OT network sensors.":::
 
     In the **Set up OT/ICS Security** page, you can leave the **Step 1: Did you set up a sensor?** and **Step 2: Configure SPAN port or TAP** steps collapsed, because you've completed these tasks earlier in this tutorial.
 
@@ -232,6 +234,9 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
     |**Zone**     |  Define the zone where you want to deploy your sensor, or select **Create zone** to create a new one.       |
 
 1. Select **Register** to add your sensor to Defender for IoT. A success message is displayed and your activation file is automatically downloaded. The activation file is unique for your sensor and contains instructions about your sensor's management mode.
+
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 
 1. Save the downloaded activation file in a location that will be accessible to the user signing into the console for the first time.
 
@@ -269,7 +274,7 @@ Your sensor is activated and onboarded to Defender for IoT. In the **Sites and s
 
 ## Next steps
 
-After your OT sensor is connection, continue with any of the following to start analyzing your data:
+After your OT sensor is connected, continue with any of the following to start analyzing your data:
 
 - [View assets from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 

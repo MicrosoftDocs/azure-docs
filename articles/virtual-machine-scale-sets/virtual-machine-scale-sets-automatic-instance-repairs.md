@@ -1,8 +1,8 @@
 ---
 title: Automatic instance repairs with Azure virtual machine scale sets
 description: Learn how to configure automatic repairs policy for VM instances in a scale set
-author: avirishuv
-ms.author: avverma
+author: mamccrea
+ms.author: mamccrea
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: instance-protection
@@ -12,8 +12,6 @@ ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 # Automatic instance repairs for Azure virtual machine scale sets
-
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets :heavy_check_mark: Flexible scale sets
 
 Enabling automatic instance repairs for Azure virtual machine scale sets helps achieve high availability for applications by maintaining a set of healthy instances. If an instance in the scale set is found to be unhealthy as reported by [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md), then this feature automatically performs instance repair by deleting the unhealthy instance and creating a new one to replace it.
 
@@ -32,10 +30,6 @@ Before enabling automatic instance repairs policy, ensure that the scale set ins
 - When the application endpoint is not reachable
 
 For instances marked as "Unhealthy", automatic repairs are triggered by the scale set. Ensure the application endpoint is correctly configured before enabling the automatic repairs policy in order to avoid unintended instance repairs, while the endpoint is getting configured.
-
-**Maximum number of instances in the scale set**
-
-This feature is currently available only for scale sets that have a maximum of 500 instances. The scale set can be deployed as either a single placement group or a multi-placement group, however the instance count cannot be above 500 if automatic instance repairs is enabled for the scale set.
 
 **API version**
 

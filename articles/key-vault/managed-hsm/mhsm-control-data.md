@@ -11,7 +11,7 @@ ms.date: 06/13/2022
 
 # Azure Key Vault Managed HSM – Control your data in the cloud
 
-At Microsoft, we value, protect, and defend privacy. We believe in transparency, so that people and organizations can control their data and have meaningful choices in how it is used. We empower and defend the privacy choices of every person who uses our products and services. In this blog, we will take a deep dive on Microsoft’s [Azure Key Vault Managed HSM’s](/azure/key-vault/managed-hsm/overview) security controls for encryption and how it provides additional safeguards and technical measures to help our customers meet compliance. Encryption is one of the key technical measures to achieve sole control of your data.
+At Microsoft, we value, protect, and defend privacy. We believe in transparency, so that people and organizations can control their data and have meaningful choices in how it is used. We empower and defend the privacy choices of every person who uses our products and services. In this blog, we will take a deep dive on Microsoft’s [Azure Key Vault Managed HSM’s](./overview.md) security controls for encryption and how it provides additional safeguards and technical measures to help our customers meet compliance. Encryption is one of the key technical measures to achieve sole control of your data.
 
 Microsoft’s Azure fortifies your data through state-of-the-art encryption technologies for both data at rest and in transit. Our encryption products erect barriers against unauthorized access to the data including two or more independent encryption layers to protect against compromises of any one layer. In addition, Azure has clearly defined, well-established responses, policies and processes, strong contractual commitments, and strict physical, operational, and infrastructure security controls to provide our customers the ultimate control of their data in the cloud. The fundamental premise of Azure’s key management strategy is to give our customers more control over their data with [Zero Trust](https://www.microsoft.com/security/business/zero-trust) posture with advanced enclave technologies, hardware security modules and identity isolation that reduces Microsoft’s access to customer keys and data.
 
@@ -29,7 +29,7 @@ Microsoft’s Azure fortifies your data through state-of-the-art encryption tech
 - **Azure Key Vault (AKV Premium)** encrypts with a FIPS 140-2 Level 2 hardware security module (HSM) protected keys
 - **Azure Key Vault Managed HSM** encrypts with a single tenant FIPS 140-2 Level 3 hardware security module (HSM) protected keys and is fully managed by Microsoft and provides customers with the sole control of the cryptographic keys
 
-For added assurance, AKV Premium and AKV Managed HSM support importing HSM-protected keys from an on-premises HSM commonly referred to as [*Bring your own key (BYOK)*](/azure/key-vault/keys/hsm-protected-keys-byok)
+For added assurance, AKV Premium and AKV Managed HSM support importing HSM-protected keys from an on-premises HSM commonly referred to as [*Bring your own key (BYOK)*](../keys/hsm-protected-keys-byok.md)
 
 ## Portfolio of Azure Key Management products
 
@@ -51,7 +51,7 @@ For added assurance, AKV Premium and AKV Managed HSM support importing HSM-prote
 - Managed Hardware Security Module (HSM)
     - Managed HSM only support HSM-backed keys
 
-See [Azure Key Vault Concepts](/azure/key-vault/general/basic-concepts) and [Azure Key Vault REST API overview](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/key-vault/general/about-keys-secrets-certificates.md) for details.
+See [Azure Key Vault Concepts](../general/basic-concepts.md) and [Azure Key Vault REST API overview](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/key-vault/general/about-keys-secrets-certificates.md) for details.
 
 ## What is Azure Key Vault Managed HSM?
 
@@ -96,9 +96,9 @@ Microsoft designs, builds, and operates datacenters in a way that strictly contr
 - **Contractual obligations** around security and customer data protection as discussed in [Microsoft Trust Center](https://www.microsoft.com/trust-center?rtc=1) 
 - **[Cross region replication](../../availability-zones/cross-region-replication-azure.md)**   - Managed HSM is introducing new functionality (geo-replication) very soon that will allow you to deploy HSMs in a secondary region
 - **Disaster Recovery** - Azure offers an end-to-end backup and disaster recovery solution that is simple, secure, scalable and cost-effective
-    - [Business continuity management program](/azure/availability-zones/business-continuity-management-program)
-    - [Azure Site Recovery](/azure/site-recovery)
-    - [Azure backup](/azure/backup/) - Planned integration with the Managed HSM
+    - [Business continuity management program](../../availability-zones/business-continuity-management-program.md)
+    - [Azure Site Recovery](../../site-recovery/index.yml)
+    - [Azure backup](../../backup/index.yml) - Planned integration with the Managed HSM
     - [Azure well-architected framework](/azure/architecture/framework/)
 - **[Microsoft Security Response Center](https://www.microsoft.com/msrc) (MSRC)** - Managed HSM service administration tightly integrated with MSRC
     - Security monitoring for unexpected administrative operations with full 24/7 security response

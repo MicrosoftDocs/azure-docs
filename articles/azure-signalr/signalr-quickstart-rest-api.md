@@ -27,7 +27,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
+Sign in to the [Azure portal](https://portal.azure.com) using your Azure account.
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsapi).
 

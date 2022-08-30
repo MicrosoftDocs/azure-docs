@@ -153,7 +153,7 @@ Oracle and Microsoft are collaborating to bring WebLogic Server to the Azure Mar
    -Dweblogic.rjvm.enableprotocolswitch=true
 ```
 
-For related information, see KB article **860340.1** at <https://support.oracle.com>.
+For related information, see KB article **860340.1** at [support.oracle.com](https://support.oracle.com).
 
 - **Dynamic clustering and load balancing limitations.** Suppose you want to use a dynamic cluster in Oracle WebLogic Server and expose it through a single, public load-balanced endpoint in Azure. This can be done as long as you use a fixed port number for each of the managed servers (not dynamically assigned from a range) and do not start more managed servers than there are machines the administrator is tracking. That is, there is no more than one managed server per virtual machine). If your configuration results in more Oracle WebLogic Servers being started than there are virtual machines (that is, where multiple Oracle WebLogic Server instances share the same virtual machine), then it is not possible for more than one of those instances of Oracle WebLogic Servers to bind to a given port number. The others on that virtual machine fail.
 

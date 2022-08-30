@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # Create and view permission analytics triggers
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 This article describes how you can create and view permission analytics triggers in Permissions Management.
 
 ## View permission analytics triggers

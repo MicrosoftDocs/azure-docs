@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Steps to get your Azure OPC UA data into Azure Digital Twins
 author: danhellem
 ms.author: dahellem # Microsoft employees only
-ms.date: 02/22/2022
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
 # Optional fields. Don't forget to remove # if you need a field.
@@ -33,7 +33,6 @@ Before completing this article, complete the following prerequisites:
     :::image type="content" source="media/how-to-ingest-opcua-data/download-repo.png" alt-text="Screenshot of the digital-twins-samples repo on GitHub, highlighting the steps to clone or download the code." lightbox="media/how-to-ingest-opcua-data/download-repo.png":::
     
     If you download the repository as a .zip, be sure to unzip it and extract the files.
-* Download Visual Studio: This article uses Visual Studio to publish an Azure function. You can download the latest version of Visual Studio from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
 
 ## Architecture
 
@@ -358,8 +357,10 @@ Next, create a [shared access signature for the container](../storage/common/sto
 
 In this section, you'll publish an Azure function that you downloaded in [Prerequisites](#prerequisites) that will process the OPC UA data and update Azure Digital Twins.
 
-1. Navigate to the downloaded [OPC UA to Azure Digital Twins](https://github.com/Azure-Samples/opcua-to-azure-digital-twins) project on your local machine, and into the *Azure Functions/OPCUAFunctions* folder. Open the *OPCUAFunctions.sln* solution in Visual Studio.
-2. Publish the project to a function app in Azure. For instructions on how to do so, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+1. Navigate to the downloaded [OPC UA to Azure Digital Twins](https://github.com/Azure-Samples/opcua-to-azure-digital-twins) project on your local machine.
+2. Publish the project to a function app in Azure, using your preferred method.
+
+    For instructions on how to publish the function using **Visual Studio**, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure). For instructions on how to publish the function using **Visual Studio Code**, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#publish-the-project-to-azure). For instructions on how to publish the function using the **Azure CLI**, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#deploy-the-function-project-to-azure).
 
 ### Configure the function app
 

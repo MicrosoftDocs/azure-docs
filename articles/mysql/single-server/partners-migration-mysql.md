@@ -6,7 +6,7 @@ ms.author: jtoland
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 06/20/2022
 ---
 
 # Azure Database for MySQL migration partners

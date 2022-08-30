@@ -7,8 +7,9 @@ ms.subservice: single-server
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 06/20/2022
 ---
+
 # What's new in Azure Database for MySQL - Single Server?
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]

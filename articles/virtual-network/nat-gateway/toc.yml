@@ -52,6 +52,10 @@ items:
     items:
     - name: Troubleshoot NAT gateway
       href: troubleshoot-nat.md
+    - name: Troubleshoot NAT gateway connectivity
+      href: troubleshoot-nat-connectivity.md
+    - name: Troubleshoot NAT gateway and Azure services
+      href: troubleshoot-nat-and-azure-services.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -78,7 +82,7 @@ items:
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+    href: /learn/modules/intro-to-azure-virtual-network-nat/
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog

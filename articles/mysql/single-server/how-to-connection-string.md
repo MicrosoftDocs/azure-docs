@@ -1,13 +1,14 @@
 ---
 title: Connection strings - Azure Database for MySQL
 description: This document lists the currently supported connection strings for applications to connect with Azure Database for MySQL, including ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python, and Ruby.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: savjani
+ms.author: pariks
 ms.topic: how-to
-ms.date: 3/18/2020
-ms.custom: devx-track-python, devx-track-js
+ms.custom: devx-track-python, devx-track-j
+ms.date: 06/20/2022
+
 ---
 
 # How to connect applications to Azure Database for MySQL

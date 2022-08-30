@@ -76,10 +76,14 @@
       href: scripts/create-manage-premium-cache-cluster.md
 - name: Concepts
   items:
-    - name: High availability
-      href: cache-high-availability.md
-    - name: Failover and patching
-      href: cache-failover.md
+    - name: Resiliency
+      items:
+      - name: High availability
+        href: cache-high-availability.md
+      - name: Failover and patching
+        href: cache-failover.md
+      - name: Migrate to availability zone support
+        href: ../availability-zones/migrate-cache-redis.md
     - name: Best practices
       items:
        - name: Connection resilience
@@ -90,6 +94,8 @@
          href: cache-best-practices-memory-management.md
        - name: Development
          href: cache-best-practices-development.md
+       - name: Client libraries
+         href: cache-best-practices-client-libraries.md
        - name: Scaling
          href: cache-best-practices-scale.md
        - name: Kubernetes-hosted client applications
@@ -105,8 +111,10 @@
         href: ./security-controls-policy.md
       - name: Security baseline
         href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
+    - name: Redis modules 
+      href: cache-redis-modules.md
     - name: Caching architecture
-      href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
+      href: /azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json
 - name: How-to guides
   items:
   - name: Plan
@@ -133,7 +141,7 @@
       href: cache-how-to-geo-replication.md
     - name: Set up Enterprise active geo-replication
       href: cache-how-to-active-geo-replication.md
-    - name: Save with reserved capacity
+    - name: Save with reservations
       href: cache-reserved-pricing.md
     - name: Migrate to Azure Cache for Redis
       href: cache-migration-guide.md
@@ -188,7 +196,7 @@
     - name: Monitor in Azure portal
       href: cache-how-to-monitor.md
     - name: Set alerts for exceptions
-      href: cache-how-to-monitor.md#alerts
+      href: cache-how-to-monitor.md#create-alerts
     - name: Monitor with diagnostic logs
       href: cache-monitor-diagnostic-settings.md
   - name: Scale

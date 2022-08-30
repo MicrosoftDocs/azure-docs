@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 06/02/2022
+ms.date: 06/29/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, mode-other, event-tier1-build-2022
 zone_pivot_groups: usage-custom-language-features
@@ -16,7 +16,7 @@ zone_pivot_groups: usage-custom-language-features
 
 # Quickstart: Custom named entity recognition
 
-Use this article to get started with creating a custom NER project where you can train custom models for custom entity recognition. A model is an object that's trained to do a certain task. For this system, the models extract named entities. Models are trained by learning from tagged data.
+Use this article to get started with creating a custom NER project where you can train custom models for custom entity recognition. A model is artificial intelligence software that's trained to do a certain task. For this system, the models extract named entities and are trained by learning from tagged data.
 
 In this article, we use Language Studio to demonstrate key concepts of custom Named Entity Recognition (NER). As an example we’ll build a custom NER model to extract relevant entities from loan agreements, such as the:
 * Date of the agreement
@@ -47,5 +47,5 @@ When you start to create your own custom NER projects, use the how-to articles t
 * [Data selection and schema design](how-to/design-schema.md)
 * [Tag data](how-to/tag-data.md)
 * [Train a model](how-to/train-model.md)
-* [View model evaluation](how-to/view-model-evaluation.md)
-* [Improve a model](how-to/improve-model.md)
+* [Model evaluation](how-to/view-model-evaluation.md)
+

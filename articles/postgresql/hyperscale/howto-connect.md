@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 05/25/2022
+ms.date: 08/11/2022
 ---
 
 # Connect to a server group
@@ -17,8 +17,6 @@ Choose your database client below to learn how to configure it to connect to
 Hyperscale (Citus).
 
 # [pgAdmin](#tab/pgadmin)
-
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 [pgAdmin](https://www.pgadmin.org/) is a popular and feature-rich open source
 administration and development platform for PostgreSQL.
@@ -56,8 +54,6 @@ administration and development platform for PostgreSQL.
 
 # [psql](#tab/psql)
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
-
 The [psql utility](https://www.postgresql.org/docs/current/app-psql.html) is a
 terminal-based front-end to PostgreSQL. It enables you to type in queries
 interactively, issue them to PostgreSQL, and see the query results.
@@ -93,4 +89,4 @@ interactively, issue them to PostgreSQL, and see the query results.
 * [Verify TLS](howto-ssl-connection-security.md) certificates in your
   connections.
 * Now that you can connect to the database, learn how to [build scalable
-  apps](howto-build-scalable-apps-overview.md).
+  apps](quickstart-build-scalable-apps-overview.md).

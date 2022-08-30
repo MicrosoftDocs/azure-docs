@@ -138,14 +138,14 @@ Following are sample queries that you can use to help you monitor your Azure Eve
 
 Azure Event Hubs allows you to monitor and audit data plane interactions of your client applications using runtime audit logs and application metrics logs. 
 
-Using *Runtime audit logs* you can capture aggregated diagnostic information for all data plane access operations such as publishing or comsuming events. 
+Using *Runtime audit logs* you can capture aggregated diagnostic information for all data plane access operations such as publishing or consuming events. 
 *Application metrics logs* capture the aggregated data on certain runtime metrics (such as consumer lag and active connections) related to client applications are connected to Event Hubs. 
 
 > [!NOTE] 
 > Runtime audit logs are available only in **premium** and **dedicated** tiers.  
 
 ### Enable runtime logs
-You can enable either runtime audit logs or application metrics logs by selecting *Diagnostic settings* from the *Monitoring* section on the Event Hubs namespace page in Azure Portal. Click on *Add diagnostic setting* as shown below.  
+You can enable either runtime audit logs or application metrics logs by selecting *Diagnostic settings* from the *Monitoring* section on the Event Hubs namespace page in Azure portal. Click on *Add diagnostic setting* as shown below.  
 
 ![Screenshot showing the Diagnostic settings page.](./media/monitor-event-hubs/add-diagnostic-settings.png)
 
@@ -170,7 +170,7 @@ AzureDiagnostics
 Up on the execution of the query you should be able to obtain corresponding audit logs in the following format. 
 :::image type="content" source="./media/monitor-event-hubs/runtime-audit-logs.png" alt-text="Image showing the result of a sample query to analyze runtime audit logs." lightbox="./media/monitor-event-hubs/runtime-audit-logs.png":::
 
-By analyzing these logs you should be able to audit how each client application interacts with Event Hubs. Each feild associated with runtime audit logs are defined in [runtime audit logs reference](../event-hubs/monitor-event-hubs-reference.md#runtime-audit-logs). 
+By analyzing these logs you should be able to audit how each client application interacts with Event Hubs. Each field associated with runtime audit logs are defined in [runtime audit logs reference](../event-hubs/monitor-event-hubs-reference.md#runtime-audit-logs). 
 
 
 ### Analyze application metrics 
@@ -185,7 +185,7 @@ AzureDiagnostics
 Application metrics includes the following runtime metrics. 
 :::image type="content" source="./media/monitor-event-hubs/application-metrics-logs.png" alt-text="Image showing the result of a sample query to analyze application metrics." lightbox="./media/monitor-event-hubs/application-metrics-logs.png":::
 
-Therefore you can use application metrics to monitor runtime metrics such as consumer lag or active connection from a given client application. Each feild associated with runtime audit logs are defined in [applicaiton metrics logs reference](../event-hubs/monitor-event-hubs-reference.md#runtime-audit-logs). 
+Therefore you can use application metrics to monitor runtime metrics such as consumer lag or active connection from a given client application. Each field associated with runtime audit logs are defined in [application metrics logs reference](../event-hubs/monitor-event-hubs-reference.md#runtime-audit-logs). 
 
 
 ## Alerts

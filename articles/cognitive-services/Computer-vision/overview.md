@@ -31,6 +31,15 @@ Azure's Computer Vision service gives you access to advanced algorithms that pro
 
 Computer Vision can power many digital asset management (DAM) scenarios. DAM is the business process of organizing, storing, and retrieving rich media assets and managing digital rights and permissions. For example, a company may want to group and identify images based on visible logos, faces, objects, colors, and so on. Or, you might want to automatically [generate captions for images](./Tutorials/storage-lab-tutorial.md) and attach keywords so they're searchable. For an all-in-one DAM solution using Cognitive Services, Azure Cognitive Search, and intelligent reporting, see the [Knowledge Mining Solution Accelerator Guide](https://github.com/Azure-Samples/azure-search-knowledge-mining) on GitHub. For other DAM examples, see the [Computer Vision Solution Templates](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) repository.
 
+## Getting started
+
+Use [Vision Studio](https://portal.vision.cognitive.azure.com/) to try out Computer Vision features quickly in your web browser.
+
+To get started building Computer Vision into your app, follow a quickstart.
+* [Quickstart: Optical character recognition (OCR)](quickstarts-sdk/client-library.md)
+* [Quickstart: Image Analysis](quickstarts-sdk/image-analysis-client-library.md)
+* [Quickstart: Spatial Analysis container](spatial-analysis-container.md)
+
 ## Image requirements
 
 Computer Vision can analyze images that meet the following requirements:

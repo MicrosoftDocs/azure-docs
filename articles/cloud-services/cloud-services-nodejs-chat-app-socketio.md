@@ -142,7 +142,7 @@ Azure emulator:
    >
    > Reinstall AzureAuthoringTools v 2.7.1 and AzureComputeEmulator v 2.7 - make sure that version matches.
 
-2. Open a browser and navigate to **http://127.0.0.1**.
+2. Open a browser and navigate to `http://127.0.0.1`.
 3. When the browser window opens, enter a nickname and then hit enter.
    This will allow you to post messages as a specific nickname. To test
    multi-user functionality, open additional browser windows using the

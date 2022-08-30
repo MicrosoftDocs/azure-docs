@@ -10,7 +10,7 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
-ms.custom: applied-ai-non-critical-form
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator user, I want to concept of a project, so that I can use it efficiently.
 ---
 # What is a Custom Translator workspace?

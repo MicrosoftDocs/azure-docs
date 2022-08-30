@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/14/2021
+ms.date: 08/22/2022
 ---
 
 # Add XSLT maps to transform XML in workflows with Azure Logic Apps
@@ -232,15 +232,15 @@ The following example shows a map that references an assembly named `XslUtilitie
 
 ### [Consumption](#tab/consumption)
 
-After you upload any assemblies that your map references, you can now upload your map.
+1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
-1. In the Azure portal, if your integration account isn't already open, in the main Azure search box, enter `integration accounts`, and select **Integration accounts**.
+1. In the Azure portal search box, enter **integration accounts**, and select **Integration accounts**.
 
-1. Select the integration account where you want to add your map.
+1. Find and select your integration account.
 
-1. On your integration account's menu, select **Overview**. Under **Settings**, select **Maps**.
+1. On the integration account's navigation menu, under **Settings**, select **Maps**.
 
-1. On the **Maps** pane toolbar, select **Add**.
+1. On the **Maps** pane, select **Add**.
 
 1. Continue to add either a map [up to 2 MB](#smaller-map) or [more than 2 MB](#larger-map).
 

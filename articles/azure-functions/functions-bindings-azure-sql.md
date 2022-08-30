@@ -100,11 +100,7 @@ You can add the preview extension bundle by adding or replacing the following co
 ## Functions runtime
 
 > [!NOTE]
-> Python language support for the SQL bindings extension is only available for v4 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) and requires runtime v4.5.0 or greater for deployment in Azure.  Learn more about determining the runtime in the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) documentation.  Please see the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250) for the latest update on availability.
-
-The functions runtime required for local development and testing of Python functions isn't included in the current release of functions core tools and must be installed independently.  The latest instructions on installing a preview version of functions core tools are available in the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250).
-
-Alternatively, a VS Code [development container](https://code.visualstudio.com/docs/remote/containers) definition can be used to expedite your environment setup.  The definition components are available in the SQL bindings [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-python/.devcontainer).
+> Python language support for the SQL bindings extension is available starting with v4.5.0 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version).  You may need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development.  Learn more about determining the runtime in Azure regions from the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) documentation.  Please see the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250) for the latest update on availability.
 
 
 ## Install bundle

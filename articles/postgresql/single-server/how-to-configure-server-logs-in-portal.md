@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal
-ms.date: 5/6/2019
+ms.date: 06/24/2022
 ---
 
 # Configure and access Azure Database for PostgreSQL - Single Server logs from the Azure portal
@@ -16,31 +16,34 @@ ms.date: 5/6/2019
 You can configure, list, and download the [Azure Database for PostgreSQL logs](concepts-server-logs.md) from the Azure portal.
 
 ## Prerequisites
+
 The steps in this article require that you have [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md).
 
 ## Configure logging
-Configure access to the query logs and error logs. 
+
+Configure access to the query logs and error logs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Select your Azure Database for PostgreSQL server.
 
-3. Under the **Monitoring** section in the sidebar, select **Server logs**. 
+3. Under the **Monitoring** section in the sidebar, select **Server logs**.
 
    :::image type="content" source="./media/how-to-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot of Server logs options":::
 
-4. To see the server parameters, select **Click here to enable logs and configure log parameters**.
+4. To see the server parameters, select **Select here to enable logs and configure log parameters**.
 
 5. Change the parameters that you need to adjust. All changes you make in this session are highlighted in purple.
 
-   After you have changed the parameters, select **Save**. Or, you can discard your changes. 
+   After you have changed the parameters, select **Save**. Or, you can discard your changes.
 
    :::image type="content" source="./media/how-to-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot of Server Parameters options":::
 
 From the **Server Parameters** page, you can return to the list of logs by closing the page.
 
 ## View list and download logs
-After logging begins, you can view a list of available logs, and download individual log files. 
+
+After logging begins, you can view a list of available logs, and download individual log files.
 
 1. Open the Azure portal.
 
@@ -62,7 +65,7 @@ After logging begins, you can view a list of available logs, and download indivi
    :::image type="content" source="./media/how-to-configure-server-logs-in-portal/6-download.png" alt-text="Screenshot of Server logs page, with down-arrow icon highlighted":::
 
 ## Next steps
+
 - See [Access server logs in CLI](how-to-configure-server-logs-using-cli.md) to learn how to download logs programmatically.
 - Learn more about [server logs](concepts-server-logs.md) in Azure Database for PostgreSQL. 
 - For more information about the parameter definitions and PostgreSQL logging, see the PostgreSQL documentation on [error reporting and logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
-

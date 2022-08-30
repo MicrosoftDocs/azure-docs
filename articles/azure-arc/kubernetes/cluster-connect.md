@@ -1,17 +1,15 @@
 ---
-title: "Use Cluster Connect to connect to Azure Arc-enabled Kubernetes clusters"
+title: "Use the cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 06/03/2022
-ms.topic: article
-author: shashankbarsin
-ms.author: shasb
-description: "Use Cluster Connect to securely connect to Azure Arc-enabled Kubernetes clusters"
+ms.date: 07/22/2022
+ms.topic: how-to
+description: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 ---
 
-# Use Cluster Connect to connect to Azure Arc-enabled Kubernetes clusters
+# Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters
 
-With Cluster Connect, you can securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall.
+With cluster connect, you can securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall.
 
 Access to the `apiserver` of the Azure Arc-enabled Kubernetes cluster enables the following scenarios:
 
@@ -86,14 +84,6 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 ---
 
-## Enable Cluster Connect feature
-
-You can enable the Cluster Connect on any Azure Arc-enabled Kubernetes cluster by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
-
-```azurecli
-az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $RESOURCE_GROUP
-```
-
 ## Azure Active Directory authentication option
 
 ### [Azure CLI](#tab/azure-cli)
@@ -103,13 +93,13 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
    - For an Azure AD user account:
 
      ```azurecli
-     AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query objectId -o tsv)
+     AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query userPrincipalName -o tsv)
      ```
 
    - For an Azure AD application:
 
      ```azurecli
-     AAD_ENTITY_OBJECT_ID=$(az ad sp show --id <id> --query objectId -o tsv)
+     AAD_ENTITY_OBJECT_ID=$(az ad sp show --id <id> --query id -o tsv)
      ```
 
 1. Authorize the entity with appropriate permissions.
@@ -117,13 +107,14 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
    - If you are using Kubernetes native ClusterRoleBinding or RoleBinding for authorization checks on the cluster, with the `kubeconfig` file pointing to the `apiserver` of your cluster for direct access, you can create one mapped to the Azure AD entity (service principal or user) that needs to access this cluster. Example:
 
       ```console
-      kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
+      kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
       ```
 
    - If you are using Azure RBAC for authorization checks on the cluster, you can create an Azure role assignment mapped to the Azure AD entity. Example:
 
      ```azurecli
      az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
+     az role assignment create --role "Azure Arc Enabled Kubernetes Cluster User Role" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
      ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -147,7 +138,7 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
    - If you are using Kubernetes native ClusterRoleBinding or RoleBinding for authorization checks on the cluster, with the `kubeconfig` file pointing to the `apiserver` of your cluster for direct access, you can create one mapped to the Azure AD entity (service principal or user) that needs to access this cluster. Example:
 
       ```console
-      kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
+      kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
       ```
 
    - If you are using Azure RBAC for authorization checks on the cluster, you can create an Azure role assignment mapped to the Azure AD entity. Example:
@@ -165,62 +156,87 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
 1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, create a service account in any namespace (the following command creates it in the default namespace):
 
    ```console
-   kubectl create serviceaccount admin-user
+   kubectl create serviceaccount demo-user
    ```
 
-1. Create ClusterRoleBinding or RoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). Example:
+1. Create ClusterRoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). Example:
 
     ```console
-    kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --serviceaccount default:admin-user
+    kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --serviceaccount default:demo-user
     ```
 
-1. Get the service account's token using the following commands:
-
-    ```console
-    SECRET_NAME=$(kubectl get serviceaccount admin-user -o jsonpath='{$.secrets[0].name}')
-    ```
+1. Create a service account token:
 
     ```console
-    TOKEN=$(kubectl get secret ${SECRET_NAME} -o jsonpath='{$.data.token}' | base64 -d | sed $'s/$/\\\n/g')
+    kubectl apply -f - <<EOF
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: demo-user-secret
+      annotations:
+        kubernetes.io/service-account.name: demo-user
+    type: kubernetes.io/service-account-token
+    EOF
     ```
+
+    ```console
+    TOKEN=$(kubectl get secret demo-user-secret -o jsonpath='{$.data.token}' | base64 -d | sed $'s/$/\\\n/g')
+    ```
+1. Get the token to output to console
+  
+     ```console
+     echo $TOKEN
+     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, create a service account in any namespace (the following command creates it in the default namespace):
 
    ```console
-   kubectl create serviceaccount admin-user
+   kubectl create serviceaccount demo-user
    ```
 
 1. Create ClusterRoleBinding or RoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). Example:
 
     ```console
-    kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --serviceaccount default:admin-user
+    kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --serviceaccount default:demo-user
     ```
 
-1. Get the service account's token using the following commands:
+1. Create a service account token by:
 
     ```console
-    $SECRET_NAME = (kubectl get serviceaccount admin-user -o jsonpath='{$.secrets[0].name}')
+    kubectl apply -f demo-user-secret.yaml
+    ```
+    
+    Contents of `demo-user-secret.yaml`:
+
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: demo-user-secret
+      annotations:
+        kubernetes.io/service-account.name: demo-user
+    type: kubernetes.io/service-account-token
     ```
 
     ```console
-    $TOKEN = ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String((kubectl get secret $SECRET_NAME -o jsonpath='{$.data.token}'))))
+    $TOKEN = ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String((kubectl get secret demo-user-secret -o jsonpath='{$.data.token}'))))
     ```
 
 ---
 
 ## Access your cluster
 
-1. Set up the Cluster Connect based kubeconfig needed to access your cluster based on the authentication option used:
+1. Set up the cluster connect `kubeconfig` needed to access your cluster based on the authentication option used:
 
-   - If using Azure Active Directory authentication option, after logging into Azure CLI using the Azure AD entity of interest, get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
+   - If using Azure AD authentication, after logging into Azure CLI using the Azure AD entity of interest, get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
 
      ```azurecli
      az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP
      ```
 
-   - If using the service account authentication option, get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere:
+   - If using service account authentication, get the cluster connect `kubeconfig` needed to communicate with the cluster from anywhere:
 
      ```azurecli
      az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP --token $TOKEN
@@ -236,11 +252,11 @@ You should now see a response from the cluster containing the list of all pods u
 
 ## Known limitations
 
-When making requests to the Kubernetes cluster, if the Azure AD entity used is a part of more than 200 groups, the following error is observed as this is a known limitation:
+When making requests to the Kubernetes cluster, if the Azure AD entity used is a part of more than 200 groups, you may see the following error:
 
 `You must be logged in to the server (Error:Error while retrieving group info. Error:Overage claim (users with more than 200 group membership) is currently not supported.`
 
-To get past this error:
+This is a known limitation. To get past this error:
 
 1. Create a [service principal](/cli/azure/create-an-azure-service-principal-azure-cli), which is less likely to be a member of more than 200 groups.
 1. [Sign in](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI with the service principal before running the `az connectedk8s proxy` command.

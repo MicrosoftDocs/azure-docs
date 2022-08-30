@@ -2,9 +2,13 @@
 title: Partitioning Service Fabric services 
 description: Learn how to partition Service Fabric stateless and stateful services
 ms.topic: conceptual
-ms.date: 06/16/2022
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Partition Service Fabric reliable services
 This article provides an introduction to the basic concepts of partitioning Azure Service Fabric reliable services. Partitioning enables data storage on the local machines so data and compute can be scaled together.
 
@@ -117,7 +121,7 @@ As we literally want to have one partition per letter, we can use 0 as the low k
 2. In the **New Project** dialog box, choose the Service Fabric application.
 3. Call the project "AlphabetPartitions".
 4. In the **Create a Service** dialog box, choose **Stateful** service and call it "Alphabet.Processing".
-5. Set the number of partitions. Open the Applicationmanifest.xml file located in the ApplicationPackageRoot folder of the AlphabetPartitions project and update the parameter Processing_PartitionCount to 26 as shown below.
+5. Set the number of partitions. Open the ApplicationManifest.xml file located in the ApplicationPackageRoot folder of the AlphabetPartitions project and update the parameter Processing_PartitionCount to 26 as shown below.
    
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />

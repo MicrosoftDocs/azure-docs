@@ -7,7 +7,7 @@ ms.subservice: single-server
 ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
-ms.date: 3/18/2020
+ms.date: 06/20/2022
 ---
 
 # What is Azure Database for MySQL?

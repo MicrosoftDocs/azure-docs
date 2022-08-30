@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # Create a custom query
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 This article describes how you can use the **Audit** dashboard in Permissions Management to create custom queries that you can modify, save, and run as often as you want.
 
 ## Open the Audit dashboard

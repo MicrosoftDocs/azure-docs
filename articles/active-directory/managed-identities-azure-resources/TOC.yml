@@ -115,6 +115,8 @@
 
   - name: Manage user-assigned managed identities
     href: how-manage-user-assigned-managed-identities.md
+  - name: View associated resources for a managed identity
+    href: how-to-view-associated-resources-for-an-identity.md
   - name: View managed identity service principals
     items:
     - name: Portal

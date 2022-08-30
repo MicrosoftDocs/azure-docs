@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # Troubleshoot issues with Permissions Management
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 This section answers troubleshoot issues with Permissions Management.
 
 ## One time passcode (OTP) email

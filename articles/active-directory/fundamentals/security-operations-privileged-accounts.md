@@ -2,14 +2,14 @@
 title: Security operations for privileged accounts in Azure Active Directory
 description: Learn about baselines, and how to monitor and alert on potential security issues with privileged accounts in Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
 ms.date: 04/29/2022
-ms.author: baselden
+ms.author: gasinh
 ms.custom: kr2b-contr-experiment
 ms.collection: M365-identity-device-management
 ---
@@ -34,7 +34,7 @@ The log files you use for investigation and monitoring are:
 
 * [Azure AD Audit logs](../reports-monitoring/concept-audit-logs.md)
 * [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
-* [Azure Key Vault insights](../../azure-monitor/insights/key-vault-insights-overview.md)
+* [Azure Key Vault insights](../../key-vault/key-vault-insights-overview.md)
 
 From the Azure portal, you can view the Azure AD Audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
@@ -156,7 +156,7 @@ Investigate changes to privileged accounts' authentication rules and privileges,
 | - | - | - | - | - |
 | Privileged account creation| Medium| Azure AD Audit logs| Service = Core Directory<br>-and-<br>Category = User management<br>-and-<br>Activity type = Add user<br>-correlate with-<br>Category type = Role management<br>-and-<br>Activity type = Add member to role<br>-and-<br>Modified properties = Role.DisplayName| Monitor creation of any privileged accounts. Look for correlation that's of a short time span between creation and deletion of accounts.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/UserAssignedPrivilegedRole.yaml) |
 | Changes to authentication methods| High| Azure AD Audit logs| Service = Authentication Method<br>-and-<br>Activity type = User registered security information<br>-and-<br>Category = User management| This change could be an indication of an attacker adding an auth method to the account so they can have continued access.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/AuthenticationMethodsChangedforPrivilegedAccount.yaml) |
-| Alert on changes to privileged account permissions| High| Azure AD Audit logs| Category = Role management<br>-and-<br>Activity type = Add eligible member (permanent)<br>-and-<br>Activity type = Add eligible member (eligible)<br>-and-<br>Status = Success or failure<br>-and-<br>Modified properties = Role.DisplayName| This alert is especially for accounts being assigned roles that aren't known or are outside of their normal responsibilities. |
+| Alert on changes to privileged account permissions| High| Azure AD Audit logs| Category = Role management<br>-and-<br>Activity type = Add eligible member (permanent)<br>-or-<br>Activity type = Add eligible member (eligible)<br>-and-<br>Status = Success or failure<br>-and-<br>Modified properties = Role.DisplayName| This alert is especially for accounts being assigned roles that aren't known or are outside of their normal responsibilities. |
 | Unused privileged accounts| Medium| Azure AD Access Reviews| | Perform a monthly review for inactive privileged user accounts. |
 | Accounts exempt from Conditional Access| High| Azure Monitor Logs<br>-or-<br>Access Reviews| Conditional Access = Insights and reporting| Any account exempt from Conditional Access is most likely bypassing security controls and is more vulnerable to compromise. Break-glass accounts are exempt. See information on how to monitor break-glass accounts later in this article.|
 | Addition of a Temporary Access Pass to a privileged account| High| Azure AD Audit logs| Activity: Admin registered security info<br><br>Status Reason: Admin registered temporary access pass method for user<br><br>Category: UserManagement<br><br>Initiated by (actor): User Principal Name<br><br>Target: User Principal Name|Monitor and alert on a Temporary Access Pass being created for a privileged user.

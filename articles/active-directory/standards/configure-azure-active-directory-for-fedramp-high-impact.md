@@ -6,8 +6,8 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-author: barbaraselden
-ms.author: baselden
+author: gargi-sinha
+ms.author: gasinh
 manager: martinco
 ms.reviewer: martinco
 ms.date: 4/26/2021
@@ -40,7 +40,7 @@ The following is a list of FedRAMP resources:
 
 * [Federal Risk and Authorization Management Program](https://www.fedramp.gov/)
 
-* [FedRAMP Security Assessment Framework](https://www.fedramp.gov/assets/resources/documents/FedRAMP_Security_Assessment_Framework.pdf)
+* [FedRAMP Security Assessment Framework](https://reciprocity.com/blog/conducting-a-fedramp-risk-assessment/)
 
 * [Agency Guide for FedRAMP Authorizations](https://www.fedramp.gov/assets/resources/documents/Agency_Authorization_Playbook.pdf)
 
@@ -54,7 +54,7 @@ The following is a list of FedRAMP resources:
 
 * [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center)
 
-* [Microsoft Compliance Manager](/microsoft-365/compliance/compliance-manager)
+* [Microsoft Purview Compliance Manager](/microsoft-365/compliance/compliance-manager)
 
 ## Next steps
 

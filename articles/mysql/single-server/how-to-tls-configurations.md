@@ -1,12 +1,12 @@
 ---
 title: TLS configuration - Azure portal - Azure Database for MySQL
 description: Learn how to set TLS configuration using Azure portal for your Azure Database for MySQL 
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
 ms.subservice: single-server
+author: mksuni
+ms.author: sumuth
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 06/20/2022
 ---
 
 # Configuring TLS settings in Azure Database for MySQL using Azure portal

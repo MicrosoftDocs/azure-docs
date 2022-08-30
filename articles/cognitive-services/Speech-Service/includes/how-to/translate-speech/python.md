@@ -10,23 +10,6 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-[!INCLUDE [Get the Speech SDK include](../../get-speech-sdk-python.md)]
-
-### Import dependencies
-
-To run the examples in this article, include the following `import` statements at the top of the Python code file:
-
-```python
-import os
-import azure.cognitiveservices.speech as speechsdk
-```
-
 ## Sensitive data and environment variables
 
 The example source code in this article depends on environment variables for storing sensitive data, such as the Speech resource's subscription key and region. The Python code file contains two values that are assigned from the host machine's environment variables: `SPEECH__SUBSCRIPTION__KEY` and `SPEECH__SERVICE__REGION`. Both of these variables are at the global scope, so they're accessible within the function definition of the code file: 
@@ -75,7 +58,7 @@ def translate_speech_to_text():
     translation_config.speech_recognition_language = from_language
 ```
 
-The `speech_recognition_language` property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The `speech_recognition_language` property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 ## Add a translation language
 

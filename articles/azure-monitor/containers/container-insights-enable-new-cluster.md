@@ -18,26 +18,12 @@ This article describes how to set up Container insights to monitor managed Kuber
 To enable monitoring of a new AKS cluster created with Azure CLI, follow the step in the quickstart article under the section [Create AKS cluster](../../aks/learn/quick-kubernetes-deploy-cli.md).  
 
 >[!NOTE]
->If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.74 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+>If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.39.0 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 >If you have installed the aks-preview CLI extension version 0.4.12 or higher, remove any changes you have made to enable a preview extension as it can override the default Azure CLI behavior since AKS Preview features aren't available in Azure US Governmnet cloud.
 
 ## Enable using Terraform
 
-If you are [deploying a new AKS cluster using Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), you specify the arguments required in the profile [to create a Log Analytics workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) if you do not choose to specify an existing one. 
-
->[!NOTE]
->If you choose to use Terraform, you must be running the Terraform Azure RM Provider version 1.17.0 or above.
-
-To add Container insights to the workspace, see [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) and complete the profile by including the [**addon_profile**](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster) and specify **oms_agent**. 
-
-After you've enabled monitoring and all configuration tasks are completed successfully, you can monitor the performance of your cluster in either of two ways:
-
-* Directly in the AKS cluster by selecting **Health** in the left pane.
-* By selecting the **Monitor Container insights** tile in the AKS cluster page for the selected cluster. In Azure Monitor, in the left pane, select **Health**. 
-
-  ![Options for selecting Container insights in AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
-
-After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster. 
+If you are [deploying a new AKS cluster using Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), you specify the arguments required in the profile [to create a Log Analytics workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) if you do not choose to specify an existing one. To add Container insights to the workspace, see [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) and complete the profile by including the [**addon_profile**](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster) and specify **oms_agent**. 
 
 ## Verify agent and solution deployment
 With agent version *06072018* or later, you can verify that both the agent and the solution were deployed successfully. With earlier versions of the agent, you can verify only agent deployment.

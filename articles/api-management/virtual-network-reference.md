@@ -43,7 +43,8 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / 443, 12000                     | Outbound           | TCP                | VirtualNetwork / AzureCloud            | Health and Monitoring Extension (optional)        | External & Internal  |
 | * / 1886, 443                     | Outbound           | TCP                | VirtualNetwork / AzureMonitor         | Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md), and [Application Insights](api-management-howto-app-insights.md) (optional)                  | External & Internal  |
 | * / 25, 587, 25028                       | Outbound           | TCP                | VirtualNetwork / Internet            | Connect to SMTP Relay for sending e-mail (optional)                   | External & Internal  |
-| * / 6381 - 6383              | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access Redis Service for [Cache](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
+| * / 6380             | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access external Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
+| * / 6381 - 6383              | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](api-management-access-restriction-policies.md#LimitCallRateByKey) policies between machines (optional)        | External & Internal  |
 | * / 6390                       | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | **Azure Infrastructure Load Balancer**                          | External & Internal  |
 
@@ -163,7 +164,7 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
 | Azure Public| South Central US| 20.188.77.119, 20.97.32.190|
 | Azure Public| South India| 20.44.33.246|
 | Azure Public| Southeast Asia| 40.90.185.46|
-| Azure Public| Switzerland North| 51.107.0.91|
+| Azure Public| Switzerland North| 51.107.246.176, 51.107.0.91|
 | Azure Public| Switzerland West| 51.107.96.8|
 | Azure Public| UAE Central| 20.37.81.41|
 | Azure Public| UAE North| 20.46.144.85|

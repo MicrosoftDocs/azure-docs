@@ -1,6 +1,6 @@
 ---
-title: Microsoft Purview classification best practices
-description: This article provides best practices for classification in Microsoft Purview.
+title: Classification best practices for the Microsoft Purview governance portal
+description: This article provides best practices for classification in the Microsoft Purview governance portal so you can effectively identify sensitive data across your environment.
 author: amberz
 ms.author: amberz
 ms.service: purview
@@ -9,17 +9,13 @@ ms.topic: conceptual
 ms.date: 11/18/2021
 ---
 
-# Microsoft Purview classification best practices 
+# Classification best practices in the Microsoft Purview governance portal
 
-Data classification, in the context of Microsoft Purview, is a way of categorizing data assets by assigning unique logical labels or classes to the data assets. Classification is based on the business context of the data. For example, you might classify assets by *Passport Number*, *Driver's License Number*, *Credit Card Number*, *SWIFT Code*, *Person’s Name*, and so on.
+Data classification in the Microsoft Purview governance portal is a way of categorizing data assets by assigning unique logical labels or classes to the data assets. Classification is based on the business context of the data. For example, you might classify assets by *Passport Number*, *Driver's License Number*, *Credit Card Number*, *SWIFT Code*, *Person’s Name*, and so on. To learn more about classification itself, see our [classification article](concept-classification.md).
 
-To learn more about classification, see [Classification](concept-classification.md).
+This article describes best practices to adopt when you're classifying data assets, so that your scans will be more effective and you have the most complete information possible about your entire data estate.
 
-## Classification best practices
-
-This section describes best practices to adopt when you're classifying data assets.
-
-### Scan rule set
+## Scan rule set
 
 By using a *scan rule set*, you can configure the relevant classifications that should be applied to the particular scan for the data source. Select the relevant system classifications, or select custom classifications if you've created one for the data you're scanning. 
 
@@ -27,7 +23,7 @@ For example, in the following image, only the specific selected system and custo
     
 :::image type="content" source="./media/concept-best-practices/classification-select-classification-rules-example-3.png" alt-text="Screenshot that shows a selected classification rule." lightbox="./media/concept-best-practices/classification-select-classification-rules-example-3.png":::
 
-### Annotation management
+## Annotation management
 
 While you're deciding on which classifications to apply, we recommend that you:
 
@@ -41,7 +37,7 @@ While you're deciding on which classifications to apply, we recommend that you:
 
      :::image type="content" source="./media/concept-best-practices/classification-classification-rules-example-2.png" alt-text="Screenshot that shows the 'Classification rules' pane." lightbox="./media/concept-best-practices/classification-classification-rules-example-2.png":::
 
-### Custom classifications
+## Custom classifications
 
 Create custom classifications only if the available system classifications don't meet your needs.
 
@@ -55,7 +51,7 @@ When you create and configure the classification rules for a custom classificati
 
 * Select the appropriate classification name for which the classification rule is to be created.
 
-* Microsoft Purview supports the following two methods for creating custom classification rules: 
+* The Microsoft Purview governance portal supports the following two methods for creating custom classification rules: 
    * Use the **Regular expression** (regex) method if you can consistently express the data element by using a regular expression pattern or you can generate the pattern by using a data file. Ensure that the sample data reflects the population.
    * Use the **Dictionary** method only if the list of values in the dictionary file represents all possible values of data to be classified and is expected to conform to a given set of data (considering future values as well).
 
@@ -85,9 +81,9 @@ When you create and configure the classification rules for a custom classificati
 
     * This method supports .csv and .tsv files, with a file size limit  of 30 megabytes (MB).
 
-### Custom classification archetypes
+## Custom classification archetypes
 
-**How the "threshold" parameter works in the regular expression**
+### How the "threshold" parameter works in the regular expression
 
 * Consider the sample source data in the following image. There are five columns, and the custom classification rule should be applied to columns **Sample_col1**, **Sample_col2**, and **Sample_col3** for the data pattern *N{Digit}{Digit}{Digit}AN*.
 
@@ -103,11 +99,11 @@ When you create and configure the classification rules for a custom classificati
 
    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-threshold-11.png" alt-text="Screenshot that shows thresholds of a custom classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-rule-threshold-11.png":::
 
-   If you have a threshold of 55%, only columns **Sample_col1** and **Sample_col2** will be classified. **Sample_col3** will not be classified, because it doesn't meet the 55% threshold criterion.
+   If you have a threshold of 55%, only columns **Sample_col1** and **Sample_col2** will be classified. **Sample_col3** won't be classified, because it doesn't meet the 55% threshold criterion.
 
    :::image type="content" source="./media/concept-best-practices/classification-test-custom-classification-rule-12.png" alt-text="Screenshot that shows the result of a high-threshold criterion." lightbox="./media/concept-best-practices/classification-test-custom-classification-rule-12.png":::
 
-**How to use both data and column patterns**
+### How to use both data and column patterns
 
 * For the given sample data, where both column **B** and column **C** have similar data patterns, you can classify on column **B** based on the data pattern "^P[0-9]{3}[A-Z]{2}$". 
    
@@ -124,7 +120,7 @@ When you create and configure the classification rules for a custom classificati
 
    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png" alt-text="Screenshot that shows a column pattern." lightbox="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png":::
 
-**How to use multiple column patterns**
+### How to use multiple column patterns
 
 If there are multiple column patterns to be classified for the same classification rule, use pipe (|) character-separated column names. For example, for columns **Product ID**, **Product_ID**, **ProductID**, and so on, write the column pattern as shown in the following image:
    
@@ -141,15 +137,15 @@ Here are some considerations to bear in mind as you're defining classifications:
     * Set priorities and develop a plan to achieve the security and compliance needs of an organization. 
     * Describe the phases in the data preparation processes (raw zone, landing zone, and so on) and assign the classifications to specific assets to mark the phase in the process.
 
-* With Microsoft Purview, you can assign classifications at the asset or column level automatically by including relevant classifications in the scan rule, or you can assign them manually after you ingest the metadata into Microsoft Purview.
-* For automatic assignment, see [Supported data stores in Microsoft Purview](./azure-purview-connector-overview.md).
-* Before you scan your data sources in Microsoft Purview, it is important to understand your data and configure the appropriate scan rule set for it (for example, by selecting relevant system classification, custom classifications, or a combination of both), because it could affect your scan performance. For more information, see [Supported classifications in Microsoft Purview](./supported-classifications.md).
-* The Microsoft Purview scanner applies data sampling rules for deep scans (subject to classification) for both system and custom classifications. The sampling rule is based on the type of data sources. For more information, see the "Sampling within a file" section in [Supported data sources and file types in Microsoft Purview](./sources-and-scans.md#sampling-within-a-file). 
+* You can assign classifications at the asset or column level automatically by including relevant classifications in the scan rule, or you can assign them manually after you ingest the metadata into the Microsoft Purview Data Map.
+* For automatic assignment, see [supported data stores in the Microsoft Purview governance portal](./azure-purview-connector-overview.md).
+* Before you scan your data sources in the Microsoft Purview Data Map, it's important to understand your data and configure the appropriate scan rule set for it (for example, by selecting relevant system classification, custom classifications, or a combination of both), because it could affect your scan performance. For more information, see [supported classifications in the Microsoft Purview governance portal](./supported-classifications.md).
+* The Microsoft Purview scanner applies data sampling rules for deep scans (subject to classification) for both system and custom classifications. The sampling rule is based on the type of data sources. For more information, see the "Sampling within a file" section in [Supported data sources and file types in Microsoft Purview](./sources-and-scans.md#sampling-within-a-file).
 
     > [!Note]
     > **Distinct data threshold**: This is the total number of distinct data values that need to be found in a column before the scanner runs the data pattern on it. Distinct data threshold has nothing to do with pattern matching but it is a pre-requisite for pattern matching. System classification rules require there to be at least 8 distinct values in each column to subject them to classification. The system requires this value to make sure that the column contains enough data for the scanner to accurately classify it. For example, a column that contains multiple rows that all contain the value 1 won't be classified. Columns that contain one row with a value and the rest of the rows have null values also won't get classified. If you specify multiple patterns, this value applies to each of them.
 
-* The sampling rules apply to resource sets as well. For more information, see the "Resource set file sampling" section in [Supported data sources and file types in Microsoft Purview](./sources-and-scans.md#resource-set-file-sampling).
+* The sampling rules apply to resource sets as well. For more information, see the "Resource set file sampling" section in [supported data sources and file types in the Microsoft Purview governance portal](./sources-and-scans.md#resource-set-file-sampling).
 * Custom classifications can't be applied on document type assets using custom classification rules. Classifications for such types can be applied manually only.
 * Custom classifications aren't included in any default scan rules. Therefore, if automatic assignment of custom classifications is expected, you must deploy and use a custom scan rule that includes the custom classification to run the scan.
 * If you apply classifications manually from the Microsoft Purview governance portal, such classifications are retained in subsequent scans. 
@@ -158,6 +154,7 @@ Here are some considerations to bear in mind as you're defining classifications:
 
 
 ## Next steps
+
 - [Apply system classification](./apply-classifications.md)
 - [Create custom classification](./create-a-custom-classification-and-classification-rule.md)
 

@@ -23,7 +23,7 @@ To complete this tutorial's steps, you need to have access to a resource group f
 ### Start the process
 1. Open the [Azure portal](https://portal.azure.com), in the search bar enter **Synapse** without hitting enter.
 1. In the search results, under **Services**, select **Azure Synapse Analytics**.
-1. Select **Add** to create a workspace.
+1. Select **Create** to create a workspace.
 
 ## Basics tab > Project Details
 Fill in the following fields:

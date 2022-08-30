@@ -98,15 +98,15 @@ Review these steps to make sure all the usual configurations are as expected to 
 
 1. Source Virtual Machine should have the route to Private Endpoint IP next hop as InterfaceEndpoints in the NIC Effective Routes. 
 
-    a. If you are not able to see the Private Endpoint Route in the Source VM, check if 
+    a. If you aren't able to see the Private Endpoint Route in the Source VM, check if 
      - The Source VM and the Private Endpoint are part of the same VNET. If yes, then you need to engage support. 
      - The Source VM and the Private Endpoint are part of different VNETs that are directly peered with each other. If yes, then you need to engage support.
-     - The Source VM and the Private Endpoint are part of different VNETs that are not directly peered with each other, then check for the IP connectivity between the VNETs.
+     - The Source VM and the Private Endpoint are part of different VNETs that aren't directly peered with each other, then check for the IP connectivity between the VNETs.
 
 1. If the connection has validated results, the connectivity problem might be related to other aspects like secrets, tokens, and passwords at the application layer.
    - In this case, review the configuration of the private link resource associated with the private endpoint. For more information, see the [Azure Private Link troubleshooting guide](troubleshoot-private-link-connectivity.md)
    
-1. It is always good to narrow down before raising the support ticket. 
+1. It's always good to narrow down before raising the support ticket. 
 
     a. If the Source is On-Premises connecting to Private Endpoint in Azure having issues, then try to connect 
       - To another Virtual Machine from On-Premises and check if you have IP connectivity to the Virtual Network from On-Premises. 
@@ -118,7 +118,7 @@ Review these steps to make sure all the usual configurations are as expected to 
 
 1. If the Private Endpoint is linked to a [Private Link Service](./troubleshoot-private-link-connectivity.md) which is linked to a Load Balancer, check if the backend pool is reporting healthy. Fixing the Load Balancer health will fix the issue with connecting to the Private Endpoint.
 
-    - You can see a visual diagram or a [dependency view](../azure-monitor/insights/network-insights-overview.md#dependency-view) of the related resources, metrics, and insights by going to:
+    - You can see a visual diagram or a [dependency view](../network-watcher/network-insights-overview.md#dependency-view) of the related resources, metrics, and insights by going to:
         - Azure Monitor
         - Networks
         - Private endpoints

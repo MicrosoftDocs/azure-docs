@@ -31,7 +31,7 @@ As of June 15, 2017, Microsoft no longer requires pre-approval to conduct a pene
 
 Standard tests you can perform include:
 
-* Tests on your endpoints to uncover the [Open Web Application Security Project (OWASP) top 10 vulnerabilities](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
+* Tests on your endpoints to uncover the [Open Web Application Security Project (OWASP) top 10 vulnerabilities](https://owasp.org/www-project-top-ten/)
 * [Fuzz testing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) of your endpoints
 * [Port scanning](https://en.wikipedia.org/wiki/Port_scanner) of your endpoints
 
