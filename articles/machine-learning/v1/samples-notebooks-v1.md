@@ -26,9 +26,9 @@ The [Azure Machine Learning Notebooks repository](https://github.com/azure/machi
 
 This article shows you how to access the repositories from the following environments:
 
-- [Azure Machine Learning compute instance](#notebookvm)
-- [Bring your own notebook server](#byo)
-- [Data Science Virtual Machine](#dsvm)
+- Azure Machine Learning compute instance
+- Bring your own notebook server
+- Data Science Virtual Machine
 
 
 ## Get samples on Azure Machine Learning compute instance
