@@ -12,18 +12,22 @@ ms.custom: references_regions
  
 # Migrate Azure Kubernetes Service (AKS) and MySQL Flexible Server workloads to availability zone support 
 
-This guide describes how to migrate Azure Kubernetes Service and MySQL Flexible Server workloads to availability zone support.
+This guide describes how to migrate a Azure Kubernetes Service and MySQL Flexible Server workload to complete availability zone support across all dependent services. For complete list of all workload dependencies, see [Workload service dependencies](#workload-service-dependencies).  
 
-To create availability zone support for this workload, you must re-create and re-deploy your AKS cluster or MySQL Flexible Server.
+Availability zone support for this workload must be enabled during the creation of your AKS cluster or MySQL Flexible Server. This means that a redeployment of these resources is required if you want availability zone support for an existing AKS cluster and MySQL Flexible Server. 
+
+This migration guidance focuses mainly on the infrastructure and availability considerations of running the following architecture on Azure:
+
+:::image type="content" alt-text="Picture showing three replicas for Azure Cache for Redis" source="./media/migrate-workload-aks-mysql/aks-mysql-architecture.jpg":::
 
 
 ## Workload service dependencies
 
 To provide full workload support for availability zones, each service dependency in the workload must support availability zones. 
 
-There are two approaches types of availability zone supported services: [zonal or zone-redundant](az-region.md#highly-available-services). Most services support one or the other. However, in some cases, there are options for choosing either a zonal or zone-redundant resource for that service. We'll indicate which services zonal and zone-redundant resources n the recommendations below.  
+There are two approaches types of availability zone supported services: [zonal or zone-redundant](az-region.md#highly-available-services). Most services support one or the other. However, in some cases, there are options for choosing either a zonal or zone-redundant resource for that service. We'll indicate which services zonal and zone-redundant resources n the recommendations below.  We'll also indicate which services are global and regional.
 
-The AKS and MySQL workload architecture consists of the following components:
+The AKS and MySQL workload architecture consists of the following component dependencies:
 
 ### Azure Kubernetes Service (AKS)
 
@@ -48,30 +52,101 @@ To understand considerations related to Standard Load Balancer resources, see [L
 
 - *Zone-redundant*: Choosing zone-redundancy is the recommended way to configure your Frontend IP with your existing Load Balancer. The zone-redundant front-end corresponds with the AKS cluster back-end pool which is distributed across multiple zones. 
 
-- *Zonal*: If you're pinning your node pools to specific zones-for example, zone 1 and 2- you can pre-select zone 1 and 2 for your Frontend IP in the existing Load Balancer. The reason for pinning your node pools to specific zones could be due to the availability of specialized VM SKU series, for example, M-series. 
+- *Zonal*: If you're pinning your node pools to specific zones such as zone 1 and 2, you can pre-select zone 1 and 2 for your Frontend IP in the existing Load Balancer. The reason why you may want to pin your node pools to specific zones could be due to the availability of specialized VM SKU series such as M-series.
 
 #### Azure Application Gateway 
-Using the Application Gateway Ingress Controller add-on with your AKS cluster is supported only on Application Gateway v2 SKUs (Standard and WAF). 
 
-- *Zonal*: To leverage the benefits of availability zones, We recommend that the Application Gateway resource be created in multiple zones, such as zone 1, 2, and 3. Select all three zones for best intra-region resiliency strategy. 
+Using the Application Gateway Ingress Controller add-on with your AKS cluster is supported only on Application Gateway v2 SKUs (Standard and WAF). To understand further considerations related to Azure Application Gateway, see [Scaling Application Gateway v2 and WAF v2](../application-gateway/application-gateway-autoscaling-zone-redundant.md).
 
-to understand considerations related to Azure Application Gateway,
+*Zonal*: To leverage the benefits of availability zones, we recommend that the Application Gateway resource be created in multiple zones, such as zone 1, 2, and 3. Select all three zones for best intra-region resiliency strategy. However, to correspond to your backend node pools, you may pin your node pools to specific zones by pre-selecting zone 1 and 2 during the creation of your App Gateway resource. The reason why you may want to pin your node pools to specific zones could be due to the availability of specialized VM SKU series such as `M-series`.
 
-Please refer to <doc link> Azure Application Gateway PG link: Scaling and Zone-redundant Application Gateway v2 | Microsoft Docs CAE guidance link Application Gateway V2 AZ Migration Guidance.docx </doc link> AZ migration guidance to understand considerations related to this resource. There are instances whereby you are pinning your node pools to specific zones, in which you pre-select zone 1 and 2 during the creation of your App Gateway resource so as to correspond to your backend node pools. The reason for pinning your node pools to specific zones could be due to the availability of specialized VM SKU series, i.e., M-series. 
+#### Zone Redundant Storage (ZRS) 
 
-## Prerequisites
+- We recommend that your AKS cluster is configured with managed ZRS disks because they are zone-redundant resources. Volumes can be scheduled on all zones.  
 
-To migrate to availability zone support, your VM SKUs must be available across the zones in for your region. To check for VM SKU availability, use one of the following methods:
+- Kubernetes is aware of Azure availability zones since version 1.12. You can deploy a `PersistentVolumeClaim` object referencing an Azure Managed Disk in a multi-zone AKS cluster. Kubernetes will take care of scheduling any pod that claims this PVC in the correct availability zone. 
 
-- Use PowerShell to [Check VM SKU availability](../virtual-machines/windows/create-PowerShell-availability-zone.md#check-vm-sku-availability).
-- Use the Azure CLI to [Check VM SKU availability](../virtual-machines/linux/create-cli-availability-zone.md#check-vm-sku-availability).
-- Go to [Foundational Services](az-region.md#an-icon-that-signifies-this-service-is-foundational-foundational-services).
+- For Azure Database for SQL, we recommend that the data and log files are hosted in zone-redundant storage (ZRS). These files are replicated to the standby server via the storage-level replication available with ZRS. 
 
-## Downtime requirements
+#### Azure Firewall 
 
-Because zonal VMs are created across the availability zones, all migration options mentioned in this article require downtime during deployment.
+*Zonal*: To leverage the benefits of availability zones, we recommend that the Application Gateway resource be created in multiple zones, such as zone 1, 2, and 3. We recommend that you select all three zones for best intra-region resiliency strategy.  
 
-## Considerations
+#### Azure Bastion 
+
+*Regional*: Azure Bastion is deployed within VNets or peered VNets and is associated to an Azure region. For more information, se [Bastion FAQ](../bastion/bastion-faq.md#dr).
+
+#### Azure Container Registry (ACR) 
+
+*Zone-redundant*: We recommend that you create a zone-redundant registry in the Premium service tier. You can also create a zone-redundant registry replica by setting the `zoneRedundancy` property for the replica. To learn how to enable zone redundancy for your ACR, see [Enable zone redundancy in Azure Container Registry for resiliency and high availability](../container-registry/zone-redundancy.md).
+
+#### Azure Cache for Redis 
+
+*Zone-redundant*: Azure Cache for Redis supports zone-redundant configurations in the Premium and Enterprise tiers. A zone-redundant cache places its nodes across different availability zones in the same region. 
+
+#### Azure Active Directory (AD)
+
+*Global*: Azure AD is a global service with multiple levels of internal redundancy and automatic recoverability. Azure AD is deployed in over thirty datacenters around the world that provide  availability zones where present. This number is growing rapidly as additional regions are deployed. 
+
+#### Azure Key Vault 
+
+*Regional*: Azure Key Vault is deployed in a region. To maintain high durability of your keys and secrets, the contents of your key vault are replicated within the region, as well as to a secondary region within the same geography.
+
+*Zone-redundant*: For Azure regions that don't have a secondary paired region, such as Qatar Central, and future Azure regions such as New Zealand, Belgium, Taiwan, Indonesia, Malaysia, Key Vault uses zone-redundant storage (ZRS) to replicate the contents of your key vault three times within the single location/region. 
+
+## Workload considerations
+
+### Azure Kubernetes Service (AKS)
+
+- Pods can communicate with other pods, regardless of which node or the availability zone in which the pod lands on the node. Your application may experience higher response time if the pods are located in different availability zones. While the extra round-trip latencies between pods is expected to fall within an acceptable range for most applications, there are application scenarios which require low latency, especially for a chatty communication pattern between pods.  
+
+- We recommend that you test your application to ensure it performs well across availability zones.  
+
+- For performance reasons such low latency, pods can be co-located in the same data center within the same availability zone. To do this, you can create user node pools with a unique zone and proximity placement group. You can add a proximity placement group (PPG) to an existing AKS cluster by creating a new agent node pool and specifying the PPG. Use Pod Topology Spread Constraints to control how pods are spread in your AKS cluster across availability zones, nodes and regions.  
+
+- After pods that require low latency communication are co-located in the same availability zone, communications between the pods are not direct but are channeled through a service that defines a logical set of pods in your AKS cluster. Pods can be configured to talk to AKS and the communication to the service will be automatically load-balanced to all the pods that are members of the service.  
+
+- To take advantage of availability zones, node pools contain underlying VMs that are zonal resources. To support applications that have different compute or storage demands, you can create user node pools with specific VM sizes when you create the user node pool.  
+
+    For example, you may decide to use the `Standard_M32ms` under the `M-series` for your user nodes because the microservices in your application require high throughput, low latency, and memory optimized VM sizes that provide high vCPU counts and large amounts of memory. When you select the VM size in the Azure Portal, depending on the region you are deploying this, you may see that this VM size is not supported in zone 1, 2, 3. Zone 1 and 2 are supported. You accept this resiliency configuration that your user node pool will be deployed only in zone 1 and 2.  
+
+- You can't change the VM size of a node pool after you create it. For more information on node pool limitations, see [Limitations](../aks/use-multiple-node-pools.md#limitations). 
+
+### Azure Database for MySQL Flexible Server 
+
+The implication of deploying your node pools in specific zones, such as zone 1 and 2, is that all service dependencies of your AKS cluster must also support zone 1 and 2. In this workload architecture, your AKS cluster has a service dependency on Azure Database for MySQL Flexible Servers with zone resiliency. You would select zone 1 for your primary server and zone 2 for your standby server to be co-located with your AKS user node pools. 
+
+
+:::image type="content" alt-text="Picture showing zone selection for MySQL Flexible Servers" source="./media/migrate-workload-aks-mysql/mysql-zone-selection.jpg":::
+
+### Azure Cache for Redis
+
+- Azure Cache for Redis distributes nodes in a zone-redundant cache in a round-robin manner over the availability zones that you've selected.  
+
+- You can't update an existing Premium cache to use zone redundancy. To use zone redundancy, you must recreate the Azure Cache for Redis. 
+
+- To achieve optimal resiliency, we recommend that you create your Azure Cache for Redis with three or more replicas so that you can distribute the replicas across three availability zones. 
+
+:::image type="content" alt-text="Picture showing three replicas for Azure Cache for Redis" source="./media/migrate-workload-aks-mysql/redis-create-replicas.jpg":::
+
+
+## Disaster recovery considerations
+
+*Availability zones* are generally used for better resiliency to achieve high availability of your workload within the primary region of your deployment. 
+
+*Disaster Recovery* consists of recovery operations and practices defined in your business continuity plan, which is about how your workload recovers during a disruptive event and fully recovers after the event. Consider extending your deployment to an alternative region. 
+
+For your application tier, please review the business continuity and disaster recovery considerations for AKS in this article. 
+
+- Consider running multiple AKS clusters in alternative regions. The alternative region can either use a secondary paired region, or where there is no region pairing for your primary region, you are encouraged to select an alternative region based on your consideration for available services, capacity, geographical proximity, and data sovereignty. Please review this Azure regions decision guide. Also review the deployment stamp pattern. 
+
+- You have the option of configuring active-active, active-standby, active-passive for your AKS clusters. 
+
+- For your database tier, disaster recovery features include geo-redundant backups with the ability to initiate geo-restore and deploying read replicas in a different region.  
+
+- During an outage, you'll need to decide whether to initiate a recovery. You'll need to initiate recovery operations only when the outage is likely to last longer than your workload’s recovery time objective (RTO). Otherwise, you'll wait for service recovery by checking the service status on the Azure Service Health Dashboard. On the Service Health blade of the Azure portal, you can view any notifications associated with your subscription. 
+
+- When you do initiate recovery with the geo-restore feature in Azure Database for MySQL, a new database server is created using backup data that is replicated from another region.  
 
 
 ## Next Steps
