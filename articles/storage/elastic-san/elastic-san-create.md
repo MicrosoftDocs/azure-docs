@@ -13,6 +13,12 @@ ms.subservice: elastic-san
 
 This article explains how to deploy and configure an Elastic SAN.
 
+## Prerequsites
+
+An Azure Virtual Network with a subnet that has the Storage service endpoint registered.
+Register your subscription with the preview feature:
+`Register-AzProviderFeature -FeatureNameAllow ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan`
+
 ## Create the SAN
 
 
@@ -21,9 +27,14 @@ This article explains how to deploy and configure an Elastic SAN.
 1. Sign in to the Azure portal and search for **Elastic SAN**.
 1. Select **+ Create a new SAN**
 1. On the basics blade, fill out the values.
+    1. Select the same region as your Azure virtual network.
 1. Specify the amount of base capacity you require, as well as any additional capacity, then select next.
 
     Increasing your SAN's base size will also increase its IOPS and bandwidth. Increasing additional capacity only increase its total size (base+additional) but won't increase IOPS or bandwidth, however, it's cheaper than increasing base.
+
+1. Select **Next : Volume groups**.
+
+    :::image type="content" source="media/elastic-san-create/create-flow.png" alt-text="Screenshot of creation flow." lightbox="media/elastic-san-create/create-flow.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -32,6 +43,7 @@ This article explains how to deploy and configure an Elastic SAN.
 $rgName = "yourResourceGroupName"
 ## Select the same availability zone as your other azure resources
 $zone = 1
+## Select the same region as your Azure virtual network
 $region = "yourRegion"
 $sanName = "desiredSANName"
 $volGroupName = "desiredVolumeGroupName"
@@ -49,8 +61,9 @@ Now that you've configured the basic settings and provisioned your storage, you 
 # [Portal](#tab/azure-portal)
 
 
-1. Create your volume group.
-
+1. Select **+ Create volume group** and name your volume.
+    The volume group name is part of your volume's iSCSI Qualified Name, and can't be changed once created.
+1. Select **Next : Volumes**
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -70,8 +83,11 @@ Volumes are essentially usable partitions of the SAN's total capacity, you must 
 
 # [Portal](#tab/azure-portal)
 
-1. Partition the SAN's total capacity into individual volumes.
+1. Create volumes by entering a name, selecting an appropriate volume group, and entering the capacity you'd like to allocate for your volume.
+    The volume name is part of your volume's iSCI Qualified Name, and can't be changed once created.
 1. Select **Review + create** and deploy your SAN.
+
+    :::image type="content" source="media/elastic-san-create/volume-partitions.png" alt-text="Screenshot of volume creation." lightbox="media/elastic-san-create/volume-partitions.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -89,8 +105,8 @@ Now that your SAN has been deployed, add a virtual network to your volume group.
 
 # [Portal](#tab/azure-portal)
 
-1. Navigate to your SAN and select **Volume groups**
-1. Select a volume group and select **Modify**
+1. Navigate to your SAN and select **Volume groups**.
+1. Select a volume group and select **Modify**.
 1. Add an existing virtual network and select **Save**.
 
 # [PowerShell](#tab/azure-powershell)
@@ -104,8 +120,18 @@ Update-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanNa
 
 ---
 
+## Connect a volume
+
+Once your networking has been configured, you can begin connecting volumes to your Azure VMs.
+
+1. Navigate to your SAN and select **Volumes**.
+1. Select the volume you'd like to connect to and select **Connect**.
+1. Copy the PowerShell commands provided and run them as an Administrator in a shell on your Azure VM.
+
+
 You've now deployed and configured an elastic SAN.
 
 # Next steps
 
 Connect an Elastic SAN volume to a client.
+
