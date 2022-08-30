@@ -17,8 +17,8 @@ All IoT Edge devices use certificates to create secure connections between the r
 
 ## Install production certificates
 
-When you first install IoT Edge and provision your device, the device is set up with temporary certificates so that you can test the service.
-These temporary certificates expire in 90 days, or can be reset by restarting your machine.
+When you first install IoT Edge and provision your device, the device is set up with temporary certificates (known as quickstart CA) so that you can test the service.
+These temporary certificates expire in 90 days.
 Once you move into a production scenario, or you want to create a gateway device, you need to provide your own certificates.
 This article demonstrates the steps to install certificates on your IoT Edge devices.
 
@@ -213,11 +213,14 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
 
 IoT Edge has built-in ability to renew certificates before expiry.
 
-Certificates can only auto-renew if you have a certificate issuance method set, like EST. It must be configured per type of certificate. To configure, go to the relevant certificate configuration section in `config.toml` and add:
+Certificates renewal requires an issuance method that IoT Edge can manage. Generally, this means an EST server is required, but IoT Edge can also automatically renew the quickstart CA without configuration. Certificate renewal is configured per type of certificate. To configure, go to the relevant certificate configuration section in `config.toml` and add:
 
 ```toml
 # To use auto renew with other types of certs, swap `edge_ca` with other certificate types
 # And put into the relevant section
+[edge_ca]
+method = "est"
+#...
 [edge_ca.auto_renew]
 rotate_key = true
 threshold = "80%" 
@@ -234,20 +237,20 @@ Here:
 :::moniker-end
 <!-- end iotedge-2020-11 -->
 
-## Customize certificate lifetime
+## Customize quickstart CA lifetime
 
 IoT Edge automatically generates certificates on the device in several cases, including:
 
 <!-- 1.1. -->
 :::moniker range="iotedge-2018-06"
-* If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates a **device CA certificate**. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
+* If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates a **device CA certificate**. This self-signed certificate is known as the quickstart CA and only meant for development and testing scenarios, not production. This certificate expires after 90 days.
 * The IoT Edge security manager also generates a **workload CA certificate** signed by the device CA certificate
 :::moniker-end
 <!-- end 1.1 -->
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
-If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates an **edge CA certificate**. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
+If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates an **edge CA certificate**. This self-signed certificate is known as the quickstart CA and only meant for development and testing scenarios, not production. This certificate expires after 90 days.
 :::moniker-end
 <!-- end 1.2 -->
 
@@ -365,7 +368,8 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
-### Renew Edge CA
+
+### Renew quickstart Edge CA
 
 By default, IoT Edge automatically regenerates the Edge CA certificate when at 80% of the certificate lifetime. So for certificate with 90 day lifetime, IoT Edge automatically regenerates the Edge CA certificate at 72 days from issuance. 
 
