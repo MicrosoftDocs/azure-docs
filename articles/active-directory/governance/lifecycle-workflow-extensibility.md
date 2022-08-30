@@ -21,24 +21,24 @@ Lifecycle Workflows allow you to create workflows that can be triggered based on
 
 When linking your Azure Logic App with the custom task extension task, there are certain permissions that must be completed before the link can be established. 
 
-The roles on the Azure Logic app which allows it to be compatible with the custom task extension are as follows:
+The roles on the Azure Logic App, which allows it to be compatible with the custom task extension, are as follows:
 
 - **Logic App contributor**
 - **Contributor**
 - **Owner**
 
 > [!NOTE]
-> The **Logic App Operator** role alone will not make a Logic App compatible with the custom task extension. For more information on the required **Logic App contributor** role, see: [Logic App Contributor](/azure/role-based-access-control/built-in-roles#logic-app-contributor).
+> The **Logic App Operator** role alone will not make an Azure Logic App compatible with the custom task extension. For more information on the required **Logic App contributor** role, see: [Logic App Contributor](/azure/role-based-access-control/built-in-roles#logic-app-contributor).
 
 ## Custom task extension deployment scenarios
 
-When creating custom task extensions, the scenarios for how it will interact with Lifecycle Workflows can be one of two ways :
+When creating custom task extensions, the scenarios for how it will interact with Lifecycle Workflows can be one of two ways:
 :::image type="content" source="media/lifecycle-workflow-extensibility/task-extension-deployment-scenarios.png" alt-text="custom task deployment scenarios.":::
 
 
-- **Launch and complete**- The Logic App is started, and the following task execution immediately continues with no response expected from the Logic App. This scenario is best suited if the Lifecycle workflow doesn't require any feedback (including status) from the Logic App. With this scenario, as long as the workflow is started successfully, the workflow is viewed as a success.
-- **Launch and wait**- The Logic App is started, and the following task's execution waits on the response from the Logic App. If no response is received within a customer defined duration window, the task will be considered failed.
- 
+- **Launch and complete**- The Azure Logic App is started, and the following task execution immediately continues with no response expected from the Azure Logic App. This scenario is best suited if the Lifecycle workflow doesn't require any feedback (including status) from the Azure Logic App. With this scenario, as long as the workflow is started successfully, the workflow is viewed as a success.
+- **Launch and wait**- The Azure Logic App is started, and the following task's execution waits on the response from the Logic App. You enter a time duration for how long the custom task extension should wait for a response from the Azure Logic App. If no response is received within a customer defined duration window, the task will be considered failed.
+ :::image type="content" source="media/lifecycle-workflow-extensibility/custom-task-launch-wait.png" alt-text="custom task launch and wait task":::
 
 ## Custom task extension integration with Azure Logic Apps high-level steps
 
@@ -59,10 +59,10 @@ The high-level steps for the Azure Logic Apps integration are as follows:
 ## Logic App parameters used by the custom task
 
 
-When creating a custom task extension from the Azure portal, you are able to create a Logic App, or link it to an existing one.
+When creating a custom task extension from the Azure portal, you're able to create a Logic App, or link it to an existing one.
 :::image type="content" source="media/lifecycle-workflow-extensibility/custom-task-logic-app.png" alt-text="custom task create logic app."::: 
 
-When creating, or linking, a Logic App to a custom task extension you must specify the following information:
+The following information is supplied to the custom task from the Logic App:
 
 - Subscription
 - Resource group
