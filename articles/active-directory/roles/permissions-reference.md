@@ -1948,7 +1948,7 @@ Users with this role can manage alerts and have global read-only access on secur
 | [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts |
 | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/prepare-deployment) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts |
 | [Intune](/intune/role-based-access-control) | All permissions of the Security Reader role |
-| [Microsoft Defender for Cloud Apps](/cloud-app-security/manage-admins) | All permissions of the Security Reader role>View, investigate, and respond to security alerts |
+| [Microsoft Defender for Cloud Apps](/cloud-app-security/manage-admins) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts |
 | [Microsoft 365 service health](/microsoft-365/enterprise/view-service-health) | View the health of Microsoft 365 services |
 
 > [!div class="mx-tableFixed"]
