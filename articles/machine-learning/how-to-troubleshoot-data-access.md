@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot data
+title: Troubleshoot data access
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot and resolve data access issues.
 author: Man-MSFT
