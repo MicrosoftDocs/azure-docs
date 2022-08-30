@@ -18,7 +18,7 @@ Availability zone support for this workload must be enabled during the creation 
 
 This migration guidance focuses mainly on the infrastructure and availability considerations of running the following architecture on Azure:
 
-:::image type="content" alt-text="Picture showing three replicas for Azure Cache for Redis" source="./media/migrate-workload-aks-mysql/aks-mysql-architecture.jpg":::
+:::image type="content" alt-text="Picture showing workflow architecture" source="./media/migrate-workload-aks-mysql/aks-mysql-architecture.jpg":::
 
 
 ## Workload service dependencies
