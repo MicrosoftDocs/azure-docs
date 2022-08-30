@@ -51,6 +51,10 @@ For example, our most powerful GPT-3 model is called `text-davinci-002`, while o
 
 You can easily see the models you have available for both inference and fine-tuning in your resource by using the [Models API](../reference.md#models).
 
+## Finding the right model
+
+We recommend starting with the most capable model in a model family because it's the best way to understand what the service is capable of. After you have an idea of what you want to accomplish, you can either stay with that model or move to a model with lower capability and cost, optimizing around that model's capabilities. 
+
 ## GPT-3 models
 
 The GPT-3 models can understand and generate natural language. The service offers four model capabilities, each with different levels of power and speed suitable for different tasks. Davinci is the most capable model, while Ada is the fastest. The following list represents the latest versions of GPT-3 models, ordered by increasing capability.
@@ -147,10 +151,6 @@ Similar to text search embedding models, there are two input types supported by 
 | Code search and relevance | `code-search-ada-code-001` <br> `code-search-ada-text-001` <br> `code-search-babbage-code-001` <br> `code-search-babbage-text-001` |
 
 When using our Embeddings models, keep in mind their limitations and risks.
-
-## Finding the right model
-
-We recommend starting with the most capable model in a model family because it's the best way to understand what the service is capable of. After you have an idea of what you want to accomplish, you can either stay with that model or move to a model with lower capability and cost, optimizing around that model's capabilities. 
 
 ## Next steps
 
