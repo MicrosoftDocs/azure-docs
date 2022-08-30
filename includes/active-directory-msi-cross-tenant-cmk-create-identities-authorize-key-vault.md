@@ -167,7 +167,7 @@ export uamiObjectId=$(az identity create --name $uamiName --resource-group $rgNa
 
 #### Configure the user-assigned managed identity as a federated credential on the application
 
-Run the [az ad app federated-credential create](/cli/azure/ad/app/federated-credential?view=azure-cli-latest#az-ad-app-federated-credential-create) method to configure a federated identity credential on an app and create a trust relationship with an external identity provider.
+Run the [az ad app federated-credential create](/cli/azure/ad/app/federated-credential#az-ad-app-federated-credential-create) method to configure a federated identity credential on an app and create a trust relationship with an external identity provider.
 
 Use `api://AzureADTokenExchange` as the `audience` value in the federated identity credential. See the [API reference](https://aka.ms/fedcredentialapi) for more details.
 
@@ -203,7 +203,7 @@ Sign in to the [Azure portal](https://portal.azure.com) and follow these steps.
 
 #### Install the service provider application using AppId in the customer tenant
 
-1. Use [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/new-mgserviceprincipal?view=graph-powershell-beta), [Azure PowerShell](/powershell/module/az.resources/new-azadserviceprincipal?view=azps-7.4.0), or [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create) to manually create the service principal.
+1. Use [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals), [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/new-mgserviceprincipal?view=graph-powershell-beta&preserve-view=true), [Azure PowerShell](/powershell/module/az.resources/new-azadserviceprincipal), or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-create) to manually create the service principal.
 1. Construct an [admin-consent URL](../articles/active-directory/manage-apps/grant-admin-consent.md#construct-the-url-for-granting-tenant-wide-admin-consent) and grant tenant-wide consent to create the service principal. You'll need to provide them with your AppId.
 
 #### Create a key vault
