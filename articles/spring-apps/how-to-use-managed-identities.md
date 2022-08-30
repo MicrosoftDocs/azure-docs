@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise Tier
 description: Home page for managed identities for applications.
 author: karlerickson
 ms.author: jiec
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 04/15/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022

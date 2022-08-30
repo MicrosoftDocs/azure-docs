@@ -4,7 +4,7 @@ description: How to deploy applications in Azure Spring Apps with a custom conta
 author: karlerickson
 ms.author: xiangy
 ms.topic: how-to
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.date: 4/28/2022
 ---

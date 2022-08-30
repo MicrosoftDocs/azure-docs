@@ -21,6 +21,10 @@ ms.author: radubulboaca
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/rooms-quickstart-java).
+
 ## Setting up
 
 ### Create a new Java application
@@ -187,3 +191,7 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 ```java
 roomsClient.deleteRoomWithResponse(roomId, Context.NONE);
 ```
+
+## Reference documentation
+
+Read about the full set of capabilities of Azure Communication Services rooms from the [Java SDK reference](/java/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).

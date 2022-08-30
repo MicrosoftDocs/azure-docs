@@ -25,7 +25,7 @@ The **RediSearch** module is also now available for Azure Cache for Redis. For m
 
 ### Redis 6 becomes default for new cache instances
 
-On November 1, 2022, all the versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using the latest stable version of Redis offered by Azure Cache for Redis by default. Previously, Redis version 4.0 was the default version used. However, as of October 2021, the latest stable Redis version offered in Azure Cache for Redis is 6.0.
+Beginning November 1, 2022, all versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using the latest stable version of Redis offered by Azure Cache for Redis by default. Previously, Redis version 4.0 was the default version used. However, as of October 2021, the latest stable Redis version offered in Azure Cache for Redis is 6.0.
 
 >[!NOTE]
 > This change does not affect any existing instances. It is only applicable to new instances created from November 1, 2022, and onward.

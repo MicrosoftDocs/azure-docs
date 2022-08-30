@@ -79,7 +79,7 @@
       href: template-tutorial-deploy-vm-extensions.md
     - name: Deploy SQL extensions
       href: template-tutorial-deploy-sql-extensions-bacpac.md
-  - name: Microsoft Learn path about templates
+  - name: Learning path for templates
     href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Samples - Azure services
   items:
@@ -88,7 +88,7 @@
     - name: Cognitive Search
       href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Cognitive Services
-      href: ../../cognitive-services/create-account-resource-manager-template.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
+      href: ../../cognitive-services/create-account-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Data Science Virtual Machine
       href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Machine Learning
@@ -120,7 +120,7 @@
   - name: Blockchain
     items:
     - name: Blockchain
-      href: https://azure.microsoft.com/solutions/blockchain/?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
+      href: https://azure.microsoft.com/solutions/blockchain/?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Compute
     items:
     - name: Batch
@@ -208,7 +208,7 @@
     - name: Managed Applications
       href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Monitor
-      href: ../../azure-monitor/essentials/resource-manager-diagnostic-settings.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
+      href: ../../azure-monitor/essentials/resource-manager-diagnostic-settings.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Policy
       href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Portal

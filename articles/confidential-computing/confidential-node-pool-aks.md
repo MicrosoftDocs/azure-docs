@@ -26,7 +26,7 @@ In addition to the hardened security profile, confidential node pools on AKS als
 
 :::image type="content" source="media/confidential-vm-node-pools-on-aks/snp-on-aks-architecture-image.png" alt-text="Graphic of VM nodes in AKS with encrypted code and data in confidential VM node pools 1 and 2, on top of the hypervisor":::
 
-Get started and add confidential node pools to existing AKS cluster with [this quick start guide](../aks/use-multiple-node-pools.md#add-a-confidential-vm-with-amd-sev-snp-support-node-pool-preview).
+Get started and add confidential node pools to existing AKS cluster with [this quick start guide](../aks/use-cvm.md).
 
 ## Questions?
 
@@ -34,5 +34,5 @@ If you have questions about container offerings, please reach out to <acconaks@m
 
 ## Next steps
 
-- [Deploy a confidential node pool in your AKS cluster](../aks/use-multiple-node-pools.md#add-a-confidential-vm-with-amd-sev-snp-support-node-pool-preview)
+- [Deploy a confidential node pool in your AKS cluster](../aks/use-cvm.md)
 - Learn more about sizes and specs for [general purpose](../virtual-machines/dcasv5-dcadsv5-series.md) and [memory-optimized](../virtual-machines/ecasv5-ecadsv5-series.md) confidential VMs.

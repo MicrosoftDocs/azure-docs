@@ -74,7 +74,7 @@ items:
       displayName: polybase
     - name: From SAP BW to Azure Data Lake Storage Gen2
       href: load-sap-bw-data.md
-    - name: From Office 365 to Azure Blob storage
+    - name: From Microsoft 365 to Azure Blob storage
       href: load-office-365-data.md
     - name: Multiple tables in bulk
       items:
@@ -353,6 +353,8 @@ items:
       href: connector-amazon-simple-storage-service.md
     - name: Amazon S3 Compatible Storage
       href: connector-amazon-s3-compatible-storage.md
+    - name: AppFigures
+      href: connector-appfigures.md
     - name: Asana
       href: connector-asana.md     
     - name: Avro format
@@ -468,6 +470,9 @@ items:
       href: connector-mariadb.md
     - name: Marketo
       href: connector-marketo.md
+    - name: Microsoft 365
+      href: connector-office-365.md
+      displayName: active directory
     - name: Microsoft Access
       href: connector-microsoft-access.md
     - name: MongoDB
@@ -486,9 +491,6 @@ items:
       displayName: timeout
     - name: ODBC
       href: connector-odbc.md
-    - name: Office 365
-      href: connector-office-365.md
-      displayName: active directory
     - name: Oracle
       href: connector-oracle.md
     - name: Oracle Cloud Storage
@@ -855,8 +857,6 @@ items:
         href: monitor-ssis.md
       - name: Schema of logs and events
         href: monitor-schema-logs-events.md
-      - name: Install Azure Data Factory Analytics solution from Azure Marketplace
-        href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Pipeline failure and error handling
@@ -1114,6 +1114,9 @@ items:
       - name: Azure Cosmos DB (including SQL API)
         href: connector-troubleshoot-azure-cosmos-db.md
         displayName: troubleshooting
+      - name: Azure Data Explorer
+        href: connector-troubleshoot-azure-data-explorer.md      
+        displayName: troubleshooting                
       - name: Azure Data Lake (Gen1 and Gen2)
         href: connector-troubleshoot-azure-data-lake.md
         displayName: troubleshooting
@@ -1173,12 +1176,9 @@ items:
       displayName: orchestration
     - name: Data Flows
       items:
-      - name: Data flow troubleshooting overview
+      - name: Data flow troubleshooting guide
         href: data-flow-troubleshoot-guide.md
         displayName: timeout, troubleshooting
-      - name: Data flow errors and messages
-        href: data-flow-troubleshoot-errors.md
-        displayName: troubleshooting
       - name: Connector and format
         href: data-flow-troubleshoot-connector-format.md
         displayName: troubleshooting
@@ -1259,6 +1259,7 @@ items:
     items:
     - name: 1 - Introduction and architecture
       href: sap-change-data-capture-introduction-architecture.md
+      displayName: SAP, change data capture, CDC
     - name: 2 - Prerequisites and configuration
       href: sap-change-data-capture-prerequisites-configuration.md
     - name: 3 - Self-hosted integration runtime preparation

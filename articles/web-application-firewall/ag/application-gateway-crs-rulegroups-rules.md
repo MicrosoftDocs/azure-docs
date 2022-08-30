@@ -16,7 +16,7 @@ Application Gateway web application firewall (WAF) protects web applications fro
 
 ## Core rule sets
 
-The Application Gateway WAF comes pre-configured with CRS 3.1 by default, but you can choose to use any other supported CRS version.
+The Application Gateway WAF comes pre-configured with CRS 3.2 by default, but you can choose to use any other supported CRS version.
  
 CRS 3.2 offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, and fewer false positives compared with earlier versions of CRS. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
 
@@ -185,6 +185,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920274|Invalid character in request headers (outside of very strict set)|
 |920280|Request Missing a Host Header|
 |920290|Empty Host Header|
+|920300|Request Missing an Accept Header|
 |920310|Request Has an Empty Accept Header|
 |920311|Request Has an Empty Accept Header|
 |920320|Missing User Agent Header|

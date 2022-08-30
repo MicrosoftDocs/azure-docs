@@ -22,7 +22,7 @@ You'll need the following:
 - Permission on your Azure subscription to create a storage account and add role assignments.
 - A domain account to join computers to the domain and open an elevated PowerShell prompt.
 - The subscription ID of your Azure subscription where your storage account will be.
-- A computer joined to your domain for installing and running PowerShell modules that will join a storage account to your domain. This device will need to be running a [Supported version of Windows](/powershell/scripting/install/installing-powershell-on-windows.md#supported-versions-of-windows). Alternatively, you can use a session host.
+- A computer joined to your domain for installing and running PowerShell modules that will join a storage account to your domain. This device will need to be running a [Supported version of Windows](/powershell/scripting/install/installing-powershell-on-windows#supported-versions-of-windows). Alternatively, you can use a session host.
 
 > [!IMPORTANT]
 > If users have previously signed in to the session hosts you want to use, local profiles will have been created for them and must be deleted first by an administrator for their profile to be stored in a Profile Container.
@@ -102,7 +102,7 @@ To use Active Directory accounts for the share permissions of your file share, y
    ```
 
    > [!TIP]
-   > If your Azure account has access to multiple tenants and/or subscriptions, you will need to select the correct subscription by setting your context. For more information, see [Azure PowerShell context objects](/powershell/azure/context-persistence.md)
+   > If your Azure account has access to multiple tenants and/or subscriptions, you will need to select the correct subscription by setting your context. For more information, see [Azure PowerShell context objects](/powershell/azure/context-persistence)
 
 1. Join the storage account to your domain by running the commands below, replacing the values for `$subscriptionId`, `$resourceGroupName`, and `$storageAccountName` with your values. You can also add the parameter `-OrganizationalUnitDistinguishedName` to specify an Organizational Unit (OU) in which to place the computer account.
  
@@ -126,14 +126,6 @@ To use Active Directory accounts for the share permissions of your file share, y
 
    (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.DirectoryServiceOptions; (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
    ```
-
-1. From the Azure portal, open the storage account you created previously.
-
-1. In the **Data storage** section, select **File shares**.
-
-1. In the main section of the page, next to **Active Directory**, select **Not configured**.
-
-1. In the box for **Active Directory Domain Services**, select **Set up**.
 
 > [!IMPORTANT]
 > If your domain enforces password expiration, you must update the password before it expires to prevent authentication failures when accessing Azure file shares. For more information, see [Update the password of your storage account identity in AD DS](../storage/files/storage-files-identity-ad-ds-update-password.md) for details.

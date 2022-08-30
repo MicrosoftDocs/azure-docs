@@ -1,17 +1,17 @@
 ---
-title: How to use the BlobFuse2 mount command to mount a blob storage container as a file system in Linux, or to display and manage existing mount points. | Microsoft Docs
+title: How to use the BlobFuse2 mount command to mount a blob storage container as a file system in Linux, or to display and manage existing mount points (preview). | Microsoft Docs
 titleSuffix: Azure Blob Storage
-description: Learn how to use the BlobFuse2 mount command to mount a blob storage container as a file system in Linux, or to display and manage existing mount points.
+description: Learn how to use the BlobFuse2 mount command to mount a blob storage container as a file system in Linux, or to display and manage existing mount points (preview).
 author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 08/02/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# How to use the BlobFuse2 mount command
+# How to use the BlobFuse2 mount command (preview)
 
 Use the `blobfuse2 mount` command to mount a blob storage container as a file system in Linux, or to display existing mount points.
 
@@ -144,7 +144,7 @@ The following flags apply only to command `blobfuse2 mount`:
 
 ## See also
 
-- [The Blobfuse2 mount all command](blobfuse2-commands-mount-all.md)
-- [The Blobfuse2 mount list command](blobfuse2-commands-mount-list.md)
-- [The Blobfuse2 unmount command](blobfuse2-commands-unmount.md)
-- [The Blobfuse2 mountv1 command](blobfuse2-commands-mountv1.md)
+- [The Blobfuse2 mount all command (preview)](blobfuse2-commands-mount-all.md)
+- [The Blobfuse2 mount list command (preview)](blobfuse2-commands-mount-list.md)
+- [The Blobfuse2 unmount command (preview)](blobfuse2-commands-unmount.md)
+- [The Blobfuse2 mountv1 command (preview)](blobfuse2-commands-mountv1.md)

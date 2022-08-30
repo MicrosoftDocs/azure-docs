@@ -49,7 +49,7 @@ To learn more about specific language version support policy timeline, visit the
 * .NET - [dotnet.microsoft.com](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 * Node - [github.com](https://github.com/nodejs/Release#release-schedule)
 * Java - [azul.com](https://www.azul.com/products/azul-support-roadmap/)
-* PowerShell - [docs.microsoft.com](/powershell/scripting/powershell-support-lifecycle#powershell-end-of-support-dates)
+* PowerShell - [Microsoft technical documentation](/powershell/scripting/powershell-support-lifecycle#powershell-end-of-support-dates)
 * Python - [devguide.python.org](https://devguide.python.org/#status-of-python-branches)
 
 ## Configuring language versions

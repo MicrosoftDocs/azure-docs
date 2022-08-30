@@ -22,6 +22,8 @@ To learn more about organizations in IoT Central Application, see [Manage IoT Ce
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
+To learn how to manage organizations by using the IoT Central UI, see [Manage IoT Central organizations.](../core/howto-create-organizations.md)
+
 ## Organizations REST API
 
 The IoT Central REST API lets you:
