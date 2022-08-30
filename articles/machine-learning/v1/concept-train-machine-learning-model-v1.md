@@ -17,7 +17,7 @@ ms.devlang: azurecli
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
-> * [v1](concept-train-machine-learning-model-v1.md>)
+> * [v1](concept-train-machine-learning-model-v1.md)
 > * [v2 (preview)](../concept-train-machine-learning-model.md)
 
 Azure Machine Learning provides several ways to train your models, from code-first solutions using the SDK to low-code solutions such as automated machine learning and the visual designer. Use the following list to determine which training method is right for you:
@@ -34,7 +34,7 @@ Azure Machine Learning provides several ways to train your models, from code-fir
 
 + **Azure CLI**: The machine learning CLI provides commands for common tasks with Azure Machine Learning, and is often used for **scripting and automating tasks**. For example, once you've created a training script or pipeline, you might use the Azure CLI to start a training job on a schedule or when the data files used for training are updated. For training models, it provides commands that submit training jobs. It can submit jobs using run configurations or pipelines.
 
-Each of these training methods can use different types of compute resources for training. Collectively, these resources are referred to as [__compute targets__](v1/concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.
+Each of these training methods can use different types of compute resources for training. Collectively, these resources are referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.
 
 ## Python SDK
 
@@ -42,7 +42,7 @@ The Azure Machine Learning SDK for Python allows you to build and run machine le
 
 * [What is the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro)
 * [Install/update the SDK](/python/api/overview/azure/ml/install)
-* [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md)
+* [Configure a development environment for Azure Machine Learning](../how-to-configure-environment.md)
 
 ### Run configuration
 
@@ -75,7 +75,7 @@ Machine learning pipelines can use the previously mentioned training methods. Pi
 
 * [What are ML pipelines in Azure Machine Learning?](../concept-ml-pipelines.md)
 * [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-machine-learning-pipelines.md)
-* [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
+* [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-python-sdk.md)
 * [Examples: Jupyter Notebook examples for machine learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Examples: Pipeline with automated machine learning](https://aka.ms/pl-automl)
 
@@ -118,4 +118,4 @@ The machine learning CLI is an extension for the Azure CLI. It provides cross-pl
 
 ## Next steps
 
-Learn how to [Configure a training run](v1/how-to-set-up-training-targets.md).
+Learn how to [Configure a training run](how-to-set-up-training-targets.md).
