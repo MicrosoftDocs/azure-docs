@@ -9,6 +9,20 @@ ms.date: 08/25/2022
 ms.custom: template-how-to
 ---
 
+<!-- 
+!########################################################
+STATUS: IN REVIEW
+
+CONTENT: critical content missing
+        - agent resources for a certain volume of namespace items        
+
+REVIEW Stephen/Fabian: COMPLETE
+REVIEW Engineering: not reviewed
+EDIT PASS: not started
+
+!########################################################
+-->
+
 # Deploy an Azure Storage Mover agent
 
 The Azure Storage Mover service utilizes agents to perform the migration jobs you configure in the service. An agent is a virtual machine-based migration appliance which runs on a virtualization host. Ideally, your virtualization host will be located as near as possible to the source storage which you intend to migrate.

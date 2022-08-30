@@ -10,14 +10,13 @@ ms.date: 06/21/2022
 
 <!-- 
 !########################################################
-STATUS: DRAFT
+STATUS: IN REVIEW
 
-CONTENT: incomplete
-            - link missing for supported source/targets
-            - consider adding a short video
+CONTENT: final
 
 REVIEW Stephen/Fabian: not reviewed
 REVIEW Engineering: not reviewed
+EDIT PASS: not started
 
 !########################################################
 -->
@@ -95,7 +94,7 @@ When you have a completed migration plan, you'll need to deploy the target Azure
 Azure Storage Mover currently can't help with the target resource deployment. To deploy Azure storage, you can use the Azure portal, Az PowerShell, Az CLI, or a [Bicep template](../azure-resource-manager/bicep/overview.md).
 
 > [!IMPORTANT]
-> When deploying Azure Storage, review the support source / target combinations <!!!!!!!!!    LINK NEEDED   !!!!!!!!!!> for Azure Storage Mover and ensure that you don't configure advanced storage settings like private links.
+> When deploying Azure Storage, [review the support source / target combinations](service-overview.md#supported-sources-and-targets) for Azure Storage Mover and ensure that you don't configure advanced storage settings like private links.
 
 ## Phase 5: Migration
 
@@ -113,9 +112,10 @@ When migrating workloads, its often a requirement to minimize the time the workl
 
 In this strategy, you copy from source to target several times. During these copy iterations, the source remains available for read and write to the workload. Just before the final copy iteration, you take the source offline. It is expected that the final copy finishes faster than say the very first copy you've ever made. After the final copy, the workload is failed over to use the new target storage in Azure.
 
-Azure Storage Mover supports copying from source to target as often as you require. A job definition stores your source, your target and migrations settings. You can instruct a migration agent to execute your job definition. That results in a job run. LearnIn this linked article, you can learn more about the [Storage Mover resource hierarchy](resource-hierarchy.md).
+Azure Storage Mover supports copying from source to target as often as you require. A job definition stores your source, your target and migrations settings. You can instruct a migration agent to execute your job definition. That results in a job run. In this linked article, you can learn more about the [Storage Mover resource hierarchy](resource-hierarchy.md).
 
-<!!!!!!!!!    VIDEO     !!!!!!!!!!!!>
+<!-- Needs a video in the future
+<!!!!!!!!!    VIDEO     !!!!!!!!!!!!> -->
 
 ### Migration modes
 
