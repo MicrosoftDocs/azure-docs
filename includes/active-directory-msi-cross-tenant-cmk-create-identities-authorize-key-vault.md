@@ -24,7 +24,7 @@ The following steps are performed by the service provider in the service provide
 
 #### Create a multi-tenant application registration
 
-You can either create a new multi-tenant Azure AD application registration or start with an existing multi-tenant application registration. If starting with an existing application registration, note the ApplicationId (aka ClientId) of the application.
+You can either create a new multi-tenant Azure AD application registration or start with an existing multi-tenant application registration. If starting with an existing application registration, note the application ID (client ID) of the application.
 
 To create a new registration:
 
@@ -39,7 +39,7 @@ To create a new registration:
 
 #### Create a resource group and a user-assigned managed identity
 
-Create a user-assigned managed identity to be used as a Federated Identity Credential.
+Create a user-assigned managed identity to be used as a federated identity credential.
 
 1. Search for **Managed Identities** in the search box. Locate and select the **Managed Identities** extension.
 1. Select **+ Create**.
@@ -64,7 +64,7 @@ Configure a user-assigned managed identity as a federated identity credential on
 4. Select **+ Add credential**.
 5. Under **Federated credential scenario**, select **Customer Managed Keys**.
 6. Click **Select a managed identity**. From the pane, select the subscription. Under **Managed identity**, select **User-assigned managed identity**. In the **Select** box, search for the managed identity you created earlier, then click **Select** at the bottom of the pane.
- 
+
    :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/select-managed-identity.png" alt-text="Screen shot showing how to select a managed identity." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/select-managed-identity.png" border="true":::
 
 7. Under **Credential details**, provide a name and optional description for the credential and select **Add**.
@@ -87,7 +87,7 @@ Pick a name for your multi-tenant application in *Tenant1*. For example: “XTCM
 
 #### Create a resource group and a user-assigned managed identity
 
-Create a user-assigned managed identity to be used as a Federated Identity Credential.
+Create a user-assigned managed identity to be used as a federated identity credential.
 
 ```azurepowershell-interactive
 $subscriptionId="aaaaaaaa-0000-aaaa-0000-aaaa0000aaaa"
