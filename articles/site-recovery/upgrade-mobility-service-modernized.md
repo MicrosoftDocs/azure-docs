@@ -3,13 +3,13 @@ title: Upgrade Mobility Service and appliance components - Modernized
 description: This article describes about automatic updates for mobility agent and the procedure involved with manual updates - Modernized.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/18/2022
+ms.date: 08/30/2022
 ---
 
 
 # Upgrade Mobility Service and Appliance components (Modernized)
 
-From this Modernized, you do not need to maintain source machine's Root/Admin credentials for performing upgrades. The credentials are required only for the initial installation of the agent on source machines. Once done, you can remove the credentials and the upgrades will occur automatically.
+From this modernized mobility service and appliance components, you do not need to maintain source machine's Root/Admin credentials for performing upgrades. The credentials are required only for the initial installation of the agent on source machines. Once done, you can remove the credentials and the upgrades will occur automatically.
 
 
 ## Update mobility agent automatically
@@ -19,7 +19,7 @@ By default, automatic updates are enabled on a vault. Automatic updates will be 
 > [!NOTE]
 > If you are using private preview bits, automatic updates are blocked for the protected machines. Ensure that you setup Site Recovery on your machine again, using a fresh ASR replication appliance.
 
-To avail the latest features, enhancements and fixes, we recommend you to choose **Allow Site Recovery to manage** option on the **Mobility agent upgrade settings (Modernized)**. Automatic updates do not require a reboot or affect on-going replication of your virtual machines. Automatic updates also ensure that all the replication appliances in the vault are automatically updated.
+To avail the latest features, enhancements, and fixes, we recommend you choose **Allow Site Recovery to manage** option on the **Mobility agent upgrade settings (Modernized)**. Automatic updates do not require a reboot or affect on-going replication of your virtual machines. Automatic updates also ensure that all the replication appliances in the vault are automatically updated.
 
 ![Automatic updates on for Mobility agent](./media/upgrade-mobility-service-modernized/automatic-updates-on.png)
 
@@ -36,7 +36,7 @@ If you have turned off automatic updates for your mobility agent, you can update
 
 To manually update mobility agent on multiple protected items, follow these steps:
 
-1. Navigate to **Recovery services vault** > **Replicated items** , click *New Site Recovery mobility agent update is available*. Click to install.
+1. Navigate to **Recovery services vault** > **Replicated items**, click *New Site Recovery mobility agent update is available*. Click to install.
 
    ![Manual update of mobility agent on multiple protected items](./media/upgrade-mobility-service-modernized/agent-update.png)
 
@@ -51,7 +51,7 @@ To manually update mobility agent on multiple protected items, follow these step
 ### Update mobility agent for a single protected machine
 
 To update mobility agent of a protected item, follow these steps:
-1. Navigate to **recovery services vault** > **Replicated items** , select a VM.
+1. Navigate to **recovery services vault** > **Replicated items**, select a VM.
 2. In VM's **Overview** blade, against **Agent version**, view the current version of the mobility agent. If a new update is available, the status is updated as **New update available**.
 
    ![Manual update of mobility agent on a single protected items](./media/upgrade-mobility-service-modernized/agent-version.png)
@@ -90,7 +90,7 @@ In case any of the above issues are applicable, the status is updated as **Canno
 
 In case mobility agent upgrade operation fails (manually triggered or automatic upgrade operation), the job is updated with the reason for failure. Resolve the errors and then retry the operation.
 
-To view the failure errors, you can either navigate to Site Recovery jobs, click a specific job to fetch the resolution of errors. Or, you can use the steps below:
+To view the failure errors, you can either navigate to Site Recovery jobs, click a specific job to fetch the resolution of errors or you can use the steps below:
 
 1. Navigate to replicated items section, select a specific VM.
 
@@ -110,7 +110,7 @@ By default, automatic updates are enabled on the appliance. Automatic updates ar
 
 To check the update status of any of the components, navigate to appliance server and open **Microsoft Azure Appliance Configuration Manager**. Navigate to  **Appliance components**  and expand it to view the list of all the components and their version.
 
-If any of these need to be updated, then the **Status** reflects the same. Click the status message to upgrade the component.
+If any of these need to be updated, then the **Status** reflects the same. Select the status message to upgrade the component.
 
   ![replication appliance components](./media/upgrade-mobility-service-modernized/appliance-components.png)
 
@@ -141,4 +141,4 @@ If prerequisites to upgrade any of the components are not met, then it cannot be
 
 - If replication appliance is unable to communicate with Azure services.
 
-In case any of the above issues are applicable, the status is updated as **Cannot update to latest version**. Click the status to view the reasons blocking the update and recommended actions to fix the issue. After resolving the blocking reasons, try the update manually.
+In case any of the above issues are applicable, the status is updated as **Cannot update to latest version**. Select the status to view the reasons blocking the update and recommended actions to fix the issue. After resolving the blocking reasons, try the update manually.

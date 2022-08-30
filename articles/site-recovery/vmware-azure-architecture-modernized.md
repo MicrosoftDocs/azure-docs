@@ -3,12 +3,12 @@ title: VMware VM disaster recovery architecture in Azure Site Recovery - Moderni
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 08/30/2022
 ---
 
 # VMware to Azure disaster recovery architecture - Modernized
 
-This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the Modernized VMware/Physical machine protection expereince.
+This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the Modernized VMware/Physical machine protection experience.
 
 >[!NOTE]
 > Ensure you create a new Recovery Services vault for setting up the ASR replication appliance. Don't use an existing vault.
@@ -79,14 +79,14 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
     - The appliance orchestrates replication with Azure over port HTTPS 443 outbound.
     - VMs send replication data to the process server on port HTTPS 9443 inbound. This port can be modified.
     - The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
-5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure Managed Disk (called as *asrseeddisk*). The recovery points are created on this disk.
+5. The replication data logs first land in a cache storage account in Azure. These logs are processed, and the data is stored in an Azure Managed Disk (called as *asrseeddisk*). The recovery points are created on this disk.
 
 ## Resynchronization process
 
 1. At times, during initial replication or while transferring delta changes, there can be network connectivity issues between source machine to process server or between process server to Azure. Either of these can lead to failures in data transfer to Azure momentarily.
 2. To avoid data integrity issues, and minimize data transfer costs, Site Recovery marks a machine for resynchronization.
 3. A machine can also be marked for resynchronization in situations like following to maintain consistency between source machine and data stored in Azure
-    - If a machine undergoes force shut-down
+    - If a machine undergoes force shut down
     - If a machine undergoes configurational changes like disk resizing (modifying the size of disk from 2 TB to 4 TB)
 4. Resynchronization sends only delta data to Azure. Data transfer between on-premises and Azure by minimized by computing checksums of data between source machine and data stored in Azure.
 5. By default, resynchronization is scheduled to run automatically outside office hours. If you don't want to wait for default resynchronization outside hours, you can resynchronize a VM manually. To do this, go to Azure portal, select the VM > **Resynchronize**.
@@ -110,7 +110,7 @@ You can manage and modify the default replication policies settings as follows:
 
 ### Multi-VM consistency
 
-If you want VMs to replicate together, and have shared crash-consistent and app-consistent recovery points at failover, you can gather them together into a replication group. Multi-VM consistency impacts workload performance, and should only be used for VMs 4 workloads that need consistency across all machines.
+If you want VMs to replicate together and have shared crash-consistent and app-consistent recovery points at failover, you can gather them together into a replication group. Multi-VM consistency impacts workload performance and should only be used for VMs 4 workloads that need consistency across all machines.
 
 
 
@@ -123,7 +123,7 @@ When failing over, we generally want to ensure that the VM starts with no corrup
 Site Recovery takes snapshots as follows:
 
 1. Site Recovery takes crash-consistent snapshots of data by default, and app-consistent snapshots if you specify a frequency for them.
-2. Recovery points are created from the snapshots, and stored in accordance with retention settings in the replication policy.
+2. Recovery points are created from the snapshots and stored in accordance with retention settings in the replication policy.
 
 ### Consistency
 

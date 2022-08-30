@@ -158,7 +158,7 @@ You need to set up an Azure Site Recovery replication appliance in the on-premis
 Go to **Recovery Services Vault** > **Getting Started**. In VMware machines to Azure, select
 **Prepare Infrastructure** and proceed with the sections detailed below:
 
-![Recovery Services Vault Modernized](./media/deploy-vmware-azure-replication-appliance-modernized/prepare-infra.png)
+:::image type="Recovery Services Vault Modernized" source="./media/deploy-vmware-azure-replication-appliance-modernized/prepare-infra.png" alt-text="Screenshot showing recovery services vault modernized.":::
 
 To set up a new appliance, you can use an OVF template (recommended) or PowerShell. Ensure you meet all the [hardware ](#hardware-requirements) and [software requirements](#software-requirements), and any other prerequisites.
 
@@ -175,7 +175,7 @@ You can create the Site Recovery replication appliance by using the OVF template
 We recommend this approach as Azure Site Recovery ensures all prerequisite configurations are handled by the template.
 The OVF template spins up a machine with the required specifications.
 
-![Prepare infrastructure for appliance creation](./media/deploy-vmware-azure-replication-appliance-modernized/prepare-infra.png)
+:::image type="Prepare infrastructure for appliance creation" source="./media/deploy-vmware-azure-replication-appliance-modernized/prepare-infra.png" alt-text="Screenshot showing infrastructure for appliance creation.":::
 
 **Follow these steps:**
 
@@ -231,7 +231,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 5. Ensure the [prerequisites](#pre-requisites) are met, proceed with registration.
 
-    ![Register appliance](./media/deploy-vmware-azure-replication-appliance-modernized/app-setup-register.png)
+    :::image type="Register appliance" source="./media/deploy-vmware-azure-replication-appliance-modernized/app-setup-register.png" alt-text="Screenshot showing register appliance.":::
 
   - **Friendly name of appliance**: Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
 
@@ -245,7 +245,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
       After successful registration, you can close the tab and move to appliance configuration manager to continue the set up.
 
-      ![authentication code](./media/deploy-vmware-azure-replication-appliance-modernized/enter-code.png)
+      :::image type="authentication code" source="./media/deploy-vmware-azure-replication-appliance-modernized/enter-code.png" alt-text="Screenshot showing authentication code.":::
 
       > [!NOTE]
       > An authentication code expires within 5 minutes of generation. In case of inactivity for more than this duration, you will be prompted to login again to Azure.
@@ -253,13 +253,13 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 6. After successful login, Subscription, Resource Group and Recovery Services vault details are displayed. You can log out in case you want to change the vault. Else, select **Continue** to proceed.
 
-    ![Appliance registered](./media/deploy-vmware-azure-replication-appliance-modernized/app-setup.png)
+    :::image type="Appliance registered" source="./media/deploy-vmware-azure-replication-appliance-modernized/app-setup.png" alt-text="Screenshot showing appliance registered.":::
 
     After successful registration, proceed to configure vCenter details.
 
-    ![Configuration of vCenter](./media/deploy-vmware-azure-replication-appliance-modernized/vcenter-information.png)
+    :::image type="Configuration of vCenter" source="./media/deploy-vmware-azure-replication-appliance-modernized/vcenter-information.png" alt-text="Screenshot showing configuration of vCenter.":::
 
-7. Select **Add vCenter Server** to add vCenter information. Enter the server name or IP address of the vCenter and port information. Post that, provide username, password and friendly name. This is used to fetch details of [virtual machine managed through the vCenter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery). The user account details will be encrypted and stored locally in the machine.
+7. Select **Add vCenter Server** to add vCenter information. Enter the server name or IP address of the vCenter and port information. Post that, provide username, password, and friendly name. This is used to fetch details of [virtual machine managed through the vCenter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery). The user account details will be encrypted and stored locally in the machine.
 
     >[!NOTE]
     >If  you're trying to add the same vCenter Server to multiple appliances, then ensure that the same friendly name is used in all the appliances.
@@ -279,15 +279,16 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 10.	After you add the vCenter details, expand **Provide Physical server details** to add the details of any physical servers that you plan to protect.
 
-    ![Screenshot of Physical server credentials.](./media/deploy-vmware-azure-replication-appliance-modernized/physical-server-credentials.png)
+    :::image type="Physical server credentials." source="./media/deploy-vmware-azure-replication-appliance-modernized/physical-server-credentials.png" alt-text="Screenshot of Physical server credentials..":::
 
-11. Select **Add credentials** to add the credentials of the machine(s) you plan to protect. Add all the details such as *Operating system*, *Provide a friendly name for the credential*, *User name*, and *Password*. The user account details will be encrypted and stored locally in the machine. Select **Add**. 
+11. Select **Add credentials** to add the credentials of the machine(s) you plan to protect. Add all the details such as *Operating system*, *Provide a friendly name for the credential*, *Username*, and *Password*. The user account details will be encrypted and stored locally in the machine. Select **Add**. 
 
-    ![Screenshot of Add Physical server credentials.](./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-credentials.png)
+    :::image type="Add Physical server credentials." source="./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-credentials.png" alt-text="Screenshot of Add Physical server credentials..":::
 
 12. Select **Add server** to add physical server details. Provide the machine’s *IP address/FQDN of  physical server* and *Select credential account* and select **Add**.
 
     ![Screenshot of Add Physical server details.](./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-details.png)
+
 
 ## View Azure Site Recovery replication appliance in Azure portal
 
