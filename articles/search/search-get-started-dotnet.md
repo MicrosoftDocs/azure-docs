@@ -35,7 +35,7 @@ When setting up your project, you'll download the [Azure.Search.Documents NuGet 
 Azure SDK for .NET conforms to [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), which means .NET Framework 4.6.1 and .NET Core 2.1 as minimum requirements.
 ## Set up your project
 
-Assemble service connection information, and then start Visual Studio to create a new Console App project that can run on. Select NET Core 3.1 for the run time..
+Assemble service connection information, and then start Visual Studio to create a new Console App project that can run on. Select NET Core 3.1 for the run time.
 
 <a name="get-service-info"></a>
 
