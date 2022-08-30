@@ -14,7 +14,7 @@ A reverse proxy server can be used in front of Azure SignalR Service. Reverse pr
 
 A common architecture using a reverse proxy server with Azure SignalR is as below:
 
-:::image type="content" source="./media/signalr-howto-reverse-proxy-overview/architecture.png" alt-text="Architecture using  Azure SignalR with a reverse proxy server.":::   
+:::image type="content" source="./media/signalr-howto-reverse-proxy-overview/architecture.png" alt-text="Diagram that shows the architecture using Azure SignalR with a reverse proxy server.":::   
 
 ## General practices
 There are several general practices to follow when using a reverse proxy in front of SignalR Service.
