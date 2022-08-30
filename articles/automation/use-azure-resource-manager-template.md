@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a new Azure Windows VM and connect it to an existing Automation account and Hybrid Worker Group using an Azure Resource Manager template
+title: Create a new Azure Windows VM and connect it to an existing Automation account and Hybrid Worker Group using an Azure Resource Manager template
 description: Learn how to create a new Azure Windows VM and connect it to an existing Automation account and Hybrid Worker Group using Azure Resource Manager template.
 services: automation
 ms.subservice: process-automation
