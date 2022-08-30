@@ -26,7 +26,7 @@ Existing implementations based on SAP middleware often relied on SAP's proprieta
 Dispatching approaches range from traditional reverse proxies like Apache, to Platform-as-a-Service (PaaS) options like the [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md), or the opinionated SAP WebDispatcher. The overall concepts described in this article apply to the options mentioned. Have a look at SAP's [wiki](https://wiki.scn.sap.com/wiki/display/SI/Can+I+use+a+different+load+balancer+instead+of+SAP+Web+Dispatcher) for their guidance on using non-SAP load balancers.
 
 > [!NOTE]
-> All described setups in this article assume a hub-spoke networking topology, where shared services are deployed into the hub. Given the criticality of SAP, even more isolation may be desirable. For more information, see our SAP perimeter network design (also known as DMZ) [guide](/azure/architecture/guide/sap/sap-internet-inbound-outbound#network-design).
+> All described setups in this article assume a hub-spoke networking topology, where shared services are deployed into the hub. Given the criticality of SAP, even more isolation may be desirable. For more information, see our SAP perimeter-network design (also known as DMZ) [guide](/azure/architecture/guide/sap/sap-internet-inbound-outbound#network-design).
 
 ## Primary Azure services used 
 
