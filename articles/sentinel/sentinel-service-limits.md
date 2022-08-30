@@ -41,5 +41,5 @@ This article lists the most common service limits you might encounter as you use
 
 ## Next steps
 
-[Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)
-[Azure Monitor service limits](../azure-monitor/service-limits.md)
+- [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)
+- [Azure Monitor service limits](../azure-monitor/service-limits.md)
