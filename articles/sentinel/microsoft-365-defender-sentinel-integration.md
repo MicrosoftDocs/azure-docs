@@ -22,6 +22,7 @@ This integration gives Microsoft 365 security incidents the visibility to be man
 Other services whose alerts are collected by Microsoft 365 Defender include:
 
 - **Microsoft Purview Data Loss Prevention (DLP)** ([Learn more](/microsoft-365/security/defender/investigate-dlp))
+- **Azure Active Directory Identity Protection (AADIP)** ([Learn more](/defender-cloud-apps/aadip-integration))
 
 In addition to collecting alerts from these components and other services, Microsoft 365 Defender generates alerts of its own. It creates incidents from all of these alerts and sends them to Microsoft Sentinel.
 
