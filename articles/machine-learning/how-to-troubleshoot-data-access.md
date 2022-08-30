@@ -68,7 +68,7 @@ Errors also include:
 - ScriptExecution.StreamAccess.Authentication.AzureIdentityAccessTokenResolution.PrivateEndpointResolutionFailure
   - The target storage account is using a virtual network but the logged in session isn't connecting to the workspace via a private endpoint. Add a private endpoint to the workspace and ensure that the virtual network or subnet of the private endpoint is allowed by the storage virtual network settings. Add the logged in session's public IP to the storage firewall allowlist.
 - ScriptExecution.StreamAccess.Authentication.AzureIdentityAccessTokenResolution.NetworkIsolationViolated
-  - The target storage account's firewall settings don't permit this data access. Check that your logged in session is within compatible network settings with the storage account, and if Workspace MSI is used, that it has Reader access to the storage account.
+  - The target storage account's firewall settings don't permit this data access. Check that your logged in session is within compatible network settings with the storage account. If Workspace MSI is used, check that it has Reader access to the storage account and to the private endpoints associated with the storage account.
 - ScriptExecution.StreamAccess.Authentication.AzureIdentityAccessTokenResolution.InvalidResource
   - The storage account under the subscription and resource group couldn't be found. Check that the subscription ID and resource group defined in the datastore matches that of the storage account and update the values if needed.
     > [!NOTE]
