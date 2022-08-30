@@ -190,7 +190,7 @@ Tips:
   lock. A DDL command waiting for a lock can cause later queries to queue behind
   itself.
 
-#### Idle connections
+#### Idle in transaction connections
 
 Idle (uncommitted) transactions sometimes block other queries unnecessarily.
 For example:
