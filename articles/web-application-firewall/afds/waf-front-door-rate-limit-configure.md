@@ -117,7 +117,7 @@ Here, you reconfigure the WAF to use prevention mode.
 
 ::: zone-end
 
-::: zone pivot="portal"
+::: zone pivot="powershell"
 
 ## Prerequisites
 
