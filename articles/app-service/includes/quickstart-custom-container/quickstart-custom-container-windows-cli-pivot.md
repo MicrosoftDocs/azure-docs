@@ -13,13 +13,12 @@ ms.author: msangapu
 > For information regarding running containerized applications in a serverless environment, please see [Container Apps](../../../container-apps/overview.md).
 >
 
-This quickstart shows you how to deploy an ASP.NET app in a Windows image from Azure Container Registry to Azure App Service. 
+This quickstart shows you how to deploy an ASP.NET app in a Windows image from [Microsoft Artificat Registry](https://mcr.microsoft.com/) to Azure App Service.
 
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - [Azure CLI](/cli/azure/install-azure-cli)
-- [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
 ## 1 - Connect to Azure
 
@@ -31,9 +30,9 @@ az login
 
 ## 2 - Create a resource group
 
-Create a resource group with the [az group create][az-group-create] command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [`az group create`](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location. To see all supported locations for App Service, run the [`az appservice list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -41,12 +40,12 @@ az group create --name myResourceGroup --location eastus
 
 ## 3 - Create your App Service Plan
 
-You now create the required Azure resources then deploy the web app.
+Create an App Service plan in the resource group with the [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
-Create your App Service Plan.
+The following example creates an App Service plan named `myAppServicePlan` in the **P1V3** pricing tier (`--sku P1V3`).
 
 ```azurecli-interactive
-az appservice plan create --resource-group myResourceGroup --location eastus --name PV3ASP --hyper-v --sku p1v3
+az appservice plan create --resource-group myResourceGroup --location eastus --name myAppServicePlan --hyper-v --sku p1v3
 ```
 
 > [!NOTE]
@@ -55,9 +54,12 @@ az appservice plan create --resource-group myResourceGroup --location eastus --n
 
 ## 4 - Create your web app
 
+Create a custom container [web app](overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az-webapp-create) command. Don't forget to replace _myContainerApp_ with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
+
 ```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan pv3aspcli2 --name myContainerApp --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name myContainerApp --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
 ```
+
 ## 5 - Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.

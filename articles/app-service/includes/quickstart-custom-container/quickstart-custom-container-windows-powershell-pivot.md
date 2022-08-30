@@ -19,7 +19,6 @@ To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - <a href="/powershell/azure/install-az-ps" target="_blank">Azure PowerShell</a>.
-- [Docker for Windows](https://docs.docker.com/docker-for-windows/)
 
 ## 1 - Connect to Azure
 
@@ -31,7 +30,10 @@ Connect-AzAccount
 
 ## 2 - Create a new resource group
 
-Create a new Resource Group by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
+Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+The following example creates a resource group named *myResourceGroup* in the *eastus* location. To see all supported locations for App Service, run the [`Get-AzLocation`](/powershell/module/az.resources/get-azlocation) command.
+
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location eastus
@@ -40,17 +42,19 @@ The command returns `Login Succeeded` once completed.
 
 ## 3 - Create your App Service Plan
 
-Create a new App service Plan by using the [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) command:
+Create a new App service Plan by using the [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) command.
+
+The following example creates an App Service plan named `myAppServicePlan` in the **PremiumV3** pricing tier (`--Tier PremiumV3`).
 
 ```azurepowershell-interactive
-New-AzAppServicePlan -Name PV3ASP -Location eastus -ResourceGroupName myResourceGroup -Tier PremiumV3 -HyperV
+New-AzAppServicePlan -Name myAppServicePlan -Location eastus -ResourceGroupName myResourceGroup -Tier PremiumV3 -HyperV
 ```
 ## 4 - Create your web app
 
 Create a new app by using the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command:
 
 ```azurepowershell-interactive
-New-AzWebApp -Name myWebApp -AppServicePlan PV3ASP -Location eastus -ResourceGroupName myResourceGroup -ContainerImageName mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
+New-AzWebApp -Name myWebApp -AppServicePlan myAppServicePlan -Location eastus -ResourceGroupName myResourceGroup -ContainerImageName mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
 ```
 
 - The Name parameter specifies the web app name.
