@@ -16,6 +16,7 @@ zone_pivot_groups: acs-xamarin-react
 
 # Get started with the Cross Platform development using the UI library
 
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 ::: zone pivot="platform-xamarin"
 [!INCLUDE [Xamarin](./includes/ui-xamarin.md)]

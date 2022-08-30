@@ -1783,3 +1783,12 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+# Owner: jorgegarc
+- id: acs-xamarin-react
+  title: Cross-platform pivots
+  prompt: Choose a platform
+  pivots:
+  - id: platform-xamarin
+    title: Xamarin
+  - id: platform-react
+    title: React Native

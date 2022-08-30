@@ -12,59 +12,54 @@ ms.custom: include file
 ms.author: jorgegarc
 ---
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+## Azure Communication UI Mobile Library for Xamarin
 
-# Azure Communication UI Mobile Library for Xamarin
+The Azure Communication Services introduces the Cross Platform development using **Xamarin**, this sample demonstrates how the Communication Services Calling integrate the UI Library for mobile platform.
 
-The Azure Communication Services introduce the Cross Platform development using **Xamarin**, this sample demonstrates how the Communication Services Calling integrate the UI Library for mobile platform. 
+This project demonstrates the integration of Azure Communication UI library into Xamarin Forms utilizes the native Azure Communication UI library and Azure Communication Services to build a calling experience that features both voice and video calling. 
 
-This project demonstrates the integration of Azure Communication UI library into Xamarin Forms that utilizes the native Azure Communication UI library and Azure Communication Services to build a calling experience that features both voice and video calling. 
-
-## Download code
+### Download code
 
 Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-ui-library-xamarin).
 
-## Features
+### Features
 
-Please refer to our native [UI Library overview](/concepts/ui-library/ui-library-overview?pivots=platform-mobile)
+Refer to the native [UI Library overview](/concepts/ui-library/ui-library-overview?pivots=platform-mobile)
 
-## Prerequisites
+### Prerequisites
 
-- Visual Studio [Setup Instructions](https://docs.microsoft.com/en-us/xamarin/get-started/installation/?pivots=macos)
+- Visual Studio [Setup Instructions](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=macos)
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - iOS [Requirements](https://github.com/Azure/communication-ui-library-ios#requirements)
 - Android [Requirements](https://github.com/Azure/communication-ui-library-android#prerequisites)
 - An Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md).
 - An Azure Function running the [Authentication Endpoint](../../tutorials/trusted-service-tutorial.md) to fetch access tokens.
 
-## Run Sample
+### Run Sample
 
 Clone repo and open `CommunicationCallingXamarinSampleApp.sln` in Visual Studio
 
-### For Android
+#### For Android
 
-Set `CommunicationCallingXamarinSampleApp.Android` as start up project, build solution and select a device or emulator to run application.
+Set `CommunicationCallingXamarinSampleApp.Android` as startup project, build solution and select a device or emulator to run application.
 
-### For iOS
+#### For iOS
 
-It is recommended building the binding libraries on MacOS first. 
+It's recommended building the binding libraries on macOS first.
 
 First navigate to `XamariniOSindins/CommunicationUIProxy.Binding` and build the `CommunicationUIProxy.Binding.sln`.
 This will generate `CommunicationUIProxy.Binding\bin` folder where it will have `NativeLibrary.dll` for you to use.
 
 Open `CommunicationCallingXamarinSampleApp.sln`. Under the `CommunicationCallingXamarinSampleApp.iOS/References` right click and `Add Reference`. In the `.Net Assembly` tab we can browse to where the `.dll` of our binding library and add it as a reference. 
-Now you can including the library into your project by adding `using Xam.CommunicationUIProxy.iOS;` at the top of you `.cs` files.
+Now you can including the library into your project by adding `using Xam.CommunicationUIProxy.iOS;` at the top of your `.cs` files.
 
 Set `CommunicationCallingXamarinSampleApp.iOS` as start up project, build, and select a device or emulator to run application.
 
-## Highlights & Feedback
+### Highlights & Feedback
 
 Visit the [GitHub](https://github.com/Azure-Samples/communication-services-ui-library-xamarin#key-sample-highlights) to learn more and discover more capabilities and share your valuable feedback.
 
-
-
-
-## Next steps
+### Next steps
 
 >[!div class="nextstepaction"]
 >[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-ui-library-xamarin)
