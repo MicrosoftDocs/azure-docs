@@ -45,7 +45,7 @@ az grafana create --name <azure-managed-grafana-name> --resource-group <resource
 
   1. In the Azure portal, under **Settings** select **Configuration**, and then under **Deterministic outbound IP**, select **Enable**.
 
-      :::image type="content" source="media/deterministic-ips/enable-deterministic-IP-support.png" alt-text="Screenshot of the Azure platform. Enable deterministic IPs.":::
+      :::image type="content" source="media/deterministic-ips/enable-deterministic-ip-support.png" alt-text="Screenshot of the Azure platform. Enable deterministic IPs.":::
   1. Select **Save** to confirm the activation of deterministic outbound IP addresses.
   1. Select **Refresh** to display the list of IP addresses under **Static IP address**.
 
@@ -70,7 +70,7 @@ This example demonstrates how to disable public access to Azure Data Explorer an
 1. Under **Firewall**, check the box  **Add your client IP address ('88.126.99.17')** and under **Address range**, enter the IP addresses found in your Azure Managed Grafana workspace.
 1. Select **Save** to finish adding the Azure Managed Grafana outbound IP addresses to the allowlist.
 
-    :::image type="content" source="media/deterministic-ips/add-IPs-data-source-firewall.png" alt-text="Screenshot of the Azure platform. Add Azure Managed Grafana outbound IPs to datasource firewall allowlist.":::
+    :::image type="content" source="media/deterministic-ips/add-ip-data-source-firewall.png" alt-text="Screenshot of the Azure platform. Add Azure Managed Grafana outbound IPs to datasource firewall allowlist.":::
 
 You have limited access to your data source by disabling public access, activating a firewall and allowing access from Azure Managed Grafana IP addresses.
 
