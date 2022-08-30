@@ -34,8 +34,6 @@ You can use any code editor to do the steps in this tutorial. [Visual Studio Cod
 
 If you build locally, download and install the [Azure CLI](/cli/azure/install-azure-cli) if you haven’t already.
 
-For example, to do a cloud build by using Azure DevOps, ensure that the [Azure CLI](/cli/azure/install-azure-cli) is installed in your build system.
-
 ### Export an App Configuration store
 
 1. Open your *.csproj* file, and add the following script:
@@ -66,23 +64,38 @@ For example, to do a cloud build by using Azure DevOps, ensure that the [Azure C
 ### Build and run the app locally
 
 1. Set an environment variable named *ConnectionString*, and set it to the access key to your App Configuration store.
-    If you use the Windows command prompt, run the following command, and restart the command prompt to allow the change to take effect:
 
-    ```console
+#### [Windows command prompt](#tab/windowscommandprompt)
+
+To build and run the app locally using the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+```console
      setx ConnectionString "connection-string-of-your-app-configuration-store"
-    ```
+```
 
-    ## [Windows](#tab/windows)
-    
-    ```powershell
-         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-    ```
-    
-    ## [macOS/Linux](#tab/macos)
-    
-    ```console
-         export ConnectionString='connection-string-of-your-app-configuration-store'
-    ```
+### [PowerShell](#tab/powershell)
+
+If you use Windows PowerShell, run the following command:
+
+```powershell
+     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+```
+
+### [macOS](#tab/unix)
+
+If you use macOS, run the following command:
+
+```console
+     export ConnectionString='connection-string-of-your-app-configuration-store'
+```
+
+### [Linux](#tab/linux)
+
+If you use Linux, run the following command:
+
+```console
+     export ConnectionString='connection-string-of-your-app-configuration-store'
+```
 
 ---
 

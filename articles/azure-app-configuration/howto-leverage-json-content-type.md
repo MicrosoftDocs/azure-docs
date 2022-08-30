@@ -188,7 +188,7 @@ Your .NET application configuration will have the following key-values:
 You might access the new keys directly or you might choose to [bind configuration values to instances of .NET objects](/aspnet/core/fundamentals/configuration/#bind-hierarchical-configuration-data-using-the-options-pattern).
 
 > [!IMPORTANT]
-> Native support for JSON key-values is available in .NET configuration provider version 4.0.0 (or later). For more information, see [*Next steps*](#next-steps) section.
+> Native support for JSON key-values is available in .NET configuration provider version 4.0.0 (or later). For more information, go to [Next steps](#next-steps) section.
 
 If you're using the SDK or REST API to read key-values from App Configuration, based on the content type, your application is responsible for parsing the value of a JSON key-value.
 
@@ -200,8 +200,8 @@ If you're using the SDK or REST API to read key-values from App Configuration, b
 
 Now that you know how to work with JSON key-values in your App Configuration store, create an application for consuming these key-values:
 
-- [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md)
-  - Prerequisite: [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) package v4.0.0 or later.
+> [!div class="nextstepaction"]
+> [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md)
 
-- [.NET Core quickstart](./quickstart-dotnet-core-app.md)
-  - Prerequisite: [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration) package v4.0.0 or later.
+> [!div class="nextstepaction"]
+> [.NET Core quickstart](./quickstart-dotnet-core-app.md)

@@ -5,7 +5,7 @@ services: azure-app-configuration,event-grid
 author: jimmyca
 ms.custom: devdivchpfy22
 ms.author: jimmyca
-ms.date: 08/26/2022
+ms.date: 08/30/2022
 ms.topic: article
 ms.service: azure-app-configuration
 
@@ -48,7 +48,7 @@ Azure App Configuration events contain all the information you need to respond t
 > |data|object|Collection of Azure App Configuration specific event data.|
 > |data.key|string|The key of the key-value that was modified or deleted.|
 > |data.label|string|The label, if any, of the key-value that was modified or deleted.|
-> |data.etag|string|For `KeyValueModified`, the `etag` of the new key-value. For `KeyValueDeleted`, the `etag` of the key-value that was deleted.|
+> |data.etag|string|For `KeyValueModified`, the etag of the new key-value. For `KeyValueDeleted`, the etag of the key-value that was deleted.|
 
 Here's an example of a `KeyValueModified` event:
 
@@ -86,5 +86,8 @@ Applications that handle App Configuration events should follow these recommende
 
 To learn more about Event Grid and to give Azure App Configuration events a try, see:
 
-* [About Event Grid](../event-grid/overview.md)
-* [How to use Event Grid for data change notifications](./howto-app-configuration-event.md)
+> [!div class="nextstepaction"]
+> [About Event Grid](../event-grid/overview.md)
+
+> [!div class="nextstepaction"]
+> [How to use Event Grid for data change notifications](./howto-app-configuration-event.md)

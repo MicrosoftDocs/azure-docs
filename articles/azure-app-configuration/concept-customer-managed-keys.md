@@ -1,9 +1,9 @@
 ---
 title: Use customer-managed keys to encrypt your configuration data 
 description: Encrypt your configuration data using customer-managed keys
-author: AlexandraKemperMS
-ms.author: alkemper
-ms.date: 08/26/2022
+author: maud-lv
+ms.author: malev
+ms.date: 08/30/2022
 ms.custom: devdivchpfy22
 ms.topic: conceptual
 ms.service: azure-app-configuration
@@ -11,7 +11,7 @@ ms.service: azure-app-configuration
 ---
 # Use customer-managed keys to encrypt your App Configuration data
 
-Azure App Configuration [encrypts sensitive information at rest](../security/fundamentals/encryption-atrest.md). The use of customer-managed keys provides enhanced data protection by allowing you to manage your encryption keys. When managed key encryption is used, all sensitive information in App Configuration is encrypted with a user-provided Azure Key Vault key. This approach makes the rotation of encryption keys on demand. It's also capable of revoking Azure App Configuration's access to sensitive information, which can be achieved by revoking the App Configuration instance's access to the key.
+Azure App Configuration [encrypts sensitive information at rest](../security/fundamentals/encryption-atrest.md). The use of customer-managed keys provides enhanced data protection by allowing you to manage your encryption keys. When managed key encryption is used, all sensitive information in App Configuration is encrypted with a user-provided Azure Key Vault key. This provides the ability to rotate the encryption key on demand. It also provides the ability to revoke Azure App Configuration's access to sensitive information by revoking the App Configuration instance's access to the key.
 
 ## Overview
 
@@ -47,6 +47,8 @@ To begin, you'll need a properly configured Azure App Configuration instance. If
 - [Create a .NET Core app with Azure App Configuration](quickstart-dotnet-core-app.md)
 - [Create a .NET Framework app with Azure App Configuration](quickstart-dotnet-app.md)
 - [Create a Java Spring app with Azure App Configuration](quickstart-java-spring-app.md)
+- [Create a JavaScript app with Azure App Configuration](quickstart-javascript.md)
+- [Create a Python app with Azure App Configuration](quickstart-python.md)
 
 > [!TIP]
 > The Azure Cloud Shell is a free interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md).
