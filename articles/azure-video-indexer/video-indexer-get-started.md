@@ -13,9 +13,7 @@ ms.custom: mode-other
 
 This quickstart shows you how to sign in to the Azure Video Indexer [website](https://www.videoindexer.ai/) and how to upload your first video. When visiting the Azure Video Indexer website for the first time, the free trial account is automatically created for you. With the free trial account, you get a certain number of free indexing minutes. When creating an unlimited/paid account, you aren't limited by the quota. 
 
-With free trial, Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create an Azure Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
-
-For details about available accounts, see [Azure Video Indexer account types](accounts-overview.md).
+For details about available accounts (trial and paid options), see [Azure Video Indexer account types](accounts-overview.md).
 
 ## Sign up for Azure Video Indexer
 
