@@ -581,7 +581,7 @@ The Microsoft Graph API requires the *user.read* scope to read a user's profile.
 
 ## Next steps
 
-Delve deeper into single-page application (SPA) development on the Microsoft identity platform in our the multi-part scenario series.
+Delve deeper into single-page application (SPA) development on the Microsoft identity platform in our multi-part scenario series.
 
 > [!div class="nextstepaction"]
 > [Scenario: Single-page application](scenario-spa-overview.md)
