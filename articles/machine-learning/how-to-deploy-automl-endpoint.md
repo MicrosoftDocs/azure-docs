@@ -272,7 +272,6 @@ Next, we'll create the managed online endpoints and deployments.
         instance_type="Standard_DS2_v2",
         instance_count=1,
     )
-    )
     ```
 
     In the above example, we assume the files you downloaded from the AutoML Models page are in the `src` directory. You can modify the parameters in the code to suit your situation.
