@@ -113,7 +113,7 @@ Currently, we offer three families of Embeddings models for different functional
 - [Text search](#text-search-embedding)
 - [Code search](#code-search-embedding)
 
-Each family includes models across the following spectrum of capability:
+Each family includes models across a range of capability. The following list indicates the length of the numerical vector returned by the service, based on model capability:
 
 - Ada: 1024 dimensions
 - Babbage: 2048 dimensions

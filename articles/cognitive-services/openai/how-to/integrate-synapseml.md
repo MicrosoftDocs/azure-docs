@@ -22,7 +22,7 @@ The Azure OpenAI service can be used to solve a large number of natural language
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 - Access granted to the Azure OpenAI service in the desired Azure subscription
 
-    Currently, access to this service is granted only by invitation. You can request access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - An Azure OpenAI resource – [create a resource](create-resource.md?pivots=web-portal#create-a-resource)
 - An Apache Spark cluster with SynapseML installed - create a serverless Apache Spark pool [here](../../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool)
 
