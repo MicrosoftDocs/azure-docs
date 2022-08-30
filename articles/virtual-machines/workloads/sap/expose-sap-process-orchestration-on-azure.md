@@ -182,7 +182,7 @@ Which integration flavor described in this article fits your requirements best, 
 
 ## Alternatives to SAP Process Orchestration with Azure Integration Services
 
-The integration scenarios covered by SAP Process Orchestration can be addressed with the [Azure Integration Service portfolio](https://azure.microsoft.com/product-categories/integration/) natively. Have a look at the [Azure Logic Apps connectors](../../../logic-apps/logic-apps-using-sap-connector.md) for your desired SAP interfaces to get started. The connector guide contains more details for [AS2](../../../logic-apps/logic-apps-enterprise-integration-as2.md), [EDIFACT](../../../logic-apps/logic-apps-enterprise-integration-edifact.md) etc. too. See [this blog series](https://blogs.sap.com/2018/09/25/your-sap-on-azure-part-9-easy-integration-using-azure-logic-apps/) for a concrete example of iDoc processing with AS2 via Logic Apps.
+The integration scenarios covered by SAP Process Orchestration can be natively addressed with the [Azure Integration Service portfolio](https://azure.microsoft.com/product-categories/integration/). Have a look at the [Azure Logic Apps connectors](../../../logic-apps/logic-apps-using-sap-connector.md) for your desired SAP interfaces to get started. The connector guide contains more details for [AS2](../../../logic-apps/logic-apps-enterprise-integration-as2.md), [EDIFACT](../../../logic-apps/logic-apps-enterprise-integration-edifact.md) etc. too. See [this blog series](https://blogs.sap.com/2022/08/30/port-your-legacy-sap-middleware-flows-to-cloud-native-paas-solutions/) for insights on how to design SAP iFlow patterns with cloud-native means.
 
 ## Next steps
 
