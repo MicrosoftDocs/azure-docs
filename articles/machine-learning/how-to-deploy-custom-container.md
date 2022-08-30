@@ -336,8 +336,10 @@ az ml online-endpoint create --name tfserving-endpoint -f endpoints/online/custo
 Creating a deployment may take few minutes.
 
 ```azurecli
-az ml online-deployment create --name tfserving-deployment -f endpoints/online/custom-container/tfserving-deployment.yml
+az ml online-deployment create --name tfserving-deployment -f endpoints/online/custom-container/tfserving-deployment.yml --all-traffic
 ```
+
+
 
 # [Python](#tab/python)
 
