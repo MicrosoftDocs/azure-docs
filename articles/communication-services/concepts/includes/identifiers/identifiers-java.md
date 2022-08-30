@@ -117,7 +117,7 @@ Since `azure-communication-common 1.2.0` the SDK helps with the conversion:
 
 ```java
 // get an identifier's raw Id
-string rawId = communicationIdentifier.getRawId();
+String rawId = communicationIdentifier.getRawId();
 
 // create an identifier from a given raw Id
 CommunicationIdentifier identifier = CommunicationIdentifier.fromRawId(rawId);
