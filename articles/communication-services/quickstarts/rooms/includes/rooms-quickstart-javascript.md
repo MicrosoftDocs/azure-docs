@@ -164,4 +164,4 @@ await roomsClient.deleteRoom(roomId);
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services rooms from the [JavaScript SDK reference](https://docs.microsoft.com/javascript/api/overview/azure/communication-rooms-readme) or [REST API reference](https://docs.microsoft.com/rest/api/communication/rooms).
+Read about the full set of capabilities of Azure Communication Services rooms from the [JavaScript SDK reference](/javascript/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).

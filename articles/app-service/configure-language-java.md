@@ -1187,8 +1187,8 @@ Community support for Java 7 will terminate on July 29th, 2022 and [Java 7 will 
 
 If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
 
-- [Reasons to move to Java 11](/java/openjdk/reasons-to-move-to-java-11?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2ffundamentals%2ftoc.json)
-- [Java 7 migration guide](/java/openjdk/transition-from-java-7-to-java-8?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2ffundamentals%2ftoc.json)
+- [Reasons to move to Java 11](/java/openjdk/reasons-to-move-to-java-11?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
+- [Java 7 migration guide](/java/openjdk/transition-from-java-7-to-java-8?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
 
 ### Local development
 
