@@ -258,24 +258,6 @@ You have the option of setting a flag in the config file to configure the number
 >[!NOTE]
 >There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 30 day lifetime, but is automatically renewed before expiring. The auto-generated CA lifetime value set in the config file doesn't affect this certificate.
 
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-### Renew Edge CA
-
-By default, IoT Edge automatically regenerates the Edge CA certificate when at 80% of the certificate lifetime. So for certificate with 90 day lifetime, IoT Edge automatically regenerates the Edge CA certificate at 72 days from issuance. 
-
-To configure the auto-renewal logic, add this part to the "Edge CA certificate" section in `config.toml`. 
-   
-```toml
-[edge_ca.auto_renew]
-rotate_key = true
-threshold = "70%"
-retry = "2%"
-```
-
-:::moniker-end
-<!-- end 1.2 -->
-
 <!-- 1.1. -->
 :::moniker range="iotedge-2018-06"
 Upon expiry after the specified number of days, IoT Edge has to be restarted to regenerate the device CA certificate. The device CA certificate won't be renewed automatically.
@@ -380,6 +362,23 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
    Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated edge CA certificates expire.
 :::moniker-end
 <!-- end iotedge-2020-11 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+### Renew Edge CA
+
+By default, IoT Edge automatically regenerates the Edge CA certificate when at 80% of the certificate lifetime. So for certificate with 90 day lifetime, IoT Edge automatically regenerates the Edge CA certificate at 72 days from issuance. 
+
+To configure the auto-renewal logic, add this part to the "Edge CA certificate" section in `config.toml`. 
+   
+```toml
+[edge_ca.auto_renew]
+rotate_key = true
+threshold = "70%"
+retry = "2%"
+```
+:::moniker-end
+<!-- end 1.2 -->
 
 ## Next steps
 
