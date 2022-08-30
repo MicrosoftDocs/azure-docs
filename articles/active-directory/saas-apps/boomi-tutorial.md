@@ -136,7 +136,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click the **SSO Options** tab and perform below steps.
 
-	![Configure Single Sign-On On App Side](./media/boomi-tutorial/import.png)
+	![Configure Single Sign-On On App Side](![import](https://user-images.githubusercontent.com/756263/187340518-b2727ca8-b3cb-43fd-ad69-d32e6ccd77a8.png)
+)
 
 	a. Check **Enable SAML Single Sign-On** checkbox.
 
