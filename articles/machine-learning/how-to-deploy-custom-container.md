@@ -51,7 +51,7 @@ Custom container deployments can use web servers other than the default Python F
    az configure --defaults workspace=<azureml workspace name> group=<resource group>
 
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 * If you haven't installed Python SDK v2, please install with this command:
 
@@ -74,7 +74,7 @@ git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli
 ```
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
@@ -134,7 +134,7 @@ __tfserving-deployment.yml__
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-deployment.yml":::
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 ### Connect to Azure Machine Learning workspace
 Connect to Azure Machine Learning Workspace, configure workspace details, and get a handle to the workspace as follows:
@@ -268,7 +268,7 @@ model:
     path: ./half_plus_two
 ```
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 and `Model` class contains:
 
@@ -302,7 +302,7 @@ model_mount_path: /var/tfserving-model-mount
 .....
 ```
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 For example, you can have `model_mount_path` parameter in your `ManagedOnlineDeployment` class:
 
@@ -339,7 +339,7 @@ Creating a deployment may take few minutes.
 az ml online-deployment create --name tfserving-deployment -f endpoints/online/custom-container/tfserving-deployment.yml
 ```
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 Using the `MLClient` created earlier, we will now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
 
@@ -363,7 +363,7 @@ Once your deployment completes, see if you can make a scoring request to the dep
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="invoke_endpoint":::
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 Using the `MLClient` created earlier, we will get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 - `endpoint_name` - Name of the endpoint
@@ -393,7 +393,7 @@ Now that you've successfully scored with your endpoint, you can delete it:
 az ml online-endpoint delete --name tfserving-endpoint
 ```
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 ```python
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
