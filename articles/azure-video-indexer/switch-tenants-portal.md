@@ -28,7 +28,7 @@ The article shows how to sign in with the correct domain name into the Azure Vid
 
 1. Go to the [Azure Video Indexer](https://www.videoindexer.ai/) website.
 1. Press **Sign out** after pressing the button in the top-right corner.
-1. On the AVI website, press **Sign in** and choose the AAD account.
+1. On the AVI website, press **Sign in** and choose the Azure AD account.
 
     > [!div class="mx-imgBorder"]
     > ![Sign in with the AAD account.](./media/switch-directory/choose-account.png)
