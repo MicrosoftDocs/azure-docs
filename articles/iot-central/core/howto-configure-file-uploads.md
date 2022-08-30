@@ -64,12 +64,15 @@ IoT Central uses IoT Hub's file upload capability to enable devices to upload fi
 
 If you enabled access to files in the file upload configuration, users with the correct permissions can view and delete uploaded files.
 
+> [!IMPORTANT]
+> All the files in the blob container folder associated with a device are visible in the **Files** view for that device. This includes any files that weren't uploaded by the device.
+
 To view and delete uploaded files, navigate to the **Files** view for a device. On this page, you can see thumbnails of the uploaded files and toggle between a gallery and list view. Each file has options to download or delete it:
 
 :::image type="content" source="media/howto-configure-file-uploads/file-upload-list-files.png" alt-text="Screenshot that shows the gallery view for uploaded files.":::
 
 > [!TIP]
-> The file type is determined by the mime type assigned to the file when it was uploaded to blob storage.
+> The file type is determined by the mime type assigned to the file when it was uploaded to blob storage. The default type is `binary/octet-stream`.
 
 You can customize the list view by filtering based on file name and choosing the columns to display.
 
