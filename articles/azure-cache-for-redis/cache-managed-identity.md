@@ -42,16 +42,14 @@ Managed identity can be enabled either when you create a cache instance or after
 
 ### Prerequisites and limitations
 
-To use managed identity, you must have a premium-tier cache.
+Because managed identity for storage is only used with the import/export feature and persistence feature, it's currently only useful when used with the Premium tier of Azure Cache for Redis.
 
 ## Create a new cache with managed identity using the portal
 
 1. Sign into the [Azure portal](https://portal.azure.com/)
 
 1. Create a new Azure Cache for Redis resource with a **Cache type** of any of the premium tiers. Complete **Basics** tab with all the required  information.
-   > [!NOTE]
-   > Managed identity functionality is only available in the Premium tier.
-   >
+
    :::image type="content" source="media/cache-managed-identity/basics.png" alt-text="create a premium azure cache":::
 
 1. Select the **Advanced** tab. Then, scroll down to **System assigned managed identity** and select **On**.
@@ -69,9 +67,6 @@ To use managed identity, you must have a premium-tier cache.
 ## Add system assigned identity to an existing cache
 
 1. Navigate to your Azure Cache for Redis resource from the Azure portal. Select **Identity**  from the Resource menu on the left.
-   > [!NOTE]
-   > Managed identity functionality is only available in the Premium tier.
-   >
 
 1. To enable a system-assigned identity, select the **System assigned ()** tab, and select **On** under **Status**. Select **Save** to confirm.
 
@@ -86,9 +81,6 @@ To use managed identity, you must have a premium-tier cache.
 ## Add a user assigned identity to an existing cache
 
 1. Navigate to your Azure Cache for Redis resource from the Azure portal. Select **Identity**  from the Resource menu on the left.
-   > [!NOTE]
-   > Managed identity functionality is only available in the Premium tier.
-   >
 
 1. To enable user assigned identity, select the **User assigned** tab and select **Add**.
 
@@ -187,7 +179,7 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 > It will take a few minutes to import or export the data.
 >
 
-> [!IMPORTANt]
+> [!IMPORTANT]
 >If you see an export or import failure, double check that your storage account has been configured with your cache's system-assigned or user-assigned identity. The identity used will default to system-assigned identity if it is enabled. Otherwise, the first listed user-assigned identity is used.
 
 ## Next steps
