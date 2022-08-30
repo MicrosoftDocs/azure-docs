@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus *partitions* enable queues and topics, or *messaging entities*, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store doesn't render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
 
 > [!NOTE]
-> Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It isn't available for the Premium messaging SKU anymore, but any previously existing partitioned entities from when they were supported in Premium namespaces will continue to work as expected.
+> Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is available at namespace creation for the Premium messaging SKU, and all queues and topics in that namespace will be partitioned. Any previously migrated partitioned entities in Premium namespaces will continue to work as expected.
  
 It isn't possible to change the partitioning option on any existing queue or topic; you can only set the option when you create the entity.
 
@@ -106,18 +106,13 @@ Service Bus supports automatic message forwarding from, to, or between partition
 ## Partitioned entities limitations
 Currently Service Bus imposes the following limitations on partitioned queues and topics:
 
-* Partitioned queues and topics aren't supported in the Premium messaging tier. Sessions are supported in the premier tier by using SessionId. 
 * Partitioned queues and topics don't support sending messages that belong to different sessions in a single transaction.
-* Service Bus currently allows up to 100 partitioned queues or topics per namespace. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace (doesn't apply to Premium tier).
-
+* Service Bus currently allows up to 100 partitioned queues or topics per namespace for the Basic and Standard SKU. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace.
 
 ## Next steps
-You can enable partitioning by using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable partitioning](enable-partitions.md). 
+You can enable partitioning by using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable partitioning (Basic / Standard)](enable-partitions-basic-standard.md) or [Enable partitioning (Premium)](enable-partitions-premium.md).
 
 Read about the core concepts of the AMQP 1.0 messaging specification in the [AMQP 1.0 protocol guide](service-bus-amqp-protocol-guide.md).
 
 [Azure portal]: https://portal.azure.com
-[QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
-[TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
-[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
 [AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md
