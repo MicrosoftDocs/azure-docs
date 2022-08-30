@@ -27,7 +27,7 @@ ms.date: 12/27/2021
     git clone https://github.com/Azure/MachineLearningNotebooks.git --depth 1
     ```
 
-1. Start the notebook server from the directory, which now contains the two clones and the config file.
+1. Start the notebook server from the directory, which now contains the clone and the config file.
 
     ```bash
     jupyter notebook

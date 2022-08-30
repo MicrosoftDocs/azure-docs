@@ -23,7 +23,7 @@ ms.date: 08/30/2022
     git clone https://github.com/Azure/azureml-examples.git --depth 1
     ```
 
-1. Start the notebook server from the directory containing both these clones.
+1. Start the notebook server from the directory containing your clone.
 
     ```bash
     jupyter notebook
