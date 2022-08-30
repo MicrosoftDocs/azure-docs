@@ -33,12 +33,12 @@ let user = CommunicationUserIdentifier(newUserId)
 
 ### Microsoft Teams User identifier
 
-The `MicrosoftTeamsUserIdentifier` represents a Teams user. You need to know the Teams user's Id that you can retrieve via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint.
+The `MicrosoftTeamsUserIdentifier` represents a Teams user. You need to know the Teams user's ID that you can retrieve via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint.
 
 #### Basic usage
 
 ```swift
-# get the Teams user's Id if only the email is known, assuming a helper method
+# get the Teams user's ID if only the email is known, assuming a helper method
 let userId = await getUserIdFromGraph("bob@contoso.com")
 
 # create an identifier
@@ -108,7 +108,7 @@ switch (communicationIdentifier)
 
 Sometimes you need to serialize an identifier to a flat string. For example, if you want to store the identifier in a database table or if you'd like to use it as a url parameter.
 
-For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw Id, and a valid raw Id can always be converted to an identifier.
+For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw Id, and a valid raw ID can always be converted to an identifier.
 
 Since `Azure.Communication.Common 1.1.0` the SDK helps with the conversion:
 
@@ -130,4 +130,4 @@ NSString *rawId = communicationIdentifier.rawId;
 id<CommunicationIdentifier> identifier = [CommunicationIdentifierFactory createCommunicationIdentifier:rawId];
 ```
 
-An invalid raw Id will just convert to an `UnknownIdentifier` in the SDK and any validation only happens service-side.
+An invalid raw ID will just convert to an `UnknownIdentifier` in the SDK and any validation only happens service-side.

@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: domessin
 ---
 
-In REST APIs the identifier is a polymorphic type: you construct a JSON object and a property that maps to a concrete identifier subtype. For convenience and backwards-compatibility reasons the `kind` and `rawId` properties are optional in requests but get populated in service responses.
+In REST APIs the identifier is a polymorphic type, you construct a JSON object and a property that maps to a concrete identifier subtype. For convenience and backwards-compatibility reasons, the `kind` and `rawId` properties are optional in requests but get populated in service responses.
 
 ### Communication User identifier
 
@@ -50,7 +50,7 @@ The `CommunicationUserIdentifierModel` represents a user identity that was creat
 
 ### Microsoft Teams User identifier
 
-The `MicrosoftTeamsUserIdentifierModel` represents a Teams user. You need to know the Teams user's Id that you can retrieve via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint.
+The `MicrosoftTeamsUserIdentifierModel` represents a Teams user. You need to know the Teams user's ID that you can retrieve via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint.
 
 #### Basic usage
 
@@ -126,7 +126,7 @@ The `PhoneNumberIdentifierModel` represents a phone number. The service assumes 
 
 ### Unknown identifier
 
-If a new identifier got introduced in a service it will get downgraded to the `CommunicationIdentifierModel` if you are on an old API version.
+If a new identifier gets introduced in a service, it will get downgraded to the `CommunicationIdentifierModel` if you are on an old API version.
 
 #### Basic usage
 
@@ -173,7 +173,7 @@ switch (communicationIdentifier.kind)
 }
 ```
 
-On older API versions the `kind` property is missing and you have to check for the existence of the right subproperty:
+On older API versions, the `kind` property is missing and you have to check for the existence of the right subproperty:
 
 ```javascript
 if (communicationIdentifier.communicationUser) {
@@ -191,11 +191,11 @@ if (communicationIdentifier.communicationUser) {
 
 Sometimes you need to serialize an identifier to a flat string. For example, if you want to store the identifier in a database table or if you'd like to use it as a url parameter.
 
-For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw Id, and a valid raw Id can always be converted to an identifier.
+For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw Id, and a valid raw ID can always be converted to an identifier.
 
-If you are using the Azure SDK it will help you with the conversion. Using the REST API directly, requires you to construct the raw id manually as follows.
+If you're using the Azure SDK, it will help you with the conversion. If you use the REST API directly, you need to construct the raw id manually as follows.
 
-| Identifier | Raw Id |
+| Identifier | Raw ID |
 |---|---|
 | <pre style="font-size: 14px">{<br/>    "communicationUser": {<br/>        "id": "8:acs:[resourceId]\_[userId]"<br/>    }<br/>}</pre> | `8:acs:[resourceId]\_[userId]` |
 | <pre style="font-size: 14px">{<br/>    "phoneNumber": {<br/>         "value": "+1123455567"<br/>    }<br/>}</pre> | `4:+1123455567` |
@@ -203,4 +203,4 @@ If you are using the Azure SDK it will help you with the conversion. Using the R
 | <pre style="font-size: 14px">{<br/>    "microsoftTeamsUser": {<br/>        "userId": "[visitorUserId]",<br/>        "isAnonymous": true<br/>    }<br/>}</pre> | `8:teamsvisitor:[visitorUserId]` |
 | <pre style="font-size: 14px">{<br/>    "microsoftTeamsUser": {<br/>        "userId": "[aadUserId]",<br/>        "cloud": "gcch"<br/>    }<br/>}</pre> | `8:gcch:[aadUserId]` |
 
-If a raw Id is invalid the service will fail the request.
+If a raw ID is invalid the service will fail the request.

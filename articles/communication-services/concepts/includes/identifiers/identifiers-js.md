@@ -35,12 +35,12 @@ const sameUser = { communicationUserId: newUserId };
 
 ### Microsoft Teams User identifier
 
-The `MicrosoftTeamsUserIdentifier` interface represents a Teams user. You need to know the Teams user's Id that you can retrieve via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint.
+The `MicrosoftTeamsUserIdentifier` interface represents a Teams user. You need to know the Teams user's ID that you can retrieve via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint.
 
 #### Basic usage
 
 ```typescript
-// get the Teams user's Id if only the email is known, assuming a helper method
+// get the Teams user's ID if only the email is known, assuming a helper method
 const userId = await getUserIdFromGraph("bob@contoso.com");
 
 // create an identifier
@@ -86,7 +86,7 @@ const unknownId = { id: "a raw id that originated in the service" };
 
 ### How to handle the `CommunicationIdentifier` base interface
 
-While you construct identifiers for a concrete type that you pass *into* the SDK, the SDK returns a `CommunicationIdentifierKind`, which is a [discrimated union](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions). It's easy to narrow to a concrete type and we suggest a switch-case statement with pattern matching:
+While you construct identifiers for a concrete type that you pass *into* the SDK, the SDK returns a `CommunicationIdentifierKind`, which is a [discriminated union](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions). It's easy to narrow to a concrete type and we suggest a switch-case statement with pattern matching:
 
 ```typescript
 switch (communicationIdentifier.kind)
@@ -124,7 +124,7 @@ const identifierKind = getIdentifierKind(identifier); // now you can switch-case
 
 Sometimes you need to serialize an identifier to a flat string. For example, if you want to store the identifier in a database table or if you'd like to use it as a url parameter.
 
-For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw Id, and a valid raw Id can always be converted to an identifier.
+For that purpose, identifiers have another representation called `RawId`. An identifier can always be translated to its corresponding raw Id, and a valid raw ID can always be converted to an identifier.
 
 Since `azure-communication-common@2.1.0` the SDK helps with the conversion:
 
@@ -136,4 +136,4 @@ const rawId = getIdentifierRawId(communicationIdentifier);
 const identifier = createIdentifierFromRawId(rawId);
 ```
 
-An invalid raw Id will just convert to an `UnknownIdentifier` in the SDK and any validation only happens service-side.
+An invalid raw ID will just convert to an `UnknownIdentifier` in the SDK and any validation only happens service-side.
