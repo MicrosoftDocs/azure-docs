@@ -1,11 +1,11 @@
 ---
-title: IotJsonPathContentTemplate mappings in MedTech service Device mappings - Azure Health Data Services
-description: This article describes how to use IotJsonPathContentTemplate mappings with MedTech service Device mappings templates. 
+title: IotJsonPathContentTemplate mappings in MedTech service device mapping - Azure Health Data Services
+description: This article describes how to use IotJsonPathContentTemplate mappings with MedTech service device mapping. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 08/30/2022
 ms.author: jasteppe
 ---
 
@@ -14,7 +14,7 @@ ms.author: jasteppe
 > [!TIP]
 > Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
 
-This article describes how to use IoTJsonPathContentTemplate mappings with the MedTech service Device mappings templates.
+This article describes how to use IoTJsonPathContentTemplate mappings with the MedTech service [device mapping](how-to-use-device-mappings.md).
 
 ## IotJsonPathContentTemplate
 
@@ -39,6 +39,7 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 *Message*
 
 ```json
+
 {
     "Body": {
         "heartRate": "78"        
@@ -50,14 +51,15 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
         "iothub-connection-device-id" : "device123"
     }
 }
+
 ```
 
 *Template*
 
 ```json
 
-    "templateType": "JsonPathContent",
-    "template": {
+"templateType": "IotJsonPathContentTemplate",
+"template": {
         "typeName": "heartrate",
         "typeMatchExpression": "$..[?(@Body.heartRate)]",
         "deviceIdExpression": "$.deviceId",
@@ -70,7 +72,7 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
             }
         ]
     }
-}
+
 ```
 
 **Blood pressure**
@@ -78,6 +80,7 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 *Message*
 
 ```json
+
 {
     "Body": {
         "systolic": "123",
@@ -90,11 +93,13 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
         "iothub-connection-device-id" : "device123"
     }
 }
+
 ```
 
 *Template*
 
 ```json
+
 {
     "typeName": "bloodpressure",
     "typeMatchExpression": "$..[?(@Body.systolic && @Body.diastolic)]",
@@ -111,6 +116,7 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
         }
     ]
 }
+
 ```
 
 > [!TIP]
@@ -118,9 +124,9 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 
 ## Next steps
 
-In this article, you learned how to use Device mappings. To learn how to use FHIR destination mappings, see
+In this article, you learned how to use IotJsonPathContentTemplate device mappings with the MedTech service device mapping. To learn how to use MedTech service FHIR destination mapping, see
 
 >[!div class="nextstepaction"]
->[How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
+>[How to use FHIR destination mapping](how-to-use-fhir-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
