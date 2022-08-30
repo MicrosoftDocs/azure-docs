@@ -44,6 +44,7 @@ highlightedContent:
       itemType: reference
 ##HIGHLIGHTED CONTENT END ##########################################################################################################################
 
+
 ## BAND 2 ####################################################################################################################################################
 productDirectory:
   sections:
@@ -84,6 +85,7 @@ productDirectory:
 ## BAND 2 - PRODUCT DIRECTORY END ##########################################################################################################################
 
 
+
 ## BAND 3 - CONCEPTUAL CONTENT #############################################################################################################################
 conceptualContent:
   title: Learn about Azure AD B2C
@@ -116,6 +118,7 @@ conceptualContent:
     - title: Learn the basics
       links:
           - text: Authentication and authorization
+
             url: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
             itemType: learn
           - text: Tokens
@@ -145,6 +148,7 @@ conceptualContent:
           - text: Sign-in options
             url: sign-in-options.md
             itemType: how-to-guide
+
           - text: Enable self-service sign-in
             url: user-flow-overview.md
             itemType: how-to-guide

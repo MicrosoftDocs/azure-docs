@@ -3,7 +3,7 @@ title: Set up Start VM on Connect for Azure Virtual Desktop
 description: How to set up the Start VM on Connect feature for Azure Virtual Desktop to turn on session host virtual machines only when they're needed.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/21/2022
+ms.date: 08/30/2022
 ms.author: helohr
 manager: femila
 ms.custom: subject-rbac-steps
@@ -98,7 +98,7 @@ To configure Start VM on Connect using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
 
 1. Select **Host pools**, then select the name of the host pool where you want to enable the setting.
 
@@ -106,7 +106,7 @@ To configure Start VM on Connect using the Azure portal:
 
 1. In the configuration section, you'll see **Start VM on connect**. Select **Yes** to enable it, or **No** to disable it.
 
-1. Select **Save**. The new setting is applied.
+2. Select **Save** to apply the settings.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -143,6 +143,9 @@ You need to make sure you have the names of the resource group and host pool you
       ```
 
 ---
+
+>[!NOTE]
+>In pooled host pools, Start VM on Connect will start a VM every five minutes at most. If other users try to sign in during this five-minute period while there aren't any available resources, Start VM on Connect won't start a new VM. Instead, the users trying to sign in will receive an error message that says, "No resources available."
 
 ## Troubleshooting
 

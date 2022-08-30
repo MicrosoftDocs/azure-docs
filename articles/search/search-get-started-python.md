@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 06/11/2021
+ms.date: 08/29/2022
 ms.custom: devx-track-python, mode-api
 ---
 
@@ -22,7 +22,7 @@ ms.custom: devx-track-python, mode-api
 > * [Portal](search-get-started-portal.md)
 >
 
-Build a notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [azure-search-documents library](/python/api/overview/azure/search-documents-readme) in the Azure SDK for Python. This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
+Build a Jupyter Notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [azure-search-documents library](/python/api/overview/azure/search-documents-readme) in the Azure SDK for Python. This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,9 +30,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following services and tools are required for this quickstart.
 
-* [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), providing Python 3.x and Jupyter Notebook.
+* Visual Studio Code with the Python extension (or equivalent tool), with Python 3.7 or later
 
-* [azure-search-documents package](https://pypi.org/project/azure-search-documents/)
+* [azure-search-documents package](https://pypi.org/project/azure-search-documents/) from the Azure SDK for Python
 
 * [Create a search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use the Free tier for this quickstart. 
 
@@ -50,15 +50,15 @@ All requests require an api-key on every request sent to your service. Having a 
 
 ## Connect to Azure Cognitive Search
 
-In this task, start Jupyter Notebook and verify that you can connect to Azure Cognitive Search. You'll do this by requesting a list of indexes from your service. On Windows with Anaconda3, you can use Anaconda Navigator to launch a notebook.
+In this task, start Jupyter Notebook and verify that you can connect to Azure Cognitive Search. You'll do this step by requesting a list of indexes from your service.
 
 1. Create a new Python3 notebook.
 
 1. In the first cell, load the libraries from the Azure SDK for Python, including [azure-search-documents](/python/api/azure-search-documents).
 
    ```python
-    !pip install azure-search-documents --pre
-    !pip show azure-search-documents
+    %pip install azure-search-documents --pre
+    %pip show azure-search-documents
     
     import os
     from azure.core.credentials import AzureKeyCredential
@@ -75,10 +75,10 @@ In this task, start Jupyter Notebook and verify that you can connect to Azure Co
     )
    ```
 
-1. In the second cell, input the request elements that will be constants on every request. Provide your search service name, admin API key, and query API key, copied in a previous step. This cell also sets up the clients you will use for specific operations: [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) to create an index, and [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) to query an index.
+1. In the second cell, input the request elements that will be constants on every request. Provide your search service name, admin API key, and query API key, copied in a previous step. This cell also sets up the clients you'll use for specific operations: [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) to create an index, and [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) to query an index.
 
    ```python
-    service_name = "YOUR-SEARCH-SERIVCE-NAME"
+    service_name = "YOUR-SEARCH-SERVICE-NAME"
     admin_key = "YOUR-SEARCH-SERVICE-ADMIN-API-KEY"
     
     index_name = "hotels-quickstart"
@@ -110,7 +110,7 @@ In this task, start Jupyter Notebook and verify that you can connect to Azure Co
 
 Required elements of an index include a name, a fields collection, and a key. The fields collection defines the structure of a logical *search document*, used for both loading data and returning results. 
 
-Each field has a name, type, and attributes that determine how the field is used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
+Each field has a name, type, and attributes that determine how the field is used (for example, whether it's full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
 This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We trimmed it in this quickstart for brevity.
 
@@ -318,7 +318,7 @@ This step shows you how to query an index using the **search** method of the [se
         print("    {}".format(facet))
     ```
 
-1. In this example, look up a specific document based on its key. You would typically want to return a document when a user clicks on a document in a search result.
+1. In this example, look up a specific document based on its key. You would typically want to return a document when a user selects a document in a search result.
 
     ```python
     result = search_client.get_document(key="3")
@@ -329,9 +329,9 @@ This step shows you how to query an index using the **search** method of the [se
     print("Category: {}".format(result["Category"]))
     ```
 
-1. In this example, we'll use the autocomplete function. This is typically used in a search box to help auto-complete potential matches as the user types into the search box.
+1. In this example, we'll use the autocomplete function. Autocomplete is typically used in a search box to provide potential matches as the user types into the search box.
 
-   When the index was created, a suggester named "sg" was also created as part of the request. A suggester definition specifies which fields can be used to find potential matches to suggester requests. In this example, those fields are 'Tags', 'Address/City', 'Address/Country'. To simulate auto-complete, pass in the letters "sa" as a partial string. The autocomplete method of [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) sends back potential term matches.
+   When the index was created, a suggester named `sg` was also created as part of the request. A suggester definition specifies which fields can be used to find potential matches to suggester requests. In this example, those fields are 'Tags', 'Address/City', 'Address/Country'. To simulate auto-complete, pass in the letters "sa" as a partial string. The autocomplete method of [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) sends back potential term matches.
 
     ```python
     search_suggestion = 'sa'
@@ -348,7 +348,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 
