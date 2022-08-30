@@ -71,7 +71,7 @@ To split by revision or replica:
 1. You can set the limit of the number of revisions or replicas to display in the chart.  The default is 10. 
 1. You can set Sort order to **Ascending** or **Descending**.  The default is **Descending**.
 
-:::image type="content" source="media/observability/metrics-splitting.png" alt-text="Screenshot of the metrics explorer showing the chart splitting options.":::
+:::image type="content" source="media/observability/metrics-apply-splitting.png" alt-text=""Screenshot of the metrics explorer chart splitting options.":::
 
 
 ### Add scopes
