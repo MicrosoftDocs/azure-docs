@@ -62,11 +62,9 @@ This article provides information about the export process and shows how to expo
 
 ## Prerequisites
 
-- An Azure account and subscription. 
-
 - An existing ISE with the logic app workflows that you want to export.
 
-- To include managed connections in your deployment, you'll need an existing Azure resource group to organize your managed connections for deployment. This option is recommended only for non-production environments.
+- To include and deploy managed connections in your workflows, you'll need an existing Azure resource group for deploying these connections. This option is recommended only for non-production environments.
 
 - Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
