@@ -5,24 +5,31 @@ items:
   expanded: true
   items:
   - name: What is Translator Service?
+    displayName: features, develop, development, free
     href: translator-overview.md
   - name: Language Support
-    displayName: detection, detect
+    displayName: code, translation, transliteration, detection, detect, pdf, document
     href: language-support.md
   - name: Pricing
+    displayName: cost, free, standard, custom, tier, S1, hosting
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator
   - name: What's new?
+    displayName: release, ga, update, support
     href: whats-new.md
   - name: Translator Service FAQ
+    displayName: character, count, usage, attribution
     href: translator-faq.md
 - name: Text Translation
   expanded: true
   items:
   - name: What is Text Translation?
+    displayName: neural, machine, deploy, 
     href: text-translation-overview.md
   - name: Create a Translator resource
+    displayName: endpoint, key, portal, azure, authentication, delete resource
     href: how-to-create-translator-resource.md  
   - name: Quickstart
+    displayName: rest, api, key, endpoint, headers, c#, go, java, javascript, python
     href: quickstart-translator.md
   - name: Samples
     items:
@@ -51,32 +58,38 @@ items:
   - name: How-to guides
     items:
     - name: Use the Text Translator APIs
-      displayName: detection, detect
+      displayName: detection, detect, translation, transliteration, detection, identification, length, sentence length, alternate, usage, headers
       href: translator-text-apis.md
     - name: Migrate to V3 Text API
-      displayName: speech, error, 401000, 400000, 401, 405000
+      displayName: speech, error, version, endpoint, compatibility, json, authentication, pricing
       href: migrate-to-v3.md
     - name: Add profanity filtering
+      displayName: profanityMarker, marker, profanityAction, action
       href: profanity-filtering.md
     - name: Receive word alignment information
+      displayName: restrictions
       href: word-alignment.md
     - name: Prevent translation of content
-      displayName: textType, text type
+      displayName: textType, text type, noTranslate, no translate, dynamic dictionary, custom, tag
       href: prevent-translation.md
     - name: Use the dynamic dictionary feature
       href: dynamic-dictionary.md
     - name: Translate behind firewalls
+      displayName: domain, IP, filtering, tag, endpoints, 
       href: firewalls.md
     - name: Use the Translator container
       items:
       - name: Install and run containers
+        displayName: docker, docker-run, run, pull, swagger, c#, python, import, cpu, EULA, billing
         href: containers/translator-how-to-install-container.md
       - name: Configure containers
+        displayName: docker, docker-run, billing, settings, key, logging, EULA, telemetry, proxy
         href: containers/translator-container-configuration.md
       - name: Use containers in disconnected environments
+        displayName: text, docker, pull, mcr, registry, commitment, parameters
         href: ../containers/disconnected-containers.md
       - name: "Container: Translate"
-        displayName: textType, text type
+        displayName: textType, text type, preview, POST, parameters, request, 
         href: containers/translator-container-supported-parameters.md
   - name: Tutorials
     items:
@@ -116,24 +129,26 @@ items:
 - name: Document Translation
   items:
     - name: What is Document Translation?
-      displayName: ocr, batch
+      displayName: ocr, batch, features, development, formats, file types
       href: document-translation/overview.md
     - name: Client-library SDKs
       displayName: batch
       href: document-translation/client-sdks.md
     - name: Quickstart
-      displayName: batch
+      displayName: batch, sdk, c#, python, source, target
       href: document-translation/get-started-with-document-translation.md
     - name: How-to guides
       items:
       - name: Create SAS tokens for storage containers
+        displayName: user, delegation, shared access, tokens, storage explorer, azure, portal, blob
         href: document-translation/create-sas-tokens.md
       - name: Create and use managed identities
-        displayName: batch
+        displayName: batch, azure active directory, azure ad, azure role-based access control, azure RBAC, sas, assignment, role, owner, user access administrator, contributor
         href: document-translation/managed-identity.md
     - name: Reference
       items:
       - name: Document Translation REST APIs
+        displayName: get, post, cancel, delete
         href: document-translation/reference/rest-api-guide.md
       - name: Get supported document formats
         href: document-translation/reference/get-supported-document-formats.md
@@ -164,24 +179,33 @@ items:
   - name: Custom Translation | Preview
     items:
     - name: Custom Translator for beginners
+      displayName: use case, usage, train, training, bleu, tuning, tune
       href: custom-translator/v2-preview/beginners-guide.md
     - name: Quickstart
+      displayName: workspace, project, parallel, train, upload, publish, 
       href: custom-translator/v2-preview/quickstart.md
     - name: How-to guides
       items:
       - name: Create and manage a workspace
+        displayName: share
         href: custom-translator/v2-preview/how-to/create-manage-workspace.md
       - name: Create and manage a project
+        displayName: models, pairs, label, edit, delete
         href: custom-translator/v2-preview/how-to/create-manage-project.md
       - name: Create and manage training documents
+        displayName: parallel, document sets, tuning, phrase, sentence, upload
         href: custom-translator/v2-preview/how-to/create-manage-training-documents.md
       - name: Train a custom model
+        displayName: full, dictionary, duplicate
         href: custom-translator/v2-preview/how-to/train-custom-model.md
       - name: View the model details and test translation
+        displayName: bleu, baseline
         href: custom-translator/v2-preview/how-to/view-model-test-translation.md
       - name: Publish a custom model
+        displayName: replace
         href: custom-translator/v2-preview/how-to/publish-model.md
       - name: Translate text with a custom model
+        displayName: category, ID, category ID, 
         href: custom-translator/v2-preview/how-to/translate-with-custom-model.md
   - name: Custom Translator | Legacy
     items:
@@ -217,18 +241,22 @@ items:
       - name: Parallel documents
         href: custom-translator/what-are-parallel-documents.md
       - name: Dictionary
+        displayName: phrase, sentence, recommendations
         href: custom-translator/what-is-dictionary.md
       - name: Document formats
         href: custom-translator/document-formats-naming-convention.md
       - name: Sentence alignment
         href: custom-translator/sentence-alignment.md
       - name: Data filtering
+        displayName: deduplication, white space, punctuation, tags, invalid
         href: custom-translator/data-filtering.md
       - name: Training and modeling
+        displayName: tuning
         href: custom-translator/training-and-model.md
       - name: BLEU score
         href: custom-translator/what-is-bleu-score.md
       - name: Customer-managed keys
+        displayName: encryption, key vault, revoke
         href: encrypt-data-at-rest.md
   - name: Reference
     items:
@@ -239,7 +267,7 @@ items:
 - name: Resources
   items:
   - name: Translator in sovereign clouds
-    displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china, batch
+    displayName: fairfax,compliant,secret,compliance,government,government cloud,dod,china, batch
     href: sovereign-clouds.md
   - name: Compliance and certification
     href: https://www.microsoft.com/translator/business/notrace/
