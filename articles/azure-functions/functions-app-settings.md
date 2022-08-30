@@ -1,24 +1,41 @@
 ---
 title: App settings reference for Azure Functions
-description: Reference documentation for the Azure Functions app settings or environment variables.
+description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
-ms.date: 04/27/2022
+ms.date: 08/27/2022
 ---
 
 # App settings reference for Azure Functions
 
-App settings in a function app contain configuration options that affect all functions for that function app. When you run locally, these settings are accessed as local [environment variables](functions-develop-local.md#local-settings-file). This article lists the app settings that are available in function apps.
+Application settings in a function app contain configuration options that affect all functions for that function app. These settings are accessed as environment variables. This article lists the app settings that are available in function apps.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-There are other function app configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
-Example connection string values are truncated for readability.
+In this article, example connection string values are truncated for readability.
 
-> [!NOTE]
-> You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values). Changes to function app settings require your function app to be restarted.
+## App setting considerations
 
-> [!IMPORTANT]
-> Do not use an [instrumentation key](../azure-monitor/app/separate-resources.md#about-resources-and-instrumentation-keys) and a [connection string](../azure-monitor/app/sdk-connection-string.md#overview) simultaneously. Whichever was set last will take precedence.
+When using app settings, you should be aware of the following considerations:
+
++ Changes to function app settings require your function app to be restarted.
+
++ In setting names, double-underscore (`__`) and semicolon (`:`) are considered reserved values. Double-underscores are interpreted as hierarchical delimiters on both Windows and Linux, and colons are interpreted in the same way only on Linux. For example, the setting `AzureFunctionsWebHost__hostid=somehost_123456` would be interpreted as the following JSON object:
+
+    ```json
+    "AzureFunctionsWebHost": {
+        "hostid": "somehost_123456"
+    }
+    ````
+    
+    In this article, only double-underscores are used, since they're supported on both operating systems.
+
++ When running locally, app settings are specified in the `Values` collection in the [local.settings.json](functions-develop-local.md#local-settings-file).
+
++ There are other function app configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
+
++ You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values). 
+
++ This article docuements the settings that are most relevant to your function apps. Because Azure Functions runs on App Service, other application settings may also be supported. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
 
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -28,14 +45,16 @@ The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_I
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|`55555555-af77-484b-9032-64f83bb83bb`|
 
+Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. Use of `APPLICATIONINSIGHTS_CONNECTION_STRING` is recommended.
+
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## APPLICATIONINSIGHTS_CONNECTION_STRING
 
-The connection string for Application Insights. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead of `APPINSIGHTS_INSTRUMENTATIONKEY` in the following cases:
+The connection string for Application Insights. Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. While the use of `APPLICATIONINSIGHTS_CONNECTION_STRING` is recommended in all cases, it's required in the following cases:
 
-+ When your function app requires the added customizations supported by using the connection string.
-+ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint.
++ When your function app requires the added customizations supported by using the connection string.  
++ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint.  
 
 For more information, see [Connection strings](../azure-monitor/app/sdk-connection-string.md).
 
@@ -50,11 +69,11 @@ By default, [Functions proxies](functions-proxies.md) use a shortcut to send API
 |Key|Value|Description|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`true`|Calls with a backend URL pointing to a function in the local function app won't be sent directly to the function. Instead, the requests are directed back to the HTTP frontend for the function app.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`false`|Calls with a backend URL pointing to a function in the local function app are forwarded directly to the function. This is the default value. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`false`|Calls with a backend URL pointing to a function in the local function app are forwarded directly to the function. `false` is the default value. |
 
 ## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
-This setting controls whether the characters `%2F` are decoded as slashes in route parameters when they are inserted into the backend URL.
+This setting controls whether the characters `%2F` are decoded as slashes in route parameters when they're inserted into the backend URL.
 
 |Key|Value|Description|
 |-|-|-|
@@ -81,7 +100,7 @@ When `AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES` is set to `true`, the URL
 
 ## AZURE_FUNCTIONS_ENVIRONMENT
 
-In version 2.x and later versions of the Functions runtime, configures app behavior based on the runtime environment. This value is read during initialization, and can be set to any value. Only the values of `Development`, `Staging`, and `Production` are honored by the runtime. When this application setting isn't present when running in Azure, the environment is assumed to be `Production`. Use this setting instead of `ASPNETCORE_ENVIRONMENT` if you need to change the runtime environment in Azure to something other than `Production`. The Azure Functions Core Tools set `AZURE_FUNCTIONS_ENVIRONMENT` to `Development` when running on a local computer, and this can't be overridden in the local.settings.json file. To learn more, see [Environment-based Startup class and methods](/aspnet/core/fundamentals/environments#environment-based-startup-class-and-methods).
+In version 2.x and later versions of the Functions runtime, configures app behavior based on the runtime environment. This value is read during initialization, and can be set to any value. Only the values of `Development`, `Staging`, and `Production` are honored by the runtime. When this application setting isn't present when running in Azure, the environment is assumed to be `Production`. Use this setting instead of `ASPNETCORE_ENVIRONMENT` if you need to change the runtime environment in Azure to something other than `Production`. The Azure Functions Core Tools set `AZURE_FUNCTIONS_ENVIRONMENT` to `Development` when running on a local computer, and this setting can't be overridden in the local.settings.json file. To learn more, see [Environment-based Startup class and methods](/aspnet/core/fundamentals/environments#environment-based-startup-class-and-methods).
 
 ## AzureFunctionsJobHost__\*
 
@@ -91,7 +110,14 @@ In version 2.x and later versions of the Functions runtime, application settings
 
 Sets the host ID for a given function app, which should be a unique ID. This setting overrides the automatically generated host ID value for your app. Use this setting only when you need to prevent host ID collisions between function apps that share the same storage account. 
 
-A host ID must be between 1 and 32 characters, contain only lowercase letters, numbers, and dashes, not start or end with a dash, and not contain consecutive dashes. An easy way to generate an ID is to take a GUID, remove the dashes, and make it lower case, such as by converting the GUID `1835D7B5-5C98-4790-815D-072CC94C6F71` to the value `1835d7b55c984790815d072cc94c6f71`.
+A host ID must meet the following requirements:
+
++ Be between 1 and 32 characters
++ contain only lowercase letters, numbers, and dashes
++ Not start or end with a dash
++ Not contain consecutive dashes 
+
+An easy way to generate an ID is to take a GUID, remove the dashes, and make it lower case, such as by converting the GUID `1835D7B5-5C98-4790-815D-072CC94C6F71` to the value `1835d7b55c984790815d072cc94c6f71`.
 
 |Key|Sample value|
 |---|------------|
@@ -112,7 +138,7 @@ Optional storage account connection string for storing logs and displaying them 
 
 ## AzureWebJobsDisableHomepage
 
-`true` means disable the default landing page that is shown for the root URL of a function app. Default is `false`.
+A value of `true` disables the default landing page that is shown for the root URL of a function app. The default value is `false`.
 
 |Key|Sample value|
 |---|------------|
@@ -132,7 +158,7 @@ When this app setting is omitted or set to `false`, a page similar to the follow
 
 ## AzureWebJobsFeatureFlags
 
-A comma-delimited list of beta features to enable. Beta features enabled by these flags are not production ready, but can be enabled for experimental use before they go live.
+A comma-delimited list of beta features to enable. Beta features enabled by these flags aren't production ready, but can be enabled for experimental use before they go live.
 
 |Key|Sample value|
 |---|------------|
@@ -140,7 +166,7 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 
 ## AzureWebJobsKubernetesSecretName 
 
-Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. Requires that `AzureWebJobsSecretStorageType` be set to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
+Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. This setting requires you to set `AzureWebJobsSecretStorageType` to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
 
 |Key|Sample value|
 |---|------------|
@@ -150,7 +176,7 @@ To learn more, see [Secret repositories](security-concepts.md#secret-repositorie
 
 ## AzureWebJobsSecretStorageKeyVaultClientId
 
-The client ID of the user-assigned managed identity or the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`.  Supported in version 4.x and later versions of the Functions runtime.
+The client ID of the user-assigned managed identity or the app registration used to access the vault where keys are stored. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. Supported in version 4.x and later versions of the Functions runtime.
 
 |Key|Sample value|
 |---|------------|
@@ -160,7 +186,7 @@ To learn more, see [Secret repositories](security-concepts.md#secret-repositorie
 
 ## AzureWebJobsSecretStorageKeyVaultClientSecret
 
-The secret for client ID of the user-assigned managed identity or the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`.  Supported in version 4.x and later versions of the Functions runtime.
+The secret for client ID of the user-assigned managed identity or the app registration used to access the vault where keys are stored. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. Supported in version 4.x and later versions of the Functions runtime.
 
 |Key|Sample value|
 |---|------------|
@@ -170,9 +196,9 @@ To learn more, see [Secret repositories](security-concepts.md#secret-repositorie
 
 ## AzureWebJobsSecretStorageKeyVaultName
 
-The name of a key vault instance used to store keys. This setting is only supported for version 3.x of the Functions runtime. For version 4.x, instead use `AzureWebJobsSecretStorageKeyVaultUri`. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`. 
+The name of a key vault instance used to store keys. This setting is only supported for version 3.x of the Functions runtime. For version 4.x, instead use `AzureWebJobsSecretStorageKeyVaultUri`. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. 
 
-The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
+The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When your functions run locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
 
 |Key|Sample value|
 |---|------------|
@@ -182,7 +208,7 @@ To learn more, see [Secret repositories](security-concepts.md#secret-repositorie
 
 ## AzureWebJobsSecretStorageKeyVaultTenantId
 
-The tenant ID of the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`. Supported in version 4.x and later versions of the Functions runtime. To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+The tenant ID of the app registration used to access the vault where keys are stored. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. Supported in version 4.x and later versions of the Functions runtime. To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
 
 |Key|Sample value|
 |---|------------|
@@ -190,11 +216,11 @@ The tenant ID of the app registration used to access the vault where keys are st
 
 ## AzureWebJobsSecretStorageKeyVaultUri
 
-The URI of a key vault instance used to store keys. Supported in version 4.x and later versions of the Functions runtime. This is the recommended setting for using a key vault instance for key storage. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`.
+The URI of a key vault instance used to store keys. Supported in version 4.x and later versions of the Functions runtime. This is the recommended setting for using a key vault instance for key storage. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`.
 
 The `AzureWebJobsSecretStorageKeyVaultUri` value should be the full value of **Vault URI** displayed in the **Key Vault overview** tab, including `https://`.
 
-The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
+The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When your functions run locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
 
 |Key|Sample value|
 |---|------------|
@@ -216,8 +242,8 @@ Specifies the repository or provider to use for key storage. Keys are always enc
 
 |Key| Value| Description|
 |---|------------|---|
-|AzureWebJobsSecretStorageType|`blob`|Keys are stored in a Blob storage container in the account provided by the `AzureWebJobsStorage` setting. This is the default behavior when `AzureWebJobsSecretStorageType` isn't set.<br/>To specify a different storage account, use the `AzureWebJobsSecretStorageSas` setting to indicate the SAS URL of a second storage account. |
-|AzureWebJobsSecretStorageType  | `files` | Keys are persisted on the file system. This is the default for Functions v1.x.|
+|AzureWebJobsSecretStorageType|`blob`|Keys are stored in a Blob storage container in the account provided by the `AzureWebJobsStorage` setting. Blob storage is the default behavior when `AzureWebJobsSecretStorageType` isn't set.<br/>To specify a different storage account, use the `AzureWebJobsSecretStorageSas` setting to indicate the SAS URL of a second storage account. |
+|AzureWebJobsSecretStorageType  | `files` | Keys are persisted on the file system. This is the default behavior for Functions v1.x.|
 |AzureWebJobsSecretStorageType |`keyvault` | Keys are stored in a key vault instance set by `AzureWebJobsSecretStorageKeyVaultName`. | 
 |Kubernetes Secrets  | `kubernetes` | Supported only when running the Functions runtime in Kubernetes. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.|
 
@@ -253,7 +279,7 @@ Requires that [FUNCTIONS\_WORKER\_SHARED\_MEMORY\_DATA\_TRANSFER\_ENABLED](#func
 
 ## FUNCTION\_APP\_EDIT\_MODE
 
-Dictates whether editing in the Azure portal is enabled. Valid values are "readwrite" and "readonly".
+Dictates whether editing in the Azure portal is enabled. Valid values are `readwrite` and `readonly`.
 
 |Key|Sample value|
 |---|------------|
@@ -261,7 +287,7 @@ Dictates whether editing in the Azure portal is enabled. Valid values are "readw
 
 ## FUNCTIONS\_EXTENSION\_VERSION
 
-The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, "~3"). When new versions for the same major version are available, they are automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, "3.0.12345"). Default is "~3". A value of `~1` pins your app to version 1.x of the runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md). A value of `~4` means that your app runs on version 4.x of the runtime, which supports .NET 6.0.
+The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, `~3`). When new versions for the same major version are available, they're automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, `3.0.12345`). Default is `~3`. A value of `~1` pins your app to version 1.x of the runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md). A value of `~4` means that your app runs on version 4.x of the runtime, which supports .NET 6.0.
 
 |Key|Sample value|
 |---|------------|
@@ -274,15 +300,23 @@ This setting enables your function app to run in a version 2.x compatible mode o
 >[!IMPORTANT]
 > This setting is intended only as a short-term workaround while you update your app to run correctly on version 3.x. This setting is supported as long as the [2.x runtime is supported](functions-versions.md). If you encounter issues that prevent your app from running on version 3.x without using this setting, please [report your issue](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
 
-Requires that [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#functions_extension_version) be set to `~3`.
+You must also set [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#functions_extension_version) to `~3`.
 
 |Key|Sample value|
 |---|------------|
 |FUNCTIONS\_V2\_COMPATIBILITY\_MODE|`true`|
 
+## FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT
+
+Overrides the default limit on the body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 104857600 bytes. 
+
+|Key|Sample value|
+|---|------------|
+|FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT |`250000000`|
+
 ## FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
-Specifies the maximum number of language worker processes, with a default value of `1`. The maximum value allowed is `10`. Function invocations are evenly distributed among language worker processes. Language worker processes are spawned every 10 seconds until the count set by FUNCTIONS\_WORKER\_PROCESS\_COUNT is reached. Using multiple language worker processes is not the same as [scaling](functions-scale.md). Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. This setting applies to all language runtimes, except for .NET running in process (`dotnet`).
+Specifies the maximum number of language worker processes, with a default value of `1`. The maximum value allowed is `10`. Function invocations are evenly distributed among language worker processes. Language worker processes are spawned every 10 seconds until the count set by FUNCTIONS\_WORKER\_PROCESS\_COUNT is reached. Using multiple language worker processes isn't the same as [scaling](functions-scale.md). Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. This setting applies to all language runtimes, except for .NET running in process (`dotnet`).
 
 |Key|Sample value|
 |---|------------|
@@ -358,7 +392,7 @@ To learn more, see [Dependency management](functions-reference-powershell.md#dep
 
 ## PIP\_INDEX\_URL
 
-This setting lets you override the base URL of the Python Package Index, which by default is `https://pypi.org/simple`. Use this setting when you need to run a remote build using custom dependencies that are found in a package index repository compliant with PEP 503 (the simple repository API) or in a local directory that follows the same format.
+This setting lets you override the base URL of the Python Package Index, which by default is `https://pypi.org/simple`. Use this setting when you need to run a remote build using custom dependencies. These custom dependencies can be in a package index repository compliant with PEP 503 (the simple repository API) or in a local directory that follows the same format.
 
 |Key|Sample value|
 |---|------------|
@@ -368,7 +402,7 @@ To learn more, see [`pip` documentation for `--index-url`](https://pip.pypa.io/e
 
 ## PIP\_EXTRA\_INDEX\_URL
 
-The value for this setting indicates a extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. Should follow the same rules as --index-url.
+The value for this setting indicates an extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. Should follow the same rules as `--index-url`.
 
 |Key|Sample value|
 |---|------------|
@@ -376,13 +410,13 @@ The value for this setting indicates a extra index URL for custom packages for P
 
 To learn more, see [`pip` documentation for `--extra-index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-extra-index-url) and [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
-## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES (Preview)
+## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
 
-The configuration is specific to Python function apps. It defines the prioritization of module loading order. When your Python function apps face issues related to module collision (e.g. when you're using protobuf, tensorflow, or grpcio in your project), configuring this app setting to `1` should resolve your issue. By default, this value is set to `0`. This flag is currently in Preview.
+The configuration is specific to Python function apps. It defines the prioritization of module loading order. By default, this value is set to `0`.
 
 |Key|Value|Description|
 |---|-----|-----------|
-|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`0`| Prioritize loading the Python libraries from internal Python worker's dependencies. Third-party libraries defined in requirements.txt may be shadowed. |
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`0`| Prioritize loading the Python libraries from internal Python worker's dependencies, which is the default behavior. Third-party libraries defined in requirements.txt may be shadowed. |
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| Prioritize loading the Python libraries from application's package defined in requirements.txt. This prevents your libraries from colliding with internal Python worker's libraries. |
 
 ## PYTHON_ENABLE_DEBUG_LOGGING
@@ -393,7 +427,7 @@ When debugging Python functions, make sure to also set a debug or trace [logging
 
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 
-The configuration is specific to Python function apps. Setting this to `1` allows the worker to load in [Python worker extensions](functions-reference-python.md#python-worker-extensions) defined in requirements.txt. It enables your function app to access new features provided by third-party packages. It may also change the behavior of function load and invocation in your app. Please ensure the extension you choose is trustworthy as you bear the risk of using it. Azure Functions gives no express warranties to any extensions. For how to use an extension, please visit the extension's manual page or readme doc. By default, this value sets to `0`.
+The configuration is specific to Python function apps. Setting this to `1` allows the worker to load in [Python worker extensions](functions-reference-python.md#python-worker-extensions) defined in requirements.txt. It enables your function app to access new features provided by third-party packages. It may also change the behavior of function load and invocation in your app. Ensure the extension you choose is trustworthy as you bear the risk of using it. Azure Functions gives no express warranties to any extensions. For how to use an extension, visit the extension's manual page or readme doc. By default, this value sets to `0`.
 
 |Key|Value|Description|
 |---|-----|-----------|
@@ -402,7 +436,7 @@ The configuration is specific to Python function apps. Setting this to `1` allow
 
 ## PYTHON\_THREADPOOL\_THREAD\_COUNT
 
-Specifies the maximum number of threads that a Python language worker would use to execute function invocations, with a default value of `1` for Python version `3.8` and below. For Python version `3.9` and above, the value is set to `None`. Note that this setting does not guarantee the number of threads that would be set during executions. The setting allows Python to expand the number of threads to the specified value. The setting only applies to Python functions apps. Additionally, the setting applies to synchronous functions invocation and not for coroutines.
+Specifies the maximum number of threads that a Python language worker would use to execute function invocations, with a default value of `1` for Python version `3.8` and below. For Python version `3.9` and above, the value is set to `None`. This setting doesn't guarantee the number of threads that would be set during executions. The setting allows Python to expand the number of threads to the specified value. The setting only applies to Python functions apps. Additionally, the setting applies to synchronous functions invocation and not for coroutines.
 
 |Key|Sample value|Max value|
 |---|------------|---------|
@@ -468,7 +502,7 @@ Changing or removing this setting may cause your function app to not start. To l
 
 The following considerations apply when using an Azure Resource Manager (ARM) template to create a function app during deployment: 
 
-+ When you don't set a `WEBSITE_CONTENTSHARE` value for the main function app or any apps in slots, unique share values are generated for you. This is the recommended approach for an ARM template deployment.
++ When you don't set a `WEBSITE_CONTENTSHARE` value for the main function app or any apps in slots, unique share values are generated for you. Not setting `WEBSITE_CONTENTSHARE` is the recommended approach for an ARM template deployment.
 + There are scenarios where you must set the `WEBSITE_CONTENTSHARE` value to a predefined share, such as when you [use a secured storage account in a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network). In this case, you must set a unique share name for the main function app and the app for each deployment slot.  
 + Don't make `WEBSITE_CONTENTSHARE` a slot setting. 
 + When you specify `WEBSITE_CONTENTSHARE`, the value must follow [this guidance for share names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names). 
@@ -486,6 +520,17 @@ Sets the DNS server used by an app when resolving IP addresses. This setting is 
 ## WEBSITE\_ENABLE\_BROTLI\_ENCODING
 
 Controls whether Brotli encoding is used for compression instead of the default gzip compression. When `WEBSITE_ENABLE_BROTLI_ENCODING` is set to `1`, Brotli encoding is used; otherwise gzip encoding is used.
+
+
+## WEBSITE_FUNCTIONS_ARMCACHE_ENABLED
+<!-- verify this info-->
+
+Disables caching when deploying function apps using Azure Resource Manager (ARM) templates.  
+
+|Key|Sample value|
+|---|------------|
+| WEBSITE_FUNCTIONS_ARMCACHE_ENABLED| 0 |
+
 
 ## WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
@@ -523,17 +568,17 @@ Enables your function app to run from a mounted package file.
 |---|------------|
 |WEBSITE\_RUN\_FROM\_PACKAGE|`1`|
 
-Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When using zip deployment with this setting, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
 
 ## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
 
-The [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnectionstring) and [WEBSITE_CONTENTSHARE](#website_contentshare) settings have additional validation checks to ensure that the app can be properly started. Creation of application settings will fail if the Function App cannot properly call out to the downstream Storage Account or Key Vault due to networking constraints or other limiting factors. When WEBSITE_SKIP_CONTENTSHARE_VALIDATION is set to `1`, the validation check is skipped; otherwise the value defaults to `0` and the validation will take place. 
+The [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnectionstring) and [WEBSITE_CONTENTSHARE](#website_contentshare) settings have extra validation checks to ensure that the app can be properly started. Creation of application settings will fail if the function app can't properly call out to the downstream Storage Account or Key Vault due to networking constraints or other limiting factors. When WEBSITE_SKIP_CONTENTSHARE_VALIDATION is set to `1`, the validation check is skipped; otherwise the value defaults to `0` and the validation will take place. 
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE_SKIP_CONTENTSHARE_VALIDATION|`1`|
 
-If validation is skipped and either the connection string or content share are not valid, the app will be unable to start properly and will only serve HTTP 500 errors.
+If validation is skipped and either the connection string or content share isn't valid, the app won't be able to start properly. In this case, functions return HTTP 500 errors. For more information, see [Troubleshoot error: "Azure Functions Runtime is unreachable"](functions-recover-storage-account.md)
 
 ## WEBSITE\_TIME\_ZONE
 
