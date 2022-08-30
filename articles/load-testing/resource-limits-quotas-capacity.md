@@ -7,7 +7,7 @@ ms.service: load-testing
 ms.topic: reference
 ms.author: nicktrog
 author: ntrogh
-ms.date: 06/20/2022
+ms.date: 08/30/2022
 ---
 
 # Service limits in Azure Load Testing Preview
@@ -23,6 +23,9 @@ This section lists basic quotas and limits for Azure Load Testing Preview.
 |---------|---------|
 |Maximum concurrent engine instances that can be utilized per region per subscription     |    100     |
 |Maximum concurrent test runs per region per subscription     |    25     |
+|Maximum engine instances per test run | 45 |
+|Maximum test duration | 3 hours |
+|Data retention policy | 90 days |
 
 ## Increase quotas
 
