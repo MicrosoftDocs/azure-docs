@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 08/25/2022
+ms.date: 08/30/2022
 ms.custom: subject-rbac-steps
 ---
 
@@ -48,9 +48,10 @@ For the Stream Analytics job to access your Cosmos DB using managed identity, th
 
 The following command can be used to authenticate your ASA job with CosmosDB. The `$accountName` and `$resourceGroupName` are for your CosmosDB account, and the `$principalId` is the value obtained in the previous step, in the Identity tab of your ASA job. You need to have "Contributor" access to your CosmosDB account for this command to work as intended. 
 
-
+```azurecli-interactive
 New-AzCosmosDBSqlRoleAssignment -AccountName $accountName -ResourceGroupName $resourceGroupName -RoleDefinitionId '00000000-0000-0000-0000-000000000002' -Scope "/" -PrincipalId $principalId
 
+```
 
 > [!NOTE]
 > Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 8 minutes.
