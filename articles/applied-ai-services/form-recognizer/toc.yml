@@ -5,6 +5,7 @@ items:
   expanded: true
   items:
   - name: What is Azure Form Recognizer?
+    displayName: models, develop, development
     href: overview.md
   - name: Form Recognizer Studio
     displayName: get started
