@@ -138,8 +138,6 @@
         href: enable-authentication-python-web-app-options.md
     - name: Single-page application (SPA)
       items:
-      - name: SPA authentication documentation
-        href: index-spa.yml
       - name: Configure a sample SPA app
         href: configure-authentication-sample-spa-app.md
       - name: Enable authentication in an SPA app
