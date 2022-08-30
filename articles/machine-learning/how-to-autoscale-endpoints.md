@@ -16,7 +16,7 @@ ms.date: 04/27/2022
 
 Autoscale automatically runs the right amount of resources to handle the load on your application. [Online endpoints](concept-endpoints.md) supports autoscaling through integration with the Azure Monitor autoscale feature.
 
-Azure Monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more information, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).
+Azure Monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >71%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more information, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).
 
 :::image type="content" source="media/how-to-autoscale-endpoints/concept-autoscale.png" alt-text="Diagram for autoscale adding/removing instance as needed":::
 
@@ -48,6 +48,81 @@ The following snippet creates the autoscale profile:
 
 > [!NOTE]
 > For more, see the [reference page for autoscale](/cli/azure/monitor/autoscale)
+
+# [AzureML Python SDKv2](#tab/azureml-python-sdkv2)
+
+Import modules:
+```python
+from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.monitor import MonitorManagementClient
+from azure.mgmt.monitor.models import AutoscaleProfile, ScaleRule, MetricTrigger, ScaleAction, Recurrence, RecurrentSchedule
+import random 
+import datetime 
+``` 
+
+Define variables for the workspace, endpoint, and deployment:
+
+```python
+subscription_id = "your-subscription-id"
+resource_group = "your-resource-group"
+workspace = "your-workspace"
+
+endpoint_name = "your-endpoint-name"
+deployment_name = "blue"
+``` 
+
+Get Azure ML and Azure Monitor clients:
+
+```python
+credential = DefaultAzureCredential()
+ml_client = MLClient(
+    credential, subscription_id, resource_group, workspace
+)
+
+mon_client = MonitorManagementClient(
+    credential, subscription_id
+)
+```
+
+Get the endpoint and deployment objects: 
+
+```python 
+deployment = ml_client.online_deployments.get(
+    deployment_name, endpoint_name
+)
+
+endpoint = ml_client.online_endpoints.get(
+    endpoint_name
+)
+```
+
+Create an autoscale profile: 
+
+```python
+# Set a unique name for autoscale settings for this deployment. The below will append a random number to make the name unique.
+autoscale_settings_name = f"autoscale-{endpoint_name}-{deployment_name}-{random.randint(0,1000)}"
+
+mon_client.autoscale_settings.create_or_update(
+    resource_group, 
+    autoscale_settings_name, 
+    parameters = {
+        "location" : endpoint.location,
+        "target_resource_uri" : deployment.id,
+        "profiles" : [
+            AutoscaleProfile(
+                name="my-scale-settings",
+                capacity={
+                    "minimum" : 2, 
+                    "maximum" : 5,
+                    "default" : 2
+                },
+                rules = []
+            )
+        ]
+    }
+)
+```
 
 # [Portal](#tab/azure-portal)
 
@@ -85,6 +160,58 @@ The rule is part of the `my-scale-settings` profile (`autoscale-name` matches th
 > [!NOTE]
 > For more information on the CLI syntax, see [`az monitor autoscale`](/cli/azure/monitor/autoscale).
 
+# [AzureML Python SDKv2](#tab/azureml-python-sdkv2)
+
+Create the rule definition:
+
+```python 
+rule_scale_out = ScaleRule(
+    metric_trigger = MetricTrigger(
+        metric_name="CpuUtilizationPercentage",
+        metric_resource_uri = deployment.id, 
+        time_grain = datetime.timedelta(minutes = 1),
+        statistic = "Average",
+        operator = "GreaterThan", 
+        time_aggregation = "Last",
+        time_window = datetime.timedelta(minutes = 5), 
+        threshold = 70
+    ), 
+    scale_action = ScaleAction(
+        direction = "Increase", 
+        type = "ChangeCount", 
+        value = 2, 
+        cooldown = datetime.timedelta(hours = 1)
+    )
+)
+```
+This rule is refers to the last 5 minute average of `CPUUtilizationpercentage` from the arguments `metric_name`, `time_window` and `time_aggregation`. When value of the metric is greater than the `threshold` of 70, two more VM instances are allocated. 
+
+Update the `my-scale-settings` profile to include this rule: 
+
+```python 
+mon_client.autoscale_settings.create_or_update(
+    resource_group, 
+    autoscale_settings_name, 
+    parameters = {
+        "location" : endpoint.location,
+        "target_resource_uri" : deployment.id,
+        "profiles" : [
+            AutoscaleProfile(
+                name="my-scale-settings",
+                capacity={
+                    "minimum" : 2, 
+                    "maximum" : 5,
+                    "default" : 2
+                },
+                rules = [
+                    rule_scale_out
+                ]
+            )
+        ]
+    }
+)
+``` 
+
 # [Portal](#tab/azure-portal)
 
 In the __Rules__ section, select __Add a rule__. The __Scale rule__ page is displayed. Use the following information to populate the fields on this page:
@@ -109,6 +236,59 @@ When load is light, a scaling in rule can reduce the number of VM instances. The
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_in_on_cpu_util" :::
+
+# [AzureML Python SDKv2](#tab/azureml-python-sdkv2)
+
+Create the rule definition: 
+
+```python 
+rule_scale_in = ScaleRule(
+    metric_trigger = MetricTrigger(
+        metric_name="CpuUtilizationPercentage",
+        metric_resource_uri = deployment.id, 
+        time_grain = datetime.timedelta(minutes = 1),
+        statistic = "Average",
+        operator = "GreaterThan", 
+        time_aggregation = "Last",
+        time_window = datetime.timedelta(minutes = 5), 
+        threshold = 70
+    ), 
+    scale_action = ScaleAction(
+        direction = "Increase", 
+        type = "ChangeCount", 
+        value = 2, 
+        cooldown = datetime.timedelta(hours = 1)
+    )
+)
+``` 
+
+Update the `my-scale-settings` profile to include this rule: 
+
+```python 
+mon_client.autoscale_settings.create_or_update(
+    resource_group, 
+    autoscale_settings_name, 
+    parameters = {
+        "location" : endpoint.location,
+        "target_resource_uri" : deployment.id,
+        "profiles" : [
+            AutoscaleProfile(
+                name="my-scale-settings",
+                capacity={
+                    "minimum" : 2, 
+                    "maximum" : 5,
+                    "default" : 2
+                },
+                rules = [
+                    rule_scale_out, 
+                    rule_scale_in
+                ]
+            )
+        ]
+    }
+)
+``` 
+ 
 
 # [Portal](#tab/azure-portal)
 
@@ -139,6 +319,61 @@ The previous rules applied to the deployment. Now, add a rule that applies to th
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_up_on_request_latency" :::
 
+# [AzureML Python SDKv2](#tab/azureml-python-sdkv2)
+
+Create the rule definition: 
+
+```python
+rule_scale_out_endpoint = ScaleRule(
+    metric_trigger = MetricTrigger(
+        metric_name="RequestLatency",
+        metric_resource_uri = endpoint.id, 
+        time_grain = datetime.timedelta(minutes = 1),
+        statistic = "Average",
+        operator = "GreaterThan", 
+        time_aggregation = "Last",
+        time_window = datetime.timedelta(minutes = 5), 
+        threshold = 70
+    ), 
+    scale_action = ScaleAction(
+        direction = "Increase", 
+        type = "ChangeCount", 
+        value = 1, 
+        cooldown = datetime.timedelta(hours = 1)
+    )
+)
+
+```
+This rule's `metric_resource_uri` field now refers to the endpoint rather than the deployment.
+
+Update the `my-scale-settings` profile to include this rule: 
+
+```python 
+mon_client.autoscale_settings.create_or_update(
+    resource_group, 
+    autoscale_settings_name, 
+    parameters = {
+        "location" : endpoint.location,
+        "target_resource_uri" : deployment.id,
+        "profiles" : [
+            AutoscaleProfile(
+                name="my-scale-settings",
+                capacity={
+                    "minimum" : 2, 
+                    "maximum" : 5,
+                    "default" : 2
+                },
+                rules = [
+                    rule_scale_out, 
+                    rule_scale_in,
+                    rule_scale_out_endpoint
+                ]
+            )
+        ]
+    }
+)
+``` 
+
 # [Portal](#tab/azure-portal)
 
 From the bottom of the page, select __+ Add a scale condition__.
@@ -167,6 +402,38 @@ You can also create rules that apply only on certain days or at certain times. I
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="weekend_profile" :::
 
+# [AzureML Python SDKv2](#tab/azureml-python-sdkv2)
+
+```python 
+mon_client.autoscale_settings.create_or_update(
+    resource_group, 
+    autoscale_settings_name, 
+    parameters = {
+        "location" : endpoint.location,
+        "target_resource_uri" : deployment.id,
+        "profiles" : [
+            AutoscaleProfile(
+                name="Default",
+                capacity={
+                    "minimum" : 2, 
+                    "maximum" : 2,
+                    "default" : 2
+                },
+                recurrence = Recurrence(
+                    frequency = "Week", 
+                    schedule = RecurrentSchedule(
+                        time_zone = "Pacific Standard Time", 
+                        days = ["Saturday", "Sunday"], 
+                        hours = [], 
+                        minutes = []
+                    )
+                )
+            )
+        ]
+    }
+)
+``` 
+
 # [Portal](#tab/azure-portal)
 
 From the bottom of the page, select __+ Add a scale condition__. On the new scale condition, use the following information to populate the fields:
@@ -184,9 +451,25 @@ From the bottom of the page, select __+ Add a scale condition__. On the new scal
 
 If you are not going to use your deployments, delete them:
 
+# [Azure CLI](#tab/azure-cli)
+
+
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="delete_endpoint" :::
+
+# [AzureML Python SDKv2](#tab/azureml-python-sdkv2)
+
+```python
+mon_client.autoscale_settings.delete(
+    resource_group, 
+    autoscale_settings_name
+)
+
+ml_client.online_endpoints.begin_delete(endpoint_name)
+```
+
+--- 
 
 ## Next steps
 
