@@ -13,16 +13,15 @@ ms.custom: template-concept
 
 # Manage custom content with Microsoft Sentinel repositories (Public preview)
 
-The Sentinel repositories CI/CD feature provides a central experience for the deployment and management of Microsoft Sentinel content as code. Repositories allows for connecting to an external source control and removes the burden of having to manage manual processes to update and deploy your custom content across workspaces. For more information on Sentinel content, see see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
+The Microsoft Sentinel repositories feature provides a central experience for the deployment and management of Sentinel content as code. Repositories allows connections to an external source control for continuous integration / continuous delivery (CI/CD).This automation removes the burden of manual processes to update and deploy your custom content across workspaces. For more information on Sentinel content, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
 
 > [!IMPORTANT]
->
 > The Microsoft Sentinel **Repositories** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
+>
 
 ## Plan your repository connection
 
-Microsoft Sentinel repositories requires careful planning to ensure you have the proper permissions from your workspace to the repo you want connected. Only connections to GitHub and Azure DevOps repositories are supported and you'll need contributor access. The Microsoft Sentinel application will need authorization to your repo and have Actions enabled for GitHub and Pipelines enabled for Azure DevOps. 
+Microsoft Sentinel repositories require careful planning to ensure you have the proper permissions from your workspace to the repo you want connected. Only connections to GitHub and Azure DevOps repositories with contributor access are currently supported. The Microsoft Sentinel application will need authorization to your repo and have Actions enabled for GitHub and Pipelines enabled for Azure DevOps. 
 
 Repositories requires an **Owner** role in the resource group that contains your Microsoft Sentinel workspace. This role is required to create the connection between Microsoft Sentinel and your source control repository. If you are unable to use the Owner role in your environment, you can instead use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
 
@@ -32,7 +31,7 @@ If you find content in a public repository where you *aren't* a contributor, you
 ### Validate your content
 
 The following Microsoft Sentinel content types can be deployed through a repository connection:
-- Analytic rules 
+- Analytics rules 
 - Automation rules
 - Hunting queries
 - Parsers
@@ -45,12 +44,12 @@ The following Microsoft Sentinel content types can be deployed through a reposit
 
  Repositories content needs to be stored as [ARM templates](/azure/azure-resource-manager/templates/overview). The repositories deployment pipeline doesn't validate the content except to confirm it's in the correct JSON format.
 
-The first step to validate your content is to test it within Microsoft Sentinel. You can also leverage the [Microsoft Sentinel GitHub validation process](https://github.com/Azure/Azure-Sentinel/wiki#test-your-contribution) and tools to complement your validation process.
+The first step to validate your content is to test it within Microsoft Sentinel. You can also apply the [Microsoft Sentinel GitHub validation process](https://github.com/Azure/Azure-Sentinel/wiki#test-your-contribution) and tools to complement your validation process.
 
 A sample repository is available with ARM templates for each of the content types listed above. The repo also demonstrates how to use advanced features of repository connections. For more information, see [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
 
 
-:::image type="content" source="media/ci-cd-custom-content/repositories-connection-success.png" alt-text="Screenshot of a successful repository connection. The RepositoriesSampleContent is shown. This is after it was imported from the SentinelCICD repo to a private GitHub repo in the FourthCoffee organization." lightbox="media/ci-cd-custom-content/repositories-connection-success.png":::
+:::image type="content" source="media/ci-cd-custom-content/repositories-connection-success.png" alt-text="Screenshot of a successful repository connection. The RepositoriesSampleContent is shown. This screenshot is after the sample was imported from the SentinelCICD repo to a private GitHub repo in the FourthCoffee organization." lightbox="media/ci-cd-custom-content/repositories-connection-success.png":::
 
 
 ### Maximum connections and deployments
@@ -63,7 +62,7 @@ A sample repository is available with ARM templates for each of the content type
 
 ## Improve performance with smart deployments
 
-The **smart deployments** feature is a back-end capability that improves performance by actively tracking modifications made to the content files of a connected repository. It uses a CSV file within the '.sentinel' folder in your repository to audit each commit. The workflow avoids redeploying content that hasn't been modified since the last deployment. This improves your deployment performance and prevents tampering with unchanged content in your workspace, such as resetting dynamic schedules of your analytics rules.
+The **smart deployments** feature is a back-end capability that improves performance by actively tracking modifications made to the content files of a connected repository. It uses a CSV file within the '.sentinel' folder in your repository to audit each commit. The workflow avoids redeploying content that hasn't been modified since the last deployment. This process improves your deployment performance and prevents tampering with unchanged content in your workspace, such as resetting dynamic schedules of your analytics rules.
 
 Smart deployments are enabled by default on newly created connections. If you prefer all source control content to be deployed every time a deployment is triggered, regardless of whether that content was modified or not, you can modify your workflow to disable smart deployments. For more information, see [Customize the deployment workflow](ci-cd.md#customize-the-deployment-workflow). 
 
@@ -84,7 +83,7 @@ For example, you may want to:
 - combine different workflow events together
 - prioritize content to be evaluated before the entire repo is enumerated for valid ARM templates
 
-
+For more details on how to implement these customizations, see [Customize the deployment workflow](ci-cd.md#customize-the-deployment-workflow).
 
 
 ## Next steps
@@ -93,3 +92,4 @@ Get more examples and step by step instructions on deploying Microsoft Sentinel 
 
 - [Sentinel CICD sample repository](https://github.com/SentinelCICD/RepositoriesSampleContent)
 - [Deploy custom content from your repository](ci-cd.md)
+- [Automate Sentinel integration with DevOps](/azure/architecture/example-scenario/devops/automate-sentinel-integration#microsoft-sentinel-repositories)
