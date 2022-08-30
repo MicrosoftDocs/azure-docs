@@ -86,6 +86,14 @@ column and knows exactly which single shard to lock. In our tests, adding
 filters for the distribution column increased parallel update performance by
 **100x**.
 
+There are helper libraries for several popular application frameworks that make
+it easy to include a tenant ID in queries. Here are instructions:
+
+* [Ruby on Rails](https://docs.citusdata.com/en/stable/develop/migration_mt_ror.html),
+* [Django](https://docs.citusdata.com/en/stable/develop/migration_mt_django.html),
+* [ASP.NET](https://docs.citusdata.com/en/stable/develop/migration_mt_asp.html),
+* [Java Hibernate](https://www.citusdata.com/blog/2018/02/13/using-hibernate-and-spring-to-build-multitenant-java-apps/).
+
 ## Efficient database logging
 
 Logging all SQL statements all the time adds overhead. In our measurements,
