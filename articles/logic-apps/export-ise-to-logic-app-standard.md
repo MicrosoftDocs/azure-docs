@@ -44,11 +44,13 @@ This article provides information about the export process and shows how to expo
   - Logic apps that use the Azure API Management connector
   - Logic apps that use the Azure Functions connector
 
-- The process doesn't export any infrastructure information, such as virtual network dependencies or integration account settings.
+- The export tool doesn't export any infrastructure information, such as virtual network dependencies or integration account settings.
 
-- You can export logic apps with triggers that have concurrency settings, but single-tenant Azure Logic Apps ignores these settings.
+- The export tool can export logic app workflows with triggers that have concurrency settings. However, single-tenant Azure Logic Apps ignores these settings.
 
 - For now, connectors with the **ISE** label deploy as their *managed* versions, which appear in the designer under the **Azure** tab. The export tool will have the capability to export **ISE** connectors as built-in, service provider connectors when the latter gain parity with their ISE versions. The export tool automatically makes the conversion when an **ISE** connector is available to export as a built-in, service provider connector.
+
+- Currently, connection credentials aren't cloned from source logic app workflows. Before your logic app workflows can run, you'll have to reauthenticate these connections after export.
 
 ## Exportable operation types
 
@@ -66,7 +68,13 @@ This article provides information about the export process and shows how to expo
 
 ## Prerequisites
 
-Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+- An Azure account and subscription. 
+
+- An existing ISE with the logic app workflows that you want to export.
+
+- To include managed connections in your deployment, you'll need an existing resource group in Azure as the destination for where to put your exported workflows. This option is recommended only for non-production environments.
+
+- Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
 ## Group logic apps for export
 
@@ -79,6 +87,8 @@ Consider the following recommendations when you select logic apps for export:
 - For the organization and number of workflows per logic app, review [Best practices and recommendations](create-single-tenant-workflows-azure-portal.md#best-practices-and-recommendations).
 
 ## Export ISE workflows to a local project
+
+### Select logic apps for export
 
 1. In Visual Studio Code, sign in to Azure, if you haven't already.
 
@@ -94,7 +104,7 @@ Consider the following recommendations when you select logic apps for export:
 
    ![Screenshot showing 'Export' tab and 'Select logic app instance' section with Azure subscription and ISE instance selected.](media/export-ise-to-logicapp-standard/select-subscription-ise.png)
 
-1. Now, select the logic apps to export. Each selected logic app appears on the **Selected logic apps** list to the side. When you're done, select **Next**.    
+1. Select the logic apps to export. Each selected logic app appears on the **Selected logic apps** list to the side. When you're done, select **Next**.    
 
    ![Screenshot showing 'Select logic apps to export' section with logic apps selected for export.](media/export-ise-to-logicapp-standard/select-logic-apps.png)
 
@@ -102,19 +112,23 @@ Consider the following recommendations when you select logic apps for export:
    >
    > You can also search for logic apps and filter on resource group.
 
-1. After validation completes, review the results by expanding the entry for each logic app.
+   The export tool starts to validate whether your selected logic apps are eligible for export.
+
+### Review export validation results
+
+1. After export validation completes, review the results by expanding the entry for each logic app.
 
    - Logic apps that have errors are ineligible for export. You must remove these logic apps from the export list until you fix them at the source. To remove a logic app from the list, select **Back**.
 
      For example, **SourceLogicApp2** has an error and can't be exported until fixed:
 
-     ![Screenshot showing 'Review export status' section and validation status for logic app with error.](media/export-ise-to-logicapp-standard/select-back-button-remove-app.png)
+     ![Screenshot showing 'Review export status' section and validation status for logic app workflow with error.](media/export-ise-to-logicapp-standard/select-back-button-remove-app.png)
 
    - Logic apps that pass validation with or without warnings are still eligible for export. To continue, select **Export** if all apps validate successfully, or select **Export with warnings** if apps have warnings.
 
      For example, **SourceLogicApp3** has a warning, but you can still continue to export:
 
-     ![Screenshot showing 'Review export status' section and validation status for logic app with warning.](media/export-ise-to-logicapp-standard/select-export-with-warnings.png)
+     ![Screenshot showing 'Review export status' section and validation status for logic app workflow with warning.](media/export-ise-to-logicapp-standard/select-export-with-warnings.png)
 
    The following table provides more information about each validation icon and status:
 
@@ -124,33 +138,53 @@ Consider the following recommendations when you select logic apps for export:
    | ![Failed icon](media/export-ise-to-logicapp-standard/failed-icon.png) | Item failed validation, so export can't continue. <br><br>The validation entry for the failed item automatically appears expanded and provides information about the validation failure. |
    | ![Warning icon](media/export-ise-to-logicapp-standard/warning-icon.png) | Item passed validation with a warning, but export can continue with required post-export resolution. <br><br>The validation entry for the item with a warning automatically appears expanded and provides information about the warning and required post-export remediation. |
 
-1. After you select **Export** or **Export with warnings**, you have to provide a location for the new Standard logic app project folder.
+1. After the **Finish export** section appears, for **Export location**, browse and select a local folder for your new Standard logic app project.
 
-   ![Graphical user interface](media/export-ise-to-logicapp-standard/20f144d4fa87fe2f4932d6ceb9d9caf4.png)
+   ![Screenshot showing 'Finish export' section and 'Export location' property with selected local export project folder.](media/export-ise-to-logicapp-standard/select-local-folder.png)
 
-   Alternatively, if your logic app have managed connections and you want to deploy it, you must also provide an existing resource group where the managed connections will be deployed. Notice that at this stage, connection credentials will not be cloned from the original logic app, so you will need to reauthenticate the connections after export, before your logic app workflows can work.
+1. If your workflow has *managed* connections that you want to deploy, which is only recommended for non-production environments, select **Deploy managed connections**, which shows existing resource groups in your Azure subscription. Select the resource group where you want to deploy the managed connections.
 
-    ![Graphical user interface](media/export-ise-to-logicapp-standard/dedaf1ca05c4cb04dc5d1477548c09f4.png)
+   ![Screenshot showing 'Finish export' section with selected local export folder, 'Deploy managed connections' selected, and target resource group selected.](media/export-ise-to-logicapp-standard/select-deploy-managed-connections-resource-group.png)
 
-    1.  The export will download and expand the project in the location you selected – it will also deploy connections if you selected that option. After this is complete, a new workspace will be open. It is now safe to close the export window.
+1. Under **After export steps**, review any required post-export steps, for example:
 
-        ![Graphical user interface](media/export-ise-to-logicapp-standard/9b60085b2dfb3730904ba62ec5616911.png)
+   ![Screenshot showing **After export steps** section and required post-export steps, if any.](media/export-ise-to-logicapp-standard/review-post-export-steps.png)
 
-    2.  Start reviewing the README.md file for post deployment steps, in the new window
+1. Based on your scenario, select **Export and finish** or **Export with warnings and finish**.
 
-        ![Graphical user interface](media/export-ise-to-logicapp-standard/963243b07024d8281ddab6b7991732ea.png)
+   The export tool downloads your project to your selected folder location, expands the project in Visual Studio Code, and deploys any managed connections, if you selected that option.
 
-## Post-deployment steps
+   ![Screenshot showing the 'Export status` section with export progress.](media/export-ise-to-logicapp-standard/export-status.png)
 
-### Integration Account actions and content
+1. After this process completes, Visual Studio Code opens a new workspace. You can now safely close the export window.
 
-When exporting actions that are dependent on an Integration account will need to manually configure a reference to an integration account containing the required artefacts. Follow the instructions here to configure an integration account on Logic Apps Standard.
+1. From your Standard logic app project, open and review the README.md file for the required post-export steps.
 
-### Post-deployment remediation
+   ![Screenshot showing a new Standard logic app project with README.md file opened.](media/export-ise-to-logicapp-standard/open-readme.png)
 
-Some Logic Apps will require remediation steps post export to run on the Standard platform. Take note of the remediation steps and make sure you test your new Standard resource before making any changes to your original Consumption Logic App. You will find all the necessary post deployment steps in the README.md file generated as part of the export.
+## Post-export steps
 
-## Folder Structure
+### Remediation steps
+
+Some exported logic app workflows require post-export remediation steps to run on the Standard platform. 
+
+1. From your Standard logic app project, open the README.md file, and review the remediation steps for your exported workflows, The README.md file is generated by the export tool and contains all the required post-export steps.
+
+1. Before you make any changes to your source logic app workflow, make sure to test your new Standard logic app resource and workflows.
+
+### Integration account actions and settings
+
+If you export actions that depend on an integration account, you have to manually set up your Standard logic app with a reference to the integration account that contains the required artifacts.
+
+1. Find your integration account's callback URL. Save the value for the next step.
+
+   For more information, review [how to find your integration account's callback URL in the Azure portal](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#find-your-integration-accounts-callback-url).
+
+1. In your Standard logic app project, open the **local.settings.json** file. Add an app setting that has the [specified properties and values](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-your-integration-account-to-your-standard-logic-app-resource), including the previously saved callback URL and as described by this step's version in the Azure portal.
+
+   For more information about editing app settings in your project, review [Edit host and app settings for Standard logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md?tabs=visual-studio-code).
+
+## Project folder structure
 
 You will find a new set of files and folders created on the Logic App Standard project after executing the export tool. The table below describes each file appended:
 
