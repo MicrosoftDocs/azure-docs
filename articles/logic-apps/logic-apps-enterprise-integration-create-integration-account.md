@@ -216,7 +216,9 @@ Before you can link your integration account to a Standard logic app resource, y
 
 1. Find the **Generated Callback URL** property value, copy the value, and save the URL to use later for linking.
 
-#### Link your integration account to your Standard logic app resource
+#### Link integration account to Standard logic app
+
+##### Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -235,6 +237,33 @@ Before you can link your integration account to a Standard logic app resource, y
    |||
 
 1. When you're done, select **OK**. When you return to the **Configuration** pane, make sure to save your changes. On the **Configuration** pane toolbar, select **Save**.
+
+##### Visual Studio Code
+
+1. From your Standard logic app project in Visual Studio Code, open the **local.settings.json** file.
+
+1. In the `Values` object, add an app setting that has the following properties and values, including the previously saved callback URL:
+
+   | Property | Value |
+   |----------|-------|
+   | **Name** | **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** |
+   | **Value** | <*integration-account-callback-URL*> |
+   |||
+
+   This example shows how a sample app setting might appear:
+
+   ```json
+   {
+       "IsEncrypted": false,
+       "Values": {
+           "AzureWebJobStorage": "UseDevelopmentStorage=true",
+           "FUNCTIONS_WORKER_RUNTIME": "node",
+           "WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL": "https://prod-03.westus.logic.azure.com:443/integrationAccounts/...."
+       }
+   }
+   ```
+
+1. When you're done, save your changes.
 
 ---
 
@@ -366,6 +395,8 @@ If you want to link your logic app to another integration account, or no longer 
 
 ### [Standard](#tab/standard)
 
+#### Azure portal
+
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. On your logic app's navigation menu, under **Settings**, select **Configuration**.
@@ -375,6 +406,20 @@ If you want to link your logic app to another integration account, or no longer 
 1. In the **Delete** column, select **Delete** (trash can icon).
 
 1. On the **Configuration** pane toolbar, select **Save**.
+
+#### Visual Studio Code
+
+1. From your Standard logic app project in Visual Studio Code, open the **local.settings.json** file.
+
+1. In the `Values` object, find and delete the app setting that has the following properties and values:
+
+   | Property | Value |
+   |----------|-------|
+   | **Name** | **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** |
+   | **Value** | <*integration-account-callback-URL*> |
+   |||
+
+1. When you're done, save your changes.
 
 ---
 
