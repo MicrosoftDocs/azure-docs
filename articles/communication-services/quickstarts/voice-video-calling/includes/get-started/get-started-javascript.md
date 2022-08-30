@@ -129,7 +129,7 @@ callButton.addEventListener("click", () => {
     // To call an Azure Communication Services communication user, use {communicationUserId: 'ACS_USER_ID'}.
     // To call echo bot, use {id: '8:echo123'}.
     call = callAgent.startCall(
-        [{ communicationUserId: userToCall }],
+        [{ id: userToCall }],
         {}
     );
     // toggle button states
