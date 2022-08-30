@@ -110,7 +110,7 @@ The following table lists the configurable properties that you can use to set up
 
 ### Other Git repositories
 
-All configurable properties used to set up Git repositories with a pattern are listed below.
+The following table lists the configurable properties you can use to set up Git repositories with a pattern.
 
 > [!NOTE]
 > Using a hyphen (-) to separate words is the only naming convention that's currently supported. For example, use *default-label*, not *defaultLabel*.
@@ -118,19 +118,19 @@ All configurable properties used to set up Git repositories with a pattern are l
 | Property                           | Required       | Feature                                                                                                                                                            |
 |:-----------------------------------|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `repos`                            | No             | A map consisting of the settings for a Git repository with a given name.                                                                                           |
-| `repos."uri"`                      | Yes on `repos` | The URI of the Git repository that's used as the Config Server back end should be started with *http://*, *https://*, *git@*, or *ssh://*.                         |
-| `repos."name"`                     | Yes on `repos` | A name to identify on the Git repository, required only if `repos` exists. For example, *team-A*, *team-B*.                                                        |
-| `repos."pattern"`                  | No             | An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.                                  |
-| `repos."default-label"`            | No             | The default label of the Git repository should be the *branch name*, *tag name*, or *commit-id* of the repository.                                                 |
+| `repos."uri"`                      | Yes on `repos` | The URI of the Git repository that's used as the Config Server back end. Should begin with `http://`, `https://`, `git@`, or `ssh://`.                         |
+| `repos."name"`                     | Yes on `repos` | A name to identify the repository; for example, *team-A* or *team-B*. Required only if `repos` exists.                                                        |
+| `repos."pattern"`                  | No             | An array of strings used to match an application name. For each pattern, use the format *{application}/{profile}* format with wildcards.                                  |
+| `repos."default-label"`            | No             | The default label of the Git repository. Should be the branch name, tag name, or commit IOD of the repository.                                                 |
 | `repos."search-paths`"             | No             | An array of strings used to search subdirectories of the Git repository.                                                                                           |
-| `repos."username"`                 | No             | The username that's used to access the Git repository server, required when the Git repository server supports `Http Basic Authentication`.                      |
-| `repos."password"`                 | No             | The password or personal access token used to access the Git repository server, required when the Git repository server supports `Http Basic Authentication`.      |
-| `repos."private-key"`              | No             | The SSH private key to access Git repository, required when the URI starts with *git@* or *ssh://*.                                                                |
-| `repos."host-key"`                 | No             | The host key of the Git repository server shouldn't include the algorithm prefix as covered by `host-key-algorithm`.                                               |
-| `repos."host-key-algorithm"`       | No             | The host key algorithm should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. Required only if `host-key` exists. |
+| `repos."username"`                 | No             | The username used to access the Git repository server. Required when the Git repository server supports HTTP basic authentication.                      |
+| `repos."password"`                 | No             | The password or personal access token used to access the Git repository server. Required when the Git repository server supports HTTP basic authentication.      |
+| `repos."private-key"`              | No             | The SSH private key to access Git repository. Required when the URI begins with `git@` or `ssh://`.                                                                |
+| `repos."host-key"`                 | No             | The host key of the Git repository server. Shouldn't include the algorithm prefix as covered by `host-key-algorithm`.                                               |
+| `repos."host-key-algorithm"`       | No             | The host key algorithm. Should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. Required only if `host-key` exists. |
 | `repos."strict-host-key-checking"` | No             | Indicates whether the Config Server instance will fail to start when using the private `host-key`. Should be *true* (default value) or *false*.                    |
 
-The following table shows some examples for the **Additional repositories** section. For more information, see the [Pattern Matching and Multiple Repositories section](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) of the Spring documentation.
+The following table shows some examples of patterns for configuring your service with an optional additional repository. For more information, see the [Additional repositories section](#additional-repositories) and the [Pattern Matching and Multiple Repositories section](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) of the Spring documentation.
 
 | Patterns                        | Description                                                                                                            |
 |:--------------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -164,9 +164,13 @@ Updating the configuration can take a few minutes. You should get a notification
 
 ### Enter repository information directly to the Azure portal
 
+You can enter repository information for the default repository and, optionally, for addtional repositories.
+
 #### Default repository
 
-- **Public repository**: In the **Default repository** section, in the **Uri** box, paste the repository URI. Set the **Label** to *config*. Ensure that the **Authentication** setting is *Public*, and then select **Apply** to finish.
+Follow the steps in this section to enter repository information for a public or private repository.
+
+- **Public repository**: In the **Default repository** section, in the **Uri** box, paste the repository URI. Enter *config* for the **Label** setting. Ensure that the **Authentication** setting is *Public*, and then select **Apply**.
 
 - **Private repository**: Azure Spring Apps supports basic password/token-based authentication and SSH.
 
@@ -175,7 +179,7 @@ Updating the configuration can take a few minutes. You should get a notification
    :::image type="content" source="media/how-to-config-server/basic-auth.png" lightbox="media/how-to-config-server/basic-auth.png" alt-text="Screenshot of the Default repository section showing authentication settings for Basic authentication.":::
 
    > [!CAUTION]
-   > Some Git repository servers use a *personal-token* or an *access-token*, such as a password, for **Basic Authentication**. You can use that kind of token as a password in Azure Spring Apps because it will never expire. But for other Git repository servers, such as Bitbucket and Azure DevOps Server, the *access-token* expires in one or two hours. As a result, this approach isn't viable when you use those repository servers with Azure Spring Apps.
+   > Some Git repository servers use a *personal-token* or an *access-token*, such as a password, for HTTP basic authentication. You can use these types of tokens as a password in Azure Spring Apps because they will never expire. However, for other Git repository servers, such as Bitbucket and Azure DevOps Server, the *access-token* expires in one or two hours. As a result, this approach won't work when you use those repository servers with Azure Spring Apps.
    > GitHub has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for GitHub. For more information, see [Token authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
    - **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the setting under **Authentication** to open the **Edit Authentication** pane. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your **Private key**. Optionally, specify your **Host key** and **Host key algorithm**. Include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
