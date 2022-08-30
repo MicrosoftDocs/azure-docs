@@ -16,15 +16,15 @@ The first time you visit the [www.videoindexer.ai/](https://www.videoindexer.ai/
 
 With a trial, account Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://aka.ms/avam-dev-portal).
 
-The trial account is not available on the Azure Government cloud. For other Azure Government limitations, see [Limitations of Azure Video Indexer on Azure Government](connect-to-azure.md#limitations-of-azure-video-indexer-on-azure-government).
+The trial account option is not available on the Azure Government cloud. For other Azure Government limitations, see [Limitations of Azure Video Indexer on Azure Government](connect-to-azure.md#limitations-of-azure-video-indexer-on-azure-government).
 
 You can later create a paid account where you're not limited by the quota. Two types of paid accounts are available to you: Azure Resource Manager (ARM) (currently in preview) and classic (generally available). The main difference between the two is account management platform. While classic accounts are built on the API Management, ARM-based accounts management is built on Azure, which enables apply access control to all services with role-based access control (Azure RBAC) natively.
 
-Make sure to review [Pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
+With the paid option, you pay for indexed minutes, for more information, see [Azure Video Indexer pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
 
 ## Connecting to Azure subscription
 
-With a trial account, you don't have to set up an Azure subscription. When creating a paid account, you need to connect Azure Video Indexer [to your Azure subscription and an Azure Media Services account](connect-to-azure.md). 
+With a trial account, you don't have to set up an Azure subscription. When creating a paid account, you need to connect Azure Video Indexer to your Azure subscription and an Azure Media Services account. 
 
 ## To get access to your account
 
@@ -62,4 +62,4 @@ For more information, see [Azure Video Indexer limited access features](limited-
 
 ## Next steps
 
-[Pricing](https://azure.microsoft.com/pricing/details/video-indexer/)
+Make sure to review [Pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
