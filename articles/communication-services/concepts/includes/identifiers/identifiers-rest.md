@@ -203,4 +203,109 @@ If you're using the Azure SDK, it will help you with the conversion. If you use 
 | <pre style="font-size: 14px">{<br/>    "microsoftTeamsUser": {<br/>        "userId": "[visitorUserId]",<br/>        "isAnonymous": true<br/>    }<br/>}</pre> | `8:teamsvisitor:[visitorUserId]` |
 | <pre style="font-size: 14px">{<br/>    "microsoftTeamsUser": {<br/>        "userId": "[aadUserId]",<br/>        "cloud": "gcch"<br/>    }<br/>}</pre> | `8:gcch:[aadUserId]` |
 
+:::row:::
+   :::column span="":::
+      **Identifier**
+   :::column-end:::
+   :::column span="":::
+      **Raw ID**
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+```json
+{
+    "communicationUser": {
+        "id": "8:acs:[resourceId]_[userId]"
+    }
+}
+```    
+   :::column-end:::
+   :::column span="":::
+```json
+"8:acs:[resourceId]_[userId]"
+```
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+```json
+{
+    "microsoftTeamsUser": {
+        "userId": "[aadUserId]"
+    }
+}
+```
+   :::column-end:::
+   :::column span="":::
+```json
+"8:orgid:[aadUserId]"
+```
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+```json
+{
+    "microsoftTeamsUser": {
+        "userId": "[aadUserId]",
+        "cloud": "gcch"
+    }
+}
+```
+   :::column-end:::
+   :::column span="":::
+```json
+"8:gcch:[aadUserId]"
+```
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+```json
+{
+    "microsoftTeamsUser": {
+        "userId": "[visitorUserId]",
+        "isAnonymous": true
+    }
+}
+```
+   :::column-end:::
+   :::column span="":::
+```json
+"8:teamsvisitor:[visitorUserId]"
+```
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+```json
+{
+    "phoneNumber": {
+        "value": "+1123455567"
+    }
+}
+```
+   :::column-end:::
+   :::column span="":::
+```json
+"4:1123455567"
+```
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+```json
+{
+    "rawId": "[unknown identifier id]"
+}
+```
+   :::column-end:::
+   :::column span="":::
+```json
+"[unknown identifier id]"
+```
+   :::column-end:::
+:::row-end:::
+
 If a raw ID is invalid the service will fail the request.
