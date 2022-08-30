@@ -84,7 +84,7 @@ var unknown = new UnknownIdentifier("a raw id that originated in the service");
 
 [UnknownIdentifier](/dotnet/api/azure.communication.unknownidentifier)
 
-### How to handle the `CommunicationIdentifier` base protocol
+### How to handle the `CommunicationIdentifier` base class
 
 While you construct identifiers for a concrete type that you pass *into* the SDK, the SDK returns the `CommunicationIdentifier` protocol. It's easy to down-cast to a concrete type and we suggest a switch-case statement with pattern matching:
 
