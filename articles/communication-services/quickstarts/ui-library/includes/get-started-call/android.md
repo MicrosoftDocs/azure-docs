@@ -6,22 +6,24 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
+ 
+
 >[!VIDEO https://www.youtube.com/embed/8hOKCHgSNsg]
 
-Get the sample application for this [quickstart](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start) in the open-source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
+Get the sample Android application for this [quickstart](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start) in the open source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
 
 ## Prerequisites
 
 - An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An OS running [Android Studio](https://developer.android.com/studio).
-- A deployed [Communication Services resource](../../../create-communication-resource.md).
-- A Communication Services [access token](../../../identity/quick-create-identity.md).
+- A deployed [Azure Communication Services resource](../../../create-communication-resource.md).
+- An Azure Communication Services [access token](../../../identity/quick-create-identity.md).
 
 ## Set up the project
 
 Complete the following sections to set up the quickstart project.
 
-### Create an Android app with an empty activity
+### Create a new Android project
 
 1. In Android Studio, create a new project. In **New Project**, select the **Empty Activity** project template.
 
@@ -53,7 +55,10 @@ dependencies {
 
 ### Maven repositories
 
-Two Maven repositories are required to integrate the library: MavenCentral and the Azure package repository.
+Two Maven repositories are required to integrate the library:
+
+- MavenCentral
+- The Azure package repository
 
 1. In your project Gradle scripts, ensure that the following repositories are added. For Android Studio (2020.\*), `repositories` is in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  For earlier versions of Android Studio (4.\*), `repositories` is in the project-level `build.gradle` `allprojects{}`.
 
@@ -97,7 +102,7 @@ In the layout file (*app/src/main/res/layout/activity_main.xml*), add the follow
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-## Initialize composite
+## Initialize the composite
 
 1. Go to `MainActivity`.
 
@@ -204,7 +209,7 @@ In Android Studio, build and start the application:
 
 1. Select **Launch**.
 1. Accept permissions, and then select device, microphone, and video settings.
-1. Select **Join Call**.
+1. Select **Join call**.
 
 :::image type="content" source="../../media/composite-android.gif" alt-text="GIF animation that shows an example of how the project runs on an Android device.":::
 
@@ -334,7 +339,7 @@ You can get a Microsoft Teams meeting link by using Graph APIs. This process is 
 
 The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, under the [joinWebUrl property](/graph/api/resources/onlinemeeting?preserve-view=true&view=graph-rest-beta). You also can get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
-### Launch
+### Launch the call UI
 
 To launch the call UI, inside the `startCallComposite` function, call `launch` on the `CallComposite` instance.
 
@@ -351,7 +356,7 @@ callComposite.launch(context, remoteOptions);
 ```
 
 -----
-### Subscribe to error events from CallComposite
+### Subscribe to CallComposite error events
 
 To receive error events, call `setOnErrorHandler` with `CallComposite`.
 
@@ -378,7 +383,7 @@ callComposite.addOnErrorEventHandler(callCompositeErrorEvent -> {
 ```
 
 -----
-### Apply theme configuration
+### Apply a theme configuration
 
 To change the primary color of the composite, create a new theme style in *src/main/res/values/themes.xml* and *src/main/res/values-night/themes.xml* by using `AzureCommunicationUICalling.Theme` as the parent theme. To apply the theme, inject the theme ID in `CallCompositeBuilder`:
 
@@ -445,7 +450,6 @@ CallComposite callComposite =
 
 The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information about more features.
 
------
 ### Add notifications to your mobile app
 
-You can use push notifications to send information from your application to users' mobile devices. A push notification can show a dialog, play a sound, or display an incoming call UI. Azure Communication Services integrates with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md) to [add push notifications](../../../../concepts/notifications.md) to your apps.
+Azure Communication Services integrates with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md), so you can [add push notifications](../../../../concepts/notifications.md) to your apps in Azure. You can use push notifications to send information from your application to users' mobile devices. A push notification can show a dialog, play a sound, or display an incoming call UI.
