@@ -99,7 +99,7 @@ Some storage account types only support certain replication configurations, whic
 | Standard general purpose v1 | Yes          | No           | No <sup>3</sup>         | Yes                       |
 | ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub>     | Yes          | No           | No                      | No                        |
 
-<sup>1</sup> Currently, live migration for Premium file shares is only available by opening a support request; customer-initiated live migration is not yet supported.<br />
+<sup>1</sup> Live migration for Premium file shares is only available by opening a support request; customer-initiated live migration is not currently supported.<br />
 <sup>2</sup> Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).<br />
 <sup>3</sup> If your storage account is v1, you'll need to upgrade it to v2 before performing a live migration. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
 <sup>4</sup> ZRS Classic storage accounts have been deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
