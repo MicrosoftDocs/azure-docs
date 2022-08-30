@@ -18,14 +18,14 @@ zone_pivot_groups: acs-js-csharp-java-python-ios-android-rest
 
 Communication Services SDKs and REST APIs use the *identifier* type to identify who is communicating with whom. For example, identifiers specify who to call, or who has sent a chat message.
 
-Depending on context identifiers get wrapped with extra properties, like inside the `ChatParticipant` in the Chat SDK or inside the `RemoteParticipant` in the Calling SDK.
+Depending on context, identifiers get wrapped with extra properties, like inside the `ChatParticipant` in the Chat SDK or inside the `RemoteParticipant` in the Calling SDK.
 
 In this article, you'll learn about different types of identifiers and how they look across programming languages. You'll also get tips on how to use them.
 
 
 ## The CommunicationIdentifier type
 
-There are user identities that you create yourself and external identities. Microsoft Teams users and phone numbers are external identities that come to play in interop scenarios. Each of these different identity types has a corresponding identifier that represents it. An identifier is a structured type that offers type-safety and works well with your editor's code completion.
+There are user identities that you create yourself and there are external identities. Microsoft Teams users and phone numbers are external identities that come to play in interop scenarios. Each of these different identity types has a corresponding identifier that represents it. An identifier is a structured type that offers type-safety and works well with your editor's code completion.
 
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [Identifiers in the JavaScript SDK](./includes/identifiers/identifiers-js.md)]
