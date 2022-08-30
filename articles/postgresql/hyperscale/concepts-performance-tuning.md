@@ -44,7 +44,14 @@ For language-specific examples of adding pooling in application code, see the
 ## Scoping distributed queries
 
 When updating a distributed table, try to filter queries on the distribution
-column. For instance, in our [multi-tenant
+column--at least when it makes sense, when the new filters don't change the
+meaning of the query.
+
+In some workloads, it's easy.  Transactional/operational workloads for
+multitenant SaaS apps or the Internet of Things distribute tables by tenant or
+device. Queries are usually scoped to a tenant- or device-ID.
+
+For instance, in our [multi-tenant
 tutorial](tutorial-design-database-multi-tenant.md#use-psql-utility-to-create-a-schema)
 we have an `ads` table distributed by `company_id`. The naive way to update an
 ad is to single it out like this:
