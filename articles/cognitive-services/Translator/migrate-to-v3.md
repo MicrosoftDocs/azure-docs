@@ -77,7 +77,7 @@ Microsoft Translator V3 is priced in the same way V2 was priced; per character, 
 | `BreakSentence`     | No Charge.       |
 | `Detect`     | No Charge.      |
 
-## V3 End Points
+## V3 endoint
 
 Global
 
