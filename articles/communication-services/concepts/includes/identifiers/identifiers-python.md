@@ -15,7 +15,7 @@ ms.author: domessin
 
 ### Communication User identifier
 
-The `CommunicationUserIdentifier` interface represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/access-tokens.md). It's the only identifier used if your  application doesn't use Microsoft Teams interop or PSTN features.
+The `CommunicationUserIdentifier` represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/access-tokens.md). It's the only identifier used if your application doesn't use Microsoft Teams interop or PSTN features.
 
 
 #### Basic usage
@@ -41,7 +41,7 @@ The `MicrosoftTeamsUserIdentifier` represents a Teams user. You need to know the
 
 ```python
 # get the Teams user's Id if only the email is known, assuming a helper method
-user_id = await get_userid_from_graph("bob@contoso.com")
+user_id = get_userid_from_graph("bob@contoso.com")
 
 # create an identifier
 teams_user = MicrosoftTeamsUserIdentifier(user_id)
@@ -62,7 +62,7 @@ The `PhoneNumberIdentifier` represents a phone number. The service assumes that 
 
 ```python
 # create an identifier
-phoneNumber = PhoneNumberIdentifier("+112345556789")
+phone_number = PhoneNumberIdentifier("+112345556789")
 ```
 
 #### API reference
@@ -77,7 +77,7 @@ The `UnknownIdentifier` exists for future-proofing and you might encounter it wh
 
 ```python
 # create an identifier
-unknownId = UnknownIdentifier("a raw id that originated in the service")
+unknown = UnknownIdentifier("a raw id that originated in the service")
 ```
 
 #### API reference

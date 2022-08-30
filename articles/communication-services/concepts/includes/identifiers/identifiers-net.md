@@ -15,7 +15,7 @@ ms.author: domessin
 
 ### Communication User identifier
 
-The `CommunicationUserIdentifier` represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/access-tokens.md). It's the only identifier used if your  application doesn't use Microsoft Teams interop or PSTN features.
+The `CommunicationUserIdentifier` represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/access-tokens.md). It's the only identifier used if your application doesn't use Microsoft Teams interop or PSTN features.
 
 
 #### Basic usage
@@ -86,24 +86,24 @@ var unknown = new UnknownIdentifier("a raw id that originated in the service");
 
 ### How to handle the `CommunicationIdentifier` base protocol
 
-While you construct identifiers for a concrete type that you pass *into* the SDK, the SDK returns the `CommunicationIdentifier` protocol. It's easy to down-cast back to a concrete type and we suggest a switch-case statement with pattern matching:
+While you construct identifiers for a concrete type that you pass *into* the SDK, the SDK returns the `CommunicationIdentifier` protocol. It's easy to down-cast to a concrete type and we suggest a switch-case statement with pattern matching:
 
 ```csharp
 switch (communicationIdentifier)
 {
-    case CommunicationUserIdentifier communicationUser:
-        Console.WriteLine($"Communication user: {communicationUser.Id}");
+     case let communicationUser as CommunicationUserIdentifier:
+        print(#"Communication user: \(communicationUser.id)");
         break;
-    case MicrosoftTeamsUserIdentifier teamsUser:
-        Console.WriteLine($"Teams user: {teamsUser.UserId}");
+    case let teamsUser as MicrosoftTeamsUserIdentifier:
+        print(#"Teams user: \(teamsUser.UserId)");
         break;
-    case PhoneNumberIdentifier phoneNumber:
-        Console.WriteLine($"Phone number: {phoneNumber.PhoneNumber}");
+    case phoneNumber as PhoneNumberIdentifier:
+        print(#"Phone number: \(phoneNumber.PhoneNumber)");
         break;
-    case UnknownIdentifier unknown:
-        Console.WriteLine($"Unknown: {unknown.Id}");
+    case let unknown as UnknownIdentifier:
+        print(#"Unknown: \(unknown.Id)");
         break;
-    default:
+    @unknown default:
         // be careful here whether you want to throw because a new SDK version
         // can introduce new identifier types
         break;

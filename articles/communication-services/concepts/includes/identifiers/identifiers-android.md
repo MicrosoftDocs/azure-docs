@@ -15,7 +15,7 @@ ms.author: domessin
 
 ### Communication User identifier
 
-The `CommunicationUserIdentifier` represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/access-tokens.md). It's the only identifier used if your  application doesn't use Microsoft Teams interop or PSTN features.
+The `CommunicationUserIdentifier` represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/access-tokens.md). It's the only identifier used if your application doesn't use Microsoft Teams interop or PSTN features.
 
 
 #### Basic usage
@@ -31,7 +31,7 @@ var sameUser = new CommunicationUserIdentifier(newUserId);
 
 #### API reference
 
-[CommunicationUserIdentifier](/java/api/com.azure.communication.common.communicationuseridentifier)
+[CommunicationUserIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/com/azure/android/communication/common/CommunicationUserIdentifier.html)
 
 ### Microsoft Teams User identifier
 
@@ -52,7 +52,7 @@ var gcchTeamsUser = new MicrosoftTeamsUserIdentifier(userId).setCloudEnvironment
 
 #### API reference
 
-[MicrosoftTeamsUserIdentifier](/java/api/com.azure.communication.common.microsoftteamsuseridentifier)
+[MicrosoftTeamsUserIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/com/azure/android/communication/common/MicrosoftTeamsUserIdentifier.html)
 
 ### Phone Number identifier
 
@@ -67,7 +67,7 @@ var phoneNumber = new PhoneNumberIdentifier("+112345556789");
 
 #### API reference
 
-[PhoneNumberIdentifier](/java/api/com.azure.communication.common.phonenumberidentifier)
+[PhoneNumberIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/com/azure/android/communication/common/PhoneNumberIdentifier.html)
 
 ### Unknown identifier
 
@@ -82,7 +82,7 @@ var unknown = new UnknownIdentifier("a raw id that originated in the service");
 
 #### API reference
 
-[UnknownIdentifier](/java/api/com.azure.communication.common.unknownidentifier)
+[UnknownIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/com/azure/android/communication/common/UnknownIdentifier.html)
 
 ### How to handle the `CommunicationIdentifier` base class
 
@@ -90,19 +90,19 @@ While you construct identifiers for a concrete type that you pass *into* the SDK
 
 ```java
 if (communicationIdentifier instanceof CommunicationUserIdentifier) {
-    System.out.println("Communication user: " + ((CommunicationUserIdentifier)communicationIdentifier).getId());
+    Log.i(tag, "Communication user: " + ((CommunicationUserIdentifier)communicationIdentifier).getId());
 }
 else if (communicationIdentifier instanceof MicrosoftTeamsUserIdentifier) {
-    System.out.println("Teams user: " + ((MicrosoftTeamsUserIdentifier)communicationIdentifier).getUserId());
+    Log.i(tag, "Teams user: " + ((MicrosoftTeamsUserIdentifier)communicationIdentifier).getUserId());
 }
 else if (communicationIdentifier instanceof PhoneNumberIdentifier) {
-    System.out.println("Phone number: " + ((PhoneNumberIdentifier)communicationIdentifier).getPhoneNumber());
+    Log.i(tag, "Phone number: " + ((PhoneNumberIdentifier)communicationIdentifier).getPhoneNumber());
 }
 else if (communicationIdentifier instanceof UnknownIdentifier) {
-    System.out.println("Unkown user: " + ((UnknownIdentifier)communicationIdentifier).getId());
+    Log.i(tag, "Unkown user: " + ((UnknownIdentifier)communicationIdentifier).getId());
 }
 else {
     // be careful here whether you want to throw because a new SDK version
-        // can introduce new identifier types
+    // can introduce new identifier types
 }
 ```
