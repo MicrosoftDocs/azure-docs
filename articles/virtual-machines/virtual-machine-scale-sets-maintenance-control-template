@@ -5,7 +5,7 @@ author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 07/28/2022
+ms.date: 08/30/2022
 ms.author: jushiman 
 ms.custom: subject-armqs, mode-arm
 #pmcontact: PPHILLIPS
@@ -20,11 +20,7 @@ This article explains how you can use an Azure Resource Manager (ARM) template t
 1. Create the configuration 
 1. Assign the configuration to a virtual machine
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
-
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
-
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json)  
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)] 
 
 
 ## Create the configuration
@@ -94,7 +90,42 @@ For more information about this Maintenance Configuration template, see [mainten
 ### Guest
 
 ```json
-
+{
+  "type": "Microsoft.Maintenance/maintenanceConfigurations",
+  "apiVersion": "2022-07-01-preview",
+  "name": "string",
+  "location": "string",
+  "tags": {
+    "tagName1": "tagValue1",
+    "tagName2": "tagValue2"
+  },
+  "properties": {
+    "installPatches": {
+      "linuxParameters": {
+        "classificationsToInclude": ["string"],
+        "packageNameMasksToExclude": ["string"],
+        "packageNameMasksToInclude": ["string"]
+      },
+      "rebootSetting": "string",
+      "windowsParameters": {
+        "classificationsToInclude": ["string"],
+        "excludeKbsRequiringReboot": "bool",
+        "kbNumbersToExclude": ["string"],
+        "kbNumbersToInclude": ["string"]
+      }
+    },
+    "maintenanceScope": "string",
+    "maintenanceWindow": {
+      "duration": "string",
+      "expirationDateTime": "string",
+      "recurEvery": "string",
+      "startDateTime": "string",
+      "timeZone": "string"
+    },
+    "namespace": "string",
+    "visibility": "string"
+  }
+}
 ```
 
 ## Assign the configuration
@@ -104,7 +135,16 @@ Assign the configuration to a virtual machine.
 For more information, see [configurationAssignments](/azure/templates/microsoft.maintenance/configurationassignments?tabs=json#property-values).
 
 ```json
-
+{ 
+  "type": "Microsoft.Maintenance/configurationAssignments", 
+  "apiVersion": "2021-09-01-preview", 
+  "name": "string", 
+  "location": "string", 
+  "properties": { 
+    "maintenanceConfigurationId": "string", 
+    "resourceId": "string" 
+  } 
+}
 ```
 
 ## Next steps
