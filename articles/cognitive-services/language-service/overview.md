@@ -198,7 +198,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       :::image type="content" source="media/studio-examples/question-answering.png" alt-text="A screenshot of a question answering example." lightbox="media/studio-examples/question-answering.png":::
    :::column-end:::
    :::column span="":::
-      [Question answering](./question-answering/overview.md) is a custom feature that enables you to connect [Conversational Language Understanding (CLU)](./conversational-language-understanding/overview.md), [question answering](./question-answering/overview.md), and [LUIS](../LUIS/what-is-luis.md) applications.
+      [Question answering](./question-answering/overview.md) is a custom feature that finds the most appropriate answer for inputs from your users, and is commonly used to build conversational client applications, such as social media applications, chat bots, and speech-enabled desktop applications. 
 
    :::column-end:::
 :::row-end:::
