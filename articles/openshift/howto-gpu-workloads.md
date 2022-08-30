@@ -31,14 +31,14 @@ Linux:
 sudo dnf install jq moreutils gettext
 ```
 
-MacOS
+macOS
 ```bash
 brew install jq moreutils gettext
 ```
 
 ## Request GPU quota
 
-All GPU quotas in Azure are 0 by default. You will need to sign in to the Azure portal and request GPU quota. Since there is a lot of competition for GPU workers, you may have to provision an ARO cluster in a region where you can actually reserve GPU.
+All GPU quotas in Azure are 0 by default. You will need to sign in to the Azure portal and request GPU quota. Due to competition for GPU workers, you may have to provision an ARO cluster in a region where you can actually reserve GPU.
 
 ARO supports the following GPU workers:
 
@@ -58,7 +58,7 @@ ARO supports the following GPU workers:
 
 1. Configure quota.
 
-    :::image type="content" source="media/howto-gpu-workloads/gpu-quota-azure.png" alt-text="Screen capture of quotas page on Azure portal.":::
+    :::image type="content" source="media/howto-gpu-workloads/gpu-quota-azure.png" alt-text="Screenshot of quotas page on Azure portal.":::
 
 ## Sign in to your ARO cluster
 
@@ -68,7 +68,7 @@ Sign in to OpenShift with a user account with cluster-admin privileges. The exam
    oc login <apiserver> -u kubeadmin -p <kubeadminpass>
    ```
 
-## Pull secret (Conditional)
+## Pull secret (conditional)
 
 Update your pull secret to make sure you can install operators and connect to [cloud.redhat.com](https://cloud.redhat.com/).
 
@@ -102,7 +102,7 @@ Update your pull secret to make sure you can install operators and connect to [c
    oc set data secret/pull-secret -n openshift-config --from-file=.dockerconfigjson=new-pull-secret.json
    ```
 
-> You may need to wait about 1 hour for everything to sync up with cloud.redhat.com.
+    > You may need to wait about 1 hour for everything to sync up with cloud.redhat.com.
 
 1. Delete secrets.
 
@@ -110,7 +110,7 @@ Update your pull secret to make sure you can install operators and connect to [c
    rm pull-secret.txt export-pull.json new-pull-secret.json
    ```
 
-## GPU Machine Set
+## GPU machine set
 
 ARO uses Kubernetes MachineSet to create machine sets. The procedure below explains how to export the first machine set in a cluster and use that as a template to build a single GPU machine. 
 
@@ -178,7 +178,7 @@ ARO uses Kubernetes MachineSet to create machine sets. The procedure below expla
 
 #### Create GPU machine set
 
-Use the following steps to create the new GPU machine. It may take 10-15 minutes to provision a new GPU machine. If this step fails, sign in to [azure portal](https://portal.azure.com) and ensure there are no availability issues. To do so, go to **Virtual Machines** and search for the worker name you created previously to see the status of VMs.
+Use the following steps to create the new GPU machine. It may take 10-15 minutes to provision a new GPU machine. If this step fails, sign in to [Azure portal](https://portal.azure.com) and ensure there are no availability issues. To do so, go to **Virtual Machines** and search for the worker name you created previously to see the status of VMs.
 
 1. Create the GPU Machine set.
 
@@ -270,9 +270,9 @@ This section explains how to create the `nvidia-gpu-operator` namespace, set up 
 
    Don't proceed until you have verified that the operator has finished installing. Also, ensure that your GPU worker is online.
 
-    :::image type="content" source="media/howto-gpu-workloads/nvidia-installed.png" alt-text="Screen shot of installed operators on namespace.":::
+    :::image type="content" source="media/howto-gpu-workloads/nvidia-installed.png" alt-text="Screenshot of installed operators on namespace.":::
 
-#### Install Node Feature Discovery Operator
+#### Install node feature discovery operator
 
 The node feature discovery operator will discover the GPU on your nodes and appropriately label the nodes so you can target them for workloads. 
 
@@ -463,11 +463,11 @@ Official Documentation for Installing [Node Feature Discovery Operator](https://
 
    The status of this operator should show as **Available**.
 
-    :::image type="content" source="media/howto-gpu-workloads/nfd-ready-for-use.png" alt-text="Screen shot of node feature discovery operator.":::
+    :::image type="content" source="media/howto-gpu-workloads/nfd-ready-for-use.png" alt-text="Screenshot of node feature discovery operator.":::
 
 #### Apply Nvidia Cluster Config
 
-This sections explains how to apply the Nvidia cluster config. Please read the [Nvidia documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/openshift/install-gpu-ocp.html) on customizing this if you have your own private repos or specific settings. This process may take several minutes to complete.
+This section explains how to apply the Nvidia cluster config. Please read the [Nvidia documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/openshift/install-gpu-ocp.html) on customizing this if you have your own private repos or specific settings. This process may take several minutes to complete.
 
 1. Apply cluster config.
 
@@ -525,7 +525,7 @@ This sections explains how to apply the Nvidia cluster config. Please read the [
 
    Log in to OpenShift console and browse to operators. Ensure sure you're in the `nvidia-gpu-operator` namespace. It should say `State: Ready once everything is complete`.
 
-    :::image type="content" source="media/howto-gpu-workloads/nvidia-cluster-policy.png" alt-text="Screen shot of existing cluster policies.":::
+    :::image type="content" source="media/howto-gpu-workloads/nvidia-cluster-policy.png" alt-text="Screenshot of existing cluster policies on OpenShift console.":::
 
 ## Validate GPU
 
@@ -548,7 +548,7 @@ It may take some time for the Nvidia Operator and NFD to completely install and 
 
    You can see the node labels by logging into the OpenShift console -> Compute -> Nodes -> nvidia-worker-southcentralus1-.  You should see multiple Nvidia GPU labels and the pci-10de device from above.
 
-    :::image type="content" source="media/howto-gpu-workloads/node-labels.png" alt-text="Screen shot of GPU labels.":::
+    :::image type="content" source="media/howto-gpu-workloads/node-labels.png" alt-text="Screenshot of GPU labels on OpenShift console.":::
 
 1. Nvidia SMI tool verification.
 
@@ -559,9 +559,9 @@ It may take some time for the Nvidia Operator and NFD to completely install and 
 
    You should see output that shows the GPUs available on the host such as this example screenshot. (Varies depending on GPU worker type)
 
-  :::image type="content" source="media/howto-gpu-workloads/test-gpu.png" alt-text="Screen shot of output showing available GPUs.":::
+    :::image type="content" source="media/howto-gpu-workloads/test-gpu.png" alt-text="Screenshot of output showing available GPUs.":::
 
-2. Create Pod to run a GPU workload
+1. Create Pod to run a GPU workload
 
    ```yaml
    oc project nvidia-gpu-operator
@@ -583,16 +583,16 @@ It may take some time for the Nvidia Operator and NFD to completely install and 
    EOF
    ```
 
-3. View logs.
+1. View logs.
 
    ```bash
    oc logs cuda-vector-add --tail=-1
    ```
 
-> [!NOTE] 
-> If you get an error `Error from server (BadRequest): container "cuda-vector-add" in pod "cuda-vector-add" is waiting to start: ContainerCreating`, try running `oc delete pod cuda-vector-add` and then re-run the create statement above.
+  > [!NOTE] 
+    > If you get an error `Error from server (BadRequest): container "cuda-vector-add" in pod "cuda-vector-add" is waiting to start: ContainerCreating`, try running `oc delete pod cuda-vector-add` and then re-run the create statement above.
 
-   The output should be similar to the following (depending on GPU):
+  The output should be similar to the following (depending on GPU):
 
    ```bash
    [Vector addition of 5000 elements]
@@ -602,8 +602,7 @@ It may take some time for the Nvidia Operator and NFD to completely install and 
    Test PASSED
    Done
    ```
-
-4. If successful, the pod can be deleted.
+  If successful, the pod can be deleted:
 
    ```bash
    oc delete pod cuda-vector-add
