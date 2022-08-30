@@ -10,7 +10,7 @@ ms.subservice: azure-communication-services
 ms.date: 08/24/2022
 ms.topic: include
 ms.custom: include file
-ms.author: DominikMe
+ms.author: domessin
 ---
 
 ### Communication User identifier
@@ -40,14 +40,14 @@ The `MicrosoftTeamsUserIdentifier` interface represents a Teams user. You need t
 #### Basic usage
 
 ```typescript
-// get the Team's users Id if only the email is known, assuming a helper method
-var userId = await getUserIdFromGraph("bob@contoso.com");
+// get the Teams user's Id if only the email is known, assuming a helper method
+const userId = await getUserIdFromGraph("bob@contoso.com");
 
 // create an identifier
-var teamsUser = { microsoftTeamsUserId: userId };
+const teamsUser = { microsoftTeamsUserId: userId };
 
 // if you're not operating in the public cloud, you must also pass the right Cloud type.
-var gcchTeamsUser = { microsoftTeamsUserId: userId, cloud: "gcch" };
+const gcchTeamsUser = { microsoftTeamsUserId: userId, cloud: "gcch" };
 ```
 
 #### API reference
@@ -62,7 +62,7 @@ The `PhoneNumberIdentifier` interface represents a phone number. The service ass
 
 ```typescript
 // create an identifier
-var phoneNumber = { phoneNumber: "+112345556789" };
+const phoneNumber = { phoneNumber: "+112345556789" };
 ```
 
 #### API reference
@@ -77,14 +77,14 @@ The `UnknownIdentifier` interface exists for future-proofing and you might encou
 
 ```typescript
 // create an identifier
-var unknown = { id: "a raw id that originated in the service" };
+const unknownId = { id: "a raw id that originated in the service" };
 ```
 
 #### API reference
 
 [UnknownIdentifier](/javascript/api/@azure/communication-common/unknownidentifier)
 
-### How to handle the `CommunicationIdentifier` base class
+### How to handle the `CommunicationIdentifier` base interface
 
 While you construct identifiers for a concrete type that you pass *into* the SDK, the SDK returns a `CommunicationIdentifierKind`, which is a [discrimated union](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions). It's easy to narrow to a concrete type and we suggest a switch-case statement with pattern matching:
 
@@ -107,7 +107,7 @@ switch (communicationIdentifier.kind)
          // narrowed to UnknownIdentifierKind
         console.log(`Unknown: ${communicationIdentifier.id}`);
         break;
-    default;
+    default:
         // be careful here whether you want to throw because a new SDK version
         // can introduce new identifier types
         break;

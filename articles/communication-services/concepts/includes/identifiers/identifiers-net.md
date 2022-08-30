@@ -10,7 +10,7 @@ ms.subservice: azure-communication-services
 ms.date: 08/24/2022
 ms.topic: include
 ms.custom: include file
-ms.author: DominikMe
+ms.author: domessin
 ---
 
 ### Communication User identifier
@@ -40,7 +40,7 @@ The `MicrosoftTeamsUserIdentifier` represents a Teams user. You need to know the
 #### Basic usage
 
 ```csharp
-// get the Team's users Id if only the email is known, assuming a helper method
+// get the Teams user's Id if only the email is known, assuming a helper method
 var userId = await GetUserIdFromGraph("bob@contoso.com");
 
 // create an identifier
@@ -84,9 +84,9 @@ var unknown = new UnknownIdentifier("a raw id that originated in the service");
 
 [UnknownIdentifier](/dotnet/api/azure.communication.unknownidentifier)
 
-### How to handle the `CommunicationIdentifier` base class
+### How to handle the `CommunicationIdentifier` base protocol
 
-While you construct identifiers for a concrete type that you pass *into* the SDK, the SDK returns the abstract `CommunicationIdentifier`. It's easy to down-cast back to a concrete type and we suggest a switch-case statement with pattern matching:
+While you construct identifiers for a concrete type that you pass *into* the SDK, the SDK returns the `CommunicationIdentifier` protocol. It's easy to down-cast back to a concrete type and we suggest a switch-case statement with pattern matching:
 
 ```csharp
 switch (communicationIdentifier)
@@ -103,7 +103,7 @@ switch (communicationIdentifier)
     case UnknownIdentifier unknown:
         Console.WriteLine($"Unknown: {unknown.Id}");
         break;
-    default;
+    default:
         // be careful here whether you want to throw because a new SDK version
         // can introduce new identifier types
         break;

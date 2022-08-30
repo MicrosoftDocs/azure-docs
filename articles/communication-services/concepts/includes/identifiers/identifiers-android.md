@@ -10,7 +10,7 @@ ms.subservice: azure-communication-services
 ms.date: 08/24/2022
 ms.topic: include
 ms.custom: include file
-ms.author: DominikMe
+ms.author: domessin
 ---
 
 ### Communication User identifier
@@ -40,7 +40,7 @@ The `MicrosoftTeamsUserIdentifier` represents a Teams user. You need to know the
 #### Basic usage
 
 ```java
-// get the Team's users Id if only the email is known, assuming a helper method
+// get the Teams user's Id if only the email is known, assuming a helper method
 var userId = getUserIdFromGraph("bob@contoso.com");
 
 // create an identifier
