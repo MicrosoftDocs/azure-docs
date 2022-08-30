@@ -94,16 +94,20 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 
 ## Limitations for creating new function apps in an existing resource group
 
-In some cases, when trying to create a new function app plan, you may receive one of the following errors:
+In some cases, when trying to create a new hosting plan for your function app in an existing resource group you may receive one of the following errors:
 
 * The pricing tier is not allowed in this resource group
 * <SKU_name> workers are not available in resource group <resource_group_name>
 
-This can happen if you are creating the function app in an existing resource group that already contains or previously contained other function apps or web apps of different SKU or operating system in the same region. Other platform level features like availability zone support can also cause this limitation.
+This can happen when the following conditions are met:
+
+* You create a function app in an existing resource group that has ever contained another function app or web app.
+* Your new function app is created in the same region as the previous app.
+* The previous app is in some way incompatible with your new app. This can happen between SKUs, operating systems, or due to other platform-level features, such as availability zone support.
 
 The reason this happens is due to how function app and web app plans are mapped to different pools of resources when being created. Different SKUs require a different set of infrastructure capabilities. When you create an app in a resource group, that resource group is mapped and assigned to a specific pool of resources. If you try to create another plan in that resource group and the mapped pool does not have the required resources, this error will occur.
 
-The recommendation is to create the plan in a new resource group.
+When this error occurs, instead create your function app and hosting plan in a new resource group.
 
 ## Networking features
 

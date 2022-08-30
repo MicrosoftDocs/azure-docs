@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Migrate your function app to a zone-redundant plan
 
-Availability zones (AZ) support for Azure Functions is available on Premium (Elastic Premium) and Dedicated (App Service) plans. A zone-redundant function app plan automatically balances its instances between availability zones for higher availability. This article describes how to migrate to the public multi-tenant Premium plan with availability zone support. For migration to zone redundancy on Dedicated plans, refer [here](migrate-app-service.md).
+Availability zones (AZ) support for Azure Functions is available on [Premium (Elastic Premium)](../azure-functions/functions-premium-plan.md) and [Dedicated (App Service)](../azure-functions/dedicated-plan.md) plans. A zone-redundant function app plan automatically balances its instances between availability zones for higher availability. This article describes how to migrate to the public multi-tenant Premium plan with availability zone support. For migration to zone redundancy on Dedicated plans, refer [here](migrate-app-service.md).
 
 ## Downtime requirements
 
@@ -27,10 +27,10 @@ If you want your function app to use availability zones, redeploy your app into 
 
 The following steps describe how to enable availability zones.
 
-1. To redeploy and ensure you'll be able to use availability zones, you'll need to be on the function app footprint that supports availability zones. If you're already using the Premium SKU and are in one of the [supported regions](../azure-functions/azure-functions-az-redundancy.md#regional-availability), you can move on to the next step. Otherwise, you should create a new resource group in one of the supported regions to ensure the function app control plane can find a scale unit in the selected region that supports availability zones.
-1. Create a new Premium plan in one of the supported regions using the **new** resource group. Ensure the [new Premium plan has zone redundancy enabled](../azure-functions/azure-functions-az-redundancy.md#how-to-deploy-a-function-app-on-a-zone-redundant-premium-plan).
-1. Create and deploy your apps into the new Premium plan using your desired [deployment method](../azure-functions/functions-deployment-technologies.md).
-1. After testing and enabling the new apps, you can optionally disable or delete your non availability zone apps.
+1. If you're already using the Premium SKU and are in one of the [supported regions](../azure-functions/azure-functions-az-redundancy.md#regional-availability), you can move on to the next step. Otherwise, you should create a new resource group in one of the supported regions.
+1. Create a Premium plan in one of the supported regions and the resource group. Ensure the [new Premium plan has zone redundancy enabled](../azure-functions/azure-functions-az-redundancy.md#how-to-deploy-a-function-app-on-a-zone-redundant-premium-plan).
+1. Create and deploy your function apps into the new Premium plan using your desired [deployment method](../azure-functions/functions-deployment-technologies.md).
+1. After testing and enabling the new function apps, you can optionally disable or delete your previous non-availability zone apps.
  
 ## Next steps
 

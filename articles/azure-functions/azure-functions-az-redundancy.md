@@ -22,27 +22,27 @@ An [availability zone](../availability-zones/az-overview.md#availability-zones) 
 
 A zone redundant function app automatically distributes the instances your app runs on between the availability zones in the region. For apps running in a zone-redundant Premium plan, even as the app scales in and out, the instances the app is running on are still evenly distributed between availability zones.
 
-A Premium plan exists in a single scale unit. Function apps are zonal services, which means that function apps can be deployed using one of the following methods:
+Function apps are zonal services, which means that function apps can be deployed using one of the following methods:
 
 - For function apps that aren't configured to be zone redundant, the instances are placed in a single zone that is selected by the platform in the selected region.
-- For function apps that are configured to be zone redundant, the platform automatically spreads the instances in the Premium plan across all three zones in the selected region. If an instance count is larger than three and the number of instances is divisible by three, the instances will be spread evenly. Otherwise, instance counts beyond 3*N will get spread across the remaining one or two zones.
+- For function apps that are configured as zone redundant, the platform automatically spreads the instances in the plan across all the zones in the selected region. For example, in a region with three zones, if an instance count is larger than three and the number of instances is divisible by three, the instances is distributed evenly. Otherwise, instance counts beyond `3 * N` are distributed across the remaining one or two zones.
 
-## Important considerations when using availability zones
+## Availability zone considerations
 
-All of your available function app instances are enabled and processing events. In the case when a zone goes down, the functions platform will detect lost instances and automatically attempt to find new replacement instances as needed. [Elastic scale behavior](functions-premium-plan.md#rapid-elastic-scale) still applies but it's important to note there's no guarantee that requests for additional instances in a zone-down scenario will succeed since back filling lost instances occurs on a best-effort basis.
+When using availability zones, all of your available function app instances are enabled and processing events. When a zone goes down, Functions detects lost instances and automatically attempts to find new replacement instances, when needed. [Elastic scale behavior](functions-premium-plan.md#rapid-elastic-scale) still applies. However, in a zone-down scenario there's no guarantee that requests for additional instances can succeed, since back-filling lost instances occurs on a best-effort basis.
 
-Applications that are deployed in an Premium plan that has availability zones enabled will continue to run even if other zones in the same region suffer an outage. However it's possible that non-runtime behaviors including Premium plan scaling, application creation, application configuration, and application publishing may still be impacted from an outage in other Availability Zones. Zone redundancy for Premium plans only ensures continued uptime for deployed applications.
+Applications that are deployed in an Premium plan that has availability zones enabled continue to run even when other zones in the same region suffer an outage. However, it's possible that non-runtime behaviors could still be impacted from an outage in other availability zones These impacted behaviors can including Premium plan scaling, application creation, application configuration, and application publishing. Zone redundancy for Premium plans only guarantees continued uptime for deployed applications.
 
-When the function app platform allocates instances to a zone redundant Premium plan, it uses [best effort zone balancing offered by the underlying Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing). A Premium plan will be "balanced" if each zone has either the same number of VMs, or +/- one VM in all of the other zones used by the Premium plan.
+When Functions allocates instances to a zone redundant Premium plan, it uses [best effort zone balancing offered by the underlying Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing). A Premium plan is considered _balanced_ when each zone has either the same number of VMs (± 1 VM) in all of the other zones used by the Premium plan.
 
 ## Requirements
 
 Availability zone support is a property of the Premium plan. The following are the current requirements/limitations for enabling availability zones:
 
-- Availability zones can only be specified when creating a **new** Premium plan. A pre-existing Premium plan can't be converted to use availability zones.
+- You can only enable availability zones when creating a Premium plan for your function app. You can't convert an existing Premium plan to use availability zones.
 - You must use a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) for your function app's [storage account](storage-considerations.md#storage-account-requirements). If you use a different type of storage account, Functions may show unexpected behavior during a zonal outage.
 - Both Windows and Linux are supported.
-- Must be hosted on an [Elastic Premium](functions-premium-plan.md) or Dedicated hosting plan. Instructions on zone redundancy with Dedicated hosting plan can be found [in this article](../availability-zones/migrate-app-service.md).
+- Must be hosted on an [Elastic Premium](functions-premium-plan.md) or Dedicated hosting plan. To learn how to use zone redundancy with a Dedicated plan, see [Migrate App Service to availability zone support](../availability-zones/migrate-app-service.md).
   - Availability zone (AZ) support isn't currently available for function apps on [Consumption](consumption-plan.md) plans.
 - Function apps hosted on a Premium plan must have a minimum [always ready instances](functions-premium-plan.md#always-ready-instances) count of three.
   - The platform will enforce this minimum count behind the scenes if you specify an instance count fewer than three.
@@ -107,8 +107,8 @@ Below is an ARM template snippet for a zone-redundant, Premium plan showing the 
     {
         "type": "Microsoft.Web/serverfarms",
         "apiVersion": "2021-01-15",
-        "name": "your_plan_name_here",
-        "location": "your_region_name_here",
+        "name": "<YOUR_PLAN_NAME>",
+        "location": "<YOUR_REGION_NAME>",
         "sku": {
             "name": "EP1",
             "tier": "ElasticPremium",
@@ -141,7 +141,7 @@ After the zone-redundant plan is created and deployed, any function app hosted o
 
 ## Migrate your function app to a zone-redundant plan
 
-For information on how to migrate the public multi-tenant Premium plan from non-availability zone to availability zone support please refer to [Migrate App Service to availability zone support](../availability-zones/migrate-functions.md).
+For information on how to migrate the public multi-tenant Premium plan from non-availability zone to availability zone support, see [Migrate App Service to availability zone support](../availability-zones/migrate-functions.md).
 
 ## Pricing
 
@@ -149,17 +149,8 @@ There's no additional cost associated with enabling availability zones. Pricing 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn about the Azure Functions Premium plan](functions-premium-plan.md)
-
-> [!div class="nextstepaction"]
-> [Improve the performance and reliability of Azure Functions](performance-reliability.md)
-
-> [!div class="nextstepaction"]
-> [Learn how to deploy Azure Functions](functions-deployment-technologies.md)
-
-> [!div class="nextstepaction"]
-> [ARM Quickstart Templates](https://azure.microsoft.com/resources/templates/)
-
-> [!div class="nextstepaction"]
-> [Azure Functions geo-disaster recovery](functions-geo-disaster-recovery.md)
+- [Learn about the Azure Functions Premium plan](functions-premium-plan.md)
+- [Improve the performance and reliability of Azure Functions](performance-reliability.md)
+- [Learn how to deploy Azure Functions](functions-deployment-technologies.md)
+- [ARM Quickstart Templates](https://azure.microsoft.com/resources/templates/)
+- [Azure Functions geo-disaster recovery](functions-geo-disaster-recovery.md)
