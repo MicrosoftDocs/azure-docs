@@ -28,7 +28,7 @@
     - name: Data access
       href: concept-data.md
     - name: Studio network data access
-      href: ../concept-network-data-access.md      
+      href: concept-network-data-access.md      
   - name: Automated ML overview
     displayName: automl, auto ml
     href: concept-automated-ml-v1.md
@@ -136,14 +136,14 @@
         href: how-to-designer-import-data.md
     - name: Compliance
       items: 
-      - name: Preserve data privacy
-        displayName: data,privacy,differential privacy
-        href: how-to-differential-privacy.md
       - name: Export and delete data
         displayName: GDPR
         href: how-to-export-delete-data.md
   - name: Train models
     items: 
+    - name: Configure & submit training run
+      displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+      href: how-to-set-up-training-targets.md
     - name: Train with SDK v1
       href: how-to-attach-compute-targets.md
     - name: Automated machine learning
@@ -170,7 +170,8 @@
     - name: Track experiments with MLflow 
       displayName: log, monitor, metrics, model registry, register
       href: how-to-use-mlflow.md  
-    
+    - name: Log & view metrics
+      href: how-to-log-view-metrics.md
     - name: Interpret ML models
       displayName: SDK, interpret, explain, explainability, interpretability
       href: ../how-to-machine-learning-interpretability-aml.md
