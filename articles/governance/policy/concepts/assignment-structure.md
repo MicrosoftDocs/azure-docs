@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 05/12/2022
+ms.date: 08/30/2022
 ms.topic: conceptual
 ms.author: timwarner
 author: timwarner-msft
@@ -102,6 +102,73 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
   any.
 - `updatedOn` (string): The Universal ISO 8601 DateTime format of the assignment update time, if
   any.
+
+## Resource selectors and overrides (preview)
+
+The **resourceSelectors** property facilitates safe deployment practices (SDP) by enabling you to gradually roll
+out policy by region, by resource type, by pre-defined tags, or some combination thereof.
+
+You can use resource selectors with policy assignments or policy exemptions to evaluate resources only when the resource
+selectors are applicable with the resource location, type, or tags on the resource.
+
+In the following example scenario, the new policy assignment will be evaluated only if the resource's location is
+either **East US** or **West US**.
+
+```json
+{
+    "properties": {
+        "policyDefinitionId": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyDefinitions/ResourceLimit",
+        "definitionVersion": "1.1",
+        "resourceSelectors": [
+            {
+                "name": "SDPRegions",
+                "selectors": [
+                    {
+                        "kind": "resourceLocation",
+                        "in": [ "eastus", "westus" ]
+                    }
+                ]
+            }
+        ]
+    },
+    "systemData": { ... },
+    "id": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyAssignments/ResourceLimit",
+    "type": "Microsoft.Authorization/policyAssignments",
+    "name": "ResourceLimit"
+}
+```
+
+When you're ready to expand the evaluation scope for your policy, modify the assignment. The following exampls
+shows our policy assignment with two additional Azure regions added to the **SDPRegions** selector:
+
+```json
+{
+    "properties": {
+        "policyDefinitionId": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyDefinitions/ResourceLimit",
+        "definitionVersion": "1.1",
+        "resourceSelectors": [
+            {
+                "name": "SDPRegions",
+                "selectors": [
+                    {
+                        "kind": "resourceLocation",
+                        "in": [ "eastus", "westus", "centralus", "southcentralus" ]
+                    }
+                ]
+            }
+        ]
+    },
+    "systemData": { ... },
+    "id": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyAssignments/ResourceLimit",
+    "type": "Microsoft.Authorization/policyAssignments",
+    "name": "ResourceLimit"
+}
+```
+
+The **overrides** property allows you to override the property value of a policy definition or policy assignment.
+As expected, the property value corresponds to your resource selector values.
+
+
 
 ## Enforcement Mode
 
