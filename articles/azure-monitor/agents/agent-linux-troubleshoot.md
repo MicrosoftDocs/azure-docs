@@ -36,13 +36,13 @@ The Troubleshooting Tool is automatically included when the Log Analytics agent 
 
 The Troubleshooting Tool checks the following scenarios:
 
-- The agent is unhealthy, heartbeat doesn't work properly.
-- The agent doesn't start, can't connect to Log Analytic Services.
+- The agent is unhealthy; the heartbeat doesn't work properly.
+- The agent doesn't start or can't connect to Log Analytics.
 - The agent Syslog isn't working.
 - The agent has high CPU or memory usage.
 - The agent has installation issues.
 - The agent custom logs aren't working.
-- Collect agent logs.
+- Agent logs can't be collected.
 
 For more information, see the [Troubleshooting Tool documentation on GitHub](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
 
@@ -54,9 +54,11 @@ For more information, see the [Troubleshooting Tool documentation on GitHub](htt
 A clean reinstall of the agent fixes most issues. This task might be the first suggestion from our support team to get the agent into an uncorrupted state. Running the Troubleshooting Tool and Log Collector tool and attempting a clean reinstall helps to solve issues more quickly.
 
 1. Download the purge script:
-   - `$ wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/purge_omsagent.sh`
+   
+   `$ wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/purge_omsagent.sh`
 1. Run the purge script (with sudo permissions):
-   - `$ sudo sh purge_omsagent.sh`
+   
+   `$ sudo sh purge_omsagent.sh`
 
 ## Important log locations and the Log Collector tool
 
@@ -145,9 +147,9 @@ A clean reinstall of the agent fixes most issues. This task might be the first s
 </match>
 ```
 
-Debug logging allows you to see batched uploads to Azure Monitor separated by type, number of data items, and time taken to send:
+Debug logging allows you to see batched uploads to Azure Monitor separated by type, number of data items, and time taken to send.
 
-**Example debug-enabled log:**
+Here's an example debug-enabled log:
 
 ```
 Success sending oms.nagios x 1 in 0.14s
@@ -157,7 +159,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 
 ### Verbose output
 
-Instead of using the OMS output plug-in, you can also output data items directly to `stdout`, which is visible in the Log Analytics agent for Linux log file.
+Instead of using the OMS output plug-in, you can output data items directly to `stdout`, which is visible in the Log Analytics agent for Linux log file.
 
 In the Log Analytics general agent configuration file at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`, comment out the OMS output plug-in by adding a `#` in front of each line:
 
@@ -205,13 +207,13 @@ Below the output plug-in, uncomment the following section by removing the `#` in
 ### Probable causes
 
 * Date and time are incorrect on the Linux server.
-* The Workspace ID and Workspace Key used aren't correct.
+* The workspace ID and workspace key aren't correct.
 
 ### Resolution
 
 1. Check the time on your Linux server with the command date. If the time is +/- 15 minutes from the current time, onboarding fails. To correct this situation, update the date and/or time zone of your Linux server.
 1. Verify that you've installed the latest version of the Log Analytics agent for Linux. The newest version now notifies you if time skew is causing the onboarding failure.
-1. Reonboard by using the correct Workspace ID and Workspace Key following the installation instructions earlier in this article.
+1. Reonboard by using the correct workspace ID and workspace key in the installation instructions earlier in this article.
 
 ## Issue: You see a 500 and 404 error in the log file right after onboarding
 
@@ -341,7 +343,8 @@ This error indicates that the Linux diagnostic extension (LAD) is installed side
 1. If you're using a proxy, check the preceding proxy troubleshooting steps.
 1. In some Azure distribution systems, the omid OMI server daemon doesn't start after the virtual machine is rebooted. If this is the case, you won't see Audit, ChangeTracking, or UpdateManagement solution-related data. The workaround is to manually start the OMI server by running `sudo /opt/omi/bin/service_control restart`.
 1. After the OMI package is manually upgraded to a newer version, it must be manually restarted for the Log Analytics agent to continue functioning. This step is required for some distros where the OMI server doesn't automatically start after it's upgraded. Run `sudo /opt/omi/bin/service_control restart` to restart the OMI.
-   * In some situations, the OMI can become frozen. The OMS agent might enter a blocked state waiting for the OMI, which blocks all data collection. The OMS agent process will be running but there will be no activity, which is evidenced by no new log lines (such as sent heartbeats) present in `omsagent.log`. Restart the OMI with `sudo /opt/omi/bin/service_control restart` to recover the agent.
+   
+   In some situations, the OMI can become frozen. The OMS agent might enter a blocked state waiting for the OMI, which blocks all data collection. The OMS agent process will be running but there will be no activity, which is evidenced by no new log lines (such as sent heartbeats) present in `omsagent.log`. Restart the OMI with `sudo /opt/omi/bin/service_control restart` to recover the agent.
 1. If you see a DSC resource *class not found* error in omsconfig.log, run `sudo /opt/omi/bin/service_control restart`.
 1. In some cases, when the Log Analytics agent for Linux can't talk to Azure Monitor, data on the agent is backed up to the full buffer size of 50 MB. The agent should be restarted by running the following command: `/opt/microsoft/omsagent/bin/service_control restart`.
 
@@ -406,10 +409,11 @@ This error indicates that the Linux diagnostic extension (LAD) is installed side
 
 **Background:** `omsconfig` is the Log Analytics agent for Linux configuration agent that looks for new portal-side configuration every five minutes. This configuration is then applied to the Log Analytics agent for Linux configuration files located at /etc/opt/microsoft/omsagent/conf/omsagent.conf.
 
-* In some cases, the Log Analytics agent for Linux configuration agent might not be able to communicate with the portal configuration service. This scenario results in the latest configuration not being applied.
-  1. Check that the `omsconfig` agent is installed by running `dpkg --list omsconfig` or `rpm -qi omsconfig`. If it isn't installed, reinstall the latest version of the Log Analytics agent for Linux.
+In some cases, the Log Analytics agent for Linux configuration agent might not be able to communicate with the portal configuration service. This scenario results in the latest configuration not being applied.
 
-  1. Check that the `omsconfig` agent can communicate with Azure Monitor by running the following command: `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`. This command returns the configuration that the agent receives from the service, including Syslog settings, Linux performance counters, and custom logs. If this command fails, run the following command: `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration.
+1. Check that the `omsconfig` agent is installed by running `dpkg --list omsconfig` or `rpm -qi omsconfig`. If it isn't installed, reinstall the latest version of the Log Analytics agent for Linux.
+
+1. Check that the `omsconfig` agent can communicate with Azure Monitor by running the following command: `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`. This command returns the configuration that the agent receives from the service, including Syslog settings, Linux performance counters, and custom logs. If this command fails, run the following command: `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration.
 
 ## Issue: You aren't seeing any custom log data
 
@@ -427,8 +431,8 @@ This error indicates that the Linux diagnostic extension (LAD) is installed side
 
 1. Verify onboarding to Azure Monitor was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. If not, either:
 
-  1. Reonboard by using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
-  1. Under **Advanced Settings** in the Azure portal, ensure that the setting **Apply the following configuration to my Linux Servers** is enabled.
+   1. Reonboard by using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
+   1. Under **Advanced Settings** in the Azure portal, ensure that the setting **Apply the following configuration to my Linux Servers** is enabled.
 
 1. Check that the `omsconfig` agent can communicate with Azure Monitor by running the following command: `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`. This command returns the configuration that the agent receives from the service, including Syslog settings, Linux performance counters, and custom logs. If this command fails, run the following command: `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. This command forces the `omsconfig` agent to talk to Azure Monitor and retrieve the latest configuration.
 
