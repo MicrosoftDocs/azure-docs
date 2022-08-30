@@ -1,6 +1,6 @@
 ---
-title: Backup and Restore for Azure Database for PostgreSQL servers
-description: Backup and Restore for Azure Database for PostgreSQL servers
+title: Backup and restore for Azure Database for PostgreSQL server
+description: Explains how to back up and restore for Azure Database for PostgreSQL servers
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -15,4 +15,4 @@ ms.topic: how-to
 
 Backup and restore of Azure Arc-enabled PostgreSQL server is not supported in the current preview release.
 
-- Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-server-using-cli.md) your server group
+- Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-server-using-cli.md) your server.
