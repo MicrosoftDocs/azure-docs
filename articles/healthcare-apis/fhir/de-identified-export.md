@@ -5,8 +5,8 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/15/2022
-ms.author: ranku
+ms.date: 08/30/2022
+ms.author: mikaelw
 ---
 # Exporting de-identified data
 
