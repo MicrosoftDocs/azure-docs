@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 08/30/2022
 
 ms.author: justinha
 author: justinha
@@ -16,6 +16,8 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
 # MFA Server migration 
+
+This topic covers how to migrate MFA settings for Azure Active Directory (Azure AD) users from on-premises Azure MFA Server to Azure AD Multi-Factor Authentication. 
 
 ## Solution overview
 
@@ -42,7 +44,7 @@ Admins can use the MFA Server Migration Utility to target single users or groups
 ||[Configure MFA Server Migration Utility](#configure-the-mfa-server-migration-utility) |
 |Migrations |[Migrate user data](#migrate-user-data)|
 ||[Validate and test](#validate-and-test)|
-||[Educate users](#educate-users)|Staged Rollout
+||[Educate users](#educate-users)|[Staged Rollout](#enable-staged-rollout-using-azure-portal) |
 ||[Complete user migration](#complete-user-migration)|
 |Finalize |[Migrate MFA Server dependencies](#migrate-mfa-server-dependencies)|
 ||[Update domain federation settings](#update-domain-federation-settings)|
@@ -51,7 +53,7 @@ Admins can use the MFA Server Migration Utility to target single users or groups
 
 An MFA Server migration generally includes the steps in the following process:
 
-:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/migration-phases.png" alt-text="Diagram of MFA Server migration phases.":::
+:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/migration-phases.png" alt-text="Diagram of MFA Server migration phases.":::
 
 A few important points:
 
@@ -82,7 +84,7 @@ To help your migration, we've matched widely used MFA Server features with the f
 
 Open MFA Server, click **Company Settings**:
 
-:::image type="content" border="false" source="./media/how-to-mfa-server-migration-utlity/company-settings.png" alt-text="Screenshot of Company Settings.":::
+:::image type="content" border="false" source="./media/how-to-mfa-server-migration-utility/company-settings.png" alt-text="Screenshot of Company Settings.":::
 
 
 |MFA Server|Azure AD MFA|
@@ -110,7 +112,7 @@ Open MFA Server, click **Company Settings**:
 
 Open MFA Server, click **User Portal**:
 
-:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/user-portal.png" alt-text="Screenshot of User portal.":::
+:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/user-portal.png" alt-text="Screenshot of User portal.":::
 
 |MFA Server|Azure AD MFA|
 |:--------:|:-------:|
@@ -178,11 +180,11 @@ You'll also need access to the following URLs:
 
 The script will instruct you to grant admin consent to the newly created application. Navigate to the URL provided, or within the Azure AD portal, click **Application Registrations**, find and select the **MFA Server Migration Utility** app, click on **API permissions** and then granting the appropriate permissions.
 
-:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/permissions.png" alt-text="Screenshot of permissions.":::
+:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/permissions.png" alt-text="Screenshot of permissions.":::
 
 Once complete, navigate to the Multi-factor Authentication Server folder, and open the **MultiFactorAuthMigrationUtilityUI** application. You should see the following screen:
 
-:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/utility.png" alt-text="Screenshot of MFA Server Migration Utility.":::
+:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/utility.png" alt-text="Screenshot of MFA Server Migration Utility.":::
 
 You've successfully installed the Migration Utility.
 
@@ -195,13 +197,13 @@ To begin the migration process, enter the name or GUID of the Azure AD group you
 
 To view user attribute data for a user, highlight the user, and select **View**:
 
-:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/view-user.png" alt-text="Screenshot of how to view use settings.":::
+:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/view-user.png" alt-text="Screenshot of how to view use settings.":::
 
 This window displays the attributes for the selected user in both Azure AD and the on-premises MFA Server. You can use this window to view how data was written to a user after they’ve been migrated.
 
 The settings option allows you to change the settings for the migration process:
 
-:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/settings.png" alt-text="Screenshot of settings.":::
+:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/settings.png" alt-text="Screenshot of settings.":::
 
 - Migrate – This setting allows you to specify which method(s) should be migrated for the selection of users
 - User Match – Allows you to specify a different attribute for matching users instead of the default UPN-matching
@@ -232,7 +234,7 @@ During testing, we recommend doing a manual migration first, and test to ensure 
 
 Once complete, a confirmation will inform you of the tasks completed:
 
-:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/confirmation.png" alt-text="Screenshot of confirmation.":::
+:::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/confirmation.png" alt-text="Screenshot of confirmation.":::
 
 As mentioned in the confirmation message, it can take several minutes for the migrated data to appear on user objects within Azure AD. Users can view their migrated methods by navigating to [aka.ms/mfasetup](https://aka.ms/mfasetup).
 
@@ -246,14 +248,14 @@ Once you've successfully migrated user data, you can validate the end-user exper
 
 1. Change **Azure multifactor authentication (preview)** to **On**, and then click **Manage groups**.
 
-   :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/staged-rollout.png" alt-text="Screenshot of Staged Rollout.":::
+   :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/staged-rollout.png" alt-text="Screenshot of Staged Rollout.":::
 
 1. Click **Add groups** and add the group(s) containing users you wish to enable for Azure MFA. Selected groups appear in the displayed list. 
 
    >[!NOTE]
    >Any groups you target using the Microsoft Graph method below will also appear in this list.
 
-   :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/managed-groups.png" alt-text="Screenshot of Manage Groups menu.":::
+   :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/managed-groups.png" alt-text="Screenshot of Manage Groups menu.":::
 
 #### Enable Staged Rollout using Microsoft Graph
 
@@ -273,11 +275,11 @@ Once you've successfully migrated user data, you can validate the end-user exper
       }
       ```
    
-      :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/body.png" alt-text="Screenshot of request.":::
+      :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/body.png" alt-text="Screenshot of request.":::
 
    1. Perform a GET with the same endpoint and make note of the **ID** value (crossed out in the following image):
    
-      :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/get.png" alt-text="Screenshot of GET command.":::
+      :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/get.png" alt-text="Screenshot of GET command.":::
 
 1. Target the Azure AD group(s) that contain the users you wish to test
    1. Create a POST request with the following endpoint (replace {ID of policy} with the **ID** value you copied from step 1d): 
