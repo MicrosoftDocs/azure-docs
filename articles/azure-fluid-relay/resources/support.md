@@ -11,11 +11,14 @@ ms.service: azure-fluid
 
 # Help and support options for Azure Fluid Relay
 
-If you have an issue or question involving Azure Fluid Relay, the following options are available. For ongoing service issues that are time sensitive, creating an Azure support request is the preferred option. For all others issues that are not time sensitive, there are multiple options available to get help.
+If you have an issue or question involving Azure Fluid Relay, the following options are available:
+
+> [!ALERT]
+> For ongoing service issues that are time sensitive, creating an Azure support request is the preferred option.
 
 ## Create an Azure support request
 
-If you are running into an ongoing service issue that is impacting your end users, creating a support request is the best way to live-site support. Depending on the degree of impact, setting the right severity level for the support case will get you to the technical support needed. With Azure, there are many [support options and plans](https://azure.microsoft.com/support/plans/) available, which you can explore and review. You can create a support ticket in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+If you are running into an ongoing service issue that is impacting your end users, creating a support request is the best way to obtain live-site support. Depending on the degree of impact, setting the right severity level for the support case will get you to the technical support needed. With Azure, there are many [support options and plans](https://azure.microsoft.com/support/plans/) available, which you can explore and review. You can create a support ticket in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## Check out frequently asked questions
 
