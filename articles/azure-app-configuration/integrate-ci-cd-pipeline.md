@@ -65,53 +65,53 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
 
 1. Set an environment variable named *ConnectionString*, and set it to the access key to your App Configuration store.
 
-#### [Windows command prompt](#tab/windowscommandprompt)
+    #### [Windows command prompt](#tab/windowscommandprompt)
+    
+    To build and run the app locally using the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+    
+    ```console
+        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
+    
+    ### [PowerShell](#tab/powershell)
+    
+    If you use Windows PowerShell, run the following command:
+    
+    ```powershell
+        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
+    
+    ### [macOS](#tab/unix)
+    
+    If you use macOS, run the following command:
+    
+    ```console
+        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
+    
+    ### [Linux](#tab/linux)
+    
+    If you use Linux, run the following command:
+    
+    ```console
+        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
+    
+    ---
 
-To build and run the app locally using the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
-
-```console
-     setx ConnectionString "connection-string-of-your-app-configuration-store"
-```
-
-### [PowerShell](#tab/powershell)
-
-If you use Windows PowerShell, run the following command:
-
-```powershell
-     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-```
-
-### [macOS](#tab/unix)
-
-If you use macOS, run the following command:
-
-```console
-     export ConnectionString='connection-string-of-your-app-configuration-store'
-```
-
-### [Linux](#tab/linux)
-
-If you use Linux, run the following command:
-
-```console
-     export ConnectionString='connection-string-of-your-app-configuration-store'
-```
-
----
-
-2. To build the app by using the .NET Core CLI, run the following command in the command shell:
+1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
     ```console
      dotnet build
     ```
 
-3. After the build completes successfully, run the following command to run the web app locally:
+1. After the build completes successfully, run the following command to run the web app locally:
 
     ```console
      dotnet run
     ```
 
-4. Open a browser window and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
+1. Open a browser window and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
 
     :::image type="content" source="./media/quickstarts/aspnet-core-app-launch-local.png" alt-text="Screenshot that shows Quickstart app launch local page.":::
 
