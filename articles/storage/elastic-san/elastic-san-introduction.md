@@ -43,7 +43,7 @@ Elastic SAN has three resources:
 
 ### The SAN
 
-At the SAN-level, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, as well as the total capacity that can be distributed to each volume within the SAN.
+At the SAN-level, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, and the total capacity that can be distributed to each volume within the SAN.
 
 ### Volume groups
 

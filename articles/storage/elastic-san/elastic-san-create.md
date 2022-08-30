@@ -13,7 +13,7 @@ ms.subservice: elastic-san
 
 This article explains how to deploy and configure an Elastic SAN.
 
-## Prerequsites
+## Prerequisites
 
 An Azure Virtual Network with a subnet that has the Storage service endpoint registered.
 Register your subscription with the preview feature:
@@ -26,9 +26,9 @@ Register your subscription with the preview feature:
 
 1. Sign in to the Azure portal and search for **Elastic SAN**.
 1. Select **+ Create a new SAN**
-1. On the basics blade, fill out the values.
+1. On the basics page, fill out the values.
     1. Select the same region as your Azure virtual network.
-1. Specify the amount of base capacity you require, as well as any additional capacity, then select next.
+1. Specify the amount of base capacity you require, and any additional capacity, then select next.
 
     Increasing your SAN's base size will also increase its IOPS and bandwidth. Increasing additional capacity only increase its total size (base+additional) but won't increase IOPS or bandwidth, however, it's cheaper than increasing base.
 
@@ -79,7 +79,7 @@ New-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSANName $sanName 
 
 Now that you've configured the SAN itself, and created at least one volume group, you can create volumes.
 
-Volumes are essentially usable partitions of the SAN's total capacity, you must provision this total capacity as a volume in order to access it. Only the actual volumes themselves can be mounted and used, not the volume group.
+Volumes are usable partitions of the SAN's total capacity, you must provision this total capacity as a volume in order to access it. Only the actual volumes themselves can be mounted and used, not the volume group.
 
 # [Portal](#tab/azure-portal)
 
