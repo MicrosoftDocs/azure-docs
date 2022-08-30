@@ -14,20 +14,27 @@ ms.topic: how-to
 
 Network connections determine the region into which dev boxes are deployed and allow them to be connected to your existing virtual networks. 
 
+Plan network connectivity for dev boxes
+
+
+## Permissions 
+
+To manage a network connection, you need both:
+- Owner or Contributor permissions on an Azure Subscription or a specific resource group.
+- Network Contributor permissions on an existing virtual network (owner or contributor) or permission to create a new virtual network and subnet.
+
+## Create a vnet and subnet
+To perform the steps in this section, you must have an existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md) to create them. 
+## Configure firewall
+If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
+
+## Create a network connection
+The following steps show you how to create and configure a network connection in Microsoft Dev Box.  
+### Types of Azure Active Directory Join
 The DevBox service requires a configured and working Hybrid AD join or Azure AD join. 
 •	[Plan your hybrid Azure Active Directory join deployment - Microsoft Entra | Microsoft Docs]https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-plan
 •	[Plan your Azure Active Directory join deployment - Microsoft Entra | Microsoft Docs]https://docs.microsoft.com/en-us/azure/active-directory/devices/azureadjoin-plan
 
-
-
-
-
-
-The following steps show you how to create and configure a network connection in Microsoft Dev Box.  
-
-To perform the steps in this section, you must have an existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md) to create them. 
-
-If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -95,3 +102,9 @@ After creation, several health checks are run on the network. You can view the s
 :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connection-grid-populated.png" alt-text="Screenshot showing the status of a network connection.":::
 
 To resolve any errors, refer to the [Troubleshoot Azure network connections](/windows-365/enterprise/troubleshoot-azure-network-connection).
+
+
+## Detach a network connection from a dev center
+
+
+
