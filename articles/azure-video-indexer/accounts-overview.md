@@ -35,12 +35,12 @@ With a trial account, you don't have to set up an Azure subscription. When creat
 
 ## Create accounts
 
-* ARM accounts:  **The recommended paid account type is the ARM-based account**.  
+* ARM accounts: **The recommended paid account type is the ARM-based account**. Make sure you are signed in with the correct domain to the [Azure Video Indexer website](https://www.videoindexer.ai/). For details, see [Switch tenants][switch-tenants-portal.md].  
 
     * You can create an Azure Video Indexer **ARM-based** account through one of the following:
     
-      1. [Azure Video Indexer portal](https://aka.ms/vi-portal-link)
-      2. [Azure portal](https://portal.azure.com/#home)
+      1. The [Azure Video Indexer website](https://aka.ms/vi-portal-link)
+      2. The [Azure portal](https://portal.azure.com/#home)
       
     For the detailed description, [Get started with Azure Video Indexer in Azure portal](create-account-portal.md).
 * Upgrade a trial account to an ARM-based account and [import your content for free](import-content-from-trial.md).  
