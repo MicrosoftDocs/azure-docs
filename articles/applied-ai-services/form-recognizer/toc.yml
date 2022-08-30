@@ -23,7 +23,7 @@ items:
     displayName: quota, tier, throttle, max, adjustment, request, support, ocr
     href: service-limits.md
   - name: What's new
-    displayName: changelog, release, update, preview, beta, package
+    displayName: changelog, release, update, preview, beta, package, ga
     href: whats-new.md
   - name: Form Recognizer FAQ
     displayName: storage, security, privacy, help, support, version, development, migrate, migration
