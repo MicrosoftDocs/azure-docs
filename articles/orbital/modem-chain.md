@@ -12,17 +12,17 @@ ms.author: hrshelar
 
 # Configure the modem chain for your channels
 
-The Azure Orbital Ground Station service implements modem and virtual RF functionality in a variety of options for you to choose from. The two options are managed modem or virtual RF delivery and these are specified on a per channel basis. See Ground Station Contact Profile to learn more on channels and links.
+You have the flexibility to choose between managed modem or virtual RF functionality using the Azure Orbital Ground Station service. These operational modes are specified on a per channel basis in the contact profile. See [ground station contact profile](concepts-contact-profile.md) to learn more on channels and links.
 
 ## Managed modems vs virtual RF delivery
 
-We recommend taking advantage of Orbital Ground Station's managed modem functionality if possible. The modem is managed by the service and is inserted between your endpoint and the incoming or outgoing virtual RF stream for each pass. You can focus on mission operations while letting Orbital take care of maintaining the modem. Here you have the option to specify the modem setup or leverage one of the in-built named modem configurations for the most commonly used public satellites such as Aqua. This is described in more detail below.
+We recommend taking advantage of Orbital Ground Station's managed modem functionality if possible. The modem is managed by the service and is inserted between your endpoint and the incoming or outgoing virtual RF stream for each pass. You can specify the modem setup using a modem configuration file or apply one of the in-built named modem configurations for the most commonly used public satellites such as Aqua. 
 
-If you wish to have tighter control on the modem setup or bring your own then you should choose to use virtual RF delivery. Here Orbital Ground Station will connect to your endpoint in the contact profile and you will receive virtual RF for downlink and be expected to provide virtual RF for uplink.
+Use virtual RF delivery If you wish to have tighter control on the modem setup or bring your own modem to the resource group. Orbital Ground Station will connect to your channel endpoint specified in the contact profile.
 
 ## Configuring the channel
 
-There are 4 parameters related to modem configurations. The table below shows you how to configure these parameters.
+The table below shows you how to configure the modem or virtual RF parameters.
 
 | Parameter                 | Options                                                                     |
 |---------------------------|-----------------------------------------------------------------------------|
@@ -35,23 +35,20 @@ There are 4 parameters related to modem configurations. The table below shows yo
 > Endpoint specified for the channel will apply to whichever option is selected. Please review [how to prepare network](prepare-network.md) for more details on setting up endpoints.  
 
 ### For full-duplex cases
-
 Use the same modem config file in uplink and downlink channels for full-duplex communications in the same band.
 
 ### How to input the modem config
-
-The modem config can be entered when creating a contact profile object or can be added and modified in an existing contact profile object. 
+You can enter the modem config when creating a contact profile object or add it in later. Modifications to existing modem configs are also allowed.
 
 #### Entering the modem config using the API
-If you are using the API then then the modem config should be a JSON escaped raw save file from the software modem. 
+Enter the modem config as a JSON escaped string from the desired modem config file when using the API.
 
 #### Entering the modem config using the portal
-If you are using the portal select 'Raw XML' and than *paste the modem config as-is* into the field shown below when entering channel details at time of contact profile creation. 
+Select 'Raw XML' and then **paste the modem config raw (without JSON escapement)**  into the field shown below when entering channel details using the portal. 
 
 :::image type="content" source="media/azure-ground-station-modem-config-portal-entry.png" alt-text="Screenshot of entering a modem configuration into the contact profile object." lightbox="media/azure-ground-station-modem-config-portal-entry.png":::
 
 ### Named modem configuration
-
 We currently support the following named modem configurations. 
 
 | Public Satellite Service | Named modem string | Note |
@@ -63,8 +60,7 @@ We currently support the following named modem configurations.
 > We recommend using the Aqua Direct Broadcast modem configuration when testing with Aqua. 
 
 #### Specifying a named modem configuration using the API
-
-If you are using the API then enter the named modem string into the demodulationConfiguration parameter.
+Enter the named modem string into the demodulationConfiguration parameter when using the API.
 
 ```javascript
 {
@@ -108,13 +104,13 @@ If you are using the API then enter the named modem string into the demodulation
 
 #### Specifying a named modem configuration using the portal
 
-If you are using the portal select 'Preset Named Modem Configuration' and chose a configuration.
+Select 'Preset Named Modem Configuration'and chose a configuration as shown below when entering channel details using the portal.
 
 :::image type="content" source="media/azure-ground-station-named-modem-example.png" alt-text="Screenshot of entering a modem configuration into the contact profile object." lightbox="media/azure-ground-station-named-modem-example.png":::
 
 ### Using virtual RF
 
-Leave the modulationConfiguration or demodulationConfiguration parameters blank to use the virtual RF delivery feature. Azure Orbital Ground Station leverages the [Digital Intermediate Frequency Interoperability](https://dificonsortium.org/) or DIFI format for transport of virtual RF. 
+Leave the modulationConfiguration or demodulationConfiguration parameters blank to use the virtual RF delivery feature. Azure Orbital Ground Station uses the [Digital Intermediate Frequency Interoperability](https://dificonsortium.org/) or DIFI format for transport of virtual RF. 
 
 >[!Note]
 >Azure Orbital Ground Station will provide an RF stream in accordance with the channel bandwidth setting to the endpoint for downlink.
