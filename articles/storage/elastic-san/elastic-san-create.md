@@ -126,11 +126,3 @@ Once your networking has been configured, you can begin connecting volumes to yo
 1. Navigate to your SAN and select **Volumes**.
 1. Select the volume you'd like to connect to and select **Connect**.
 1. Copy the PowerShell commands provided and run them as an Administrator in a shell on your Azure VM.
-
-
-You've now deployed and configured an elastic SAN.
-
-# Next steps
-
-Connect an Elastic SAN volume to a client.
-
