@@ -8,11 +8,9 @@ ms.date: 08/18/2022
 
 # Physical server to Azure disaster recovery architecture – Modernized 
 
->[!Note] 
->The information in this article applies to Azure Site Recovery - Preview. For information about configuration server requirements in Classic releases, see [Physical server to Azure disaster recovery architecture](/azure/site-recovery/physical-azure-architecture).  
-
-
 This article describes the architecture and processes used when you replicate, fail over, and recover physical Windows and Linux servers between an on-premises site and Azure, using the [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) service. 
+
+For information about configuration server requirements in Classic releases, see [Physical server to Azure disaster recovery architecture](/azure/site-recovery/physical-azure-architecture).  
 
 >[!Note]
 >Ensure you create a new Recovery Services vault for setting up the ASR replication appliance. Don't use an existing vault. 

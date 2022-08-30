@@ -9,7 +9,7 @@ ms.custom: MVC
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
 
-This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the Modernized VMware/Physical machine protection expereince.
+This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the Modernized VMware/Physical machine protection experience.
 
 For information on how to set up disaster recovery in Azure Site Recovery Classic releases, see [the tutorial](vmware-azure-tutorial.md).
 

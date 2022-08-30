@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: v-pgaddala
-ms.date: 08/18/2022
+ms.date: 08/30/2022
 ---
 
 # About the Mobility service for VMware VMs and physical servers
@@ -366,7 +366,7 @@ Syntax | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime 
 `/InstallLocation`| Optional. Specifies the Mobility service installation location (any folder).
 `/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
 `/Silent`| Optional. Specifies whether to run the installer in silent mode.
-`/CSType`| Mandatory. Used to define Modernized or legacy architecture. (CSPrime or CSLegacy)
+`/CSType`| Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy)
 
 #### Registration settings
 
@@ -374,7 +374,7 @@ Setting | Details
 --- | ---
 Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime >`
 `/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-`/CSType` |  Mandatory. Used to define Modernized or legacy architecture. (CSPrime or CSLegacy).
+`/CSType` |  Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy).
 
 
 ### Linux machine
@@ -407,7 +407,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
     `-d` | Optional. Specifies the Mobility service installation location: `/usr/local/ASR`.
     `-v` | Mandatory. Specifies the platform on which Mobility service is installed. <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.
     `-q` | Optional. Specifies whether to run the installer in silent mode.
-    `-c` | Mandatory. Used to define Modernized or legacy architecture. (CSPrime or CSLegacy).
+    `-c` | Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy).
 
 #### Registration settings
 

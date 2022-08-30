@@ -5,7 +5,7 @@ author: v-pgaddala
 ms.author: v-pgaddala
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/14/2020
+ms.date: 08/30/2022
 ms.custom: subject-rbac-steps
 ---
 # Replicate on-premises machines by using private endpoints
@@ -13,6 +13,9 @@ ms.custom: subject-rbac-steps
 Azure Site Recovery allows you to use [Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints to replicate
 your on-premises machines to a virtual network in Azure. Private endpoint access to
 a recovery vault is supported in all Azure Commercial & Government regions.
+
+>[!Note]
+>Automatic upgrades would not be supported for Private Endpoints. [Learn more](upgrade-mobility-service-modernized.md).
 
 This article describes how to complete the following steps:
 
