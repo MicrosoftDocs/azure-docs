@@ -232,6 +232,7 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 > [!IMPORTANT]
 > In both GitHub and Azure DevOps, make sure that you keep the trigger path and deployment path directories consistent.
 >
+
 ## Edit or delete content in your repository
 
 After you've successfully created a connection to your source control repository, anytime that content in that repository is modified or added, the deployment workflow runs again and deploys all content in the repository to all connected Microsoft Sentinel workspaces.

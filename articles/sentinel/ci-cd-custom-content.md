@@ -13,7 +13,7 @@ ms.custom: template-concept
 
 # Manage custom content with Microsoft Sentinel repositories (Public preview)
 
-The Microsoft Sentinel repositories feature provides a central experience for the deployment and management of Sentinel content as code. Repositories allows connections to an external source control for continuous integration / continuous delivery (CI/CD).This automation removes the burden of manual processes to update and deploy your custom content across workspaces. For more information on Sentinel content, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
+The Microsoft Sentinel repositories feature provides a central experience for the deployment and management of Sentinel content as code. Repositories allow connections to an external source control for continuous integration / continuous delivery (CI/CD). This automation removes the burden of manual processes to update and deploy your custom content across workspaces. For more information on Sentinel content, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
 
 > [!IMPORTANT]
 > The Microsoft Sentinel **Repositories** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -23,7 +23,7 @@ The Microsoft Sentinel repositories feature provides a central experience for th
 
 Microsoft Sentinel repositories require careful planning to ensure you have the proper permissions from your workspace to the repo you want connected. Only connections to GitHub and Azure DevOps repositories with contributor access are currently supported. The Microsoft Sentinel application will need authorization to your repo and have Actions enabled for GitHub and Pipelines enabled for Azure DevOps. 
 
-Repositories requires an **Owner** role in the resource group that contains your Microsoft Sentinel workspace. This role is required to create the connection between Microsoft Sentinel and your source control repository. If you are unable to use the Owner role in your environment, you can instead use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
+Repositories require an **Owner** role in the resource group that contains your Microsoft Sentinel workspace. This role is required to create the connection between Microsoft Sentinel and your source control repository. If you're' unable to use the Owner role in your environment, you can instead use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
 
 If you find content in a public repository where you *aren't* a contributor, you'll need to get that content into your repo first. You can do that with an import, fork, or clone of the content to a repo where you're a contributor. Then you can connect your repo to your Sentinel workspace. For more information, see [Deploy custom content from your repository](ci-cd.md).
 
