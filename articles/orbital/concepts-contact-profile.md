@@ -119,18 +119,25 @@ Look at the example below to see how to specify an RHCP channel and an LHCP chan
 
 We recommend taking advantage of Orbital's GSaaS software modem functionality if possible. This modem is managed by the service and is inserted between your endpoint and the incoming or outgoing virtual RF stream per channel. We have a library of modems that will be available in the marketplace for you to utilize. If there is no modem that can be used with your application then utilize the virtual RF delivery feature to bring your own modem.
 
+You can use the managed modem feature in two ways
+
+1. Bring your own modem configuration. This is done putting the configuration file of a modem in the channel parameters.
+2. Use a named modem. Choose from one of the stored configs in the service to get operational faster with commmon public spacecrafts.
+
 There are 4 parameters related to modem configurations. The table below shows you how to configure these parameters.
 
 | Parameter                 | Options                                                                     |
 |---------------------------|-----------------------------------------------------------------------------|
-| modulationConfiguration   | 1. Null for virtual RF<br />2. JSON escaped modem config for software modem |
-| demodulationConfiguration | 1. Null for virtual RF<br />2. JSON escaped modem config for software modem |
+| modulationConfiguration   | 1. Null for virtual RF<br />2. JSON escaped modem config for software modem <br /> 3. Named modem string |
+| demodulationConfiguration | 1. Null for virtual RF<br />2. JSON escaped modem config for software modem <br /> 3. Named modem string |
 | encodingConfiguration     | Null (not used)                                                             |
 | decodingConfiguration     | Null (not used)                                                             |
 
 Use the same modem config file in uplink and downlink channels for full-duplex communications in the same band.
 
 The modem config should be a JSON escaped raw save file from a software modem. Please see the marketplace for modem options.
+
+
 
 ## Modifying or deleting a contact profile
 
