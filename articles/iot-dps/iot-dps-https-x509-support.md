@@ -12,7 +12,9 @@ manager: lizross
 
 # How to use X.509 certificates over HTTPS without an SDK
 
-In this how-to article, you'll provision a device using x-509 certificates over HTTPS without using a an Azure IoT DPS device SDK. Most languages provide libraries to send HTTP requests, but, rather than focus on a specific language, in this article, you'll use the [cURL](https://en.wikipedia.org/wiki/CURL) command-line tool to send and receive over HTTPS.
+In this how-to article, you'll provision a device using x.509 certificates over HTTPS without using a an Azure IoT DPS device SDK. Most languages provide libraries to send HTTP requests, but, rather than focus on a specific language, in this article, you'll use the [cURL](https://en.wikipedia.org/wiki/CURL) command-line tool to send and receive over HTTPS.
+
+For this article, you can use either an [individual enrollment](concepts-service.md#individual-enrollment) or an [enrollment group](concepts-service.md#enrollment-group) to provision through DPS. After installing the prerequisites, follow the instructions in [Create a device certificate](#create-a-device-certificate) to create either a device certificate or a certificate chain. Then complete either [Use individual enrollment](#use-an-individual-enrollment) or [Use an enrollment group](#use-an-enrollment-group) before continuing on to to register (provision) your device with DPS.
 
 ## Prerequisites
 
@@ -23,10 +25,6 @@ In this how-to article, you'll provision a device using x-509 certificates over 
 * Install [Python 3.7](https://www.python.org/downloads/) or later installed on your machine. You can check your version of Python by running `python --version`.
 
 * Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
-
-## Overview
-
-This article shows how to provision a device that uses x.509 certificate attestation using HTTPS requests via the cURL command-line tool.
 
 ## Create a device certificate
 
@@ -145,13 +143,27 @@ When you're finished, you should have the following files:
 
 If you want to create a new individual enrollment to use for this article, you can use the [az iot dps enrollment create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-create) command.
 
-The following command creates an individual enrollment entry with the default allocation policy for your DPS instance using the device certificate you specify. If the device certificate is self-signed, this will be a single certificate. If the device certificate is signed by another certificate, this will be the entire certificate chain up to and including at least one signing certificate that has been verified with DPS.
+The following command creates an individual enrollment entry with the default allocation policy for your DPS instance using the device certificate you specify.
 
 Substitute the name of your resource group and DPS instance. The enrollment ID is the registration ID for your device and, for X.509 enrollments, must match the subject common name (CN) of the device certificate.
 
 ```azurecli
 az iot dps enrollment create -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --attestation-type x509 --certificate-path {path to your certificate}
 ```
+
+* Substitute the name of your resource group and DPS instance.
+
+* The enrollment ID is the registration ID for your device and, for X.509 enrollments, must match the subject common name (CN) of the device certificate.
+
+  * If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the enrollment ID is my-x509-device.
+
+  * If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain), the enrollment ID is device-01.
+
+* The certificate path is the path to your device certificate.
+
+  * If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the filename is *device-cert.pem*.
+
+  * If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain), the filename is *certs/device-01.cert.pem*.
 
 > [!NOTE]
 > If you're using Cloud Shell to run Azure CLI commands, you can use the upload button to upload your certificate file to your cloud drive before you run the command.
