@@ -34,7 +34,7 @@ The following diagram outlines the basic architectural path that enables the Med
 
 ### Data processing
 
-- Step 5 represents the data flow from a device to an event hub and is processed through the five parts of the MedTech service.
+- Step 5 represents the data flow from a device to an event hub and the way it's processed through the five parts of the MedTech service.
 
 - Step 6 demonstrates the path to verify processed data sent from MedTech service to the FHIR service.
 

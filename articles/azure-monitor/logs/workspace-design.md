@@ -15,7 +15,7 @@ While a single [Log Analytics workspace](log-analytics-workspace-overview.md) ma
 ## Design strategy
 Your design should always start with a single workspace since this reduces the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace, and multiple services and data sources can send data to the same workspace. As you identify criteria to create additional workspaces, your design should use the fewest number that will match your particular requirements.
 
-Designing a workspace configuration includes evaluation of multiple criteria, some of which may in conflict. For example, you may be able to reduce egress charges by creating a separate workspace in each Azure region, but consolidating into a single workspace might allow you to reduce charges even more with a commitment tier. Evaluate each of the criteria below independently and consider your particular requirements and priorities in determining which design will be most effective for your particular environment.
+Designing a workspace configuration includes evaluation of multiple criteria, some of which may be in conflict. For example, you may be able to reduce egress charges by creating a separate workspace in each Azure region, but consolidating into a single workspace might allow you to reduce charges even more with a commitment tier. Evaluate each of the criteria below independently and consider your particular requirements and priorities in determining which design will be most effective for your particular environment.
 
 
 ## Design criteria
