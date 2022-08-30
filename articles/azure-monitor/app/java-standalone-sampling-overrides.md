@@ -118,6 +118,31 @@ If no sampling overrides match:
   [top-level sampling configuration](./java-standalone-config.md#sampling) is used.
 * If this is not the first span in the trace, then the parent sampling decision is used.
 
+> [!NOTE]
+> Starting from 3.4.0-BETA, sampling overrides do not apply to "standalone" telemetry by default. Standalone telemetry
+> is any telemetry that is not associated with a request, e.g. startup logs.
+> You can make a sampling override apply to standalone telemetry by including the attribute
+> `includingStandaloneTelemetry` in the sampling override, e.g.
+> ```json
+> {
+>   "connectionString": "...",
+>   "preview": {
+>     "sampling": {
+>       "overrides": [
+>         {
+>           "telemetryKind": "dependency",
+>           "includingStandaloneTelemetry": true,
+>           "attributes": [
+>             ...
+>           ],
+>           "percentage": 0
+>         }
+>       ]
+>     }
+>   }
+> }
+> ```
+
 ## Example: Suppress collecting telemetry for health checks
 
 This will suppress collecting telemetry for all requests to `/health-checks`.
