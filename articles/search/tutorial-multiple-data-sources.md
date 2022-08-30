@@ -88,7 +88,7 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
 1. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md) named **hotel-rooms** to store the sample hotel room JSON files. You can set the Public Access Level to any of its valid values.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Create a blob container" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Create a blob container" border="true":::
 
 1. After the container is created, open it and select **Upload** on the command bar. Navigate to the folder containing the sample files. Select all of them and then select **Upload**.
 
