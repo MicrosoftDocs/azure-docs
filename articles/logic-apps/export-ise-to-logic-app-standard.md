@@ -110,7 +110,7 @@ Consider the following recommendations when you select logic apps for export:
 
      ![Screenshot showing 'Review export status' section and validation status for logic app with error.](media/export-ise-to-logicapp-standard/select-back-button-remove-app.png)
 
-   - Logic apps that pass validation or have warnings are still eligible for export. If all logic apps pass validation, with or without warnings, the **Export** button is available. To continue, select **Export** if all apps pass, or select **Export with warnings** if warnings exist.
+   - Logic apps that pass validation with or without warnings are still eligible for export. To continue, select **Export** if all apps validate successfully, or select **Export with warnings** if apps have warnings.
 
      For example, **SourceLogicApp3** has a warning, but you can still continue to export:
 
@@ -120,17 +120,15 @@ Consider the following recommendations when you select logic apps for export:
 
    | Validation icon | Validation status |
    |-----------------|-------------------|
-   | ![Failed icon](media/export-ise-to-logicapp-standard/failed-icon.png) | Item failed validation – export can't continue. The item that failed validation will be automatically expanded and will provide a text explaining the validation failure reason. |
-   | ![Success icon](media/export-ise-to-logicapp-standard/success-icon.png) | Item passed validation – export can continue and no other remediation is required. |
-   | ![Warning icon](media/export-ise-to-logicapp-standard/warning-icon.png) | Item passed validation with warning – the export can continue, but some post export remediation will be required. The item that generated the warning will be automatically expanded and will provide text explaining the required post export remediation |
+   | ![Success icon](media/export-ise-to-logicapp-standard/success-icon.png) | Item passed validation, so export can continue without problems to resolve. |
+   | ![Failed icon](media/export-ise-to-logicapp-standard/failed-icon.png) | Item failed validation, so export can't continue. <br><br>The validation entry for the failed item automatically appears expanded and provides information about the validation failure. |
+   | ![Warning icon](media/export-ise-to-logicapp-standard/warning-icon.png) | Item passed validation with a warning, but export can continue with required post-export resolution. <br><br>The validation entry for the item with a warning automatically appears expanded and provides information about the warning and required post-export remediation. |
 
+1. After you select **Export** or **Export with warnings**, you have to provide a location for the new Standard logic app project folder.
 
-![Graphical user interface](media/export-ise-to-logicapp-standard/6df3b0eb7fffb476f468def053ad630f.png)
+   ![Graphical user interface](media/export-ise-to-logicapp-standard/20f144d4fa87fe2f4932d6ceb9d9caf4.png)
 
-1.  Once the logic apps are ready to be exported, you must provide a location for the new VS Code project folder and click on export (or export with warnings) to complete the export
-
-    ![Graphical user interface](media/export-ise-to-logicapp-standard/20f144d4fa87fe2f4932d6ceb9d9caf4.png)
-    Alternatively, if your logic app have managed connections and you want to deploy it, you must also provide an existing resource group where the managed connections will be deployed. Notice that at this stage, connection credentials will not be cloned from the original logic app, so you will need to reauthenticate the connections after export, before your logic app workflows can work.
+   Alternatively, if your logic app have managed connections and you want to deploy it, you must also provide an existing resource group where the managed connections will be deployed. Notice that at this stage, connection credentials will not be cloned from the original logic app, so you will need to reauthenticate the connections after export, before your logic app workflows can work.
 
     ![Graphical user interface](media/export-ise-to-logicapp-standard/dedaf1ca05c4cb04dc5d1477548c09f4.png)
 
