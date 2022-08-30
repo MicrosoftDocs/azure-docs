@@ -27,9 +27,9 @@ This article explains how you can use an Azure Resource Manager (ARM) template t
 
 While creating the configuration, it is important to note that there are different scopes and each will have unique properties in their creation template. Make sure you are using the right one.
 
-### Host and OS image 
-
 For more information about this Maintenance Configuration template, see [maintenanceConfigurations](/azure/templates/microsoft.maintenance/maintenanceconfigurations?tabs=json#template-format).
+
+### Host and OS image 
 
 ```json
 {
