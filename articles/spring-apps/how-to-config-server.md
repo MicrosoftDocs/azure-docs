@@ -20,12 +20,12 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 This article shows you how to configure a managed Spring Cloud Config Server in Azure Spring Apps service.
 
-Spring Cloud Config Server provides server and client-side support for an externalized configuration in a distributed system. The Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config).
+Spring Cloud Config Server provides server and client-side support for an externalized configuration in a distributed system. The Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config documentation](https://spring.io/projects/spring-cloud-config).
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- An already provisioned and running Azure Spring Apps service of basic or standard tier. To set up and launch an Azure Spring Apps service, see [Quickstart: Launch a Java Spring application by using the Azure CLI](./quickstart.md). Spring Cloud Config Server isn't applicable to enterprise tier.
+- An already provisioned and running Azure Spring Apps service of basic or standard tier. To set up and launch an Azure Spring Apps service, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md). Spring Cloud Config Server isn't applicable to enterprise tier.
 
 ## Restriction
 
@@ -52,38 +52,38 @@ Azure Spring Apps supports Azure DevOps, GitHub, GitLab, and Bitbucket for stori
 Additionally, some configurable properties are available only for certain types. The following subsections list the properties for each repository type.
 
 > [!NOTE]
-> Config Server takes `master` (on Git) as the default label if you don't specify one. However, GitHub has recently changed the default branch from `master` to `main`. To avoid Azure Spring Apps Config Server failure, be sure to pay attention to the default label when setting up Config Server with GitHub, especially for newly-created repositories.
+> Config Server takes *master* (on Git) as the default label if you don't specify one. However, GitHub has recently changed the default branch from *master* to *main*. To avoid Azure Spring Apps Config Server failure, be sure to pay attention to the default label when setting up Config Server with GitHub, especially for newly-created repositories.
 
 ### Public repository
 
-When you use a public repository, your configurable properties are more limited.
+When you use a public repository, your configurable properties are more limited than with a private repository.
 
-All configurable properties that are used to set up the public Git repository are listed in the following table:
+The following table lists the configurable properties that you can use to set up a public Git repository.
 
 > [!NOTE]
 > Using a hyphen (-) to separate words is the only naming convention that's currently supported. For example, you can use *default-label*, but not *defaultLabel*.
 
 | Property        | Required | Feature                                                                                                                         |
 |:----------------|----------|---------------------------------------------------------------------------------------------------------------------------------|
-| `uri`           | Yes      | The URI of the Git repository that's used as the Config Server back end begins with *http://*, *https://*, *git@*, or *ssh://*. |
-| `default-label` | No       | The default label of the Git repository, should be the *branch name*, *tag name*, or *commit-id* of the repository.             |
+| `uri`           | Yes      | The URI of the Git repository that's used as the Config Server back end. Should begin with `http://`, `https://`, `git@`, or `ssh://`. |
+| `default-label` | No       | The default label of the Git repository. Should be the branch name, tag name, or commit ID of the repository.             |
 | `search-paths`  | No       | An array of strings that are used to search subdirectories of the Git repository.                                               |
 
 ### Private repository with SSH authentication
 
-All configurable properties used to set up private Git repository with SSH are listed in the following table:
+The following table lists the configurable properties that you can use to set up a private Git repository with SSH.
 
 > [!NOTE]
 > Using a hyphen (-) to separate words is the only naming convention that's currently supported. For example, you can use *default-label*, but not *defaultLabel*.
 
 | Property                   | Required | Feature                                                                                                                                                              |
 |:---------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `uri`                      | Yes      | The URI of the Git repository used as the Config Server back end, should be started with *http://*, *https://*, *git@*, or *ssh://*.                                 |
-| `default-label`            | No       | The default label of the Git repository, should be the *branch name*, *tag name*, or *commit-id* of the repository.                                                  |
+| `uri`                      | Yes      | The URI of the Git repository used as the Config Server back end. Should begin with `http://`, `https://`, `git@`, or `ssh://`.                                 |
+| `default-label`            | No       | The default label of the Git repository. Should be the branch name, tag name, or commit ID of the repository.                                                  |
 | `search-paths`             | No       | An array of strings used to search subdirectories of the Git repository.                                                                                             |
-| `private-key`              | No       | The SSH private key to access the Git repository, required when the URI starts with *git@* or *ssh://*.                                                            |
-| `host-key`                 | No       | The host key of the Git repository server shouldn't include the algorithm prefix as covered by `host-key-algorithm`.                                                 |
-| `host-key-algorithm`       | No       | The host key algorithm should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. *Required* only if `host-key` exists. |
+| `private-key`              | No       | The SSH private key to access the Git repository. Required when the URI starts with `git@` or `ssh://`.                                                            |
+| `host-key`                 | No       | The host key of the Git repository server. Shouldn't include the algorithm prefix as covered by `host-key-algorithm`.                                                 |
+| `host-key-algorithm`       | No       | The host key algorithm. Should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. Required only if `host-key` exists. |
 | `strict-host-key-checking` | No       | Indicates whether the Config Server instance will fail to start when using the private `host-key`. Should be *true* (default value) or *false*.                      |
 
 > [!NOTE]
@@ -91,22 +91,22 @@ All configurable properties used to set up private Git repository with SSH are l
 
 ### Private repository with basic authentication
 
-All configurable properties used to set up a private Git repository with basic authentication are listed below.
+The following table lists the configurable properties that you can use to set up a private Git repository with basic authentication. 
 
 > [!NOTE]
 > Using a hyphen (-) to separate words is the only naming convention that's currently supported. For example, use *default-label*, not *defaultLabel*.
 
 | Property        | Required | Feature                                                                                                                                                         |
 |:----------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `uri`           | Yes      | The URI of the Git repository that's used as the Config Server back end should be started with *http://*, *https://*, *git@*, or *ssh://*.                      |
-| `default-label` | No       | The default label of the Git repository, should be the *branch name*, *tag name*, or *commit-id* of the repository.                                             |
+| `uri`           | Yes      | The URI of the Git repository that's used as the Config Server back end. Should begin with `http://`, `https://`, `git@`, or `ssh://`.                      
+| `default-label` | No       | The default label of the Git repository. Should be the *branch name*, *tag name*, or *commit-id* of the repository.                                             |
 | `search-paths`  | No       | An array of strings used to search subdirectories of the Git repository.                                                                                        |
-| `username`      | No       | The username that's used to access the Git repository server, required when the Git repository server supports `Http Basic Authentication`.                   |
-| `password`      | No       | The password or personal access token used to access the Git repository server, required when the Git repository server supports `Http Basic Authentication`. |
+| `username`      | No       | The username that's used to access the Git repository server. Required when the Git repository server supports HTTP basic authentication.                   |
+| `password`      | No       | The password or personal access token used to access the Git repository server. Required when the Git repository server supports HTTP basic authentication. |
 
 > [!NOTE]
-> Many `Git` repository servers support the use of tokens rather than passwords for HTTP Basic Authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire shouldn't use token-based authentication with Azure Spring Apps.
-> GitHub has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for GitHub. For more information, see [Token authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
+> Many `Git` repository servers support the use of tokens rather than passwords for HTTP basic authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire shouldn't use token-based authentication with Azure Spring Apps.
+> GitHub has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for GitHub. For more information, see [Token authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
 ### Other Git repositories
 
@@ -130,7 +130,7 @@ All configurable properties used to set up Git repositories with a pattern are l
 | `repos."host-key-algorithm"`       | No             | The host key algorithm should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. Required only if `host-key` exists. |
 | `repos."strict-host-key-checking"` | No             | Indicates whether the Config Server instance will fail to start when using the private `host-key`. Should be *true* (default value) or *false*.                    |
 
-The following table shows some examples for the **Additional repositories** section. For more information, see [Pattern Matching and Multiple Repositories](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) in the Spring documentation.
+The following table shows some examples for the **Additional repositories** section. For more information, see the [Pattern Matching and Multiple Repositories section](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) of the Spring documentation.
 
 | Patterns                        | Description                                                                                                            |
 |:--------------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -176,7 +176,7 @@ Updating the configuration can take a few minutes. You should get a notification
 
    > [!CAUTION]
    > Some Git repository servers use a *personal-token* or an *access-token*, such as a password, for **Basic Authentication**. You can use that kind of token as a password in Azure Spring Apps because it will never expire. But for other Git repository servers, such as Bitbucket and Azure DevOps Server, the *access-token* expires in one or two hours. As a result, this approach isn't viable when you use those repository servers with Azure Spring Apps.
-   > GitHub has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for GitHub. For more information, see [Token authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
+   > GitHub has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for GitHub. For more information, see [Token authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
    - **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the setting under **Authentication** to open the **Edit Authentication** pane. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your **Private key**. Optionally, specify your **Host key** and **Host key algorithm**. Include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
@@ -217,8 +217,6 @@ Azure Spring Apps can access Git repositories that are public, secured by SSH, o
 Use the following steps to get your repo URL and credentials.
 
 1. In the Azure Repos portal for your project, select the **Clone** button:
-
-   :::image type="content" source="media/how-to-config-server/clone-button.png" lightbox="media/how-to-config-server/clone-button.png" alt-text="Screenshot of the Clone button on the Azure Repos portal for your project.":::
 
 1. Copy the clone URL from the textbox. This URL will typically be in the following form:
 
@@ -261,7 +259,9 @@ Select **Reset** on the **Config Server** tab to erase your existing settings. D
 
 ## Config Server refresh
 
-When properties are changed, services consuming those properties must be notified before changes can be made. The default solution for Spring Cloud Config is to manually trigger the [refresh event](https://spring.io/guides/gs/centralized-configuration/), which may not be feasible if there are lots of app instances. Instead, you can automatically refresh values from the config server by letting the config client poll for changes based on a refresh internal, as follows:
+When properties are changed, services consuming those properties must be notified before changes can be made. The default solution for Spring Cloud Config is to manually trigger the refresh event, which may not be feasible if there are many app instances. For more information, see [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/)
+
+Instead, you can automatically refresh values from the config server by letting the config client poll for changes based on a refresh internal, as follows:
 
 1. Register a scheduled task to refresh the context in a given interval.
 
