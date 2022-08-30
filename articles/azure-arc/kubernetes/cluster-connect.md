@@ -49,8 +49,8 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
   |`*.servicebus.windows.net` | 443 |
   |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
 
-> [!NOTE]
-> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
+  > [!NOTE]
+  > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
 
 - Replace the placeholders and run the below command to set the environment variables used in this document:
 
@@ -77,8 +77,8 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
   |`*.servicebus.windows.net` | 443 |
   |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
 
-> [!NOTE]
-> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
+  > [!NOTE]
+  > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
 
 - Replace the placeholders and run the below command to set the environment variables used in this document:
 
