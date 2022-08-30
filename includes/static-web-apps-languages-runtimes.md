@@ -47,7 +47,3 @@ The following example configuration demonstrates how to use the `apiRuntime` pro
   ...
 }
 ```
-
-### Python
-
-TODO
