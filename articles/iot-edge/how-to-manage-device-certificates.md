@@ -209,18 +209,34 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
    sudo iotedge config apply
    ```
 
+## Automatic certificate renewal
+
+IoT Edge has built-in ability to renew certificates before expiry.
+
+Certificates can only auto-renew if you have a certificate issuance method set, like EST. It must be configured per type of certificate. To configure, go to the relevant certificate configuration section in `config.toml` and add:
+
+```toml
+# To use auto renew with other types of certs, swap `edge_ca` with other certificate types
+# And put into the relevant section
+[edge_ca.auto_renew]
+rotate_key = true
+threshold = "80%" 
+retry = "4%"
+```
+
+Here:
+- `rotate_key` controls if the private key should be rotated.
+- `threshold` sets when IoT Edge should start renewing the certificate . It can be specified as:
+    - *Percentage* -  integer between `0` and `100` followed by `%`. Renewal starts relative to the certificate lifetime. For example, when set to `80%`, a certificate that is valid for 100 days begins renewal at 20 days before its expiry. 
+    - *Absolute time* - integer followed by `m` (minutes) or `d` (days). Renewal starts relative to the certificate expiration time. For example, when set to `4d` for 4 days or `10m` for 10 minutes, the certificate begins renewing at that time before expiry. To avoid unintentional misconfiguration where the `threshold` is bigger than the certificate lifetime, we recommend to use *percentage* instead whenever possible. 
+- `retry` controls how often renewal should be retried on failure. Like `threshold`, it can similarly be specified as a *percentage* or *absolute time* using the same format.
+
 :::moniker-end
 <!-- end iotedge-2020-11 -->
 
 ## Customize certificate lifetime
 
 IoT Edge automatically generates certificates on the device in several cases, including:
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates an **edge CA certificate**. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
-:::moniker-end
-<!-- end 1.2 -->
 
 <!-- 1.1. -->
 :::moniker range="iotedge-2018-06"
@@ -229,16 +245,34 @@ If you don't provide your own production certificates when you install and provi
 :::moniker-end
 <!-- end 1.1 -->
 
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates an **edge CA certificate**. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
+:::moniker-end
+<!-- end 1.2 -->
+
 For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
-For these two automatically generated certificates, you have the option of setting a flag in the config file to configure the number of days for the lifetime of the certificates.
+You have the option of setting a flag in the config file to configure the number of days for the lifetime of the certificates.
 
 >[!NOTE]
 >There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 30 day lifetime, but is automatically renewed before expiring. The auto-generated CA lifetime value set in the config file doesn't affect this certificate.
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
-Upon expiry after the specified number of days, IoT Edge has to be restarted to regenerate the edge CA certificate. The edge CA certificate won't be renewed automatically.
+### Renew Edge CA
+
+By default, IoT Edge automatically regenerates the Edge CA certificate when at 80% of the certificate lifetime. So for certificate with 90 day lifetime, IoT Edge automatically regenerates the Edge CA certificate at 72 days from issuance. 
+
+To configure the auto-renewal logic, add this part to the "Edge CA certificate" section in `config.toml`. 
+   
+```toml
+[edge_ca.auto_renew]
+rotate_key = true
+threshold = "70%"
+retry = "2%"
+```
+
 :::moniker-end
 <!-- end 1.2 -->
 
