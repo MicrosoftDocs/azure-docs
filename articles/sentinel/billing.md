@@ -192,7 +192,7 @@ Some of the data connectors, such as Microsoft 365 Defender and Defender for Clo
 | **Microsoft Defender for Cloud**                  | SecurityAlert (Defender for Cloud)             | 
 | **Microsoft Defender for IoT**          | SecurityAlert (Defender for IoT)     | 
 | **Microsoft 365 Defender**          | SecurityIncident | 
-||SecurityAlert| Free|
+||SecurityAlert|
 | **Microsoft Defender for Endpoint** | SecurityAlert (MDATP)          | 
 | **Microsoft Defender for Identity** | SecurityAlert (AATP)           | 
 | **Microsoft Defender for Cloud Apps**   | SecurityAlert (Defender for Cloud Apps)           | 
