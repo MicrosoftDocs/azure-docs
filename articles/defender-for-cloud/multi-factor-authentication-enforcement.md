@@ -61,7 +61,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
     ```kusto
     securityresources
      | where type == "microsoft.security/assessments"
-     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on your subscription"
+     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on subscriptions"
      | where properties.status.code == "Unhealthy"
     ```
 
