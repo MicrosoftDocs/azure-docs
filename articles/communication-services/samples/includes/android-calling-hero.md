@@ -24,8 +24,6 @@ The sample is a native Android application that uses the [Azure Communication Se
 
 Here's what the sample looks like:
 
-:::image type="content" source="../media/calling/landing-page-android.png" alt-text="Screenshot showing the landing page of the sample application.":::
-
 When you press the "Start new call" button, the Android application prompts you to enter your display name to use for the call.
 
 :::image type="content" source="../media/calling/pre-call-android.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
