@@ -3,14 +3,14 @@ title: Managed identity for storage accounts
 titleSuffix: Azure Cache for Redis
 description: Learn to Azure Cache for Redis
 author: flang-msft
+
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 08/29/2022
 ms.author: franlanglois
-
 ---
 
-# Managed identity for storage (Preview)
+# Managed identity for storage
 
 [Managed identities](../active-directory/managed-identities-azure-resources/overview.md) are a common tool used in Azure to help developers minimize the burden of managing secrets and sign-in information. Managed identities are useful when Azure services connect to each other. Instead of managing authorization between each service, [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) can be used to provide a managed identity that makes the authentication process more streamlined and secure.
 
@@ -54,13 +54,13 @@ To use managed identity, you must have a premium-tier cache.
    >
    :::image type="content" source="media/cache-managed-identity/basics.png" alt-text="create a premium azure cache":::
 
-1. Select the **Advanced** tab. Then, scroll down to **(PREVIEW) System assigned managed identity** and select **On**.
+1. Select the **Advanced** tab. Then, scroll down to **System assigned managed identity** and select **On**.
 
    :::image type="content" source="media/cache-managed-identity/system-assigned.png" alt-text="Advanced page of the form":::
 
-1. Complete the creation process. Once the cache has been created and deployed, open it, and select the **(PREVIEW) Identity** tab under the **Settings** section on the left.
+1. Complete the creation process. Once the cache has been created and deployed, open it, and select the **Identity** tab under the **Settings** section on the left.
 
-   :::image type="content" source="media/cache-managed-identity/identity-resource.png" alt-text="(Preview) Identity in the Resource menu":::
+   :::image type="content" source="media/cache-managed-identity/identity-resource.png" alt-text="Managed Identity in the Resource menu":::
   
 1. You see that a system-assigned **object ID** has been assigned to the cache **Identity**.
   
@@ -68,12 +68,12 @@ To use managed identity, you must have a premium-tier cache.
 
 ## Add system assigned identity to an existing cache
 
-1. Navigate to your Azure Cache for Redis resource from the Azure portal. Select **(PREVIEW) Identity**  from the Resource menu on the left.
+1. Navigate to your Azure Cache for Redis resource from the Azure portal. Select **Identity**  from the Resource menu on the left.
    > [!NOTE]
    > Managed identity functionality is only available in the Premium tier.
    >
 
-1. To enable a system-assigned identity, select the **System assigned (preview)** tab, and select **On** under **Status**. Select **Save** to confirm.
+1. To enable a system-assigned identity, select the **System assigned ()** tab, and select **On** under **Status**. Select **Save** to confirm.
 
    :::image type="content" source="media/cache-managed-identity/identity-save.png" alt-text="System assigned identity status is on":::
 
@@ -85,12 +85,12 @@ To use managed identity, you must have a premium-tier cache.
 
 ## Add a user assigned identity to an existing cache
 
-1. Navigate to your Azure Cache for Redis resource from the Azure portal. Select **(PREVIEW) Identity**  from the Resource menu on the left.
+1. Navigate to your Azure Cache for Redis resource from the Azure portal. Select **Identity**  from the Resource menu on the left.
    > [!NOTE]
    > Managed identity functionality is only available in the Premium tier.
    >
 
-1. To enable user assigned identity, select the **User assigned (preview)** tab and select **Add**.
+1. To enable user assigned identity, select the **User assigned** tab and select **Add**.
 
    :::image type="content" source="media/cache-managed-identity/identity-add.png" alt-text="User assigned identity status is on":::
 
@@ -100,7 +100,7 @@ To use managed identity, you must have a premium-tier cache.
    >
    :::image type="content" source="media/cache-managed-identity/choose-identity.png"  alt-text="new Object principal ID shown for user assigned identity":::
 
-1. You see the user-assigned identity listed in the **User assigned (preview)** pane.
+1. You see the user-assigned identity listed in the **User assigned** pane.
 
    :::image type="content" source="media/cache-managed-identity/identity-list.png"  alt-text="list of identity names":::
 
@@ -161,7 +161,7 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 
 1. Open the Azure Cache for Redis instance that has been assigned the Storage Blob Data Contributor role and go to the **Data persistence** on the Resource menu.
 
-2. Change the **Authentication Method** to **(PREVIEW) Managed Identity** and select the storage account you configured above. select **Save**.
+2. Change the **Authentication Method** to **Managed Identity** and select the storage account you configured above. select **Save**.
 
    :::image type="content" source="media/cache-managed-identity/data-persistence.png"  alt-text="data persistence pane with authentication method selected":::
 
@@ -181,7 +181,7 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 
    :::image type="content" source="media/cache-managed-identity/export-data.png"  alt-text="export data from the resource menu":::
 
-3. Under **Authentication Method**, choose **(PREVIEW) Managed Identity** and select **Import** or **Export**, respectively.
+3. Under **Authentication Method**, choose **Managed Identity** and select **Import** or **Export**, respectively.
 
 > [!NOTE]
 > It will take a few minutes to import or export the data.
