@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp, mode-api
 ---
 # Quickstart: Create a search index using the Azure.Search.Documents client library
 
-Use the [Azure.Search.Documents (version 11) client library](/dotnet/api/overview/azure/search.documents-readme) to create a .NET Core console application in C# that creates, loads, and queries a search index.
+Learn how to use the [Azure.Search.Documents (version 11) client library](/dotnet/api/overview/azure/search.documents-readme) to create a .NET Core console application in C# that creates, loads, and queries a search index.
 
 You can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) to start with a finished project or follow the steps in this article to create your own.
 
@@ -32,11 +32,10 @@ Before you begin, have the following tools and services:
 
 When setting up your project, you'll download the [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/).
 
-Azure SDK for .NET conforms to [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), which means .NET Framework 4.6.1 and .NET Core 2.0 as minimum requirements.
-
+Azure SDK for .NET conforms to [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), which means .NET Framework 4.6.1 and .NET Core 2.1 as minimum requirements.
 ## Set up your project
 
-Assemble service connection information, and then start Visual Studio to create a new Console App project that can run on .NET Core.
+Assemble service connection information, and then start Visual Studio to create a new Console App project that can run on. Select NET Core 3.1 for the run time..
 
 <a name="get-service-info"></a>
 
@@ -81,11 +80,11 @@ After the project is created, add the client library. The [Azure.Search.Document
 1. Create two clients: [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) creates the index, and [SearchClient](/dotnet/api/azure.search.documents.searchclient) loads and queries an existing index. Both need the service endpoint and an admin API key for authentication with create/delete rights.
 
    ```csharp
-   static void Main(string[] args)
-   {
-       string serviceName = "<YOUR-SERVICE-NAME>";
-       string indexName = "hotels-quickstart";
-       string apiKey = "<YOUR-ADMIN-API-KEY>";
+    static void Main(string[] args)
+    {
+        string serviceName = "<your-search-service-name>";
+        string apiKey = "<your-search-service-admin-api-key>";
+        string indexName = "hotels-quickstart";
 
         // Create a SearchIndexClient to send create/delete index commands
         Uri serviceEndpoint = new Uri($"https://{serviceName}.search.windows.net/");
@@ -94,6 +93,8 @@ After the project is created, add the client library. The [Azure.Search.Document
 
         // Create a SearchClient to load and query documents
         SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, credential);
+        . . . 
+    }
     ```
 
 ## 1 - Create an index
@@ -364,6 +365,16 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 
         Console.WriteLine();
     }
+
+    private static void WriteDocuments(AutocompleteResults autoResults)
+    {
+        foreach (AutocompleteItem result in autoResults.Results)
+        {
+            Console.WriteLine(result.Text);
+        }
+
+        Console.WriteLine();
+    }
     ```
 
 1. Create a **RunQueries** method to execute queries and return results. Results are Hotel objects. This sample shows the method signature and the first query. This query demonstrates the Select parameter that lets you compose the result using selected fields from the document.
@@ -374,7 +385,8 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
     {
         SearchOptions options;
         SearchResults<Hotel> response;
-
+        
+        // Query 1
         Console.WriteLine("Query #1: Search on empty term '*' to return all documents, showing a subset of fields...\n");
 
         options = new SearchOptions()
@@ -395,6 +407,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 1. In the second query, search on a term, add a filter that selects documents where Rating is greater than 4, and then sort by Rating in descending order. Filter is a boolean expression that is evaluated over [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fields in an index. Filter queries either include or exclude values. As such, there's no relevance score associated with a filter query. 
 
     ```csharp
+    // Query 2
     Console.WriteLine("Query #2: Search on 'hotels', filter on 'Rating gt 4', sort by Rating in descending order...\n");
 
     options = new SearchOptions()
@@ -414,6 +427,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 1. The third query demonstrates searchFields, used to scope a full text search operation to specific fields.
 
     ```csharp
+    // Query 3
     Console.WriteLine("Query #3: Limit search to specific fields (pool in Tags field)...\n");
 
     options = new SearchOptions()
@@ -432,6 +446,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 1. The fourth query demonstrates facets, which can be used to structure a faceted navigation structure. 
 
    ```csharp
+    // Query 4
     Console.WriteLine("Query #4: Facet on 'Category'...\n");
 
     options = new SearchOptions()
@@ -452,6 +467,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 1. In the fifth query, return a specific document. A document lookup is a typical response to OnClick event in a result set.
 
    ```csharp
+    // Query 5
     Console.WriteLine("Query #5: Look up a specific document...\n");
 
     Response<Hotel> lookupResponse;
@@ -463,12 +479,12 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 1. The last query shows the syntax for autocomplete, simulating a partial user input of "sa" that resolves to two possible matches in the sourceFields associated with the suggester you defined in the index.
 
    ```csharp
+    // Query 6
     Console.WriteLine("Query #6: Call Autocomplete on HotelName that starts with 'sa'...\n");
 
     var autoresponse = srchclient.Autocomplete("sa", "sg");
     WriteDocuments(autoresponse);
    ```
-
 1. Add **RunQueries** to Main().
 
     ```csharp
