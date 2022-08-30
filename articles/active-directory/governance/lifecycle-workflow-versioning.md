@@ -3,6 +3,7 @@ title: Workflow Versioning - Azure Active Directory
 description: An article discussing Lifecycle workflow versioning and history
 author: owinfreyATL
 ms.author: owinfrey
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual 

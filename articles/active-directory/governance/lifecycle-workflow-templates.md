@@ -3,6 +3,7 @@ title: Workflow Templates and categories - Azure Active Directory
 description: Conceptual article discussing workflow templates and categories with Lifecycle Workflows
 author: owinfreyATL
 ms.author: owinfrey
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual 

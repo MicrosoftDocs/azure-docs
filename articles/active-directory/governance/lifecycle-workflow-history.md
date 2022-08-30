@@ -3,6 +3,7 @@ title: Lifecycle Workflow History
 description: Conceptual article about Lifecycle Workflows reporting and history capabilities
 author: owinfreyATL
 ms.author: owinfrey
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual 

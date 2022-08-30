@@ -3,7 +3,7 @@ title: Manage workflow properties - Azure Active Directory
 description: This article guides a user to editing a workflow's properties using Lifecycle Workflows
 author: OWinfreyATL
 ms.author: owinfrey
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to 

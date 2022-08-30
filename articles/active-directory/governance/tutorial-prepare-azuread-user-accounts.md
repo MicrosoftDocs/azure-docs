@@ -3,7 +3,7 @@ title: 'Tutorial: Preparing user accounts for Lifecycle workflows (preview)'
 description: Tutorial for preparing user accounts for Lifecycle workflows (preview).
 services: active-directory
 author: amsliu
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial

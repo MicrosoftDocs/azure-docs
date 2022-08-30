@@ -19,7 +19,7 @@ ms.custom: template-tutorial
 This tutorial provides a step-by-step guide on how to automate pre-hire tasks with Lifecycle workflows using the Azure portal. 
 
 This pre-hire scenario will generate a temporary access pass for our new employee and send it via email to the user's new manager.  
-:::image type="content" source="media/tutorial-lifecycle-workflows/arch-2.png" alt-text="Architectural overview" lightbox="media/tutorial-lifecycle-workflows/arch-2.png":::
+:::image type="content" source="media/tutorial-lifecycle-workflows/lifecycle-workflows-architecture.png" alt-text="Architectural overview" lightbox="media/tutorial-lifecycle-workflows/lifecycle-workflows-architecture.png":::
 
 
 ##  Before you begin

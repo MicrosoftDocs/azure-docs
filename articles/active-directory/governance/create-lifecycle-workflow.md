@@ -3,6 +3,7 @@ title: Create a Lifecycle Workflow- Azure AD (preview)
 description: This article guides a user to creating a workflow using Lifecycle Workflows 
 author: OWinfreyATL
 ms.author: owinfrey
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to 
@@ -15,9 +16,6 @@ ms.custom: template-how-to
 Lifecycle Workflows allows for tasks associated with the lifecycle process to be run automatically for users as they move through their life cycle in your organization. Workflows are made up of:
  - tasks - Actions taken when a workflow is triggered.
  - execution conditions - Define the who and when of a workflow. That is, who (scope) should this workflow run against, and when (trigger) should it run.
-
-
-
 
 Workflows can be created and customized for common scenarios using templates, or you can build a template from scratch without using a template. Currently if you use the Azure portal, a created workflow must be based off a template. If you wish to create a workflow without using a template, you must create it using Microsoft Graph.
 

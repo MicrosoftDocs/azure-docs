@@ -3,6 +3,7 @@ title: Run a workflow on-demand - Azure Active Directory
 description: This article guides a user to running a workflow on demand using Lifecycle Workflows
 author: OWinfreyATL
 ms.author: owinfrey
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to 

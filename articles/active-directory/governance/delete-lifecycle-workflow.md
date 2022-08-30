@@ -2,8 +2,8 @@
 title: 'Delete a Lifecycle workflow - Azure Active Directory'
 description: Describes how to delete a Lifecycle Workflow using.
 services: active-directory
-author: owinfrey
-manager: karenhoran
+author: owinfreyATL
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
