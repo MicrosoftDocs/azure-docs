@@ -31,7 +31,7 @@ same_user = CommunicationUserIdentifier(new_user_id)
 
 #### API reference
 
-[CommunicationUserIdentifier](python/api/azure-communication-chat/azure.communication.chat.communicationuseridentifier)
+[CommunicationUserIdentifier](/python/api/azure-communication-chat/azure.communication.chat.communicationuseridentifier)
 
 ### Microsoft Teams User identifier
 
