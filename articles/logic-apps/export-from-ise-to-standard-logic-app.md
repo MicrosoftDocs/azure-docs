@@ -9,33 +9,34 @@ ms.date: 09/14/2022
 #Customer intent: As a developer, I want to export one or more ISE workflows to a Standard workflow.
 ---
 
-# Export logic app workflows from an ISE to a Standard logic app (Preview)
+# Export ISE workflows to a Standard logic app (Preview)
 
 > [!NOTE]
 >
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Standard logic app workflows that run in single-tenant Azure Logic Apps offer many new and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with local development and debugging using Visual Studio Code, App Services Environment support, low latency with stateless workflows, and more.
+Standard logic app workflows, which run in single-tenant Azure Logic Apps, offer many new and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with App Services Environment hosting, local development and debugging using Visual Studio Code, low latency with stateless workflows, and more.
 
-If you want the benefits from Standard workflows, but your workflows run in an Integration Service Environment (ISE), you can now replace your ISE with single-tenant Azure Logic Apps. This switch makes sense for most scenarios that require some ISE capabilities such as isolation and network integration, but not others, and can help reduce operation costs.
+If you want the benefits from Standard workflows, but your workflows run in an Integration Service Environment (ISE), you can now replace your ISE with single-tenant Azure Logic Apps. This switch makes sense for most scenarios that require some ISE capabilities such as isolation and network integration, and can help lower operation costs.
 
-You can now export logic apps from an ISE to Azure Logic Apps (Standard). With Visual Studio Code and the latest Azure Logic Apps (Standard) extension, you can export your logic apps as stateless workflows to a Standard logic app project. You can then locally update, test, and debug your workflows to get them ready for redeployment. When you're ready, you can deploy either directly from Visual Studio Code or through your own DevOps process.
+You can now export logic app workflows from an ISE to a Standard logic app. Using Visual Studio Code and the latest Azure Logic Apps (Standard) extension, you export your logic apps as stateful workflows to a Standard logic app project. You can then locally update, test, and debug your workflows to get them ready for redeployment. When you're ready, you can deploy either directly from Visual Studio Code or through your own DevOps process.
 
 > [!NOTE]
 >
-> The export capability doesn't migrate your workflows. Instead, this tool replicates artifacts, such as 
-> workflow definitions, connections, integration account artifacts, and others. Your source logic app 
-> resources, workflows, trigger history, run history, and other data stay intact.
+> The export capability doesn't migrate your workflows. Instead, this tool replicates artifacts, 
+> such as workflow definitions, connections, integration account artifacts, and others. Your source 
+> logic app resources, workflows, trigger history, run history, and other data stay intact.
 >
-> You control the export process and your migration journey. You can test and validate your exported workflows 
-> on the destination platform to your satisfaction. You choose when to disable or delete your source logic apps. 
+> You control the export process and your migration journey. You can test and validate your 
+> exported workflows to your satisfaction with the destination environment. You choose when 
+> to disable or delete your source logic apps. 
 
-This article provides information about the export process and shows how to export your logic app workflows from an ISE to a local Standard logic app project.
+This article provides information about the export process and shows how to export your logic app workflows from an ISE to a local Standard logic app project in Visual Studio Code.
 
 ## Known issues and limitations
 
-- To run the export tool, you must be on the same network as your ISE. In other words, if your ISE is internal, you have to run the export tool from a Visual Studio Code instance that can access your ISE through the internal network. Otherwise, you can't download the exported package or files.
+- To run the export tool, you must be on the same network as your ISE. So, if your ISE is internal, you have to run the export tool from a Visual Studio Code instance that can access your ISE through the internal network. Otherwise, you can't download the exported package or files.
 
 - The following logic apps and scenarios are currently ineligible for export:
 
@@ -59,26 +60,19 @@ This article provides information about the export process and shows how to expo
 | Trigger | **Built-in**: `Http`, `HttpWebhook`, `Recurrence`, `manual` (Request) <br><br>**Managed**: `ApiConnection` `ApiConnectionNotification`, `ApiConnectionWebhook` |
 | Action | **Built-in**: `AppendToArrayVariable`, `AppendToStringVariable`, `Compose`, `DecrementVariable`, `Foreach`, `Http`, `HttpWebhook`, `If`, `IncrementVariable`, `InitializeVariable`, `JavaScriptCode`, `Join`, `ParseJson`, `Response`, `Scope`, `Select`, `SetVariable`, `Switch`, `Table`, `Terminate`, `Until`, `Wait` <br><br>- **Managed**: `ApiConnection`, `ApiConnectionWebhook` |
 
-<!--
-| Operation | JSON type |
-|-----------|-----------|
-| Trigger | **Built-in** <br>- `Http` <br>- `HttpWebhook` <br>- `Recurrence` <br>- `manual` (Request) <br><br>**Managed**: <br>- `ApiConnection` <br>- `ApiConnectionNotification` <br>- `ApiConnectionWebhook` |
-| Action | **Built-in**: <br>- `AppendToArrayVariable` <br>- `AppendToStringVariable` <br>- `Compose` <br>- `DecrementVariable` <br>- `Foreach` <br>- `Http` <br>- `HttpWebhook` <br>- `If` <br>- `IncrementVariable` <br>- `InitializeVariable` <br>- `JavaScriptCode` <br>- `Join` <br>- `ParseJson` <br>- `Response` <br>- `Scope` <br>- `Select` <br>- `SetVariable` <br>- `Switch` <br>- `Table` <br>- `Terminate` <br>- `Until` <br>- `Wait` <br><br>- **Managed**: <br>- `ApiConnection` <br>- `ApiConnectionWebhook` |
--->
-
 ## Prerequisites
 
 - An Azure account and subscription. 
 
 - An existing ISE with the logic app workflows that you want to export.
 
-- To include managed connections in your deployment, you'll need an existing resource group in Azure as the destination for where to put your exported workflows. This option is recommended only for non-production environments.
+- To include managed connections in your deployment, you'll need an existing Azure resource group to organize your managed connections for deployment. This option is recommended only for non-production environments.
 
 - Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
 ## Group logic apps for export
 
-With the Azure Logic Apps (Standard) extension, you can combine multiple ISE-hosted logic apps into a single Standard logic app project. In single-tenant Azure Logic Apps, one Standard logic app resource can have multiple workflows. This way, you can pre-validate your workflows so that you don't miss any dependencies when you select logic apps for export.
+With the Azure Logic Apps (Standard) extension, you can combine multiple ISE-hosted logic app workflows into a single Standard logic app project. In single-tenant Azure Logic Apps, one Standard logic app resource can have multiple workflows. With this approach, you can pre-validate your workflows so that you don't miss any dependencies when you select logic apps for export.
 
 Consider the following recommendations when you select logic apps for export:
 
