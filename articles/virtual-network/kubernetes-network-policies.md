@@ -178,7 +178,6 @@ where `prometheus-server-scrape-config.yaml` consists of
     action: drop
 ```
 
-
 You can also replace the `azure-npm-node-metrics` job  with the content below or incorporate it into a pre-existing job for Kubernetes pods:
 ```
 - job_name: "azure-npm-node-metrics-from-pod-config"
@@ -261,7 +260,6 @@ Following are some sample dashboard for NPM metrics in Container Insights (CI) a
 
 #### Grafana Dashboard Runtime Quantiles
 [![Grafana Dashboard runtime quantiles](media/kubernetes-network-policies/grafana-runtime-quantiles.png)](media/kubernetes-network-policies/grafana-runtime-quantiles.png#lightbox)
-
 
 
 ## Next steps
