@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Migrate your function app to a zone-redundant plan
 
-Availability zones (AZ) support for Azure Functions is available on [Premium (Elastic Premium)](../azure-functions/functions-premium-plan.md) and [Dedicated (App Service)](../azure-functions/dedicated-plan.md) plans. A zone-redundant function app plan automatically balances its instances between availability zones for higher availability. This article describes how to migrate to the public multi-tenant Premium plan with availability zone support. For migration to zone redundancy on Dedicated plans, refer [here](migrate-app-service.md).
+Availability zones support for Azure Functions is available on [Premium (Elastic Premium)](../azure-functions/functions-premium-plan.md) and [Dedicated (App Service)](../azure-functions/dedicated-plan.md) plans. A zone-redundant function app plan automatically balances its instances between availability zones for higher availability. This article describes how to migrate to the public multi-tenant Premium plan with availability zone support. For migration to zone redundancy on Dedicated plans, refer [here](migrate-app-service.md).
 
 ## Downtime requirements
 

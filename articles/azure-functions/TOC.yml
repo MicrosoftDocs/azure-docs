@@ -414,6 +414,8 @@
           href: functions-geo-disaster-recovery.md
         - name: Move across regions
           href: functions-move-across-regions.md
+        - name: Migrate to a zone-redundant plan
+          href: ../availability-zones/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Monitor
       items:
         - name: Monitor function apps with Azure Monitor

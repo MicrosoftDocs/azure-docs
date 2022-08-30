@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.author: johnguo
 ms.date: 08/29/2022
 ms.custom: references_regions
-# Goal: Introduce AZ Redundancy in Azure Functions Elastic Premium plans to customers + a tutorial on how to get started with ARM templates
+# Goal: Introduce availability zone redundancy in Azure Functions Elastic Premium plans to customers and a tutorial on how to get started with Portal and ARM templates
 ---
 
 # Azure Functions support for availability zone redundancy
 
 Azure function apps in the Premium plan can be deployed into availability zones to help you achieve resiliency and reliability for your business-critical workloads. This architecture is also known as zone redundancy.
 
-Availability zones (AZ) support for Azure Functions is available on Premium (Elastic Premium) and Dedicated (App Service) plans. A zone-redundant function app plan automatically balances its instances between availability zones for higher availability. This article focuses on zone redundancy support for Premium plans. For zone redundancy on Dedicated plans, refer [here](../availability-zones/migrate-app-service.md).
+Availability zones support for Azure Functions is available on Premium (Elastic Premium) and Dedicated (App Service) plans. A zone-redundant function app plan automatically balances its instances between availability zones for higher availability. This article focuses on zone redundancy support for Premium plans. For zone redundancy on Dedicated plans, refer [here](../availability-zones/migrate-app-service.md).
 
 [!INCLUDE [functions-premium-plan-note](../../includes/functions-premium-plan-note.md)]
 
@@ -43,7 +43,7 @@ Availability zone support is a property of the Premium plan. The following are t
 - You must use a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) for your function app's [storage account](storage-considerations.md#storage-account-requirements). If you use a different type of storage account, Functions may show unexpected behavior during a zonal outage.
 - Both Windows and Linux are supported.
 - Must be hosted on an [Elastic Premium](functions-premium-plan.md) or Dedicated hosting plan. To learn how to use zone redundancy with a Dedicated plan, see [Migrate App Service to availability zone support](../availability-zones/migrate-app-service.md).
-  - Availability zone (AZ) support isn't currently available for function apps on [Consumption](consumption-plan.md) plans.
+  - Availability zone support isn't currently available for function apps on [Consumption](consumption-plan.md) plans.
 - Function apps hosted on a Premium plan must have a minimum [always ready instances](functions-premium-plan.md#always-ready-instances) count of three.
   - The platform will enforce this minimum count behind the scenes if you specify an instance count fewer than three.
 - If you aren't using Premium plan or a scale unit that supports availability zones, are in an unsupported region, or are unsure, see the [migration guidance](../availability-zones/migrate-functions.md).
@@ -75,7 +75,7 @@ There are currently two ways to deploy a zone-redundant Premium plan and functio
 
     | Setting      | Suggested value  | Notes for Zone Redundancy |
     | ------------ | ---------------- | ----------- |
-    | **Region** | Preferred region | The subscription under which this new function app is created. You must pick a region that is AZ enabled from the [list above](#requirements). |
+    | **Region** | Preferred region | The subscription under which this new function app is created. You must pick a region that is availability zone enabled from the [list above](#requirements). |
 
     ![Screenshot of Basics tab of function app create page.](./media/functions-az-redundancy\azure-functions-basics-az.png)
 
