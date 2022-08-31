@@ -4,8 +4,8 @@ description: Quickstart to distribute table data across nodes in Azure Database 
 ms.author: jonels
 author: jonels-msft
 recommendations: false
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
 ms.date: 08/11/2022

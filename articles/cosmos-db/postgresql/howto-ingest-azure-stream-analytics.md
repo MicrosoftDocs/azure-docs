@@ -3,8 +3,8 @@ title: Real-time data ingestion with Azure Stream Analytics - Hyperscale (Citus)
 description: How to transform and ingest streaming data
 ms.author: sasriram
 author: saimicrosoft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 08/11/2022
 ---

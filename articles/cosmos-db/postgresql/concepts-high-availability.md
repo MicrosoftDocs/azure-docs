@@ -3,8 +3,8 @@ title: High availability – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: High availability and disaster recovery concepts
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 07/15/2022
 ---

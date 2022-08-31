@@ -4,8 +4,8 @@ description: Learn how to troubleshoot connection issues to Azure Database for P
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 12/17/2021
 ---

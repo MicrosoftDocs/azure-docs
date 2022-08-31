@@ -4,8 +4,8 @@ description: Learn how to use the Azure portal to rebalance data in a server gro
 ms.custom: kr2b-contr-experiment
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 07/20/2021
 ---

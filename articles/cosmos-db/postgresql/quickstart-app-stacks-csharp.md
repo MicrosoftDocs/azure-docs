@@ -3,8 +3,8 @@ title: C# app to connect and query Hyperscale (Citus)
 description: Learn to query Hyperscale (Citus) using C#
 ms.author: sasriram
 author: saimicrosoft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
 ms.date: 08/24/2022

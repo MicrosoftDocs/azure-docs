@@ -4,8 +4,8 @@ description: Quickstart to create and query distributed tables on Azure Database
 ms.author: jonels
 author: jonels-msft
 recommendations: false
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
 ms.date: 06/29/2022

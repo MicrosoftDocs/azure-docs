@@ -3,8 +3,8 @@ title: Model high throughput apps - Hyperscale (Citus) - Azure Database for Post
 description: Techniques for scalable high-throughput transactional apps
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
 ms.date: 08/11/2022

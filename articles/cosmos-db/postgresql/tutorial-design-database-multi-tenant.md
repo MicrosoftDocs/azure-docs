@@ -3,8 +3,8 @@ title: Multi-tenant database - Azure PostgreSQL Hyperscale (Citus)
 description: Learn how to design a scalable multi-tenant application with Azure Database for PostgreSQL Hyperscale (Citus).
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.custom: mvc, kr2b-contr-experiment
 ms.devlang: azurecli
 ms.topic: tutorial

@@ -4,8 +4,8 @@ description: Learn how to restart all nodes in a Hyperscale (Citus) server group
 ms.custom: kr2b-contr-experiment
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 05/06/2022
 ---

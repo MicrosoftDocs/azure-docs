@@ -3,8 +3,8 @@ title: Fundamental concepts for scaling - Hyperscale (Citus) - Azure Database fo
 description: Ideas you need to know to build relational apps that scale
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
 ms.date: 08/11/2022

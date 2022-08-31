@@ -3,8 +3,8 @@ title: Useful diagnostic queries - Hyperscale (Citus) - Azure Database for Postg
 description: Queries to learn about distributed data and more
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 8/23/2021
 ---

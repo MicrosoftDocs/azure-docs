@@ -3,8 +3,8 @@ title: Build scalable apps - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: How to build relational apps that scale
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
 ms.date: 08/11/2022

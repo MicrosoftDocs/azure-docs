@@ -4,8 +4,8 @@ description: A guide to running Hyperscale (Citus) on Azure
 ms.author: jonels
 author: jonels-msft
 ms.custom: mvc
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: overview
 recommendations: false
 ms.date: 08/11/2022

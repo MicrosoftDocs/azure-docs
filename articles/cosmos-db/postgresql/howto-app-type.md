@@ -3,8 +3,8 @@ title: Determine application type - Hyperscale (Citus) - Azure Database for Post
 description: Identify your application for effective distributed data modeling
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
 ---

@@ -3,8 +3,8 @@ title: System tables – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Metadata for distributed query execution
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: reference
 ms.date: 02/18/2022
 ---

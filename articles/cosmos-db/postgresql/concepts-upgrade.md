@@ -3,8 +3,8 @@ title: Server group upgrades - Hyperscale (Citus) - Azure Database for PostgreSQ
 description: Types of upgrades, and their precautions
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 08/29/2022
 ---

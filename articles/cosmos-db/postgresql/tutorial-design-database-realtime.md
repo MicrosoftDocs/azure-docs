@@ -3,8 +3,8 @@ title: 'Tutorial: Design a real-time dashboard - Hyperscale (Citus) - Azure Data
 description: This tutorial shows how to parallelize real-time dashboard queries with Azure Database for PostgreSQL Hyperscale (Citus).
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/29/2022

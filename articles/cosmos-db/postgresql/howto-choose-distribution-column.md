@@ -3,8 +3,8 @@ title: Choose distribution columns – Hyperscale (Citus) - Azure Database for P
 description: Learn how to choose distribution columns in common scenarios in Azure Database for PostgreSQL - Hyperscale (Citus).
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2022
 ---

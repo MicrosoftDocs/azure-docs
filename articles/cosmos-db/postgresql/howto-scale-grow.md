@@ -3,8 +3,8 @@ title: Scale server group - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Adjust server group memory, disk, and CPU resources to deal with increased load
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 12/10/2021
 ---

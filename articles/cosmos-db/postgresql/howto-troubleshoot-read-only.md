@@ -4,8 +4,8 @@ description: Learn why a Hyperscale (Citus) server group can become read-only, a
 keywords: postgresql connection,read only
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 08/03/2021
 ---

@@ -3,8 +3,8 @@ title: Scheduled maintenance - Azure Database for PostgreSQL - Hyperscale (Citus
 description: This article describes the scheduled maintenance feature in Azure Database for PostgreSQL - Hyperscale (Citus).
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 02/14/2022
 ---

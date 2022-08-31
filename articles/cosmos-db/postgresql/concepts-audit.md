@@ -3,8 +3,8 @@ title: Audit logging - Azure Database for PostgreSQL - Hyperscale (Citus)
 description: Concepts for pgAudit audit logging in Azure Database for PostgreSQL - Hyperscale (Citus).
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 08/03/2021
 ---

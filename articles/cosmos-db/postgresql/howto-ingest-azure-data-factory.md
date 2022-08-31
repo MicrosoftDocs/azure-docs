@@ -3,8 +3,8 @@ title: Azure Data Factory
 description: Step-by-step guide for using Azure Data Factory for ingestion on Hyperscale Citus
 ms.author: suvishod
 author: suvishodcitus
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 06/27/2022
 ---

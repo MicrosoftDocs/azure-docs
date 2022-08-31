@@ -3,8 +3,8 @@ title: Compute and storage – Hyperscale (Citus) - Azure Database for PostgreSQ
 description: Options for a Hyperscale (Citus) server group, including node compute and storage
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2022
 ---
