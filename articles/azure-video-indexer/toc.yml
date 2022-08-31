@@ -105,6 +105,8 @@
   items:
   - name: Connect an existing account to ARM (preview)
     href: connect-classic-account-to-arm.md
+  - name: Manage access to your account
+    href: restricted-viewer-role.md
   - name: Add contributor role to Media Services
     href: add-contributor-role-on-the-media-service.md    
   - name: Import content from the trial account
