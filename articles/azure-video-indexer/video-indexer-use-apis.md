@@ -10,7 +10,7 @@ ms.custom: devx-track-csharp
 
 Azure Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft into one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platforms. You can use the API to upload your files, get detailed video insights, get URLs of embeddable insight and player widgets, and more.
 
-When visiting the Azure Video Indexer website for the first time, a trial account is automatically created for you. With the trial account, you get a certain number of free indexing minutes. You can later add a paid (ARM-based or classic) account. With the paid option, you pay for indexed minutes.
+When visiting the [Azure Video Indexer](https://www.videoindexer.ai/) website for the first time, a trial account is automatically created for you. With the trial account, you get a certain number of free indexing minutes. You can later add a paid (ARM-based or classic) account. With the paid option, you pay for indexed minutes.
 
 For details about available accounts (trial and paid options), see [Azure Video Indexer account types](accounts-overview.md).
 
