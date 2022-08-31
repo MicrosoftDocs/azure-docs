@@ -243,7 +243,7 @@ If you have edited the content in Microsoft Sentinel, make sure to export it to 
 
 ## Delete content
 
-Deleting content from your repository doesn't delete it from your Microsoft Sentinel workspace. If you don't want content, make sure to delete it from both your repository and Sentinel. For example, set a filter for the content based on source name to make is easier to remove content retired from repositories.
+Deleting content from your repository doesn't delete it from your Microsoft Sentinel workspace. If you want to remove content that was deployed through repositories, make sure to delete it from both your repository and Sentinel. For example, set a filter for the content based on source name to make is easier to identify content from repositories.
 
 :::image type="content" source="media/ci-cd/delete-repo-content.png" alt-text="Screenshot of analytics rules filtered by source name of repositories.":::
 
