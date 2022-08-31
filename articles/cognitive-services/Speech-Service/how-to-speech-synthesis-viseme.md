@@ -53,28 +53,28 @@ Visemes vary by language and locale. Each locale has a set of visemes that corre
 
 | Viseme ID | IPA | Mouth shape|
 |---------------|---------------|---------------|
-|0|Silence|<img src="media/text-to-speech/viseme-id-0.jpg" width="200" height="200">|
-|1|`æ`, `ə`, `ʌ`| <img src="media/text-to-speech/viseme-id-1.jpg" width="200" height="200">|
-|2|`ɑ`|<img src="media/text-to-speech/viseme-id-2.jpg" width="200" height="200">|
-|3|`ɔ`|<img src="media/text-to-speech/viseme-id-3.jpg" width="200" height="200">|
-|4|`ɛ`, `ʊ`|<img src="media/text-to-speech/viseme-id-4.jpg" width="200" height="200">|
-|5|`ɝ`|<img src="media/text-to-speech/viseme-id-5.jpg" width="200" height="200">|
-|6|`j`, `i`, `ɪ`, |<img src="media/text-to-speech/viseme-id-6.jpg" width="200" height="200">|
-|7|`w`, `u`|<img src="media/text-to-speech/viseme-id-7.jpg" width="200" height="200">|
-|8|`o`|<img src="media/text-to-speech/viseme-id-8.jpg" width="200" height="200">|
-|9|Not supported|<img src="media/text-to-speech/viseme-id-9.jpg" width="200" height="200">|
-|10|Not supported|<img src="media/text-to-speech/viseme-id-10.jpg" width="200" height="200">|
-|11|Not supported|<img src="media/text-to-speech/viseme-id-11.jpg" width="200" height="200">|
-|12|`h`|<img src="media/text-to-speech/viseme-id-12.jpg" width="200" height="200">|
-|13|`ɹ`|<img src="media/text-to-speech/viseme-id-13.jpg" width="200" height="200">|
-|14|`l`|<img src="media/text-to-speech/viseme-id-14.jpg" width="200" height="200">|
-|15|`s`, `z`|<img src="media/text-to-speech/viseme-id-15.jpg" width="200" height="200">|
-|16|`ʃ`, `tʃ`, `dʒ`, `ʒ`|<img src="media/text-to-speech/viseme-id-16.jpg" width="200" height="200">|
-|17|`ð`|<img src="media/text-to-speech/viseme-id-17.jpg" width="200" height="200">|
-|18|`f`, `v`|<img src="media/text-to-speech/viseme-id-18.jpg" width="200" height="200">|
-|19|`d`, `t`, `n`, `θ`|<img src="media/text-to-speech/viseme-id-19.jpg" width="200" height="200">|
-|20|`k`, `g`, `ŋ`|<img src="media/text-to-speech/viseme-id-20.jpg" width="200" height="200">|
-|21|`p`, `b`, `m`|<img src="media/text-to-speech/viseme-id-21.jpg" width="200" height="200">|
+|0|Silence|<img src="media/text-to-speech/viseme-id-0.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 0">|
+|1|`æ`, `ə`, `ʌ`| <img src="media/text-to-speech/viseme-id-1.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 1">|
+|2|`ɑ`|<img src="media/text-to-speech/viseme-id-2.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 2">|
+|3|`ɔ`|<img src="media/text-to-speech/viseme-id-3.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 3">|
+|4|`ɛ`, `ʊ`|<img src="media/text-to-speech/viseme-id-4.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 4">|
+|5|`ɝ`|<img src="media/text-to-speech/viseme-id-5.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 5">|
+|6|`j`, `i`, `ɪ`, |<img src="media/text-to-speech/viseme-id-6.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 6">|
+|7|`w`, `u`|<img src="media/text-to-speech/viseme-id-7.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 7">|
+|8|`o`|<img src="media/text-to-speech/viseme-id-8.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 8">|
+|9|Not supported|<img src="media/text-to-speech/viseme-id-9.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 9">|
+|10|Not supported|<img src="media/text-to-speech/viseme-id-10.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 10">|
+|11|Not supported|<img src="media/text-to-speech/viseme-id-11.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 11">|
+|12|`h`|<img src="media/text-to-speech/viseme-id-12.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 12">|
+|13|`ɹ`|<img src="media/text-to-speech/viseme-id-13.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 13">|
+|14|`l`|<img src="media/text-to-speech/viseme-id-14.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 14">|
+|15|`s`, `z`|<img src="media/text-to-speech/viseme-id-15.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 15">|
+|16|`ʃ`, `tʃ`, `dʒ`, `ʒ`|<img src="media/text-to-speech/viseme-id-16.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 16">|
+|17|`ð`|<img src="media/text-to-speech/viseme-id-17.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 17">|
+|18|`f`, `v`|<img src="media/text-to-speech/viseme-id-18.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 18">|
+|19|`d`, `t`, `n`, `θ`|<img src="media/text-to-speech/viseme-id-19.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 19">|
+|20|`k`, `g`, `ŋ`|<img src="media/text-to-speech/viseme-id-20.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 20">|
+|21|`p`, `b`, `m`|<img src="media/text-to-speech/viseme-id-21.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 21">|
 
 ## 2D SVG animation
 
