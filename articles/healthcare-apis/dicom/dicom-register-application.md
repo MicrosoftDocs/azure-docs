@@ -68,7 +68,7 @@ Optionally, you can upload a certificate (public key) and use the Certificate ID
 
 ## API permissions
 
-The following steps are required for the DICOM service, but optional for the FHIR service. In addition, user access permissions or role assignments for the Azure Health Data Services are managed through RBAC. For more details, visit [Configure Azure RBAC for Azure Health Data Services](configure-azure-rbac.md).
+The following steps are required for the DICOM service, but optional for the FHIR service. In addition, user access permissions or role assignments for the Azure Health Data Services are managed through RBAC. For more details, visit [Configure Azure RBAC for Azure Health Data Services](./../configure-azure-rbac.md).
 
 1. Select the **API permissions** blade.
 
