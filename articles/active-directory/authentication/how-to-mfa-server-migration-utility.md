@@ -341,7 +341,8 @@ Content-Type: application/json
 
 
 #### Response
->[!NOTE] The response object shown here might be shortened for readability.
+>[!NOTE] 
+>The response object shown here might be shortened for readability.
 
   "blockType": "response",
   "truncated": true,
