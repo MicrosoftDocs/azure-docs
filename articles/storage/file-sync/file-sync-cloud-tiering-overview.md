@@ -87,6 +87,25 @@ It's also possible for a file to be partially tiered (or partially recalled). In
 > [!NOTE]
 > Size represents the logical size of the file. Size on disk represents the physical size of the file stream that's stored on the disk.
 
+## Low disk space mode
+Disks with server endpoints can run out of space for several reasons, even with cloud tiering enabled. This results in Azure File Sync not working as expected and, in some cases, making servers unusable. While it is not possible and not in control of Azure File Sync to prevent these occurrences completely, low disk space mode (new for Azure File Sync agent version 15.1) is designed to avoid a server endpoint reaching this situation.
+
+When a disk reaches below 10% free space (90% filled) state, Azure File Sync considers the disk to be in low disk space mode. 
+ 
+In low disk space mode, the Azure File Sync agent does two things differently:
+
+- Proactive Tiering: In this mode the File Sync agent tiers files more proactively to the cloud . The File Sync agent checks for files to be tiered every minute instead of the normal frequency of every 1 hour. Tiering typically does not happen during initial upload sync until the full upload is complete, but in low disk space mode, tiering is enabled during the initial upload sync and files will be considered for tiering once the individual file has been uploaded   to the Azure file share.
+
+- Non-Persistent Recalls: When a user opens a tiered file, files recalled from the Azure file share directly will not be persisted to the disk. Note that recalls initiated by the cmdlet Invoke-StorageSyncFileRecall are an exemption to this rule and will be persisted to disk.
+
+When the disk reaches 10% and above, Azure File Sync reverts to the normal state. Note that low disk space mode does not apply to server endpoints where cloud tiering is not  enabled. If a disk has two server endpoints, one with tiering-enabled and one without tiering, low disk space mode will only apply to the server endpoint where tiering is enabled.
+
+### How does low disk space mode work with volume free space policy?
+Low disk space mode respects the volume free space policy while making sure recalls are not persisted to the disk. For example, if volume free space is set at 5% and free space on the disk is at 7%, low disk space mode does not start tiering files until the disk space reaches below 5%. But any recalls during this time will not be persisted to the disk.
+
+### How to get out of low disk space mode?
+Azure File Sync will revert to normal behavior when the disk space reaches 10% or above. You can help speed up the process by looking for any recently created files outside the server endpoint location and moving them to a different disk if possible.
+
 ## Next steps
 
 - [Choose Azure File Sync cloud tiering policies](file-sync-choose-cloud-tiering-policies.md)
