@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-Azure Image Builder uses a Bicep file or an ARM template file to pass information into the Image Builder service. In this article we will go over the sections of the files, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
+Azure Image Builder uses a Bicep file or an ARM template file to pass information into the Image Builder service. In this article we'll go over the sections of the files, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 The basic format is:
 
@@ -184,7 +184,7 @@ location: '<region>'
 
 ### Data Residency
 
-The Azure VM Image Builder service doesn't store or process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you will need to create Bicep files/templates in a different region and geography.
+The Azure VM Image Builder service doesn't store or process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you'll need to create Bicep files/templates in a different region and geography.
 
 ### Zone Redundancy
 
@@ -284,7 +284,7 @@ To learn more, see:
 
 Maximum duration to wait while building the image template (includes all customizations, validations, and distributions).
 
-If you don't specify the property or set the value to 0, the default value is used, which is 240 minutes or four hours. The minimum value is 6 minutes, and the maximum value is 960 minutes or 16 hours. When the timeout value is hit (whether or not the image build is complete), you will see an error similar to:
+If you don't specify the property or set the value to 0, the default value is used, which is 240 minutes or four hours. The minimum value is 6 minutes, and the maximum value is 960 minutes or 16 hours. When the timeout value is hit (whether or not the image build is complete), you'll see an error similar to:
 
 ```text
 [ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
@@ -453,7 +453,7 @@ Customize properties:
     To generate the sha256Checksum, using a terminal on Mac/Linux run: `sha256sum <fileName>`
 
 > [!NOTE]
-> Inline commands are stored as part of the image template definition, you can see these when you dump out the image definition. If you have sensitive commands or values (including passwords, SAS token, authentication tokens etc), it is recommended these are moved into scripts, and use a user identity to authenticate to Azure Storage.
+> Inline commands are stored as part of the image template definition, you can see these when you dump out the image definition. If you have sensitive commands or values (including passwords, SAS token, authentication tokens etc), it's recommended these are moved into scripts, and use a user identity to authenticate to Azure Storage.
 
 #### Super user privileges
 
@@ -535,7 +535,7 @@ Customize properties:
 - **restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, `5m` (5 minutes) or `2h` (2 hours). The default is: `5m`.
 
 > [!NOTE]
-> There is no Linux restart customizer. If you're installing drivers, or components that require a restart, you can install them and invoke a restart using the Shell customizer. There is a 20min SSH timeout to the build VM.
+> There's no Linux restart customizer. If you're installing drivers, or components that require a restart, you can install them and invoke a restart using the Shell customizer. There's a 20min SSH timeout to the build VM.
 
 ### PowerShell customizer
 
@@ -635,23 +635,23 @@ File customizer properties:
 - **sourceUri** - an accessible storage endpoint, this endpoint can be GitHub or Azure storage. You can only download one file, not an entire directory. If you need to download a directory, use a compressed file, then uncompress it using the Shell or PowerShell customizers.
 
   > [!NOTE]
-  > If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you will to grant the Managed User Identity permissions to read access on the blob. See this [example](./image-builder-user-assigned-identity.md#create-a-resource-group) to set the storage permissions.
+  > If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you'll to grant the Managed User Identity permissions to read access on the blob. See this [example](./image-builder-user-assigned-identity.md#create-a-resource-group) to set the storage permissions.
 
-- **destination** – the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set these up beforehand. You can use the script customizers to create the path.
+- **destination** – the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set these paths up beforehand. You can use the script customizers to create the path.
 
 This customizer is supported by Windows directories and Linux paths, but there are some differences:
 
 - Linux – the only path Image builder can write to is /tmp.
 - Windows – No path restriction, but the path must exist.
 
-If there is an error trying to download the file, or put it in a specified directory, then customize step will fail, and this error will be in the customization.log.
+If there's an error trying to download the file, or put it in a specified directory, then customize step will fail, and this error will be in the customization.log.
 
 > [!NOTE]
 > The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads, use a script or inline command, then use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
 
 ### Windows Update Customizer
 
-The `WindowsUpdate` customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, see the project repository.
+The `WindowsUpdate` customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project isn't officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, see the project repository.
 
 # [Bicep](#tab/bicep)
 
@@ -705,7 +705,7 @@ The commands Image Builder users to generalize may not be suitable for every sit
 
 If you're migrating existing customization, and you're using different Sysprep/waagent commands, you can use the Image Builder generic commands, and if the VM creation fails, use your own Sysprep or waagent commands.
 
-If Azure Image Builder creates a Windows custom image successfully, and you create a VM from it, then find that the VM creation fails or doesn't complete successfully, you will need to review the Windows Server Sysprep documentation or raise a support request with the Windows Server Sysprep Customer Services Support team, who can troubleshoot and advise on the correct Sysprep usage.
+If Azure Image Builder creates a Windows custom image successfully, and you create a VM from it, then find that the VM creation fails or doesn't complete successfully, you'll need to review the Windows Server Sysprep documentation or raise a support request with the Windows Server Sysprep Customer Services Support team, who can troubleshoot and advise on the correct Sysprep usage.
 
 #### Default Sysprep command
 
@@ -748,7 +748,7 @@ To override the commands, use the PowerShell or Shell script provisioners to cre
 - Windows: c:\DeprovisioningScript.ps1
 - Linux: /tmp/DeprovisioningScript.sh
 
-Image Builder will read these commands, these are written out to the AIB logs, `customization.log`. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
+Image Builder will read these commands, these commands are written out to the AIB logs, `customization.log`. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
 
 ## Properties: distribute
 
@@ -763,7 +763,7 @@ You can distribute an image to both of the target types in the same configuratio
 > [!NOTE]
 > The default AIB sysprep command doesn't include "/mode:vm", however this property maybe required when create images that will have the HyperV role installed. If you need to add this command argument, you must override the sysprep command.
 
-Because you can have more than one target to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to, or SIG Image version created. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target. Here is an example for querying an Azure Compute Gallery distribution:
+Because you can have more than one target to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to, or SIG Image version created. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target. Here's an example for querying an Azure Compute Gallery distribution:
 
 ```azurecli
 subscriptionID=<subcriptionID>
@@ -914,7 +914,7 @@ Distribute properties for galleries:
   - "Standard_ZRS"","
 
 > [!NOTE]
-> If the image template and referenced `image definition` are not in the same location, you will see additional time to create images. Image Builder currently doesn't have a `location` parameter for the image version resource, we take it from its parent `image definition`. For example, if an image definition is in `westus` and you want the image version replicated to `eastus`, a blob is copied to `westus`, an image version resource in `westus` is created, and then replicate to `eastus`. To avoid the additional replication time, ensure the `image definition` and image template are in the same location.
+> If the image template and referenced `image definition` aren't in the same location, you'll see additional time to create images. Image Builder currently doesn't have a `location` parameter for the image version resource, we take it from its parent `image definition`. For example, if an image definition is in `westus` and you want the image version replicated to `eastus`, a blob is copied to `westus`, an image version resource in `westus` is created, and then replicate to `eastus`. To avoid the additional replication time, ensure the `image definition` and image template are in the same location.
 
 ### Distribute: VHD
 
@@ -964,7 +964,7 @@ az resource show \
 ```
 
 > [!NOTE]
-> Once the VHD has been created, copy it to a different location, as soon as possible. The VHD is stored in a storage account in the temporary resource group created when the image template is submitted to the Azure Image Builder service. If you delete the image template, then you will lose the VHD.
+> Once the VHD has been created, copy it to a different location, as soon as possible. The VHD is stored in a storage account in the temporary resource group created when the image template is submitted to the Azure Image Builder service. If you delete the image template, then you'll lose the VHD.
 
 ## Properties: source
 
@@ -1141,11 +1141,11 @@ properties: {
 
 - **The stagingResourceGroup property is left empty**
 
-  If the `stagingResourceGroup` property is not specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Also, the default RBAC will be applied to the identity assigned to the Azure Image Builder template resource, which is "Contributor".
+  If the `stagingResourceGroup` property isn't specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Also, the default RBAC will be applied to the identity assigned to the Azure Image Builder template resource, which is "Contributor".
 
 - **The stagingResourceGroup property is specified with a resource group that exists**
 
-  If the `stagingResourceGroup` property is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is not associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements are not met, an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Pre-existing tags are not deleted.
+  If the `stagingResourceGroup` property is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group isn't associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements aren't met, an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Pre-existing tags aren't deleted.
 
 - **The stagingResourceGroup property is specified with a resource group that DOES NOT exist**
 
@@ -1153,9 +1153,9 @@ properties: {
 
 ### Template Deletion
 
-Any staging resource group created by the Image Builder service will be deleted after the image template is deleted. The deletion includes staging resource groups that were specified in the `stagingResourceGroup` property, but did not exist prior to the image build.
+Any staging resource group created by the Image Builder service will be deleted after the image template is deleted. The deletion includes staging resource groups that were specified in the `stagingResourceGroup` property, but didn't exist prior to the image build.
 
-If Image Builder did not create the staging resource group, but it did create resources inside of it, those resources will be deleted after the image template is deleted as long as the Image Builder service has the appropriate permissions or role required to delete resources.
+If Image Builder didn't create the staging resource group, but it did create resources inside of it, those resources will be deleted after the image template is deleted as long as the Image Builder service has the appropriate permissions or role required to delete resources.
 
 ## Properties: validate
 
@@ -1172,7 +1172,7 @@ When using `validate`:
 - You can use multiple validators.
 - Validators execute in the order specified in the template.
 - If one validator fails, then the whole validation component will fail and report back an error.
-- It is advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
+- It's advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
 - Don't put sensitive data in the scripts.
 - The script locations need to be publicly accessible, unless you're using [MSI](./image-builder-user-assigned-identity.md).
 
@@ -1342,7 +1342,7 @@ Image Builder uses a default SKU size of `Standard_D1_v2` for Gen1 images and `S
 
 ### osDiskSizeGB
 
-By default, Image Builder doesn't change the size of the image, it uses the size from the source image. You can **only** increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leaving the same size as the source image. You cannot reduce the OS Disk size to smaller than the size from the source image.
+By default, Image Builder doesn't change the size of the image, it uses the size from the source image. You can **only** increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leaving the same size as the source image. You can't reduce the OS Disk size to smaller than the size from the source image.
 
 # [Bicep](#tab/bicep)
 
@@ -1404,7 +1404,7 @@ az resource invoke-action \
 
 If you're running an image build that you believe is incorrect, waiting for user input, or you feel will never complete successfully, then you can cancel the build.
 
-The build can be canceled anytime. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command doesn't wait for cancel to complete, monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
+The build can be canceled anytime. If the distribution phase has started you can still cancel, but you'll need to clean up any images that may not be completed. The cancel command doesn't wait for cancel to complete, monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
 
 Examples of `cancel` commands:
 
