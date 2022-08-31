@@ -42,9 +42,10 @@ In this section, you'll create a user flow in your Azure Active Directory B2C te
     1. Enter a unique name for the user flow.
     1. In **Identity providers**, select **Email signup**.
     1. In **User attributes and token claims**, select the attributes and claims needed for the API Management developer portal (not needed for the legacy developer portal).
-         ![Application claims](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
         * **Attributes**: Given Name, Surname
-        * **Claims**: Email Addresses, Given Name, Surname, User’s ObjectID
+        * **Claims**: Given Name, Surname, Email Addresses, User’s ObjectID
+
+             ![Application claims](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
 1. Select **Create**.
 
 ## Configure identity provider for developer portal
