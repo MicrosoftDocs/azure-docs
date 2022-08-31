@@ -43,7 +43,10 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 | Client type | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
 |-------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
+| .NET        |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Java        |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Node.js     |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Python      |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 
 ---
 

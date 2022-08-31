@@ -53,8 +53,14 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 | Client Type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
 |--------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
+| .NET               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Java               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Java - Spring Boot |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Node.js            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Python             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| PHP                |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Ruby               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| None               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 
 ---
 
@@ -62,13 +68,13 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 Use the connection details below to connect compute services to Azure Files. For each example below, replace the placeholder texts `<account-name>`, `<account-key>`, `<storage-account-name>` and `<storage-account-key>` with your own account name, account key, storage account name, and storage account key.
 
-### .NET, Java, Node.JS, Python, PHP and Ruby secret / connection string
+### Azure App Service secret / connection string
 
 | Default environment variable name  | Description                    | Example value                                                                                                        |
 |------------------------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | AZURE_STORAGEFILE_CONNECTIONSTRING | File storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
 
-### Java - Spring Boot secret / connection string
+### Azure Spring Cloud secret / connection string
 
 | Application properties      | Description               | Example value                                           |
 |-----------------------------|---------------------------|---------------------------------------------------------|
