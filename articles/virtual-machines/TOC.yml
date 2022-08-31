@@ -1683,7 +1683,7 @@
       - name: Portal
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-portal.md
-      - name: ARM template 
+      - name: ARM Template 
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-template.md
   - name: Automatic VM guest patching
