@@ -31,7 +31,7 @@ The database or server defined in the datastore couldn't be found or no longer e
 
 ### ScriptExecution.DatabaseConnection.Authentication
 
-The authentication failed while trying to connect to the database. The authentication method is stored inside the datastore and supports SQL authentication, service principal, or no stored credential (identity based access). Enabling workspace MSI makes the authentication use the workspace MSI when previewing data in Azure Machine Learning studio. A SQL server user needs to be created for the service principal and workspace MSI (if applicable) and granted classic database permissions. More info can be found [here](https://docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-service-principal-tutorial?view=azuresql#create-the-service-principal-user-in-azure-sql-database).
+The authentication failed while trying to connect to the database. The authentication method is stored inside the datastore and supports SQL authentication, service principal, or no stored credential (identity based access). Enabling workspace MSI makes the authentication use the workspace MSI when previewing data in Azure Machine Learning studio. A SQL server user needs to be created for the service principal and workspace MSI (if applicable) and granted classic database permissions. More info can be found [here](/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database).
 
 Contact your data admin to verify or add the correct permissions to the service principal or user identity.
 
