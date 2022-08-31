@@ -72,11 +72,11 @@ landingContent:
           - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
           - text: Multi-user authorization (MUA) for Recovery Services vault
-            url: multi-user-authorization-concept.md?tab=recovery-services-vault
+            url: ./multi-user-authorization-concept.md?tabs=recovery-services-vault
           - text: SQL Server on Azure VMs restore as files
             url: restore-sql-database-azure-vm.md#restore-as-files
           - text: Multi-user authorization (MUA) for Backup vault
-            url: multi-user-authorization-concept.md?tab=backup-vault
+            url: ./multi-user-authorization-concept.md?tabs=backup-vault
   # Card
   - title: Back up Azure VMs
     linkLists:

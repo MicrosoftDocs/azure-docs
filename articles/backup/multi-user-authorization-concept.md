@@ -91,4 +91,4 @@ Vault and Resource Guard are **in different tenants.** </br> The Backup admin do
 
 ## Next steps
 
-[Configure Multi-user authorization using Resource Guard](multi-user-authorization.md)
+[Configure Multi-user authorization using Resource Guard](multi-user-authorization.md).
