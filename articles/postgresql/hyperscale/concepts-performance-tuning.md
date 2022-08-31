@@ -354,6 +354,9 @@ Tips:
 
 ## Summary of results
 
+In benchmarks of simple ingestion with INSERTs, UPDATEs, transaction blocks, we
+observed the following query speedups for the techniques in this article.
+
 | Technique | Query speedup |
 |-----------|---------------|
 | Scoping queries | 100x |
