@@ -1,8 +1,10 @@
 ---
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
+author: bmansheim
+ms.author: benmansheim
 ms.topic: reference
-ms.date: 08/21/2022
+ms.date: 08/31/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -16,6 +18,30 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## September 2022
+
+- [Suppress alerts based on Container and Kubernetes entities](#suppress-alerts-based-on-container-and-kubernetes-entities)
+
+### Suppress alerts based on Container and Kubernetes entities
+
+You can now suppress alerts based on these Kubernetes entities so you can use the container environment details to align your alerts your organization's policy and stop receiving unwanted alerts:
+
+- Container Image
+- Container Registry
+- Kubernetes Namespace
+- Kubernetes Pod
+- Kubernetes Service
+- Kubernetes Secret
+- Kubernetes ServiceAccount
+- Kubernetes Deployment
+- Kubernetes ReplicaSet
+- Kubernetes StatefulSet
+- Kubernetes DaemonSet
+- Kubernetes Job
+- Kubernetes CronJob
+
+Learn more about [alert suppression rules](alerts-suppression-rules.md).
+
 ## August 2022
 
 Updates in August include:
@@ -23,6 +49,7 @@ Updates in August include:
 - [Vulnerabilities for running images are now visible with Defender for Containers on your Windows containers](#vulnerabilities-for-running-images-are-now-visible-with-defender-for-containers-on-your-windows-containers)
 - [Auto-deployment of Azure Monitor Agent (Preview)](#auto-deployment-of-azure-monitor-agent-preview)
 - [Deprecated VM alerts regarding suspicious activity related to a Kubernetes cluster](#deprecated-vm-alerts-regarding-suspicious-activity-related-to-a-kubernetes-cluster)
+<<<<<<< HEAD
 - [Container vulnerabilities now include detailed package information](#container-vulnerabilities-now-include-detailed-package-information)
 
 ### Vulnerabilities for running images are now visible with Defender for Containers on your Windows containers 
