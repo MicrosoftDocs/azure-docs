@@ -86,7 +86,7 @@ Up to this point, you have configured the multi-tenant application on the ISV's 
 
 You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the storage account. The user-assigned managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](../../key-vault/general/authentication.md).
 
-When you configure encryption with customer-managed keys for a new storage account, you can choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
+When you configure encryption with customer-managed keys for an existing storage account, you can choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated key vault. To do so, omit the key version from the key URI. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated. Including the key version on the key URI configures customer-managed keys for manual updating of the key version.
 
 > [!IMPORTANT]
 > To rotate a key, create a new version of the key in Azure Key Vault. Azure Storage does not handle key rotation, so you will need to manage rotation of the key in the key vault. You can [configure key auto-rotation in Azure Key Vault](../../key-vault/keys/how-to-configure-key-rotation.md) or rotate your key manually.
@@ -111,7 +111,7 @@ To configure cross-tenant customer-managed keys for a new storage account in the
 
 ### [PowerShell](#tab/powershell)
 
-To configure cross-tenant customer-managed keys for a new storage account, call [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount), as shown in the following example. Use the variable you created previously for the resource ID for the user-assigned managed identity. You will also need the key vault URI and key name:
+To configure cross-tenant customer-managed keys for a new storage account, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) module, version 4.4.2-preview. Next, call [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount), as shown in the following example. Use the variable you created previously for the resource ID for the user-assigned managed identity. You will also need the key vault URI and key name:
 
 ```azurepowershell
 New-AzStorageAccount -ResourceGroupName <resource-group> `

@@ -45,9 +45,9 @@ Create a user-assigned managed identity to be used as a federated identity crede
 1. Select **+ Create**.
 1. Provide the resource group, region, and name for the managed identity.
 1. Select **Review + create**.
-1. On successful deployment, note the **Azure ResourceId** of the user-assigned managed identity, which is available under **Properties**. Example:
+1. On successful deployment, note the **Azure ResourceId** of the user-assigned managed identity, which is available under **Properties**. For example:
 
-   /subscriptions/tttttttt-0000-tttt-0000-tttt0000tttt/resourcegroups/XTCMKDemo/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ConsotoCMKDemoUA
+   `/subscriptions/tttttttt-0000-tttt-0000-tttt0000tttt/resourcegroups/XTCMKDemo/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ConsotoCMKDemoUA`
 
 :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-user-assigned-managed-identity.png" alt-text="Screen shot showing how to create a resource group and a user-assigned managed identity." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-user-assigned-managed-identity.png" border="true":::
 
