@@ -166,15 +166,7 @@ Some exported logic app workflows require post-export remediation steps to run o
 
 ### Integration account actions and settings
 
-If you export actions that depend on an integration account, you have to manually set up your Standard logic app with a reference to the integration account that contains the required artifacts.
-
-1. Find your integration account's callback URL. Save the value for the next step.
-
-   For more information, review [how to find your integration account's callback URL in the Azure portal](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#find-your-integration-accounts-callback-url).
-
-1. In your Standard logic app project, open the **local.settings.json** file. Add an app setting that has the [specified properties and values](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-your-integration-account-to-your-standard-logic-app-resource), including the previously saved callback URL and as described by this step's version in the Azure portal.
-
-   For more information about editing app settings in your project, review [Edit host and app settings for Standard logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md?tabs=visual-studio-code).
+If you export actions that depend on an integration account, you have to manually set up your Standard logic app with a reference link to the integration account that contains the required artifacts. For more information, review [Link integration account to a Standard logic app](logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
 ## Project folder structure
 
