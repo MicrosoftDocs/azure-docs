@@ -16,9 +16,9 @@ You have the flexibility to choose between managed modem or virtual RF functiona
 
 ## Managed modems vs virtual RF delivery
 
-We recommend taking advantage of Orbital Ground Station's managed modem functionality if possible. The modem is managed by the service and is inserted between your endpoint and the incoming or outgoing virtual RF stream for each pass. You can specify the modem setup using a modem configuration file or apply one of the in-built named modem configurations for the most commonly used public satellites such as Aqua. 
+We recommend taking advantage of Orbital Ground Station's managed modem functionality if possible. The modem is managed by the service and is inserted between your endpoint and the incoming or outgoing virtual RF stream for each pass. You can specify the modem setup using a modem configuration file or apply one of the in-built named modem configurations for commonly used public satellites such as Aqua. 
 
-Use virtual RF delivery If you wish to have tighter control on the modem setup or bring your own modem to the resource group. Orbital Ground Station will connect to your channel endpoint specified in the contact profile.
+Use virtual RF delivery if you wish to have tighter control on the modem setup or bring your own modem to the resource group. Orbital Ground Station will connect to your channel endpoint specified in the contact profile.
 
 ## How to configure your channels
 
@@ -53,8 +53,8 @@ We currently support the following named modem configurations.
 
 | Public Satellite Service | Named modem string | Note |
 |--|--|--|
-| Aqua Direct Broadcast | aqua_direct_broadcast | This is NASA AQUA's 15 Mbps direct broadcast service |
-| Aqua Direct Playback | aqua_direct_playback | This is NASA's AQUA's 150 Mbps direct broadcast service |
+| Aqua Direct Broadcast | aqua_direct_broadcast | This is NASA AQUA's 15-Mbps direct broadcast service |
+| Aqua Direct Playback | aqua_direct_playback | This is NASA's AQUA's 150-Mbps direct broadcast service |
 
 > [!NOTE]
 > We recommend using the Aqua Direct Broadcast modem configuration when testing with Aqua. 
