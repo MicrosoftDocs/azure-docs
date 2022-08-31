@@ -58,7 +58,7 @@ The following release notes are for version 15.1.0.0 of the Azure File Sync agen
 		- Files are tiered to the Azure file share more proactively
 		- Tiered files accessed by the user will not be persisted to the disk 
 		
-		To learn more, see <insert link to additional documentation>
+		To learn more, see [Low disk space mode](file-sync-cloud-tiering-overview.md#low-disk-space-mode).
 
 - Fixed a cloud tiering issue that caused high CPU usage after v15.0 agent is installed. 
 
