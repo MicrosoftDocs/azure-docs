@@ -1,7 +1,7 @@
 ---
 title: Text-to-speech API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the REST API to convert text into synthesized speech. 
+description: Learn how to use the REST API to convert text into synthesized speech.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -34,39 +34,39 @@ Before you use the text-to-speech REST API, understand that you need to complete
 
 You can use the `voices/list` endpoint to get a full list of voices for a specific region or endpoint:
 
-| Region | Endpoint |
-|--------|----------|
-| Australia East | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| China East 2 | `https://chinaeast2.tts.speech.azure.cn/cognitiveservices/voices/list` |
-| China North 2 | `https://chinanorth2.tts.speech.azure.cn/cognitiveservices/voices/list` |
-| East Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| France Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Region               | Endpoint                                                                            |
+| -------------------- | ----------------------------------------------------------------------------------- |
+| Australia East       | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list`      |
+| Brazil South         | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list`        |
+| Canada Central       | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list`      |
+| Central US           | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list`          |
+| China East 2         | `https://chinaeast2.tts.speech.azure.cn/cognitiveservices/voices/list`              |
+| China North 2        | `https://chinanorth2.tts.speech.azure.cn/cognitiveservices/voices/list`             |
+| East Asia            | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list`           |
+| East US              | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list`             |
+| East US 2            | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list`            |
+| France Central       | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list`      |
 | Germany West Central | `https://germanywestcentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| India Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Japan West | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Jio India West | `https://jioindiawest.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Norway East | `https://norwayeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Switzerland North | `https://switzerlandnorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Switzerland West | `https://switzerlandwest.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| US Gov Arizona | `https://usgovarizona.tts.speech.azure.us/cognitiveservices/voices/list` |
-| US Gov Virginia | `https://usgovvirginia.tts.speech.azure.us/cognitiveservices/voices/list` |
-| UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| West Central US | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| West US 3 | `https://westus3.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| India Central        | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list`       |
+| Japan East           | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list`          |
+| Japan West           | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/voices/list`          |
+| Jio India West       | `https://jioindiawest.tts.speech.microsoft.com/cognitiveservices/voices/list`       |
+| Korea Central        | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list`       |
+| North Central US     | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list`     |
+| North Europe         | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list`        |
+| Norway East          | `https://norwayeast.tts.speech.microsoft.com/cognitiveservices/voices/list`         |
+| South Central US     | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list`     |
+| Southeast Asia       | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list`      |
+| Switzerland North    | `https://switzerlandnorth.tts.speech.microsoft.com/cognitiveservices/voices/list`   |
+| Switzerland West     | `https://switzerlandwest.tts.speech.microsoft.com/cognitiveservices/voices/list`    |
+| US Gov Arizona       | `https://usgovarizona.tts.speech.azure.us/cognitiveservices/voices/list`            |
+| US Gov Virginia      | `https://usgovvirginia.tts.speech.azure.us/cognitiveservices/voices/list`           |
+| UK South             | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list`            |
+| West Central US      | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list`      |
+| West Europe          | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list`         |
+| West US              | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list`             |
+| West US 2            | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list`            |
+| West US 3            | `https://westus3.tts.speech.microsoft.com/cognitiveservices/voices/list`            |
 
 > [!TIP]
 > [Voices in preview](language-support.md?tabs=stt-tts) are available in only these three regions: East US, West Europe, and Southeast Asia.
@@ -75,10 +75,10 @@ You can use the `voices/list` endpoint to get a full list of voices for a specif
 
 This table lists required and optional headers for text-to-speech requests:
 
-| Header | Description | Required or optional |
-|--------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Your subscription key for the Speech service. | Either this header or `Authorization` is required. |
-| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
+| Header                      | Description                                                                                                        | Required or optional                                           |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| `Ocp-Apim-Subscription-Key` | Your subscription key for the Speech service.                                                                      | Either this header or `Authorization` is required.             |
+| `Authorization`             | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
 
 ### Request body
 
@@ -151,9 +151,9 @@ This response has been truncated to illustrate the structure of a response.
       ],
     "Status": "Preview"
     },
-    
+
   ...
-    
+
     {
     "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
     "DisplayName": "Orla",
@@ -200,13 +200,13 @@ This response has been truncated to illustrate the structure of a response.
 
 The HTTP status code for each response indicates success or common errors.
 
-| HTTP status code | Description | Possible reason |
-|------------------|-------------|-----------------|
-| 200 | OK | The request was successful. |
-| 400 | Bad request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
-| 401 | Unauthorized | The request is not authorized. Make sure your subscription key or token is valid and in the correct region. |
-| 429 | Too many requests | You have exceeded the quota or rate of requests allowed for your subscription. |
-| 502 | Bad gateway    | There's a network or server-side problem. This status might also indicate invalid headers. |
+| HTTP status code | Description       | Possible reason                                                                                                                                                           |
+| ---------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 200              | OK                | The request was successful.                                                                                                                                               |
+| 400              | Bad request       | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
+| 401              | Unauthorized      | The request is not authorized. Make sure your subscription key or token is valid and in the correct region.                                                               |
+| 429              | Too many requests | You have exceeded the quota or rate of requests allowed for your subscription.                                                                                            |
+| 502              | Bad gateway       | There's a network or server-side problem. This status might also indicate invalid headers.                                                                                |
 
 
 ## Convert text to speech
@@ -223,12 +223,12 @@ These regions are supported for text-to-speech through the REST API. Be sure to 
 
 This table lists required and optional headers for text-to-speech requests:
 
-| Header | Description | Required or optional |
-|--------|-------------|---------------------|
-| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Required |
-| `Content-Type` | Specifies the content type for the provided text. Accepted value: `application/ssml+xml`. | Required |
-| `X-Microsoft-OutputFormat` | Specifies the audio output format. For a complete list of accepted values, see [Audio outputs](#audio-outputs). | Required |
-| `User-Agent` | The application name. The provided value must be fewer than 255 characters. | Required |
+| Header                     | Description                                                                                                        | Required or optional |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------- |
+| `Authorization`            | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Required             |
+| `Content-Type`             | Specifies the content type for the provided text. Accepted value: `application/ssml+xml`.                          | Required             |
+| `X-Microsoft-OutputFormat` | Specifies the audio output format. For a complete list of accepted values, see [Audio outputs](#audio-outputs).    | Required             |
+| `User-Agent`               | The application name. The provided value must be fewer than 255 characters.                                        | Required             |
 
 ### Request body
 
@@ -259,14 +259,14 @@ User-Agent: <Your application name>
 
 The HTTP status code for each response indicates success or common errors:
 
-| HTTP status code | Description | Possible reason |
-|------------------|-------------|-----------------|
-| 200 | OK | The request was successful. The response body is an audio file. |
-| 400 | Bad request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
-| 401 | Unauthorized | The request is not authorized. Make sure your subscription key or token is valid and in the correct region. |
-| 415 | Unsupported media type | It's possible that the wrong `Content-Type` value was provided. `Content-Type` should be set to `application/ssml+xml`. |
-| 429 | Too many requests | You have exceeded the quota or rate of requests allowed for your subscription. |
-| 502 | Bad gateway    | There's a network or server-side problem. This status might also indicate invalid headers. |
+| HTTP status code | Description            | Possible reason                                                                                                                                                           |
+| ---------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 200              | OK                     | The request was successful. The response body is an audio file.                                                                                                           |
+| 400              | Bad request            | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
+| 401              | Unauthorized           | The request is not authorized. Make sure your subscription key or token is valid and in the correct region.                                                               |
+| 415              | Unsupported media type | It's possible that the wrong `Content-Type` value was provided. `Content-Type` should be set to `application/ssml+xml`.                                                   |
+| 429              | Too many requests      | You have exceeded the quota or rate of requests allowed for your subscription.                                                                                            |
+| 502              | Bad gateway            | There's a network or server-side problem. This status might also indicate invalid headers.                                                                                |
 
 If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file can be played as it's transferred, saved to a buffer, or saved to a file.
 
@@ -274,33 +274,64 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 
 This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
 
-|Streaming                         |Non-Streaming            |
-|----------------------------------|-------------------------|
-|audio-16khz-16bit-32kbps-mono-opus|riff-8khz-8bit-mono-alaw |
-|audio-16khz-32kbitrate-mono-mp3   |riff-8khz-8bit-mono-mulaw|
-|audio-16khz-64kbitrate-mono-mp3   |riff-8khz-16bit-mono-pcm |
-|audio-16khz-128kbitrate-mono-mp3  |riff-24khz-16bit-mono-pcm|
-|audio-24khz-16bit-24kbps-mono-opus|riff-48khz-16bit-mono-pcm|
-|audio-24khz-16bit-48kbps-mono-opus|                         |
-|audio-24khz-48kbitrate-mono-mp3   |                         |
-|audio-24khz-96kbitrate-mono-mp3   |                         |
-|audio-24khz-160kbitrate-mono-mp3  |                         |
-|audio-48khz-96kbitrate-mono-mp3   |                         |
-|audio-48khz-192kbitrate-mono-mp3  |                         |
-|ogg-16khz-16bit-mono-opus         |                         |
-|ogg-24khz-16bit-mono-opus         |                         |
-|ogg-48khz-16bit-mono-opus         |                         |
-|raw-8khz-8bit-mono-alaw           |                         |
-|raw-8khz-8bit-mono-mulaw          |                         |
-|raw-8khz-16bit-mono-pcm           |                         |
-|raw-16khz-16bit-mono-pcm          |                         |
-|raw-16khz-16bit-mono-truesilk     |                         |
-|raw-24khz-16bit-mono-pcm          |                         |
-|raw-24khz-16bit-mono-truesilk     |                         |
-|raw-48khz-16bit-mono-pcm          |                         |
-|webm-16khz-16bit-mono-opus        |                         |
-|webm-24khz-16bit-24kbps-mono-opus |                         |
-|webm-24khz-16bit-mono-opus        |                         |
+| Streaming                          | Non-Streaming               |
+| ---------------------------------- | --------------------------- |
+| audio-16khz-16bit-32kbps-mono-opus | riff-8khz-8bit-mono-alaw    |
+| audio-16khz-32kbitrate-mono-mp3    | riff-8khz-8bit-mono-mulaw   |
+| audio-16khz-64kbitrate-mono-mp3    | riff-8khz-16bit-mono-pcm    |
+| audio-16khz-128kbitrate-mono-mp3   | riff-24khz-16bit-mono-pcm   |
+| audio-24khz-16bit-24kbps-mono-opus | riff-48khz-16bit-mono-pcm   |
+| audio-24khz-16bit-48kbps-mono-opus |                             |
+| audio-24khz-48kbitrate-mono-mp3    |                             |
+| audio-24khz-96kbitrate-mono-mp3    |                             |
+| audio-24khz-160kbitrate-mono-mp3   |                             |
+| audio-48khz-96kbitrate-mono-mp3    |                             |
+| audio-48khz-192kbitrate-mono-mp3   |                             |
+| ogg-16khz-16bit-mono-opus          |                             |
+| ogg-24khz-16bit-mono-opus          |                             |
+| ogg-48khz-16bit-mono-opus          |                             |
+| raw-8khz-8bit-mono-alaw            |                             |
+| raw-8khz-8bit-mono-mulaw           |                             |
+| raw-8khz-16bit-mono-pcm            |                             |
+| raw-16khz-16bit-mono-pcm           |                             |
+| raw-16khz-16bit-mono-truesilk      |                             |
+| raw-22050hz-16bit-mono-pcm         |                             |
+| raw-24khz-16bit-mono-pcm           |                             |
+| raw-24khz-16bit-mono-truesilk      |                             |
+| raw-44100hz-16bit-mono-pcm         |                             |
+| raw-48khz-16bit-mono-pcm           |                             |
+| webm-16khz-16bit-mono-opus         |                             |
+| webm-24khz-16bit-24kbps-mono-opus  |                             |
+| webm-24khz-16bit-mono-opus         |                             |
+| Streaming                          | Non-Streaming               |
+| ---------------------------------- | -------------------------   |
+| audio-16khz-16bit-32kbps-mono-opus | riff-8khz-8bit-mono-alaw    |
+| audio-16khz-32kbitrate-mono-mp3    | riff-8khz-8bit-mono-mulaw   |
+| audio-16khz-64kbitrate-mono-mp3    | riff-8khz-16bit-mono-pcm    |
+| audio-16khz-128kbitrate-mono-mp3   | riff-22050hz-16bit-mono-pcm |
+| audio-24khz-16bit-24kbps-mono-opus | riff-24khz-16bit-mono-pcm   |
+| audio-24khz-16bit-48kbps-mono-opus | riff-44100hz-16bit-mono-pcm |
+| audio-24khz-48kbitrate-mono-mp3    | riff-48khz-16bit-mono-pcm   |
+| audio-24khz-96kbitrate-mono-mp3    |                             |
+| audio-24khz-160kbitrate-mono-mp3   |                             |
+| audio-48khz-96kbitrate-mono-mp3    |                             |
+| audio-48khz-192kbitrate-mono-mp3   |                             |
+| ogg-16khz-16bit-mono-opus          |                             |
+| ogg-24khz-16bit-mono-opus          |                             |
+| ogg-48khz-16bit-mono-opus          |                             |
+| raw-8khz-8bit-mono-alaw            |                             |
+| raw-8khz-8bit-mono-mulaw           |                             |
+| raw-8khz-16bit-mono-pcm            |                             |
+| raw-16khz-16bit-mono-pcm           |                             |
+| raw-16khz-16bit-mono-truesilk      |                             |
+| raw-22050hz-16bit-mono-pcm         |                             |
+| raw-24khz-16bit-mono-pcm           |                             |
+| raw-24khz-16bit-mono-truesilk      |                             |
+| raw-44100hz-16bit-mono-pcm         |                             |
+| raw-48khz-16bit-mono-pcm           |                             |
+| webm-16khz-16bit-mono-opus         |                             |
+| webm-24khz-16bit-24kbps-mono-opus  |                             |
+| webm-24khz-16bit-mono-opus         |                             |
 
 > [!NOTE]
 > en-US-AriaNeural, en-US-JennyNeural and zh-CN-XiaoxiaoNeural are available in public preview in 48Khz output. Other voices support 24khz upsampled to 48khz output.
