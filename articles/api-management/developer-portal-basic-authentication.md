@@ -1,7 +1,7 @@
 ---
-title: Use basic authentication to developer portal
+title: Set up basic authentication to developer portal
 titleSuffix: Azure API Management
-description: Learn how to set up user accounts to the developer portal in Azure API Management with username and password authentication.
+description: Learn how to set up user accounts with username and password authentication to the developer portal in Azure API Management.
 
 author: dlepow
 ms.service: api-management
@@ -10,7 +10,7 @@ ms.date: 08/30/2022
 ms.author: danlep
 ---
 
-# Authenticate users of the developer portal by using usernames and passwords 
+# Configure users of the developer portal to authenticate using usernames and passwords 
 
 In the developer portal for Azure API Management, the default authentication method for users is to provide a username and password. In this article, learn how to set up users with basic authentication credentials to the developer portal.
 
@@ -53,10 +53,15 @@ There are two ways to add a username and password for authentication to the deve
 
 ## Delete the username and password provider
 
-If you've configured another identity provider for the developer portal such as [Azure AD](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md), you might want to delete the username and password provider:
+If you've configured another identity provider for the developer portal such as [Azure AD](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md), you might want to delete the username and password provider. 
+
+Deleting the identity provider prevents configuring users to use username and password authentication. Existing users configured for basic authentication are also prevented from signing into the developer portal.
 
 1. In the left menu of your API Management instance, under **Developer portal**, select **Identities**.
 1. In the **Provider type** list, select **Username and password**. In the context menu (**...**), select **Delete**.
+
+> [!TIP]
+> If you want to disable all sign up or sign in functionality in the developer portal, see [How do I disable sign up in the developer portal?](developer-portal-faq.md#how-do-i-disable-sign-up-in-the-developer-portal)
 
 
 ## Next steps
@@ -65,30 +70,3 @@ For steps to add other identity providers for developer sign-up to the developer
 
 - [Authorize developer accounts by using Azure Active Directory in Azure API Management](api-management-howto-aad.md)
 - [Authorize developer accounts by using Azure Active Directory B2C in Azure API Management](api-management-howto-aad-b2c.md)
-
-
-[api-management-dev-portal-signin]: ./media/api-management-howto-aad/api-management-dev-portal-signin.png
-[api-management-aad-signin]: ./media/api-management-howto-aad/api-management-aad-signin.png
-[api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.png
-[api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
-
-[How to add operations to an API]: ./mock-api-responses.md
-[How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
-[Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: ./api-management-policies.md
-[Caching policies]: ./api-management-policies.md#caching-policies
-[Create an API Management service instance]: get-started-create-service-instance.md
-
-[https://oauth.net/2/]: https://oauth.net/2/
-[WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-
-[Prerequisites]: #prerequisites
-[Configure an OAuth 2.0 authorization server in API Management]: #step1
-[Configure an API to use OAuth 2.0 user authorization]: #step2
-[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
-[Next steps]: #next-steps
-
-[Sign in to the developer portal by using an Azure AD account]: #Sign-in-to-the-developer-portal-by-using-an-Azure-AD-account
