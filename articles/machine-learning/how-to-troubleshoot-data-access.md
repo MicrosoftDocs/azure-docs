@@ -76,7 +76,7 @@ Errors also include:
 
 ### ScriptExecution.StreamAccess.NotFound
 
-The specified file or folder path doesn't exist. Check that the provided path exists in Azure portal or if using a datastore, that the right datastore is used (including the datastore's account and container). If the storage account is an HNS enabled Blob storage, otherwise known as ADLS Gen2, or an `abfs[s]` URI, that storage ACLs may restrict particular folders or paths. This will appear as a "NotFound" error instead of an "Authentication" error.
+The specified file or folder path doesn't exist. Check that the provided path exists in Azure portal or if using a datastore, that the right datastore is used (including the datastore's account and container). If the storage account is an HNS enabled Blob storage, otherwise known as ADLS Gen2, or an `abfs[s]` URI, that storage ACLs may restrict particular folders or paths. This error will appear as a "NotFound" error instead of an "Authentication" error.
 
 ### ScriptExecution.StreamAccess.Validation
 
