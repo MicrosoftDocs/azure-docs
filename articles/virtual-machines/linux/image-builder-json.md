@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
+Azure Image Builder uses a Bicep file or an ARM template file to pass information into the Image Builder service. In this article we will go over the sections of the files, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 This is the basic format:
 
@@ -96,7 +96,7 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
 
 ## Type and API version
 
-The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2022-02-14"` for now.
+The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. The `apiVersion` will change over time as the API changes. The latest API version is `2022-02-14` when this article is written.
 
 # [Bicep](#tab/bicep)
 
@@ -150,7 +150,7 @@ The location is the region where the custom image will be created. The following
 - USGov Virginia (Public Preview)
 
 > [!IMPORTANT]
-> Register the feature "Microsoft.VirtualMachineImages/FairfaxPublicPreview" to access the Azure Image Builder public preview in Azure Government regions (USGov Arizona and USGov Virginia).
+> Register the feature `Microsoft.VirtualMachineImages/FairfaxPublicPreview` to access the Azure Image Builder public preview in Azure Government regions (USGov Arizona and USGov Virginia).
 
 Use the following command to register the feature for Azure Image Builder in Azure Government regions (USGov Arizona and USGov Virginia).
 
@@ -184,67 +184,11 @@ location: '<region>'
 
 ### Data Residency
 
-The Azure VM Image Builder service doesn't store or process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you will need to create Bicep file/templates in a different region and geography.
+The Azure VM Image Builder service doesn't store or process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you will need to create Bicep files/templates in a different region and geography.
 
 ### Zone Redundancy
 
 Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage (ZRS) account by default and the Azure Compute Gallery (formerly known as Shared Image Gallery) version will support a [ZRS storage type](../disks-redundancy.md#zone-redundant-storage-for-managed-disks) if specified.
-
-## vmProfile
-
-## buildVM
-
-Image Builder will use a default SKU size of "Standard_D1_v2" for Gen1 images and "Standard_D2ds_v4" for Gen2 images. The generation is defined by the image you specify in the `source`. You can override this and may wish to do this for these reasons:
-
-1. Performing customizations that require increased memory, CPU and handling large files (GBs).
-2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
-3. Require [VM isolation](../isolation.md).
-4. Customize an image that requires specific hardware. For example, for a GPU VM, you need a GPU VM size.
-5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.yml) that don't use local temporary disks.
-
-This is optional.
-
-## osDiskSizeGB
-
-By default, Image Builder will not change the size of the image, it will use the size from the source image. You can **only** increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leave the same size as the source image. You cannot reduce the OS Disk size to smaller than the size from the source image.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-  osDiskSizeGB: 100
-```
-
-# [JSON](#tab/json)
-
-```json
-{
-  "osDiskSizeGB": 100
-}
-```
-
----
-
-## vnetConfig
-
-If you don't specify any VNET properties, then Image Builder will create its own VNET, Public IP, and network security group (NSG). The Public IP is used for the service to communicate with the build VM, however if you don't want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares, then you can specify a VNET. For more information, review the [networking documentation](image-builder-networking.md), this is optional.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-vnetConfig: {
-  subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
-}
-```
-
-# [JSON](#tab/json)
-
-```json
-"vnetConfig": {
-  "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
-}
-```
-
----
 
 ## Tags
 
@@ -332,6 +276,62 @@ The Image Builder Build VM User Assigned Identity:
 - Doesn't support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
 
 To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) and [How to use managed identities for Azure resources on an Azure VM for sign-in](../../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md).
+
+## Properties: vmProfile
+
+### vmSize
+
+Image Builder will use a default SKU size of "Standard_D1_v2" for Gen1 images and "Standard_D2ds_v4" for Gen2 images. The generation is defined by the image you specify in the `source`. You can override this and may wish to do this for these reasons:
+
+1. Performing customizations that require increased memory, CPU and handling large files (GBs).
+2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
+3. Require [VM isolation](../isolation.md).
+4. Customize an image that requires specific hardware. For example, for a GPU VM, you need a GPU VM size.
+5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.yml) that don't use local temporary disks.
+
+This is optional.
+
+### osDiskSizeGB
+
+By default, Image Builder will not change the size of the image, it will use the size from the source image. You can **only** increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leave the same size as the source image. You cannot reduce the OS Disk size to smaller than the size from the source image.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+  osDiskSizeGB: 100
+```
+
+# [JSON](#tab/json)
+
+```json
+{
+  "osDiskSizeGB": 100
+}
+```
+
+---
+
+### vnetConfig
+
+If you don't specify any VNET properties, then Image Builder will create its own VNET, Public IP, and network security group (NSG). The Public IP is used for the service to communicate with the build VM, however if you don't want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares, then you can specify a VNET. For more information, review the [networking documentation](image-builder-networking.md), this is optional.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+vnetConfig: {
+  subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+"vnetConfig": {
+  "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+}
+```
+
+---
 
 ## Properties: stagingResourceGroup
 
