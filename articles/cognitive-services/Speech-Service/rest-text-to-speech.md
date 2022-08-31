@@ -200,13 +200,13 @@ This response has been truncated to illustrate the structure of a response.
 
 The HTTP status code for each response indicates success or common errors.
 
-| HTTP status code | Description       | Possible reason                                                                                                                                                           |
-| ---------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 200              | OK                | The request was successful.                                                                                                                                               |
-| 400              | Bad request       | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
-| 401              | Unauthorized      | The request is not authorized. Make sure your subscription key or token is valid and in the correct region.                                                               |
-| 429              | Too many requests | You have exceeded the quota or rate of requests allowed for your subscription.                                                                                            |
-| 502              | Bad gateway       | There's a network or server-side problem. This status might also indicate invalid headers.                                                                                |
+| HTTP status code | Description | Possible reason |
+|------------------|-------------|-----------------|
+| 200 | OK | The request was successful. |
+| 400 | Bad request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
+| 401 | Unauthorized | The request is not authorized. Make sure your subscription key or token is valid and in the correct region. |
+| 429 | Too many requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 502 | Bad gateway    | There's a network or server-side problem. This status might also indicate invalid headers. |
 
 
 ## Convert text to speech
