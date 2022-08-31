@@ -7,15 +7,15 @@ ms.date: 08/30/2022
 
 ---
 
-# Terminate a long running operation on a Azure Kubernetes Service (AKS) cluster
+# Terminate a long running operation on an Azure Kubernetes Service (AKS) cluster
 
-Sometimes deployment or other processes running within pods on nodes in a cluster can run for periods of time longer than expected due to a variety of reasons. While it is important to allow those processes to gracefully terminate when they are no longer needed, there are circumstances where you need to release control of nodepool and clusters with long running operations by using an *abort* command.
+Sometimes deployment or other processes running within pods on nodes in a cluster can run for periods of time longer than expected due to various reasons. While it's important to allow those processes to gracefully terminate when they're no longer needed, there are circumstances where you need to release control of node pools and clusters with long running operations using an *abort* command.
 
-AKS now supports aborting a long running operation, allowing you to take back control and run another operation seamlessly. This helps you to prioritize time and operations as necessary. This design is supported using the [Azure REST API](/rest/api/azure/) or the [Azure CLI](/cli/azure/).
+AKS now supports aborting a long running operation, allowing you to take back control and run another operation seamlessly. This design is supported using the [Azure REST API](/rest/api/azure/) or the [Azure CLI](/cli/azure/).
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, start with reviewing our guidance on how to design, secure, and operate an AKS cluster to support your production-ready workloads. See [AKS architecture guidance](/azure/architecture/reference-architectures/containers/aks-start-here) for more information.
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, start with reviewing our guidance on how to design, secure, and operate an AKS cluster to support your production-ready workloads. For more information, see [AKS architecture guidance](/azure/architecture/reference-architectures/containers/aks-start-here).
 
 ## Abort a long running operation
 
