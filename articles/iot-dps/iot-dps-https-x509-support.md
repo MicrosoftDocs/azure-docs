@@ -14,7 +14,9 @@ manager: lizross
 
 In this how-to article, you'll provision a device using x.509 certificates over HTTPS without using a an Azure IoT DPS device SDK. Most languages provide libraries to send HTTP requests, but, rather than focus on a specific language, in this article, you'll use the [cURL](https://en.wikipedia.org/wiki/CURL) command-line tool to send and receive over HTTPS.
 
-For this article, you can use either an [individual enrollment](concepts-service.md#individual-enrollment) or an [enrollment group](concepts-service.md#enrollment-group) to provision through DPS. After installing the prerequisites, follow the instructions in [Create a device certificate](#create-a-device-certificate) to create either a device certificate or a certificate chain. Then complete either [Use individual enrollment](#use-an-individual-enrollment) or [Use an enrollment group](#use-an-enrollment-group) before continuing on to to register (provision) your device with DPS.
+For this article, you can use either an [individual enrollment](concepts-service.md#individual-enrollment) or an [enrollment group](concepts-service.md#enrollment-group) to provision through DPS. After installing the prerequisites, follow the instructions in [Create a device certificate](#create-a-device-certificate) to create either a self-signed device certificate or a certificate chain. Then complete either [Use individual enrollment](#use-an-individual-enrollment) or [Use an enrollment group](#use-an-enrollment-group) before continuing on to to register (provision) your device with DPS.
+
+You can follow the steps in this article on either a Linux or a Windows machine. If you're running on Windows Subsystem for Linux (WSL) or running on a Linux machine, you can enter all commands on your local system in a Bash prompt. If you're running on Windows, enter all commands on your local system in a GitBash prompt.
 
 ## Prerequisites
 
@@ -22,9 +24,15 @@ For this article, you can use either an [individual enrollment](concepts-service
 
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
-* Install [Python 3.7](https://www.python.org/downloads/) or later installed on your machine. You can check your version of Python by running `python --version`.
+* Make sure you have [Python 3.7](https://www.python.org/downloads/) or later installed on your machine. You can check your version of Python by running `python --version` or `python3 --version`.
 
-* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
+* If you're running in Windows, install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository. On Windows, you'll enter all commands on your local system in a GitBash prompt.
+
+* Azure CLI. You have two options for running Azure CLI commands in this article:
+    * Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../articles/cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
+    * Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli). If you're using Raspberry Pi as your development platform, we recommend that you use Azure Cloud Shell or install Azure CLI on another computer.
+
+* If you're running in a Linux or a WSL environment, open a Bash prompt to run commands locally. If you're running in a Windows environment, open a GitBash prompt.
 
 ## Create a device certificate
 
@@ -137,15 +145,14 @@ When you're finished, you should have the following files:
 | root CA certificate.              | *certs/azure-iot-test-only.root.ca.cert.pem* | Will be uploaded to DPS and verified. |
 | intermediate CA certificate   | *certs/azure-iot-test-only.intermediate.cert.pem* | Will be used to create an enrollment group in DPS. |
 | device-01 private key          | *private/device-01.key.pem* | Used by the device to verify ownership of the device certificate during authentication with DPS. |
+| device-01 certificate  | *certs/device-01.cert.pem* | Used to create individual enrollment entry with DPS. |
 | device-01 full chain certificate  | *certs/device-01-full-chain.cert.pem* | Presented by the device to authenticate and register with DPS. |
 
 ## Use an individual enrollment
 
-If you want to create a new individual enrollment to use for this article, you can use the [az iot dps enrollment create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-create) command.
+To create an individual enrollment to use for this article, use the [az iot dps enrollment create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-create) command.
 
 The following command creates an individual enrollment entry with the default allocation policy for your DPS instance using the device certificate you specify.
-
-Substitute the name of your resource group and DPS instance. The enrollment ID is the registration ID for your device and, for X.509 enrollments, must match the subject common name (CN) of the device certificate.
 
 ```azurecli
 az iot dps enrollment create -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --attestation-type x509 --certificate-path {path to your certificate}
@@ -172,11 +179,9 @@ az iot dps enrollment create -g {resource_group_name} --dps-name {dps_name} --en
 
 ## Use an enrollment group
 
-If you want to to create a new enrollment group to use for this article, you can use the [az iot dps enrollment-group create](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-create) command.
+To create an enrollment group to use for this article, use the [az iot dps enrollment-group create](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-create) command.
 
 The following command creates an enrollment group entry with the default allocation policy for your DPS instance using an intermediate CA certificate:
-
-Substitute the name of your resource group and DPS instance.  
 
 ```azurecli
 az iot dps enrollment-group create -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --certificate-path {path_to_your_certificate}
@@ -193,19 +198,19 @@ az iot dps enrollment-group create -g {resource_group_name} --dps-name {dps_name
 >
 > :::image type="content" source="media/iot-dps-https-x509-support/upload-to-cloud-shell.png" alt-text="Screenshot that shows the upload file button in Azure Cloud Shell.":::
 
+> [!NOTE]
+>
+> If you prefer, you can create an enrollment group based on a signing certificate that has been previously uploaded and verified with DPS (see next section). To do so, you specify the certificate name with the `--ca-name` and omit the `--certificate-path` parameter in the `az iot dps enrollment-group create` command.
+
 ## Upload and verify a signing certificate
 
 If you're using a certificate chain for either an individual enrollment or an enrollment group, you must upload and verify at least one certificate in the device certificate's signing chain to DPS.
 
 * For an individual enrollment, this can be any signing certificate in the device's certificate chain.
 
-* For an enrollment group based on a root CA certificate, this must be the root CA certificate.
+* For an enrollment group, this can be the certificate set on the enrollment group or any certificate in its signing chain up to and including the root CA certificate.
 
-* For an enrollment group based on an intermediate certificate, this can be the intermediate certificate set on the enrollment group or any certificate in its signing chain up to and including the root CA certificate.
-
-To upload and verify your root or intermediate CA certificate, use the [az iot dps certificate create](/cli/azure/iot/dps/certificate#az-iot-dps-certificate-create) command.
-
-The following command uploads and automatically verifies the root CA certificate you created in []:
+To upload and verify your certificate, use the [az iot dps certificate create](/cli/azure/iot/dps/certificate#az-iot-dps-certificate-create) command:
 
 ```azurecli
 az iot dps certificate create -g {resource_group_name} --dps-name {dps_name} --certificate-name {friendly_name_for_your_certificate} --path {path_to_your_certificate} --verified true
@@ -213,9 +218,9 @@ az iot dps certificate create -g {resource_group_name} --dps-name {dps_name} --c
 
 * Substitute the name of your resource group and DPS instance.
 
-* The certificate name can contain only alphanumeric characters or the following special characters: `-._`. No whitespace is permitted. For example, "azure-iot-test-only-root".
+* The certificate path is the path to your signing certificate. For this article, we recommend you upload the root CA certificate. If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain), the filename is *certs/azure-iot-test-only.root.ca.cert.pem*.
 
-* To use the root CA certificate created in the preceding section, use *azure-iot-test-only.root.ca.cert.pem*.
+* The certificate name can contain only alphanumeric characters or the following special characters: `-._`. No whitespace is permitted. For example, "azure-iot-test-only-root".
 
 > [!NOTE]
 > If you're using Cloud Shell to run Azure CLI commands, you can use the upload button to upload your certificate file to your cloud drive before you run the command.
@@ -236,9 +241,9 @@ Where:
 
 * `-L` tells curl to follow HTTP redirects.
 
-* `– i` tells curl to include protocol headers in output.  This is not strictly necessary, but it can be useful.
+* `–i` tells curl to include protocol headers in output.  This is not strictly necessary, but it can be useful.
 
-* `X PUT ` tells curl that this is an HTTP PUT command. Required for this API call since we are sending a message in the body.
+* `X PUT` tells curl that this is an HTTP PUT command. Required for this API call.
 
 * `--cert [path_to_your_device_cert]` tells curl where to find your device's X.509 certificate. If your device private key is protected by a pass phrase, you can add the passphrase after the certificate path preceded by a colon, for example: `--cert my-device.pem:1234`.
 
@@ -258,13 +263,21 @@ Where:
 
 * `-d '{"registrationId": "[registration_id]"}'`, the `–d` parameter is the 'data' or body of the message we are posting.  It must be JSON, in the form of '{"registrationId":"[registration_id"}'.  Note that for cURL, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON. For X.509 enrollment, the registration ID is the subject common name (CN) of your device certificate.
 
-* Finally, the last parameter is the URL to post to. For "regular" (i.e not on-premises) DPS, the global DPS endpoint is global.azure-devices-provisioning.net.  `https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/register?api-version=2019-03-31`.  Note that you have to replace the [dps_scope_id] and [registration_id] with the appropriate values.
+* Finally, the last parameter is the URL to post to. For "regular" (i.e not on-premises) DPS, the global DPS endpoint, *global.azure-devices-provisioning.net* is used: `https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/register?api-version=2019-03-31`.  Note that you have to replace the [dps_scope_id] and [registration_id] with the appropriate values.
 
 For example:
 
-```bash
-curl -L -i -X PUT --cert device-cert.pem:1234 --key device-key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"registrationId": "my-x509-device"}' https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/my-x509-device/register?api-version=2021-06-01
-```
+* If you followed the instructions in [Use a self-signed certificate](#use-a-self-signed-certificate):
+
+    ```bash
+    curl -L -i -X PUT --cert device-cert.pem:1234 --key device-key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"registrationId": "my-x509-device"}' https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/my-x509-device/register?api-version=2021-06-01
+    ```
+
+* If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain):
+
+    ```bash
+    curl -L -i -X PUT --cert certs/device-01-full-chain.cert.pem --key private/device-01.key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"registrationId": "device-01"}' https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/device-01/register?api-version=2021-06-01
+    ```
 
 A successful call will have a response similar to the following:
 
@@ -278,38 +291,38 @@ Retry-After: 3
 x-ms-request-id: 05cdec07-c0c7-48f3-b3cd-30cfe27cbe57
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 
-{"operationId":"5.506603669bd3e2bf.b3602f8f-76fe-4341-9214-bb6cfb891b8a","status":"assigning"}jimaco@5CG924C9J7:~/certs3$
+{"operationId":"5.506603669bd3e2bf.b3602f8f-76fe-4341-9214-bb6cfb891b8a","status":"assigning"}
 ```
 
-The response contains an operation ID and a status. In this case, the status is set to assigning. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you'll poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/runtime-registration/operation-status-lookup) REST API to determine when your device has been assigned or whether a failure has occurred.
+The response contains an operation ID and a status. In this case, the status is set to `assigning`. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you'll poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/runtime-registration/operation-status-lookup) REST API to determine when your device has been assigned or whether a failure has occurred.
 
 The valid status values for DPS are:
 
-* assigned: the return value from the status call will indicate what IoT Hub the device was assigned to.
+* `assigned`: the return value from the status call will indicate what IoT Hub the device was assigned to.
 
-* assigning: the operation is still running.
+* `assigning`: the operation is still running.
 
-* disabled: the enrollment record is disabled in DPS, so the device  can't be assigned.
+* `disabled`: the enrollment record is disabled in DPS, so the device  can't be assigned.
 
-* failed: the assignment failed. There will be an errorCode and errorMessage returned in an registrationState record in the returned JSON to indicate what failed.
+* `failed`: the assignment failed. There will be an `errorCode` and `errorMessage` returned in an `registrationState` record in the response to indicate what failed.
 
-* unassigned
+* `unassigned`
 
-To get the status of the operation, use the following curl command:
+To call the Operation Status Lookup API and get the status of the operation, use the following curl command:
 
 ```bash
 curl -L -i -X GET --cert [path_to_your_device_cert] --key [path_to_your_device_private_key] -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/operations/[operation_id]?api-version=2019-03-31
 ```
 
-You'll use the same ID scope, registration ID, and certificate as you did in the Register Device command. Use the operation ID that was returned in the Register Device response.
+You'll use the same ID scope, registration ID, and certificate and key as you did in the **Register Device** request. Use the operation ID that was returned in the **Register Device** response.
 
-For example:
+For example, the following command is for the self-signed certificate created in [Use a self-signed certificate](#use-a-self-signed-certificate). (You need to modify the ID scope and operation ID.)
 
 ```bash
 curl -L -i -X GET --cert ./device-certPUT --cert device-cert.pem:1234 --key device-key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/my-x509-device/operations/5.506603669bd3e2bf.b3602f8f-76fe-4341-9214-bb6cfb891b8a?api-version=2021-06-01
 ```
 
-The following output shows the response for a device that has been successfully assigned. Notice that the `status` is "assigned" and that the `registrationState.assignedHub` property is set to the IoT hub where the device was provisioned.
+The following output shows the response for a device that has been successfully assigned. Notice that the `status` property is `assigned` and that the `registrationState.assignedHub` property is set to the IoT hub where the device was provisioned.
 
 ```output
 HTTP/1.1 200 OK
@@ -336,4 +349,71 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
       "etag":"IjEyMDA4NmYyLTAwMDAtMDMwMC0wMDAwLTYzMGE1YTBmMDAwMCI="
    }
 }
+```
+
+## Send a telemetry message
+
+Use the [Send Device Event](/rest/api/iothub/device/send-device-event) IoT Hub Rest API to send telemetry to the device.
+
+Use the following curl command:
+
+```bash
+curl -L -i -X POST --cert [path_to_your_device_cert] --key [path_to_your_device_private_key] -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"temperature": 30}' https://[assigned_iot_hub_name].azure-devices.net/devices/[device_id]/messages/events?api-version=2020-03-13
+```
+
+Where:
+
+* `-L` tells curl to follow HTTP redirects.
+
+* `–i` tells curl to include protocol headers in output.  This is not strictly necessary, but it can be useful.
+
+* `X POST` tells curl that this is an HTTP POST command. Required for this API call.
+
+* `--cert [path_to_your_device_cert]` tells curl where to find your device's X.509 certificate. If your device private key is protected by a pass phrase, you can add the passphrase after the certificate path preceded by a colon, for example: `--cert my-device.pem:1234`.
+
+  * If you're using a self-signed certificate, your device certificate file will only contain a single X.509 certificate. If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the filename is *device-cert.pem* and the private key passphrase is `1234`, so use `--cert device-cert.pem:1234`.
+
+  * If you're using a certificate chain, your device certificate file must contain a valid certificate chain. If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain) to create the certificate chain, the filepath is *certs/device-01-full-chain.cert.pem*, so use `--cert certs/device-01-full-chain.cert.pem`.
+
+* `--key [path_to_your_device_private_key]` tells curl where to find your device's private key.
+
+  * If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the filename is *device-key.pem*, so use `--key device-cert.pem:1234`.
+
+  * If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain), the key path is *certs/device-01-full-chain.cert.pem*, so use `--cert certs/device-01-full-chain.cert.pem`.
+
+* `-H 'Content-Type: application/json'` tells IoT Hub we are posting JSON content and must be 'application/json'
+
+* `-H 'Content-Encoding:  utf-8'` tells IoT Hub the encoding we are using for our message body. Set to the proper value for your OS/client; however, this is generally `utf-8`.  
+
+* `-d '{"temperature": 30}'`, the `–d` parameter is the 'data' or body of the message we are posting. For this article, we are posting a single temperature data point. We specified application/json as the content type, so for this request the body is JSON. Note that for cURL, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON.
+
+* The last parameter is the URL to post to. For the Send Device Event API, the URL is: `https://[assigned_iot_hub_name].azure-devices.net/devices/[device_id]/messages/events?api-version=2020-03-13`.  
+
+* Replace the [assigned_iot_hub_name] with the name of the IoT hub that your device was assigned to 
+
+* Replace [device_id] with the registration ID that you used when you registered your device. (Note that for individual enrollments, you can, optionally, set a device ID that is different from the registration ID.)
+
+For example:
+
+* If you followed the instructions in [Use a self-signed certificate](#use-a-self-signed-certificate):
+
+    ```bash
+    curl -L -i -X PUT --cert device-cert.pem:1234 --key device-key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"temperature": 30}' https://MyExampleHub.azure-devices.net/devices/my-x509-device/messages/events?api-version=2020-03-13
+    ```
+
+* If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain):
+
+    ```bash
+    curl -L -i -X PUT --cert certs/device-01-full-chain.cert.pem --key private/device-01.key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"temperature": 30}' https://MyExampleHub.azure-devices.net/devices/my-x509-device/messages/events?api-version=2020-03-13
+    ```
+
+A successful call will have a response similar to the following:
+
+```output
+HTTP/1.1 204 No Content
+Content-Length: 0
+Vary: Origin
+Server: Microsoft-HTTPAPI/2.0
+x-ms-request-id: aa58c075-20d9-4565-8058-de6dc8524f14
+Date: Wed, 31 Aug 2022 18:34:44 GMT
 ```
