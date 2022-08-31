@@ -30,7 +30,7 @@ This article defines authentication and authorization. It also briefly covers Mu
 
 ## Multifactor authentication
 
-*Multifactor authentication* is the act of providing an additional factor of authentication to an account. This is often used to protect against brute force attacks. It is sometimes shortened to *MFA* or *2FA*. The Microsoft identity platform uses the [Microsoft Authenticator](https://support.microsoft.com/account-billing/set-up-the-microsoft-authenticator-app-as-your-verification-method-33452159-6af9-438f-8f82-63ce94cf3d29) app for handling two-factor authentication. For more information, see [multifactor authentication](../authentication/concept-mfa-howitworks.md)
+*Multifactor authentication* is the act of providing an additional factor of authentication to an account. This is often used to protect against brute force attacks. It is sometimes shortened to *MFA* or *2FA*. The [Microsoft Authenticator](https://support.microsoft.com/account-billing/set-up-the-microsoft-authenticator-app-as-your-verification-method-33452159-6af9-438f-8f82-63ce94cf3d29) can be used as an app for handling two-factor authentication. For more information, see [multifactor authentication](../authentication/concept-mfa-howitworks.md).
 
 ## Authentication and authorization using the Microsoft identity platform
 
