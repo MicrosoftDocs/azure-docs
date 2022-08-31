@@ -34,167 +34,167 @@ To configure those you'll follow these steps:
 1. On the left of the screen select **Logic App code view**.
 
 1. In the editor paste the following code:
-```LCW Logic App code view template
-{
-  "definition": {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-    "actions": {
-      "HTTP": {
-        "inputs": {
-          "authentication": {
-            "audience": "https://graph.microsoft.com",
-            "type": "ManagedServiceIdentity"
-          },
-          "body": {
-            "data": {
-              "operationStatus": "Completed"
+    ```LCW Logic App code view template
+    {
+      "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+          "HTTP": {
+            "inputs": {
+              "authentication": {
+                "audience": "https://graph.microsoft.com",
+                "type": "ManagedServiceIdentity"
+              },
+              "body": {
+                "data": {
+                  "operationStatus": "Completed"
+                },
+                "source": "sample",
+                "type": "lifecycleEvent"
+              },
+              "method": "POST",
+              "uri": "https://graph.microsoft.com/beta@{triggerBody()?['data']?['callbackUriPath']}"
             },
-            "source": "sample",
-            "type": "lifecycleEvent"
-          },
-          "method": "POST",
-          "uri": "https://graph.microsoft.com/beta@{triggerBody()?['data']?['callbackUriPath']}"
+            "runAfter": {},
+            "type": "Http"
+          }
         },
-        "runAfter": {},
-        "type": "Http"
-      }
-    },
-    "contentVersion": "1.0.0.0",
-    "outputs": {},
-    "parameters": {},
-    "triggers": {
-      "manual": {
-        "inputs": {
-          "schema": {
-            "properties": {
-              "data": {
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {},
+        "triggers": {
+          "manual": {
+            "inputs": {
+              "schema": {
                 "properties": {
-                  "callbackUriPath": {
-                    "description": "CallbackUriPath used for Resume Action",
-                    "title": "Data.CallbackUriPath",
-                    "type": "string"
-                  },
-                  "subject": {
+                  "data": {
                     "properties": {
-                      "displayName": {
-                        "description": "DisplayName of the Subject",
-                        "title": "Subject.DisplayName",
+                      "callbackUriPath": {
+                        "description": "CallbackUriPath used for Resume Action",
+                        "title": "Data.CallbackUriPath",
                         "type": "string"
                       },
-                      "email": {
-                        "description": "Email of the Subject",
-                        "title": "Subject.Email",
-                        "type": "string"
-                      },
-                      "id": {
-                        "description": "Id of the Subject",
-                        "title": "Subject.Id",
-                        "type": "string"
-                      },
-                      "manager": {
+                      "subject": {
                         "properties": {
                           "displayName": {
-                            "description": "DisplayName parameter for Manager",
-                            "title": "Manager.DisplayName",
+                            "description": "DisplayName of the Subject",
+                            "title": "Subject.DisplayName",
                             "type": "string"
                           },
                           "email": {
-                            "description": "Mail parameter for Manager",
-                            "title": "Manager.Mail",
+                            "description": "Email of the Subject",
+                            "title": "Subject.Email",
                             "type": "string"
                           },
                           "id": {
-                            "description": "Id parameter for Manager",
-                            "title": "Manager.Id",
+                            "description": "Id of the Subject",
+                            "title": "Subject.Id",
+                            "type": "string"
+                          },
+                          "manager": {
+                            "properties": {
+                              "displayName": {
+                                "description": "DisplayName parameter for Manager",
+                                "title": "Manager.DisplayName",
+                                "type": "string"
+                              },
+                              "email": {
+                                "description": "Mail parameter for Manager",
+                                "title": "Manager.Mail",
+                                "type": "string"
+                              },
+                              "id": {
+                                "description": "Id parameter for Manager",
+                                "title": "Manager.Id",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "userPrincipalName": {
+                            "description": "UserPrincipalName of the Subject",
+                            "title": "Subject.UserPrincipalName",
                             "type": "string"
                           }
                         },
                         "type": "object"
                       },
-                      "userPrincipalName": {
-                        "description": "UserPrincipalName of the Subject",
-                        "title": "Subject.UserPrincipalName",
-                        "type": "string"
+                      "task": {
+                        "properties": {
+                          "displayName": {
+                            "description": "DisplayName for Task Object",
+                            "title": "Task.DisplayName",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Id for Task Object",
+                            "title": "Task.Id",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "taskProcessingResult": {
+                        "properties": {
+                          "createdDateTime": {
+                            "description": "CreatedDateTime for TaskProcessingResult Object",
+                            "title": "TaskProcessingResult.CreatedDateTime",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Id for TaskProcessingResult Object",
+                            "title": "TaskProcessingResult.Id",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "workflow": {
+                        "properties": {
+                          "displayName": {
+                            "description": "DisplayName for Workflow Object",
+                            "title": "Workflow.DisplayName",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Id for Workflow Object",
+                            "title": "Workflow.Id",
+                            "type": "string"
+                          },
+                          "workflowVerson": {
+                            "description": "WorkflowVersion for Workflow Object",
+                            "title": "Workflow.WorkflowVersion",
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
                       }
                     },
                     "type": "object"
                   },
-                  "task": {
-                    "properties": {
-                      "displayName": {
-                        "description": "DisplayName for Task Object",
-                        "title": "Task.DisplayName",
-                        "type": "string"
-                      },
-                      "id": {
-                        "description": "Id for Task Object",
-                        "title": "Task.Id",
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
+                  "source": {
+                    "description": "Context in which an event happened",
+                    "title": "Request.Source",
+                    "type": "string"
                   },
-                  "taskProcessingResult": {
-                    "properties": {
-                      "createdDateTime": {
-                        "description": "CreatedDateTime for TaskProcessingResult Object",
-                        "title": "TaskProcessingResult.CreatedDateTime",
-                        "type": "string"
-                      },
-                      "id": {
-                        "description": "Id for TaskProcessingResult Object",
-                        "title": "TaskProcessingResult.Id",
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "workflow": {
-                    "properties": {
-                      "displayName": {
-                        "description": "DisplayName for Workflow Object",
-                        "title": "Workflow.DisplayName",
-                        "type": "string"
-                      },
-                      "id": {
-                        "description": "Id for Workflow Object",
-                        "title": "Workflow.Id",
-                        "type": "string"
-                      },
-                      "workflowVerson": {
-                        "description": "WorkflowVersion for Workflow Object",
-                        "title": "Workflow.WorkflowVersion",
-                        "type": "integer"
-                      }
-                    },
-                    "type": "object"
+                  "type": {
+                    "description": "Value describing the type of event related to the originating occurrence.",
+                    "title": "Request.Type",
+                    "type": "string"
                   }
                 },
                 "type": "object"
-              },
-              "source": {
-                "description": "Context in which an event happened",
-                "title": "Request.Source",
-                "type": "string"
-              },
-              "type": {
-                "description": "Value describing the type of event related to the originating occurrence.",
-                "title": "Request.Type",
-                "type": "string"
               }
             },
-            "type": "object"
+            "kind": "Http",
+            "type": "Request"
           }
-        },
-        "kind": "Http",
-        "type": "Request"
-      }
+        }
+      },
+      "parameters": {}
     }
-  },
-  "parameters": {}
-}
-    
-```
+        
+    ```
 1. Select Save.
 
 1. Switch to the **Logic App designer** and inspect the configured trigger and callback action. To build your custom business logic, add other actions between the trigger and callback action. If you're only interested in the fire-and-forget scenario, you may remove the callback action.
@@ -206,16 +206,16 @@ To configure those you'll follow these steps:
 1. Select Save.    
 
 1. For Logic Apps authorization policy, we'll need the managed identities **Application ID**. Since the Azure portal only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Azure AD Portal** to find the required Application ID.
- :::image type="content" source="media/configure-logic-app-lifecycle-workflows/lcw-enterprise-applications-portal.png" alt-text="lcw enterprise applications portal":::
+
 1. Go back to the logic app you created, and select **Authorization**.
 
 1. Create a new authorization policy based on the table below:
 
-|Claim  |Value  |
-|---------|---------|
-|Issuer     |  https://sts.windows.net/(Tenant ID)/       |
-|Audience     | Application ID of your Logic Apps Managed Identity       |
-|appID     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
+    |Claim  |Value  |
+    |---------|---------|
+    |Issuer     |  https://sts.windows.net/(Tenant ID)/       |
+    |Audience     | Application ID of your Logic Apps Managed Identity       |
+    |appID     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
 
 
 1. Save the Authorization policy.

@@ -48,12 +48,12 @@ Before introducing the API call to create this workflow, you may want to review 
 |description     |  A string that describes the purpose of the workflow for administrative use. (Optional)       |
 |isEnabled     |   A boolean value that denotes whether the workflow is set to run or not.  If set to “true" then the workflow will run.      |
 |isSchedulingEnabled     |   A Boolean value that denotes whether scheduling is enabled or not. Unlike isEnbaled, a workflow can still be run on demand if this value is set to false.      |
-|executionConditions     |    An argument that contains: </br><li>a time-based attribute and an integer parameter defining when a workflow will run between -60 and 60 </br></li><li>a scope attribute defining who the workflow runs for.</li>     |
-|tasks    |  An argument in a workflow that has a unique displayName and a description. </br> It defines the specific tasks to be executed in the workflow. </br>The specified task is outlined by the taskDefinitionID and its parameters.  For a list of supported tasks, and their corresponding IDs, see [Supported Task Definitions](lifecycle-workflow-tasks.md).      |
+|executionConditions     |    An argument that contains: <br><br>A time-based attribute and an integer parameter defining when a workflow will run between -60 and 60 <br><br>A scope attribute defining who the workflow runs for.   |
+|tasks    |  An argument in a workflow that has a unique displayName and a description. <br><br> It defines the specific tasks to be executed in the workflow. <br><br>The specified task is outlined by the taskDefinitionID and its parameters.  For a list of supported tasks, and their corresponding IDs, see [Supported Task Definitions](lifecycle-workflow-tasks.md).      |
 
 For the purpose of this tutorial, there are three tasks that will be introduced in this workflow:
 
-#### Remove user from all groups task
+### Remove user from all groups task
 
 ```Example
 "tasks":[
@@ -71,7 +71,7 @@ For the purpose of this tutorial, there are three tasks that will be introduced 
 > [!NOTE]
 > The task does not support removing users from Privileged Access Groups, Dynamic Groups, and synchronized Groups.
 
-#### Remove user from all Teams task
+### Remove user from all Teams task
 
 ```Example
 "tasks":[
@@ -85,7 +85,7 @@ For the purpose of this tutorial, there are three tasks that will be introduced 
         }
    ]
 ```
-#### Delete user task
+### Delete user task
 
 ```Example
 "tasks":[
@@ -99,11 +99,11 @@ For the purpose of this tutorial, there are three tasks that will be introduced 
         }
    ]
 ```
-#### Leaver workflow on-demand
+### Leaver workflow on-demand
 
 The following POST API call will create a leaver workflow that can be executed on-demand for real-time employee terminations.
 
-```http
+ ```http
 POST https://graph.microsoft.com/beta/identityGovernance/LifecycleWorkflows/workflows
 Content-type: application/json
 
@@ -147,7 +147,9 @@ Content-type: application/json
     ]
 }
 ```
+
 ## Run the workflow 
+
 Now that the workflow is created, it will automatically run the workflow every 3 hours. Lifecycle workflows will check every 3 hours for users in the associated execution condition and execute the configured tasks for those users.  However, for the tutorial, we would like to run it immediately. To run a workflow immediately, we can use the on-demand feature.
 
 >[!NOTE]
@@ -179,7 +181,7 @@ To begin, you will just need the ID of the workflow and the date range for which
 This example will show you how to list the userProcessingResults for the last 7 days.
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/LifecycleWorkflows/workflows/<workflow id>/userProcessingResults
+GET https://graph.microsoft.com/beta/identityGovernance/LifecycleWorkflows/workflows/<workflow_id>/userProcessingResults
 ```
 Furthermore, it is possible to get a summary of the userProcessingResults to get a quicker overview of large amounts of data, but for this a time span must be specified.
 

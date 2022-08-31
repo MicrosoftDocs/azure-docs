@@ -37,7 +37,7 @@ You're able to retrieve run information of a workflow using Lifecycle Workflows.
 1. On the history page, select the **Runs** button.  
 
 1. Here you'll see a summary of workflow runs.
-    :::image type="content" source="media/check-status-workflow/run-list.png" alt-text="Workflow Runs list.":::
+    :::image type="content" source="media/check-status-workflow/run-list.png" alt-text="Screenshot of a workflow Runs list.":::
 1. The runs summary cards include the total number of processed runs, the number of successful runs, the number of failed runs, and the total number of failed tasks.   
 
 ## User workflow history using the Azure portal
@@ -52,15 +52,15 @@ To get further information than just the runs summary for a workflow, you're als
 1. select the workflow you want to see user processing information for. 
 
 1. On the workflow overview screen, select **Workflow history (Preview)**.
-    :::image type="content" source="media/check-status-workflow/workflow-history.png" alt-text="workflow overview history.":::
+    :::image type="content" source="media/check-status-workflow/workflow-history.png" alt-text="Screenshot of a workflow overview history.":::
 1. On the workflow history page, you're presented with a summary of every user processed by the workflow along with counts of successful and failed users and tasks.
-    :::image type="content" source="media/check-status-workflow/workflow-history-list.png" alt-text="list of workflow summary.":::
+    :::image type="content" source="media/check-status-workflow/workflow-history-list.png" alt-text="Screenshot of a list of workflow summaries.":::
 1. By selecting total tasks by a user you're able to see which tasks have successfully completed, or are currently in progress.
-    :::image type="content" source="media/check-status-workflow/task-history-status.png" alt-text="task history status.":::
+    :::image type="content" source="media/check-status-workflow/task-history-status.png" alt-text="Screenshot of workflow task history status.":::
 1. By selecting failed tasks, you're able to see which tasks have failed for a specific user.
-    :::image type="content" source="media/check-status-workflow/task-history-failed.png" alt-text="failed tasks history.":::
+    :::image type="content" source="media/check-status-workflow/task-history-failed.png" alt-text="Screenshot of workflow failed tasks history.":::
 1. By selecting unprocessed tasks, you're able to see which tasks are unprocessed.
-    :::image type="content" source="media/check-status-workflow/task-history-unprocessed.png" alt-text="unprocessed tasks.":::
+    :::image type="content" source="media/check-status-workflow/task-history-unprocessed.png" alt-text="Screenshot of unprocessed tasks of a workflow.":::
 
 
 ## User workflow history using Microsoft Graph

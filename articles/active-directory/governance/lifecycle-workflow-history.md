@@ -24,7 +24,7 @@ Workflows created using Lifecycle Workflows allow for the automation of lifecycl
 
 Every time a workflow is processed, an event is logged. These events are stored in the **Audit Logs** section, and can be used to gain information about workflows for historical, and auditing, purposes. 
 
-:::image type="content" source="media/lifecycle-workflow-history/audit-logs-concept.png" alt-text="workflow audit logs concept":::
+:::image type="content" source="media/lifecycle-workflow-history/audit-logs-concept.png" alt-text="Screenshot of a workflow audit log.":::
 
 On the **Audit Log** page you're presented a sequential list, by date, of every action Lifecycle Workflows has taken. From this information you're able to filter based on the following parameters:
 
@@ -58,7 +58,7 @@ Summaries allow you to quickly gain details about how a workflow ran for itself,
 
 User summaries allow you to view workflow information through the lens of users it has processed.
 
-:::image type="content" source="media/lifecycle-workflow-history/users-summary-concept.png" alt-text="workflow user summary concept":::
+:::image type="content" source="media/lifecycle-workflow-history/users-summary-concept.png" alt-text="Screenshot of a workflow user summary.":::
 
 
 Within the user summary you're able to find the following information:
@@ -87,7 +87,7 @@ For a complete guide on getting user processed summary information, see: [User w
 
 Runs summaries allow you to view workflow information through the lens of its run history
 
-:::image type="content" source="media/lifecycle-workflow-history/runs-status-concept.png" alt-text="workflow runs summary concept":::
+:::image type="content" source="media/lifecycle-workflow-history/runs-status-concept.png" alt-text="Screenshot of a workflow runs summary.":::
 
 Within the runs summary you're able to find the following information:
 
@@ -113,7 +113,7 @@ For a complete guide on getting runs information, see: [Run workflow history usi
 
 Task summaries allow you to view workflow information through the lens of its tasks.
 
-:::image type="content" source="media/lifecycle-workflow-history/task-summay-concept.png" alt-text="workflow task summary concept":::
+:::image type="content" source="media/lifecycle-workflow-history/task-summay-concept.png" alt-text="Screenshot of a workflow task summary.":::
 
 Within the tasks summary you're able to find the following information:
 

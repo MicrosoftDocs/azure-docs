@@ -41,11 +41,11 @@ To edit the properties of a workflow using the Azure portal, you'll do the follo
 
 1. Here you'll see a list of all of your current workflows. Select the workflow that you want to edit.
     
-    :::image type="content" source="media/manage-workflow-properties/manage-list.png" alt-text=" Manage workflow list.":::
+    :::image type="content" source="media/manage-workflow-properties/manage-list.png" alt-text="Screenshot of the manage workflow list.":::
 
 6. To change the display name or description, select **Properties (Preview)**.
 
-    :::image type="content" source="media/manage-workflow-properties/manage-properties.png" alt-text="Manage basic properties.":::
+    :::image type="content" source="media/manage-workflow-properties/manage-properties.png" alt-text="Screenshot of the manage basic properties screen.":::
 
 7. Update the display name or description how you want. 
 > [!NOTE]

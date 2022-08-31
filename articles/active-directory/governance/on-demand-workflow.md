@@ -34,7 +34,7 @@ Use the following steps to run a workflow on-demand.
 
 1. On the workflow screen, select the specific workflow you want to run.
 
-     :::image type="content" source="media/on-demand-workflow/on-demand-list.png" alt-text="List Lifecycle Workflows workflows to run on-demand.":::
+     :::image type="content" source="media/on-demand-workflow/on-demand-list.png" alt-text="Screenshot of a list of Lifecycle Workflows workflows to run on-demand.":::
 
 1. Select **Run on demand**.     
 
@@ -42,13 +42,13 @@ Use the following steps to run a workflow on-demand.
 
 1. On the add users screen, select the users you want to run the on demand workflow for.
 
-     :::image type="content" source="media/on-demand-workflow/on-demand-add-users.png" alt-text="Lifecycle Workflows on-demand add users.":::
+     :::image type="content" source="media/on-demand-workflow/on-demand-add-users.png" alt-text="Screenshot of add users for on-demand workflow.":::
 
 1. Select **Add**
 
 1. Confirm your choices and select **Run workflow**.   
 
-     :::image type="content" source="media/on-demand-workflow/on-demand-run.png" alt-text="Run Lifecycle Workflows on demand workflow.":::
+     :::image type="content" source="media/on-demand-workflow/on-demand-run.png" alt-text="Screenshot of a workflow being run on-demand.":::
 
 ## Run a workflow on-demand using Microsoft Graph
 

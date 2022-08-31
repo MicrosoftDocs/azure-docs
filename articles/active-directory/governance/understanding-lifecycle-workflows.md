@@ -13,7 +13,8 @@ ms.author: owinfrey
 ms.collection: M365-identity-device-management
 ---
 # Understanding lifecycle workflows 
-The following reference doc provides an overview of a lifecycle workflow.
+
+The following reference document provides an overview of a workflow created using Lifecycle Workflows. Lifecycle Workflows allow you to create workflows that automate common tasks associated with user lifecycle in organizations. Lifecycle Workflows automate tasks based on the joiner-mover-leaver cycle of lifecycle management, and splits tasks for users up into categories of where they are in the lifecycle of an organization. These categories extend into templates where they can be quickly customized to suit the needs of users in your organization. For more information, see: [What are Lifecycle Workflows?](what-are-lifecycle-workflows.md).
 
   [![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-2.png)](media/understanding-lifecycle-workflows/workflow-2.png#lightbox)
 
@@ -34,10 +35,10 @@ A workflow can be broken down in to the following three main parts.
 |-----|-----|
 |General information|This portion of a workflow covers basic information such as display name and a description of what the workflow does.|
 |Tasks|Tasks are the actions that will be taken when a workflow is executed.|
-|Execution conditions| The execution condition section of a workflow sets up</br>- who(scope) the workflow runs against</br>- when(trigger) the workflow runs|
+|Execution conditions| The execution condition section of a workflow sets up<br><br>- Who(scope) the workflow runs against  <br><br>- When(trigger) the workflow runs|
 
 ## Templates
-Creating a workflow via the portal requires the use of a template. An LCW template is a framework that is used for pre-defined tasks and helps automate the creation of a workflow.  
+Creating a workflow via the portal requires the use of a template. A Lifecycle Workflow template is a framework that is used for pre-defined tasks and helps automate the creation of a workflow.  
 
   [![Understanding workflow template diagram.](media/understanding-lifecycle-workflows/workflow-3.png)](media/understanding-lifecycle-workflows/workflow-3.png#lightbox)
 

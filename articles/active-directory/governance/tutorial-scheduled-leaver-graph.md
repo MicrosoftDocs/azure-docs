@@ -44,9 +44,9 @@ Before introducing the API call to create this workflow, you may want to review 
 |displayName     |  A unique string that identifies the workflow.       |
 |description     |  A string that describes the purpose of the workflow for administrative use. (Optional)       |
 |isEnabled     |   A boolean value that denotes whether the workflow is set to run or not.  If set to “true" then the workflow will run.      |
-|isSchedulingEnabled     |   A Boolean value that denotes whether scheduling is enabled or not. Unlike isEnbaled, a workflow can still be run on demand if this value is set to false.      |
-|executionConditions     |    An argument that contains: </br><li>a time-based attribute and an integer parameter defining when a workflow will run between -60 and 60 </br></li><li>a scope attribute defining who the workflow runs for.</li>     |
-|tasks    |  An argument in a workflow that has a unique displayName and a description. </br> It defines the specific tasks to be executed in the workflow. </br>The specified task is outlined by the taskDefinitionID and its parameters.  For a list of supported tasks, and their corresponding IDs, see [Supported Task Definitions](lifecycle-workflow-tasks.md).      |
+|isSchedulingEnabled     |   A Boolean value that denotes whether scheduling is enabled or not. Unlike isEnabled, a workflow can still be run on demand if this value is set to false.      |
+|executionConditions     |    An argument that contains: <br><br>a time-based attribute and an integer parameter defining when a workflow will run between -60 and 60 <br><br>A scope attribute defining who the workflow runs for.    |
+|tasks    |  An argument in a workflow that has a unique displayName and a description. <br><br> It defines the specific tasks to be executed in the workflow. The specified task is outlined by the taskDefinitionID and its parameters.  For a list of supported tasks, and their corresponding IDs, see [Supported Task Definitions](lifecycle-workflow-tasks.md).      |
 
 For the purpose of this tutorial, there are three tasks that will be introduced in this workflow:
 

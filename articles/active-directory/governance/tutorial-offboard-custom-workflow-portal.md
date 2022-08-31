@@ -45,16 +45,16 @@ Use the following steps to create a leaver on-demand workflow that will execute 
  3.  Select **Identity Governance**.
  4.  Select **Lifecycle workflows (Preview)**.
  5.  On the **Overview (Preview)** page, select **New workflow**. 
-    :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Select New workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
+    :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Screenshot of selecting new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
 
  6. From the templates, select **Select** under **Real-time employee termination**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/select-template.png" alt-text="Select leaver workflow." lightbox="media/tutorial-lifecycle-workflows/select-template.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/select-template.png" alt-text="Screenshot of selecting template leaver workflow." lightbox="media/tutorial-lifecycle-workflows/select-template.png":::
 
  7. Next, you will configure the basic information about the workflow. Select **Next:Review tasks** when you are done with this step. 
-   :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-leaver.png" alt-text="Real time leaver template." lightbox="media/tutorial-lifecycle-workflows/real-time-leaver.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-leaver.png" alt-text="Screenshot of review template tasks." lightbox="media/tutorial-lifecycle-workflows/real-time-leaver.png":::
 
  8. On the following page, you may inspect the tasks if desired but no additional configuration is needed. Select **Next: Select users** when you are finished.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-tasks.png" alt-text="Select real time leaver  users." lightbox="media/tutorial-lifecycle-workflows/real-time-tasks.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-tasks.png" alt-text="Screenshot of template tasks." lightbox="media/tutorial-lifecycle-workflows/real-time-tasks.png":::
 
  9. For the user selection, select **Select users**. This allows you to select users for which the workflow will be executed immediately after creation. Regardless of the selection, you can run the workflow on-demand later at any time as needed.
    :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-users.png" alt-text="Select real time leaver template users." lightbox="media/tutorial-lifecycle-workflows/real-time-users.png":::
@@ -63,13 +63,13 @@ Use the following steps to create a leaver on-demand workflow that will execute 
    :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-add-users.png" alt-text="Real time leaver add users." lightbox="media/tutorial-lifecycle-workflows/real-time-add-users.png":::
  
  11. A panel with the list of available users will pop-up on the right side of the screen. Select **Select** when you are done with your selection.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-user-list.png" alt-text="Real time leaver selected users." lightbox="media/tutorial-lifecycle-workflows/real-time-user-list.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-user-list.png" alt-text="Screenshot of real time leaver template selected users." lightbox="media/tutorial-lifecycle-workflows/real-time-user-list.png":::
 
  12. Select **Next: Review and create** when you are satisfied with your selection.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-review-users.png" alt-text="Real time leaver review users." lightbox="media/tutorial-lifecycle-workflows/real-time-review-users.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-review-users.png" alt-text="Screenshot of reviewing template users." lightbox="media/tutorial-lifecycle-workflows/real-time-review-users.png":::
 
  13. On the review blade, verify the information is correct and select **Create**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-create.png" alt-text="Create real time leaver workflow." lightbox="media/tutorial-lifecycle-workflows/real-time-create.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-create.png" alt-text="Screenshot of creating real time leaver workflow." lightbox="media/tutorial-lifecycle-workflows/real-time-create.png":::
 
 ## Run the workflow 
 Now that the workflow is created, it will automatically run the workflow every 3 hours. Lifecycle workflows will check every 3 hours for users in the associated execution condition and execute the configured tasks for those users.  However, for the tutorial, we would like to run it immediately. To run a workflow immediately, we can use the on-demand feature.
@@ -89,20 +89,20 @@ To run a workflow on-demand, for users using the Azure portal, do the following 
 
 At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks which are currently available in public preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow.md). In the course of this tutorial, we will look at the status using the user focused reports.
 
- To begin, select the **Workflow history (Preview)** tab on the left to view the user summary and associated workflow tasks and statuses.  
- :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history-real-time.png" alt-text="Real time history overview." lightbox="media/tutorial-lifecycle-workflows/workflow-history-real-time.png":::
+ 1. To begin, select the **Workflow history (Preview)** tab on the left to view the user summary and associated workflow tasks and statuses.  
+ :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history-real-time.png" alt-text="Screenshot of real time history overview." lightbox="media/tutorial-lifecycle-workflows/workflow-history-real-time.png":::
 
-Once the **Workflow history (Preview)** tab has been selected, you will land on the workflow history page as shown.
- :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary-real-time.png" alt-text="Real time workflow history." lightbox="media/tutorial-lifecycle-workflows/user-summary-real-time.png":::
+1. Once the **Workflow history (Preview)** tab has been selected, you will land on the workflow history page as shown.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary-real-time.png" alt-text="Screenshot of real time workflow history." lightbox="media/tutorial-lifecycle-workflows/user-summary-real-time.png":::
 
-Next, you may select **Total tasks** for the user Jane Smith to view the total number of tasks created and their statuses. In this example, there are three total tasks assigned to the user Jane Smith.  
- :::image type="content" source="media/tutorial-lifecycle-workflows/total-tasks-real-time.png" alt-text="Total tasks for real time workflow." lightbox="media/tutorial-lifecycle-workflows/total-tasks-real-time.png":::
+1. Next, you may select **Total tasks** for the user Jane Smith to view the total number of tasks created and their statuses. In this example, there are three total tasks assigned to the user Jane Smith.  
+ :::image type="content" source="media/tutorial-lifecycle-workflows/total-tasks-real-time.png" alt-text="Screenshot of total tasks for real time workflow." lightbox="media/tutorial-lifecycle-workflows/total-tasks-real-time.png":::
 
-To add an extra layer of granularity, you may select **Failed tasks** for the user Wade Warren to view the total number of failed tasks assigned to the user Wade Warren.
- :::image type="content" source="media/tutorial-lifecycle-workflows/failed-tasks-real-time.png" alt-text="Failed tasks for real time workflow." lightbox="media/tutorial-lifecycle-workflows/failed-tasks-real-time.png":::
+1. To add an extra layer of granularity, you may select **Failed tasks** for the user Wade Warren to view the total number of failed tasks assigned to the user Wade Warren.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/failed-tasks-real-time.png" alt-text="Screenshot of failed tasks for real time workflow." lightbox="media/tutorial-lifecycle-workflows/failed-tasks-real-time.png":::
 
-Similarly, you may select **Unprocessed tasks** for the user Wade Warren to view the total number of unprocessed or canceled tasks assigned to the user Wade Warren.
- :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png" alt-text="Unprocessed tasks for real time workflow." lightbox="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png":::
+1. Similarly, you may select **Unprocessed tasks** for the user Wade Warren to view the total number of unprocessed or canceled tasks assigned to the user Wade Warren.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png" alt-text="Screenshot of unprocessed tasks for real time workflow." lightbox="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png":::
 
 ## Next steps
 - [Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azuread-user-accounts.md)

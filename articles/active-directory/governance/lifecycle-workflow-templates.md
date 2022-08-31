@@ -21,7 +21,7 @@ Lifecycle Workflows allows you to automate the lifecycle management process for 
 
 Lifecycle Workflows currently have six built-in templates you can use or customize:
 
-:::image type="content" source="media/lifecycle-workflow-templates/templates-list.png" alt-text="list of lifecycle workflow templates." lightbox="media/lifecycle-workflow-templates/templates-list.png":::
+:::image type="content" source="media/lifecycle-workflow-templates/templates-list.png" alt-text="Screenshot of a list of lifecycle workflow templates." lightbox="media/lifecycle-workflow-templates/templates-list.png":::
 
 The list of templates are as follows:
 
@@ -38,7 +38,7 @@ For a complete guide on creating a new workflow from a template, see: [Tutorial:
 
  The **Onboard pre-hire employee** template is designed to configure tasks that must be completed before an employee's start date.
 
-:::image type="content" source="media/lifecycle-workflow-templates/onboard-prehire-template.png" alt-text="Lifecycle Workflow onboard prehire template.":::
+:::image type="content" source="media/lifecycle-workflow-templates/onboard-prehire-template.png" alt-text="Screenshot of a Lifecycle Workflow onboard pre-hire template.":::
 
 The default specific parameters and properties for the **Onboard pre-hire employee** template are as follows:
 
@@ -60,7 +60,7 @@ The default specific parameters and properties for the **Onboard pre-hire employ
 
 The **Onboard new-hire employee** template is designed to configure tasks that will be completed on an employee's start date.
 
-:::image type="content" source="media/lifecycle-workflow-templates/onboard-new-hire-template.png" alt-text="Lifecycle Workflow onboard new hire template.":::
+:::image type="content" source="media/lifecycle-workflow-templates/onboard-new-hire-template.png" alt-text="Screenshot of a Lifecycle Workflow onboard new hire template.":::
 
 The default specific parameters for the **Onboard new hire employee** template are as follows:
 
@@ -82,7 +82,7 @@ The default specific parameters for the **Onboard new hire employee** template a
 
 The **Real-time employee termination** template is designed to configure tasks that will be completed immediately when an employee is terminated.
 
-:::image type="content" source="media/lifecycle-workflow-templates/on-demand-termination-template.png" alt-text="Lifecycle Workflow real time employee termination template.":::
+:::image type="content" source="media/lifecycle-workflow-templates/on-demand-termination-template.png" alt-text="Screenshot of a Lifecycle Workflow real time employee termination template.":::
 
 The default specific parameters for the **Real-time employee termination** template are as follows:
 
@@ -102,7 +102,7 @@ The default specific parameters for the **Real-time employee termination** templ
 
 The **Pre-Offboarding of an employee** template is designed to configure tasks that will be completed before an employee's last day of work.
 
-:::image type="content" source="media/lifecycle-workflow-templates/offboard-pre-employee-template.png" alt-text="pre offboarding employee template.":::
+:::image type="content" source="media/lifecycle-workflow-templates/offboard-pre-employee-template.png" alt-text="Screenshot of a pre offboarding employee template.":::
 
 The default specific parameters for the **Pre-Offboarding of an employee** template are as follows:
 
@@ -125,7 +125,7 @@ The default specific parameters for the **Pre-Offboarding of an employee** templ
 
 The **Offboard an employee** template is designed to configure tasks that will be completed on an employee's last day of work.
 
-:::image type="content" source="media/lifecycle-workflow-templates/offboard-employee-template.png" alt-text="offboard employee template lifecycle workflows.":::
+:::image type="content" source="media/lifecycle-workflow-templates/offboard-employee-template.png" alt-text="Screenshot of a offboard employee template lifecycle workflows.":::
 
 The default specific parameters for the **Offboard an employee** template are as follows:
 
@@ -146,7 +146,7 @@ The default specific parameters for the **Offboard an employee** template are as
 
 The **Post-Offboarding of an employee** template is designed to configure tasks that will be completed after an employee's last day of work.
 
-:::image type="content" source="media/lifecycle-workflow-templates/offboard-post-employee-template.png" alt-text="offboarding an employee after last day template":::
+:::image type="content" source="media/lifecycle-workflow-templates/offboard-post-employee-template.png" alt-text="Screenshot of a offboarding an employee after last day template":::
 
 The default specific parameters for the **Post-Offboarding of an employee** template are as follows:
 

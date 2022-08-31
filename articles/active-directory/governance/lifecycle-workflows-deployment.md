@@ -40,7 +40,7 @@ Planning your Lifecycle Workflow deployment is essential to make sure you achiev
 
 For more information on deployment plans, see [Azure AD deployment plans](../fundamentals/active-directory-deployment-plans.md)
 
-### Licenses
+## Licenses
 
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
@@ -50,7 +50,7 @@ For more information on deployment plans, see [Azure AD deployment plans](../fun
 >
 >Workflows that are in progress when a license expires will continue to exectue, but no new ones will be processed.
 
-## Plan the Lifecycle Workflow deployment project
+### Plan the Lifecycle Workflow deployment project
 
 Consider your organizational needs to determine the strategy for deploying Lifecycle Workflows in your environment.
 
@@ -75,7 +75,7 @@ For Lifecycle Workflows, you'll likely include representatives from the followin
    * Requests or schedules new Lifecycle Workflow reviews.
    * Assesses processes and procedures for reviewing Lifecycle Workflows, which include documentation and record keeping for compliance.
    * Reviews results of past reviews for most critical resources.
-- **HR Representative** - Assists with attribute mapping and populaton in HR provisioning scenarios.  This team:
+- **HR Representative** - Assists with attribute mapping and population in HR provisioning scenarios.  This team:
     * Helps determine attributes that will be used to populate employeeHireDate and employeeLeaveDateTime.
     * Ensures source attributes are populated and have values
     * Identifies and suggests alternate attributes that could be mapped to employeeHireDate and employeeLeaveDateTime 
@@ -90,7 +90,7 @@ For Lifecycle Workflows, you'll likely include representatives from the followin
 
 Communication is critical to the success of any new business process. Proactively communicate to users how and when their experience will change. Tell them how to gain support if they experience issues.
 
-#### Communicate changes in accountability
+### Communicate changes in accountability
 
 Lifecycle Workflows support shifting responsibility of manual processes to business owners. Decoupling these processes from the IT department drives more accuracy and automation.  This shift is a cultural change in the resource owner's accountability and responsibility. Proactively communicate this change and ensure resource owners are trained and able to use the insights to make good decisions.
 
@@ -108,7 +108,7 @@ The following is important information about your organization and the technolog
 
 |Item|Description|Documentation|
 |-----|-----|-----|
-|Inbound Provisioning|You have a process to create user accounts for employees in Azure AD such as HR inbound, SuccessFactors, or MIM.</br></br>  Alternatively you have a process to create user accounts in Active Directory and those accounts are provisioned to Azure AD.|[Workday to Active Directory](../saas-apps/workday-inbound-tutorial.md)</br></br>[Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md)</br></br>[SuccessFactors to Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)</br></br>[SuccessFactors to Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)</br></br>[Azure AD Connect](../hybrid/whatis-azure-ad-connect-v2.md)</br></br>[Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md)|
+|Inbound Provisioning|You have a process to create user accounts for employees in Azure AD such as HR inbound, SuccessFactors, or MIM.<br><br> Alternatively you have a process to create user accounts in Active Directory and those accounts are provisioned to Azure AD.|[Workday to Active Directory](../saas-apps/workday-inbound-tutorial.md)<br><br>[Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md)<br><br>[SuccessFactors to Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)</br></br>[SuccessFactors to Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)<br><br>[Azure AD Connect](../hybrid/whatis-azure-ad-connect-v2.md)<br><br>[Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md)|
 |Attribute synchronization|The accounts in Azure AD have the employeeHireDate and employeeLeaveDateTime attributes populated.  The values may be populated when the accounts are created from an HR system or synchronized from AD using Azure AD Connect or cloud sync. You have additional attributes, that will be used to determine the scope, such as department, populated or the ability to populate, with data.|[How to synchronize attributes for Lifecycle Workflows](how-to-lifecycle-workflow-sync-attributes.md)
 
 ## Understanding parts of a workflow
@@ -238,7 +238,6 @@ When creating custom task extensions, the scenarios for how it will interact wit
 - **Fire-and-forget scenario**- The Logic App is started, and the sequential task execution immediately continues with no response expected from the Logic App. 
 - **Sequential task execution waiting for response from the Logic App** - The Logic app is started, and the sequential task execution waits on the response from the Logic App.
 - **Sequential task execution waiting for the response of a 3rd party system**- The Logic app is started, and the sequential task execution waits on the response from a 3rd party system that triggers the Logic App to tell the Custom Task extension whether or not it ran successfully. 
-- 
 - For more information on custom extensions, see [Lifecycle Workflow extensibility (Preview)](lifecycle-workflow-extensibility.md)
 
 ## Create your workflow

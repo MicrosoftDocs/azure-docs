@@ -54,7 +54,7 @@ The expression examples above use endDate for SAP and StatusHireDate for Workday
 
 For example, you might use StatusContinuesFirstDayOfWork instead of StatusHireDate for Workday.  In this instance your expression would be:  
 
-`FormatDateTime([StatusContinuesFirstDayOfWork], , "yyyy-MM-ddzzz", "yyyyMMddHHmmss.fZ")`
+   `FormatDateTime([StatusContinuesFirstDayOfWork], , "yyyy-MM-ddzzz", "yyyyMMddHHmmss.fZ")`
 
 
 The following table has a list of suggested attributes and their scenario recommendations.
@@ -120,31 +120,31 @@ The following example will walk you through setting up a custom synchronization 
       - Connected System Object Type: user
       - Metaverse Object Type: person
       - Precedence: 200
-     ![Create inbound synchronization rule basics.](media/how-to-lifecycle-workflow-sync-attributes/aadc-4.png)
+     ![Screenshot of creating an inbound synchronization rule basics.](media/how-to-lifecycle-workflow-sync-attributes/create-inbound-rule.png)
    6. On the **Scoping filter** screen, select **Next.**
    7. On the **Join rules** screen, select **Next**.
    8. On the **Transformations** screen, Under **Add transformations,** enter the following information.
       - FlowType:  Direct
       - Target Attribute: employeeHireDate
       - Source:  msDS-cloudExtensionAttribute1
-     ![Create inbound synchronization rule transformations.](media/how-to-lifecycle-workflow-sync-attributes/aadc-5.png)
+     ![Screenshot of creating inbound synchronization rule transformations.](media/how-to-lifecycle-workflow-sync-attributes/create-inbound-rule-transformations.png)
    9.  Select **Add**.
    10. In the Synchronization Rules Editor, ensure the direction at the top is set to **Outbound**.
    11. Select **Add Rule.**  
    12. On the **Create Outbound synchronization rule** screen, enter the following information and select **Next**.
-       - Name:  Out to AAD - EmployeeHireDate
+       - Name:  Out to Azure AD - EmployeeHireDate
        - Connected System:  &lt;your tenant&gt;
        - Connected System Object Type: user
        - Metaverse Object Type: person
        - Precedence: 201
-     ![Create outbound synchronization rule basics.](media/how-to-lifecycle-workflow-sync-attributes/aadc-6.png)
+     ![Screenshot of creating an outbound synchronization rule.](media/how-to-lifecycle-workflow-sync-attributes/create-outbound-rule.png)
    13. On the **Scoping filter** screen, select **Next.**
    14. On the **Join rules** screen, select **Next**.
    15. On the **Transformations** screen, Under **Add transformations,** enter the following information.
        - FlowType:  Direct
        - Target Attribute: employeeHireDate
        - Source:  employeeHireDate
-     ![Create inbound synchronization transformations.](media/how-to-lifecycle-workflow-sync-attributes/aadc-7.png)
+     ![Screenshot of create outbound synchronization rule transformations.](media/how-to-lifecycle-workflow-sync-attributes/create-outbound-rule-transformations.png)
    16.  Select **Add**.
    17. Close the Synchronization Rules Editor
 

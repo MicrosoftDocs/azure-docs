@@ -19,8 +19,8 @@ ms.custom: template-tutorial
 This tutorial provides a step-by-step guide on how to automate pre-hire tasks with Lifecycle workflows using the Azure portal. 
 
 This pre-hire scenario will generate a temporary access pass for our new employee and send it via email to the user's new manager.  
-:::image type="content" source="media/tutorial-lifecycle-workflows/lifecycle-workflows-architecture.png" alt-text="Architectural overview" lightbox="media/tutorial-lifecycle-workflows/lifecycle-workflows-architecture.png":::
 
+:::image type="content" source="media/tutorial-lifecycle-workflows/arch-2.png" alt-text="Screenshot of the lifecycle workflow scenario.":::
 
 ##  Before you begin
 
@@ -58,24 +58,24 @@ Use the following steps to create a pre-hire workflow that will generate a TAP a
  3.  Select **Identity Governance**.
  4.  Select **Lifecycle workflows (Preview)**.
  5.  On the **Overview (Preview)** page, select **New workflow**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Select new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Screenshot of selecting a new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
 
  6. From the templates, select **select** under **Onboard pre-hire employee**.
-  :::image type="content" source="media/tutorial-lifecycle-workflows/select-template.png" alt-text="Select workflow template." lightbox="media/tutorial-lifecycle-workflows/select-template.png":::
+  :::image type="content" source="media/tutorial-lifecycle-workflows/select-template.png" alt-text="Screenshot of selecting workflow template." lightbox="media/tutorial-lifecycle-workflows/select-template.png":::
     
  7.  Next, you will configure the basic information about the workflow.  This information includes when the workflow will trigger, known as **Days from event**.  So in this case, the workflow will trigger two days before the employee's hire date.  On the onboard pre-hire employee screen, add the following settings and then select **Next: Configure Scope**.
 
-     :::image type="content" source="media/tutorial-lifecycle-workflows/configure-scope.png" alt-text="Select configure scope." lightbox="media/tutorial-lifecycle-workflows/configure-scope.png":::
+     :::image type="content" source="media/tutorial-lifecycle-workflows/configure-scope.png" alt-text="Screenshot of selecting a configuration scope." lightbox="media/tutorial-lifecycle-workflows/configure-scope.png":::
 
    8.  Next, you will configure the scope. The scope determines which users this workflow will run against.  In this case, it will be on all users in the Sales department.  On the configure scope screen, under **Rule** add the following settings and then select **Next: Review tasks**
 
-       :::image type="content" source="media/tutorial-lifecycle-workflows/review-tasks.png" alt-text="Select review tasks." lightbox="media/tutorial-lifecycle-workflows/review-tasks.png":::
+       :::image type="content" source="media/tutorial-lifecycle-workflows/review-tasks.png" alt-text="Screenshot of selecting review tasks." lightbox="media/tutorial-lifecycle-workflows/review-tasks.png":::
 
    9. On the following page, you may inspect the task if desired but no additional configuration is needed. Select **Next: Review + Create** when you are finished.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/onboard-review-create.png" alt-text="Review and create onboard workflow." lightbox="media/tutorial-lifecycle-workflows/onboard-review-create.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/onboard-review-create.png" alt-text="Screenshot of reviewing an on-board workflow." lightbox="media/tutorial-lifecycle-workflows/onboard-review-create.png":::
 
    10.  On the review blade, verify the information is correct and select **Create**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/onboard-create.png" alt-text="Create onboard workflow." lightbox="media/tutorial-lifecycle-workflows/onboard-create.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/onboard-create.png" alt-text="Screenshot of creating an onboard workflow." lightbox="media/tutorial-lifecycle-workflows/onboard-create.png":::
 
  
 ## Run the workflow 
@@ -97,26 +97,26 @@ To run a workflow on-demand, for users using the Azure portal, do the following 
 
 At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks which are currently available in public preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow.md). In the course of this tutorial, we will look at the status using the user focused reports.
 
- To begin, select the **Workflow history (Preview)** tab on the left to view the user summary and associated workflow tasks and statuses.  
- :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history.png" alt-text="Workflow History status." lightbox="media/tutorial-lifecycle-workflows/workflow-history.png":::
+ 1. To begin, select the **Workflow history (Preview)** tab on the left to view the user summary and associated workflow tasks and statuses.  
+ :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history.png" alt-text="Screenshot of workflow History status." lightbox="media/tutorial-lifecycle-workflows/workflow-history.png":::
 
-Once the **Workflow history (Preview)** tab has been selected, you will land on the workflow history page as shown.
- :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary.png" alt-text="Workflow history overview" lightbox="media/tutorial-lifecycle-workflows/user-summary.png":::
+1. Once the **Workflow history (Preview)** tab has been selected, you will land on the workflow history page as shown.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary.png" alt-text="Screenshot of workflow history overview" lightbox="media/tutorial-lifecycle-workflows/user-summary.png":::
 
-Next, you may select **Total tasks** for the user Jane Smith to view the total number of tasks created and their statuses. In this example, there are three total tasks assigned to the user Jane Smith.  
- :::image type="content" source="media/tutorial-lifecycle-workflows/total-tasks.png" alt-text="Workflow total task summary." lightbox="media/tutorial-lifecycle-workflows/total-tasks.png":::
+1. Next, you may select **Total tasks** for the user Jane Smith to view the total number of tasks created and their statuses. In this example, there are three total tasks assigned to the user Jane Smith.  
+ :::image type="content" source="media/tutorial-lifecycle-workflows/total-tasks.png" alt-text="Screenshot of workflow total task summary." lightbox="media/tutorial-lifecycle-workflows/total-tasks.png":::
 
-To add an extra layer of granularity, you may select **Failed tasks** for the user Jeff Smith to view the total number of failed tasks assigned to the user Jeff Smith.
- :::image type="content" source="media/tutorial-lifecycle-workflows/failed-tasks.png" alt-text="Workflow failed tasks." lightbox="media/tutorial-lifecycle-workflows/failed-tasks.png":::
+1. To add an extra layer of granularity, you may select **Failed tasks** for the user Jeff Smith to view the total number of failed tasks assigned to the user Jeff Smith.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/failed-tasks.png" alt-text="Screenshot of workflow failed tasks." lightbox="media/tutorial-lifecycle-workflows/failed-tasks.png":::
 
-Similarly, you may select **Unprocessed tasks** for the user Jeff Smith to view the total number of unprocessed or canceled tasks assigned to the user Jeff Smith.
- :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks.png" alt-text="Workflow unprocessed tasks summary." lightbox="media/tutorial-lifecycle-workflows/canceled-tasks.png":::
+1. Similarly, you may select **Unprocessed tasks** for the user Jeff Smith to view the total number of unprocessed or canceled tasks assigned to the user Jeff Smith.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks.png" alt-text="Screenshot of workflow unprocessed tasks summary." lightbox="media/tutorial-lifecycle-workflows/canceled-tasks.png":::
 
 ## Enable the workflow schedule
 
 After running your workflow on-demand and checking that everything is working fine, you may want to enable the workflow schedule. To enable the workflow schedule, you may select the **Enable Schedule** checkbox on the Properties (Preview) page.
 
-:::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Workflow enable schedule." lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
+:::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Screenshot of enabling workflow schedule." lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
 
 ## Next steps
 - [Tutorial: Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azuread-user-accounts.md)

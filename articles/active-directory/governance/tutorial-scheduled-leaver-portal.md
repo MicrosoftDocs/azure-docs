@@ -42,22 +42,22 @@ Use the following steps to create a scheduled leaver workflow that will configur
  3.  Select **Identity Governance**.
  4.  Select **Lifecycle workflows (Preview)**.
  5.  On the **Overview (Preview)** page, select **New workflow**. 
-    :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Select new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
+    :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Screenshot of selecting a new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
 
  6. From the templates, select **Select** under **Post-offboarding of an employee**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/select-leaver-template.png" alt-text="Select leaver workflow." lightbox="media/tutorial-lifecycle-workflows/select-leaver-template.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/select-leaver-template.png" alt-text="Screenshot of selecting a leaver workflow." lightbox="media/tutorial-lifecycle-workflows/select-leaver-template.png":::
 
  7. Next, you will configure the basic information about the workflow.  This information includes when the workflow will trigger, known as **Days from event**.  So in this case, the workflow will trigger seven days after the employee's leave date.  On the post-offboarding of an employee screen, add the following settings and then select **Next: Configure Scope**. 
-   :::image type="content" source="media/tutorial-lifecycle-workflows/leaver-basics.png" alt-text="Leaver template basics information for workflow." lightbox="media/tutorial-lifecycle-workflows/leaver-basics.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/leaver-basics.png" alt-text="Screenshot of leaver template basics information for a workflow." lightbox="media/tutorial-lifecycle-workflows/leaver-basics.png":::
  
  8. Next, you will configure the scope. The scope determines which users this workflow will run against.  In this case, it will be on all users in the Marketing department.  On the configure scope screen, under **Rule** add the following and then select **Next: Review tasks**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/leaver-scope.png" alt-text="Review scope details for leaver workflow." lightbox="media/tutorial-lifecycle-workflows/leaver-scope.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/leaver-scope.png" alt-text="Screenshot of reviewing scope details for a leaver workflow." lightbox="media/tutorial-lifecycle-workflows/leaver-scope.png":::
 
  9. On the following page, you may inspect the tasks if desired but no additional configuration is needed. Select **Next: Select users** when you are finished.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/review-leaver-tasks.png" alt-text="Review leaver workflow tasks." lightbox="media/tutorial-lifecycle-workflows/review-leaver-tasks.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/review-leaver-tasks.png" alt-text="Screenshot of leaver workflow tasks." lightbox="media/tutorial-lifecycle-workflows/review-leaver-tasks.png":::
 
 10. On the review blade, verify the information is correct and select **Create**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/create-leaver-workflow.png" alt-text="Create leaver workflow." lightbox="media/tutorial-lifecycle-workflows/create-leaver-workflow.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/create-leaver-workflow.png" alt-text="Screenshot of a leaver workflow being created." lightbox="media/tutorial-lifecycle-workflows/create-leaver-workflow.png":::
 
 >[!NOTE]
 > Select **Create** with the **Enable schedule** box unchecked to run the workflow on-demand. You may enable this setting later after checking the tasks and workflow status. 
@@ -81,26 +81,26 @@ To run a workflow on-demand, for users using the Azure portal, do the following 
 
 At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks which are currently available in public preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow.md). In the course of this tutorial, we will look at the status using the user focused reports.
 
- To begin, select the **Workflow history (Preview)** tab on the left to view the user summary and associated workflow tasks and statuses.  
- :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history-post-offboard.png" alt-text="Workflow history summary." lightbox="media/tutorial-lifecycle-workflows/workflow-history-post-offboard.png":::
+ 1. To begin, select the **Workflow history (Preview)** tab on the left to view the user summary and associated workflow tasks and statuses.  
+ :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history-post-offboard.png" alt-text="Screenshot of the workflow history summary." lightbox="media/tutorial-lifecycle-workflows/workflow-history-post-offboard.png":::
 
-Once the **Workflow history (Preview)** tab has been selected, you will land on the workflow history page as shown.
- :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary-post-offboard.png" alt-text="Workflow history overview." lightbox="media/tutorial-lifecycle-workflows/user-summary-post-offboard.png":::
+1. Once the **Workflow history (Preview)** tab has been selected, you will land on the workflow history page as shown.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary-post-offboard.png" alt-text="Screenshot of the workflow history overview." lightbox="media/tutorial-lifecycle-workflows/user-summary-post-offboard.png":::
 
-Next, you may select **Total tasks** for the user Jane Smith to view the total number of tasks created and their statuses. In this example, there are three total tasks assigned to the user Jane Smith.  
- :::image type="content" source="media/tutorial-lifecycle-workflows/total-tasks-post-offboard.png" alt-text="Workflow total tasks." lightbox="media/tutorial-lifecycle-workflows/total-tasks-post-offboard.png":::
+1. Next, you may select **Total tasks** for the user Jane Smith to view the total number of tasks created and their statuses. In this example, there are three total tasks assigned to the user Jane Smith.  
+ :::image type="content" source="media/tutorial-lifecycle-workflows/total-tasks-post-offboard.png" alt-text="Screenshot of workflow's total tasks." lightbox="media/tutorial-lifecycle-workflows/total-tasks-post-offboard.png":::
 
-To add an extra layer of granularity, you may select **Failed tasks** for the user Wade Warren to view the total number of failed tasks assigned to the user Wade Warren.
- :::image type="content" source="media/tutorial-lifecycle-workflows/failed-tasks-post-offboard.png" alt-text="Workflow failed tasks." lightbox="media/tutorial-lifecycle-workflows/failed-tasks-post-offboard.png":::
+1. To add an extra layer of granularity, you may select **Failed tasks** for the user Wade Warren to view the total number of failed tasks assigned to the user Wade Warren.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/failed-tasks-post-offboard.png" alt-text="Screenshot of workflow failed tasks." lightbox="media/tutorial-lifecycle-workflows/failed-tasks-post-offboard.png":::
 
-Similarly, you may select **Unprocessed tasks** for the user Wade Warren to view the total number of unprocessed or canceled tasks assigned to the user Wade Warren.
- :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks-post-offboard.png" alt-text="Workflow unprocessed tasks." lightbox="media/tutorial-lifecycle-workflows/canceled-tasks-post-offboard.png":::
+1. Similarly, you may select **Unprocessed tasks** for the user Wade Warren to view the total number of unprocessed or canceled tasks assigned to the user Wade Warren.
+ :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks-post-offboard.png" alt-text="Screenshot of workflow unprocessed tasks." lightbox="media/tutorial-lifecycle-workflows/canceled-tasks-post-offboard.png":::
 
 ## Enable the workflow schedule
 
 After running your workflow on-demand and checking that everything is working fine, you may want to enable the workflow schedule. To enable the workflow schedule, you may select the **Enable Schedule** checkbox on the Properties (Preview) page.
 
-:::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Workflow enabled schedule." lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
+  :::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Screenshot of workflow enabled schedule." lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
 
 ## Next steps
 - [Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azuread-user-accounts.md)
