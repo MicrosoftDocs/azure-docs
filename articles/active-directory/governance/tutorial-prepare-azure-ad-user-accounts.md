@@ -202,7 +202,7 @@ In order to do this, we must get the object ID for our user Melva Prince.
       "employeeHireDate": "2022-04-15T22:10:00Z"
       }
       ```
-   :::image type="content" source="media/tutorial-lifecycle-workflows/update-1.png" alt-text="Screenshot of the PATCH employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-1.png":::
+     :::image type="content" source="media/tutorial-lifecycle-workflows/update-1.png" alt-text="Screenshot of the PATCH employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-1.png":::
  
  10.  Verify the change by changing **PATCH** back to **GET** and **v1.0** to **beta**.  select **Run query**. You should see the attributes for Melva set.  
  :::image type="content" source="media/tutorial-lifecycle-workflows/update-3.png" alt-text="Screenshot of the GET employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-3.png":::
@@ -215,19 +215,19 @@ The manager attribute is used for email notification tasks.  It's used by the li
  3. Copy the code below in to the **Request body** 
  4. Replace `<managerid>` in the code below with the value of Britta Simons ID.
  5. Select **Run query**
-   ```Example
-  {
-    "@odata.id": "https://graph.microsoft.com/v1.0/users/<managerid>"
-    }
-   ```
+      ```Example
+      {
+      "@odata.id": "https://graph.microsoft.com/v1.0/users/<managerid>"
+      }
+      ```
 
- :::image type="content" source="media/tutorial-lifecycle-workflows/graph-add-manager.png" alt-text="Screenshot of Adding a manager in Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-add-manager.png":::
+      :::image type="content" source="media/tutorial-lifecycle-workflows/graph-add-manager.png" alt-text="Screenshot of Adding a manager in Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-add-manager.png":::
 
  6. Now, we can verify that the manager has been set correctly by changing the **PUT** to **GET**.
  7. Make sure `https://graph.microsoft.com/v1.0/users/<id>/manager/` is in the box.  The `<id>` is still that of Melva Prince. 
  8. Select **Run query**.  You should see Britta Simon returned in the Response.
 
- :::image type="content" source="media/tutorial-lifecycle-workflows/graph-get-manager.png" alt-text="Screenshot of getting a manager in Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-get-manager.png":::
+       :::image type="content" source="media/tutorial-lifecycle-workflows/graph-get-manager.png" alt-text="Screenshot of getting a manager in Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-get-manager.png":::
 
 For more information about updating manager information for a user in Graph API, see [assign manager](/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http) documentation. You can also set this attribute in the Azure Admin center. For more information, see [add or change profile information](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context).
 
