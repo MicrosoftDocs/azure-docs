@@ -43,12 +43,14 @@ For language-specific examples of adding pooling in application code, see the
 
 ## Scoping distributed queries
 
+### Updates
+
 When updating a distributed table, try to filter queries on the distribution
 column--at least when it makes sense, when the new filters don't change the
 meaning of the query.
 
-In some workloads, it's easy.  Transactional/operational workloads for
-multitenant SaaS apps or the Internet of Things distribute tables by tenant or
+In some workloads, it's easy.  Transactional/operational workloads like
+multi-tenant SaaS apps or the Internet of Things distribute tables by tenant or
 device. Queries are usually scoped to a tenant- or device-ID.
 
 For instance, in our [multi-tenant
@@ -86,8 +88,53 @@ column and knows exactly which single shard to lock. In our tests, adding
 filters for the distribution column increased parallel update performance by
 **100x**.
 
-There are helper libraries for several popular application frameworks that make
-it easy to include a tenant ID in queries. Here are instructions:
+### Joins and CTEs
+
+We've seen how UPDATE statements should scope by the distribution column to
+avoid unnecessary shard locks. Other queries benefit from scoping too, usually
+to avoid the network overhead of unnecessarily shuffling data between worker
+nodes.
+
+
+
+```sql
+-- logically correct, but slow
+
+WITH single_ad AS (
+    SELECT *
+      FROM ads
+     WHERE id=1
+)
+SELECT *
+  FROM single_ad s
+  JOIN campaigns c ON (s.campaign_id=c.id);
+```
+
+We can speed up the query up by filtering on the distribution column,
+`company_id`, in the CTE and main SELECT statement.
+
+```sql
+-- faster, joining on distribution column
+
+WITH single_ad AS (
+    SELECT *
+      FROM ads
+     WHERE id=1 and company_id=1
+)
+SELECT *
+  FROM single_ad s
+  JOIN campaigns c ON (s.campaign_id=c.id)
+ WHERE s.company_id=1 AND c.company_id = 1;
+```
+
+In general, when joining distributed tables, try to include the distribution
+column in the join conditions. However, when joining between a distributed and
+reference table you don't need to do this, because reference table contents are
+replicated across all worker nodes.
+
+If it seems inconvenient to add the additional filters to all your queries,
+keep in mind there are helper libraries for several popular application
+frameworks that make it easier. Here are instructions:
 
 * [Ruby on Rails](https://docs.citusdata.com/en/stable/develop/migration_mt_ror.html),
 * [Django](https://docs.citusdata.com/en/stable/develop/migration_mt_django.html),
