@@ -150,7 +150,7 @@ Now that your configuration files are saved in a repository, use the following s
 
 1. Select **Config Server** in the left navigation pane.
 
-1. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics-config".
+1. In the **Default repository** section, set **URI** to `https://github.com/Azure-Samples/piggymetrics-config`.
 
 1. Select **Validate**.
 
@@ -182,7 +182,7 @@ Use the steps in this section to enter repository information for a public or pr
    > Many Git repository servers support the use of tokens rather than passwords for HTTP basic authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire shouldn't use token-based authentication with Azure Spring Apps.
    > GitHub has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for GitHub. For more information, see [Token authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
-   - **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the setting under **Authentication** to open the **Edit Authentication** pane. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your **Private key**. Optionally, specify your **Host key** and **Host key algorithm**. Include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
+   - **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the setting under **Authentication** to open the **Edit Authentication** pane. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your private key. Optionally, specify your host key and host key algorithm. Include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
    :::image type="content" source="media/how-to-config-server/ssh-auth.png" lightbox="media/how-to-config-server/ssh-auth.png" alt-text="Screenshot of the Default repository section showing authentication settings for SSH authentication.":::
 
