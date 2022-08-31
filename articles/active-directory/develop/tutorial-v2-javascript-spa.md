@@ -305,7 +305,7 @@ In the next steps we'll create a new folder for the JavaScript SPA, and set up t
 
 ## Register your application
 
-Before proceeding further with authentication, register your application on **Azure Active Directory**.
+Before proceeding further with authentication, we need to register our application on **Azure Active Directory**.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft credentials.
 1. Go to and select **Azure Active Directory**. If it isn't visible, you can find it by using the **Search** bar at the top of the screen.
@@ -331,7 +331,7 @@ Before proceeding further with authentication, register your application on **Az
 > 3. Select the app that you have created.
 > 4. The **Overview** page should now be showing. Select the **Add a Redirect URI** text.
 > 5. Under **Platform Configurations**, select **+ Add a platform**.
-> 6. A new window will open on the right of your screen, and you can enter a redirect URI in the first box, e.g.
+> 6. A new window will open on the right of your screen, and you can enter a *redirect URI* in the first box, e.g.
 >     - `http://localhost:<port>/`* (where *\<port>* is the custom TCP port number).
 > 7. Then select **Configure**. 
 
@@ -454,7 +454,7 @@ In the `JavaScriptSPA` folder, create a new .js file named `authPopup.js`, which
    }
    ```
 
-In summary, this code introduces methods of the application dealing with user access tokens, mostly done by the function `acquireTokenSilent`. For more information on the backend working of the application, head down to [More Information](#more-information).
+In summary, this code introduces methods of the application dealing with user access tokens, mostly done by the function `acquireTokenSilent`. For more information on the back-end workings of the application, head down to [More Information](#more-information).
 
 
 ## Calling the Microsoft Graph API using the token you just acquired
@@ -468,10 +468,10 @@ In summary, this code introduces methods of the application dealing with user ac
       };
    ```
 
-   Where:
+   where:
    - `Enter_the_Graph_Endpoint_Here` is the instance of MS Graph API. For the global MS Graph API endpoint, this can be replaced with `https://graph.microsoft.com`. For national cloud deployments, refer to [Graph API Documentation](/graph/deployments).
 
-1. Next, create a .js file named `graph.js`, which will make a Representational State Transfer (REST) call to the Microsoft Graph API. This is a way of accessing web services in a simple and flexible way without having any processing. Add the following code:
+1. Next, create a .js file named `graph.js`, which will make a REST call to the Microsoft Graph API. This is a way of accessing web services in a simple and flexible way without having any processing. Add the following code:
 
    ```javascript
    function callMSGraph(endpoint, token, callback) {
@@ -496,7 +496,7 @@ In summary, this code introduces methods of the application dealing with user ac
 
 ## Test your code
 
-Now that we have our all our code setup, we now need to test it!
+Now that we have our all our code setup, we now need to test it.
 
 1. We now need to configure the server to listen to a TCP port that's based on the location of your `index.html` file. For Node.js, we can start the web server to listen to the port we've specified in the previous section by running the following commands at a command-line prompt from the `JavaScriptSPA` folder:
 
@@ -517,7 +517,7 @@ After the browser loads your `index.html` file, select **Sign In**. You'll now b
 
 ### Provide consent for application access
 
-The first time that you sign in to your application, you're prompted to grant it access to your profile and sign you in:
+The first time that you sign in to your application, you're prompted to grant it access to your profile and sign you in. Select **Accept** to continue.
 
 ![The "Permissions requested" window](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent_v2.png)
 
@@ -527,15 +527,15 @@ After you sign in, your user profile information is returned in the Microsoft Gr
 
 ![Results from the Microsoft Graph API call](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults_v2.png)
 
-## Behind the scenes information
+## More information
 
 After a user selects the **Sign In** button for the first time, in the MSAL library, the `signIn` method calls `loginPopup` to sign in the user. This method opens a pop-up window with the *Microsoft identity platform endpoint* to prompt and validate the user's credentials. After a successful sign-in, the user is redirected back to the original `index.html` page. A token is received, processed by `msal.js`, and the information contained in the token is cached. This token is known as the *ID token* and contains basic information about the user, such as the user display name. If you plan to use any data provided by this token for any purposes, make sure this token is validated by your backend server to guarantee that the token was issued to a valid user for your application.
 
-The SPA generated by this guide calls `acquireTokenSilent` and/or `acquireTokenPopup` to acquire an *access token* used to query the Microsoft Graph API for user profile info. If you need a sample that validates the ID token, take a look at [this](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 sample") sample application in GitHub. The sample uses an ASP.NET web API for token validation.
+The SPA generated by this guide calls `acquireTokenSilent` and/or `acquireTokenPopup` to acquire an *access token* used to query the Microsoft Graph API for user profile info. If you need a sample that validates the ID token, take a look at [this](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/blob/main/3-Authorization-II/1-call-api/README.md "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 sample") sample application in GitHub. The sample uses an ASP.NET web API for token validation.
 
 ### Get a user token interactively
 
-After the initial sign-in, you don't want to ask users to reauthenticate every time they need to request a token to access a resource. So `acquireTokenSilent` should be used most of the time to acquire tokens. There are situations, however, where you force users to interact with Microsoft identity platform. Examples include:
+After the initial sign-in, you don't want to ask users to reauthenticate every time they need to request a token to access a resource. So `acquireTokenSilent` should be used most of the time to acquire tokens. There are situations, however, where you force users to interact with Microsoft identity platform. Examples include when:
 
 - Users need to reenter their credentials because the password has expired.
 - Your application is requesting access to a resource, and you need the user's consent.
@@ -543,7 +543,7 @@ After the initial sign-in, you don't want to ask users to reauthenticate every t
 
 Calling `acquireTokenPopup` opens a pop-up window (or `acquireTokenRedirect` redirects users to the Microsoft identity platform). In that window, users need to interact by confirming their credentials, giving consent to the required resource, or completing the two-factor authentication.
 
-#### Get a user token silently
+### Get a user token silently
 
 The `acquireTokenSilent` method handles token acquisition and renewal without any user interaction. After `loginPopup` (or `loginRedirect`) is executed for the first time, `acquireTokenSilent` is the method commonly used to obtain tokens used to access protected resources for subsequent calls. (Calls to request or renew tokens are made silently.)
 `acquireTokenSilent` may fail in some cases. For example, the user's password may have expired. Your application can handle this exception in two ways:
@@ -568,7 +568,6 @@ The Microsoft Graph API requires the *user.read* scope to read a user's profile.
 > The user might be prompted for additional consents as you increase the number of scopes.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
-
 
 
 ## Next steps
