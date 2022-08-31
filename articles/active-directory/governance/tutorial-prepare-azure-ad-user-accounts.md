@@ -197,11 +197,11 @@ In order to do this, we must get the object ID for our user Melva Prince.
  7. Sign-in to Graph Explorer with the global administrator account for your tenant.
  8. At the top, change **GET** to **PATCH** and add `https://graph.microsoft.com/v1.0/users/<id>` to the box.  Replace `<id>` with the value we copied above.
  9. Copy the following in to the **Request body** and select **Run query**
-       ```Example
-        {
-        "employeeHireDate": "2022-04-15T22:10:00Z"
-        }
-       ```
+      ```Example
+      {
+      "employeeHireDate": "2022-04-15T22:10:00Z"
+      }
+      ```
    :::image type="content" source="media/tutorial-lifecycle-workflows/update-1.png" alt-text="Screenshot of the PATCH employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-1.png":::
  
  10.  Verify the change by changing **PATCH** back to **GET** and **v1.0** to **beta**.  select **Run query**. You should see the attributes for Melva set.  

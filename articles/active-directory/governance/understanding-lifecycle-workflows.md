@@ -49,7 +49,7 @@ The template will define the task that is to be used and then guide you through 
 
 For more information, see [Lifecycle workflow templates.](lifecycle-workflow-templates.md)
 
-## Workflow Basics
+## Workflow basics
 
 After selecting a template, on the basics screen:
  - Provide the information that will be used in the description portion of the workflow.
