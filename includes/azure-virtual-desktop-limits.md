@@ -12,7 +12,7 @@ ms.service: azure-virtual-desktop
 
 The following table describes the maximum limits for Azure Virtual Desktop.
 
-| **Azure Virtual Desktop Object**                    | **Parent Container Object**                     | **Service Limit**   |
+| **Azure Virtual Desktop Object**                    | **Per Parent Container Object**                     | **Service Limit**   |
 |-----------------------------------------------------|-------------------------------------------------|--------------------------------------------------|
 | Workspace                                           | Azure Active Directory Tenant                   | 1300 |
 | HostPool                                            | Workspace                                       | 400 |
