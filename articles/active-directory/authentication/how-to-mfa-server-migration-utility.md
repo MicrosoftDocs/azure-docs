@@ -342,7 +342,7 @@ Content-Type: application/json
 
 #### Response
 >[!NOTE] The response object shown here might be shortened for readability.
-<!-- {
+
   "blockType": "response",
   "truncated": true,
   "@odata.type": "microsoft.graph.internalDomainFederation"
