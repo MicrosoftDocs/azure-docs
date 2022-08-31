@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/29/2022
+ms.date: 08/30/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -82,7 +82,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 ## Create a new storage account encrypted with a key from a different tenant
 
-Up to this point, you have configured the multi-tenant application on the ISV's tenant, installed the application on the customer's tenant, and configured the key vault and key on the customer's tenant. Next you will create a new storage account on the ISV's tenant and configure customer-managed keys with the key from the customer's tenant.
+Up to this point, you have configured the multi-tenant application on the ISV's tenant, installed the application on the customer's tenant, and configured the key vault and key on the customer's tenant. Next you can create a new storage account on the ISV's tenant and configure customer-managed keys with the key from the customer's tenant.
 
 You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the storage account. The user-assigned managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](../../key-vault/general/authentication.md).
 
