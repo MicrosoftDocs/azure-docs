@@ -21,7 +21,7 @@ In this guide, learn how to identify and resolve known issues with data access w
 
 ## Error Codes
 
-Data access error codes are hierarchical delimited by the full stop character `.` and are more specific the more segments there are.
+Data access error codes are hierarchical. Error codes are delimited by the full stop character `.` and are more specific the more segments there are.
 
 ## ScriptExecution.DatabaseConnection
 
