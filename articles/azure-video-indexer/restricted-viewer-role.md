@@ -11,7 +11,13 @@ Azure Video Indexer enables managing access to the Azure Video Indexer resource 
 
 If you have the owner or administrator Azure AD permissions, you can assign **Video Indexer Restricted Viewer** role to specific users or security groups for your account. For information on how to assign roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
 
-It's recommended to use the [Azure Video Indexer](https://www.videoindexer.ai/) website to manage access to the Azure Video Indexer resource.
+## To manage access to the Azure Video Indexer resource
+
+We recommend to use the [Azure portal](https://ms.portal.azure.com) to add the restricted viewer role.
+
+### Using an ARM API
+
+If you prefer to assign the role with an ARM API, see [documentation](https://review.docs.microsoft.com/rest/api/documentation-preview/generate/restricted-viewer-access-token?view=azure-rest-preview&branch=result_openapiHub_production_6a6469abffe9&tabs=HTTP). 
 
 ## The Video Indexer Restricted Viewer role 
 
@@ -36,10 +42,6 @@ With this role, come the following restrictions:
     - People  
     - Brands 
 - Invite others 
-
-## Using an ARM API
-
-If you prefer to assign the role with an ARM API, see [documentation](https://review.docs.microsoft.com/rest/api/documentation-preview/generate/restricted-viewer-access-token?view=azure-rest-preview&branch=result_openapiHub_production_6a6469abffe9&tabs=HTTP). 
 
 ## Not able to access the website error
  
