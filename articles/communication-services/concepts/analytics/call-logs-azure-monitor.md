@@ -19,7 +19,7 @@ ms.subservice: calling
 
 
 ## Data Concepts
-The following are high level descriptions of data concepts specific to Voice and Video calling within you Communications Services that are important to review in order to understand the meaning of the data captured in the logs.
+The following are high level descriptions of data concepts specific to Voice and Video calling within your Communications Services that are important to review in order to understand the meaning of the data captured in the logs.
 
 ### Entities and IDs
 
@@ -27,7 +27,7 @@ A *Call*, as it relates to the entities represented in the data, is an abstracti
 
 A *Participant* (`participantId`) is present only when the Call is a *Group* Call, as it represents the connection between an Endpoint and the server. 
 
-An *Endpoint* is the most unique entity, represented by `endpointId`. `EndpointType` tells you whether the Endpoint represents a human user (PSTN, VoIP), a Bot (Bot), or the server that is managing multiple Participants within a Call. When an `endpointType` is `"Server"`, the Endpoint will not be assigned a unique ID. . By analyzing endpointType and the number of `endpointIds`, you can determine how many users and other non-human Participants (bots, servers) join a Call. Our native SDKs (Androis, iOS) reuse the same `endpointId` for a user across multiple Calls, thus enabling an understanding of experience across sessions. This differs from web-based Endpoints, which will always generate a new `endpointId` for each new Call.
+An *Endpoint* is the most unique entity, represented by `endpointId`. `EndpointType` tells you whether the Endpoint represents a human user (PSTN, VoIP), a Bot (Bot), or the server that is managing multiple Participants within a Call. When an `endpointType` is `"Server"`, the Endpoint will not be assigned a unique ID. By analyzing endpointType and the number of `endpointIds`, you can determine how many users and other non-human Participants (bots, servers) join a Call. Our native SDKs (Androis, iOS) reuse the same `endpointId` for a user across multiple Calls, thus enabling an understanding of experience across sessions. This differs from web-based Endpoints, which will always generate a new `endpointId` for each new Call.
 
 A *Stream* is the most granular entity, as there is one Stream per direction (inbound/outbound) and `mediaType` (e.g. audio, video).  
 
@@ -40,7 +40,7 @@ There are two types of Calls (represented by `callType`): P2P and Group.
   :::image type="content" source="media\call-logs-Azure-monitor\p2p-diagram.png" alt-text="p2p call":::
 
 
-**Group** Calls include any Call that's created ahead of time as a meeting/calendar event and any Call that has more than 2 Endpoints connected. Group Calls will include a server Endpoint, and the connection between each Endpoint and the server constitutes a Participant. P2P Calls that add an additional Endpoint during the Call cease to be P2P, and they become a Group Call. By viewing the `participantStartTime` and `participantDuration`, the timeline of when each Endpoint joined the Call can be determined.
+**Group** Calls include any Call that has more than 2 Endpoints connected. Group Calls will include a server Endpoint, and the connection between each Endpoint and the server constitutes a Participant. P2P Calls that add an additional Endpoint during the Call cease to be P2P, and they become a Group Call. By viewing the `participantStartTime` and `participantDuration`, the timeline of when each Endpoint joined the Call can be determined.
 
 
   :::image type="content" source="media\call-logs-Azure-monitor\group-call-version-a.png" alt-text="Group Call":::
@@ -48,9 +48,9 @@ There are two types of Calls (represented by `callType`): P2P and Group.
 ## Log Structure
 Two types of logs are created: **Call Summary** logs and **Call Diagnostic** logs. 
 
-Call Summary Logs contain basic information about the Call, including all the relevant IDs, timestamps, Endpoint and SDK information. For each Endpoint within a Call (not counting the Server), a distinct Call Summary Log will be created.
+Call Summary Logs contain basic information about the Call, including all the relevant IDs, timestamps, Endpoint and SDK information. For each participant within a call (if someone rejoins a call, they will have the same EndpointId, but a different ParticipantId, so there will be two Call Summary logs for that endpoint), a distinct call summary log will be created.
 
-Call Diagnostic Logs contain information about the Stream as well as a set of metrics that indicate quality of experience measurements. For each Endpoint within a Call (including the server), a distinct Call Diagnostic Log is created for each data stream (audio, video, etc.) between Endpoints. In a P2P Call, each log contains data relating to each of the outbound stream(s) associated with each Endpoint. In a Group Call, each stream associated with `endpointType`= `"Server"` will create a log containing data for the inbound streams, and all other streams will create logs containing data for the outbound streams for all non-sever endpoints. In Group Calls, use the `participantId` as the key to join the related inbound/outbound logs into a distinct Participant connection.
+Call Diagnostic Logs contain information about the Stream as well as a set of metrics that indicate quality of experience measurements. For each Endpoint within a Call (including the server), a distinct Call Diagnostic Log is created for each media stream (audio, video, etc.) between Endpoints. In a P2P Call, each log contains data relating to each of the outbound stream(s) associated with each Endpoint. In a Group Call, each stream associated with `endpointType`= `"Server"` will create a log containing data for the inbound streams, and all other streams will create logs containing data for the outbound streams for all non-sever endpoints. In Group Calls, use the `participantId` as the key to join the related inbound/outbound logs into a distinct Participant connection.
 
 ### Example 1: P2P Call
 
@@ -71,7 +71,7 @@ The below diagram represents a Group Call example with three `particpantIds`, wh
 The Call Summary Log contains data to help you identify key properties of all Calls. A different Call Summary Log will be created per each `participantId` (`endpointId` in the case of P2P calls) in the Call.
 
 > [!IMPORTANT]
-> Participant information in the call summary log will vary based on the participant tenant. The SDK and OS version will be redacted if the participant is not within the same tenant (also refer to as cross-tenant) as the ACS resource. Cross-tenants’ participants are classified as external users invited by a resource tenant to join and collaborate during a call.
+> Participant information in the call summary log will vary based on the participant tenant. The SDK and OS version will be redacted if the participant is not within the same tenant (also referred to as cross-tenant) as the ACS resource. Cross-tenants’ participants are classified as external users invited by a resource tenant to join and collaborate during a call.
 
 |     Property                  |     Description                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -79,7 +79,7 @@ The Call Summary Log contains data to help you identify key properties of all Ca
 |     operationName             |     The operation associated with log record.                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |     operationVersion          |     The api-version associated with the operation, if the `operationName` was performed using an API. If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future.                                                                                                                                                                           |
 |     category                  |     The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the `properties` blob of an event are the same within a particular log category and resource type.                                                                                                                                                                                                    |
-|     correlationIdentifier     |    `correlationIdentifier` is the unique ID for a Call. The `correlationIdentifier` identifies correlated events from all of the participants and endpoints that connect during a single Call, and it can be used to join data from different logs.  If you ever need to open a support case with Microsoft, the `correlationID` will be used to easily identify the Call you're troubleshooting.                                                                                                                                                                      |
+|     correlationId     |    `correlationId` is the unique ID for a Call. The `correlationId` identifies correlated events from all of the participants and endpoints that connect during a single Call, and it can be used to join data from different logs.  If you ever need to open a support case with Microsoft, the `correlationId` will be used to easily identify the Call you're troubleshooting.                                                                                                                                                                      |
 |     identifier                |     This is the unique ID for the user. The identity can be an Azure Communications Services user, Azure AD user ID, Teams anonymous user ID or Teams bot ID. You can use this ID to correlate user events across different logs.                                                                                                                                                                                                                                                                                                                                  |
 |     callStartTime             |     A timestamp for the start of the call, based on the first attempted connection from any Endpoint.                                                                                                                                                                                                                                                                                                                                                                   |
 |     callDuration              |     The duration of the Call expressed in seconds, based on the first attempted connection and end of the last connection between two endpoints.                                                                                                                                                                                                                                                                                                                         |
@@ -89,12 +89,12 @@ The Call Summary Log contains data to help you identify key properties of all Ca
 |     participantStartTime      |     Timestamp for beginning of the first connection attempt by the participant.                                                                                                                                                                                                                                                                                                                                                                                            |
 |     participantDuration       |     The duration of each Participant connection in seconds, from `participantStartTime` to the timestamp when the connection is ended.                                                                                                                                                                                                                                                                                                                                             |
 |     participantEndReason      |     Contains Calling SDK error codes emitted by the SDK when relevant for each `participantId`. See Calling SDK error codes below.                                                                                                                                                                                                                                                                                                                          |
-|     endpointId                |     Unique ID that represents each Endpoint connected to the call, where the Endpoint type is defined by `endpointType`. When the value is `null`, the connected entity is the Communication Services server (`endpointType`= `"Server"`). `EndpointId` can sometimes persist for the same user across multiple calls (`correlationIdentifier`) for native clients. The number of `endpointId`s will determine the number of Call Summary Logs. A distinct Summary Log is created for each `endpointId`.    |
+|     endpointId                |     Unique ID that represents each Endpoint connected to the call, where the Endpoint type is defined by `endpointType`. When the value is `null`, the connected entity is the Communication Services server (`endpointType`= `"Server"`). `EndpointId` can sometimes persist for the same user across multiple calls (`correlationId`) for native clients. The number of `endpointId`s will determine the number of Call Summary Logs. A distinct Summary Log is created for each `endpointId`.    |
 |     endpointType              |     This value describes the properties of each Endpoint connected to the Call. Can contain `"Server"`, `"VOIP"`, `"PSTN"`, `"BOT"`, or `"Unknown"`.                                                                                                                                                                                                                                                                                                                               |
 |     sdkVersion                |     Version string for the Communication Services Calling SDK version used by each relevant Endpoint. (Example: `"1.1.00.20212500"`)                                                                                                                                                                                                                                                                                                                                                          |
 |     osVersion                 |     String that represents the operating system and version of each Endpoint device.                                                                                                                                                                                                                                                                                                                                                                                       |
-|     Tenant	                |    A tenant, as it relates to Azure refers to a single instance of Azure Active Directory, or, as it is often called “Azure AD”. Azure AD is a key piece of Microsoft’s cloud platform as it provides a single place to manage users, groups, and the permissions they hold in relation to applications published in Azure AD.
-|
+|     participantTenantId               |    The ID of the Microsoft tenant associated with the participant. This field is used to guide cross-tenant redaction.
+
 
 ### Call Diagnostic Log
 Call Diagnostic Logs provide important information about the Endpoints and the media transfers for each Participant, as well as measurements that help to understand quality issues.
@@ -107,11 +107,11 @@ In a P2P Call, each log contains data relating to each of the outbound stream(s)
 |     operationName         |     The operation associated with log record.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |     operationVersion      |     The `api-version` associated with the operation, if the `operationName` was performed using an API. If there is no API that corresponds to this   operation, the version represents the version of that operation in case the properties associated with the operation change in the future.                                                                                                                                                                                                                                                                                                                                                                  |
 |     category              |     The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties   that appear within the `properties` blob of an event are the same within a particular log category and resource type.                                                                                                                                                                                                                                                                                                                                                                                         |
-|     correlationIdentifier     |     The `correlationIdentifier` identifies correlated events from all of the participants and endpoints that connect during a single Call. `correlationIdentifier` is the unique ID for a Call. If you ever need to open a support case with Microsoft, the `correlationID` will be used to easily identify the Call you're troubleshooting.                                                                                                                                                                                                                                                                                                                                                                         |
+|     correlationId     |     The `correlationId` identifies correlated events from all of the participants and endpoints that connect during a single Call. `correlationId` is the unique ID for a Call. If you ever need to open a support case with Microsoft, the `correlationId` will be used to easily identify the Call you're troubleshooting.                                                                                                                                                                                                                                                                                                                                                                         |
 |     participantId         |     This ID is generated to represent the two-way connection between a "Participant" Endpoint (`endpointType` =  `“Server”`) and the server. When `callType`   = `"P2P"`, there is a direct connection between two endpoints, and no `participantId` is generated.                                                                                                                                                                                                                                                                                                                                                                                                |
-|     identifier            |     This is the unique ID for the user. The identity can be an Azure Communications Services user, Azure AD user ID, Teams anonymous user ID or Teams bot ID. You can use this ID to correlate user events across different logs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|     endpointId            |     Unique ID that represents each Endpoint connected to the call, with Endpoint type defined  by `endpointType`.   When the value is `null`, it means that the connected entity is the Communication Services server.  `EndpointId` can persist for the same user across multiple calls (`correlationIdentifier`) for native clients but will be unique for every Call when the client is a web browser.                                                                                                                                                                                                                                                                                  |
-|     endpointType          |     This value describes the properties of each `endpointId`. Can contain  `“Server”`, `“VOIP”`, `“PSTN”`, `“BOT”`, or `“Unknown”`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|     identifier            |     This is the unique ID for the user. The identity can be an Azure Communications Services user, Azure AD user ID, Teams object ID or Teams bot ID. You can use this ID to correlate user events across different logs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|     endpointId            |     Unique ID that represents each Endpoint connected to the call, with Endpoint type defined  by `endpointType`.   When the value is `null`, it means that the connected entity is the Communication Services server.  `EndpointId` can persist for the same user across multiple calls (`correlationId`) for native clients but will be unique for every Call when the client is a web browser.                                                                                                                                                                                                                                                                                  |
+|     endpointType          |     This value describes the properties of each `endpointId`. Can contain  `“Server”`, `“VOIP”`, `“PSTN”`, `“BOT”`, `"Voicemail"`, `"Anonymous"`, or `"Unknown"`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |     mediaType             |     This string value describes the type of media being transmitted between endpoints within each stream. Possible values include `“Audio”`, `“Video”`, `“VBSS”` (Video-Based Screen Sharing), and `“AppSharing”`.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |     streamId              |     Non-unique integer which, together with `mediaType`, can be used to uniquely identify streams of the same `participantId`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |     transportType         |     String value which describes the network transport protocol per `participantId`. Can contain `"UDP”`, `“TCP”`, or `“Unrecognized”`. `"Unrecognized"` indicates that the system could not determine if the `transportType` was TCP or UDP.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -146,27 +146,27 @@ Two types of logs are created: **Call Summary** logs and **Call Diagnostic** log
 
 ### Example 1: P2P Call
 
-The below diagram represents two endpoints connected directly in a P2P Call. In this example, 2 Call Summary Logs would be created (one per `participantID`) and 4 Call Diagnostic Logs would be created (one per media stream). Each log will contain data relating to the outbound stream of the `participantID`.
+The below diagram represents two endpoints connected directly in a P2P Call. In this example, 2 Call Summary Logs would be created (one per `participantID`) and four Call Diagnostic Logs would be created (one per media stream). Each log will contain data relating to the outbound stream of the `participantID`.
 
 :::image type="content" source="media\call-logs-images\example 1_ p2p call aug22 update. same tenant.png" alt-text="P2P Call detail":::
 
 ### Example 2: Group Call
 
-The below diagram represents a Group Call example with three `participantIDs`, which means three `participantIDs` (`endpointIds` can potentially appear in multiple Participants, e.g. when rejoining a Call from the same device) and a Server Endpoint. 1 Call Summary Logs would be created per `participantID`, and four Call Diagnostic Logs would be created relating to each `participantID`, one for each media stream. 
+The below diagram represents a Group Call example with three `participantIDs`, which means three `participantIDs` (`endpointIds` can potentially appear in multiple Participants, e.g. when rejoining a Call from the same device) and a Server Endpoint. One Call Summary Logs would be created per `participantID`, and four Call Diagnostic Logs would be created relating to each `participantID`, one for each media stream. 
 
 :::image type="content" source="media\call-logs-images\example 2_ group call version a aug22 update, same tenant.png" alt-text="group Call detail":::
 
 
                                                                         
 ### Example 3: P2P Call cross-tenant
-The below diagram represents two participants across multiple tenants that are connected directly in a P2P Call. In this example, 1 Call Summary Logs would be created (1 per participant) with redacted OS and SDK versioning and 4 Call Diagnostic Logs would be created (1 per media stream). Each log will contain data relating to the outbound stream of the `participantID`.
+The below diagram represents two participants across multiple tenants that are connected directly in a P2P Call. In this example, one Call Summary Logs would be created (one per participant) with redacted OS and SDK versioning and four Call Diagnostic Logs would be created (one per media stream). Each log will contain data relating to the outbound stream of the `participantID`.
  
 :::image type="content" source="media\call-logs-images\example 3_ P2P Call Aug22 update.png" alt-text="group Call detail":::
 
 
 
 ### Example 4: Group Call cross-tenant
-The below diagram represents a Group Call example with three `participantIds` across multiple tenants.1 Call Summary Logs would be created per participant with redacted OS and SDK versioning, and four Call Diagnostic Logs would be created relating to each `participantId` , one for each media stream. 
+The below diagram represents a Group Call example with three `participantIds` across multiple tenants. One Call Summary Logs would be created per participant with redacted OS and SDK versioning, and four Call Diagnostic Logs would be created relating to each `participantId` , one for each media stream. 
 
 :::image type="content" source="media\call-logs-images\example 4_ group call version a Aug22 update.png" alt-text="group Call detail":::
 
@@ -185,7 +185,7 @@ Shared fields for all logs in the call:
 
 ```json
 "time":                     "2021-07-19T18:46:50.188Z",
-"resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-PROD-CCTS-TESTS/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
+"resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-TEST-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
 "correlationId":            "8d1a8374-344d-4502-b54b-ba2d6daaf0ae",
 ```
 
@@ -195,7 +195,7 @@ Call Summary Logs have shared operation and category information:
 ```json
 "operationName":            "CallSummary",
 "operationVersion":         "1.0",
-"category":                 "CallSummaryPRIVATEPREVIEW",
+"category":                 "CallSummary",
 
 ```
 Call Summary for VoIP user 1
@@ -243,7 +243,7 @@ Call Summary Logs crossed tenants: Call summary for VoIP user 1
     "callDuration":             520,
     "callType":                 "P2P",
     "teamsThreadId":            "null",
-    "participantId":            "aa1dd7da-5922-4bb1-a4fa-e350a111fd9c",
+    "participantId":            "null",
     "participantTenantId":      "02cbdb3c-155a-4b95-b829-6d56a45787ca",
     "participantStartTime":     "2022-08-14T06:18:27.010Z",
     "participantDuration":      "520",
@@ -278,7 +278,7 @@ Call diagnostics logs share operation information:
 ```json
 "operationName":            "CallDiagnostics",
 "operationVersion":         "1.0",
-"category":                 "CallDiagnosticsPRIVATEPREVIEW",
+"category":                 "CallDiagnostics",
 ```
 Diagnostic log for audio stream from VoIP Endpoint 1 to VoIP Endpoint 2:
 ```json
@@ -339,7 +339,7 @@ Diagnostic log for video stream from VoIP Endpoint 1 to VoIP Endpoint 2:
 The data would be generated in three Call Summary Logs and 6 Call Diagnostic Logs. Shared fields for all logs in the Call:
 ```json
 "time":                     "2021-07-05T06:30:06.402Z",
-"resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-PROD-CCTS-TESTS/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
+"resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-TEST-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
 "correlationId":            "341acde7-8aa5-445b-a3da-2ddadca47d22",
 ```
 
@@ -348,7 +348,7 @@ Call Summary Logs have shared operation and category information:
 ```json
 "operationName":            "CallSummary",
 "operationVersion":         "1.0",
-"category":                 "CallSummaryPRIVATEPREVIEW",
+"category":                 "CallSummary",
 ```
 
 Call summary for VoIP Endpoint 1:
@@ -358,7 +358,7 @@ Call summary for VoIP Endpoint 1:
     "callStartTime":            "2021-07-05T06:16:40.240Z",
     "callDuration":             87,
     "callType":                 "Group",
-    "teamsThreadId":            "19:meeting_MjZiOTAyN2YtZWU1Yi00ZTZiLTk2ZDUtYTZlM2I2ZjgxOTkw@thread.v2",
+    "teamsThreadId":            "19:meeting_MjZiOTAyN2YtZWU1Yi00ZTZiLT77777OOOOO99999jgxOTkw@thread.v2",
     "participantId":            "04cc26f5-a86d-481c-b9f9-7a40be4d6fba",
     "participantStartTime":     "2021-07-05T06:16:44.235Z",
     "participantDuration":      "82",
@@ -394,7 +394,7 @@ Call summary for PSTN Endpoint 2:
     "callStartTime":            "2021-07-05T06:16:40.240Z",
     "callDuration":             87,
     "callType":                 "Group",
-    "teamsThreadId":            "19:meeting_MjZiOTAyN2YtZWU1Yi00ZTZiLTk2ZDUtYTZlM2I2ZjgxOTkw@thread.v2",
+    "teamsThreadId":            "19:meeting_MjZiOTAyN2YtZWU1Yi00ZTZiLT77777OOOOO99999jgxOTkw@thread.v2",
     "participantId":            "515650f7-8204-4079-ac9d-d8f4bf07b04c",
     "participantStartTime":     "2021-07-05T06:17:10.447Z",
     "participantDuration":      "52",
@@ -412,7 +412,7 @@ Call Summary Logs cross-tenant
     "callStartTime":            "2022-08-14T06:18:27.010Z",
     "callDuration":             912,
     "callType":                 "Group",
-    "teamsThreadId":            "19:meeting_NzUzOTFlNXXXX00XXXX0ZTBiLWJhNzItYzZhNTYzMzhhMDZl@thread.v2",
+    "teamsThreadId":            "19:meeting_MjZiOTAyN2YtZWU1Yi00ZTZiLT77777OOOOO99999jgxOTkw@thread.v2",
     "participantId":            "aa1dd7da-5922-4bb1-a4fa-e350a111fd9c",
     "participantTenantId":      "02cbdb3c-155a-4b95-b829-6d56a45787ca",
     "participantStartTime":     "2022-08-14T06:18:27.010Z",
@@ -433,7 +433,7 @@ Call summary for bot
     "callStartTime":          "2022-08-09T16:00:32Z",
     "callDuration":            1470,
     "callType":               "Group",
-    "teamsThreadId":         "19:meeting_MmQwZDcwYTQtZ000HWE6NzI4LTg1YTAtNmNkOTk5ZDA3ZTc5@thread.v2",
+    "teamsThreadId":         "19:meeting_MmQwZDcwYTQtZ000HWE6NzI4LTg1YTAtNXXXXX99999ZZZZZ@thread.v2",
     "participantId":           "66e9d9a7-a434-4663-d91d-fb1ea73ff31e",
     "participantStartTime":    "2022-08-09T16:14:18Z",
     "participantDuration":      644,
@@ -449,7 +449,7 @@ Call diagnostics logs share operation information:
 ```json
 "operationName":            "CallDiagnostics",
 "operationVersion":         "1.0",
-"category":                 "CallDiagnosticsPRIVATEPREVIEW",
+"category":                 "CallDiagnostics",
 ```
 Diagnostic log for audio stream from VoIP Endpoint 1 to Server Endpoint:
 ```json
