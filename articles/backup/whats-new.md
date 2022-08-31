@@ -48,7 +48,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 Azure Backup now supports multi-user authorization (MUA) that allows you to add an additional layer of protection to critical operations on your Backup vaults. For MUA, Azure Backup uses the Azure resource, Resource Guard, to ensure critical operations are performed only with applicable authorization.
 
-For more information, see the [overview of MUA for Backup vault](multi-user-authorization-backup-vault-concept.md).
+For more information, see the [overview of MUA for Backup vault](multi-user-authorization-concept.md?tab=backup-vault).
 
 ## Multi-user authorization using Resource Guard is now generally available
  
