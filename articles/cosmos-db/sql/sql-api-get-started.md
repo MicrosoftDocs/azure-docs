@@ -21,7 +21,7 @@ ms.custom: devx-track-csharp
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
-Welcome to the Azure Cosmos DB SQL API get started tutorial. After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
+Welcome to the Azure Cosmos DB SQL API get started tutorial. After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources. 
 
 This tutorial uses version 3.0 or later of the [Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) and [.NET 6](https://dotnet.microsoft.com/download).
 
@@ -43,7 +43,7 @@ Now let's get started!
 
 ## Prerequisites
 
-An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
+An active Azure account. If you don't have one, without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb).
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 
