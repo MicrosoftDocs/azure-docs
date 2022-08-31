@@ -20,7 +20,7 @@ Article tested with the following Terraform and Terraform provider versions:
 
 This article shows you how to create a complete Linux environment and supporting resources with Terraform. Those resources include a virtual network, subnet, public IP address, and more.
 
-[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+[!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 In this article, you learn how to:
 > [!div class="checklist"]
