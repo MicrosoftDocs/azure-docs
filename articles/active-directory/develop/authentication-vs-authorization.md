@@ -28,9 +28,9 @@ This article defines authentication and authorization. It also briefly covers Mu
 
 *Authorization* is the act of granting an authenticated party permission to do something. It specifies what data you're allowed to access and what you can do with that data. Authorization is sometimes shortened to *AuthZ*. The Microsoft identity platform uses the [OAuth 2.0](https://oauth.net/2/) protocol for handling authorization.
 
-## Multi-Factor Authentication
+## Multifactor authentication
 
-*Multi-Factor Authentication* is the act of providing an additional factor of authentication to an account. This is often used to protect against brute force attacks. It is sometimes shortened to *MFA* or *2FA*. The Microsoft identity platform uses the [Microsoft Authenticator](https://support.microsoft.com/en-us/account-billing/set-up-the-microsoft-authenticator-app-as-your-verification-method-33452159-6af9-438f-8f82-63ce94cf3d29#:~:text=1%20Sign%20in%20to%20your%20work%20or%20school,authenticator%20app%20other%20than%20the%20Microsoft...%20More%20) app for handling two-factor authentication. For more information, see [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+*Multifactor authentication* is the act of providing an additional factor of authentication to an account. This is often used to protect against brute force attacks. It is sometimes shortened to *MFA* or *2FA*. The Microsoft identity platform uses the [Microsoft Authenticator](https://support.microsoft.com/account-billing/set-up-the-microsoft-authenticator-app-as-your-verification-method-33452159-6af9-438f-8f82-63ce94cf3d29) app for handling two-factor authentication. For more information, see [multifactor authentication](../authentication/concept-mfa-howitworks.md)
 
 ## Authentication and authorization using the Microsoft identity platform
 
