@@ -83,7 +83,7 @@ Create the second flow separate from the first one.
 
 To set up this flow, you will need to provide your Azure Video Indexer API Key and Azure Storage credentials again. You will need to update the same parameters as you did for the first flow. 
 
-For your trigger, you will see a HTTP POST URL field. The URL won’t be generated until after you save your flow; however, you will need the URL eventually. We will come back to this. 
+For your trigger, you will see an HTTP POST URL field. The URL won’t be generated until after you save your flow; however, you will need the URL eventually. We will come back to this. 
 
 Fill out [your account location](regions.md) and [account ID](./video-indexer-use-apis.md#operational-api-calls) to get the Azure Video Indexer account token.  
 
