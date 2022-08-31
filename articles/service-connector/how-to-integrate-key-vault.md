@@ -43,6 +43,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 |--------------------|--------------------------------------|--------------------------------------|----------------------------|--------------------------------------|
 | .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
 | Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot |                                      | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
 | Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
 | Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
 | None               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
