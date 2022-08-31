@@ -69,6 +69,14 @@ compliant with the specific standard.
   - New policy created
 - **App Service apps should use a SKU that supports private link**
   - Update list of supported SKUs of policy to include the Workflow Standard tier for Logic Apps
+- **Configure App Service apps to use the latest TLS version**
+  - New policy created
+- **Configure App Service app slots to use the latest TLS version**
+  - New policy created
+- **Configure Function apps to use the latest TLS version**
+  - New policy created
+- **Configure Function app slots to use the latest TLS version**
+  - New policy created
 
 ### August 2022
 
