@@ -31,6 +31,7 @@ Collect all the values in the following table for the mobile network site resour
    |The name for the site.           |**Instance details: Name**|
    |The region in which you’re creating the mobile network site resource. We recommend that you use the East US region.                         |**Instance details: Region**|
    |The mobile network resource representing the private mobile network to which you’re adding the site. |**Instance details: Mobile network**|
+   |The billing plan for the site that you are creating. |**Instance details: Site plan**|
 
 ## Collect packet core configuration values
 
