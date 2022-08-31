@@ -25,6 +25,8 @@ Complete the following sections to set up the quickstart project.
 
 In Android Studio, create a new project:
 
+1. In the **File** menu, select **New** > **New Project**.
+
 1. In **New Project**, select the **Empty Activity** project template.
 
    :::image type="content" source="../../media/composite-android-new-project.png" alt-text="Screenshot that shows the New Project dialog in Android Studio with Empty Activity selected.":::
@@ -220,7 +222,7 @@ In Android Studio, build and start the application:
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Android UI:
+The following classes and interfaces handle some key features of the Azure Communication Services Android UI:
 
 | Name                                                                  | Description                                                                                  |
 | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
@@ -232,7 +234,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## UI Library functionality
 
-Learn how to create major features for your Android application.
+Get the code to create key communication features for your Android application.
 
 ### Create CallComposite
 
@@ -278,7 +280,7 @@ CommunicationTokenCredential communicationTokenCredential =
 
 ```
 
-If you don't already have an access token, see [Create Azure Communication Services access tokens for testing](../../../identity/quick-create-identity.md).
+If you don't already have an access token, [create an Azure Communication Services access token](../../../identity/quick-create-identity.md).
 
 ---
 ### Set up a group call
@@ -311,7 +313,7 @@ CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
 
 ### Set up a Teams meeting
 
-To set up a Teams meeting, initialize a `CallCompositeTeamsMeetingLinkLocator` and supply it to the `CallCompositeRemoteOptions` object.
+To set up a Microsoft Teams meeting, initialize a `CallCompositeTeamsMeetingLinkLocator` and supply it to the `CallCompositeRemoteOptions` object.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -345,7 +347,7 @@ You can get a Microsoft Teams meeting link by using Graph APIs. This process is 
 
 The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, under the [joinWebUrl property](/graph/api/resources/onlinemeeting?preserve-view=true&view=graph-rest-beta). You also can get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
-### Launch the call UI
+### Launch the composite
 
 To launch the call UI, inside the `startCallComposite` function, call `launch` on the `CallComposite` instance.
 
