@@ -9,18 +9,29 @@ ms.topic: how-to
 
 This article describes how to install agentless monitoring software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're reinstalling software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
 
+## Prepare your operating system and external storage
+
+Before installing Defender for IoT OT monitoring software, you must have Ubuntu installed on your appliance or VM.
+
+Download Ubuntu onto an external storage, such as a portable DVD drive with a USB connector, or a USB drive, and then install Ubuntu on your appliance or VM.
+
+For more information, see the Ubuntu [Image Burning Guide](https://help.ubuntu.com/community/BurningIsoHowto).
+
 ## Download software files from the Azure portal
 
-Make sure that you've downloaded the relevant software file for the sensor or on-premises management console.
+Download OT sensor and on-premises management console software from the Azure portal.
 
-You can obtain the latest versions of our OT sensor and on-premises management console software from the Azure portal. On the Defender for IoT > **Getting started** page, select the **Sensor**, **On-premises management console**, or **Updates** tab and locate the software you need.
+On the Defender for IoT > **Getting started** page, select the **Sensor**, **On-premises management console**, or **Updates** tab and locate the software you need.
 
-Mount the ISO file using one of the following options:
+If you're updating from a previous version, check the options carefully to ensure that you have the correct update path for your situation.
 
-- **Physical media** – burn the ISO file to a DVD or USB, and boot from the media.
+Mount the ISO file onto your hardware appliance or VM using one of the following options:
+
+- **Physical media** – burn the ISO file to your external storage, and then boot from the media.
+
+    For more information, see the Ubuntu [Image Burning Guide](https://help.ubuntu.com/community/BurningIsoHowto).
 
 - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
-
 
 ## Pre-installation configuration
 
