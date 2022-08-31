@@ -340,7 +340,7 @@ You must either provide values for all three of these properties, or none of the
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the **my-container-apps** resource group.  Deleting this resource group will also delete the resource group automatically created by the Container Apps service containing the custom network components.
 
 >[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it.If resources outside the scope of this guide exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this guide exist in the specified resource group, they will also be deleted.
 
 ::: zone pivot="azure-cli"
 

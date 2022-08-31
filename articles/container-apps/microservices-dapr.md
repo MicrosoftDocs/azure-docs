@@ -442,7 +442,7 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 Once you're done, run the following command to delete your resource group along with all the resources you created in this tutorial.
 
 >[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it.If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
 
 # [Bash](#tab/bash)
 
