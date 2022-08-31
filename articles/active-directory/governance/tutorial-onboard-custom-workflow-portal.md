@@ -119,5 +119,5 @@ After running your workflow on-demand and checking that everything is working fi
 :::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Screenshot of enabling workflow schedule." lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
 
 ## Next steps
-- [Tutorial: Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azuread-user-accounts.md)
+- [Tutorial: Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azure-ad-user-accounts.md)
 - [Automate employee onboarding tasks before their first day of work with Microsoft Graph (preview)](tutorial-onboard-custom-workflow-graph.md)

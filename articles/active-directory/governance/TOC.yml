@@ -236,7 +236,7 @@
   - name: Developer API reference Lifecycle Workflows- Azure Active Directory
     href: lifecycle-workflows-developer-reference.md  
   - name: Preparing user accounts for Lifecycle workflows tutorials (Preview)
-    href: tutorial-prepare-azuread-user-accounts.md 
+    href: tutorial-prepare-azure-ad-user-accounts.md 
   - name: Configure a Logic App for Lifecycle Workflow use (Preview)
     href: configure-logic-app-lifecycle-workflows.md
       

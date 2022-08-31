@@ -195,5 +195,5 @@ GET https://graph.microsoft.com/beta/identityGovernance/LifecycleWorkflows/workf
 ```
 
 ## Next steps
-- [Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azuread-user-accounts.md)
+- [Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azure-ad-user-accounts.md)
 - [Execute employee offboarding tasks in real-time on their last day of work with Azure portal (preview)](tutorial-offboard-custom-workflow-portal.md)

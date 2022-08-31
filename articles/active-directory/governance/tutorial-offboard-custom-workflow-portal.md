@@ -105,5 +105,5 @@ At any time, you may monitor the status of the workflows and the tasks. As a rem
  :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png" alt-text="Screenshot of unprocessed tasks for real time workflow." lightbox="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png":::
 
 ## Next steps
-- [Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azuread-user-accounts.md)
+- [Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azure-ad-user-accounts.md)
 - [Execute employee offboarding tasks in real-time on their last day of work with Microsoft Graph (preview)](tutorial-offboard-custom-workflow-graph.md)

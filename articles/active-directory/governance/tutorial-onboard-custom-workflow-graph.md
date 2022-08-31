@@ -168,5 +168,5 @@ Content-type: application/json
 ```
 
 ## Next steps
-- [Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azuread-user-accounts.md)
+- [Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azure-ad-user-accounts.md)
 - [Automate employee onboarding tasks before their first day of work with Azure portal (preview)](tutorial-onboard-custom-workflow-portal.md)

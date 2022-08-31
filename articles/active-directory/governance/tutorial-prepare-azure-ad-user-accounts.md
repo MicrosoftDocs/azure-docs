@@ -175,7 +175,6 @@ For the tutorial, the **mail** attribute only needs to be set on the manager acc
  5. At the top, select **Edit**.
  6. Under manager, select **Change** and Select **Britta Simon**.
  7. At the top, select **Save**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/user-1.png" alt-text="Screenshot of the Graph edit user option." lightbox="media/tutorial-lifecycle-workflows/user-1.png":::
  8. Go back to users and select **Britta Simon**.
  9. At the top, select **Edit**.
  10. Under **Email**, enter a valid email address.
@@ -194,8 +193,6 @@ In order to do this, we must get the object ID for our user Melva Prince.
  3.  Select **Users**.
  4.  Select **Melva Prince**.
  5.  Select the copy sign next to the **Object ID**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/update-2.png" alt-text="Screenshot of the Graph Object ID." lightbox="media/tutorial-lifecycle-workflows/update-2.png":::
-
  6.  Now navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
  7. Sign-in to Graph Explorer with the global administrator account for your tenant.
  8. At the top, change **GET** to **PATCH** and add `https://graph.microsoft.com/v1.0/users/<id>` to the box.  Replace `<id>` with the value we copied above.
