@@ -53,8 +53,8 @@ We currently support the following named modem configurations.
 
 | Public Satellite Service | Named modem string | Note |
 |--|--|--|
-| Aqua Direct Broadcast | aqua_direct_broadcast | This is NASA's 15 mbps direct broadcast service |
-| Aqua Direct Playback | aqua_direct_playback | This is NASA's 150 mbps direct broadcast service |
+| Aqua Direct Broadcast | aqua_direct_broadcast | This is NASA AQUA's 15 Mbps direct broadcast service |
+| Aqua Direct Playback | aqua_direct_playback | This is NASA's AQUA's 150 Mbps direct broadcast service |
 
 > [!NOTE]
 > We recommend using the Aqua Direct Broadcast modem configuration when testing with Aqua. 
