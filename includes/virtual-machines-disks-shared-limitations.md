@@ -12,7 +12,9 @@
 
 ### General limitations
 
-Enabling shared disks is only available to a subset of disk types. Currently only ultra disks, premium SSD v2 (preview), premium SSDs, and standard SSDs can enable shared disks. Shared disks can be attached to Virtual Machine Scale Sets (VMSS) but can't be defined in the VMSS models or automatically deployed.Each managed disk that has shared disks enabled are subject to the following limitations, organized by disk type:
+Enabling shared disks is only available to a subset of disk types. Currently only ultra disks, premium SSD v2 (preview), premium SSDs, and standard SSDs can enable shared disks. Shared disks can be attached to individual VMSS but can't be defined in the VMSS models or automatically deployed.
+
+Each managed disk that has shared disks enabled are also subject to the following limitations, organized by disk type:
 
 ### Ultra disks
 
@@ -45,7 +47,6 @@ When sharing Premium SSD v2 disks, they have the following additional limitation
 - Azure Backup is available through [Azure Disk Backup](../articles/backup/disk-backup-overview.md).
 - Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) isn't currently supported.
 - Can only be shared across availability zones if using [Zone-redundant storage for managed disks](../articles/virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks).
-
 
 ### Standard SSDs
 
