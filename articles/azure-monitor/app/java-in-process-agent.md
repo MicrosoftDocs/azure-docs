@@ -71,7 +71,7 @@ Add `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` to your applicati
    - You can set an environment variable:
     
         ```console
-        APPLICATIONINSIGHTS_CONNECTION_STRING = <Copy connection string from Application Insights Resource Overview>
+        APPLICATIONINSIGHTS_CONNECTION_STRING=<Copy connection string from Application Insights Resource Overview>
         ```
 
    - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.3.1.jar` with the following content:
@@ -118,9 +118,9 @@ In the `applicationinsights.json` file, you can also configure these settings:
 
 For more information, see [Configuration options](./java-standalone-config.md).
 
-## Instrumentation libraries
+## Auto-Instrumentation
 
-Java 3.x includes the following instrumentation libraries.
+Java 3.x includes the following auto-instrumentation.
 
 ### Autocollected requests
 
@@ -225,7 +225,8 @@ This section explains how to modify telemetry.
 
 ### Add spans
 
-You can use `opentelemetry-api` to create [tracers](https://opentelemetry.io/docs/instrumentation/java/manual/#tracing) and spans. Spans populate the dependencies table in Application Insights. The string passed in for the span's name is saved to the _target_ field within the dependency.
+You can use `opentelemetry-api` to create [tracers](https://opentelemetry.io/docs/instrumentation/java/manual/#tracing) and spans.
+Spans populate the `requests` and `dependencies` tables in Application Insights.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
@@ -287,9 +288,7 @@ You can use `opentelemetry-api` to create span events, which populate the traces
 
 You can use `opentelemetry-api` to add attributes to spans. These attributes can include adding a custom business dimension to your telemetry. You can also use attributes to set optional fields in the Application Insights schema, such as User ID or Client IP.
 
-#### Add a custom dimension
-
-Adding one or more custom dimensions populates the _customDimensions_ field in the requests, dependencies, traces, or exceptions table.
+Adding one or more span attributes populates the _customDimensions_ field in the requests, dependencies, traces, or exceptions table.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
@@ -409,8 +408,8 @@ The following table represents currently supported custom telemetry types that y
 
 - Custom metrics are supported through micrometer.
 - Custom exceptions and traces are supported through logging frameworks.
-- Custom requests, dependencies, and exceptions are supported through `opentelemetry-api`.
-- Any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-by-using-the-2x-sdk).
+- Custom requests, dependencies, metrics, and exceptions are supported through `opentelemetry-api`.
+- All types of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-by-using-the-2x-sdk).
 
 | Custom telemetry type | Micrometer | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
 |-----------------------|------------|---------------------|---------|-------------------|
@@ -420,7 +419,7 @@ The following table represents currently supported custom telemetry types that y
 | Exceptions            |            |  Yes                |  Yes    |  Yes              |
 | Page views            |            |                     |  Yes    |                   |
 | Requests              |            |                     |  Yes    |  Yes              |
-| Traces                |            |  Yes                |  Yes    |  Yes              |
+| Traces                |            |  Yes                |  Yes    |                   |
 
 Currently, we're not planning to release an SDK with Application Insights 3.x.
 
