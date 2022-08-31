@@ -37,11 +37,11 @@
     topicHref: /azure/cosmos-db/index
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
-    topicHref: /azure/cosmos-db/
+    topicHref: /azure/cosmos-db/index
     items:
     - name: MongoDB API
-      tocHref: /azure/cosmos-db/mongodb-introduction
-      topicHref: /azure/cosmos-db/mongodb-introduction
+      tocHref: /azure/cosmos-db/mongodb/
+      topicHref: /azure/cosmos-db/mongodb/index
 - name: Azure
   tocHref: /azure/developer/
   topicHref: /azure/index
@@ -50,6 +50,17 @@
     tocHref: /azure/developer/java/
     topicHref: /azure/cosmos-db/index    
     items:
-    - name: Spring integration
+    - name: MongoDB API
       tocHref: /azure/developer/java/spring-framework/     
-      topicHref: /azure/cosmos-db/index
+      topicHref: /azure/cosmos-db/mongodb/index
+- name: Azure
+  tocHref: /security/
+  topicHref: /azure/index
+  items:
+  - name: Cosmos DB
+    tocHref: /security/benchmark/azure/
+    topicHref: /azure/cosmos-db/index
+    items:
+    - name: MongoDB API
+      tocHref: /security/benchmark/azure/baselines/
+      topicHref: /azure/cosmos-db/mongodb/index
