@@ -49,10 +49,15 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ### [Azure Spring Apps](#tab/spring-apps)
 
-| Client type        |   System-assigned managed identity   |    User-assigned managed identity    |       Secret/connection string       |           Service principal          |
-|--------------------|:------------------------------------:|:------------------------------------:|:------------------------------------:|:------------------------------------:|
-| Java               | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Client type        |   System-assigned managed identity   | User-assigned managed identity |       Secret/connection string       |           Service principal          |
+|--------------------|:------------------------------------:|:------------------------------:|:------------------------------------:|:------------------------------------:|
+| .NET               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Go                 | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Node.js            | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Python             | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| None               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ---
 
@@ -60,7 +65,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 Use the connection details below to connect compute services to Service Bus. For each example below, replace the placeholder texts `<Service-Bus-namespace>`, `<access-key-name>`, `<access-key-value>` `<client-ID>`, `<client-secret>`, and `<tenant-id>` with your own Service Bus namespace, shared access key name, shared access key value, client ID, client secret and tenant ID.
 
-### .NET, Java, Node.JS, Python
+### Azure App Service and Azure Container Apps
 
 #### Secret/connection string
 
@@ -91,7 +96,7 @@ Use the connection details below to connect compute services to Service Bus. For
 | AZURE_SERVICEBUS_CLIENTSECRET            | Your client secret    | `<client-secret>`                            |
 | AZURE_SERVICEBUS_TENANTID                | Your tenant ID        | `<tenant-id>`                                |
 
-### Java - Spring Boot
+### Azure Spring Apps
 
 #### Spring Boot secret/connection string
 

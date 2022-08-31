@@ -28,7 +28,8 @@ In this tutorial, you learn how to:
 VMware to Azure replication includes the following procedures:
 
 - Sign in to the [Azure portal](https://portal.azure.com/).
-- Prepare Azure account
+- Prepare an Azure account.
+- Prepare an account on the vCenter server or vSphere ESXi host, to automate VM discovery.
 - [Create a recovery Services vault](./quickstart-create-vault-template.md?tabs=CLI)
 - Prepare infrastructure - [deploy an Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-preview.md)
 - Enable replication
@@ -60,6 +61,28 @@ Use the following steps to assign the required permissions:
 1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**. In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
 
 2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of AAD App.
+
+## Prepare an account for automatic discovery
+
+Site Recovery needs access to VMware servers to:
+
+- Automatically discover VMs. At least a read-only account is required.
+- Orchestrate replication, failover, and failback. You need an account that can run operations such
+  as creating and removing disks, and powering on VMs.
+
+Create the account as follows:
+
+1. To use a dedicated account, create a role at the vCenter level. Give the role a name such as
+   **Azure_Site_Recovery**.
+2. Assign the role the permissions summarized in the table below.
+3. Create a user on the vCenter server or vSphere host. Assign the role to the user.
+
+### VMware account permissions
+
+**Task** | **Role/Permissions** | **Details**
+--- | --- | ---
+**VM discovery** | At least a read-only user<br/><br/> Data Center object -> Propagate to Child Object, role=Read-only | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs and networks).
+**Full replication, failover, failback** |  Create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots, Create snapshot, Revert snapshot.| User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs and networks).
 
 ## Prepare infrastructure - set up Azure Site Recovery Replication appliance
 
