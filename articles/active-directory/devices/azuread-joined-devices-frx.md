@@ -26,7 +26,7 @@ This functionality pairs well with mobile device management platforms like [Micr
 To Azure AD join a Windows device, the device registration service must be configured to enable you to register devices. For more information about prerequisites, see the article [How to: Plan your Azure AD join implementation](azureadjoin-plan.md).
 
 > [!TIP]
-> Windows Home Editions do not support Azure AD join. These editions can still access many of the benefits by using [Azure AD registration](concept-azure-ad-register). 
+> Windows Home Editions do not support Azure AD join. These editions can still access many of the benefits by using [Azure AD registration](concept-azure-ad-register.md). 
 > 
 > For information about how complete Azure AD registration on a Windows device see the support article [Register your personal device on your work or school network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8).
 
