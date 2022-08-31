@@ -56,7 +56,7 @@ Checking the [portal metrics](../monitor-cosmos-db.md) will help determine if it
 
 See our guide to [designing resilient applications with Azure Cosmos SDKs](conceptual-resilient-sdk-applications.md) for guidance on how to design resilient applications and learn which are the retry semantics of the SDK.
 
-### Azure SNAT (PAT) port exhaustion
+### SNAT
 
 If your app is deployed on [Azure Virtual Machines without a public IP address](../../load-balancer/load-balancer-outbound-connections.md), by default [Azure SNAT ports](../../load-balancer/load-balancer-outbound-connections.md#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Azure Cosmos DB endpoint is limited by the [Azure SNAT configuration](../../load-balancer/load-balancer-outbound-connections.md#preallocatedports). This situation can lead to connection throttling, connection closure, or the above mentioned [Request timeouts](troubleshoot-dot-net-sdk-request-timeout.md).
 
