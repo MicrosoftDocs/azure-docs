@@ -41,7 +41,7 @@ The Provisioning states to be used for this feature are *Canceling* and *Cancele
 
 You can use the [az aks nodepool](/cli/azure/aks/nodepool) command with the `operation-abort` argument to abort an operation on a node pool or a managed cluster.
 
-The following example terminates an operation on a node pool on a cluster specified by the clusters name and the resource group. 
+The following example terminates an operation on a node pool on a specified cluster by its name and resource group that holds the cluster.
 
 ```azurecli-interactive
 az aks nodepool operation-abort\
@@ -51,7 +51,7 @@ az aks nodepool operation-abort\
 --cluster-name myAKSCluster \
 ```
 
-The following example terminates an operation against a managed cluster specified by the clusters name and resource group.
+The following example terminates an operation against a specified managed cluster its name and resource group that holds the cluster.
 
 ```azurecli-interactive
 az aks operation-abort --name myAKSCluster --resource-group myResourceGroup
