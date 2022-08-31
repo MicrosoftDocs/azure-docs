@@ -114,8 +114,8 @@ If your SWU files are signed (likely), you'll need another argument as well:
 
 The following table describes the arguments in more detail:
 
-| Argument | Description |  |
-|--|--|--|
+| Argument | Description |
+|--|--|
 | [source_archive] | This is the image that the delta will be based against when creating the delta. Important: the image must be identical to the image that is already present on the device (for example, cached from a previous update). |
 | [target_archive] | This is the image that the delta will update the source image to when creating the delta. |
 | [output_path] | The path (including the desired name of the delta file being generated) on the host machine where the delta will get placed after creation.  If the path doesn't exist, the directory will be created by the tool. |
