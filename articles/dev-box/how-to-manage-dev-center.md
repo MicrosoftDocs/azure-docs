@@ -46,12 +46,12 @@ The following steps show you how to create a dev center.
    |**Name**|Enter a name for your dev center.|
    |**Location**|Select the location/region you want the dev center to be created in.|
  
-   :::image type="content" source="./media/how-to-manage-dev-center/create-devcenter-basics.png" alt-text="Screenshot showing the Create dev center Basics tab."::: 
+   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-basics.png" alt-text="Screenshot showing the Create dev center Basics tab."::: 
        
    The currently supported Azure locations with capacity are listed here: [Microsoft Dev Box](https://aka.ms/devbox_acom).
 
 1. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
-   :::image type="content" source="./media/how-to-manage-dev-center/create-devcenter-tags.png" alt-text="Screenshot showing the Create dev center Tags tab."::: 
+   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-tags.png" alt-text="Screenshot showing the Create dev center Tags tab."::: 
 
 1. Select **Review + Create**.
 
