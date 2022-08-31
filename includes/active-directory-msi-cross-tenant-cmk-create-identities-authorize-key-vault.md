@@ -37,7 +37,7 @@ To create a new registration:
 
 :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/register-an-application.png" alt-text="Screen shot showing how to create a new multi-tenant application registration." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/register-an-application.png" border="true":::
 
-#### The service provider creates a resource group and a user-assigned managed identity
+#### The service provider creates a user-assigned managed identity
 
 Create a user-assigned managed identity to be used as a federated identity credential.
 
@@ -85,7 +85,7 @@ The following steps are performed by the service provider in the service provide
 
 Pick a name for your multi-tenant application in *Tenant1*. For example: “XTCMKDemoApp”. Note that this name is used by customers to identify the application in *Tenant2*. Note the application ID (or client ID) of the app, the object ID of the app, and also the tenant ID for the app. You'll need these values in the following steps.  
 
-#### The service provider creates a resource group and a user-assigned managed identity
+#### The service provider creates a user-assigned managed identity
 
 Create a user-assigned managed identity to be used as a federated identity credential.
 
@@ -142,7 +142,7 @@ export appId=$(az ad app show --id $appObjectId --query appId --output tsv)
 echo "Multi-tenant Azure AD Application has appId = $appId and ObjectId = $appObjectId"
 ```
 
-#### The service provider creates a resource group and a user-assigned managed identity
+#### The service provider creates a user-assigned managed identity
 
 Create a resource group using your Azure subscription. Also create a user-assigned managed identity (to be used as a federated identity credential). Get the object ID of the user-managed identity, which you'll need in the following steps. To create a managed identity, you must have a [Managed identity contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role.
 
