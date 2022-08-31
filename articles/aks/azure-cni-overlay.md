@@ -11,7 +11,7 @@ ms.date: 08/29/2022
 
 The traditional [Azure Container Networking Interface (CNI)](./configure-azure-cni.md) assigns a VNet IP address to every Pod either from a pre-reserved set of IPs on every node or from a separate subnet reserved for pods. This approach requires IP address planning and could lead to address exhaustion and difficulties in scaling your clusters as your application demands grow.
 
-With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Network subnet, whereas pods are assigned IP addresses from a private CIDR logically different from the VNet hosting the pods. Pod and node traffic within the cluster use an overlay network, and Network Address Translation (via the node's IP address) is used to reach resources outside the cluster. This solution saves a significant amount of VNet IP addresses and enables you to seamlessly scale your cluster to very large sizes. An added advantage is that the private CIDR can be reused in different AKS clusters, truly extending the IP space available for containerized applications in AKS.
+With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Network subnet, whereas pods are assigned IP addresses from a private CIDR logically different from the VNet hosting the nodes. Pod and node traffic within the cluster use an overlay network, and Network Address Translation (via the node's IP address) is used to reach resources outside the cluster. This solution saves a significant amount of VNet IP addresses and enables you to seamlessly scale your cluster to very large sizes. An added advantage is that the private CIDR can be reused in different AKS clusters, truly extending the IP space available for containerized applications in AKS.
 
 > [!NOTE]
 > Azure CNI overlay is currently only available in US West Central region.
@@ -22,6 +22,7 @@ In overlay networking, only the Kubernetes cluster nodes are assigned IPs from a
 
 A separate routing domain is created in the Azure Networking stack for the pod's private CIDR space, which creates an overlay network for direct communication between pods. There is no need to provision custom routes on the cluster subnet or use an encapsulation method to tunnel traffic between pods. This provides connectivity performance between pods on par with VMs in a VNet. 
 
+:::image type="content" source="media/azure-cni-overlay/AzureCNI-Overlay.png" alt-text="A diagram showing two nodes with three pods each running in an overlay network. Pod traffic to endpoints outside the cluster is routed via NAT.":::
 ![Azure CNI Overlay network model with an AKS cluster](media/azure-cni-overlay/AzureCNI-Overlay.png)
 
 Communication with endpoints outside the cluster, such as on-premises and peered VNets, happens using the node IP through Network Address Translation. Azure CNI translates the source IP (overlay IP of the pod) of the traffic to the primary IP address of the VM, which enables the Azure Networking stack to route the traffic to the destination. Endpoints outside the cluster can't connect to a pod directly. You will have to publish the pod's application as a Kubernetes Load Balancer service to make it reachable on the VNet.
@@ -46,7 +47,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 
 * **Cluster Nodes**: Cluster nodes go into a subnet in your VNet, so ensure that you have a subnet big enough to account for future scale. A simple `/24` subnet can host up to 251 nodes (the first three IP addresses in a subnet are reserved for management operations).
 
-* **Pods**: The overlay solution assigns a `/24 address space for pods on every node from the private CIDR that you specify during cluster creation. The \/24 size is fixed and can't be increased or decreased. You can run up to 250 pods on a node. When planning the pod address space, ensure that the private CIDR is large enough to provide \/24` address spaces for new nodes to support future cluster expansion. 
+* **Pods**: The overlay solution assigns a `/24` address space for pods on every node from the private CIDR that you specify during cluster creation. The `/24` size is fixed and can't be increased or decreased. You can run up to 250 pods on a node. When planning the pod address space, ensure that the private CIDR is large enough to provide `/24` address spaces for new nodes to support future cluster expansion. 
 The following are additional factors to consider when planning pod address space:
    * Pod CIDR space must not overlap with the cluster subnet range.
    * Pod CIDR space must not overlap with IP ranges used in on-premises networks and peered networks.
@@ -86,7 +87,7 @@ The overlay solution has the following limitations today
 * Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
 * You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
 
-## Steps to setup overlay clusters
+## Steps to set up overlay clusters
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
