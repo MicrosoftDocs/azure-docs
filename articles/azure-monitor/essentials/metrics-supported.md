@@ -2726,7 +2726,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PacketCount|Yes|Packet Count|Count|Total|Total number of Packets transmitted within time period|FrontendIPAddress, FrontendPort, Direction|
 |SnatConnectionCount|Yes|SNAT Connection Count|Count|Total|Total number of new SNAT connections created within time period|FrontendIPAddress, BackendIPAddress, ConnectionState|
 |SYNCount|Yes|SYN Count|Count|Total|Total number of SYN Packets transmitted within time period|FrontendIPAddress, FrontendPort, Direction|
-|UsedSnatPorts|No|Used SNAT Ports|Count|Average|Total number of SNAT ports used within time period|FrontendIPAddress, BackendIPAddress, ProtocolType, IsAwaitingRemoval|
+|UsedSnatPorts|No|Used SNAT Ports|Count|Max|Max number of SNAT ports used within time period|FrontendIPAddress, BackendIPAddress, ProtocolType, IsAwaitingRemoval|
 |VipAvailability|Yes|Data Path Availability|Count|Average|Average Load Balancer data path availability per time duration|FrontendIPAddress, FrontendPort|
 
 
