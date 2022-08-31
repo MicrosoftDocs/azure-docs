@@ -86,13 +86,13 @@ An administrator can:
 
 To learn more, see [Create and use a custom application template](howto-create-iot-central-application.md#create-and-use-a-custom-application-template).
 
-## Integrate with DevOps pipelines
+## Integrate with Azure Pipelines
 
-Continuous integration and continuous delivery (CI/CD) refers to the process of developing and delivering software in short, frequent cycles using automation pipelines. You can use Azure DevOps pipelines to automate the build, test, and deployment of IoT Central application configurations.
+Continuous integration and continuous delivery (CI/CD) refers to the process of developing and delivering software in short, frequent cycles using automation pipelines. You can use Azure Pipelines to automate the build, test, and deployment of IoT Central application configurations.
 
 Just as IoT Central is a part of your larger IoT solution, make IoT Central a part of your CI/CD pipeline.
 
-To learn more, see [Integrate IoT Central into your Azure DevOps CI/CD pipeline](howto-integrate-with-devops.md).
+To learn more, see [Integrate IoT Central into your Azure CI/CD pipeline](howto-integrate-with-devops.md).
 
 ## Monitor application health
 

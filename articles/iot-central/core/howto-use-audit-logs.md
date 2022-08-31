@@ -36,42 +36,42 @@ The log records changes to the following IoT Central entities:
 
 The log records changes made by the following types of user:
 
-- IoT Central user - the log shows the users email.
+- IoT Central user - the log shows the user's email.
 - API token - the log shows the token name.
-- Azure Active Directory user - the log shows the user email or Id.
+- Azure Active Directory user - the log shows the user email or ID.
 - Service principal - the log shows the service principal name.
 
 The log stores data for 30 days, after which it's no longer available.
 
 The following screenshot shows the audit log view with the location of the sorting and filtering controls highlighted:
 
-<!-- TODO: Add a screenshot -->
-
-## Sort the log
-
-You can sort the log into ascending or descending timestamp order. To sort, select **Timestamp**:
-
-<!-- TODO: Add a screenshot -->
-
-## Filter the log
-
-To focus on a specific time, filter the log by time range. Select **Edit time range** and specify the range you're interested in:
-
-<!-- TODO: Add a screenshot -->
-
-To focus on specific entries, filter by entity type or action. Select **Filter** and use the multi-select drop-downs to specify your filter conditions:
-
-<!-- TODO: Add a screenshot -->
+:::image type="content" source="media/howto-use-audit-logs/audit-log.png" alt-text="Screenshot that shows the audit log. The location of the sort and filter controls is highlighted.":::
 
 ## Customize the log
 
 Select **Column options** to customize the audit log view. You can add and remove columns, reorder the columns, and change the column widths:
 
-<!-- TODO: Add a screenshot -->
+:::image type="content" source="media/howto-use-audit-logs/audit-logs-column-options.png" alt-text="Screenshot that shows the audit log column options.":::
+
+## Sort the log
+
+You can sort the log into ascending or descending timestamp order. To sort, select **Timestamp**:
+
+:::image type="content" source="media/howto-use-audit-logs/audit-logs-sorting.png" alt-text="Screenshot that shows how to sort the log into descending timestamp order.":::
+
+## Filter the log
+
+To focus on a specific time, filter the log by time range. Select **Edit time range** and specify the range you're interested in:
+
+:::image type="content" source="media/howto-use-audit-logs/audit-logs-time.png" alt-text="Screenshot that shows how filter the log to show the last hour of entries.":::
+
+To focus on specific entries, filter by entity type or action. Select **Filter** and use the multi-select drop-downs to specify your filter conditions:
+
+:::image type="content" source="media/howto-use-audit-logs/audit-logs-filter.png" alt-text="Screenshot that shows how filter the log to show only updates to user entities.":::
 
 ## Manage access
 
-The built-in **App Administrator** role has access to the audit logs by default. The administrator can grant access to other roles, To learn more, see [Manage users and roles in your IoT Central application](howto-manage-users-roles.md).
+The built-in **App Administrator** role has access to the audit logs by default. The administrator can grant access to other roles. An administrator can assign either **Full control** or **View** audit log permissions to other roles. To learn more, see [Manage users and roles in your IoT Central application](howto-manage-users-roles.md).
 
 > [!IMPORTANT]
 > Any user granted permission to view the audit log can see all log entries even if they don't have permission to view or modify the entities listed in the log. Therefore, any user who can view the log can view the identity of and changes made to any modified entity.
