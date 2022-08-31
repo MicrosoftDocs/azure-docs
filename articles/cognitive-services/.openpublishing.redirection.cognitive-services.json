@@ -5759,6 +5759,11 @@
             "source_path_from_root": "/articles/cognitive-services/Welcome.md",
             "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/cognitive-services-security.md",
+            "redirect_url": "/azure/cognitive-services/security-features",
+            "redirect_document_id": true
         }
         
     ]
