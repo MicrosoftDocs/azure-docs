@@ -42,7 +42,7 @@ When creating a new paid account, you need to connect the Azure Video Indexer ac
 
 ## Create accounts
 
-* Ceating ARM accounts. Make sure you are signed in with the correct domain to the [Azure Video Indexer website](https://www.videoindexer.ai/). For details, see [Switch tenants](switch-tenants-portal.md).  
+* Creating ARM accounts. Make sure you are signed in with the correct domain to the [Azure Video Indexer website](https://www.videoindexer.ai/). For details, see [Switch tenants](switch-tenants-portal.md).  
 
     * You can create an Azure Video Indexer ARM-based account through one of the following:
     
