@@ -70,7 +70,7 @@ Note that the Host operating system appears in the footer, confirming we are run
 
 ## 6 - Clean up resources
 
-Remove the resrouce group by using the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command:
+Remove the resrouce group by using the [az group delete](/cli/azure/group#az-group-delete) command:
 
 ```azurecli-interactive
 az group delete --no-wait --name <resource_group>
