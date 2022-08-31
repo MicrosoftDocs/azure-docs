@@ -4,7 +4,7 @@ description: Create test certificates, install, and manage them on an Azure IoT 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 08/24/2021
+ms.date: 08/30/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -18,135 +18,181 @@ All IoT Edge devices use certificates to create secure connections between the r
 > [!NOTE]
 > The term "root CA" used throughout this article refers to the topmost authority public certificate of the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it is actually an intermediate CA public certificate.
 
-## How to apply configuration changes described in this article
+## Prerequisites
 
-Generally, the configuration involves editing `config.toml` and applying the change with `sudo iotedge config apply`.
+* An IoT Edge device. 
+  * If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
+
+* [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
+
+* Ability to edit the IoT Edge configuration file `config.toml` following the [configuration template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml).
+  * If your `config.toml` isn't based on the template, open [the template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml) and follow along when the guide asks to find specific sections, and add the configuration following the structure of the template.
+  * If you have a brand new IoT Edge installation, copy the template over to initialize the configuration. Don't use this command if you have any existing configuration, because it overwrites the file.
+    ```bash
+    sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+    ```
+
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
 
 ## Format requirements
+
+> [!TIP]
+> In public key cryptography, the public component is the "certificate". The private component is the "private key".
+> - The certificate can be encoded in a binary representation called DER, or a textual representation called PEM that is `-----BEGIN CERTIFICATE-----` + base64-encoded DER + `-----END CERTIFICATE-----`.
+> - The private key can be encoded in a binary representation called DER, or a textual representation called PEM that is `-----BEGIN PRIVATE KEY-----` + base64-encoded DER + `-----END PRIVATE KEY-----`.
+> - Because PEM is delineated, it is also possible to construct a PEM that contains both the `CERTIFICATE` and `PRIVATE KEY` one after the other in the same file. 
+> - Lastly, the certificate and private key can be encoded together in another binary representation called PKCS#12, that is encrypted with an optional password.
+> 
+> File extensions are arbitrary and one needs to run `file` on the file or open it to check, but in general:
+> - `.cer` is probably a certificate in DER or PEM form.
+> - `.pem` is probably a certificate or private key or both in PEM form.
+> - `.pfx` is probably a PKCS#12 file.
 
 IoT Edge requires the certificate and private key to be:
 
 - PEM format
 - Separate files
 
-> [!TIP]
-> In public key cryptography, the public component is the "certificate". The private component is the "private key".
-> 
-> - The certificate can be encoded in a binary representation called DER, or a textual representation called PEM that is `-----BEGIN CERTIFICATE-----` + base64-encoded DER + `-----END CERTIFICATE-----`.
-> - The private key can be encoded in a binary representation called DER, or a textual representation called PEM that is `-----BEGIN PRIVATE KEY-----` + base64-encoded DER + `-----END PRIVATE KEY-----`
-> 
-> Because PEM is delineated, it is also possible to construct a PEM that contains both the `CERTIFICATE` and `PRIVATE KEY` one after the other in the same file.
-> 
-> Lastly, the certificate and private key can be encoded together in another binary representation called PKCS#12, that is encrypted with an optional password.
-> 
-> File extensions are arbitrary and one needs to run `file` on the file or open it to check, but in general:
-> 
-> - `.cer` is probably a certificate in DER or PEM form.
-> 
-> - `.pem` is probably a certificate or private key or both in PEM form.
-> 
-> - `.pfx` is probably a PKCS#12 file.
-
-### Files from Public Key Infrastructure (PKI) provider
-
 If you get a `.pfx` file from your PKI provider, it's likely the certificate and private key in encoded together in one file. Double-check with `file` that it's a PKCS#12 file. You can convert your PKCS#12 `.pfx` file to PEM with [`openssl pkcs12` command](https://www.openssl.org/docs/man1.1.1/man1/pkcs12.html). The two `.pem` files are the certificate and private key.
 
 If you get a `.cer` file as well, it may contain the same certificate as the `.pfx`, or it might be the PKI provider's issuing (root) certificate. To see which one it is, inspect it with `openssl x509` command. If it's the latter, then:
-
 1. If it's currently in DER (binary) format, then convert it to PEM with `openssl x509 -in cert.cer -out cert.pem`, and 
-1. Use the PEM as the [trust bundle](#manage-trusted-root-ca-or-trust-bundle).
+2. Use the PEM as the [trust bundle](#manage-trusted-root-ca-or-trust-bundle).
 
-## Install certificates and private keys
+## Manage trusted root CA or trust bundle
 
-To install a certificate on IoT Edge, move the PEM file somewhere that IoT Edge can access like `/var/secrets/`. Then, in `config.toml`, set the path to the file using this pattern:
+To use a private certificate authority (CA) certificate with IoT Edge and modules as a root of trust, known as "trust bundle", point IoT Edge to it specifying its file path in the configuration. 
 
-```toml
-[<CERT_TYPE>]
-cert = "file:///var/secrets/my-cert.pem"
-pk = "file:///var/secrets/my-private-key.key.pem"
-```
-Ensure that IoT Edge's certificate service `aziotcs` and key service `aziotks` has at least read permission on the certificate and private key, respectively.
+1. Get the public portion (certificate) of the root CA from a PKI provider.
 
-### Use PKCS#11 to store private key
+2. Ensure that it [meets format requirements](#format-requirements).
 
-To configure IoT Edge to use PKCS#11 interface for retrieving the private key, use specify the PKCS#11 URI in the configuration: 
+3. Move the PEM file somewhere that IoT Edge can access, like `/var/secrets/`. 
 
-```toml
-pk = "pkcs11:slot-id=0;object=my%20pk?pin-value=1234"
-```
+4. In `config.toml` created from template, find **Trust bundle cert** section near the top.
 
-You need to also add this other section:
+5. Edit to point to the file:
 
-```toml
-[aziot_keys]
-pkcs11_lib_path = "/usr/lib/libmypkcs11.so"
-pkcs11_base_slot = "pkcs11:slot-id=0?pin-value=1234"
-```
+   ```toml
+   trust_bundle_cert = "file:///var/secrets/root-ca.pem"
+   ```
+6. Apply the configuration
+   
+   ```bash
+   sudo iotege config apply
+   ```
 
-## Automatic certificate renewal
+Installing only to the trust bundle file makes the certificate available to container modules but not to host modules like Azure Device Update or Defender. If you use host level components or run into other TLS issues, also install the root CA certificate to the operating system certificate store:
 
-IoT Edge has built-in ability to renew certificates before expiry.
+- Linux:
 
-Certificates renewal requires an issuance method that IoT Edge can manage. Generally, this means an EST server is required, but IoT Edge can also automatically [renew the quickstart CA by default](#renew-quickstart-edge-ca). Certificate renewal is configured per type of certificate. To configure, go to the relevant certificate configuration section in `config.toml` and add:
+  ```bash
+  sudo cp /var/secrets/my-root-ca.pem /usr/local/share/ca-certificates/my-root-ca.pem.crt
 
-```toml
-[REPLACE_WITH_CERT_TYPE]
-method = "est"
+  sudo update-ca-certificates
+  ```
 
-[REPLACE_WITH_CERT_TYPE.auto_renew]
-rotate_key = true
-threshold = "80%" 
-retry = "4%"
-```
+- IoT Edge for Linux on Windows (EFLOW):
 
-Here:
-- `rotate_key` controls if the private key should be rotated.
-- `threshold` sets when IoT Edge should start renewing the certificate . It can be specified as:
-    - *Percentage* -  integer between `0` and `100` followed by `%`. Renewal starts relative to the certificate lifetime. For example, when set to `80%`, a certificate that is valid for 100 days begins renewal at 20 days before its expiry. 
-    - *Absolute time* - integer followed by `m` (minutes) or `d` (days). Renewal starts relative to the certificate expiration time. For example, when set to `4d` for 4 days or `10m` for 10 minutes, the certificate begins renewing at that time before expiry. To avoid unintentional misconfiguration where the `threshold` is bigger than the certificate lifetime, we recommend to use *percentage* instead whenever possible. 
-- `retry` controls how often renewal should be retried on failure. Like `threshold`, it can similarly be specified as a *percentage* or *absolute time* using the same format.
+  ```bash
+  sudo cp /var/secrets/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
 
-## Enrollment over Secure Transport (EST)
+  sudo update-ca-trust
+  ```
 
-IoT Edge can manage certificates automatically with an EST server. Using EST is recommended for production as it replaces the need for manual certificate management, which can be risky and error-prone. It can be configured globally and overridden for each certificate type. Add the following configuration to `config.toml` for global default configuration.
+## Install existing certificates and private keys
 
-First, configure the path to a trusted root certificate that IoT Edge uses to validate the EST server's TLS certificate. This is optional if the EST server has a publicly-rooted TLS certificate.
+IoT Edge can use existing certificate and private key files to authenticate/attest to Azure, issue new module server certificates, and authenticate to EST servers. To install them:
 
-```toml
-[cert_issuance.est]
-trusted_certs = [
-    "file:///var/secrets/root-ca.pem",
-]
-```
+1. Ensure that the files meet [format requirements](#format-requirements).
 
-To provide a default URL for the EST server, add:
+2. Move the PEM files somewhere that IoT Edge can access, like `/var/secrets/`. 
 
-```toml
-[cert_issuance.est.urls]
-default = "https://example.org/.well-known/est"
-```
+3. In `config.toml`, find the relevant section for the type of the certificate to configure by looking for the keyword `cert`.
 
-Depending on the EST server configuration, you may authenticate with certificates or shared secrets (username/password). 
+4. Following example in the template, configure the device identity certificate, Edge CA, or EST identity certificates. The general pattern is:
 
-To use certificate for authentication the EST server:
+    ```toml
+    cert = "file:///var/secrets/my-cert.pem"
+    pk = "file:///var/secrets/my-private-key.key.pem"
+    ```
 
-```toml
-[cert_issuance.est.auth]
-bootstrap_identity_cert = "file:///var/secrets/my-est-id-bootstrap-cert.pem"
-bootstrap_identity_pk = "file:///var/secrets/my-est-id-bootstrap-pk.key.pem"
+5. Ensure that IoT Edge's certificate service `aziotcs` and key service `aziotks` has at least read permission on the certificate and private key, respectively.
 
-# identity_cert = "my-est-id-cert-name"
-# identity_pk = "my-est-id-pk-name"
-```
+   ```bash
+   sudo chmod 444 /var/secrets/my-cert.pem 
+   sudo chmod 440 /var/secrets/my-private-key.key.pem
+   ```
 
-Here, the bootstrap certificate and private key is expected to be long-lived and potentially installed on the device during manufacturing. IoT Edge uses the bootstrap credentials to authenticate to the EST server for the initial request to issue another certificate (the EST identity certificate) that is used in subsequent requests. If you wish, use the `identity_cert` and `identity_pk` values to control the names the EST identity certificate and private key are saved under. These are optional since, if not set, IoT Edge provides a default value and automatically manages it. Like for other certificates, IoT Edge can be configured to automatically renew EST identity certificate and key as well:
+6. Apply the configuration
+   
+   ```bash
+   sudo iotedge config apply
+   ```
 
-```toml
-[cert_issuance.est.identity_auto_renew]
-rotate_key = true
-threshold = "80%"
-retry = "4%"
-```
+To prevent errors when certificate expire, remember to manually update the files and configuration before certificate expiration.
+
+Overhead with manual certificate management can be risky and error-prone. For production, using IoT Edge with automatic certificate management is recommended.
+
+## Automatic certificate management
+
+### Configure global settings for certificate issuance with Enrollment over Secure Transport (EST)
+
+IoT Edge can interface with an EST server for automatic certificate issuance and renewal. Using EST is recommended for production as it replaces the need for manual certificate management, which can be risky and error-prone. It can be configured globally and overridden for each certificate type. To get started, 
+
+1. Get access to an EST server. To start testing:
+
+   1. Set one up for testing following [Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge](tutorial-configure-est-server.md).
+
+   2. Microsoft partners with GlobalSign to provide a demo account that you can sign up for [here](https://www.globalsign.com/globalsign-and-microsoft-azure-iot-edge-enroll-demo).
+
+2. In `config.toml`, configure the path to a trusted root certificate that IoT Edge uses to validate the EST server's TLS certificate. Optional if the EST server has a publicly-rooted TLS certificate.
+
+   ```toml
+   [cert_issuance.est]
+   trusted_certs = [
+      "file:///var/secrets/root-ca.pem",
+   ]
+   ```
+   <!-- TODO: is this necessary vs just the regular trust bundle steps -->
+
+3. Provide a default URL for the EST server, add:
+
+   ```toml
+   [cert_issuance.est.urls]
+   default = "https://example.org/.well-known/est"
+   ```
+
+4. To use certificate for authentication the EST server, add:
+
+   ```toml
+   [cert_issuance.est.auth]
+   bootstrap_identity_cert = "file:///var/secrets/my-est-id-bootstrap-cert.pem"
+   bootstrap_identity_pk = "file:///var/secrets/my-est-id-bootstrap-pk.key.pem"
+
+   # identity_cert = "my-est-id-cert-name"
+   # identity_pk = "my-est-id-pk-name"
+
+   [cert_issuance.est.identity_auto_renew]
+   rotate_key = true
+   threshold = "80%"
+   retry = "4%"
+   ```
+
+5. Apply the configuration
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+Here, the bootstrap certificate and private key are expected to be long-lived and potentially installed on the device during manufacturing. IoT Edge uses the bootstrap credentials to authenticate to the EST server for the initial request to issue another certificate (the EST identity certificate) that is used in subsequent requests. 
+
+If you wish, use the `identity_cert` and `identity_pk` values to control the names the EST identity certificate and private key are saved under. These are optional since, if not set, IoT Edge provides a default value and automatically manages it. 
+
+The configuration under `[cert_issuance.est.identity_auto_renew]` is covered in the next section.
+
+### Username and password authentication to EST server
 
 If authentication to EST server using certificate isn't possible, use shared secret or username/password instead:
 
@@ -156,39 +202,46 @@ username = "username"
 password = "password"
 ```
 
-Microsoft partners with GlobalSign to provide a demo account that you can sign up for [here](https://www.globalsign.com/globalsign-and-microsoft-azure-iot-edge-enroll-demo).
+### Automatic certificate renewal
 
-## Manage trusted root CA or trust bundle
+Instead of manually managing the certificate files, IoT Edge has built-in ability to get and  renew certificates before expiry.
 
-To use a private certificate authority (CA) certificate with IoT Edge and modules as a root of trust, known as "trust bundle", point IoT Edge to it specifying its file path in the configuration. 
+Certificates renewal requires an issuance method that IoT Edge can manage. Generally, this means a Enrollment over Secure Transport (EST) server is required, but IoT Edge can also automatically [renew the quickstart CA by default](#renew-quickstart-edge-ca). Certificate renewal is configured per type of certificate. To configure, 
 
-```toml
-trust_bundle_cert = "file:///var/secrets/trust-bundle.pem"
-```
+1. In `config.toml` created from template, find the relevant section for the type of the certificate to configure by looking for the keyword `auto_renew`.
 
-Installing only to the trust bundle file makes the cert available to container modules but not to host modules like Azure Device Update or Defender. To prevent issues with host level components, also install the root CA certificate to the operating system certificate store.
+2. Following example, configure the device identity certificate, Edge CA, or EST identity certificates. The general pattern is:
+   
+   ```toml
+   [REPLACE_WITH_CERT_TYPE]
+   # ...
+   method = "est"
+   # ...
 
-Linux:
+   [REPLACE_WITH_CERT_TYPE.auto_renew]
+   rotate_key = true
+   threshold = "80%" 
+   retry = "4%"
+   ```
+3. Apply the configuration
+   
+   ```bash
+   sudo iotege config apply
+   ```
 
-```bash
-sudo cp /var/secrets/my-root-ca.pem /usr/local/share/ca-certificates/my-root-ca.pem.crt
+This table shows what each of the options in `auto_renew` does:
 
-sudo update-ca-certificates
-```
+| Parameter | Description |
+|---------|---------|
+|`rotate_key`| Controls if the private key should be rotated when IoT Edge renews the certificate.|
+|`threshold`| Sets when IoT Edge should start renewing the certificate . It can be specified as: <br> - Percentage: integer between `0` and `100` followed by `%`. Renewal starts relative to the certificate lifetime. For example, when set to `80%`, a certificate that is valid for 100 days begins renewal at 20 days before its expiry. <br> - Absolute time: integer followed by `m` (minutes) or `d` (days). Renewal starts relative to the certificate expiration time. For example, when set to `4d` for 4 days or `10m` for 10 minutes, the certificate begins renewing at that time before expiry. To avoid unintentional misconfiguration where the `threshold` is bigger than the certificate lifetime, we recommend to use *percentage* instead whenever possible.|
+|`retry`| controls how often renewal should be retried on failure. Like `threshold`, it can similarly be specified as a *percentage* or *absolute time* using the same format.|
 
-IoT Edge for Linux on Windows (EFLOW):
-
-```bash
-sudo cp /var/secrets/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
-
-sudo update-ca-trust
-```
-
-## Device identity certificate and examples
+## Device identity certificate (examples)
 
 IoT Edge device identity certificate is used to authenticate to IoT Hub or Device Provisioning Service (DPS) depending on your provisioning setup. 
 
-### Device identity certificate files from PKI provider with manual management
+### Device identity certificate files from PKI provider
 
 Request a client TLS certificate (or similar) and private key from your PKI provider and ensure that the common name (CN) matches the IoT Edge device ID with IoT Hub or registration ID (with DPS). In below device identity certificate example, `Subject: CN = my-device` is the critical field.
 
@@ -239,9 +292,7 @@ MIICdTCCAhugAwIBAgIBMDAKBggqhkjOPQQDAjAXMRUwEwYDVQQDDAxlc3RFeGFt
 > [!TIP]
 > To try this without access to certificate files provided by a PKI, see [Create demo certificates to test device features](/azure/iot-edge/how-to-create-test-certificates?view=iotedge-2020-11&tabs=linux) to generate a short-lived non-production device identity certificate and private key.
 
-Once you have the latest certificate and private files, update IoT Edge configuration.
-
-If provisioning with IoT Hub:
+Configuration example when provisioning with IoT Hub:
 
 ```toml
 [provisioning]
@@ -254,7 +305,7 @@ identity_cert = "file:///var/secrets/device-id.pem"
 identity_pk = "file:///var/secrets/device-id.key.pem"
 ```
 
-If provisioning with DPS:
+Configuration example when provisioning with DPS:
 
 ```toml
 [provisioning]
@@ -267,15 +318,6 @@ registration_id = "my-device"
 identity_cert = "file:///var/secrets/device-id.pem"
 identity_pk = "file:///var/secrets/device-id.key.pem"
 ```
-
-Ensure that that IoT Edge has the correct permissions for the directories holding the certificates and keys:
-
-```bash
-sudo chmod 444 /var/secrets/device-id.pem 
-sudo chmod 440 /var/secrets/device-id.key.pem
-```
-
-To prevent authentication errors, manually update the files and configuration before certificate expiration. In production, overhead with manual certificate management can be risky and error-prone, so IoT Edge supports automatic management for identity certificates.
 
 ### Automatic device identity certificate management with EST
 
@@ -302,28 +344,23 @@ retry = "4%"
 
 Don't to use EST or `auto_renew` with other methods of provisioning, including manual X.509 provisioning with IoT Hub and DPS with individual enrollment. This is because IoT Edge can't update certificate thumbprint in Azure when a certificate is renewed, which prevents IoT Edge from reconnecting.
 
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
-## Edge CA configuration and examples
+## "Quickstart" Edge CA
 
 Edge CA has two different modes:
 
-1. "Quickstart": default behavior, only use for testing and not suitable for production
-1. Production mode
-
-### Quickstart Edge CA
+1. Quickstart: default behavior, only use for testing and **not** suitable for production
+2. Production: provide your own source for Edge CA certificate and private key
 
 To help with getting started, IoT Edge automatically generates an **Edge CA certificate** when started up for the first time by default. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days, but can be configured. This is referred to as *quickstart Edge CA*.
 
-It's called "quickstart" because it's enables `edgeHub` (and other IoT Edge modules) to have valid server certificate when IoT Edge is first installed, without any configuration. It's important that `edgeHub` has this certificate because modules or downstream devices [need to establish secure communication channels](iot-edge-certs.md#part-3-am-i-really-talking-to-edgegateway). Without the quickstart Edge CA, getting started would be significantly harder because you'd need to provide a valid server certificate from a PKI provider or with tools like `openssl`. 
+It's called "quickstart" because it's enables `edgeHub` (and other IoT Edge modules) to have valid server certificate when IoT Edge is first installed with no configuration. It's important that `edgeHub` has this certificate because modules or downstream devices [need to establish secure communication channels](iot-edge-certs.md#part-3-am-i-really-talking-to-edgegateway). Without the quickstart Edge CA, getting started would be significantly harder because you'd need to provide a valid server certificate from a PKI provider or with tools like `openssl`. 
 
 > [!IMPORTANT]
 > Never use the quickstart Edge CA for production because the locally generated certificate in it isn't connected to a PKI. 
 > 
 > The security of a certificates-based identity derives from a well-operated PKI (the infrastructure) in which the certificate (a document) is only a component. A well-operated PKI enables definition, application, management and enforcements of security policies to include but not limited to certificates issuance, revocation, and lifecycle management.
 
-#### Customize lifetime for quickstart Edge CA
+### Customize lifetime for quickstart Edge CA
 
 To configure the certificate expiration to something other than the default 90 days, add the value in days to the **Edge CA certificate (Quickstart)** section of the config file.
 
@@ -334,11 +371,11 @@ auto_generated_edge_ca_expiry_days = 180
 
 Then, delete the contents of the `/var/lib/aziot/certd/certs` and  `/var/lib/aziot/keyd/keys` folders to remove any previously generated certificates, and apply the configuration.
 
-#### Renew quickstart Edge CA
+### Renew quickstart Edge CA
 
 By default, IoT Edge automatically renew the quickstart Edge CA certificate when at 80% of the certificate lifetime. So for certificate with 90 day lifetime, IoT Edge automatically regenerates the Edge CA certificate at 72 days from issuance. 
 
-To configure the auto-renewal logic, add configuration to the "Edge CA certificate" section in `config.toml` following this example: 
+To change the auto-renewal logic, add configuration to the "Edge CA certificate" section in `config.toml` following this example: 
    
 ```toml
 [edge_ca.auto_renew]
@@ -347,15 +384,20 @@ threshold = "70%"
 retry = "2%"
 ```
 
-### Edge CA in production
+## Edge CA in production (examples)
 
 Once you move into a production scenario, or you want to create a gateway device, you can no longer use the quickstart Edge CA.
 
 One option is to provide your own certificates and manage them manually. However, to avoid the risky and error-prone manual certificate management process, use an EST server whenever possible.
 
-### Edge CA certificate files from PKI provider with manual management
+### Edge CA certificate files from PKI provider
 
-Request the public portion of the root CA certificate and an issuing CA certificate (becomes Edge CA) with its private key from your PKI provider. The issuing CA certificate must have these extensions:
+Request:
+
+- The PKI's root CA certificate
+- An issuing/CA certificate and associated private key
+
+From your PKI provider. For the issuing CA certificate to become Edge CA, it must have these extensions:
 
 ```text
 subjectKeyIdentifier = hash
@@ -364,7 +406,7 @@ basicConstraints = critical, CA:TRUE, pathlen:0
 keyUsage = critical, digitalSignature, keyCertSign
 ```
 
-An example of the result Edge CA certificate looks like (some parts omitted with `...`):
+Example of the result Edge CA certificate:
 
 ```output
 $ openssl x509 -in my-edge-ca-cert.pem -text
@@ -426,13 +468,6 @@ cert = "file:///var/secrets/my-edge-ca-cert.pem"
 pk = "file:///var/secrets/my-edge-ca-private-key.key.pem"
 ```
 
-Ensure that that IoT Edge has the correct permissions for the directories holding the certificates and keys:
-
-```bash
-sudo chmod 444 /var/secrets/my-edge-ca-cert.pem 
-sudo chmod 440 /var/secrets/my-edge-ca-private-key.key.pem
-```
-
 If you've used any other certificates for IoT Edge on the device before, delete the files in `/var/lib/aziot/certd/certs`. IoT Edge recreates them with the new CA certificate you provided.
 
 This approach requires you to manually update the files as certificate expires. To avoid this, consider using EST for automatic management.
@@ -462,13 +497,14 @@ threshold = "90%"
 retry = "2%"
 ```
 
-Automatic renewal for Edge CA cannot be disabled when issuance method is set to EST, since Edge CA expiration breaks many IoT Edge functionalities. If a situation requires total control over Edge CA certificate lifecycle, use the [manual Edge CA management method instead](#edge-ca-certificate-files-from-pki-provider-with-manual-management).
+Automatic renewal for Edge CA cannot be disabled when issuance method is set to EST, since Edge CA expiration must be avoided as it breaks many IoT Edge functionalities. If a situation requires total control over Edge CA certificate lifecycle, use the [manual Edge CA management method instead](#edge-ca-certificate-files-from-pki-provider-with-manual-management).
 
-> [!IMPORTANT]
-> #### Planning around the Edge CA renewal
-> When the Edge CA certificate is renewed, all the certificates it issued (generally module server certificates) must also be regenerated. To give the modules new server certificates, IoT Edge restarts all modules when Edge CA certificate renews.
-> 
-> To minimize potential negative effects of module restarts, set an explicit absolute time (for example, `threshold = "10d"`) and notify for dependents of the solution about the downtime.
+
+### Planning around the Edge CA renewal
+
+When the Edge CA certificate is renewed, all the certificates it issued (generally module server certificates) must also be regenerated. To give the modules new server certificates, IoT Edge restarts all modules when Edge CA certificate renews.
+
+To minimize potential negative effects of module restarts, set an explicit absolute time (for example, `threshold = "10d"`) and notify for dependents of the solution about the downtime.
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->
@@ -567,16 +603,6 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 ## Install device CA for production
 
 Once you move into a production scenario, or you want to create a gateway device, you need to provide your own certificates.
-
-### Prerequisites for using device CA in production
-
-* An IoT Edge device.
-
-  If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
-
-* Have a root certificate authority (CA) certificate, either self-signed or purchased from a trusted commercial certificate authority like Baltimore, Verisign, DigiCert, or GlobalSign.
-
-  If you don't have a root certificate authority yet, but want to try out IoT Edge features that require production certificates (like gateway scenarios) you can [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md).
 
 ### Create and install device CA for production
 
