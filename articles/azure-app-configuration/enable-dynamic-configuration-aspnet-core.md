@@ -1,22 +1,21 @@
 ---
-title: "Tutorial: Use App Configuration dynamic configuration in ASP.NET Core"
+title: "Tutorial: Use dynamic configuration in an ASP.NET Core app"
 titleSuffix: Azure App Configuration
-description: In this tutorial, you learn how to dynamically update the configuration data for ASP.NET Core apps
+description: In this tutorial, you learn how to dynamically update the
+  configuration data for ASP.NET Core apps
 services: azure-app-configuration
-documentationcenter: ''
+documentationcenter: ""
 author: maud-lv
-editor: ''
-
-ms.assetid: 
+editor: ""
+ms.assetid: null
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/1/2020
 ms.author: malev
-ms.custom: "devx-track-csharp, mvc"
-
-#Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
+ms.custom: devx-track-csharp, mvc
+modified: 2022-08-31T16:57:54.480Z
 ---
 # Tutorial: Use dynamic configuration in an ASP.NET Core app
 
@@ -59,10 +58,58 @@ A *sentinel key* is a special key that you update after you complete the change 
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
-1. Open *Program.cs*, and update the `CreateWebHostBuilder` method to add the `config.AddAzureAppConfiguration()` method.
+1. Open *Program.cs*, and update the code based on your environment.
+
+   #### [.NET 6.x](#tab/core6x)
+   In *Program.cs*, replace the entire content with the following code:
+   ```csharp
+   var builder = WebApplication.CreateBuilder(args);
+
+    string connectionString = builder.Configuration.GetConnectionString("AppConfig");
+
+    builder.Host.ConfigureAppConfiguration(builder =>
+    {
+        builder.AddAzureAppConfiguration(options =>
+        {
+            options.Connect(connectionString)
+                .ConfigureRefresh(refresh =>
+                {
+                    refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
+                        .SetCacheExpiration(TimeSpan.FromMinutes(5));
+                })
+        })
+    }).ConfigureServices(services =>
+    {
+        // Add services here
+        services.AddControllersWithViews();
+    })
+
+    var app = builder.Build();
+
+    // Configure the HTTP request pipeline.
+    if (!app.Environment.IsDevelopment())
+    {
+        app.UseExceptionHandler("/Home/Error");
+        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+        app.UseHsts();
+    }
+
+    app.UseHttpsRedirection();
+    app.UseStaticFiles();
+
+    app.UseRouting();
+
+    app.UseAuthorization();
+
+    app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+
+    app.Run();
+   ```
 
    #### [.NET 5.x](#tab/core5x)
-
+    In *Program.cs*, update the `CreateHostBuilder` method to add the `config.AddAzureAppConfiguration()` method.
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -84,7 +131,7 @@ A *sentinel key* is a special key that you update after you complete the change 
     ```
 
     #### [.NET Core 3.x](#tab/core3x)
-
+    In *Program.cs*, update the `CreateHostBuilder` method to add the `config.AddAzureAppConfiguration()` method.
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -105,7 +152,7 @@ A *sentinel key* is a special key that you update after you complete the change 
             .UseStartup<Startup>());
     ```
     #### [.NET Core 2.x](#tab/core2x)
-
+    In *Program.cs*, update the `CreateWebHostBuilder` method to add the `config.AddAzureAppConfiguration()` method.
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
@@ -148,11 +195,22 @@ A *sentinel key* is a special key that you update after you complete the change 
         }
     }
     ```
+1. Based on your environment, update the `ConfigureServices` method. Call `Configure<Settings>` to bind configuration data to the `Settings` class we created earlier. Call `AddAzureAppConfiguration` to add App Configuration components to the service collection of your application.
 
-1. Open *Startup.cs*, and update the `ConfigureServices` method. Call `Configure<Settings>` to bind configuration data to the `Settings` class. Call `AddAzureAppConfiguration` to add App Configuration components to the service collection of your application.
+    #### [.NET 6.x](#tab/core6x)
+    In *Program.cs*, update the `ConfigureServices` call with the code below. The `ConfigureServices` method is called on the `IHostBuilder` return value from the preceeding `builder.Host.ConfigureAppConfiguration` method call.
+    ```csharp
+    ConfigureServices(services =>
+    {
+        // Add services here
+        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+        services.AddControllersWithViews();
+        services.AddAzureAppConfiguration();
+    });
+    ```
 
     #### [.NET 5.x](#tab/core5x)
-
+    In *Startup.cs*, update the `ConfigureServices` method with the code below:
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
@@ -162,7 +220,7 @@ A *sentinel key* is a special key that you update after you complete the change 
     }
     ```
     #### [.NET Core 3.x](#tab/core3x)
-
+    In *Startup.cs*, update the `ConfigureServices` method with the code below:
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
@@ -172,7 +230,7 @@ A *sentinel key* is a special key that you update after you complete the change 
     }
     ```
     #### [.NET Core 2.x](#tab/core2x)
-
+    In *Startup.cs*, update the `ConfigureServices` method with the code below:
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
@@ -183,10 +241,16 @@ A *sentinel key* is a special key that you update after you complete the change 
     ```
     ---
 
-1. Update the `Configure` method, and add a call to `UseAzureAppConfiguration`. It enables your application to use the App Configuration middleware to handle the configuration updates for you automatically.
+1. Add a final `UseAzureAppConfiguration` call based on your environment. This enables your application to use the App Configuration middleware to handle the configuration updates automaticaly.
+
+    #### [.NET 6.x](#tab/core6x)
+    In *Program.cs*, add the following snippet before the `app.UseHttpsRedirection();` line.
+    ```csharp
+    app.UseAzureAppConfiguration();
+    ``` 
 
     #### [.NET 5.x](#tab/core5x)
-
+    Update the `Configure` method with the code below:
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
@@ -221,7 +285,7 @@ A *sentinel key* is a special key that you update after you complete the change 
     }
     ```
     #### [.NET Core 3.x](#tab/core3x)
-
+    Update the `Configure` method with the code below:
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
@@ -256,7 +320,7 @@ A *sentinel key* is a special key that you update after you complete the change 
     }
     ```
     #### [.NET Core 2.x](#tab/core2x)
-
+    Update the `Configure` method with the code below:
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
@@ -281,16 +345,40 @@ A *sentinel key* is a special key that you update after you complete the change 
 
 ## Use the latest configuration data
 
-1. Open *HomeController.cs* in the Controllers directory, and add a reference to the `Microsoft.Extensions.Options` package.
+1. Update your code according to your environment.
 
-    ```csharp
-    using Microsoft.Extensions.Options;
+    #### [.NET 6.x](#tab/core6x)
+    1. Open `Index.cshtml` in the Views > Home directory, and replace its contents with the following code.
+    ```cshtml
+    @using Microsoft.Extensions.Options
+    @inject IConfiguration Configuration
+    @inject IOptionsSnapshot<Settings> SettingsSnapshot
+    @{
+        ViewData["Title"] = "Home Page";
+    }
+
+    <style>
+        body {
+            background-color: @SettingsSnapshot.Value.BackgroundColor;
+        }
+        h1 {
+            color: @SettingsSnapshot.Value.FontColor;
+            font-size: @{@SettingsSnapshot.Value.FontSize}px;
+        }
+    </style>
+
+    <div class="text-center">
+        <h1 class="display-4">@SettingsSnapshot.Value.Message</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
     ```
 
-2. Update the `HomeController` class to receive `Settings` through dependency injection, and make use of its values.
-
     #### [.NET 5.x](#tab/core5x)
-
+    1. Open *HomeController.cs* in the Controllers directory, and add a reference to the `Microsoft.Extensions.Options` package.
+        ```csharp
+        using Microsoft.Extensions.Options;
+        ```
+    2. Update the `HomeController` class to receive `Settings` through dependency injection, and make use of its values.
     ```csharp
     public class HomeController : Controller
     {
@@ -317,7 +405,11 @@ A *sentinel key* is a special key that you update after you complete the change 
     }
     ```
     #### [.NET Core 3.x](#tab/core3x)
-
+    1. Open *HomeController.cs* in the Controllers directory, and add a reference to the `Microsoft.Extensions.Options` package.
+        ```csharp
+        using Microsoft.Extensions.Options;
+        ```
+    2. Update the `HomeController` class to receive `Settings` through dependency injection, and make use of its values.
     ```csharp
     public class HomeController : Controller
     {
@@ -344,7 +436,11 @@ A *sentinel key* is a special key that you update after you complete the change 
     }
     ```
     #### [.NET Core 2.x](#tab/core2x)
-
+    1. Open *HomeController.cs* in the Controllers directory, and add a reference to the `Microsoft.Extensions.Options` package.
+        ```csharp
+        using Microsoft.Extensions.Options;
+        ```
+    2. Update the `HomeController` class to receive `Settings` through dependency injection, and make use of its values.
     ```csharp
     public class HomeController : Controller
     {
@@ -369,7 +465,7 @@ A *sentinel key* is a special key that you update after you complete the change 
     > [!Tip]
     > To learn more about the options pattern when reading configuration values, see [Options Patterns in ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
 
-3. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following script:
+3. If you are running .NET 5.x or prior, Open *Index.cshtml* in the Views > Home directory, and replace its content with the following script:
 
     ```html
     <!DOCTYPE html>
