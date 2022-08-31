@@ -32,7 +32,11 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
   identity:{}
   properties:{
     buildTimeoutInMinutes: <minutes>
+    customize: []
+    distribute: []
+    source: {}
     stagingResourceGroup: '/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>'
+    validate: {}
     vmProfile:{
       vmSize: '<vmSize>'
       proxyVmSize: '<vmSize>'
@@ -47,10 +51,6 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
         ...
       ]
     }
-    source: {}
-    customize: []
-    validate: {}
-    distribute: []
   }
 }
 ```
@@ -69,7 +69,11 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
   "identity": {},
   "properties": {
     "buildTimeoutInMinutes": <minutes>,
+    "customize": [],
+    "distribute": [],
+    "source": {},
     "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>",
+    "validate": {},
     "vmProfile": {
       "vmSize": "<vmSize>",
       "proxyVmSize": "<vmSize>",
@@ -83,11 +87,7 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
         "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName3>",
         ...
       ]
-    },
-    "source": {},
-    "customize": [],
-    "validate": {},
-    "distribute": []
+    }
   }
 }
 ```
@@ -276,253 +276,6 @@ The Image Builder Build VM User Assigned Identity:
 - Doesn't support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
 
 To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) and [How to use managed identities for Azure resources on an Azure VM for sign-in](../../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md).
-
-## Properties: vmProfile
-
-### vmSize
-
-Image Builder will use a default SKU size of "Standard_D1_v2" for Gen1 images and "Standard_D2ds_v4" for Gen2 images. The generation is defined by the image you specify in the `source`. You can override this and may wish to do this for these reasons:
-
-1. Performing customizations that require increased memory, CPU and handling large files (GBs).
-2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
-3. Require [VM isolation](../isolation.md).
-4. Customize an image that requires specific hardware. For example, for a GPU VM, you need a GPU VM size.
-5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.yml) that don't use local temporary disks.
-
-This is optional.
-
-### osDiskSizeGB
-
-By default, Image Builder will not change the size of the image, it will use the size from the source image. You can **only** increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leave the same size as the source image. You cannot reduce the OS Disk size to smaller than the size from the source image.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-  osDiskSizeGB: 100
-```
-
-# [JSON](#tab/json)
-
-```json
-{
-  "osDiskSizeGB": 100
-}
-```
-
----
-
-### vnetConfig
-
-If you don't specify any VNET properties, then Image Builder will create its own VNET, Public IP, and network security group (NSG). The Public IP is used for the service to communicate with the build VM, however if you don't want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares, then you can specify a VNET. For more information, review the [networking documentation](image-builder-networking.md), this is optional.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-vnetConfig: {
-  subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
-}
-```
-
-# [JSON](#tab/json)
-
-```json
-"vnetConfig": {
-  "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
-}
-```
-
----
-
-## Properties: stagingResourceGroup
-
-The `stagingResourceGroup` field contains information about the staging resource group that the Image Builder service will create for use during the image build process. The `stagingResourceGroup` is an optional field for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-properties: {
-  stagingResourceGroup: '/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>'
-}
-```
-
-# [JSON](#tab/json)
-
-```json
-"properties": {
-  "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>"
-}
-```
-
----
-
-### Template Creation Scenarios
-
-#### The stagingResourceGroup field is left empty
-
-If the `stagingResourceGroup` field is not specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Also, the default RBAC will be applied to the identity assigned to the Azure Image Builder template resource, which is "Contributor".
-
-#### The stagingResourceGroup field is specified with a resource group that exists
-
-If the `stagingResourceGroup` field is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is not associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements are not met an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Preexisting tags are not deleted.
-
-#### The stagingResourceGroup field is specified with a resource group that DOES NOT exist
-
-If the `stagingResourceGroup` field is specified with a resource group that does not exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` field. There will be an error if the given name does not meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity assigned to the Azure Image Builder image template resource will have the "Contributor" RBAC applied to it in the resource group.
-
-### Template Deletion
-
-Any staging resource group created by the Image Builder service will be deleted after the image template is deleted. This includes staging resource groups that were specified in the `stagingResourceGroup` field, but did not exist prior to the image build.
-
-If Image Builder did not create the staging resource group, but it did create resources inside of it, those resources will be deleted after the image template is deleted as long as the Image Builder service has the appropriate permissions or role required to delete resources.
-
-## Properties: source
-
-The `source` section contains information about the source image that will be used by Image Builder.
-
-The API requires a `SourceType` that defines the source for the image build, currently there are three types:
-
-- PlatformImage - indicated the source image is a Marketplace image.
-- ManagedImage - use this when starting from a regular managed image.
-- SharedImageVersion - this is used when you're using an image version in an Azure Compute Gallery as the source.
-
-> [!NOTE]
-> When using existing Windows custom images, you can run the Sysprep command up to 3 times on a single Windows 7 or Windows Server 2008 R2 image, or 1001 times on a single Windows image for later versions; for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
-
-### PlatformImage source
-
-Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [Learn about Azure Image Builder](../image-builder-overview.md#os-support) for the full list.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-source:{
-  type: 'PlatformImage'
-  publisher: 'Canonical'
-  offer: 'UbuntuServer'
-  sku: '18.04-LTS'
-  version: 'latest'
-}
-```
-
-# [JSON](#tab/json)
-
-```json
-"source": {
-  "type": "PlatformImage",
-  "publisher": "Canonical",
-  "offer": "UbuntuServer",
-  "sku": "18.04-LTS",
-  "version": "latest"
-}
-```
-
----
-
-The properties here are the same that are used to create VM's, using AZ CLI, run the below to get the properties:
-
-```azurecli-interactive
-az vm image list -l westus -f UbuntuServer -p Canonical --output table --all
-```
-
-You can use `latest` in the version, the version is evaluated when the image build takes place, not when the template is submitted. If you use this functionality with the Azure Compute Gallery destination, you can avoid resubmitting the template, and rerun the image build at intervals, so your images are recreated from the most recent images.
-
-#### Support for Market Place Plan Information
-
-You can also specify plan information, for example:
-
-# [Bicep](#tab/bicep)
-
-```bicep
-source: {
-  type: 'PlatformImage'
-  publisher: 'RedHat'
-  offer: 'rhel-byos'
-  sku: 'rhel-lvm75'
-  version: 'latest'
-  planInfo: {
-    planName: 'rhel-lvm75'
-    planProduct: 'rhel-byos'
-    planPublisher: 'redhat'
-  }
-}
-```
-
-# [JSON](#tab/json)
-
-```json
-"source": {
-  "type": "PlatformImage",
-  "publisher": "RedHat",
-  "offer": "rhel-byos",
-  "sku": "rhel-lvm75",
-  "version": "latest",
-  "planInfo": {
-    "planName": "rhel-lvm75",
-    "planProduct": "rhel-byos",
-    "planPublisher": "redhat"
-  }
-}
-```
-
----
-
-### ManagedImage source
-
-Sets the source image as an existing managed image of a generalized VHD or VM.
-
-> [!NOTE]
-> The source managed image must be of a supported OS and the image must reside in the same subscription and region as your Azure Image Builder template.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-source: {
-  type: 'ManagedImage',
-  imageId: '/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>'
-}
-```
-
-# [JSON](#tab/json)
-
-```json
-"source": {
-  "type": "ManagedImage",
-  "imageId": "/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>"
-}
-```
-
----
-
-The `imageId` should be the ResourceId of the managed image. Use `az image list` to list available images.
-
-### SharedImageVersion source
-
-Sets the source image as an existing image version in an Azure Compute Gallery.
-
-> [!NOTE]
-> The source shared image version must be of a supported OS and the image version must reside in the same region as your Azure Image Builder template, if not, replicate the image version to the Image Builder Template region.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-source: {
-  type: 'SharedImageVersion',
-  imageVersionID: '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>'
-}
-```
-
-# [JSON](#tab/json)
-
-```json
-"source": {
-  "type": "SharedImageVersion",
-  "imageVersionID": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>"
-}
-```
-
----
-
-The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
 ## Properties: buildTimeoutInMinutes
 
@@ -963,175 +716,6 @@ To override the commands, use the PowerShell or Shell script provisioners to cre
 
 Image Builder will read these commands, these are written out to the AIB logs, `customization.log`. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
 
-## Properties: validate
-
-You can use the `validate` property to validate platform images and any customized images you create regardless of if you used Azure Image Builder to create them.
-
-Azure Image Builder supports a 'Source-Validation-Only' mode that can be set using the `sourceValidationOnly` field. If the `sourceValidationOnly` field is set to true, the image specified in the `source` section will directly be validated. No separate build will be run to generate and then validate a customized image.
-
-The `inVMValidations` field takes a list of validators that will be performed on the image. Azure Image Builder supports both PowerShell and Shell validators.
-
-The `continueDistributeOnFailure` field is responsible for whether the output image(s) will be distributed if validation fails. If validation fails and this field is set to false, the output image(s) will not be distributed (this is the default behavior). If validation fails and this field is set to true, the output image(s) will still be distributed. Use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed in the case of a validation failure. This field has no effect on whether validation succeeds or not.
-
-When using `validate`:
-
-- You can use multiple validators
-- Validators execute in the order specified in the template.
-- If one validator fails, then the whole validation component will fail and report back an error.
-- It is advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
-- Don't put sensitive data in the scripts.
-- The script locations need to be publicly accessible, unless you're using [MSI](./image-builder-user-assigned-identity.md).
-
-How to use the `validate` property to validate Windows images
-
-# [Bicep](#tab/bicep)
-
-```bicep
-{
-  properties: {
-    validate: {
-      continueDistributeOnFailure: false
-      sourceValidationOnly: false
-      inVMValidations: [
-        {
-          type: 'PowerShell'
-          name: 'test PowerShell validator inline'
-          inline: [
-            '<command to run inline>'
-          ]
-          validExitCodes: <exit code>
-          runElevated: <true or false>
-          runAsSystem: <true or false>
-        }
-        {
-          type: 'PowerShell'
-          name: '<name>'
-          scriptUri: '<path to script>'
-          runElevated: <true false>,
-          sha256Checksum: '<sha256 checksum>'
-        }
-      ]
-    }
-  }
-}
-```
-
-# [JSON](#tab/json)
-
-```json
-{
-  "properties": {
-    "validate": {
-      "continueDistributeOnFailure": false,
-      "sourceValidationOnly": false,
-      "inVMValidations": [
-        {
-          "type": "PowerShell",
-          "name": "test PowerShell validator inline",
-          "inline": [
-            "<command to run inline>"
-          ],
-          "validExitCodes": <exit code>,
-          "runElevated": <true or false>,
-          "runAsSystem": <true or false>
-        },
-        {
-          "type": "PowerShell",
-          "name": "<name>",
-          "scriptUri": "<path to script>",
-          "runElevated": <true false>,
-          "sha256Checksum": "<sha256 checksum>"
-        }
-      ]
-    }
-  }
-}
-```
-
----
-
-`inVMValidations` properties:
-
-- **type** – PowerShell.
-- **name** - name of the validator
-- **scriptUri** - URI of the PowerShell script file.
-- **inline** – array of commands to be run, separated by commas.
-- **validExitCodes** – Optional, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
-- **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
-- **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
-
-    To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash)
-
-How to use the `validate` property to validate Linux images
-
-# [Bicep](#tab/bicep)
-
-```bicep
-{
-  properties: {
-    validate: {
-      continueDistributeOnFailure: false
-      sourceValidationOnly: false
-      inVMValidations: [
-        {
-          type: 'Shell'
-          name: '<name>'
-          inline: [
-            '<command to run inline>'
-          ]
-        }
-        {
-          type: 'Shell'
-          name: '<name>'
-          scriptUri: '<path to script>'
-          sha256Checksum: '<sha256 checksum>'
-        }
-      ]
-    }
-  }
-}
-```
-
-# [JSON](#tab/json)
-
-```json
-{
-  "properties": {
-    "validate": {
-      "continueDistributeOnFailure": false,
-      "sourceValidationOnly": false,
-      "inVMValidations": [
-        {
-          "type": "Shell",
-          "name": "<name>",
-          "inline": [
-            "<command to run inline>"
-          ]
-        },
-        {
-          "type": "Shell",
-          "name": "<name>",
-          "scriptUri": "<path to script>",
-          "sha256Checksum": "<sha256 checksum>"
-        }
-      ]
-    }
-  }
- }
-```
-
----
-
-`inVMValidations` properties:
-
-- **type** – Shell
-- **name** - name of the validator
-- **scriptUri** - URI of the script file
-- **inline** - array of commands to be run, separated by commas.
-- **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
-
-    To generate the sha256Checksum, using a terminal on Mac/Linux run: `sha256sum <fileName>`
-
 ## Properties: distribute
 
 Azure Image Builder supports three distribution targets:
@@ -1347,6 +931,426 @@ az resource show \
 
 > [!NOTE]
 > Once the VHD has been created, copy it to a different location, as soon as possible. The VHD is stored in a storage account in the temporary resource group created when the image template is submitted to the Azure Image Builder service. If you delete the image template, then you will lose the VHD.
+
+## Properties: source
+
+The `source` section contains information about the source image that will be used by Image Builder.
+
+The API requires a `SourceType` that defines the source for the image build, currently there are three types:
+
+- PlatformImage - indicated the source image is a Marketplace image.
+- ManagedImage - use this when starting from a regular managed image.
+- SharedImageVersion - this is used when you're using an image version in an Azure Compute Gallery as the source.
+
+> [!NOTE]
+> When using existing Windows custom images, you can run the Sysprep command up to 3 times on a single Windows 7 or Windows Server 2008 R2 image, or 1001 times on a single Windows image for later versions; for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
+
+### PlatformImage source
+
+Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [Learn about Azure Image Builder](../image-builder-overview.md#os-support) for the full list.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+source:{
+  type: 'PlatformImage'
+  publisher: 'Canonical'
+  offer: 'UbuntuServer'
+  sku: '18.04-LTS'
+  version: 'latest'
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+"source": {
+  "type": "PlatformImage",
+  "publisher": "Canonical",
+  "offer": "UbuntuServer",
+  "sku": "18.04-LTS",
+  "version": "latest"
+}
+```
+
+---
+
+The properties here are the same that are used to create VM's, using AZ CLI, run the below to get the properties:
+
+```azurecli-interactive
+az vm image list -l westus -f UbuntuServer -p Canonical --output table --all
+```
+
+You can use `latest` in the version, the version is evaluated when the image build takes place, not when the template is submitted. If you use this functionality with the Azure Compute Gallery destination, you can avoid resubmitting the template, and rerun the image build at intervals, so your images are recreated from the most recent images.
+
+#### Support for Market Place Plan Information
+
+You can also specify plan information, for example:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+source: {
+  type: 'PlatformImage'
+  publisher: 'RedHat'
+  offer: 'rhel-byos'
+  sku: 'rhel-lvm75'
+  version: 'latest'
+  planInfo: {
+    planName: 'rhel-lvm75'
+    planProduct: 'rhel-byos'
+    planPublisher: 'redhat'
+  }
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+"source": {
+  "type": "PlatformImage",
+  "publisher": "RedHat",
+  "offer": "rhel-byos",
+  "sku": "rhel-lvm75",
+  "version": "latest",
+  "planInfo": {
+    "planName": "rhel-lvm75",
+    "planProduct": "rhel-byos",
+    "planPublisher": "redhat"
+  }
+}
+```
+
+---
+
+### ManagedImage source
+
+Sets the source image as an existing managed image of a generalized VHD or VM.
+
+> [!NOTE]
+> The source managed image must be of a supported OS and the image must reside in the same subscription and region as your Azure Image Builder template.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+source: {
+  type: 'ManagedImage',
+  imageId: '/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>'
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+"source": {
+  "type": "ManagedImage",
+  "imageId": "/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>"
+}
+```
+
+---
+
+The `imageId` should be the ResourceId of the managed image. Use `az image list` to list available images.
+
+### SharedImageVersion source
+
+Sets the source image as an existing image version in an Azure Compute Gallery.
+
+> [!NOTE]
+> The source shared image version must be of a supported OS and the image version must reside in the same region as your Azure Image Builder template, if not, replicate the image version to the Image Builder Template region.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+source: {
+  type: 'SharedImageVersion',
+  imageVersionID: '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>'
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+"source": {
+  "type": "SharedImageVersion",
+  "imageVersionID": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>"
+}
+```
+
+---
+
+The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
+
+
+## Properties: stagingResourceGroup
+
+The `stagingResourceGroup` field contains information about the staging resource group that the Image Builder service will create for use during the image build process. The `stagingResourceGroup` is an optional field for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+properties: {
+  stagingResourceGroup: '/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>'
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+"properties": {
+  "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>"
+}
+```
+
+---
+
+### Template Creation Scenarios
+
+#### The stagingResourceGroup field is left empty
+
+If the `stagingResourceGroup` field is not specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Also, the default RBAC will be applied to the identity assigned to the Azure Image Builder template resource, which is "Contributor".
+
+#### The stagingResourceGroup field is specified with a resource group that exists
+
+If the `stagingResourceGroup` field is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is not associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements are not met an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Preexisting tags are not deleted.
+
+#### The stagingResourceGroup field is specified with a resource group that DOES NOT exist
+
+If the `stagingResourceGroup` field is specified with a resource group that does not exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` field. There will be an error if the given name does not meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity assigned to the Azure Image Builder image template resource will have the "Contributor" RBAC applied to it in the resource group.
+
+### Template Deletion
+
+Any staging resource group created by the Image Builder service will be deleted after the image template is deleted. This includes staging resource groups that were specified in the `stagingResourceGroup` field, but did not exist prior to the image build.
+
+If Image Builder did not create the staging resource group, but it did create resources inside of it, those resources will be deleted after the image template is deleted as long as the Image Builder service has the appropriate permissions or role required to delete resources.
+
+
+## Properties: validate
+
+You can use the `validate` property to validate platform images and any customized images you create regardless of if you used Azure Image Builder to create them.
+
+Azure Image Builder supports a 'Source-Validation-Only' mode that can be set using the `sourceValidationOnly` field. If the `sourceValidationOnly` field is set to true, the image specified in the `source` section will directly be validated. No separate build will be run to generate and then validate a customized image.
+
+The `inVMValidations` field takes a list of validators that will be performed on the image. Azure Image Builder supports both PowerShell and Shell validators.
+
+The `continueDistributeOnFailure` field is responsible for whether the output image(s) will be distributed if validation fails. If validation fails and this field is set to false, the output image(s) will not be distributed (this is the default behavior). If validation fails and this field is set to true, the output image(s) will still be distributed. Use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed in the case of a validation failure. This field has no effect on whether validation succeeds or not.
+
+When using `validate`:
+
+- You can use multiple validators
+- Validators execute in the order specified in the template.
+- If one validator fails, then the whole validation component will fail and report back an error.
+- It is advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
+- Don't put sensitive data in the scripts.
+- The script locations need to be publicly accessible, unless you're using [MSI](./image-builder-user-assigned-identity.md).
+
+How to use the `validate` property to validate Windows images
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  properties: {
+    validate: {
+      continueDistributeOnFailure: false
+      sourceValidationOnly: false
+      inVMValidations: [
+        {
+          type: 'PowerShell'
+          name: 'test PowerShell validator inline'
+          inline: [
+            '<command to run inline>'
+          ]
+          validExitCodes: <exit code>
+          runElevated: <true or false>
+          runAsSystem: <true or false>
+        }
+        {
+          type: 'PowerShell'
+          name: '<name>'
+          scriptUri: '<path to script>'
+          runElevated: <true false>,
+          sha256Checksum: '<sha256 checksum>'
+        }
+      ]
+    }
+  }
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+{
+  "properties": {
+    "validate": {
+      "continueDistributeOnFailure": false,
+      "sourceValidationOnly": false,
+      "inVMValidations": [
+        {
+          "type": "PowerShell",
+          "name": "test PowerShell validator inline",
+          "inline": [
+            "<command to run inline>"
+          ],
+          "validExitCodes": <exit code>,
+          "runElevated": <true or false>,
+          "runAsSystem": <true or false>
+        },
+        {
+          "type": "PowerShell",
+          "name": "<name>",
+          "scriptUri": "<path to script>",
+          "runElevated": <true false>,
+          "sha256Checksum": "<sha256 checksum>"
+        }
+      ]
+    }
+  }
+}
+```
+
+---
+
+`inVMValidations` properties:
+
+- **type** – PowerShell.
+- **name** - name of the validator
+- **scriptUri** - URI of the PowerShell script file.
+- **inline** – array of commands to be run, separated by commas.
+- **validExitCodes** – Optional, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
+- **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
+- **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
+
+    To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash)
+
+How to use the `validate` property to validate Linux images
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  properties: {
+    validate: {
+      continueDistributeOnFailure: false
+      sourceValidationOnly: false
+      inVMValidations: [
+        {
+          type: 'Shell'
+          name: '<name>'
+          inline: [
+            '<command to run inline>'
+          ]
+        }
+        {
+          type: 'Shell'
+          name: '<name>'
+          scriptUri: '<path to script>'
+          sha256Checksum: '<sha256 checksum>'
+        }
+      ]
+    }
+  }
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+{
+  "properties": {
+    "validate": {
+      "continueDistributeOnFailure": false,
+      "sourceValidationOnly": false,
+      "inVMValidations": [
+        {
+          "type": "Shell",
+          "name": "<name>",
+          "inline": [
+            "<command to run inline>"
+          ]
+        },
+        {
+          "type": "Shell",
+          "name": "<name>",
+          "scriptUri": "<path to script>",
+          "sha256Checksum": "<sha256 checksum>"
+        }
+      ]
+    }
+  }
+ }
+```
+
+---
+
+`inVMValidations` properties:
+
+- **type** – Shell
+- **name** - name of the validator
+- **scriptUri** - URI of the script file
+- **inline** - array of commands to be run, separated by commas.
+- **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
+
+    To generate the sha256Checksum, using a terminal on Mac/Linux run: `sha256sum <fileName>`
+
+<a id="vmProfile"></a>
+
+## Properties: vmProfile
+
+### vmSize
+
+Image Builder will use a default SKU size of `Standard_D1_v2` for Gen1 images and `Standard_D2ds_v4` for Gen2 images. The generation is defined by the image you specify in the `source`. You can override this and may wish to do this for these reasons:
+
+1. Performing customizations that require increased memory, CPU and handling large files (GBs).
+2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
+3. Require [VM isolation](../isolation.md).
+4. Customize an image that requires specific hardware. For example, for a GPU VM, you need a GPU VM size.
+5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.yml) that don't use local temporary disks.
+
+This is optional.
+
+### osDiskSizeGB
+
+By default, Image Builder will not change the size of the image, it will use the size from the source image. You can **only** increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leave the same size as the source image. You cannot reduce the OS Disk size to smaller than the size from the source image.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+  osDiskSizeGB: 100
+```
+
+# [JSON](#tab/json)
+
+```json
+{
+  "osDiskSizeGB": 100
+}
+```
+
+---
+
+### vnetConfig
+
+If you don't specify any VNET properties, then Image Builder will create its own VNET, Public IP, and network security group (NSG). The Public IP is used for the service to communicate with the build VM, however if you don't want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares, then you can specify a VNET. For more information, review the [networking documentation](image-builder-networking.md), this is optional.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+vnetConfig: {
+  subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+"vnetConfig": {
+  "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+}
+```
+
+---
 
 ## Image Template Operations
 
